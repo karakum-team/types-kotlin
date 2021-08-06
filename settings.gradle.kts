@@ -9,3 +9,5 @@ pluginManagement {
         id("com.github.turansky.kfc.library") version kfcVersion
     }
 }
+
+include("react-kotlin")
