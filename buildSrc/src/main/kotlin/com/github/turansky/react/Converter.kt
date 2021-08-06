@@ -49,8 +49,11 @@ private fun convertAttributesInterface(
     name: String,
     source: String,
 ): ConversionResult {
-    val declaration = source.substringBefore(" {")
+    var declaration = source.substringBefore(" {")
         .replace(" extends ", " : ")
+
+    if (name == "DOMAttributes")
+        declaration += ": react.RProps"
 
     return ConversionResult(name, "external interface $declaration")
 }
