@@ -11,6 +11,9 @@ internal fun convertDefinitions(
     definitionFile: File,
 ): Sequence<ConversionResult> {
     val content = definitionFile.readText()
+        .replace("HTMLTableHeaderCellElement", "HTMLTableCellElement")
+        .replace("HTMLTableDataCellElement", "HTMLTableCellElement")
+        .replace("HTMLWebViewElement", "HTMLElement")
         .replace("\r\n", "\n")
         .substringAfter("declare namespace React {\n")
         .substringBefore("\n}\n")
@@ -75,13 +78,20 @@ private fun convertIntrinsicType(
     source: String,
 ): String {
     val name = source.substringBefore(": ")
+        .removeSurrounding("\"")
+
     val propsType = source.substringAfter(": DetailedHTMLFactory<")
         .substringBefore(",")
         .replaceFirst("<", "<org.w3c.dom.")
     val type = "IntrinsicType<$propsType>"
 
+    val id = when (name) {
+        "object", "var" -> "`$name`"
+        else -> name
+    }
+
     return """
-        inline val $name: $type
+        inline val $id: $type
             get() = "$name".unsafeCast<$type>()
     """.trimIndent()
 }
