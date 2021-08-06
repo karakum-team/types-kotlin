@@ -1,5 +1,6 @@
 plugins {
     id("com.github.turansky.kfc.library")
+    `react-declarations`
 }
 
 val reactTypesVersion = property("react-types.version") as String
