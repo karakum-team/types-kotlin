@@ -5,6 +5,7 @@ import java.io.File
 private const val GENERATOR_COMMENT = "Automatically generated - do not modify!"
 
 private enum class Suppress {
+    NOTHING_TO_INLINE,
     UNUSED_TYPEALIAS_PARAMETER,
     NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE,
 
@@ -15,7 +16,14 @@ private enum class Suppress {
 private const val PACKAGE = "package react"
 
 // language=Kotlin
-private const val INTRINSIC_TYPE = "external interface IntrinsicType<P: react.RProps>: ElementType<P>"
+private const val INTRINSIC_TYPE = """
+external interface IntrinsicType<P: react.RProps>: ElementType<P>
+
+inline fun <P: react.RProps> IntrinsicType(
+    tag: String,
+): IntrinsicType<P> =
+    tag.unsafeCast<IntrinsicType<P>>()
+"""
 
 fun generateKotlinDeclarations(
     definitionsFile: File,
@@ -24,8 +32,12 @@ fun generateKotlinDeclarations(
     val targetDir = sourceDir.resolve("react")
         .also { it.mkdirs() }
 
+    val intrinsicType = fileContent(
+        annotations = """@file:Suppress("${Suppress.NOTHING_TO_INLINE.name}")""",
+        body = INTRINSIC_TYPE,
+    )
     targetDir.resolve("IntrinsicType.kt")
-        .writeText(fileContent(body = INTRINSIC_TYPE))
+        .writeText(intrinsicType)
 
     for ((name, body) in convertDefinitions(definitionsFile)) {
         targetDir.resolve("${name}.kt")
