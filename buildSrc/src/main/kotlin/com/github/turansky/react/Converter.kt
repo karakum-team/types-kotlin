@@ -9,14 +9,24 @@ internal data class ConversionResult(
 
 internal fun convertDefinitions(
     definitionFile: File,
-): List<ConversionResult> {
+): Sequence<ConversionResult> {
     val content = definitionFile.readText()
         .replace("\r\n", "\n")
         .substringAfter("declare namespace React {\n")
         .substringBefore("\n}\n")
         .trimIndent()
 
-    return emptyList()
+    return content.splitToSequence("\ninterface ")
+        .drop(1)
+        .map { it.substringBefore("\n}\n") }
+        .map {
+            it.substringBefore(" ")
+                .substringBefore("<")
+        }
+        .filter { it.endsWith("Event") }
+        .map { name ->
+            ConversionResult(name, "external interface $name")
+        }
 }
 
 private fun props(propsName: String): String =
