@@ -26,6 +26,11 @@ fun generateKotlinDeclarations(
 
     targetDir.resolve("IntrinsicType.kt")
         .writeText(fileContent(body = INTRINSIC_TYPE))
+
+    for ((name, body) in convertDefinitions(definitionsFile)) {
+        targetDir.resolve("${name}.kt")
+            .writeText(fileContent(body = body))
+    }
 }
 
 private fun fileContent(
