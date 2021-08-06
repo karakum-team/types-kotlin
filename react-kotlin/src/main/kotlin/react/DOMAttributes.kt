@@ -2,4 +2,4 @@
 
 package react
 
-external interface DOMAttributes<T>
+external interface DOMAttributes<T> : react.RProps
