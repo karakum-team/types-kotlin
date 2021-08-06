@@ -2,4 +2,4 @@
 
 package react
 
-external interface EmbedHTMLAttributes
+external interface EmbedHTMLAttributes<T> : HTMLAttributes<T>

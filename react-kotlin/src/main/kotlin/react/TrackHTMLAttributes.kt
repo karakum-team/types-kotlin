@@ -2,4 +2,4 @@
 
 package react
 
-external interface TrackHTMLAttributes
+external interface TrackHTMLAttributes<T> : HTMLAttributes<T>

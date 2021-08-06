@@ -2,4 +2,4 @@
 
 package react
 
-external interface AnchorHTMLAttributes
+external interface AnchorHTMLAttributes<T> : HTMLAttributes<T>

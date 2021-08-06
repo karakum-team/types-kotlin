@@ -2,4 +2,4 @@
 
 package react
 
-external interface TextareaHTMLAttributes
+external interface TextareaHTMLAttributes<T> : HTMLAttributes<T>

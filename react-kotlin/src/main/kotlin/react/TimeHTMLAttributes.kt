@@ -2,4 +2,4 @@
 
 package react
 
-external interface TimeHTMLAttributes
+external interface TimeHTMLAttributes<T> : HTMLAttributes<T>

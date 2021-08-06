@@ -2,4 +2,4 @@
 
 package react
 
-external interface DelHTMLAttributes
+external interface DelHTMLAttributes<T> : HTMLAttributes<T>

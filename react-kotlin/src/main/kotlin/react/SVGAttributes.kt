@@ -2,4 +2,4 @@
 
 package react
 
-external interface SVGAttributes
+external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T>

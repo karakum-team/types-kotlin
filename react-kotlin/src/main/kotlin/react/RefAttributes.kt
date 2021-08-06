@@ -2,4 +2,4 @@
 
 package react
 
-external interface RefAttributes
+external interface RefAttributes<T> : Attributes

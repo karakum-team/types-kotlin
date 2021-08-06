@@ -2,4 +2,4 @@
 
 package react
 
-external interface AudioHTMLAttributes
+external interface AudioHTMLAttributes<T> : MediaHTMLAttributes<T>

@@ -2,4 +2,4 @@
 
 package react
 
-external interface OutputHTMLAttributes
+external interface OutputHTMLAttributes<T> : HTMLAttributes<T>

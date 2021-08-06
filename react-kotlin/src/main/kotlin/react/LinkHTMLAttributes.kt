@@ -2,4 +2,4 @@
 
 package react
 
-external interface LinkHTMLAttributes
+external interface LinkHTMLAttributes<T> : HTMLAttributes<T>

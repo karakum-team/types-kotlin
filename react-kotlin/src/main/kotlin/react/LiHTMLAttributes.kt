@@ -2,4 +2,4 @@
 
 package react
 
-external interface LiHTMLAttributes
+external interface LiHTMLAttributes<T> : HTMLAttributes<T>

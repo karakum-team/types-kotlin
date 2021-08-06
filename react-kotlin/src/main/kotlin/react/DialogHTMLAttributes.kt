@@ -2,4 +2,4 @@
 
 package react
 
-external interface DialogHTMLAttributes
+external interface DialogHTMLAttributes<T> : HTMLAttributes<T>

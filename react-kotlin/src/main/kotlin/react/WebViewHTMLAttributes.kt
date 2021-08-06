@@ -2,4 +2,4 @@
 
 package react
 
-external interface WebViewHTMLAttributes
+external interface WebViewHTMLAttributes<T> : HTMLAttributes<T>

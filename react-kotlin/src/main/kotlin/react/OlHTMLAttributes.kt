@@ -2,4 +2,4 @@
 
 package react
 
-external interface OlHTMLAttributes
+external interface OlHTMLAttributes<T> : HTMLAttributes<T>

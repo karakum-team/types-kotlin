@@ -2,4 +2,4 @@
 
 package react
 
-external interface ColHTMLAttributes
+external interface ColHTMLAttributes<T> : HTMLAttributes<T>

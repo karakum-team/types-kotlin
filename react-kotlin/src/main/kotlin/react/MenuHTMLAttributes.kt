@@ -2,4 +2,4 @@
 
 package react
 
-external interface MenuHTMLAttributes
+external interface MenuHTMLAttributes<T> : HTMLAttributes<T>

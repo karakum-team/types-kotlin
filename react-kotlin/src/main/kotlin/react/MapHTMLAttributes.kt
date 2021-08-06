@@ -2,4 +2,4 @@
 
 package react
 
-external interface MapHTMLAttributes
+external interface MapHTMLAttributes<T> : HTMLAttributes<T>

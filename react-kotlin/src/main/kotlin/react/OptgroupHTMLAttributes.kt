@@ -2,4 +2,4 @@
 
 package react
 
-external interface OptgroupHTMLAttributes
+external interface OptgroupHTMLAttributes<T> : HTMLAttributes<T>

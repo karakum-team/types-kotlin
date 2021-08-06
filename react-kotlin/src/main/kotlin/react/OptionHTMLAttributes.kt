@@ -2,4 +2,4 @@
 
 package react
 
-external interface OptionHTMLAttributes
+external interface OptionHTMLAttributes<T> : HTMLAttributes<T>

@@ -2,4 +2,4 @@
 
 package react
 
-external interface LabelHTMLAttributes
+external interface LabelHTMLAttributes<T> : HTMLAttributes<T>

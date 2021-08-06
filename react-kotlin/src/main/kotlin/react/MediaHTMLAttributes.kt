@@ -2,4 +2,4 @@
 
 package react
 
-external interface MediaHTMLAttributes
+external interface MediaHTMLAttributes<T> : HTMLAttributes<T>

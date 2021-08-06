@@ -2,4 +2,4 @@
 
 package react
 
-external interface BlockquoteHTMLAttributes
+external interface BlockquoteHTMLAttributes<T> : HTMLAttributes<T>

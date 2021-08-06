@@ -2,4 +2,4 @@
 
 package react
 
-external interface MetaHTMLAttributes
+external interface MetaHTMLAttributes<T> : HTMLAttributes<T>

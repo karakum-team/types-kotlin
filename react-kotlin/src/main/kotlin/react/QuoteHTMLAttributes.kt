@@ -2,4 +2,4 @@
 
 package react
 
-external interface QuoteHTMLAttributes
+external interface QuoteHTMLAttributes<T> : HTMLAttributes<T>

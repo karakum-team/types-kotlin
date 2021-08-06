@@ -2,4 +2,4 @@
 
 package react
 
-external interface FieldsetHTMLAttributes
+external interface FieldsetHTMLAttributes<T> : HTMLAttributes<T>

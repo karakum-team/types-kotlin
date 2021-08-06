@@ -2,4 +2,4 @@
 
 package react
 
-external interface DOMAttributes
+external interface DOMAttributes<T>

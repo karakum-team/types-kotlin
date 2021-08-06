@@ -2,4 +2,4 @@
 
 package react
 
-external interface MeterHTMLAttributes
+external interface MeterHTMLAttributes<T> : HTMLAttributes<T>

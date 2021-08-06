@@ -2,4 +2,4 @@
 
 package react
 
-external interface ScriptHTMLAttributes
+external interface ScriptHTMLAttributes<T> : HTMLAttributes<T>

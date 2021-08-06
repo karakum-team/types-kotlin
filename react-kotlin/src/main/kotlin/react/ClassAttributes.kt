@@ -2,4 +2,4 @@
 
 package react
 
-external interface ClassAttributes
+external interface ClassAttributes<T> : Attributes

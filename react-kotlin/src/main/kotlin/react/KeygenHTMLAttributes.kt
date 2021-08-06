@@ -2,4 +2,4 @@
 
 package react
 
-external interface KeygenHTMLAttributes
+external interface KeygenHTMLAttributes<T> : HTMLAttributes<T>

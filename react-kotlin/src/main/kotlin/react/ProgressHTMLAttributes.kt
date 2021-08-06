@@ -2,4 +2,4 @@
 
 package react
 
-external interface ProgressHTMLAttributes
+external interface ProgressHTMLAttributes<T> : HTMLAttributes<T>

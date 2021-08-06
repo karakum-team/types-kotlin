@@ -2,4 +2,4 @@
 
 package react
 
-external interface FormHTMLAttributes
+external interface FormHTMLAttributes<T> : HTMLAttributes<T>

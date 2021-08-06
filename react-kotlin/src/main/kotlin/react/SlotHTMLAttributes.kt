@@ -2,4 +2,4 @@
 
 package react
 
-external interface SlotHTMLAttributes
+external interface SlotHTMLAttributes<T> : HTMLAttributes<T>

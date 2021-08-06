@@ -2,4 +2,4 @@
 
 package react
 
-external interface SelectHTMLAttributes
+external interface SelectHTMLAttributes<T> : HTMLAttributes<T>

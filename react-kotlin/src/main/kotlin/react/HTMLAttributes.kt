@@ -2,4 +2,4 @@
 
 package react
 
-external interface HTMLAttributes
+external interface HTMLAttributes<T> : AriaAttributes, DOMAttributes<T>

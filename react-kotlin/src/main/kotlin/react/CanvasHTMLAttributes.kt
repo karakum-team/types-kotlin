@@ -2,4 +2,4 @@
 
 package react
 
-external interface CanvasHTMLAttributes
+external interface CanvasHTMLAttributes<T> : HTMLAttributes<T>

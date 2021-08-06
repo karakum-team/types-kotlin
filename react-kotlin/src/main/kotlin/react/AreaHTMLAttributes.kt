@@ -2,4 +2,4 @@
 
 package react
 
-external interface AreaHTMLAttributes
+external interface AreaHTMLAttributes<T> : HTMLAttributes<T>

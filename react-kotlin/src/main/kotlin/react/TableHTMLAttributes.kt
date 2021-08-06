@@ -2,4 +2,4 @@
 
 package react
 
-external interface TableHTMLAttributes
+external interface TableHTMLAttributes<T> : HTMLAttributes<T>

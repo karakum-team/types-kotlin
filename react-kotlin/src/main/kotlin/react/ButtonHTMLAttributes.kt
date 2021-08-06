@@ -2,4 +2,4 @@
 
 package react
 
-external interface ButtonHTMLAttributes
+external interface ButtonHTMLAttributes<T> : HTMLAttributes<T>

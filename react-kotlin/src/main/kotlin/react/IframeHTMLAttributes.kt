@@ -2,4 +2,4 @@
 
 package react
 
-external interface IframeHTMLAttributes
+external interface IframeHTMLAttributes<T> : HTMLAttributes<T>

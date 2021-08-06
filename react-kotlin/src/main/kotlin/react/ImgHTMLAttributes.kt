@@ -2,4 +2,4 @@
 
 package react
 
-external interface ImgHTMLAttributes
+external interface ImgHTMLAttributes<T> : HTMLAttributes<T>
