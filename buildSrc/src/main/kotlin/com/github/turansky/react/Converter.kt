@@ -47,8 +47,12 @@ private fun convertEventInterface(
 private fun convertAttributesInterface(
     name: String,
     source: String,
-): ConversionResult =
-    ConversionResult(name, "external interface $name")
+): ConversionResult {
+    val declaration = source.substringBefore(" {")
+        .replace(" extends ", " : ")
+
+    return ConversionResult(name, "external interface $declaration")
+}
 
 private fun props(propsName: String): String =
     "external interface $propsName: react.RProps"
