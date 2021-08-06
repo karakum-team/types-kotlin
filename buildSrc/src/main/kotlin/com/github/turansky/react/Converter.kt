@@ -34,10 +34,17 @@ private fun convertInterface(
 ): ConversionResult? =
     when {
         name.endsWith("Event") -> convertEventInterface(name, source)
+        name.endsWith("Attributes") -> convertAttributesInterface(name, source)
         else -> null
     }
 
 private fun convertEventInterface(
+    name: String,
+    source: String,
+): ConversionResult =
+    ConversionResult(name, "external interface $name")
+
+private fun convertAttributesInterface(
     name: String,
     source: String,
 ): ConversionResult =
