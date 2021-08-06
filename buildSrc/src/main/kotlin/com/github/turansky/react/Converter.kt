@@ -35,6 +35,7 @@ private fun convertInterface(
     when {
         name.endsWith("Event") -> convertEventInterface(name, source)
         name.endsWith("Attributes") -> convertAttributesInterface(name, source)
+        name == "ReactHTML" -> convertIntrinsicTypes(source)
         else -> null
     }
 
@@ -52,6 +53,12 @@ private fun convertAttributesInterface(
         .replace(" extends ", " : ")
 
     return ConversionResult(name, "external interface $declaration")
+}
+
+private fun convertIntrinsicTypes(
+    source: String,
+): ConversionResult? {
+    return null
 }
 
 private fun props(propsName: String): String =
