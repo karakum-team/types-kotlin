@@ -60,8 +60,30 @@ private fun convertAttributesInterface(
 
 private fun convertIntrinsicTypes(
     source: String,
-): ConversionResult? {
-    return null
+): ConversionResult {
+    val body = source.substringAfter("{\n")
+        .trimIndent()
+        .removeSuffix(";")
+        .splitToSequence(";\n")
+        .map { convertIntrinsicType(it) }
+        .joinToString("\n\n")
+
+    return ConversionResult("IntrinsicTypes", body)
+}
+
+private fun convertIntrinsicType(
+    source: String,
+): String {
+    val name = source.substringBefore(": ")
+    val propsType = source.substringAfter(": DetailedHTMLFactory<")
+        .substringBefore(",")
+        .replaceFirst("<", "<org.w3c.dom.")
+    val type = "IntrinsicType<$propsType>"
+
+    return """
+        inline val $name: $type
+            get() = "$name".unsafeCast<$type>()
+    """.trimIndent()
 }
 
 private fun props(propsName: String): String =
