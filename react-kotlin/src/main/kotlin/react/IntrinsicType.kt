@@ -4,7 +4,6 @@
 
 package react
 
-
 external interface IntrinsicType<P : react.RProps> : ElementType<P>
 
 inline fun <P : react.RProps> IntrinsicType(
