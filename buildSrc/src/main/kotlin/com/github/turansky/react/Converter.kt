@@ -56,7 +56,7 @@ private fun convertAttributesInterface(
         .replace(" extends ", " : ")
 
     if (name == "DOMAttributes")
-        declaration += ": react.RProps"
+        declaration += ": react.PropsWithChildren"
 
     return ConversionResult(name, "external interface $declaration")
 }
