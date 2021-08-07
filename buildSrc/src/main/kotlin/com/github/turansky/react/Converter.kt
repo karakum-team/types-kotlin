@@ -71,7 +71,7 @@ private fun convertIntrinsicTypes(
         .map { convertIntrinsicType(it) }
         .joinToString("\n\n")
 
-    return ConversionResult("IntrinsicTypes", body)
+    return ConversionResult("IntrinsicTypes", "import react.IntrinsicType\n\n" + body)
 }
 
 private fun convertIntrinsicType(

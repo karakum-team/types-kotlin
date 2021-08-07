@@ -13,10 +13,16 @@ private enum class Suppress {
 }
 
 // language=Kotlin
-private const val PACKAGE = "package react"
+private const val PACKAGE = "package react.dom"
 
 // language=Kotlin
-private const val INTRINSIC_TYPE = """
+private const val REACT_STUBS = """
+// $GENERATOR_COMMENT    
+    
+@file:Suppress("NOTHING_TO_INLINE")    
+
+package react
+    
 external interface IntrinsicType<P: react.RProps>: ElementType<P>
 
 inline fun <P: react.RProps> IntrinsicType(
@@ -29,15 +35,11 @@ fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
 ) {
-    val targetDir = sourceDir.resolve("react")
+    val targetDir = sourceDir.resolve("react/dom")
         .also { it.mkdirs() }
 
-    val intrinsicType = fileContent(
-        annotations = """@file:Suppress("${Suppress.NOTHING_TO_INLINE.name}")""",
-        body = INTRINSIC_TYPE,
-    )
-    targetDir.resolve("IntrinsicType.kt")
-        .writeText(intrinsicType)
+    sourceDir.resolve("react/IntrinsicType.kt")
+        .writeText(REACT_STUBS)
 
     for ((name, body) in convertDefinitions(definitionsFile)) {
         targetDir.resolve("${name}.kt")
