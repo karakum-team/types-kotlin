@@ -22,7 +22,7 @@ private const val REACT_STUBS = """
 @file:Suppress("NOTHING_TO_INLINE")    
 
 package react
-    
+
 external interface IntrinsicType<P: react.RProps>: ElementType<P>
 
 inline fun <P: react.RProps> IntrinsicType(
@@ -38,7 +38,7 @@ fun generateKotlinDeclarations(
     val targetDir = sourceDir.resolve("react/dom")
         .also { it.mkdirs() }
 
-    sourceDir.resolve("react/IntrinsicType.kt")
+    sourceDir.resolve("react/Stubs.kt")
         .writeText(REACT_STUBS)
 
     for ((name, body) in convertDefinitions(definitionsFile)) {
