@@ -2,4 +2,4 @@
 
 package react.dom
 
-external interface DOMAttributes<T> : react.RProps
+external interface DOMAttributes<T> : react.PropsWithChildren
