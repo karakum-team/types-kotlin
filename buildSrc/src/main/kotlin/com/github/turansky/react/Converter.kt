@@ -75,13 +75,25 @@ private fun convertInterface(
         else -> null
     }
 
+private const val DEFAULT_EVENT_IMPORTS = """
+import org.w3c.dom.Element
+import org.w3c.dom.events.Event
+import org.w3c.dom.events.EventTarget
+"""
+
 private fun convertEventInterface(
     name: String,
     source: String,
 ): ConversionResult {
-    println(source)
+    val declaration = source.substringBefore(" {")
+        .replaceFirst(" extends ", " : ")
+        .replace(" = ", " : ")
+        .replace(": object", ": Any")
+        .replace(": any", ": Any")
+        .replace("EventTarget & T", "T")
+        .replace("SyntheticEvent<T>", "SyntheticEvent<T, Event>")
 
-    return ConversionResult(name, "external interface $name")
+    return ConversionResult(name, DEFAULT_EVENT_IMPORTS + "\nexternal interface $declaration")
 }
 
 private fun convertAttributesInterface(
