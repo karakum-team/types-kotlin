@@ -141,9 +141,13 @@ private fun convertMembers(
 private fun convertMember(
     source: String,
 ): String {
-    if ("\n" in source)
-        return source.substringBeforeLast("\n") + "\n" +
-                convertMember(source.substringAfterLast("\n"))
+    if ("\n" in source) {
+        var comment = source.substringBeforeLast("\n")
+        if (comment == "/** @deprecated */")
+            comment = """@Deprecated("Will be removed soon!")"""
+
+        return comment + "\n" + convertMember(source.substringAfterLast("\n"))
+    }
 
     if ("(" in source)
         return "    // $source"
