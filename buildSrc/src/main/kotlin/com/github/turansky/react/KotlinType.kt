@@ -57,7 +57,7 @@ internal fun kotlinType(
         return "$DYNAMIC // $type"
 
     if (type.startsWith("'") || type.startsWith("\""))
-        return "String /* $type */"
+        return "String // $type"
 
     return type
 }
