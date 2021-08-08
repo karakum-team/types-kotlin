@@ -125,7 +125,7 @@ private fun convertMembers(
     if (content.isEmpty())
         return ""
 
-    return content.removePrefix(";")
+    return content.removeSuffix(";")
         .splitToSequence(";\n")
         .joinToString("\n") {
             convertMember(it)
@@ -140,10 +140,12 @@ private fun convertMember(
                 convertMember(source.substringAfterLast("\n"))
 
     if ("(" in source)
-        return "// $source"
+        return "    // $source"
 
     val name = source.substringBefore(": ")
-    val type = source.substringAfter(": ")
+    val sourceType = source.substringAfter(": ")
+        .replace("EventTarget & T", "T")
+    val type = kotlinType(sourceType, name)
     return "val $name: $type"
 }
 

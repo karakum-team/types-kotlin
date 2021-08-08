@@ -15,6 +15,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Date" to "kotlin.js.Date",
 
+    "DataTransfer" to "org.w3c.dom.DataTransfer",
+
     // TODO: use React interface instead
     "TouchList" to "org.w3c.dom.TouchList",
     "AbstractView" to DYNAMIC,
