@@ -92,7 +92,10 @@ private fun convertEventInterface(
         .replace("EventTarget & T", "T")
         .replace("SyntheticEvent<T>", "SyntheticEvent<T, Event>")
 
-    return ConversionResult(name, DEFAULT_EVENT_IMPORTS + "\nexternal interface $declaration")
+    val body = DEFAULT_EVENT_IMPORTS.removePrefix("\n") +
+            "\nexternal interface $declaration"
+
+    return ConversionResult(name, body)
 }
 
 private fun convertAttributesInterface(
