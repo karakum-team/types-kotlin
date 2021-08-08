@@ -19,10 +19,14 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var target: String
     var type: String
     var width: Number
-    var // Other HTML properties supported by SVG elements in browsersrole: String
+
+    // Other HTML properties supported by SVG elements in browsers
+    var role: String
     var tabIndex: Number
     var crossOrigin: String /* "anonymous" | "use-credentials" | "" */
-    var // SVG Specific attributesaccentHeight: Number
+
+    // SVG Specific attributes
+    var accentHeight: Number
     var accumulate: String /* "none" | "sum" */
     var additive: String /* "replace" | "sum" */
     var alignmentBaseline: String /* "auto" | "baseline" | "before-edge" | "text-before-edge" | "middle" | "central" | "after-edge" |"text-after-edge" | "ideographic" | "alphabetic" | "hanging" | "mathematical" | "inherit" */

@@ -8,7 +8,9 @@ external interface HTMLAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var defaultValue: string | number | ReadonlyArray<string>
     var suppressContentEditableWarning: Boolean
     var suppressHydrationWarning: Boolean
-    var // Standard HTML AttributesaccessKey: String
+
+    // Standard HTML Attributes
+    var accessKey: String
     var className: String
     var contentEditable: Booleanish | "inherit"
     var contextMenu: String
@@ -24,16 +26,23 @@ external interface HTMLAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var tabIndex: Number
     var title: String
     var translate: String /* 'yes' | 'no' */
-    var // UnknownradioGroup: string; // <command>, <menuitem>// WAI-ARIArole?: string
-    var // RDFa Attributesabout: String
+// Unknown
+    radioGroup?: string // <command>, <menuitem>
+    // WAI-ARIA
+    var role: String
+
+    // RDFa Attributes
+    var about: String
     var datatype: String
     var inlist: Any
     var prefix: String
     var property: String
     var resource: String
-    var typeof: String
+    var `typeof`: String
     var vocab: String
-    var // Non-standard AttributesautoCapitalize: String
+
+    // Non-standard Attributes
+    var autoCapitalize: String
     var autoCorrect: String
     var autoSave: String
     var color: String
@@ -45,11 +54,16 @@ external interface HTMLAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var results: Number
     var security: String
     var unselectable: String /* 'on' | 'off' */
-    var // Living Standard/** * Hints at the type of data that might be entered by the user while editing the element or its contents * @see https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-inputmode-attribute */inputMode: String /* 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search' */
+// Living Standard
+    /**
+     * Hints at the type of data that might be entered by the user while editing the element or its contents
+     * @see https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-inputmode-attribute
+     */
+    var inputMode: String /* 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search' */
 
     /**
      * Specify that a standard HTML element should behave like a defined custom built-in element
      * @see https://html.spec.whatwg.org/multipage/custom-elements.html#attr-is
      */
-    var is: String
+    var `is`: String
 }
