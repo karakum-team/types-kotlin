@@ -2,4 +2,4 @@
 
 package react.dom
 
-external interface BaseSyntheticEvent
+external interface BaseSyntheticEvent<E : Any, C : Any, T : Any>

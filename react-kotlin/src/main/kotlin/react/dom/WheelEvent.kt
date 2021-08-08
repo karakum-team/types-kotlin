@@ -2,4 +2,8 @@
 
 package react.dom
 
-external interface WheelEvent
+import org.w3c.dom.Element
+import org.w3c.dom.events.Event
+import org.w3c.dom.events.EventTarget
+
+external interface WheelEvent<T : Element> : MouseEvent<T, NativeWheelEvent>

@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface AnimationEvent
+import org.w3c.dom.Element
+
+external interface AnimationEvent<T : Element> : SyntheticEvent<T, NativeAnimationEvent>

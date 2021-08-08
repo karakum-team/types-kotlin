@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface ClipboardEvent
+import org.w3c.dom.Element
+
+external interface ClipboardEvent<T : Element> : SyntheticEvent<T, NativeClipboardEvent>

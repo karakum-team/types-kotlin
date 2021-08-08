@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface CompositionEvent
+import org.w3c.dom.Element
+
+external interface CompositionEvent<T : Element> : SyntheticEvent<T, NativeCompositionEvent>

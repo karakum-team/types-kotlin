@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface UIEvent
+import org.w3c.dom.Element
+
+external interface UIEvent<T : Element, E : NativeUIEvent> : SyntheticEvent<T, E>
