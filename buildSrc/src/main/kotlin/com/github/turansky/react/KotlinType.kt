@@ -19,6 +19,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "DataTransfer" to "org.w3c.dom.DataTransfer",
 
     "Key" to "react.Key",
+    "CSSProperties" to "$DYNAMIC // CSSProperties",
 
     // TODO: use React interface instead
     "TouchList" to "org.w3c.dom.TouchList",
@@ -28,6 +29,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Booleanish" to "Boolean",
     "boolean | string" to "Boolean",
     "number | string" to "Number",
+
+    "string | ReadonlyArray<string> | number" to "String // string | ReadonlyArray<string> | number",
+    "string | number | ReadonlyArray<string>" to "String // string | ReadonlyArray<string> | number",
 )
 
 internal fun kotlinType(
@@ -41,6 +45,12 @@ internal fun kotlinType(
         val t = kotlinType(type.removeSuffix(" | null"), name)
         return if (t == DYNAMIC) t else "$t?"
     }
+
+    if (type.startsWith("string | "))
+        return "$DYNAMIC // $type"
+
+    if (type.startsWith("Booleanish | "))
+        return "$DYNAMIC // $type"
 
     if (type.startsWith("'") || type.startsWith("\""))
         return "String /* $type */"
