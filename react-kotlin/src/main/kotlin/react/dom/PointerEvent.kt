@@ -13,6 +13,6 @@ external interface PointerEvent<T : Element> : MouseEvent<T, NativePointerEvent>
     val twist: Number
     val width: Number
     val height: Number
-    val pointerType: String /* 'mouse' | 'pen' | 'touch' */
+    val pointerType: String // 'mouse' | 'pen' | 'touch'
     val isPrimary: Boolean
 }

@@ -4,10 +4,10 @@ package react.dom
 
 external interface ImgHTMLAttributes<T> : HTMLAttributes<T> {
     var alt: String
-    var crossOrigin: String /* "anonymous" | "use-credentials" | "" */
-    var decoding: String /* "async" | "auto" | "sync" */
+    var crossOrigin: String // "anonymous" | "use-credentials" | ""
+    var decoding: String // "async" | "auto" | "sync"
     var height: Number
-    var loading: String /* "eager" | "lazy" */
+    var loading: String // "eager" | "lazy"
     var referrerPolicy: HTMLAttributeReferrerPolicy
     var sizes: String
     var src: String

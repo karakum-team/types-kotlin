@@ -23,17 +23,17 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     // Other HTML properties supported by SVG elements in browsers
     var role: String
     var tabIndex: Number
-    var crossOrigin: String /* "anonymous" | "use-credentials" | "" */
+    var crossOrigin: String // "anonymous" | "use-credentials" | ""
 
     // SVG Specific attributes
     var accentHeight: Number
-    var accumulate: String /* "none" | "sum" */
-    var additive: String /* "replace" | "sum" */
-    var alignmentBaseline: String /* "auto" | "baseline" | "before-edge" | "text-before-edge" | "middle" | "central" | "after-edge" |"text-after-edge" | "ideographic" | "alphabetic" | "hanging" | "mathematical" | "inherit" */
-    var allowReorder: String /* "no" | "yes" */
+    var accumulate: String // "none" | "sum"
+    var additive: String // "replace" | "sum"
+    var alignmentBaseline: String // "auto" | "baseline" | "before-edge" | "text-before-edge" | "middle" | "central" | "after-edge" |"text-after-edge" | "ideographic" | "alphabetic" | "hanging" | "mathematical" | "inherit"
+    var allowReorder: String // "no" | "yes"
     var alphabetic: Number
     var amplitude: Number
-    var arabicForm: String /* "initial" | "medial" | "terminal" | "isolated" */
+    var arabicForm: String // "initial" | "medial" | "terminal" | "isolated"
     var ascent: Number
     var attributeName: String
     var attributeType: String
@@ -53,7 +53,7 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var clipPathUnits: Number
     var clipRule: Number
     var colorInterpolation: Number
-    var colorInterpolationFilters: String /* "auto" | "sRGB" | "linearRGB" | "inherit" */
+    var colorInterpolationFilters: String // "auto" | "sRGB" | "linearRGB" | "inherit"
     var colorProfile: Number
     var colorRendering: Number
     var contentScriptType: Number
@@ -80,7 +80,7 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var externalResourcesRequired: Boolean
     var fill: String
     var fillOpacity: Number
-    var fillRule: String /* "nonzero" | "evenodd" | "inherit" */
+    var fillRule: String // "nonzero" | "evenodd" | "inherit"
     var filter: String
     var filterRes: Number
     var filterUnits: Number
@@ -204,8 +204,8 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var stroke: String
     var strokeDasharray: dynamic // string | number
     var strokeDashoffset: dynamic // string | number
-    var strokeLinecap: String /* "butt" | "round" | "square" | "inherit" */
-    var strokeLinejoin: String /* "miter" | "round" | "bevel" | "inherit" */
+    var strokeLinecap: String // "butt" | "round" | "square" | "inherit"
+    var strokeLinejoin: String // "miter" | "round" | "bevel" | "inherit"
     var strokeMiterlimit: Number
     var strokeOpacity: Number
     var strokeWidth: Number

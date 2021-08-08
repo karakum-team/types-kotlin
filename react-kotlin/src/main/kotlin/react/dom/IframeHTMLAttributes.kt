@@ -10,7 +10,7 @@ external interface IframeHTMLAttributes<T> : HTMLAttributes<T> {
     @Deprecated("Will be removed soon!")
     var frameBorder: Number
     var height: Number
-    var loading: String /* "eager" | "lazy" */
+    var loading: String // "eager" | "lazy"
 
     @Deprecated("Will be removed soon!")
     var marginHeight: Number

@@ -25,7 +25,7 @@ external interface HTMLAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var style: dynamic // CSSProperties
     var tabIndex: Number
     var title: String
-    var translate: String /* 'yes' | 'no' */
+    var translate: String // 'yes' | 'no'
 
     // Unknown
     var radioGroup: String // <command>, <menuitem>
@@ -55,13 +55,13 @@ external interface HTMLAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var itemRef: String
     var results: Number
     var security: String
-    var unselectable: String /* 'on' | 'off' */
+    var unselectable: String // 'on' | 'off'
 // Living Standard
     /**
      * Hints at the type of data that might be entered by the user while editing the element or its contents
      * @see https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-inputmode-attribute
      */
-    var inputMode: String /* 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search' */
+    var inputMode: String // 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search'
 
     /**
      * Specify that a standard HTML element should behave like a defined custom built-in element
