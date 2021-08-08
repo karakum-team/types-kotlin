@@ -15,11 +15,13 @@ internal fun convertDefinitions(
         .replace("HTMLTableDataCellElement", "HTMLTableCellElement")
         .replace("HTMLWebViewElement", "HTMLElement")
         .replace("\r\n", "\n")
+
+    val reactContent = content
         .substringAfter("declare namespace React {\n")
         .substringBefore("\n}\n")
         .trimIndent()
 
-    return content.splitToSequence("\ninterface ")
+    return reactContent.splitToSequence("\ninterface ")
         .drop(1)
         .map { it.substringBefore("\n}\n") }
         .mapNotNull {
@@ -29,6 +31,37 @@ internal fun convertDefinitions(
                 source = it,
             )
         }
+        .plus(convertNativeEvents(content))
+}
+
+private val MISSED_NATIVE_EVENTS = setOf(
+    "AnimationEvent",
+    "ClipboardEvent",
+    "DragEvent",
+    "TouchEvent",
+    "PointerEvent",
+    "TransitionEvent",
+)
+
+private fun convertNativeEvents(
+    source: String,
+): ConversionResult {
+    val body = source.splitToSequence("\n")
+        .filter { it.startsWith("type Native") }
+        .joinToString("\n\n") {
+            val name = it.removePrefix("type ")
+                .substringBefore(" = ")
+
+            val alias = it.substringAfter(" = ")
+                .removeSuffix(";")
+                .takeIf { it !in MISSED_NATIVE_EVENTS }
+                ?: "Event"
+
+            "typealias $name = org.w3c.dom.events.$alias"
+        }
+
+
+    return ConversionResult("NativeEvents", body)
 }
 
 private fun convertInterface(
@@ -45,8 +78,11 @@ private fun convertInterface(
 private fun convertEventInterface(
     name: String,
     source: String,
-): ConversionResult =
-    ConversionResult(name, "external interface $name")
+): ConversionResult {
+    println(source)
+
+    return ConversionResult(name, "external interface $name")
+}
 
 private fun convertAttributesInterface(
     name: String,
