@@ -125,7 +125,8 @@ private fun convertMembers(
     if (content.isEmpty())
         return ""
 
-    return content.splitToSequence(";\n")
+    return content.removePrefix(";")
+        .splitToSequence(";\n")
         .joinToString("\n") {
             convertMember(it)
         }
@@ -134,7 +135,16 @@ private fun convertMembers(
 private fun convertMember(
     source: String,
 ): String {
-    return source
+    if ("\n" in source)
+        return source.substringBeforeLast("\n") + "\n" +
+                convertMember(source.substringAfterLast("\n"))
+
+    if ("(" in source)
+        return "// $source"
+
+    val name = source.substringBefore(": ")
+    val type = source.substringAfter(": ")
+    return "val $name: $type"
 }
 
 private fun convertIntrinsicTypes(
