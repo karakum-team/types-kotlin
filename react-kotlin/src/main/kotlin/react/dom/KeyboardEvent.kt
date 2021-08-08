@@ -7,7 +7,7 @@ import org.w3c.dom.Element
 external interface KeyboardEvent<T : Element> : SyntheticEvent<T, NativeKeyboardEvent> {
     val altKey: Boolean
 
-    /** @deprecated */
+    @Deprecated("Will be removed soon!")
     val charCode: Number
     val ctrlKey: Boolean
     val code: String
@@ -20,7 +20,7 @@ external interface KeyboardEvent<T : Element> : SyntheticEvent<T, NativeKeyboard
      */
     val key: String
 
-    /** @deprecated */
+    @Deprecated("Will be removed soon!")
     val keyCode: Number
     val locale: String
     val location: Number
@@ -28,6 +28,6 @@ external interface KeyboardEvent<T : Element> : SyntheticEvent<T, NativeKeyboard
     val repeat: Boolean
     val shiftKey: Boolean
 
-    /** @deprecated */
+    @Deprecated("Will be removed soon!")
     val which: Number
 }
