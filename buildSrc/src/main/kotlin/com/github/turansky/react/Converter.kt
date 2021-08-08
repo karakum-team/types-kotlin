@@ -118,7 +118,12 @@ private fun convertAttributesInterface(
     if (name == "DOMAttributes")
         declaration += ": react.PropsWithChildren"
 
-    return ConversionResult(name, "external interface $declaration")
+    val members = convertMembers(source, false)
+    val body = "external interface $declaration {\n" +
+            "" + // members +
+            "\n}\n"
+
+    return ConversionResult(name, body)
 }
 
 private fun convertMembers(
