@@ -92,7 +92,7 @@ private fun convertEventInterface(
         .replace("EventTarget & T", "T")
         .replace("SyntheticEvent<T>", "SyntheticEvent<T, Event>")
 
-    var members = convertMembers(source)
+    var members = convertMembers(source, true)
     when (name) {
         "ChangeEvent",
         "FocusEvent",
@@ -123,6 +123,7 @@ private fun convertAttributesInterface(
 
 private fun convertMembers(
     source: String,
+    final: Boolean,
 ): String {
     val content = source
         .substringAfter("{\n", "")
@@ -134,36 +135,39 @@ private fun convertMembers(
     return content.removeSuffix(";")
         .splitToSequence(";\n")
         .joinToString("\n") {
-            convertMember(it)
+            convertMember(it, final)
         }
 }
 
 private fun convertMember(
     source: String,
+    final: Boolean,
 ): String {
     if ("\n" in source) {
         var comment = source.substringBeforeLast("\n")
         if (comment == "/** @deprecated */")
             comment = """@Deprecated("Will be removed soon!")"""
 
-        return comment + "\n" + convertMember(source.substringAfterLast("\n"))
+        return comment + "\n" + convertMember(source.substringAfterLast("\n"), final)
     }
 
     return if ("(" in source) {
         convertMethod(source)
     } else {
-        convertProperty(source)
+        convertProperty(source, final)
     }
 }
 
 private fun convertProperty(
     source: String,
+    final: Boolean,
 ): String {
     val name = source.substringBefore(": ")
     val sourceType = source.substringAfter(": ")
         .replace("EventTarget & T", "T")
     val type = kotlinType(sourceType, name)
-    return "val $name: $type"
+    val keyword = if (final) "val" else "var"
+    return "$keyword $name: $type"
 }
 
 private fun convertMethod(
