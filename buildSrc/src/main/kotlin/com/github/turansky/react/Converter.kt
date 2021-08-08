@@ -34,13 +34,13 @@ internal fun convertDefinitions(
         .plus(convertNativeEvents(content))
 }
 
-private val MISSED_NATIVE_EVENTS = setOf(
-    "AnimationEvent",
-    "ClipboardEvent",
-    "DragEvent",
-    "TouchEvent",
-    "PointerEvent",
-    "TransitionEvent",
+private val NATIVE_EVENT_REPLACEMENT = mapOf(
+    "AnimationEvent" to "Event",
+    "ClipboardEvent" to "Event",
+    "DragEvent" to "MouseEvent",
+    "TouchEvent" to "MouseEvent",
+    "PointerEvent" to "MouseEvent",
+    "TransitionEvent" to "Event",
 )
 
 private fun convertNativeEvents(
@@ -48,14 +48,13 @@ private fun convertNativeEvents(
 ): ConversionResult {
     val body = source.splitToSequence("\n")
         .filter { it.startsWith("type Native") }
-        .joinToString("\n\n") {
-            val name = it.removePrefix("type ")
+        .joinToString("\n\n") { line ->
+            val name = line.removePrefix("type ")
                 .substringBefore(" = ")
 
-            val alias = it.substringAfter(" = ")
+            val alias = line.substringAfter(" = ")
                 .removeSuffix(";")
-                .takeIf { it !in MISSED_NATIVE_EVENTS }
-                ?: "Event"
+                .let { NATIVE_EVENT_REPLACEMENT[it] ?: it }
 
             "typealias $name = org.w3c.dom.events.$alias"
         }
