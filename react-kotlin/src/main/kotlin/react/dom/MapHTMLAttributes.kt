@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface MapHTMLAttributes<T> : HTMLAttributes<T>
+external interface MapHTMLAttributes<T> : HTMLAttributes<T> {
+    var name: String
+}

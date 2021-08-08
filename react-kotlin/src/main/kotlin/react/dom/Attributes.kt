@@ -2,4 +2,8 @@
 
 package react.dom
 
-external interface Attributes
+external interface Attributes {
+    var key: Key?
+    var
+}: }
+}

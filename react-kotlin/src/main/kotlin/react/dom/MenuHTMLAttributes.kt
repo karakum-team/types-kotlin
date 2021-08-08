@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface MenuHTMLAttributes<T> : HTMLAttributes<T>
+external interface MenuHTMLAttributes<T> : HTMLAttributes<T> {
+    var type: String
+}

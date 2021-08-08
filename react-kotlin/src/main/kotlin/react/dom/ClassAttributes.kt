@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface ClassAttributes<T> : Attributes
+external interface ClassAttributes<T> : Attributes {
+    var ref: LegacyRef<T>
+}

@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface DialogHTMLAttributes<T> : HTMLAttributes<T>
+external interface DialogHTMLAttributes<T> : HTMLAttributes<T> {
+    var open: Boolean
+}

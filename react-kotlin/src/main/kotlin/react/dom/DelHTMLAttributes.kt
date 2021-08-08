@@ -2,4 +2,7 @@
 
 package react.dom
 
-external interface DelHTMLAttributes<T> : HTMLAttributes<T>
+external interface DelHTMLAttributes<T> : HTMLAttributes<T> {
+    var cite: String
+    var dateTime: String
+}

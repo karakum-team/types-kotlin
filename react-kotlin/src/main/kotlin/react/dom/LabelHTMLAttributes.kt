@@ -2,4 +2,7 @@
 
 package react.dom
 
-external interface LabelHTMLAttributes<T> : HTMLAttributes<T>
+external interface LabelHTMLAttributes<T> : HTMLAttributes<T> {
+    var form: String
+    var htmlFor: String
+}

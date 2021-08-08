@@ -2,4 +2,9 @@
 
 package react.dom
 
-external interface TableHTMLAttributes<T> : HTMLAttributes<T>
+external interface TableHTMLAttributes<T> : HTMLAttributes<T> {
+    var cellPadding: Number
+    var cellSpacing: Number
+    var summary: String
+    var width: Number
+}

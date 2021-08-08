@@ -2,4 +2,7 @@
 
 package react.dom
 
-external interface CanvasHTMLAttributes<T> : HTMLAttributes<T>
+external interface CanvasHTMLAttributes<T> : HTMLAttributes<T> {
+    var height: Number
+    var width: Number
+}

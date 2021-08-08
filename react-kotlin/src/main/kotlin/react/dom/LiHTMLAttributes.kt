@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface LiHTMLAttributes<T> : HTMLAttributes<T>
+external interface LiHTMLAttributes<T> : HTMLAttributes<T> {
+    var value: string | ReadonlyArray<string> | number
+}

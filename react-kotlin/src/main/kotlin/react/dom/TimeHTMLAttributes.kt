@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface TimeHTMLAttributes<T> : HTMLAttributes<T>
+external interface TimeHTMLAttributes<T> : HTMLAttributes<T> {
+    var dateTime: String
+}

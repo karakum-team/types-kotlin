@@ -2,4 +2,7 @@
 
 package react.dom
 
-external interface BaseHTMLAttributes<T> : HTMLAttributes<T>
+external interface BaseHTMLAttributes<T> : HTMLAttributes<T> {
+    var href: String
+    var target: String
+}

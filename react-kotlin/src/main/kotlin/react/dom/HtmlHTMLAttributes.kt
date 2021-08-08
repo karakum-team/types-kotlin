@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface HtmlHTMLAttributes<T> : HTMLAttributes<T>
+external interface HtmlHTMLAttributes<T> : HTMLAttributes<T> {
+    var manifest: String
+}

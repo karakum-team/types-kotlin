@@ -2,4 +2,8 @@
 
 package react.dom
 
-external interface RefAttributes<T> : Attributes
+external interface RefAttributes<T> : Attributes {
+    var ref: Ref<T>
+    var
+}: }
+}

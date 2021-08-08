@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface QuoteHTMLAttributes<T> : HTMLAttributes<T>
+external interface QuoteHTMLAttributes<T> : HTMLAttributes<T> {
+    var cite: String
+}

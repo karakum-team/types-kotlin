@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface ColgroupHTMLAttributes<T> : HTMLAttributes<T>
+external interface ColgroupHTMLAttributes<T> : HTMLAttributes<T> {
+    var span: Number
+}
