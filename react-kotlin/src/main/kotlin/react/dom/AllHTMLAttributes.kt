@@ -76,7 +76,7 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var open: Boolean
     var optimum: Number
     var pattern: String
-    var placeholder: String
+    override var placeholder: String
     var playsInline: Boolean
     var poster: String
     var preload: String

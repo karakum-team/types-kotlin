@@ -29,7 +29,7 @@ external interface InputHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var multiple: Boolean
     var name: String
     var pattern: String
-    var placeholder: String
+    override var placeholder: String
     var readOnly: Boolean
     var required: Boolean
     var size: Number

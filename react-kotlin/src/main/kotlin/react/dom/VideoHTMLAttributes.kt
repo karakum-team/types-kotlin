@@ -4,7 +4,7 @@ package react.dom
 
 external interface VideoHTMLAttributes<T> : MediaHTMLAttributes<T> {
     var height: Number
-    var playsInline: Boolean
+    override var playsInline: Boolean
     var poster: String
     var width: Number
     var disablePictureInPicture: Boolean

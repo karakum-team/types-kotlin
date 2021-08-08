@@ -14,7 +14,7 @@ external interface TextareaHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var maxLength: Number
     var minLength: Number
     var name: String
-    var placeholder: String
+    override var placeholder: String
     var readOnly: Boolean
     var required: Boolean
     var rows: Number
