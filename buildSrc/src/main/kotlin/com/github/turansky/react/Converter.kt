@@ -140,7 +140,14 @@ private fun convertEventInterface(
 private fun convertAttributesInterface(
     name: String,
     source: String,
-): ConversionResult {
+): ConversionResult? {
+    when (name) {
+        "Attributes",
+        "RefAttributes",
+        "ClassAttributes",
+        -> return null
+    }
+
     var declaration = source.substringBefore(" {")
         .replace(" extends ", " : ")
 
