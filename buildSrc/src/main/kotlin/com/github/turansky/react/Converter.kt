@@ -140,9 +140,18 @@ private fun convertAttributesInterface(
     if (name == "DOMAttributes")
         declaration += ": react.PropsWithChildren"
 
-    val members = convertMembers(source, false)
+    val content = when (name) {
+        "DOMAttributes" -> source.substringAfter("};\n\n")
+        else -> source
+    }
+
+    val members = when (name) {
+        // TODO: support
+        "AriaAttributes" -> ""
+        else -> convertMembers(content, false)
+    }
     val body = "external interface $declaration {\n" +
-            "" + // members +
+            members +
             "\n}\n"
 
     return ConversionResult(name, body)
@@ -171,6 +180,9 @@ private fun convertMember(
     final: Boolean,
 ): String {
     if ("\n" in source) {
+        if (!source.startsWith("/*") && !source.startsWith("//"))
+            return convertMember(source.replace("\n", ""), final)
+
         var comment = source.substringBeforeLast("\n")
         if (comment == "/** @deprecated */")
             comment = """@Deprecated("Will be removed soon!")"""
@@ -190,6 +202,7 @@ private fun convertProperty(
     final: Boolean,
 ): String {
     val name = source.substringBefore(": ")
+        .removeSuffix("?")
     val sourceType = source.substringAfter(": ")
         .replace("EventTarget & T", "T")
     val type = kotlinType(sourceType, name)

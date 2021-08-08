@@ -21,6 +21,10 @@ private val STANDARD_TYPE_MAP = mapOf(
     // TODO: use React interface instead
     "TouchList" to "org.w3c.dom.TouchList",
     "AbstractView" to DYNAMIC,
+
+    // TODO: check
+    "Booleanish" to "Boolean",
+    "number | string" to "Number",
 )
 
 internal fun kotlinType(
@@ -35,8 +39,7 @@ internal fun kotlinType(
         return if (t == DYNAMIC) t else "$t?"
     }
 
-
-    if (type.startsWith("'"))
+    if (type.startsWith("'") || type.startsWith("\""))
         return "String /* $type */"
 
     return type
