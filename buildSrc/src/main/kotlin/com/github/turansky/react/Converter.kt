@@ -149,14 +149,27 @@ private fun convertMember(
         return comment + "\n" + convertMember(source.substringAfterLast("\n"))
     }
 
-    if ("(" in source)
-        return "    // $source"
+    return if ("(" in source) {
+        convertMethod(source)
+    } else {
+        convertProperty(source)
+    }
+}
 
+private fun convertProperty(
+    source: String,
+): String {
     val name = source.substringBefore(": ")
     val sourceType = source.substringAfter(": ")
         .replace("EventTarget & T", "T")
     val type = kotlinType(sourceType, name)
     return "val $name: $type"
+}
+
+private fun convertMethod(
+    source: String,
+): String {
+    return "    // $source"
 }
 
 private fun convertIntrinsicTypes(
