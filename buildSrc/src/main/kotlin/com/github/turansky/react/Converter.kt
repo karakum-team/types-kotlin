@@ -92,7 +92,13 @@ private fun convertEventInterface(
         .replace("EventTarget & T", "T")
         .replace("SyntheticEvent<T>", "SyntheticEvent<T, Event>")
 
-    val members = convertMembers(source)
+    var members = convertMembers(source)
+    when (name) {
+        "ChangeEvent",
+        "FocusEvent",
+        "InvalidEvent",
+        -> members = members.replaceFirst("val target:", "override val target:")
+    }
 
     val body = DEFAULT_EVENT_IMPORTS.removePrefix("\n") +
             "\nexternal interface $declaration {\n" +
