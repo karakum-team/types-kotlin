@@ -3,7 +3,7 @@
 package react.dom
 
 external interface Attributes {
-    var key: Key?
+    var key: react.Key?
     var
 }: }
 }

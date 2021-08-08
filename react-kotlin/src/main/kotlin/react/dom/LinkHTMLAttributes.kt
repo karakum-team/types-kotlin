@@ -3,7 +3,7 @@
 package react.dom
 
 external interface LinkHTMLAttributes<T> : HTMLAttributes<T> {
-    var as: String
+    var `as`: String
     var crossOrigin: String
     var href: String
     var hrefLang: String

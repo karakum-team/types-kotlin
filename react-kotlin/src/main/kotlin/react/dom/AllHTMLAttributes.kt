@@ -10,12 +10,12 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var allowFullScreen: Boolean
     var allowTransparency: Boolean
     var alt: String
-    var as: String
+    var `as`: String
     var async: Boolean
     var autoComplete: String
     var autoFocus: Boolean
     var autoPlay: Boolean
-    var capture: boolean | string
+    var capture: Boolean
     var cellPadding: Number
     var cellSpacing: Number
     var charSet: String
