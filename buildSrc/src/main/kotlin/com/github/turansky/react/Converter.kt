@@ -178,6 +178,7 @@ private fun convertMembers(
     val content = source
         .substringAfter("{\n", "")
         .trimIndent()
+        .replace("\n\n", "\n")
 
     if (content.isEmpty())
         return ""
@@ -218,7 +219,7 @@ private fun convertProperty(
     val name = source.substringBefore(": ")
         .removeSuffix("?")
     val id = when (name) {
-        "as" -> "`$name`"
+        "is", "as", "typeof" -> "`$name`"
         else -> name
     }
 
