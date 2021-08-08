@@ -16,7 +16,7 @@ external interface MouseEvent<T : Element, E : NativeMouseEvent> : UIEvent<T, E>
     /**
      * See [DOM Level 3 Events spec](https://www.w3.org/TR/uievents-key/#keys-modifier). for a list of valid (case-sensitive) arguments to this method.
      */
-    // getModifierState(key: string): boolean
+    fun getModifierState(key: String): Boolean
     val metaKey: Boolean
     val movementX: Number
     val movementY: Number

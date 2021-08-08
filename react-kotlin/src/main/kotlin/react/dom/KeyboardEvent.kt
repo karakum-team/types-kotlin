@@ -11,10 +11,12 @@ external interface KeyboardEvent<T : Element> : SyntheticEvent<T, NativeKeyboard
     val charCode: Number
     val ctrlKey: Boolean
     val code: String
+
     /**
      * See [DOM Level 3 Events spec](https://www.w3.org/TR/uievents-key/#keys-modifier). for a list of valid (case-sensitive) arguments to this method.
      */
-    // getModifierState(key: string): boolean
+    fun getModifierState(key: String): Boolean
+
     /**
      * See the [DOM Level 3 Events spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values). for possible values
      */

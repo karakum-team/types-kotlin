@@ -11,12 +11,11 @@ external interface BaseSyntheticEvent<E : Any, C : Any, T : Any> {
     val defaultPrevented: Boolean
     val eventPhase: Number
     val isTrusted: Boolean
-
-    // preventDefault(): void
-    // isDefaultPrevented(): boolean
-    // stopPropagation(): void
-    // isPropagationStopped(): boolean
-    // persist(): void
+    fun preventDefault()
+    fun isDefaultPrevented(): Boolean
+    fun stopPropagation()
+    fun isPropagationStopped(): Boolean
+    fun persist()
     val timeStamp: Number
     val type: String
 }

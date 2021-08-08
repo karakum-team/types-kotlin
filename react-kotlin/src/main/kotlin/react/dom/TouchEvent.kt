@@ -12,7 +12,7 @@ external interface TouchEvent<T : Element> : UIEvent<T, NativeTouchEvent> {
     /**
      * See [DOM Level 3 Events spec](https://www.w3.org/TR/uievents-key/#keys-modifier). for a list of valid (case-sensitive) arguments to this method.
      */
-    // getModifierState(key: string): boolean
+    fun getModifierState(key: String): Boolean
     val metaKey: Boolean
     val shiftKey: Boolean
     val targetTouches: org.w3c.dom.TouchList
