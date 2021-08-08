@@ -113,7 +113,7 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var ideographic: Number
     var imageRendering: Number
     var in2: Number
-    var in: String
+    var `in`: String
     var intercept: Number
     var k1: Number
     var k2: Number

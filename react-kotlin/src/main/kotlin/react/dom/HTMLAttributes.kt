@@ -26,8 +26,10 @@ external interface HTMLAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var tabIndex: Number
     var title: String
     var translate: String /* 'yes' | 'no' */
-// Unknown
-    radioGroup?: string // <command>, <menuitem>
+
+    // Unknown
+    var radioGroup: String // <command>, <menuitem>
+
     // WAI-ARIA
     var role: String
 

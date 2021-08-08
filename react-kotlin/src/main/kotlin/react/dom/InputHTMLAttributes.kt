@@ -7,7 +7,8 @@ external interface InputHTMLAttributes<T> : HTMLAttributes<T> {
     var alt: String
     var autoComplete: String
     var autoFocus: Boolean
-    var capture: boolean | string // https://www.w3.org/TR/html-media-capture/#the-capture-attributechecked?: boolean
+    var capture: Boolean // https://www.w3.org/TR/html-media-capture/#the-capture-attribute
+    var checked: Boolean
     var crossOrigin: String
     var disabled: Boolean
     var enterKeyHint: String /* 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send' */
