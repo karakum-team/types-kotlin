@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface DetailsHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface DetailsHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var open: Boolean
     var onToggle: ReactEventHandler<T>
 }

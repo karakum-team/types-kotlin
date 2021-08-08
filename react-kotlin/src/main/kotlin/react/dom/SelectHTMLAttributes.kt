@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface SelectHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface SelectHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var autoComplete: String
     var autoFocus: Boolean
     var disabled: Boolean

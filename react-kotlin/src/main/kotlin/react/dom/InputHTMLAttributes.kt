@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface InputHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface InputHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var accept: String
     var alt: String
     var autoComplete: String

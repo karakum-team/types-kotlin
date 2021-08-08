@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface TextareaHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface TextareaHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var autoComplete: String
     var autoFocus: Boolean
     var cols: Number
