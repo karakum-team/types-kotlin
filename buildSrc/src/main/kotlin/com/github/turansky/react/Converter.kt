@@ -194,6 +194,19 @@ private fun convertMember(
     source: String,
     final: Boolean,
 ): String {
+    if ("; // " in source) {
+        if ("\n// " in source) {
+            return source.splitToSequence("\n// ")
+                .mapIndexed { index, item -> if (index == 0) item else "// " + item }
+                .map { convertMember(it, final) }
+                .joinToString("\n")
+        } else if (!source.startsWith("// ") && source.count { it == '\n' } == 1) {
+            return source.splitToSequence("\n")
+                .map { convertMember(it, final) }
+                .joinToString("\n")
+        }
+    }
+
     if ("\n" in source) {
         if (!source.startsWith("/*") && !source.startsWith("//"))
             return convertMember(source.replace("\n", ""), final)
@@ -219,7 +232,7 @@ private fun convertProperty(
     val name = source.substringBefore(": ")
         .removeSuffix("?")
     val id = when (name) {
-        "is", "as", "typeof" -> "`$name`"
+        "is", "as", "typeof", "in" -> "`$name`"
         else -> name
     }
 

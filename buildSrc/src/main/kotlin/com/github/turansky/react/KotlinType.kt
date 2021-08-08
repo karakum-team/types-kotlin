@@ -38,6 +38,10 @@ internal fun kotlinType(
     type: String,
     name: String,
 ): String {
+    if ("; // " in type)
+        return kotlinType(type.substringBefore("; // "), name) +
+                " // " + type.substringAfter("; // ")
+
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
 
