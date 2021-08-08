@@ -92,6 +92,11 @@ private fun convertEventHandlers(
     return ConversionResult("EventHandlers", body)
 }
 
+private const val INTRINSIC_TYPE_IMPORT = "import react.IntrinsicType"
+
+private const val SVG_TYPE = "DefaultSvgType"
+private const val SVG_TYPE_DECLARATION = "typealias $SVG_TYPE = IntrinsicType<SVGAttributes<org.w3c.dom.svg.SVGElement>>"
+
 private fun convertInterface(
     name: String,
     source: String,
@@ -100,6 +105,7 @@ private fun convertInterface(
         name.endsWith("Event") -> convertEventInterface(name, source)
         name.endsWith("Attributes") -> convertAttributesInterface(name, source)
         name == "ReactHTML" -> convertIntrinsicTypes("ReactHTML", source, ::convertHtmlType)
+        name == "ReactSVG" -> convertIntrinsicTypes("ReactSVG", source, ::convertSvgType, SVG_TYPE_DECLARATION)
         else -> null
     }
 
@@ -290,15 +296,21 @@ private fun convertIntrinsicTypes(
     name: String,
     source: String,
     convert: (String) -> String,
+    vararg aliases: String,
 ): ConversionResult {
-    val body = source.substringAfter("{\n")
+    val content = source.substringAfter("{\n")
         .trimIndent()
         .removeSuffix(";")
         .splitToSequence(";\n")
         .map(convert)
         .joinToString("\n\n")
 
-    return ConversionResult(name, "import react.IntrinsicType\n\n" + body)
+    val body = sequenceOf(INTRINSIC_TYPE_IMPORT)
+        .plus(aliases)
+        .plus(content)
+        .joinToString("\n\n")
+
+    return ConversionResult(name, body)
 }
 
 private fun convertHtmlType(
@@ -319,6 +331,20 @@ private fun convertHtmlType(
 
     return """
         inline val $id: $type
+            get() = "$name".unsafeCast<$type>()
+    """.trimIndent()
+}
+
+private fun convertSvgType(
+    source: String,
+): String {
+    val name = source.substringBefore(": ")
+        .removeSurrounding("\"")
+
+    val type = SVG_TYPE
+
+    return """
+        inline val $name: $type
             get() = "$name".unsafeCast<$type>()
     """.trimIndent()
 }
