@@ -7,6 +7,12 @@ internal data class ConversionResult(
     val body: String,
 )
 
+// TODO: generate
+private val HTML_ATTRIBUTE_REFERRER_POLICY = ConversionResult(
+    name = "HTMLAttributeReferrerPolicy",
+    body = "typealias HTMLAttributeReferrerPolicy = String",
+)
+
 internal fun convertDefinitions(
     definitionFile: File,
 ): Sequence<ConversionResult> {
@@ -33,6 +39,7 @@ internal fun convertDefinitions(
         }
         .plus(convertNativeEvents(content))
         .plus(convertEventHandlers(reactContent))
+        .plus(HTML_ATTRIBUTE_REFERRER_POLICY)
 }
 
 private val NATIVE_EVENT_REPLACEMENT = mapOf(
