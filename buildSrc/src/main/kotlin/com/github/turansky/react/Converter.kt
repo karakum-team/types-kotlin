@@ -92,8 +92,12 @@ private fun convertEventInterface(
         .replace("EventTarget & T", "T")
         .replace("SyntheticEvent<T>", "SyntheticEvent<T, Event>")
 
+    val members = convertMembers(source)
+
     val body = DEFAULT_EVENT_IMPORTS.removePrefix("\n") +
-            "\nexternal interface $declaration"
+            "\nexternal interface $declaration {\n" +
+            members +
+            "\n}\n"
 
     return ConversionResult(name, body)
 }
@@ -109,6 +113,28 @@ private fun convertAttributesInterface(
         declaration += ": react.PropsWithChildren"
 
     return ConversionResult(name, "external interface $declaration")
+}
+
+private fun convertMembers(
+    source: String,
+): String {
+    val content = source
+        .substringAfter("{\n", "")
+        .trimIndent()
+
+    if (content.isEmpty())
+        return ""
+
+    return content.splitToSequence(";\n")
+        .joinToString("\n") {
+            convertMember(it)
+        }
+}
+
+private fun convertMember(
+    source: String,
+): String {
+    return source
 }
 
 private fun convertIntrinsicTypes(
@@ -145,6 +171,3 @@ private fun convertIntrinsicType(
             get() = "$name".unsafeCast<$type>()
     """.trimIndent()
 }
-
-private fun props(propsName: String): String =
-    "external interface $propsName: react.RProps"
