@@ -1,6 +1,7 @@
 package com.github.turansky.react
 
 internal const val DYNAMIC = "dynamic"
+internal const val UNIT = "Unit"
 
 private val STANDARD_TYPE_MAP = mapOf(
     "any" to "Any",
@@ -10,7 +11,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "number" to "Number",
     "string" to "String",
 
-    "void" to "Unit",
+    "void" to UNIT,
     "null" to "Nothing?",
 
     "Date" to "kotlin.js.Date",

@@ -173,7 +173,22 @@ private fun convertProperty(
 private fun convertMethod(
     source: String,
 ): String {
-    return "    // $source"
+    val name = source.substringBefore("(")
+
+    val params = source.substringAfter("(")
+        .substringBefore("): ")
+    val parameters = if (params.isNotEmpty()) {
+        params.splitToSequence(", ")
+            .joinToString(", ") {
+                val (pname, ptype) = it.split(": ")
+                "$pname: ${kotlinType(ptype, pname)}"
+            }
+    } else ""
+
+    val returnType = kotlinType(source.substringAfter("): "), name)
+    val returns = if (returnType != UNIT) ": $returnType" else ""
+
+    return "fun $name($parameters)$returns"
 }
 
 private fun convertIntrinsicTypes(
