@@ -167,11 +167,24 @@ private fun convertAttributesInterface(
         else -> source
     }
 
-    val members = when (name) {
+    var members = when (name) {
         // TODO: support
         "AriaAttributes" -> ""
         else -> convertMembers(content, false)
     }
+
+    members = when (name) {
+        "AllHTMLAttributes",
+        "InputHTMLAttributes",
+        "TextareaHTMLAttributes",
+        -> members.replaceFirst("var placeholder: ", "override var placeholder: ")
+
+        "VideoHTMLAttributes",
+        -> members.replaceFirst("var playsInline: ", "override var playsInline: ")
+
+        else -> members
+    }
+
     val body = "import org.w3c.dom.Element\n\n" +
             "external interface $declaration {\n" +
             members +
