@@ -32,6 +32,7 @@ internal fun convertDefinitions(
             )
         }
         .plus(convertNativeEvents(content))
+        .plus(convertEventHandlers(reactContent))
 }
 
 private val NATIVE_EVENT_REPLACEMENT = mapOf(
@@ -61,6 +62,27 @@ private fun convertNativeEvents(
 
 
     return ConversionResult("NativeEvents", body)
+}
+
+private const val EVENT_HANDLER = "typealias EventHandler<E> = (event: E) -> Unit"
+
+private fun convertEventHandlers(
+    source: String,
+): ConversionResult {
+    val handlers = source.splitToSequence("\n")
+        .filter { it.startsWith("type ") && " = EventHandler<" in it }
+        .joinToString("\n\n") { line ->
+            line.replaceFirst("type ", "typealias ")
+                .removeSuffix(";")
+                .replace("<T = Element>", "<T>")
+                .replace("SyntheticEvent<T>", "SyntheticEvent<T, *>")
+                .replace("MouseEvent<T>", "MouseEvent<T, *>")
+                .replace("UIEvent<T>", "UIEvent<T, *>")
+        }
+
+    val body = EVENT_HANDLER + "\n\n" + handlers
+
+    return ConversionResult("EventHandlers", body)
 }
 
 private fun convertInterface(
