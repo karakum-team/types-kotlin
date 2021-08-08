@@ -99,7 +99,7 @@ private fun convertInterface(
     when {
         name.endsWith("Event") -> convertEventInterface(name, source)
         name.endsWith("Attributes") -> convertAttributesInterface(name, source)
-        name == "ReactHTML" -> convertHTMLTypes("ReactHTML", source)
+        name == "ReactHTML" -> convertIntrinsicTypes("ReactHTML", source, ::convertHtmlType)
         else -> null
     }
 
@@ -286,21 +286,22 @@ private fun convertMethod(
     return "fun $name($parameters)$returns"
 }
 
-private fun convertHTMLTypes(
+private fun convertIntrinsicTypes(
     name: String,
     source: String,
+    convert: (String) -> String,
 ): ConversionResult {
     val body = source.substringAfter("{\n")
         .trimIndent()
         .removeSuffix(";")
         .splitToSequence(";\n")
-        .map { convertIntrinsicType(it) }
+        .map(convert)
         .joinToString("\n\n")
 
     return ConversionResult(name, "import react.IntrinsicType\n\n" + body)
 }
 
-private fun convertIntrinsicType(
+private fun convertHtmlType(
     source: String,
 ): String {
     val name = source.substringBefore(": ")
