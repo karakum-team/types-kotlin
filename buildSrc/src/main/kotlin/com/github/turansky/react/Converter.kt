@@ -151,8 +151,16 @@ private fun convertAttributesInterface(
     var declaration = source.substringBefore(" {")
         .replace(" extends ", " : ")
 
-    if (name == "DOMAttributes")
-        declaration += ": react.PropsWithChildren"
+    when (name) {
+        "DOMAttributes",
+        -> declaration += ": react.PropsWithChildren"
+
+        "DetailsHTMLAttributes",
+        "InputHTMLAttributes",
+        "SelectHTMLAttributes",
+        "TextareaHTMLAttributes",
+        -> declaration = declaration.replaceFirst("<T>", "<T: Element>")
+    }
 
     val content = when (name) {
         "DOMAttributes" -> source.substringAfter("};\n\n")
@@ -164,7 +172,8 @@ private fun convertAttributesInterface(
         "AriaAttributes" -> ""
         else -> convertMembers(content, false)
     }
-    val body = "external interface $declaration {\n" +
+    val body = "import org.w3c.dom.Element\n\n" +
+            "external interface $declaration {\n" +
             members +
             "\n}\n"
 
