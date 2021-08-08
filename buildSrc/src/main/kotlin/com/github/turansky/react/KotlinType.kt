@@ -18,12 +18,15 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "DataTransfer" to "org.w3c.dom.DataTransfer",
 
+    "Key" to "react.Key",
+
     // TODO: use React interface instead
     "TouchList" to "org.w3c.dom.TouchList",
     "AbstractView" to DYNAMIC,
 
     // TODO: check
     "Booleanish" to "Boolean",
+    "boolean | string" to "Boolean",
     "number | string" to "Number",
 )
 

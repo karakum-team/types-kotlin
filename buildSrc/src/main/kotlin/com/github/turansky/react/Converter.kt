@@ -210,11 +210,16 @@ private fun convertProperty(
 ): String {
     val name = source.substringBefore(": ")
         .removeSuffix("?")
+    val id = when (name) {
+        "as" -> "`$name`"
+        else -> name
+    }
+
     val sourceType = source.substringAfter(": ")
         .replace("EventTarget & T", "T")
     val type = kotlinType(sourceType, name)
     val keyword = if (final) "val" else "var"
-    return "$keyword $name: $type"
+    return "$keyword $id: $type"
 }
 
 private fun convertMethod(
