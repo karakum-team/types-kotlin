@@ -13,5 +13,5 @@ external interface ButtonHTMLAttributes<T> : HTMLAttributes<T> {
     var formTarget: String
     var name: String
     var type: String /* 'submit' | 'reset' | 'button' */
-    var value: string | ReadonlyArray<string> | number
+    var value: String // string | ReadonlyArray<string> | number
 }

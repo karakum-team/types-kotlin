@@ -16,7 +16,7 @@ external interface TextareaHTMLAttributes<T> : HTMLAttributes<T> {
     var readOnly: Boolean
     var required: Boolean
     var rows: Number
-    var value: string | ReadonlyArray<string> | number
+    var value: String // string | ReadonlyArray<string> | number
     var wrap: String
     var onChange: ChangeEventHandler<T>
 }

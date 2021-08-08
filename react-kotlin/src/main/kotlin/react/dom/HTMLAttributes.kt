@@ -5,14 +5,14 @@ package react.dom
 external interface HTMLAttributes<T> : AriaAttributes, DOMAttributes<T> {
     // React-specific Attributes
     var defaultChecked: Boolean
-    var defaultValue: string | number | ReadonlyArray<string>
+    var defaultValue: String // string | ReadonlyArray<string> | number
     var suppressContentEditableWarning: Boolean
     var suppressHydrationWarning: Boolean
 
     // Standard HTML Attributes
     var accessKey: String
     var className: String
-    var contentEditable: Booleanish | "inherit"
+    var contentEditable: dynamic // Booleanish | "inherit"
     var contextMenu: String
     var dir: String
     var draggable: Boolean
@@ -22,7 +22,7 @@ external interface HTMLAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var placeholder: String
     var slot: String
     var spellCheck: Boolean
-    var style: CSSProperties
+    var style: dynamic // CSSProperties
     var tabIndex: Number
     var title: String
     var translate: String /* 'yes' | 'no' */

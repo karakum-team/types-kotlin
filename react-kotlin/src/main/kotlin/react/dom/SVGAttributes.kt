@@ -15,7 +15,7 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var method: String
     var min: Number
     var name: String
-    var style: CSSProperties
+    var style: dynamic // CSSProperties
     var target: String
     var type: String
     var width: Number
@@ -86,7 +86,7 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var filterUnits: Number
     var floodColor: Number
     var floodOpacity: Number
-    var focusable: Booleanish | "auto"
+    var focusable: dynamic // Booleanish | "auto"
     var fontFamily: String
     var fontSize: Number
     var fontSizeAdjust: Number
@@ -202,8 +202,8 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var strikethroughThickness: Number
     var string: Number
     var stroke: String
-    var strokeDasharray: string | number
-    var strokeDashoffset: string | number
+    var strokeDasharray: dynamic // string | number
+    var strokeDashoffset: dynamic // string | number
     var strokeLinecap: String /* "butt" | "round" | "square" | "inherit" */
     var strokeLinejoin: String /* "miter" | "round" | "bevel" | "inherit" */
     var strokeMiterlimit: Number

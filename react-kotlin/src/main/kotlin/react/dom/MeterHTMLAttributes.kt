@@ -9,5 +9,5 @@ external interface MeterHTMLAttributes<T> : HTMLAttributes<T> {
     var max: Number
     var min: Number
     var optimum: Number
-    var value: string | ReadonlyArray<string> | number
+    var value: String // string | ReadonlyArray<string> | number
 }

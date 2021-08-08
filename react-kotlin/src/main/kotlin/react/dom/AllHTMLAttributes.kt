@@ -106,7 +106,7 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var target: String
     var type: String
     var useMap: String
-    var value: string | ReadonlyArray<string> | number
+    var value: String // string | ReadonlyArray<string> | number
     var width: Number
     var wmode: String
     var wrap: String
