@@ -4,4 +4,8 @@ package react.dom
 
 import org.w3c.dom.Element
 
-external interface AnimationEvent<T : Element> : SyntheticEvent<T, NativeAnimationEvent>
+external interface AnimationEvent<T : Element> : SyntheticEvent<T, NativeAnimationEvent> {
+    val animationName: String
+    val elapsedTime: Number
+    val pseudoElement: String
+}

@@ -4,4 +4,7 @@ package react.dom
 
 import org.w3c.dom.Element
 
-external interface UIEvent<T : Element, E : NativeUIEvent> : SyntheticEvent<T, E>
+external interface UIEvent<T : Element, E : NativeUIEvent> : SyntheticEvent<T, E> {
+    val detail: Number
+    val view: dynamic
+}

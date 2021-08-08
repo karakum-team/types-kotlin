@@ -3,7 +3,9 @@
 package react.dom
 
 import org.w3c.dom.Element
-import org.w3c.dom.events.Event
-import org.w3c.dom.events.EventTarget
 
-external interface TransitionEvent<T : Element> : SyntheticEvent<T, NativeTransitionEvent>
+external interface TransitionEvent<T : Element> : SyntheticEvent<T, NativeTransitionEvent> {
+    val elapsedTime: Number
+    val propertyName: String
+    val pseudoElement: String
+}

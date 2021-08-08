@@ -3,7 +3,10 @@
 package react.dom
 
 import org.w3c.dom.Element
-import org.w3c.dom.events.Event
-import org.w3c.dom.events.EventTarget
 
-external interface WheelEvent<T : Element> : MouseEvent<T, NativeWheelEvent>
+external interface WheelEvent<T : Element> : MouseEvent<T, NativeWheelEvent> {
+    val deltaMode: Number
+    val deltaX: Number
+    val deltaY: Number
+    val deltaZ: Number
+}
