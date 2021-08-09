@@ -7,18 +7,18 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
 // See comment in SVGDOMPropertyConfig.js
     var className: String
     var color: String
-    var height: Number
+    var height: Double
     var id: String
     var lang: String
-    var max: Number
+    var max: Double
     var media: String
     var method: String
-    var min: Number
+    var min: Double
     var name: String
     var style: dynamic // CSSProperties
     var target: String
     var type: String
-    var width: Number
+    var width: Double
 
     // Other HTML properties supported by SVG elements in browsers
     var role: String

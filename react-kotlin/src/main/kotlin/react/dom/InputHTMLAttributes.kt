@@ -20,11 +20,11 @@ external interface InputHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var formMethod: String
     var formNoValidate: Boolean
     var formTarget: String
-    var height: Number
+    var height: Double
     var list: String
-    var max: Number
+    var max: Double
     var maxLength: Number
-    var min: Number
+    var min: Double
     var minLength: Number
     var multiple: Boolean
     var name: String
@@ -34,9 +34,9 @@ external interface InputHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var required: Boolean
     var size: Number
     var src: String
-    var step: Number
+    var step: Double
     var type: String
     var value: String // string | ReadonlyArray<string> | number
-    var width: Number
+    var width: Double
     var onChange: ChangeEventHandler<T>
 }

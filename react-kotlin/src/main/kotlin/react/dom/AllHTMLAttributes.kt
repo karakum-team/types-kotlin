@@ -44,7 +44,7 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var formTarget: String
     var frameBorder: Number
     var headers: String
-    var height: Number
+    var height: Double
     var high: Number
     var href: String
     var hrefLang: String
@@ -61,12 +61,12 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var manifest: String
     var marginHeight: Number
     var marginWidth: Number
-    var max: Number
+    var max: Double
     var maxLength: Number
     var media: String
     var mediaGroup: String
     var method: String
-    var min: Number
+    var min: Double
     var minLength: Number
     var multiple: Boolean
     var muted: Boolean
@@ -101,13 +101,13 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var srcLang: String
     var srcSet: String
     var start: Number
-    var step: Number
+    var step: Double
     var summary: String
     var target: String
     var type: String
     var useMap: String
     var value: String // string | ReadonlyArray<string> | number
-    var width: Number
+    var width: Double
     var wmode: String
     var wrap: String
 }

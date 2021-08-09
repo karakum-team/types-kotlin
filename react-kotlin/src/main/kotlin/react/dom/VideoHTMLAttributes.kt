@@ -3,10 +3,10 @@
 package react.dom
 
 external interface VideoHTMLAttributes<T> : MediaHTMLAttributes<T> {
-    var height: Number
+    var height: Double
     override var playsInline: Boolean
     var poster: String
-    var width: Number
+    var width: Double
     var disablePictureInPicture: Boolean
     var disableRemotePlayback: Boolean
 }

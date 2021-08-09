@@ -3,6 +3,6 @@
 package react.dom
 
 external interface ProgressHTMLAttributes<T> : HTMLAttributes<T> {
-    var max: Number
+    var max: Double
     var value: String // string | ReadonlyArray<string> | number
 }

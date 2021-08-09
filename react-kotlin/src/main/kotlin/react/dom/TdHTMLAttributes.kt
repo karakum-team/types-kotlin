@@ -9,7 +9,7 @@ external interface TdHTMLAttributes<T> : HTMLAttributes<T> {
     var rowSpan: Number
     var scope: String
     var abbr: String
-    var height: Number
-    var width: Number
+    var height: Double
+    var width: Double
     var valign: String // "top" | "middle" | "bottom" | "baseline"
 }

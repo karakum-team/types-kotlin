@@ -3,6 +3,6 @@
 package react.dom
 
 external interface CanvasHTMLAttributes<T> : HTMLAttributes<T> {
-    var height: Number
-    var width: Number
+    var height: Double
+    var width: Double
 }

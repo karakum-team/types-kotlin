@@ -9,7 +9,7 @@ external interface IframeHTMLAttributes<T> : HTMLAttributes<T> {
 
     @Deprecated("Will be removed soon!")
     var frameBorder: Number
-    var height: Number
+    var height: Double
     var loading: String // "eager" | "lazy"
 
     @Deprecated("Will be removed soon!")
@@ -26,5 +26,5 @@ external interface IframeHTMLAttributes<T> : HTMLAttributes<T> {
     var seamless: Boolean
     var src: String
     var srcDoc: String
-    var width: Number
+    var width: Double
 }

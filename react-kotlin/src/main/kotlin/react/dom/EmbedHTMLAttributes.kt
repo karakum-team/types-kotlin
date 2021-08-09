@@ -3,8 +3,8 @@
 package react.dom
 
 external interface EmbedHTMLAttributes<T> : HTMLAttributes<T> {
-    var height: Number
+    var height: Double
     var src: String
     var type: String
-    var width: Number
+    var width: Double
 }
