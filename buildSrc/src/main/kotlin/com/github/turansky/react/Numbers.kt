@@ -11,9 +11,15 @@ private val DOUBLE_NAMES = setOf(
 
 internal fun numberType(
     name: String,
-): String {
-    if (name in DOUBLE_NAMES)
-        return DOUBLE
+): String =
+    when {
+        name in DOUBLE_NAMES -> DOUBLE
 
-    return NUMBER
-}
+        name.endsWith("X") -> DOUBLE
+        name.endsWith("Y") -> DOUBLE
+        name.endsWith("Z") -> DOUBLE
+        name.endsWith("Width") -> DOUBLE
+        name.endsWith("Height") -> DOUBLE
+
+        else -> NUMBER
+    }
