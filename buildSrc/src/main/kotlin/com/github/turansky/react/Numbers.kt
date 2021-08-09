@@ -1,5 +1,11 @@
 package com.github.turansky.react
 
+private val INT_NAMES = setOf(
+    "span",
+    "colSpan",
+    "rowSpan",
+)
+
 private val DOUBLE_NAMES = setOf(
     "width",
     "height",
@@ -13,6 +19,7 @@ internal fun numberType(
     name: String,
 ): String =
     when {
+        name in INT_NAMES -> INT
         name in DOUBLE_NAMES -> DOUBLE
 
         name.endsWith("X") -> DOUBLE
