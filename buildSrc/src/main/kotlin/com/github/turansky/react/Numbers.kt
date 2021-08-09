@@ -4,6 +4,21 @@ private val INT_NAMES = setOf(
     "span",
     "colSpan",
     "rowSpan",
+
+    "twist",
+    "charCode",
+    "keyCode",
+    "detail",
+
+    "tabIndex",
+
+    // Enums
+    "eventPhase",
+    "location",
+    "which",
+    "button",
+    "buttons",
+    "deltaMode",
 )
 
 private val DOUBLE_NAMES = setOf(
@@ -12,7 +27,13 @@ private val DOUBLE_NAMES = setOf(
 
     "min",
     "max",
-    "step"
+    "step",
+
+    "elapsedTime",
+    "timeStamp",
+
+    "pressure",
+    "tangentialPressure",
 )
 
 internal fun numberType(
@@ -28,5 +49,8 @@ internal fun numberType(
         name.endsWith("Width") -> DOUBLE
         name.endsWith("Height") -> DOUBLE
 
-        else -> NUMBER
+        else -> {
+            println(name)
+            NUMBER
+        }
     }
