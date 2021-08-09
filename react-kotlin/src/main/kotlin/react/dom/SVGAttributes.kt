@@ -31,26 +31,26 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var additive: String // "replace" | "sum"
     var alignmentBaseline: String // "auto" | "baseline" | "before-edge" | "text-before-edge" | "middle" | "central" | "after-edge" |"text-after-edge" | "ideographic" | "alphabetic" | "hanging" | "mathematical" | "inherit"
     var allowReorder: String // "no" | "yes"
-    var alphabetic: Number
-    var amplitude: Number
+    var alphabetic: Double
+    var amplitude: Double
     var arabicForm: String // "initial" | "medial" | "terminal" | "isolated"
-    var ascent: Number
+    var ascent: Double
     var attributeName: String
     var attributeType: String
     var autoReverse: Boolean
-    var azimuth: Number
-    var baseFrequency: Number
-    var baselineShift: Number
-    var baseProfile: Number
-    var bbox: Number
-    var begin: Number
-    var bias: Number
-    var by: Number
-    var calcMode: Number
+    var azimuth: Double
+    var baseFrequency: Double
+    var baselineShift: String
+    var baseProfile: String
+    var bbox: String
+    var begin: String
+    var bias: Double
+    var by: Double
+    var calcMode: String
     var capHeight: Double
     var clip: Number
     var clipPath: String
-    var clipPathUnits: Number
+    var clipPathUnits: String
     var clipRule: Number
     var colorInterpolation: Number
     var colorInterpolationFilters: String // "auto" | "sRGB" | "linearRGB" | "inherit"
@@ -72,7 +72,7 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var dur: Number
     var dx: Double
     var dy: Double
-    var edgeMode: Number
+    var edgeMode: String
     var elevation: Number
     var enableBackground: Number
     var end: Number
@@ -83,8 +83,8 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var fillRule: String // "nonzero" | "evenodd" | "inherit"
     var filter: String
     var filterRes: Number
-    var filterUnits: Number
-    var floodColor: Number
+    var filterUnits: String
+    var floodColor: String
     var floodOpacity: Number
     var focusable: dynamic // Booleanish | "auto"
     var fontFamily: String
@@ -128,18 +128,18 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var keyTimes: Number
     var lengthAdjust: Number
     var letterSpacing: Number
-    var lightingColor: Number
+    var lightingColor: String
     var limitingConeAngle: Number
     var local: Number
     var markerEnd: String
     var markerHeight: Double
     var markerMid: String
     var markerStart: String
-    var markerUnits: Number
+    var markerUnits: String
     var markerWidth: Double
     var mask: String
-    var maskContentUnits: Number
-    var maskUnits: Number
+    var maskContentUnits: String
+    var maskUnits: String
     var mathematical: Number
     var mode: Number
     var numOctaves: Number
@@ -151,8 +151,8 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var orientation: Number
     var origin: Number
     var overflow: Number
-    var overlinePosition: Number
-    var overlineThickness: Number
+    var overlinePosition: Double
+    var overlineThickness: Double
     var paintOrder: Number
     var panose1: Number
     var path: String
@@ -167,7 +167,7 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var pointsAtZ: Double
     var preserveAlpha: Boolean
     var preserveAspectRatio: String
-    var primitiveUnits: Number
+    var primitiveUnits: String
     var r: Double
     var radius: Double
     var refX: Double
@@ -198,8 +198,8 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var stitchTiles: Number
     var stopColor: String
     var stopOpacity: Number
-    var strikethroughPosition: Number
-    var strikethroughThickness: Number
+    var strikethroughPosition: Double
+    var strikethroughThickness: Double
     var string: Number
     var stroke: String
     var strokeDasharray: dynamic // string | number
@@ -222,8 +222,8 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var transform: String
     var u1: Number
     var u2: Number
-    var underlinePosition: Number
-    var underlineThickness: Number
+    var underlinePosition: Double
+    var underlineThickness: Double
     var unicode: Number
     var unicodeBidi: Number
     var unicodeRange: Number
@@ -243,7 +243,7 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var vMathematical: Number
     var widths: Number
     var wordSpacing: Number
-    var writingMode: Number
+    var writingMode: String
     var x1: Double
     var x2: Double
     var x: Double
