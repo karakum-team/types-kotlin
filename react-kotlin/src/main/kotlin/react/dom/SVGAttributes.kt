@@ -48,52 +48,52 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var by: Double
     var calcMode: String
     var capHeight: Double
-    var clip: Number
+    var clip: String
     var clipPath: String
     var clipPathUnits: String
-    var clipRule: Number
-    var colorInterpolation: Number
+    var clipRule: String
+    var colorInterpolation: String
     var colorInterpolationFilters: String // "auto" | "sRGB" | "linearRGB" | "inherit"
-    var colorProfile: Number
-    var colorRendering: Number
-    var contentScriptType: Number
-    var contentStyleType: Number
-    var cursor: Number
+    var colorProfile: String
+    var colorRendering: String
+    var contentScriptType: String
+    var contentStyleType: String
+    var cursor: String
     var cx: Double
     var cy: Double
     var d: String
-    var decelerate: Number
-    var descent: Number
-    var diffuseConstant: Number
-    var direction: Number
-    var display: Number
-    var divisor: Number
-    var dominantBaseline: Number
-    var dur: Number
+    var decelerate: String
+    var descent: Double
+    var diffuseConstant: Double
+    var direction: String
+    var display: String
+    var divisor: Double
+    var dominantBaseline: String
+    var dur: String
     var dx: Double
     var dy: Double
     var edgeMode: String
-    var elevation: Number
-    var enableBackground: Number
-    var end: Number
-    var exponent: Number
+    var elevation: Double
+    var enableBackground: String
+    var end: String
+    var exponent: Double
     var externalResourcesRequired: Boolean
     var fill: String
-    var fillOpacity: Number
+    var fillOpacity: String
     var fillRule: String // "nonzero" | "evenodd" | "inherit"
     var filter: String
-    var filterRes: Number
+    var filterRes: Double
     var filterUnits: String
     var floodColor: String
-    var floodOpacity: Number
+    var floodOpacity: String
     var focusable: dynamic // Booleanish | "auto"
     var fontFamily: String
-    var fontSize: Number
-    var fontSizeAdjust: Number
-    var fontStretch: Number
-    var fontStyle: Number
-    var fontVariant: Number
-    var fontWeight: Number
+    var fontSize: String
+    var fontSizeAdjust: String
+    var fontStretch: String
+    var fontStyle: String
+    var fontVariant: String
+    var fontWeight: String
     var format: Number
     var from: Number
     var fx: Double
