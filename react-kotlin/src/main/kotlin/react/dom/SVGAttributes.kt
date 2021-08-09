@@ -22,7 +22,7 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
 
     // Other HTML properties supported by SVG elements in browsers
     var role: String
-    var tabIndex: Number
+    var tabIndex: Int
     var crossOrigin: String // "anonymous" | "use-credentials" | ""
 
     // SVG Specific attributes

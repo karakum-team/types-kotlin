@@ -9,13 +9,13 @@ external interface BaseSyntheticEvent<E : Any, C : Any, T : Any> {
     val bubbles: Boolean
     val cancelable: Boolean
     val defaultPrevented: Boolean
-    val eventPhase: Number
+    val eventPhase: Int
     val isTrusted: Boolean
     fun preventDefault()
     fun isDefaultPrevented(): Boolean
     fun stopPropagation()
     fun isPropagationStopped(): Boolean
     fun persist()
-    val timeStamp: Number
+    val timeStamp: Double
     val type: String
 }

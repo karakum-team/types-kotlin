@@ -7,8 +7,8 @@ import org.w3c.dom.events.EventTarget
 
 external interface MouseEvent<T : Element, E : NativeMouseEvent> : UIEvent<T, E> {
     val altKey: Boolean
-    val button: Number
-    val buttons: Number
+    val button: Int
+    val buttons: Int
     val clientX: Double
     val clientY: Double
     val ctrlKey: Boolean

@@ -23,7 +23,7 @@ external interface HTMLAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var slot: String
     var spellCheck: Boolean
     var style: dynamic // CSSProperties
-    var tabIndex: Number
+    var tabIndex: Int
     var title: String
     var translate: String // 'yes' | 'no'
 

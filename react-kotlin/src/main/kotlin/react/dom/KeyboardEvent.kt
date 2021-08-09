@@ -8,7 +8,7 @@ external interface KeyboardEvent<T : Element> : SyntheticEvent<T, NativeKeyboard
     val altKey: Boolean
 
     @Deprecated("Will be removed soon!")
-    val charCode: Number
+    val charCode: Int
     val ctrlKey: Boolean
     val code: String
 
@@ -23,13 +23,13 @@ external interface KeyboardEvent<T : Element> : SyntheticEvent<T, NativeKeyboard
     val key: String
 
     @Deprecated("Will be removed soon!")
-    val keyCode: Number
+    val keyCode: Int
     val locale: String
-    val location: Number
+    val location: Int
     val metaKey: Boolean
     val repeat: Boolean
     val shiftKey: Boolean
 
     @Deprecated("Will be removed soon!")
-    val which: Number
+    val which: Int
 }
