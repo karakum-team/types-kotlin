@@ -53,7 +53,7 @@ external interface HTMLAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var itemType: String
     var itemID: String
     var itemRef: String
-    var results: Number
+    var results: String
     var security: String
     var unselectable: String // 'on' | 'off'
 // Living Standard

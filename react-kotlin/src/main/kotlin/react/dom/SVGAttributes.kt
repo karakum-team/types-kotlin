@@ -211,38 +211,38 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var strokeWidth: Double
     var surfaceScale: Double
     var systemLanguage: String
-    var tableValues: Number
+    var tableValues: String
     var targetX: Double
     var targetY: Double
     var textAnchor: String
-    var textDecoration: Number
-    var textLength: Number
-    var textRendering: Number
-    var to: Number
+    var textDecoration: String
+    var textLength: String
+    var textRendering: String
+    var to: String
     var transform: String
-    var u1: Number
-    var u2: Number
+    var u1: String
+    var u2: String
     var underlinePosition: Double
     var underlineThickness: Double
-    var unicode: Number
-    var unicodeBidi: Number
-    var unicodeRange: Number
-    var unitsPerEm: Number
-    var vAlphabetic: Number
+    var unicode: String
+    var unicodeBidi: String
+    var unicodeRange: String
+    var unitsPerEm: Double
+    var vAlphabetic: Double
     var values: String
-    var vectorEffect: Number
+    var vectorEffect: String
     var version: String
     var vertAdvY: Double
     var vertOriginX: Double
     var vertOriginY: Double
-    var vHanging: Number
-    var vIdeographic: Number
+    var vHanging: Double
+    var vIdeographic: Double
     var viewBox: String
-    var viewTarget: Number
-    var visibility: Number
-    var vMathematical: Number
-    var widths: Number
-    var wordSpacing: Number
+    var viewTarget: String
+    var visibility: String
+    var vMathematical: Double
+    var widths: String
+    var wordSpacing: String
     var writingMode: String
     var x1: Double
     var x2: Double
