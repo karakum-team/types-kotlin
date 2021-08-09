@@ -3,12 +3,15 @@ package com.github.turansky.react
 internal const val DYNAMIC = "dynamic"
 internal const val UNIT = "Unit"
 
+internal const val INT = "Int"
+internal const val DOUBLE = "Double"
+internal const val NUMBER = "Number"
+
 private val STANDARD_TYPE_MAP = mapOf(
     "any" to "Any",
     "object" to "Any",
 
     "boolean" to "Boolean",
-    "number" to "Number",
     "string" to "String",
 
     "void" to UNIT,
@@ -28,7 +31,6 @@ private val STANDARD_TYPE_MAP = mapOf(
     // TODO: check
     "Booleanish" to "Boolean",
     "boolean | string" to "Boolean",
-    "number | string" to "Number",
 
     "string | ReadonlyArray<string> | number" to "String // string | ReadonlyArray<string> | number",
     "string | number | ReadonlyArray<string>" to "String // string | ReadonlyArray<string> | number",
@@ -41,6 +43,9 @@ internal fun kotlinType(
     if ("; // " in type)
         return kotlinType(type.substringBefore("; // "), name) +
                 " // " + type.substringAfter("; // ")
+
+    if (type == "number" || type == "number | string")
+        return numberType(name)
 
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
