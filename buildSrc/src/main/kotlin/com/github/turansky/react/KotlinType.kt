@@ -3,6 +3,8 @@ package com.github.turansky.react
 internal const val DYNAMIC = "dynamic"
 internal const val UNIT = "Unit"
 
+internal const val STRING = "String"
+
 internal const val INT = "Int"
 internal const val DOUBLE = "Double"
 internal const val NUMBER = "Number"

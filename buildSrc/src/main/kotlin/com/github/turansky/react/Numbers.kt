@@ -54,6 +54,23 @@ private val DOUBLE_NAMES = setOf(
     "z",
 
     "r", "radius",
+
+    // SVG
+    "alphabetic",
+    "amplitude",
+    "ascent",
+    "azimuth",
+    "baseFrequency",
+    "bias",
+    "by",
+)
+
+private val STRING_NAMES = setOf(
+    // SVG
+    "baselineShift",
+    "baseProfile",
+    "bbox",
+    "begin",
 )
 
 internal fun numberType(
@@ -62,12 +79,20 @@ internal fun numberType(
     when {
         name in INT_NAMES -> INT
         name in DOUBLE_NAMES -> DOUBLE
+        name in STRING_NAMES -> STRING
 
         name.endsWith("X") -> DOUBLE
         name.endsWith("Y") -> DOUBLE
         name.endsWith("Z") -> DOUBLE
         name.endsWith("Width") -> DOUBLE
         name.endsWith("Height") -> DOUBLE
+
+        name.endsWith("Position") -> DOUBLE
+        name.endsWith("Thickness") -> DOUBLE
+
+        name.endsWith("Color") -> STRING
+        name.endsWith("Mode") -> STRING
+        name.endsWith("Units") -> STRING
 
         else -> {
             println(name)
