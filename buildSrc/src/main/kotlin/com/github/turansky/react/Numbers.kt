@@ -16,6 +16,7 @@ private val INT_NAMES = setOf(
     "charCode",
     "keyCode",
     "detail",
+    "pointerId",
 
     "tabIndex",
     "start",
@@ -104,11 +105,17 @@ private val DOUBLE_NAMES = setOf(
     "stopOpacity",
     "strokeMiterlimit",
     "surfaceScale",
+    "unitsPerEm",
+    "vAlphabetic",
+    "vHanging",
+    "vIdeographic",
+    "vMathematical",
 )
 
 private val STRING_NAMES = setOf(
     "cellPadding",
     "cellSpacing",
+    "results",
 
     // SVG
     "baselineShift",
@@ -181,6 +188,21 @@ private val STRING_NAMES = setOf(
     "string",
     "strokeOpacity",
     "systemLanguage",
+    "tableValues",
+    "textDecoration",
+    "textLength",
+    "textRendering",
+    "to",
+    "u1",
+    "u2",
+    "unicode",
+    "unicodeBidi",
+    "unicodeRange",
+    "vectorEffect",
+    "viewTarget",
+    "visibility",
+    "widths",
+    "wordSpacing",
 )
 
 internal fun numberType(
@@ -204,8 +226,5 @@ internal fun numberType(
         name.endsWith("Mode") -> STRING
         name.endsWith("Units") -> STRING
 
-        else -> {
-            println(name)
-            NUMBER
-        }
+        else -> TODO("Support numberability for `$name`")
     }
