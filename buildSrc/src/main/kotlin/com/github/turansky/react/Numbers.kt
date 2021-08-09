@@ -74,6 +74,17 @@ private val DOUBLE_NAMES = setOf(
     "exponent",
     "filterRes",
     "fontSize",
+    "hanging",
+    "ideographic",
+    "intercept",
+
+    "k",
+    "k1",
+    "k2",
+    "k3",
+    "k4",
+
+    "limitingConeAngle",
 )
 
 private val STRING_NAMES = setOf(
@@ -107,6 +118,25 @@ private val STRING_NAMES = setOf(
     "fontStyle",
     "fontVariant",
     "fontWeight",
+    "format",
+    "from",
+    "g1",
+    "g2",
+    "glyphName",
+    "glyphOrientationHorizontal",
+    "glyphOrientationVertical",
+    "glyphRef",
+    "imageRendering",
+    "in2",
+    "kernelMatrix",
+    "kernelUnitLength",
+    "kerning",
+    "keyPoints",
+    "keySplines",
+    "keyTimes",
+    "lengthAdjust",
+    "letterSpacing",
+    "local",
 )
 
 internal fun numberType(
