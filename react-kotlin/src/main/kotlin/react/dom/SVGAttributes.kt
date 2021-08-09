@@ -88,49 +88,49 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var floodOpacity: String
     var focusable: dynamic // Booleanish | "auto"
     var fontFamily: String
-    var fontSize: String
+    var fontSize: Double
     var fontSizeAdjust: String
     var fontStretch: String
     var fontStyle: String
     var fontVariant: String
     var fontWeight: String
-    var format: Number
-    var from: Number
+    var format: String
+    var from: String
     var fx: Double
     var fy: Double
-    var g1: Number
-    var g2: Number
-    var glyphName: Number
-    var glyphOrientationHorizontal: Number
-    var glyphOrientationVertical: Number
-    var glyphRef: Number
+    var g1: String
+    var g2: String
+    var glyphName: String
+    var glyphOrientationHorizontal: String
+    var glyphOrientationVertical: String
+    var glyphRef: String
     var gradientTransform: String
     var gradientUnits: String
-    var hanging: Number
+    var hanging: Double
     var horizAdvX: Double
     var horizOriginX: Double
     var href: String
-    var ideographic: Number
-    var imageRendering: Number
-    var in2: Number
+    var ideographic: Double
+    var imageRendering: String
+    var in2: String
     var `in`: String
-    var intercept: Number
-    var k1: Number
-    var k2: Number
-    var k3: Number
-    var k4: Number
-    var k: Number
-    var kernelMatrix: Number
-    var kernelUnitLength: Number
-    var kerning: Number
-    var keyPoints: Number
-    var keySplines: Number
-    var keyTimes: Number
-    var lengthAdjust: Number
-    var letterSpacing: Number
+    var intercept: Double
+    var k1: Double
+    var k2: Double
+    var k3: Double
+    var k4: Double
+    var k: Double
+    var kernelMatrix: String
+    var kernelUnitLength: String
+    var kerning: String
+    var keyPoints: String
+    var keySplines: String
+    var keyTimes: String
+    var lengthAdjust: String
+    var letterSpacing: String
     var lightingColor: String
-    var limitingConeAngle: Number
-    var local: Number
+    var limitingConeAngle: Double
+    var local: String
     var markerEnd: String
     var markerHeight: Double
     var markerMid: String
