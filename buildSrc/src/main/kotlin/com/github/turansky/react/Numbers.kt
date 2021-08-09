@@ -33,6 +33,8 @@ private val INT_NAMES = setOf(
     // SVG
     "numOctaves",
     "order",
+    "renderingIntent",
+    "seed",
 )
 
 private val DOUBLE_NAMES = setOf(
@@ -92,6 +94,16 @@ private val DOUBLE_NAMES = setOf(
     "mathematical",
     "opacity",
     "pathLength",
+    "repeatCount",
+    "scale",
+    "slope",
+    "specularConstant",
+    "specularExponent",
+    "stemh",
+    "stemv",
+    "stopOpacity",
+    "strokeMiterlimit",
+    "surfaceScale",
 )
 
 private val STRING_NAMES = setOf(
@@ -155,6 +167,20 @@ private val STRING_NAMES = setOf(
     "panose1",
     "patternTransform",
     "pointerEvents",
+    "repeatDur",
+    "requiredExtensions",
+    "requiredFeatures",
+    "restart",
+    "rotate",
+    "shapeRendering",
+    "spacing",
+    "speed",
+    "startOffset",
+    "stdDeviation",
+    "stitchTiles",
+    "string",
+    "strokeOpacity",
+    "systemLanguage",
 )
 
 internal fun numberType(
