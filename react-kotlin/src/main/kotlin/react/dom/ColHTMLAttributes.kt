@@ -3,6 +3,6 @@
 package react.dom
 
 external interface ColHTMLAttributes<T> : HTMLAttributes<T> {
-    var span: Number
+    var span: Int
     var width: Double
 }

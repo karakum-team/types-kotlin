@@ -3,5 +3,5 @@
 package react.dom
 
 external interface ColgroupHTMLAttributes<T> : HTMLAttributes<T> {
-    var span: Number
+    var span: Int
 }

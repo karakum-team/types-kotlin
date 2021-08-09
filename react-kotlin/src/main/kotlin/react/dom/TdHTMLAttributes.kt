@@ -4,9 +4,9 @@ package react.dom
 
 external interface TdHTMLAttributes<T> : HTMLAttributes<T> {
     var align: String // "left" | "center" | "right" | "justify" | "char"
-    var colSpan: Number
+    var colSpan: Int
     var headers: String
-    var rowSpan: Number
+    var rowSpan: Int
     var scope: String
     var abbr: String
     var height: Double

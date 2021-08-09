@@ -24,7 +24,7 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var cite: String
     var classID: String
     var cols: Number
-    var colSpan: Number
+    var colSpan: Int
     var content: String
     var controls: Boolean
     var coords: String
@@ -85,7 +85,7 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var required: Boolean
     var reversed: Boolean
     var rows: Number
-    var rowSpan: Number
+    var rowSpan: Int
     var sandbox: String
     var scope: String
     var scoped: Boolean
@@ -95,7 +95,7 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var shape: String
     var size: Number
     var sizes: String
-    var span: Number
+    var span: Int
     var src: String
     var srcDoc: String
     var srcLang: String
