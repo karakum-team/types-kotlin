@@ -5,6 +5,12 @@ private val INT_NAMES = setOf(
     "colSpan",
     "rowSpan",
 
+    "maxLength",
+    "minLength",
+
+    "rows",
+    "cols",
+
     "twist",
     "charCode",
     "keyCode",
@@ -27,6 +33,9 @@ private val DOUBLE_NAMES = setOf(
 
     "min",
     "max",
+    "low",
+    "high",
+    "optimum",
     "step",
 
     "elapsedTime",
