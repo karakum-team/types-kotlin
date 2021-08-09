@@ -73,6 +73,7 @@ private val DOUBLE_NAMES = setOf(
     "elevation",
     "exponent",
     "filterRes",
+    "fontSize",
 )
 
 private val STRING_NAMES = setOf(
@@ -101,7 +102,6 @@ private val STRING_NAMES = setOf(
     "end",
     "fillOpacity",
     "floodOpacity",
-    "fontSize",
     "fontSizeAdjust",
     "fontStretch",
     "fontStyle",
