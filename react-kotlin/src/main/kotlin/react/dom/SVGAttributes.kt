@@ -59,8 +59,8 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var contentScriptType: Number
     var contentStyleType: Number
     var cursor: Number
-    var cx: Number
-    var cy: Number
+    var cx: Double
+    var cy: Double
     var d: String
     var decelerate: Number
     var descent: Number
@@ -70,8 +70,8 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var divisor: Number
     var dominantBaseline: Number
     var dur: Number
-    var dx: Number
-    var dy: Number
+    var dx: Double
+    var dy: Double
     var edgeMode: Number
     var elevation: Number
     var enableBackground: Number
@@ -96,8 +96,8 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var fontWeight: Number
     var format: Number
     var from: Number
-    var fx: Number
-    var fy: Number
+    var fx: Double
+    var fy: Double
     var g1: Number
     var g2: Number
     var glyphName: Number
@@ -168,8 +168,8 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var preserveAlpha: Boolean
     var preserveAspectRatio: String
     var primitiveUnits: Number
-    var r: Number
-    var radius: Number
+    var r: Double
+    var radius: Double
     var refX: Double
     var refY: Double
     var renderingIntent: Number
@@ -180,8 +180,8 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var restart: Number
     var result: String
     var rotate: Number
-    var rx: Number
-    var ry: Number
+    var rx: Double
+    var ry: Double
     var scale: Number
     var seed: Number
     var shapeRendering: Number
@@ -244,9 +244,9 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var widths: Number
     var wordSpacing: Number
     var writingMode: Number
-    var x1: Number
-    var x2: Number
-    var x: Number
+    var x1: Double
+    var x2: Double
+    var x: Double
     var xChannelSelector: String
     var xHeight: Double
     var xlinkActuate: String
@@ -261,10 +261,10 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var xmlns: String
     var xmlnsXlink: String
     var xmlSpace: String
-    var y1: Number
-    var y2: Number
-    var y: Number
+    var y1: Double
+    var y2: Double
+    var y: Double
     var yChannelSelector: String
-    var z: Number
+    var z: Double
     var zoomAndPan: String
 }
