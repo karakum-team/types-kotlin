@@ -7,6 +7,7 @@ private val INT_NAMES = setOf(
 
     "maxLength",
     "minLength",
+    "size",
 
     "rows",
     "cols",
@@ -17,6 +18,9 @@ private val INT_NAMES = setOf(
     "detail",
 
     "tabIndex",
+    "start",
+
+    "frameBorder",
 
     // Enums
     "eventPhase",
@@ -66,6 +70,9 @@ private val DOUBLE_NAMES = setOf(
 )
 
 private val STRING_NAMES = setOf(
+    "cellPadding",
+    "cellSpacing",
+
     // SVG
     "baselineShift",
     "baseProfile",
