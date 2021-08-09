@@ -16,8 +16,8 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var autoFocus: Boolean
     var autoPlay: Boolean
     var capture: Boolean
-    var cellPadding: Number
-    var cellSpacing: Number
+    var cellPadding: String
+    var cellSpacing: String
     var charSet: String
     var challenge: String
     var checked: Boolean
@@ -42,7 +42,7 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var formMethod: String
     var formNoValidate: Boolean
     var formTarget: String
-    var frameBorder: Number
+    var frameBorder: Int
     var headers: String
     var height: Double
     var high: Double
@@ -93,14 +93,14 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var seamless: Boolean
     var selected: Boolean
     var shape: String
-    var size: Number
+    var size: Int
     var sizes: String
     var span: Int
     var src: String
     var srcDoc: String
     var srcLang: String
     var srcSet: String
-    var start: Number
+    var start: Int
     var step: Double
     var summary: String
     var target: String

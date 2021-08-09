@@ -8,7 +8,7 @@ external interface IframeHTMLAttributes<T> : HTMLAttributes<T> {
     var allowTransparency: Boolean
 
     @Deprecated("Will be removed soon!")
-    var frameBorder: Number
+    var frameBorder: Int
     var height: Double
     var loading: String // "eager" | "lazy"
 

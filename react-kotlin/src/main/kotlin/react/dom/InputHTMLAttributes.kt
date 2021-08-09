@@ -32,7 +32,7 @@ external interface InputHTMLAttributes<T : Element> : HTMLAttributes<T> {
     override var placeholder: String
     var readOnly: Boolean
     var required: Boolean
-    var size: Number
+    var size: Int
     var src: String
     var step: Double
     var type: String
