@@ -29,6 +29,10 @@ private val INT_NAMES = setOf(
     "button",
     "buttons",
     "deltaMode",
+
+    // SVG
+    "numOctaves",
+    "order",
 )
 
 private val DOUBLE_NAMES = setOf(
@@ -85,6 +89,9 @@ private val DOUBLE_NAMES = setOf(
     "k4",
 
     "limitingConeAngle",
+    "mathematical",
+    "opacity",
+    "pathLength",
 )
 
 private val STRING_NAMES = setOf(
@@ -137,6 +144,17 @@ private val STRING_NAMES = setOf(
     "lengthAdjust",
     "letterSpacing",
     "local",
+    "mode",
+    "offset",
+    "operator",
+    "orient",
+    "orientation",
+    "origin",
+    "overflow",
+    "paintOrder",
+    "panose1",
+    "patternTransform",
+    "pointerEvents",
 )
 
 internal fun numberType(
