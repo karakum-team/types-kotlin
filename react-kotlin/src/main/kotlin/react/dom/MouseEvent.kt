@@ -9,8 +9,8 @@ external interface MouseEvent<T : Element, E : NativeMouseEvent> : UIEvent<T, E>
     val altKey: Boolean
     val button: Number
     val buttons: Number
-    val clientX: Number
-    val clientY: Number
+    val clientX: Double
+    val clientY: Double
     val ctrlKey: Boolean
 
     /**
@@ -18,12 +18,12 @@ external interface MouseEvent<T : Element, E : NativeMouseEvent> : UIEvent<T, E>
      */
     fun getModifierState(key: String): Boolean
     val metaKey: Boolean
-    val movementX: Number
-    val movementY: Number
-    val pageX: Number
-    val pageY: Number
+    val movementX: Double
+    val movementY: Double
+    val pageX: Double
+    val pageY: Double
     val relatedTarget: EventTarget?
-    val screenX: Number
-    val screenY: Number
+    val screenX: Double
+    val screenY: Double
     val shiftKey: Boolean
 }

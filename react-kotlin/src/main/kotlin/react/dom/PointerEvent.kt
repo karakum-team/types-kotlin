@@ -8,8 +8,8 @@ external interface PointerEvent<T : Element> : MouseEvent<T, NativePointerEvent>
     val pointerId: Number
     val pressure: Number
     val tangentialPressure: Number
-    val tiltX: Number
-    val tiltY: Number
+    val tiltX: Double
+    val tiltY: Double
     val twist: Number
     val width: Double
     val height: Double

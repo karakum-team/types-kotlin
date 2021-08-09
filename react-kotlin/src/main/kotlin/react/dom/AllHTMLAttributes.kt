@@ -59,8 +59,8 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var loop: Boolean
     var low: Number
     var manifest: String
-    var marginHeight: Number
-    var marginWidth: Number
+    var marginHeight: Double
+    var marginWidth: Double
     var max: Double
     var maxLength: Number
     var media: String

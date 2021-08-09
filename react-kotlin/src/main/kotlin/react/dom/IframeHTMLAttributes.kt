@@ -13,10 +13,10 @@ external interface IframeHTMLAttributes<T> : HTMLAttributes<T> {
     var loading: String // "eager" | "lazy"
 
     @Deprecated("Will be removed soon!")
-    var marginHeight: Number
+    var marginHeight: Double
 
     @Deprecated("Will be removed soon!")
-    var marginWidth: Number
+    var marginWidth: Double
     var name: String
     var referrerPolicy: HTMLAttributeReferrerPolicy
     var sandbox: String

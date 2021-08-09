@@ -26,7 +26,7 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var crossOrigin: String // "anonymous" | "use-credentials" | ""
 
     // SVG Specific attributes
-    var accentHeight: Number
+    var accentHeight: Double
     var accumulate: String // "none" | "sum"
     var additive: String // "replace" | "sum"
     var alignmentBaseline: String // "auto" | "baseline" | "before-edge" | "text-before-edge" | "middle" | "central" | "after-edge" |"text-after-edge" | "ideographic" | "alphabetic" | "hanging" | "mathematical" | "inherit"
@@ -47,7 +47,7 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var bias: Number
     var by: Number
     var calcMode: Number
-    var capHeight: Number
+    var capHeight: Double
     var clip: Number
     var clipPath: String
     var clipPathUnits: Number
@@ -107,8 +107,8 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var gradientTransform: String
     var gradientUnits: String
     var hanging: Number
-    var horizAdvX: Number
-    var horizOriginX: Number
+    var horizAdvX: Double
+    var horizOriginX: Double
     var href: String
     var ideographic: Number
     var imageRendering: Number
@@ -132,11 +132,11 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var limitingConeAngle: Number
     var local: Number
     var markerEnd: String
-    var markerHeight: Number
+    var markerHeight: Double
     var markerMid: String
     var markerStart: String
     var markerUnits: Number
-    var markerWidth: Number
+    var markerWidth: Double
     var mask: String
     var maskContentUnits: Number
     var maskUnits: Number
@@ -162,16 +162,16 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var patternUnits: String
     var pointerEvents: Number
     var points: String
-    var pointsAtX: Number
-    var pointsAtY: Number
-    var pointsAtZ: Number
+    var pointsAtX: Double
+    var pointsAtY: Double
+    var pointsAtZ: Double
     var preserveAlpha: Boolean
     var preserveAspectRatio: String
     var primitiveUnits: Number
     var r: Number
     var radius: Number
-    var refX: Number
-    var refY: Number
+    var refX: Double
+    var refY: Double
     var renderingIntent: Number
     var repeatCount: Number
     var repeatDur: Number
@@ -208,12 +208,12 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var strokeLinejoin: String // "miter" | "round" | "bevel" | "inherit"
     var strokeMiterlimit: Number
     var strokeOpacity: Number
-    var strokeWidth: Number
+    var strokeWidth: Double
     var surfaceScale: Number
     var systemLanguage: Number
     var tableValues: Number
-    var targetX: Number
-    var targetY: Number
+    var targetX: Double
+    var targetY: Double
     var textAnchor: String
     var textDecoration: Number
     var textLength: Number
@@ -232,9 +232,9 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var values: String
     var vectorEffect: Number
     var version: String
-    var vertAdvY: Number
-    var vertOriginX: Number
-    var vertOriginY: Number
+    var vertAdvY: Double
+    var vertOriginX: Double
+    var vertOriginY: Double
     var vHanging: Number
     var vIdeographic: Number
     var viewBox: String
@@ -248,7 +248,7 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var x2: Number
     var x: Number
     var xChannelSelector: String
-    var xHeight: Number
+    var xHeight: Double
     var xlinkActuate: String
     var xlinkArcrole: String
     var xlinkHref: String
