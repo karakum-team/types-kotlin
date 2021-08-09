@@ -140,27 +140,27 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var mask: String
     var maskContentUnits: String
     var maskUnits: String
-    var mathematical: Number
-    var mode: Number
-    var numOctaves: Number
-    var offset: Number
-    var opacity: Number
-    var operator: Number
-    var order: Number
-    var orient: Number
-    var orientation: Number
-    var origin: Number
-    var overflow: Number
+    var mathematical: Double
+    var mode: String
+    var numOctaves: Int
+    var offset: String
+    var opacity: Double
+    var operator: String
+    var order: Int
+    var orient: String
+    var orientation: String
+    var origin: String
+    var overflow: String
     var overlinePosition: Double
     var overlineThickness: Double
-    var paintOrder: Number
-    var panose1: Number
+    var paintOrder: String
+    var panose1: String
     var path: String
-    var pathLength: Number
+    var pathLength: Double
     var patternContentUnits: String
-    var patternTransform: Number
+    var patternTransform: String
     var patternUnits: String
-    var pointerEvents: Number
+    var pointerEvents: String
     var points: String
     var pointsAtX: Double
     var pointsAtY: Double
