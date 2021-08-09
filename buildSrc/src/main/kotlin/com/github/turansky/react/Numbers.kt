@@ -34,6 +34,17 @@ private val DOUBLE_NAMES = setOf(
 
     "pressure",
     "tangentialPressure",
+
+    "cx", "cy",
+    "dx", "dy",
+    "fx", "fy",
+    "rx", "ry",
+
+    "x", "x1", "x2",
+    "y", "y1", "y2",
+    "z",
+
+    "r", "radius",
 )
 
 internal fun numberType(
