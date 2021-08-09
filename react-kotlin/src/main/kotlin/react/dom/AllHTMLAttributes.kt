@@ -23,7 +23,7 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var checked: Boolean
     var cite: String
     var classID: String
-    var cols: Number
+    var cols: Int
     var colSpan: Int
     var content: String
     var controls: Boolean
@@ -45,7 +45,7 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var frameBorder: Number
     var headers: String
     var height: Double
-    var high: Number
+    var high: Double
     var href: String
     var hrefLang: String
     var htmlFor: String
@@ -57,24 +57,24 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var label: String
     var list: String
     var loop: Boolean
-    var low: Number
+    var low: Double
     var manifest: String
     var marginHeight: Double
     var marginWidth: Double
     var max: Double
-    var maxLength: Number
+    var maxLength: Int
     var media: String
     var mediaGroup: String
     var method: String
     var min: Double
-    var minLength: Number
+    var minLength: Int
     var multiple: Boolean
     var muted: Boolean
     var name: String
     var nonce: String
     var noValidate: Boolean
     var open: Boolean
-    var optimum: Number
+    var optimum: Double
     var pattern: String
     override var placeholder: String
     var playsInline: Boolean
@@ -84,7 +84,7 @@ external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
     var rel: String
     var required: Boolean
     var reversed: Boolean
-    var rows: Number
+    var rows: Int
     var rowSpan: Int
     var sandbox: String
     var scope: String

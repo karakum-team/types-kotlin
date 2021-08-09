@@ -23,9 +23,9 @@ external interface InputHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var height: Double
     var list: String
     var max: Double
-    var maxLength: Number
+    var maxLength: Int
     var min: Double
-    var minLength: Number
+    var minLength: Int
     var multiple: Boolean
     var name: String
     var pattern: String

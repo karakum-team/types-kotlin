@@ -7,17 +7,17 @@ import org.w3c.dom.Element
 external interface TextareaHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var autoComplete: String
     var autoFocus: Boolean
-    var cols: Number
+    var cols: Int
     var dirName: String
     var disabled: Boolean
     var form: String
-    var maxLength: Number
-    var minLength: Number
+    var maxLength: Int
+    var minLength: Int
     var name: String
     override var placeholder: String
     var readOnly: Boolean
     var required: Boolean
-    var rows: Number
+    var rows: Int
     var value: String // string | ReadonlyArray<string> | number
     var wrap: String
     var onChange: ChangeEventHandler<T>
