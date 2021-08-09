@@ -67,6 +67,12 @@ private val DOUBLE_NAMES = setOf(
     "baseFrequency",
     "bias",
     "by",
+    "descent",
+    "diffuseConstant",
+    "divisor",
+    "elevation",
+    "exponent",
+    "filterRes",
 )
 
 private val STRING_NAMES = setOf(
@@ -78,6 +84,29 @@ private val STRING_NAMES = setOf(
     "baseProfile",
     "bbox",
     "begin",
+    "clip",
+    "clipRule",
+    "colorInterpolation",
+    "colorProfile",
+    "colorRendering",
+    "contentScriptType",
+    "contentStyleType",
+    "cursor",
+    "decelerate",
+    "direction",
+    "display",
+    "dominantBaseline",
+    "dur",
+    "enableBackground",
+    "end",
+    "fillOpacity",
+    "floodOpacity",
+    "fontSize",
+    "fontSizeAdjust",
+    "fontStretch",
+    "fontStyle",
+    "fontVariant",
+    "fontWeight",
 )
 
 internal fun numberType(
