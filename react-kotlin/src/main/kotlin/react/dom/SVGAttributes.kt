@@ -172,45 +172,45 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var radius: Double
     var refX: Double
     var refY: Double
-    var renderingIntent: Number
-    var repeatCount: Number
-    var repeatDur: Number
-    var requiredExtensions: Number
-    var requiredFeatures: Number
-    var restart: Number
+    var renderingIntent: Int
+    var repeatCount: Double
+    var repeatDur: String
+    var requiredExtensions: String
+    var requiredFeatures: String
+    var restart: String
     var result: String
-    var rotate: Number
+    var rotate: String
     var rx: Double
     var ry: Double
-    var scale: Number
-    var seed: Number
-    var shapeRendering: Number
-    var slope: Number
-    var spacing: Number
-    var specularConstant: Number
-    var specularExponent: Number
-    var speed: Number
+    var scale: Double
+    var seed: Int
+    var shapeRendering: String
+    var slope: Double
+    var spacing: String
+    var specularConstant: Double
+    var specularExponent: Double
+    var speed: String
     var spreadMethod: String
-    var startOffset: Number
-    var stdDeviation: Number
-    var stemh: Number
-    var stemv: Number
-    var stitchTiles: Number
+    var startOffset: String
+    var stdDeviation: String
+    var stemh: Double
+    var stemv: Double
+    var stitchTiles: String
     var stopColor: String
-    var stopOpacity: Number
+    var stopOpacity: Double
     var strikethroughPosition: Double
     var strikethroughThickness: Double
-    var string: Number
+    var string: String
     var stroke: String
     var strokeDasharray: dynamic // string | number
     var strokeDashoffset: dynamic // string | number
     var strokeLinecap: String // "butt" | "round" | "square" | "inherit"
     var strokeLinejoin: String // "miter" | "round" | "bevel" | "inherit"
-    var strokeMiterlimit: Number
-    var strokeOpacity: Number
+    var strokeMiterlimit: Double
+    var strokeOpacity: String
     var strokeWidth: Double
-    var surfaceScale: Number
-    var systemLanguage: Number
+    var surfaceScale: Double
+    var systemLanguage: String
     var tableValues: Number
     var targetX: Double
     var targetY: Double
