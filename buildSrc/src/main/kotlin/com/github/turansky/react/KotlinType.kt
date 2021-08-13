@@ -7,7 +7,6 @@ internal const val STRING = "String"
 
 internal const val INT = "Int"
 internal const val DOUBLE = "Double"
-internal const val NUMBER = "Number"
 
 private val STANDARD_TYPE_MAP = mapOf(
     "any" to "Any",
@@ -42,6 +41,9 @@ internal fun kotlinType(
     type: String,
     name: String,
 ): String {
+    if (type.endsWith(" | undefined"))
+        return kotlinType(type.removeSuffix(" | undefined"), name)
+
     if ("; // " in type)
         return kotlinType(type.substringBefore("; // "), name) +
                 " // " + type.substringAfter("; // ")

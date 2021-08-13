@@ -8,6 +8,12 @@ internal data class ConversionResult(
 )
 
 // TODO: generate
+private val HTML_ATTRIBUTE_ANCHOR_TARGET = ConversionResult(
+    name = "HTMLAttributeAnchorTarget",
+    body = "typealias HTMLAttributeAnchorTarget = String",
+)
+
+// TODO: generate
 private val HTML_ATTRIBUTE_REFERRER_POLICY = ConversionResult(
     name = "HTMLAttributeReferrerPolicy",
     body = "typealias HTMLAttributeReferrerPolicy = String",
@@ -45,6 +51,7 @@ internal fun convertDefinitions(
         }
         .plus(convertNativeEvents(content))
         .plus(convertEventHandlers(reactContent))
+        .plus(HTML_ATTRIBUTE_ANCHOR_TARGET)
         .plus(HTML_ATTRIBUTE_REFERRER_POLICY)
         .plus(ARIA_ROLE)
 }
@@ -176,7 +183,7 @@ private fun convertAttributesInterface(
     }
 
     val content = when (name) {
-        "DOMAttributes" -> source.substringAfter("};\n\n")
+        "DOMAttributes" -> source.substringAfter("} | undefined;\n\n")
         else -> source
     }
 

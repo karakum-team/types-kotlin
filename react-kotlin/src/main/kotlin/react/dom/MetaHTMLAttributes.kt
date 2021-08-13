@@ -7,4 +7,5 @@ external interface MetaHTMLAttributes<T> : HTMLAttributes<T> {
     var content: String
     var httpEquiv: String
     var name: String
+    var media: String
 }
