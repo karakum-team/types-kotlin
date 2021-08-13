@@ -39,7 +39,18 @@ internal fun convertDefinitions(
         .substringBefore("\n}\n")
         .trimIndent()
 
-    return reactContent.splitToSequence("\ninterface ")
+    return convertInterfaces(reactContent)
+        .plus(convertNativeEvents(content))
+        .plus(convertEventHandlers(reactContent))
+        .plus(HTML_ATTRIBUTE_ANCHOR_TARGET)
+        .plus(HTML_ATTRIBUTE_REFERRER_POLICY)
+        .plus(ARIA_ROLE)
+}
+
+private fun convertInterfaces(
+    content: String,
+): Sequence<ConversionResult> =
+    content.splitToSequence("\ninterface ")
         .drop(1)
         .map { it.substringBefore("\n}\n") }
         .mapNotNull {
@@ -49,12 +60,6 @@ internal fun convertDefinitions(
                 source = it,
             )
         }
-        .plus(convertNativeEvents(content))
-        .plus(convertEventHandlers(reactContent))
-        .plus(HTML_ATTRIBUTE_ANCHOR_TARGET)
-        .plus(HTML_ATTRIBUTE_REFERRER_POLICY)
-        .plus(ARIA_ROLE)
-}
 
 private val NATIVE_EVENT_REPLACEMENT = mapOf(
     "AnimationEvent" to "Event",
