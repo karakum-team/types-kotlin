@@ -31,7 +31,7 @@ external interface HTMLAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var radioGroup: String // <command>, <menuitem>
 
     // WAI-ARIA
-    var role: String
+    var role: AriaRole
 
     // RDFa Attributes
     var about: String

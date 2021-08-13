@@ -13,6 +13,12 @@ private val HTML_ATTRIBUTE_REFERRER_POLICY = ConversionResult(
     body = "typealias HTMLAttributeReferrerPolicy = String",
 )
 
+// TODO: generate
+private val ARIA_ROLE = ConversionResult(
+    name = "AriaRole",
+    body = "typealias AriaRole = String",
+)
+
 internal fun convertDefinitions(
     definitionFile: File,
 ): Sequence<ConversionResult> {
@@ -40,6 +46,7 @@ internal fun convertDefinitions(
         .plus(convertNativeEvents(content))
         .plus(convertEventHandlers(reactContent))
         .plus(HTML_ATTRIBUTE_REFERRER_POLICY)
+        .plus(ARIA_ROLE)
 }
 
 private val NATIVE_EVENT_REPLACEMENT = mapOf(

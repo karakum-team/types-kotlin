@@ -21,7 +21,7 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var width: Double
 
     // Other HTML properties supported by SVG elements in browsers
-    var role: String
+    var role: AriaRole
     var tabIndex: Int
     var crossOrigin: String // "anonymous" | "use-credentials" | ""
 
