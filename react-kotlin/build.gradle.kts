@@ -4,7 +4,7 @@ plugins {
 }
 
 val reactTypesVersion = property("react-types.version") as String
-val kotlinWrappersVersion = "0.0.1-pre.228-kotlin-1.5.21"
+val kotlinWrappersVersion = "0.0.1-pre.231-kotlin-1.5.21"
 
 dependencies {
     implementation(npm("@types/react", reactTypesVersion))
