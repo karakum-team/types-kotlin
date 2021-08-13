@@ -7,24 +7,6 @@ internal data class ConversionResult(
     val body: String,
 )
 
-// TODO: generate
-private val HTML_ATTRIBUTE_ANCHOR_TARGET = ConversionResult(
-    name = "HTMLAttributeAnchorTarget",
-    body = "typealias HTMLAttributeAnchorTarget = String",
-)
-
-// TODO: generate
-private val HTML_ATTRIBUTE_REFERRER_POLICY = ConversionResult(
-    name = "HTMLAttributeReferrerPolicy",
-    body = "typealias HTMLAttributeReferrerPolicy = String",
-)
-
-// TODO: generate
-private val ARIA_ROLE = ConversionResult(
-    name = "AriaRole",
-    body = "typealias AriaRole = String",
-)
-
 internal fun convertDefinitions(
     definitionFile: File,
 ): Sequence<ConversionResult> {
@@ -40,12 +22,23 @@ internal fun convertDefinitions(
         .trimIndent()
 
     return convertInterfaces(reactContent)
+        .plus(convertUnions(reactContent))
         .plus(convertNativeEvents(content))
         .plus(convertEventHandlers(reactContent))
-        .plus(HTML_ATTRIBUTE_ANCHOR_TARGET)
-        .plus(HTML_ATTRIBUTE_REFERRER_POLICY)
-        .plus(ARIA_ROLE)
 }
+
+private fun convertUnions(
+    content: String,
+): Sequence<ConversionResult> =
+    content.splitToSequence("\ntype ")
+        .drop(1)
+        .map { it.substringBefore(";") }
+        .mapNotNull {
+            convertUnion(
+                name = it.substringBefore(" ="),
+                source = it.substringAfter(" =")
+            )
+        }
 
 private fun convertInterfaces(
     content: String,
@@ -115,6 +108,19 @@ private const val INTRINSIC_TYPE_IMPORT = "import react.IntrinsicType"
 
 private const val SVG_TYPE = "DefaultSvgType"
 private const val SVG_TYPE_DECLARATION = "typealias $SVG_TYPE = IntrinsicType<SVGAttributes<org.w3c.dom.svg.SVGElement>>"
+
+private fun convertUnion(
+    name: String,
+    source: String,
+): ConversionResult? {
+    if ("<" in name)
+        return null
+
+    if (" | '" !in source)
+        return null
+
+    return ConversionResult(name, "typealias $name = String")
+}
 
 private fun convertInterface(
     name: String,
