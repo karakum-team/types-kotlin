@@ -4,17 +4,17 @@ package react.dom
 
 @Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
 // language=JavaScript
-@JsName("""({none: '', no_referrer: 'no-referrer', no_referrer_when_downgrade: 'no-referrer-when-downgrade', origin: 'origin', origin_when_cross_origin: 'origin-when-cross-origin', same_origin: 'same-origin', strict_origin: 'strict-origin', strict_origin_when_cross_origin: 'strict-origin-when-cross-origin', unsafe_url: 'unsafe-url'})""")
+@JsName("""({none: '', noReferrer: 'no-referrer', noReferrerWhenDowngrade: 'no-referrer-when-downgrade', origin: 'origin', originWhenCrossOrigin: 'origin-when-cross-origin', sameOrigin: 'same-origin', strictOrigin: 'strict-origin', strictOriginWhenCrossOrigin: 'strict-origin-when-cross-origin', unsafeUrl: 'unsafe-url'})""")
 external enum class HTMLAttributeReferrerPolicy {
     none,
-    no_referrer,
-    no_referrer_when_downgrade,
+    noReferrer,
+    noReferrerWhenDowngrade,
     origin,
-    origin_when_cross_origin,
-    same_origin,
-    strict_origin,
-    strict_origin_when_cross_origin,
-    unsafe_url,
+    originWhenCrossOrigin,
+    sameOrigin,
+    strictOrigin,
+    strictOriginWhenCrossOrigin,
+    unsafeUrl,
 
     ;
 }
