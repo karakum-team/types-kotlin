@@ -10,5 +10,44 @@ internal fun convertUnion(
     if (" | '" !in source)
         return null
 
-    return ConversionResult(name, "typealias $name = String")
+    val constMap = source.removePrefix("\n")
+        .trimIndent()
+        .splitToSequence("\n")
+        .map { it.removePrefix("| ") }
+        .filter { it != "(string & {})" }
+        .map { it.removeSurrounding("'") }
+        .associateBy { enumConstant(it) }
+
+    val jsName = constMap.asSequence()
+        .joinToString(
+            separator = ", ",
+            prefix = "@JsName(\"\"\"({",
+            postfix = "})\"\"\")",
+        ) { (key, value) ->
+            "$key: '$value'"
+        }
+
+    val constantNames = constMap.keys
+        .joinToString("") { "$it,\n" }
+
+    val body = """
+        @Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
+        // language=JavaScript
+        $jsName
+        external enum class $name {
+            $constantNames
+            ;
+        }
+    """.trimIndent()
+
+    return ConversionResult(name, body)
 }
+
+private fun enumConstant(
+    value: String,
+): String =
+    when {
+        value == "" -> "none"
+        "-" !in value -> value
+        else -> value.replace("-", "_")
+    }
