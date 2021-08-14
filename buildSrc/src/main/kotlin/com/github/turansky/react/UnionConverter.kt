@@ -49,5 +49,7 @@ private fun enumConstant(
     when {
         value == "" -> "none"
         "-" !in value -> value
-        else -> value.replace("-", "_")
+        else -> value.replace(Regex("""-(\w)""")) {
+            it.groupValues[1].toUpperCase()
+        }
     }
