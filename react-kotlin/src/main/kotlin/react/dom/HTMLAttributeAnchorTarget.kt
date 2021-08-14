@@ -2,4 +2,14 @@
 
 package react.dom
 
-typealias HTMLAttributeAnchorTarget = String
+@Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
+// language=JavaScript
+@JsName("""({_self: '_self', _blank: '_blank', _parent: '_parent', _top: '_top'})""")
+external enum class HTMLAttributeAnchorTarget {
+    _self,
+    _blank,
+    _parent,
+    _top,
+
+    ;
+}
