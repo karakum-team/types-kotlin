@@ -1,12 +1,18 @@
 package com.github.turansky.react
 
-private val NATIVE_EVENT_REPLACEMENT = mapOf(
-    "AnimationEvent" to "Event",
-    "ClipboardEvent" to "Event",
-    "DragEvent" to "MouseEvent",
-    "TouchEvent" to "MouseEvent",
-    "PointerEvent" to "MouseEvent",
-    "TransitionEvent" to "Event",
+private val TYPE_MAP = mapOf(
+    "AnimationEvent" to "org.w3c.dom.events.Event",
+    "ClipboardEvent" to "org.w3c.dom.clipboard.ClipboardEvent",
+    "CompositionEvent" to "org.w3c.dom.events.CompositionEvent",
+    "DragEvent" to "org.w3c.dom.DragEvent",
+    "FocusEvent" to "org.w3c.dom.events.FocusEvent",
+    "KeyboardEvent" to "org.w3c.dom.events.KeyboardEvent",
+    "MouseEvent" to "org.w3c.dom.events.MouseEvent",
+    "TouchEvent" to "org.w3c.dom.TouchEvent",
+    "PointerEvent" to "org.w3c.dom.pointerevents.PointerEvent",
+    "TransitionEvent" to "org.w3c.dom.events.Event",
+    "UIEvent" to "org.w3c.dom.events.UIEvent",
+    "WheelEvent" to "org.w3c.dom.events.WheelEvent",
 )
 
 internal fun convertNativeEvents(
@@ -14,17 +20,16 @@ internal fun convertNativeEvents(
 ): ConversionResult {
     val body = source.splitToSequence("\n")
         .filter { it.startsWith("type Native") }
-        .joinToString("\n\n") { line ->
+        .joinToString("\n\n", postfix = "\n") { line ->
             val name = line.removePrefix("type ")
                 .substringBefore(" = ")
 
             val alias = line.substringAfter(" = ")
                 .removeSuffix(";")
-                .let { NATIVE_EVENT_REPLACEMENT[it] ?: it }
+                .let { TYPE_MAP.getValue(it) }
 
-            "typealias $name = org.w3c.dom.events.$alias"
+            "typealias $name = $alias"
         }
-
 
     return ConversionResult("NativeEvents", body)
 }
