@@ -36,7 +36,7 @@ external interface InputHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var src: String
     var step: Double
     var type: String
-    var value: String // string | ReadonlyArray<string> | number
+    var value: String
     var width: Double
     var onChange: ChangeEventHandler<T>
 }

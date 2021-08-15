@@ -3,5 +3,5 @@
 package react.dom
 
 external interface LiHTMLAttributes<T> : HTMLAttributes<T> {
-    var value: String // string | ReadonlyArray<string> | number
+    var value: String
 }

@@ -5,7 +5,7 @@ package react.dom
 external interface HTMLAttributes<T> : AriaAttributes, DOMAttributes<T> {
     // React-specific Attributes
     var defaultChecked: Boolean
-    var defaultValue: String // string | ReadonlyArray<string> | number
+    var defaultValue: String
     var suppressContentEditableWarning: Boolean
     var suppressHydrationWarning: Boolean
 
