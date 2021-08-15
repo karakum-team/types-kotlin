@@ -46,7 +46,7 @@ private fun convertInterfaces(
     content.splitToSequence("\ninterface ")
         .drop(1)
         .map { it.substringBefore("\n}\n") }
-        .mapNotNull {
+        .flatMap {
             convertInterface(
                 name = it.substringBefore(" ")
                     .substringBefore("<"),
