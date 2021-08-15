@@ -7,7 +7,9 @@ interface TypeConverter {
     ): String
 }
 
-class SimpleTypeConverter : TypeConverter {
+class SimpleTypeConverter(
+    private val parentName: String,
+) : TypeConverter {
     override fun convert(
         type: String,
         name: String,

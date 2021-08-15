@@ -9,7 +9,7 @@ internal fun convertInterface(
     name: String,
     source: String,
 ): Sequence<ConversionResult> {
-    val typeConverter = SimpleTypeConverter()
+    val typeConverter = SimpleTypeConverter(name)
     val result = when {
         name.endsWith("Event") -> convertEventInterface(name, source, typeConverter)
         name.endsWith("Attributes") -> convertAttributesInterface(name, source, typeConverter)
