@@ -60,6 +60,8 @@ private fun convertProperty(
 ): String {
     val name = source.substringBefore(": ")
         .removeSuffix("?")
+        .removeSurrounding("'")
+
     val id = when (name) {
         "is", "as", "typeof", "in" -> "`$name`"
         else -> name
