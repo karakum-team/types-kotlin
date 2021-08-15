@@ -61,10 +61,18 @@ private fun convertAttributesInterface(
         else -> members
     }
 
-    val body = "import org.w3c.dom.Element\n\n" +
-            "external interface $declaration {\n" +
-            members +
-            "\n}\n"
+    val body = if (name == "AriaAttributes") {
+        val adapterName = "${name}LegacyAdapter"
+        "external interface $name: $adapterName\n\n" +
+                "sealed interface $adapterName {\n" +
+                members +
+                "\n}\n"
+    } else {
+        "import org.w3c.dom.Element\n\n" +
+                "external interface $declaration {\n" +
+                members +
+                "\n}\n"
+    }
 
     return ConversionResult(name, body)
 }
