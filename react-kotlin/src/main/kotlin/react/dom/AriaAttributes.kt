@@ -11,7 +11,7 @@ external interface AriaAttributes : AriaAttributesLegacyAdapter
 
 sealed interface AriaAttributesLegacyAdapter {
     /** Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application. */
-    inline var ariaActivedescendant: String
+    inline var ariaActiveDescendant: String
         get() = asDynamic()["aria-activedescendant"]
         set(value) {
             asDynamic()["aria-activedescendant"] = value
@@ -28,7 +28,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be
      * presented if they are made.
      */
-    inline var ariaAutocomplete: String // 'none' | 'inline' | 'list' | 'both'
+    inline var ariaAutoComplete: String // 'none' | 'inline' | 'list' | 'both'
         get() = asDynamic()["aria-autocomplete"]
         set(value) {
             asDynamic()["aria-autocomplete"] = value
@@ -55,7 +55,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Defines the total number of columns in a table, grid, or treegrid.
      * @see aria-colindex.
      */
-    inline var ariaColcount: Int
+    inline var ariaColCount: Int
         get() = asDynamic()["aria-colcount"]
         set(value) {
             asDynamic()["aria-colcount"] = value
@@ -65,7 +65,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid.
      * @see aria-colcount @see aria-colspan.
      */
-    inline var ariaColindex: Int
+    inline var ariaColIndex: Int
         get() = asDynamic()["aria-colindex"]
         set(value) {
             asDynamic()["aria-colindex"] = value
@@ -75,7 +75,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Defines the number of columns spanned by a cell or gridcell within a table, grid, or treegrid.
      * @see aria-colindex @see aria-rowspan.
      */
-    inline var ariaColspan: Int
+    inline var ariaColSpan: Int
         get() = asDynamic()["aria-colspan"]
         set(value) {
             asDynamic()["aria-colspan"] = value
@@ -102,7 +102,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Identifies the element (or elements) that describes the object.
      * @see aria-labelledby
      */
-    inline var ariaDescribedby: String
+    inline var ariaDescribedBy: String
         get() = asDynamic()["aria-describedby"]
         set(value) {
             asDynamic()["aria-describedby"] = value
@@ -132,7 +132,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Indicates what functions can be performed when a dragged object is released on the drop target.
      * @deprecated in ARIA 1.1
      */
-    inline var ariaDropeffect: String // 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup'
+    inline var ariaDropEffect: String // 'none' | 'copy' | 'execute' | 'link' | 'move' | 'popup'
         get() = asDynamic()["aria-dropeffect"]
         set(value) {
             asDynamic()["aria-dropeffect"] = value
@@ -142,7 +142,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Identifies the element that provides an error message for the object.
      * @see aria-invalid @see aria-describedby.
      */
-    inline var ariaErrormessage: String
+    inline var ariaErrorMessage: String
         get() = asDynamic()["aria-errormessage"]
         set(value) {
             asDynamic()["aria-errormessage"] = value
@@ -159,7 +159,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion,
      * allows assistive technology to override the general default of reading in document source order.
      */
-    inline var ariaFlowto: String
+    inline var ariaFlowTo: String
         get() = asDynamic()["aria-flowto"]
         set(value) {
             asDynamic()["aria-flowto"] = value
@@ -176,7 +176,7 @@ sealed interface AriaAttributesLegacyAdapter {
         }
 
     /** Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element. */
-    inline var ariaHaspopup: String // boolean | 'false' | 'true' | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog'
+    inline var ariaHasPopup: String // boolean | 'false' | 'true' | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog'
         get() = asDynamic()["aria-haspopup"]
         set(value) {
             asDynamic()["aria-haspopup"] = value
@@ -203,7 +203,7 @@ sealed interface AriaAttributesLegacyAdapter {
         }
 
     /** Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element. */
-    inline var ariaKeyshortcuts: String
+    inline var ariaKeyShortcuts: String
         get() = asDynamic()["aria-keyshortcuts"]
         set(value) {
             asDynamic()["aria-keyshortcuts"] = value
@@ -223,7 +223,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Identifies the element (or elements) that labels the current element.
      * @see aria-describedby.
      */
-    inline var ariaLabelledby: String
+    inline var ariaLabelledBy: String
         get() = asDynamic()["aria-labelledby"]
         set(value) {
             asDynamic()["aria-labelledby"] = value
@@ -258,7 +258,7 @@ sealed interface AriaAttributesLegacyAdapter {
         }
 
     /** Indicates that the user may select more than one item from the current selectable descendants. */
-    inline var ariaMultiselectable: Boolean
+    inline var ariaMultiSelectable: Boolean
         get() = asDynamic()["aria-multiselectable"]
         set(value) {
             asDynamic()["aria-multiselectable"] = value
@@ -296,7 +296,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Defines an element's number or position in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM.
      * @see aria-setsize.
      */
-    inline var ariaPosinset: Int
+    inline var ariaPosInSet: Int
         get() = asDynamic()["aria-posinset"]
         set(value) {
             asDynamic()["aria-posinset"] = value
@@ -316,7 +316,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Indicates that the element is not editable, but is otherwise operable.
      * @see aria-disabled.
      */
-    inline var ariaReadonly: Boolean
+    inline var ariaReadOnly: Boolean
         get() = asDynamic()["aria-readonly"]
         set(value) {
             asDynamic()["aria-readonly"] = value
@@ -340,7 +340,7 @@ sealed interface AriaAttributesLegacyAdapter {
         }
 
     /** Defines a human-readable, author-localized description for the role of an element. */
-    inline var ariaRoledescription: String
+    inline var ariaRoleDescription: String
         get() = asDynamic()["aria-roledescription"]
         set(value) {
             asDynamic()["aria-roledescription"] = value
@@ -350,7 +350,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Defines the total number of rows in a table, grid, or treegrid.
      * @see aria-rowindex.
      */
-    inline var ariaRowcount: Int
+    inline var ariaRowCount: Int
         get() = asDynamic()["aria-rowcount"]
         set(value) {
             asDynamic()["aria-rowcount"] = value
@@ -360,7 +360,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid.
      * @see aria-rowcount @see aria-rowspan.
      */
-    inline var ariaRowindex: Int
+    inline var ariaRowIndex: Int
         get() = asDynamic()["aria-rowindex"]
         set(value) {
             asDynamic()["aria-rowindex"] = value
@@ -370,7 +370,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Defines the number of rows spanned by a cell or gridcell within a table, grid, or treegrid.
      * @see aria-rowindex @see aria-colspan.
      */
-    inline var ariaRowspan: Int
+    inline var ariaRowSpan: Int
         get() = asDynamic()["aria-rowspan"]
         set(value) {
             asDynamic()["aria-rowspan"] = value
@@ -390,7 +390,7 @@ sealed interface AriaAttributesLegacyAdapter {
      * Defines the number of items in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM.
      * @see aria-posinset.
      */
-    inline var ariaSetsize: Int
+    inline var ariaSetSize: Int
         get() = asDynamic()["aria-setsize"]
         set(value) {
             asDynamic()["aria-setsize"] = value
@@ -404,14 +404,14 @@ sealed interface AriaAttributesLegacyAdapter {
         }
 
     /** Defines the maximum allowed value for a range widget. */
-    inline var ariaValuemax: Double
+    inline var ariaValueMax: Double
         get() = asDynamic()["aria-valuemax"]
         set(value) {
             asDynamic()["aria-valuemax"] = value
         }
 
     /** Defines the minimum allowed value for a range widget. */
-    inline var ariaValuemin: Double
+    inline var ariaValueMin: Double
         get() = asDynamic()["aria-valuemin"]
         set(value) {
             asDynamic()["aria-valuemin"] = value
@@ -421,14 +421,14 @@ sealed interface AriaAttributesLegacyAdapter {
      * Defines the current value for a range widget.
      * @see aria-valuetext.
      */
-    inline var ariaValuenow: Double
+    inline var ariaValueNow: Double
         get() = asDynamic()["aria-valuenow"]
         set(value) {
             asDynamic()["aria-valuenow"] = value
         }
 
     /** Defines the human readable text alternative of aria-valuenow for a range widget. */
-    inline var ariaValuetext: String
+    inline var ariaValueText: String
         get() = asDynamic()["aria-valuetext"]
         set(value) {
             asDynamic()["aria-valuetext"] = value
