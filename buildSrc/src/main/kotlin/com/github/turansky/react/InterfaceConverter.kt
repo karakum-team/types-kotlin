@@ -20,7 +20,7 @@ internal fun convertInterface(
 
     result ?: return emptySequence()
 
-    return sequenceOf(result)
+    return sequenceOf(result) + typeConverter.unions
 }
 
 private fun convertAttributesInterface(
