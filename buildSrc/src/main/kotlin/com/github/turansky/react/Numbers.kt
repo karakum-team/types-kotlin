@@ -31,6 +31,17 @@ private val INT_NAMES = setOf(
     "buttons",
     "deltaMode",
 
+    // ARIA
+    "aria-colcount",
+    "aria-colindex",
+    "aria-colspan",
+    "aria-level",
+    "aria-posinset",
+    "aria-rowcount",
+    "aria-rowindex",
+    "aria-rowspan",
+    "aria-setsize",
+
     // SVG
     "numOctaves",
     "order",
@@ -65,6 +76,11 @@ private val DOUBLE_NAMES = setOf(
     "z",
 
     "r", "radius",
+
+    // ARIA
+    "aria-valuemax",
+    "aria-valuemin",
+    "aria-valuenow",
 
     // SVG
     "alphabetic",
