@@ -65,7 +65,7 @@ internal fun kotlinType(
     if (type.startsWith("Booleanish | "))
         return "$DYNAMIC // $type"
 
-    if (type.startsWith("'") || type.startsWith("\""))
+    if (type.startsWith("'") || type.startsWith("\"") || type.startsWith("boolean | '"))
         return "String // $type"
 
     return type

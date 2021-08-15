@@ -47,11 +47,7 @@ private fun convertAttributesInterface(
         else -> source
     }
 
-    var members = when (name) {
-        // TODO: support
-        "AriaAttributes" -> ""
-        else -> convertMembers(content, false)
-    }
+    var members = convertMembers(content, false)
 
     members = when (name) {
         "AllHTMLAttributes",

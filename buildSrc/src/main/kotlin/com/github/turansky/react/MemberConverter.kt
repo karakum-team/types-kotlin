@@ -64,7 +64,7 @@ private fun convertProperty(
 
     val id = when (name) {
         "is", "as", "typeof", "in" -> "`$name`"
-        else -> name
+        else -> name.kebabToCamel()
     }
 
     val sourceType = source.substringAfter(": ")
