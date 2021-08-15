@@ -10,13 +10,22 @@ internal fun convertUnion(
     if (" | '" !in source)
         return null
 
-    val constMap = source.removePrefix("\n")
+    val values = source.removePrefix("\n")
         .trimIndent()
         .splitToSequence("\n")
         .map { it.removePrefix("| ") }
         .filter { it != "(string & {})" }
         .map { it.removeSurrounding("'") }
-        .associateBy { enumConstant(it) }
+        .toList()
+
+    return convertUnion(name, values)
+}
+
+internal fun convertUnion(
+    name: String,
+    values: List<String>,
+): ConversionResult {
+    val constMap = values.associateBy { enumConstant(it) }
 
     val jsName = constMap.asSequence()
         .joinToString(
