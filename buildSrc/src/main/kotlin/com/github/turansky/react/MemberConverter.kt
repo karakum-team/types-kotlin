@@ -54,6 +54,10 @@ private fun convertMember(
     }
 }
 
+private val RESERVED_NAMES = setOf(
+    "is", "as", "typeof", "in",
+)
+
 private fun convertProperty(
     source: String,
     final: Boolean,
@@ -62,9 +66,10 @@ private fun convertProperty(
         .removeSuffix("?")
         .removeSurrounding("'")
 
-    val id = when (name) {
-        "is", "as", "typeof", "in" -> "`$name`"
-        else -> name.kebabToCamel()
+    val id = when {
+        name in RESERVED_NAMES -> "`$name`"
+        name.startsWith("aria-") -> name.ariaPropertyName()
+        else -> name
     }
 
     val sourceType = source.substringAfter(": ")
@@ -72,7 +77,7 @@ private fun convertProperty(
     val type = kotlinType(sourceType, name)
     val keyword = if (final) "val" else "var"
     val declaration = "$keyword $id: $type"
-    if ("-" !in name)
+    if (!name.startsWith("aria-"))
         return declaration
 
     return "inline $declaration\n" +
