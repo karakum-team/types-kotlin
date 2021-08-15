@@ -13,7 +13,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "object" to "Any",
 
     "boolean" to "Boolean",
-    "string" to "String",
+    "string" to STRING,
 
     "void" to UNIT,
     "null" to "Nothing?",
@@ -33,8 +33,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Booleanish" to "Boolean",
     "boolean | string" to "Boolean",
 
-    "string | ReadonlyArray<string> | number" to "String // string | ReadonlyArray<string> | number",
-    "string | number | ReadonlyArray<string>" to "String // string | ReadonlyArray<string> | number",
+    "string | ReadonlyArray<string> | number" to STRING,
+    "string | number | ReadonlyArray<string>" to STRING,
 )
 
 internal fun kotlinType(
