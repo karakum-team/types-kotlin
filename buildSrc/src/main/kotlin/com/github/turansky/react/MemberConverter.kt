@@ -71,7 +71,13 @@ private fun convertProperty(
         .replace("EventTarget & T", "T")
     val type = kotlinType(sourceType, name)
     val keyword = if (final) "val" else "var"
-    return "$keyword $id: $type"
+    val declaration = "$keyword $id: $type"
+    if ("-" !in name)
+        return declaration
+
+    return "inline $declaration\n" +
+            "get() = asDynamic()[\"$name\"]\n" +
+            "set(value) { asDynamic()[\"$name\"] = value }\n"
 }
 
 private fun convertMethod(
