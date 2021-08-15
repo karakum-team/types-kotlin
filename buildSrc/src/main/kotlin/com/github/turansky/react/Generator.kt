@@ -5,9 +5,8 @@ import java.io.File
 private const val GENERATOR_COMMENT = "Automatically generated - do not modify!"
 
 private enum class Suppress {
-    NOTHING_TO_INLINE,
-    UNUSED_TYPEALIAS_PARAMETER,
-    NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE,
+    EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE,
+    DECLARATION_CANT_BE_INLINED,
 
     ;
 }
@@ -23,8 +22,17 @@ fun generateKotlinDeclarations(
         .also { it.mkdirs() }
 
     for ((name, body) in convertDefinitions(definitionsFile)) {
+        val annotations = when (name) {
+            "AriaAttributes" -> {
+                sequenceOf(Suppress.EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE, Suppress.DECLARATION_CANT_BE_INLINED)
+                    .map { """"${it.name}"""" }
+                    .joinToString(",\n", "@file:Suppress(\n", ",\n)")
+            }
+            else -> ""
+        }
+
         targetDir.resolve("${name}.kt")
-            .writeText(fileContent(body = body))
+            .writeText(fileContent(annotations, body))
     }
 }
 
