@@ -55,8 +55,8 @@ internal fun convertUnion(
 private fun enumConstant(
     value: String,
 ): String =
-    when {
-        value == "" -> "none"
-        "-" !in value -> value
+    when (value) {
+        "" -> "none"
+        "false", "true" -> "__${value}__"
         else -> value.kebabToCamel()
     }

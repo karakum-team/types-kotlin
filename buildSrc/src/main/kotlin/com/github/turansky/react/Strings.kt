@@ -1,6 +1,12 @@
 package com.github.turansky.react
 
+private val MINUS_LETTER = Regex("""-(\w)""")
+private val SPACE_LETTER = Regex("""\s(\w)""")
+
+private val toUpperCase: (MatchResult) -> CharSequence = {
+    it.groupValues[1].toUpperCase()
+}
+
 internal fun String.kebabToCamel(): String =
-    replace(Regex("""-(\w)""")) {
-        it.groupValues[1].toUpperCase()
-    }
+    replace(MINUS_LETTER, toUpperCase)
+        .replace(SPACE_LETTER, toUpperCase)
