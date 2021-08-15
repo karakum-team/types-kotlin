@@ -3,6 +3,7 @@ package com.github.turansky.react
 internal fun convertMembers(
     source: String,
     final: Boolean,
+    typeConverter: TypeConverter,
 ): String {
     val content = source
         .substringAfter("{\n", "")
@@ -15,42 +16,43 @@ internal fun convertMembers(
     return content.removeSuffix(";")
         .splitToSequence(";\n")
         .joinToString("\n") {
-            convertMember(it, final)
+            convertMember(it, final, typeConverter)
         }
 }
 
 private fun convertMember(
     source: String,
     final: Boolean,
+    typeConverter: TypeConverter,
 ): String {
     if ("; // " in source) {
         if ("\n// " in source) {
             return source.splitToSequence("\n// ")
                 .mapIndexed { index, item -> if (index == 0) item else "// " + item }
-                .map { convertMember(it, final) }
+                .map { convertMember(it, final, typeConverter) }
                 .joinToString("\n")
         } else if (!source.startsWith("// ") && source.count { it == '\n' } == 1) {
             return source.splitToSequence("\n")
-                .map { convertMember(it, final) }
+                .map { convertMember(it, final, typeConverter) }
                 .joinToString("\n")
         }
     }
 
     if ("\n" in source) {
         if (!source.startsWith("/*") && !source.startsWith("//"))
-            return convertMember(source.replace("\n", ""), final)
+            return convertMember(source.replace("\n", ""), final, typeConverter)
 
         var comment = source.substringBeforeLast("\n")
         if (comment == "/** @deprecated */")
             comment = """@Deprecated("Will be removed soon!")"""
 
-        return comment + "\n" + convertMember(source.substringAfterLast("\n"), final)
+        return comment + "\n" + convertMember(source.substringAfterLast("\n"), final, typeConverter)
     }
 
     return if ("(" in source) {
-        convertMethod(source)
+        convertMethod(source, typeConverter)
     } else {
-        convertProperty(source, final)
+        convertProperty(source, final, typeConverter)
     }
 }
 
@@ -61,6 +63,7 @@ private val RESERVED_NAMES = setOf(
 private fun convertProperty(
     source: String,
     final: Boolean,
+    typeConverter: TypeConverter,
 ): String {
     val name = source.substringBefore(": ")
         .removeSuffix("?")
@@ -74,7 +77,7 @@ private fun convertProperty(
 
     val sourceType = source.substringAfter(": ")
         .replace("EventTarget & T", "T")
-    val type = kotlinType(sourceType, name)
+    val type = typeConverter.convert(sourceType, name)
     val keyword = if (final) "val" else "var"
     val declaration = "$keyword $id: $type"
     if (!name.startsWith("aria-"))
@@ -87,6 +90,7 @@ private fun convertProperty(
 
 private fun convertMethod(
     source: String,
+    typeConverter: TypeConverter,
 ): String {
     val name = source.substringBefore("(")
 
@@ -100,7 +104,7 @@ private fun convertMethod(
             }
     } else ""
 
-    val returnType = kotlinType(source.substringAfter("): "), name)
+    val returnType = typeConverter.convert(source.substringAfter("): "), name)
     val returns = if (returnType != UNIT) ": $returnType" else ""
 
     return "fun $name($parameters)$returns"

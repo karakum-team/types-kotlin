@@ -8,18 +8,21 @@ private const val SVG_TYPE_DECLARATION = "typealias $SVG_TYPE = IntrinsicType<SV
 internal fun convertInterface(
     name: String,
     source: String,
-): ConversionResult? =
-    when {
-        name.endsWith("Event") -> convertEventInterface(name, source)
-        name.endsWith("Attributes") -> convertAttributesInterface(name, source)
+): ConversionResult? {
+    val typeConverter = SimpleTypeConverter()
+    return when {
+        name.endsWith("Event") -> convertEventInterface(name, source, typeConverter)
+        name.endsWith("Attributes") -> convertAttributesInterface(name, source, typeConverter)
         name == "ReactHTML" -> convertIntrinsicTypes("ReactHTML", source, ::convertHtmlType)
         name == "ReactSVG" -> convertIntrinsicTypes("ReactSVG", source, ::convertSvgType, SVG_TYPE_DECLARATION)
         else -> null
     }
+}
 
 private fun convertAttributesInterface(
     name: String,
     source: String,
+    typeConverter: TypeConverter,
 ): ConversionResult? {
     when (name) {
         "Attributes",
@@ -47,7 +50,7 @@ private fun convertAttributesInterface(
         else -> source
     }
 
-    var members = convertMembers(content, false)
+    var members = convertMembers(content, false, typeConverter)
 
     members = when (name) {
         "AllHTMLAttributes",

@@ -64,6 +64,7 @@ import org.w3c.dom.events.EventTarget
 internal fun convertEventInterface(
     name: String,
     source: String,
+    typeConverter: TypeConverter,
 ): ConversionResult {
     val declaration = source.substringBefore(" {")
         .replaceFirst(" extends ", " : ")
@@ -73,7 +74,7 @@ internal fun convertEventInterface(
         .replace("EventTarget & T", "T")
         .replace("SyntheticEvent<T>", "SyntheticEvent<T, Event>")
 
-    var members = convertMembers(source, true)
+    var members = convertMembers(source, true, typeConverter)
     when (name) {
         "ChangeEvent",
         "FocusEvent",
