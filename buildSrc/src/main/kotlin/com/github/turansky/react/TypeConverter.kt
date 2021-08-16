@@ -55,8 +55,14 @@ internal class SimpleTypeConverter(
             propertyName.startsWith("aria-")
             -> propertyName.ariaPropertyName().capitalize()
 
-            parentName.endsWith("HTMLAttributes") ->
-                parentName.removeSuffix("HTMLAttributes") + propertyName.capitalize()
+            parentName.endsWith("HTMLAttributes") -> {
+                val typeName = when (propertyName) {
+                    "valign" -> "VAlign"
+                    else -> propertyName.capitalize()
+                }
+
+                parentName.removeSuffix("HTMLAttributes") + typeName
+            }
 
             else -> propertyName.capitalize()
         }
