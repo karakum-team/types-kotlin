@@ -49,6 +49,9 @@ internal class SimpleTypeConverter(
         propertyName: String,
     ): String =
         when {
+            propertyName == "enterKeyHint"
+            -> propertyName.capitalize()
+
             propertyName.startsWith("aria-")
             -> propertyName.ariaPropertyName().capitalize()
 
