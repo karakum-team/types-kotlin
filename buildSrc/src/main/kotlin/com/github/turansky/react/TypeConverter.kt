@@ -28,20 +28,33 @@ internal class SimpleTypeConverter(
 
     private fun unionType(
         type: String,
-        name: String,
+        propertyName: String,
     ): String {
-        if (!name.startsWith("aria-"))
+        if (parentName == "SVGAttributes")
             return "$STRING // $type"
 
-        val unionName = name.ariaPropertyName().capitalize()
+        val name = unionName(propertyName)
         val values = type.splitToSequence(" | ")
             .filter { it != "boolean" }
             .map { it.removeSurrounding("'") }
             .map { it.removeSurrounding("\"") }
             .toList()
 
-        unions = unions + convertUnion(unionName, values)
+        unions = unions + convertUnion(name, values)
 
-        return unionName
+        return name
     }
+
+    private fun unionName(
+        propertyName: String,
+    ): String =
+        when {
+            propertyName.startsWith("aria-")
+            -> propertyName.ariaPropertyName().capitalize()
+
+            parentName.endsWith("HTMLAttributes") ->
+                parentName.removeSuffix("HTMLAttributes") + propertyName.capitalize()
+
+            else -> propertyName.capitalize()
+        }
 }

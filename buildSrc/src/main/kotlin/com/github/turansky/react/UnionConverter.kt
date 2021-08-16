@@ -57,6 +57,7 @@ private fun enumConstant(
 ): String =
     when (value) {
         "" -> "none"
+        "1" -> "D"
         "false", "true" -> "__${value}__"
         else -> value.kebabToCamel()
     }
