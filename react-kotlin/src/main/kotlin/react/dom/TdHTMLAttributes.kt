@@ -11,5 +11,5 @@ external interface TdHTMLAttributes<T> : HTMLAttributes<T> {
     var abbr: String
     var height: Double
     var width: Double
-    var valign: TdValign
+    var valign: TdVAlign
 }
