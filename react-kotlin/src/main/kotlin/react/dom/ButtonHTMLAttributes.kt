@@ -12,6 +12,6 @@ external interface ButtonHTMLAttributes<T> : HTMLAttributes<T> {
     var formNoValidate: Boolean
     var formTarget: String
     var name: String
-    var type: String // 'submit' | 'reset' | 'button'
+    var type: ButtonType
     var value: String
 }
