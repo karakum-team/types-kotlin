@@ -40,7 +40,9 @@ internal class SimpleTypeConverter(
             .map { it.removeSurrounding("\"") }
             .toList()
 
-        unions = unions + convertUnion(name, values)
+        val pkg = if ("SVG" in parentName) Package.SVG else Package.DOM
+
+        unions = unions + convertUnion(name, values).copy(pkg = pkg)
 
         return name
     }
