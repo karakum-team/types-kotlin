@@ -1,5 +1,7 @@
 package com.github.turansky.react
 
+import com.github.turansky.react.Suppress.DECLARATION_CANT_BE_INLINED
+import com.github.turansky.react.Suppress.EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE
 import java.io.File
 
 private const val GENERATOR_COMMENT = "Automatically generated - do not modify!"
@@ -10,7 +12,7 @@ fun generateKotlinDeclarations(
 ) {
     for ((name, body, pkg) in convertDefinitions(definitionsFile)) {
         val annotations = when (name) {
-            "AriaAttributes" -> fileSuppress(Suppress.EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE, Suppress.DECLARATION_CANT_BE_INLINED)
+            "AriaAttributes" -> fileSuppress(EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE, DECLARATION_CANT_BE_INLINED)
             else -> ""
         }
 

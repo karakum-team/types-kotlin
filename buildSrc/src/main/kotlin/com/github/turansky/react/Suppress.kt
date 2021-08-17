@@ -13,3 +13,8 @@ internal fun fileSuppress(
 ): String =
     suppresses.map { """"${it.name}"""" }
         .joinToString(",\n", "@file:Suppress(\n", ",\n)")
+
+internal fun suppress(
+    suppress: Suppress,
+): String =
+    """@file:Suppress("${suppress.name}")"""
