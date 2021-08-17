@@ -1,8 +1,8 @@
 // Automatically generated - do not modify!
 
-package react.dom
+package react.svg
 
-external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
+external interface SVGAttributes<T> : react.dom.AriaAttributes, react.dom.DOMAttributes<T> {
     // Attributes which also defined in HTMLAttributes
 // See comment in SVGDOMPropertyConfig.js
     var className: String
@@ -21,7 +21,7 @@ external interface SVGAttributes<T> : AriaAttributes, DOMAttributes<T> {
     var width: Double
 
     // Other HTML properties supported by SVG elements in browsers
-    var role: AriaRole
+    var role: react.dom.AriaRole
     var tabIndex: Int
     var crossOrigin: String // "anonymous" | "use-credentials" | ""
 

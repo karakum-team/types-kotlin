@@ -25,13 +25,23 @@ fun generateKotlinDeclarations(
             else -> ""
         }
 
-        val pkg = Package.DOM
+        val pkg = if ("SVG" in name) Package.SVG else Package.DOM
+
+        val content = if (pkg == Package.SVG) {
+            sequenceOf(
+                "AriaAttributes",
+                "DOMAttributes",
+                "AriaRole",
+            ).fold(body) { acc, clazz ->
+                acc.replace(clazz, "react.dom.$clazz")
+            }
+        } else body
 
         val targetDir = sourceDir.resolve(pkg.path)
             .also { it.mkdirs() }
 
         targetDir.resolve("${name}.kt")
-            .writeText(fileContent(pkg, annotations, body))
+            .writeText(fileContent(pkg, annotations, content))
     }
 }
 

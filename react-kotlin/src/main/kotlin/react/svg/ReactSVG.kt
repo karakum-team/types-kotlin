@@ -1,6 +1,6 @@
 // Automatically generated - do not modify!
 
-package react.dom
+package react.svg
 
 import react.IntrinsicType
 
