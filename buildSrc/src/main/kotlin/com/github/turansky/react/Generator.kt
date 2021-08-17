@@ -4,13 +4,6 @@ import java.io.File
 
 private const val GENERATOR_COMMENT = "Automatically generated - do not modify!"
 
-private enum class Suppress {
-    EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE,
-    DECLARATION_CANT_BE_INLINED,
-
-    ;
-}
-
 fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
