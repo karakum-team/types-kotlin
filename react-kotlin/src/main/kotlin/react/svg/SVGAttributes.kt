@@ -23,17 +23,17 @@ external interface SVGAttributes<T> : react.dom.AriaAttributes, react.dom.DOMAtt
     // Other HTML properties supported by SVG elements in browsers
     var role: react.dom.AriaRole
     var tabIndex: Int
-    var crossOrigin: String // "anonymous" | "use-credentials" | ""
+    var crossOrigin: CrossOrigin
 
     // SVG Specific attributes
     var accentHeight: Double
-    var accumulate: String // "none" | "sum"
-    var additive: String // "replace" | "sum"
-    var alignmentBaseline: String // "auto" | "baseline" | "before-edge" | "text-before-edge" | "middle" | "central" | "after-edge" |"text-after-edge" | "ideographic" | "alphabetic" | "hanging" | "mathematical" | "inherit"
-    var allowReorder: String // "no" | "yes"
+    var accumulate: Accumulate
+    var additive: Additive
+    var alignmentBaseline: AlignmentBaseline
+    var allowReorder: AllowReorder
     var alphabetic: Double
     var amplitude: Double
-    var arabicForm: String // "initial" | "medial" | "terminal" | "isolated"
+    var arabicForm: ArabicForm
     var ascent: Double
     var attributeName: String
     var attributeType: String
@@ -53,7 +53,7 @@ external interface SVGAttributes<T> : react.dom.AriaAttributes, react.dom.DOMAtt
     var clipPathUnits: String
     var clipRule: String
     var colorInterpolation: String
-    var colorInterpolationFilters: String // "auto" | "sRGB" | "linearRGB" | "inherit"
+    var colorInterpolationFilters: ColorInterpolationFilters
     var colorProfile: String
     var colorRendering: String
     var contentScriptType: String
@@ -80,7 +80,7 @@ external interface SVGAttributes<T> : react.dom.AriaAttributes, react.dom.DOMAtt
     var externalResourcesRequired: Boolean
     var fill: String
     var fillOpacity: String
-    var fillRule: String // "nonzero" | "evenodd" | "inherit"
+    var fillRule: FillRule
     var filter: String
     var filterRes: Double
     var filterUnits: String
@@ -204,8 +204,8 @@ external interface SVGAttributes<T> : react.dom.AriaAttributes, react.dom.DOMAtt
     var stroke: String
     var strokeDasharray: dynamic // string | number
     var strokeDashoffset: dynamic // string | number
-    var strokeLinecap: String // "butt" | "round" | "square" | "inherit"
-    var strokeLinejoin: String // "miter" | "round" | "bevel" | "inherit"
+    var strokeLinecap: StrokeLinecap
+    var strokeLinejoin: StrokeLinejoin
     var strokeMiterlimit: Double
     var strokeOpacity: String
     var strokeWidth: Double
