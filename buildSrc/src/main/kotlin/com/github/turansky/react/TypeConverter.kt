@@ -30,11 +30,11 @@ internal class SimpleTypeConverter(
         type: String,
         propertyName: String,
     ): String {
-        if (parentName == "SVGAttributes")
-            return "$STRING // $type"
-
         val name = unionName(propertyName)
-        val values = type.splitToSequence(" | ")
+        val values = type
+            // WA for AlignmentBaseline
+            .replace("\" |\"", "\" | \"")
+            .splitToSequence(" | ")
             .filter { it != "boolean" }
             .map { it.removeSurrounding("'") }
             .map { it.removeSurrounding("\"") }
