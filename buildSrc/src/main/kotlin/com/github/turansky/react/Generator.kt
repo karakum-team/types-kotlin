@@ -15,7 +15,7 @@ fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
 ) {
-    for ((name, body) in convertDefinitions(definitionsFile)) {
+    for ((name, body, pkg) in convertDefinitions(definitionsFile)) {
         val annotations = when (name) {
             "AriaAttributes" -> {
                 sequenceOf(Suppress.EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE, Suppress.DECLARATION_CANT_BE_INLINED)
@@ -25,9 +25,9 @@ fun generateKotlinDeclarations(
             else -> ""
         }
 
-        val pkg = if ("SVG" in name) Package.SVG else Package.DOM
+        val finalPkg = if ("SVG" in name) Package.SVG else pkg
 
-        val content = if (pkg == Package.SVG) {
+        val content = if (finalPkg == Package.SVG) {
             sequenceOf(
                 "AriaAttributes",
                 "DOMAttributes",
@@ -37,11 +37,11 @@ fun generateKotlinDeclarations(
             }
         } else body
 
-        val targetDir = sourceDir.resolve(pkg.path)
+        val targetDir = sourceDir.resolve(finalPkg.path)
             .also { it.mkdirs() }
 
         targetDir.resolve("${name}.kt")
-            .writeText(fileContent(pkg, annotations, content))
+            .writeText(fileContent(finalPkg, annotations, content))
     }
 }
 
