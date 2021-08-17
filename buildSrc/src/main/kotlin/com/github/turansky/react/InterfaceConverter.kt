@@ -36,18 +36,19 @@ private fun convertAttributesInterface(
     }
 
     var declaration = source.substringBefore(" {")
+        .replace("<T> extends HTMLAttributes<T>", "<T : Element> : HTMLAttributes<T>")
+        .replace("<T> extends MediaHTMLAttributes<T>", "<T : Element> : MediaHTMLAttributes<T>")
         .replace(" extends ", " : ")
 
     when (name) {
         "DOMAttributes",
-        -> declaration += ": react.PropsWithChildren"
-
-        "DetailsHTMLAttributes",
-        "InputHTMLAttributes",
-        "SelectHTMLAttributes",
-        "TextareaHTMLAttributes",
+        "HTMLAttributes",
+        "SVGAttributes",
         -> declaration = declaration.replaceFirst("<T>", "<T: Element>")
     }
+
+    if (name == "DOMAttributes")
+        declaration += ": react.PropsWithChildren"
 
     val content = when (name) {
         "DOMAttributes" -> source.substringAfter("} | undefined;\n\n")
