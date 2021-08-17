@@ -38,5 +38,7 @@ external interface InputHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var type: String
     var value: String
     var width: Double
-    var onChange: ChangeEventHandler<T>
+
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var onChange: ChangeEventHandler<T>
 }

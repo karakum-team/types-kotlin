@@ -20,5 +20,7 @@ external interface TextareaHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var rows: Int
     var value: String
     var wrap: String
-    var onChange: ChangeEventHandler<T>
+
+    @Suppress("VAR_TYPE_MISMATCH_ON_OVERRIDE")
+    override var onChange: ChangeEventHandler<T>
 }
