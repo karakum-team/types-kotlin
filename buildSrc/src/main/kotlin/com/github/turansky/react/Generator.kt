@@ -11,16 +11,10 @@ private enum class Suppress {
     ;
 }
 
-// language=Kotlin
-private const val PACKAGE = "package react.dom"
-
 fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
 ) {
-    val targetDir = sourceDir.resolve("react/dom")
-        .also { it.mkdirs() }
-
     for ((name, body) in convertDefinitions(definitionsFile)) {
         val annotations = when (name) {
             "AriaAttributes" -> {
@@ -31,19 +25,25 @@ fun generateKotlinDeclarations(
             else -> ""
         }
 
+        val pkg = Package.DOM
+
+        val targetDir = sourceDir.resolve(pkg.path)
+            .also { it.mkdirs() }
+
         targetDir.resolve("${name}.kt")
-            .writeText(fileContent(annotations, body))
+            .writeText(fileContent(pkg, annotations, body))
     }
 }
 
 private fun fileContent(
-    annotations: String = "",
+    pkg: Package,
+    annotations: String,
     body: String,
 ) =
     sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
-        PACKAGE,
+        pkg.pkg,
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
