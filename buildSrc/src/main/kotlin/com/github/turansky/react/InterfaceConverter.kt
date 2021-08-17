@@ -51,7 +51,7 @@ private fun convertAttributesInterface(
         declaration += ": react.PropsWithChildren"
 
     val content = when (name) {
-        "DOMAttributes" -> source.substringAfter("} | undefined;\n\n")
+        "DOMAttributes" -> "{\n" + source.substringAfter("} | undefined;\n\n")
         else -> source
     }
 
