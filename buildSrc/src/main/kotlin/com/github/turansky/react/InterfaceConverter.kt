@@ -1,5 +1,7 @@
 package com.github.turansky.react
 
+import com.github.turansky.react.Suppress.VAR_TYPE_MISMATCH_ON_OVERRIDE
+
 private const val INTRINSIC_TYPE_IMPORT = "import react.IntrinsicType"
 
 private const val SVG_TYPE = "DefaultSvgType"
@@ -61,8 +63,10 @@ private fun convertAttributesInterface(
         "InputHTMLAttributes",
         "SelectHTMLAttributes",
         "TextareaHTMLAttributes",
-        -> members = members.replace("var onChange: ", "override var onChange: ")
-
+        -> members = members.replace(
+            "var onChange: ",
+            suppress(VAR_TYPE_MISMATCH_ON_OVERRIDE) + "\noverride var onChange: ",
+        )
     }
 
     when (name) {

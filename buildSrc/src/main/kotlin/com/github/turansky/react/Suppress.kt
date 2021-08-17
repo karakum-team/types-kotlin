@@ -17,4 +17,4 @@ internal fun fileSuppress(
 internal fun suppress(
     suppress: Suppress,
 ): String =
-    """@file:Suppress("${suppress.name}")"""
+    """@Suppress("${suppress.name}")"""
