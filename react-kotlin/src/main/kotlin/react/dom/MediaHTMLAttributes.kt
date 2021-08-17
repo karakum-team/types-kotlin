@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface MediaHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface MediaHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var autoPlay: Boolean
     var controls: Boolean
     var controlsList: String

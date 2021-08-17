@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface DOMAttributes<T> : react.PropsWithChildren
+import org.w3c.dom.Element
+
+external interface DOMAttributes<T : Element> : react.PropsWithChildren

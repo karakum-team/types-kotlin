@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface ObjectHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface ObjectHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var classID: String
     var data: String
     var form: String

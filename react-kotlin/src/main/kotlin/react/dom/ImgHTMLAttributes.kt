@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface ImgHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface ImgHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var alt: String
     var crossOrigin: ImgCrossOrigin
     var decoding: ImgDecoding

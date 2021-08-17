@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface ColHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface ColHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var span: Int
     var width: Double
 }

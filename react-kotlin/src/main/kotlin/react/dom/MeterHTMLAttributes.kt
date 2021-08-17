@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface MeterHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface MeterHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var form: String
     var high: Double
     var low: Double

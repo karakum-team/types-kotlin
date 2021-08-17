@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface BaseHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface BaseHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var href: String
     var target: String
 }

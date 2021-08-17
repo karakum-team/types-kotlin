@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface OptgroupHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface OptgroupHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var disabled: Boolean
     var label: String
 }

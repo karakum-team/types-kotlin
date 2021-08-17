@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface FieldsetHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface FieldsetHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var disabled: Boolean
     var form: String
     var name: String

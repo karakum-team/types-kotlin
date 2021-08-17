@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface AreaHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface AreaHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var alt: String
     var coords: String
     var download: Any

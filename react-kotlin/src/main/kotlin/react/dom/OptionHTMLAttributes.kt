@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface OptionHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface OptionHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var disabled: Boolean
     var label: String
     var selected: Boolean

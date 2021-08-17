@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface AllHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface AllHTMLAttributes<T : Element> : HTMLAttributes<T> {
     // Standard HTML Attributes
     var accept: String
     var acceptCharset: String

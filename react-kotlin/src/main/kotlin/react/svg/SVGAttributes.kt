@@ -2,7 +2,9 @@
 
 package react.svg
 
-external interface SVGAttributes<T> : react.dom.AriaAttributes, react.dom.DOMAttributes<T> {
+import org.w3c.dom.Element
+
+external interface SVGAttributes<T : Element> : react.dom.AriaAttributes, react.dom.DOMAttributes<T> {
     // Attributes which also defined in HTMLAttributes
 // See comment in SVGDOMPropertyConfig.js
     var className: String

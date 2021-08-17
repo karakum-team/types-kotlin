@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface LinkHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface LinkHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var `as`: String
     var crossOrigin: String
     var href: String

@@ -2,6 +2,8 @@
 
 package react.dom
 
-external interface ColgroupHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface ColgroupHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var span: Int
 }

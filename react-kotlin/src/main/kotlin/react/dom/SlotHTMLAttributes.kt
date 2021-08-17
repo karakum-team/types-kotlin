@@ -2,6 +2,8 @@
 
 package react.dom
 
-external interface SlotHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface SlotHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var name: String
 }

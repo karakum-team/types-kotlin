@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface VideoHTMLAttributes<T> : MediaHTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface VideoHTMLAttributes<T : Element> : MediaHTMLAttributes<T> {
     var height: Double
     override var playsInline: Boolean
     var poster: String

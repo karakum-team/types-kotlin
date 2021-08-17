@@ -2,6 +2,8 @@
 
 package react.dom
 
-external interface TimeHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface TimeHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var dateTime: String
 }

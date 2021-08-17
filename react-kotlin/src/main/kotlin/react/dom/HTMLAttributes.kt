@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface HTMLAttributes<T> : AriaAttributes, DOMAttributes<T> {
+import org.w3c.dom.Element
+
+external interface HTMLAttributes<T : Element> : AriaAttributes, DOMAttributes<T> {
     // React-specific Attributes
     var defaultChecked: Boolean
     var defaultValue: String

@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface TdHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface TdHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var align: TdAlign
     var colSpan: Int
     var headers: String

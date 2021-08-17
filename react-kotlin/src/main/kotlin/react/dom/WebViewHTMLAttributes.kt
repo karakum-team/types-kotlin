@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface WebViewHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface WebViewHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var allowFullScreen: Boolean
     var allowpopups: Boolean
     var autoFocus: Boolean

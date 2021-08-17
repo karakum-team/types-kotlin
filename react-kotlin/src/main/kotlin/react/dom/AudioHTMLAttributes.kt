@@ -2,4 +2,6 @@
 
 package react.dom
 
-external interface AudioHTMLAttributes<T> : MediaHTMLAttributes<T>
+import org.w3c.dom.Element
+
+external interface AudioHTMLAttributes<T : Element> : MediaHTMLAttributes<T>

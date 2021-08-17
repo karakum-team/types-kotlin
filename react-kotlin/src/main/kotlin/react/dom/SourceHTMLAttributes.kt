@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface SourceHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface SourceHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var height: Double
     var media: String
     var sizes: String

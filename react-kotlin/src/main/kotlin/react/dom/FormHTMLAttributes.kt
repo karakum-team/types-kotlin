@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface FormHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface FormHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var acceptCharset: String
     var action: String
     var autoComplete: String

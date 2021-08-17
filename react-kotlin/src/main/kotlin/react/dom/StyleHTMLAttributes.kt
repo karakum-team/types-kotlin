@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface StyleHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface StyleHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var media: String
     var nonce: String
     var scoped: Boolean

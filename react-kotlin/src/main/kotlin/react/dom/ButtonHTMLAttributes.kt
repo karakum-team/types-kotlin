@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface ButtonHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface ButtonHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var autoFocus: Boolean
     var disabled: Boolean
     var form: String

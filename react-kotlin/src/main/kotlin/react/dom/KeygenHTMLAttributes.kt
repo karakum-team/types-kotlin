@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface KeygenHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface KeygenHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var autoFocus: Boolean
     var challenge: String
     var disabled: Boolean

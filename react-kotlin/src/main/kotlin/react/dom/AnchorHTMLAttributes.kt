@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface AnchorHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface AnchorHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var download: Any
     var href: String
     var hrefLang: String

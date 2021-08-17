@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface TrackHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface TrackHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var default: Boolean
     var kind: String
     var label: String

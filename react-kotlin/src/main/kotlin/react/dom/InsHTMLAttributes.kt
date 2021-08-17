@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface InsHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface InsHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var cite: String
     var dateTime: String
 }

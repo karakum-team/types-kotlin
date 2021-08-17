@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface ProgressHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface ProgressHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var max: Double
     var value: String
 }

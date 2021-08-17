@@ -2,6 +2,8 @@
 
 package react.dom
 
-external interface BlockquoteHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface BlockquoteHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var cite: String
 }

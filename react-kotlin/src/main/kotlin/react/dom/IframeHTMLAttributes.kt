@@ -2,7 +2,9 @@
 
 package react.dom
 
-external interface IframeHTMLAttributes<T> : HTMLAttributes<T> {
+import org.w3c.dom.Element
+
+external interface IframeHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var allow: String
     var allowFullScreen: Boolean
     var allowTransparency: Boolean
