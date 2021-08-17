@@ -10,11 +10,7 @@ fun generateKotlinDeclarations(
 ) {
     for ((name, body, pkg) in convertDefinitions(definitionsFile)) {
         val annotations = when (name) {
-            "AriaAttributes" -> {
-                sequenceOf(Suppress.EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE, Suppress.DECLARATION_CANT_BE_INLINED)
-                    .map { """"${it.name}"""" }
-                    .joinToString(",\n", "@file:Suppress(\n", ",\n)")
-            }
+            "AriaAttributes" -> fileSuppress(Suppress.EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE, Suppress.DECLARATION_CANT_BE_INLINED)
             else -> ""
         }
 

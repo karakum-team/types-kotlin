@@ -7,3 +7,9 @@ internal enum class Suppress {
 
     ;
 }
+
+internal fun fileSuppress(
+    vararg suppresses: Suppress,
+): String =
+    suppresses.map { """"${it.name}"""" }
+        .joinToString(",\n", "@file:Suppress(\n", ",\n)")
