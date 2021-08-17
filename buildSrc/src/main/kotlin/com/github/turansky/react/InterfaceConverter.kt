@@ -57,16 +57,22 @@ private fun convertAttributesInterface(
 
     var members = convertMembers(content, false, typeConverter)
 
-    members = when (name) {
+    when (name) {
+        "InputHTMLAttributes",
+        "SelectHTMLAttributes",
+        "TextareaHTMLAttributes",
+        -> members = members.replace("var onChange: ", "override var onChange: ")
+
+    }
+
+    when (name) {
         "AllHTMLAttributes",
         "InputHTMLAttributes",
         "TextareaHTMLAttributes",
-        -> members.replaceFirst("var placeholder: ", "override var placeholder: ")
+        -> members = members.replaceFirst("var placeholder: ", "override var placeholder: ")
 
         "VideoHTMLAttributes",
-        -> members.replaceFirst("var playsInline: ", "override var playsInline: ")
-
-        else -> members
+        -> members = members.replaceFirst("var playsInline: ", "override var playsInline: ")
     }
 
     val body = if (name == "AriaAttributes") {
