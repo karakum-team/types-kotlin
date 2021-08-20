@@ -4,7 +4,7 @@ import com.github.turansky.react.Suppress.DECLARATION_CANT_BE_INLINED
 import com.github.turansky.react.Suppress.EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE
 import java.io.File
 
-private const val GENERATOR_COMMENT = "Automatically generated - do not modify!"
+internal const val GENERATOR_COMMENT = "Automatically generated - do not modify!"
 
 fun generateKotlinDeclarations(
     definitionsFile: File,

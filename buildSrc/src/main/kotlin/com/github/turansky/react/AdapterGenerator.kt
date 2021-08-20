@@ -2,15 +2,72 @@ package com.github.turansky.react
 
 import java.io.File
 
-fun printKotlinAdapter(
+private const val HEADER = """
+// $GENERATOR_COMMENT
+
+package react.dom
+
+import kotlinx.html.CommonAttributeGroupFacade
+import org.w3c.dom.events.Event
+"""
+
+fun generateKotlinAdapter(
     definitionsFile: File,
+    targetFile: File,
 ) {
     val source = definitionsFile.readText()
         .substringAfter("\n    interface DOMAttributes<", "")
-        .substringAfter("{\n", "")
+        .substringAfter("} | undefined;\n", "")
         .substringBefore("\n    }", "")
+        .trimIndent()
 
-    println("--------------------------------")
-    println(source)
-    println("--------------------------------")
+    val adapters = mutableListOf<String>()
+    var previousName = ""
+
+    adapters.add(HEADER)
+
+    for (line in source.splitToSequence("\n")) {
+        if (!line.startsWith("on")) {
+            adapters.add(line)
+            previousName = ""
+            continue
+        }
+
+        val (name, type) = line
+            .substringBefore(";")
+            .removeSuffix("<T> | undefined")
+            .split("?: ")
+        if (name == previousName + "Capture")
+            continue
+
+        previousName = name
+
+        adapters.add(
+            """
+            var CommonAttributeGroupFacade.$name: $type<*>
+                @Deprecated(message = "Write-only property", level = DeprecationLevel.HIDDEN)
+                get() = error("")
+                set(newValue) {
+                    onEvent("${name.toLowerCase()}", newValue)
+                }
+            """.trimIndent()
+        )
+    }
+
+    adapters.add(
+        """
+        private fun CommonAttributeGroupFacade.onEvent(
+            type: String,
+            handler: EventHandler<*>,
+        ) {
+            consumer.onTagEvent(
+                tag = this,
+                event = type,
+                value = handler.unsafeCast<(Event) -> Unit>(),
+            )
+        }
+        """.trimIndent()
+    )
+
+    targetFile.writeText(adapters.joinToString("\n"))
 }
