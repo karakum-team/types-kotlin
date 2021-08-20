@@ -27,13 +27,17 @@ fun generateKotlinAdapter(
     adapters.add(HEADER)
 
     for (line in source.splitToSequence("\n")) {
-        if (!line.startsWith("on")) {
+        if (line.startsWith("// ")) {
             adapters.add(line)
             previousName = ""
             continue
         }
 
-        val (name, type) = line
+        if (!line.startsWith("on")) {
+            continue
+        }
+
+        var (name, type) = line
             .substringBefore(";")
             .removeSuffix("<T> | undefined")
             .split("?: ")
@@ -41,6 +45,9 @@ fun generateKotlinAdapter(
             continue
 
         previousName = name
+
+        if (name == "onChange")
+            type = "ChangeEventHandler"
 
         adapters.add(
             """
@@ -69,5 +76,5 @@ fun generateKotlinAdapter(
         """.trimIndent()
     )
 
-    targetFile.writeText(adapters.joinToString("\n"))
+    targetFile.writeText(adapters.joinToString("\n\n").removePrefix("\n"))
 }
