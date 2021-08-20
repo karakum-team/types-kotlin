@@ -15,6 +15,8 @@ tasks {
 
             delete(sourceDir)
 
+            // com.github.turansky.react.printKotlinAdapter(definitionsFile)
+
             generateKotlinDeclarations(
                 definitionsFile = definitionsFile,
                 sourceDir = sourceDir,
