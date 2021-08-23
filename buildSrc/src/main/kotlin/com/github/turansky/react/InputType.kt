@@ -23,6 +23,5 @@ type InputType =
   | 'text'
   | 'time'
   | 'url'
-  | 'week'
-  | undefined;
+  | 'week';
 """
