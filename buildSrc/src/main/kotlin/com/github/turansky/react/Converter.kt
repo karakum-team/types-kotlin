@@ -20,7 +20,7 @@ internal fun convertDefinitions(
     val reactContent = content
         .substringAfter("declare namespace React {\n")
         .substringBefore("\n}\n")
-        .trimIndent()
+        .trimIndent() + INPUT_TYPE
 
     return convertInterfaces(reactContent)
         .plus(convertUnions(reactContent))
