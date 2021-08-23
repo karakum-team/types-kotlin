@@ -20,6 +20,9 @@ internal class SimpleTypeConverter(
         if (type.endsWith(" | undefined"))
             return convert(type.removeSuffix(" | undefined"), name)
 
+        if (parentName == "InputHTMLAttributes" && name == "type")
+            return "InputType"
+
         if (type.startsWith("'") || type.startsWith("\"") || type.startsWith("boolean | '"))
             return unionType(type, name)
 
