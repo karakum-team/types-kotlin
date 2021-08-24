@@ -2,7 +2,10 @@ package com.github.turansky.react
 
 import com.github.turansky.react.Suppress.VAR_TYPE_MISMATCH_ON_OVERRIDE
 
-private const val INTRINSIC_TYPE_IMPORT = "import react.IntrinsicType"
+private val TYPE_CONTAINER_IMPORTS = """
+import org.w3c.dom.*    
+import react.IntrinsicType    
+""".trimIndent()
 
 private const val SVG_TYPE = "DefaultSvgType"
 private const val SVG_TYPE_DECLARATION = "typealias $SVG_TYPE = IntrinsicType<SVGAttributes<org.w3c.dom.svg.SVGElement>>"
@@ -112,7 +115,7 @@ private fun convertIntrinsicTypes(
             postfix = "\n}\n"
         )
 
-    val body = sequenceOf(INTRINSIC_TYPE_IMPORT)
+    val body = sequenceOf(TYPE_CONTAINER_IMPORTS)
         .plus(aliases)
         .plus(content)
         .joinToString("\n\n")
@@ -128,7 +131,7 @@ private fun convertHtmlType(
 
     val propsType = source.substringAfter(": DetailedHTMLFactory<")
         .substringBefore(",")
-        .replaceFirst("<", "<org.w3c.dom.")
+        .replaceFirst("<", "<")
     val type = "IntrinsicType<$propsType>"
 
     val id = when (name) {
