@@ -15,8 +15,8 @@ internal fun convertInterface(
     val result = when {
         name.endsWith("Event") -> convertEventInterface(name, source, typeConverter)
         name.endsWith("Attributes") -> convertAttributesInterface(name, source, typeConverter)
-        name == "ReactHTML" -> convertIntrinsicTypes("ReactHTML", source, ::convertHtmlType)
-        name == "ReactSVG" -> convertIntrinsicTypes("ReactSVG", source, ::convertSvgType, SVG_TYPE_DECLARATION)
+        name == "ReactHTML" -> convertIntrinsicTypes(name, source, ::convertHtmlType)
+        name == "ReactSVG" -> convertIntrinsicTypes(name, source, ::convertSvgType, SVG_TYPE_DECLARATION)
         else -> null
     }
 
@@ -106,7 +106,11 @@ private fun convertIntrinsicTypes(
         .removeSuffix(";")
         .splitToSequence(";\n")
         .map(convert)
-        .joinToString("\n\n")
+        .joinToString(
+            separator = "\n\n",
+            prefix = "object $name {\n",
+            postfix = "\n}\n"
+        )
 
     val body = sequenceOf(INTRINSIC_TYPE_IMPORT)
         .plus(aliases)
