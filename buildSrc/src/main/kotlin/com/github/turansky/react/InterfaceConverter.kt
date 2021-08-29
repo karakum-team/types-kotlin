@@ -18,14 +18,29 @@ internal fun convertInterface(
     val result = when {
         name.endsWith("Event") -> convertEventInterface(name, source, typeConverter)
         name.endsWith("Attributes") -> convertAttributesInterface(name, source, typeConverter)
+
         name == "ReactHTML" -> convertIntrinsicTypes(name, source, ::convertHtmlType)
         name == "ReactSVG" -> convertIntrinsicTypes(name, source, ::convertSvgType, SVG_TYPE_DECLARATION)
+
+        name == "AbstractView" -> convertInterface(name, source, typeConverter)
+        name == "DangerouslySetInnerHTML" -> convertInterface(name, source, typeConverter)
+
         else -> null
     }
 
     result ?: return emptySequence()
 
     return sequenceOf(result) + typeConverter.unions
+}
+
+private fun convertInterface(
+    name: String,
+    source: String,
+    typeConverter: TypeConverter,
+): ConversionResult {
+    val members = convertMembers(source, false, typeConverter)
+    val body = "external interface $name {\n$members\n}"
+    return ConversionResult(name, body)
 }
 
 private fun convertAttributesInterface(
