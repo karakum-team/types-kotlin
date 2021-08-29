@@ -72,7 +72,9 @@ private fun convertAttributesInterface(
         declaration += ": react.PropsWithChildren"
 
     val content = when (name) {
-        "DOMAttributes" -> "{\n" + source.substringAfter("} | undefined;\n\n")
+        "DOMAttributes" -> source
+            .replaceFirst("children?: ReactNode | undefined;\n", "")
+            .replaceFirst("{\n        __html: string;\n    }", "DangerouslySetInnerHTML")
         else -> source
     }
 
