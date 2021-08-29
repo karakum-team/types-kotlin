@@ -3,6 +3,6 @@
 package react.dom
 
 external interface AbstractView {
-    var styleMedia: StyleMedia
-    var document: org.w3c.dom.Document
+    val styleMedia: StyleMedia
+    val document: org.w3c.dom.Document
 }

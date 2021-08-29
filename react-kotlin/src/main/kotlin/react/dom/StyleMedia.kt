@@ -3,6 +3,6 @@
 package react.dom
 
 external interface StyleMedia {
-    var type: String
+    val type: String
     fun matchMedium(mediaquery: String): Boolean
 }
