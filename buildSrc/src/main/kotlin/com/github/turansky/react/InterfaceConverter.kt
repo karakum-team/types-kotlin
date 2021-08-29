@@ -39,7 +39,7 @@ private fun convertInterface(
     source: String,
     typeConverter: TypeConverter,
 ): ConversionResult {
-    val members = convertMembers(source, false, typeConverter)
+    val members = convertMembers(source, !name.endsWith("HTML"), typeConverter)
     val body = "external interface $name {\n$members\n}"
     return ConversionResult(name, body)
 }
