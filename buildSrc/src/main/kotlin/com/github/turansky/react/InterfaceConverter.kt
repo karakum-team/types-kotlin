@@ -23,6 +23,7 @@ internal fun convertInterface(
         name == "ReactSVG" -> convertIntrinsicTypes(name, source, ::convertSvgType, SVG_TYPE_DECLARATION)
 
         name == "AbstractView" -> convertInterface(name, source, typeConverter)
+        name == "StyleMedia" -> convertInterface(name, source, typeConverter)
         name == "DangerouslySetInnerHTML" -> convertInterface(name, source, typeConverter)
 
         else -> null
