@@ -16,4 +16,5 @@ dependencyResolutionManagement {
     }
 }
 
+include("csstype-kotlin")
 include("react-kotlin")
