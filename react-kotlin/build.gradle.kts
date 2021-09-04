@@ -4,11 +4,11 @@ plugins {
 }
 
 val reactTypesVersion = property("react-types.version") as String
-val kotlinWrappersVersion = "0.0.1-pre.238-kotlin-1.5.30"
+val kotlinWrappersVersion = property("kotlin-wrappers.version") as String
 
 dependencies {
     implementation(npm("@types/react", reactTypesVersion))
 
-    implementation(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:${kotlinWrappersVersion}"))
+    implementation(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:$kotlinWrappersVersion"))
     implementation("org.jetbrains.kotlin-wrappers:kotlin-react")
 }
