@@ -1,10 +1,9 @@
 package com.github.turansky.react
 
+import com.github.turansky.common.GENERATOR_COMMENT
 import com.github.turansky.react.Suppress.DECLARATION_CANT_BE_INLINED
 import com.github.turansky.react.Suppress.EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE
 import java.io.File
-
-internal const val GENERATOR_COMMENT = "Automatically generated - do not modify!"
 
 fun generateKotlinDeclarations(
     definitionsFile: File,
@@ -40,11 +39,12 @@ private fun fileContent(
     pkg: Package,
     annotations: String,
     body: String,
-) =
-    sequenceOf(
+): String {
+    return sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
         pkg.pkg,
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
+}
