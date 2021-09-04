@@ -1,5 +1,6 @@
 package com.github.turansky.react
 
+import com.github.turansky.common.GENERATOR_COMMENT
 import java.io.File
 
 private const val HEADER = """
