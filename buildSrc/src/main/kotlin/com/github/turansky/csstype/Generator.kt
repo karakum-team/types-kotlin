@@ -10,10 +10,18 @@ fun generateKotlinDeclarations(
     val targetDir = sourceDir.resolve("csstype")
         .also { it.mkdirs() }
 
-    /*
-    targetDir.resolve("$name.kt")
-        .writeText(fileContent(content))
-    */
+    definitionsFile.readText()
+        .removePrefix("export {};\n")
+        .splitToSequence("\nexport ", "\ndeclare ")
+        .drop(1)
+        .forEach { content ->
+            val name = content.substringAfter(" ")
+                .substringBefore(" ")
+                .substringBefore("<")
+
+            targetDir.resolve("$name.d.ts")
+                .writeText(fileContent(body = content))
+        }
 }
 
 private fun fileContent(
