@@ -13,6 +13,7 @@ fun generateKotlinDeclarations(
 
     for ((name, body) in convertDefinitions(definitionsFile)) {
         targetDir.resolve("$name.d.ts")
+            .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
             .writeText(fileContent(body = body))
     }
 }
