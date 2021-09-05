@@ -23,6 +23,7 @@ internal fun convertDefinitions(
                 name.startsWith("Obsolete") -> emptySequence()
                 name.startsWith("Vendor") -> emptySequence()
                 name.contains("Hyphen") -> emptySequence()
+                name.contains("Fallback") -> emptySequence()
                 content.startsWith("namespace ") -> convertNamespace(content)
                 else -> sequenceOf(ConversionResult(name, content))
             }
@@ -48,6 +49,7 @@ internal fun convertNamespace(
                 name.startsWith("Ms") -> null
                 name.startsWith("Webkit") -> null
                 name.contains("Hyphen") -> null
+                name.contains("Fallback") -> null
                 else -> ConversionResult(name, content)
             }
         }
