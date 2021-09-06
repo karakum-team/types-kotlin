@@ -4,4 +4,6 @@
 
 # React types [Kotlin]
 
-[React types](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react) definitions converter
+Definitions converter for:
+* [CSSType](https://github.com/frenic/csstype)
+* [React types](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react)
