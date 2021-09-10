@@ -15,6 +15,7 @@ internal fun convertDefinitions(
         .replace("HTMLTableHeaderCellElement", "HTMLTableCellElement")
         .replace("HTMLTableDataCellElement", "HTMLTableCellElement")
         .replace("HTMLWebViewElement", "HTMLElement")
+        .replace("HTMLInputTypeAttribute", "InputType")
         .replace("\r\n", "\n")
 
     val reactContent = content
