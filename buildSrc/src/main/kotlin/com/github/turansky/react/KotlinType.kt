@@ -24,7 +24,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "DataTransfer" to "org.w3c.dom.DataTransfer",
 
     "Key" to "react.Key",
-    "CSSProperties" to "$DYNAMIC // CSSProperties",
+    "CSSProperties" to "react.CSSProperties",
 
     // TODO: use React interface instead
     "TouchList" to "org.w3c.dom.TouchList",
