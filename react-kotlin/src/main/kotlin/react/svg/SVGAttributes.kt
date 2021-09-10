@@ -17,7 +17,7 @@ external interface SVGAttributes<T : Element> : react.dom.AriaAttributes, react.
     var method: String
     var min: Double
     var name: String
-    var style: dynamic // CSSProperties
+    var style: react.CSSProperties
     var target: String
     var type: String
     var width: Double
