@@ -2,8 +2,8 @@
 
 package csstype
 
-interface Property<TLength, TTime> {
-  inherits?: Inherits;
-  initialValue?: string;
-  syntax?: string;
+sealed external interface Property<TLength, TTime>{
+    inherits?: Inherits;
+    initialValue?: string;
+    syntax?: string;
 }
