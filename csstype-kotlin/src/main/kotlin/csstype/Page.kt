@@ -2,6 +2,6 @@
 
 package csstype
 
-sealed external interface Page {
+external interface Page {
     var size: Size
 }

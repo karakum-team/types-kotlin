@@ -2,7 +2,7 @@
 
 package csstype
 
-sealed external interface CounterStyle {
+external interface CounterStyle {
     var additiveSymbols: String
     var fallback: String
     var negative: String

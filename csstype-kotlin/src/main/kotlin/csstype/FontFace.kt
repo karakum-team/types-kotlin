@@ -2,7 +2,7 @@
 
 package csstype
 
-sealed external interface FontFace {
+external interface FontFace {
     var MozFontFeatureSettings: FontFeatureSettings
     var fontDisplay: FontDisplay
     var fontFamily: String

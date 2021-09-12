@@ -2,7 +2,7 @@
 
 package csstype
 
-sealed external interface Viewport {
+external interface Viewport {
     var height: Height
     var maxHeight: MaxHeight
     var maxWidth: MaxWidth

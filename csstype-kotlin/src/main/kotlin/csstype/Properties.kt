@@ -2,5 +2,5 @@
 
 package csstype
 
-sealed external interface Properties
+external interface Properties
     : StandardProperties

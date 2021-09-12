@@ -2,5 +2,5 @@
 
 package csstype
 
-sealed external interface StandardProperties
+external interface StandardProperties
     : StandardLonghandProperties
