@@ -26,13 +26,14 @@ internal fun convertDefinitions(
                 name.contains("Hyphen") -> emptySequence()
                 name.contains("Fallback") -> emptySequence()
                 name == "StandardShorthandProperties" -> emptySequence()
+                content.startsWith("namespace AtRule ") -> convertNamespace(content) + convertNamespaceTypes(content)
                 content.startsWith("namespace ") -> convertNamespace(content)
                 else -> sequenceOf(convertDefinition(name, content))
             }
         }
 }
 
-internal fun convertNamespace(
+private fun convertNamespace(
     source: String,
 ): Sequence<ConversionResult> {
     return source
@@ -54,6 +55,36 @@ internal fun convertNamespace(
                 name.contains("Fallback") -> null
                 else -> convertDefinition(name, content)
             }
+        }
+}
+
+private val ADDITIONAL_TYPES = setOf(
+    "FontDisplay",
+    "Size",
+    "Inherits",
+    "AlignContent",
+    "Hyphens",
+    "MaxZoom",
+    "MinZoom",
+    "Orientation",
+    "UserZoom",
+    "ViewportFit",
+)
+
+private fun convertNamespaceTypes(
+    source: String,
+): Sequence<ConversionResult> {
+    return source
+        .substringAfter("{\n")
+        .substringBefore("\n}")
+        .trimIndent()
+        .splitToSequence("\ntype ")
+        .drop(1)
+        .mapNotNull { content ->
+            val name = content.substringBefore(" ")
+            if (name in ADDITIONAL_TYPES) {
+                convertUnion(name, content)
+            } else null
         }
 }
 
