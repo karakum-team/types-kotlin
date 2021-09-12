@@ -113,9 +113,13 @@ private fun convertInterface(
         )
     }
 
+    val body = source.substringAfter("{\n")
+        .substringBefore("\n}")
+        .replaceIndent("    ")
+
     return ConversionResult(
         name,
-        source,
+        "sealed external interface $declaration{\n$body\n}\n",
         false,
     )
 }
