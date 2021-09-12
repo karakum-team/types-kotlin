@@ -20,6 +20,7 @@ internal fun convertDefinitions(
                 .substringBefore("<")
 
             when {
+                name.startsWith("Svg") -> emptySequence()
                 name.startsWith("Obsolete") -> emptySequence()
                 name.startsWith("Vendor") -> emptySequence()
                 name.contains("Hyphen") -> emptySequence()
