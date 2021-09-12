@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "auto" | "contain" | "none" | (string & {});
+// Globals | "auto" | "contain" | "none" | (string & {})
 sealed external interface OverscrollBehavior

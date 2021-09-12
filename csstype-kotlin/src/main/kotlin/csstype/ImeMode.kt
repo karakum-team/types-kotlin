@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "active" | "auto" | "disabled" | "inactive" | "normal";
+// Globals | "active" | "auto" | "disabled" | "inactive" | "normal"
 sealed external interface ImeMode

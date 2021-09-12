@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "alternate" | "over" | "under" | (string & {});
+// Globals | "alternate" | "over" | "under" | (string & {})
 sealed external interface RubyPosition

@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | TLength;
+// Globals | TLength
 sealed external interface ScrollMarginBlockStart<TLength>

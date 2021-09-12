@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | (number & {});
+// Globals | (number & {})
 sealed external interface Order

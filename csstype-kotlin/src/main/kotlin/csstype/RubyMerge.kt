@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "auto" | "collapse" | "separate";
+// Globals | "auto" | "collapse" | "separate"
 sealed external interface RubyMerge

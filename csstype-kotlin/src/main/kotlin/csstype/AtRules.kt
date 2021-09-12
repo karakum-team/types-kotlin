@@ -15,6 +15,6 @@ package csstype
 | "@page"
 | "@property"
 | "@supports"
-| "@viewport";
+| "@viewport"
 */
 sealed external interface AtRules

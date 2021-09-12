@@ -18,6 +18,6 @@ package csstype
 | "max-content"
 | "min-content"
 | "min-intrinsic"
-| (string & {});
+| (string & {})
 */
 sealed external interface MinWidth<TLength>

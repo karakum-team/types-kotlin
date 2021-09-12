@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "center" | "end" | "justify" | "left" | "match-parent" | "right" | "start";
+// Globals | "center" | "end" | "justify" | "left" | "match-parent" | "right" | "start"
 sealed external interface TextAlign

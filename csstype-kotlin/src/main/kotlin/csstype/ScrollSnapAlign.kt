@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "center" | "end" | "none" | "start" | (string & {});
+// Globals | "center" | "end" | "none" | "start" | (string & {})
 sealed external interface ScrollSnapAlign

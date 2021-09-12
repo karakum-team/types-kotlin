@@ -2,5 +2,5 @@
 
 package csstype
 
-// DataType.PageSize | TLength | "auto" | "landscape" | "portrait" | (string & {});
+// DataType.PageSize | TLength | "auto" | "landscape" | "portrait" | (string & {})
 sealed external interface Size<TLength>

@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "anywhere" | "break-word" | "normal";
+// Globals | "anywhere" | "break-word" | "normal"
 sealed external interface OverflowWrap

@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "capitalize" | "full-size-kana" | "full-width" | "lowercase" | "none" | "uppercase";
+// Globals | "capitalize" | "full-size-kana" | "full-width" | "lowercase" | "none" | "uppercase"
 sealed external interface TextTransform

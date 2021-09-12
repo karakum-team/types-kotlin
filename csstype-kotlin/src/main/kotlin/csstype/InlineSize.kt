@@ -13,6 +13,6 @@ package csstype
 | "fit-content"
 | "max-content"
 | "min-content"
-| (string & {});
+| (string & {})
 */
 sealed external interface InlineSize<TLength>

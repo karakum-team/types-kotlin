@@ -2,5 +2,5 @@
 
 package csstype
 
-// "additive" | "alphabetic" | "cyclic" | "fixed" | "numeric" | "symbolic" | (string & {});
+// "additive" | "alphabetic" | "cyclic" | "fixed" | "numeric" | "symbolic" | (string & {})
 sealed external interface System

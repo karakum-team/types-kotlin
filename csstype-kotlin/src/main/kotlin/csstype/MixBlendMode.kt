@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.BlendMode;
+// Globals | DataType.BlendMode
 sealed external interface MixBlendMode

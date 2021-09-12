@@ -42,6 +42,6 @@ package csstype
 | "wait"
 | "zoom-in"
 | "zoom-out"
-| (string & {});
+| (string & {})
 */
 sealed external interface Cursor

@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | TLength | (number & {});
+// Globals | TLength | (number & {})
 sealed external interface TabSize<TLength>

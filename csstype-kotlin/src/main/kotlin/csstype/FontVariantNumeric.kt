@@ -13,6 +13,6 @@ package csstype
 | "slashed-zero"
 | "stacked-fractions"
 | "tabular-nums"
-| (string & {});
+| (string & {})
 */
 sealed external interface FontVariantNumeric

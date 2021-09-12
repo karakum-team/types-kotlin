@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.SelfPosition | "baseline" | "normal" | "stretch" | (string & {});
+// Globals | DataType.SelfPosition | "baseline" | "normal" | "stretch" | (string & {})
 sealed external interface AlignItems

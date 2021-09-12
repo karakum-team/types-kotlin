@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | TLength | "normal" | (string & {});
+// Globals | TLength | "normal" | (string & {})
 sealed external interface RowGap<TLength>

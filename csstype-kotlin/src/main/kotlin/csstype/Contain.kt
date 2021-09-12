@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "content" | "layout" | "none" | "paint" | "size" | "strict" | "style" | (string & {});
+// Globals | "content" | "layout" | "none" | "paint" | "size" | "strict" | "style" | (string & {})
 sealed external interface Contain

@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "clip" | "ellipsis" | (string & {});
+// Globals | "clip" | "ellipsis" | (string & {})
 sealed external interface TextOverflow

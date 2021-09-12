@@ -11,6 +11,6 @@ package csstype
 | "contents"
 | "list-item"
 | "none"
-| (string & {});
+| (string & {})
 */
 sealed external interface Display

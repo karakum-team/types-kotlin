@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.CompatAuto | "auto" | "menulist-button" | "none" | "textfield";
+// Globals | DataType.CompatAuto | "auto" | "menulist-button" | "none" | "textfield"
 sealed external interface Appearance

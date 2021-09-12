@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "auto" | "smooth";
+// Globals | "auto" | "smooth"
 sealed external interface ScrollBehavior

@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "nowrap" | "wrap" | "wrap-reverse";
+// Globals | "nowrap" | "wrap" | "wrap-reverse"
 sealed external interface FlexWrap

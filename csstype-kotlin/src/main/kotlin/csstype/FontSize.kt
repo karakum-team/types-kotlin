@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.AbsoluteSize | TLength | "larger" | "smaller" | (string & {});
+// Globals | DataType.AbsoluteSize | TLength | "larger" | "smaller" | (string & {})
 sealed external interface FontSize<TLength>

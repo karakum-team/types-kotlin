@@ -17,6 +17,6 @@ package csstype
 | "pan-x"
 | "pan-y"
 | "pinch-zoom"
-| (string & {});
+| (string & {})
 */
 sealed external interface TouchAction

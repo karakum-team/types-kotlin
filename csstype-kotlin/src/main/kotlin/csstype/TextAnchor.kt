@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "end" | "middle" | "start";
+// Globals | "end" | "middle" | "start"
 sealed external interface TextAnchor

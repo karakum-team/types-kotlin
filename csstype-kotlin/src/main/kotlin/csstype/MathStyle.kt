@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "compact" | "normal";
+// Globals | "compact" | "normal"
 sealed external interface MathStyle

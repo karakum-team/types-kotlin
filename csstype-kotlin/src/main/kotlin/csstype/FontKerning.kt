@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "auto" | "none" | "normal";
+// Globals | "auto" | "none" | "normal"
 sealed external interface FontKerning

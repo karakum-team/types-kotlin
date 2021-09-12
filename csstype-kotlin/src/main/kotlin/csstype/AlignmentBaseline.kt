@@ -15,6 +15,6 @@ package csstype
 | "mathematical"
 | "middle"
 | "text-after-edge"
-| "text-before-edge";
+| "text-before-edge"
 */
 sealed external interface AlignmentBaseline

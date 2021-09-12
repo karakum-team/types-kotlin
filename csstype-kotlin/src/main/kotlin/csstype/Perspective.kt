@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | TLength | "none";
+// Globals | TLength | "none"
 sealed external interface Perspective<TLength>

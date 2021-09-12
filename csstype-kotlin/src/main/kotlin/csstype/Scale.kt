@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "none" | (string & {}) | (number & {});
+// Globals | "none" | (string & {}) | (number & {})
 sealed external interface Scale

@@ -226,6 +226,6 @@ package csstype
 | "[webkitallowfullscreen]"
 | "[width]"
 | "[wrap]"
-| "[xmlns]";
+| "[xmlns]"
 */
 sealed external interface HtmlAttributes

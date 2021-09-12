@@ -14,6 +14,6 @@ package csstype
 | "no-historical-ligatures"
 | "none"
 | "normal"
-| (string & {});
+| (string & {})
 */
 sealed external interface FontVariantLigatures

@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "auto" | "manual" | "none";
+// Globals | "auto" | "manual" | "none"
 sealed external interface Hyphens

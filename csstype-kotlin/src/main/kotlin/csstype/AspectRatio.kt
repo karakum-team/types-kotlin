@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "auto" | (string & {});
+// Globals | "auto" | (string & {})
 sealed external interface AspectRatio

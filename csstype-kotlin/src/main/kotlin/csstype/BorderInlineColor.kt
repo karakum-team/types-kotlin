@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.Color | (string & {});
+// Globals | DataType.Color | (string & {})
 sealed external interface BorderInlineColor

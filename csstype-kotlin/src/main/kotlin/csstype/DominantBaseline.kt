@@ -15,6 +15,6 @@ package csstype
 | "reset-size"
 | "text-after-edge"
 | "text-before-edge"
-| "use-script";
+| "use-script"
 */
 sealed external interface DominantBaseline

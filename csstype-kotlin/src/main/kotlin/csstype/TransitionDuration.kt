@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | TTime | (string & {});
+// Globals | TTime | (string & {})
 sealed external interface TransitionDuration<TTime>

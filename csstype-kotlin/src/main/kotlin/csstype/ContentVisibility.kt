@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "auto" | "hidden" | "visible";
+// Globals | "auto" | "hidden" | "visible"
 sealed external interface ContentVisibility

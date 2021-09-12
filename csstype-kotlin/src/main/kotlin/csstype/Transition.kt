@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.SingleTransition<TTime> | (string & {});
+// Globals | DataType.SingleTransition<TTime> | (string & {})
 sealed external interface Transition<TTime>

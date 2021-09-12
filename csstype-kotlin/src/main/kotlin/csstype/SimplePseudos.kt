@@ -109,6 +109,6 @@ package csstype
 | ":user-invalid"
 | ":user-valid"
 | ":valid"
-| ":visited";
+| ":visited"
 */
 sealed external interface SimplePseudos

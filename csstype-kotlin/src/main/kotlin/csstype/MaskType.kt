@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "alpha" | "luminance";
+// Globals | "alpha" | "luminance"
 sealed external interface MaskType

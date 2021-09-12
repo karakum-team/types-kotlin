@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "center" | "end" | "justify" | "start";
+// Globals | "center" | "end" | "justify" | "start"
 sealed external interface BoxPack

@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.Color;
+// Globals | DataType.Color
 sealed external interface ColumnRuleColor

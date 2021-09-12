@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | TLength | "auto" | (string & {}) | (number & {});
+// Globals | TLength | "auto" | (string & {}) | (number & {})
 sealed external interface Columns<TLength>

@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "anywhere" | "auto" | "loose" | "normal" | "strict";
+// Globals | "anywhere" | "auto" | "loose" | "normal" | "strict"
 sealed external interface LineBreak

@@ -2,5 +2,5 @@
 
 package csstype
 
-// AdvancedPseudos | SimplePseudos;
+// AdvancedPseudos | SimplePseudos
 sealed external interface Pseudos

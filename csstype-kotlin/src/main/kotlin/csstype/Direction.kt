@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "ltr" | "rtl";
+// Globals | "ltr" | "rtl"
 sealed external interface Direction

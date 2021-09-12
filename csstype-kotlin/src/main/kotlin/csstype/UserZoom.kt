@@ -2,5 +2,5 @@
 
 package csstype
 
-// "fixed" | "zoom";
+// "fixed" | "zoom"
 sealed external interface UserZoom

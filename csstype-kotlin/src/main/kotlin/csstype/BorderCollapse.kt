@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "collapse" | "separate";
+// Globals | "collapse" | "separate"
 sealed external interface BorderCollapse

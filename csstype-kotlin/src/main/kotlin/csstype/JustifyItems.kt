@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.SelfPosition | "baseline" | "left" | "legacy" | "normal" | "right" | "stretch" | (string & {});
+// Globals | DataType.SelfPosition | "baseline" | "left" | "legacy" | "normal" | "right" | "stretch" | (string & {})
 sealed external interface JustifyItems

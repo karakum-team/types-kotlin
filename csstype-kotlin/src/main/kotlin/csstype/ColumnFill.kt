@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "auto" | "balance";
+// Globals | "auto" | "balance"
 sealed external interface ColumnFill

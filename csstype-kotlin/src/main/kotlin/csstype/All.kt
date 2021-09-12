@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals;
+// Globals
 sealed external interface All

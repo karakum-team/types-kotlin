@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.FontWeightAbsolute | "bolder" | "lighter";
+// Globals | DataType.FontWeightAbsolute | "bolder" | "lighter"
 sealed external interface FontWeight

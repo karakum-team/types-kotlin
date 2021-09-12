@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "normal" | (string & {});
+// Globals | "normal" | (string & {})
 sealed external interface FontLanguageOverride

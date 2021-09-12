@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.EasingFunction | (string & {});
+// Globals | DataType.EasingFunction | (string & {})
 sealed external interface AnimationTimingFunction

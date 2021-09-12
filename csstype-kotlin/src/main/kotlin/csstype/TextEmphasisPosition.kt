@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | (string & {});
+// Globals | (string & {})
 sealed external interface TextEmphasisPosition

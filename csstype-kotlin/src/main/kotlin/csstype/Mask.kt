@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.MaskLayer<TLength> | (string & {});
+// Globals | DataType.MaskLayer<TLength> | (string & {})
 sealed external interface Mask<TLength>

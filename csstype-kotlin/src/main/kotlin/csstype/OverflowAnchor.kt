@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "auto" | "none";
+// Globals | "auto" | "none"
 sealed external interface OverflowAnchor

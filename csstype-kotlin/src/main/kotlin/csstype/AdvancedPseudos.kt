@@ -22,6 +22,6 @@ package csstype
 | ":nth-last-child"
 | ":nth-last-of-type"
 | ":nth-of-type"
-| ":where";
+| ":where"
 */
 sealed external interface AdvancedPseudos

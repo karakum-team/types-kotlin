@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "mandatory" | "none" | "proximity";
+// Globals | "mandatory" | "none" | "proximity"
 sealed external interface ScrollSnapTypeX

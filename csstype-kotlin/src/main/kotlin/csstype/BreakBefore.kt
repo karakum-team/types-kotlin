@@ -17,6 +17,6 @@ package csstype
 | "recto"
 | "region"
 | "right"
-| "verso";
+| "verso"
 */
 sealed external interface BreakBefore

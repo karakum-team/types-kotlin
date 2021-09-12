@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "auto" | "fixed";
+// Globals | "auto" | "fixed"
 sealed external interface TableLayout

@@ -2,5 +2,5 @@
 
 package csstype
 
-// "auto" | "infinite" | (string & {}) | (number & {});
+// "auto" | "infinite" | (string & {}) | (number & {})
 sealed external interface Range

@@ -16,6 +16,6 @@ package csstype
 | "right"
 | "right-side"
 | "rightwards"
-| (string & {});
+| (string & {})
 */
 sealed external interface Azimuth

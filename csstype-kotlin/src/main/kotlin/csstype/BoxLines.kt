@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "multiple" | "single";
+// Globals | "multiple" | "single"
 sealed external interface BoxLines

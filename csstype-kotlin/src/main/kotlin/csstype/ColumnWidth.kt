@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | TLength | "auto";
+// Globals | TLength | "auto"
 sealed external interface ColumnWidth<TLength>

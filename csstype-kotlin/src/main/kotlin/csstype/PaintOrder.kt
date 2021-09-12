@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "fill" | "markers" | "normal" | "stroke" | (string & {});
+// Globals | "fill" | "markers" | "normal" | "stroke" | (string & {})
 sealed external interface PaintOrder

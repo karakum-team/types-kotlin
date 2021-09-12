@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.BlendMode | (string & {});
+// Globals | DataType.BlendMode | (string & {})
 sealed external interface BackgroundBlendMode

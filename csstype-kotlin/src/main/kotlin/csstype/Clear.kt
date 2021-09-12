@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "both" | "inline-end" | "inline-start" | "left" | "none" | "right";
+// Globals | "both" | "inline-end" | "inline-start" | "left" | "none" | "right"
 sealed external interface Clear

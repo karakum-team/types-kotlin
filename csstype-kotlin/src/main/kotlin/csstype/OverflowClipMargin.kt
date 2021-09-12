@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.VisualBox | TLength | (string & {});
+// Globals | DataType.VisualBox | TLength | (string & {})
 sealed external interface OverflowClipMargin<TLength>

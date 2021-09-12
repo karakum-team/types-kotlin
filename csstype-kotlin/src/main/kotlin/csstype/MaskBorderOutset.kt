@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | TLength | (string & {}) | (number & {});
+// Globals | TLength | (string & {}) | (number & {})
 sealed external interface MaskBorderOutset<TLength>

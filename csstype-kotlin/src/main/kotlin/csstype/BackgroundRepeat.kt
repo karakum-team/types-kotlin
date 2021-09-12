@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.RepeatStyle | (string & {});
+// Globals | DataType.RepeatStyle | (string & {})
 sealed external interface BackgroundRepeat

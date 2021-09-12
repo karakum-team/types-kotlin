@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "collapse" | "hidden" | "visible";
+// Globals | "collapse" | "hidden" | "visible"
 sealed external interface Visibility

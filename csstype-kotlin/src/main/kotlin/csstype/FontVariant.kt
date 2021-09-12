@@ -33,6 +33,6 @@ package csstype
 | "tabular-nums"
 | "titling-caps"
 | "unicase"
-| (string & {});
+| (string & {})
 */
 sealed external interface FontVariant

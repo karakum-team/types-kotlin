@@ -2,5 +2,5 @@
 
 package csstype
 
-// "auto" | "block" | "fallback" | "optional" | "swap";
+// "auto" | "block" | "fallback" | "optional" | "swap"
 sealed external interface FontDisplay

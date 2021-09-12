@@ -20,6 +20,6 @@ package csstype
 | "spelling-error"
 | "underline"
 | "wavy"
-| (string & {});
+| (string & {})
 */
 sealed external interface TextDecoration<TLength>

@@ -2,5 +2,5 @@
 
 package csstype
 
-// "false" | "true";
+// "false" | "true"
 sealed external interface Inherits

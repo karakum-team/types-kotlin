@@ -13,6 +13,6 @@ package csstype
 | "text-bottom"
 | "text-top"
 | "top"
-| (string & {});
+| (string & {})
 */
 sealed external interface VerticalAlign<TLength>

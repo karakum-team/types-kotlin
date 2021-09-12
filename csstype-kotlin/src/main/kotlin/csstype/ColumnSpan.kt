@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "all" | "none";
+// Globals | "all" | "none"
 sealed external interface ColumnSpan

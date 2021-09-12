@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "always" | "normal";
+// Globals | "always" | "normal"
 sealed external interface ScrollSnapStop

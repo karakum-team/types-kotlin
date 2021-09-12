@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "hidden" | "visible";
+// Globals | "hidden" | "visible"
 sealed external interface BackfaceVisibility

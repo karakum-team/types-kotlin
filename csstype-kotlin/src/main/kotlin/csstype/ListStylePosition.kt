@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "inside" | "outside";
+// Globals | "inside" | "outside"
 sealed external interface ListStylePosition

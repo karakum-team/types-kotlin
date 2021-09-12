@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "break-all" | "break-word" | "keep-all" | "normal";
+// Globals | "break-all" | "break-word" | "keep-all" | "normal"
 sealed external interface WordBreak

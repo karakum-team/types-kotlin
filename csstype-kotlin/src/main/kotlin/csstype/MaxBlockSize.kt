@@ -12,6 +12,6 @@ package csstype
 | "max-content"
 | "min-content"
 | "none"
-| (string & {});
+| (string & {})
 */
 sealed external interface MaxBlockSize<TLength>

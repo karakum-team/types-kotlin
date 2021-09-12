@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.Box | (string & {});
+// Globals | DataType.Box | (string & {})
 sealed external interface BackgroundOrigin

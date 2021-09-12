@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "auto" | (string & {}) | (number & {});
+// Globals | "auto" | (string & {}) | (number & {})
 sealed external interface GlyphOrientationVertical

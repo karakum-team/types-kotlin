@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "mixed" | "sideways" | "upright";
+// Globals | "mixed" | "sideways" | "upright"
 sealed external interface TextOrientation

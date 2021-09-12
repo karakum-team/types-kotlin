@@ -2,5 +2,5 @@
 
 package csstype
 
-// "auto" | "contain" | "cover";
+// "auto" | "contain" | "cover"
 sealed external interface ViewportFit

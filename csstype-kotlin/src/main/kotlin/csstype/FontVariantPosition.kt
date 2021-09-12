@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "normal" | "sub" | "super";
+// Globals | "normal" | "sub" | "super"
 sealed external interface FontVariantPosition

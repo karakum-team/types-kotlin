@@ -2,5 +2,5 @@
 
 package csstype
 
-// "auto" | (string & {}) | (number & {});
+// "auto" | (string & {}) | (number & {})
 sealed external interface MaxZoom

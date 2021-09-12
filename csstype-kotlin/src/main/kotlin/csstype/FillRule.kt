@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "evenodd" | "nonzero";
+// Globals | "evenodd" | "nonzero"
 sealed external interface FillRule

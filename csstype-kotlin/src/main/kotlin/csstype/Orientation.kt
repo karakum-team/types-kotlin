@@ -2,5 +2,5 @@
 
 package csstype
 
-// "auto" | "landscape" | "portrait";
+// "auto" | "landscape" | "portrait"
 sealed external interface Orientation

@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "auto" | "none" | "thin";
+// Globals | "auto" | "none" | "thin"
 sealed external interface ScrollbarWidth

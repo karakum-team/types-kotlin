@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.MaskingMode | (string & {});
+// Globals | DataType.MaskingMode | (string & {})
 sealed external interface MaskMode

@@ -16,6 +16,6 @@ package csstype
 | "intrinsic"
 | "max-content"
 | "min-content"
-| (string & {});
+| (string & {})
 */
 sealed external interface MinHeight<TLength>

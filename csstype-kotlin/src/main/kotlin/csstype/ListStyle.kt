@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "inside" | "none" | "outside" | (string & {});
+// Globals | "inside" | "none" | "outside" | (string & {})
 sealed external interface ListStyle

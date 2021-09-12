@@ -15,6 +15,6 @@ package csstype
 | "isolate"
 | "isolate-override"
 | "normal"
-| "plaintext";
+| "plaintext"
 */
 sealed external interface UnicodeBidi

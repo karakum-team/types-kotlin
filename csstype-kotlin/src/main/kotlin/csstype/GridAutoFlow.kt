@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "column" | "dense" | "row" | (string & {});
+// Globals | "column" | "dense" | "row" | (string & {})
 sealed external interface GridAutoFlow

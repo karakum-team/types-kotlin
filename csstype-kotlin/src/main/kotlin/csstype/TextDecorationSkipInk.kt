@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "all" | "auto" | "none";
+// Globals | "all" | "auto" | "none"
 sealed external interface TextDecorationSkipInk

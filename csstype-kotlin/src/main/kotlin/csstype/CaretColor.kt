@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.Color | "auto";
+// Globals | DataType.Color | "auto"
 sealed external interface CaretColor

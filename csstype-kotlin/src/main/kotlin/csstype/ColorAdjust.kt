@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | "economy" | "exact";
+// Globals | "economy" | "exact"
 sealed external interface ColorAdjust
