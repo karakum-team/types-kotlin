@@ -53,6 +53,7 @@ private fun convertNamespace(
                 name.startsWith("Webkit") -> null
                 name.contains("Hyphen") && name != "Hyphens" -> null
                 name.contains("Fallback") -> null
+                name in SVG_TYPES -> null
                 else -> convertDefinition(name, content)
             }
         }
