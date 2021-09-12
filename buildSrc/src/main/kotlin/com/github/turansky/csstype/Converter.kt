@@ -68,7 +68,7 @@ private fun convertDefinition(
     if (content.startsWith("type "))
         return convertUnion(name, content)
 
-    return ConversionResult(name, content, false)
+    return convertInterface(name, content)
 }
 
 private fun convertUnion(
@@ -88,5 +88,34 @@ private fun convertUnion(
         name,
         "$comment\nsealed external interface $declaration",
         true,
+    )
+}
+
+private fun convertInterface(
+    name: String,
+    source: String,
+): ConversionResult {
+    val declaration = source
+        .removePrefix("interface ")
+        .substringBefore("\n")
+        .substringBefore(" {")
+
+    val parentType = source
+        .substringBefore("{")
+        .substringAfter(" extends ", "")
+        .substringBefore(",\n")
+
+    if (parentType.isNotEmpty()) {
+        return ConversionResult(
+            name,
+            "sealed external interface $declaration\n: $parentType",
+            true,
+        )
+    }
+
+    return ConversionResult(
+        name,
+        source,
+        false,
     )
 }
