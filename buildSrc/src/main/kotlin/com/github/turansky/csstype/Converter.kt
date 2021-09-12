@@ -125,7 +125,25 @@ private fun convertUnion(
         .trimIndent()
         .removeSuffix(";")
 
-    val comment = if ("\n" in body) "/*\n$body\n*/" else "// $body"
+    val comment = if ("\n" in body) {
+        val values = body
+            .splitToSequence("\n")
+            .filter { !it.startsWith("| \"-moz-") }
+            .filter { !it.startsWith("| \"-ms-") }
+            .filter { !it.startsWith("| \"-webkit-") }
+            .joinToString("\n")
+
+        "/*\n$values\n*/"
+    } else {
+        val values = body
+            .splitToSequence(" | ")
+            .filter { !it.startsWith("\"-moz-") }
+            .filter { !it.startsWith("\"-ms-") }
+            .filter { !it.startsWith("\"-webkit-") }
+            .joinToString(" | ")
+
+        "// $values"
+    }
 
     return ConversionResult(name, "$comment\nsealed external interface $declaration\n")
 }
