@@ -81,7 +81,10 @@ private fun convertNamespaceTypes(
         .splitToSequence("\ntype ")
         .drop(1)
         .mapNotNull { content ->
-            val name = content.substringBefore(" ")
+            val name = content
+                .substringBefore(" ")
+                .substringBefore("<")
+
             if (name in ADDITIONAL_TYPES) {
                 convertUnion(name, content)
             } else null
