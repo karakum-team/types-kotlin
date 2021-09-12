@@ -145,7 +145,7 @@ private fun convertInterface(
         .substringBefore(",\n")
 
     if (parentType.isNotEmpty()) {
-        return ConversionResult(name, "external interface $declaration\n: $parentType")
+        return ConversionResult(name, "external interface $declaration: $parentType")
     }
 
     val body = source.substringAfter("{\n")
