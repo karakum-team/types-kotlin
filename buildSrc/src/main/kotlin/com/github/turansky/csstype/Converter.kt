@@ -145,7 +145,7 @@ private fun convertInterface(
         .substringBefore(",\n")
 
     if (parentType.isNotEmpty()) {
-        return ConversionResult(name, "sealed external interface $declaration\n: $parentType")
+        return ConversionResult(name, "external interface $declaration\n: $parentType")
     }
 
     val body = source.substringAfter("{\n")
@@ -163,5 +163,5 @@ private fun convertInterface(
         .joinToString("\n")
         .replaceIndent("    ")
 
-    return ConversionResult(name, "sealed external interface $declaration{\n$body\n}\n")
+    return ConversionResult(name, "external interface $declaration{\n$body\n}\n")
 }
