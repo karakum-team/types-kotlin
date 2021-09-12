@@ -26,7 +26,7 @@ internal fun convertDefinitions(
                 name.contains("Hyphen") -> emptySequence()
                 name.contains("Fallback") -> emptySequence()
                 content.startsWith("namespace ") -> convertNamespace(content)
-                else -> sequenceOf(ConversionResult(name, content))
+                else -> sequenceOf(convertDefinition(name, content))
             }
         }
 }
@@ -51,7 +51,18 @@ internal fun convertNamespace(
                 name.startsWith("Webkit") -> null
                 name.contains("Hyphen") -> null
                 name.contains("Fallback") -> null
-                else -> ConversionResult(name, content)
+                else -> convertDefinition(name, content)
             }
         }
+}
+
+private fun convertDefinition(
+    name: String,
+    source: String,
+): ConversionResult {
+    val content = source
+        .replace("TLength = (string & {}) | 0", "TLength")
+        .replace("TTime = string & {}", "TTime")
+
+    return ConversionResult(name, content)
 }
