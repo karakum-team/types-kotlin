@@ -2,4 +2,4 @@
 
 package csstype
 
-type OverflowClipMargin<TLength = (string & {}) | 0> = Globals | DataType.VisualBox | TLength | (string & {});
+type OverflowClipMargin<TLength> = Globals | DataType.VisualBox | TLength | (string & {});

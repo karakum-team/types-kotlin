@@ -2,4 +2,4 @@
 
 package csstype
 
-type PaddingBlockEnd<TLength = (string & {}) | 0> = Globals | TLength | (string & {});
+type PaddingBlockEnd<TLength> = Globals | TLength | (string & {});

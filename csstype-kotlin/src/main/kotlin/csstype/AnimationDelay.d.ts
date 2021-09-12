@@ -2,4 +2,4 @@
 
 package csstype
 
-type AnimationDelay<TTime = string & {}> = Globals | TTime | (string & {});
+type AnimationDelay<TTime> = Globals | TTime | (string & {});

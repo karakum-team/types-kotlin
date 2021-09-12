@@ -2,4 +2,4 @@
 
 package csstype
 
-type TabSize<TLength = (string & {}) | 0> = Globals | TLength | (number & {});
+type TabSize<TLength> = Globals | TLength | (number & {});

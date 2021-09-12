@@ -2,7 +2,7 @@
 
 package csstype
 
-interface Property<TLength = (string & {}) | 0, TTime = string & {}> {
+interface Property<TLength, TTime> {
   inherits?: Inherits;
   initialValue?: string;
   syntax?: string;

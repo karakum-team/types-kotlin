@@ -2,4 +2,4 @@
 
 package csstype
 
-type OutlineOffset<TLength = (string & {}) | 0> = Globals | TLength;
+type OutlineOffset<TLength> = Globals | TLength;

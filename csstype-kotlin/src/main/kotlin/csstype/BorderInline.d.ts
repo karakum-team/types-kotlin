@@ -2,4 +2,4 @@
 
 package csstype
 
-type BorderInline<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+type BorderInline<TLength> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});

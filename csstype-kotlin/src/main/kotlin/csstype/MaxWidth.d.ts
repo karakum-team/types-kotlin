@@ -2,7 +2,7 @@
 
 package csstype
 
-type MaxWidth<TLength = (string & {}) | 0> =
+type MaxWidth<TLength> =
   | Globals
   | TLength
   | "-moz-fit-content"

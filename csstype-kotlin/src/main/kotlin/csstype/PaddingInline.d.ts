@@ -2,4 +2,4 @@
 
 package csstype
 
-type PaddingInline<TLength = (string & {}) | 0> = Globals | TLength | (string & {});
+type PaddingInline<TLength> = Globals | TLength | (string & {});

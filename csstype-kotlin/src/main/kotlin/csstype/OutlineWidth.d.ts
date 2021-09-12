@@ -2,4 +2,4 @@
 
 package csstype
 
-type OutlineWidth<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength>;
+type OutlineWidth<TLength> = Globals | DataType.LineWidth<TLength>;

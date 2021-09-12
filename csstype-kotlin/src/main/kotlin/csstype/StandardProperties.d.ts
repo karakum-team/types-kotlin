@@ -2,6 +2,6 @@
 
 package csstype
 
-interface StandardProperties<TLength = (string & {}) | 0, TTime = string & {}>
+interface StandardProperties<TLength, TTime>
   extends StandardLonghandProperties<TLength, TTime>,
     StandardShorthandProperties<TLength, TTime> {}

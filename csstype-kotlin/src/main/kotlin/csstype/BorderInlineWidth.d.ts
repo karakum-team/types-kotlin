@@ -2,4 +2,4 @@
 
 package csstype
 
-type BorderInlineWidth<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength>;
+type BorderInlineWidth<TLength> = Globals | DataType.LineWidth<TLength>;

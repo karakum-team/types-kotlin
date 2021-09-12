@@ -2,7 +2,7 @@
 
 package csstype
 
-interface StandardShorthandProperties<TLength = (string & {}) | 0, TTime = string & {}> {
+interface StandardShorthandProperties<TLength, TTime> {
   /**
    * The `**all**` shorthand CSS property resets all of an element's properties except `unicode-bidi`, `direction`, and CSS Custom Properties. It can set properties to their initial or inherited values, or to the values specified in another stylesheet origin.
    *

@@ -2,7 +2,7 @@
 
 package csstype
 
-type TextDecoration<TLength = (string & {}) | 0> =
+type TextDecoration<TLength> =
   | Globals
   | DataType.Color
   | TLength

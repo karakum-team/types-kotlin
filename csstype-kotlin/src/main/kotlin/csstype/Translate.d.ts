@@ -2,4 +2,4 @@
 
 package csstype
 
-type Translate<TLength = (string & {}) | 0> = Globals | TLength | "none" | (string & {});
+type Translate<TLength> = Globals | TLength | "none" | (string & {});

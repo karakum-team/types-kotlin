@@ -2,4 +2,4 @@
 
 package csstype
 
-type ScrollMarginInlineEnd<TLength = (string & {}) | 0> = Globals | TLength;
+type ScrollMarginInlineEnd<TLength> = Globals | TLength;

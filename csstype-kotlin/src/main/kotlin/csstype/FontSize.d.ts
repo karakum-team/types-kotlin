@@ -2,4 +2,4 @@
 
 package csstype
 
-type FontSize<TLength = (string & {}) | 0> = Globals | DataType.AbsoluteSize | TLength | "larger" | "smaller" | (string & {});
+type FontSize<TLength> = Globals | DataType.AbsoluteSize | TLength | "larger" | "smaller" | (string & {});

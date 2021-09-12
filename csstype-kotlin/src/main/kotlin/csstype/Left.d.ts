@@ -2,4 +2,4 @@
 
 package csstype
 
-type Left<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {});
+type Left<TLength> = Globals | TLength | "auto" | (string & {});

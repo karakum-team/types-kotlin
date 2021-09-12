@@ -2,4 +2,4 @@
 
 package csstype
 
-type MarginBlockStart<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {});
+type MarginBlockStart<TLength> = Globals | TLength | "auto" | (string & {});

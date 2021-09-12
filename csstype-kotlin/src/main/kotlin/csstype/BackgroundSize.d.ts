@@ -2,4 +2,4 @@
 
 package csstype
 
-type BackgroundSize<TLength = (string & {}) | 0> = Globals | DataType.BgSize<TLength> | (string & {});
+type BackgroundSize<TLength> = Globals | DataType.BgSize<TLength> | (string & {});

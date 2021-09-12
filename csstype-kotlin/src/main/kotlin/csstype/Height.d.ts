@@ -2,7 +2,7 @@
 
 package csstype
 
-type Height<TLength = (string & {}) | 0> =
+type Height<TLength> =
   | Globals
   | TLength
   | "-moz-max-content"

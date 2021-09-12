@@ -2,4 +2,4 @@
 
 package csstype
 
-type ColumnGap<TLength = (string & {}) | 0> = Globals | TLength | "normal" | (string & {});
+type ColumnGap<TLength> = Globals | TLength | "normal" | (string & {});

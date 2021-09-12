@@ -2,4 +2,4 @@
 
 package csstype
 
-type BorderEndStartRadius<TLength = (string & {}) | 0> = Globals | TLength | (string & {});
+type BorderEndStartRadius<TLength> = Globals | TLength | (string & {});

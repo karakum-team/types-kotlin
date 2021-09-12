@@ -2,4 +2,4 @@
 
 package csstype
 
-type Animation<TTime = string & {}> = Globals | DataType.SingleAnimation<TTime> | (string & {});
+type Animation<TTime> = Globals | DataType.SingleAnimation<TTime> | (string & {});

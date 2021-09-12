@@ -2,4 +2,4 @@
 
 package csstype
 
-type PerspectiveOrigin<TLength = (string & {}) | 0> = Globals | DataType.Position<TLength>;
+type PerspectiveOrigin<TLength> = Globals | DataType.Position<TLength>;

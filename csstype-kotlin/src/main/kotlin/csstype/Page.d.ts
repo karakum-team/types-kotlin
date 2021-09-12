@@ -2,6 +2,6 @@
 
 package csstype
 
-interface Page<TLength = (string & {}) | 0, TTime = string & {}> {
+interface Page<TLength, TTime> {
   size?: Size<TLength>;
 }

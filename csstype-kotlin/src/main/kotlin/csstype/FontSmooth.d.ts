@@ -2,4 +2,4 @@
 
 package csstype
 
-type FontSmooth<TLength = (string & {}) | 0> = Globals | DataType.AbsoluteSize | TLength | "always" | "auto" | "never";
+type FontSmooth<TLength> = Globals | DataType.AbsoluteSize | TLength | "always" | "auto" | "never";

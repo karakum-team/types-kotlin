@@ -2,7 +2,7 @@
 
 package csstype
 
-type MaxInlineSize<TLength = (string & {}) | 0> =
+type MaxInlineSize<TLength> =
   | Globals
   | TLength
   | "-moz-fit-content"

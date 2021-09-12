@@ -2,4 +2,4 @@
 
 package csstype
 
-type PaddingRight<TLength = (string & {}) | 0> = Globals | TLength | (string & {});
+type PaddingRight<TLength> = Globals | TLength | (string & {});

@@ -2,4 +2,4 @@
 
 package csstype
 
-type BorderSpacing<TLength = (string & {}) | 0> = Globals | TLength | (string & {});
+type BorderSpacing<TLength> = Globals | TLength | (string & {});

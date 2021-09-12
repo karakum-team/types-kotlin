@@ -2,4 +2,4 @@
 
 package csstype
 
-type MarginRight<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {});
+type MarginRight<TLength> = Globals | TLength | "auto" | (string & {});

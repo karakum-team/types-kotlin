@@ -2,4 +2,4 @@
 
 package csstype
 
-type Inset<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {});
+type Inset<TLength> = Globals | TLength | "auto" | (string & {});

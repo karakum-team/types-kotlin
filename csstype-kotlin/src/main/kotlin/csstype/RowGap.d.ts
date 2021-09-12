@@ -2,4 +2,4 @@
 
 package csstype
 
-type RowGap<TLength = (string & {}) | 0> = Globals | TLength | "normal" | (string & {});
+type RowGap<TLength> = Globals | TLength | "normal" | (string & {});

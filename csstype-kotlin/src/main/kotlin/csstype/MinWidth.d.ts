@@ -2,7 +2,7 @@
 
 package csstype
 
-type MinWidth<TLength = (string & {}) | 0> =
+type MinWidth<TLength> =
   | Globals
   | TLength
   | "-moz-fit-content"

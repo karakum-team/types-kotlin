@@ -2,4 +2,4 @@
 
 package csstype
 
-type ShapeMargin<TLength = (string & {}) | 0> = Globals | TLength | (string & {});
+type ShapeMargin<TLength> = Globals | TLength | (string & {});

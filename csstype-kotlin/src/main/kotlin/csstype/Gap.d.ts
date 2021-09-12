@@ -2,4 +2,4 @@
 
 package csstype
 
-type Gap<TLength = (string & {}) | 0> = Globals | TLength | "normal" | (string & {});
+type Gap<TLength> = Globals | TLength | "normal" | (string & {});

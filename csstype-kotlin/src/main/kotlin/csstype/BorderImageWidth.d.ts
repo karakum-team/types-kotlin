@@ -2,4 +2,4 @@
 
 package csstype
 
-type BorderImageWidth<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {}) | (number & {});
+type BorderImageWidth<TLength> = Globals | TLength | "auto" | (string & {}) | (number & {});

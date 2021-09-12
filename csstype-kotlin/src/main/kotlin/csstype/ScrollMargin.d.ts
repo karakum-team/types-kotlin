@@ -2,4 +2,4 @@
 
 package csstype
 
-type ScrollMargin<TLength = (string & {}) | 0> = Globals | TLength | (string & {});
+type ScrollMargin<TLength> = Globals | TLength | (string & {});

@@ -2,4 +2,4 @@
 
 package csstype
 
-type ScrollPaddingInline<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {});
+type ScrollPaddingInline<TLength> = Globals | TLength | "auto" | (string & {});

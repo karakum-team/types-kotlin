@@ -2,4 +2,4 @@
 
 package csstype
 
-type BackgroundPositionX<TLength = (string & {}) | 0> = Globals | TLength | "center" | "left" | "right" | "x-end" | "x-start" | (string & {});
+type BackgroundPositionX<TLength> = Globals | TLength | "center" | "left" | "right" | "x-end" | "x-start" | (string & {});

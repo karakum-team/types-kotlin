@@ -2,4 +2,4 @@
 
 package csstype
 
-type Top<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {});
+type Top<TLength> = Globals | TLength | "auto" | (string & {});

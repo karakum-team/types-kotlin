@@ -2,7 +2,7 @@
 
 package csstype
 
-type VerticalAlign<TLength = (string & {}) | 0> =
+type VerticalAlign<TLength> =
   | Globals
   | TLength
   | "baseline"

@@ -2,4 +2,4 @@
 
 package csstype
 
-type ScrollSnapDestination<TLength = (string & {}) | 0> = Globals | DataType.Position<TLength>;
+type ScrollSnapDestination<TLength> = Globals | DataType.Position<TLength>;

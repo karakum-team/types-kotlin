@@ -2,4 +2,4 @@
 
 package csstype
 
-type MaskSize<TLength = (string & {}) | 0> = Globals | DataType.BgSize<TLength> | (string & {});
+type MaskSize<TLength> = Globals | DataType.BgSize<TLength> | (string & {});

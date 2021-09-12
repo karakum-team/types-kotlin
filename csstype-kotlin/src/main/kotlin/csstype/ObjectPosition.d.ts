@@ -2,4 +2,4 @@
 
 package csstype
 
-type ObjectPosition<TLength = (string & {}) | 0> = Globals | DataType.Position<TLength>;
+type ObjectPosition<TLength> = Globals | DataType.Position<TLength>;

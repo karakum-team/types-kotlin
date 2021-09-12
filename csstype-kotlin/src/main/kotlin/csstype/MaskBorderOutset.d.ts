@@ -2,4 +2,4 @@
 
 package csstype
 
-type MaskBorderOutset<TLength = (string & {}) | 0> = Globals | TLength | (string & {}) | (number & {});
+type MaskBorderOutset<TLength> = Globals | TLength | (string & {}) | (number & {});

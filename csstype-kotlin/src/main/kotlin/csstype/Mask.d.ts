@@ -2,4 +2,4 @@
 
 package csstype
 
-type Mask<TLength = (string & {}) | 0> = Globals | DataType.MaskLayer<TLength> | (string & {});
+type Mask<TLength> = Globals | DataType.MaskLayer<TLength> | (string & {});

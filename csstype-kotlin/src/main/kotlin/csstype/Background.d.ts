@@ -2,4 +2,4 @@
 
 package csstype
 
-type Background<TLength = (string & {}) | 0> = Globals | DataType.FinalBgLayer<TLength> | (string & {});
+type Background<TLength> = Globals | DataType.FinalBgLayer<TLength> | (string & {});

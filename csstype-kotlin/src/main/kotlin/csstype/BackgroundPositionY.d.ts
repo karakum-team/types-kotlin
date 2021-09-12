@@ -2,4 +2,4 @@
 
 package csstype
 
-type BackgroundPositionY<TLength = (string & {}) | 0> = Globals | TLength | "bottom" | "center" | "top" | "y-end" | "y-start" | (string & {});
+type BackgroundPositionY<TLength> = Globals | TLength | "bottom" | "center" | "top" | "y-end" | "y-start" | (string & {});

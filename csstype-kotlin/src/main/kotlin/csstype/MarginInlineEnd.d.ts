@@ -2,4 +2,4 @@
 
 package csstype
 
-type MarginInlineEnd<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {});
+type MarginInlineEnd<TLength> = Globals | TLength | "auto" | (string & {});

@@ -2,4 +2,4 @@
 
 package csstype
 
-type ColumnRuleWidth<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | (string & {});
+type ColumnRuleWidth<TLength> = Globals | DataType.LineWidth<TLength> | (string & {});

@@ -2,7 +2,7 @@
 
 package csstype
 
-type BlockSize<TLength = (string & {}) | 0> =
+type BlockSize<TLength> =
   | Globals
   | TLength
   | "-moz-fit-content"

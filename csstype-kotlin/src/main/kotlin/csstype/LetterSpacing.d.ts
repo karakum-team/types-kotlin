@@ -2,4 +2,4 @@
 
 package csstype
 
-type LetterSpacing<TLength = (string & {}) | 0> = Globals | TLength | "normal";
+type LetterSpacing<TLength> = Globals | TLength | "normal";

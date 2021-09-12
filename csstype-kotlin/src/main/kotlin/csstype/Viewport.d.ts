@@ -2,7 +2,7 @@
 
 package csstype
 
-interface Viewport<TLength = (string & {}) | 0, TTime = string & {}> {
+interface Viewport<TLength, TTime> {
   height?: Height<TLength>;
   maxHeight?: MaxHeight<TLength>;
   maxWidth?: MaxWidth<TLength>;

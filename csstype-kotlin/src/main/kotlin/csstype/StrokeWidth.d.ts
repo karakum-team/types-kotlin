@@ -2,4 +2,4 @@
 
 package csstype
 
-type StrokeWidth<TLength = (string & {}) | 0> = Globals | TLength | (string & {});
+type StrokeWidth<TLength> = Globals | TLength | (string & {});

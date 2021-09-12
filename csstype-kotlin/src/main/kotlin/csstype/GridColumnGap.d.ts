@@ -2,4 +2,4 @@
 
 package csstype
 
-type GridColumnGap<TLength = (string & {}) | 0> = Globals | TLength | (string & {});
+type GridColumnGap<TLength> = Globals | TLength | (string & {});

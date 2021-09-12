@@ -2,7 +2,7 @@
 
 package csstype
 
-type FlexBasis<TLength = (string & {}) | 0> =
+type FlexBasis<TLength> =
   | Globals
   | TLength
   | "-moz-max-content"

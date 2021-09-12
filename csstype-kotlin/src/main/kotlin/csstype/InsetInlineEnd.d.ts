@@ -2,4 +2,4 @@
 
 package csstype
 
-type InsetInlineEnd<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {});
+type InsetInlineEnd<TLength> = Globals | TLength | "auto" | (string & {});

@@ -2,4 +2,4 @@
 
 package csstype
 
-type ColumnWidth<TLength = (string & {}) | 0> = Globals | TLength | "auto";
+type ColumnWidth<TLength> = Globals | TLength | "auto";

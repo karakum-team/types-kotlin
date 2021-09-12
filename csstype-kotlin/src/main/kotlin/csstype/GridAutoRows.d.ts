@@ -2,4 +2,4 @@
 
 package csstype
 
-type GridAutoRows<TLength = (string & {}) | 0> = Globals | DataType.TrackBreadth<TLength> | (string & {});
+type GridAutoRows<TLength> = Globals | DataType.TrackBreadth<TLength> | (string & {});

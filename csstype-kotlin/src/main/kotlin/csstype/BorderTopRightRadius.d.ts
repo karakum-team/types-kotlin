@@ -2,4 +2,4 @@
 
 package csstype
 
-type BorderTopRightRadius<TLength = (string & {}) | 0> = Globals | TLength | (string & {});
+type BorderTopRightRadius<TLength> = Globals | TLength | (string & {});

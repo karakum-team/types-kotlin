@@ -2,4 +2,4 @@
 
 package csstype
 
-type AnimationDuration<TTime = string & {}> = Globals | TTime | (string & {});
+type AnimationDuration<TTime> = Globals | TTime | (string & {});

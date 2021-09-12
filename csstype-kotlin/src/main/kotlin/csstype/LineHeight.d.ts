@@ -2,4 +2,4 @@
 
 package csstype
 
-type LineHeight<TLength = (string & {}) | 0> = Globals | TLength | "normal" | (string & {}) | (number & {});
+type LineHeight<TLength> = Globals | TLength | "normal" | (string & {}) | (number & {});

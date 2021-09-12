@@ -2,7 +2,7 @@
 
 package csstype
 
-type MaxBlockSize<TLength = (string & {}) | 0> =
+type MaxBlockSize<TLength> =
   | Globals
   | TLength
   | "-moz-max-content"

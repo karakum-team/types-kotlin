@@ -2,4 +2,4 @@
 
 package csstype
 
-type InsetBlockStart<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {});
+type InsetBlockStart<TLength> = Globals | TLength | "auto" | (string & {});

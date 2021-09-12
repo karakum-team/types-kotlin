@@ -2,4 +2,4 @@
 
 package csstype
 
-type Transition<TTime = string & {}> = Globals | DataType.SingleTransition<TTime> | (string & {});
+type Transition<TTime> = Globals | DataType.SingleTransition<TTime> | (string & {});

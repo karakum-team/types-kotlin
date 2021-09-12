@@ -2,7 +2,7 @@
 
 package csstype
 
-type MinHeight<TLength = (string & {}) | 0> =
+type MinHeight<TLength> =
   | Globals
   | TLength
   | "-moz-fit-content"

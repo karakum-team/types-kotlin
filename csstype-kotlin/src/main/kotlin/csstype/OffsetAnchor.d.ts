@@ -2,4 +2,4 @@
 
 package csstype
 
-type OffsetAnchor<TLength = (string & {}) | 0> = Globals | DataType.Position<TLength> | "auto";
+type OffsetAnchor<TLength> = Globals | DataType.Position<TLength> | "auto";

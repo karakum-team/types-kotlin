@@ -2,7 +2,7 @@
 
 package csstype
 
-interface FontFace<TLength = (string & {}) | 0, TTime = string & {}> {
+interface FontFace<TLength, TTime> {
   MozFontFeatureSettings?: FontFeatureSettings;
   fontDisplay?: FontDisplay;
   fontFamily?: string;

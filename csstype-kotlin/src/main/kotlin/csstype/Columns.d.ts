@@ -2,4 +2,4 @@
 
 package csstype
 
-type Columns<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {}) | (number & {});
+type Columns<TLength> = Globals | TLength | "auto" | (string & {}) | (number & {});
