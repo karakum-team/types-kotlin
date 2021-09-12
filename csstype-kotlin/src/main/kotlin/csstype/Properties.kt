@@ -2,5 +2,4 @@
 
 package csstype
 
-external interface Properties
-    : StandardProperties
+external interface Properties : StandardProperties

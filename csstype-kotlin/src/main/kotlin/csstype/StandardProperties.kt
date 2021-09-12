@@ -2,5 +2,4 @@
 
 package csstype
 
-external interface StandardProperties
-    : StandardLonghandProperties
+external interface StandardProperties : StandardLonghandProperties
