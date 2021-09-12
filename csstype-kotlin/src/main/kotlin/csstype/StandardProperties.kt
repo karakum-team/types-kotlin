@@ -3,4 +3,4 @@
 package csstype
 
 sealed external interface StandardProperties<TLength, TTime>
-: StandardLonghandProperties<TLength, TTime>
+    : StandardLonghandProperties<TLength, TTime>

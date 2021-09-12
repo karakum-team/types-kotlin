@@ -2,7 +2,7 @@
 
 package csstype
 
-sealed external interface Viewport<TLength, TTime>{
+sealed external interface Viewport<TLength, TTime> {
     var height: Height<TLength>
     var maxHeight: MaxHeight<TLength>
     var maxWidth: MaxWidth<TLength>
