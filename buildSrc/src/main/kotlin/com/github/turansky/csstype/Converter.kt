@@ -116,6 +116,16 @@ private fun convertInterface(
 
     val body = source.substringAfter("{\n")
         .substringBefore("\n}")
+        .trimIndent()
+        .splitToSequence("\n")
+        .map {
+            if ("?: " in it) {
+                var (pname, ptype) = it.split("?: ")
+                ptype = ptype.removePrefix("Property.").removeSuffix(";")
+                "var $pname: $ptype"
+            } else it
+        }
+        .joinToString("\n")
         .replaceIndent("    ")
 
     return ConversionResult(
