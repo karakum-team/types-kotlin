@@ -3,7 +3,7 @@
 package csstype
 
 sealed external interface Property<TLength, TTime>{
-    inherits?: Inherits;
-    initialValue?: string;
-    syntax?: string;
+    var inherits: Inherits
+    var initialValue: string
+    var syntax: string
 }

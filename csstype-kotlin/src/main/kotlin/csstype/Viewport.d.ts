@@ -3,16 +3,16 @@
 package csstype
 
 sealed external interface Viewport<TLength, TTime>{
-    height?: Height<TLength>;
-    maxHeight?: MaxHeight<TLength>;
-    maxWidth?: MaxWidth<TLength>;
-    maxZoom?: MaxZoom;
-    minHeight?: MinHeight<TLength>;
-    minWidth?: MinWidth<TLength>;
-    minZoom?: MinZoom;
-    orientation?: Orientation;
-    userZoom?: UserZoom;
-    viewportFit?: ViewportFit;
-    width?: Width<TLength>;
-    zoom?: Zoom;
+    var height: Height<TLength>
+    var maxHeight: MaxHeight<TLength>
+    var maxWidth: MaxWidth<TLength>
+    var maxZoom: MaxZoom
+    var minHeight: MinHeight<TLength>
+    var minWidth: MinWidth<TLength>
+    var minZoom: MinZoom
+    var orientation: Orientation
+    var userZoom: UserZoom
+    var viewportFit: ViewportFit
+    var width: Width<TLength>
+    var zoom: Zoom
 }

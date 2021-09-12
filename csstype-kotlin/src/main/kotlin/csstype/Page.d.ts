@@ -3,5 +3,5 @@
 package csstype
 
 sealed external interface Page<TLength, TTime>{
-    size?: Size<TLength>;
+    var size: Size<TLength>
 }

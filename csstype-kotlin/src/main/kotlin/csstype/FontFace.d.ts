@@ -3,15 +3,15 @@
 package csstype
 
 sealed external interface FontFace<TLength, TTime>{
-    MozFontFeatureSettings?: FontFeatureSettings;
-    fontDisplay?: FontDisplay;
-    fontFamily?: string;
-    fontFeatureSettings?: FontFeatureSettings;
-    fontStretch?: FontStretch;
-    fontStyle?: FontStyle;
-    fontVariant?: FontVariant;
-    fontVariationSettings?: FontVariationSettings;
-    fontWeight?: FontWeight;
-    src?: string;
-    unicodeRange?: string;
+    var MozFontFeatureSettings: FontFeatureSettings
+    var fontDisplay: FontDisplay
+    var fontFamily: string
+    var fontFeatureSettings: FontFeatureSettings
+    var fontStretch: FontStretch
+    var fontStyle: FontStyle
+    var fontVariant: FontVariant
+    var fontVariationSettings: FontVariationSettings
+    var fontWeight: FontWeight
+    var src: string
+    var unicodeRange: string
 }
