@@ -64,5 +64,24 @@ private fun convertDefinition(
         .replace("TLength = (string & {}) | 0", "TLength")
         .replace("TTime = string & {}", "TTime")
 
+    if (content.startsWith("type "))
+        return convertUnion(name, content)
+
     return ConversionResult(name, content)
+}
+
+private fun convertUnion(
+    name: String,
+    source: String,
+): ConversionResult {
+    val declaration = source.removePrefix("type ")
+        .substringBefore(" =")
+
+    val body = source.substringAfter(" =")
+        .removePrefix("\n")
+        .trimIndent()
+
+    val comment = if ("\n" in body) "/*\n$body\n*/" else "// $body"
+
+    return ConversionResult(name, "$comment\nsealed external interface $declaration")
 }
