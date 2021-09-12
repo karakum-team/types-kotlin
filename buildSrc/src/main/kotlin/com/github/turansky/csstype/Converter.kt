@@ -40,6 +40,7 @@ private fun convertNamespace(
         .substringAfter("{\n")
         .substringBefore("\n}")
         .trimIndent()
+        .let { "\n" + it }
         .splitToSequence("\nexport ")
         .drop(1)
         .mapNotNull { content ->
@@ -69,6 +70,9 @@ private val ADDITIONAL_TYPES = setOf(
     "Orientation",
     "UserZoom",
     "ViewportFit",
+    "Range",
+    "SpeakAs",
+    "System",
 )
 
 private fun convertNamespaceTypes(
