@@ -1,6 +1,8 @@
 package com.github.turansky.csstype
 
 internal val SVG_TYPES = setOf(
+    "AlignmentBaseline",
+    "BaselineShift",
     "Clip",
     "ClipRule",
     "ColorInterpolation",
