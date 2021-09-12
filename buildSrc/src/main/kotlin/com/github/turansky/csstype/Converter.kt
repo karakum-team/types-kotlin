@@ -138,13 +138,18 @@ private fun convertInterface(
         .substringBefore("\n")
         .substringBefore(" {")
 
-    val parentType = source
+    val extends = source
         .substringBefore("{")
         .substringAfter(" extends ", "")
-        .substringBefore(",\n")
 
-    if (parentType.isNotEmpty()) {
-        return ConversionResult(name, "external interface $declaration: $parentType\n")
+    if (extends.isNotEmpty()) {
+        val parentTypes = extends.replace("\n", "")
+            .splitToSequence(",")
+            .map { it.trim() }
+            .filter { "Vendor" !in it && "Obsolete" !in it && "Svg" !in it }
+            .joinToString(", ")
+
+        return ConversionResult(name, "external interface $declaration: $parentTypes\n")
     }
 
     val body = source.substringAfter("{\n")
