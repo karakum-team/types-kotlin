@@ -52,7 +52,7 @@ private fun convertNamespace(
                 name.startsWith("Moz") -> null
                 name.startsWith("Ms") -> null
                 name.startsWith("Webkit") -> null
-                name.contains("Hyphen") -> null
+                name.contains("Hyphen") && name != "Hyphens" -> null
                 name.contains("Fallback") -> null
                 else -> convertDefinition(name, content)
             }
