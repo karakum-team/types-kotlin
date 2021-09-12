@@ -5,7 +5,6 @@ import java.io.File
 internal data class ConversionResult(
     val name: String,
     val body: String,
-    val ready: Boolean,
 )
 
 internal fun convertDefinitions(
@@ -85,11 +84,7 @@ private fun convertUnion(
 
     val comment = if ("\n" in body) "/*\n$body\n*/" else "// $body"
 
-    return ConversionResult(
-        name,
-        "$comment\nsealed external interface $declaration",
-        true,
-    )
+    return ConversionResult(name, "$comment\nsealed external interface $declaration")
 }
 
 private fun convertInterface(
@@ -107,11 +102,7 @@ private fun convertInterface(
         .substringBefore(",\n")
 
     if (parentType.isNotEmpty()) {
-        return ConversionResult(
-            name,
-            "sealed external interface $declaration\n: $parentType",
-            true,
-        )
+        return ConversionResult(name, "sealed external interface $declaration\n: $parentType")
     }
 
     val body = source.substringAfter("{\n")
@@ -129,9 +120,5 @@ private fun convertInterface(
         .joinToString("\n")
         .replaceIndent("    ")
 
-    return ConversionResult(
-        name,
-        "sealed external interface $declaration{\n$body\n}\n",
-        false,
-    )
+    return ConversionResult(name, "sealed external interface $declaration{\n$body\n}\n", )
 }
