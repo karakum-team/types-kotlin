@@ -84,6 +84,7 @@ private fun convertNamespaceTypes(
         .trimIndent()
         .splitToSequence("\ntype ")
         .drop(1)
+        .map { it.replace("<TLength>", "") }
         .mapNotNull { content ->
             val name = content
                 .substringBefore(" ")
@@ -102,6 +103,9 @@ private fun convertDefinition(
     val content = source
         .replace("TLength = (string & {}) | 0", "TLength")
         .replace("TTime = string & {}", "TTime")
+        .replace("<TLength, TTime>", "")
+        .replace("<TLength>", "")
+        .replace("<TTime>", "")
 
     if (content.startsWith("type "))
         return convertUnion(name, content)
