@@ -127,7 +127,7 @@ private fun convertUnion(
 
     val comment = if ("\n" in body) "/*\n$body\n*/" else "// $body"
 
-    return ConversionResult(name, "$comment\nsealed external interface $declaration")
+    return ConversionResult(name, "$comment\nsealed external interface $declaration\n")
 }
 
 private fun convertInterface(
@@ -145,7 +145,7 @@ private fun convertInterface(
         .substringBefore(",\n")
 
     if (parentType.isNotEmpty()) {
-        return ConversionResult(name, "external interface $declaration: $parentType")
+        return ConversionResult(name, "external interface $declaration: $parentType\n")
     }
 
     val body = source.substringAfter("{\n")
