@@ -15,4 +15,4 @@ package csstype
 | "min-content"
 | (string & {})
 */
-sealed external interface FlexBasis<TLength>
+sealed external interface FlexBasis

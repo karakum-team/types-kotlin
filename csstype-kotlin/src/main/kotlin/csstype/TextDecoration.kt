@@ -22,4 +22,4 @@ package csstype
 | "wavy"
 | (string & {})
 */
-sealed external interface TextDecoration<TLength>
+sealed external interface TextDecoration

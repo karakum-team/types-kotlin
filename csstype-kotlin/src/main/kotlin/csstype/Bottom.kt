@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | "auto" | (string & {})
-sealed external interface Bottom<TLength>
+sealed external interface Bottom

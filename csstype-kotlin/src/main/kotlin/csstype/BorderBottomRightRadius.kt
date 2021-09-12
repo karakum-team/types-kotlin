@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | (string & {})
-sealed external interface BorderBottomRightRadius<TLength>
+sealed external interface BorderBottomRightRadius

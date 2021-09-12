@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.LineWidth<TLength> | (string & {})
-sealed external interface ColumnRuleWidth<TLength>
+// Globals | DataType.LineWidth | (string & {})
+sealed external interface ColumnRuleWidth

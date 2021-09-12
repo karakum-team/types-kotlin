@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength
-sealed external interface ScrollMarginBlockStart<TLength>
+sealed external interface ScrollMarginBlockStart

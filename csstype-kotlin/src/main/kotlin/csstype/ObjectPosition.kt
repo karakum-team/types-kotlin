@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.Position<TLength>
-sealed external interface ObjectPosition<TLength>
+// Globals | DataType.Position
+sealed external interface ObjectPosition

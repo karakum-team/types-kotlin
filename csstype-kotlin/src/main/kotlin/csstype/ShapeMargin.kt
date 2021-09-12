@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | (string & {})
-sealed external interface ShapeMargin<TLength>
+sealed external interface ShapeMargin

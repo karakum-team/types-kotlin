@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | (string & {})
-sealed external interface PaddingInline<TLength>
+sealed external interface PaddingInline

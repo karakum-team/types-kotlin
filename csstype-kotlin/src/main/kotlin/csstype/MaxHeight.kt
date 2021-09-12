@@ -18,4 +18,4 @@ package csstype
 | "none"
 | (string & {})
 */
-sealed external interface MaxHeight<TLength>
+sealed external interface MaxHeight

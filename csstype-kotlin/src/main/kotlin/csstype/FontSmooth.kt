@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | DataType.AbsoluteSize | TLength | "always" | "auto" | "never"
-sealed external interface FontSmooth<TLength>
+sealed external interface FontSmooth

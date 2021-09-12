@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | (string & {})
-sealed external interface OffsetDistance<TLength>
+sealed external interface OffsetDistance

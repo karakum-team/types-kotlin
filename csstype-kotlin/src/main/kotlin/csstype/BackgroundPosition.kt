@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.BgPosition<TLength> | (string & {})
-sealed external interface BackgroundPosition<TLength>
+// Globals | DataType.BgPosition | (string & {})
+sealed external interface BackgroundPosition

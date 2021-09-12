@@ -18,4 +18,4 @@ package csstype
 | "min-content"
 | (string & {})
 */
-sealed external interface MinHeight<TLength>
+sealed external interface MinHeight

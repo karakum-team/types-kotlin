@@ -15,4 +15,4 @@ package csstype
 | "top"
 | (string & {})
 */
-sealed external interface VerticalAlign<TLength>
+sealed external interface VerticalAlign

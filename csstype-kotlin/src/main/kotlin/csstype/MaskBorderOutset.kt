@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | (string & {}) | (number & {})
-sealed external interface MaskBorderOutset<TLength>
+sealed external interface MaskBorderOutset

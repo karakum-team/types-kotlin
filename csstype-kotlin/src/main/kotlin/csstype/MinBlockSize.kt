@@ -14,4 +14,4 @@ package csstype
 | "min-content"
 | (string & {})
 */
-sealed external interface MinBlockSize<TLength>
+sealed external interface MinBlockSize

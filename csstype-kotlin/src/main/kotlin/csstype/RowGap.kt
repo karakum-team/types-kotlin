@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | "normal" | (string & {})
-sealed external interface RowGap<TLength>
+sealed external interface RowGap

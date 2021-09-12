@@ -2,17 +2,17 @@
 
 package csstype
 
-sealed external interface Viewport<TLength, TTime> {
-    var height: Height<TLength>
-    var maxHeight: MaxHeight<TLength>
-    var maxWidth: MaxWidth<TLength>
+sealed external interface Viewport {
+    var height: Height
+    var maxHeight: MaxHeight
+    var maxWidth: MaxWidth
     var maxZoom: MaxZoom
-    var minHeight: MinHeight<TLength>
-    var minWidth: MinWidth<TLength>
+    var minHeight: MinHeight
+    var minWidth: MinWidth
     var minZoom: MinZoom
     var orientation: Orientation
     var userZoom: UserZoom
     var viewportFit: ViewportFit
-    var width: Width<TLength>
+    var width: Width
     var zoom: Zoom
 }

@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.Dasharray<TLength> | "none"
-sealed external interface StrokeDasharray<TLength>
+// Globals | DataType.Dasharray | "none"
+sealed external interface StrokeDasharray

@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TTime | (string & {})
-sealed external interface AnimationDelay<TTime>
+sealed external interface AnimationDelay

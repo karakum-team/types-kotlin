@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | (string & {})
-sealed external interface StrokeDashoffset<TLength>
+sealed external interface StrokeDashoffset

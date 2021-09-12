@@ -15,4 +15,4 @@ package csstype
 | "none"
 | (string & {})
 */
-sealed external interface MaxInlineSize<TLength>
+sealed external interface MaxInlineSize

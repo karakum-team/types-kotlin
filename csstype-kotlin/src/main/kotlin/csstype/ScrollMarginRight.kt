@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength
-sealed external interface ScrollMarginRight<TLength>
+sealed external interface ScrollMarginRight

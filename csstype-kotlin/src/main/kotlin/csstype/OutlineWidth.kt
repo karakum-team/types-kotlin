@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.LineWidth<TLength>
-sealed external interface OutlineWidth<TLength>
+// Globals | DataType.LineWidth
+sealed external interface OutlineWidth

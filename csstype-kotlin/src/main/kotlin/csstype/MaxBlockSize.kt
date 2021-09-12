@@ -14,4 +14,4 @@ package csstype
 | "none"
 | (string & {})
 */
-sealed external interface MaxBlockSize<TLength>
+sealed external interface MaxBlockSize

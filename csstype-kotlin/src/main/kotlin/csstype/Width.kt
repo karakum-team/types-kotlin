@@ -18,4 +18,4 @@ package csstype
 | "min-intrinsic"
 | (string & {})
 */
-sealed external interface Width<TLength>
+sealed external interface Width

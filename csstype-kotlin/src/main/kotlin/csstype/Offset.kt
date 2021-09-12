@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.Position<TLength> | DataType.GeometryBox | "auto" | "none" | (string & {})
-sealed external interface Offset<TLength>
+// Globals | DataType.Position | DataType.GeometryBox | "auto" | "none" | (string & {})
+sealed external interface Offset

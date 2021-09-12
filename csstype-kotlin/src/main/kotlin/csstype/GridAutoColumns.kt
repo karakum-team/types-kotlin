@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.TrackBreadth<TLength> | (string & {})
-sealed external interface GridAutoColumns<TLength>
+// Globals | DataType.TrackBreadth | (string & {})
+sealed external interface GridAutoColumns

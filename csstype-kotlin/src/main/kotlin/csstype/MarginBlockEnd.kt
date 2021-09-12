@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | "auto" | (string & {})
-sealed external interface MarginBlockEnd<TLength>
+sealed external interface MarginBlockEnd

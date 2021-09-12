@@ -2,6 +2,6 @@
 
 package csstype
 
-sealed external interface Page<TLength, TTime> {
-    var size: Size<TLength>
+sealed external interface Page {
+    var size: Size
 }

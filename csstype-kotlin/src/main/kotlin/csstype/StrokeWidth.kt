@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | (string & {})
-sealed external interface StrokeWidth<TLength>
+sealed external interface StrokeWidth

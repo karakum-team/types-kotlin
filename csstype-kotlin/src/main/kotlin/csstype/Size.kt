@@ -3,4 +3,4 @@
 package csstype
 
 // DataType.PageSize | TLength | "auto" | "landscape" | "portrait" | (string & {})
-sealed external interface Size<TLength>
+sealed external interface Size

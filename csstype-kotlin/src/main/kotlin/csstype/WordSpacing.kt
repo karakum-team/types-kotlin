@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | "normal" | (string & {})
-sealed external interface WordSpacing<TLength>
+sealed external interface WordSpacing

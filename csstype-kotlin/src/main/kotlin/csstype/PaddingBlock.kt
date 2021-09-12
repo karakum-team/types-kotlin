@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | (string & {})
-sealed external interface PaddingBlock<TLength>
+sealed external interface PaddingBlock

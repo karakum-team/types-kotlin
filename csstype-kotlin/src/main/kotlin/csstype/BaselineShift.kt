@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | "baseline" | "sub" | "super" | (string & {})
-sealed external interface BaselineShift<TLength>
+sealed external interface BaselineShift

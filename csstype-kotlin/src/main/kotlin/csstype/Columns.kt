@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | "auto" | (string & {}) | (number & {})
-sealed external interface Columns<TLength>
+sealed external interface Columns

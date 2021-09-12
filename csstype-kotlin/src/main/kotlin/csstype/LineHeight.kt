@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | "normal" | (string & {}) | (number & {})
-sealed external interface LineHeight<TLength>
+sealed external interface LineHeight

@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | "normal" | (string & {})
-sealed external interface Gap<TLength>
+sealed external interface Gap

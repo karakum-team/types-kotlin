@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.Position<TLength> | "auto"
-sealed external interface OffsetAnchor<TLength>
+// Globals | DataType.Position | "auto"
+sealed external interface OffsetAnchor

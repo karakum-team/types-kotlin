@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | "bottom" | "center" | "left" | "right" | "top" | (string & {})
-sealed external interface TransformOrigin<TLength>
+sealed external interface TransformOrigin

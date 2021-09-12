@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | (string & {})
-sealed external interface BorderSpacing<TLength>
+sealed external interface BorderSpacing

@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | "auto" | "from-font" | (string & {})
-sealed external interface TextDecorationThickness<TLength>
+sealed external interface TextDecorationThickness

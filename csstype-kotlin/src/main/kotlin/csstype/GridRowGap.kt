@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | (string & {})
-sealed external interface GridRowGap<TLength>
+sealed external interface GridRowGap

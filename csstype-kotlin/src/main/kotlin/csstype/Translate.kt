@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | "none" | (string & {})
-sealed external interface Translate<TLength>
+sealed external interface Translate

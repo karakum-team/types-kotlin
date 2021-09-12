@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | "auto"
-sealed external interface ColumnWidth<TLength>
+sealed external interface ColumnWidth

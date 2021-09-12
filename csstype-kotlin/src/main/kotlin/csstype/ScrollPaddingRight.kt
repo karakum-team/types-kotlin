@@ -3,4 +3,4 @@
 package csstype
 
 // Globals | TLength | "auto" | (string & {})
-sealed external interface ScrollPaddingRight<TLength>
+sealed external interface ScrollPaddingRight

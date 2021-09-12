@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.FinalBgLayer<TLength> | (string & {})
-sealed external interface Background<TLength>
+// Globals | DataType.FinalBgLayer | (string & {})
+sealed external interface Background

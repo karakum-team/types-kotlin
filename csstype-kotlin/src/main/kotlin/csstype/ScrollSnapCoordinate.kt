@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.Position<TLength> | "none" | (string & {})
-sealed external interface ScrollSnapCoordinate<TLength>
+// Globals | DataType.Position | "none" | (string & {})
+sealed external interface ScrollSnapCoordinate

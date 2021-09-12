@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.BgSize<TLength> | (string & {})
-sealed external interface BackgroundSize<TLength>
+// Globals | DataType.BgSize | (string & {})
+sealed external interface BackgroundSize
