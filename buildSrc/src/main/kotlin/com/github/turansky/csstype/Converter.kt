@@ -5,6 +5,7 @@ import java.io.File
 internal data class ConversionResult(
     val name: String,
     val body: String,
+    val ready: Boolean,
 )
 
 internal fun convertDefinitions(
@@ -67,7 +68,7 @@ private fun convertDefinition(
     if (content.startsWith("type "))
         return convertUnion(name, content)
 
-    return ConversionResult(name, content)
+    return ConversionResult(name, content, false)
 }
 
 private fun convertUnion(
@@ -83,5 +84,9 @@ private fun convertUnion(
 
     val comment = if ("\n" in body) "/*\n$body\n*/" else "// $body"
 
-    return ConversionResult(name, "$comment\nsealed external interface $declaration")
+    return ConversionResult(
+        name,
+        "$comment\nsealed external interface $declaration",
+        true,
+    )
 }

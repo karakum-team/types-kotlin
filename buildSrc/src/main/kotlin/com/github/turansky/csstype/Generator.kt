@@ -11,8 +11,9 @@ fun generateKotlinDeclarations(
         .resolve("csstype")
         .also { it.mkdirs() }
 
-    for ((name, body) in convertDefinitions(definitionsFile)) {
-        targetDir.resolve("$name.d.ts")
+    for ((name, body, ready) in convertDefinitions(definitionsFile)) {
+        val ext = if (ready) "kt" else "d.ts"
+        targetDir.resolve("$name.$ext")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
             .writeText(fileContent(body = body))
     }
