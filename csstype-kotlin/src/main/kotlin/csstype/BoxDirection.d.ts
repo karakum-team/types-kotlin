@@ -2,4 +2,5 @@
 
 package csstype
 
-type BoxDirection = Globals | "inherit" | "normal" | "reverse";
+// Globals | "inherit" | "normal" | "reverse";
+sealed external interface BoxDirection

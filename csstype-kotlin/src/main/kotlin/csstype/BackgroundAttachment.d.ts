@@ -2,4 +2,5 @@
 
 package csstype
 
-type BackgroundAttachment = Globals | DataType.Attachment | (string & {});
+// Globals | DataType.Attachment | (string & {});
+sealed external interface BackgroundAttachment

@@ -2,4 +2,5 @@
 
 package csstype
 
-type ColumnRuleStyle = Globals | DataType.LineStyle | (string & {});
+// Globals | DataType.LineStyle | (string & {});
+sealed external interface ColumnRuleStyle

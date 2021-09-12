@@ -2,4 +2,5 @@
 
 package csstype
 
-type ColorInterpolation = Globals | "auto" | "linearRGB" | "sRGB";
+// Globals | "auto" | "linearRGB" | "sRGB";
+sealed external interface ColorInterpolation

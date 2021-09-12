@@ -2,4 +2,5 @@
 
 package csstype
 
-type InsetBlockEnd<TLength> = Globals | TLength | "auto" | (string & {});
+// Globals | TLength | "auto" | (string & {});
+sealed external interface InsetBlockEnd<TLength>

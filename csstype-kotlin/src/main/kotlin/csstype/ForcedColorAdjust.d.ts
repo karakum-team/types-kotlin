@@ -2,4 +2,5 @@
 
 package csstype
 
-type ForcedColorAdjust = Globals | "auto" | "none";
+// Globals | "auto" | "none";
+sealed external interface ForcedColorAdjust

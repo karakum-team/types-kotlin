@@ -2,4 +2,5 @@
 
 package csstype
 
-type Float = Globals | "inline-end" | "inline-start" | "left" | "none" | "right";
+// Globals | "inline-end" | "inline-start" | "left" | "none" | "right";
+sealed external interface Float

@@ -2,4 +2,5 @@
 
 package csstype
 
-type BorderInlineStyle = Globals | DataType.LineStyle;
+// Globals | DataType.LineStyle;
+sealed external interface BorderInlineStyle

@@ -2,4 +2,5 @@
 
 package csstype
 
-type PaddingInlineStart<TLength> = Globals | TLength | (string & {});
+// Globals | TLength | (string & {});
+sealed external interface PaddingInlineStart<TLength>

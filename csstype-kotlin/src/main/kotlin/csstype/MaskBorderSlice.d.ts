@@ -2,4 +2,5 @@
 
 package csstype
 
-type MaskBorderSlice = Globals | (string & {}) | (number & {});
+// Globals | (string & {}) | (number & {});
+sealed external interface MaskBorderSlice

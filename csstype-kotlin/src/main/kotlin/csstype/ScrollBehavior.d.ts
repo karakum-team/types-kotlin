@@ -2,4 +2,5 @@
 
 package csstype
 
-type ScrollBehavior = Globals | "auto" | "smooth";
+// Globals | "auto" | "smooth";
+sealed external interface ScrollBehavior

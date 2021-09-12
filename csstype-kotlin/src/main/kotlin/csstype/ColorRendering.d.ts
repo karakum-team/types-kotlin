@@ -2,4 +2,5 @@
 
 package csstype
 
-type ColorRendering = Globals | "auto" | "optimizeQuality" | "optimizeSpeed";
+// Globals | "auto" | "optimizeQuality" | "optimizeSpeed";
+sealed external interface ColorRendering

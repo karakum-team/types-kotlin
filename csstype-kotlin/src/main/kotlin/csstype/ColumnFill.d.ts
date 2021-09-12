@@ -2,4 +2,5 @@
 
 package csstype
 
-type ColumnFill = Globals | "auto" | "balance";
+// Globals | "auto" | "balance";
+sealed external interface ColumnFill

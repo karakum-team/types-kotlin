@@ -2,4 +2,5 @@
 
 package csstype
 
-type GridTemplateColumns<TLength> = Globals | DataType.TrackBreadth<TLength> | "none" | "subgrid" | (string & {});
+// Globals | DataType.TrackBreadth<TLength> | "none" | "subgrid" | (string & {});
+sealed external interface GridTemplateColumns<TLength>

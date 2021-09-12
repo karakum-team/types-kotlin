@@ -2,4 +2,5 @@
 
 package csstype
 
-type PageBreakInside = Globals | "auto" | "avoid";
+// Globals | "auto" | "avoid";
+sealed external interface PageBreakInside

@@ -2,4 +2,5 @@
 
 package csstype
 
-type AnimationDirection = Globals | DataType.SingleAnimationDirection | (string & {});
+// Globals | DataType.SingleAnimationDirection | (string & {});
+sealed external interface AnimationDirection

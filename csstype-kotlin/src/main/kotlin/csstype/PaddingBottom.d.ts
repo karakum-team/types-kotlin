@@ -2,4 +2,5 @@
 
 package csstype
 
-type PaddingBottom<TLength> = Globals | TLength | (string & {});
+// Globals | TLength | (string & {});
+sealed external interface PaddingBottom<TLength>

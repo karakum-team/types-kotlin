@@ -2,4 +2,5 @@
 
 package csstype
 
-type TransformBox = Globals | "border-box" | "content-box" | "fill-box" | "stroke-box" | "view-box";
+// Globals | "border-box" | "content-box" | "fill-box" | "stroke-box" | "view-box";
+sealed external interface TransformBox

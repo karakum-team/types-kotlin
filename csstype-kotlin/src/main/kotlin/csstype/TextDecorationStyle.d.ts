@@ -2,4 +2,5 @@
 
 package csstype
 
-type TextDecorationStyle = Globals | "dashed" | "dotted" | "double" | "solid" | "wavy";
+// Globals | "dashed" | "dotted" | "double" | "solid" | "wavy";
+sealed external interface TextDecorationStyle

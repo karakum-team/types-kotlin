@@ -2,4 +2,5 @@
 
 package csstype
 
-type BackdropFilter = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface BackdropFilter

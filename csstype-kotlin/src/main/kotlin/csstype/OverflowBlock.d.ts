@@ -2,4 +2,5 @@
 
 package csstype
 
-type OverflowBlock = Globals | "auto" | "clip" | "hidden" | "scroll" | "visible";
+// Globals | "auto" | "clip" | "hidden" | "scroll" | "visible";
+sealed external interface OverflowBlock

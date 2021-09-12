@@ -2,4 +2,5 @@
 
 package csstype
 
-type StopColor = Globals | DataType.Color | "currentColor";
+// Globals | DataType.Color | "currentColor";
+sealed external interface StopColor

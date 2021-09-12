@@ -2,4 +2,5 @@
 
 package csstype
 
-type GridTemplateAreas = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface GridTemplateAreas

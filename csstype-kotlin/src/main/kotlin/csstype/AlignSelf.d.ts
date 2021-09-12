@@ -2,4 +2,5 @@
 
 package csstype
 
-type AlignSelf = Globals | DataType.SelfPosition | "auto" | "baseline" | "normal" | "stretch" | (string & {});
+// Globals | DataType.SelfPosition | "auto" | "baseline" | "normal" | "stretch" | (string & {});
+sealed external interface AlignSelf

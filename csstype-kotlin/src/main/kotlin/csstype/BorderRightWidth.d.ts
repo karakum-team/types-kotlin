@@ -2,4 +2,5 @@
 
 package csstype
 
-type BorderRightWidth<TLength> = Globals | DataType.LineWidth<TLength>;
+// Globals | DataType.LineWidth<TLength>;
+sealed external interface BorderRightWidth<TLength>

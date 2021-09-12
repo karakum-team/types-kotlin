@@ -2,4 +2,5 @@
 
 package csstype
 
-type ColumnGap<TLength> = Globals | TLength | "normal" | (string & {});
+// Globals | TLength | "normal" | (string & {});
+sealed external interface ColumnGap<TLength>

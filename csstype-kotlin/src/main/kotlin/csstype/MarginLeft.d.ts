@@ -2,4 +2,5 @@
 
 package csstype
 
-type MarginLeft<TLength> = Globals | TLength | "auto" | (string & {});
+// Globals | TLength | "auto" | (string & {});
+sealed external interface MarginLeft<TLength>

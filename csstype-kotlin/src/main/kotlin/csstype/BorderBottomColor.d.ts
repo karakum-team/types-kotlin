@@ -2,4 +2,5 @@
 
 package csstype
 
-type BorderBottomColor = Globals | DataType.Color;
+// Globals | DataType.Color;
+sealed external interface BorderBottomColor

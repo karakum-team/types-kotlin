@@ -2,4 +2,5 @@
 
 package csstype
 
-type FontFeatureSettings = Globals | "normal" | (string & {});
+// Globals | "normal" | (string & {});
+sealed external interface FontFeatureSettings

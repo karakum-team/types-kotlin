@@ -2,4 +2,5 @@
 
 package csstype
 
-type PageBreakBefore = Globals | "always" | "auto" | "avoid" | "left" | "recto" | "right" | "verso";
+// Globals | "always" | "auto" | "avoid" | "left" | "recto" | "right" | "verso";
+sealed external interface PageBreakBefore

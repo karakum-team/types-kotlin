@@ -2,4 +2,5 @@
 
 package csstype
 
-type FontKerning = Globals | "auto" | "none" | "normal";
+// Globals | "auto" | "none" | "normal";
+sealed external interface FontKerning

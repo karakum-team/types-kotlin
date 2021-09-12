@@ -2,4 +2,5 @@
 
 package csstype
 
-type BackgroundColor = Globals | DataType.Color;
+// Globals | DataType.Color;
+sealed external interface BackgroundColor

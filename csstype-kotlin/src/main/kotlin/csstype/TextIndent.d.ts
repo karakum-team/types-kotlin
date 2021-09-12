@@ -2,4 +2,5 @@
 
 package csstype
 
-type TextIndent<TLength> = Globals | TLength | (string & {});
+// Globals | TLength | (string & {});
+sealed external interface TextIndent<TLength>

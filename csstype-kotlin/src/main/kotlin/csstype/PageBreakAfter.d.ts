@@ -2,4 +2,5 @@
 
 package csstype
 
-type PageBreakAfter = Globals | "always" | "auto" | "avoid" | "left" | "recto" | "right" | "verso";
+// Globals | "always" | "auto" | "avoid" | "left" | "recto" | "right" | "verso";
+sealed external interface PageBreakAfter

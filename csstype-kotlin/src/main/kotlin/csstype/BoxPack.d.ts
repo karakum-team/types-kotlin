@@ -2,4 +2,5 @@
 
 package csstype
 
-type BoxPack = Globals | "center" | "end" | "justify" | "start";
+// Globals | "center" | "end" | "justify" | "start";
+sealed external interface BoxPack

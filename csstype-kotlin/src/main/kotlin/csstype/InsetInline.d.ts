@@ -2,4 +2,5 @@
 
 package csstype
 
-type InsetInline<TLength> = Globals | TLength | "auto" | (string & {});
+// Globals | TLength | "auto" | (string & {});
+sealed external interface InsetInline<TLength>

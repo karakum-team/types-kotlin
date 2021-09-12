@@ -2,4 +2,5 @@
 
 package csstype
 
-type ZIndex = Globals | "auto" | (number & {});
+// Globals | "auto" | (number & {});
+sealed external interface ZIndex

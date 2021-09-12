@@ -2,4 +2,5 @@
 
 package csstype
 
-type BorderTop<TLength> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+// Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+sealed external interface BorderTop<TLength>

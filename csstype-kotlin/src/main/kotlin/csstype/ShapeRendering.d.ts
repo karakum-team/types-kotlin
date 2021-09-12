@@ -2,4 +2,5 @@
 
 package csstype
 
-type ShapeRendering = Globals | "auto" | "crispEdges" | "geometricPrecision" | "optimizeSpeed";
+// Globals | "auto" | "crispEdges" | "geometricPrecision" | "optimizeSpeed";
+sealed external interface ShapeRendering

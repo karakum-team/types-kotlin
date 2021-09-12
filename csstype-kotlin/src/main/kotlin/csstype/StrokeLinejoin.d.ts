@@ -2,4 +2,5 @@
 
 package csstype
 
-type StrokeLinejoin = Globals | "bevel" | "miter" | "round";
+// Globals | "bevel" | "miter" | "round";
+sealed external interface StrokeLinejoin

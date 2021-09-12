@@ -2,4 +2,5 @@
 
 package csstype
 
-type Widows = Globals | (number & {});
+// Globals | (number & {});
+sealed external interface Widows

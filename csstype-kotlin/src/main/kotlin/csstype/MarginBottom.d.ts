@@ -2,4 +2,5 @@
 
 package csstype
 
-type MarginBottom<TLength> = Globals | TLength | "auto" | (string & {});
+// Globals | TLength | "auto" | (string & {});
+sealed external interface MarginBottom<TLength>

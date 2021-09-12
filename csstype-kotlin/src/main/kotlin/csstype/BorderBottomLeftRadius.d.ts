@@ -2,4 +2,5 @@
 
 package csstype
 
-type BorderBottomLeftRadius<TLength> = Globals | TLength | (string & {});
+// Globals | TLength | (string & {});
+sealed external interface BorderBottomLeftRadius<TLength>

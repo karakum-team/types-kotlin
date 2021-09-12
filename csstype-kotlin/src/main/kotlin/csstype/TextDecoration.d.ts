@@ -2,22 +2,24 @@
 
 package csstype
 
-type TextDecoration<TLength> =
-  | Globals
-  | DataType.Color
-  | TLength
-  | "auto"
-  | "blink"
-  | "dashed"
-  | "dotted"
-  | "double"
-  | "from-font"
-  | "grammar-error"
-  | "line-through"
-  | "none"
-  | "overline"
-  | "solid"
-  | "spelling-error"
-  | "underline"
-  | "wavy"
-  | (string & {});
+/*
+| Globals
+| DataType.Color
+| TLength
+| "auto"
+| "blink"
+| "dashed"
+| "dotted"
+| "double"
+| "from-font"
+| "grammar-error"
+| "line-through"
+| "none"
+| "overline"
+| "solid"
+| "spelling-error"
+| "underline"
+| "wavy"
+| (string & {});
+*/
+sealed external interface TextDecoration<TLength>

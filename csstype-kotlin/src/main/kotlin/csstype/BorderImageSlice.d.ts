@@ -2,4 +2,5 @@
 
 package csstype
 
-type BorderImageSlice = Globals | (string & {}) | (number & {});
+// Globals | (string & {}) | (number & {});
+sealed external interface BorderImageSlice

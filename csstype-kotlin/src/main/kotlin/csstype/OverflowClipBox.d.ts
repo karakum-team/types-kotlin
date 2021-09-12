@@ -2,4 +2,5 @@
 
 package csstype
 
-type OverflowClipBox = Globals | "content-box" | "padding-box";
+// Globals | "content-box" | "padding-box";
+sealed external interface OverflowClipBox

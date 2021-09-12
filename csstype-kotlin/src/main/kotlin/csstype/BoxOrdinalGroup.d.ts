@@ -2,4 +2,5 @@
 
 package csstype
 
-type BoxOrdinalGroup = Globals | (number & {});
+// Globals | (number & {});
+sealed external interface BoxOrdinalGroup

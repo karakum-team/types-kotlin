@@ -2,4 +2,5 @@
 
 package csstype
 
-type FontSynthesis = Globals | "none" | "style" | "weight" | (string & {});
+// Globals | "none" | "style" | "weight" | (string & {});
+sealed external interface FontSynthesis

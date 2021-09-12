@@ -2,4 +2,5 @@
 
 package csstype
 
-type TextJustify = Globals | "auto" | "inter-character" | "inter-word" | "none";
+// Globals | "auto" | "inter-character" | "inter-word" | "none";
+sealed external interface TextJustify

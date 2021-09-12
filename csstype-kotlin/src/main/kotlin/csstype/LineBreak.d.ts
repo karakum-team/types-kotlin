@@ -2,4 +2,5 @@
 
 package csstype
 
-type LineBreak = Globals | "anywhere" | "auto" | "loose" | "normal" | "strict";
+// Globals | "anywhere" | "auto" | "loose" | "normal" | "strict";
+sealed external interface LineBreak

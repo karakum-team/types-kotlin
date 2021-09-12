@@ -2,4 +2,5 @@
 
 package csstype
 
-type FontOpticalSizing = Globals | "auto" | "none";
+// Globals | "auto" | "none";
+sealed external interface FontOpticalSizing

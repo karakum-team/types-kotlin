@@ -2,4 +2,5 @@
 
 package csstype
 
-type MaskBorderWidth<TLength> = Globals | TLength | "auto" | (string & {}) | (number & {});
+// Globals | TLength | "auto" | (string & {}) | (number & {});
+sealed external interface MaskBorderWidth<TLength>

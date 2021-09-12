@@ -2,4 +2,5 @@
 
 package csstype
 
-type FloodColor = Globals | DataType.Color | "currentColor";
+// Globals | DataType.Color | "currentColor";
+sealed external interface FloodColor

@@ -2,4 +2,5 @@
 
 package csstype
 
-type ColumnCount = Globals | "auto" | (number & {});
+// Globals | "auto" | (number & {});
+sealed external interface ColumnCount

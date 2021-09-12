@@ -2,4 +2,5 @@
 
 package csstype
 
-type MathStyle = Globals | "compact" | "normal";
+// Globals | "compact" | "normal";
+sealed external interface MathStyle

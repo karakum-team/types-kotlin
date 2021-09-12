@@ -2,4 +2,5 @@
 
 package csstype
 
-type TextShadow = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface TextShadow

@@ -2,4 +2,5 @@
 
 package csstype
 
-type AnimationDelay<TTime> = Globals | TTime | (string & {});
+// Globals | TTime | (string & {});
+sealed external interface AnimationDelay<TTime>

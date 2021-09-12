@@ -2,4 +2,5 @@
 
 package csstype
 
-type MaskPosition<TLength> = Globals | DataType.Position<TLength> | (string & {});
+// Globals | DataType.Position<TLength> | (string & {});
+sealed external interface MaskPosition<TLength>

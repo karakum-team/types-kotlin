@@ -2,4 +2,5 @@
 
 package csstype
 
-type GridRowEnd = Globals | DataType.GridLine;
+// Globals | DataType.GridLine;
+sealed external interface GridRowEnd

@@ -2,4 +2,5 @@
 
 package csstype
 
-type ScrollPaddingBottom<TLength> = Globals | TLength | "auto" | (string & {});
+// Globals | TLength | "auto" | (string & {});
+sealed external interface ScrollPaddingBottom<TLength>

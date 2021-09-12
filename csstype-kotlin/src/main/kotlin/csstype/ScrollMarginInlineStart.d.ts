@@ -2,4 +2,5 @@
 
 package csstype
 
-type ScrollMarginInlineStart<TLength> = Globals | TLength;
+// Globals | TLength;
+sealed external interface ScrollMarginInlineStart<TLength>

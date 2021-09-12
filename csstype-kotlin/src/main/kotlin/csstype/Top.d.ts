@@ -2,4 +2,5 @@
 
 package csstype
 
-type Top<TLength> = Globals | TLength | "auto" | (string & {});
+// Globals | TLength | "auto" | (string & {});
+sealed external interface Top<TLength>

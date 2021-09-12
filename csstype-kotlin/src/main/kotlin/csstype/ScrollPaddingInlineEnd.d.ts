@@ -2,4 +2,5 @@
 
 package csstype
 
-type ScrollPaddingInlineEnd<TLength> = Globals | TLength | "auto" | (string & {});
+// Globals | TLength | "auto" | (string & {});
+sealed external interface ScrollPaddingInlineEnd<TLength>

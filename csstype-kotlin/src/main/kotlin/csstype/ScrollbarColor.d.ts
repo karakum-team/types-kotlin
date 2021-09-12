@@ -2,4 +2,5 @@
 
 package csstype
 
-type ScrollbarColor = Globals | DataType.Color | "auto" | "dark" | "light";
+// Globals | DataType.Color | "auto" | "dark" | "light";
+sealed external interface ScrollbarColor

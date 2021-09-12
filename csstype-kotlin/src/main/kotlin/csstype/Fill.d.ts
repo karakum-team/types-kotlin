@@ -2,4 +2,5 @@
 
 package csstype
 
-type Fill = Globals | DataType.Paint;
+// Globals | DataType.Paint;
+sealed external interface Fill

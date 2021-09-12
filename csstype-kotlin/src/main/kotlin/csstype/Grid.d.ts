@@ -2,4 +2,5 @@
 
 package csstype
 
-type Grid = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface Grid

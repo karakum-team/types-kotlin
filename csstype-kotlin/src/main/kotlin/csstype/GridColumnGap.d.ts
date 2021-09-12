@@ -2,4 +2,5 @@
 
 package csstype
 
-type GridColumnGap<TLength> = Globals | TLength | (string & {});
+// Globals | TLength | (string & {});
+sealed external interface GridColumnGap<TLength>

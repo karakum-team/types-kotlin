@@ -2,4 +2,5 @@
 
 package csstype
 
-type Direction = Globals | "ltr" | "rtl";
+// Globals | "ltr" | "rtl";
+sealed external interface Direction

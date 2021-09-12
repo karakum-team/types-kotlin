@@ -2,4 +2,5 @@
 
 package csstype
 
-type BoxOrient = Globals | "block-axis" | "horizontal" | "inherit" | "inline-axis" | "vertical";
+// Globals | "block-axis" | "horizontal" | "inherit" | "inline-axis" | "vertical";
+sealed external interface BoxOrient

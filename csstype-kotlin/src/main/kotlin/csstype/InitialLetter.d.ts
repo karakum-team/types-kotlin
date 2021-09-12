@@ -2,4 +2,5 @@
 
 package csstype
 
-type InitialLetter = Globals | "normal" | (string & {}) | (number & {});
+// Globals | "normal" | (string & {}) | (number & {});
+sealed external interface InitialLetter

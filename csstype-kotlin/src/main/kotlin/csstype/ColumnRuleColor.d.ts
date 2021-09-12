@@ -2,4 +2,5 @@
 
 package csstype
 
-type ColumnRuleColor = Globals | DataType.Color;
+// Globals | DataType.Color;
+sealed external interface ColumnRuleColor

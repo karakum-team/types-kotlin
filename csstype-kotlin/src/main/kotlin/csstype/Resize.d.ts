@@ -2,4 +2,5 @@
 
 package csstype
 
-type Resize = Globals | "block" | "both" | "horizontal" | "inline" | "none" | "vertical";
+// Globals | "block" | "both" | "horizontal" | "inline" | "none" | "vertical";
+sealed external interface Resize

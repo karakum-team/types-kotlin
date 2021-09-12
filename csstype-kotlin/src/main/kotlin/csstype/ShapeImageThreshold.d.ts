@@ -2,4 +2,5 @@
 
 package csstype
 
-type ShapeImageThreshold = Globals | (string & {}) | (number & {});
+// Globals | (string & {}) | (number & {});
+sealed external interface ShapeImageThreshold

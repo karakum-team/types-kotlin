@@ -2,4 +2,5 @@
 
 package csstype
 
-type CounterIncrement = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface CounterIncrement

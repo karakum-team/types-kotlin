@@ -2,4 +2,5 @@
 
 package csstype
 
-type OutlineOffset<TLength> = Globals | TLength;
+// Globals | TLength;
+sealed external interface OutlineOffset<TLength>

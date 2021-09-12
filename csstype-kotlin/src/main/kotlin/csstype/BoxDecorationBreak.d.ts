@@ -2,4 +2,5 @@
 
 package csstype
 
-type BoxDecorationBreak = Globals | "clone" | "slice";
+// Globals | "clone" | "slice";
+sealed external interface BoxDecorationBreak

@@ -2,4 +2,5 @@
 
 package csstype
 
-type ListStylePosition = Globals | "inside" | "outside";
+// Globals | "inside" | "outside";
+sealed external interface ListStylePosition

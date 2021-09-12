@@ -2,4 +2,5 @@
 
 package csstype
 
-type FontVariantPosition = Globals | "normal" | "sub" | "super";
+// Globals | "normal" | "sub" | "super";
+sealed external interface FontVariantPosition

@@ -2,4 +2,5 @@
 
 package csstype
 
-type LineClamp = Globals | "none" | (number & {});
+// Globals | "none" | (number & {});
+sealed external interface LineClamp

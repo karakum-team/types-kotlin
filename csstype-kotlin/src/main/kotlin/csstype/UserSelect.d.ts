@@ -2,4 +2,5 @@
 
 package csstype
 
-type UserSelect = Globals | "-moz-none" | "all" | "auto" | "contain" | "element" | "none" | "text";
+// Globals | "-moz-none" | "all" | "auto" | "contain" | "element" | "none" | "text";
+sealed external interface UserSelect

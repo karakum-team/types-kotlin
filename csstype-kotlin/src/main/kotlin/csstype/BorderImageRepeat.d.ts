@@ -2,4 +2,5 @@
 
 package csstype
 
-type BorderImageRepeat = Globals | "repeat" | "round" | "space" | "stretch" | (string & {});
+// Globals | "repeat" | "round" | "space" | "stretch" | (string & {});
+sealed external interface BorderImageRepeat

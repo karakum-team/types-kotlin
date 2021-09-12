@@ -2,4 +2,5 @@
 
 package csstype
 
-type All = Globals;
+// Globals;
+sealed external interface All

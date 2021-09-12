@@ -2,4 +2,5 @@
 
 package csstype
 
-type ScrollbarWidth = Globals | "auto" | "none" | "thin";
+// Globals | "auto" | "none" | "thin";
+sealed external interface ScrollbarWidth

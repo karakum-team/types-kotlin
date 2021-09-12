@@ -2,15 +2,17 @@
 
 package csstype
 
-type VerticalAlign<TLength> =
-  | Globals
-  | TLength
-  | "baseline"
-  | "bottom"
-  | "middle"
-  | "sub"
-  | "super"
-  | "text-bottom"
-  | "text-top"
-  | "top"
-  | (string & {});
+/*
+| Globals
+| TLength
+| "baseline"
+| "bottom"
+| "middle"
+| "sub"
+| "super"
+| "text-bottom"
+| "text-top"
+| "top"
+| (string & {});
+*/
+sealed external interface VerticalAlign<TLength>

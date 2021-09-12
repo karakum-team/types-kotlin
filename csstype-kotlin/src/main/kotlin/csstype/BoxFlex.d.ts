@@ -2,4 +2,5 @@
 
 package csstype
 
-type BoxFlex = Globals | (number & {});
+// Globals | (number & {});
+sealed external interface BoxFlex

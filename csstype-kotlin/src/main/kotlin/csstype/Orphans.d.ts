@@ -2,4 +2,5 @@
 
 package csstype
 
-type Orphans = Globals | (number & {});
+// Globals | (number & {});
+sealed external interface Orphans

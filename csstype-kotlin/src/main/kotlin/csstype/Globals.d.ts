@@ -2,4 +2,5 @@
 
 package csstype
 
-type Globals = "-moz-initial" | "inherit" | "initial" | "revert" | "unset";
+// "-moz-initial" | "inherit" | "initial" | "revert" | "unset";
+sealed external interface Globals

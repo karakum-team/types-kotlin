@@ -2,4 +2,5 @@
 
 package csstype
 
-type OverflowInline = Globals | "auto" | "clip" | "hidden" | "scroll" | "visible";
+// Globals | "auto" | "clip" | "hidden" | "scroll" | "visible";
+sealed external interface OverflowInline

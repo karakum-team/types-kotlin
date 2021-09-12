@@ -2,4 +2,5 @@
 
 package csstype
 
-type Marker = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface Marker

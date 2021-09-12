@@ -2,4 +2,5 @@
 
 package csstype
 
-type Quotes = Globals | "auto" | "none" | (string & {});
+// Globals | "auto" | "none" | (string & {});
+sealed external interface Quotes

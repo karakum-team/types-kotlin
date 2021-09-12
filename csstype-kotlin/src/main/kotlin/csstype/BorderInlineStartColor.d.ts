@@ -2,4 +2,5 @@
 
 package csstype
 
-type BorderInlineStartColor = Globals | DataType.Color;
+// Globals | DataType.Color;
+sealed external interface BorderInlineStartColor

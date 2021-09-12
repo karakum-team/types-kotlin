@@ -2,4 +2,5 @@
 
 package csstype
 
-type FlexDirection = Globals | "column" | "column-reverse" | "row" | "row-reverse";
+// Globals | "column" | "column-reverse" | "row" | "row-reverse";
+sealed external interface FlexDirection

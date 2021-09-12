@@ -2,4 +2,5 @@
 
 package csstype
 
-type ObjectFit = Globals | "contain" | "cover" | "fill" | "none" | "scale-down";
+// Globals | "contain" | "cover" | "fill" | "none" | "scale-down";
+sealed external interface ObjectFit

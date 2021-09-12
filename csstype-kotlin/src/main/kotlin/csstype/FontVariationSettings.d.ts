@@ -2,4 +2,5 @@
 
 package csstype
 
-type FontVariationSettings = Globals | "normal" | (string & {});
+// Globals | "normal" | (string & {});
+sealed external interface FontVariationSettings

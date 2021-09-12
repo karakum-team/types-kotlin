@@ -2,15 +2,17 @@
 
 package csstype
 
-type FlexBasis<TLength> =
-  | Globals
-  | TLength
-  | "-moz-max-content"
-  | "-moz-min-content"
-  | "-webkit-auto"
-  | "auto"
-  | "content"
-  | "fit-content"
-  | "max-content"
-  | "min-content"
-  | (string & {});
+/*
+| Globals
+| TLength
+| "-moz-max-content"
+| "-moz-min-content"
+| "-webkit-auto"
+| "auto"
+| "content"
+| "fit-content"
+| "max-content"
+| "min-content"
+| (string & {});
+*/
+sealed external interface FlexBasis<TLength>

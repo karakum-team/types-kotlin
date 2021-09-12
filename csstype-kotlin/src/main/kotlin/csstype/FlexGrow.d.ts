@@ -2,4 +2,5 @@
 
 package csstype
 
-type FlexGrow = Globals | (number & {});
+// Globals | (number & {});
+sealed external interface FlexGrow

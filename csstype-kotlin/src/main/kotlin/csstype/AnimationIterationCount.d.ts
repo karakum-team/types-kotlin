@@ -2,4 +2,5 @@
 
 package csstype
 
-type AnimationIterationCount = Globals | "infinite" | (string & {}) | (number & {});
+// Globals | "infinite" | (string & {}) | (number & {});
+sealed external interface AnimationIterationCount

@@ -2,4 +2,5 @@
 
 package csstype
 
-type AnimationPlayState = Globals | "paused" | "running" | (string & {});
+// Globals | "paused" | "running" | (string & {});
+sealed external interface AnimationPlayState

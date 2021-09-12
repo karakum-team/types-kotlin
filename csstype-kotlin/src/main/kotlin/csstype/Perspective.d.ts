@@ -2,4 +2,5 @@
 
 package csstype
 
-type Perspective<TLength> = Globals | TLength | "none";
+// Globals | TLength | "none";
+sealed external interface Perspective<TLength>

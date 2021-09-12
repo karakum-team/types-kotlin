@@ -2,4 +2,5 @@
 
 package csstype
 
-type MarkerStart = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface MarkerStart

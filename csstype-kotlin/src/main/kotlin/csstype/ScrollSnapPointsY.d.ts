@@ -2,4 +2,5 @@
 
 package csstype
 
-type ScrollSnapPointsY = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface ScrollSnapPointsY

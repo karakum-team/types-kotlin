@@ -2,4 +2,5 @@
 
 package csstype
 
-type ClipRule = Globals | "evenodd" | "nonzero";
+// Globals | "evenodd" | "nonzero";
+sealed external interface ClipRule

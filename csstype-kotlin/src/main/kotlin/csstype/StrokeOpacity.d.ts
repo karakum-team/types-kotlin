@@ -2,4 +2,5 @@
 
 package csstype
 
-type StrokeOpacity = Globals | (number & {});
+// Globals | (number & {});
+sealed external interface StrokeOpacity

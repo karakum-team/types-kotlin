@@ -2,4 +2,5 @@
 
 package csstype
 
-type FillRule = Globals | "evenodd" | "nonzero";
+// Globals | "evenodd" | "nonzero";
+sealed external interface FillRule

@@ -2,4 +2,5 @@
 
 package csstype
 
-type ShapeOutside = Globals | DataType.Box | "margin-box" | "none" | (string & {});
+// Globals | DataType.Box | "margin-box" | "none" | (string & {});
+sealed external interface ShapeOutside

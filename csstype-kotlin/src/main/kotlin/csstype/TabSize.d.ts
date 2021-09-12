@@ -2,4 +2,5 @@
 
 package csstype
 
-type TabSize<TLength> = Globals | TLength | (number & {});
+// Globals | TLength | (number & {});
+sealed external interface TabSize<TLength>

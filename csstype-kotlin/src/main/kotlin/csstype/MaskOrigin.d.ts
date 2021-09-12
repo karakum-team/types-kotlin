@@ -2,4 +2,5 @@
 
 package csstype
 
-type MaskOrigin = Globals | DataType.Box | "margin-box" | (string & {});
+// Globals | DataType.Box | "margin-box" | (string & {});
+sealed external interface MaskOrigin

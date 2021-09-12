@@ -2,4 +2,5 @@
 
 package csstype
 
-type TextRendering = Globals | "auto" | "geometricPrecision" | "optimizeLegibility" | "optimizeSpeed";
+// Globals | "auto" | "geometricPrecision" | "optimizeLegibility" | "optimizeSpeed";
+sealed external interface TextRendering

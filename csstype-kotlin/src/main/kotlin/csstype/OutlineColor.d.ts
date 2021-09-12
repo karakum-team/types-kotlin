@@ -2,4 +2,5 @@
 
 package csstype
 
-type OutlineColor = Globals | DataType.Color | "invert";
+// Globals | DataType.Color | "invert";
+sealed external interface OutlineColor

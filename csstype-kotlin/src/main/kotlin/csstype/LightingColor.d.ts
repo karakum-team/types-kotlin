@@ -2,4 +2,5 @@
 
 package csstype
 
-type LightingColor = Globals | DataType.Color | "currentColor";
+// Globals | DataType.Color | "currentColor";
+sealed external interface LightingColor

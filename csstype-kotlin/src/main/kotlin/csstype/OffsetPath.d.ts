@@ -2,4 +2,5 @@
 
 package csstype
 
-type OffsetPath = Globals | DataType.GeometryBox | "none" | (string & {});
+// Globals | DataType.GeometryBox | "none" | (string & {});
+sealed external interface OffsetPath

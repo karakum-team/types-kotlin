@@ -2,4 +2,5 @@
 
 package csstype
 
-type ImageResolution = Globals | "from-image" | (string & {});
+// Globals | "from-image" | (string & {});
+sealed external interface ImageResolution

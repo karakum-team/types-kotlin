@@ -2,4 +2,5 @@
 
 package csstype
 
-type ImageOrientation = Globals | "flip" | "from-image" | (string & {});
+// Globals | "flip" | "from-image" | (string & {});
+sealed external interface ImageOrientation

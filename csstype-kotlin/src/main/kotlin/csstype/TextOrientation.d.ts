@@ -2,4 +2,5 @@
 
 package csstype
 
-type TextOrientation = Globals | "mixed" | "sideways" | "upright";
+// Globals | "mixed" | "sideways" | "upright";
+sealed external interface TextOrientation

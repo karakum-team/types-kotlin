@@ -2,4 +2,5 @@
 
 package csstype
 
-type TransitionDelay<TTime> = Globals | TTime | (string & {});
+// Globals | TTime | (string & {});
+sealed external interface TransitionDelay<TTime>

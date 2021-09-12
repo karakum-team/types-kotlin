@@ -2,4 +2,5 @@
 
 package csstype
 
-type VectorEffect = Globals | "non-scaling-stroke" | "none";
+// Globals | "non-scaling-stroke" | "none";
+sealed external interface VectorEffect

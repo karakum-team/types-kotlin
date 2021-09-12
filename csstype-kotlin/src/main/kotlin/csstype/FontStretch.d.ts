@@ -2,4 +2,5 @@
 
 package csstype
 
-type FontStretch = Globals | DataType.FontStretchAbsolute;
+// Globals | DataType.FontStretchAbsolute;
+sealed external interface FontStretch

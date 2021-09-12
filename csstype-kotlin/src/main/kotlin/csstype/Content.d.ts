@@ -2,4 +2,5 @@
 
 package csstype
 
-type Content = Globals | DataType.ContentList | "none" | "normal" | (string & {});
+// Globals | DataType.ContentList | "none" | "normal" | (string & {});
+sealed external interface Content

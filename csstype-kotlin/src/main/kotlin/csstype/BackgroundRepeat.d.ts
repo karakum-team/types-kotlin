@@ -2,4 +2,5 @@
 
 package csstype
 
-type BackgroundRepeat = Globals | DataType.RepeatStyle | (string & {});
+// Globals | DataType.RepeatStyle | (string & {});
+sealed external interface BackgroundRepeat

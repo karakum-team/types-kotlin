@@ -2,4 +2,5 @@
 
 package csstype
 
-type ListStyleImage = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface ListStyleImage

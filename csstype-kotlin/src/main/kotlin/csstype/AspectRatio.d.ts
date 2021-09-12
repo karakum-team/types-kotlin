@@ -2,4 +2,5 @@
 
 package csstype
 
-type AspectRatio = Globals | "auto" | (string & {});
+// Globals | "auto" | (string & {});
+sealed external interface AspectRatio

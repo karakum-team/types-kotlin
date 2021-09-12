@@ -2,4 +2,5 @@
 
 package csstype
 
-type Opacity = Globals | (string & {}) | (number & {});
+// Globals | (string & {}) | (number & {});
+sealed external interface Opacity

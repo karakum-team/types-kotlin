@@ -2,4 +2,5 @@
 
 package csstype
 
-type BorderImageOutset<TLength> = Globals | TLength | (string & {}) | (number & {});
+// Globals | TLength | (string & {}) | (number & {});
+sealed external interface BorderImageOutset<TLength>

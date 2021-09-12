@@ -2,4 +2,5 @@
 
 package csstype
 
-type ScrollMarginBlock<TLength> = Globals | TLength | (string & {});
+// Globals | TLength | (string & {});
+sealed external interface ScrollMarginBlock<TLength>

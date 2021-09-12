@@ -2,4 +2,5 @@
 
 package csstype
 
-type ClipPath = Globals | DataType.GeometryBox | "none" | (string & {});
+// Globals | DataType.GeometryBox | "none" | (string & {});
+sealed external interface ClipPath

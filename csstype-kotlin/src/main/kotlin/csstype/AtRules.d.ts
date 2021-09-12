@@ -2,17 +2,19 @@
 
 package csstype
 
-type AtRules =
-  | "@charset"
-  | "@counter-style"
-  | "@document"
-  | "@font-face"
-  | "@font-feature-values"
-  | "@import"
-  | "@keyframes"
-  | "@media"
-  | "@namespace"
-  | "@page"
-  | "@property"
-  | "@supports"
-  | "@viewport";
+/*
+| "@charset"
+| "@counter-style"
+| "@document"
+| "@font-face"
+| "@font-feature-values"
+| "@import"
+| "@keyframes"
+| "@media"
+| "@namespace"
+| "@page"
+| "@property"
+| "@supports"
+| "@viewport";
+*/
+sealed external interface AtRules

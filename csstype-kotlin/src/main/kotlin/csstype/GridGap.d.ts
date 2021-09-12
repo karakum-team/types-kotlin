@@ -2,4 +2,5 @@
 
 package csstype
 
-type GridGap<TLength> = Globals | TLength | (string & {});
+// Globals | TLength | (string & {});
+sealed external interface GridGap<TLength>

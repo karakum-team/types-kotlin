@@ -2,4 +2,5 @@
 
 package csstype
 
-type MaskClip = Globals | DataType.GeometryBox | "no-clip" | (string & {});
+// Globals | DataType.GeometryBox | "no-clip" | (string & {});
+sealed external interface MaskClip

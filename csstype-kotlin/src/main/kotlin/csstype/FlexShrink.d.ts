@@ -2,4 +2,5 @@
 
 package csstype
 
-type FlexShrink = Globals | (number & {});
+// Globals | (number & {});
+sealed external interface FlexShrink

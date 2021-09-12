@@ -2,4 +2,5 @@
 
 package csstype
 
-type MaskBorderSource = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface MaskBorderSource

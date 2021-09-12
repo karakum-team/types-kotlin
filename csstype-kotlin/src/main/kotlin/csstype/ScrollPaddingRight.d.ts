@@ -2,4 +2,5 @@
 
 package csstype
 
-type ScrollPaddingRight<TLength> = Globals | TLength | "auto" | (string & {});
+// Globals | TLength | "auto" | (string & {});
+sealed external interface ScrollPaddingRight<TLength>

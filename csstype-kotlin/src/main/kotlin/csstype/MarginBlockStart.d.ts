@@ -2,4 +2,5 @@
 
 package csstype
 
-type MarginBlockStart<TLength> = Globals | TLength | "auto" | (string & {});
+// Globals | TLength | "auto" | (string & {});
+sealed external interface MarginBlockStart<TLength>

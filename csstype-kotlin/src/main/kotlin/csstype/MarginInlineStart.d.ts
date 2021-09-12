@@ -2,4 +2,5 @@
 
 package csstype
 
-type MarginInlineStart<TLength> = Globals | TLength | "auto" | (string & {});
+// Globals | TLength | "auto" | (string & {});
+sealed external interface MarginInlineStart<TLength>

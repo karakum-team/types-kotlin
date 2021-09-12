@@ -2,4 +2,5 @@
 
 package csstype
 
-type TextDecorationSkipInk = Globals | "all" | "auto" | "none";
+// Globals | "all" | "auto" | "none";
+sealed external interface TextDecorationSkipInk

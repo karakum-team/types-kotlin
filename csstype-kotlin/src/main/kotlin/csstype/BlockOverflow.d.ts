@@ -2,4 +2,5 @@
 
 package csstype
 
-type BlockOverflow = Globals | "clip" | "ellipsis" | (string & {});
+// Globals | "clip" | "ellipsis" | (string & {});
+sealed external interface BlockOverflow

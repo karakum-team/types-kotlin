@@ -2,4 +2,5 @@
 
 package csstype
 
-type StrokeMiterlimit = Globals | (number & {});
+// Globals | (number & {});
+sealed external interface StrokeMiterlimit

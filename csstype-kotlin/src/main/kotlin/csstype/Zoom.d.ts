@@ -2,4 +2,5 @@
 
 package csstype
 
-type Zoom = Globals | "normal" | "reset" | (string & {}) | (number & {});
+// Globals | "normal" | "reset" | (string & {}) | (number & {});
+sealed external interface Zoom

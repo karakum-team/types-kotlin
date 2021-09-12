@@ -2,4 +2,5 @@
 
 package csstype
 
-type BorderTopStyle = Globals | DataType.LineStyle;
+// Globals | DataType.LineStyle;
+sealed external interface BorderTopStyle

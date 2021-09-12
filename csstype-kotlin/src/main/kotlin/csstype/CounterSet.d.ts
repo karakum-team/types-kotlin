@@ -2,4 +2,5 @@
 
 package csstype
 
-type CounterSet = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface CounterSet

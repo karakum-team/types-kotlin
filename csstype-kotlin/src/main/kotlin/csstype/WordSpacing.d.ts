@@ -2,4 +2,5 @@
 
 package csstype
 
-type WordSpacing<TLength> = Globals | TLength | "normal" | (string & {});
+// Globals | TLength | "normal" | (string & {});
+sealed external interface WordSpacing<TLength>

@@ -2,4 +2,5 @@
 
 package csstype
 
-type CaretColor = Globals | DataType.Color | "auto";
+// Globals | DataType.Color | "auto";
+sealed external interface CaretColor

@@ -2,4 +2,5 @@
 
 package csstype
 
-type WordWrap = Globals | "break-word" | "normal";
+// Globals | "break-word" | "normal";
+sealed external interface WordWrap

@@ -2,4 +2,5 @@
 
 package csstype
 
-type FontFamily = Globals | DataType.GenericFamily | (string & {});
+// Globals | DataType.GenericFamily | (string & {});
+sealed external interface FontFamily

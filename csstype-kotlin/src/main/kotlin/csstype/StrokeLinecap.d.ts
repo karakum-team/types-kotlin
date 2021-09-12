@@ -2,4 +2,5 @@
 
 package csstype
 
-type StrokeLinecap = Globals | "butt" | "round" | "square";
+// Globals | "butt" | "round" | "square";
+sealed external interface StrokeLinecap

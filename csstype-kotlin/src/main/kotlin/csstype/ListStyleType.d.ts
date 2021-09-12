@@ -2,4 +2,5 @@
 
 package csstype
 
-type ListStyleType = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface ListStyleType

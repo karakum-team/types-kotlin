@@ -2,4 +2,5 @@
 
 package csstype
 
-type MaskImage = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface MaskImage

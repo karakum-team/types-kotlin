@@ -2,4 +2,5 @@
 
 package csstype
 
-type BackgroundImage = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface BackgroundImage

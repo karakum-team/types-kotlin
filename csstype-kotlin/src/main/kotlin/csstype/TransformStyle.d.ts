@@ -2,4 +2,5 @@
 
 package csstype
 
-type TransformStyle = Globals | "flat" | "preserve-3d";
+// Globals | "flat" | "preserve-3d";
+sealed external interface TransformStyle

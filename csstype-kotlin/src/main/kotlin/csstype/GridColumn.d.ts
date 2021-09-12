@@ -2,4 +2,5 @@
 
 package csstype
 
-type GridColumn = Globals | DataType.GridLine | (string & {});
+// Globals | DataType.GridLine | (string & {});
+sealed external interface GridColumn

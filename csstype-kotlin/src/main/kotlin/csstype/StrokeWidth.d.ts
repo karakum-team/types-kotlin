@@ -2,4 +2,5 @@
 
 package csstype
 
-type StrokeWidth<TLength> = Globals | TLength | (string & {});
+// Globals | TLength | (string & {});
+sealed external interface StrokeWidth<TLength>

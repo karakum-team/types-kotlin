@@ -2,4 +2,5 @@
 
 package csstype
 
-type Transform = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface Transform

@@ -2,4 +2,5 @@
 
 package csstype
 
-type BaselineShift<TLength> = Globals | TLength | "baseline" | "sub" | "super" | (string & {});
+// Globals | TLength | "baseline" | "sub" | "super" | (string & {});
+sealed external interface BaselineShift<TLength>

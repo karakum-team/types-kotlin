@@ -2,4 +2,5 @@
 
 package csstype
 
-type Rotate = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface Rotate

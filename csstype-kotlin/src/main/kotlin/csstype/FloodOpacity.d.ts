@@ -2,4 +2,5 @@
 
 package csstype
 
-type FloodOpacity = Globals | (number & {});
+// Globals | (number & {});
+sealed external interface FloodOpacity

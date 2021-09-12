@@ -2,4 +2,5 @@
 
 package csstype
 
-type BorderStartStartRadius<TLength> = Globals | TLength | (string & {});
+// Globals | TLength | (string & {});
+sealed external interface BorderStartStartRadius<TLength>

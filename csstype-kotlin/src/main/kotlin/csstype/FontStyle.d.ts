@@ -2,4 +2,5 @@
 
 package csstype
 
-type FontStyle = Globals | "italic" | "normal" | "oblique" | (string & {});
+// Globals | "italic" | "normal" | "oblique" | (string & {});
+sealed external interface FontStyle

@@ -2,4 +2,5 @@
 
 package csstype
 
-type FillOpacity = Globals | (number & {});
+// Globals | (number & {});
+sealed external interface FillOpacity

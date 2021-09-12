@@ -2,4 +2,5 @@
 
 package csstype
 
-type Clip = Globals | "auto" | (string & {});
+// Globals | "auto" | (string & {});
+sealed external interface Clip

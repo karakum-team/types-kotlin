@@ -2,4 +2,5 @@
 
 package csstype
 
-type ScrollbarGutter = Globals | "always" | "auto" | "stable" | (string & {});
+// Globals | "always" | "auto" | "stable" | (string & {});
+sealed external interface ScrollbarGutter

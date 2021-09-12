@@ -2,4 +2,5 @@
 
 package csstype
 
-type MaskBorderMode = Globals | "alpha" | "luminance";
+// Globals | "alpha" | "luminance";
+sealed external interface MaskBorderMode

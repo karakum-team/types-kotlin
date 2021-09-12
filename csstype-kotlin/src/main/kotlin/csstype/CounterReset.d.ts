@@ -2,4 +2,5 @@
 
 package csstype
 
-type CounterReset = Globals | "none" | (string & {});
+// Globals | "none" | (string & {});
+sealed external interface CounterReset

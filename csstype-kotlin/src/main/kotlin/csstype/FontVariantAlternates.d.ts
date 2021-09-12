@@ -2,4 +2,5 @@
 
 package csstype
 
-type FontVariantAlternates = Globals | "historical-forms" | "normal" | (string & {});
+// Globals | "historical-forms" | "normal" | (string & {});
+sealed external interface FontVariantAlternates

@@ -2,13 +2,15 @@
 
 package csstype
 
-type Display =
-  | Globals
-  | DataType.DisplayOutside
-  | DataType.DisplayInside
-  | DataType.DisplayInternal
-  | DataType.DisplayLegacy
-  | "contents"
-  | "list-item"
-  | "none"
-  | (string & {});
+/*
+| Globals
+| DataType.DisplayOutside
+| DataType.DisplayInside
+| DataType.DisplayInternal
+| DataType.DisplayLegacy
+| "contents"
+| "list-item"
+| "none"
+| (string & {});
+*/
+sealed external interface Display

@@ -2,4 +2,5 @@
 
 package csstype
 
-type FontSizeAdjust = Globals | "none" | (number & {});
+// Globals | "none" | (number & {});
+sealed external interface FontSizeAdjust

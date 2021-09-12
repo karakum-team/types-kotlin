@@ -2,4 +2,5 @@
 
 package csstype
 
-type TextUnderlinePosition = Globals | "auto" | "from-font" | "left" | "right" | "under" | (string & {});
+// Globals | "auto" | "from-font" | "left" | "right" | "under" | (string & {});
+sealed external interface TextUnderlinePosition

@@ -2,4 +2,5 @@
 
 package csstype
 
-type ImeMode = Globals | "active" | "auto" | "disabled" | "inactive" | "normal";
+// Globals | "active" | "auto" | "disabled" | "inactive" | "normal";
+sealed external interface ImeMode

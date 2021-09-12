@@ -2,4 +2,5 @@
 
 package csstype
 
-type OffsetDistance<TLength> = Globals | TLength | (string & {});
+// Globals | TLength | (string & {});
+sealed external interface OffsetDistance<TLength>

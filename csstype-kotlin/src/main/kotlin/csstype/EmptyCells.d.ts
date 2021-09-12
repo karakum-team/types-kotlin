@@ -2,4 +2,5 @@
 
 package csstype
 
-type EmptyCells = Globals | "hide" | "show";
+// Globals | "hide" | "show";
+sealed external interface EmptyCells

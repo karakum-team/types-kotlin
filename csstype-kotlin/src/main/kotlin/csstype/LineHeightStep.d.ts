@@ -2,4 +2,5 @@
 
 package csstype
 
-type LineHeightStep<TLength> = Globals | TLength;
+// Globals | TLength;
+sealed external interface LineHeightStep<TLength>

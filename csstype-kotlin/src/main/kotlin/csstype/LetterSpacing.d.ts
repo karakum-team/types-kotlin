@@ -2,4 +2,5 @@
 
 package csstype
 
-type LetterSpacing<TLength> = Globals | TLength | "normal";
+// Globals | TLength | "normal";
+sealed external interface LetterSpacing<TLength>

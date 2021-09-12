@@ -2,4 +2,5 @@
 
 package csstype
 
-type Isolation = Globals | "auto" | "isolate";
+// Globals | "auto" | "isolate";
+sealed external interface Isolation

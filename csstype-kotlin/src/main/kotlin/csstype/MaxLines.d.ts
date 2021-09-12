@@ -2,4 +2,5 @@
 
 package csstype
 
-type MaxLines = Globals | "none" | (number & {});
+// Globals | "none" | (number & {});
+sealed external interface MaxLines

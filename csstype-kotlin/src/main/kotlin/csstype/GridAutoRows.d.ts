@@ -2,4 +2,5 @@
 
 package csstype
 
-type GridAutoRows<TLength> = Globals | DataType.TrackBreadth<TLength> | (string & {});
+// Globals | DataType.TrackBreadth<TLength> | (string & {});
+sealed external interface GridAutoRows<TLength>

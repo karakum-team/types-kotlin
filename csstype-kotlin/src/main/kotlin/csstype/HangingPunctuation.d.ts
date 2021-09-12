@@ -2,4 +2,5 @@
 
 package csstype
 
-type HangingPunctuation = Globals | "allow-end" | "first" | "force-end" | "last" | "none" | (string & {});
+// Globals | "allow-end" | "first" | "force-end" | "last" | "none" | (string & {});
+sealed external interface HangingPunctuation

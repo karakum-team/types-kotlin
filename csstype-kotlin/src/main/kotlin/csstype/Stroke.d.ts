@@ -2,4 +2,5 @@
 
 package csstype
 
-type Stroke = Globals | DataType.Paint;
+// Globals | DataType.Paint;
+sealed external interface Stroke

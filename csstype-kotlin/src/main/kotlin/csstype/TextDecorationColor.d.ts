@@ -2,4 +2,5 @@
 
 package csstype
 
-type TextDecorationColor = Globals | DataType.Color;
+// Globals | DataType.Color;
+sealed external interface TextDecorationColor

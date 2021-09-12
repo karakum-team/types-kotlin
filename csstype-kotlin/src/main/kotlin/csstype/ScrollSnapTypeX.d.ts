@@ -2,4 +2,5 @@
 
 package csstype
 
-type ScrollSnapTypeX = Globals | "mandatory" | "none" | "proximity";
+// Globals | "mandatory" | "none" | "proximity";
+sealed external interface ScrollSnapTypeX

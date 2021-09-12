@@ -2,4 +2,5 @@
 
 package csstype
 
-type OffsetRotate = Globals | "auto" | "reverse" | (string & {});
+// Globals | "auto" | "reverse" | (string & {});
+sealed external interface OffsetRotate

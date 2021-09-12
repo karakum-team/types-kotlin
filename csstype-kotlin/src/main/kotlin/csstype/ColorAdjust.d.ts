@@ -2,4 +2,5 @@
 
 package csstype
 
-type ColorAdjust = Globals | "economy" | "exact";
+// Globals | "economy" | "exact";
+sealed external interface ColorAdjust

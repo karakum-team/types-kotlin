@@ -2,4 +2,5 @@
 
 package csstype
 
-type GridRowStart = Globals | DataType.GridLine;
+// Globals | DataType.GridLine;
+sealed external interface GridRowStart

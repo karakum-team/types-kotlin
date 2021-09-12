@@ -2,4 +2,5 @@
 
 package csstype
 
-type WillChange = Globals | DataType.AnimateableFeature | "auto" | (string & {});
+// Globals | DataType.AnimateableFeature | "auto" | (string & {});
+sealed external interface WillChange

@@ -2,4 +2,5 @@
 
 package csstype
 
-type OverscrollBehaviorX = Globals | "auto" | "contain" | "none";
+// Globals | "auto" | "contain" | "none";
+sealed external interface OverscrollBehaviorX

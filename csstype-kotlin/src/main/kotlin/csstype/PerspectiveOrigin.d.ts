@@ -2,4 +2,5 @@
 
 package csstype
 
-type PerspectiveOrigin<TLength> = Globals | DataType.Position<TLength>;
+// Globals | DataType.Position<TLength>;
+sealed external interface PerspectiveOrigin<TLength>

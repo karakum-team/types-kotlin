@@ -2,4 +2,5 @@
 
 package csstype
 
-type MaskComposite = Globals | DataType.CompositingOperator | (string & {});
+// Globals | DataType.CompositingOperator | (string & {});
+sealed external interface MaskComposite

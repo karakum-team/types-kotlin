@@ -2,4 +2,5 @@
 
 package csstype
 
-type Translate<TLength> = Globals | TLength | "none" | (string & {});
+// Globals | TLength | "none" | (string & {});
+sealed external interface Translate<TLength>

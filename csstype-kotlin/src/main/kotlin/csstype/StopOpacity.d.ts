@@ -2,4 +2,5 @@
 
 package csstype
 
-type StopOpacity = Globals | (number & {});
+// Globals | (number & {});
+sealed external interface StopOpacity
