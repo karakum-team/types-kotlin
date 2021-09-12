@@ -26,6 +26,7 @@ internal fun convertDefinitions(
                 name.startsWith("Vendor") -> emptySequence()
                 name.contains("Hyphen") -> emptySequence()
                 name.contains("Fallback") -> emptySequence()
+                name == "StandardShorthandProperties" -> emptySequence()
                 content.startsWith("namespace ") -> convertNamespace(content)
                 else -> sequenceOf(convertDefinition(name, content))
             }
