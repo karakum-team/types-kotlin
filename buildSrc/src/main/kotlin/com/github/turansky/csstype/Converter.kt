@@ -119,6 +119,7 @@ private fun convertUnion(
     val body = source.substringAfter(" =")
         .removePrefix("\n")
         .trimIndent()
+        .removeSuffix(";")
 
     val comment = if ("\n" in body) "/*\n$body\n*/" else "// $body"
 
