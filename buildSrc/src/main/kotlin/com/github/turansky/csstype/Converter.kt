@@ -120,5 +120,5 @@ private fun convertInterface(
         .joinToString("\n")
         .replaceIndent("    ")
 
-    return ConversionResult(name, "sealed external interface $declaration{\n$body\n}\n", )
+    return ConversionResult(name, "sealed external interface $declaration{\n$body\n}\n")
 }
