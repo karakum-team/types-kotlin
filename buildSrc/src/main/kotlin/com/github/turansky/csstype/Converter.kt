@@ -152,9 +152,13 @@ private fun convertUnion(
 }
 
 private val LINK_REGEX = Regex("( * @see )(.+)")
+
 private val BOLD_1_REGEX = Regex("""(\|\s+)\*\*""")
 private val BOLD_2_REGEX = Regex("""\*\*(\s+\|)""")
 private val BOLD_3_REGEX = Regex("""\*\*( _\()""")
+
+private val PRE_1_REGEX = Regex("""([\d.]+) _-x-_""")
+private val PRE_2_REGEX = Regex("""([\d.]+)\*\* _-x-_""")
 
 private fun convertInterface(
     name: String,
@@ -188,6 +192,8 @@ private fun convertInterface(
         .replace(BOLD_1_REGEX, "$1  ")
         .replace(BOLD_2_REGEX, "  $1")
         .replace(BOLD_3_REGEX, "  $1")
+        .replace(PRE_1_REGEX, "   $1′  ")
+        .replace(PRE_2_REGEX, "    $1′   ")
         .splitToSequence("\n")
         .map {
             if ("?: " in it) {
