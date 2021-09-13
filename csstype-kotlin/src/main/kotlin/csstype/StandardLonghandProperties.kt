@@ -1389,7 +1389,7 @@ external interface StandardLonghandProperties {
      *
      *    |                Chrome                 | Firefox |                Safari                |                 Edge                  | IE  |
      *    | :-----------------------------------: | :-----: | :----------------------------------: | :-----------------------------------: | :-: |
-     *    |   49** _(-webkit-print-color-adjust)_ |   48    |   6** _(-webkit-print-color-adjust)_ |   79** _(-webkit-print-color-adjust)_ | No  |
+     *    |   49   _(-webkit-print-color-adjust)_ |   48    |   6   _(-webkit-print-color-adjust)_ |   79   _(-webkit-print-color-adjust)_ | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/color-adjust">MDN</a>
      */
@@ -1939,7 +1939,7 @@ external interface StandardLonghandProperties {
      *
      *    |              Chrome              |              Firefox               |              Safari              |               Edge                | IE  |
      *    | :------------------------------: | :--------------------------------: | :------------------------------: | :-------------------------------: | :-: |
-     *    |   5** _(-webkit-font-smoothing)_ |   25** _(-moz-osx-font-smoothing)_ |   4** _(-webkit-font-smoothing)_ |   79** _(-webkit-font-smoothing)_ | No  |
+     *    |   5   _(-webkit-font-smoothing)_ |   25   _(-moz-osx-font-smoothing)_ |   4   _(-webkit-font-smoothing)_ |   79   _(-webkit-font-smoothing)_ | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/font-smooth">MDN</a>
      */
@@ -2120,7 +2120,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox | Safari |              Edge               |                 IE                  |
      *    | :----: | :-----: | :----: | :-----------------------------: | :---------------------------------: |
-     *    |   89   |   No    |   No   |               79                |   10** _(-ms-high-contrast-adjust)_ |
+     *    |   89   |   No    |   No   |               79                |   10   _(-ms-high-contrast-adjust)_ |
      *    |        |         |        | 12 _(-ms-high-contrast-adjust)_ |                                     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/forced-color-adjust">MDN</a>
@@ -2136,7 +2136,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  |             IE              |
      *    | :----: | :-----: | :------: | :----: | :-------------------------: |
-     *    |   57   |   70    |   10.1   |   16   |   10** _(-ms-grid-columns)_ |
+     *    |   57   |   70    |   10.1   |   16   |   10   _(-ms-grid-columns)_ |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/grid-auto-columns">MDN</a>
      */
@@ -2166,7 +2166,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  |            IE            |
      *    | :----: | :-----: | :------: | :----: | :----------------------: |
-     *    |   57   |   70    |   10.1   |   16   |   10** _(-ms-grid-rows)_ |
+     *    |   57   |   70    |   10.1   |   16   |   10   _(-ms-grid-rows)_ |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/grid-auto-rows">MDN</a>
      */
@@ -2256,7 +2256,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  |             IE              |
      *    | :----: | :-----: | :------: | :----: | :-------------------------: |
-     *    |   57   |   52    |   10.1   |   16   |   10** _(-ms-grid-columns)_ |
+     *    |   57   |   52    |   10.1   |   16   |   10   _(-ms-grid-columns)_ |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/grid-template-columns">MDN</a>
      */
@@ -2271,7 +2271,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  |            IE            |
      *    | :----: | :-----: | :------: | :----: | :----------------------: |
-     *    |   57   |   52    |   10.1   |   16   |   10** _(-ms-grid-rows)_ |
+     *    |   57   |   52    |   10.1   |   16   |   10   _(-ms-grid-rows)_ |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/grid-template-rows">MDN</a>
      */
@@ -2904,7 +2904,7 @@ external interface StandardLonghandProperties {
      *
      *    |                 Chrome                  | Firefox |                  Safari                   |                   Edge                   | IE  |
      *    | :-------------------------------------: | :-----: | :---------------------------------------: | :--------------------------------------: | :-: |
-     *    |   1** _(-webkit-mask-box-image-outset)_ |   No    |   3.1** _(-webkit-mask-box-image-outset)_ |   79** _(-webkit-mask-box-image-outset)_ | No  |
+     *    |   1   _(-webkit-mask-box-image-outset)_ |   No    |   3.1   _(-webkit-mask-box-image-outset)_ |   79   _(-webkit-mask-box-image-outset)_ | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/mask-border-outset">MDN</a>
      */
@@ -2919,7 +2919,7 @@ external interface StandardLonghandProperties {
      *
      *    |                 Chrome                  | Firefox |                  Safari                   |                   Edge                   | IE  |
      *    | :-------------------------------------: | :-----: | :---------------------------------------: | :--------------------------------------: | :-: |
-     *    |   1** _(-webkit-mask-box-image-repeat)_ |   No    |   3.1** _(-webkit-mask-box-image-repeat)_ |   79** _(-webkit-mask-box-image-repeat)_ | No  |
+     *    |   1   _(-webkit-mask-box-image-repeat)_ |   No    |   3.1   _(-webkit-mask-box-image-repeat)_ |   79   _(-webkit-mask-box-image-repeat)_ | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/mask-border-repeat">MDN</a>
      */
@@ -2934,7 +2934,7 @@ external interface StandardLonghandProperties {
      *
      *    |                 Chrome                 | Firefox |                  Safari                  |                  Edge                   | IE  |
      *    | :------------------------------------: | :-----: | :--------------------------------------: | :-------------------------------------: | :-: |
-     *    |   1** _(-webkit-mask-box-image-slice)_ |   No    |   3.1** _(-webkit-mask-box-image-slice)_ |   79** _(-webkit-mask-box-image-slice)_ | No  |
+     *    |   1   _(-webkit-mask-box-image-slice)_ |   No    |   3.1   _(-webkit-mask-box-image-slice)_ |   79   _(-webkit-mask-box-image-slice)_ | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/mask-border-slice">MDN</a>
      */
@@ -2949,7 +2949,7 @@ external interface StandardLonghandProperties {
      *
      *    |                 Chrome                  | Firefox |                  Safari                   |                   Edge                   | IE  |
      *    | :-------------------------------------: | :-----: | :---------------------------------------: | :--------------------------------------: | :-: |
-     *    |   1** _(-webkit-mask-box-image-source)_ |   No    |   3.1** _(-webkit-mask-box-image-source)_ |   79** _(-webkit-mask-box-image-source)_ | No  |
+     *    |   1   _(-webkit-mask-box-image-source)_ |   No    |   3.1   _(-webkit-mask-box-image-source)_ |   79   _(-webkit-mask-box-image-source)_ | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/mask-border-source">MDN</a>
      */
@@ -2964,7 +2964,7 @@ external interface StandardLonghandProperties {
      *
      *    |                 Chrome                 | Firefox |                  Safari                  |                  Edge                   | IE  |
      *    | :------------------------------------: | :-----: | :--------------------------------------: | :-------------------------------------: | :-: |
-     *    |   1** _(-webkit-mask-box-image-width)_ |   No    |   3.1** _(-webkit-mask-box-image-width)_ |   79** _(-webkit-mask-box-image-width)_ | No  |
+     *    |   1   _(-webkit-mask-box-image-width)_ |   No    |   3.1   _(-webkit-mask-box-image-width)_ |   79   _(-webkit-mask-box-image-width)_ | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/mask-border-width">MDN</a>
      */
@@ -3600,7 +3600,7 @@ external interface StandardLonghandProperties {
      *
      *    |     Chrome      |      Firefox      |     Safari      |       Edge       |          IE           |
      *    | :-------------: | :---------------: | :-------------: | :--------------: | :-------------------: |
-     *    |       23        |        49         |       6.1       |        18        |   5.5** _(word-wrap)_ |
+     *    |       23        |        49         |       6.1       |        18        |   5.5   _(word-wrap)_ |
      *    | 1 _(word-wrap)_ | 3.5 _(word-wrap)_ | 1 _(word-wrap)_ | 12 _(word-wrap)_ |                       |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/overflow-wrap">MDN</a>
@@ -4167,7 +4167,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |            Safari             |  Edge  | IE  |
      *    | :----: | :-----: | :---------------------------: | :----: | :-: |
-     *    |   69   |   68    |   11** _(scroll-snap-margin)_ |   79   | No  |
+     *    |   69   |   68    |   11   _(scroll-snap-margin)_ |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/scroll-margin">MDN</a>
      */
@@ -4227,7 +4227,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |                Safari                |  Edge  | IE  |
      *    | :----: | :-----: | :----------------------------------: | :----: | :-: |
-     *    |   69   |   68    |   11** _(scroll-snap-margin-bottom)_ |   79   | No  |
+     *    |   69   |   68    |   11   _(scroll-snap-margin-bottom)_ |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/scroll-margin-bottom">MDN</a>
      */
@@ -4287,7 +4287,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |               Safari               |  Edge  | IE  |
      *    | :----: | :-----: | :--------------------------------: | :----: | :-: |
-     *    |   69   |   68    |   11** _(scroll-snap-margin-left)_ |   79   | No  |
+     *    |   69   |   68    |   11   _(scroll-snap-margin-left)_ |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/scroll-margin-left">MDN</a>
      */
@@ -4302,7 +4302,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |               Safari                |  Edge  | IE  |
      *    | :----: | :-----: | :---------------------------------: | :----: | :-: |
-     *    |   69   |   68    |   11** _(scroll-snap-margin-right)_ |   79   | No  |
+     *    |   69   |   68    |   11   _(scroll-snap-margin-right)_ |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/scroll-margin-right">MDN</a>
      */
@@ -4317,7 +4317,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |              Safari               |  Edge  | IE  |
      *    | :----: | :-----: | :-------------------------------: | :----: | :-: |
-     *    |   69   |   68    |   11** _(scroll-snap-margin-top)_ |   79   | No  |
+     *    |   69   |   68    |   11   _(scroll-snap-margin-top)_ |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/scroll-margin-top">MDN</a>
      */
@@ -4512,7 +4512,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |            Safari             |  Edge  | IE  |
      *    | :----: | :-----: | :---------------------------: | :----: | :-: |
-     *    |   69   |   68    |   11** _(scroll-snap-margin)_ |   79   | No  |
+     *    |   69   |   68    |   11   _(scroll-snap-margin)_ |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/scroll-margin">MDN</a>
      */
@@ -4527,7 +4527,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |                Safari                |  Edge  | IE  |
      *    | :----: | :-----: | :----------------------------------: | :----: | :-: |
-     *    |   69   |   68    |   11** _(scroll-snap-margin-bottom)_ |   79   | No  |
+     *    |   69   |   68    |   11   _(scroll-snap-margin-bottom)_ |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/scroll-margin-bottom">MDN</a>
      */
@@ -4542,7 +4542,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |               Safari               |  Edge  | IE  |
      *    | :----: | :-----: | :--------------------------------: | :----: | :-: |
-     *    |   69   |   68    |   11** _(scroll-snap-margin-left)_ |   79   | No  |
+     *    |   69   |   68    |   11   _(scroll-snap-margin-left)_ |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/scroll-margin-left">MDN</a>
      */
@@ -4557,7 +4557,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |               Safari                |  Edge  | IE  |
      *    | :----: | :-----: | :---------------------------------: | :----: | :-: |
-     *    |   69   |   68    |   11** _(scroll-snap-margin-right)_ |   79   | No  |
+     *    |   69   |   68    |   11   _(scroll-snap-margin-right)_ |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/scroll-margin-right">MDN</a>
      */
@@ -4572,7 +4572,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |              Safari               |  Edge  | IE  |
      *    | :----: | :-----: | :-------------------------------: | :----: | :-: |
-     *    |   69   |   68    |   11** _(scroll-snap-margin-top)_ |   79   | No  |
+     *    |   69   |   68    |   11   _(scroll-snap-margin-top)_ |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/scroll-margin-top">MDN</a>
      */
@@ -4768,7 +4768,7 @@ external interface StandardLonghandProperties {
      *
      *    |           Chrome           | Firefox |              Safari              | Edge  |                   IE                   |
      *    | :------------------------: | :-----: | :------------------------------: | :---: | :------------------------------------: |
-     *    |             48             |   48    |   5.1** _(-webkit-text-combine)_ | 15-79 |   11** _(-ms-text-combine-horizontal)_ |
+     *    |             48             |   48    |   5.1   _(-webkit-text-combine)_ | 15-79 |   11   _(-ms-text-combine-horizontal)_ |
      *    | 9 _(-webkit-text-combine)_ |         |                                  |       |                                        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/text-combine-upright">MDN</a>

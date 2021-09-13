@@ -493,7 +493,7 @@ external interface StandardShorthandProperties {
      *
      *    |              Chrome              | Firefox |               Safari               |               Edge                | IE  |
      *    | :------------------------------: | :-----: | :--------------------------------: | :-------------------------------: | :-: |
-     *    |   1** _(-webkit-mask-box-image)_ |   No    |   3.1** _(-webkit-mask-box-image)_ |   79** _(-webkit-mask-box-image)_ | No  |
+     *    |   1   _(-webkit-mask-box-image)_ |   No    |   3.1   _(-webkit-mask-box-image)_ |   79   _(-webkit-mask-box-image)_ | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/mask-border">MDN</a>
      */
