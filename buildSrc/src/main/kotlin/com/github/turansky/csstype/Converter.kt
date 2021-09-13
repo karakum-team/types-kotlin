@@ -178,6 +178,7 @@ private fun convertInterface(
         .substringBefore("\n}")
         .trimIndent()
         .replace("\n * | ", "\n *    | ")
+        .replace(" ", " ")
         .splitToSequence("\n")
         .map {
             if ("?: " in it) {
