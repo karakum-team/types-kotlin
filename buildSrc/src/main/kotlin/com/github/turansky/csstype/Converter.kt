@@ -151,6 +151,8 @@ private fun convertUnion(
     return ConversionResult(name, "$comment\nsealed external interface $declaration\n")
 }
 
+private val LINK_REGEX = Regex("( * @see )(.+)")
+
 private fun convertInterface(
     name: String,
     source: String,
@@ -179,6 +181,7 @@ private fun convertInterface(
         .trimIndent()
         .replace("\n * | ", "\n *    | ")
         .replace(" ", " ")
+        .replace(LINK_REGEX, """$1<a href="$2">MDN</a>""")
         .splitToSequence("\n")
         .map {
             if ("?: " in it) {
