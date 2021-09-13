@@ -12,7 +12,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :-----: | :----: | :-: |
-     *    | **37** | **27**  | **9.1** | **79** | No  |
+     *    |   37   |   27    |   9.1   |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/all">MDN</a>
      */
@@ -25,7 +25,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
-     *    | **43**  | **16**  |  **9**  | **12** | **10** |
+     *    |   43    |   16    |    9    |   12   |   10   |
      *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/animation">MDN</a>
@@ -39,7 +39,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    |   1    |    1    |   1    |   12   |   4   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/background">MDN</a>
      */
@@ -54,7 +54,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    |   1    |    1    |   1    |   12   |   4   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/background-position">MDN</a>
      */
@@ -67,7 +67,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    |   1    |    1    |   1    |   12   |   4   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border">MDN</a>
      */
@@ -80,7 +80,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari | Edge | IE  |
      *    | :----: | :-----: | :----: | :--: | :-: |
-     *    | **87** | **66**  |   No   | n/a  | No  |
+     *    |   87   |   66    |   No   | n/a  | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-block">MDN</a>
      */
@@ -93,7 +93,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :------: | :----: | :-: |
-     *    | **69** | **41**  | **12.1** | **79** | No  |
+     *    |   69   |   41    |   12.1   |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-block-end">MDN</a>
      */
@@ -106,7 +106,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :------: | :----: | :-: |
-     *    | **69** | **41**  | **12.1** | **79** | No  |
+     *    |   69   |   41    |   12.1   |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-block-start">MDN</a>
      */
@@ -119,7 +119,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    |   1    |    1    |   1    |   12   |   4   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-bottom">MDN</a>
      */
@@ -132,7 +132,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    |   1    |    1    |   1    |   12   |   4   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-color">MDN</a>
      */
@@ -145,7 +145,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome  |  Firefox  | Safari  |  Edge  |   IE   |
      *    | :-----: | :-------: | :-----: | :----: | :----: |
-     *    | **16**  |  **15**   |  **6**  | **12** | **11** |
+     *    |   16    |    15     |    6    |   12   |   11   |
      *    | 7 _-x-_ | 3.5 _-x-_ | 3 _-x-_ |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-image">MDN</a>
@@ -159,7 +159,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari | Edge | IE  |
      *    | :----: | :-----: | :----: | :--: | :-: |
-     *    | **87** | **66**  |   No   | n/a  | No  |
+     *    |   87   |   66    |   No   | n/a  | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-inline">MDN</a>
      */
@@ -172,7 +172,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :------: | :----: | :-: |
-     *    | **69** | **41**  | **12.1** | **79** | No  |
+     *    |   69   |   41    |   12.1   |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-inline-end">MDN</a>
      */
@@ -185,7 +185,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :------: | :----: | :-: |
-     *    | **69** | **41**  | **12.1** | **79** | No  |
+     *    |   69   |   41    |   12.1   |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-inline-start">MDN</a>
      */
@@ -198,7 +198,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    |   1    |    1    |   1    |   12   |   4   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-left">MDN</a>
      */
@@ -211,7 +211,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
      *    | :-----: | :-----: | :-----: | :----: | :---: |
-     *    |  **4**  |  **4**  |  **5**  | **12** | **9** |
+     *    |    4    |    4    |    5    |   12   |   9   |
      *    | 1 _-x-_ |         | 3 _-x-_ |        |       |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-radius">MDN</a>
@@ -225,7 +225,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |   IE    |
      *    | :----: | :-----: | :----: | :----: | :-----: |
-     *    | **1**  |  **1**  | **1**  | **12** | **5.5** |
+     *    |   1    |    1    |   1    |   12   |   5.5   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-right">MDN</a>
      */
@@ -238,7 +238,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    |   1    |    1    |   1    |   12   |   4   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-style">MDN</a>
      */
@@ -251,7 +251,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    |   1    |    1    |   1    |   12   |   4   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-top">MDN</a>
      */
@@ -264,7 +264,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    |   1    |    1    |   1    |   12   |   4   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-width">MDN</a>
      */
@@ -277,7 +277,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
-     *    | **50**  | **52**  |  **9**  | **12** | **10** |
+     *    |   50    |   52    |    9    |   12   |   10   |
      *    | 1 _-x-_ |         | 3 _-x-_ |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/column-rule">MDN</a>
@@ -291,7 +291,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari  |  Edge  |   IE   |
      *    | :----: | :-----: | :-----: | :----: | :----: |
-     *    | **50** | **52**  |  **9**  | **12** | **10** |
+     *    |   50   |   52    |    9    |   12   |   10   |
      *    |        |         | 3 _-x-_ |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/columns">MDN</a>
@@ -305,7 +305,7 @@ external interface StandardShorthandProperties {
      *
      *    |  Chrome  | Firefox |  Safari   |  Edge  |    IE    |
      *    | :------: | :-----: | :-------: | :----: | :------: |
-     *    |  **29**  | **20**  |   **9**   | **12** |  **11**  |
+     *    |    29    |   20    |     9     |   12   |    11    |
      *    | 21 _-x-_ |         | 6.1 _-x-_ |        | 10 _-x-_ |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/flex">MDN</a>
@@ -319,7 +319,7 @@ external interface StandardShorthandProperties {
      *
      *    |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
      *    | :------: | :-----: | :-------: | :----: | :----: |
-     *    |  **29**  | **28**  |   **9**   | **12** | **11** |
+     *    |    29    |   28    |     9     |   12   |   11   |
      *    | 21 _-x-_ |         | 6.1 _-x-_ |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/flex-flow">MDN</a>
@@ -333,7 +333,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **3** |
+     *    |   1    |    1    |   1    |   12   |   3   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/font">MDN</a>
      */
@@ -350,7 +350,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  | IE  |
      *    | :----: | :-----: | :----: | :----: | :-: |
-     *    | **84** | **63**  |   No   | **84** | No  |
+     *    |   84   |   63    |   No   |   84   | No  |
      *
      * ---
      *
@@ -358,7 +358,7 @@ external interface StandardShorthandProperties {
      *
      *    |     Chrome      |     Firefox     |      Safari       |  Edge  | IE  |
      *    | :-------------: | :-------------: | :---------------: | :----: | :-: |
-     *    |     **66**      |     **61**      |      **12**       | **16** | No  |
+     *    |       66        |       61        |        12         |   16   | No  |
      *    | 57 _(grid-gap)_ | 52 _(grid-gap)_ | 10.1 _(grid-gap)_ |        |     |
      *
      * ---
@@ -367,7 +367,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  | IE  |
      *    | :----: | :-----: | :----: | :----: | :-: |
-     *    | **66** | **61**  |   No   | **16** | No  |
+     *    |   66   |   61    |   No   |   16   | No  |
      *
      * ---
      *
@@ -382,7 +382,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :------: | :----: | :-: |
-     *    | **57** | **52**  | **10.1** | **16** | No  |
+     *    |   57   |   52    |   10.1   |   16   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/grid">MDN</a>
      */
@@ -395,7 +395,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :------: | :----: | :-: |
-     *    | **57** | **52**  | **10.1** | **16** | No  |
+     *    |   57   |   52    |   10.1   |   16   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/grid-area">MDN</a>
      */
@@ -408,7 +408,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :------: | :----: | :-: |
-     *    | **57** | **52**  | **10.1** | **16** | No  |
+     *    |   57   |   52    |   10.1   |   16   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/grid-column">MDN</a>
      */
@@ -421,7 +421,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :------: | :----: | :-: |
-     *    | **57** | **52**  | **10.1** | **16** | No  |
+     *    |   57   |   52    |   10.1   |   16   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/grid-row">MDN</a>
      */
@@ -434,7 +434,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :------: | :----: | :-: |
-     *    | **57** | **52**  | **10.1** | **16** | No  |
+     *    |   57   |   52    |   10.1   |   16   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/grid-template">MDN</a>
      */
@@ -454,7 +454,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    |   1    |    1    |   1    |   12   |   4   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/list-style">MDN</a>
      */
@@ -467,7 +467,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **3** |
+     *    |   1    |    1    |   1    |   12   |   3   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/margin">MDN</a>
      */
@@ -480,7 +480,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :-----: | :----: | :-: |
-     *    | **1**  |  **2**  | **3.2** | **12** | No  |
+     *    |   1    |    2    |   3.2   |   12   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/mask">MDN</a>
      */
@@ -493,7 +493,7 @@ external interface StandardShorthandProperties {
      *
      *    |              Chrome              | Firefox |               Safari               |               Edge                | IE  |
      *    | :------------------------------: | :-----: | :--------------------------------: | :-------------------------------: | :-: |
-     *    | **1** _(-webkit-mask-box-image)_ |   No    | **3.1** _(-webkit-mask-box-image)_ | **79** _(-webkit-mask-box-image)_ | No  |
+     *    |   1** _(-webkit-mask-box-image)_ |   No    |   3.1** _(-webkit-mask-box-image)_ |   79** _(-webkit-mask-box-image)_ | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/mask-border">MDN</a>
      */
@@ -506,7 +506,7 @@ external interface StandardShorthandProperties {
      *
      *    |    Chrome     | Firefox | Safari |  Edge  | IE  |
      *    | :-----------: | :-----: | :----: | :----: | :-: |
-     *    |    **55**     | **72**  |   No   | **79** | No  |
+     *    |      55       |   72    |   No   |   79   | No  |
      *    | 46 _(motion)_ |         |        |        |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/offset">MDN</a>
@@ -520,7 +520,7 @@ external interface StandardShorthandProperties {
      *
      *    |    Chrome     | Firefox | Safari |  Edge  | IE  |
      *    | :-----------: | :-----: | :----: | :----: | :-: |
-     *    |    **55**     | **72**  |   No   | **79** | No  |
+     *    |      55       |   72    |   No   |   79   | No  |
      *    | 46 _(motion)_ |         |        |        |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/offset">MDN</a>
@@ -534,7 +534,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
      *    | :----: | :-----: | :-----: | :----: | :---: |
-     *    | **1**  | **1.5** | **1.2** | **12** | **8** |
+     *    |   1    |   1.5   |   1.2   |   12   |   8   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/outline">MDN</a>
      */
@@ -549,7 +549,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    |   1    |    1    |   1    |   12   |   4   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/overflow">MDN</a>
      */
@@ -564,7 +564,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  | IE  |
      *    | :----: | :-----: | :----: | :----: | :-: |
-     *    | **63** | **59**  |   No   | **18** | No  |
+     *    |   63   |   59    |   No   |   18   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/overscroll-behavior">MDN</a>
      */
@@ -577,7 +577,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    |   1    |    1    |   1    |   12   |   4   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/padding">MDN</a>
      */
@@ -594,7 +594,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  | IE  |
      *    | :----: | :-----: | :----: | :----: | :-: |
-     *    | **59** | **45**  | **11** | **79** | No  |
+     *    |   59   |   45    |   11   |   79   | No  |
      *
      * ---
      *
@@ -602,7 +602,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  | IE  |
      *    | :----: | :-----: | :----: | :----: | :-: |
-     *    | **59** | **45**  | **11** | **79** | No  |
+     *    |   59   |   45    |   11   |   79   | No  |
      *
      * ---
      *
@@ -621,7 +621,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  | IE  |
      *    | :----: | :-----: | :----: | :----: | :-: |
-     *    | **59** | **45**  | **11** | **79** | No  |
+     *    |   59   |   45    |   11   |   79   | No  |
      *
      * ---
      *
@@ -629,7 +629,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  | IE  |
      *    | :----: | :-----: | :----: | :----: | :-: |
-     *    | **59** | **45**  | **11** | **79** | No  |
+     *    |   59   |   45    |   11   |   79   | No  |
      *
      * ---
      *
@@ -644,7 +644,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome | Firefox | Safari |  Edge  |  IE   |
      *    | :----: | :-----: | :----: | :----: | :---: |
-     *    | **1**  |  **1**  | **1**  | **12** | **3** |
+     *    |   1    |    1    |   1    |   12   |   3   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/text-decoration">MDN</a>
      */
@@ -657,7 +657,7 @@ external interface StandardShorthandProperties {
      *
      *    |    Chrome    | Firefox | Safari  |     Edge     | IE  |
      *    | :----------: | :-----: | :-----: | :----------: | :-: |
-     *    | **25** _-x-_ | **46**  | **6.1** | **79** _-x-_ | No  |
+     *    |   25** _-x-_ |   46    |   6.1   |   79** _-x-_ | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/text-emphasis">MDN</a>
      */
@@ -670,7 +670,7 @@ external interface StandardShorthandProperties {
      *
      *    | Chrome  | Firefox |  Safari   |  Edge  |   IE   |
      *    | :-----: | :-----: | :-------: | :----: | :----: |
-     *    | **26**  | **16**  |   **9**   | **12** | **10** |
+     *    |   26    |   16    |     9     |   12   |   10   |
      *    | 1 _-x-_ | 4 _-x-_ | 3.1 _-x-_ |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/transition">MDN</a>
