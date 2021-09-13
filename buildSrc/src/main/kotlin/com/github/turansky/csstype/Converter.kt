@@ -177,6 +177,7 @@ private fun convertInterface(
     val body = source.substringAfter("{\n")
         .substringBefore("\n}")
         .trimIndent()
+        .replace("\n * | ", "\n *    | ")
         .splitToSequence("\n")
         .map {
             if ("?: " in it) {
