@@ -187,7 +187,7 @@ private fun convertInterface(
         .replace(LINK_REGEX, """$1<a href="$2">MDN</a>""")
         .replace(BOLD_1_REGEX, "$1  ")
         .replace(BOLD_2_REGEX, "  $1")
-        .replace(BOLD_3_REGEX, "$1")
+        .replace(BOLD_3_REGEX, "  $1")
         .splitToSequence("\n")
         .map {
             if ("?: " in it) {
