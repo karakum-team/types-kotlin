@@ -14,18 +14,18 @@ external interface StandardLonghandProperties {
      *
      * _Supported in Flex Layout_
      *
-     * |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
-     * | :------: | :-----: | :-------: | :----: | :----: |
-     * |  **29**  | **28**  |   **9**   | **12** | **11** |
-     * | 21 _-x-_ |         | 6.1 _-x-_ |        |        |
+     *    |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
+     *    | :------: | :-----: | :-------: | :----: | :----: |
+     *    |  **29**  | **28**  |   **9**   | **12** | **11** |
+     *    | 21 _-x-_ |         | 6.1 _-x-_ |        |        |
      *
      * ---
      *
      * _Supported in Grid Layout_
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **52**  | **10.1** | **16** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **52**  | **10.1** | **16** | No  |
      *
      * ---
      *
@@ -44,18 +44,18 @@ external interface StandardLonghandProperties {
      *
      * _Supported in Flex Layout_
      *
-     * |  Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :------: | :-----: | :-----: | :----: | :----: |
-     * |  **52**  | **20**  |  **9**  | **12** | **11** |
-     * | 21 _-x-_ |         | 7 _-x-_ |        |        |
+     *    |  Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :------: | :-----: | :-----: | :----: | :----: |
+     *    |  **52**  | **20**  |  **9**  | **12** | **11** |
+     *    | 21 _-x-_ |         | 7 _-x-_ |        |        |
      *
      * ---
      *
      * _Supported in Grid Layout_
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **52**  | **10.1** | **16** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **52**  | **10.1** | **16** | No  |
      *
      * ---
      *
@@ -74,18 +74,18 @@ external interface StandardLonghandProperties {
      *
      * _Supported in Flex Layout_
      *
-     * |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
-     * | :------: | :-----: | :-------: | :----: | :----: |
-     * |  **36**  | **20**  |   **9**   | **12** | **11** |
-     * | 21 _-x-_ |         | 6.1 _-x-_ |        |        |
+     *    |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
+     *    | :------: | :-----: | :-------: | :----: | :----: |
+     *    |  **36**  | **20**  |   **9**   | **12** | **11** |
+     *    | 21 _-x-_ |         | 6.1 _-x-_ |        |        |
      *
      * ---
      *
      * _Supported in Grid Layout_
      *
-     * | Chrome | Firefox |  Safari  |  Edge  |      IE      |
-     * | :----: | :-----: | :------: | :----: | :----------: |
-     * | **57** | **52**  | **10.1** | **16** | **10** _-x-_ |
+     *    | Chrome | Firefox |  Safari  |  Edge  |      IE      |
+     *    | :----: | :-----: | :------: | :----: | :----------: |
+     *    | **57** | **52**  | **10.1** | **16** | **10** _-x-_ |
      *
      * ---
      *
@@ -100,9 +100,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   |   n/a   |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   |   n/a   |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/align-tracks
      */
@@ -115,10 +115,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0s`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **43**  | **16**  |  **9**  | **12** | **10** |
-     * | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **43**  | **16**  |  **9**  | **12** | **10** |
+     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/animation-delay
      */
@@ -131,10 +131,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **43**  | **16**  |  **9**  | **12** | **10** |
-     * | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **43**  | **16**  |  **9**  | **12** | **10** |
+     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/animation-direction
      */
@@ -147,10 +147,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0s`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **43**  | **16**  |  **9**  | **12** | **10** |
-     * | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **43**  | **16**  |  **9**  | **12** | **10** |
+     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/animation-duration
      */
@@ -163,10 +163,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **43**  | **16**  |  **9**  | **12** | **10** |
-     * | 3 _-x-_ | 5 _-x-_ | 5 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **43**  | **16**  |  **9**  | **12** | **10** |
+     *    | 3 _-x-_ | 5 _-x-_ | 5 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/animation-fill-mode
      */
@@ -179,10 +179,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `1`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **43**  | **16**  |  **9**  | **12** | **10** |
-     * | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **43**  | **16**  |  **9**  | **12** | **10** |
+     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/animation-iteration-count
      */
@@ -195,10 +195,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **43**  | **16**  |  **9**  | **12** | **10** |
-     * | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **43**  | **16**  |  **9**  | **12** | **10** |
+     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/animation-name
      */
@@ -211,10 +211,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `running`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **43**  | **16**  |  **9**  | **12** | **10** |
-     * | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **43**  | **16**  |  **9**  | **12** | **10** |
+     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/animation-play-state
      */
@@ -227,10 +227,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `ease`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **43**  | **16**  |  **9**  | **12** | **10** |
-     * | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **43**  | **16**  |  **9**  | **12** | **10** |
+     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/animation-timing-function
      */
@@ -243,10 +243,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome  | Firefox |   Safari    |   Edge   | IE  |
-     * | :-----: | :-----: | :---------: | :------: | :-: |
-     * | **84**  | **80**  | **3** _-x-_ |  **84**  | No  |
-     * | 1 _-x-_ | 1 _-x-_ |             | 12 _-x-_ |     |
+     *    | Chrome  | Firefox |   Safari    |   Edge   | IE  |
+     *    | :-----: | :-----: | :---------: | :------: | :-: |
+     *    | **84**  | **80**  | **3** _-x-_ |  **84**  | No  |
+     *    | 1 _-x-_ | 1 _-x-_ |             | 12 _-x-_ |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/appearance
      */
@@ -259,9 +259,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **88** |   n/a   |   No   | **88** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **88** |   n/a   |   No   | **88** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/aspect-ratio
      */
@@ -274,9 +274,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox |   Safari    |  Edge  | IE  |
-     * | :----: | :-----: | :---------: | :----: | :-: |
-     * | **76** |   n/a   | **9** _-x-_ | **17** | No  |
+     *    | Chrome | Firefox |   Safari    |  Edge  | IE  |
+     *    | :----: | :-----: | :---------: | :----: | :-: |
+     *    | **76** |   n/a   | **9** _-x-_ | **17** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/backdrop-filter
      */
@@ -289,10 +289,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `visible`
      *
-     * |  Chrome  | Firefox  |    Safari     |  Edge  |   IE   |
-     * | :------: | :------: | :-----------: | :----: | :----: |
-     * |  **36**  |  **16**  | **5.1** _-x-_ | **12** | **10** |
-     * | 12 _-x-_ | 10 _-x-_ |               |        |        |
+     *    |  Chrome  | Firefox  |    Safari     |  Edge  |   IE   |
+     *    | :------: | :------: | :-----------: | :----: | :----: |
+     *    |  **36**  |  **16**  | **5.1** _-x-_ | **12** | **10** |
+     *    | 12 _-x-_ | 10 _-x-_ |               |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/backface-visibility
      */
@@ -305,9 +305,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `scroll`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/background-attachment
      */
@@ -320,9 +320,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **35** | **30**  | **8**  | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **35** | **30**  | **8**  | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/background-blend-mode
      */
@@ -335,9 +335,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `border-box`
      *
-     * | Chrome | Firefox |   Safari    |  Edge  |  IE   |
-     * | :----: | :-----: | :---------: | :----: | :---: |
-     * | **1**  |  **4**  | **3** _-x-_ | **12** | **9** |
+     *    | Chrome | Firefox |   Safari    |  Edge  |  IE   |
+     *    | :----: | :-----: | :---------: | :----: | :---: |
+     *    | **1**  |  **4**  | **3** _-x-_ | **12** | **9** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/background-clip
      */
@@ -350,9 +350,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `transparent`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/background-color
      */
@@ -365,9 +365,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/background-image
      */
@@ -380,9 +380,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `padding-box`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **4**  | **3**  | **12** | **9** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **4**  | **3**  | **12** | **9** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/background-origin
      */
@@ -395,9 +395,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `left`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  | **49**  | **1**  | **12** | **6** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  | **49**  | **1**  | **12** | **6** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/background-position-x
      */
@@ -410,9 +410,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `top`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  | **49**  | **1**  | **12** | **6** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  | **49**  | **1**  | **12** | **6** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/background-position-y
      */
@@ -425,9 +425,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `repeat`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/background-repeat
      */
@@ -440,10 +440,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto auto`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |  IE   |
-     * | :-----: | :-----: | :-----: | :----: | :---: |
-     * |  **3**  |  **4**  |  **5**  | **12** | **9** |
-     * | 1 _-x-_ |         | 3 _-x-_ |        |       |
+     *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :---: |
+     *    |  **3**  |  **4**  |  **5**  | **12** | **9** |
+     *    | 1 _-x-_ |         | 3 _-x-_ |        |       |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/background-size
      */
@@ -463,9 +463,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/block-size
      */
@@ -478,9 +478,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `currentcolor`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **66**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **66**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-block-color
      */
@@ -493,9 +493,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `currentcolor`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **69** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **69** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-block-end-color
      */
@@ -508,9 +508,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **69** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **69** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-block-end-style
      */
@@ -523,9 +523,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `medium`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **69** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **69** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-block-end-width
      */
@@ -538,9 +538,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `currentcolor`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **69** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **69** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-block-start-color
      */
@@ -553,9 +553,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **69** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **69** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-block-start-style
      */
@@ -568,9 +568,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `medium`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **69** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **69** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-block-start-width
      */
@@ -583,9 +583,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **66**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **66**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-block-style
      */
@@ -598,9 +598,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `medium`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **66**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **66**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-block-width
      */
@@ -613,9 +613,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `currentcolor`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-bottom-color
      */
@@ -628,10 +628,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |  IE   |
-     * | :-----: | :-----: | :-----: | :----: | :---: |
-     * |  **4**  |  **4**  |  **5**  | **12** | **9** |
-     * | 1 _-x-_ |         | 3 _-x-_ |        |       |
+     *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :---: |
+     *    |  **4**  |  **4**  |  **5**  | **12** | **9** |
+     *    | 1 _-x-_ |         | 3 _-x-_ |        |       |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-bottom-left-radius
      */
@@ -644,10 +644,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |  IE   |
-     * | :-----: | :-----: | :-----: | :----: | :---: |
-     * |  **4**  |  **4**  |  **5**  | **12** | **9** |
-     * | 1 _-x-_ |         | 3 _-x-_ |        |       |
+     *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :---: |
+     *    |  **4**  |  **4**  |  **5**  | **12** | **9** |
+     *    | 1 _-x-_ |         | 3 _-x-_ |        |       |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-bottom-right-radius
      */
@@ -660,9 +660,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE    |
-     * | :----: | :-----: | :----: | :----: | :-----: |
-     * | **1**  |  **1**  | **1**  | **12** | **5.5** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE    |
+     *    | :----: | :-----: | :----: | :----: | :-----: |
+     *    | **1**  |  **1**  | **1**  | **12** | **5.5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-bottom-style
      */
@@ -675,9 +675,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `medium`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-bottom-width
      */
@@ -690,9 +690,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `separate`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :-----: | :----: | :---: |
-     * | **1**  |  **1**  | **1.2** | **12** | **5** |
+     *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :-----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1.2** | **12** | **5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-collapse
      */
@@ -705,9 +705,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **89** | **66**  |   No   | **89** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **89** | **66**  |   No   | **89** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-end-end-radius
      */
@@ -720,9 +720,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **89** | **66**  |   No   | **89** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **89** | **66**  |   No   | **89** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-end-start-radius
      */
@@ -735,9 +735,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE   |
-     * | :----: | :-----: | :----: | :----: | :----: |
-     * | **15** | **15**  | **6**  | **12** | **11** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE   |
+     *    | :----: | :-----: | :----: | :----: | :----: |
+     *    | **15** | **15**  | **6**  | **12** | **11** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-image-outset
      */
@@ -750,9 +750,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `stretch`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE   |
-     * | :----: | :-----: | :----: | :----: | :----: |
-     * | **15** | **15**  | **6**  | **12** | **11** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE   |
+     *    | :----: | :-----: | :----: | :----: | :----: |
+     *    | **15** | **15**  | **6**  | **12** | **11** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-image-repeat
      */
@@ -765,9 +765,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `100%`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE   |
-     * | :----: | :-----: | :----: | :----: | :----: |
-     * | **15** | **15**  | **6**  | **12** | **11** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE   |
+     *    | :----: | :-----: | :----: | :----: | :----: |
+     *    | **15** | **15**  | **6**  | **12** | **11** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-image-slice
      */
@@ -780,9 +780,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE   |
-     * | :----: | :-----: | :----: | :----: | :----: |
-     * | **15** | **15**  | **6**  | **12** | **11** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE   |
+     *    | :----: | :-----: | :----: | :----: | :----: |
+     *    | **15** | **15**  | **6**  | **12** | **11** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-image-source
      */
@@ -795,9 +795,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `1`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE   |
-     * | :----: | :-----: | :----: | :----: | :----: |
-     * | **15** | **13**  | **6**  | **12** | **11** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE   |
+     *    | :----: | :-----: | :----: | :----: | :----: |
+     *    | **15** | **13**  | **6**  | **12** | **11** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-image-width
      */
@@ -810,9 +810,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `currentcolor`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **66**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **66**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-inline-color
      */
@@ -825,10 +825,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `currentcolor`
      *
-     * | Chrome |           Firefox           |  Safari  |  Edge  | IE  |
-     * | :----: | :-------------------------: | :------: | :----: | :-: |
-     * | **69** |           **41**            | **12.1** | **79** | No  |
-     * |        | 3 _(-moz-border-end-color)_ |          |        |     |
+     *    | Chrome |           Firefox           |  Safari  |  Edge  | IE  |
+     *    | :----: | :-------------------------: | :------: | :----: | :-: |
+     *    | **69** |           **41**            | **12.1** | **79** | No  |
+     *    |        | 3 _(-moz-border-end-color)_ |          |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-inline-end-color
      */
@@ -841,10 +841,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome |           Firefox           |  Safari  |  Edge  | IE  |
-     * | :----: | :-------------------------: | :------: | :----: | :-: |
-     * | **69** |           **41**            | **12.1** | **79** | No  |
-     * |        | 3 _(-moz-border-end-style)_ |          |        |     |
+     *    | Chrome |           Firefox           |  Safari  |  Edge  | IE  |
+     *    | :----: | :-------------------------: | :------: | :----: | :-: |
+     *    | **69** |           **41**            | **12.1** | **79** | No  |
+     *    |        | 3 _(-moz-border-end-style)_ |          |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-inline-end-style
      */
@@ -857,10 +857,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `medium`
      *
-     * | Chrome |           Firefox           |  Safari  |  Edge  | IE  |
-     * | :----: | :-------------------------: | :------: | :----: | :-: |
-     * | **69** |           **41**            | **12.1** | **79** | No  |
-     * |        | 3 _(-moz-border-end-width)_ |          |        |     |
+     *    | Chrome |           Firefox           |  Safari  |  Edge  | IE  |
+     *    | :----: | :-------------------------: | :------: | :----: | :-: |
+     *    | **69** |           **41**            | **12.1** | **79** | No  |
+     *    |        | 3 _(-moz-border-end-width)_ |          |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-inline-end-width
      */
@@ -873,10 +873,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `currentcolor`
      *
-     * | Chrome |            Firefox            |  Safari  |  Edge  | IE  |
-     * | :----: | :---------------------------: | :------: | :----: | :-: |
-     * | **69** |            **41**             | **12.1** | **79** | No  |
-     * |        | 3 _(-moz-border-start-color)_ |          |        |     |
+     *    | Chrome |            Firefox            |  Safari  |  Edge  | IE  |
+     *    | :----: | :---------------------------: | :------: | :----: | :-: |
+     *    | **69** |            **41**             | **12.1** | **79** | No  |
+     *    |        | 3 _(-moz-border-start-color)_ |          |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-inline-start-color
      */
@@ -889,10 +889,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome |            Firefox            |  Safari  |  Edge  | IE  |
-     * | :----: | :---------------------------: | :------: | :----: | :-: |
-     * | **69** |            **41**             | **12.1** | **79** | No  |
-     * |        | 3 _(-moz-border-start-style)_ |          |        |     |
+     *    | Chrome |            Firefox            |  Safari  |  Edge  | IE  |
+     *    | :----: | :---------------------------: | :------: | :----: | :-: |
+     *    | **69** |            **41**             | **12.1** | **79** | No  |
+     *    |        | 3 _(-moz-border-start-style)_ |          |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-inline-start-style
      */
@@ -905,9 +905,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `medium`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **69** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **69** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-inline-start-width
      */
@@ -920,9 +920,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **66**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **66**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-inline-style
      */
@@ -935,9 +935,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `medium`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **66**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **66**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-inline-width
      */
@@ -950,9 +950,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `currentcolor`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-left-color
      */
@@ -965,9 +965,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE    |
-     * | :----: | :-----: | :----: | :----: | :-----: |
-     * | **1**  |  **1**  | **1**  | **12** | **5.5** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE    |
+     *    | :----: | :-----: | :----: | :----: | :-----: |
+     *    | **1**  |  **1**  | **1**  | **12** | **5.5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-left-style
      */
@@ -980,9 +980,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `medium`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-left-width
      */
@@ -995,9 +995,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `currentcolor`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-right-color
      */
@@ -1010,9 +1010,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE    |
-     * | :----: | :-----: | :----: | :----: | :-----: |
-     * | **1**  |  **1**  | **1**  | **12** | **5.5** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE    |
+     *    | :----: | :-----: | :----: | :----: | :-----: |
+     *    | **1**  |  **1**  | **1**  | **12** | **5.5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-right-style
      */
@@ -1025,9 +1025,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `medium`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-right-width
      */
@@ -1040,9 +1040,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **8** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **8** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-spacing
      */
@@ -1055,9 +1055,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **89** | **66**  |   No   | **89** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **89** | **66**  |   No   | **89** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-start-end-radius
      */
@@ -1070,9 +1070,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **89** | **66**  |   No   | **89** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **89** | **66**  |   No   | **89** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-start-start-radius
      */
@@ -1085,9 +1085,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `currentcolor`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-top-color
      */
@@ -1100,10 +1100,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |  IE   |
-     * | :-----: | :-----: | :-----: | :----: | :---: |
-     * |  **4**  |  **4**  |  **5**  | **12** | **9** |
-     * | 1 _-x-_ |         | 3 _-x-_ |        |       |
+     *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :---: |
+     *    |  **4**  |  **4**  |  **5**  | **12** | **9** |
+     *    | 1 _-x-_ |         | 3 _-x-_ |        |       |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-top-left-radius
      */
@@ -1116,10 +1116,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |  IE   |
-     * | :-----: | :-----: | :-----: | :----: | :---: |
-     * |  **4**  |  **4**  |  **5**  | **12** | **9** |
-     * | 1 _-x-_ |         | 3 _-x-_ |        |       |
+     *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :---: |
+     *    |  **4**  |  **4**  |  **5**  | **12** | **9** |
+     *    | 1 _-x-_ |         | 3 _-x-_ |        |       |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-top-right-radius
      */
@@ -1132,9 +1132,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE    |
-     * | :----: | :-----: | :----: | :----: | :-----: |
-     * | **1**  |  **1**  | **1**  | **12** | **5.5** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE    |
+     *    | :----: | :-----: | :----: | :----: | :-----: |
+     *    | **1**  |  **1**  | **1**  | **12** | **5.5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-top-style
      */
@@ -1147,9 +1147,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `medium`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/border-top-width
      */
@@ -1162,9 +1162,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **5** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/bottom
      */
@@ -1177,9 +1177,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `slice`
      *
-     * |    Chrome    | Firefox |    Safari     |     Edge     | IE  |
-     * | :----------: | :-----: | :-----------: | :----------: | :-: |
-     * | **22** _-x-_ | **32**  | **6.1** _-x-_ | **79** _-x-_ | No  |
+     *    |    Chrome    | Firefox |    Safari     |     Edge     | IE  |
+     *    | :----------: | :-----: | :-----------: | :----------: | :-: |
+     *    | **22** _-x-_ | **32**  | **6.1** _-x-_ | **79** _-x-_ | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/box-decoration-break
      */
@@ -1192,10 +1192,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |  IE   |
-     * | :-----: | :-----: | :-----: | :----: | :---: |
-     * | **10**  |  **4**  | **5.1** | **12** | **9** |
-     * | 1 _-x-_ |         | 3 _-x-_ |        |       |
+     *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :---: |
+     *    | **10**  |  **4**  | **5.1** | **12** | **9** |
+     *    | 1 _-x-_ |         | 3 _-x-_ |        |       |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/box-shadow
      */
@@ -1208,10 +1208,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `content-box`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |  IE   |
-     * | :-----: | :-----: | :-----: | :----: | :---: |
-     * | **10**  | **29**  | **5.1** | **12** | **8** |
-     * | 1 _-x-_ | 1 _-x-_ | 3 _-x-_ |        |       |
+     *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :---: |
+     *    | **10**  | **29**  | **5.1** | **12** | **8** |
+     *    | 1 _-x-_ | 1 _-x-_ | 3 _-x-_ |        |       |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/box-sizing
      */
@@ -1228,17 +1228,17 @@ external interface StandardLonghandProperties {
      *
      * _Supported in Multi-column Layout_
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE   |
-     * | :----: | :-----: | :----: | :----: | :----: |
-     * | **50** | **65**  |   No   | **12** | **10** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE   |
+     *    | :----: | :-----: | :----: | :----: | :----: |
+     *    | **50** | **65**  |   No   | **12** | **10** |
      *
      * ---
      *
      * _Supported in Paged Media_
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE   |
-     * | :----: | :-----: | :----: | :----: | :----: |
-     * | **50** | **65**  | **10** | **12** | **10** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE   |
+     *    | :----: | :-----: | :----: | :----: | :----: |
+     *    | **50** | **65**  | **10** | **12** | **10** |
      *
      * ---
      *
@@ -1257,17 +1257,17 @@ external interface StandardLonghandProperties {
      *
      * _Supported in Multi-column Layout_
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE   |
-     * | :----: | :-----: | :----: | :----: | :----: |
-     * | **50** | **65**  |   No   | **12** | **10** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE   |
+     *    | :----: | :-----: | :----: | :----: | :----: |
+     *    | **50** | **65**  |   No   | **12** | **10** |
      *
      * ---
      *
      * _Supported in Paged Media_
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE   |
-     * | :----: | :-----: | :----: | :----: | :----: |
-     * | **50** | **65**  | **10** | **12** | **10** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE   |
+     *    | :----: | :-----: | :----: | :----: | :----: |
+     *    | **50** | **65**  | **10** | **12** | **10** |
      *
      * ---
      *
@@ -1286,17 +1286,17 @@ external interface StandardLonghandProperties {
      *
      * _Supported in Multi-column Layout_
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE   |
-     * | :----: | :-----: | :----: | :----: | :----: |
-     * | **50** | **65**  | **10** | **12** | **10** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE   |
+     *    | :----: | :-----: | :----: | :----: | :----: |
+     *    | **50** | **65**  | **10** | **12** | **10** |
      *
      * ---
      *
      * _Supported in Paged Media_
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE   |
-     * | :----: | :-----: | :----: | :----: | :----: |
-     * | **50** | **65**  | **10** | **12** | **10** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE   |
+     *    | :----: | :-----: | :----: | :----: | :----: |
+     *    | **50** | **65**  | **10** | **12** | **10** |
      *
      * ---
      *
@@ -1311,9 +1311,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `top`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **8** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **8** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/caption-side
      */
@@ -1326,9 +1326,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **53**  | **11.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **53**  | **11.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/caret-color
      */
@@ -1341,9 +1341,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/clear
      */
@@ -1356,10 +1356,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
-     * | :------: | :-----: | :-------: | :----: | :----: |
-     * |  **55**  | **3.5** |  **9.1**  | **12** | **10** |
-     * | 23 _-x-_ |         | 6.1 _-x-_ |        |        |
+     *    |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
+     *    | :------: | :-----: | :-------: | :----: | :----: |
+     *    |  **55**  | **3.5** |  **9.1**  | **12** | **10** |
+     *    | 23 _-x-_ |         | 6.1 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/clip-path
      */
@@ -1372,9 +1372,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: Varies from one browser to another
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **3** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **3** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/color
      */
@@ -1387,9 +1387,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `economy`
      *
-     * |                Chrome                 | Firefox |                Safari                |                 Edge                  | IE  |
-     * | :-----------------------------------: | :-----: | :----------------------------------: | :-----------------------------------: | :-: |
-     * | **49** _(-webkit-print-color-adjust)_ | **48**  | **6** _(-webkit-print-color-adjust)_ | **79** _(-webkit-print-color-adjust)_ | No  |
+     *    |                Chrome                 | Firefox |                Safari                |                 Edge                  | IE  |
+     *    | :-----------------------------------: | :-----: | :----------------------------------: | :-----------------------------------: | :-: |
+     *    | **49** _(-webkit-print-color-adjust)_ | **48**  | **6** _(-webkit-print-color-adjust)_ | **79** _(-webkit-print-color-adjust)_ | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/color-adjust
      */
@@ -1402,9 +1402,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **81** |   No    | **13** | **81** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **81** |   No    | **13** | **81** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/color-scheme
      */
@@ -1417,10 +1417,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **50**  | **52**  |  **9**  | **12** | **10** |
-     * | 1 _-x-_ |         | 3 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **50**  | **52**  |  **9**  | **12** | **10** |
+     *    | 1 _-x-_ |         | 3 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/column-count
      */
@@ -1433,10 +1433,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `balance`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |   IE   |
-     * | :----: | :-----: | :-----: | :----: | :----: |
-     * | **50** | **52**  |  **9**  | **12** | **10** |
-     * |        |         | 8 _-x-_ |        |        |
+     *    | Chrome | Firefox | Safari  |  Edge  |   IE   |
+     *    | :----: | :-----: | :-----: | :----: | :----: |
+     *    | **50** | **52**  |  **9**  | **12** | **10** |
+     *    |        |         | 8 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/column-fill
      */
@@ -1453,27 +1453,27 @@ external interface StandardLonghandProperties {
      *
      * _Supported in Flex Layout_
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **84** | **63**  |   No   | **84** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **84** | **63**  |   No   | **84** | No  |
      *
      * ---
      *
      * _Supported in Grid Layout_
      *
-     * |         Chrome         |        Firefox         |          Safari          |  Edge  | IE  |
-     * | :--------------------: | :--------------------: | :----------------------: | :----: | :-: |
-     * |         **66**         |         **61**         |         **12.1**         | **16** | No  |
-     * | 57 _(grid-column-gap)_ | 52 _(grid-column-gap)_ | 10.1 _(grid-column-gap)_ |        |     |
+     *    |         Chrome         |        Firefox         |          Safari          |  Edge  | IE  |
+     *    | :--------------------: | :--------------------: | :----------------------: | :----: | :-: |
+     *    |         **66**         |         **61**         |         **12.1**         | **16** | No  |
+     *    | 57 _(grid-column-gap)_ | 52 _(grid-column-gap)_ | 10.1 _(grid-column-gap)_ |        |     |
      *
      * ---
      *
      * _Supported in Multi-column Layout_
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **50**  | **52**  | **10**  | **12** | **10** |
-     * | 1 _-x-_ |         | 3 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **50**  | **52**  | **10**  | **12** | **10** |
+     *    | 1 _-x-_ |         | 3 _-x-_ |        |        |
      *
      * ---
      *
@@ -1488,10 +1488,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `currentcolor`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **50**  | **52**  |  **9**  | **12** | **10** |
-     * | 1 _-x-_ |         | 3 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **50**  | **52**  |  **9**  | **12** | **10** |
+     *    | 1 _-x-_ |         | 3 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/column-rule-color
      */
@@ -1504,10 +1504,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **50**  | **52**  |  **9**  | **12** | **10** |
-     * | 1 _-x-_ |         | 3 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **50**  | **52**  |  **9**  | **12** | **10** |
+     *    | 1 _-x-_ |         | 3 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/column-rule-style
      */
@@ -1520,10 +1520,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `medium`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **50**  | **52**  |  **9**  | **12** | **10** |
-     * | 1 _-x-_ |         | 3 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **50**  | **52**  |  **9**  | **12** | **10** |
+     *    | 1 _-x-_ |         | 3 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/column-rule-width
      */
@@ -1536,10 +1536,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome  | Firefox |  Safari   |  Edge  |   IE   |
-     * | :-----: | :-----: | :-------: | :----: | :----: |
-     * | **50**  | **71**  |   **9**   | **12** | **10** |
-     * | 6 _-x-_ |         | 5.1 _-x-_ |        |        |
+     *    | Chrome  | Firefox |  Safari   |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-------: | :----: | :----: |
+     *    | **50**  | **71**  |   **9**   | **12** | **10** |
+     *    | 6 _-x-_ |         | 5.1 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/column-span
      */
@@ -1552,10 +1552,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **50**  | **50**  |  **9**  | **12** | **10** |
-     * | 1 _-x-_ |         | 3 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **50**  | **50**  |  **9**  | **12** | **10** |
+     *    | 1 _-x-_ |         | 3 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/column-width
      */
@@ -1568,9 +1568,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **52** | **69**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **52** | **69**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/contain
      */
@@ -1583,9 +1583,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **8** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **8** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/content
      */
@@ -1598,9 +1598,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `visible`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **85** |   No    |   No   | **85** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **85** |   No    |   No   | **85** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/content-visibility
      */
@@ -1613,9 +1613,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **2**  |  **1**  | **3**  | **12** | **8** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **2**  |  **1**  | **3**  | **12** | **8** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/counter-increment
      */
@@ -1628,9 +1628,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **2**  |  **1**  | **3**  | **12** | **8** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **2**  |  **1**  | **3**  | **12** | **8** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/counter-reset
      */
@@ -1643,9 +1643,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **85** | **68**  |   No   | **85** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **85** | **68**  |   No   | **85** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/counter-set
      */
@@ -1658,9 +1658,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :-----: | :----: | :---: |
-     * | **1**  |  **1**  | **1.2** | **12** | **4** |
+     *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :-----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1.2** | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/cursor
      */
@@ -1673,9 +1673,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `ltr`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE    |
-     * | :----: | :-----: | :----: | :----: | :-----: |
-     * | **2**  |  **1**  | **1**  | **12** | **5.5** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE    |
+     *    | :----: | :-----: | :----: | :----: | :-----: |
+     *    | **2**  |  **1**  | **1**  | **12** | **5.5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/direction
      */
@@ -1688,9 +1688,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `inline`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/display
      */
@@ -1703,9 +1703,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `show`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :-----: | :----: | :---: |
-     * | **1**  |  **1**  | **1.2** | **12** | **8** |
+     *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :-----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1.2** | **12** | **8** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/empty-cells
      */
@@ -1718,10 +1718,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * |  Chrome  | Firefox | Safari  |  Edge  | IE  |
-     * | :------: | :-----: | :-----: | :----: | :-: |
-     * |  **53**  | **35**  | **9.1** | **12** | No  |
-     * | 18 _-x-_ |         | 6 _-x-_ |        |     |
+     *    |  Chrome  | Firefox | Safari  |  Edge  | IE  |
+     *    | :------: | :-----: | :-----: | :----: | :-: |
+     *    |  **53**  | **35**  | **9.1** | **12** | No  |
+     *    | 18 _-x-_ |         | 6 _-x-_ |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/filter
      */
@@ -1734,10 +1734,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * |  Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :------: | :-----: | :-----: | :----: | :----: |
-     * |  **29**  | **22**  |  **9**  | **12** | **11** |
-     * | 22 _-x-_ |         | 7 _-x-_ |        |        |
+     *    |  Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :------: | :-----: | :-----: | :----: | :----: |
+     *    |  **29**  | **22**  |  **9**  | **12** | **11** |
+     *    | 22 _-x-_ |         | 7 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/flex-basis
      */
@@ -1750,10 +1750,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `row`
      *
-     * |  Chrome  | Firefox | Safari  |  Edge  |    IE    |
-     * | :------: | :-----: | :-----: | :----: | :------: |
-     * |  **29**  | **20**  |  **9**  | **12** |  **11**  |
-     * | 21 _-x-_ |         | 7 _-x-_ |        | 10 _-x-_ |
+     *    |  Chrome  | Firefox | Safari  |  Edge  |    IE    |
+     *    | :------: | :-----: | :-----: | :----: | :------: |
+     *    |  **29**  | **20**  |  **9**  | **12** |  **11**  |
+     *    | 21 _-x-_ |         | 7 _-x-_ |        | 10 _-x-_ |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/flex-direction
      */
@@ -1766,10 +1766,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * |  Chrome  | Firefox |  Safari   |  Edge  |            IE            |
-     * | :------: | :-----: | :-------: | :----: | :----------------------: |
-     * |  **29**  | **20**  |   **9**   | **12** |          **11**          |
-     * | 22 _-x-_ |         | 6.1 _-x-_ |        | 10 _(-ms-flex-positive)_ |
+     *    |  Chrome  | Firefox |  Safari   |  Edge  |            IE            |
+     *    | :------: | :-----: | :-------: | :----: | :----------------------: |
+     *    |  **29**  | **20**  |   **9**   | **12** |          **11**          |
+     *    | 22 _-x-_ |         | 6.1 _-x-_ |        | 10 _(-ms-flex-positive)_ |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/flex-grow
      */
@@ -1782,10 +1782,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `1`
      *
-     * |  Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :------: | :-----: | :-----: | :----: | :----: |
-     * |  **29**  | **20**  |  **9**  | **12** | **10** |
-     * | 22 _-x-_ |         | 8 _-x-_ |        |        |
+     *    |  Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :------: | :-----: | :-----: | :----: | :----: |
+     *    |  **29**  | **20**  |  **9**  | **12** | **10** |
+     *    | 22 _-x-_ |         | 8 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/flex-shrink
      */
@@ -1798,10 +1798,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `nowrap`
      *
-     * |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
-     * | :------: | :-----: | :-------: | :----: | :----: |
-     * |  **29**  | **28**  |   **9**   | **12** | **11** |
-     * | 21 _-x-_ |         | 6.1 _-x-_ |        |        |
+     *    |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
+     *    | :------: | :-----: | :-------: | :----: | :----: |
+     *    |  **29**  | **28**  |   **9**   | **12** | **11** |
+     *    | 21 _-x-_ |         | 6.1 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/flex-wrap
      */
@@ -1814,9 +1814,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/float
      */
@@ -1829,9 +1829,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: depends on user agent
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **3** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **3** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-family
      */
@@ -1844,10 +1844,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * |  Chrome  | Firefox  | Safari  |  Edge  |   IE   |
-     * | :------: | :------: | :-----: | :----: | :----: |
-     * |  **48**  |  **34**  | **9.1** | **15** | **10** |
-     * | 16 _-x-_ | 15 _-x-_ |         |        |        |
+     *    |  Chrome  | Firefox  | Safari  |  Edge  |   IE   |
+     *    | :------: | :------: | :-----: | :----: | :----: |
+     *    |  **48**  |  **34**  | **9.1** | **15** | **10** |
+     *    | 16 _-x-_ | 15 _-x-_ |         |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-feature-settings
      */
@@ -1860,10 +1860,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :-----: | :----: | :-: |
-     * | **33** | **32**  |  **9**  | **79** | No  |
-     * |        |         | 6 _-x-_ |        |     |
+     *    | Chrome | Firefox | Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :-----: | :----: | :-: |
+     *    | **33** | **32**  |  **9**  | **79** | No  |
+     *    |        |         | 6 _-x-_ |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-kerning
      */
@@ -1876,10 +1876,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   | **34**  |   No   |  No  | No  |
-     * |        | 4 _-x-_ |        |      |     |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   | **34**  |   No   |  No  | No  |
+     *    |        | 4 _-x-_ |        |      |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-language-override
      */
@@ -1892,9 +1892,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **79** | **62**  | **11** | **17** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **79** | **62**  | **11** | **17** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-optical-sizing
      */
@@ -1907,9 +1907,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `medium`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE    |
-     * | :----: | :-----: | :----: | :----: | :-----: |
-     * | **1**  |  **1**  | **1**  | **12** | **5.5** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE    |
+     *    | :----: | :-----: | :----: | :----: | :-----: |
+     *    | **1**  |  **1**  | **1**  | **12** | **5.5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-size
      */
@@ -1922,9 +1922,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |  n/a   |  **1**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |  n/a   |  **1**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-size-adjust
      */
@@ -1937,9 +1937,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * |              Chrome              |              Firefox               |              Safari              |               Edge                | IE  |
-     * | :------------------------------: | :--------------------------------: | :------------------------------: | :-------------------------------: | :-: |
-     * | **5** _(-webkit-font-smoothing)_ | **25** _(-moz-osx-font-smoothing)_ | **4** _(-webkit-font-smoothing)_ | **79** _(-webkit-font-smoothing)_ | No  |
+     *    |              Chrome              |              Firefox               |              Safari              |               Edge                | IE  |
+     *    | :------------------------------: | :--------------------------------: | :------------------------------: | :-------------------------------: | :-: |
+     *    | **5** _(-webkit-font-smoothing)_ | **25** _(-moz-osx-font-smoothing)_ | **4** _(-webkit-font-smoothing)_ | **79** _(-webkit-font-smoothing)_ | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-smooth
      */
@@ -1952,9 +1952,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **60** |  **9**  | **11** | **12** | **9** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **60** |  **9**  | **11** | **12** | **9** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-stretch
      */
@@ -1967,9 +1967,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-style
      */
@@ -1982,9 +1982,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `weight style`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   | **34**  | **9**  |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   | **34**  | **9**  |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-synthesis
      */
@@ -1997,9 +1997,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-variant
      */
@@ -2012,9 +2012,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :-----: | :----: | :-: |
-     * | **52** | **34**  | **9.1** | **79** | No  |
+     *    | Chrome | Firefox | Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :-----: | :----: | :-: |
+     *    | **52** | **34**  | **9.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-variant-caps
      */
@@ -2027,9 +2027,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **63** | **34**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **63** | **34**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-variant-east-asian
      */
@@ -2042,10 +2042,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * |  Chrome  | Firefox | Safari  |  Edge  | IE  |
-     * | :------: | :-----: | :-----: | :----: | :-: |
-     * |  **34**  | **34**  | **9.1** | **79** | No  |
-     * | 31 _-x-_ |         | 7 _-x-_ |        |     |
+     *    |  Chrome  | Firefox | Safari  |  Edge  | IE  |
+     *    | :------: | :-----: | :-----: | :----: | :-: |
+     *    |  **34**  | **34**  | **9.1** | **79** | No  |
+     *    | 31 _-x-_ |         | 7 _-x-_ |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-variant-ligatures
      */
@@ -2058,9 +2058,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :-----: | :----: | :-: |
-     * | **52** | **34**  | **9.1** | **79** | No  |
+     *    | Chrome | Firefox | Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :-----: | :----: | :-: |
+     *    | **52** | **34**  | **9.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-variant-numeric
      */
@@ -2073,9 +2073,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   | **34**  |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   | **34**  |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-variant-position
      */
@@ -2088,9 +2088,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **62** | **62**  | **11** | **17** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **62** | **62**  | **11** | **17** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-variation-settings
      */
@@ -2103,9 +2103,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **2**  |  **1**  | **1**  | **12** | **3** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **2**  |  **1**  | **1**  | **12** | **3** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/font-weight
      */
@@ -2118,10 +2118,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |              Edge               |                 IE                  |
-     * | :----: | :-----: | :----: | :-----------------------------: | :---------------------------------: |
-     * | **89** |   No    |   No   |             **79**              | **10** _(-ms-high-contrast-adjust)_ |
-     * |        |         |        | 12 _(-ms-high-contrast-adjust)_ |                                     |
+     *    | Chrome | Firefox | Safari |              Edge               |                 IE                  |
+     *    | :----: | :-----: | :----: | :-----------------------------: | :---------------------------------: |
+     *    | **89** |   No    |   No   |             **79**              | **10** _(-ms-high-contrast-adjust)_ |
+     *    |        |         |        | 12 _(-ms-high-contrast-adjust)_ |                                     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/forced-color-adjust
      */
@@ -2134,9 +2134,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  |             IE              |
-     * | :----: | :-----: | :------: | :----: | :-------------------------: |
-     * | **57** | **70**  | **10.1** | **16** | **10** _(-ms-grid-columns)_ |
+     *    | Chrome | Firefox |  Safari  |  Edge  |             IE              |
+     *    | :----: | :-----: | :------: | :----: | :-------------------------: |
+     *    | **57** | **70**  | **10.1** | **16** | **10** _(-ms-grid-columns)_ |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/grid-auto-columns
      */
@@ -2149,9 +2149,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `row`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **52**  | **10.1** | **16** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **52**  | **10.1** | **16** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/grid-auto-flow
      */
@@ -2164,9 +2164,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  |            IE            |
-     * | :----: | :-----: | :------: | :----: | :----------------------: |
-     * | **57** | **70**  | **10.1** | **16** | **10** _(-ms-grid-rows)_ |
+     *    | Chrome | Firefox |  Safari  |  Edge  |            IE            |
+     *    | :----: | :-----: | :------: | :----: | :----------------------: |
+     *    | **57** | **70**  | **10.1** | **16** | **10** _(-ms-grid-rows)_ |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/grid-auto-rows
      */
@@ -2179,9 +2179,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **52**  | **10.1** | **16** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **52**  | **10.1** | **16** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/grid-column-end
      */
@@ -2194,9 +2194,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **52**  | **10.1** | **16** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **52**  | **10.1** | **16** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/grid-column-start
      */
@@ -2209,9 +2209,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **52**  | **10.1** | **16** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **52**  | **10.1** | **16** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/grid-row-end
      */
@@ -2224,9 +2224,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **52**  | **10.1** | **16** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **52**  | **10.1** | **16** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/grid-row-start
      */
@@ -2239,9 +2239,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **52**  | **10.1** | **16** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **52**  | **10.1** | **16** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/grid-template-areas
      */
@@ -2254,9 +2254,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  |             IE              |
-     * | :----: | :-----: | :------: | :----: | :-------------------------: |
-     * | **57** | **52**  | **10.1** | **16** | **10** _(-ms-grid-columns)_ |
+     *    | Chrome | Firefox |  Safari  |  Edge  |             IE              |
+     *    | :----: | :-----: | :------: | :----: | :-------------------------: |
+     *    | **57** | **52**  | **10.1** | **16** | **10** _(-ms-grid-columns)_ |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/grid-template-columns
      */
@@ -2269,9 +2269,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  |            IE            |
-     * | :----: | :-----: | :------: | :----: | :----------------------: |
-     * | **57** | **52**  | **10.1** | **16** | **10** _(-ms-grid-rows)_ |
+     *    | Chrome | Firefox |  Safari  |  Edge  |            IE            |
+     *    | :----: | :-----: | :------: | :----: | :----------------------: |
+     *    | **57** | **52**  | **10.1** | **16** | **10** _(-ms-grid-rows)_ |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/grid-template-rows
      */
@@ -2284,9 +2284,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   |   No    | **10** |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   |   No    | **10** |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/hanging-punctuation
      */
@@ -2299,9 +2299,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/height
      */
@@ -2314,10 +2314,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `manual`
      *
-     * |  Chrome  | Firefox |    Safari     |     Edge     |      IE      |
-     * | :------: | :-----: | :-----------: | :----------: | :----------: |
-     * |  **55**  | **43**  | **5.1** _-x-_ | **12** _-x-_ | **10** _-x-_ |
-     * | 13 _-x-_ | 6 _-x-_ |               |              |              |
+     *    |  Chrome  | Firefox |    Safari     |     Edge     |      IE      |
+     *    | :------: | :-----: | :-----------: | :----------: | :----------: |
+     *    |  **55**  | **43**  | **5.1** _-x-_ | **12** _-x-_ | **10** _-x-_ |
+     *    | 13 _-x-_ | 6 _-x-_ |               |              |              |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/hyphens
      */
@@ -2330,9 +2330,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `from-image`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **81** | **26**  | **13.1** | **81** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **81** | **26**  | **13.1** | **81** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/image-orientation
      */
@@ -2345,9 +2345,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **13** | **3.6** | **6**  | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **13** | **3.6** | **6**  | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/image-rendering
      */
@@ -2367,9 +2367,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   |   No    | **9**  |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   |   No    | **9**  |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/initial-letter
      */
@@ -2382,9 +2382,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/inline-size
      */
@@ -2397,9 +2397,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **66**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **66**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/inset
      */
@@ -2412,9 +2412,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **63**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **63**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/inset-block
      */
@@ -2427,9 +2427,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **63**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **63**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/inset-block-end
      */
@@ -2442,9 +2442,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **63**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **63**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/inset-block-start
      */
@@ -2457,9 +2457,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **63**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **63**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/inset-inline
      */
@@ -2472,9 +2472,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **63**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **63**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/inset-inline-end
      */
@@ -2487,9 +2487,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **63**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **63**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/inset-inline-start
      */
@@ -2502,9 +2502,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **41** | **36**  | **8**  | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **41** | **36**  | **8**  | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/isolation
      */
@@ -2521,18 +2521,18 @@ external interface StandardLonghandProperties {
      *
      * _Supported in Flex Layout_
      *
-     * |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
-     * | :------: | :-----: | :-------: | :----: | :----: |
-     * |  **52**  | **20**  |   **9**   | **12** | **11** |
-     * | 21 _-x-_ |         | 6.1 _-x-_ |        |        |
+     *    |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
+     *    | :------: | :-----: | :-------: | :----: | :----: |
+     *    |  **52**  | **20**  |   **9**   | **12** | **11** |
+     *    | 21 _-x-_ |         | 6.1 _-x-_ |        |        |
      *
      * ---
      *
      * _Supported in Grid Layout_
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **52**  | **10.1** | **16** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **52**  | **10.1** | **16** | No  |
      *
      * ---
      *
@@ -2551,17 +2551,17 @@ external interface StandardLonghandProperties {
      *
      * _Supported in Flex Layout_
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE   |
-     * | :----: | :-----: | :----: | :----: | :----: |
-     * | **52** | **20**  | **9**  | **12** | **11** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE   |
+     *    | :----: | :-----: | :----: | :----: | :----: |
+     *    | **52** | **20**  | **9**  | **12** | **11** |
      *
      * ---
      *
      * _Supported in Grid Layout_
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **45**  | **10.1** | **16** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **45**  | **10.1** | **16** | No  |
      *
      * ---
      *
@@ -2580,17 +2580,17 @@ external interface StandardLonghandProperties {
      *
      * _Supported in Flex Layout_
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **45**  | **10.1** | **16** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **45**  | **10.1** | **16** | No  |
      *
      * ---
      *
      * _Supported in Grid Layout_
      *
-     * | Chrome | Firefox |  Safari  |  Edge  |      IE      |
-     * | :----: | :-----: | :------: | :----: | :----------: |
-     * | **57** | **45**  | **10.1** | **16** | **10** _-x-_ |
+     *    | Chrome | Firefox |  Safari  |  Edge  |      IE      |
+     *    | :----: | :-----: | :------: | :----: | :----------: |
+     *    | **57** | **45**  | **10.1** | **16** | **10** _-x-_ |
      *
      * ---
      *
@@ -2605,9 +2605,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   |   n/a   |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   |   n/a   |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/justify-tracks
      */
@@ -2620,9 +2620,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE    |
-     * | :----: | :-----: | :----: | :----: | :-----: |
-     * | **1**  |  **1**  | **1**  | **12** | **5.5** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE    |
+     *    | :----: | :-----: | :----: | :----: | :-----: |
+     *    | **1**  |  **1**  | **1**  | **12** | **5.5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/left
      */
@@ -2635,9 +2635,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/letter-spacing
      */
@@ -2650,10 +2650,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE    |
-     * | :-----: | :-----: | :-----: | :----: | :-----: |
-     * | **58**  | **69**  | **11**  | **14** | **5.5** |
-     * | 1 _-x-_ |         | 3 _-x-_ |        |         |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE    |
+     *    | :-----: | :-----: | :-----: | :----: | :-----: |
+     *    | **58**  | **69**  | **11**  | **14** | **5.5** |
+     *    | 1 _-x-_ |         | 3 _-x-_ |        |         |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/line-break
      */
@@ -2666,9 +2666,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/line-height
      */
@@ -2681,9 +2681,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |  n/a   |   No    |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |  n/a   |   No    |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/line-height-step
      */
@@ -2696,9 +2696,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/list-style-image
      */
@@ -2711,9 +2711,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `outside`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/list-style-position
      */
@@ -2726,9 +2726,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `disc`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/list-style-type
      */
@@ -2741,9 +2741,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **66**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **66**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/margin-block
      */
@@ -2756,9 +2756,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **69** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **69** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/margin-block-end
      */
@@ -2771,9 +2771,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **69** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **69** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/margin-block-start
      */
@@ -2786,9 +2786,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **3** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **3** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/margin-bottom
      */
@@ -2801,9 +2801,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **66**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **66**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/margin-inline
      */
@@ -2816,10 +2816,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * |          Chrome          |        Firefox        |          Safari          |  Edge  | IE  |
-     * | :----------------------: | :-------------------: | :----------------------: | :----: | :-: |
-     * |          **69**          |        **41**         |         **12.1**         | **79** | No  |
-     * | 2 _(-webkit-margin-end)_ | 3 _(-moz-margin-end)_ | 3 _(-webkit-margin-end)_ |        |     |
+     *    |          Chrome          |        Firefox        |          Safari          |  Edge  | IE  |
+     *    | :----------------------: | :-------------------: | :----------------------: | :----: | :-: |
+     *    |          **69**          |        **41**         |         **12.1**         | **79** | No  |
+     *    | 2 _(-webkit-margin-end)_ | 3 _(-moz-margin-end)_ | 3 _(-webkit-margin-end)_ |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/margin-inline-end
      */
@@ -2832,10 +2832,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * |           Chrome           |         Firefox         |           Safari           |  Edge  | IE  |
-     * | :------------------------: | :---------------------: | :------------------------: | :----: | :-: |
-     * |           **69**           |         **41**          |          **12.1**          | **79** | No  |
-     * | 2 _(-webkit-margin-start)_ | 3 _(-moz-margin-start)_ | 3 _(-webkit-margin-start)_ |        |     |
+     *    |           Chrome           |         Firefox         |           Safari           |  Edge  | IE  |
+     *    | :------------------------: | :---------------------: | :------------------------: | :----: | :-: |
+     *    |           **69**           |         **41**          |          **12.1**          | **79** | No  |
+     *    | 2 _(-webkit-margin-start)_ | 3 _(-moz-margin-start)_ | 3 _(-webkit-margin-start)_ |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/margin-inline-start
      */
@@ -2848,9 +2848,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **3** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **3** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/margin-left
      */
@@ -2863,9 +2863,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **3** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **3** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/margin-right
      */
@@ -2878,9 +2878,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **3** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **3** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/margin-top
      */
@@ -2902,9 +2902,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * |                 Chrome                  | Firefox |                  Safari                   |                   Edge                   | IE  |
-     * | :-------------------------------------: | :-----: | :---------------------------------------: | :--------------------------------------: | :-: |
-     * | **1** _(-webkit-mask-box-image-outset)_ |   No    | **3.1** _(-webkit-mask-box-image-outset)_ | **79** _(-webkit-mask-box-image-outset)_ | No  |
+     *    |                 Chrome                  | Firefox |                  Safari                   |                   Edge                   | IE  |
+     *    | :-------------------------------------: | :-----: | :---------------------------------------: | :--------------------------------------: | :-: |
+     *    | **1** _(-webkit-mask-box-image-outset)_ |   No    | **3.1** _(-webkit-mask-box-image-outset)_ | **79** _(-webkit-mask-box-image-outset)_ | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mask-border-outset
      */
@@ -2917,9 +2917,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `stretch`
      *
-     * |                 Chrome                  | Firefox |                  Safari                   |                   Edge                   | IE  |
-     * | :-------------------------------------: | :-----: | :---------------------------------------: | :--------------------------------------: | :-: |
-     * | **1** _(-webkit-mask-box-image-repeat)_ |   No    | **3.1** _(-webkit-mask-box-image-repeat)_ | **79** _(-webkit-mask-box-image-repeat)_ | No  |
+     *    |                 Chrome                  | Firefox |                  Safari                   |                   Edge                   | IE  |
+     *    | :-------------------------------------: | :-----: | :---------------------------------------: | :--------------------------------------: | :-: |
+     *    | **1** _(-webkit-mask-box-image-repeat)_ |   No    | **3.1** _(-webkit-mask-box-image-repeat)_ | **79** _(-webkit-mask-box-image-repeat)_ | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mask-border-repeat
      */
@@ -2932,9 +2932,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * |                 Chrome                 | Firefox |                  Safari                  |                  Edge                   | IE  |
-     * | :------------------------------------: | :-----: | :--------------------------------------: | :-------------------------------------: | :-: |
-     * | **1** _(-webkit-mask-box-image-slice)_ |   No    | **3.1** _(-webkit-mask-box-image-slice)_ | **79** _(-webkit-mask-box-image-slice)_ | No  |
+     *    |                 Chrome                 | Firefox |                  Safari                  |                  Edge                   | IE  |
+     *    | :------------------------------------: | :-----: | :--------------------------------------: | :-------------------------------------: | :-: |
+     *    | **1** _(-webkit-mask-box-image-slice)_ |   No    | **3.1** _(-webkit-mask-box-image-slice)_ | **79** _(-webkit-mask-box-image-slice)_ | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mask-border-slice
      */
@@ -2947,9 +2947,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * |                 Chrome                  | Firefox |                  Safari                   |                   Edge                   | IE  |
-     * | :-------------------------------------: | :-----: | :---------------------------------------: | :--------------------------------------: | :-: |
-     * | **1** _(-webkit-mask-box-image-source)_ |   No    | **3.1** _(-webkit-mask-box-image-source)_ | **79** _(-webkit-mask-box-image-source)_ | No  |
+     *    |                 Chrome                  | Firefox |                  Safari                   |                   Edge                   | IE  |
+     *    | :-------------------------------------: | :-----: | :---------------------------------------: | :--------------------------------------: | :-: |
+     *    | **1** _(-webkit-mask-box-image-source)_ |   No    | **3.1** _(-webkit-mask-box-image-source)_ | **79** _(-webkit-mask-box-image-source)_ | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mask-border-source
      */
@@ -2962,9 +2962,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * |                 Chrome                 | Firefox |                  Safari                  |                  Edge                   | IE  |
-     * | :------------------------------------: | :-----: | :--------------------------------------: | :-------------------------------------: | :-: |
-     * | **1** _(-webkit-mask-box-image-width)_ |   No    | **3.1** _(-webkit-mask-box-image-width)_ | **79** _(-webkit-mask-box-image-width)_ | No  |
+     *    |                 Chrome                 | Firefox |                  Safari                  |                  Edge                   | IE  |
+     *    | :------------------------------------: | :-----: | :--------------------------------------: | :-------------------------------------: | :-: |
+     *    | **1** _(-webkit-mask-box-image-width)_ |   No    | **3.1** _(-webkit-mask-box-image-width)_ | **79** _(-webkit-mask-box-image-width)_ | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mask-border-width
      */
@@ -2977,9 +2977,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `border-box`
      *
-     * |   Chrome    | Firefox |   Safari    |     Edge     | IE  |
-     * | :---------: | :-----: | :---------: | :----------: | :-: |
-     * | **1** _-x-_ | **53**  | **4** _-x-_ | **79** _-x-_ | No  |
+     *    |   Chrome    | Firefox |   Safari    |     Edge     | IE  |
+     *    | :---------: | :-----: | :---------: | :----------: | :-: |
+     *    | **1** _-x-_ | **53**  | **4** _-x-_ | **79** _-x-_ | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mask-clip
      */
@@ -2992,9 +2992,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `add`
      *
-     * | Chrome | Firefox | Safari | Edge  | IE  |
-     * | :----: | :-----: | :----: | :---: | :-: |
-     * |   No   | **53**  |   No   | 18-79 | No  |
+     *    | Chrome | Firefox | Safari | Edge  | IE  |
+     *    | :----: | :-----: | :----: | :---: | :-: |
+     *    |   No   | **53**  |   No   | 18-79 | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mask-composite
      */
@@ -3007,9 +3007,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * |   Chrome    | Firefox |   Safari    |  Edge  | IE  |
-     * | :---------: | :-----: | :---------: | :----: | :-: |
-     * | **1** _-x-_ | **53**  | **4** _-x-_ | **16** | No  |
+     *    |   Chrome    | Firefox |   Safari    |  Edge  | IE  |
+     *    | :---------: | :-----: | :---------: | :----: | :-: |
+     *    | **1** _-x-_ | **53**  | **4** _-x-_ | **16** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mask-image
      */
@@ -3022,9 +3022,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `match-source`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   | **53**  |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   | **53**  |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mask-mode
      */
@@ -3037,9 +3037,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `border-box`
      *
-     * |   Chrome    | Firefox |   Safari    |     Edge     | IE  |
-     * | :---------: | :-----: | :---------: | :----------: | :-: |
-     * | **1** _-x-_ | **53**  | **4** _-x-_ | **79** _-x-_ | No  |
+     *    |   Chrome    | Firefox |   Safari    |     Edge     | IE  |
+     *    | :---------: | :-----: | :---------: | :----------: | :-: |
+     *    | **1** _-x-_ | **53**  | **4** _-x-_ | **79** _-x-_ | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mask-origin
      */
@@ -3052,9 +3052,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `center`
      *
-     * |   Chrome    | Firefox |    Safari     |  Edge  | IE  |
-     * | :---------: | :-----: | :-----------: | :----: | :-: |
-     * | **1** _-x-_ | **53**  | **3.2** _-x-_ | **18** | No  |
+     *    |   Chrome    | Firefox |    Safari     |  Edge  | IE  |
+     *    | :---------: | :-----: | :-----------: | :----: | :-: |
+     *    | **1** _-x-_ | **53**  | **3.2** _-x-_ | **18** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mask-position
      */
@@ -3067,9 +3067,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `no-repeat`
      *
-     * |   Chrome    | Firefox |    Safari     |  Edge  | IE  |
-     * | :---------: | :-----: | :-----------: | :----: | :-: |
-     * | **1** _-x-_ | **53**  | **3.2** _-x-_ | **18** | No  |
+     *    |   Chrome    | Firefox |    Safari     |  Edge  | IE  |
+     *    | :---------: | :-----: | :-----------: | :----: | :-: |
+     *    | **1** _-x-_ | **53**  | **3.2** _-x-_ | **18** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mask-repeat
      */
@@ -3082,9 +3082,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * |   Chrome    | Firefox |   Safari    |  Edge  | IE  |
-     * | :---------: | :-----: | :---------: | :----: | :-: |
-     * | **4** _-x-_ | **53**  | **4** _-x-_ | **18** | No  |
+     *    |   Chrome    | Firefox |   Safari    |  Edge  | IE  |
+     *    | :---------: | :-----: | :---------: | :----: | :-: |
+     *    | **4** _-x-_ | **53**  | **4** _-x-_ | **18** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mask-size
      */
@@ -3097,9 +3097,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `luminance`
      *
-     * | Chrome | Firefox | Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :-----: | :----: | :-: |
-     * | **24** | **35**  | **6.1** | **79** | No  |
+     *    | Chrome | Firefox | Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :-----: | :----: | :-: |
+     *    | **24** | **35**  | **6.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mask-type
      */
@@ -3112,9 +3112,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |  n/a   |   n/a   |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |  n/a   |   n/a   |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/math-style
      */
@@ -3127,9 +3127,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/max-block-size
      */
@@ -3142,9 +3142,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :-----: | :----: | :---: |
-     * | **18** |  **1**  | **1.3** | **12** | **7** |
+     *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :-----: | :----: | :---: |
+     *    | **18** |  **1**  | **1.3** | **12** | **7** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/max-height
      */
@@ -3157,10 +3157,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |   Safari   |  Edge  | IE  |
-     * | :----: | :-----: | :--------: | :----: | :-: |
-     * | **57** | **41**  |  **12.1**  | **79** | No  |
-     * |        |         | 10.1 _-x-_ |        |     |
+     *    | Chrome | Firefox |   Safari   |  Edge  | IE  |
+     *    | :----: | :-----: | :--------: | :----: | :-: |
+     *    | **57** | **41**  |  **12.1**  | **79** | No  |
+     *    |        |         | 10.1 _-x-_ |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/max-inline-size
      */
@@ -3180,9 +3180,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **7** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **7** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/max-width
      */
@@ -3195,9 +3195,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/min-block-size
      */
@@ -3210,9 +3210,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :-----: | :----: | :---: |
-     * | **1**  |  **3**  | **1.3** | **12** | **7** |
+     *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :-----: | :----: | :---: |
+     *    | **1**  |  **3**  | **1.3** | **12** | **7** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/min-height
      */
@@ -3225,9 +3225,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/min-inline-size
      */
@@ -3240,9 +3240,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **7** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **7** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/min-width
      */
@@ -3255,9 +3255,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **41** | **32**  | **8**  | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **41** | **32**  | **8**  | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/mix-blend-mode
      */
@@ -3270,10 +3270,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * |         Chrome         | Firefox | Safari |  Edge  | IE  |
-     * | :--------------------: | :-----: | :----: | :----: | :-: |
-     * |         **55**         | **72**  |   No   | **79** | No  |
-     * | 46 _(motion-distance)_ |         |        |        |     |
+     *    |         Chrome         | Firefox | Safari |  Edge  | IE  |
+     *    | :--------------------: | :-----: | :----: | :----: | :-: |
+     *    |         **55**         | **72**  |   No   | **79** | No  |
+     *    | 46 _(motion-distance)_ |         |        |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/offset-distance
      */
@@ -3286,10 +3286,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * |       Chrome       | Firefox | Safari |  Edge  | IE  |
-     * | :----------------: | :-----: | :----: | :----: | :-: |
-     * |       **55**       | **72**  |   No   | **79** | No  |
-     * | 46 _(motion-path)_ |         |        |        |     |
+     *    |       Chrome       | Firefox | Safari |  Edge  | IE  |
+     *    | :----------------: | :-----: | :----: | :----: | :-: |
+     *    |       **55**       | **72**  |   No   | **79** | No  |
+     *    | 46 _(motion-path)_ |         |        |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/offset-path
      */
@@ -3302,10 +3302,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * |         Chrome         | Firefox | Safari |  Edge  | IE  |
-     * | :--------------------: | :-----: | :----: | :----: | :-: |
-     * |         **56**         | **72**  |   No   | **79** | No  |
-     * | 46 _(motion-rotation)_ |         |        |        |     |
+     *    |         Chrome         | Firefox | Safari |  Edge  | IE  |
+     *    | :--------------------: | :-----: | :----: | :----: | :-: |
+     *    |         **56**         | **72**  |   No   | **79** | No  |
+     *    | 46 _(motion-rotation)_ |         |        |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/offset-rotate
      */
@@ -3318,9 +3318,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `fill`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **32** | **36**  | **10** | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **32** | **36**  | **10** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/object-fit
      */
@@ -3333,9 +3333,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `50% 50%`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **32** | **36**  | **10** | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **32** | **36**  | **10** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/object-position
      */
@@ -3346,9 +3346,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **79** | **72**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **79** | **72**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/offset-anchor
      */
@@ -3361,10 +3361,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * |         Chrome         | Firefox | Safari |  Edge  | IE  |
-     * | :--------------------: | :-----: | :----: | :----: | :-: |
-     * |         **55**         | **72**  |   No   | **79** | No  |
-     * | 46 _(motion-distance)_ |         |        |        |     |
+     *    |         Chrome         | Firefox | Safari |  Edge  | IE  |
+     *    | :--------------------: | :-----: | :----: | :----: | :-: |
+     *    |         **55**         | **72**  |   No   | **79** | No  |
+     *    | 46 _(motion-distance)_ |         |        |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/offset-distance
      */
@@ -3377,10 +3377,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * |       Chrome       | Firefox | Safari |  Edge  | IE  |
-     * | :----------------: | :-----: | :----: | :----: | :-: |
-     * |       **55**       | **72**  |   No   | **79** | No  |
-     * | 46 _(motion-path)_ |         |        |        |     |
+     *    |       Chrome       | Firefox | Safari |  Edge  | IE  |
+     *    | :----------------: | :-----: | :----: | :----: | :-: |
+     *    |       **55**       | **72**  |   No   | **79** | No  |
+     *    | 46 _(motion-path)_ |         |        |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/offset-path
      */
@@ -3393,10 +3393,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * |         Chrome         | Firefox | Safari |  Edge  | IE  |
-     * | :--------------------: | :-----: | :----: | :----: | :-: |
-     * |         **56**         | **72**  |   No   | **79** | No  |
-     * | 46 _(motion-rotation)_ |         |        |        |     |
+     *    |         Chrome         | Firefox | Safari |  Edge  | IE  |
+     *    | :--------------------: | :-----: | :----: | :----: | :-: |
+     *    |         **56**         | **72**  |   No   | **79** | No  |
+     *    | 46 _(motion-rotation)_ |         |        |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/offset-rotate
      */
@@ -3409,10 +3409,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * |         Chrome         | Firefox | Safari |  Edge  | IE  |
-     * | :--------------------: | :-----: | :----: | :----: | :-: |
-     * |         **56**         | **72**  |   No   | **79** | No  |
-     * | 46 _(motion-rotation)_ |         |        |        |     |
+     *    |         Chrome         | Firefox | Safari |  Edge  | IE  |
+     *    | :--------------------: | :-----: | :----: | :----: | :-: |
+     *    |         **56**         | **72**  |   No   | **79** | No  |
+     *    | 46 _(motion-rotation)_ |         |        |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/offset-rotate
      */
@@ -3425,9 +3425,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `1.0`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **2**  | **12** | **9** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **2**  | **12** | **9** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/opacity
      */
@@ -3440,10 +3440,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * |  Chrome  | Firefox | Safari  |  Edge  |    IE    |
-     * | :------: | :-----: | :-----: | :----: | :------: |
-     * |  **29**  | **20**  |  **9**  | **12** |  **11**  |
-     * | 21 _-x-_ |         | 7 _-x-_ |        | 10 _-x-_ |
+     *    |  Chrome  | Firefox | Safari  |  Edge  |    IE    |
+     *    | :------: | :-----: | :-----: | :----: | :------: |
+     *    |  **29**  | **20**  |  **9**  | **12** |  **11**  |
+     *    | 21 _-x-_ |         | 7 _-x-_ |        | 10 _-x-_ |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/order
      */
@@ -3456,9 +3456,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `2`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :-----: | :----: | :---: |
-     * | **25** |   No    | **1.3** | **12** | **8** |
+     *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :-----: | :----: | :---: |
+     *    | **25** |   No    | **1.3** | **12** | **8** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/orphans
      */
@@ -3471,9 +3471,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `invert`, for browsers supporting it, `currentColor` for the other
      *
-     * | Chrome | Firefox | Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :-----: | :----: | :---: |
-     * | **1**  | **1.5** | **1.2** | **12** | **8** |
+     *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :-----: | :----: | :---: |
+     *    | **1**  | **1.5** | **1.2** | **12** | **8** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/outline-color
      */
@@ -3486,9 +3486,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :-----: | :----: | :-: |
-     * | **1**  | **1.5** | **1.2** | **15** | No  |
+     *    | Chrome | Firefox | Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :-----: | :----: | :-: |
+     *    | **1**  | **1.5** | **1.2** | **15** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/outline-offset
      */
@@ -3501,9 +3501,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :-----: | :----: | :---: |
-     * | **1**  | **1.5** | **1.2** | **12** | **8** |
+     *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :-----: | :----: | :---: |
+     *    | **1**  | **1.5** | **1.2** | **12** | **8** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/outline-style
      */
@@ -3516,9 +3516,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `medium`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :-----: | :----: | :---: |
-     * | **1**  | **1.5** | **1.2** | **12** | **8** |
+     *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :-----: | :----: | :---: |
+     *    | **1**  | **1.5** | **1.2** | **12** | **8** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/outline-width
      */
@@ -3529,9 +3529,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **56** | **66**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **56** | **66**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/overflow-anchor
      */
@@ -3542,9 +3542,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   | **69**  |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   | **69**  |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/overflow-block
      */
@@ -3557,9 +3557,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `padding-box`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   | **29**  |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   | **29**  |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Mozilla/Gecko/Chrome/CSS/overflow-clip-box
      */
@@ -3570,9 +3570,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0px`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **90** |   No    |   No   | **90** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **90** |   No    |   No   | **90** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/overflow-clip-margin
      */
@@ -3583,9 +3583,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   | **69**  |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   | **69**  |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/overflow-inline
      */
@@ -3598,10 +3598,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * |     Chrome      |      Firefox      |     Safari      |       Edge       |          IE           |
-     * | :-------------: | :---------------: | :-------------: | :--------------: | :-------------------: |
-     * |     **23**      |      **49**       |     **6.1**     |      **18**      | **5.5** _(word-wrap)_ |
-     * | 1 _(word-wrap)_ | 3.5 _(word-wrap)_ | 1 _(word-wrap)_ | 12 _(word-wrap)_ |                       |
+     *    |     Chrome      |      Firefox      |     Safari      |       Edge       |          IE           |
+     *    | :-------------: | :---------------: | :-------------: | :--------------: | :-------------------: |
+     *    |     **23**      |      **49**       |     **6.1**     |      **18**      | **5.5** _(word-wrap)_ |
+     *    | 1 _(word-wrap)_ | 3.5 _(word-wrap)_ | 1 _(word-wrap)_ | 12 _(word-wrap)_ |                       |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/overflow-wrap
      */
@@ -3614,9 +3614,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `visible`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  | **3.5** | **3**  | **12** | **5** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  | **3.5** | **3**  | **12** | **5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/overflow-x
      */
@@ -3629,9 +3629,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `visible`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  | **3.5** | **3**  | **12** | **5** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  | **3.5** | **3**  | **12** | **5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/overflow-y
      */
@@ -3644,9 +3644,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **77** | **73**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **77** | **73**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/overscroll-behavior-block
      */
@@ -3659,9 +3659,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **77** | **73**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **77** | **73**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/overscroll-behavior-inline
      */
@@ -3674,9 +3674,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **63** | **59**  |   No   | **18** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **63** | **59**  |   No   | **18** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/overscroll-behavior-x
      */
@@ -3689,9 +3689,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **63** | **59**  |   No   | **18** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **63** | **59**  |   No   | **18** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/overscroll-behavior-y
      */
@@ -3704,9 +3704,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **66**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **66**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/padding-block
      */
@@ -3719,9 +3719,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **69** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **69** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/padding-block-end
      */
@@ -3734,9 +3734,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **69** | **41**  | **12.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **69** | **41**  | **12.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/padding-block-start
      */
@@ -3749,9 +3749,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/padding-bottom
      */
@@ -3764,9 +3764,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * | **87** | **66**  |   No   | n/a  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    | **87** | **66**  |   No   | n/a  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/padding-inline
      */
@@ -3779,10 +3779,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * |          Chrome           |        Firefox         |          Safari           |  Edge  | IE  |
-     * | :-----------------------: | :--------------------: | :-----------------------: | :----: | :-: |
-     * |          **69**           |         **41**         |         **12.1**          | **79** | No  |
-     * | 2 _(-webkit-padding-end)_ | 3 _(-moz-padding-end)_ | 3 _(-webkit-padding-end)_ |        |     |
+     *    |          Chrome           |        Firefox         |          Safari           |  Edge  | IE  |
+     *    | :-----------------------: | :--------------------: | :-----------------------: | :----: | :-: |
+     *    |          **69**           |         **41**         |         **12.1**          | **79** | No  |
+     *    | 2 _(-webkit-padding-end)_ | 3 _(-moz-padding-end)_ | 3 _(-webkit-padding-end)_ |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/padding-inline-end
      */
@@ -3795,10 +3795,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * |           Chrome            |         Firefox          |           Safari            |  Edge  | IE  |
-     * | :-------------------------: | :----------------------: | :-------------------------: | :----: | :-: |
-     * |           **69**            |          **41**          |          **12.1**           | **79** | No  |
-     * | 2 _(-webkit-padding-start)_ | 3 _(-moz-padding-start)_ | 3 _(-webkit-padding-start)_ |        |     |
+     *    |           Chrome            |         Firefox          |           Safari            |  Edge  | IE  |
+     *    | :-------------------------: | :----------------------: | :-------------------------: | :----: | :-: |
+     *    |           **69**            |          **41**          |          **12.1**           | **79** | No  |
+     *    | 2 _(-webkit-padding-start)_ | 3 _(-moz-padding-start)_ | 3 _(-webkit-padding-start)_ |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/padding-inline-start
      */
@@ -3811,9 +3811,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/padding-left
      */
@@ -3826,9 +3826,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/padding-right
      */
@@ -3841,9 +3841,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/padding-top
      */
@@ -3856,9 +3856,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :-----: | :----: | :---: |
-     * | **1**  |  **1**  | **1.2** | **12** | **4** |
+     *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :-----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1.2** | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/page-break-after
      */
@@ -3871,9 +3871,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :-----: | :----: | :---: |
-     * | **1**  |  **1**  | **1.2** | **12** | **4** |
+     *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :-----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1.2** | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/page-break-before
      */
@@ -3886,9 +3886,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :-----: | :----: | :---: |
-     * | **1**  | **19**  | **1.3** | **12** | **8** |
+     *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :-----: | :----: | :---: |
+     *    | **1**  | **19**  | **1.3** | **12** | **8** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/page-break-inside
      */
@@ -3901,9 +3901,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **35** | **60**  | **8**  | **17** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **35** | **60**  | **8**  | **17** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/paint-order
      */
@@ -3916,10 +3916,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * |  Chrome  | Firefox  | Safari  |  Edge  |   IE   |
-     * | :------: | :------: | :-----: | :----: | :----: |
-     * |  **36**  |  **16**  |  **9**  | **12** | **10** |
-     * | 12 _-x-_ | 10 _-x-_ | 4 _-x-_ |        |        |
+     *    |  Chrome  | Firefox  | Safari  |  Edge  |   IE   |
+     *    | :------: | :------: | :-----: | :----: | :----: |
+     *    |  **36**  |  **16**  |  **9**  | **12** | **10** |
+     *    | 12 _-x-_ | 10 _-x-_ | 4 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/perspective
      */
@@ -3932,10 +3932,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `50% 50%`
      *
-     * |  Chrome  | Firefox  | Safari  |  Edge  |   IE   |
-     * | :------: | :------: | :-----: | :----: | :----: |
-     * |  **36**  |  **16**  |  **9**  | **12** | **10** |
-     * | 12 _-x-_ | 10 _-x-_ | 4 _-x-_ |        |        |
+     *    |  Chrome  | Firefox  | Safari  |  Edge  |   IE   |
+     *    | :------: | :------: | :-----: | :----: | :----: |
+     *    |  **36**  |  **16**  |  **9**  | **12** | **10** |
+     *    | 12 _-x-_ | 10 _-x-_ | 4 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/perspective-origin
      */
@@ -3952,17 +3952,17 @@ external interface StandardLonghandProperties {
      *
      * _Supported in Flex Layout_
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **59** | **45**  | **9**  | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **59** | **45**  | **9**  | **79** | No  |
      *
      * ---
      *
      * _Supported in Grid Layout_
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **59** | **53**  | **11** | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **59** | **53**  | **11** | **79** | No  |
      *
      * ---
      *
@@ -3977,9 +3977,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE   |
-     * | :----: | :-----: | :----: | :----: | :----: |
-     * | **1**  | **1.5** | **4**  | **12** | **11** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE   |
+     *    | :----: | :-----: | :----: | :----: | :----: |
+     *    | **1**  | **1.5** | **4**  | **12** | **11** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/pointer-events
      */
@@ -3992,9 +3992,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `static`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/position
      */
@@ -4007,9 +4007,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: depends on user agent
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **11** | **1.5** | **9**  | **12** | **8** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **11** | **1.5** | **9**  | **12** | **8** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/quotes
      */
@@ -4022,9 +4022,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **1**  |  **4**  | **3**  | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **1**  |  **4**  | **3**  | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/resize
      */
@@ -4037,9 +4037,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE    |
-     * | :----: | :-----: | :----: | :----: | :-----: |
-     * | **1**  |  **1**  | **1**  | **12** | **5.5** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE    |
+     *    | :----: | :-----: | :----: | :----: | :-----: |
+     *    | **1**  |  **1**  | **1**  | **12** | **5.5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/right
      */
@@ -4052,9 +4052,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   | **72**  |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   | **72**  |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/rotate
      */
@@ -4071,18 +4071,18 @@ external interface StandardLonghandProperties {
      *
      * _Supported in Flex Layout_
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **84** | **63**  |   No   | **84** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **84** | **63**  |   No   | **84** | No  |
      *
      * ---
      *
      * _Supported in Grid Layout_
      *
-     * |       Chrome        |       Firefox       |        Safari         |  Edge  | IE  |
-     * | :-----------------: | :-----------------: | :-------------------: | :----: | :-: |
-     * |       **66**        |       **61**        |       **12.1**        | **16** | No  |
-     * | 57 _(grid-row-gap)_ | 52 _(grid-row-gap)_ | 10.1 _(grid-row-gap)_ |        |     |
+     *    |       Chrome        |       Firefox       |        Safari         |  Edge  | IE  |
+     *    | :-----------------: | :-----------------: | :-------------------: | :----: | :-: |
+     *    |       **66**        |       **61**        |       **12.1**        | **16** | No  |
+     *    | 57 _(grid-row-gap)_ | 52 _(grid-row-gap)_ | 10.1 _(grid-row-gap)_ |        |     |
      *
      * ---
      *
@@ -4097,9 +4097,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `space-around`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   | **38**  |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   | **38**  |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/ruby-align
      */
@@ -4119,10 +4119,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `alternate`
      *
-     * | Chrome  | Firefox |    Safari     | Edge  | IE  |
-     * | :-----: | :-----: | :-----------: | :---: | :-: |
-     * | **84**  | **38**  | **6.1** _-x-_ | 12-79 | No  |
-     * | 1 _-x-_ |         |               |       |     |
+     *    | Chrome  | Firefox |    Safari     | Edge  | IE  |
+     *    | :-----: | :-----: | :-----------: | :---: | :-: |
+     *    | **84**  | **38**  | **6.1** _-x-_ | 12-79 | No  |
+     *    | 1 _-x-_ |         |               |       |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/ruby-position
      */
@@ -4135,9 +4135,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   | **72**  |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   | **72**  |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scale
      */
@@ -4150,9 +4150,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **61** | **36**  |  n/a   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **61** | **36**  |  n/a   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-behavior
      */
@@ -4165,9 +4165,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |            Safari             |  Edge  | IE  |
-     * | :----: | :-----: | :---------------------------: | :----: | :-: |
-     * | **69** | **68**  | **11** _(scroll-snap-margin)_ | **79** | No  |
+     *    | Chrome | Firefox |            Safari             |  Edge  | IE  |
+     *    | :----: | :-----: | :---------------------------: | :----: | :-: |
+     *    | **69** | **68**  | **11** _(scroll-snap-margin)_ | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin
      */
@@ -4180,9 +4180,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin-block
      */
@@ -4195,9 +4195,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin-block-end
      */
@@ -4210,9 +4210,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin-block-start
      */
@@ -4225,9 +4225,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |                Safari                |  Edge  | IE  |
-     * | :----: | :-----: | :----------------------------------: | :----: | :-: |
-     * | **69** | **68**  | **11** _(scroll-snap-margin-bottom)_ | **79** | No  |
+     *    | Chrome | Firefox |                Safari                |  Edge  | IE  |
+     *    | :----: | :-----: | :----------------------------------: | :----: | :-: |
+     *    | **69** | **68**  | **11** _(scroll-snap-margin-bottom)_ | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin-bottom
      */
@@ -4240,9 +4240,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   | **68**  |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   | **68**  |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin-inline
      */
@@ -4255,9 +4255,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin-inline-end
      */
@@ -4270,9 +4270,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin-inline-start
      */
@@ -4285,9 +4285,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |               Safari               |  Edge  | IE  |
-     * | :----: | :-----: | :--------------------------------: | :----: | :-: |
-     * | **69** | **68**  | **11** _(scroll-snap-margin-left)_ | **79** | No  |
+     *    | Chrome | Firefox |               Safari               |  Edge  | IE  |
+     *    | :----: | :-----: | :--------------------------------: | :----: | :-: |
+     *    | **69** | **68**  | **11** _(scroll-snap-margin-left)_ | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin-left
      */
@@ -4300,9 +4300,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |               Safari                |  Edge  | IE  |
-     * | :----: | :-----: | :---------------------------------: | :----: | :-: |
-     * | **69** | **68**  | **11** _(scroll-snap-margin-right)_ | **79** | No  |
+     *    | Chrome | Firefox |               Safari                |  Edge  | IE  |
+     *    | :----: | :-----: | :---------------------------------: | :----: | :-: |
+     *    | **69** | **68**  | **11** _(scroll-snap-margin-right)_ | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin-right
      */
@@ -4315,9 +4315,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |              Safari               |  Edge  | IE  |
-     * | :----: | :-----: | :-------------------------------: | :----: | :-: |
-     * | **69** | **68**  | **11** _(scroll-snap-margin-top)_ | **79** | No  |
+     *    | Chrome | Firefox |              Safari               |  Edge  | IE  |
+     *    | :----: | :-----: | :-------------------------------: | :----: | :-: |
+     *    | **69** | **68**  | **11** _(scroll-snap-margin-top)_ | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin-top
      */
@@ -4330,9 +4330,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  | **11** | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  | **11** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-padding
      */
@@ -4345,9 +4345,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-padding-block
      */
@@ -4360,9 +4360,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-padding-block-end
      */
@@ -4375,9 +4375,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-padding-block-start
      */
@@ -4390,9 +4390,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  | **11** | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  | **11** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-padding-bottom
      */
@@ -4405,9 +4405,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-padding-inline
      */
@@ -4420,9 +4420,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-padding-inline-end
      */
@@ -4435,9 +4435,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-padding-inline-start
      */
@@ -4450,9 +4450,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  | **11** | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  | **11** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-padding-left
      */
@@ -4465,9 +4465,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  | **11** | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  | **11** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-padding-right
      */
@@ -4480,9 +4480,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  | **11** | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  | **11** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-padding-top
      */
@@ -4495,9 +4495,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **69** | **68**  | **11** | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **69** | **68**  | **11** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-snap-align
      */
@@ -4510,9 +4510,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |            Safari             |  Edge  | IE  |
-     * | :----: | :-----: | :---------------------------: | :----: | :-: |
-     * | **69** | **68**  | **11** _(scroll-snap-margin)_ | **79** | No  |
+     *    | Chrome | Firefox |            Safari             |  Edge  | IE  |
+     *    | :----: | :-----: | :---------------------------: | :----: | :-: |
+     *    | **69** | **68**  | **11** _(scroll-snap-margin)_ | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin
      */
@@ -4525,9 +4525,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |                Safari                |  Edge  | IE  |
-     * | :----: | :-----: | :----------------------------------: | :----: | :-: |
-     * | **69** | **68**  | **11** _(scroll-snap-margin-bottom)_ | **79** | No  |
+     *    | Chrome | Firefox |                Safari                |  Edge  | IE  |
+     *    | :----: | :-----: | :----------------------------------: | :----: | :-: |
+     *    | **69** | **68**  | **11** _(scroll-snap-margin-bottom)_ | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin-bottom
      */
@@ -4540,9 +4540,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |               Safari               |  Edge  | IE  |
-     * | :----: | :-----: | :--------------------------------: | :----: | :-: |
-     * | **69** | **68**  | **11** _(scroll-snap-margin-left)_ | **79** | No  |
+     *    | Chrome | Firefox |               Safari               |  Edge  | IE  |
+     *    | :----: | :-----: | :--------------------------------: | :----: | :-: |
+     *    | **69** | **68**  | **11** _(scroll-snap-margin-left)_ | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin-left
      */
@@ -4555,9 +4555,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |               Safari                |  Edge  | IE  |
-     * | :----: | :-----: | :---------------------------------: | :----: | :-: |
-     * | **69** | **68**  | **11** _(scroll-snap-margin-right)_ | **79** | No  |
+     *    | Chrome | Firefox |               Safari                |  Edge  | IE  |
+     *    | :----: | :-----: | :---------------------------------: | :----: | :-: |
+     *    | **69** | **68**  | **11** _(scroll-snap-margin-right)_ | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin-right
      */
@@ -4570,9 +4570,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |              Safari               |  Edge  | IE  |
-     * | :----: | :-----: | :-------------------------------: | :----: | :-: |
-     * | **69** | **68**  | **11** _(scroll-snap-margin-top)_ | **79** | No  |
+     *    | Chrome | Firefox |              Safari               |  Edge  | IE  |
+     *    | :----: | :-----: | :-------------------------------: | :----: | :-: |
+     *    | **69** | **68**  | **11** _(scroll-snap-margin-top)_ | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-margin-top
      */
@@ -4585,9 +4585,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **75** |   No    |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **75** |   No    |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-snap-stop
      */
@@ -4600,10 +4600,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari  |     Edge     |      IE      |
-     * | :----: | :-----: | :-----: | :----------: | :----------: |
-     * | **69** |  39-68  | **11**  | **12** _-x-_ | **10** _-x-_ |
-     * |        |         | 9 _-x-_ |              |              |
+     *    | Chrome | Firefox | Safari  |     Edge     |      IE      |
+     *    | :----: | :-----: | :-----: | :----------: | :----------: |
+     *    | **69** |  39-68  | **11**  | **12** _-x-_ | **10** _-x-_ |
+     *    |        |         | 9 _-x-_ |              |              |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scroll-snap-type
      */
@@ -4616,9 +4616,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   | **64**  |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   | **64**  |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scrollbar-color
      */
@@ -4631,9 +4631,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |  n/a   |   No    |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |  n/a   |   No    |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scrollbar-gutter
      */
@@ -4646,9 +4646,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   | **64**  |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   | **64**  |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/scrollbar-width
      */
@@ -4661,9 +4661,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0.0`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **37** | **62**  | **10.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **37** | **62**  | **10.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/shape-image-threshold
      */
@@ -4676,9 +4676,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **37** | **62**  | **10.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **37** | **62**  | **10.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/shape-margin
      */
@@ -4691,9 +4691,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **37** | **62**  | **10.1** | **79** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **37** | **62**  | **10.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/shape-outside
      */
@@ -4706,9 +4706,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `8`
      *
-     * | Chrome |   Firefox   | Safari  |  Edge  | IE  |
-     * | :----: | :---------: | :-----: | :----: | :-: |
-     * | **21** | **4** _-x-_ | **6.1** | **79** | No  |
+     *    | Chrome |   Firefox   | Safari  |  Edge  | IE  |
+     *    | :----: | :---------: | :-----: | :----: | :-: |
+     *    | **21** | **4** _-x-_ | **6.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/tab-size
      */
@@ -4721,9 +4721,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **14** |  **1**  | **1**  | **12** | **5** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **14** |  **1**  | **1**  | **12** | **5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/table-layout
      */
@@ -4736,9 +4736,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `start`, or a nameless value that acts as `left` if _direction_ is `ltr`, `right` if _direction_ is `rtl` if `start` is not supported by the browser.
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **3** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **3** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-align
      */
@@ -4751,9 +4751,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE    |
-     * | :----: | :-----: | :----: | :----: | :-----: |
-     * | **47** | **49**  |   No   | **12** | **5.5** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE    |
+     *    | :----: | :-----: | :----: | :----: | :-----: |
+     *    | **47** | **49**  |   No   | **12** | **5.5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-align-last
      */
@@ -4766,10 +4766,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * |           Chrome           | Firefox |              Safari              | Edge  |                   IE                   |
-     * | :------------------------: | :-----: | :------------------------------: | :---: | :------------------------------------: |
-     * |           **48**           | **48**  | **5.1** _(-webkit-text-combine)_ | 15-79 | **11** _(-ms-text-combine-horizontal)_ |
-     * | 9 _(-webkit-text-combine)_ |         |                                  |       |                                        |
+     *    |           Chrome           | Firefox |              Safari              | Edge  |                   IE                   |
+     *    | :------------------------: | :-----: | :------------------------------: | :---: | :------------------------------------: |
+     *    |           **48**           | **48**  | **5.1** _(-webkit-text-combine)_ | 15-79 | **11** _(-ms-text-combine-horizontal)_ |
+     *    | 9 _(-webkit-text-combine)_ |         |                                  |       |                                        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-combine-upright
      */
@@ -4782,10 +4782,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `currentcolor`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **36**  | **12.1** | **79** | No  |
-     * |        |         | 8 _-x-_  |        |     |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **36**  | **12.1** | **79** | No  |
+     *    |        |         | 8 _-x-_  |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-decoration-color
      */
@@ -4798,10 +4798,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **36**  | **12.1** | **79** | No  |
-     * |        |         | 8 _-x-_  |        |     |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **36**  | **12.1** | **79** | No  |
+     *    |        |         | 8 _-x-_  |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-decoration-line
      */
@@ -4814,10 +4814,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `objects`
      *
-     * | Chrome | Firefox |  Safari  | Edge | IE  |
-     * | :----: | :-----: | :------: | :--: | :-: |
-     * | 57-64  |   No    | **12.1** |  No  | No  |
-     * |        |         | 8 _-x-_  |      |     |
+     *    | Chrome | Firefox |  Safari  | Edge | IE  |
+     *    | :----: | :-----: | :------: | :--: | :-: |
+     *    | 57-64  |   No    | **12.1** |  No  | No  |
+     *    |        |         | 8 _-x-_  |      |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-decoration-skip
      */
@@ -4830,9 +4830,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **64** | **70**  |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **64** | **70**  |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-decoration-skip-ink
      */
@@ -4845,10 +4845,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `solid`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **57** | **36**  | **12.1** | **79** | No  |
-     * |        |         | 8 _-x-_  |        |     |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **57** | **36**  | **12.1** | **79** | No  |
+     *    |        |         | 8 _-x-_  |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-decoration-style
      */
@@ -4861,9 +4861,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **89** | **70**  | **12.1** | **89** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **89** | **70**  | **12.1** | **89** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-decoration-thickness
      */
@@ -4876,9 +4876,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox |  Safari  | Edge  | IE  |
-     * | :----: | :-----: | :------: | :---: | :-: |
-     * | 87-89  | **70**  | **12.1** | 87-89 | No  |
+     *    | Chrome | Firefox |  Safari  | Edge  | IE  |
+     *    | :----: | :-----: | :------: | :---: | :-: |
+     *    | 87-89  | **70**  | **12.1** | 87-89 | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-decoration-thickness
      */
@@ -4891,9 +4891,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `currentcolor`
      *
-     * |    Chrome    | Firefox | Safari  |     Edge     | IE  |
-     * | :----------: | :-----: | :-----: | :----------: | :-: |
-     * | **25** _-x-_ | **46**  | **6.1** | **79** _-x-_ | No  |
+     *    |    Chrome    | Firefox | Safari  |     Edge     | IE  |
+     *    | :----------: | :-----: | :-----: | :----------: | :-: |
+     *    | **25** _-x-_ | **46**  | **6.1** | **79** _-x-_ | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-emphasis-color
      */
@@ -4906,9 +4906,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `over right`
      *
-     * |    Chrome    | Firefox | Safari  |     Edge     | IE  |
-     * | :----------: | :-----: | :-----: | :----------: | :-: |
-     * | **25** _-x-_ | **46**  | **6.1** | **79** _-x-_ | No  |
+     *    |    Chrome    | Firefox | Safari  |     Edge     | IE  |
+     *    | :----------: | :-----: | :-----: | :----------: | :-: |
+     *    | **25** _-x-_ | **46**  | **6.1** | **79** _-x-_ | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-emphasis-position
      */
@@ -4921,9 +4921,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * |    Chrome    | Firefox | Safari  |     Edge     | IE  |
-     * | :----------: | :-----: | :-----: | :----------: | :-: |
-     * | **25** _-x-_ | **46**  | **6.1** | **79** _-x-_ | No  |
+     *    |    Chrome    | Firefox | Safari  |     Edge     | IE  |
+     *    | :----------: | :-----: | :-----: | :----------: | :-: |
+     *    | **25** _-x-_ | **46**  | **6.1** | **79** _-x-_ | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-emphasis-style
      */
@@ -4936,9 +4936,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **3** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **3** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-indent
      */
@@ -4951,9 +4951,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE   |
-     * | :----: | :-----: | :----: | :----: | :----: |
-     * |  n/a   | **55**  |   No   | **12** | **11** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE   |
+     *    | :----: | :-----: | :----: | :----: | :----: |
+     *    |  n/a   | **55**  |   No   | **12** | **11** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-justify
      */
@@ -4966,10 +4966,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `mixed`
      *
-     * |  Chrome  | Firefox |  Safari   |  Edge  | IE  |
-     * | :------: | :-----: | :-------: | :----: | :-: |
-     * |  **48**  | **41**  |  **14**   | **79** | No  |
-     * | 11 _-x-_ |         | 5.1 _-x-_ |        |     |
+     *    |  Chrome  | Firefox |  Safari   |  Edge  | IE  |
+     *    | :------: | :-----: | :-------: | :----: | :-: |
+     *    |  **48**  | **41**  |  **14**   | **79** | No  |
+     *    | 11 _-x-_ |         | 5.1 _-x-_ |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-orientation
      */
@@ -4982,9 +4982,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `clip`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :-----: | :----: | :---: |
-     * | **1**  |  **7**  | **1.3** | **12** | **6** |
+     *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :-----: | :----: | :---: |
+     *    | **1**  |  **7**  | **1.3** | **12** | **6** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-overflow
      */
@@ -4997,9 +4997,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **4**  |  **1**  | **5**  | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **4**  |  **1**  | **5**  | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-rendering
      */
@@ -5012,9 +5012,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |   IE   |
-     * | :----: | :-----: | :-----: | :----: | :----: |
-     * | **2**  | **3.5** | **1.1** | **12** | **10** |
+     *    | Chrome | Firefox | Safari  |  Edge  |   IE   |
+     *    | :----: | :-----: | :-----: | :----: | :----: |
+     *    | **2**  | **3.5** | **1.1** | **12** | **10** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-shadow
      */
@@ -5027,9 +5027,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto` for smartphone browsers supporting inflation, `none` in other cases (and then not modifiable).
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **54** |   No    |   No   | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **54** |   No    |   No   | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-size-adjust
      */
@@ -5042,9 +5042,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-transform
      */
@@ -5057,9 +5057,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :------: | :----: | :-: |
-     * | **87** | **70**  | **12.1** | **87** | No  |
+     *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :------: | :----: | :-: |
+     *    | **87** | **70**  | **12.1** | **87** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-underline-offset
      */
@@ -5072,10 +5072,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox |  Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :------: | :----: | :---: |
-     * | **33** | **74**  | **12.1** | **12** | **6** |
-     * |        |         | 9 _-x-_  |        |       |
+     *    | Chrome | Firefox |  Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :------: | :----: | :---: |
+     *    | **33** | **74**  | **12.1** | **12** | **6** |
+     *    |        |         | 9 _-x-_  |        |       |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/text-underline-position
      */
@@ -5088,9 +5088,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **5** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/top
      */
@@ -5103,10 +5103,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  |    IE    |
-     * | :----: | :-----: | :----: | :----: | :------: |
-     * | **36** | **52**  | **13** | **12** |  **11**  |
-     * |        |         |        |        | 10 _-x-_ |
+     *    | Chrome | Firefox | Safari |  Edge  |    IE    |
+     *    | :----: | :-----: | :----: | :----: | :------: |
+     *    | **36** | **52**  | **13** | **12** |  **11**  |
+     *    |        |         |        |        | 10 _-x-_ |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/touch-action
      */
@@ -5119,10 +5119,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome  | Firefox |  Safari   |  Edge  |   IE    |
-     * | :-----: | :-----: | :-------: | :----: | :-----: |
-     * | **36**  | **16**  |   **9**   | **12** | **10**  |
-     * | 1 _-x-_ |         | 3.1 _-x-_ |        | 9 _-x-_ |
+     *    | Chrome  | Firefox |  Safari   |  Edge  |   IE    |
+     *    | :-----: | :-----: | :-------: | :----: | :-----: |
+     *    | **36**  | **16**  |   **9**   | **12** | **10**  |
+     *    | 1 _-x-_ |         | 3.1 _-x-_ |        | 9 _-x-_ |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/transform
      */
@@ -5135,9 +5135,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `view-box`
      *
-     * | Chrome | Firefox | Safari |  Edge  | IE  |
-     * | :----: | :-----: | :----: | :----: | :-: |
-     * | **64** | **55**  | **11** | **79** | No  |
+     *    | Chrome | Firefox | Safari |  Edge  | IE  |
+     *    | :----: | :-----: | :----: | :----: | :-: |
+     *    | **64** | **55**  | **11** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/transform-box
      */
@@ -5150,10 +5150,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `50% 50% 0`
      *
-     * | Chrome  |  Firefox  | Safari  |  Edge  |   IE    |
-     * | :-----: | :-------: | :-----: | :----: | :-----: |
-     * | **36**  |  **16**   |  **9**  | **12** | **10**  |
-     * | 1 _-x-_ | 3.5 _-x-_ | 2 _-x-_ |        | 9 _-x-_ |
+     *    | Chrome  |  Firefox  | Safari  |  Edge  |   IE    |
+     *    | :-----: | :-------: | :-----: | :----: | :-----: |
+     *    | **36**  |  **16**   |  **9**  | **12** | **10**  |
+     *    | 1 _-x-_ | 3.5 _-x-_ | 2 _-x-_ |        | 9 _-x-_ |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/transform-origin
      */
@@ -5166,10 +5166,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `flat`
      *
-     * |  Chrome  | Firefox  | Safari  |  Edge  | IE  |
-     * | :------: | :------: | :-----: | :----: | :-: |
-     * |  **36**  |  **16**  |  **9**  | **12** | No  |
-     * | 12 _-x-_ | 10 _-x-_ | 4 _-x-_ |        |     |
+     *    |  Chrome  | Firefox  | Safari  |  Edge  | IE  |
+     *    | :------: | :------: | :-----: | :----: | :-: |
+     *    |  **36**  |  **16**  |  **9**  | **12** | No  |
+     *    | 12 _-x-_ | 10 _-x-_ | 4 _-x-_ |        |     |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/transform-style
      */
@@ -5182,10 +5182,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0s`
      *
-     * | Chrome  | Firefox | Safari  |  Edge  |   IE   |
-     * | :-----: | :-----: | :-----: | :----: | :----: |
-     * | **26**  | **16**  |  **9**  | **12** | **10** |
-     * | 1 _-x-_ | 4 _-x-_ | 4 _-x-_ |        |        |
+     *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-----: | :----: | :----: |
+     *    | **26**  | **16**  |  **9**  | **12** | **10** |
+     *    | 1 _-x-_ | 4 _-x-_ | 4 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/transition-delay
      */
@@ -5198,10 +5198,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `0s`
      *
-     * | Chrome  | Firefox |  Safari   |  Edge  |   IE   |
-     * | :-----: | :-----: | :-------: | :----: | :----: |
-     * | **26**  | **16**  |   **9**   | **12** | **10** |
-     * | 1 _-x-_ | 4 _-x-_ | 3.1 _-x-_ |        |        |
+     *    | Chrome  | Firefox |  Safari   |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-------: | :----: | :----: |
+     *    | **26**  | **16**  |   **9**   | **12** | **10** |
+     *    | 1 _-x-_ | 4 _-x-_ | 3.1 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/transition-duration
      */
@@ -5214,10 +5214,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: all
      *
-     * | Chrome  | Firefox |  Safari   |  Edge  |   IE   |
-     * | :-----: | :-----: | :-------: | :----: | :----: |
-     * | **26**  | **16**  |   **9**   | **12** | **10** |
-     * | 1 _-x-_ | 4 _-x-_ | 3.1 _-x-_ |        |        |
+     *    | Chrome  | Firefox |  Safari   |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-------: | :----: | :----: |
+     *    | **26**  | **16**  |   **9**   | **12** | **10** |
+     *    | 1 _-x-_ | 4 _-x-_ | 3.1 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/transition-property
      */
@@ -5230,10 +5230,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `ease`
      *
-     * | Chrome  | Firefox |  Safari   |  Edge  |   IE   |
-     * | :-----: | :-----: | :-------: | :----: | :----: |
-     * | **26**  | **16**  |   **9**   | **12** | **10** |
-     * | 1 _-x-_ | 4 _-x-_ | 3.1 _-x-_ |        |        |
+     *    | Chrome  | Firefox |  Safari   |  Edge  |   IE   |
+     *    | :-----: | :-----: | :-------: | :----: | :----: |
+     *    | **26**  | **16**  |   **9**   | **12** | **10** |
+     *    | 1 _-x-_ | 4 _-x-_ | 3.1 _-x-_ |        |        |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/transition-timing-function
      */
@@ -5246,9 +5246,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `none`
      *
-     * | Chrome | Firefox | Safari | Edge | IE  |
-     * | :----: | :-----: | :----: | :--: | :-: |
-     * |   No   | **72**  |   No   |  No  | No  |
+     *    | Chrome | Firefox | Safari | Edge | IE  |
+     *    | :----: | :-----: | :----: | :--: | :-: |
+     *    |   No   | **72**  |   No   |  No  | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/translate
      */
@@ -5261,9 +5261,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |   IE    |
-     * | :----: | :-----: | :-----: | :----: | :-----: |
-     * | **2**  |  **1**  | **1.3** | **12** | **5.5** |
+     *    | Chrome | Firefox | Safari  |  Edge  |   IE    |
+     *    | :----: | :-----: | :-----: | :----: | :-----: |
+     *    | **2**  |  **1**  | **1.3** | **12** | **5.5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/unicode-bidi
      */
@@ -5276,10 +5276,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome  | Firefox |   Safari    |     Edge     |      IE      |
-     * | :-----: | :-----: | :---------: | :----------: | :----------: |
-     * | **54**  | **69**  | **3** _-x-_ | **12** _-x-_ | **10** _-x-_ |
-     * | 1 _-x-_ | 1 _-x-_ |             |              |              |
+     *    | Chrome  | Firefox |   Safari    |     Edge     |      IE      |
+     *    | :-----: | :-----: | :---------: | :----------: | :----------: |
+     *    | **54**  | **69**  | **3** _-x-_ | **12** _-x-_ | **10** _-x-_ |
+     *    | 1 _-x-_ | 1 _-x-_ |             |              |              |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/user-select
      */
@@ -5292,9 +5292,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `baseline`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/vertical-align
      */
@@ -5307,9 +5307,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `visible`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/visibility
      */
@@ -5322,9 +5322,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE    |
-     * | :----: | :-----: | :----: | :----: | :-----: |
-     * | **1**  |  **1**  | **1**  | **12** | **5.5** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE    |
+     *    | :----: | :-----: | :----: | :----: | :-----: |
+     *    | **1**  |  **1**  | **1**  | **12** | **5.5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/white-space
      */
@@ -5337,9 +5337,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `2`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |  IE   |
-     * | :----: | :-----: | :-----: | :----: | :---: |
-     * | **25** |   No    | **1.3** | **12** | **8** |
+     *    | Chrome | Firefox | Safari  |  Edge  |  IE   |
+     *    | :----: | :-----: | :-----: | :----: | :---: |
+     *    | **25** |   No    | **1.3** | **12** | **8** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/widows
      */
@@ -5352,9 +5352,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/width
      */
@@ -5367,9 +5367,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari  |  Edge  | IE  |
-     * | :----: | :-----: | :-----: | :----: | :-: |
-     * | **36** | **36**  | **9.1** | **79** | No  |
+     *    | Chrome | Firefox | Safari  |  Edge  | IE  |
+     *    | :----: | :-----: | :-----: | :----: | :-: |
+     *    | **36** | **36**  | **9.1** | **79** | No  |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/will-change
      */
@@ -5382,9 +5382,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  |   IE    |
-     * | :----: | :-----: | :----: | :----: | :-----: |
-     * | **1**  | **15**  | **3**  | **12** | **5.5** |
+     *    | Chrome | Firefox | Safari |  Edge  |   IE    |
+     *    | :----: | :-----: | :----: | :----: | :-----: |
+     *    | **1**  | **15**  | **3**  | **12** | **5.5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/word-break
      */
@@ -5397,9 +5397,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **6** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **6** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/word-spacing
      */
@@ -5421,10 +5421,10 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `horizontal-tb`
      *
-     * | Chrome  | Firefox |  Safari   |  Edge  |  IE   |
-     * | :-----: | :-----: | :-------: | :----: | :---: |
-     * | **48**  | **41**  | **10.1**  | **12** | **9** |
-     * | 8 _-x-_ |         | 5.1 _-x-_ |        |       |
+     *    | Chrome  | Firefox |  Safari   |  Edge  |  IE   |
+     *    | :-----: | :-----: | :-------: | :----: | :---: |
+     *    | **48**  | **41**  | **10.1**  | **12** | **9** |
+     *    | 8 _-x-_ |         | 5.1 _-x-_ |        |       |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/writing-mode
      */
@@ -5437,9 +5437,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `auto`
      *
-     * | Chrome | Firefox | Safari |  Edge  |  IE   |
-     * | :----: | :-----: | :----: | :----: | :---: |
-     * | **1**  |  **1**  | **1**  | **12** | **4** |
+     *    | Chrome | Firefox | Safari |  Edge  |  IE   |
+     *    | :----: | :-----: | :----: | :----: | :---: |
+     *    | **1**  |  **1**  | **1**  | **12** | **4** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/z-index
      */
@@ -5452,9 +5452,9 @@ external interface StandardLonghandProperties {
      *
      * **Initial value**: `normal`
      *
-     * | Chrome | Firefox | Safari  |  Edge  |   IE    |
-     * | :----: | :-----: | :-----: | :----: | :-----: |
-     * | **1**  |   No    | **3.1** | **12** | **5.5** |
+     *    | Chrome | Firefox | Safari  |  Edge  |   IE    |
+     *    | :----: | :-----: | :-----: | :----: | :-----: |
+     *    | **1**  |   No    | **3.1** | **12** | **5.5** |
      *
      * @see https://developer.mozilla.org/docs/Web/CSS/zoom
      */
