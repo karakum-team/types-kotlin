@@ -17,7 +17,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
      *    | :------: | :-----: | :-------: | :----: | :----: |
      *    |    29    |   28    |     9     |   12   |   11   |
-     *    | 21 _-x-_ |         | 6.1 _-x-_ |        |        |
+     *    |    21′   |         |    6.1′   |        |        |
      *
      * ---
      *
@@ -47,7 +47,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :------: | :-----: | :-----: | :----: | :----: |
      *    |    52    |   20    |    9    |   12   |   11   |
-     *    | 21 _-x-_ |         | 7 _-x-_ |        |        |
+     *    |    21′   |         |    7′   |        |        |
      *
      * ---
      *
@@ -77,7 +77,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
      *    | :------: | :-----: | :-------: | :----: | :----: |
      *    |    36    |   20    |     9     |   12   |   11   |
-     *    | 21 _-x-_ |         | 6.1 _-x-_ |        |        |
+     *    |    21′   |         |    6.1′   |        |        |
      *
      * ---
      *
@@ -85,7 +85,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  |      IE      |
      *    | :----: | :-----: | :------: | :----: | :----------: |
-     *    |   57   |   52    |   10.1   |   16   |   10** _-x-_ |
+     *    |   57   |   52    |   10.1   |   16   |       10′    |
      *
      * ---
      *
@@ -118,7 +118,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   43    |   16    |    9    |   12   |   10   |
-     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    |    3′   |    5′   |    4′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/animation-delay">MDN</a>
      */
@@ -134,7 +134,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   43    |   16    |    9    |   12   |   10   |
-     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    |    3′   |    5′   |    4′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/animation-direction">MDN</a>
      */
@@ -150,7 +150,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   43    |   16    |    9    |   12   |   10   |
-     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    |    3′   |    5′   |    4′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/animation-duration">MDN</a>
      */
@@ -166,7 +166,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   43    |   16    |    9    |   12   |   10   |
-     *    | 3 _-x-_ | 5 _-x-_ | 5 _-x-_ |        |        |
+     *    |    3′   |    5′   |    5′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/animation-fill-mode">MDN</a>
      */
@@ -182,7 +182,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   43    |   16    |    9    |   12   |   10   |
-     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    |    3′   |    5′   |    4′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/animation-iteration-count">MDN</a>
      */
@@ -198,7 +198,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   43    |   16    |    9    |   12   |   10   |
-     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    |    3′   |    5′   |    4′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/animation-name">MDN</a>
      */
@@ -214,7 +214,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   43    |   16    |    9    |   12   |   10   |
-     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    |    3′   |    5′   |    4′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/animation-play-state">MDN</a>
      */
@@ -230,7 +230,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   43    |   16    |    9    |   12   |   10   |
-     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    |    3′   |    5′   |    4′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/animation-timing-function">MDN</a>
      */
@@ -245,8 +245,8 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome  | Firefox |   Safari    |   Edge   | IE  |
      *    | :-----: | :-----: | :---------: | :------: | :-: |
-     *    |   84    |   80    |   3** _-x-_ |    84    | No  |
-     *    | 1 _-x-_ | 1 _-x-_ |             | 12 _-x-_ |     |
+     *    |   84    |   80    |       3′    |    84    | No  |
+     *    |    1′   |    1′   |             |    12′   |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/appearance">MDN</a>
      */
@@ -276,7 +276,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |   Safari    |  Edge  | IE  |
      *    | :----: | :-----: | :---------: | :----: | :-: |
-     *    |   76   |   n/a   |   9** _-x-_ |   17   | No  |
+     *    |   76   |   n/a   |       9′    |   17   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/backdrop-filter">MDN</a>
      */
@@ -291,8 +291,8 @@ external interface StandardLonghandProperties {
      *
      *    |  Chrome  | Firefox  |    Safari     |  Edge  |   IE   |
      *    | :------: | :------: | :-----------: | :----: | :----: |
-     *    |    36    |    16    |   5.1** _-x-_ |   12   |   10   |
-     *    | 12 _-x-_ | 10 _-x-_ |               |        |        |
+     *    |    36    |    16    |       5.1′    |   12   |   10   |
+     *    |    12′   |    10′   |               |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/backface-visibility">MDN</a>
      */
@@ -337,7 +337,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |   Safari    |  Edge  |  IE   |
      *    | :----: | :-----: | :---------: | :----: | :---: |
-     *    |   1    |    4    |   3** _-x-_ |   12   |   9   |
+     *    |   1    |    4    |       3′    |   12   |   9   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/background-clip">MDN</a>
      */
@@ -443,7 +443,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
      *    | :-----: | :-----: | :-----: | :----: | :---: |
      *    |    3    |    4    |    5    |   12   |   9   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |       |
+     *    |    1′   |         |    3′   |        |       |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/background-size">MDN</a>
      */
@@ -631,7 +631,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
      *    | :-----: | :-----: | :-----: | :----: | :---: |
      *    |    4    |    4    |    5    |   12   |   9   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |       |
+     *    |    1′   |         |    3′   |        |       |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-bottom-left-radius">MDN</a>
      */
@@ -647,7 +647,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
      *    | :-----: | :-----: | :-----: | :----: | :---: |
      *    |    4    |    4    |    5    |   12   |   9   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |       |
+     *    |    1′   |         |    3′   |        |       |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-bottom-right-radius">MDN</a>
      */
@@ -1103,7 +1103,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
      *    | :-----: | :-----: | :-----: | :----: | :---: |
      *    |    4    |    4    |    5    |   12   |   9   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |       |
+     *    |    1′   |         |    3′   |        |       |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-top-left-radius">MDN</a>
      */
@@ -1119,7 +1119,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
      *    | :-----: | :-----: | :-----: | :----: | :---: |
      *    |    4    |    4    |    5    |   12   |   9   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |       |
+     *    |    1′   |         |    3′   |        |       |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-top-right-radius">MDN</a>
      */
@@ -1179,7 +1179,7 @@ external interface StandardLonghandProperties {
      *
      *    |    Chrome    | Firefox |    Safari     |     Edge     | IE  |
      *    | :----------: | :-----: | :-----------: | :----------: | :-: |
-     *    |   22** _-x-_ |   32    |   6.1** _-x-_ |   79** _-x-_ | No  |
+     *    |       22′    |   32    |       6.1′    |       79′    | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/box-decoration-break">MDN</a>
      */
@@ -1195,7 +1195,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
      *    | :-----: | :-----: | :-----: | :----: | :---: |
      *    |   10    |    4    |   5.1   |   12   |   9   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |       |
+     *    |    1′   |         |    3′   |        |       |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/box-shadow">MDN</a>
      */
@@ -1211,7 +1211,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
      *    | :-----: | :-----: | :-----: | :----: | :---: |
      *    |   10    |   29    |   5.1   |   12   |   8   |
-     *    | 1 _-x-_ | 1 _-x-_ | 3 _-x-_ |        |       |
+     *    |    1′   |    1′   |    3′   |        |       |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/box-sizing">MDN</a>
      */
@@ -1359,7 +1359,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
      *    | :------: | :-----: | :-------: | :----: | :----: |
      *    |    55    |   3.5   |    9.1    |   12   |   10   |
-     *    | 23 _-x-_ |         | 6.1 _-x-_ |        |        |
+     *    |    23′   |         |    6.1′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/clip-path">MDN</a>
      */
@@ -1420,7 +1420,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   50    |   52    |    9    |   12   |   10   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |        |
+     *    |    1′   |         |    3′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/column-count">MDN</a>
      */
@@ -1436,7 +1436,7 @@ external interface StandardLonghandProperties {
      *    | Chrome | Firefox | Safari  |  Edge  |   IE   |
      *    | :----: | :-----: | :-----: | :----: | :----: |
      *    |   50   |   52    |    9    |   12   |   10   |
-     *    |        |         | 8 _-x-_ |        |        |
+     *    |        |         |    8′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/column-fill">MDN</a>
      */
@@ -1473,7 +1473,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   50    |   52    |   10    |   12   |   10   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |        |
+     *    |    1′   |         |    3′   |        |        |
      *
      * ---
      *
@@ -1491,7 +1491,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   50    |   52    |    9    |   12   |   10   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |        |
+     *    |    1′   |         |    3′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/column-rule-color">MDN</a>
      */
@@ -1507,7 +1507,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   50    |   52    |    9    |   12   |   10   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |        |
+     *    |    1′   |         |    3′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/column-rule-style">MDN</a>
      */
@@ -1523,7 +1523,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   50    |   52    |    9    |   12   |   10   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |        |
+     *    |    1′   |         |    3′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/column-rule-width">MDN</a>
      */
@@ -1539,7 +1539,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox |  Safari   |  Edge  |   IE   |
      *    | :-----: | :-----: | :-------: | :----: | :----: |
      *    |   50    |   71    |     9     |   12   |   10   |
-     *    | 6 _-x-_ |         | 5.1 _-x-_ |        |        |
+     *    |    6′   |         |    5.1′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/column-span">MDN</a>
      */
@@ -1555,7 +1555,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   50    |   50    |    9    |   12   |   10   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |        |
+     *    |    1′   |         |    3′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/column-width">MDN</a>
      */
@@ -1721,7 +1721,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox | Safari  |  Edge  | IE  |
      *    | :------: | :-----: | :-----: | :----: | :-: |
      *    |    53    |   35    |   9.1   |   12   | No  |
-     *    | 18 _-x-_ |         | 6 _-x-_ |        |     |
+     *    |    18′   |         |    6′   |        |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/filter">MDN</a>
      */
@@ -1737,7 +1737,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :------: | :-----: | :-----: | :----: | :----: |
      *    |    29    |   22    |    9    |   12   |   11   |
-     *    | 22 _-x-_ |         | 7 _-x-_ |        |        |
+     *    |    22′   |         |    7′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/flex-basis">MDN</a>
      */
@@ -1753,7 +1753,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox | Safari  |  Edge  |    IE    |
      *    | :------: | :-----: | :-----: | :----: | :------: |
      *    |    29    |   20    |    9    |   12   |    11    |
-     *    | 21 _-x-_ |         | 7 _-x-_ |        | 10 _-x-_ |
+     *    |    21′   |         |    7′   |        |    10′   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/flex-direction">MDN</a>
      */
@@ -1769,7 +1769,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox |  Safari   |  Edge  |            IE            |
      *    | :------: | :-----: | :-------: | :----: | :----------------------: |
      *    |    29    |   20    |     9     |   12   |            11            |
-     *    | 22 _-x-_ |         | 6.1 _-x-_ |        | 10 _(-ms-flex-positive)_ |
+     *    |    22′   |         |    6.1′   |        | 10 _(-ms-flex-positive)_ |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/flex-grow">MDN</a>
      */
@@ -1785,7 +1785,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :------: | :-----: | :-----: | :----: | :----: |
      *    |    29    |   20    |    9    |   12   |   10   |
-     *    | 22 _-x-_ |         | 8 _-x-_ |        |        |
+     *    |    22′   |         |    8′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/flex-shrink">MDN</a>
      */
@@ -1801,7 +1801,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
      *    | :------: | :-----: | :-------: | :----: | :----: |
      *    |    29    |   28    |     9     |   12   |   11   |
-     *    | 21 _-x-_ |         | 6.1 _-x-_ |        |        |
+     *    |    21′   |         |    6.1′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/flex-wrap">MDN</a>
      */
@@ -1847,7 +1847,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox  | Safari  |  Edge  |   IE   |
      *    | :------: | :------: | :-----: | :----: | :----: |
      *    |    48    |    34    |   9.1   |   15   |   10   |
-     *    | 16 _-x-_ | 15 _-x-_ |         |        |        |
+     *    |    16′   |    15′   |         |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/font-feature-settings">MDN</a>
      */
@@ -1863,7 +1863,7 @@ external interface StandardLonghandProperties {
      *    | Chrome | Firefox | Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :-----: | :----: | :-: |
      *    |   33   |   32    |    9    |   79   | No  |
-     *    |        |         | 6 _-x-_ |        |     |
+     *    |        |         |    6′   |        |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/font-kerning">MDN</a>
      */
@@ -1879,7 +1879,7 @@ external interface StandardLonghandProperties {
      *    | Chrome | Firefox | Safari | Edge | IE  |
      *    | :----: | :-----: | :----: | :--: | :-: |
      *    |   No   |   34    |   No   |  No  | No  |
-     *    |        | 4 _-x-_ |        |      |     |
+     *    |        |    4′   |        |      |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/font-language-override">MDN</a>
      */
@@ -2045,7 +2045,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox | Safari  |  Edge  | IE  |
      *    | :------: | :-----: | :-----: | :----: | :-: |
      *    |    34    |   34    |   9.1   |   79   | No  |
-     *    | 31 _-x-_ |         | 7 _-x-_ |        |     |
+     *    |    31′   |         |    7′   |        |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/font-variant-ligatures">MDN</a>
      */
@@ -2316,8 +2316,8 @@ external interface StandardLonghandProperties {
      *
      *    |  Chrome  | Firefox |    Safari     |     Edge     |      IE      |
      *    | :------: | :-----: | :-----------: | :----------: | :----------: |
-     *    |    55    |   43    |   5.1** _-x-_ |   12** _-x-_ |   10** _-x-_ |
-     *    | 13 _-x-_ | 6 _-x-_ |               |              |              |
+     *    |    55    |   43    |       5.1′    |       12′    |       10′    |
+     *    |    13′   |    6′   |               |              |              |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/hyphens">MDN</a>
      */
@@ -2524,7 +2524,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
      *    | :------: | :-----: | :-------: | :----: | :----: |
      *    |    52    |   20    |     9     |   12   |   11   |
-     *    | 21 _-x-_ |         | 6.1 _-x-_ |        |        |
+     *    |    21′   |         |    6.1′   |        |        |
      *
      * ---
      *
@@ -2590,7 +2590,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox |  Safari  |  Edge  |      IE      |
      *    | :----: | :-----: | :------: | :----: | :----------: |
-     *    |   57   |   45    |   10.1   |   16   |   10** _-x-_ |
+     *    |   57   |   45    |   10.1   |   16   |       10′    |
      *
      * ---
      *
@@ -2653,7 +2653,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE    |
      *    | :-----: | :-----: | :-----: | :----: | :-----: |
      *    |   58    |   69    |   11    |   14   |   5.5   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |         |
+     *    |    1′   |         |    3′   |        |         |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/line-break">MDN</a>
      */
@@ -2979,7 +2979,7 @@ external interface StandardLonghandProperties {
      *
      *    |   Chrome    | Firefox |   Safari    |     Edge     | IE  |
      *    | :---------: | :-----: | :---------: | :----------: | :-: |
-     *    |   1** _-x-_ |   53    |   4** _-x-_ |   79** _-x-_ | No  |
+     *    |       1′    |   53    |       4′    |       79′    | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/mask-clip">MDN</a>
      */
@@ -3009,7 +3009,7 @@ external interface StandardLonghandProperties {
      *
      *    |   Chrome    | Firefox |   Safari    |  Edge  | IE  |
      *    | :---------: | :-----: | :---------: | :----: | :-: |
-     *    |   1** _-x-_ |   53    |   4** _-x-_ |   16   | No  |
+     *    |       1′    |   53    |       4′    |   16   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/mask-image">MDN</a>
      */
@@ -3039,7 +3039,7 @@ external interface StandardLonghandProperties {
      *
      *    |   Chrome    | Firefox |   Safari    |     Edge     | IE  |
      *    | :---------: | :-----: | :---------: | :----------: | :-: |
-     *    |   1** _-x-_ |   53    |   4** _-x-_ |   79** _-x-_ | No  |
+     *    |       1′    |   53    |       4′    |       79′    | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/mask-origin">MDN</a>
      */
@@ -3054,7 +3054,7 @@ external interface StandardLonghandProperties {
      *
      *    |   Chrome    | Firefox |    Safari     |  Edge  | IE  |
      *    | :---------: | :-----: | :-----------: | :----: | :-: |
-     *    |   1** _-x-_ |   53    |   3.2** _-x-_ |   18   | No  |
+     *    |       1′    |   53    |       3.2′    |   18   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/mask-position">MDN</a>
      */
@@ -3069,7 +3069,7 @@ external interface StandardLonghandProperties {
      *
      *    |   Chrome    | Firefox |    Safari     |  Edge  | IE  |
      *    | :---------: | :-----: | :-----------: | :----: | :-: |
-     *    |   1** _-x-_ |   53    |   3.2** _-x-_ |   18   | No  |
+     *    |       1′    |   53    |       3.2′    |   18   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/mask-repeat">MDN</a>
      */
@@ -3084,7 +3084,7 @@ external interface StandardLonghandProperties {
      *
      *    |   Chrome    | Firefox |   Safari    |  Edge  | IE  |
      *    | :---------: | :-----: | :---------: | :----: | :-: |
-     *    |   4** _-x-_ |   53    |   4** _-x-_ |   18   | No  |
+     *    |       4′    |   53    |       4′    |   18   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/mask-size">MDN</a>
      */
@@ -3160,7 +3160,7 @@ external interface StandardLonghandProperties {
      *    | Chrome | Firefox |   Safari   |  Edge  | IE  |
      *    | :----: | :-----: | :--------: | :----: | :-: |
      *    |   57   |   41    |    12.1    |   79   | No  |
-     *    |        |         | 10.1 _-x-_ |        |     |
+     *    |        |         |    10.1′   |        |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/max-inline-size">MDN</a>
      */
@@ -3443,7 +3443,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox | Safari  |  Edge  |    IE    |
      *    | :------: | :-----: | :-----: | :----: | :------: |
      *    |    29    |   20    |    9    |   12   |    11    |
-     *    | 21 _-x-_ |         | 7 _-x-_ |        | 10 _-x-_ |
+     *    |    21′   |         |    7′   |        |    10′   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/order">MDN</a>
      */
@@ -3919,7 +3919,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox  | Safari  |  Edge  |   IE   |
      *    | :------: | :------: | :-----: | :----: | :----: |
      *    |    36    |    16    |    9    |   12   |   10   |
-     *    | 12 _-x-_ | 10 _-x-_ | 4 _-x-_ |        |        |
+     *    |    12′   |    10′   |    4′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/perspective">MDN</a>
      */
@@ -3935,7 +3935,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox  | Safari  |  Edge  |   IE   |
      *    | :------: | :------: | :-----: | :----: | :----: |
      *    |    36    |    16    |    9    |   12   |   10   |
-     *    | 12 _-x-_ | 10 _-x-_ | 4 _-x-_ |        |        |
+     *    |    12′   |    10′   |    4′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/perspective-origin">MDN</a>
      */
@@ -4121,8 +4121,8 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome  | Firefox |    Safari     | Edge  | IE  |
      *    | :-----: | :-----: | :-----------: | :---: | :-: |
-     *    |   84    |   38    |   6.1** _-x-_ | 12-79 | No  |
-     *    | 1 _-x-_ |         |               |       |     |
+     *    |   84    |   38    |       6.1′    | 12-79 | No  |
+     *    |    1′   |         |               |       |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/ruby-position">MDN</a>
      */
@@ -4602,8 +4602,8 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome | Firefox | Safari  |     Edge     |      IE      |
      *    | :----: | :-----: | :-----: | :----------: | :----------: |
-     *    |   69   |  39-68  |   11    |   12** _-x-_ |   10** _-x-_ |
-     *    |        |         | 9 _-x-_ |              |              |
+     *    |   69   |  39-68  |   11    |       12′    |       10′    |
+     *    |        |         |    9′   |              |              |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/scroll-snap-type">MDN</a>
      */
@@ -4708,7 +4708,7 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome |   Firefox   | Safari  |  Edge  | IE  |
      *    | :----: | :---------: | :-----: | :----: | :-: |
-     *    |   21   |   4** _-x-_ |   6.1   |   79   | No  |
+     *    |   21   |       4′    |   6.1   |   79   | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/tab-size">MDN</a>
      */
@@ -4785,7 +4785,7 @@ external interface StandardLonghandProperties {
      *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :------: | :----: | :-: |
      *    |   57   |   36    |   12.1   |   79   | No  |
-     *    |        |         | 8 _-x-_  |        |     |
+     *    |        |         |    8′    |        |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/text-decoration-color">MDN</a>
      */
@@ -4801,7 +4801,7 @@ external interface StandardLonghandProperties {
      *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :------: | :----: | :-: |
      *    |   57   |   36    |   12.1   |   79   | No  |
-     *    |        |         | 8 _-x-_  |        |     |
+     *    |        |         |    8′    |        |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/text-decoration-line">MDN</a>
      */
@@ -4817,7 +4817,7 @@ external interface StandardLonghandProperties {
      *    | Chrome | Firefox |  Safari  | Edge | IE  |
      *    | :----: | :-----: | :------: | :--: | :-: |
      *    | 57-64  |   No    |   12.1   |  No  | No  |
-     *    |        |         | 8 _-x-_  |      |     |
+     *    |        |         |    8′    |      |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/text-decoration-skip">MDN</a>
      */
@@ -4848,7 +4848,7 @@ external interface StandardLonghandProperties {
      *    | Chrome | Firefox |  Safari  |  Edge  | IE  |
      *    | :----: | :-----: | :------: | :----: | :-: |
      *    |   57   |   36    |   12.1   |   79   | No  |
-     *    |        |         | 8 _-x-_  |        |     |
+     *    |        |         |    8′    |        |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/text-decoration-style">MDN</a>
      */
@@ -4893,7 +4893,7 @@ external interface StandardLonghandProperties {
      *
      *    |    Chrome    | Firefox | Safari  |     Edge     | IE  |
      *    | :----------: | :-----: | :-----: | :----------: | :-: |
-     *    |   25** _-x-_ |   46    |   6.1   |   79** _-x-_ | No  |
+     *    |       25′    |   46    |   6.1   |       79′    | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/text-emphasis-color">MDN</a>
      */
@@ -4908,7 +4908,7 @@ external interface StandardLonghandProperties {
      *
      *    |    Chrome    | Firefox | Safari  |     Edge     | IE  |
      *    | :----------: | :-----: | :-----: | :----------: | :-: |
-     *    |   25** _-x-_ |   46    |   6.1   |   79** _-x-_ | No  |
+     *    |       25′    |   46    |   6.1   |       79′    | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/text-emphasis-position">MDN</a>
      */
@@ -4923,7 +4923,7 @@ external interface StandardLonghandProperties {
      *
      *    |    Chrome    | Firefox | Safari  |     Edge     | IE  |
      *    | :----------: | :-----: | :-----: | :----------: | :-: |
-     *    |   25** _-x-_ |   46    |   6.1   |   79** _-x-_ | No  |
+     *    |       25′    |   46    |   6.1   |       79′    | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/text-emphasis-style">MDN</a>
      */
@@ -4969,7 +4969,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox |  Safari   |  Edge  | IE  |
      *    | :------: | :-----: | :-------: | :----: | :-: |
      *    |    48    |   41    |    14     |   79   | No  |
-     *    | 11 _-x-_ |         | 5.1 _-x-_ |        |     |
+     *    |    11′   |         |    5.1′   |        |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/text-orientation">MDN</a>
      */
@@ -5075,7 +5075,7 @@ external interface StandardLonghandProperties {
      *    | Chrome | Firefox |  Safari  |  Edge  |  IE   |
      *    | :----: | :-----: | :------: | :----: | :---: |
      *    |   33   |   74    |   12.1   |   12   |   6   |
-     *    |        |         | 9 _-x-_  |        |       |
+     *    |        |         |    9′    |        |       |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/text-underline-position">MDN</a>
      */
@@ -5106,7 +5106,7 @@ external interface StandardLonghandProperties {
      *    | Chrome | Firefox | Safari |  Edge  |    IE    |
      *    | :----: | :-----: | :----: | :----: | :------: |
      *    |   36   |   52    |   13   |   12   |    11    |
-     *    |        |         |        |        | 10 _-x-_ |
+     *    |        |         |        |        |    10′   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/touch-action">MDN</a>
      */
@@ -5122,7 +5122,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox |  Safari   |  Edge  |   IE    |
      *    | :-----: | :-----: | :-------: | :----: | :-----: |
      *    |   36    |   16    |     9     |   12   |   10    |
-     *    | 1 _-x-_ |         | 3.1 _-x-_ |        | 9 _-x-_ |
+     *    |    1′   |         |    3.1′   |        |    9′   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/transform">MDN</a>
      */
@@ -5153,7 +5153,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  |  Firefox  | Safari  |  Edge  |   IE    |
      *    | :-----: | :-------: | :-----: | :----: | :-----: |
      *    |   36    |    16     |    9    |   12   |   10    |
-     *    | 1 _-x-_ | 3.5 _-x-_ | 2 _-x-_ |        | 9 _-x-_ |
+     *    |    1′   |    3.5′   |    2′   |        |    9′   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/transform-origin">MDN</a>
      */
@@ -5169,7 +5169,7 @@ external interface StandardLonghandProperties {
      *    |  Chrome  | Firefox  | Safari  |  Edge  | IE  |
      *    | :------: | :------: | :-----: | :----: | :-: |
      *    |    36    |    16    |    9    |   12   | No  |
-     *    | 12 _-x-_ | 10 _-x-_ | 4 _-x-_ |        |     |
+     *    |    12′   |    10′   |    4′   |        |     |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/transform-style">MDN</a>
      */
@@ -5185,7 +5185,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   26    |   16    |    9    |   12   |   10   |
-     *    | 1 _-x-_ | 4 _-x-_ | 4 _-x-_ |        |        |
+     *    |    1′   |    4′   |    4′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/transition-delay">MDN</a>
      */
@@ -5201,7 +5201,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox |  Safari   |  Edge  |   IE   |
      *    | :-----: | :-----: | :-------: | :----: | :----: |
      *    |   26    |   16    |     9     |   12   |   10   |
-     *    | 1 _-x-_ | 4 _-x-_ | 3.1 _-x-_ |        |        |
+     *    |    1′   |    4′   |    3.1′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/transition-duration">MDN</a>
      */
@@ -5217,7 +5217,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox |  Safari   |  Edge  |   IE   |
      *    | :-----: | :-----: | :-------: | :----: | :----: |
      *    |   26    |   16    |     9     |   12   |   10   |
-     *    | 1 _-x-_ | 4 _-x-_ | 3.1 _-x-_ |        |        |
+     *    |    1′   |    4′   |    3.1′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/transition-property">MDN</a>
      */
@@ -5233,7 +5233,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox |  Safari   |  Edge  |   IE   |
      *    | :-----: | :-----: | :-------: | :----: | :----: |
      *    |   26    |   16    |     9     |   12   |   10   |
-     *    | 1 _-x-_ | 4 _-x-_ | 3.1 _-x-_ |        |        |
+     *    |    1′   |    4′   |    3.1′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/transition-timing-function">MDN</a>
      */
@@ -5278,8 +5278,8 @@ external interface StandardLonghandProperties {
      *
      *    | Chrome  | Firefox |   Safari    |     Edge     |      IE      |
      *    | :-----: | :-----: | :---------: | :----------: | :----------: |
-     *    |   54    |   69    |   3** _-x-_ |   12** _-x-_ |   10** _-x-_ |
-     *    | 1 _-x-_ | 1 _-x-_ |             |              |              |
+     *    |   54    |   69    |       3′    |       12′    |       10′    |
+     *    |    1′   |    1′   |             |              |              |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/user-select">MDN</a>
      */
@@ -5424,7 +5424,7 @@ external interface StandardLonghandProperties {
      *    | Chrome  | Firefox |  Safari   |  Edge  |  IE   |
      *    | :-----: | :-----: | :-------: | :----: | :---: |
      *    |   48    |   41    |   10.1    |   12   |   9   |
-     *    | 8 _-x-_ |         | 5.1 _-x-_ |        |       |
+     *    |    8′   |         |    5.1′   |        |       |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/writing-mode">MDN</a>
      */

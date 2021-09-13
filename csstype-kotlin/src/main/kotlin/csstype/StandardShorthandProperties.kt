@@ -26,7 +26,7 @@ external interface StandardShorthandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   43    |   16    |    9    |   12   |   10   |
-     *    | 3 _-x-_ | 5 _-x-_ | 4 _-x-_ |        |        |
+     *    |    3′   |    5′   |    4′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/animation">MDN</a>
      */
@@ -146,7 +146,7 @@ external interface StandardShorthandProperties {
      *    | Chrome  |  Firefox  | Safari  |  Edge  |   IE   |
      *    | :-----: | :-------: | :-----: | :----: | :----: |
      *    |   16    |    15     |    6    |   12   |   11   |
-     *    | 7 _-x-_ | 3.5 _-x-_ | 3 _-x-_ |        |        |
+     *    |    7′   |    3.5′   |    3′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-image">MDN</a>
      */
@@ -212,7 +212,7 @@ external interface StandardShorthandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |  IE   |
      *    | :-----: | :-----: | :-----: | :----: | :---: |
      *    |    4    |    4    |    5    |   12   |   9   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |       |
+     *    |    1′   |         |    3′   |        |       |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/border-radius">MDN</a>
      */
@@ -278,7 +278,7 @@ external interface StandardShorthandProperties {
      *    | Chrome  | Firefox | Safari  |  Edge  |   IE   |
      *    | :-----: | :-----: | :-----: | :----: | :----: |
      *    |   50    |   52    |    9    |   12   |   10   |
-     *    | 1 _-x-_ |         | 3 _-x-_ |        |        |
+     *    |    1′   |         |    3′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/column-rule">MDN</a>
      */
@@ -292,7 +292,7 @@ external interface StandardShorthandProperties {
      *    | Chrome | Firefox | Safari  |  Edge  |   IE   |
      *    | :----: | :-----: | :-----: | :----: | :----: |
      *    |   50   |   52    |    9    |   12   |   10   |
-     *    |        |         | 3 _-x-_ |        |        |
+     *    |        |         |    3′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/columns">MDN</a>
      */
@@ -306,7 +306,7 @@ external interface StandardShorthandProperties {
      *    |  Chrome  | Firefox |  Safari   |  Edge  |    IE    |
      *    | :------: | :-----: | :-------: | :----: | :------: |
      *    |    29    |   20    |     9     |   12   |    11    |
-     *    | 21 _-x-_ |         | 6.1 _-x-_ |        | 10 _-x-_ |
+     *    |    21′   |         |    6.1′   |        |    10′   |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/flex">MDN</a>
      */
@@ -320,7 +320,7 @@ external interface StandardShorthandProperties {
      *    |  Chrome  | Firefox |  Safari   |  Edge  |   IE   |
      *    | :------: | :-----: | :-------: | :----: | :----: |
      *    |    29    |   28    |     9     |   12   |   11   |
-     *    | 21 _-x-_ |         | 6.1 _-x-_ |        |        |
+     *    |    21′   |         |    6.1′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/flex-flow">MDN</a>
      */
@@ -657,7 +657,7 @@ external interface StandardShorthandProperties {
      *
      *    |    Chrome    | Firefox | Safari  |     Edge     | IE  |
      *    | :----------: | :-----: | :-----: | :----------: | :-: |
-     *    |   25** _-x-_ |   46    |   6.1   |   79** _-x-_ | No  |
+     *    |       25′    |   46    |   6.1   |       79′    | No  |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/text-emphasis">MDN</a>
      */
@@ -671,7 +671,7 @@ external interface StandardShorthandProperties {
      *    | Chrome  | Firefox |  Safari   |  Edge  |   IE   |
      *    | :-----: | :-----: | :-------: | :----: | :----: |
      *    |   26    |   16    |     9     |   12   |   10   |
-     *    | 1 _-x-_ | 4 _-x-_ | 3.1 _-x-_ |        |        |
+     *    |    1′   |    4′   |    3.1′   |        |        |
      *
      * @see <a href="https://developer.mozilla.org/docs/Web/CSS/transition">MDN</a>
      */
