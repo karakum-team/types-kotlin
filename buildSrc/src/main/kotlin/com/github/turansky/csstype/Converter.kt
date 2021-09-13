@@ -125,6 +125,9 @@ private fun convertUnion(
         .trimIndent()
         .removeSuffix(";")
 
+    if (body == """"false" | "true"""")
+        return ConversionResult(name, "typealias $name = Boolean\n")
+
     val comment = if ("\n" in body) {
         val values = body
             .splitToSequence("\n")
