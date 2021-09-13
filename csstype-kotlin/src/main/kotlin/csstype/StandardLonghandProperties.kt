@@ -64,7 +64,7 @@ external interface StandardLonghandProperties {
     var alignItems: AlignItems
 
     /**
-     * The **`align-self`** CSS property overrides a grid or flex item's `align-items` value. In Grid, it aligns the item inside the grid area. In Flexbox, it aligns the item on the cross axis.
+     * The **`align-self`** CSS property overrides a grid or flex item's `align-items` value. In Grid, it aligns the item inside the grid area. In Flexbox, it aligns the item on the cross axis.
      *
      * **Syntax**: `auto | normal | stretch | <baseline-position> | <overflow-position>? <self-position>`
      *
@@ -94,7 +94,7 @@ external interface StandardLonghandProperties {
     var alignSelf: AlignSelf
 
     /**
-     * The **`align-tracks`** CSS property sets the alignment in the masonry axis for grid containers that have masonry in their block axis.
+     * The **`align-tracks`** CSS property sets the alignment in the masonry axis for grid containers that have masonry in their block axis.
      *
      * **Syntax**: `[ normal | <baseline-position> | <content-distribution> | <overflow-position>? <content-position> ]#`
      *
@@ -253,7 +253,7 @@ external interface StandardLonghandProperties {
     var appearance: Appearance
 
     /**
-     * The **`aspect-ratio`**  CSS property sets a **preferred aspect ratio** for the box, which will be used in the calculation of auto sizes and some other layout functions.
+     * The **`aspect-ratio`**  CSS property sets a **preferred aspect ratio** for the box, which will be used in the calculation of auto sizes and some other layout functions.
      *
      * **Syntax**: `auto | <ratio>`
      *
@@ -487,7 +487,7 @@ external interface StandardLonghandProperties {
     var borderBlockColor: BorderBlockColor
 
     /**
-     * The **`border-block-end-color`** CSS property defines the color of the logical block-end border of an element, which maps to a physical border color depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-color`, `border-right-color`, `border-bottom-color`, or `border-left-color` property depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
+     * The **`border-block-end-color`** CSS property defines the color of the logical block-end border of an element, which maps to a physical border color depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-color`, `border-right-color`, `border-bottom-color`, or `border-left-color` property depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
      *
      * **Syntax**: `<'border-top-color'>`
      *
@@ -517,7 +517,7 @@ external interface StandardLonghandProperties {
     var borderBlockEndStyle: BorderBlockEndStyle
 
     /**
-     * The **`border-block-end-width`** CSS property defines the width of the logical block-end border of an element, which maps to a physical border width depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-width`, `border-right-width`, `border-bottom-width`, or `border-left-width` property depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
+     * The **`border-block-end-width`** CSS property defines the width of the logical block-end border of an element, which maps to a physical border width depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-width`, `border-right-width`, `border-bottom-width`, or `border-left-width` property depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
      *
      * **Syntax**: `<'border-top-width'>`
      *
@@ -532,7 +532,7 @@ external interface StandardLonghandProperties {
     var borderBlockEndWidth: BorderBlockEndWidth
 
     /**
-     * The **`border-block-start-color`** CSS property defines the color of the logical block-start border of an element, which maps to a physical border color depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-color`, `border-right-color`, `border-bottom-color`, or `border-left-color` property depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
+     * The **`border-block-start-color`** CSS property defines the color of the logical block-start border of an element, which maps to a physical border color depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-color`, `border-right-color`, `border-bottom-color`, or `border-left-color` property depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
      *
      * **Syntax**: `<'border-top-color'>`
      *
@@ -547,7 +547,7 @@ external interface StandardLonghandProperties {
     var borderBlockStartColor: BorderBlockStartColor
 
     /**
-     * The **`border-block-start-style`** CSS property defines the style of the logical block start border of an element, which maps to a physical border style depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-style`, `border-right-style`, `border-bottom-style`, or `border-left-style` property depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
+     * The **`border-block-start-style`** CSS property defines the style of the logical block start border of an element, which maps to a physical border style depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-style`, `border-right-style`, `border-bottom-style`, or `border-left-style` property depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
      *
      * **Syntax**: `<'border-top-style'>`
      *
@@ -562,7 +562,7 @@ external interface StandardLonghandProperties {
     var borderBlockStartStyle: BorderBlockStartStyle
 
     /**
-     * The **`border-block-start-width`** CSS property defines the width of the logical block-start border of an element, which maps to a physical border width depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-width`, `border-right-width`, `border-bottom-width`, or `border-left-width` property depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
+     * The **`border-block-start-width`** CSS property defines the width of the logical block-start border of an element, which maps to a physical border width depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-width`, `border-right-width`, `border-bottom-width`, or `border-left-width` property depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
      *
      * **Syntax**: `<'border-top-width'>`
      *
@@ -592,7 +592,7 @@ external interface StandardLonghandProperties {
     var borderBlockStyle: BorderBlockStyle
 
     /**
-     * The **`border-block-width`** CSS property defines the width of the logical block borders of an element, which maps to a physical border width depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-width` and `border-bottom-width`, or `border-left-width`, and `border-right-width` property depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
+     * The **`border-block-width`** CSS property defines the width of the logical block borders of an element, which maps to a physical border width depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-width` and `border-bottom-width`, or `border-left-width`, and `border-right-width` property depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
      *
      * **Syntax**: `<'border-top-width'>`
      *
@@ -699,7 +699,7 @@ external interface StandardLonghandProperties {
     var borderCollapse: BorderCollapse
 
     /**
-     * The **`border-end-end-radius`** CSS property defines a logical border radius on an element, which maps to a physical border radius that depends on the element's `writing-mode`, `direction`, and `text-orientation`. This is useful when building styles to work regardless of the text orientation and writing mode.
+     * The **`border-end-end-radius`** CSS property defines a logical border radius on an element, which maps to a physical border radius that depends on the element's `writing-mode`, `direction`, and `text-orientation`. This is useful when building styles to work regardless of the text orientation and writing mode.
      *
      * **Syntax**: `<length-percentage>{1,2}`
      *
@@ -714,7 +714,7 @@ external interface StandardLonghandProperties {
     var borderEndEndRadius: BorderEndEndRadius
 
     /**
-     * The **`border-end-start-radius`** CSS property defines a logical border radius on an element, which maps to a physical border radius depending on the element's `writing-mode`, `direction`, and `text-orientation`. This is useful when building styles to work regardless of the text orientation and writing mode.
+     * The **`border-end-start-radius`** CSS property defines a logical border radius on an element, which maps to a physical border radius depending on the element's `writing-mode`, `direction`, and `text-orientation`. This is useful when building styles to work regardless of the text orientation and writing mode.
      *
      * **Syntax**: `<length-percentage>{1,2}`
      *
@@ -914,7 +914,7 @@ external interface StandardLonghandProperties {
     var borderInlineStartWidth: BorderInlineStartWidth
 
     /**
-     * The **`border-inline-style`** CSS property defines the style of the logical inline borders of an element, which maps to a physical border style depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-style` and `border-bottom-style`, or `border-left-style` and `border-right-style` properties depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
+     * The **`border-inline-style`** CSS property defines the style of the logical inline borders of an element, which maps to a physical border style depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-style` and `border-bottom-style`, or `border-left-style` and `border-right-style` properties depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
      *
      * **Syntax**: `<'border-top-style'>`
      *
@@ -929,7 +929,7 @@ external interface StandardLonghandProperties {
     var borderInlineStyle: BorderInlineStyle
 
     /**
-     * The **`border-inline-width`** CSS property defines the width of the logical inline borders of an element, which maps to a physical border width depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-width` and `border-bottom-width`, or `border-left-width`, and `border-right-width` property depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
+     * The **`border-inline-width`** CSS property defines the width of the logical inline borders of an element, which maps to a physical border width depending on the element's writing mode, directionality, and text orientation. It corresponds to the `border-top-width` and `border-bottom-width`, or `border-left-width`, and `border-right-width` property depending on the values defined for `writing-mode`, `direction`, and `text-orientation`.
      *
      * **Syntax**: `<'border-top-width'>`
      *
@@ -1049,7 +1049,7 @@ external interface StandardLonghandProperties {
     var borderSpacing: BorderSpacing
 
     /**
-     * The **`border-start-end-radius`** CSS property defines a logical border radius on an element, which maps to a physical border radius depending on the element's `writing-mode`, `direction`, and `text-orientation`. This is useful when building styles to work regardless of the text orientation and writing mode.
+     * The **`border-start-end-radius`** CSS property defines a logical border radius on an element, which maps to a physical border radius depending on the element's `writing-mode`, `direction`, and `text-orientation`. This is useful when building styles to work regardless of the text orientation and writing mode.
      *
      * **Syntax**: `<length-percentage>{1,2}`
      *
@@ -1064,7 +1064,7 @@ external interface StandardLonghandProperties {
     var borderStartEndRadius: BorderStartEndRadius
 
     /**
-     * The **`border-start-start-radius`** CSS property defines a logical border radius on an element, which maps to a physical border radius that depends on the element's `writing-mode`, `direction`, and `text-orientation`. This is useful when building styles to work regardless of the text orientation and writing mode.
+     * The **`border-start-start-radius`** CSS property defines a logical border radius on an element, which maps to a physical border radius that depends on the element's `writing-mode`, `direction`, and `text-orientation`. This is useful when building styles to work regardless of the text orientation and writing mode.
      *
      * **Syntax**: `<length-percentage>{1,2}`
      *
@@ -1637,7 +1637,7 @@ external interface StandardLonghandProperties {
     var counterReset: CounterReset
 
     /**
-     * The **`counter-set`** CSS property sets a CSS counter to a given value. It manipulates the value of existing counters, and will only create new counters if there isn't already a counter of the given name on the element.
+     * The **`counter-set`** CSS property sets a CSS counter to a given value. It manipulates the value of existing counters, and will only create new counters if there isn't already a counter of the given name on the element.
      *
      * **Syntax**: `[ <custom-ident> <integer>? ]+ | none`
      *
@@ -1760,7 +1760,7 @@ external interface StandardLonghandProperties {
     var flexDirection: FlexDirection
 
     /**
-     * The **`flex-grow`** CSS property sets the flex grow factor of a flex item main size.
+     * The **`flex-grow`** CSS property sets the flex grow factor of a flex item main size.
      *
      * **Syntax**: `<number>`
      *
@@ -1901,7 +1901,7 @@ external interface StandardLonghandProperties {
     var fontOpticalSizing: FontOpticalSizing
 
     /**
-     * The **`font-size`** CSS property sets the size of the font. Changing the font size also updates the sizes of the font size-relative `<length>` units, such as `em`, `ex`, and so forth.
+     * The **`font-size`** CSS property sets the size of the font. Changing the font size also updates the sizes of the font size-relative `<length>` units, such as `em`, `ex`, and so forth.
      *
      * **Syntax**: `<absolute-size> | <relative-size> | <length-percentage>`
      *
@@ -2158,7 +2158,7 @@ external interface StandardLonghandProperties {
     var gridAutoFlow: GridAutoFlow
 
     /**
-     * The **`grid-auto-rows`** CSS property specifies the size of an implicitly-created grid row track or pattern of tracks.
+     * The **`grid-auto-rows`** CSS property specifies the size of an implicitly-created grid row track or pattern of tracks.
      *
      * **Syntax**: `<track-size>+`
      *
@@ -2391,7 +2391,7 @@ external interface StandardLonghandProperties {
     var inlineSize: InlineSize
 
     /**
-     * The **`inset`** CSS property is a shorthand that corresponds to the `top`, `right`, `bottom`, and/or `left` properties. It has the same multi-value syntax of the `margin` shorthand.
+     * The **`inset`** CSS property is a shorthand that corresponds to the `top`, `right`, `bottom`, and/or `left` properties. It has the same multi-value syntax of the `margin` shorthand.
      *
      * **Syntax**: `<'top'>{1,4}`
      *
@@ -2599,7 +2599,7 @@ external interface StandardLonghandProperties {
     var justifySelf: JustifySelf
 
     /**
-     * The **`justify-tracks`** CSS property sets the alignment in the masonry axis for grid containers that have masonry in their inline axis.
+     * The **`justify-tracks`** CSS property sets the alignment in the masonry axis for grid containers that have masonry in their inline axis.
      *
      * **Syntax**: `[ normal | <content-distribution> | <overflow-position>? [ <content-position> | left | right ] ]#`
      *
@@ -3106,7 +3106,7 @@ external interface StandardLonghandProperties {
     var maskType: MaskType
 
     /**
-     * The `math-style` property indicates whether MathML equations should render with normal or compact height.
+     * The `math-style` property indicates whether MathML equations should render with normal or compact height.
      *
      * **Syntax**: `normal | compact`
      *
@@ -3638,7 +3638,7 @@ external interface StandardLonghandProperties {
     var overflowY: OverflowY
 
     /**
-     * The **`overscroll-behavior-block`** CSS property sets the browser's behavior when the block direction boundary of a scrolling area is reached.
+     * The **`overscroll-behavior-block`** CSS property sets the browser's behavior when the block direction boundary of a scrolling area is reached.
      *
      * **Syntax**: `contain | none | auto`
      *
@@ -3653,7 +3653,7 @@ external interface StandardLonghandProperties {
     var overscrollBehaviorBlock: OverscrollBehaviorBlock
 
     /**
-     * The **`overscroll-behavior-inline`** CSS property sets the browser's behavior when the inline direction boundary of a scrolling area is reached.
+     * The **`overscroll-behavior-inline`** CSS property sets the browser's behavior when the inline direction boundary of a scrolling area is reached.
      *
      * **Syntax**: `contain | none | auto`
      *
@@ -4189,7 +4189,7 @@ external interface StandardLonghandProperties {
     var scrollMarginBlock: ScrollMarginBlock
 
     /**
-     * The `scroll-margin-block-end` property defines the margin of the scroll snap area at the end of the block dimension that is used for snapping this box to the snapport. The scroll snap area is determined by taking the transformed border box, finding its rectangular bounding box (axis-aligned in the scroll container’s coordinate space), then adding the specified outsets.
+     * The `scroll-margin-block-end` property defines the margin of the scroll snap area at the end of the block dimension that is used for snapping this box to the snapport. The scroll snap area is determined by taking the transformed border box, finding its rectangular bounding box (axis-aligned in the scroll container’s coordinate space), then adding the specified outsets.
      *
      * **Syntax**: `<length>`
      *
@@ -4204,7 +4204,7 @@ external interface StandardLonghandProperties {
     var scrollMarginBlockEnd: ScrollMarginBlockEnd
 
     /**
-     * The `scroll-margin-block-start` property defines the margin of the scroll snap area at the start of the block dimension that is used for snapping this box to the snapport. The scroll snap area is determined by taking the transformed border box, finding its rectangular bounding box (axis-aligned in the scroll container’s coordinate space), then adding the specified outsets.
+     * The `scroll-margin-block-start` property defines the margin of the scroll snap area at the start of the block dimension that is used for snapping this box to the snapport. The scroll snap area is determined by taking the transformed border box, finding its rectangular bounding box (axis-aligned in the scroll container’s coordinate space), then adding the specified outsets.
      *
      * **Syntax**: `<length>`
      *
@@ -4249,7 +4249,7 @@ external interface StandardLonghandProperties {
     var scrollMarginInline: ScrollMarginInline
 
     /**
-     * The `scroll-margin-inline-end` property defines the margin of the scroll snap area at the end of the inline dimension that is used for snapping this box to the snapport. The scroll snap area is determined by taking the transformed border box, finding its rectangular bounding box (axis-aligned in the scroll container’s coordinate space), then adding the specified outsets.
+     * The `scroll-margin-inline-end` property defines the margin of the scroll snap area at the end of the inline dimension that is used for snapping this box to the snapport. The scroll snap area is determined by taking the transformed border box, finding its rectangular bounding box (axis-aligned in the scroll container’s coordinate space), then adding the specified outsets.
      *
      * **Syntax**: `<length>`
      *
@@ -4414,7 +4414,7 @@ external interface StandardLonghandProperties {
     var scrollPaddingInline: ScrollPaddingInline
 
     /**
-     * The `scroll-padding-inline-end` property defines offsets for the end edge in the inline dimension of the optimal viewing region of the scrollport: the region used as the target region for placing things in view of the user. This allows the author to exclude regions of the scrollport that are obscured by other content (such as fixed-positioned toolbars or sidebars) or simply to put more breathing room between a targetted element and the edges of the scrollport.
+     * The `scroll-padding-inline-end` property defines offsets for the end edge in the inline dimension of the optimal viewing region of the scrollport: the region used as the target region for placing things in view of the user. This allows the author to exclude regions of the scrollport that are obscured by other content (such as fixed-positioned toolbars or sidebars) or simply to put more breathing room between a targetted element and the edges of the scrollport.
      *
      * **Syntax**: `auto | <length-percentage>`
      *
@@ -4459,7 +4459,7 @@ external interface StandardLonghandProperties {
     var scrollPaddingLeft: ScrollPaddingLeft
 
     /**
-     * The `scroll-padding-right` property defines offsets for the right of the optimal viewing region of the scrollport: the region used as the target region for placing things in view of the user. This allows the author to exclude regions of the scrollport that are obscured by other content (such as fixed-positioned toolbars or sidebars) or simply to put more breathing room between a targetted element and the edges of the scrollport.
+     * The `scroll-padding-right` property defines offsets for the right of the optimal viewing region of the scrollport: the region used as the target region for placing things in view of the user. This allows the author to exclude regions of the scrollport that are obscured by other content (such as fixed-positioned toolbars or sidebars) or simply to put more breathing room between a targetted element and the edges of the scrollport.
      *
      * **Syntax**: `auto | <length-percentage>`
      *
@@ -4474,7 +4474,7 @@ external interface StandardLonghandProperties {
     var scrollPaddingRight: ScrollPaddingRight
 
     /**
-     * The **`scroll-padding-top`** property defines offsets for the top of the optimal viewing region of the scrollport: the region used as the target region for placing things in view of the user. This allows the author to exclude regions of the scrollport that are obscured by other content (such as fixed-positioned toolbars or sidebars) or simply to put more breathing room between a targetted element and the edges of the scrollport.
+     * The **`scroll-padding-top`** property defines offsets for the top of the optimal viewing region of the scrollport: the region used as the target region for placing things in view of the user. This allows the author to exclude regions of the scrollport that are obscured by other content (such as fixed-positioned toolbars or sidebars) or simply to put more breathing room between a targetted element and the edges of the scrollport.
      *
      * **Syntax**: `auto | <length-percentage>`
      *
@@ -4730,7 +4730,7 @@ external interface StandardLonghandProperties {
     var tableLayout: TableLayout
 
     /**
-     * The **`text-align`** CSS property sets the horizontal alignment of a block element or table-cell box. This means it works like `vertical-align` but in the horizontal direction.
+     * The **`text-align`** CSS property sets the horizontal alignment of a block element or table-cell box. This means it works like `vertical-align` but in the horizontal direction.
      *
      * **Syntax**: `start | end | left | right | center | justify | match-parent`
      *

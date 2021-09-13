@@ -271,7 +271,7 @@ external interface StandardShorthandProperties {
     var borderWidth: BorderWidth
 
     /**
-     * The **`column-rule`** shorthand CSS property sets the width, style, and color of the line drawn between columns in a multi-column layout.
+     * The **`column-rule`** shorthand CSS property sets the width, style, and color of the line drawn between columns in a multi-column layout.
      *
      * **Syntax**: `<'column-rule-width'> || <'column-rule-style'> || <'column-rule-color'>`
      *
