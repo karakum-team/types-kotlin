@@ -105,6 +105,7 @@ private fun convertNamespaceTypes(
         .substringAfter("{\n")
         .substringBefore("\n}")
         .trimIndent()
+        .let { "\n" + it }
         .splitToSequence("\ntype ")
         .drop(1)
         .map { it.replace("<TLength>", "") }
