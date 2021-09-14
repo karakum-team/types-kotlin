@@ -208,7 +208,7 @@ private fun convertInterface(
                 var (pname, ptype) = it.split("?: ")
                 ptype = ptype.removePrefix("Property.").removeSuffix(";")
                 if (ptype == "string") ptype = "String"
-                "var $pname: $ptype"
+                "var $pname: $ptype?"
             } else it
         }
         .joinToString("\n")
