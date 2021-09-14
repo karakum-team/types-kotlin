@@ -1,6 +1,8 @@
 package com.github.turansky.csstype
 
 import com.github.turansky.common.GENERATOR_COMMENT
+import com.github.turansky.common.Suppress.NOTHING_TO_INLINE
+import com.github.turansky.common.fileSuppress
 import java.io.File
 
 fun generateKotlinDeclarations(
@@ -12,9 +14,13 @@ fun generateKotlinDeclarations(
         .also { it.mkdirs() }
 
     for ((name, body) in convertDefinitions(definitionsFile)) {
+        val annotations = if ("inline fun " in body) {
+            fileSuppress(NOTHING_TO_INLINE)
+        } else ""
+
         targetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(fileContent(body = body))
+            .writeText(fileContent(annotations, body))
     }
 }
 
