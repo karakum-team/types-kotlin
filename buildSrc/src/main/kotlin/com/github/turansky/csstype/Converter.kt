@@ -145,6 +145,14 @@ private fun convertUnion(
             .filter { !it.startsWith("\"-webkit-") }
             .joinToString(" | ")
 
+        when (values) {
+            "Globals | DataType.Color",
+            "Globals | DataType.Color | (string & {})",
+            -> if (name != "Color") {
+                return ConversionResult(name, "typealias $name = Color\n")
+            }
+        }
+
         "// $values"
     }
 
