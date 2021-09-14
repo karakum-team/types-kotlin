@@ -1,6 +1,7 @@
 package com.github.turansky.react
 
-import com.github.turansky.react.Suppress.VAR_TYPE_MISMATCH_ON_OVERRIDE
+import com.github.turansky.common.Suppress.VAR_TYPE_MISMATCH_ON_OVERRIDE
+import com.github.turansky.common.suppress
 
 private val TYPE_CONTAINER_IMPORTS = """
 import org.w3c.dom.*    

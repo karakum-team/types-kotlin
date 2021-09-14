@@ -1,8 +1,9 @@
 package com.github.turansky.react
 
 import com.github.turansky.common.GENERATOR_COMMENT
-import com.github.turansky.react.Suppress.DECLARATION_CANT_BE_INLINED
-import com.github.turansky.react.Suppress.EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE
+import com.github.turansky.common.Suppress.DECLARATION_CANT_BE_INLINED
+import com.github.turansky.common.Suppress.EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE
+import com.github.turansky.common.fileSuppress
 import java.io.File
 
 fun generateKotlinDeclarations(

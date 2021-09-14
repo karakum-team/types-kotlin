@@ -1,4 +1,4 @@
-package com.github.turansky.react
+package com.github.turansky.common
 
 internal enum class Suppress {
     EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE,
