@@ -80,7 +80,15 @@ private fun convertProperty(
     val sourceType = source.substringAfter(": ")
         .replace("EventTarget & T", "T")
     val type = typeConverter.convert(sourceType, name)
-        .let { if (optional) "$it?" else it }
+        .let {
+            when {
+                !optional -> it
+                it.startsWith(DYNAMIC) -> it
+                " // " in it -> it.replace(" // ", "? // ")
+                else -> "$it?"
+            }
+        }
+
     val keyword = if (final) "val" else "var"
     val declaration = "$keyword $id: $type"
     if (!name.startsWith("aria-"))
