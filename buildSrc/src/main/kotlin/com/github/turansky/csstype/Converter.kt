@@ -126,7 +126,7 @@ private fun convertUnion(
         .removeSuffix(";")
 
     if (body == """"false" | "true"""")
-        return ConversionResult(name, "typealias $name = Boolean\n")
+        return ConversionResult(name, "typealias $name = Boolean")
 
     val comment = if ("\n" in body) {
         val values = body
@@ -149,14 +149,14 @@ private fun convertUnion(
             "Globals | DataType.Color",
             "Globals | DataType.Color | (string & {})",
             -> if (name != "Color") {
-                return ConversionResult(name, "typealias $name = Color\n")
+                return ConversionResult(name, "typealias $name = Color")
             }
         }
 
         "// $values"
     }
 
-    return ConversionResult(name, "$comment\nsealed external interface $declaration\n")
+    return ConversionResult(name, "$comment\nsealed external interface $declaration")
 }
 
 private val LINK_REGEX = Regex("( * @see )(.+)")
@@ -188,7 +188,7 @@ private fun convertInterface(
             .filter { "Vendor" !in it && "Obsolete" !in it && "Svg" !in it }
             .joinToString(", ")
 
-        return ConversionResult(name, "external interface $declaration: $parentTypes\n")
+        return ConversionResult(name, "external interface $declaration: $parentTypes")
     }
 
     val body = source.substringAfter("{\n")
@@ -214,5 +214,5 @@ private fun convertInterface(
         .joinToString("\n")
         .replaceIndent("    ")
 
-    return ConversionResult(name, "external interface $declaration{\n$body\n}\n")
+    return ConversionResult(name, "external interface $declaration{\n$body\n}")
 }

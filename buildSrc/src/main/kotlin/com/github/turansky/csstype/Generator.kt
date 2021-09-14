@@ -28,11 +28,16 @@ private fun fileContent(
     annotations: String = "",
     body: String,
 ): String {
-    return sequenceOf(
+    var result = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
         "package csstype",
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
+
+    if (!result.endsWith("\n"))
+        result += "\n"
+
+    return result
 }
