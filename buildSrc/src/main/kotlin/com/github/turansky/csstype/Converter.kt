@@ -73,6 +73,12 @@ private val ADDITIONAL_TYPES = setOf(
     "Range",
     "SpeakAs",
     "System",
+
+    "AscentOverride",
+    "DescentOverride",
+    "LineGapOverride",
+    "Bleed",
+    "Marks",
 )
 
 private fun convertNamespaceTypes(
