@@ -23,4 +23,13 @@ internal val DEPRECATED_TYPES = setOf(
     "GridRowGap",
 
     "ImeMode",
+
+    "PropertyValue",
+
+    "ScrollSnapCoordinate",
+    "ScrollSnapDestination",
+    "ScrollSnapPointsX",
+    "ScrollSnapPointsY",
+    "ScrollSnapTypeX",
+    "ScrollSnapTypeY",
 )
