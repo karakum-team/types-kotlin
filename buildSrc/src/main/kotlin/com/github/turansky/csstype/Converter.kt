@@ -25,7 +25,8 @@ internal fun convertDefinitions(
                 name.startsWith("Vendor") -> emptySequence()
                 name.contains("Hyphen") -> emptySequence()
                 name.contains("Fallback") -> emptySequence()
-                content.startsWith("namespace AtRule ") -> convertNamespace(content) + convertNamespaceTypes(content)
+                content.startsWith("namespace AtRule ") -> convertNamespace(content) + convertNamespaceTypes(content, AT_RULE_TYPES)
+                content.startsWith("namespace DataType ") -> convertNamespaceTypes(content)
                 content.startsWith("namespace ") -> convertNamespace(content)
                 else -> sequenceOf(convertDefinition(name, content))
             }
@@ -59,7 +60,7 @@ private fun convertNamespace(
         }
 }
 
-private val ADDITIONAL_TYPES = setOf(
+private val AT_RULE_TYPES = setOf(
     "FontDisplay",
     "Size",
     "Inherits",
@@ -81,9 +82,22 @@ private val ADDITIONAL_TYPES = setOf(
     "Marks",
 )
 
+private val EXCLUDED_DATA_TYPES = setOf(
+    "Color",
+    "Position",
+)
+
 private fun convertNamespaceTypes(
     source: String,
+    enabledTypes: Set<String>? = null,
 ): Sequence<ConversionResult> {
+    val typeEnabled: (String) -> Boolean = when {
+        enabledTypes != null
+        -> enabledTypes::contains
+
+        else -> { type: String -> type !in EXCLUDED_DATA_TYPES }
+    }
+
     return source
         .substringAfter("{\n")
         .substringBefore("\n}")
@@ -96,7 +110,7 @@ private fun convertNamespaceTypes(
                 .substringBefore(" ")
                 .substringBefore("<")
 
-            if (name in ADDITIONAL_TYPES) {
+            if (typeEnabled(name)) {
                 convertUnion(name, content)
             } else null
         }
