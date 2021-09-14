@@ -159,9 +159,14 @@ private fun convertUnion(
             .split(" | ")
 
         if (items.all { it.startsWith('"') }) {
-            val values = items.map { it.removeSurrounding("\"") }
-            val body = reactConvertUnion(name, values).body
-            return ConversionResult(name, body)
+            val values = items
+                .map { it.removeSurrounding("\"") }
+                .filter { !it.startsWith("-moz-") }
+                .filter { !it.startsWith("-ms-") }
+                .filter { !it.startsWith("-webkit-") }
+
+            val enumBody = reactConvertUnion(name, values).body
+            return ConversionResult(name, enumBody)
         }
     }
 
