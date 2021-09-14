@@ -2,5 +2,13 @@
 
 package csstype
 
-// "block" | "inline" | "run-in"
-sealed external interface DisplayOutside
+@Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
+// language=JavaScript
+@JsName("""({block: 'block', inline: 'inline', runIn: 'run-in'})""")
+external enum class DisplayOutside {
+    block,
+    inline,
+    runIn,
+
+    ;
+}

@@ -2,5 +2,15 @@
 
 package csstype
 
-// "inline-block" | "inline-flex" | "inline-grid" | "inline-list-item" | "inline-table"
-sealed external interface DisplayLegacy
+@Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
+// language=JavaScript
+@JsName("""({inlineBlock: 'inline-block', inlineFlex: 'inline-flex', inlineGrid: 'inline-grid', inlineListItem: 'inline-list-item', inlineTable: 'inline-table'})""")
+external enum class DisplayLegacy {
+    inlineBlock,
+    inlineFlex,
+    inlineGrid,
+    inlineListItem,
+    inlineTable,
+
+    ;
+}

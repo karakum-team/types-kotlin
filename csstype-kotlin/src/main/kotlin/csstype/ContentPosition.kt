@@ -2,5 +2,15 @@
 
 package csstype
 
-// "center" | "end" | "flex-end" | "flex-start" | "start"
-sealed external interface ContentPosition
+@Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
+// language=JavaScript
+@JsName("""({center: 'center', end: 'end', flexEnd: 'flex-end', flexStart: 'flex-start', start: 'start'})""")
+external enum class ContentPosition {
+    center,
+    end,
+    flexEnd,
+    flexStart,
+    start,
+
+    ;
+}

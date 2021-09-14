@@ -2,5 +2,14 @@
 
 package csstype
 
-// "alternate" | "alternate-reverse" | "normal" | "reverse"
-sealed external interface SingleAnimationDirection
+@Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
+// language=JavaScript
+@JsName("""({alternate: 'alternate', alternateReverse: 'alternate-reverse', normal: 'normal', reverse: 'reverse'})""")
+external enum class SingleAnimationDirection {
+    alternate,
+    alternateReverse,
+    normal,
+    reverse,
+
+    ;
+}

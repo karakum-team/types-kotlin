@@ -2,5 +2,14 @@
 
 package csstype
 
-// "close-quote" | "no-close-quote" | "no-open-quote" | "open-quote"
-sealed external interface Quote
+@Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
+// language=JavaScript
+@JsName("""({closeQuote: 'close-quote', noCloseQuote: 'no-close-quote', noOpenQuote: 'no-open-quote', openQuote: 'open-quote'})""")
+external enum class Quote {
+    closeQuote,
+    noCloseQuote,
+    noOpenQuote,
+    openQuote,
+
+    ;
+}

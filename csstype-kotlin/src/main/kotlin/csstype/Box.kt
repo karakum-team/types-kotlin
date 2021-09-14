@@ -2,5 +2,13 @@
 
 package csstype
 
-// "border-box" | "content-box" | "padding-box"
-sealed external interface Box
+@Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
+// language=JavaScript
+@JsName("""({borderBox: 'border-box', contentBox: 'content-box', paddingBox: 'padding-box'})""")
+external enum class Box {
+    borderBox,
+    contentBox,
+    paddingBox,
+
+    ;
+}

@@ -2,5 +2,14 @@
 
 package csstype
 
-// "space-around" | "space-between" | "space-evenly" | "stretch"
-sealed external interface ContentDistribution
+@Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
+// language=JavaScript
+@JsName("""({spaceAround: 'space-around', spaceBetween: 'space-between', spaceEvenly: 'space-evenly', stretch: 'stretch'})""")
+external enum class ContentDistribution {
+    spaceAround,
+    spaceBetween,
+    spaceEvenly,
+    stretch,
+
+    ;
+}

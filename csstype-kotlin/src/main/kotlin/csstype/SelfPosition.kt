@@ -2,5 +2,17 @@
 
 package csstype
 
-// "center" | "end" | "flex-end" | "flex-start" | "self-end" | "self-start" | "start"
-sealed external interface SelfPosition
+@Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
+// language=JavaScript
+@JsName("""({center: 'center', end: 'end', flexEnd: 'flex-end', flexStart: 'flex-start', selfEnd: 'self-end', selfStart: 'self-start', start: 'start'})""")
+external enum class SelfPosition {
+    center,
+    end,
+    flexEnd,
+    flexStart,
+    selfEnd,
+    selfStart,
+    start,
+
+    ;
+}
