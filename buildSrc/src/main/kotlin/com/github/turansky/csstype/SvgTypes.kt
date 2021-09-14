@@ -19,6 +19,7 @@ internal val SVG_TYPES = setOf(
     "MarkerEnd",
     "MarkerMid",
     "MarkerStart",
+    "ShapeRendering",
     "StopColor",
     "StopOpacity",
     "Stroke",
@@ -30,4 +31,5 @@ internal val SVG_TYPES = setOf(
     "StrokeOpacity",
     "StrokeWidth",
     "TextAnchor",
+    "VectorEffect",
 )
