@@ -1,6 +1,7 @@
 package com.github.turansky.csstype
 
 import java.io.File
+import com.github.turansky.react.convertUnion as reactConvertUnion
 
 internal data class ConversionResult(
     val name: String,
@@ -111,7 +112,7 @@ private fun convertNamespaceTypes(
                 .substringBefore("<")
 
             if (typeEnabled(name)) {
-                convertUnion(name, content)
+                convertUnion(name, content, true)
             } else null
         }
 }
@@ -136,6 +137,7 @@ private fun convertDefinition(
 private fun convertUnion(
     name: String,
     source: String,
+    enumMode: Boolean = false,
 ): ConversionResult {
     val declaration = source.removePrefix("type ")
         .substringBefore(" =")
@@ -147,6 +149,19 @@ private fun convertUnion(
 
     if (body == """"false" | "true"""")
         return ConversionResult(name, "typealias $name = Boolean")
+
+    if (enumMode) {
+        val items = body
+            .removePrefix("| ")
+            .replace("\n|", " |")
+            .split(" | ")
+
+        if (items.all { it.startsWith('"') }) {
+            val values = items.map { it.removeSurrounding("\"") }
+            val body = reactConvertUnion(name, values).body
+            return ConversionResult(name, body)
+        }
+    }
 
     val comment = if ("\n" in body) {
         val values = body
