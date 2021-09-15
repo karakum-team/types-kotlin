@@ -17,6 +17,24 @@ internal fun unionBody(
     """.trimIndent()
 }
 
+internal fun sealedUnionBody(
+    name: String,
+    values: List<String>,
+): String {
+    val constMap = values.associateBy { enumConstant(it) }
+
+    val constants = constMap.keys
+        .joinToString("\n") { "val $it: $name" }
+
+    return jsName(constMap) + """
+        external interface $name {
+            companion object {
+                $constants
+            }
+        }
+    """.trimIndent()
+}
+
 private fun jsName(
     constMap: Map<String, String>,
 ): String {
@@ -30,7 +48,6 @@ private fun jsName(
         }
 
     return """
-        @Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
         // language=JavaScript
         $name
     """.trimIndent()

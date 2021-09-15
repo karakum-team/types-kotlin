@@ -6,6 +6,9 @@ internal enum class Suppress {
     VAR_TYPE_MISMATCH_ON_OVERRIDE,
     NOTHING_TO_INLINE,
 
+    NAME_CONTAINS_ILLEGAL_CHARS,
+    NESTED_CLASS_IN_EXTERNAL_INTERFACE,
+
     ;
 }
 

@@ -1,5 +1,6 @@
 package com.github.turansky.csstype
 
+import com.github.turansky.common.sealedUnionBody
 import com.github.turansky.common.unionBody
 import java.io.File
 
@@ -204,7 +205,7 @@ private fun convertUnion(
             .filter { !it.startsWith("-webkit-") }
             .toList()
 
-        val enumBody = "// +Globals\n" + unionBody(name, values)
+        val enumBody = "// Globals\n" + sealedUnionBody(name, values)
         return ConversionResult(name, enumBody)
     }
 

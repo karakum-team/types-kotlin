@@ -1,5 +1,7 @@
 package com.github.turansky.react
 
+import com.github.turansky.common.Suppress.NAME_CONTAINS_ILLEGAL_CHARS
+import com.github.turansky.common.suppress
 import com.github.turansky.common.unionBody
 
 internal fun convertUnion(
@@ -26,5 +28,7 @@ internal fun convertUnion(
 internal fun convertUnion(
     name: String,
     values: List<String>,
-): ConversionResult =
-    ConversionResult(name, unionBody(name, values))
+): ConversionResult {
+    val body = suppress(NAME_CONTAINS_ILLEGAL_CHARS) + "\n" + unionBody(name, values)
+    return ConversionResult(name, body)
+}
