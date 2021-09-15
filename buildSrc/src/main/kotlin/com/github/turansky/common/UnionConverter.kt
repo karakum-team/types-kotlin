@@ -6,7 +6,21 @@ internal fun unionBody(
 ): String {
     val constMap = values.associateBy { enumConstant(it) }
 
-    val jsName = constMap.asSequence()
+    val constantNames = constMap.keys
+        .joinToString("") { "$it,\n" }
+
+    return jsName(constMap) + """
+        external enum class $name {
+            $constantNames
+            ;
+        }
+    """.trimIndent()
+}
+
+private fun jsName(
+    constMap: Map<String, String>,
+): String {
+    val name = constMap.asSequence()
         .joinToString(
             separator = ", ",
             prefix = "@JsName(\"\"\"({",
@@ -15,17 +29,10 @@ internal fun unionBody(
             "$key: '$value'"
         }
 
-    val constantNames = constMap.keys
-        .joinToString("") { "$it,\n" }
-
     return """
         @Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
         // language=JavaScript
-        $jsName
-        external enum class $name {
-            $constantNames
-            ;
-        }
+        $name
     """.trimIndent()
 }
 
