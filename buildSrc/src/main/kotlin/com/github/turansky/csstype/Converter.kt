@@ -236,6 +236,11 @@ private fun convertUnion(
             .joinToString(" | ")
 
         when (values) {
+            "Globals | DataType.LineWidth | DataType.LineStyle | DataType.Color | (string & {})",
+            -> if (name != "Border") {
+                return ConversionResult(name, "typealias $name = Border")
+            }
+
             "Globals | DataType.Color",
             "Globals | DataType.Color | (string & {})",
             -> if (name != "ColorProperty") {
