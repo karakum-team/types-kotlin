@@ -138,6 +138,15 @@ private fun convertDefinition(
     return convertInterface(name, content)
 }
 
+private val ENUMS = setOf(
+    "Globals",
+    "Marks",
+    "SpeakAs",
+    "System",
+)
+
+private val ENUM_TAIL = " | (string & {})"
+
 private fun convertUnion(
     name: String,
     source: String,
@@ -147,6 +156,13 @@ private fun convertUnion(
         return convertUnion(
             name = "ColorProperty",
             source = source.replaceFirst("Color", "ColorProperty")
+        )
+
+    if (name in ENUMS && (!enumMode || ENUM_TAIL in source))
+        return convertUnion(
+            name = name,
+            source = source.replaceFirst(ENUM_TAIL, ""),
+            enumMode = true,
         )
 
     val declaration = source.removePrefix("type ")
