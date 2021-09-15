@@ -212,6 +212,12 @@ private fun convertUnion(
         }
     }
 
+    when (name) {
+        "ColumnGap",
+        "RowGap",
+        -> return ConversionResult(name, "typealias $name = Gap")
+    }
+
     val comment = if ("\n" in body) {
         val values = body
             .splitToSequence("\n")
