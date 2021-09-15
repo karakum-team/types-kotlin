@@ -201,6 +201,10 @@ private fun convertUnion(
             -> if (name != "ColorProperty") {
                 return ConversionResult(name, "typealias $name = ColorProperty")
             }
+
+            "Globals | TLength",
+            "Globals | TLength | (string & {})",
+            -> return ConversionResult(name, "typealias $name = $LENGTH_PROPERTY")
         }
 
         "// $values"
