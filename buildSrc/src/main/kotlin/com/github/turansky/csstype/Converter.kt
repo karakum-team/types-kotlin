@@ -177,7 +177,7 @@ private fun convertUnion(
     if (body == """"false" | "true"""")
         return ConversionResult(name, "typealias $name = Boolean")
 
-    val items = body
+    var items = body
         .removePrefix("| ")
         .replace("\n|", " |")
         .split(" | ")
@@ -195,18 +195,21 @@ private fun convertUnion(
             val enumBody = unionBody(name, values)
             return ConversionResult(name, enumBody)
         }
-    } else if (items.size >= 2 && items[0] == "Globals" && items.drop(1).all { it.startsWith('"') }) {
-        val values = items
-            .asSequence()
-            .drop(1)
-            .map { it.removeSurrounding("\"") }
-            .filter { !it.startsWith("-moz-") }
-            .filter { !it.startsWith("-ms-") }
-            .filter { !it.startsWith("-webkit-") }
-            .toList()
+    } else {
+        items = items - "(string & {})"
+        if (items.size > 2 && items[0] == "Globals" && items.drop(1).all { it.startsWith('"') }) {
+            val values = items
+                .asSequence()
+                .drop(1)
+                .map { it.removeSurrounding("\"") }
+                .filter { !it.startsWith("-moz-") }
+                .filter { !it.startsWith("-ms-") }
+                .filter { !it.startsWith("-webkit-") }
+                .toList()
 
-        val enumBody = "// Globals\n" + sealedUnionBody(name, values)
-        return ConversionResult(name, enumBody)
+            val enumBody = "// Globals\n" + sealedUnionBody(name, values)
+            return ConversionResult(name, enumBody)
+        }
     }
 
     val comment = if ("\n" in body) {
