@@ -31,7 +31,7 @@ internal fun convertDefinitions(
                 content.startsWith("namespace ") -> convertNamespace(content)
                 else -> sequenceOf(convertDefinition(name, content))
             }
-        } + Length() + LengthProperty()
+        } + Length() + LengthProperty() + LineWidthProperty()
 }
 
 private fun convertNamespace(
@@ -221,6 +221,10 @@ private fun convertUnion(
             "Globals | TLength",
             "Globals | TLength | (string & {})",
             -> return ConversionResult(name, "typealias $name = $LENGTH_PROPERTY")
+
+            "Globals | DataType.LineWidth",
+            "Globals | DataType.LineWidth | (string & {})",
+            -> return ConversionResult(name, "typealias $name = $LINE_WIDTH_PROPERTY")
         }
 
         "// $values"
