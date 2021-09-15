@@ -143,6 +143,12 @@ private fun convertUnion(
     source: String,
     enumMode: Boolean = false,
 ): ConversionResult {
+    if (source.startsWith("type Color ="))
+        return convertUnion(
+            name = "ColorProperty",
+            source = source.replaceFirst("Color", "ColorProperty")
+        )
+
     val declaration = source.removePrefix("type ")
         .substringBefore(" =")
 
@@ -192,8 +198,8 @@ private fun convertUnion(
         when (values) {
             "Globals | DataType.Color",
             "Globals | DataType.Color | (string & {})",
-            -> if (name != "Color") {
-                return ConversionResult(name, "typealias $name = Color")
+            -> if (name != "ColorProperty") {
+                return ConversionResult(name, "typealias $name = ColorProperty")
             }
         }
 
@@ -250,7 +256,11 @@ private fun convertInterface(
         .map {
             if ("?: " in it) {
                 var (pname, ptype) = it.split("?: ")
-                ptype = ptype.removePrefix("Property.").removeSuffix(";")
+                ptype = ptype
+                    .replace("Property.Color;", "ColorProperty")
+                    .removePrefix("Property.")
+                    .removeSuffix(";")
+
                 if (ptype == "string") ptype = "String"
                 "var $pname: $ptype?"
             } else it
