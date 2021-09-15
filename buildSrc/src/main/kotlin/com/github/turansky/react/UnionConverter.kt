@@ -1,5 +1,7 @@
 package com.github.turansky.react
 
+import com.github.turansky.common.unionBody
+
 internal fun convertUnion(
     name: String,
     source: String,
@@ -24,41 +26,5 @@ internal fun convertUnion(
 internal fun convertUnion(
     name: String,
     values: List<String>,
-): ConversionResult {
-    val constMap = values.associateBy { enumConstant(it) }
-
-    val jsName = constMap.asSequence()
-        .joinToString(
-            separator = ", ",
-            prefix = "@JsName(\"\"\"({",
-            postfix = "})\"\"\")",
-        ) { (key, value) ->
-            "$key: '$value'"
-        }
-
-    val constantNames = constMap.keys
-        .joinToString("") { "$it,\n" }
-
-    val body = """
-        @Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
-        // language=JavaScript
-        $jsName
-        external enum class $name {
-            $constantNames
-            ;
-        }
-    """.trimIndent()
-
-    return ConversionResult(name, body)
-}
-
-private fun enumConstant(
-    value: String,
-): String =
-    when (value) {
-        "" -> "none"
-        "1" -> "D"
-        "false", "true" -> "__${value}__"
-        "super" -> "sup"
-        else -> value.kebabToCamel()
-    }
+): ConversionResult =
+    ConversionResult(name, unionBody(name, values))

@@ -1,7 +1,7 @@
 package com.github.turansky.csstype
 
+import com.github.turansky.common.unionBody
 import java.io.File
-import com.github.turansky.react.convertUnion as reactConvertUnion
 
 internal data class ConversionResult(
     val name: String,
@@ -189,13 +189,13 @@ private fun convertUnion(
                 .filter { !it.startsWith("-ms-") }
                 .filter { !it.startsWith("-webkit-") }
 
-            val enumBody = reactConvertUnion(name, values).body
+            val enumBody = unionBody(name, values)
             return ConversionResult(name, enumBody)
         }
     } else if (items.size >= 2 && items[0] == "Globals" && items.drop(1).all { it.startsWith('"') }) {
         val values = items.drop(1).map { it.removeSurrounding("\"") }
 
-        val enumBody = "// +Globals\n" + reactConvertUnion(name, values).body
+        val enumBody = "// +Globals\n" + unionBody(name, values)
         return ConversionResult(name, enumBody)
     }
 

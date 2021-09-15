@@ -1,4 +1,4 @@
-package com.github.turansky.react
+package com.github.turansky.common
 
 private val MINUS_LETTER = Regex("""-(\w)""")
 private val SPACE_LETTER = Regex("""\s(\w)""")
