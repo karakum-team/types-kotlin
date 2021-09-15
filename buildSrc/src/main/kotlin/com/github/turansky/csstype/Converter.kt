@@ -176,12 +176,12 @@ private fun convertUnion(
     if (body == """"false" | "true"""")
         return ConversionResult(name, "typealias $name = Boolean")
 
-    if (enumMode) {
-        val items = body
-            .removePrefix("| ")
-            .replace("\n|", " |")
-            .split(" | ")
+    val items = body
+        .removePrefix("| ")
+        .replace("\n|", " |")
+        .split(" | ")
 
+    if (enumMode) {
         if (items.all { it.startsWith('"') }) {
             val values = items
                 .map { it.removeSurrounding("\"") }
@@ -192,6 +192,11 @@ private fun convertUnion(
             val enumBody = reactConvertUnion(name, values).body
             return ConversionResult(name, enumBody)
         }
+    } else if (items.size >= 2 && items[0] == "Globals" && items.drop(1).all { it.startsWith('"') }) {
+        val values = items.drop(1).map { it.removeSurrounding("\"") }
+
+        val enumBody = "// +Globals\n" + reactConvertUnion(name, values).body
+        return ConversionResult(name, enumBody)
     }
 
     val comment = if ("\n" in body) {

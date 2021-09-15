@@ -59,5 +59,6 @@ private fun enumConstant(
         "" -> "none"
         "1" -> "D"
         "false", "true" -> "__${value}__"
+        "super" -> "sup"
         else -> value.kebabToCamel()
     }
