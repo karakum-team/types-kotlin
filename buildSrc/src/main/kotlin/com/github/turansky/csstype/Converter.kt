@@ -184,20 +184,25 @@ private fun convertUnion(
     if (enumMode) {
         if (items.all { it.startsWith('"') }) {
             val values = items
+                .asSequence()
                 .map { it.removeSurrounding("\"") }
                 .filter { !it.startsWith("-moz-") }
                 .filter { !it.startsWith("-ms-") }
                 .filter { !it.startsWith("-webkit-") }
+                .toList()
 
             val enumBody = unionBody(name, values)
             return ConversionResult(name, enumBody)
         }
     } else if (items.size >= 2 && items[0] == "Globals" && items.drop(1).all { it.startsWith('"') }) {
-        val values = items.drop(1)
+        val values = items
+            .asSequence()
+            .drop(1)
             .map { it.removeSurrounding("\"") }
             .filter { !it.startsWith("-moz-") }
             .filter { !it.startsWith("-ms-") }
             .filter { !it.startsWith("-webkit-") }
+            .toList()
 
         val enumBody = "// +Globals\n" + unionBody(name, values)
         return ConversionResult(name, enumBody)
