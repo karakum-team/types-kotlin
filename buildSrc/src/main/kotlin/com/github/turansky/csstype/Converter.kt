@@ -31,7 +31,7 @@ internal fun convertDefinitions(
                 content.startsWith("namespace ") -> convertNamespace(content)
                 else -> sequenceOf(convertDefinition(name, content))
             }
-        } + Length()
+        } + Length() + LengthProperty()
 }
 
 private fun convertNamespace(
