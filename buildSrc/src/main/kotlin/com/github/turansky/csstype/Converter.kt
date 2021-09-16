@@ -34,7 +34,16 @@ internal fun convertDefinitions(
                 content.startsWith("namespace ") -> convertNamespace(content)
                 else -> sequenceOf(convertDefinition(name, content))
             }
-        } + Length() + LengthProperty() + AutoLengthProperty() + GridLineProperty() + LineStyleProperty() + LineWidthProperty()
+        } + sequenceOf(
+        Length(),
+        LengthProperty(),
+        AutoLengthProperty(),
+        Time(),
+        TimeProperty(),
+        GridLineProperty(),
+        LineStyleProperty(),
+        LineWidthProperty(),
+    )
 }
 
 private fun convertNamespace(
@@ -257,6 +266,9 @@ private fun convertUnion(
             """Globals | TLength | "auto"""",
             """Globals | TLength | "auto" | (string & {})""",
             -> return ConversionResult(name, "typealias $name = $AUTO_LENGTH_PROPERTY")
+
+            "Globals | TTime | (string & {})",
+            -> return ConversionResult(name, "typealias $name = $TIME_PROPERTY")
 
             "Globals | DataType.GridLine",
             "Globals | DataType.GridLine | (string & {})",
