@@ -27,7 +27,7 @@ internal fun sealedUnionBody(
         .joinToString("\n") { "val $it: $name" }
 
     return jsName(constMap) + """
-        external interface $name {
+        sealed external interface $name {
             companion object {
                 $constants
             }
