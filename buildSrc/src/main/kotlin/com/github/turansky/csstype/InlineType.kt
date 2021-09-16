@@ -16,6 +16,8 @@ internal fun String.inlineTypes(): String =
         .inlineType("Attachment")
         .inlineType("RepeatStyle")
         .inlineType("GenericFamily")
+        .inlineType("CompositingOperator")
+        .inlineType("MaskingMode")
 
 private fun String.inlineType(
     name: String,
