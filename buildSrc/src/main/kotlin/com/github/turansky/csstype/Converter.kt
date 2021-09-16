@@ -14,6 +14,7 @@ internal fun convertDefinitions(
 ): Sequence<ConversionResult> {
     return definitionsFile.readText()
         .removePrefix("export {};\n")
+        .inlineType("CompatAuto")
         .splitToSequence("\nexport ", "\ndeclare ")
         .drop(1)
         .flatMap { content ->
