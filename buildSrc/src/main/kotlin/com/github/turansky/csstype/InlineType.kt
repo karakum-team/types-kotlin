@@ -12,6 +12,7 @@ internal fun String.inlineTypes(): String =
         .inlineType("SingleAnimationDirection")
         .inlineType("SingleAnimationFillMode")
         .inlineType("Box")
+        .inlineType("FontStretchAbsolute")
 
 private fun String.inlineType(
     name: String,
