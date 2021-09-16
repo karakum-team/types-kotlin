@@ -2,5 +2,5 @@
 
 package csstype
 
-// Globals | DataType.RepeatStyle | (string & {})
+// Globals | "no-repeat" | "repeat" | "repeat-x" | "repeat-y" | "round" | "space" | (string & {}) | (string & {})
 sealed external interface MaskRepeat
