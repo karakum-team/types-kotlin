@@ -11,6 +11,7 @@ internal fun String.inlineTypes(): String =
         .inlineType("ContentPosition")
         .inlineType("SingleAnimationDirection")
         .inlineType("SingleAnimationFillMode")
+        .inlineType("Box")
 
 private fun String.inlineType(
     name: String,
