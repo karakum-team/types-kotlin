@@ -15,6 +15,7 @@ internal fun String.inlineTypes(): String =
         .inlineType("FontStretchAbsolute")
         .inlineType("Attachment")
         .inlineType("RepeatStyle")
+        .inlineType("GenericFamily")
 
 private fun String.inlineType(
     name: String,
