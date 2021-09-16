@@ -19,6 +19,7 @@ internal fun String.inlineTypes(): String =
         .inlineType("CompositingOperator")
         .inlineType("MaskingMode")
         .inlineType("AnimateableFeature")
+        .inlineType("EastAsianVariantValues")
 
 private fun String.inlineType(
     name: String,
