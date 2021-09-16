@@ -208,7 +208,7 @@ private fun convertUnion(
         }
     } else {
         items = items - "(string & {})"
-        if (items.size > 2 && items[0] == "Globals" && items.drop(1).all { it.startsWith('"') }) {
+        if (items.size >= 2 && items[0] == "Globals" && items.drop(1).all { it.startsWith('"') }) {
             val values = items
                 .asSequence()
                 .drop(1)
