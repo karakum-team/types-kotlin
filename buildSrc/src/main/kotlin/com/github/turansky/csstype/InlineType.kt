@@ -18,6 +18,7 @@ internal fun String.inlineTypes(): String =
         .inlineType("GenericFamily")
         .inlineType("CompositingOperator")
         .inlineType("MaskingMode")
+        .inlineType("AnimateableFeature")
 
 private fun String.inlineType(
     name: String,
