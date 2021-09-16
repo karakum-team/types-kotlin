@@ -6,6 +6,7 @@ internal fun String.inlineTypes(): String =
         .inlineType("DisplayInside")
         .inlineType("DisplayInternal")
         .inlineType("DisplayLegacy")
+        .inlineType("SelfPosition")
 
 private fun String.inlineType(
     name: String,
