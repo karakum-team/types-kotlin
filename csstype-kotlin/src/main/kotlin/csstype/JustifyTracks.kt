@@ -10,7 +10,7 @@ package csstype
 // Globals
 // language=JavaScript
 @JsName("""({spaceAround: 'space-around', spaceBetween: 'space-between', spaceEvenly: 'space-evenly', stretch: 'stretch', center: 'center', end: 'end', flexEnd: 'flex-end', flexStart: 'flex-start', start: 'start', left: 'left', normal: 'normal', right: 'right'})""")
-external interface JustifyTracks {
+sealed external interface JustifyTracks {
     companion object {
         val spaceAround: JustifyTracks
         val spaceBetween: JustifyTracks

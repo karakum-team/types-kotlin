@@ -10,7 +10,7 @@ package csstype
 // Globals
 // language=JavaScript
 @JsName("""({backwards: 'backwards', both: 'both', forwards: 'forwards', none: 'none'})""")
-external interface AnimationFillMode {
+sealed external interface AnimationFillMode {
     companion object {
         val backwards: AnimationFillMode
         val both: AnimationFillMode

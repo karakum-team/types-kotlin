@@ -10,7 +10,7 @@ package csstype
 // Globals
 // language=JavaScript
 @JsName("""({spaceAround: 'space-around', spaceBetween: 'space-between', spaceEvenly: 'space-evenly', stretch: 'stretch', center: 'center', end: 'end', flexEnd: 'flex-end', flexStart: 'flex-start', start: 'start', baseline: 'baseline', normal: 'normal'})""")
-external interface PlaceContent {
+sealed external interface PlaceContent {
     companion object {
         val spaceAround: PlaceContent
         val spaceBetween: PlaceContent

@@ -10,7 +10,7 @@ package csstype
 // Globals
 // language=JavaScript
 @JsName("""({button: 'button', checkbox: 'checkbox', listbox: 'listbox', menulist: 'menulist', meter: 'meter', progressBar: 'progress-bar', pushButton: 'push-button', radio: 'radio', searchfield: 'searchfield', sliderHorizontal: 'slider-horizontal', squareButton: 'square-button', textarea: 'textarea', auto: 'auto', menulistButton: 'menulist-button', none: 'none', textfield: 'textfield'})""")
-external interface Appearance {
+sealed external interface Appearance {
     companion object {
         val button: Appearance
         val checkbox: Appearance

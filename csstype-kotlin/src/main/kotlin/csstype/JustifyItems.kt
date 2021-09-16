@@ -10,7 +10,7 @@ package csstype
 // Globals
 // language=JavaScript
 @JsName("""({center: 'center', end: 'end', flexEnd: 'flex-end', flexStart: 'flex-start', selfEnd: 'self-end', selfStart: 'self-start', start: 'start', baseline: 'baseline', left: 'left', legacy: 'legacy', normal: 'normal', right: 'right', stretch: 'stretch'})""")
-external interface JustifyItems {
+sealed external interface JustifyItems {
     companion object {
         val center: JustifyItems
         val end: JustifyItems

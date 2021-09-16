@@ -10,7 +10,7 @@ package csstype
 // Globals
 // language=JavaScript
 @JsName("""({alternate: 'alternate', alternateReverse: 'alternate-reverse', normal: 'normal', reverse: 'reverse'})""")
-external interface AnimationDirection {
+sealed external interface AnimationDirection {
     companion object {
         val alternate: AnimationDirection
         val alternateReverse: AnimationDirection

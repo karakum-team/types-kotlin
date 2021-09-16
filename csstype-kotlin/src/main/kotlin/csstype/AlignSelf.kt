@@ -10,7 +10,7 @@ package csstype
 // Globals
 // language=JavaScript
 @JsName("""({center: 'center', end: 'end', flexEnd: 'flex-end', flexStart: 'flex-start', selfEnd: 'self-end', selfStart: 'self-start', start: 'start', auto: 'auto', baseline: 'baseline', normal: 'normal', stretch: 'stretch'})""")
-external interface AlignSelf {
+sealed external interface AlignSelf {
     companion object {
         val center: AlignSelf
         val end: AlignSelf
