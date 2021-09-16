@@ -86,7 +86,6 @@ private val AT_RULE_TYPES = setOf(
 )
 
 private val EXCLUDED_DATA_TYPES = setOf(
-    "Color",
     "Position",
 
     "DeprecatedSystemColor",
@@ -233,6 +232,7 @@ private fun convertUnion(
             .filter { !it.startsWith("\"-moz-") }
             .filter { !it.startsWith("\"-ms-") }
             .filter { !it.startsWith("\"-webkit-") }
+            .filter { it != "DeprecatedSystemColor" }
             .joinToString(" | ")
 
         when (values) {
