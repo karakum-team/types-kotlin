@@ -1,6 +1,13 @@
 package com.github.turansky.csstype
 
-internal fun String.inlineType(
+internal fun String.inlineTypes(): String =
+    inlineType("CompatAuto")
+        .inlineType("DisplayOutside")
+        .inlineType("DisplayInside")
+        .inlineType("DisplayInternal")
+        .inlineType("DisplayLegacy")
+
+private fun String.inlineType(
     name: String,
 ): String {
     val start = "\n\n  type $name ="
