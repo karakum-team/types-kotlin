@@ -14,6 +14,7 @@ internal fun String.inlineTypes(): String =
         .inlineType("Box")
         .inlineType("FontStretchAbsolute")
         .inlineType("Attachment")
+        .inlineType("RepeatStyle")
 
 private fun String.inlineType(
     name: String,
