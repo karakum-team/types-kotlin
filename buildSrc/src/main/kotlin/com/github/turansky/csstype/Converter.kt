@@ -110,6 +110,7 @@ private fun convertNamespaceTypes(
         .splitToSequence("\ntype ")
         .drop(1)
         .map { it.replace("<TLength>", "") }
+        .map { it.replace("<TTime>", "") }
         .mapNotNull { content ->
             val name = content
                 .substringBefore(" ")
