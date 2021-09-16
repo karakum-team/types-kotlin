@@ -9,6 +9,8 @@ internal fun String.inlineTypes(): String =
         .inlineType("SelfPosition")
         .inlineType("ContentDistribution")
         .inlineType("ContentPosition")
+        .inlineType("SingleAnimationDirection")
+        .inlineType("SingleAnimationFillMode")
 
 private fun String.inlineType(
     name: String,
