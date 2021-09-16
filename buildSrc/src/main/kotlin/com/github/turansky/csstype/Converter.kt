@@ -22,6 +22,7 @@ internal fun convertDefinitions(
                 .substringBefore("<")
 
             when {
+                name == "PropertyValue" -> emptySequence()
                 name.startsWith("Svg") -> emptySequence()
                 name.startsWith("Obsolete") -> emptySequence()
                 name.startsWith("Vendor") -> emptySequence()
