@@ -26,6 +26,7 @@ private fun String.inlineType(
         .trimIndent()
         .removePrefix("| ")
         .replace("\n| ", " | ")
+        .removeSuffix(" | (string & {})")
 
     return replace("$start$originalBody;", "")
         .replace("DataType.$name", body)
