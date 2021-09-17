@@ -3,6 +3,14 @@ package com.github.turansky.csstype
 import com.github.turansky.common.sealedUnionBody
 import com.github.turansky.common.unionBody
 
+private val LENGTH_UNIONS = setOf(
+    "MaskPosition",
+    "ObjectPosition",
+    "Offset",
+    "OffsetAnchor",
+    "PerspectiveOrigin",
+)
+
 internal fun tryToUnion(
     name: String,
     body: String,
@@ -41,6 +49,11 @@ internal fun tryToUnion(
         items[0] == "DataType.Color" && items.size >= 2 -> {
             items = items.drop(1)
             parentType = "ColorProperty"
+        }
+
+        "TLength" in items && items.size >= 2 && name in LENGTH_UNIONS -> {
+            items = items - "TLength"
+            parentType = LENGTH_PROPERTY
         }
 
         "TTime" in items && items.size >= 2 -> {

@@ -12,6 +12,8 @@ internal fun String.inlineTypes(): String =
         .inlineType("SingleAnimationDirection")
         .inlineType("SingleAnimationFillMode")
         .inlineType("Box")
+        .inlineType("GeometryBox")
+        .inlineType("Position")
         .inlineType("FontStretchAbsolute")
         .inlineType("Attachment")
         .inlineType("RepeatStyle")
@@ -31,6 +33,7 @@ private fun String.inlineType(
     name: String,
 ): String {
     val declaration = when (name) {
+        "Position" -> "$name<TLength>"
         "SingleTransition" -> "$name<TTime>"
         else -> name
     }
@@ -53,6 +56,9 @@ private fun String.inlineType(
                 "StepTimingFunction",
                 "EasingFunction",
                 -> it.replace(" $name | ", " $body | ")
+
+                "Box",
+                -> it.replace(" = $name | ", " = $body | ")
 
                 else -> it
             }
