@@ -26,6 +26,13 @@ internal fun tryToUnion(
         return null
 
     items = items.drop(1)
+
+    items = when (name) {
+        "TextDecoration" -> items - "TLength"
+        "MaskBorder" -> items - "(number & {})"
+        else -> items
+    }
+
     if (items.isEmpty())
         return null
 
