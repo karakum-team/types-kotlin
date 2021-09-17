@@ -9,6 +9,12 @@ private val LENGTH_UNIONS = setOf(
     "Offset",
     "OffsetAnchor",
     "PerspectiveOrigin",
+
+    "BackgroundPositionX",
+    "BackgroundPositionY",
+    "TextDecorationThickness",
+    "TransformOrigin",
+    "VerticalAlign",
 )
 
 internal fun tryToUnion(
