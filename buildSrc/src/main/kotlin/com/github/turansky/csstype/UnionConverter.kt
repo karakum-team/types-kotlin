@@ -22,17 +22,23 @@ internal fun tryToUnion(
     }
 
     items = items - "(string & {})"
-    if (items.first() != "Globals")
+    if (items[0] != "Globals")
         return null
 
     items = items.drop(1)
     if (items.isEmpty())
         return null
 
+    var parentType = "Globals"
+    if (items[0] == "DataType.Color" && items.size >= 2) {
+        items = items.drop(1)
+        parentType = "ColorProperty"
+    }
+
     if (!items.all { it.startsWith('"') })
         return null
 
-    val enumBody = "// Globals\n" + sealedUnionBody(name, items.toUnionValues())
+    val enumBody = "// $parentType\n" + sealedUnionBody(name, items.toUnionValues())
     return ConversionResult(name, enumBody)
 }
 
