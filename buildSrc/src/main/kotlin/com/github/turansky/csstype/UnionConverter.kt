@@ -17,15 +17,7 @@ internal fun tryToUnion(
         if (!items.all { it.startsWith('"') })
             return null
 
-        val values = items
-            .asSequence()
-            .map { it.removeSurrounding("\"") }
-            .filter { !it.startsWith("-moz-") }
-            .filter { !it.startsWith("-ms-") }
-            .filter { !it.startsWith("-webkit-") }
-            .toList()
-
-        val enumBody = unionBody(name, values)
+        val enumBody = unionBody(name, items.toUnionValues())
         return ConversionResult(name, enumBody)
     }
 
@@ -40,14 +32,14 @@ internal fun tryToUnion(
     if (!items.all { it.startsWith('"') })
         return null
 
-    val values = items
-        .asSequence()
+    val enumBody = "// Globals\n" + sealedUnionBody(name, items.toUnionValues())
+    return ConversionResult(name, enumBody)
+}
+
+private fun List<String>.toUnionValues(): List<String> =
+    asSequence()
         .map { it.removeSurrounding("\"") }
         .filter { !it.startsWith("-moz-") }
         .filter { !it.startsWith("-ms-") }
         .filter { !it.startsWith("-webkit-") }
         .toList()
-
-    val enumBody = "// Globals\n" + sealedUnionBody(name, values)
-    return ConversionResult(name, enumBody)
-}
