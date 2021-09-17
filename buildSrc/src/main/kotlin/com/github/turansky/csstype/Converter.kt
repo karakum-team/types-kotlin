@@ -10,7 +10,7 @@ internal data class ConversionResult(
 internal fun convertDefinitions(
     definitionsFile: File,
 ): Sequence<ConversionResult> {
-    return definitionsFile.readText()
+    val types = definitionsFile.readText()
         .removePrefix("export {};\n")
         .inlineTypes()
         .splitToSequence("\nexport ", "\ndeclare ")
@@ -32,7 +32,23 @@ internal fun convertDefinitions(
                 content.startsWith("namespace ") -> convertNamespace(content)
                 else -> sequenceOf(convertDefinition(name, content))
             }
-        } + sequenceOf(
+        }
+        .toList()
+
+    val globals = "// Globals\n"
+
+    val globalsParents = types.asSequence()
+        .filter { globals in it.body }
+        .map { it.name }
+        .sorted()
+        .joinToString(",\n")
+
+    val globalsType = ConversionResult(
+        "GlobalsType",
+        "sealed external interface GlobalsType:\n$globalsParents",
+    )
+
+    val propertyTypes = listOf(
         Length(),
         LengthProperty(),
         AutoLengthProperty(),
@@ -42,6 +58,11 @@ internal fun convertDefinitions(
         LineStyleProperty(),
         LineWidthProperty(),
     )
+
+    return types.asSequence()
+        .map { it.copy(body = it.body.replace(globals, "")) }
+        .plus(propertyTypes)
+        .plus(globalsType)
 }
 
 private fun convertNamespace(
