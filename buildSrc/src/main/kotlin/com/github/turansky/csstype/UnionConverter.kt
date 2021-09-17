@@ -37,9 +37,16 @@ internal fun tryToUnion(
         return null
 
     var parentType = "Globals"
-    if (items[0] == "DataType.Color" && items.size >= 2) {
-        items = items.drop(1)
-        parentType = "ColorProperty"
+    when {
+        items[0] == "DataType.Color" && items.size >= 2 -> {
+            items = items.drop(1)
+            parentType = "ColorProperty"
+        }
+
+        "TTime" in items && items.size >= 2 -> {
+            items = items - "TTime"
+            parentType = TIME_PROPERTY
+        }
     }
 
     if (!items.all { it.startsWith('"') })

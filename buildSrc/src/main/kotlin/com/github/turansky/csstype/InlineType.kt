@@ -22,11 +22,20 @@ internal fun String.inlineTypes(): String =
         .inlineType("EastAsianVariantValues")
         .inlineType("Quote")
         .inlineType("ContentList")
+        .inlineType("CubicBezierTimingFunction")
+        .inlineType("StepTimingFunction")
+        .inlineType("EasingFunction")
+        .inlineType("SingleTransition")
 
 private fun String.inlineType(
     name: String,
 ): String {
-    val start = "\n\n  type $name ="
+    val declaration = when (name) {
+        "SingleTransition" -> "$name<TTime>"
+        else -> name
+    }
+    val start = "\n\n  type $declaration ="
+
     val originalBody = substringAfter(start).substringBefore(";\n")
     val body = originalBody
         .removePrefix("\n")
@@ -39,7 +48,12 @@ private fun String.inlineType(
         .replace("DataType.$name", body)
         .let {
             when (name) {
-                "Quote" -> it.replace(" $name | ", " $body | ")
+                "Quote",
+                "CubicBezierTimingFunction",
+                "StepTimingFunction",
+                "EasingFunction",
+                -> it.replace(" $name | ", " $body | ")
+
                 else -> it
             }
         }
