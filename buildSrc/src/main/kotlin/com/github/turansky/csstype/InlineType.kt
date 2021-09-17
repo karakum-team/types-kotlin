@@ -20,6 +20,8 @@ internal fun String.inlineTypes(): String =
         .inlineType("MaskingMode")
         .inlineType("AnimateableFeature")
         .inlineType("EastAsianVariantValues")
+        .inlineType("Quote")
+        .inlineType("ContentList")
 
 private fun String.inlineType(
     name: String,
@@ -35,4 +37,10 @@ private fun String.inlineType(
 
     return replace("$start$originalBody;", "")
         .replace("DataType.$name", body)
+        .let {
+            when (name) {
+                "Quote" -> it.replace(" $name | ", " $body | ")
+                else -> it
+            }
+        }
 }
