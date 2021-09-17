@@ -1,7 +1,5 @@
 package com.github.turansky.csstype
 
-import com.github.turansky.common.sealedUnionBody
-import com.github.turansky.common.unionBody
 import java.io.File
 
 internal data class ConversionResult(
@@ -188,40 +186,8 @@ private fun convertUnion(
     if (body == """"false" | "true"""")
         return ConversionResult(name, "typealias $name = Boolean")
 
-    var items = body
-        .removePrefix("| ")
-        .replace("\n|", " |")
-        .split(" | ")
-
-    if (enumMode) {
-        if (items.all { it.startsWith('"') }) {
-            val values = items
-                .asSequence()
-                .map { it.removeSurrounding("\"") }
-                .filter { !it.startsWith("-moz-") }
-                .filter { !it.startsWith("-ms-") }
-                .filter { !it.startsWith("-webkit-") }
-                .toList()
-
-            val enumBody = unionBody(name, values)
-            return ConversionResult(name, enumBody)
-        }
-    } else {
-        items = items - "(string & {})"
-        if (items.size >= 2 && items[0] == "Globals" && items.drop(1).all { it.startsWith('"') }) {
-            val values = items
-                .asSequence()
-                .drop(1)
-                .map { it.removeSurrounding("\"") }
-                .filter { !it.startsWith("-moz-") }
-                .filter { !it.startsWith("-ms-") }
-                .filter { !it.startsWith("-webkit-") }
-                .toList()
-
-            val enumBody = "// Globals\n" + sealedUnionBody(name, values)
-            return ConversionResult(name, enumBody)
-        }
-    }
+    tryToUnion(name, body, enumMode)
+        ?.let { return it }
 
     when (name) {
         "ColumnGap",
