@@ -260,9 +260,9 @@ private val DOUBLE_TYPES = setOf(
 private fun convertNumberType(
     name: String,
 ): ConversionResult {
-    val type = when {
-        name in INT_TYPES -> "Int"
-        name in DOUBLE_TYPES -> "Double"
+    val type = when (name) {
+        in INT_TYPES -> "Int"
+        in DOUBLE_TYPES -> "Double"
         else -> TODO("Support number type for `$name`")
     }
 
