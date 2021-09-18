@@ -218,31 +218,19 @@ private fun convertUnion(
         -> return ConversionResult(name, "typealias $name = Gap")
     }
 
-    val comment = if ("\n" in body) {
-        val values = body
-            .splitToSequence("\n")
-            .filter { !it.startsWith("| \"-moz-") }
-            .filter { !it.startsWith("| \"-ms-") }
-            .filter { !it.startsWith("| \"-webkit-") }
-            .joinToString("\n")
+    val values = body
+        .splitToSequence("\n", " | ")
+        .map { it.removePrefix("| ") }
+        .filter { !it.startsWith("\"-moz-") }
+        .filter { !it.startsWith("\"-ms-") }
+        .filter { !it.startsWith("\"-webkit-") }
+        .filter { it != "DeprecatedSystemColor" }
+        .joinToString(" | ")
 
-        "/*\n$values\n*/"
-    } else {
-        val values = body
-            .splitToSequence(" | ")
-            .filter { !it.startsWith("\"-moz-") }
-            .filter { !it.startsWith("\"-ms-") }
-            .filter { !it.startsWith("\"-webkit-") }
-            .filter { it != "DeprecatedSystemColor" }
-            .joinToString(" | ")
+    tryToAlias(name, values)
+        ?.let { return it }
 
-        tryToAlias(name, values)
-            ?.let { return it }
-
-        "// $values"
-    }
-
-    return ConversionResult(name, "$comment\nsealed external interface $declaration")
+    return ConversionResult(name, "// $values\nsealed external interface $declaration")
 }
 
 private val LINK_REGEX = Regex("( * @see )(.+)")
