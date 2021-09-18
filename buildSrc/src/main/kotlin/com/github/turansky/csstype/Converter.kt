@@ -246,14 +246,31 @@ private fun convertUnion(
     return ConversionResult(name, "// $values\nsealed external interface $declaration")
 }
 
+private val INT_TYPES = setOf(
+    "Order",
+    "Orphans",
+    "Widows",
+)
+
+private val DOUBLE_TYPES = setOf(
+    "FlexGrow",
+    "FlexShrink",
+)
+
 private fun convertNumberType(
     name: String,
 ): ConversionResult {
+    val type = when {
+        name in INT_TYPES -> "Int"
+        name in DOUBLE_TYPES -> "Double"
+        else -> TODO("Support number type for `$name`")
+    }
+
     val body = """
         // Globals
         sealed external interface $name
         
-        inline fun $name(value: Number): $name =
+        inline fun $name(value: $type): $name =
             value.unsafeCast<$name>()
     """.trimIndent()
 
