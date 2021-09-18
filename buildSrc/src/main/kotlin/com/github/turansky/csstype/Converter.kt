@@ -217,6 +217,9 @@ private fun convertUnion(
         .trimIndent()
         .removeSuffix(";")
 
+    if (body == "Globals | (number & {})")
+        return convertNumberType(name)
+
     if (body == """"false" | "true"""")
         return ConversionResult(name, "typealias $name = Boolean")
 
@@ -241,6 +244,23 @@ private fun convertUnion(
         ?.let { return it }
 
     return ConversionResult(name, "// $values\nsealed external interface $declaration")
+}
+
+private fun convertNumberType(
+    name: String,
+): ConversionResult {
+    val body = """
+        // Globals
+        sealed external interface $name
+        
+        inline fun $name(value: Number): $name =
+            value.unsafeCast<$name>()
+    """.trimIndent()
+
+    return ConversionResult(
+        name = name,
+        body = body,
+    )
 }
 
 private val LINK_REGEX = Regex("( * @see )(.+)")
