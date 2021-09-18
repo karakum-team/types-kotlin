@@ -4,7 +4,7 @@ internal fun unionBody(
     name: String,
     values: List<String>,
 ): String {
-    val constMap = values.associateBy { enumConstant(it) }
+    val constMap = values.associateBy { enumConstant(it, true) }
 
     val constantNames = constMap.keys
         .joinToString("") { "$it,\n" }
@@ -21,7 +21,7 @@ internal fun sealedUnionBody(
     name: String,
     values: List<String>,
 ): String {
-    val constMap = values.associateBy { enumConstant(it) }
+    val constMap = values.associateBy { enumConstant(it, false) }
 
     val constants = constMap.keys
         .joinToString("\n") { "val $it: $name" }
@@ -54,14 +54,34 @@ private fun jsName(
 }
 
 private fun enumConstant(
-    value: String,
-): String =
-    when (value) {
+    source: String,
+    strict: Boolean,
+): String {
+    val value = source
+        .removePrefix("@")
+        .removeSurrounding("[", "]")
+
+    return when (value) {
         "" -> "none"
         "1" -> "D"
-        "false", "true" -> "__${value}__"
+
+        "false",
+        "true",
+
+        "class",
+        "for",
+        "is",
+        "object",
+        -> "__${value}__"
+
+        "data",
+        "name",
+        "open",
+        "value",
+        -> if (strict) "__${value}__" else value
+
         "super" -> "sup"
-        else -> value
-            .removePrefix("@")
-            .kebabToCamel()
+
+        else -> value.kebabToCamel()
     }
+}
