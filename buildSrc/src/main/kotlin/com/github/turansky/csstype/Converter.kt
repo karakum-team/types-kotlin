@@ -10,7 +10,7 @@ internal data class ConversionResult(
 internal fun convertDefinitions(
     definitionsFile: File,
 ): Sequence<ConversionResult> {
-    val types = definitionsFile.readText()
+    var types = definitionsFile.readText()
         .removePrefix("export {};\n")
         .inlineTypes()
         .replace("DeprecatedSystemColor | ", "")
@@ -36,17 +36,12 @@ internal fun convertDefinitions(
         }
         .toList()
 
-    val globals = "// Globals\n"
-
-    val globalsParents = types.asSequence()
-        .filter { globals in it.body }
-        .map { it.name }
-        .sorted()
-        .joinToString(",\n")
+    val globalsContext = ParentContext("// Globals\n")
+    types = globalsContext.apply(types)
 
     val globalsType = ConversionResult(
         "GlobalsType",
-        "sealed external interface GlobalsType:\n$globalsParents",
+        "sealed external interface GlobalsType:\n${globalsContext.get()}",
     )
 
     val propertyTypes = listOf(
@@ -62,7 +57,6 @@ internal fun convertDefinitions(
     )
 
     return types.asSequence()
-        .map { it.copy(body = it.body.replace(globals, "")) }
         .plus(propertyTypes)
         .plus(globalsType)
 }
