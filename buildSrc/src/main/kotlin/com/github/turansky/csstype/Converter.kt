@@ -57,6 +57,7 @@ internal fun convertDefinitions(
         GridLineProperty(),
         LineStyleProperty(),
         LineWidthProperty(),
+        BlendModeProperty(),
     )
 
     return types.asSequence()

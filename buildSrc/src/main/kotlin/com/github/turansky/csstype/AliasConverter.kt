@@ -5,6 +5,10 @@ internal fun tryToAlias(
     body: String,
 ): ConversionResult? =
     when (body) {
+        "Globals | DataType.BlendMode",
+        "Globals | DataType.BlendMode | (string & {})",
+        -> ConversionResult(name, "typealias $name = $BLEND_MODE_PROPERTY")
+
         "Globals | DataType.LineWidth | DataType.LineStyle | DataType.Color | (string & {})",
         -> if (name != "Border") {
             ConversionResult(name, "typealias $name = Border")
