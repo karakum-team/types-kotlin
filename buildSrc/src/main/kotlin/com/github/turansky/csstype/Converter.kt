@@ -176,6 +176,8 @@ private val ENUMS = setOf(
     "Marks",
     "SpeakAs",
     "System",
+
+    "AtRules",
 )
 
 private val ENUM_TAIL = " | (string & {})"

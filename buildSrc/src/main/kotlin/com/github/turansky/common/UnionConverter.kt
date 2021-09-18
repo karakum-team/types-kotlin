@@ -61,5 +61,7 @@ private fun enumConstant(
         "1" -> "D"
         "false", "true" -> "__${value}__"
         "super" -> "sup"
-        else -> value.kebabToCamel()
+        else -> value
+            .removePrefix("@")
+            .kebabToCamel()
     }
