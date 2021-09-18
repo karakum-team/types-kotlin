@@ -30,6 +30,14 @@ internal class ParentContext(
             .sorted()
             .toList()
 
-        return items.map { it.copy(body = it.body.replace(marker, "")) }
+        var result = items.map { it.copy(body = it.body.replace(marker, "")) }
+        if (updateMode) {
+            val oldType = result.first { it.name == type }
+            val newType = oldType.copy(
+                body = oldType.body.replaceFirst(type, "$type:\n${get()}")
+            )
+            result = result - oldType + newType
+        }
+        return result
     }
 }
