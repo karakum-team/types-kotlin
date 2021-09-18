@@ -37,7 +37,14 @@ internal fun convertDefinitions(
         .toList()
 
     val globalsContext = ParentContext("// Globals\n")
-    types = globalsContext.apply(types)
+    val lengthContext = ParentContext("// $LENGTH_PROPERTY\n")
+
+    types = sequenceOf(
+        globalsContext,
+        lengthContext,
+    ).fold(types) { t, context ->
+        context.apply(t)
+    }
 
     val globalsType = ConversionResult(
         "GlobalsType",
@@ -46,7 +53,7 @@ internal fun convertDefinitions(
 
     val propertyTypes = listOf(
         Length(),
-        LengthProperty(),
+        LengthProperty(lengthContext),
         AutoLengthProperty(),
         Time(),
         TimeProperty(),
