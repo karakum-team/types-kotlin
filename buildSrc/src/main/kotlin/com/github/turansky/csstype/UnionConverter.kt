@@ -81,4 +81,11 @@ private fun List<String>.toUnionValues(): List<String> =
         .filter { !it.startsWith("-moz-") }
         .filter { !it.startsWith("-ms-") }
         .filter { !it.startsWith("-webkit-") }
+        .filter { !it.startsWith(":-khtml-") }
+        .filter { !it.startsWith(":-moz-") }
+        .filter { !it.startsWith("::-moz-") }
+        .filter { !it.startsWith(":-ms-") }
+        .filter { !it.startsWith("::-ms-") }
+        .filter { !it.startsWith(":-webkit") }
+        .filter { !it.startsWith("::-webkit") }
         .toList()

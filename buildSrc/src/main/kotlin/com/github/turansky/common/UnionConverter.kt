@@ -60,6 +60,9 @@ private fun enumConstant(
     val value = source
         .removePrefix("@")
         .removeSurrounding("[", "]")
+        .removePrefix("::")
+        .removePrefix(":")
+        .removeSuffix("()")
 
     return when (value) {
         "" -> "none"

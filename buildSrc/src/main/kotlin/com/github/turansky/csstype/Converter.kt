@@ -179,6 +179,8 @@ private val ENUMS = setOf(
 
     "AtRules",
     "HtmlAttributes",
+    "AdvancedPseudos",
+    "SimplePseudos",
 )
 
 private val ENUM_TAIL = " | (string & {})"
