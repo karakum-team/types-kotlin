@@ -27,7 +27,7 @@ internal fun tryToUnion(
         .replace("\n|", " |")
         .split(" | ")
 
-    if (enumMode) {
+    if (enumMode && name != "Color") {
         if (!items.all { it.startsWith('"') })
             return null
 
@@ -36,9 +36,10 @@ internal fun tryToUnion(
     }
 
     items = items - "(string & {})"
-    if (items[0] != "Globals")
+    if (items[0] != "Globals" && items[0] != "NamedColor")
         return null
 
+    var parentType = items[0]
     items = items.drop(1)
 
     items = when (name) {
@@ -50,7 +51,6 @@ internal fun tryToUnion(
     if (items.isEmpty())
         return null
 
-    var parentType = "Globals"
     when {
         items[0] == "DataType.Color" && items.size >= 2 -> {
             items = items.drop(1)

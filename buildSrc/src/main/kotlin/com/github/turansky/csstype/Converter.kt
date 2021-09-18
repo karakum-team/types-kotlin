@@ -13,6 +13,7 @@ internal fun convertDefinitions(
     val types = definitionsFile.readText()
         .removePrefix("export {};\n")
         .inlineTypes()
+        .replace("DeprecatedSystemColor | ", "")
         .splitToSequence("\nexport ", "\ndeclare ")
         .drop(1)
         .flatMap { content ->
@@ -229,7 +230,6 @@ private fun convertUnion(
         .filter { !it.startsWith("\"-moz-") }
         .filter { !it.startsWith("\"-ms-") }
         .filter { !it.startsWith("\"-webkit-") }
-        .filter { it != "DeprecatedSystemColor" }
         .joinToString(" | ")
 
     tryToAlias(name, values)
