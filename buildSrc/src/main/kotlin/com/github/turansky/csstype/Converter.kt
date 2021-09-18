@@ -38,10 +38,12 @@ internal fun convertDefinitions(
 
     val globalsContext = ParentContext("// Globals\n")
     val lengthContext = ParentContext("// $LENGTH_PROPERTY\n")
+    val timeContext = ParentContext("// $TIME_PROPERTY\n")
 
     types = sequenceOf(
         globalsContext,
         lengthContext,
+        timeContext,
     ).fold(types) { t, context ->
         context.apply(t)
     }
@@ -56,7 +58,7 @@ internal fun convertDefinitions(
         LengthProperty(lengthContext),
         AutoLengthProperty(),
         Time(),
-        TimeProperty(),
+        TimeProperty(timeContext),
         GridLineProperty(),
         LineStyleProperty(),
         LineWidthProperty(),
