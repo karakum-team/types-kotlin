@@ -39,11 +39,13 @@ internal fun convertDefinitions(
     val globalsContext = ParentContext("Globals")
     val lengthContext = ParentContext(LENGTH_PROPERTY)
     val timeContext = ParentContext(TIME_PROPERTY)
+    val colorContext = ParentContext(COLOR_PROPERTY, true)
 
     types = sequenceOf(
         globalsContext,
         lengthContext,
         timeContext,
+        colorContext,
     ).fold(types) { t, context ->
         context.apply(t)
     }
