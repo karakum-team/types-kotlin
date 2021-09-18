@@ -235,41 +235,8 @@ private fun convertUnion(
             .filter { it != "DeprecatedSystemColor" }
             .joinToString(" | ")
 
-        when (values) {
-            "Globals | DataType.LineWidth | DataType.LineStyle | DataType.Color | (string & {})",
-            -> if (name != "Border") {
-                return ConversionResult(name, "typealias $name = Border")
-            }
-
-            "Globals | DataType.Color",
-            "Globals | DataType.Color | (string & {})",
-            -> if (name != "ColorProperty") {
-                return ConversionResult(name, "typealias $name = ColorProperty")
-            }
-
-            "Globals | TLength",
-            "Globals | TLength | (string & {})",
-            -> return ConversionResult(name, "typealias $name = $LENGTH_PROPERTY")
-
-            """Globals | TLength | "auto"""",
-            """Globals | TLength | "auto" | (string & {})""",
-            -> return ConversionResult(name, "typealias $name = $AUTO_LENGTH_PROPERTY")
-
-            "Globals | TTime | (string & {})",
-            -> return ConversionResult(name, "typealias $name = $TIME_PROPERTY")
-
-            "Globals | DataType.GridLine",
-            "Globals | DataType.GridLine | (string & {})",
-            -> return ConversionResult(name, "typealias $name = $GRID_LINE_PROPERTY")
-
-            "Globals | DataType.LineStyle",
-            "Globals | DataType.LineStyle | (string & {})",
-            -> return ConversionResult(name, "typealias $name = $LINE_STYLE_PROPERTY")
-
-            "Globals | DataType.LineWidth",
-            "Globals | DataType.LineWidth | (string & {})",
-            -> return ConversionResult(name, "typealias $name = $LINE_WIDTH_PROPERTY")
-        }
+        tryToAlias(name, values)
+            ?.let { return it }
 
         "// $values"
     }
