@@ -36,9 +36,9 @@ internal fun convertDefinitions(
         }
         .toList()
 
-    val globalsContext = ParentContext("// Globals\n")
-    val lengthContext = ParentContext("// $LENGTH_PROPERTY\n")
-    val timeContext = ParentContext("// $TIME_PROPERTY\n")
+    val globalsContext = ParentContext("Globals")
+    val lengthContext = ParentContext(LENGTH_PROPERTY)
+    val timeContext = ParentContext(TIME_PROPERTY)
 
     types = sequenceOf(
         globalsContext,
@@ -196,8 +196,8 @@ private fun convertUnion(
 ): ConversionResult {
     if (source.startsWith("type Color ="))
         return convertUnion(
-            name = "ColorProperty",
-            source = source.replaceFirst("Color", "ColorProperty")
+            name = COLOR_PROPERTY,
+            source = source.replaceFirst("Color", COLOR_PROPERTY)
         )
 
     if (name in ENUMS && (!enumMode || ENUM_TAIL in source))
@@ -289,7 +289,7 @@ private fun convertInterface(
             if ("?: " in it) {
                 var (pname, ptype) = it.split("?: ")
                 ptype = ptype
-                    .replace("Property.Color;", "ColorProperty")
+                    .replace("Property.Color;", COLOR_PROPERTY)
                     .removePrefix("Property.")
                     .removeSuffix(";")
 

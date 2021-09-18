@@ -54,7 +54,7 @@ internal fun tryToUnion(
     when {
         items[0] == "DataType.Color" && items.size >= 2 -> {
             items = items.drop(1)
-            parentType = "ColorProperty"
+            parentType = COLOR_PROPERTY
         }
 
         "TLength" in items && items.size >= 2 && name in LENGTH_UNIONS -> {

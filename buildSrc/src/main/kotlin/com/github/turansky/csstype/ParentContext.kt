@@ -11,8 +11,11 @@ internal interface ParentConsumer {
 }
 
 internal class ParentContext(
-    private val marker: String,
+    private val type: String,
+    private val updateMode: Boolean = false,
 ) : ParentProvider, ParentConsumer {
+    private val marker: String = "// $type\n"
+
     lateinit var parentTypes: List<String>
 
     override fun get(): String =

@@ -16,8 +16,8 @@ internal fun tryToAlias(
 
         "Globals | DataType.Color",
         "Globals | DataType.Color | (string & {})",
-        -> if (name != "ColorProperty") {
-            ConversionResult(name, "typealias $name = ColorProperty")
+        -> if (name != COLOR_PROPERTY) {
+            ConversionResult(name, "typealias $name = $COLOR_PROPERTY")
         } else null
 
         "Globals | TLength",
