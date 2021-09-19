@@ -4,13 +4,16 @@ package csstype
 
 // Globals | TLength
 sealed external interface LengthProperty :
+    BackgroundPosition,
     BackgroundPositionX,
     BackgroundPositionY,
+    BackgroundSize,
     Flex,
     FlexBasis,
     Gap,
     LetterSpacing,
     MaskPosition,
+    MaskSize,
     ObjectPosition,
     Offset,
     OffsetAnchor,
