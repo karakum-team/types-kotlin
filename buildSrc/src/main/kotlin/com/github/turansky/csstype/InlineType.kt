@@ -30,6 +30,7 @@ internal fun String.inlineTypes(): String =
         .inlineType("SingleTransition")
         .inlineType("BgPosition")
         .inlineType("BgSize")
+        .inlineType("AbsoluteSize")
 
 private fun String.inlineType(
     name: String,
@@ -39,10 +40,19 @@ private fun String.inlineType(
         "BgSize",
         "Position",
         -> "$name<TLength>"
-        "SingleTransition" -> "$name<TTime>"
+
+        "SingleTransition",
+        -> "$name<TTime>"
+
         else -> name
     }
-    val start = "\n\n  type $declaration ="
+
+    val startPrefix = when (name) {
+        "AbsoluteSize" -> ""
+        else -> "\n\n"
+    }
+
+    val start = "$startPrefix  type $declaration ="
 
     val originalBody = substringAfter(start).substringBefore(";\n")
     val body = originalBody

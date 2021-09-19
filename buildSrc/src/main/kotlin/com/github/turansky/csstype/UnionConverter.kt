@@ -27,6 +27,9 @@ private val LENGTH_UNIONS = setOf(
 
     "MaskSize",
     "BackgroundSize",
+
+    "FontSize",
+    "FontSmooth",
 )
 
 internal fun tryToUnion(
@@ -38,6 +41,7 @@ internal fun tryToUnion(
         .removePrefix("| ")
         .replace("\n|", " |")
         .split(" | ")
+        .distinct()
 
     if (enumMode && name != "Color") {
         if (!items.all { it.startsWith('"') })
