@@ -28,12 +28,17 @@ internal fun String.inlineTypes(): String =
         .inlineType("StepTimingFunction")
         .inlineType("EasingFunction")
         .inlineType("SingleTransition")
+        .inlineType("BgPosition")
+        .inlineType("BgSize")
 
 private fun String.inlineType(
     name: String,
 ): String {
     val declaration = when (name) {
-        "Position" -> "$name<TLength>"
+        "BgPosition",
+        "BgSize",
+        "Position",
+        -> "$name<TLength>"
         "SingleTransition" -> "$name<TTime>"
         else -> name
     }
