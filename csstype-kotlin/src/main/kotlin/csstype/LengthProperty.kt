@@ -10,6 +10,8 @@ sealed external interface LengthProperty :
     BackgroundSize,
     Flex,
     FlexBasis,
+    FontSize,
+    FontSmooth,
     Gap,
     LetterSpacing,
     MaskPosition,
