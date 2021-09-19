@@ -15,6 +15,14 @@ private val LENGTH_UNIONS = setOf(
     "TextDecorationThickness",
     "TransformOrigin",
     "VerticalAlign",
+
+    "Flex",
+    "FlexBasis",
+    "Gap",
+    "LetterSpacing",
+    "Perspective",
+    "Translate",
+    "WordSpacing",
 )
 
 internal fun tryToUnion(
@@ -43,8 +51,12 @@ internal fun tryToUnion(
     items = items.drop(1)
 
     items = when (name) {
-        "TextDecoration" -> items - "TLength"
-        "MaskBorder" -> items - "(number & {})"
+        "TextDecoration",
+        -> items - "TLength"
+
+        "Flex",
+        "MaskBorder",
+        -> items - "(number & {})"
         else -> items
     }
 
