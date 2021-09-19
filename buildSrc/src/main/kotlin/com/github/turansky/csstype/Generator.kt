@@ -1,6 +1,7 @@
 package com.github.turansky.csstype
 
 import com.github.turansky.common.GENERATOR_COMMENT
+import com.github.turansky.common.Suppress
 import com.github.turansky.common.Suppress.*
 import com.github.turansky.common.fileSuppress
 import java.io.File
@@ -14,18 +15,20 @@ fun generateKotlinDeclarations(
         .also { it.mkdirs() }
 
     for ((name, body) in convertDefinitions(definitionsFile)) {
-        val annotations = when {
-            "inline fun " in body
-            -> fileSuppress(NOTHING_TO_INLINE)
+        val suppresses = mutableListOf<Suppress>().apply {
+            if ("JsName(\"\"\"({" in body)
+                add(NAME_CONTAINS_ILLEGAL_CHARS)
 
-            "companion object" in body
-            -> fileSuppress(NAME_CONTAINS_ILLEGAL_CHARS, NESTED_CLASS_IN_EXTERNAL_INTERFACE)
+            if ("companion object" in body)
+                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
-            "JsName(\"\"\"({" in body
-            -> fileSuppress(NAME_CONTAINS_ILLEGAL_CHARS)
+            if ("inline fun " in body)
+                add(NOTHING_TO_INLINE)
+        }.toTypedArray()
 
-            else -> ""
-        }
+        val annotations = if (suppresses.isNotEmpty()) {
+            fileSuppress(*suppresses)
+        } else ""
 
         targetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
