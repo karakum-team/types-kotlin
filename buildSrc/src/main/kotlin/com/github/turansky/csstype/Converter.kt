@@ -217,8 +217,12 @@ private fun convertUnion(
         .trimIndent()
         .removeSuffix(";")
 
-    if (body == "Globals | (number & {})")
-        return convertNumberType(name)
+    when (body) {
+        "Globals | (number & {})",
+        "Globals | \"auto\" | (number & {})",
+        "Globals | \"none\" | (number & {})",
+        -> return convertNumberType(name, source)
+    }
 
     if (body == """"false" | "true"""")
         return ConversionResult(name, "typealias $name = Boolean")
@@ -250,6 +254,11 @@ private val INT_TYPES = setOf(
     "Order",
     "Orphans",
     "Widows",
+
+    "ColumnCount",
+    "LineClamp",
+    "MaxLines",
+    "ZIndex",
 )
 
 private val DOUBLE_TYPES = setOf(
@@ -259,6 +268,7 @@ private val DOUBLE_TYPES = setOf(
 
 private fun convertNumberType(
     name: String,
+    source: String,
 ): ConversionResult {
     val type = when (name) {
         in INT_TYPES -> "Int"
@@ -266,9 +276,10 @@ private fun convertNumberType(
         else -> TODO("Support number type for `$name`")
     }
 
+    val mainBody = convertUnion(name, source.replace(" | (number & {})", "")).body
+
     val body = """
-        // Globals
-        sealed external interface $name
+        $mainBody
         
         inline fun $name(value: $type): $name =
             value.unsafeCast<$name>()
