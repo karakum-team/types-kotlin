@@ -42,11 +42,11 @@ internal fun convertDefinitions(
     val colorContext = ParentContext(COLOR_PROPERTY, true)
 
     types = sequenceOf(
+        LengthTypeConsumer(),
+        globalsContext,
         lengthContext,
         timeContext,
         colorContext,
-        LengthTypeConsumer(),
-        globalsContext,
     ).fold(types) { t, context ->
         context.apply(t)
     }

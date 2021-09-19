@@ -9,13 +9,13 @@ internal class LengthTypeConsumer : ParentConsumer {
         items: List<ConversionResult>,
     ): List<ConversionResult> {
         val lengthItems = items.filter {
-            "// Globals | TLength" in it.body
+            "// Globals | TLength | " in it.body
         }
 
         val parentMap = lengthItems.asSequence()
             .flatMap { item ->
                 item.body
-                    .substringAfter("// Globals | ")
+                    .substringAfter("// Globals | TLength | ")
                     .substringBefore("\n")
                     .splitToSequence(" | ")
                     .filter { !it.startsWith("(") }
@@ -38,7 +38,7 @@ internal class LengthTypeConsumer : ParentConsumer {
 
         val body = """
             sealed external interface $LENGTH_TYPE: 
-                ${parentMap.getValue("TLength").joinToString(",\n")} {
+                $LENGTH_PROPERTY {
                 
                 $childTypes    
             }
@@ -46,7 +46,7 @@ internal class LengthTypeConsumer : ParentConsumer {
 
         return items - lengthItems +
                 lengthItems.map {
-                    it.copy(body = "// Globals\n" + it.body.substringAfter("\n"))
+                    it.copy(body = "// $LENGTH_PROPERTY\n" + it.body.substringAfter("\n"))
                 } + ConversionResult(LENGTH_TYPE, body)
     }
 }
