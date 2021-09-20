@@ -70,7 +70,7 @@ private fun convertAttributesInterface(
     }
 
     if (name == "DOMAttributes")
-        declaration += ": react.PropsWithChildren"
+        declaration += ": react.PropsWithChildren, react.PropsWithClassName"
 
     val content = when (name) {
         "DOMAttributes" -> source
