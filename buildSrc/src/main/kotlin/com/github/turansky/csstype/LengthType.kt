@@ -26,6 +26,8 @@ internal class LengthTypeConsumer : ParentConsumer {
 
         val childTypes = parentMap.asSequence()
             .filter { it.key != "TLength" }
+            .filter { it.key != "subgrid" }
+            .sortedBy { it.key }
             .map {
                 val name = it.key.kebabToCamel().capitalize()
 

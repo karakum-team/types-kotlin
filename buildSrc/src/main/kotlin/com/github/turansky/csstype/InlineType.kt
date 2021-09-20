@@ -31,6 +31,7 @@ internal fun String.inlineTypes(): String =
         .inlineType("BgPosition")
         .inlineType("BgSize")
         .inlineType("AbsoluteSize")
+        .inlineType("TrackBreadth")
 
 private fun String.inlineType(
     name: String,
@@ -39,6 +40,7 @@ private fun String.inlineType(
         "BgPosition",
         "BgSize",
         "Position",
+        "TrackBreadth",
         -> "$name<TLength>"
 
         "SingleTransition",
