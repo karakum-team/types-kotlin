@@ -32,6 +32,7 @@ internal fun String.inlineTypes(): String =
         .inlineType("BgSize")
         .inlineType("AbsoluteSize")
         .inlineType("TrackBreadth")
+        .inlineType("VisualBox")
 
 private fun String.inlineType(
     name: String,
