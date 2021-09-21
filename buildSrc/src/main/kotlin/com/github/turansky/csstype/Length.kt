@@ -1,10 +1,24 @@
 package com.github.turansky.csstype
 
+import com.github.turansky.common.sealedUnionBody
+
 private const val LENGTH = "Length"
+
+private val LENGTH_LIKE_VALUES = listOf(
+    "auto",
+    "fit-content",
+    "intrinsic",
+    "max-content",
+    "min-content",
+    "min-intrinsic",
+    "none",
+    "normal",
+)
+
 
 internal fun Length(): ConversionResult {
     val declarations = sequenceOf(
-        "sealed external interface $LENGTH: $LENGTH_TYPE",
+        sealedUnionBody(LENGTH, LENGTH_TYPE, LENGTH_LIKE_VALUES),
 
         """
             inline fun $LENGTH(value: String): $LENGTH =

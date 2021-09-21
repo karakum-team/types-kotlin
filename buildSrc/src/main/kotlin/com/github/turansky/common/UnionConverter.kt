@@ -35,6 +35,25 @@ internal fun sealedUnionBody(
     """.trimIndent()
 }
 
+internal fun sealedUnionBody(
+    name: String,
+    parentType: String,
+    values: List<String>,
+): String {
+    val constMap = values.associateBy { enumConstant(it, false) }
+
+    val constants = constMap.keys
+        .joinToString("\n") { "val $it: $parentType.${it.capitalize()}" }
+
+    return jsName(constMap) + """
+        sealed external interface $name: $parentType {
+            companion object {
+                $constants
+            }
+        }
+    """.trimIndent()
+}
+
 private fun jsName(
     constMap: Map<String, String>,
 ): String {
