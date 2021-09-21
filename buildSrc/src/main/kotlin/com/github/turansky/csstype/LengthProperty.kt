@@ -6,8 +6,8 @@ internal fun LengthProperty(
     parentProvider: ParentProvider,
 ): ConversionResult {
     val body = """
-        // Globals | TLength
         sealed external interface $LENGTH_PROPERTY:
+        $AUTO_LENGTH_PROPERTY,
         ${parentProvider.get()}
     """.trimIndent()
 

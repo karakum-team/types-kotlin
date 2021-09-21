@@ -4,7 +4,6 @@ internal const val BLEND_MODE_PROPERTY = "BlendModeProperty"
 
 internal fun BlendModeProperty(): ConversionResult {
     val body = """
-        // Globals | DataType.BlendMode
         sealed external interface $BLEND_MODE_PROPERTY
     """.trimIndent()
 

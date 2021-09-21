@@ -36,15 +36,15 @@ private data class LengthType(
 
 internal fun Length(): ConversionResult {
     val declarations = sequenceOf(
-        "sealed external interface $LENGTH",
+        "sealed external interface $LENGTH: $LENGTH_TYPE",
 
         """
-            inline fun $LENGTH(value: String): Length =
+            inline fun $LENGTH(value: String): $LENGTH =
                 value.unsafeCast<$LENGTH>()
         """.trimIndent()
     ) + TYPES.map { (name, suffix) ->
         """
-            inline val Number.$name: Length
+            inline val Number.$name: $LENGTH
                 get() = "${'$'}{this}$suffix".unsafeCast<$LENGTH>()
         """.trimIndent()
     }

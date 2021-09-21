@@ -4,7 +4,6 @@ internal const val LINE_WIDTH_PROPERTY = "LineWidthProperty"
 
 internal fun LineWidthProperty(): ConversionResult {
     val body = """
-        // Globals | DataType.LineWidth
         sealed external interface $LINE_WIDTH_PROPERTY
     """.trimIndent()
 

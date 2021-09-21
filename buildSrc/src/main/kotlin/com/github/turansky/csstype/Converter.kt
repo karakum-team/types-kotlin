@@ -43,6 +43,7 @@ internal fun convertDefinitions(
 
     types = sequenceOf(
         LengthTypeConsumer(),
+        PropertyConsumer(),
         globalsContext,
         lengthContext,
         timeContext,
@@ -51,9 +52,21 @@ internal fun convertDefinitions(
         context.apply(t)
     }
 
+    val globalsParentTypes = globalsContext.parentTypes
+        .asSequence()
+        .plus(LENGTH_PROPERTY)
+        .plus(TIME_PROPERTY)
+        .plus(COLOR_PROPERTY)
+        .plus(GRID_LINE_PROPERTY)
+        .plus(LINE_STYLE_PROPERTY)
+        .plus(LINE_WIDTH_PROPERTY)
+        .plus(BLEND_MODE_PROPERTY)
+        .sorted()
+        .joinToString(",\n")
+
     val globalsType = ConversionResult(
         "GlobalsType",
-        "sealed external interface GlobalsType:\n${globalsContext.get()}",
+        "sealed external interface GlobalsType:\n$globalsParentTypes",
     )
 
     val propertyTypes = listOf(

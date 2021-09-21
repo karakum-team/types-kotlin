@@ -2,7 +2,7 @@ package com.github.turansky.csstype
 
 import com.github.turansky.common.kebabToCamel
 
-private const val LENGTH_TYPE = "LengthType"
+internal const val LENGTH_TYPE = "LengthType"
 
 internal class LengthTypeConsumer : ParentConsumer {
     override fun apply(
@@ -22,6 +22,7 @@ internal class LengthTypeConsumer : ParentConsumer {
                     .map { it.removeSurrounding("\"") }
                     .map { it to item.name }
             }
+            .plus("auto" to AUTO_LENGTH_PROPERTY)
             .groupBy({ it.first }, { it.second })
 
         val childTypes = parentMap.asSequence()
@@ -33,7 +34,7 @@ internal class LengthTypeConsumer : ParentConsumer {
 
                 """
                     sealed interface $name: 
-                        ${it.value.joinToString(",\n")}
+                        ${it.value.sorted().joinToString(",\n")}
                 """.trimIndent()
             }
             .joinToString("\n\n")
