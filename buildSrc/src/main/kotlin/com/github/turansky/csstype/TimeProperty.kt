@@ -6,7 +6,6 @@ internal fun TimeProperty(
     parentProvider: ParentProvider,
 ): ConversionResult {
     val body = """
-        // Globals | TTime
         sealed external interface $TIME_PROPERTY:
         ${parentProvider.get()}
     """.trimIndent()
