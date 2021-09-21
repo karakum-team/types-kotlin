@@ -15,6 +15,8 @@ internal fun convertMembers(
 
     return content.removeSuffix(";")
         .splitToSequence(";\n")
+        // exclude className because it is inherited
+        .filter { "className?:" !in it }
         .joinToString("\n") {
             convertMember(it, final, typeConverter)
         }
