@@ -1,6 +1,7 @@
 package com.github.turansky.csstype
 
 internal interface ParentProvider {
+    val parentTypes: List<String>
     fun get(): String
 }
 
@@ -16,7 +17,7 @@ internal class ParentContext(
 ) : ParentProvider, ParentConsumer {
     private val marker: String = "// $type\n"
 
-    lateinit var parentTypes: List<String>
+    override lateinit var parentTypes: List<String>
 
     override fun get(): String =
         parentTypes.joinToString(",\n")

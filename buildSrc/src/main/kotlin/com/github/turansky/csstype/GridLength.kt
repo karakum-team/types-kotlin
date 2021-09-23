@@ -1,6 +1,6 @@
 package com.github.turansky.csstype
 
-private const val GRID_LENGTH = "GridLength"
+internal const val GRID_LENGTH = "GridLength"
 
 internal fun GridLength(): ConversionResult {
     val declarations = sequenceOf(

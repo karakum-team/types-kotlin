@@ -2,7 +2,7 @@ package com.github.turansky.csstype
 
 internal const val GRID_LENGTH_PROPERTY = "GridLengthProperty"
 
-private val PARENTS = listOf(
+internal val GRID_LENGTH_PROPERTY_PARENTS = listOf(
     "GridAutoColumns",
     "GridAutoRows",
     "GridTemplateColumns",
@@ -12,7 +12,7 @@ private val PARENTS = listOf(
 internal fun GridLengthProperty(): ConversionResult {
     val body = """
         sealed external interface $GRID_LENGTH_PROPERTY:
-        ${PARENTS.joinToString(",\n")}
+        ${GRID_LENGTH_PROPERTY_PARENTS.joinToString(",\n")}
     """.trimIndent()
 
     return ConversionResult(GRID_LENGTH_PROPERTY, body)

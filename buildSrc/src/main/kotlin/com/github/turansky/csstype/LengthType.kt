@@ -40,7 +40,8 @@ internal class LengthTypeConsumer : ParentConsumer {
             .joinToString("\n\n")
 
         val body = """
-            sealed external interface $LENGTH_TYPE: 
+            sealed external interface $LENGTH_TYPE:
+                $GRID_LENGTH,
                 $LENGTH_PROPERTY {
                 
                 $childTypes    

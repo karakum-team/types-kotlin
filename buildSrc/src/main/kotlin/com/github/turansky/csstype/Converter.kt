@@ -55,6 +55,7 @@ internal fun convertDefinitions(
     val globalsParentTypes = globalsContext.parentTypes
         .asSequence()
         .plus(LENGTH_PROPERTY)
+        .plus(GRID_LENGTH_PROPERTY)
         .plus(TIME_PROPERTY)
         .plus(COLOR_PROPERTY)
         .plus(GRID_LINE_PROPERTY)
