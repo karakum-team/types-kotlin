@@ -331,13 +331,18 @@ private fun convertInterface(
         .substringAfter(" extends ", "")
 
     if (extends.isNotEmpty()) {
+        val annotations = when (name) {
+            "Properties" -> "@$CSS_DSL\n"
+            else -> ""
+        }
+
         val parentTypes = extends.replace("\n", "")
             .splitToSequence(",")
             .map { it.trim() }
             .filter { "Vendor" !in it && "Obsolete" !in it && "Svg" !in it }
             .joinToString(", ")
 
-        return ConversionResult(name, "external interface $declaration: $parentTypes")
+        return ConversionResult(name, "$annotations external interface $declaration: $parentTypes")
     }
 
     val body = source.substringAfter("{\n")
