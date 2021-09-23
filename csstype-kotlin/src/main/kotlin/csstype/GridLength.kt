@@ -2,7 +2,8 @@
 
 package csstype
 
-sealed external interface GridLength
+sealed external interface GridLength :
+    GridLengthProperty
 
 inline val Number.fr: GridLength
     get() = "${this}fr".unsafeCast<GridLength>()

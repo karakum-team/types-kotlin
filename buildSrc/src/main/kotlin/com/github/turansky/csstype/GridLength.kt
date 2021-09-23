@@ -4,7 +4,10 @@ internal const val GRID_LENGTH = "GridLength"
 
 internal fun GridLength(): ConversionResult {
     val declarations = sequenceOf(
-        "sealed external interface $GRID_LENGTH",
+        """
+            sealed external interface $GRID_LENGTH:
+                $GRID_LENGTH_PROPERTY
+        """.trimIndent(),
 
         unitsExtension(GRID_LENGTH, "fr", "fr"),
     )
