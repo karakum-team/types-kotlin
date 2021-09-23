@@ -35,6 +35,7 @@ internal class SimpleTypeConverter(
             // WA for AlignmentBaseline
             .replace("\" |\"", "\" | \"")
             .splitToSequence(" | ")
+            .filter { !it.startsWith("undefined; ") }
             .filter { it != "boolean" }
             .map { it.removeSurrounding("'") }
             .map { it.removeSurrounding("\"") }
