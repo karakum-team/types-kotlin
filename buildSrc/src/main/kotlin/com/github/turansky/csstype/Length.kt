@@ -25,10 +25,7 @@ internal fun Length(): ConversionResult {
                 value.unsafeCast<$LENGTH>()
         """.trimIndent()
     ) + LENGTH_UNITS.map { (name, suffix) ->
-        """
-            inline val Number.$name: $LENGTH
-                get() = "${'$'}{this}$suffix".unsafeCast<$LENGTH>()
-        """.trimIndent()
+        unitsExtension(LENGTH, name, suffix)
     }
 
     return ConversionResult(LENGTH, declarations.joinToString("\n\n"))

@@ -73,6 +73,8 @@ internal fun convertDefinitions(
         Length(),
         LengthProperty(lengthContext),
         AutoLengthProperty(),
+        GridLength(),
+        GridLengthProperty(),
         Time(),
         TimeProperty(timeContext),
         GridLineProperty(),
