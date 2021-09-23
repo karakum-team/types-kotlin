@@ -6,11 +6,6 @@ internal fun GridLength(): ConversionResult {
     val declarations = sequenceOf(
         "sealed external interface $GRID_LENGTH",
 
-        """
-            inline fun $GRID_LENGTH(value: String): $GRID_LENGTH =
-                value.unsafeCast<$GRID_LENGTH>()
-        """.trimIndent(),
-
         unitsExtension(GRID_LENGTH, "fr", "fr"),
     )
 
