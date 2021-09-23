@@ -31,7 +31,15 @@ internal class SimpleTypeConverter(
         propertyName: String,
     ): String {
         val name = unionName(propertyName)
-        val values = type
+
+        val sourceType = if (name == "Capture") {
+            if (!parentName.startsWith("All"))
+                return name
+
+            type.replace("boolean", """"false" | "true"""")
+        } else type
+
+        val values = sourceType
             // WA for AlignmentBaseline
             .replace("\" |\"", "\" | \"")
             .splitToSequence(" | ")
@@ -52,6 +60,9 @@ internal class SimpleTypeConverter(
         propertyName: String,
     ): String =
         when {
+            propertyName == "capture"
+            -> propertyName.capitalize()
+
             propertyName == "enterKeyHint"
             -> propertyName.capitalize()
 
