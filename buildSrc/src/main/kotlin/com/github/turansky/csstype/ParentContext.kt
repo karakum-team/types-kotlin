@@ -13,7 +13,6 @@ internal interface ParentConsumer {
 
 internal class ParentContext(
     private val type: String,
-    private val updateMode: Boolean = false,
 ) : ParentProvider, ParentConsumer {
     private val marker: String = "// $type\n"
 
@@ -31,14 +30,6 @@ internal class ParentContext(
             .sorted()
             .toList()
 
-        var result = items.map { it.copy(body = it.body.replace(marker, "")) }
-        if (updateMode) {
-            val oldType = result.first { it.name == type }
-            val newType = oldType.copy(
-                body = oldType.body.replaceFirst(type, "$type:\n${get()}")
-            )
-            result = result - oldType + newType
-        }
-        return result
+        return items.map { it.copy(body = it.body.replace(marker, "")) }
     }
 }

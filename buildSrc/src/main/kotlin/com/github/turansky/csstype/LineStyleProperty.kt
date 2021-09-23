@@ -4,7 +4,8 @@ internal const val LINE_STYLE_PROPERTY = "LineStyleProperty"
 
 internal fun LineStyleProperty(): ConversionResult {
     val body = """
-        sealed external interface $LINE_STYLE_PROPERTY
+        sealed external interface $LINE_STYLE_PROPERTY: 
+            $BORDER
     """.trimIndent()
 
     return ConversionResult(LINE_STYLE_PROPERTY, body)

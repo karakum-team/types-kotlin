@@ -10,9 +10,10 @@ internal fun tryToAlias(
         -> ConversionResult(name, "typealias $name = $BLEND_MODE_PROPERTY")
 
         "Globals | DataType.LineWidth | DataType.LineStyle | DataType.Color | (string & {})",
-        -> if (name != "Border") {
-            ConversionResult(name, "typealias $name = Border")
-        } else null
+        -> when (name) {
+            BORDER -> ConversionResult(name, "sealed external interface $name")
+            else -> ConversionResult(name, "typealias $name = $BORDER")
+        }
 
         "Globals | DataType.Color",
         "Globals | DataType.Color | (string & {})",

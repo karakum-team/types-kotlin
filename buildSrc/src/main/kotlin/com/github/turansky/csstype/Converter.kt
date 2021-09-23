@@ -39,7 +39,6 @@ internal fun convertDefinitions(
     val globalsContext = ParentContext("Globals")
     val lengthContext = ParentContext(LENGTH_PROPERTY)
     val timeContext = ParentContext(TIME_PROPERTY)
-    val colorContext = ParentContext(COLOR_PROPERTY, true)
 
     types = sequenceOf(
         LengthTypeConsumer(),
@@ -47,7 +46,7 @@ internal fun convertDefinitions(
         globalsContext,
         lengthContext,
         timeContext,
-        colorContext,
+        ColorConsumer(),
     ).fold(types) { t, context ->
         context.apply(t)
     }
