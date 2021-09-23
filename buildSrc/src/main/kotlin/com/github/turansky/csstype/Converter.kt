@@ -86,6 +86,7 @@ internal fun convertDefinitions(
     return types.asSequence()
         .plus(propertyTypes)
         .plus(globalsType)
+        .plus(CssDsl())
 }
 
 private fun convertNamespace(
