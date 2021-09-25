@@ -248,6 +248,9 @@ private fun convertUnion(
         -> return convertNumberType(name, source)
     }
 
+    if (name == "FontWeight" && "(number & {})" in source)
+        return convertNumberType(name, source)
+
     if (body == """"false" | "true"""")
         return ConversionResult(name, "typealias $name = Boolean")
 
@@ -283,6 +286,8 @@ private val INT_TYPES = setOf(
     "LineClamp",
     "MaxLines",
     "ZIndex",
+
+    "FontWeight",
 )
 
 private val DOUBLE_TYPES = setOf(
