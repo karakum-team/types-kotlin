@@ -22,6 +22,9 @@ fun generateKotlinDeclarations(
             if ("companion object" in body)
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
+            if ("inline operator fun " in body)
+                add(DECLARATION_CANT_BE_INLINED)
+
             if ("inline fun " in body)
                 add(NOTHING_TO_INLINE)
         }.toTypedArray()
