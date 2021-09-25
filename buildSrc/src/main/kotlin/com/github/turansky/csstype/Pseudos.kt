@@ -2,11 +2,29 @@ package com.github.turansky.csstype
 
 import com.github.turansky.common.enumConstant
 
+internal fun convertMetaPseudos(
+    name: String,
+    source: String,
+): ConversionResult {
+    val builderName = "$name$RULE_BUILDER"
+    val parentTypes = source
+        .substringAfter(" = ")
+        .substringBefore(";")
+        .splitToSequence(" | ")
+        .minus("AdvancedPseudos")
+        .joinToString(",\n") { "$it$RULE_BUILDER<T>" }
+
+    return ConversionResult(
+        builderName,
+        "interface $builderName<T: Any>:\n$parentTypes",
+    )
+}
+
 internal fun convertPseudos(
     name: String,
     source: String,
 ): ConversionResult {
-    val builderName = "${name}RuleBuilder"
+    val builderName = "$name$RULE_BUILDER"
     val selectors = source.substringAfter("=\n")
         .substringBefore(";")
         .trimIndent()

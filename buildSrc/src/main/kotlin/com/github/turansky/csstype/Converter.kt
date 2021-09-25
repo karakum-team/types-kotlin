@@ -28,6 +28,7 @@ internal fun convertDefinitions(
                 name.startsWith("Vendor") -> emptySequence()
                 name.contains("Hyphen") -> emptySequence()
                 name.contains("Fallback") -> emptySequence()
+                name == "Pseudos" -> sequenceOf(convertMetaPseudos(name, content))
                 name == "SimplePseudos" -> sequenceOf(convertPseudos(name, content))
                 content.startsWith("namespace AtRule ") -> convertNamespace(content) + convertNamespaceTypes(content, AT_RULE_TYPES)
                 content.startsWith("namespace DataType ") -> convertNamespaceTypes(content)
