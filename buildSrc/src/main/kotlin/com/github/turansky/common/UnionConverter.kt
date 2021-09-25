@@ -72,7 +72,7 @@ private fun jsName(
     """.trimIndent()
 }
 
-private fun enumConstant(
+internal fun enumConstant(
     source: String,
     strict: Boolean,
 ): String {

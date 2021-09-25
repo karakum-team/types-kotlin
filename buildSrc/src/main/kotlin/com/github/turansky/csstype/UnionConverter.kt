@@ -97,7 +97,7 @@ internal fun tryToUnion(
     return ConversionResult(name, enumBody)
 }
 
-private fun List<String>.toUnionValues(): List<String> =
+internal fun List<String>.toUnionValues(): List<String> =
     asSequence()
         .map { it.removeSurrounding("\"") }
         .filter { !it.startsWith("-moz-") }
