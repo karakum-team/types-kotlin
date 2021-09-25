@@ -11,7 +11,6 @@ internal fun convertMetaPseudos(
         .substringAfter(" = ")
         .substringBefore(";")
         .splitToSequence(" | ")
-        .minus("AdvancedPseudos")
         .joinToString(",\n") { "$it$RULE_BUILDER<T>" }
 
     return ConversionResult(
@@ -24,6 +23,39 @@ internal fun convertPseudos(
     name: String,
     source: String,
 ): ConversionResult {
+    val method: (String) -> String = when (name) {
+        "SimplePseudos" -> { selector ->
+            """
+            inline fun ${enumConstant(selector, false)}(
+                block: T.() -> Unit,
+            ) {
+                "$selector"(block)
+            }
+            """.trimIndent()
+        }
+
+        "AdvancedPseudos" -> { selector ->
+            """
+            inline fun ${enumConstant(selector, false)}(
+                selector: String,
+                block: T.() -> Unit,
+            ) {
+                "$selector(${'$'}selector)"(block)
+            }
+            """.trimIndent()
+        }
+
+        else -> TODO("Method for `$name`")
+    }
+
+    return convertPseudos(name, source, method)
+}
+
+private fun convertPseudos(
+    name: String,
+    source: String,
+    method: (selector: String) -> String,
+): ConversionResult {
     val builderName = "$name$RULE_BUILDER"
     val selectors = source.substringAfter("=\n")
         .substringBefore(";")
@@ -33,15 +65,7 @@ internal fun convertPseudos(
         .toUnionValues()
         .distinctBy { it.removePrefix("::").removePrefix(":") }
 
-    val methods = selectors.joinToString("\n\n") { selector ->
-        """
-            inline fun ${enumConstant(selector, false)}(
-                block: T.() -> Unit,
-            ) {
-                "$selector"(block)
-            }
-        """.trimIndent()
-    }
+    val methods = selectors.joinToString("\n\n", transform = method)
 
     val body = """
         interface $builderName<T: Any>: $RULE_BUILDER<T> {
@@ -51,3 +75,4 @@ internal fun convertPseudos(
 
     return ConversionResult(builderName, body)
 }
+
