@@ -83,10 +83,15 @@ internal fun convertDefinitions(
         BlendModeProperty(),
     )
 
+    val builderTypes = listOf(
+        CssDsl(),
+        RuleBuilder(),
+    )
+
     return types.asSequence()
         .plus(propertyTypes)
         .plus(globalsType)
-        .plus(CssDsl())
+        .plus(builderTypes)
 }
 
 private fun convertNamespace(
