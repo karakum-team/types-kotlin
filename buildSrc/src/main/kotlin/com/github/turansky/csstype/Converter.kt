@@ -248,6 +248,16 @@ private fun convertUnion(
         -> return convertNumberType(name, source)
     }
 
+    if ("(number & {})" in source) {
+        when (name) {
+            "FontWeight",
+            "Opacity",
+            "Scale",
+            "Zoom",
+            -> return convertNumberType(name, source.replace(" | (string & {})", ""))
+        }
+    }
+
     if (name == "FontWeight" && "(number & {})" in source)
         return convertNumberType(name, source)
 
@@ -293,6 +303,10 @@ private val INT_TYPES = setOf(
 private val DOUBLE_TYPES = setOf(
     "FlexGrow",
     "FlexShrink",
+
+    "Opacity",
+    "Scale",
+    "Zoom",
 )
 
 private fun convertNumberType(
