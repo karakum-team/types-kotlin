@@ -13,7 +13,6 @@ internal fun String.inlineTypes(): String =
         .inlineType("SingleAnimationFillMode")
         .inlineType("Box")
         .inlineType("GeometryBox")
-        .inlineType("Position")
         .inlineType("FontStretchAbsolute")
         .inlineType("Attachment")
         .inlineType("RepeatStyle")
@@ -31,9 +30,12 @@ internal fun String.inlineTypes(): String =
         .inlineType("BgPosition")
         .inlineType("BgSize")
         .inlineType("AbsoluteSize")
+        .inlineType("Position")
         .inlineType("TrackBreadth")
         .inlineType("VisualBox")
         .inlineType("FontWeightAbsolute")
+        .inlineType("FinalBgLayer")
+        .inlineType("MaskLayer")
 
 private fun String.inlineType(
     name: String,
@@ -43,6 +45,8 @@ private fun String.inlineType(
         "BgSize",
         "Position",
         "TrackBreadth",
+        "FinalBgLayer",
+        "MaskLayer",
         -> "$name<TLength>"
 
         "SingleTransition",
@@ -69,17 +73,14 @@ private fun String.inlineType(
     return replace("$start$originalBody;", "")
         .replace("DataType.$name", body)
         .let {
-            when (name) {
-                "Quote",
-                "CubicBezierTimingFunction",
-                "StepTimingFunction",
-                "EasingFunction",
-                -> it.replace(" $name | ", " $body | ")
+            val originalName = when (name) {
+                "Position",
+                "BgPosition",
+                -> declaration
 
-                "Box",
-                -> it.replace(" = $name | ", " = $body | ")
-
-                else -> it
+                else -> name
             }
+
+            it.replace(" $originalName | ", " $body | ")
         }
 }
