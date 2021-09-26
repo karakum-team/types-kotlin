@@ -32,4 +32,6 @@ internal val SVG_TYPES = setOf(
     "StrokeWidth",
     "TextAnchor",
     "VectorEffect",
+
+    "Viewport",
 )

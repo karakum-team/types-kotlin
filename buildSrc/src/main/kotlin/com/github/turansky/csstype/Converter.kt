@@ -130,11 +130,6 @@ private val AT_RULE_TYPES = setOf(
     "Inherits",
     "AlignContent",
     "Hyphens",
-    "MaxZoom",
-    "MinZoom",
-    "Orientation",
-    "UserZoom",
-    "ViewportFit",
     "Range",
     "SpeakAs",
     "System",
@@ -149,6 +144,9 @@ private val AT_RULE_TYPES = setOf(
 private val EXCLUDED_DATA_TYPES = setOf(
     "Paint",
     "Position",
+
+    "Dasharray",
+    "ViewportLength",
 
     "DeprecatedSystemColor",
 )
