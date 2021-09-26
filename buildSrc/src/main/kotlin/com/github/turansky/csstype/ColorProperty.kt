@@ -11,6 +11,7 @@ internal class ColorConsumer : ParentConsumer {
         val parentTypes = items.asSequence()
             .filter { marker in it.body }
             .map { it.name }
+            .plus(BACKGROUND)
             .plus(BORDER)
             .sorted()
             .joinToString(",\n")

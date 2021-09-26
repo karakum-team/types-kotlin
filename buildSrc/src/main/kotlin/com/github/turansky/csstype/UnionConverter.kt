@@ -32,6 +32,9 @@ private val LENGTH_UNIONS = setOf(
     "FontSmooth",
 
     "OverflowClipMargin",
+
+    "Background",
+    "Mask",
 )
 
 internal fun tryToUnion(

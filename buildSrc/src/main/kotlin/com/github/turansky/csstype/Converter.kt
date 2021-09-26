@@ -224,6 +224,12 @@ private fun convertUnion(
             source = source.replaceFirst("Color", COLOR_PROPERTY)
         )
 
+    if (name == BACKGROUND && "| Color " in source)
+        return convertUnion(
+            name = name,
+            source = source.replaceFirst("| Color ", "")
+        )
+
     if (name in ENUMS && (!enumMode || ENUM_TAIL in source))
         return convertUnion(
             name = name,
