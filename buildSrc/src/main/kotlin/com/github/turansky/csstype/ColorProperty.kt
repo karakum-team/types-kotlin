@@ -13,6 +13,7 @@ internal class ColorConsumer : ParentConsumer {
             .map { it.name }
             .plus(BACKGROUND)
             .plus(BORDER)
+            .plus(OUTLINE)
             .sorted()
             .joinToString(",\n")
 

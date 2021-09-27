@@ -275,6 +275,13 @@ private fun convertUnion(
         "ColumnGap",
         "RowGap",
         -> return ConversionResult(name, "typealias $name = Gap")
+
+        "Outline",
+        -> return tryToUnion(
+            name = name,
+            body = body.replace("DataType.Color | DataType.LineStyle | DataType.LineWidth | ", ""),
+            enumMode = false,
+        )!!
     }
 
     val values = body
