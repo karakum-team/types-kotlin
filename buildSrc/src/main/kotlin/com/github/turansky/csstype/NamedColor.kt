@@ -2,7 +2,7 @@ package com.github.turansky.csstype
 
 internal const val NAMED_COLOR = "NamedColor"
 
-private val VALUE_MAP = mapOf(
+internal val NAMED_COLOR_MAP = mapOf(
     "transparent" to "rgba(0,0,0,0)",
 
     "aliceblue" to "#F0F8FF",
@@ -124,6 +124,7 @@ private val VALUE_MAP = mapOf(
     "plum" to "#DDA0DD",
     "powderblue" to "#B0E0E6",
     "purple" to "#800080",
+    "rebeccapurple" to "#663399",
     "red" to "#FF0000",
     "rosybrown" to "#BC8F8F",
     "royalblue" to "#4169E1",

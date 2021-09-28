@@ -52,9 +52,17 @@ internal fun tryToUnion(
         if (!items.all { it.startsWith('"') })
             return null
 
-        var enumBody = unionBody(name, items.toUnionValues())
-        if (name == NAMED_COLOR)
-            enumBody = enumBody.replaceFirst(NAMED_COLOR, "$NAMED_COLOR: Color")
+        val enumBody = when (name) {
+            NAMED_COLOR -> {
+                val constMap = items.toUnionValues()
+                    .associateWith(NAMED_COLOR_MAP::getValue)
+
+                unionBody(name, constMap)
+                    .replaceFirst(NAMED_COLOR, "$NAMED_COLOR: Color")
+            }
+
+            else -> unionBody(name, items.toUnionValues())
+        }
 
         return ConversionResult(name, enumBody)
     }

@@ -3,9 +3,13 @@ package com.github.turansky.common
 internal fun unionBody(
     name: String,
     values: List<String>,
-): String {
-    val constMap = values.associateBy { enumConstant(it, true) }
+): String =
+    unionBody(name, values.associateBy { enumConstant(it, true) })
 
+internal fun unionBody(
+    name: String,
+    constMap: Map<String, String>,
+): String {
     val constantNames = constMap.keys
         .joinToString("") { "$it,\n" }
 
