@@ -8,7 +8,7 @@ interface $RULE_BUILDER<T: Any> {
     inline operator fun String.invoke(
         block: T.() -> Unit,
     ) {
-        this@$RULE_BUILDER.asDynamic()[this] = block(js("({})"))
+        this@$RULE_BUILDER.asDynamic()[this] = js("({})").unsafeCast<T>().apply(block)
     }
 }
 """.trimIndent()
