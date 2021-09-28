@@ -52,7 +52,10 @@ internal fun tryToUnion(
         if (!items.all { it.startsWith('"') })
             return null
 
-        val enumBody = unionBody(name, items.toUnionValues())
+        var enumBody = unionBody(name, items.toUnionValues())
+        if (name == "NamedColor")
+            enumBody = enumBody.replaceFirst("NamedColor", "NamedColor: Color")
+
         return ConversionResult(name, enumBody)
     }
 
@@ -96,7 +99,12 @@ internal fun tryToUnion(
     if (!items.all { it.startsWith('"') })
         return null
 
-    val enumBody = "// $parentType\n" + sealedUnionBody(name, items.toUnionValues())
+    val comment = when (parentType) {
+        "NamedColor" -> ""
+        else -> "// $parentType\n"
+    }
+
+    val enumBody = comment + sealedUnionBody(name, items.toUnionValues())
     return ConversionResult(name, enumBody)
 }
 
