@@ -53,14 +53,14 @@ internal fun tryToUnion(
             return null
 
         var enumBody = unionBody(name, items.toUnionValues())
-        if (name == "NamedColor")
-            enumBody = enumBody.replaceFirst("NamedColor", "NamedColor: Color")
+        if (name == NAMED_COLOR)
+            enumBody = enumBody.replaceFirst(NAMED_COLOR, "$NAMED_COLOR: Color")
 
         return ConversionResult(name, enumBody)
     }
 
     items = items - "(string & {})"
-    if (items[0] != "Globals" && items[0] != "NamedColor")
+    if (items[0] != "Globals" && items[0] != NAMED_COLOR)
         return null
 
     var parentType = items[0]
@@ -100,7 +100,7 @@ internal fun tryToUnion(
         return null
 
     val comment = when (parentType) {
-        "NamedColor" -> ""
+        NAMED_COLOR -> ""
         else -> "// $parentType\n"
     }
 

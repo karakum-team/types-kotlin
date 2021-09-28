@@ -1,5 +1,7 @@
 package com.github.turansky.csstype
 
+internal const val NAMED_COLOR = "NamedColor"
+
 private val VALUE_MAP = mapOf(
     "transparent" to "rgba(0,0,0,0)",
 
