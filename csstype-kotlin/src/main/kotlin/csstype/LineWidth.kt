@@ -7,7 +7,6 @@
 
 package csstype
 
-// TLength
 // language=JavaScript
 @JsName("""({medium: 'medium', thick: 'thick', thin: 'thin'})""")
 sealed external interface LineWidth : LineWidthProperty {
