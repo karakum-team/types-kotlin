@@ -12,6 +12,10 @@ internal class LengthTypeConsumer : ParentConsumer {
             "// Globals | TLength | " in it.body
         }
 
+        val simpleLengthItems = items.filter {
+            "// TLength\n" in it.body
+        }
+
         val parentMap = lengthItems.asSequence()
             .flatMap { item ->
                 item.body
@@ -39,18 +43,29 @@ internal class LengthTypeConsumer : ParentConsumer {
             }
             .joinToString("\n\n")
 
+        val lengthTypeParents = sequenceOf(
+            GRID_LENGTH,
+            LENGTH_PROPERTY,
+        ).plus(simpleLengthItems.map { it.name })
+            .sorted()
+
         val body = """
             sealed external interface $LENGTH_TYPE:
-                $GRID_LENGTH,
-                $LENGTH_PROPERTY {
+                ${lengthTypeParents.joinToString(",\n")} {
                 
                 $childTypes    
             }
         """.trimIndent()
 
-        return items - lengthItems +
+        return items -
+                lengthItems +
                 lengthItems.map {
                     it.copy(body = "// $LENGTH_PROPERTY\n" + it.body.substringAfter("\n"))
-                } + ConversionResult(LENGTH_TYPE, body)
+                } -
+                simpleLengthItems +
+                simpleLengthItems.map {
+                    it.copy(body = it.body.replaceFirst("// TLength\n", ""))
+                } +
+                ConversionResult(LENGTH_TYPE, body)
     }
 }
