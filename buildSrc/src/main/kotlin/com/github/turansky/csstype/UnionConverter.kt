@@ -37,6 +37,12 @@ private val LENGTH_UNIONS = setOf(
     "Mask",
 )
 
+private val EXCLUDED_ENUMS = setOf(
+    "Color",
+    "LineWidth",
+    "Bleed",
+)
+
 internal fun tryToUnion(
     name: String,
     body: String,
@@ -48,7 +54,7 @@ internal fun tryToUnion(
         .split(" | ")
         .distinct()
 
-    if (enumMode && name != "Color") {
+    if (enumMode && name !in EXCLUDED_ENUMS) {
         if (!items.all { it.startsWith('"') })
             return null
 
@@ -68,8 +74,14 @@ internal fun tryToUnion(
     }
 
     items = items - "(string & {})"
-    if (items[0] != "Globals" && items[0] != NAMED_COLOR)
-        return null
+    when (items[0]) {
+        "Globals",
+        NAMED_COLOR,
+        "TLength",
+        -> Unit
+
+        else -> return null
+    }
 
     var parentType = items[0]
     items = items.drop(1)
