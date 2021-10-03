@@ -4,7 +4,7 @@ package react.svg
 
 @Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
 // language=JavaScript
-@JsName("""({replace: 'replace', sum: 'sum'})""")
+@JsName("""(/*union*/{replace: 'replace', sum: 'sum'}/*union*/)""")
 external enum class Additive {
     replace,
     sum,

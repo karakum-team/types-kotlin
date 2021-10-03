@@ -4,7 +4,7 @@ package react.svg
 
 @Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
 // language=JavaScript
-@JsName("""({none: 'none', sum: 'sum'})""")
+@JsName("""(/*union*/{none: 'none', sum: 'sum'}/*union*/)""")
 external enum class Accumulate {
     none,
     sum,

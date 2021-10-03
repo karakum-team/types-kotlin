@@ -4,7 +4,7 @@ package react.svg
 
 @Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
 // language=JavaScript
-@JsName("""({miter: 'miter', round: 'round', bevel: 'bevel', inherit: 'inherit'})""")
+@JsName("""(/*union*/{miter: 'miter', round: 'round', bevel: 'bevel', inherit: 'inherit'}/*union*/)""")
 external enum class StrokeLinejoin {
     miter,
     round,
