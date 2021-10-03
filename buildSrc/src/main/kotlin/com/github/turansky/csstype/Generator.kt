@@ -16,7 +16,7 @@ fun generateKotlinDeclarations(
 
     for ((name, body) in convertDefinitions(definitionsFile)) {
         val suppresses = mutableListOf<Suppress>().apply {
-            if ("JsName(\"\"\"({" in body)
+            if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
 
             if ("companion object" in body)

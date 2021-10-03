@@ -1,5 +1,7 @@
 package com.github.turansky.common
 
+private const val UNION = """/*union*/"""
+
 internal fun unionBody(
     name: String,
     values: List<String>,
@@ -64,8 +66,8 @@ private fun jsName(
     val name = constMap.asSequence()
         .joinToString(
             separator = ", ",
-            prefix = "@JsName(\"\"\"({",
-            postfix = "})\"\"\")",
+            prefix = "@JsName(\"\"\"($UNION{",
+            postfix = "}$UNION)\"\"\")",
         ) { (key, value) ->
             "$key: '$value'"
         }
