@@ -24,7 +24,7 @@ fun generateKotlinDeclarations(
                 "DOMAttributes",
                 "AriaRole",
             ).fold(body) { acc, clazz ->
-                acc.replace(clazz, "react.dom.$clazz")
+                acc.replace(clazz, "react.dom.html.$clazz")
             }
         } else body
 
