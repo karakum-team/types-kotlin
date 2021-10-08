@@ -16,7 +16,11 @@ fun generateKotlinDeclarations(
             else -> ""
         }
 
-        val finalPkg = if ("SVG" in name) Package.SVG else pkg
+        val finalPkg = when {
+            "SVG" in name -> Package.SVG
+            name == "PointerType" -> Package.EVENTS
+            else -> pkg
+        }
 
         val content = if (finalPkg == Package.SVG) {
             sequenceOf(

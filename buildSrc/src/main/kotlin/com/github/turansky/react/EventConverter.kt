@@ -31,7 +31,7 @@ internal fun convertNativeEvents(
             "typealias $name = $alias"
         }
 
-    return ConversionResult("NativeEvents", body)
+    return ConversionResult("NativeEvents", body, Package.EVENTS)
 }
 
 private const val EVENT_HANDLER = "typealias EventHandler<E> = (event: E) -> Unit"
@@ -52,13 +52,14 @@ internal fun convertEventHandlers(
 
     val body = EVENT_HANDLER + "\n\n" + handlers
 
-    return ConversionResult("EventHandlers", body)
+    return ConversionResult("EventHandlers", body, Package.EVENTS)
 }
 
 private const val DEFAULT_EVENT_IMPORTS = """
 import org.w3c.dom.Element
 import org.w3c.dom.events.Event
 import org.w3c.dom.events.EventTarget
+import react.dom.html.AbstractView
 """
 
 internal fun convertEventInterface(
@@ -87,5 +88,5 @@ internal fun convertEventInterface(
             members +
             "\n}\n"
 
-    return ConversionResult(name, body)
+    return ConversionResult(name, body, Package.EVENTS)
 }

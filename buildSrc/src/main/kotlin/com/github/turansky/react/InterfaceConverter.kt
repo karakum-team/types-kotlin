@@ -105,7 +105,8 @@ private fun convertAttributesInterface(
         "external interface $name\n\n" +
                 members.replace("var ", "var $name.")
     } else {
-        "import org.w3c.dom.Element\n\n" +
+        "import org.w3c.dom.Element\n" +
+                "import react.dom.events.*\n\n" +
                 "external interface $declaration {\n" +
                 members +
                 "\n}\n"
