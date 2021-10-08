@@ -3,8 +3,11 @@
 package react.dom.svg
 
 import org.w3c.dom.Element
+import react.dom.aria.AriaAttributes
+import react.dom.aria.AriaRole
+import react.dom.html.DOMAttributes
 
-external interface SVGAttributes<T : Element> : react.dom.html.AriaAttributes, react.dom.html.DOMAttributes<T> {
+external interface SVGAttributes<T : Element> : AriaAttributes, DOMAttributes<T> {
     var color: String?
     var height: Double?
     var id: String?
@@ -20,7 +23,7 @@ external interface SVGAttributes<T : Element> : react.dom.html.AriaAttributes, r
     var width: Double?
 
     // Other HTML properties supported by SVG elements in browsers
-    var role: react.dom.html.AriaRole?
+    var role: AriaRole?
     var tabIndex: Int?
     var crossOrigin: CrossOrigin?
 
