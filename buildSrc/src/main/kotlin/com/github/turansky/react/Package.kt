@@ -1,6 +1,7 @@
 package com.github.turansky.react
 
 internal enum class Package {
+    ARIA,
     EVENTS,
     HTML,
     SVG,
