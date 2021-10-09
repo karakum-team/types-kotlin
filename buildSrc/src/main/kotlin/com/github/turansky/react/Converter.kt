@@ -27,7 +27,7 @@ internal fun convertDefinitions(
     val reactContent = content
         .substringAfter("declare namespace React {\n")
         .substringBefore("\n}\n")
-        .replace(Regex("""( ReactSVG \{\n).+?(\n\s+})""")) {
+        .replace(Regex("""( ReactSVG \{\n).+?(\n\s+})""", RegexOption.DOT_MATCHES_ALL)) {
             "${it.groupValues[1]}$svgTypes${it.groupValues[2]}"
         }
         .trimIndent()
