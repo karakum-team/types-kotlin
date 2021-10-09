@@ -4,12 +4,11 @@ import com.github.turansky.common.Suppress.VAR_TYPE_MISMATCH_ON_OVERRIDE
 import com.github.turansky.common.suppress
 
 private val TYPE_CONTAINER_IMPORTS = """
+import org.w3c.css.masking.*
 import org.w3c.dom.*    
+import org.w3c.dom.svg.*    
 import react.IntrinsicType    
 """.trimIndent()
-
-private const val SVG_TYPE = "DefaultSvgType"
-private const val SVG_TYPE_DECLARATION = "typealias $SVG_TYPE = IntrinsicType<SVGAttributes<org.w3c.dom.svg.SVGElement>>"
 
 internal fun convertInterface(
     name: String,
@@ -21,7 +20,7 @@ internal fun convertInterface(
         name.endsWith("Attributes") -> convertAttributesInterface(name, source, typeConverter)
 
         name == "ReactHTML" -> convertIntrinsicTypes(name, source, ::convertHtmlType)
-        name == "ReactSVG" -> convertIntrinsicTypes(name, source, ::convertSvgType, SVG_TYPE_DECLARATION)
+        name == "ReactSVG" -> convertIntrinsicTypes(name, source, ::convertSvgType)
 
         name == "AbstractView" -> convertInterface(name, source, typeConverter)
         name == "StyleMedia" -> convertInterface(name, source, typeConverter)
@@ -119,7 +118,6 @@ private fun convertIntrinsicTypes(
     name: String,
     source: String,
     convert: (String) -> String,
-    vararg aliases: String,
 ): ConversionResult {
     val content = source.substringAfter("{\n")
         .trimIndent()
@@ -133,7 +131,6 @@ private fun convertIntrinsicTypes(
         )
 
     val body = sequenceOf(TYPE_CONTAINER_IMPORTS)
-        .plus(aliases)
         .plus(content)
         .joinToString("\n\n")
 
@@ -166,9 +163,15 @@ private fun convertSvgType(
     source: String,
 ): String {
     val name = source.substringBefore(": ")
-        .removeSurrounding("\"")
 
-    val type = SVG_TYPE
+    var elementType = source
+        .substringAfter(": React.SVGProps<")
+        .substringBefore(">")
+
+    if (elementType.startsWith("SVGFE") || elementType == "SVGFilterElement")
+        elementType = "SVGElement /* $elementType */"
+
+    val type = "IntrinsicType<SVGAttributes<$elementType>>"
 
     return """
         inline val $name: $type
