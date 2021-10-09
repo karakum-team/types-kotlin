@@ -18,9 +18,18 @@ internal fun convertDefinitions(
         .replace("HTMLInputTypeAttribute", "InputType")
         .replace("\r\n", "\n")
 
+    val svgTypes = content.substringAfter("    interface IntrinsicElements {\n")
+        .substringAfter("// SVG\n")
+        .substringBefore("\n        }")
+        .replace("\n\n", "\n")
+        .replaceIndent("        ")
+
     val reactContent = content
         .substringAfter("declare namespace React {\n")
         .substringBefore("\n}\n")
+        .replace(Regex("""( ReactSVG \{\n).+?(\n\s+})""")) {
+            "${it.groupValues[1]}$svgTypes${it.groupValues[2]}"
+        }
         .trimIndent()
         .plus(ADDITIONAL_TYPES)
 
