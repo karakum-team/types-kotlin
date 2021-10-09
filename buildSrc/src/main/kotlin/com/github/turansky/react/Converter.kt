@@ -15,6 +15,8 @@ internal fun convertDefinitions(
         .replace("HTMLTableHeaderCellElement", "HTMLTableCellElement")
         .replace("HTMLTableDataCellElement", "HTMLTableCellElement")
         .replace("HTMLWebViewElement", "HTMLElement")
+        .replace("HTMLAttributeAnchorTarget", "AnchorTarget")
+        .replace("HTMLAttributeReferrerPolicy", "ReferrerPolicy")
         .replace("HTMLInputTypeAttribute", "InputType")
         .replace("\r\n", "\n")
 
