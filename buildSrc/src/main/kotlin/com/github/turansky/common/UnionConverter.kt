@@ -6,21 +6,19 @@ internal fun unionBody(
     name: String,
     values: List<String>,
 ): String {
-    val constMapJsName = values.associateBy { enumConstant(it, strict = false, jsName = true) }
-    val constMapBody = values.associateBy { enumConstant(it, strict = false, jsName = false) }
+    val constData = values.map(::enumConstant)
 
-    return unionBody(name, constMapJsName, constMapBody)
+    return unionBodyByData(name, constData)
 }
 
-internal fun unionBody(
+internal fun unionBodyByData(
     name: String,
-    constMapJsName: Map<String, String>,
-    constMapBody: Map<String, String> = constMapJsName,
+    constData: List<ConstData>,
 ): String {
-    val constantNames = constMapBody.keys
-        .joinToString("") { "$it,\n" }
+    val constantNames = constData
+        .joinToString("") { "${it.kotlinName},\n" }
 
-    return jsName(constMapJsName) + """
+    return jsName(constData) + """
         external enum class $name {
             $constantNames
             ;
@@ -32,13 +30,12 @@ internal fun sealedUnionBody(
     name: String,
     values: List<String>,
 ): String {
-    val constMapJsName = values.associateBy { enumConstant(it, strict = false, jsName = true) }
-    val constMapBody = values.associateBy { enumConstant(it, strict = false, jsName = false) }
+    val constData = values.map(::enumConstant)
 
-    val constants = constMapBody.keys
-        .joinToString("\n") { "val $it: $name" }
+    val constants = constData
+        .joinToString("\n") { "val ${it.kotlinName}: $name" }
 
-    return jsName(constMapJsName) + """
+    return jsName(constData) + """
         sealed external interface $name {
             companion object {
                 $constants
@@ -52,13 +49,12 @@ internal fun sealedUnionBody(
     parentType: String,
     values: List<String>,
 ): String {
-    val constMapJsName = values.associateBy { enumConstant(it, strict = false, jsName = true) }
-    val constMapBody = values.associateBy { enumConstant(it, strict = false, jsName = false) }
+    val constData = values.map(::enumConstant)
 
-    val constants = constMapBody.keys
-        .joinToString("\n") { "val $it: $parentType.${it.capitalize()}" }
+    val constants = constData
+        .joinToString("\n") { "val ${it.kotlinName}: $parentType.${it.kotlinName.capitalize()}" }
 
-    return jsName(constMapJsName) + """
+    return jsName(constData) + """
         sealed external interface $name: $parentType {
             companion object {
                 $constants
@@ -68,15 +64,15 @@ internal fun sealedUnionBody(
 }
 
 private fun jsName(
-    constMap: Map<String, String>,
+    constData: List<ConstData>,
 ): String {
-    val name = constMap.asSequence()
+    val name = constData
         .joinToString(
             separator = ", ",
             prefix = "@JsName(\"\"\"($UNION{",
             postfix = "}$UNION)\"\"\")",
-        ) { (key, value) ->
-            "$key: '$value'"
+        ) {
+            "${it.jsName}: '${it.value}'"
         }
 
     return """
@@ -85,22 +81,30 @@ private fun jsName(
     """.trimIndent()
 }
 
-internal fun enumConstant(
-    source: String,
-    strict: Boolean,
-    jsName: Boolean,
-): String {
-    val value = source
+internal data class ConstData(
+    val kotlinName: String,
+    val jsName: String,
+    val value: String,
+)
+
+internal fun enumConstant(value: String): ConstData {
+    val name = value
         .removePrefix("@")
         .removeSurrounding("[", "]")
         .removePrefix("::")
         .removePrefix(":")
         .removeSuffix("()")
 
-    return when (value) {
+    val jsName = when (name) {
         "" -> "none"
         "1" -> "D"
 
+        "name" -> "htmlName"
+
+        else -> name.kebabToCamel()
+    }
+
+    val kotlinName = when (jsName) {
         "false",
         "true",
 
@@ -109,15 +113,10 @@ internal fun enumConstant(
         "is",
         "object",
         "super",
-        -> if (!jsName) "`${value}`" else value
+        -> "`${jsName}`"
 
-        "data",
-        "open",
-        "value",
-        -> if (strict && !jsName) "`${value}`" else value
-
-        "name" -> "htmlName"
-
-        else -> value.kebabToCamel()
+        else -> jsName
     }
+
+    return ConstData(kotlinName, jsName, value)
 }

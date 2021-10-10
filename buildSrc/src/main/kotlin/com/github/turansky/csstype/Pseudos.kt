@@ -26,7 +26,7 @@ internal fun convertPseudos(
     val method: (String) -> String = when (name) {
         "SimplePseudos" -> { selector ->
             """
-            inline fun ${enumConstant(selector, strict = false, jsName = false)}(
+            inline fun ${enumConstant(selector).kotlinName}(
                 block: T.() -> Unit,
             ) {
                 "$selector"(block)
@@ -36,7 +36,7 @@ internal fun convertPseudos(
 
         "AdvancedPseudos" -> { selector ->
             """
-            inline fun ${enumConstant(selector, strict = false, jsName = false)}(
+            inline fun ${enumConstant(selector).kotlinName}(
                 selector: String,
                 block: T.() -> Unit,
             ) {
