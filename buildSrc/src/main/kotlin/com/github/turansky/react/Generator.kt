@@ -11,8 +11,15 @@ import react.dom.aria.AriaAttributes
 import react.dom.aria.AriaRole    
 """.trimIndent()
 
+private val DOM_TYPES = setOf(
+    "AbstractView",
+    "DOMAttributes",
+    "DangerouslySetInnerHTML",
+    "StyleMedia",
+)
+
 private val DOM_IMPORTS = """
-import react.dom.html.DOMAttributes
+import react.dom.DOMAttributes
 """.trimIndent()
 
 fun generateKotlinDeclarations(
@@ -27,6 +34,7 @@ fun generateKotlinDeclarations(
 
         val finalPkg = when {
             name.startsWith("Aria") -> Package.ARIA
+            name in DOM_TYPES -> Package.DOM
             "SVG" in name -> Package.SVG
             name == "PointerType" -> Package.EVENTS
             else -> pkg
@@ -34,8 +42,6 @@ fun generateKotlinDeclarations(
 
         val content = when (finalPkg) {
             Package.HTML,
-            -> ARIA_IMPORTS + "\n" + body
-
             Package.SVG,
             -> ARIA_IMPORTS + "\n" + DOM_IMPORTS + "\n" + body
 

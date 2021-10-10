@@ -59,7 +59,7 @@ private const val DEFAULT_EVENT_IMPORTS = """
 import org.w3c.dom.Element
 import org.w3c.dom.events.Event
 import org.w3c.dom.events.EventTarget
-import react.dom.html.AbstractView
+import react.dom.AbstractView
 """
 
 internal fun convertEventInterface(
