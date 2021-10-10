@@ -1,15 +1,16 @@
 package com.github.turansky.react
 
-internal enum class Package {
-    ARIA,
-    EVENTS,
-    HTML,
-    SVG,
+internal enum class Package(
+    id: String,
+) {
+    DOM("react.dom"),
+    ARIA("react.dom.aria"),
+    EVENTS("react.dom.events"),
+    HTML("react.dom.html"),
+    SVG("react.dom.svg"),
 
     ;
 
-    private val id = name.toLowerCase()
-
-    val pkg = "package react.dom.$id"
-    val path = "react/dom/$id"
+    val pkg = "package $id"
+    val path = id.replace(".", "/")
 }
