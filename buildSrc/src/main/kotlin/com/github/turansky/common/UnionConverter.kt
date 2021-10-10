@@ -5,17 +5,22 @@ private const val UNION = """/*union*/"""
 internal fun unionBody(
     name: String,
     values: List<String>,
-): String =
-    unionBody(name, values.associateBy { enumConstant(it, true) })
+): String {
+    val constMapJsName = values.associateBy { enumConstant(it, strict = false, jsName = true) }
+    val constMapBody = values.associateBy { enumConstant(it, strict = false, jsName = false) }
+
+    return unionBody(name, constMapJsName, constMapBody)
+}
 
 internal fun unionBody(
     name: String,
-    constMap: Map<String, String>,
+    constMapJsName: Map<String, String>,
+    constMapBody: Map<String, String> = constMapJsName,
 ): String {
-    val constantNames = constMap.keys
+    val constantNames = constMapBody.keys
         .joinToString("") { "$it,\n" }
 
-    return jsName(constMap) + """
+    return jsName(constMapJsName) + """
         external enum class $name {
             $constantNames
             ;
@@ -27,12 +32,13 @@ internal fun sealedUnionBody(
     name: String,
     values: List<String>,
 ): String {
-    val constMap = values.associateBy { enumConstant(it, false) }
+    val constMapJsName = values.associateBy { enumConstant(it, strict = false, jsName = true) }
+    val constMapBody = values.associateBy { enumConstant(it, strict = false, jsName = false) }
 
-    val constants = constMap.keys
+    val constants = constMapBody.keys
         .joinToString("\n") { "val $it: $name" }
 
-    return jsName(constMap) + """
+    return jsName(constMapJsName) + """
         sealed external interface $name {
             companion object {
                 $constants
@@ -46,12 +52,13 @@ internal fun sealedUnionBody(
     parentType: String,
     values: List<String>,
 ): String {
-    val constMap = values.associateBy { enumConstant(it, false) }
+    val constMapJsName = values.associateBy { enumConstant(it, strict = false, jsName = true) }
+    val constMapBody = values.associateBy { enumConstant(it, strict = false, jsName = false) }
 
-    val constants = constMap.keys
+    val constants = constMapBody.keys
         .joinToString("\n") { "val $it: $parentType.${it.capitalize()}" }
 
-    return jsName(constMap) + """
+    return jsName(constMapJsName) + """
         sealed external interface $name: $parentType {
             companion object {
                 $constants
@@ -81,6 +88,7 @@ private fun jsName(
 internal fun enumConstant(
     source: String,
     strict: Boolean,
+    jsName: Boolean,
 ): String {
     val value = source
         .removePrefix("@")
@@ -100,15 +108,15 @@ internal fun enumConstant(
         "for",
         "is",
         "object",
-        -> "__${value}__"
+        "super",
+        -> if (!jsName) "`${value}`" else value
 
         "data",
-        "name",
         "open",
         "value",
-        -> if (strict) "__${value}__" else value
+        -> if (strict && !jsName) "`${value}`" else value
 
-        "super" -> "sup"
+        "name" -> "htmlName"
 
         else -> value.kebabToCamel()
     }
