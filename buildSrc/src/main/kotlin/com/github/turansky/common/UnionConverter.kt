@@ -6,19 +6,19 @@ internal fun unionBody(
     name: String,
     values: List<String>,
 ): String {
-    val constData = values.map(::enumConstant)
+    val constants = values.map(::unionConstant)
 
-    return unionBodyByData(name, constData)
+    return unionBodyByConstants(name, constants)
 }
 
-internal fun unionBodyByData(
+internal fun unionBodyByConstants(
     name: String,
-    constData: List<ConstData>,
+    constants: List<UnionConstant>,
 ): String {
-    val constantNames = constData
+    val constantNames = constants
         .joinToString("") { "${it.kotlinName},\n" }
 
-    return jsName(constData) + """
+    return jsName(constants) + """
         external enum class $name {
             $constantNames
             ;
@@ -30,15 +30,15 @@ internal fun sealedUnionBody(
     name: String,
     values: List<String>,
 ): String {
-    val constData = values.map(::enumConstant)
+    val constants = values.map(::unionConstant)
 
-    val constants = constData
+    val bodyMembers = constants
         .joinToString("\n") { "val ${it.kotlinName}: $name" }
 
-    return jsName(constData) + """
+    return jsName(constants) + """
         sealed external interface $name {
             companion object {
-                $constants
+                $bodyMembers
             }
         }
     """.trimIndent()
@@ -49,24 +49,24 @@ internal fun sealedUnionBody(
     parentType: String,
     values: List<String>,
 ): String {
-    val constData = values.map(::enumConstant)
+    val constants = values.map(::unionConstant)
 
-    val constants = constData
+    val bodyMembers = constants
         .joinToString("\n") { "val ${it.kotlinName}: $parentType.${it.kotlinName.capitalize()}" }
 
-    return jsName(constData) + """
+    return jsName(constants) + """
         sealed external interface $name: $parentType {
             companion object {
-                $constants
+                $bodyMembers
             }
         }
     """.trimIndent()
 }
 
 private fun jsName(
-    constData: List<ConstData>,
+    constants: List<UnionConstant>,
 ): String {
-    val name = constData
+    val name = constants
         .joinToString(
             separator = ", ",
             prefix = "@JsName(\"\"\"($UNION{",
@@ -81,13 +81,13 @@ private fun jsName(
     """.trimIndent()
 }
 
-internal data class ConstData(
+internal data class UnionConstant(
     val kotlinName: String,
     val jsName: String,
     val value: String,
 )
 
-internal fun enumConstant(value: String): ConstData {
+internal fun unionConstant(value: String): UnionConstant {
     val name = value
         .removePrefix("@")
         .removeSurrounding("[", "]")
@@ -118,5 +118,5 @@ internal fun enumConstant(value: String): ConstData {
         else -> jsName
     }
 
-    return ConstData(kotlinName, jsName, value)
+    return UnionConstant(kotlinName, jsName, value)
 }

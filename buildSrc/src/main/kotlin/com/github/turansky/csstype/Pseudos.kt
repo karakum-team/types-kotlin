@@ -1,6 +1,6 @@
 package com.github.turansky.csstype
 
-import com.github.turansky.common.enumConstant
+import com.github.turansky.common.unionConstant
 
 internal fun convertMetaPseudos(
     name: String,
@@ -26,7 +26,7 @@ internal fun convertPseudos(
     val method: (String) -> String = when (name) {
         "SimplePseudos" -> { selector ->
             """
-            inline fun ${enumConstant(selector).kotlinName}(
+            inline fun ${unionConstant(selector).kotlinName}(
                 block: T.() -> Unit,
             ) {
                 "$selector"(block)
@@ -36,7 +36,7 @@ internal fun convertPseudos(
 
         "AdvancedPseudos" -> { selector ->
             """
-            inline fun ${enumConstant(selector).kotlinName}(
+            inline fun ${unionConstant(selector).kotlinName}(
                 selector: String,
                 block: T.() -> Unit,
             ) {
