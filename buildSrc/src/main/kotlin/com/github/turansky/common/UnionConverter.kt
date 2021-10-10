@@ -5,17 +5,20 @@ private const val UNION = """/*union*/"""
 internal fun unionBody(
     name: String,
     values: List<String>,
-): String =
-    unionBody(name, values.associateBy { enumConstant(it, true) })
-
-internal fun unionBody(
-    name: String,
-    constMap: Map<String, String>,
 ): String {
-    val constantNames = constMap.keys
-        .joinToString("") { "$it,\n" }
+    val constants = values.map(::unionConstant)
 
-    return jsName(constMap) + """
+    return unionBodyByConstants(name, constants)
+}
+
+internal fun unionBodyByConstants(
+    name: String,
+    constants: List<UnionConstant>,
+): String {
+    val constantNames = constants
+        .joinToString("") { "${it.kotlinName},\n" }
+
+    return jsName(constants) + """
         external enum class $name {
             $constantNames
             ;
@@ -27,15 +30,15 @@ internal fun sealedUnionBody(
     name: String,
     values: List<String>,
 ): String {
-    val constMap = values.associateBy { enumConstant(it, false) }
+    val constants = values.map(::unionConstant)
 
-    val constants = constMap.keys
-        .joinToString("\n") { "val $it: $name" }
+    val bodyMembers = constants
+        .joinToString("\n") { "val ${it.kotlinName}: $name" }
 
-    return jsName(constMap) + """
+    return jsName(constants) + """
         sealed external interface $name {
             companion object {
-                $constants
+                $bodyMembers
             }
         }
     """.trimIndent()
@@ -46,30 +49,30 @@ internal fun sealedUnionBody(
     parentType: String,
     values: List<String>,
 ): String {
-    val constMap = values.associateBy { enumConstant(it, false) }
+    val constants = values.map(::unionConstant)
 
-    val constants = constMap.keys
-        .joinToString("\n") { "val $it: $parentType.${it.capitalize()}" }
+    val bodyMembers = constants
+        .joinToString("\n") { "val ${it.kotlinName}: $parentType.${it.kotlinName.capitalize()}" }
 
-    return jsName(constMap) + """
+    return jsName(constants) + """
         sealed external interface $name: $parentType {
             companion object {
-                $constants
+                $bodyMembers
             }
         }
     """.trimIndent()
 }
 
 private fun jsName(
-    constMap: Map<String, String>,
+    constants: List<UnionConstant>,
 ): String {
-    val name = constMap.asSequence()
+    val name = constants
         .joinToString(
             separator = ", ",
             prefix = "@JsName(\"\"\"($UNION{",
             postfix = "}$UNION)\"\"\")",
-        ) { (key, value) ->
-            "$key: '$value'"
+        ) {
+            "${it.jsName}: '${it.value}'"
         }
 
     return """
@@ -78,21 +81,30 @@ private fun jsName(
     """.trimIndent()
 }
 
-internal fun enumConstant(
-    source: String,
-    strict: Boolean,
-): String {
-    val value = source
+internal data class UnionConstant(
+    val kotlinName: String,
+    val jsName: String,
+    val value: String,
+)
+
+internal fun unionConstant(value: String): UnionConstant {
+    val name = value
         .removePrefix("@")
         .removeSurrounding("[", "]")
         .removePrefix("::")
         .removePrefix(":")
         .removeSuffix("()")
 
-    return when (value) {
+    val jsName = when (name) {
         "" -> "none"
         "1" -> "D"
 
+        "name" -> "htmlName"
+
+        else -> name.kebabToCamel()
+    }
+
+    val kotlinName = when (jsName) {
         "false",
         "true",
 
@@ -100,16 +112,11 @@ internal fun enumConstant(
         "for",
         "is",
         "object",
-        -> "__${value}__"
+        "super",
+        -> "`${jsName}`"
 
-        "data",
-        "name",
-        "open",
-        "value",
-        -> if (strict) "__${value}__" else value
-
-        "super" -> "sup"
-
-        else -> value.kebabToCamel()
+        else -> jsName
     }
+
+    return UnionConstant(kotlinName, jsName, value)
 }

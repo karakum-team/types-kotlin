@@ -1,7 +1,9 @@
 package com.github.turansky.csstype
 
+import com.github.turansky.common.UnionConstant
 import com.github.turansky.common.sealedUnionBody
 import com.github.turansky.common.unionBody
+import com.github.turansky.common.unionBodyByConstants
 
 private val LENGTH_UNIONS = setOf(
     "MaskPosition",
@@ -60,10 +62,10 @@ internal fun tryToUnion(
 
         val enumBody = when (name) {
             NAMED_COLOR -> {
-                val constMap = items.toUnionValues()
-                    .associateWith(NAMED_COLOR_MAP::getValue)
+                val constants = items.toUnionValues()
+                    .map { UnionConstant(it, it, NAMED_COLOR_MAP.getValue(it)) }
 
-                unionBody(name, constMap)
+                unionBodyByConstants(name, constants)
                     .replaceFirst(NAMED_COLOR, "$NAMED_COLOR: Color")
             }
 
