@@ -161,6 +161,7 @@ private val STRING_NAMES = setOf(
     "fontVariant",
     "fontWeight",
     "format",
+    "fr",
     "from",
     "g1",
     "g2",
