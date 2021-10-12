@@ -12,6 +12,7 @@ internal fun convertDefinitions(
     definitionFile: File,
 ): Sequence<ConversionResult> {
     val content = definitionFile.readText()
+        .applyFocusEventPatch()
         .replace("HTMLTableHeaderCellElement", "HTMLTableCellElement")
         .replace("HTMLTableDataCellElement", "HTMLTableCellElement")
         .replace("HTMLWebViewElement", "HTMLElement")
