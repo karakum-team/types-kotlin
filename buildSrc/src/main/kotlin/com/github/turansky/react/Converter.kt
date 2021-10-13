@@ -19,6 +19,7 @@ internal fun convertDefinitions(
         .replace("HTMLAttributeAnchorTarget", "AnchorTarget")
         .replace("HTMLAttributeReferrerPolicy", "ReferrerPolicy")
         .replace("HTMLInputTypeAttribute", "InputType")
+        .replace("    autoComplete?: string | undefined;", "    autoComplete?: AutoComplete | undefined;")
         .replace("\r\n", "\n")
 
     val svgTypes = content.substringAfter("    interface IntrinsicElements {\n")
@@ -34,6 +35,7 @@ internal fun convertDefinitions(
             "${it.groupValues[1]}$svgTypes${it.groupValues[2]}"
         }
         .trimIndent()
+        .plus(AUTO_COMPLETE)
         .plus(ADDITIONAL_TYPES)
 
     return convertInterfaces(reactContent)
