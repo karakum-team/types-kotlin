@@ -33,9 +33,6 @@ internal class SimpleTypeConverter(
         val name = unionName(propertyName)
 
         val sourceType = if (name == "Capture") {
-            if (!parentName.startsWith("All"))
-                return name
-
             type.replace("boolean", """"false" | "true"""")
         } else type
 

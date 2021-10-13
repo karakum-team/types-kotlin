@@ -16,6 +16,8 @@ internal fun convertInterface(
 ): Sequence<ConversionResult> {
     val typeConverter = SimpleTypeConverter(name)
     val result = when {
+        name == "AllHTMLAttributes" -> null
+
         name.endsWith("Event") -> convertEventInterface(name, source, typeConverter)
         name.endsWith("Attributes") -> convertAttributesInterface(name, source, typeConverter)
 
@@ -91,7 +93,6 @@ private fun convertAttributesInterface(
     }
 
     when (name) {
-        "AllHTMLAttributes",
         "InputHTMLAttributes",
         "TextareaHTMLAttributes",
         -> members = members.replaceFirst("var placeholder: ", "override var placeholder: ")
