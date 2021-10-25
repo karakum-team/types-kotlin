@@ -70,8 +70,17 @@ private fun convertAttributesInterface(
         -> declaration = declaration.replaceFirst("<T>", "<T: Element>")
     }
 
-    if (name == "DOMAttributes")
-        declaration += ": react.PropsWithChildren, react.PropsWithClassName"
+    when (name) {
+        "DOMAttributes",
+        -> declaration += ":\nreact.PropsWithChildren,\nreact.PropsWithClassName"
+
+        "HTMLAttributes",
+        "SVGAttributes",
+        -> declaration = declaration
+            .replaceFirst("> : ", ">:\n")
+            .replaceFirst(",", ",\n") +
+                ",\nreact.PropsWithStyle"
+    }
 
     val content = when (name) {
         "HTMLAttributes" -> source
@@ -87,6 +96,10 @@ private fun convertAttributesInterface(
     var members = convertMembers(content, false, typeConverter)
 
     when (name) {
+        "HTMLAttributes",
+        "SVGAttributes",
+        -> members = members.replaceFirst("var style: ", "override var style: ")
+
         "InputHTMLAttributes",
         "SelectHTMLAttributes",
         "TextareaHTMLAttributes",
