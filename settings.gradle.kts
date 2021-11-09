@@ -18,3 +18,4 @@ dependencyResolutionManagement {
 
 include("csstype-kotlin")
 include("react-kotlin")
+include("react-router-dom-kotlin")
