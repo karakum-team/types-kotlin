@@ -1,5 +1,6 @@
 plugins {
     id("com.github.turansky.kfc.library")
+    `react-router-fom-declarations`
 }
 
 val kotlinWrappersVersion = property("kotlin-wrappers.version") as String

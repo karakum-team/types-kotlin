@@ -1,0 +1,41 @@
+package com.github.turansky.router
+
+import com.github.turansky.common.GENERATOR_COMMENT
+import java.io.File
+
+fun generateKotlinDeclarations(
+    routerFile: File,
+    routerDomFile: File,
+    sourceDir: File,
+) {
+    generate(routerFile, sourceDir, Package.ROUTER)
+    generate(routerDomFile, sourceDir, Package.ROUTER_DOM)
+}
+
+private fun generate(
+    definitionsFile: File,
+    sourceDir: File,
+    pkg: Package,
+) {
+    val targetDir = sourceDir.resolve(pkg.path)
+        .also { it.mkdirs() }
+
+    val source = definitionsFile.readText()
+
+    targetDir.resolve("index.kt_")
+        .writeText(source)
+}
+
+private fun fileContent(
+    pkg: Package,
+    annotations: String,
+    body: String,
+): String {
+    return sequenceOf(
+        "// $GENERATOR_COMMENT",
+        annotations,
+        pkg.pkg,
+        body,
+    ).filter { it.isNotEmpty() }
+        .joinToString("\n\n")
+}
