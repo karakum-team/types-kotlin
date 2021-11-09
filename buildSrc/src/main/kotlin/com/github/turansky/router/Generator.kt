@@ -24,8 +24,10 @@ private fun generate(
         .substringAfter("""export type { Location, Path, To, NavigationType };""" + "\n")
         .substringAfter("""export { UNSAFE_NavigationContext, UNSAFE_LocationContext, UNSAFE_RouteContext } from "react-router";""" + "\n")
 
-    targetDir.resolve("index.ts")
-        .writeText(source)
+    for ((name, body) in convertDefinitions(source)) {
+        targetDir.resolve("$name.ts")
+            .writeText(body)
+    }
 }
 
 private fun fileContent(
