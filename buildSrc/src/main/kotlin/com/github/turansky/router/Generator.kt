@@ -23,6 +23,7 @@ private fun generate(
     val source = definitionsFile.readText()
         .substringAfter("""export type { Location, Path, To, NavigationType };""" + "\n")
         .substringAfter("""export { UNSAFE_NavigationContext, UNSAFE_LocationContext, UNSAFE_RouteContext } from "react-router";""" + "\n")
+        .substringBefore("\n/** @internal */\nexport { NavigationContext as UNSAFE_NavigationContext")
 
     for ((name, body) in convertDefinitions(source)) {
         targetDir.resolve("$name.ts")
