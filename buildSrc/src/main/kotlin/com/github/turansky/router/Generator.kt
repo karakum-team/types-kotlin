@@ -21,8 +21,10 @@ private fun generate(
         .also { it.mkdirs() }
 
     val source = definitionsFile.readText()
+        .substringAfter("""export type { Location, Path, To, NavigationType };""" + "\n")
+        .substringAfter("""export { UNSAFE_NavigationContext, UNSAFE_LocationContext, UNSAFE_RouteContext } from "react-router";""" + "\n")
 
-    targetDir.resolve("index.kt_")
+    targetDir.resolve("index.ts")
         .writeText(source)
 }
 
