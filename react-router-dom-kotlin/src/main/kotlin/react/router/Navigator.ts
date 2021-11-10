@@ -1,4 +1,3 @@
-//--delimiter--//
 /**
  * A Navigator is a "location changer"; it's how you get to different locations.
  *
