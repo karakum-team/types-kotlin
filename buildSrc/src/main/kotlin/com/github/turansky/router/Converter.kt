@@ -15,7 +15,17 @@ internal fun convertDefinitions(
         .replace("\nexport ", "\n$DELIMITER\nexport ")
         .replace("\n */\n$DELIMITER\n", "\n */\n")
         .splitToSequence("\n$DELIMITER\n")
-        .mapIndexed { index, content ->
-            ConversionResult((index + 1).toString(), content)
+        .map { content ->
+            val name = content.substringAfter(" */\n")
+                .substringAfter("export ")
+                .substringBefore(" extends ")
+                .substringBefore(": ")
+                .substringBefore("(")
+                .substringBefore("<")
+                .substringBefore(" {")
+                .substringBefore(" = ")
+                .substringAfterLast(" ")
+
+            ConversionResult(name, content)
         }
 }
