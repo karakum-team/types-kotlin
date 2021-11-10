@@ -11,7 +11,7 @@ internal fun convertDefinitions(
     source: String,
 ): Sequence<ConversionResult> {
     return source
-        .replace("/**\n", "$DELIMITER\n/**\n")
+        .replace("\n/**\n", "\n$DELIMITER\n/**\n")
         .replace("\nexport ", "\n$DELIMITER\nexport ")
         .replace("\n */\n$DELIMITER\n", "\n */\n")
         .splitToSequence("\n$DELIMITER\n")
