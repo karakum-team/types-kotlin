@@ -14,10 +14,12 @@ tasks {
             delete(sourceDir)
 
             val nodeModules = rootProject.buildDir.resolve("js/node_modules")
+            val historyFile = nodeModules.resolve("history/index.d.ts")
             val routerFile = nodeModules.resolve("react-router/index.d.ts")
             val routerDomFile = nodeModules.resolve("react-router-dom/index.d.ts")
 
             generateKotlinDeclarations(
+                historyFile = historyFile,
                 routerFile = routerFile,
                 routerDomFile = routerDomFile,
                 sourceDir = sourceDir,

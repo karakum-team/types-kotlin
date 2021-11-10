@@ -22,6 +22,7 @@ internal fun convertDefinitions(
                 .substringBefore(": ")
                 .substringBefore("(")
                 .substringBefore("<")
+                .substringBefore(" = {")
                 .substringBefore(" {")
                 .substringBefore(" = ")
                 .substringAfterLast(" ")

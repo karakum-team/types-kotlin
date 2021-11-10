@@ -4,10 +4,12 @@ import com.github.turansky.common.GENERATOR_COMMENT
 import java.io.File
 
 fun generateKotlinDeclarations(
+    historyFile: File,
     routerFile: File,
     routerDomFile: File,
     sourceDir: File,
 ) {
+    generate(historyFile, sourceDir, Package.HISTORY)
     generate(routerFile, sourceDir, Package.ROUTER)
     generate(routerDomFile, sourceDir, Package.ROUTER_DOM)
 }
@@ -21,6 +23,7 @@ private fun generate(
         .also { it.mkdirs() }
 
     val source = definitionsFile.readText()
+        .replace("\r\n", "\n")
         .substringAfter("""export type { Location, Path, To, NavigationType };""" + "\n")
         .substringAfter("""export { UNSAFE_NavigationContext, UNSAFE_LocationContext, UNSAFE_RouteContext } from "react-router";""" + "\n")
         .substringBefore("\n/** @internal */\nexport { NavigationContext as UNSAFE_NavigationContext")
