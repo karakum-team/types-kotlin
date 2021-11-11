@@ -1,0 +1,1 @@
+export declare const RouteContext: React.Context<RouteContextObject>;
