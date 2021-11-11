@@ -15,6 +15,9 @@ internal fun convertDefinitions(
         .replace("\nexport ", "\n$DELIMITER\nexport ")
         .replace("\n */\n$DELIMITER\n", "\n */\n")
         .splitToSequence("\n$DELIMITER\n")
+        .map { it.replace("\ninterface ", "\n\nexport interface ") }
+        .map { it.replace("\ndeclare const ", "\n\nexport declare const ") }
+        .flatMap { it.splitToSequence("\n\n") }
         .map { content ->
             val name = content.substringAfter(" */\n")
                 .substringAfter("export ")
