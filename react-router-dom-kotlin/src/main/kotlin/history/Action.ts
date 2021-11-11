@@ -3,7 +3,7 @@
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#action
  */
-export declare enum Action {
+enum Action {
     /**
      * A POP indicates a change to an arbitrary index in the history stack, such
      * as a back or forward navigation. It does not describe the direction of the

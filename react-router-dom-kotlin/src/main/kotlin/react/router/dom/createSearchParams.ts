@@ -19,4 +19,4 @@
  *     sort: ['name', 'price']
  *   });
  */
-export declare function createSearchParams(init?: URLSearchParamsInit): URLSearchParams;
+function createSearchParams(init?: URLSearchParamsInit): URLSearchParams;

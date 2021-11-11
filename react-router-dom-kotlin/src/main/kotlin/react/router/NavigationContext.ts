@@ -1,1 +1,1 @@
-export declare const NavigationContext: React.Context<NavigationContextObject>;
+const NavigationContext: React.Context<NavigationContextObject>;

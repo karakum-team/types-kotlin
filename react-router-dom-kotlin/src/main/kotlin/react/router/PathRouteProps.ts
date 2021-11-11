@@ -1,4 +1,4 @@
-export interface PathRouteProps {
+interface PathRouteProps {
     caseSensitive?: boolean;
     children?: React.ReactNode;
     element?: React.ReactElement | null;

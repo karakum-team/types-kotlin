@@ -1,7 +1,7 @@
 /**
  * The pathname, search, and hash values of a URL.
  */
-export interface Path {
+interface Path {
     /**
      * A URL pathname, beginning with a /.
      *

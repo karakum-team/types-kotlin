@@ -4,4 +4,4 @@
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#creatememoryhistory
  */
-export declare function createMemoryHistory(options?: MemoryHistoryOptions): MemoryHistory;
+function createMemoryHistory(options?: MemoryHistoryOptions): MemoryHistory;

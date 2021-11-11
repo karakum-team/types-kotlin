@@ -3,4 +3,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#route
  */
-export declare function Route(_props: PathRouteProps | LayoutRouteProps | IndexRouteProps): React.ReactElement | null;
+function Route(_props: PathRouteProps | LayoutRouteProps | IndexRouteProps): React.ReactElement | null;

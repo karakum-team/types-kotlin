@@ -1,4 +1,4 @@
-export interface MemoryRouterProps {
+interface MemoryRouterProps {
     basename?: string;
     children?: React.ReactNode;
     initialEntries?: InitialEntry[];

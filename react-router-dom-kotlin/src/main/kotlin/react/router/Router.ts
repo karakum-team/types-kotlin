@@ -7,4 +7,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#router
  */
-export declare function Router({basename: basenameProp, children, location: locationProp, navigationType, navigator, static: staticProp}: RouterProps): React.ReactElement | null;
+function Router({basename: basenameProp, children, location: locationProp, navigationType, navigator, static: staticProp}: RouterProps): React.ReactElement | null;

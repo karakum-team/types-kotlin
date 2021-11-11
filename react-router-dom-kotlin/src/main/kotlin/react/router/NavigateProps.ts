@@ -1,4 +1,4 @@
-export interface NavigateProps {
+interface NavigateProps {
     to: To;
     replace?: boolean;
     state?: any;

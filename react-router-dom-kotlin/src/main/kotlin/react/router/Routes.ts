@@ -4,4 +4,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#routes
  */
-export declare function Routes({children, location}: RoutesProps): React.ReactElement | null;
+function Routes({children, location}: RoutesProps): React.ReactElement | null;

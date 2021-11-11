@@ -5,5 +5,5 @@
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#browserhistory
  */
-export interface BrowserHistory extends History {
+interface BrowserHistory extends History {
 }

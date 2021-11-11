@@ -3,4 +3,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#memoryrouter
  */
-export declare function MemoryRouter({basename, children, initialEntries, initialIndex}: MemoryRouterProps): React.ReactElement;
+function MemoryRouter({basename, children, initialEntries, initialIndex}: MemoryRouterProps): React.ReactElement;

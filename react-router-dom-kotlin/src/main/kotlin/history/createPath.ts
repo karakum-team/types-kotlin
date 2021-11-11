@@ -3,4 +3,4 @@
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#createpath
  */
-export declare function createPath({pathname, search, hash}: PartialPath): string;
+function createPath({pathname, search, hash}: PartialPath): string;

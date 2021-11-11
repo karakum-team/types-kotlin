@@ -1,4 +1,4 @@
-export interface NavigateOptions {
+interface NavigateOptions {
     replace?: boolean;
     state?: any;
 }

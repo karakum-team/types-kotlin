@@ -1,1 +1,1 @@
-export declare const LocationContext: React.Context<LocationContextObject>;
+const LocationContext: React.Context<LocationContextObject>;

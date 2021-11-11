@@ -1,7 +1,7 @@
 /**
  * A PathMatch contains info about how a PathPattern matched on a URL pathname.
  */
-export interface PathMatch<ParamKey extends string = string> {
+interface PathMatch<ParamKey extends string = string> {
     /**
      * The names and values of dynamic parameters in the URL.
      */

@@ -6,7 +6,7 @@
  * It is similar to the DOM's `window.history` object, but with a smaller, more
  * focused API.
  */
-export interface History {
+interface History {
     /**
      * The last action that modified the current location. This will always be
      * Action.Pop when a history instance is first created. This value is mutable.

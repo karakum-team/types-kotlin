@@ -1,4 +1,4 @@
-export interface LayoutRouteProps {
+interface LayoutRouteProps {
     children?: React.ReactNode;
     element?: React.ReactElement | null;
 }

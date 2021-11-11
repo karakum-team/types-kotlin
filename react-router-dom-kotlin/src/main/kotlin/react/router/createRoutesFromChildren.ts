@@ -5,4 +5,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#createroutesfromchildren
  */
-export declare function createRoutesFromChildren(children: React.ReactNode): RouteObject[];
+function createRoutesFromChildren(children: React.ReactNode): RouteObject[];

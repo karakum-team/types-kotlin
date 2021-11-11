@@ -1,6 +1,6 @@
 /**
  * A function that receives notifications about location changes.
  */
-export interface Listener {
+interface Listener {
     (update: Update): void;
 }

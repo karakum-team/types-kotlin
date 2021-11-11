@@ -9,5 +9,5 @@
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#hashhistory
  */
-export interface HashHistory extends History {
+interface HashHistory extends History {
 }

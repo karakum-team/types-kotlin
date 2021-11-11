@@ -1,6 +1,6 @@
 /**
  * A function that receives transitions when navigation is blocked.
  */
-export interface Blocker {
+interface Blocker {
     (tx: Transition): void;
 }

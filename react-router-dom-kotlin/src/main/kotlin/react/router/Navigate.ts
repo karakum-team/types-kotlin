@@ -7,4 +7,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#navigate
  */
-export declare function Navigate({to, replace, state}: NavigateProps): null;
+function Navigate({to, replace, state}: NavigateProps): null;

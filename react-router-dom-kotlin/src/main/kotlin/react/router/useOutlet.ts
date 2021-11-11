@@ -4,4 +4,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#useoutlet
  */
-export declare function useOutlet(): React.ReactElement | null;
+function useOutlet(): React.ReactElement | null;

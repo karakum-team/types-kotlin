@@ -1,7 +1,7 @@
 /**
  * A PathPattern is used to match on some portion of a URL pathname.
  */
-export interface PathPattern {
+interface PathPattern {
     /**
      * A string to match against a URL pathname. May contain `:id`-style segments
      * to indicate placeholders for dynamic parameters. May also end with `/*` to

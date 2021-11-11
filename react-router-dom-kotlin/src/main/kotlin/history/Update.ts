@@ -1,7 +1,7 @@
 /**
  * A change to the current location.
  */
-export interface Update {
+interface Update {
     /**
      * The action that triggered the change.
      */

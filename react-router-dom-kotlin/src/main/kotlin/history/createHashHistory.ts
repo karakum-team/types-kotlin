@@ -6,4 +6,4 @@
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#createhashhistory
  */
-export declare function createHashHistory(options?: HashHistoryOptions): HashHistory;
+function createHashHistory(options?: HashHistoryOptions): HashHistory;

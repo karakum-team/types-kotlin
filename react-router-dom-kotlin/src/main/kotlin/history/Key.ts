@@ -4,4 +4,4 @@
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#location.key
  */
-export declare type Key = string;
+type Key = string;

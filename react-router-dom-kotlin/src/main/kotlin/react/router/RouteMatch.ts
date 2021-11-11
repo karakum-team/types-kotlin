@@ -1,7 +1,7 @@
 /**
  * A RouteMatch contains info about how a route matched a URL.
  */
-export interface RouteMatch<ParamKey extends string = string> {
+interface RouteMatch<ParamKey extends string = string> {
     /**
      * The names and values of dynamic parameters in the URL.
      */

@@ -1,4 +1,4 @@
-export interface NavLinkProps extends Omit<LinkProps, "className" | "style"> {
+interface NavLinkProps extends Omit<LinkProps, "className" | "style"> {
     caseSensitive?: boolean;
     className?: string | ((props: {
         isActive: boolean;

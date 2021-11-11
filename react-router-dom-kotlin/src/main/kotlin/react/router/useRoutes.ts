@@ -6,4 +6,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#useroutes
  */
-export declare function useRoutes(routes: RouteObject[], locationArg?: Partial<Location> | string): React.ReactElement | null;
+function useRoutes(routes: RouteObject[], locationArg?: Partial<Location> | string): React.ReactElement | null;

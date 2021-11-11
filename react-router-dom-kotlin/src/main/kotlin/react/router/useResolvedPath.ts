@@ -3,4 +3,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#useresolvedpath
  */
-export declare function useResolvedPath(to: To): Path;
+function useResolvedPath(to: To): Path;

@@ -1,3 +1,3 @@
-export declare type BrowserHistoryOptions = {
+type BrowserHistoryOptions = {
     window?: Window;
 };

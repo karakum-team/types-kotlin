@@ -1,3 +1,3 @@
-export declare type HashHistoryOptions = {
+type HashHistoryOptions = {
     window?: Window;
 };

@@ -7,4 +7,4 @@
  * to avoid "tearing" that may occur in a suspense-enabled app if the action
  * and/or location were to be read directly from the history instance.
  */
-export declare type Navigator = Omit<History, "action" | "location" | "back" | "forward" | "listen" | "block">;
+type Navigator = Omit<History, "action" | "location" | "back" | "forward" | "listen" | "block">;

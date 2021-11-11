@@ -4,4 +4,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#usenavigationtype
  */
-export declare function useNavigationType(): NavigationType;
+function useNavigationType(): NavigationType;

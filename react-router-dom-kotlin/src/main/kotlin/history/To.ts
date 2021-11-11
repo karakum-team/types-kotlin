@@ -3,4 +3,4 @@
  * `history.push` or `history.replace`. May be either a URL or the pieces of a
  * URL path.
  */
-export declare type To = string | PartialPath;
+type To = string | PartialPath;

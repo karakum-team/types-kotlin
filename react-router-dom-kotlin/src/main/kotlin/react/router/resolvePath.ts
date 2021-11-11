@@ -3,4 +3,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#resolvepath
  */
-export declare function resolvePath(to: To, fromPathname?: string): Path;
+function resolvePath(to: To, fromPathname?: string): Path;

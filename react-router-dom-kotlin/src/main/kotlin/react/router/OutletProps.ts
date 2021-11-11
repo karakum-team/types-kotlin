@@ -1,2 +1,2 @@
-export interface OutletProps {
+interface OutletProps {
 }

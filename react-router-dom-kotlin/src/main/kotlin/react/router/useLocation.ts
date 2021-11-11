@@ -8,4 +8,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#uselocation
  */
-export declare function useLocation(): Location;
+function useLocation(): Location;

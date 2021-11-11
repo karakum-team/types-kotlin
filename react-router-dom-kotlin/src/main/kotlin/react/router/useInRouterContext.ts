@@ -3,4 +3,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#useinroutercontext
  */
-export declare function useInRouterContext(): boolean;
+function useInRouterContext(): boolean;

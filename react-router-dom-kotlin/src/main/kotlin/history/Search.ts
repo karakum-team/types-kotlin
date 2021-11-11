@@ -3,4 +3,4 @@
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#location.search
  */
-export declare type Search = string;
+type Search = string;

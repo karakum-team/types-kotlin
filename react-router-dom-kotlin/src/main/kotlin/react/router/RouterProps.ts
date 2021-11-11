@@ -1,4 +1,4 @@
-export interface RouterProps {
+interface RouterProps {
     basename?: string;
     children?: React.ReactNode;
     location: Partial<Location> | string;

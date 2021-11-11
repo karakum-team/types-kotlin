@@ -5,4 +5,4 @@
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#createbrowserhistory
  */
-export declare function createBrowserHistory(options?: BrowserHistoryOptions): BrowserHistory;
+function createBrowserHistory(options?: BrowserHistoryOptions): BrowserHistory;

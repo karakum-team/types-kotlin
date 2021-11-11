@@ -4,4 +4,4 @@
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#location.state
  */
-export declare type State = object | null;
+type State = object | null;

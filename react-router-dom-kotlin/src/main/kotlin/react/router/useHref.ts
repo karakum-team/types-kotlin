@@ -4,4 +4,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#usehref
  */
-export declare function useHref(to: To): string;
+function useHref(to: To): string;

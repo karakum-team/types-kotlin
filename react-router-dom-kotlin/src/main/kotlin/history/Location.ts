@@ -4,7 +4,7 @@
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#location
  */
-export interface Location extends Path {
+interface Location extends Path {
     /**
      * A value of arbitrary data associated with this location.
      *

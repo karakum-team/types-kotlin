@@ -3,7 +3,7 @@
  * you need to create custom `<Link>` components with the same click behavior we
  * use in our exported `<Link>`.
  */
-export declare function useLinkClickHandler<E extends Element = HTMLAnchorElement>(to: To, {target, replace: replaceProp, state}?: {
+function useLinkClickHandler<E extends Element = HTMLAnchorElement>(to: To, {target, replace: replaceProp, state}?: {
     target?: React.HTMLAttributeAnchorTarget;
     replace?: boolean;
     state?: any;

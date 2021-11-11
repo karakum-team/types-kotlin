@@ -4,4 +4,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#useparams
  */
-export declare function useParams<Key extends string = string>(): Readonly<Params<Key>>;
+function useParams<Key extends string = string>(): Readonly<Params<Key>>;

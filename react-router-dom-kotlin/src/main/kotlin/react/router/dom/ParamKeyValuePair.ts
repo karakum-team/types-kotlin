@@ -1,1 +1,1 @@
-export declare type ParamKeyValuePair = [string, string];
+type ParamKeyValuePair = [string, string];

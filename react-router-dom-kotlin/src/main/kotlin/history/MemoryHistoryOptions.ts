@@ -1,4 +1,4 @@
-export declare type MemoryHistoryOptions = {
+type MemoryHistoryOptions = {
     initialEntries?: InitialEntry[];
     initialIndex?: number;
 };

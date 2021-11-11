@@ -4,4 +4,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#usenavigate
  */
-export declare function useNavigate(): NavigateFunction;
+function useNavigate(): NavigateFunction;
