@@ -30,6 +30,11 @@ internal fun convertDefinitions(
                 .substringBefore(" = ")
                 .substringAfterLast(" ")
 
-            ConversionResult(name, content)
+            val body = content
+                .splitToSequence("export declare ", "export ")
+                .filter { it.isNotEmpty() }
+                .joinToString("")
+
+            ConversionResult(name, body)
         }
 }
