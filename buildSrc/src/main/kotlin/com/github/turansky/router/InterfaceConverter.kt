@@ -22,16 +22,30 @@ internal fun convertInterface(
         else -> return source
     }
 
-    val declaration = source.substringBefore(" {")
+    var declaration = source.substringBefore(" {")
         .replace("interface ", "external interface ")
         .replace(" extends ", " : ")
 
-    val members = source.substringAfter(" {\n")
+    var members = source.substringAfter(" {\n")
         .also { if (it == "}") return declaration }
         .substringBefore(";\n}")
         .trimIndent()
         .splitToSequence(";\n")
         .joinToString("\n", transform = ::convertMember)
+
+    if (name.endsWith("Props")) {
+        val parentType = if ("var children: react.ReactNode?" in members) {
+            members = members.replace(
+                "var children: react.ReactNode?",
+                "override var children: kotlinext.js.ReadonlyArray<react.ReactNode>?",
+            )
+            "react.PropsWithChildren"
+        } else {
+            "react.Props"
+        }
+
+        declaration += " : $parentType"
+    }
 
     return "$declaration {\n$members\n}"
 }
