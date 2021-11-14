@@ -1,1 +1,0 @@
-type ParamKeyValuePair = [string, string];
