@@ -13,6 +13,8 @@ internal fun convertDefinitions(
     source: String,
 ): Sequence<ConversionResult> {
     return source
+        .replace("<ParamKey extends string = string>", "")
+        .replace("<ParamKey>", "")
         .replace("\n/**\n", "\n$DELIMITER\n/**\n")
         .replace("\nexport ", "\n$DELIMITER\nexport ")
         .replace("\n */\n$DELIMITER\n", "\n */\n")
