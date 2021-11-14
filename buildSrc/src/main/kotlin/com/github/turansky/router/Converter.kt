@@ -1,8 +1,5 @@
 package com.github.turansky.router
 
-import com.github.turansky.common.UnionConstant
-import com.github.turansky.common.jsName
-
 private const val DELIMITER = "//--delimiter--//"
 
 internal data class ConversionResult(
@@ -83,55 +80,9 @@ private fun convertFunction(
     return source
 }
 
-private fun convertType(
-    name: String,
-    source: String,
-): String {
-    val body = source.substringAfter(" = ")
-        .removeSuffix(";")
-
-    val alias = when {
-        name == "Params" -> "kotlinext.js.Record<String, String>"
-
-        body == "string" -> "String"
-        body == "object | null" -> "Any?"
-        body == "[string, string]" -> "kotlinext.js.Tuple<String, String>"
-
-        body.startsWith("Partial<") -> "Any // $body"
-        body.startsWith("Omit<") -> "Any // $body"
-        body.startsWith("string | ") -> "String // $body"
-
-        else -> null
-    }
-
-    if (alias != null)
-        return "typealias $name = $alias"
-
-    return source
-}
-
 private fun convertInterface(
     name: String,
     source: String,
 ): String {
     return source
-}
-
-private fun convertEnum(
-    source: String,
-): String {
-    val constants = source.splitToSequence(" = \"")
-        .zipWithNext { a, b ->
-            val name = a.substringAfterLast(" ")
-            val value = b.substringBefore("\"")
-            UnionConstant(name, name, value)
-        }
-        .toList()
-
-    val annotations = jsName(constants)
-
-    return constants.fold(source) { acc, item ->
-        acc.replace(" = \"${item.value}\"", "")
-    }.replace("enum ", "$annotations\nenum class ")
-        .replace("\n}", ",\n\n;\n}")
 }
