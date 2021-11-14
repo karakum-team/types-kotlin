@@ -1,5 +1,8 @@
 package com.github.turansky.router
 
+import com.github.turansky.common.UnionConstant
+import com.github.turansky.common.jsName
+
 private const val DELIMITER = "//--delimiter--//"
 
 internal data class ConversionResult(
@@ -54,7 +57,7 @@ private fun convert(
         "function" -> convertFunction(name, bodySource)
         "type" -> convertType(name, bodySource)
         "interface" -> convertInterface(name, bodySource)
-        "enum" -> convertEnum(name, bodySource)
+        "enum" -> convertEnum(bodySource)
 
         else -> TODO()
     }
@@ -95,8 +98,20 @@ private fun convertInterface(
 }
 
 private fun convertEnum(
-    name: String,
     source: String,
 ): String {
-    return source
+    val constants = source.splitToSequence(" = \"")
+        .zipWithNext { a, b ->
+            val name = a.substringAfterLast(" ")
+            val value = b.substringBefore("\"")
+            UnionConstant(name, name, value)
+        }
+        .toList()
+
+    val annotations = jsName(constants)
+
+    return constants.fold(source) { acc, item ->
+        acc.replace(" = \"${item.value}\"", "")
+    }.replace("enum ", "$annotations\nenum class ")
+        .replace("\n}", ",\n\n;\n}")
 }

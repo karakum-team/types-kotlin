@@ -63,7 +63,7 @@ internal fun sealedUnionBody(
     """.trimIndent()
 }
 
-private fun jsName(
+internal fun jsName(
     constants: List<UnionConstant>,
 ): String {
     val name = constants
