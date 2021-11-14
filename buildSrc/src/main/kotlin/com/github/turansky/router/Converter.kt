@@ -5,6 +5,8 @@ private const val DELIMITER = "//--delimiter--//"
 internal data class ConversionResult(
     val name: String,
     val body: String,
+    // temp field
+    val ready: Boolean,
 )
 
 internal fun convertDefinitions(
@@ -57,7 +59,11 @@ private fun convert(
         else -> TODO()
     }
 
-    return ConversionResult(name, sequenceOf(comment, body).joinToString("\n"))
+    return ConversionResult(
+        name = name,
+        body = sequenceOf(comment, body).joinToString("\n"),
+        ready = body != bodySource
+    )
 }
 
 private fun convertConst(
