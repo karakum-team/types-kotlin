@@ -1,23 +1,29 @@
+// Automatically generated - do not modify!
+
+package history
+
 /**
  * The pathname, search, and hash values of a URL.
  */
-interface Path {
+external interface Path {
     /**
      * A URL pathname, beginning with a /.
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#location.pathname
      */
-    pathname: Pathname;
+    var pathname: Pathname
+
     /**
      * A URL search string, beginning with a ?.
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#location.search
      */
-    search: Search;
+    var search: Search
+
     /**
      * A URL fragment identifier, beginning with a #.
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#location.hash
      */
-    hash: Hash;
+    var hash: Hash
 }
