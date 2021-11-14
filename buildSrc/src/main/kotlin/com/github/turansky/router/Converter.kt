@@ -72,13 +72,6 @@ private fun convert(
     )
 }
 
-private fun convertConst(
-    name: String,
-    source: String,
-): String {
-    return source
-}
-
 private fun convertFunction(
     name: String,
     source: String,
