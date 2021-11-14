@@ -48,6 +48,11 @@ private fun generate(
         targetDir.resolve("$name.$extension")
             .writeText(content)
     }
+
+    if (pkg == Package.ROUTER) {
+        targetDir.resolve("NavigationType.kt")
+            .writeText(fileContent(pkg, "", "typealias NavigationType = history.Action"))
+    }
 }
 
 private fun fileContent(
