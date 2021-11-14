@@ -2,8 +2,8 @@
 
 package react.router.dom
 
-external interface HashRouterProps {
+external interface HashRouterProps : react.PropsWithChildren {
     var basename: String?
-    var children: react.ReactNode?
+    override var children: kotlinext.js.ReadonlyArray<react.ReactNode>?
     var window: org.w3c.dom.Window?
 }

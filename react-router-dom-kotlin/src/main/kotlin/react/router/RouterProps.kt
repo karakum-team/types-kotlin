@@ -2,9 +2,9 @@
 
 package react.router
 
-external interface RouterProps {
+external interface RouterProps : react.PropsWithChildren {
     var basename: String?
-    var children: react.ReactNode?
+    override var children: kotlinext.js.ReadonlyArray<react.ReactNode>?
     var location: history.Location
     var navigationType: NavigationType?
     var navigator: Navigator

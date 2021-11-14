@@ -2,7 +2,7 @@
 
 package react.router
 
-external interface LayoutRouteProps {
-    var children: react.ReactNode?
+external interface LayoutRouteProps : react.PropsWithChildren {
+    override var children: kotlinext.js.ReadonlyArray<react.ReactNode>?
     var element: react.ReactElement?
 }

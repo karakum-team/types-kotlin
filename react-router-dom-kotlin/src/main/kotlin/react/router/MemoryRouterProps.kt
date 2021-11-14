@@ -2,9 +2,9 @@
 
 package react.router
 
-external interface MemoryRouterProps {
+external interface MemoryRouterProps : react.PropsWithChildren {
     var basename: String?
-    var children: react.ReactNode?
+    override var children: kotlinext.js.ReadonlyArray<react.ReactNode>?
     var initialEntries: kotlinext.js.ReadonlyArray<history.InitialEntry>?
     var initialIndex: Int?
 }

@@ -2,9 +2,9 @@
 
 package react.router
 
-external interface RouteProps {
+external interface RouteProps : react.PropsWithChildren {
     var caseSensitive: Boolean?
-    var children: react.ReactNode?
+    override var children: kotlinext.js.ReadonlyArray<react.ReactNode>?
     var element: react.ReactElement?
     var index: Boolean?
     var path: String?
