@@ -4,6 +4,7 @@ private val CONVERTABLE = setOf(
     "Path",
     "Location",
     "Update",
+    "RouteObject",
 )
 
 internal fun convertInterface(
@@ -29,7 +30,7 @@ internal fun convertInterface(
 private fun convertMember(
     source: String,
 ): String {
-    val comment = source.substringBeforeLast("\n")
+    val comment = source.substringBeforeLast("\n", "")
     val body = source.substringAfterLast("\n")
 
     val declaration = convertParameter(body)
@@ -42,8 +43,9 @@ private fun convertMember(
 private fun convertParameter(
     source: String,
 ): String {
-    val name = source.substringBefore(": ")
-        .substringBefore("?:")
+    val name = source
+        .substringBefore("?: ")
+        .substringBefore(": ")
 
     var type = kotlinType(source.substringAfter(": "), name)
     if ("?: " in source && !type.endsWith("?"))

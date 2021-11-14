@@ -19,6 +19,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "null" to "Nothing?",
 
     "Date" to "kotlin.js.Date",
+
+    "RouteObject[]" to "kotlinext.js.ReadonlyArray<RouteObject>",
+    "React.ReactNode" to "react.ReactNode",
 )
 
 internal fun kotlinType(
