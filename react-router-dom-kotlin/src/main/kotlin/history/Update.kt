@@ -1,13 +1,18 @@
+// Automatically generated - do not modify!
+
+package history
+
 /**
  * A change to the current location.
  */
-interface Update {
+external interface Update {
     /**
      * The action that triggered the change.
      */
-    action: Action;
+    var action: Action
+
     /**
      * The new location.
      */
-    location: Location;
+    var location: Location
 }

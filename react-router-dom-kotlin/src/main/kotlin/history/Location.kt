@@ -1,16 +1,21 @@
+// Automatically generated - do not modify!
+
+package history
+
 /**
  * An entry in a history stack. A location contains information about the
  * URL path, as well as possibly some arbitrary state and a key.
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#location
  */
-interface Location extends Path {
+external interface Location : Path {
     /**
      * A value of arbitrary data associated with this location.
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#location.state
      */
-    state: any;
+    var state: Any
+
     /**
      * A unique string associated with this location. May be used to safely store
      * and retrieve data in some other storage API, like `localStorage`.
@@ -19,5 +24,5 @@ interface Location extends Path {
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#location.key
      */
-    key: Key;
+    var key: Key
 }
