@@ -98,6 +98,7 @@ private fun convertType(
         body == "[string, string]" -> "kotlinext.js.Tuple<String, String>"
 
         body.startsWith("Partial<") -> "Any // $body"
+        body.startsWith("Omit<") -> "Any // $body"
         body.startsWith("string | ") -> "String // $body"
 
         else -> null
