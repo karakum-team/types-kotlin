@@ -2,6 +2,8 @@ package com.github.turansky.router
 
 private val CONVERTABLE = setOf(
     "Path",
+    "Location",
+    "Update",
 )
 
 internal fun convertInterface(
@@ -43,8 +45,8 @@ private fun convertParameter(
     val name = source.substringBefore(": ")
         .substringBefore("?:")
 
-    var type = source.substringAfter(": ")
-    if ("?: " in source)
+    var type = kotlinType(source.substringAfter(": "), name)
+    if ("?: " in source && !type.endsWith("?"))
         type += "?"
 
     return "var $name: $type"
