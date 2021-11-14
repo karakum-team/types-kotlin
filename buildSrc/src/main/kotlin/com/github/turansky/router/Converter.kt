@@ -90,10 +90,16 @@ private fun convertType(
     val body = source.substringAfter(" = ")
         .removeSuffix(";")
 
-    val alias = when (body) {
-        "string" -> "String"
-        "object | null" -> "Any?"
-        "[string, string]" -> "kotlinext.js.Tuple<String, String>"
+    val alias = when {
+        name == "Params" -> "kotlinext.js.Record<String, String>"
+
+        body == "string" -> "String"
+        body == "object | null" -> "Any?"
+        body == "[string, string]" -> "kotlinext.js.Tuple<String, String>"
+
+        body.startsWith("Partial<") -> "Any // $body"
+        body.startsWith("string | ") -> "String // $body"
+
         else -> null
     }
 
