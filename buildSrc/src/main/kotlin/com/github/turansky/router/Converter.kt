@@ -79,10 +79,3 @@ private fun convertFunction(
 ): String {
     return source
 }
-
-private fun convertInterface(
-    name: String,
-    source: String,
-): String {
-    return source
-}
