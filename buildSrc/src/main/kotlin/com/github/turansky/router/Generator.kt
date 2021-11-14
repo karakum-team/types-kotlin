@@ -1,6 +1,8 @@
 package com.github.turansky.router
 
 import com.github.turansky.common.GENERATOR_COMMENT
+import com.github.turansky.common.Suppress
+import com.github.turansky.common.fileSuppress
 import java.io.File
 
 fun generateKotlinDeclarations(
@@ -30,7 +32,18 @@ private fun generate(
 
     for ((name, body, ready) in convertDefinitions(source)) {
         val extension = if (ready) "kt" else "ts"
-        val content = if (ready) fileContent(pkg, "", body) else body
+        val content = if (ready) {
+            val suppresses = mutableListOf<Suppress>().apply {
+                if ("JsName(\"\"\"(" in body)
+                    add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+            }.toTypedArray()
+
+            val annotations = if (suppresses.isNotEmpty()) {
+                fileSuppress(*suppresses)
+            } else ""
+
+            fileContent(pkg, annotations, body)
+        } else body
 
         targetDir.resolve("$name.$extension")
             .writeText(content)
