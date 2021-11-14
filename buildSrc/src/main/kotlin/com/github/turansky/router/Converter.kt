@@ -47,24 +47,28 @@ private fun convert(
     name: String,
     source: String,
 ): ConversionResult {
-    val bodySource = source.substringAfter(" */\n")
-    val comment = source.removeSuffix(bodySource).removeSuffix("\n")
+    val contentSource = source.substringAfter(" */\n")
+    val comment = source.removeSuffix(contentSource).removeSuffix("\n")
 
-    val type = bodySource.substringBefore(" ")
-    val body = when (type) {
-        "const" -> convertConst(name, bodySource)
-        "function" -> convertFunction(name, bodySource)
-        "type" -> convertType(name, bodySource)
-        "interface" -> convertInterface(name, bodySource)
-        "enum" -> convertEnum(bodySource)
+    val type = contentSource.substringBefore(" ")
+    val content = when (type) {
+        "const" -> convertConst(name, contentSource)
+        "function" -> convertFunction(name, contentSource)
+        "type" -> convertType(name, contentSource)
+        "interface" -> convertInterface(name, contentSource)
+        "enum" -> convertEnum(contentSource)
 
         else -> TODO()
     }
 
+    val body = sequenceOf(comment, content)
+        .filter { it.isNotEmpty() }
+        .joinToString("\n")
+
     return ConversionResult(
         name = name,
-        body = sequenceOf(comment, body).joinToString("\n"),
-        ready = body != bodySource
+        body = body,
+        ready = content != contentSource
     )
 }
 
