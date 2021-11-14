@@ -1,3 +1,0 @@
-type HashHistoryOptions = {
-    window?: Window;
-};

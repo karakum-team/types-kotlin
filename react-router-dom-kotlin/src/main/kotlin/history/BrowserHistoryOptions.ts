@@ -1,3 +1,0 @@
-type BrowserHistoryOptions = {
-    window?: Window;
-};
