@@ -5,4 +5,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#usematch
  */
-function useMatch<ParamKey extends string = string>(pattern: PathPattern | string): PathMatch<ParamKey> | null;
+function useMatch(pattern: PathPattern | string): PathMatch | null;

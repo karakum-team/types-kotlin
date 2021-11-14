@@ -1,11 +1,11 @@
 /**
  * A RouteMatch contains info about how a route matched a URL.
  */
-interface RouteMatch<ParamKey extends string = string> {
+interface RouteMatch {
     /**
      * The names and values of dynamic parameters in the URL.
      */
-    params: Params<ParamKey>;
+    params: Params;
     /**
      * The portion of the URL pathname that was matched.
      */
