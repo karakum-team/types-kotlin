@@ -1,3 +1,7 @@
+// Automatically generated - do not modify!
+
+package react.router
+
 /**
  * A Navigator is a "location changer"; it's how you get to different locations.
  *
@@ -7,4 +11,4 @@
  * to avoid "tearing" that may occur in a suspense-enabled app if the action
  * and/or location were to be read directly from the history instance.
  */
-type Navigator = Omit<History, "action" | "location" | "back" | "forward" | "listen" | "block">;
+typealias Navigator = Any // Omit<History, "action" | "location" | "back" | "forward" | "listen" | "block">
