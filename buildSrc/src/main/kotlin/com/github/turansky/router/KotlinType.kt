@@ -25,11 +25,14 @@ private val STANDARD_TYPE_MAP = mapOf(
     "React.ReactNode" to "react.ReactNode",
     "React.ReactElement" to "react.ReactElement",
 
-    "InitialEntry[]" to "kotlinext.js.ReadonlyArray<InitialEntry>",
+    "InitialEntry[]" to "kotlinext.js.ReadonlyArray<history.InitialEntry>",
     "RouteObject[]" to "kotlinext.js.ReadonlyArray<RouteObject>",
     "RouteMatch[]" to "kotlinext.js.ReadonlyArray<RouteMatch>",
 
+    "To" to "history.To",
     "Location" to "history.Location",
+
+    "Partial<Location> | string" to "history.Location",
 )
 
 internal fun kotlinType(
@@ -38,6 +41,12 @@ internal fun kotlinType(
 ): String {
     if (type.endsWith(" | null"))
         return kotlinType(type.removeSuffix(" | null"), name)
+
+    when (type) {
+        "false",
+        "true",
+        -> return "Boolean /* $type */"
+    }
 
     if (type == "number") {
         return when (name) {

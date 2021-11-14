@@ -12,9 +12,13 @@ internal fun convertInterface(
     source: String,
 ): String {
     when {
+        name == "LinkProps" -> return source
+        name == "NavLinkProps" -> return source
+
         name in CONVERTABLE -> Unit
         name.endsWith("Object") -> Unit
         name.endsWith("Options") -> Unit
+        name.endsWith("Props") -> Unit
         else -> return source
     }
 
@@ -23,6 +27,7 @@ internal fun convertInterface(
         .replace(" extends ", " : ")
 
     val members = source.substringAfter(" {\n")
+        .also { if (it == "}") return declaration }
         .substringBefore(";\n}")
         .trimIndent()
         .splitToSequence(";\n")
