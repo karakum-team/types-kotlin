@@ -100,7 +100,6 @@ private fun convertType(
     if (alias != null)
         return "typealias $name = $alias"
 
-    println(source)
     return source
 }
 
