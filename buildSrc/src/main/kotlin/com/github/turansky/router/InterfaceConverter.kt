@@ -4,15 +4,18 @@ private val CONVERTABLE = setOf(
     "Path",
     "Location",
     "Update",
-    "RouteObject",
+    "RouteMatch",
 )
 
 internal fun convertInterface(
     name: String,
     source: String,
 ): String {
-    if (name !in CONVERTABLE)
-        return source
+    when {
+        name in CONVERTABLE -> Unit
+        name.endsWith("Object") -> Unit
+        else -> return source
+    }
 
     val declaration = source.substringBefore(" {")
         .replace("interface ", "external interface ")
