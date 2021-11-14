@@ -2,7 +2,6 @@
 
 package react.router
 
-
 external interface LocationContextObject {
     var location: history.Location
     var navigationType: NavigationType
