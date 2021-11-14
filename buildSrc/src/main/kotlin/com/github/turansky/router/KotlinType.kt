@@ -20,9 +20,12 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Date" to "kotlin.js.Date",
 
+    "Window" to "org.w3c.dom.Window",
+
     "React.ReactNode" to "react.ReactNode",
     "React.ReactElement" to "react.ReactElement",
 
+    "InitialEntry[]" to "kotlinext.js.ReadonlyArray<InitialEntry>",
     "RouteObject[]" to "kotlinext.js.ReadonlyArray<RouteObject>",
     "RouteMatch[]" to "kotlinext.js.ReadonlyArray<RouteMatch>",
 
@@ -35,6 +38,16 @@ internal fun kotlinType(
 ): String {
     if (type.endsWith(" | null"))
         return kotlinType(type.removeSuffix(" | null"), name)
+
+    if (type == "number") {
+        return when (name) {
+            "index",
+            "initialIndex",
+            -> INT
+
+            else -> TODO("Support number type for property '$name'")
+        }
+    }
 
     STANDARD_TYPE_MAP[type]
         ?.also { return it }

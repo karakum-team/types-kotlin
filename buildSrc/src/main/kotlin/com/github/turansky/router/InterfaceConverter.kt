@@ -14,6 +14,7 @@ internal fun convertInterface(
     when {
         name in CONVERTABLE -> Unit
         name.endsWith("Object") -> Unit
+        name.endsWith("Options") -> Unit
         else -> return source
     }
 

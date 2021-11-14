@@ -24,5 +24,13 @@ internal fun convertType(
     if (alias != null)
         return "typealias $name = $alias"
 
+    if (" = {\n" in source)
+        return convertInterface(
+            name = name,
+            source = source
+                .replaceFirst("type ", "interface ")
+                .replaceFirst(" = {", " {")
+        )
+
     return source
 }
