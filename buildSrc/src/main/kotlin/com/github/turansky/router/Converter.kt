@@ -87,6 +87,20 @@ private fun convertType(
     name: String,
     source: String,
 ): String {
+    val body = source.substringAfter(" = ")
+        .removeSuffix(";")
+
+    val alias = when (body) {
+        "string" -> "String"
+        "object | null" -> "Any?"
+        "[string, string]" -> "kotlinext.js.Tuple<String, String>"
+        else -> null
+    }
+
+    if (alias != null)
+        return "typealias $name = $alias"
+
+    println(source)
     return source
 }
 
