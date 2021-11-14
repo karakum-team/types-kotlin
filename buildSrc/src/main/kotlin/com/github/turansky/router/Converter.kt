@@ -35,6 +35,62 @@ internal fun convertDefinitions(
                 .filter { it.isNotEmpty() }
                 .joinToString("")
 
-            ConversionResult(name, body)
+            convert(name, body)
         }
+}
+
+private fun convert(
+    name: String,
+    source: String,
+): ConversionResult {
+    val bodySource = source.substringAfter(" */\n")
+    val comment = source.removeSuffix(bodySource).removeSuffix("\n")
+
+    val type = bodySource.substringBefore(" ")
+    val body = when (type) {
+        "const" -> convertConst(name, bodySource)
+        "function" -> convertFunction(name, bodySource)
+        "type" -> convertType(name, bodySource)
+        "interface" -> convertInterface(name, bodySource)
+        "enum" -> convertEnum(name, bodySource)
+
+        else -> TODO()
+    }
+
+    return ConversionResult(name, sequenceOf(comment, body).joinToString("\n"))
+}
+
+private fun convertConst(
+    name: String,
+    source: String,
+): String {
+    return source
+}
+
+private fun convertFunction(
+    name: String,
+    source: String,
+): String {
+    return source
+}
+
+private fun convertType(
+    name: String,
+    source: String,
+): String {
+    return source
+}
+
+private fun convertInterface(
+    name: String,
+    source: String,
+): String {
+    return source
+}
+
+private fun convertEnum(
+    name: String,
+    source: String,
+): String {
+    return source
 }
