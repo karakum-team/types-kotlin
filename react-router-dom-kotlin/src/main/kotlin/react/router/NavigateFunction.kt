@@ -9,8 +9,7 @@ package react.router
 /**
  * The interface for the navigate() function returned from useNavigate().
  */
-class NavigateFunction
-private constructor() {
+sealed class NavigateFunction {
     inline operator fun invoke(to: history.To, options: NavigateOptions? = null) {
         asDynamic()(to, options)
     }
