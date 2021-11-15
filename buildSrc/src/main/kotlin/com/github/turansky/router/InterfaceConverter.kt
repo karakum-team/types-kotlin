@@ -78,7 +78,7 @@ private fun convertMultiFunction(
         .map(::invokeWrapper)
         .joinToString("\n\n")
 
-    return "class $name\nprivate constructor() {\n$body\n}"
+    return "sealed class $name {\n$body\n}"
 }
 
 private fun invokeWrapper(
