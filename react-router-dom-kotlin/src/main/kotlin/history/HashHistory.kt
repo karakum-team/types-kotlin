@@ -1,3 +1,7 @@
+// Automatically generated - do not modify!
+
+package history
+
 /**
  * A hash history stores the current location in the fragment identifier portion
  * of the URL in a web browser environment.
@@ -9,5 +13,4 @@
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#hashhistory
  */
-interface HashHistory extends History {
-}
+external interface HashHistory : History

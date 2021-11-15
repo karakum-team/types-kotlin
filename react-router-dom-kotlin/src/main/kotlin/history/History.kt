@@ -1,3 +1,7 @@
+// Automatically generated - do not modify!
+
+package history
+
 /**
  * A history is an interface to the navigation stack. The history serves as the
  * source of truth for the current location, as well as provides a set of
@@ -6,20 +10,21 @@
  * It is similar to the DOM's `window.history` object, but with a smaller, more
  * focused API.
  */
-interface History {
+external interface History {
     /**
      * The last action that modified the current location. This will always be
      * Action.Pop when a history instance is first created. This value is mutable.
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#history.action
      */
-    readonly action: Action;
+    val action: Action
+
     /**
      * The current location. This value is mutable.
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#history.location
      */
-    readonly location: Location;
+    val location: history.Location
 
     /**
      * Returns a valid href for the given `to` value that may be used as
@@ -29,7 +34,7 @@ interface History {
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#history.createHref
      */
-    createHref(to: To): string;
+    fun createHref(to: To): String
 
     /**
      * Pushes a new location onto the history stack, increasing its length by one.
@@ -41,7 +46,7 @@ interface History {
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#history.push
      */
-    push(to: To, state?: any): void;
+    fun push(to: To, state: Any = definedExternally)
 
     /**
      * Replaces the current location in the history stack with a new one.  The
@@ -52,7 +57,7 @@ interface History {
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#history.replace
      */
-    replace(to: To, state?: any): void;
+    fun replace(to: To, state: Any = definedExternally)
 
     /**
      * Navigates `n` entries backward/forward in the history stack relative to the
@@ -62,7 +67,7 @@ interface History {
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#history.go
      */
-    go(delta: number): void;
+    fun go(delta: Int)
 
     /**
      * Navigates to the previous entry in the stack. Identical to go(-1).
@@ -72,14 +77,14 @@ interface History {
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#history.back
      */
-    back(): void;
+    fun back()
 
     /**
      * Navigates to the next entry in the stack. Identical to go(1).
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#history.forward
      */
-    forward(): void;
+    fun forward()
 
     /**
      * Sets up a listener that will be called whenever the current location
@@ -90,7 +95,7 @@ interface History {
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#history.listen
      */
-    listen(listener: Listener): () => void;
+    fun listen(listener: Listener): () -> Unit
 
     /**
      * Prevents the current location from changing and sets up a listener that
@@ -101,5 +106,5 @@ interface History {
      *
      * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#history.block
      */
-    block(blocker: Blocker): () => void;
+    fun block(blocker: Blocker): () -> Unit
 }
