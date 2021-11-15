@@ -91,19 +91,26 @@ private fun convertMember(
     val comment = source.substringBeforeLast("\n", "")
     val body = source.substringAfterLast("\n")
 
-    val declaration = convertParameter(body)
+    val declaration = if ("(" in body) {
+        convertMethod(body)
+    } else {
+        convertParameter(body)
+    }
 
     return sequenceOf(comment, declaration)
         .filter { it.isNotEmpty() }
         .joinToString("\n")
 }
 
+private fun convertMethod(
+    source: String,
+): String {
+    return "fun " + source.replace(": void", "")
+}
+
 private fun convertParameter(
     source: String,
 ): String {
-    if (source == "retry(): void")
-        return "fun retry()"
-
     val name = source
         .substringBefore("?: ")
         .substringBefore(": ")
