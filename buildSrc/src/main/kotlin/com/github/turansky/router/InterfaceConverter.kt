@@ -35,6 +35,7 @@ internal fun convertInterface(
         name.endsWith("Object") -> Unit
         name.endsWith("Options") -> Unit
         name.endsWith("Props") -> Unit
+        name.endsWith("History") -> Unit
         else -> return source
     }
 
@@ -105,7 +106,12 @@ private fun convertMember(
 private fun convertMethod(
     source: String,
 ): String {
-    return "fun " + source.replace(": void", "")
+    return "fun " + source
+        .replace("): () => void", "): () -> Unit")
+        .replace("): void", ")")
+        .replace("): string", "): String")
+        .replace("delta: number", "delta: Int")
+        .replace(", state?: any", ", state: Any = definedExternally")
 }
 
 private fun convertParameter(
@@ -114,10 +120,12 @@ private fun convertParameter(
     val name = source
         .substringBefore("?: ")
         .substringBefore(": ")
+        .removePrefix("readonly ")
 
     var type = kotlinType(source.substringAfter(": "), name)
     if ("?: " in source && !type.endsWith("?"))
         type += "?"
 
-    return "var $name: $type"
+    val modifier = if (source.startsWith("readonly ")) "val" else "var"
+    return "$modifier $name: $type"
 }
