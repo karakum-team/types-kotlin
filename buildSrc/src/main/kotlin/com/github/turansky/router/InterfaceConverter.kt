@@ -26,6 +26,9 @@ internal fun convertInterface(
         .replace("interface ", "external interface ")
         .replace(" extends ", " : ")
 
+    if (name == "OutletProps")
+        declaration += ": react.Props"
+
     var members = source.substringAfter(" {\n")
         .also { if (it == "}") return declaration }
         .substringBefore(";\n}")
