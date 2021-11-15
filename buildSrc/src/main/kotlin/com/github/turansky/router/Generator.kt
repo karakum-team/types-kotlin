@@ -30,7 +30,8 @@ private fun generate(
         .substringAfter("""export { UNSAFE_NavigationContext, UNSAFE_LocationContext, UNSAFE_RouteContext } from "react-router";""" + "\n")
         .substringBefore("\n/** @internal */\nexport { NavigationContext as UNSAFE_NavigationContext")
 
-    for ((name, body, ready) in convertDefinitions(source)) {
+    for ((name, body) in convertDefinitions(source)) {
+        val ready = "\nfunction " !in body
         val extension = if (ready) "kt" else "ts"
         val content = if (ready) {
             val suppresses = mutableListOf<Suppress>().apply {

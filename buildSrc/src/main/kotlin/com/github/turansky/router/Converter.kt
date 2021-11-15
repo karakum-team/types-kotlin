@@ -5,8 +5,6 @@ private const val DELIMITER = "//--delimiter--//"
 internal data class ConversionResult(
     val name: String,
     val body: String,
-    // temp field
-    val ready: Boolean,
 )
 
 internal fun convertDefinitions(
@@ -52,8 +50,7 @@ private fun convert(
     val contentSource = source.substringAfter(" */\n")
     val comment = source.removeSuffix(contentSource).removeSuffix("\n")
 
-    val type = contentSource.substringBefore(" ")
-    val content = when (type) {
+    val content = when (contentSource.substringBefore(" ")) {
         "const" -> convertConst(name, contentSource)
         "function" -> convertFunction(name, contentSource)
         "type" -> convertType(name, contentSource)
@@ -70,6 +67,5 @@ private fun convert(
     return ConversionResult(
         name = name,
         body = body,
-        ready = content != contentSource
     )
 }
