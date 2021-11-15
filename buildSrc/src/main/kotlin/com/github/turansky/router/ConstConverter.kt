@@ -4,10 +4,10 @@ internal fun convertConst(
     name: String,
     source: String,
 ): String {
-    if (!name.endsWith("Context"))
+    if (name.endsWith("Context"))
         return source
+            .replace("const ", "external val ")
+            .replace("React.", "react.")
 
-    return source
-        .replace("const ", "external val ")
-        .replace("React.", "react.")
+    return "external val $name: react.FC<${name}Props>"
 }

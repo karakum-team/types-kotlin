@@ -7,14 +7,23 @@ private val CONVERTABLE = setOf(
     "RouteMatch",
 )
 
+private val CLASS_NAME = """
+className?: string | ((props: {
+    isActive: boolean;
+}) => string);
+""".trimIndent()
+
+private val STYLE = """
+style?: React.CSSProperties | ((props: {
+    isActive: boolean;
+}) => React.CSSProperties);
+""".trimIndent()
+
 internal fun convertInterface(
     name: String,
     source: String,
 ): String {
     when {
-        name == "LinkProps" -> return source
-        name == "NavLinkProps" -> return source
-
         name in CONVERTABLE -> Unit
         name.endsWith("Object") -> Unit
         name.endsWith("Options") -> Unit
@@ -25,6 +34,14 @@ internal fun convertInterface(
     var declaration = source.substringBefore(" {")
         .replace("interface ", "external interface ")
         .replace(" extends ", " : ")
+        .replace(
+            "Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, \"href\">",
+            "react.dom.html.AnchorHTMLAttributes<org.w3c.dom.HTMLAnchorElement>",
+        )
+        .replace(
+            "Omit<LinkProps, \"className\" | \"style\">",
+            "LinkProps",
+        )
 
     if (name == "OutletProps")
         declaration += ": react.Props"
@@ -33,10 +50,12 @@ internal fun convertInterface(
         .also { if (it == "}") return declaration }
         .substringBefore(";\n}")
         .trimIndent()
+        .replace(CLASS_NAME, "")
+        .replace(STYLE, "")
         .splitToSequence(";\n")
         .joinToString("\n", transform = ::convertMember)
 
-    if (name.endsWith("Props")) {
+    if (name.endsWith("Props") && ":" !in declaration) {
         val parentType = if ("var children: react.ReactNode?" in members) {
             members = members.replace(
                 "var children: react.ReactNode?",
