@@ -36,6 +36,9 @@ private fun generate(
             val suppresses = mutableListOf<Suppress>().apply {
                 if ("JsName(\"\"\"(" in body)
                     add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+
+                if ("inline operator fun " in body)
+                    add(Suppress.NOTHING_TO_INLINE)
             }.toTypedArray()
 
             val annotations = when {
