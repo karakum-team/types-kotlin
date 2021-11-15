@@ -4,6 +4,9 @@ private val CONVERTABLE = setOf(
     "Path",
     "Location",
     "Update",
+
+    "PathMatch",
+    "PathPattern",
     "RouteMatch",
 )
 
