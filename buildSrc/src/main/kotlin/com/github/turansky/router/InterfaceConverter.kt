@@ -8,16 +8,16 @@ private val CONVERTABLE = setOf(
 )
 
 private val CLASS_NAME = """
-className?: string | ((props: {
-    isActive: boolean;
-}) => string);
-""".trimIndent()
+    className?: string | ((props: {
+        isActive: boolean;
+    }) => string);
+""".removeSuffix("\n")
 
 private val STYLE = """
-style?: React.CSSProperties | ((props: {
-    isActive: boolean;
-}) => React.CSSProperties);
-""".trimIndent()
+    style?: React.CSSProperties | ((props: {
+        isActive: boolean;
+    }) => React.CSSProperties);
+""".removeSuffix("\n")
 
 internal fun convertInterface(
     name: String,
@@ -46,12 +46,13 @@ internal fun convertInterface(
     if (name == "OutletProps")
         declaration += ": react.Props"
 
-    var members = source.substringAfter(" {\n")
+    var members = source
+        .replace(CLASS_NAME, "")
+        .replace(STYLE, "")
+        .substringAfter(" {\n")
         .also { if (it == "}") return declaration }
         .substringBefore(";\n}")
         .trimIndent()
-        .replace(CLASS_NAME, "")
-        .replace(STYLE, "")
         .splitToSequence(";\n")
         .joinToString("\n", transform = ::convertMember)
 
