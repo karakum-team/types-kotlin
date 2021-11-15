@@ -401,6 +401,7 @@ private fun convertInterface(
                     .replace("Property.Color;", COLOR_PROPERTY)
                     .removePrefix("Property.")
                     .removeSuffix(";")
+                    .removeSuffix(" | undefined")
 
                 if (ptype == "string") ptype = "String"
                 "var $pname: $ptype?"
