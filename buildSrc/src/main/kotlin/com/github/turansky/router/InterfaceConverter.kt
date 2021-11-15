@@ -17,7 +17,7 @@ internal fun convertInterface(
     source: String,
 ): String {
     if (name == "NavigateFunction")
-        return source
+        return convertMultiFunction(name, source)
 
     var declaration = source.substringBefore(" {")
         .replace("interface ", "external interface ")
@@ -64,4 +64,37 @@ internal fun convertInterface(
     }
 
     return "$declaration {\n$members\n}"
+}
+
+private fun convertMultiFunction(
+    name: String,
+    source: String,
+): String {
+    val body = source
+        .substringAfter(" {\n")
+        .substringBefore(";\n}")
+        .trimIndent()
+        .splitToSequence(";\n")
+        .map(::invokeWrapper)
+        .joinToString("\n\n")
+
+    return "class $name\nprivate constructor() {\n$body\n}"
+}
+
+private fun invokeWrapper(
+    source: String,
+): String {
+    val parameters = source
+        .substringAfter("(")
+        .substringBefore(")")
+        .splitToSequence(", ")
+        .map { it.substringBefore("?:") }
+        .map { it.substringBefore(":") }
+        .joinToString(", ")
+
+    return "inline operator fun invoke" + source
+        .replace(": To,", ": history.To,")
+        .replace("?: NavigateOptions", ": NavigateOptions? = null")
+        .replace("delta: number", "delta: Int")
+        .replace("): void", ") {\nasDynamic()($parameters)\n}")
 }
