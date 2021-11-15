@@ -1,19 +1,5 @@
 package com.github.turansky.router
 
-private val CONVERTABLE = setOf(
-    "Blocker",
-    "Listener",
-
-    "Path",
-    "Location",
-    "Transition",
-    "Update",
-
-    "PathMatch",
-    "PathPattern",
-    "RouteMatch",
-)
-
 private val CLASS_NAME = """
     className?: string | ((props: {
         isActive: boolean;
@@ -30,14 +16,8 @@ internal fun convertInterface(
     name: String,
     source: String,
 ): String {
-    when {
-        name in CONVERTABLE -> Unit
-        name.endsWith("Object") -> Unit
-        name.endsWith("Options") -> Unit
-        name.endsWith("Props") -> Unit
-        name.endsWith("History") -> Unit
-        else -> return source
-    }
+    if (name == "NavigateFunction")
+        return source
 
     var declaration = source.substringBefore(" {")
         .replace("interface ", "external interface ")
