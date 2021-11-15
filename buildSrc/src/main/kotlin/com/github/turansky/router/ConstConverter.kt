@@ -8,7 +8,6 @@ internal fun convertConst(
         return source
 
     return source
-        .replace("const ", "typealias ")
-        .replace(": ", " = ")
+        .replace("const ", "external val ")
         .replace("React.", "react.")
 }

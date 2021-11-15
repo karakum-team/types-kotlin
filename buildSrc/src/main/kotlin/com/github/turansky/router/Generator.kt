@@ -38,9 +38,11 @@ private fun generate(
                     add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
             }.toTypedArray()
 
-            val annotations = if (suppresses.isNotEmpty()) {
-                fileSuppress(*suppresses)
-            } else ""
+            val annotations = when {
+                "external val " in body -> "@file:JsModule(\"${pkg.moduleName}\")\n@file:JsNonModule"
+                suppresses.isNotEmpty() -> fileSuppress(*suppresses)
+                else -> ""
+            }
 
             fileContent(pkg, annotations, body)
         } else body
