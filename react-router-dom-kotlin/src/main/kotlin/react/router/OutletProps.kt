@@ -2,4 +2,4 @@
 
 package react.router
 
-external interface OutletProps
+external interface OutletProps : react.Props
