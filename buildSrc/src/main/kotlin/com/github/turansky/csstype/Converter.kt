@@ -405,10 +405,10 @@ private fun convertInterface(
             if ("?: " in it) {
                 var (pname, ptype) = it.split("?: ")
                 ptype = ptype
+                    .replace(" | undefined;", ";")
                     .replace("Property.Color;", COLOR_PROPERTY)
                     .removePrefix("Property.")
                     .removeSuffix(";")
-                    .removeSuffix(" | undefined")
 
                 if (ptype == "string") ptype = "String"
                 "var $pname: $ptype?"
