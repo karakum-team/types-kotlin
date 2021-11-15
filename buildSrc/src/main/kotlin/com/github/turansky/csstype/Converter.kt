@@ -247,8 +247,11 @@ private fun convertUnion(
 
     when (body) {
         "Globals | (number & {})",
+        "Globals | (number & {}) | (string & {})",
         "Globals | \"auto\" | (number & {})",
+        "Globals | \"auto\" | (number & {}) | (string & {})",
         "Globals | \"none\" | (number & {})",
+        "Globals | \"none\" | (number & {}) | (string & {})",
         -> return convertNumberType(name, source)
     }
 
@@ -330,7 +333,11 @@ private fun convertNumberType(
         else -> TODO("Support number type for `$name`")
     }
 
-    val mainBody = convertUnion(name, source.replace(" | (number & {})", "")).body
+    val bodySource = source
+        .replace(" | (number & {}) | (string & {})", "")
+        .replace(" | (number & {})", "")
+
+    val mainBody = convertUnion(name, bodySource).body
 
     val body = """
         $mainBody
