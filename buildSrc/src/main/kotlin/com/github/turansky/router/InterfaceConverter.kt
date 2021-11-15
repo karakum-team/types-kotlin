@@ -1,8 +1,12 @@
 package com.github.turansky.router
 
 private val CONVERTABLE = setOf(
+    "Blocker",
+    "Listener",
+
     "Path",
     "Location",
+    "Transition",
     "Update",
 
     "PathMatch",
@@ -49,13 +53,18 @@ internal fun convertInterface(
     if (name == "OutletProps")
         declaration += ": react.Props"
 
-    var members = source
+    val membersSource = source
         .replace(CLASS_NAME, "")
         .replace(STYLE, "")
         .substringAfter(" {\n")
         .also { if (it == "}") return declaration }
         .substringBefore(";\n}")
         .trimIndent()
+
+    if (membersSource.startsWith("("))
+        return "typealias $name = ${membersSource.replace("): void", ") -> Unit")}"
+
+    var members = membersSource
         .splitToSequence(";\n")
         .joinToString("\n", transform = ::convertMember)
 
@@ -92,6 +101,9 @@ private fun convertMember(
 private fun convertParameter(
     source: String,
 ): String {
+    if (source == "retry(): void")
+        return "fun retry()"
+
     val name = source
         .substringBefore("?: ")
         .substringBefore(": ")
