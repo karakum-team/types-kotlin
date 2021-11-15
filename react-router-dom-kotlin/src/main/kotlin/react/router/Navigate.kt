@@ -1,3 +1,10 @@
+// Automatically generated - do not modify!
+
+@file:JsModule("react-router")
+@file:JsNonModule
+
+package react.router
+
 /**
  * Changes the current location.
  *
@@ -7,4 +14,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#navigate
  */
-function Navigate({to, replace, state}: NavigateProps): null;
+external val Navigate: react.FC<NavigateProps>

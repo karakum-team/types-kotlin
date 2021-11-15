@@ -1,3 +1,10 @@
+// Automatically generated - do not modify!
+
+@file:JsModule("react-router")
+@file:JsNonModule
+
+package react.router
+
 /**
  * Provides location context for the rest of the app.
  *
@@ -7,4 +14,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#router
  */
-function Router({basename: basenameProp, children, location: locationProp, navigationType, navigator, static: staticProp}: RouterProps): React.ReactElement | null;
+external val Router: react.FC<RouterProps>
