@@ -71,10 +71,3 @@ private fun convert(
         ready = content != contentSource
     )
 }
-
-private fun convertFunction(
-    name: String,
-    source: String,
-): String {
-    return source
-}
