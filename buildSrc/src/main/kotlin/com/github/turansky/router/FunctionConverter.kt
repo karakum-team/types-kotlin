@@ -19,10 +19,21 @@ internal fun convertFunction(
         .substringBeforeLast(";")
         .let { kotlinType(it, name) }
 
-    if (body == "")
-        return "external fun $name(): $resultType"
+    val parameters = body.splitToSequence(", ")
+        .filter { it.isNotEmpty() }
+        .map(::convertParameter)
+        .joinToString(",\n")
 
-    return source
+    return "external fun $name($parameters): $resultType"
+}
+
+private fun convertParameter(
+    source: String,
+): String {
+    val (name, type) = source.split("?: ", ": ")
+
+    return name + ": " + kotlinType(type, name) +
+            if ("?: " in source) " = definedExternally" else ""
 }
 
 private fun convertComponent(

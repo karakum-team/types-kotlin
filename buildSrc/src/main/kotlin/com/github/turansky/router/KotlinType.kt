@@ -21,6 +21,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Date" to "kotlin.js.Date",
 
     "Window" to "org.w3c.dom.Window",
+    "URLSearchParams" to "org.w3c.dom.url.URLSearchParams",
 
     "React.ReactNode" to "react.ReactNode",
     "React.ReactElement" to "react.ReactElement",
