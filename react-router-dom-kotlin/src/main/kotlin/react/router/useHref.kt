@@ -11,4 +11,6 @@ package react.router
  *
  * @see https://reactrouter.com/docs/en/v6/api#usehref
  */
-external fun useHref(to: history.To): String
+external fun useHref(
+    to: history.To,
+): String

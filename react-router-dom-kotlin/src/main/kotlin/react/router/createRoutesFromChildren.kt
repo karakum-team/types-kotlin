@@ -12,4 +12,6 @@ package react.router
  *
  * @see https://reactrouter.com/docs/en/v6/api#createroutesfromchildren
  */
-external fun createRoutesFromChildren(children: react.ReactNode): kotlinext.js.ReadonlyArray<RouteObject>
+external fun createRoutesFromChildren(
+    children: react.ReactNode,
+): kotlinext.js.ReadonlyArray<RouteObject>

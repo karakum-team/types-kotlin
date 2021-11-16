@@ -10,4 +10,6 @@ package history
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#parsepath
  */
-external fun parsePath(path: String): PartialPath
+external fun parsePath(
+    path: String,
+): PartialPath

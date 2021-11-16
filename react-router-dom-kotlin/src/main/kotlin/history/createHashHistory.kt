@@ -13,4 +13,6 @@ package history
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#createhashhistory
  */
-external fun createHashHistory(options: HashHistoryOptions = definedExternally): HashHistory
+external fun createHashHistory(
+    options: HashHistoryOptions = definedExternally,
+): HashHistory

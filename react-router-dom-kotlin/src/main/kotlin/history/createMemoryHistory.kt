@@ -11,4 +11,6 @@ package history
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#creatememoryhistory
  */
-external fun createMemoryHistory(options: MemoryHistoryOptions = definedExternally): MemoryHistory
+external fun createMemoryHistory(
+    options: MemoryHistoryOptions = definedExternally,
+): MemoryHistory

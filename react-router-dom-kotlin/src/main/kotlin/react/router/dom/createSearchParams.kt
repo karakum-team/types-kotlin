@@ -26,4 +26,6 @@ package react.router.dom
  *     sort: ['name', 'price']
  *   });
  */
-external fun createSearchParams(init: URLSearchParamsInit = definedExternally): org.w3c.dom.url.URLSearchParams
+external fun createSearchParams(
+    init: URLSearchParamsInit = definedExternally,
+): org.w3c.dom.url.URLSearchParams

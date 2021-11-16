@@ -12,4 +12,6 @@ package history
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#createbrowserhistory
  */
-external fun createBrowserHistory(options: BrowserHistoryOptions = definedExternally): BrowserHistory
+external fun createBrowserHistory(
+    options: BrowserHistoryOptions = definedExternally,
+): BrowserHistory
