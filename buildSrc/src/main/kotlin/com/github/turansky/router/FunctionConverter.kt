@@ -9,7 +9,7 @@ readonly [URLSearchParams, (nextInit: URLSearchParamsInit, navigateOptions?: {
 
 private val SEARCH_RESULT_KT = "kotlinext.js.Tuple<" +
         "org.w3c.dom.url.URLSearchParams," +
-        "(nextInit: URLSearchParamsInit, navigateOptions:react.router.NavigateOptions) -> Unit" +
+        "(nextInit: URLSearchParamsInit, navigateOptions:react.router.NavigateOptions?) -> Unit" +
         ">"
 
 internal fun convertFunction(
