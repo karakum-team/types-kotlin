@@ -1,6 +1,15 @@
+// Automatically generated - do not modify!
+
+@file:JsModule("history")
+@file:JsNonModule
+
+package history
+
 /**
  * Creates a string URL path from the given pathname, search, and hash components.
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#createpath
  */
-function createPath({pathname, search, hash}: PartialPath): string;
+external fun createPath(
+    path: PartialPath,
+): String
