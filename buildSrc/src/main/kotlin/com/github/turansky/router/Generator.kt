@@ -43,8 +43,12 @@ private fun generate(
             }.toTypedArray()
 
             val annotations = when {
-                "external val " in body -> "@file:JsModule(\"${pkg.moduleName}\")\n@file:JsNonModule"
-                suppresses.isNotEmpty() -> fileSuppress(*suppresses)
+                "external val " in body || "external fun " in body
+                -> "@file:JsModule(\"${pkg.moduleName}\")\n@file:JsNonModule"
+
+                suppresses.isNotEmpty()
+                -> fileSuppress(*suppresses)
+
                 else -> ""
             }
 

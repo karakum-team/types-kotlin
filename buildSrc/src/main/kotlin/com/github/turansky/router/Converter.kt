@@ -14,6 +14,7 @@ internal fun convertDefinitions(
         // TODO: check how to fix comment
         .replace("`/*`", "`/ *`")
         .replace("<ParamKey extends string = string>", "")
+        .replace("Readonly<Params<Key>>", "Params")
         .replace("<ParamKey>", "")
         .replace("\n/**\n", "\n$DELIMITER\n/**\n")
         .replace("\nexport ", "\n$DELIMITER\nexport ")

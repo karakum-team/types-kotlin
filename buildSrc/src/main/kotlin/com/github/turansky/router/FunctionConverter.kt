@@ -7,6 +7,18 @@ internal fun convertFunction(
     if ("Props): " in source)
         return convertComponent(name, source)
 
+    val body = source
+        .substringAfter("(")
+        .substringBefore("): ")
+
+    val resultType = source
+        .substringAfter("): ")
+        .substringBeforeLast(";")
+        .let { kotlinType(it, name) }
+
+    if (body == "")
+        return "external fun $name(): $resultType"
+
     return source
 }
 
