@@ -1,3 +1,10 @@
+// Automatically generated - do not modify!
+
+@file:JsModule("react-router")
+@file:JsNonModule
+
+package react.router
+
 /**
  * Returns the current location object, which represents the current URL in web
  * browsers.
@@ -8,4 +15,4 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#uselocation
  */
-function useLocation(): Location;
+external fun useLocation(): history.Location
