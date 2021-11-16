@@ -13,4 +13,4 @@ package react.router
 external fun resolvePath(
     to: history.To,
     fromPathname: String = definedExternally,
-): Path
+): history.Path

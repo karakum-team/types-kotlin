@@ -10,4 +10,4 @@ package react.router
  *
  * @see https://reactrouter.com/docs/en/v6/api#useresolvedpath
  */
-external fun useResolvedPath(to: history.To): Path
+external fun useResolvedPath(to: history.To): history.Path
