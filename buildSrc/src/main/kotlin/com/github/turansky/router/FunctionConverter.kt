@@ -7,10 +7,12 @@ readonly [URLSearchParams, (nextInit: URLSearchParamsInit, navigateOptions?: {
 } | undefined) => void]
 """.trimIndent()
 
-private val SEARCH_RESULT_KT = "kotlinext.js.Tuple<" +
+private const val SEARCH_RESULT_KT = "kotlinext.js.Tuple<" +
         "org.w3c.dom.url.URLSearchParams," +
         "(nextInit: URLSearchParamsInit, navigateOptions:react.router.NavigateOptions?) -> Unit" +
         ">"
+
+private const val PATH_ALIAS = "{ pathname, search, hash }"
 
 internal fun convertFunction(
     name: String,
@@ -18,6 +20,9 @@ internal fun convertFunction(
 ): String {
     if ("Props): " in source)
         return convertComponent(name, source)
+
+    if (PATH_ALIAS in source)
+        return convertFunction(name, source.replace(PATH_ALIAS, "path"))
 
     if (SEARCH_RESULT_TS in source)
         return convertFunction(name, source.replace(SEARCH_RESULT_TS, SEARCH_RESULT_KT))
