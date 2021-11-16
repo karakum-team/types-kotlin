@@ -1,3 +1,10 @@
+// Automatically generated - do not modify!
+
+@file:JsModule("react-router")
+@file:JsNonModule
+
+package react.router
+
 /**
  * Returns the element of the route that matched the current location, prepared
  * with the correct context to render the remainder of the route tree. Route
@@ -6,4 +13,7 @@
  *
  * @see https://reactrouter.com/docs/en/v6/api#useroutes
  */
-function useRoutes(routes: RouteObject[], locationArg?: Partial<Location> | string): React.ReactElement | null;
+external fun useRoutes(
+    routes: kotlinext.js.ReadonlyArray<RouteObject>,
+    locationArg: history.Location = definedExternally,
+): react.ReactElement

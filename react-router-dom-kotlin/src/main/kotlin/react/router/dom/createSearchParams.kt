@@ -1,3 +1,10 @@
+// Automatically generated - do not modify!
+
+@file:JsModule("react-router-dom")
+@file:JsNonModule
+
+package react.router.dom
+
 /**
  * Creates a URLSearchParams object using the given initializer.
  *
@@ -19,4 +26,4 @@
  *     sort: ['name', 'price']
  *   });
  */
-function createSearchParams(init?: URLSearchParamsInit): URLSearchParams;
+external fun createSearchParams(init: URLSearchParamsInit = definedExternally): org.w3c.dom.url.URLSearchParams

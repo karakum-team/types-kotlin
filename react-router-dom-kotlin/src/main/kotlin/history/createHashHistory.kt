@@ -1,3 +1,10 @@
+// Automatically generated - do not modify!
+
+@file:JsModule("history")
+@file:JsNonModule
+
+package history
+
 /**
  * Hash history stores the location in window.location.hash. This makes it ideal
  * for situations where you don't want to send the location to the server for
@@ -6,4 +13,4 @@
  *
  * @see https://github.com/ReactTraining/history/tree/master/docs/api-reference.md#createhashhistory
  */
-function createHashHistory(options?: HashHistoryOptions): HashHistory;
+external fun createHashHistory(options: HashHistoryOptions = definedExternally): HashHistory
