@@ -19,10 +19,12 @@ internal fun convertFunction(
         .substringBeforeLast(";")
         .let { kotlinType(it, name) }
 
-    val parameters = body.splitToSequence(", ")
-        .filter { it.isNotEmpty() }
-        .map(::convertParameter)
-        .joinToString(",\n")
+    val parameters = if (body.isNotEmpty()) {
+        body.splitToSequence(", ")
+            .map(::convertParameter)
+            .map { "$it,\n" }
+            .joinToString("", "\n")
+    } else ""
 
     return "external fun $name($parameters): $resultType"
 }
