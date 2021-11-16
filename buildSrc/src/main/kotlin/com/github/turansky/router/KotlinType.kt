@@ -31,9 +31,11 @@ private val STANDARD_TYPE_MAP = mapOf(
     "RouteMatch[]" to "kotlinext.js.ReadonlyArray<RouteMatch>",
 
     "To" to "history.To",
+    "Path" to "history.Path",
     "Location" to "history.Location",
 
     "Partial<Location> | string" to "history.Location",
+    "PathPattern | string" to "String /* PathPattern | string */",
 )
 
 internal fun kotlinType(
