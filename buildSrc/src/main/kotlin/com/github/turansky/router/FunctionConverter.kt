@@ -7,6 +7,9 @@ internal fun convertFunction(
     if ("Props): " in source)
         return convertComponent(name, source)
 
+    if ("{" in source)
+        return source
+
     val body = source
         .substringAfter("(")
         .substringBefore("): ")
