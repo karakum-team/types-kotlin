@@ -1,11 +1,26 @@
 package com.github.turansky.router
 
+private val SEARCH_RESULT_TS = """
+readonly [URLSearchParams, (nextInit: URLSearchParamsInit, navigateOptions?: {
+    replace?: boolean | undefined;
+    state?: any;
+} | undefined) => void]
+""".trimIndent()
+
+private val SEARCH_RESULT_KT = "kotlinext.js.Tuple<" +
+        "org.w3c.dom.url.URLSearchParams," +
+        "(nextInit: URLSearchParamsInit, navigateOptions:react.router.NavigateOptions) -> Unit" +
+        ">"
+
 internal fun convertFunction(
     name: String,
     source: String,
 ): String {
     if ("Props): " in source)
         return convertComponent(name, source)
+
+    if (SEARCH_RESULT_TS in source)
+        return convertFunction(name, source.replace(SEARCH_RESULT_TS, SEARCH_RESULT_KT))
 
     if ("{" in source)
         return source
