@@ -36,6 +36,9 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Partial<Location> | string" to "history.Location",
     "PathPattern | string" to "String /* PathPattern | string */",
+
+    "React.HTMLAttributeAnchorTarget" to "react.dom.html.AnchorTarget",
+    "(event: React.MouseEvent<E, MouseEvent>) => void" to "react.dom.events.MouseEventHandler<E>"
 )
 
 internal fun kotlinType(

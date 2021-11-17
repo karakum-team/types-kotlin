@@ -27,6 +27,9 @@ internal fun convertFunction(
     if (SEARCH_RESULT_TS in source)
         return convertFunction(name, source.replace(SEARCH_RESULT_TS, SEARCH_RESULT_KT))
 
+    toClickHandler(name, source)
+        ?.let { return it }
+
     if ("{" in source)
         return source
 
@@ -46,7 +49,17 @@ internal fun convertFunction(
             .joinToString("", "\n")
     } else ""
 
-    return "external fun $name($parameters): $resultType"
+    val typeParameter = if (name == "useLinkClickHandler") {
+        source
+            .substringBefore(">(", "")
+            .substringAfter("<")
+            .replace("E extends Element = HTMLAnchorElement", "E: org.w3c.dom.Element")
+            .takeIf { it.isNotEmpty() }
+            ?.let { "<$it>" }
+            ?: ""
+    } else ""
+
+    return "external fun $typeParameter $name($parameters): $resultType"
 }
 
 private fun convertParameter(

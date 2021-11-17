@@ -31,32 +31,26 @@ private fun generate(
         .substringBefore("\n/** @internal */\nexport { NavigationContext as UNSAFE_NavigationContext")
 
     for ((name, body) in convertDefinitions(source)) {
-        val ready = "\nfunction " !in body
-        val extension = if (ready) "kt" else "ts"
-        val content = if (ready) {
-            val suppresses = mutableListOf<Suppress>().apply {
-                if ("JsName(\"\"\"(" in body)
-                    add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+        val suppresses = mutableListOf<Suppress>().apply {
+            if ("JsName(\"\"\"(" in body)
+                add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
 
-                if ("inline operator fun " in body)
-                    add(Suppress.NOTHING_TO_INLINE)
-            }.toTypedArray()
+            if ("inline operator fun " in body)
+                add(Suppress.NOTHING_TO_INLINE)
+        }.toTypedArray()
 
-            val annotations = when {
-                "external val " in body || "external fun " in body
-                -> "@file:JsModule(\"${pkg.moduleName}\")\n@file:JsNonModule"
+        val annotations = when {
+            "external val " in body || "external fun " in body
+            -> "@file:JsModule(\"${pkg.moduleName}\")\n@file:JsNonModule"
 
-                suppresses.isNotEmpty()
-                -> fileSuppress(*suppresses)
+            suppresses.isNotEmpty()
+            -> fileSuppress(*suppresses)
 
-                else -> ""
-            }
+            else -> ""
+        }
 
-            fileContent(pkg, annotations, body)
-        } else body
-
-        targetDir.resolve("$name.$extension")
-            .writeText(content)
+        targetDir.resolve("$name.kt")
+            .writeText(fileContent(pkg, annotations, body))
     }
 
     if (pkg == Package.ROUTER) {
