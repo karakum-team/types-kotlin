@@ -13,7 +13,7 @@ package history
  */
 // language=JavaScript
 @JsName("""(/*union*/{Pop: 'POP', Push: 'PUSH', Replace: 'REPLACE'}/*union*/)""")
-enum class Action {
+external enum class Action {
     /**
      * A POP indicates a change to an arbitrary index in the history stack, such
      * as a back or forward navigation. It does not describe the direction of the

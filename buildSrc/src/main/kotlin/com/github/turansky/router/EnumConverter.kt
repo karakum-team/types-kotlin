@@ -18,6 +18,6 @@ internal fun convertEnum(
 
     return constants.fold(source) { acc, item ->
         acc.replace(" = \"${item.value}\"", "")
-    }.replace("enum ", "$annotations\nenum class ")
+    }.replace("enum ", "$annotations\nexternal enum class ")
         .replace("\n}", ",\n\n;\n}")
 }
