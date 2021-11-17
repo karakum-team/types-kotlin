@@ -10,7 +10,11 @@ package react.router
  * The interface for the navigate() function returned from useNavigate().
  */
 sealed class NavigateFunction {
-    inline operator fun invoke(to: history.To, options: NavigateOptions? = null) {
+    inline operator fun invoke(to: history.To) {
+        asDynamic()(to)
+    }
+
+    inline operator fun invoke(to: history.To, options: NavigateOptions) {
         asDynamic()(to, options)
     }
 
