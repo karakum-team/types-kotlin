@@ -10,4 +10,4 @@ package react.router
  *
  * @see https://reactrouter.com/docs/en/v6/api#route
  */
-external val Route: react.FC<react.Props /* PathRouteProps | LayoutRouteProps | IndexRouteProps */>
+external val Route: react.FC<RouteProps /* PathRouteProps | LayoutRouteProps | IndexRouteProps */>

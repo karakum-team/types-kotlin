@@ -80,7 +80,7 @@ private fun convertComponent(
         .substringAfterLast(": ")
 
     if (name == "Route")
-        propsType = "react.Props /* $propsType */"
+        propsType = "RouteProps /* $propsType */"
 
     return "external val $name: react.FC<$propsType>"
 }
