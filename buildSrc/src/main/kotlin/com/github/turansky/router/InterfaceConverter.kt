@@ -75,7 +75,7 @@ private fun convertMultiFunction(
         .substringBefore(";\n}")
         .trimIndent()
         .splitToSequence(";\n")
-        .map(::invokeWrapper)
+        .flatMap(::invokeWrapper)
         .joinToString("\n\n")
 
     return "sealed class $name {\n$body\n}"
@@ -83,7 +83,11 @@ private fun convertMultiFunction(
 
 private fun invokeWrapper(
     source: String,
-): String {
+): Sequence<String> {
+    if (", options?: NavigateOptions" in source)
+        return invokeWrapper(source.replace(", options?: NavigateOptions", "")) +
+                invokeWrapper(source.replace(", options?: NavigateOptions", ", options: NavigateOptions"))
+
     val parameters = source
         .substringAfter("(")
         .substringBefore(")")
@@ -92,9 +96,10 @@ private fun invokeWrapper(
         .map { it.substringBefore(":") }
         .joinToString(", ")
 
-    return "inline operator fun invoke" + source
-        .replace(": To,", ": history.To,")
-        .replace("?: NavigateOptions", ": NavigateOptions? = null")
+    val result = "inline operator fun invoke" + source
+        .replace(": To", ": history.To")
         .replace("delta: number", "delta: Int")
         .replace("): void", ") {\nasDynamic()($parameters)\n}")
+
+    return sequenceOf(result)
 }
