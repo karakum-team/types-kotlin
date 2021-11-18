@@ -9,6 +9,7 @@ internal fun convertType(
 
     val alias = when {
         name == "Params" -> "kotlinext.js.Record<String, String>"
+        name == "URLSearchParamsInit" -> "kotlinext.js.Record<String, String> // $body"
 
         body == "string" -> "String"
         body == "object | null" -> "Any?"
