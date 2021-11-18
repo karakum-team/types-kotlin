@@ -30,7 +30,13 @@ private fun generate(
         .substringAfter("""export { UNSAFE_NavigationContext, UNSAFE_LocationContext, UNSAFE_RouteContext } from "react-router";""" + "\n")
         .substringBefore("\n/** @internal */\nexport { NavigationContext as UNSAFE_NavigationContext")
 
-    for ((name, body) in convertDefinitions(source)) {
+    val results = convertDefinitions(source).let {
+        if (pkg == Package.ROUTER_DOM) {
+            it + SearchParamsInstance()
+        } else it
+    }
+
+    for ((name, body) in results) {
         val suppresses = mutableListOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body)
                 add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
