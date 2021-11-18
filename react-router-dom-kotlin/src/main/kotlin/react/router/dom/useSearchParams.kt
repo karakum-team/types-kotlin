@@ -10,5 +10,5 @@ package react.router.dom
  * URLSearchParams interface.
  */
 external fun useSearchParams(
-    defaultInit: URLSearchParamsInit = definedExternally,
+    defaultInit: org.w3c.dom.url.URLSearchParams = definedExternally,
 ): SearchParamsInstance
