@@ -11,8 +11,12 @@ fun generateKotlinDeclarations(
         .resolve("popper/core")
         .also { it.mkdirs() }
 
-    targetDir.resolve("types.kt_")
-        .writeText(definitionsDir.resolve("types.d.ts").readText())
+    val types = convertDefinitions(definitionsDir.resolve("types.d.ts").readText())
+
+    for ((name, body) in types) {
+        targetDir.resolve("$name.kt_")
+            .writeText(fileContent(Package.CORE, "", body))
+    }
 }
 
 private fun fileContent(
