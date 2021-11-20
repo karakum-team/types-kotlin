@@ -3,8 +3,8 @@
 package popper.core
 
 external interface Rect {
-    width: number;
-    height: number;
-    x: number;
-    y: number
+    var width: Double
+    var height: Double
+    var x: Double
+    var y: Double
 }

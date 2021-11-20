@@ -3,6 +3,6 @@
 package popper.core
 
 external interface StateRects {
-    reference: Rect;
-    popper: Rect
+    var reference: Rect
+    var popper: Rect
 }

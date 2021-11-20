@@ -3,8 +3,8 @@
 package popper.core
 
 external interface SideObject {
-    top: number;
-    left: number;
-    right: number;
-    bottom: number
+    var top: Double
+    var left: Double
+    var right: Double
+    var bottom: Double
 }

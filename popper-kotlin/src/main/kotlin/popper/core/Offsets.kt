@@ -3,6 +3,6 @@
 package popper.core
 
 external interface Offsets {
-    y: number;
-    x: number
+    var y: Double
+    var x: Double
 }

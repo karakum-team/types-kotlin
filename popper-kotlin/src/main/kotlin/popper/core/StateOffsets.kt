@@ -3,6 +3,6 @@
 package popper.core
 
 external interface StateOffsets {
-    popper: Offsets;
-    arrow?: Offsets
+    var popper: Offsets
+    var arrow: Offsets?
 }

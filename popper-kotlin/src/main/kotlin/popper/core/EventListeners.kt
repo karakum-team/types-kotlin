@@ -3,6 +3,6 @@
 package popper.core
 
 external interface EventListeners {
-    scroll: boolean;
-    resize: boolean
+    var scroll: Boolean
+    var resize: Boolean
 }
