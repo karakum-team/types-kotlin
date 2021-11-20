@@ -1,5 +1,6 @@
 plugins {
     id("com.github.turansky.kfc.library")
+    `popper-declarations`
 }
 
 val popperVersion = property("popper.version") as String
