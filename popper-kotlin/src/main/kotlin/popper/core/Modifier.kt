@@ -2,7 +2,8 @@
 
 package popper.core
 
-external interface Modifier<Name, Options> {
+external interface Modifier<Options> {
+/*
     name: Name;
     enabled: boolean;
     phase: ModifierPhases;
@@ -12,4 +13,5 @@ external interface Modifier<Name, Options> {
     effect?: (arg0: ModifierArguments<Options>) => (() => void) | void;
     options?: Partial<Options>;
     data?: Obj
+*/
 }

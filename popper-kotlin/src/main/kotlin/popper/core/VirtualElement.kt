@@ -3,6 +3,8 @@
 package popper.core
 
 external interface VirtualElement {
+/*
     getBoundingClientRect: () => ClientRect | DOMRect;
     contextElement?: Element
+*/
 }

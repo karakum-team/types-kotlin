@@ -2,9 +2,11 @@
 
 package popper.core
 
-external interface OptionsGeneric<TModifier> {
+external interface Options {
+/*
     placement: Placement;
-    modifiers: Array<TModifier>;
+    modifiers: Array<Partial<Modifier<any, any>>>;
     strategy: PositioningStrategy;
     onFirstUpdate?: (arg0: Partial<State>) => void
+*/
 }

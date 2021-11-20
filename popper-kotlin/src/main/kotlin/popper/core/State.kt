@@ -3,6 +3,7 @@
 package popper.core
 
 external interface State {
+/*
     elements: {
         reference: Element | VirtualElement;
         popper: HTMLElement;
@@ -43,4 +44,5 @@ external interface State {
         [key: string]: any;
     };
     reset: boolean
+*/
 }
