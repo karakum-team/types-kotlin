@@ -37,9 +37,19 @@ internal fun convertInterface(
         .joinToString("\n")
 
     if (name !in CONVERTABLE)
-        members = source
+        members = "/*\n$source\n*/"
 
-    val body = "external interface $declaration {\n$members\n}"
+    val typeParameters = if ("<" in declaration) {
+        val parameters = declaration
+            .substringAfter("<")
+            .substringBefore(">")
+            .replace(" extends Obj", "")
+            .removePrefix("Name, ")
+
+        "<$parameters>"
+    } else ""
+
+    val body = "external interface $name $typeParameters {\n$members\n}"
 
     return ConversionResult(name, body)
 }

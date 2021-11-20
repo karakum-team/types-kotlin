@@ -14,9 +14,7 @@ fun generateKotlinDeclarations(
     val types = convertDefinitions(definitionsDir.resolve("types.d.ts").readText())
 
     for ((name, body) in types) {
-        val suffix = if ("var " in body) "" else "_"
-
-        targetDir.resolve("$name.kt$suffix")
+        targetDir.resolve("$name.kt")
             .writeText(fileContent(Package.CORE, "", body))
     }
 }
