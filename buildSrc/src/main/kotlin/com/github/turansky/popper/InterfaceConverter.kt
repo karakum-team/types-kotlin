@@ -19,7 +19,7 @@ private val CONVERTABLE = setOf(
     // "State",
     "StateOffsets",
     "StateRects",
-    // "VirtualElement",
+    "VirtualElement",
 )
 
 internal fun convertInterface(

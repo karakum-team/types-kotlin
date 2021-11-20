@@ -18,6 +18,9 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "void" to UNIT,
     "null" to "Nothing?",
+
+    "Element" to "org.w3c.dom.Element",
+    "() => ClientRect | DOMRect" to "() -> org.w3c.dom.DOMRect /* () -> ClientRect */",
 )
 
 internal fun kotlinType(
