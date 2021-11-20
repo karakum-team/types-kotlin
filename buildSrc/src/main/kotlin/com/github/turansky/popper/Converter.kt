@@ -19,7 +19,6 @@ internal fun convertDefinitions(
             val body = content.substringAfter(" = {\n")
                 .substringBefore(";\n};\n")
                 .removeSuffix(";\n};")
-            // .trimIndent()
 
             convertInterface(name, body)
         }

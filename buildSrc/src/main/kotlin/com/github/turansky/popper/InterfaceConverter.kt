@@ -13,7 +13,13 @@ internal fun convertInterface(
     if (name in EXCLUDED_NAMES)
         return null
 
-    val body = "external interface $declaration {\n$source\n}"
+    var members = source
+        .trimIndent()
+        .splitToSequence(";\n")
+        .map(::convertParameter)
+        .joinToString("\n")
+
+    val body = "external interface $declaration {\n$members\n}"
 
     return ConversionResult(name, body)
 }
