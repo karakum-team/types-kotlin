@@ -16,19 +16,15 @@ fun generateKotlinDeclarations(
 }
 
 private fun fileContent(
-    annotations: String = "",
+    pkg: Package,
+    annotations: String,
     body: String,
 ): String {
-    var result = sequenceOf(
+    return sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
-        "package csstype",
+        pkg.pkg,
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
-
-    if (!result.endsWith("\n"))
-        result += "\n"
-
-    return result
 }
