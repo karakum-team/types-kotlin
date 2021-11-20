@@ -1,0 +1,10 @@
+// Automatically generated - do not modify!
+
+package popper.core
+
+external interface SideObject {
+    top: number;
+    left: number;
+    right: number;
+    bottom: number
+}
