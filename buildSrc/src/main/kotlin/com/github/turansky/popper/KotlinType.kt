@@ -31,7 +31,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Array<string>" to "kotlinext.js.ReadonlyArray<String>",
     "Array<Partial<Modifier<any, any>>>" to "kotlinext.js.ReadonlyArray<Modifier<*>>",
-    "(arg0: Partial<State>) => void" to "(State) -> Unit",
+    "(arg0: Partial<State>) => void" to "UpdateCallback",
 
     "Name" to "ModifierName<Options>",
     "Obj" to "kotlinext.js.Record<String, *>",

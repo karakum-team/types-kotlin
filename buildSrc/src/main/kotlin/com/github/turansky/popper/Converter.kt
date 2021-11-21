@@ -12,14 +12,30 @@ internal fun convertDefinitions(
         .splitToSequence("\nexport declare type ")
         .drop(1)
         .mapNotNull { content ->
-            if (" = {\n" !in content)
-                return@mapNotNull null
+            val delimiter = sequenceOf(
+                " = EventTarget & {\n", // VisualViewport
+                " = {\n",
+                " = ",
+            ).first { it in content }
 
-            val name = content.substringBefore(" = {\n")
-            val body = content.substringAfter(" = {\n")
-                .substringBefore(";\n};\n")
-                .removeSuffix(";\n};")
+            val name = content.substringBefore(delimiter)
+            val bodySource = content.substringAfter(delimiter)
 
-            convertInterface(name, body)
+            when (delimiter) {
+                " = " -> {
+                    val body = bodySource
+                        .removeSuffix(";")
+
+                    convertType(name, body)
+                }
+
+                else -> {
+                    val body = bodySource
+                        .substringBefore(";\n};\n")
+                        .removeSuffix(";\n};")
+
+                    convertInterface(name, body)
+                }
+            }
         }
 }
