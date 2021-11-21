@@ -3,6 +3,10 @@ package com.github.turansky.popper
 internal fun convertParameter(
     source: String,
 ): String {
+    if ("\n" in source)
+        return source.substringBeforeLast("\n") + "\n" +
+                convertParameter(source.substringAfterLast("\n"))
+
     val name = source
         .substringBefore("?: ")
         .substringBefore(": ")
