@@ -3,15 +3,13 @@
 package popper.core
 
 external interface Modifier<Options> {
-/*
-    name: Name;
-    enabled: boolean;
-    phase: ModifierPhases;
-    requires?: Array<string>;
-    requiresIfExists?: Array<string>;
-    fn: (arg0: ModifierArguments<Options>) => State | void;
-    effect?: (arg0: ModifierArguments<Options>) => (() => void) | void;
-    options?: Partial<Options>;
-    data?: Obj
-*/
+    var name: ModifierName<Options>
+    var enabled: Boolean
+    var phase: ModifierPhases
+    var requires: kotlinext.js.ReadonlyArray<String>?
+    var requiresIfExists: kotlinext.js.ReadonlyArray<String>?
+    var fn: (ModifierArguments<Options>) -> State?
+    var effect: (ModifierArguments<Options>) -> (() -> Unit)?
+    var options: Options?
+    var data: kotlinext.js.Record<String, *>?
 }
