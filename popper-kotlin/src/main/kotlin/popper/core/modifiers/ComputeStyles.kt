@@ -9,7 +9,7 @@ package popper.core.modifiers
 external interface ComputeStylesOptions {
     var gpuAcceleration: Boolean
     var adaptive: Boolean
-    var roundOffsets: boolean | RoundOffsets?
+    var roundOffsets: Boolean /* boolean | RoundOffsets */?
 }
 
 @JsName("'computeStyles'")

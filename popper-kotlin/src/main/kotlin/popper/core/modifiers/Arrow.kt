@@ -7,7 +7,7 @@
 package popper.core.modifiers
 
 external interface ArrowOptions {
-    var element: HTMLElement | string | null
+    var element: org.w3c.dom.HTMLElement?
     var padding: popper.core.Padding
 }
 
