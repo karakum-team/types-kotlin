@@ -23,6 +23,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => ClientRect | DOMRect" to "() -> org.w3c.dom.DOMRect /* () -> ClientRect */",
 
     "Partial<Options>" to "Options",
+
+    "Array<Partial<Modifier<any, any>>>" to "kotlinext.js.ReadonlyArray<Modifier<*>>",
+    "(arg0: Partial<State>) => void" to "(State) -> Unit",
 )
 
 internal fun kotlinType(
