@@ -54,5 +54,13 @@ internal fun kotlinType(
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
 
+    when (type) {
+        "Offset",
+        "Boundary",
+        "RootBoundary",
+        "TetherOffset",
+        -> return "$DYNAMIC /* $type */"
+    }
+
     return type
 }
