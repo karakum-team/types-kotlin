@@ -1,6 +1,8 @@
 package com.github.turansky.popper
 
 import com.github.turansky.common.GENERATOR_COMMENT
+import com.github.turansky.common.Suppress
+import com.github.turansky.common.fileSuppress
 import java.io.File
 
 fun generateKotlinDeclarations(
@@ -12,10 +14,23 @@ fun generateKotlinDeclarations(
         .also { it.mkdirs() }
 
     val types = convertDefinitions(definitionsDir.resolve("types.d.ts").readText())
+        .plus(enums())
 
     for ((name, body) in types) {
+        val suppresses = mutableListOf<Suppress>().apply {
+            if ("JsName(\"\"\"(" in body)
+                add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+        }.toTypedArray()
+
+        val annotations = when {
+            suppresses.isNotEmpty()
+            -> fileSuppress(*suppresses)
+
+            else -> ""
+        }
+
         targetDir.resolve("$name.kt")
-            .writeText(fileContent(Package.CORE, "", body))
+            .writeText(fileContent(Package.CORE, annotations, body))
     }
 }
 
