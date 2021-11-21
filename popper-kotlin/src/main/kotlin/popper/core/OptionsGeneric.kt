@@ -3,10 +3,8 @@
 package popper.core
 
 external interface OptionsGeneric<TModifier> {
-/*
-    placement: Placement;
-    modifiers: Array<TModifier>;
-    strategy: PositioningStrategy;
-    onFirstUpdate?: (arg0: Partial<State>) => void
-*/
+    var placement: Placement
+    var modifiers: Array<TModifier>
+    var strategy: PositioningStrategy
+    var onFirstUpdate: (State) -> Unit?
 }

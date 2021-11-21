@@ -3,10 +3,8 @@
 package popper.core
 
 external interface Options {
-/*
-    placement: Placement;
-    modifiers: Array<Partial<Modifier<any, any>>>;
-    strategy: PositioningStrategy;
-    onFirstUpdate?: (arg0: Partial<State>) => void
-*/
+    var placement: Placement
+    var modifiers: kotlinext.js.ReadonlyArray<Modifier<*>>
+    var strategy: PositioningStrategy
+    var onFirstUpdate: (State) -> Unit?
 }
