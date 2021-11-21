@@ -4,6 +4,7 @@ internal enum class Package(
     id: String,
 ) {
     CORE("popper.core"),
+    MODIFIERS("popper.core.modifiers"),
 
     ;
 

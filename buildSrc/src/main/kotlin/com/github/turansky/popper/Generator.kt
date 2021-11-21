@@ -13,6 +13,11 @@ fun generateKotlinDeclarations(
         definitionsDir = definitionsDir,
         sourceDir = sourceDir,
     )
+
+    generateModifiersDeclarations(
+        definitionsDir = definitionsDir,
+        sourceDir = sourceDir,
+    )
 }
 
 private fun generateCoreDeclarations(
@@ -42,6 +47,34 @@ private fun generateCoreDeclarations(
 
         targetDir.resolve("$name.kt")
             .writeText(fileContent(Package.CORE, annotations, body))
+    }
+}
+
+private fun generateModifiersDeclarations(
+    definitionsDir: File,
+    sourceDir: File,
+) {
+    val targetDir = sourceDir
+        .resolve(Package.MODIFIERS.path)
+        .also { it.mkdirs() }
+
+    val modifiers = convertModifiers(definitionsDir.resolve("modifiers"))
+
+    for ((name, body) in modifiers) {
+        val suppresses = mutableListOf<Suppress>().apply {
+            if ("JsName(\"\"\"(" in body)
+                add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+        }.toTypedArray()
+
+        val annotations = when {
+            suppresses.isNotEmpty()
+            -> fileSuppress(*suppresses)
+
+            else -> ""
+        }
+
+        targetDir.resolve("$name.kt")
+            .writeText(fileContent(Package.MODIFIERS, annotations, body))
     }
 }
 
