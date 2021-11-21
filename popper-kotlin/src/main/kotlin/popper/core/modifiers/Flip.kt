@@ -11,8 +11,8 @@ external interface FlipOptions {
     var altAxis: Boolean
     var fallbackPlacements: kotlinext.js.ReadonlyArray<popper.core.Placement>
     var padding: popper.core.Padding
-    var boundary: Boundary
-    var rootBoundary: RootBoundary
+    var boundary: dynamic /* Boundary */
+    var rootBoundary: dynamic /* RootBoundary */
     var altBoundary: Boolean
     var flipVariations: Boolean
     var allowedAutoPlacements: kotlinext.js.ReadonlyArray<popper.core.Placement>

@@ -9,8 +9,8 @@ package popper.core.modifiers
 external interface PreventOverflowOptions {
     var mainAxis: Boolean
     var altAxis: Boolean
-    var boundary: Boundary
-    var rootBoundary: RootBoundary
+    var boundary: dynamic /* Boundary */
+    var rootBoundary: dynamic /* RootBoundary */
     var altBoundary: Boolean
     var
             /**
@@ -18,7 +18,7 @@ external interface PreventOverflowOptions {
              * reference element
              */
             tether: Boolean
-    var tetherOffset: TetherOffset
+    var tetherOffset: dynamic /* TetherOffset */
     var padding: popper.core.Padding
 }
 
