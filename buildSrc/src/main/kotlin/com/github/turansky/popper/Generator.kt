@@ -30,12 +30,12 @@ private fun generateCoreDeclarations(
         .also { it.mkdirs() }
 
     val types = convertDefinitions(definitionsDir.resolve("types.d.ts").readText())
-        .plus(ModifierName())
+        .plus(nameTypes())
         .plus(enums())
 
     for ((name, body) in types) {
         val suppresses = mutableListOf<Suppress>().apply {
-            if ("JsName(\"\"\"(" in body)
+            if ("JsName(\"\"\"(" in body || "JsName(\"'" in body)
                 add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
         }.toTypedArray()
 
