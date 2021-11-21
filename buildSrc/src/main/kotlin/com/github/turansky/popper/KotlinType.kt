@@ -24,8 +24,15 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Partial<Options>" to "Options",
 
+    "Array<string>" to "kotlinext.js.ReadonlyArray<String>",
     "Array<Partial<Modifier<any, any>>>" to "kotlinext.js.ReadonlyArray<Modifier<*>>",
     "(arg0: Partial<State>) => void" to "(State) -> Unit",
+
+    "Name" to "ModifierName<Options>",
+    "Obj" to "kotlinext.js.Record<String, *>",
+
+    "(arg0: ModifierArguments<Options>) => State | void" to "(ModifierArguments<Options>) -> State?",
+    "(arg0: ModifierArguments<Options>) => (() => void) | void" to "(ModifierArguments<Options>) -> (() -> Unit)?",
 )
 
 internal fun kotlinType(

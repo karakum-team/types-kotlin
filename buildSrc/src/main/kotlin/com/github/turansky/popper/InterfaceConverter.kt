@@ -7,7 +7,6 @@ private val EXCLUDED_NAMES = setOf(
 
 private val NON_CONVERTABLE = setOf(
     "Instance",
-    "Modifier",
     "State",
 )
 
