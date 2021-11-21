@@ -65,11 +65,11 @@ private fun generateModifiersDeclarations(
         ?: return
 
     val modifiers = modifierFiles
-        .flatMap { convertModifier(it.readText()) }
+        .mapNotNull { convertModifier(it.readText()) }
 
     for ((name, body) in modifiers) {
         val suppresses = mutableListOf<Suppress>().apply {
-            if ("JsName(\"\"\"(" in body)
+            if ("JsName(\"\"\"(" in body || "JsName(\"'" in body)
                 add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
         }.toTypedArray()
 
