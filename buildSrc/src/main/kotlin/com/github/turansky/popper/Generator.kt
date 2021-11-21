@@ -14,6 +14,7 @@ fun generateKotlinDeclarations(
         .also { it.mkdirs() }
 
     val types = convertDefinitions(definitionsDir.resolve("types.d.ts").readText())
+        .plus(ModifierName())
         .plus(enums())
 
     for ((name, body) in types) {
