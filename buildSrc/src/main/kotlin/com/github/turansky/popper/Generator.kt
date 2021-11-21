@@ -4,6 +4,7 @@ import com.github.turansky.common.GENERATOR_COMMENT
 import com.github.turansky.common.Suppress
 import com.github.turansky.common.fileSuppress
 import java.io.File
+import java.io.FileFilter
 
 fun generateKotlinDeclarations(
     definitionsDir: File,
@@ -58,7 +59,13 @@ private fun generateModifiersDeclarations(
         .resolve(Package.MODIFIERS.path)
         .also { it.mkdirs() }
 
-    val modifiers = convertModifiers(definitionsDir.resolve("modifiers"))
+    val modifierFiles = definitionsDir
+        .resolve("modifiers")
+        .listFiles(FileFilter { it.name.endsWith(".d.ts") && it.name != "index.d.ts" })
+        ?: return
+
+    val modifiers = modifierFiles
+        .flatMap { convertModifier(it.readText()) }
 
     for ((name, body) in modifiers) {
         val suppresses = mutableListOf<Suppress>().apply {

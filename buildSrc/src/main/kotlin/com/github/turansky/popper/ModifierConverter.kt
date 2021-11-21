@@ -1,9 +1,7 @@
 package com.github.turansky.popper
 
-import java.io.File
-
-internal fun convertModifiers(
-    definitionsDir: File,
+internal fun convertModifier(
+    source: String,
 ): Sequence<ConversionResult> {
     return emptySequence()
 }
