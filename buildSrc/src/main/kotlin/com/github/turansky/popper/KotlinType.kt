@@ -19,6 +19,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "void" to UNIT,
     "null" to "Nothing?",
 
+    "HTMLElement | string | null" to "org.w3c.dom.HTMLElement?",
+    "boolean | RoundOffsets" to "Boolean /* boolean | RoundOffsets */",
+
     "() => void" to "() -> Unit",
     "() => Promise<Partial<State>>" to "() -> kotlin.js.Promise<State>",
     "(setOptionsAction: SetAction<Partial<OptionsGeneric<any>>>) => Promise<Partial<State>>" to
