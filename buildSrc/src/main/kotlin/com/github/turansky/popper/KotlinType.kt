@@ -31,11 +31,14 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Array<string>" to "kotlinext.js.ReadonlyArray<String>",
     "Array<TModifier>" to "kotlinext.js.ReadonlyArray<TModifier>",
+    "Array<Placement>" to "kotlinext.js.ReadonlyArray<popper.core.Placement>",
     "Array<Partial<Modifier<any, any>>>" to "kotlinext.js.ReadonlyArray<Modifier<*>>",
     "(arg0: Partial<State>) => void" to "UpdateCallback",
 
     "Name" to "ModifierName<Options>",
     "Obj" to "kotlinext.js.Record<String, *>",
+
+    "Padding" to "popper.core.Padding",
 
     "(arg0: ModifierArguments<Options>) => State | void" to "(ModifierArguments<Options>) -> State?",
     "(arg0: ModifierArguments<Options>) => (() => void) | void" to "(ModifierArguments<Options>) -> (() -> Unit)?",

@@ -65,7 +65,7 @@ private fun generateModifiersDeclarations(
         ?: return
 
     val modifiers = modifierFiles
-        .mapNotNull { convertModifier(it.readText()) }
+        .map { convertModifier(it.readText()) }
 
     for ((name, body) in modifiers) {
         val suppresses = mutableListOf<Suppress>().apply {
