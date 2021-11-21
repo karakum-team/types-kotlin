@@ -14,7 +14,7 @@ internal fun convertType(
 
     val content = when (source) {
         "S | ((prev: S) => S)",
-        -> "S // $source"
+        -> "(prev: S) -> S // $source"
 
         "number | Partial<SideObject>",
         -> "SideObject // $source"

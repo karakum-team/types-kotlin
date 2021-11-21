@@ -9,7 +9,7 @@ internal fun convertDefinitions(
     source: String,
 ): Sequence<ConversionResult> {
     return source
-        .splitToSequence("\nexport declare type ")
+        .splitToSequence("\nexport declare type ", "\ndeclare type ")
         .drop(1)
         .mapNotNull { content ->
             val delimiter = sequenceOf(
@@ -33,6 +33,7 @@ internal fun convertDefinitions(
                     val body = bodySource
                         .substringBefore(";\n};\n")
                         .removeSuffix(";\n};")
+                        .trimIndent()
 
                     convertInterface(name, body)
                 }

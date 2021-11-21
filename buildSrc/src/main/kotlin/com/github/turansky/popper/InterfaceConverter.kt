@@ -13,8 +13,13 @@ internal fun convertInterface(
     if (name in EXCLUDED_NAMES)
         return null
 
+    if (source == "[key in Placement]?: Offsets")
+        return ConversionResult(
+            name = name,
+            body = "typealias $name = kotlinext.js.Record<Placement, Offsets>",
+        )
+
     var members = source
-        .trimIndent()
         .splitToSequence(";\n")
         .map(::convertParameter)
         .joinToString("\n")
