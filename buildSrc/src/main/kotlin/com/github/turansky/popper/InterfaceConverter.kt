@@ -5,11 +5,6 @@ private val EXCLUDED_NAMES = setOf(
     "Window",
 )
 
-private val NON_CONVERTABLE = setOf(
-    "Instance",
-    "State",
-)
-
 internal fun convertInterface(
     declaration: String,
     source: String,
@@ -24,7 +19,7 @@ internal fun convertInterface(
         .map(::convertParameter)
         .joinToString("\n")
 
-    if (name in NON_CONVERTABLE)
+    if (name == "State")
         members = "/*\n$source\n*/"
 
     val typeParameters = if ("<" in declaration) {
