@@ -21,6 +21,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Element" to "org.w3c.dom.Element",
     "() => ClientRect | DOMRect" to "() -> org.w3c.dom.DOMRect /* () -> ClientRect */",
+
+    "Partial<Options>" to "Options",
 )
 
 internal fun kotlinType(

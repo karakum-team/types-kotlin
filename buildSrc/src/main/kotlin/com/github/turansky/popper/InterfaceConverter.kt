@@ -10,7 +10,7 @@ private val CONVERTABLE = setOf(
     "EventListeners",
     // "Instance",
     // "Modifier",
-    // "ModifierArguments",
+    "ModifierArguments",
     "Offsets",
     // "Options",
     // "OptionsGeneric",
