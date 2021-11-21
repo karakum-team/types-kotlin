@@ -9,8 +9,18 @@ fun generateKotlinDeclarations(
     definitionsDir: File,
     sourceDir: File,
 ) {
+    generateCoreDeclarations(
+        definitionsDir = definitionsDir,
+        sourceDir = sourceDir,
+    )
+}
+
+private fun generateCoreDeclarations(
+    definitionsDir: File,
+    sourceDir: File,
+) {
     val targetDir = sourceDir
-        .resolve("popper/core")
+        .resolve(Package.CORE.path)
         .also { it.mkdirs() }
 
     val types = convertDefinitions(definitionsDir.resolve("types.d.ts").readText())
