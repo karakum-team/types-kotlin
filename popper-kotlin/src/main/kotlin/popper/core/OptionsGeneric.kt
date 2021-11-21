@@ -6,5 +6,5 @@ external interface OptionsGeneric<TModifier> {
     var placement: Placement
     var modifiers: Array<TModifier>
     var strategy: PositioningStrategy
-    var onFirstUpdate: ((State) -> Unit)?
+    var onFirstUpdate: UpdateCallback?
 }
