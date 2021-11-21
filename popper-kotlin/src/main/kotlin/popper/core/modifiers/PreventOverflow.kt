@@ -12,12 +12,12 @@ external interface PreventOverflowOptions {
     var boundary: dynamic /* Boundary */
     var rootBoundary: dynamic /* RootBoundary */
     var altBoundary: Boolean
-    var
-            /**
-             * Allows the popper to overflow from its boundaries to keep it near its
-             * reference element
-             */
-            tether: Boolean
+
+    /**
+     * Allows the popper to overflow from its boundaries to keep it near its
+     * reference element
+     */
+    var tether: Boolean
     var tetherOffset: dynamic /* TetherOffset */
     var padding: popper.core.Padding
 }
