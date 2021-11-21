@@ -5,21 +5,10 @@ private val EXCLUDED_NAMES = setOf(
     "Window",
 )
 
-private val CONVERTABLE = setOf(
-    "ClientRectObject",
-    "EventListeners",
-    // "Instance",
-    // "Modifier",
-    "ModifierArguments",
-    "Offsets",
-    "Options",
-    "OptionsGeneric",
-    "Rect",
-    "SideObject",
-    // "State",
-    "StateOffsets",
-    "StateRects",
-    "VirtualElement",
+private val NON_CONVERTABLE = setOf(
+    "Instance",
+    "Modifier",
+    "State",
 )
 
 internal fun convertInterface(
@@ -36,7 +25,7 @@ internal fun convertInterface(
         .map(::convertParameter)
         .joinToString("\n")
 
-    if (name !in CONVERTABLE)
+    if (name in NON_CONVERTABLE)
         members = "/*\n$source\n*/"
 
     val typeParameters = if ("<" in declaration) {
