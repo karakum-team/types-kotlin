@@ -9,8 +9,13 @@ internal fun convertParameter(
         .removePrefix("readonly ")
 
     var type = kotlinType(source.substringAfter(": "), name)
-    if ("?: " in source && !type.endsWith("?"))
-        type += "?"
+    if ("?: " in source && !type.endsWith("?")) {
+        if (type.startsWith("(")) {
+            type = "($type)?"
+        } else {
+            type += "?"
+        }
+    }
 
     return "var $name: $type"
 }
