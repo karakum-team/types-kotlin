@@ -5,7 +5,21 @@ import com.github.turansky.common.unionBody
 internal fun enums(): Sequence<ConversionResult> =
     sequenceOf(
         enum(
+            "ModifierPhases",
+
+            "beforeRead",
+            "read",
+            "afterRead",
+            "beforeMain",
+            "main",
+            "afterMain",
+            "beforeWrite",
+            "write",
+            "afterWrite",
+        ),
+        enum(
             "Placement",
+
             "auto",
             "auto-start",
             "auto-end",
@@ -24,6 +38,7 @@ internal fun enums(): Sequence<ConversionResult> =
         ),
         enum(
             "PositioningStrategy",
+
             "absolute",
             "fixed",
         ),
