@@ -8,3 +8,4 @@ Definitions converter for:
 * [CSSType](https://github.com/frenic/csstype) - ![npm](https://img.shields.io/npm/v/csstype)
 * [React types](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react) - ![npm](https://img.shields.io/npm/v/@types/react)
 * [React Router DOM](https://github.com/remix-run/react-router) - ![npm](https://img.shields.io/npm/v/react-router-dom)
+* [Popper](https://popper.js.org/) - ![npm](https://img.shields.io/npm/v/@popperjs/core)
