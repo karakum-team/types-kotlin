@@ -13,7 +13,7 @@ internal fun convertType(
 
         body == "string" -> "String"
         body == "object | null" -> "Any?"
-        body == "[string, string]" -> "kotlinext.js.Tuple<String, String>"
+        body == "[string, string]" -> "kotlinext.js.JsPair<String, String>"
 
         body.startsWith("Partial<") -> "Any // $body"
         body.startsWith("Omit<") -> "Any // $body"
