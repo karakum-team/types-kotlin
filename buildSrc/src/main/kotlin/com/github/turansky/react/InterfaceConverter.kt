@@ -72,7 +72,10 @@ private fun convertAttributesInterface(
 
     when (name) {
         "DOMAttributes",
-        -> declaration += ":\nreact.PropsWithChildren,\nreact.PropsWithClassName"
+        -> declaration += ":\n" +
+                "react.PropsWithRef<T>,\n" +
+                "react.PropsWithChildren,\n" +
+                "react.PropsWithClassName"
 
         "HTMLAttributes",
         "SVGAttributes",
