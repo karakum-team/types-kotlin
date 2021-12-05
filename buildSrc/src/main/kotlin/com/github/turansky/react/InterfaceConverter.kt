@@ -1,8 +1,5 @@
 package com.github.turansky.react
 
-import com.github.turansky.common.Suppress.VAR_TYPE_MISMATCH_ON_OVERRIDE
-import com.github.turansky.common.suppress
-
 private val TYPE_CONTAINER_IMPORTS = """
 import org.w3c.css.masking.*
 import org.w3c.dom.*    
@@ -102,14 +99,6 @@ private fun convertAttributesInterface(
         "HTMLAttributes",
         "SVGAttributes",
         -> members = members.replaceFirst("var style: ", "override var style: ")
-
-        "InputHTMLAttributes",
-        "SelectHTMLAttributes",
-        "TextareaHTMLAttributes",
-        -> members = members.replace(
-            "var onChange: ",
-            suppress(VAR_TYPE_MISMATCH_ON_OVERRIDE) + "\noverride var onChange: ",
-        )
     }
 
     when (name) {
@@ -125,11 +114,24 @@ private fun convertAttributesInterface(
         "external interface $name\n\n" +
                 members.replace("var ", "var $name.")
     } else {
-        "import org.w3c.dom.Element\n" +
+        var result = "import org.w3c.dom.Element\n" +
                 "import react.dom.events.*\n\n" +
                 "external interface $declaration {\n" +
                 members +
                 "\n}\n"
+
+        if (name == "DOMAttributes")
+            result = result.replaceFirst("var onChange:", "    // var onChange:") +
+                    // language=Kotlin
+                    """
+                    inline var <T : Element> DOMAttributes<T>.onChange: FormEventHandler<T>?
+                        get() = asDynamic().onChange
+                        set(value) {
+                            asDynamic().onChange = value
+                        }
+                    """
+
+        result
     }
 
     return ConversionResult(name, body)
