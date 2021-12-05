@@ -144,8 +144,9 @@ private fun convertIntrinsicTypes(
 ): ConversionResult {
     val content = source.substringAfter("{\n")
         .trimIndent()
-        .removeSuffix(";")
-        .splitToSequence(";\n")
+        .splitToSequence("\n")
+        .filter { it.isNotEmpty() }
+        .map { it.substringBefore(";") }
         .map(convert)
         .joinToString(
             separator = "\n\n",
