@@ -74,6 +74,9 @@ internal fun convertEventInterface(
         .replace(": any", ": Any")
         .replace("EventTarget & T", "T")
         .replace("SyntheticEvent<T>", "SyntheticEvent<T, Event>")
+        .replace("E :", "out E :")
+        .replace("C :", "out C :")
+        .replace("T :", "out T :")
 
     var members = convertMembers(source, true, typeConverter)
     when (name) {
