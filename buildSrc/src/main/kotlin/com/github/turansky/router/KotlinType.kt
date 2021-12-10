@@ -11,6 +11,7 @@ internal const val DOUBLE = "Double"
 private val STANDARD_TYPE_MAP = mapOf(
     "any" to "Any",
     "object" to "Any",
+    "unknown" to "Any",
 
     "boolean" to "Boolean",
     "string" to STRING,
@@ -33,6 +34,10 @@ private val STANDARD_TYPE_MAP = mapOf(
     "To" to "history.To",
     "Path" to "history.Path",
     "Location" to "history.Location",
+    "History" to "history.History",
+
+    "PathPattern<Path> | Path" to STRING,
+    "Context" to "Any?",
 
     "Partial<Location> | string" to "history.Location",
     "PathPattern | string" to "String /* PathPattern | string */",
