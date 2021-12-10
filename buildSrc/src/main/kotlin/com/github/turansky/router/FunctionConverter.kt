@@ -13,6 +13,10 @@ internal fun convertFunction(
     name: String,
     source: String,
 ): String {
+    // Quick fix
+    if (name == "useLocation" && ";\n" in source)
+        return convertFunction(name, source.substringBefore(";\n"))
+
     if ("Props): " in source)
         return convertComponent(name, source)
 
