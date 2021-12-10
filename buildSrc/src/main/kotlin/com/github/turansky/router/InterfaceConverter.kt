@@ -26,6 +26,7 @@ internal fun convertInterface(
         return convertMultiFunction(name, source)
 
     var declaration = source.substringBefore(" {")
+        .replace("<Path extends string = string>", "")
         .replace("interface ", "external interface ")
         .replace(" extends ", " : ")
         .replace(
@@ -55,6 +56,9 @@ internal fun convertInterface(
     var members = membersSource
         .splitToSequence(";\n")
         .joinToString("\n", transform = ::convertMember)
+
+    if (name == "PathPattern")
+        members = members.replace("var path: history.Path", "var path: String")
 
     if (name.endsWith("Props") && ":" !in declaration) {
         val parentType = if ("var children: react.ReactNode?" in members) {
