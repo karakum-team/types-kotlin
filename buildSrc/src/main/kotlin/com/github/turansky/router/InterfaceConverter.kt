@@ -1,5 +1,11 @@
 package com.github.turansky.router
 
+private val CHILDREN = """
+    children: React.ReactNode | ((props: {
+        isActive: boolean;
+    }) => React.ReactNode);
+""".removeSuffix("\n")
+
 private val CLASS_NAME = """
     className?: string | ((props: {
         isActive: boolean;
@@ -27,7 +33,7 @@ internal fun convertInterface(
             "react.dom.html.AnchorHTMLAttributes<org.w3c.dom.HTMLAnchorElement>",
         )
         .replace(
-            "Omit<LinkProps, \"className\" | \"style\">",
+            "Omit<LinkProps, \"className\" | \"style\" | \"children\">",
             "LinkProps",
         )
 
@@ -35,6 +41,7 @@ internal fun convertInterface(
         declaration += ": react.Props"
 
     val membersSource = source
+        .replace(CHILDREN, "")
         .replace(CLASS_NAME, "")
         .replace(STYLE, "")
         .substringAfter(" {\n")
