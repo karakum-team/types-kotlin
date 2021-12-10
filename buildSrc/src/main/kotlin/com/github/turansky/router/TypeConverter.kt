@@ -17,6 +17,7 @@ internal fun convertType(
 
         body.startsWith("Partial<") -> "Any // $body"
         body.startsWith("Omit<") -> "Any // $body"
+        body.startsWith("Pick<") -> "Any // $body"
         body.startsWith("string | ") -> "String // $body"
 
         else -> null

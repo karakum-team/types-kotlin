@@ -14,7 +14,7 @@ internal fun convertDefinitions(
         // TODO: check how to fix comment
         .replace("`/*`", "`/ *`")
         .replace("<ParamKey extends string = string>", "")
-        .replace("Readonly<Params<Key>>", "Params")
+        .replace("Readonly<[\n    ParamsOrKey\n] extends [string] ? Params<ParamsOrKey> : Partial<ParamsOrKey>>", "Params")
         .replace("<ParamKey>", "")
         .replace("\n/**\n", "\n$DELIMITER\n/**\n")
         .replace("\nexport ", "\n$DELIMITER\nexport ")
@@ -23,7 +23,7 @@ internal fun convertDefinitions(
         .map { it.replace("\ninterface ", "\n\nexport interface ") }
         .map { it.replace("\ndeclare const ", "\n\nexport declare const ") }
         .flatMap { it.splitToSequence("\n\n") }
-        .map { content ->
+        .mapNotNull { content ->
             val name = content.substringAfter(" */\n")
                 .substringAfter("export ")
                 .substringBefore(" extends ")
@@ -47,7 +47,7 @@ internal fun convertDefinitions(
 private fun convert(
     name: String,
     source: String,
-): ConversionResult {
+): ConversionResult? {
     val contentSource = source.substringAfter(" */\n")
     val comment = source.removeSuffix(contentSource).removeSuffix("\n")
 
@@ -57,6 +57,8 @@ private fun convert(
         "type" -> convertType(name, contentSource)
         "interface" -> convertInterface(name, contentSource)
         "enum" -> convertEnum(contentSource)
+
+        "namespace" -> return null
 
         else -> TODO()
     }
