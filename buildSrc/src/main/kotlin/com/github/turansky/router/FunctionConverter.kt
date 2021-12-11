@@ -81,5 +81,9 @@ private fun convertComponent(
     if (name == "Route")
         propsType = "RouteProps /* $propsType */"
 
-    return "external val $name: react.FC<$propsType>"
+    var result = "external val $name: react.FC<$propsType>"
+    if (name == "HistoryRouter")
+        result = "@JsName(\"unstable_$name\")\n$result"
+
+    return result
 }
