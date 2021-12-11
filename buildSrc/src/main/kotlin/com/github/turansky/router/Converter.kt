@@ -48,8 +48,10 @@ private fun convert(
     name: String,
     source: String,
 ): ConversionResult? {
-    val contentSource = source.substringAfter(" */\n")
+    var contentSource = source.substringAfter(" */\n")
     val comment = source.removeSuffix(contentSource).removeSuffix("\n")
+
+    contentSource = contentSource.removePrefix("declare ")
 
     val content = when (contentSource.substringBefore(" ")) {
         "const" -> convertConst(name, contentSource)
@@ -59,6 +61,9 @@ private fun convert(
         "enum" -> convertEnum(contentSource)
 
         "namespace" -> return null
+
+        // HistoryRouter workaround
+        "{" -> return null
 
         else -> TODO()
     }
