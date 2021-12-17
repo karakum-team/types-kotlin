@@ -33,6 +33,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "To" to "history.To",
     "Path" to "history.Path",
+    "Partial<Path>" to "history.Path",
     "Location" to "history.Location",
     "History" to "history.History",
 

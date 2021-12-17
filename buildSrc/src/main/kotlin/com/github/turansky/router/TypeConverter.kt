@@ -12,6 +12,7 @@ internal fun convertType(
         name == "URLSearchParamsInit" -> "kotlinext.js.Record<String, String> // $body"
 
         body == "string" -> "String"
+        body == "unknown" -> "Any?"
         body == "object | null" -> "Any?"
         body == "[string, string]" -> "kotlinext.js.JsPair<String, String>"
 
