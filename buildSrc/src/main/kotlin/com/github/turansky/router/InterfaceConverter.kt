@@ -64,7 +64,7 @@ internal fun convertInterface(
         val parentType = if ("var children: react.ReactNode?" in members) {
             members = members.replace(
                 "var children: react.ReactNode?",
-                "override var children: kotlinext.js.ReadonlyArray<react.ReactNode>?",
+                "override var children: react.ReactNode?",
             )
             "react.PropsWithChildren"
         } else {
