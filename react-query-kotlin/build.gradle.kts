@@ -1,6 +1,6 @@
 plugins {
     id("com.github.turansky.kfc.library")
-    // `react-query-declarations`
+    `react-query-declarations`
 }
 
 val kotlinWrappersVersion = property("kotlin-wrappers.version") as String
