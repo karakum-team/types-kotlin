@@ -32,9 +32,6 @@ internal class SimpleTypeConverter(
     ): String {
         val name = unionName(propertyName)
 
-        if (propertyName == "align" && parentName == "ThHTMLAttributes")
-            return name
-
         val sourceType = if (name == "Capture") {
             type.replace("boolean", """"false" | "true"""")
         } else type
@@ -75,13 +72,7 @@ internal class SimpleTypeConverter(
                     else -> propertyName.capitalize()
                 }
 
-                var prefix = parentName.removeSuffix("HTMLAttributes")
-                when (prefix) {
-                    "Td", "Th",
-                    -> prefix = "TableCell"
-                }
-
-                prefix + typeName
+                parentName.removeSuffix("HTMLAttributes") + typeName
             }
 
             else -> propertyName.capitalize()
