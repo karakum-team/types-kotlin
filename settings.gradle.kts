@@ -1,4 +1,4 @@
-rootProject.name = "react-types-kotlin"
+rootProject.name = "types-kotlin"
 
 pluginManagement {
     plugins {
