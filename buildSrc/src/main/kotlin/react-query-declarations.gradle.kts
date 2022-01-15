@@ -1,4 +1,4 @@
-import com.github.turansky.query.generateKotlinDeclarations
+import karakum.query.generateKotlinDeclarations
 
 tasks {
     named<Delete>("clean") {

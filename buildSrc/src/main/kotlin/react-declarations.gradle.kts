@@ -1,4 +1,4 @@
-import com.github.turansky.react.generateKotlinDeclarations
+import karakum.react.generateKotlinDeclarations
 
 tasks {
     named<Delete>("clean") {

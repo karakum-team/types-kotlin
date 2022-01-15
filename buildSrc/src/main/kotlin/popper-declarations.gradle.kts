@@ -1,4 +1,4 @@
-import com.github.turansky.popper.generateKotlinDeclarations
+import karakum.popper.generateKotlinDeclarations
 
 tasks {
     named<Delete>("clean") {

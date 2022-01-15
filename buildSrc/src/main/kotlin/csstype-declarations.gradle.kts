@@ -1,4 +1,4 @@
-import com.github.turansky.csstype.generateKotlinDeclarations
+import karakum.csstype.generateKotlinDeclarations
 
 tasks {
     named<Delete>("clean") {
