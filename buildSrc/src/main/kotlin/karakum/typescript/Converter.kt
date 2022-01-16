@@ -21,6 +21,7 @@ private val KEYWORDS = setOf(
     "const",
     "function",
     "type",
+    "enum",
     "interface",
     "class",
 )
