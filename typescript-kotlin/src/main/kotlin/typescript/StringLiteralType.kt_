@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** SymbolTable based on ES6 Map interface. */
+interface StringLiteralType extends LiteralType {
+    value: string;
+}

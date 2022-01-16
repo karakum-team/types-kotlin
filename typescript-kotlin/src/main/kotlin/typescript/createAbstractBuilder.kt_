@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Creates a builder thats just abstraction over program and can be used with watch
+ */
+function createAbstractBuilder(newProgram: Program, host: BuilderProgramHost, oldProgram?: BuilderProgram, configFileParsingDiagnostics?: readonly Diagnostic[]): BuilderProgram;

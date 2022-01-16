@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isMinusToken(node: Node): node is MinusToken;

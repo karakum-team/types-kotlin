@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Deprecated, please use UpdateExpression */
+interface ArrayDestructuringAssignment extends AssignmentExpression<EqualsToken> {
+    readonly left: ArrayLiteralExpression;
+}

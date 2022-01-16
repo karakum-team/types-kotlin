@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.updateExpressionStatement` or the factory supplied by your transformation context instead. */
+const updateExpressionStatement: (node: ExpressionStatement, expression: Expression) => ExpressionStatement;

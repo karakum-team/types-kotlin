@@ -1,0 +1,10 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `ReadonlyKeyword` instead. */
+interface VariableDeclarationList extends Node {
+    readonly kind: SyntaxKind.VariableDeclarationList;
+    readonly parent: VariableStatement | ForStatement | ForOfStatement | ForInStatement;
+    readonly declarations: NodeArray<VariableDeclaration>;
+}

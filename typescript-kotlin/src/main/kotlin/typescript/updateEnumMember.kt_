@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.updateEnumMember` or the factory supplied by your transformation context instead. */
+const updateEnumMember: (node: EnumMember, name: PropertyName, initializer: Expression | undefined) => EnumMember;

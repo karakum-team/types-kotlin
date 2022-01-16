@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.createPropertyAccessExpression` or the factory supplied by your transformation context instead. */
+const createPropertyAccess: (expression: Expression, name: string | MemberName) => PropertyAccessExpression;

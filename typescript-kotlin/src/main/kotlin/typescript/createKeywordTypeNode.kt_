@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.createKeywordTypeNode` or the factory supplied by your transformation context instead. */
+const createKeywordTypeNode: <TKind extends KeywordTypeSyntaxKind>(kind: TKind) => KeywordTypeNode<TKind>;

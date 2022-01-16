@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function forEachChild<T>(node: Node, cbNode: (node: Node) => T | undefined, cbNodes?: (nodes: NodeArray<Node>) => T | undefined): T | undefined;

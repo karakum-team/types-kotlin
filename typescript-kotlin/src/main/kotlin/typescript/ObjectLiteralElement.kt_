@@ -1,0 +1,9 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `ReadonlyKeyword` instead. */
+interface ObjectLiteralElement extends NamedDeclaration {
+    _objectLiteralBrand: any;
+    readonly name?: PropertyName;
+}

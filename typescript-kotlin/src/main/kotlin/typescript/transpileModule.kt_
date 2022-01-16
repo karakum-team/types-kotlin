@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function transpileModule(input: string, transpileOptions: TranspileOptions): TranspileOutput;

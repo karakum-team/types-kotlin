@@ -1,0 +1,12 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * A list of comma-separated expressions. This node is only created by transformations.
+ */
+interface WithStatement extends Statement {
+    readonly kind: SyntaxKind.WithStatement;
+    readonly expression: Expression;
+    readonly statement: Statement;
+}

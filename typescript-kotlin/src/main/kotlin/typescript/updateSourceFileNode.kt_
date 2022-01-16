@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.updateSourceFile` or the factory supplied by your transformation context instead. */
+const updateSourceFileNode: (node: SourceFile, statements: readonly Statement[], isDeclarationFile?: boolean | undefined, referencedFiles?: readonly FileReference[] | undefined, typeReferences?: readonly FileReference[] | undefined, hasNoDefaultLib?: boolean | undefined, libReferences?: readonly FileReference[] | undefined) => SourceFile;

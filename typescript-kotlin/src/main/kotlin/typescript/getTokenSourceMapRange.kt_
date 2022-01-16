@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Gets the TextRange to use for source maps for a token of a node.
+ */
+function getTokenSourceMapRange(node: Node, token: SyntaxKind): SourceMapRange | undefined;

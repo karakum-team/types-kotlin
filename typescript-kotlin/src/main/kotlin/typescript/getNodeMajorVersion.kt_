@@ -1,0 +1,7 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function getNodeMajorVersion(): number | undefined;
+export let sys: System;
+export {};

@@ -1,0 +1,7 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+interface SolutionBuilderHost<T extends BuilderProgram> extends SolutionBuilderHostBase<T> {
+    reportErrorSummary?: ReportEmitErrorSummary;
+}

@@ -1,0 +1,9 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * ES6 Map interface, only read methods included.
+ */
+interface ReadonlyMap<T> extends ReadonlyESMap<string, T> {
+}

@@ -1,0 +1,9 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.createArrowFunction` or the factory supplied by your transformation context instead. */
+const createArrowFunction: {
+    (modifiers: readonly Modifier[] | undefined, typeParameters: readonly TypeParameterDeclaration[] | undefined, parameters: readonly ParameterDeclaration[], type: TypeNode | undefined, equalsGreaterThanToken: EqualsGreaterThanToken | undefined, body: ConciseBody): ArrowFunction;
+    (modifiers: readonly Modifier[] | undefined, typeParameters: readonly TypeParameterDeclaration[] | undefined, parameters: readonly ParameterDeclaration[], type: TypeNode | undefined, body: ConciseBody): ArrowFunction;
+};

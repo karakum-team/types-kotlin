@@ -1,0 +1,10 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** SymbolTable based on ES6 Map interface. */
+interface LiteralType extends Type {
+    value: string | number | PseudoBigInt;
+    freshType: LiteralType;
+    regularType: LiteralType;
+}

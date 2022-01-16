@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `ReadonlyKeyword` instead. */
+interface CallSignatureDeclaration extends SignatureDeclarationBase, TypeElement {
+    readonly kind: SyntaxKind.CallSignature;
+}

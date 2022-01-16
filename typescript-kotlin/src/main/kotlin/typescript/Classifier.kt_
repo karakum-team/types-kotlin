@@ -1,0 +1,186 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Represents a set of signature help items, and the preferred item that should be selected.
+ */
+interface Classifier {
+    /**
+     * Gives lexical classifications of tokens on a line without any syntactic context.
+     * For instance, a token consisting of the text 'string' can be either an identifier
+     * named 'string' or the keyword 'string', however, because this classifier is not aware,
+     * it relies on certain heuristics to give acceptable results. For classifications where
+     * speed trumps accuracy, this function is preferable; however, for true accuracy, the
+     * syntactic classifier is ideal. In fact, in certain editing scenarios, combining the
+     * lexical, syntactic, and semantic classifiers may issue the best user experience.
+     *
+     * @param text                      The text of a line to classify.
+     * @param lexState                  The state of the lexical classifier at the end of the previous line.
+     * @param syntacticClassifierAbsent Whether the client is *not* using a syntactic classifier.
+     *                                  If there is no syntactic classifier (syntacticClassifierAbsent=true),
+     *                                  certain heuristics may be used in its place; however, if there is a
+     *                                  syntactic classifier (syntacticClassifierAbsent=false), certain
+     *                                  classifications which may be incorrectly categorized will be given
+     *                                  back as Identifiers in order to allow the syntactic classifier to
+     *                                  subsume the classification.
+     * @deprecated Use getLexicalClassifications instead.
+     */
+    getClassificationsForLine(text: string, lexState: EndOfLineState, syntacticClassifierAbsent: boolean): ClassificationResult;
+    getEncodedLexicalClassifications(text: string, endOfLineState: EndOfLineState, syntacticClassifierAbsent: boolean): Classifications;
+}
+enum ScriptElementKind {
+    unknown = "",
+    warning = "warning",
+    /** predefined type (void) or keyword (class) */
+    keyword = "keyword",
+    /** top level script node */
+    scriptElement = "script",
+    /** module foo {} */
+    moduleElement = "module",
+    /** class X {} */
+    classElement = "class",
+    /** var x = class X {} */
+    localClassElement = "local class",
+    /** interface Y {} */
+    interfaceElement = "interface",
+    /** type T = ... */
+    typeElement = "type",
+    /** enum E */
+    enumElement = "enum",
+    enumMemberElement = "enum member",
+    /**
+     * Inside module and script only
+     * const v = ..
+     */
+    variableElement = "var",
+    /** Inside function */
+    localVariableElement = "local var",
+    /**
+     * Inside module and script only
+     * function f() { }
+     */
+    functionElement = "function",
+    /** Inside function */
+    localFunctionElement = "local function",
+    /** class X { [public|private]* foo() {} } */
+    memberFunctionElement = "method",
+    /** class X { [public|private]* [get|set] foo:number; } */
+    memberGetAccessorElement = "getter",
+    memberSetAccessorElement = "setter",
+    /**
+     * class X { [public|private]* foo:number; }
+     * interface Y { foo:number; }
+     */
+    memberVariableElement = "property",
+    /**
+     * class X { constructor() { } }
+     * class X { static { } }
+     */
+    constructorImplementationElement = "constructor",
+    /** interface Y { ():number; } */
+    callSignatureElement = "call",
+    /** interface Y { []:number; } */
+    indexSignatureElement = "index",
+    /** interface Y { new():Y; } */
+    constructSignatureElement = "construct",
+    /** function foo(*Y*: string) */
+    parameterElement = "parameter",
+    typeParameterElement = "type parameter",
+    primitiveType = "primitive type",
+    label = "label",
+    alias = "alias",
+    constElement = "const",
+    letElement = "let",
+    directory = "directory",
+    externalModuleName = "external module name",
+    /**
+     * <JsxTagName attribute1 attribute2={0} />
+     */
+    jsxAttribute = "JSX attribute",
+    /** String literal */
+    string = "string",
+    /** Jsdoc @link: in `{@link C link text}`, the before and after text "{@link " and "}" */
+    link = "link",
+    /** Jsdoc @link: in `{@link C link text}`, the entity name "C" */
+    linkName = "link name",
+    /** Jsdoc @link: in `{@link C link text}`, the link text "link text" */
+    linkText = "link text"
+}
+enum ScriptElementKindModifier {
+    none = "",
+    publicMemberModifier = "public",
+    privateMemberModifier = "private",
+    protectedMemberModifier = "protected",
+    exportedModifier = "export",
+    ambientModifier = "declare",
+    staticModifier = "static",
+    abstractModifier = "abstract",
+    optionalModifier = "optional",
+    deprecatedModifier = "deprecated",
+    dtsModifier = ".d.ts",
+    tsModifier = ".ts",
+    tsxModifier = ".tsx",
+    jsModifier = ".js",
+    jsxModifier = ".jsx",
+    jsonModifier = ".json",
+    dmtsModifier = ".d.mts",
+    mtsModifier = ".mts",
+    mjsModifier = ".mjs",
+    dctsModifier = ".d.cts",
+    ctsModifier = ".cts",
+    cjsModifier = ".cjs"
+}
+enum ClassificationTypeNames {
+    comment = "comment",
+    identifier = "identifier",
+    keyword = "keyword",
+    numericLiteral = "number",
+    bigintLiteral = "bigint",
+    operator = "operator",
+    stringLiteral = "string",
+    whiteSpace = "whitespace",
+    text = "text",
+    punctuation = "punctuation",
+    className = "class name",
+    enumName = "enum name",
+    interfaceName = "interface name",
+    moduleName = "module name",
+    typeParameterName = "type parameter name",
+    typeAliasName = "type alias name",
+    parameterName = "parameter name",
+    docCommentTagName = "doc comment tag name",
+    jsxOpenTagName = "jsx open tag name",
+    jsxCloseTagName = "jsx close tag name",
+    jsxSelfClosingTagName = "jsx self closing tag name",
+    jsxAttribute = "jsx attribute",
+    jsxText = "jsx text",
+    jsxAttributeStringLiteralValue = "jsx attribute string literal value"
+}
+enum ClassificationType {
+    comment = 1,
+    identifier = 2,
+    keyword = 3,
+    numericLiteral = 4,
+    operator = 5,
+    stringLiteral = 6,
+    regularExpressionLiteral = 7,
+    whiteSpace = 8,
+    text = 9,
+    punctuation = 10,
+    className = 11,
+    enumName = 12,
+    interfaceName = 13,
+    moduleName = 14,
+    typeParameterName = 15,
+    typeAliasName = 16,
+    parameterName = 17,
+    docCommentTagName = 18,
+    jsxOpenTagName = 19,
+    jsxCloseTagName = 20,
+    jsxSelfClosingTagName = 21,
+    jsxAttribute = 22,
+    jsxText = 23,
+    jsxAttributeStringLiteralValue = 24,
+    bigintLiteral = 25
+}

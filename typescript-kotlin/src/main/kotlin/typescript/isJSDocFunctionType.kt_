@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isJSDocFunctionType(node: Node): node is JSDocFunctionType;

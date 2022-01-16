@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isExternalModuleReference(node: Node): node is ExternalModuleReference;

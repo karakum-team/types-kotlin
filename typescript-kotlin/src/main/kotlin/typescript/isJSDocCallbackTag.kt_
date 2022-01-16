@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isJSDocCallbackTag(node: Node): node is JSDocCallbackTag;

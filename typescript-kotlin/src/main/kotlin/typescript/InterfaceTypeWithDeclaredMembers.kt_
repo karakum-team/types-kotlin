@@ -1,0 +1,11 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Class and interface types (ObjectFlags.Class and ObjectFlags.Interface). */
+interface InterfaceTypeWithDeclaredMembers extends InterfaceType {
+    declaredProperties: Symbol[];
+    declaredCallSignatures: Signature[];
+    declaredConstructSignatures: Signature[];
+    declaredIndexInfos: IndexInfo[];
+}

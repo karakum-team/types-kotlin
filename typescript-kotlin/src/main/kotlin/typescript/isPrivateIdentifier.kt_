@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isPrivateIdentifier(node: Node): node is PrivateIdentifier;

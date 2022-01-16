@@ -1,0 +1,16 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Deprecated, please use UpdateExpression */
+interface NoSubstitutionTemplateLiteral extends LiteralExpression, TemplateLiteralLikeNode, Declaration {
+    readonly kind: SyntaxKind.NoSubstitutionTemplateLiteral;
+}
+export enum TokenFlags {
+    None = 0,
+    Scientific = 16,
+    Octal = 32,
+    HexSpecifier = 64,
+    BinarySpecifier = 128,
+    OctalSpecifier = 256,
+}

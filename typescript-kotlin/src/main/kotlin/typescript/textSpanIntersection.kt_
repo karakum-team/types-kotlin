@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function textSpanIntersection(span1: TextSpan, span2: TextSpan): TextSpan | undefined;

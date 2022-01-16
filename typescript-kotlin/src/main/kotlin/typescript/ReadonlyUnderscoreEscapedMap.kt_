@@ -1,0 +1,7 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** ReadonlyMap where keys are `__String`s. */
+interface ReadonlyUnderscoreEscapedMap<T> extends ReadonlyESMap<__String, T> {
+}

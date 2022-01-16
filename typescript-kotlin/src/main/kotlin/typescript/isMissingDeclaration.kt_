@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isMissingDeclaration(node: Node): node is MissingDeclaration;

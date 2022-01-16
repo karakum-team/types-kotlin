@@ -1,0 +1,10 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Gets a value indicating whether a node originated in the parse tree.
+ *
+ * @param node The node to test.
+ */
+function isParseTreeNode(node: Node): boolean;

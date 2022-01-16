@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.createUniqueName` or the factory supplied by your transformation context instead. */
+const createUniqueName: (text: string, flags?: GeneratedIdentifierFlags | undefined) => Identifier;

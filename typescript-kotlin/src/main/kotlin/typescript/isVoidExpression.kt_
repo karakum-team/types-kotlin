@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isVoidExpression(node: Node): node is VoidExpression;

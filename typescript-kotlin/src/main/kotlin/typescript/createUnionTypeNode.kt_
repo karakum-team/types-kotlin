@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.createUnionTypeNode` or the factory supplied by your transformation context instead. */
+const createUnionTypeNode: (types: readonly TypeNode[]) => UnionTypeNode;

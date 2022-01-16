@@ -1,0 +1,31 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Note that `@extends` is a synonym of `@augments`.
+ * Both tags are represented by this interface.
+ */
+interface JSDocTypeLiteral extends JSDocType {
+    readonly kind: SyntaxKind.JSDocTypeLiteral;
+    readonly jsDocPropertyTags?: readonly JSDocPropertyLikeTag[];
+    /** If true, then this type literal represents an *array* of its type. */
+    readonly isArrayType: boolean;
+}
+export enum FlowFlags {
+    Unreachable = 1,
+    Start = 2,
+    BranchLabel = 4,
+    LoopLabel = 8,
+    Assignment = 16,
+    TrueCondition = 32,
+    FalseCondition = 64,
+    SwitchClause = 128,
+    ArrayMutation = 256,
+    Call = 512,
+    ReduceLabel = 1024,
+    Referenced = 2048,
+    Shared = 4096,
+    Label = 12,
+    Condition = 96
+}

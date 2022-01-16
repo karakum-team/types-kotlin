@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Does not include line breaks. For that, see isWhiteSpaceLike. */
+function getTrailingCommentRanges(text: string, pos: number): CommentRange[] | undefined;

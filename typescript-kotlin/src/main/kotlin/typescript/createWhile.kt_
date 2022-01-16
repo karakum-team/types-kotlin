@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.createWhileStatement` or the factory supplied by your transformation context instead. */
+const createWhile: (expression: Expression, statement: Statement) => WhileStatement;

@@ -1,0 +1,9 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Gets the effective type parameters. If the node was parsed in a
+ * JavaScript file, gets the type parameters from the `@template` tag from JSDoc.
+ */
+function getEffectiveTypeParameterDeclarations(node: DeclarationWithTypeParameters): readonly TypeParameterDeclaration[];

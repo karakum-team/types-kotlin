@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Deprecated, please use UpdateExpression */
+interface ThisExpression extends PrimaryExpression {
+    readonly kind: SyntaxKind.ThisKeyword;
+}

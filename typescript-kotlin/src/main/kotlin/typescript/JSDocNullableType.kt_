@@ -1,0 +1,9 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Class#method reference in JSDoc */
+interface JSDocNullableType extends JSDocType {
+    readonly kind: SyntaxKind.JSDocNullableType;
+    readonly type: TypeNode;
+}

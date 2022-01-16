@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isExpressionStatement(node: Node): node is ExpressionStatement;

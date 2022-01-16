@@ -1,0 +1,13 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * One of:
+ * - import x = require("mod");
+ * - import x = M.x;
+ */
+interface NamespaceExportDeclaration extends DeclarationStatement, JSDocContainer {
+    readonly kind: SyntaxKind.NamespaceExportDeclaration;
+    readonly name: Identifier;
+}

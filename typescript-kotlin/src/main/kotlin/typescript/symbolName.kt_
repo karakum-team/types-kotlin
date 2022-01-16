@@ -1,0 +1,11 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Remove extra underscore from escaped identifier text content.
+ *
+ * @param identifier The escaped identifier text.
+ * @returns The unescaped identifier text.
+ */
+function symbolName(symbol: Symbol): string;

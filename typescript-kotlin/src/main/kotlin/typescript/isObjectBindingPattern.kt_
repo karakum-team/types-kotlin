@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isObjectBindingPattern(node: Node): node is ObjectBindingPattern;

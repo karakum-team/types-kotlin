@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isExportDeclaration(node: Node): node is ExportDeclaration;

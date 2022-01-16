@@ -1,0 +1,9 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.createTypeOperatorNode` or the factory supplied by your transformation context instead. */
+const createTypeOperatorNode: {
+    (type: TypeNode): TypeOperatorNode;
+    (operator: SyntaxKind.KeyOfKeyword | SyntaxKind.UniqueKeyword | SyntaxKind.ReadonlyKeyword, type: TypeNode): TypeOperatorNode;
+};

@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.createStrictEquality` or the factory supplied by your transformation context instead. */
+const createStrictEquality: (left: Expression, right: Expression) => BinaryExpression;

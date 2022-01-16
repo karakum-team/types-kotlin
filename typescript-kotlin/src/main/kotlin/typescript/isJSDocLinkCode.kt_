@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isJSDocLinkCode(node: Node): node is JSDocLinkCode;

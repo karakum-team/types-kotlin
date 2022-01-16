@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Gets the constant value to emit for an expression representing an enum.
+ */
+function getConstantValue(node: AccessExpression): string | number | undefined;

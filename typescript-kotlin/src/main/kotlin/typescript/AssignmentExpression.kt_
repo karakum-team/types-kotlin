@@ -1,0 +1,9 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Deprecated, please use UpdateExpression */
+interface AssignmentExpression<TOperator extends AssignmentOperatorToken> extends BinaryExpression {
+    readonly left: LeftHandSideExpression;
+    readonly operatorToken: TOperator;
+}

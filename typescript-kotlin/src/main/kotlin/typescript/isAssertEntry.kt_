@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isAssertEntry(node: Node): node is AssertEntry;

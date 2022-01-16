@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function createLanguageServiceSourceFile(fileName: string, scriptSnapshot: IScriptSnapshot, scriptTarget: ScriptTarget, version: string, setNodeParents: boolean, scriptKind?: ScriptKind): SourceFile;

@@ -1,0 +1,10 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Unlike ObjectLiteralElement, excludes JSXAttribute and JSXSpreadAttribute. */
+interface SpreadAssignment extends ObjectLiteralElement, JSDocContainer {
+    readonly kind: SyntaxKind.SpreadAssignment;
+    readonly parent: ObjectLiteralExpression;
+    readonly expression: Expression;
+}

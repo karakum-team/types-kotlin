@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.updateComputedPropertyName` or the factory supplied by your transformation context instead. */
+const updateComputedPropertyName: (node: ComputedPropertyName, expression: Expression) => ComputedPropertyName;

@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function updateLanguageServiceSourceFile(sourceFile: SourceFile, scriptSnapshot: IScriptSnapshot, version: string, textChangeRange: TextChangeRange | undefined, aggressiveChecks?: boolean): SourceFile;

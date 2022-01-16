@@ -1,0 +1,29 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * A set of edits to make in response to a refactor action, plus an optional
+ * location where renaming should be invoked from
+ */
+interface NavigateToItem {
+    name: string;
+    kind: ScriptElementKind;
+    kindModifiers: string;
+    matchKind: "exact" | "prefix" | "substring" | "camelCase";
+    isCaseSensitive: boolean;
+    fileName: string;
+    textSpan: TextSpan;
+    containerName: string;
+    containerKind: ScriptElementKind;
+}
+enum IndentStyle {
+    None = 0,
+    Block = 1,
+    Smart = 2
+}
+enum SemicolonPreference {
+    Ignore = "ignore",
+    Insert = "insert",
+    Remove = "remove"
+}

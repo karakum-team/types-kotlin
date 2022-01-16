@@ -1,0 +1,10 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Parse json text into SyntaxTree and return node and parse errors if any
+ * @param fileName
+ * @param sourceText
+ */
+function isExternalModule(file: SourceFile): boolean;

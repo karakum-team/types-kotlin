@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isNonNullExpression(node: Node): node is NonNullExpression;

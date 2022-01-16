@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.updateBreakStatement` or the factory supplied by your transformation context instead. */
+const updateBreak: (node: BreakStatement, label: Identifier | undefined) => BreakStatement;

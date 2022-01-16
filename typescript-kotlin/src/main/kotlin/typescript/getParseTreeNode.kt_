@@ -1,0 +1,11 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Gets the original parse tree node for a node.
+ *
+ * @param node The original node.
+ * @returns The original parse tree node if found; otherwise, undefined.
+ */
+function getParseTreeNode(node: Node | undefined): Node | undefined;

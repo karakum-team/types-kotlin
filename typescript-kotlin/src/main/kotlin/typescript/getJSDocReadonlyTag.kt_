@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Gets the JSDoc protected tag for the node if present */
+function getJSDocReadonlyTag(node: Node): JSDocReadonlyTag | undefined;

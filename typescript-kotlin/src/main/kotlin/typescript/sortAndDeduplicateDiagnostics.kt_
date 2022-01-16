@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function sortAndDeduplicateDiagnostics<T extends Diagnostic>(diagnostics: readonly T[]): SortedReadonlyArray<T>;

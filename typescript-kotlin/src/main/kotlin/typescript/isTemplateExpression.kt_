@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isTemplateExpression(node: Node): node is TemplateExpression;

@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isMethodDeclaration(node: Node): node is MethodDeclaration;

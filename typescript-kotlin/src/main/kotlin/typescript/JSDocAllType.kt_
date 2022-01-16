@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Class#method reference in JSDoc */
+interface JSDocAllType extends JSDocType {
+    readonly kind: SyntaxKind.JSDocAllType;
+}

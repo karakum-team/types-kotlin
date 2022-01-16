@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isSemicolonClassElement(node: Node): node is SemicolonClassElement;

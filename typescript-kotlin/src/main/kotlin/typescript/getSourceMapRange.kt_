@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Gets a custom text range to use when emitting source maps.
+ */
+function getSourceMapRange(node: Node): SourceMapRange;

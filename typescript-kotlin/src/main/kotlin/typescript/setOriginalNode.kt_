@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Create an external source map source file reference
+ */
+function setOriginalNode<T extends Node>(node: T, original: Node | undefined): T;

@@ -1,0 +1,10 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use SignatureDeclaration */
+interface ConstructorDeclaration extends FunctionLikeDeclarationBase, ClassElement, JSDocContainer {
+    readonly kind: SyntaxKind.Constructor;
+    readonly parent: ClassLikeDeclaration;
+    readonly body?: FunctionBody;
+}

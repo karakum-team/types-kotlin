@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+interface PunctuationToken<TKind extends PunctuationSyntaxKind> extends Token<TKind> {
+}

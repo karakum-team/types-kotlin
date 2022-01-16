@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+type AssertsKeyword = KeywordToken<SyntaxKind.AssertsKeyword>;

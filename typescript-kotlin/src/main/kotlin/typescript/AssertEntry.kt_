@@ -1,0 +1,15 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * One of:
+ * - import x = require("mod");
+ * - import x = M.x;
+ */
+interface AssertEntry extends Node {
+    readonly kind: SyntaxKind.AssertEntry;
+    readonly parent: AssertClause;
+    readonly name: AssertionKey;
+    readonly value: StringLiteral;
+}

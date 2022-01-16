@@ -1,0 +1,10 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Class#method reference in JSDoc */
+interface JSDocLinkPlain extends Node {
+    readonly kind: SyntaxKind.JSDocLinkPlain;
+    readonly name?: EntityName | JSDocMemberName;
+    text: string;
+}

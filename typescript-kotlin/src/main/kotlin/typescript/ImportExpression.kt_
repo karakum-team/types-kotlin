@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Deprecated, please use UpdateExpression */
+interface ImportExpression extends PrimaryExpression {
+    readonly kind: SyntaxKind.ImportKeyword;
+}

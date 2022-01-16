@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isBindingElement(node: Node): node is BindingElement;

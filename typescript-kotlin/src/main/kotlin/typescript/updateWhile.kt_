@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.updateWhileStatement` or the factory supplied by your transformation context instead. */
+const updateWhile: (node: WhileStatement, expression: Expression, statement: Statement) => WhileStatement;

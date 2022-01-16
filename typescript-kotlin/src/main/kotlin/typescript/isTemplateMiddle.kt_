@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isTemplateMiddle(node: Node): node is TemplateMiddle;

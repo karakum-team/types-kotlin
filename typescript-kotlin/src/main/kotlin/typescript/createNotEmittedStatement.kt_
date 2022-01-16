@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.createNotEmittedStatement` or the factory supplied by your transformation context instead. */
+const createNotEmittedStatement: (original: Node) => NotEmittedStatement;

@@ -1,0 +1,12 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Note that `@extends` is a synonym of `@augments`.
+ * Both tags are represented by this interface.
+ */
+interface JSDocReturnTag extends JSDocTag {
+    readonly kind: SyntaxKind.JSDocReturnTag;
+    readonly typeExpression?: JSDocTypeExpression;
+}

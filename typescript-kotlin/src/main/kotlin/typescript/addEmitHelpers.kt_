@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Add EmitHelpers to a node.
+ */
+function addEmitHelpers<T extends Node>(node: T, helpers: EmitHelper[] | undefined): T;

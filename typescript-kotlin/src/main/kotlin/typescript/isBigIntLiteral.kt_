@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isBigIntLiteral(node: Node): node is BigIntLiteral;

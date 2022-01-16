@@ -1,0 +1,13 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Deprecated, please use UpdateExpression */
+interface ConditionalExpression extends Expression {
+    readonly kind: SyntaxKind.ConditionalExpression;
+    readonly condition: Expression;
+    readonly questionToken: QuestionToken;
+    readonly whenTrue: Expression;
+    readonly colonToken: ColonToken;
+    readonly whenFalse: Expression;
+}

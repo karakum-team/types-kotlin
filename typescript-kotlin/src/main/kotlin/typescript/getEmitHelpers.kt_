@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Gets the EmitHelpers of a node.
+ */
+function getEmitHelpers(node: Node): EmitHelper[] | undefined;

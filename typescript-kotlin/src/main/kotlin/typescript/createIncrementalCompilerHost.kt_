@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function createIncrementalCompilerHost(options: CompilerOptions, system?: System): CompilerHost;

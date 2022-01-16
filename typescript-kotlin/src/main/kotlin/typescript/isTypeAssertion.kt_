@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `isTypeAssertionExpression` instead. */
+const isTypeAssertion: (node: Node) => node is TypeAssertion;

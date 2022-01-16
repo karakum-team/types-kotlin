@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function transpile(input: string, compilerOptions?: CompilerOptions, fileName?: string, diagnostics?: Diagnostic[], moduleName?: string): string;

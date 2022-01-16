@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isModuleBlock(node: Node): node is ModuleBlock;

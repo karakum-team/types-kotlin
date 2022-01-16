@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function createIncrementalProgram<T extends BuilderProgram = EmitAndSemanticDiagnosticsBuilderProgram>({ rootNames, options, configFileParsingDiagnostics, projectReferences, host, createProgram }: IncrementalProgramOptions<T>): T;

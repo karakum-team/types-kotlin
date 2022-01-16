@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isJSDocNonNullableType(node: Node): node is JSDocNonNullableType;

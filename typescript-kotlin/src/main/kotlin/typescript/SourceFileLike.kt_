@@ -1,0 +1,7 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+interface SourceFileLike {
+    getLineAndCharacterOfPosition(pos: number): LineAndCharacter;
+}

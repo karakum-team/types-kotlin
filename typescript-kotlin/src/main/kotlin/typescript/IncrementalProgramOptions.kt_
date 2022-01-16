@@ -1,0 +1,12 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+interface IncrementalProgramOptions<T extends BuilderProgram> {
+    rootNames: readonly string[];
+    options: CompilerOptions;
+    configFileParsingDiagnostics?: readonly Diagnostic[];
+    projectReferences?: readonly ProjectReference[];
+    host?: CompilerHost;
+    createProgram?: CreateProgram<T>;
+}

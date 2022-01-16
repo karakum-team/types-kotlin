@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function visitNode<T extends Node>(node: T, visitor: Visitor | undefined, test?: (node: Node) => boolean, lift?: (node: readonly Node[]) => T): T;

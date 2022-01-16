@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `ReadonlyKeyword` instead. */
+interface TransientIdentifier extends Identifier {
+    resolvedSymbol: Symbol;
+}

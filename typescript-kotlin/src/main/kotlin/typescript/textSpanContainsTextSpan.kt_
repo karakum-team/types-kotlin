@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function textSpanContainsTextSpan(span: TextSpan, other: TextSpan): boolean;

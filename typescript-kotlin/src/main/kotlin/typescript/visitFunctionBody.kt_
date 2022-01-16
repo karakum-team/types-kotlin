@@ -1,0 +1,9 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Resumes a suspended lexical environment and visits a function body, ending the lexical
+ * environment and merging hoisted declarations upon completion.
+ */
+function visitFunctionBody(node: FunctionBody, visitor: Visitor, context: TransformationContext): FunctionBody;

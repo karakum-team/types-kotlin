@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.createThrowStatement` or the factory supplied by your transformation context instead. */
+const createThrow: (expression: Expression) => ThrowStatement;

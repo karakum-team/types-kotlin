@@ -1,0 +1,7 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+interface Token<TKind extends SyntaxKind> extends Node {
+    readonly kind: TKind;
+}

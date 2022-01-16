@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * @deprecated Use `isMemberName` instead.
+ */
+const isIdentifierOrPrivateIdentifier: (node: Node) => node is MemberName;

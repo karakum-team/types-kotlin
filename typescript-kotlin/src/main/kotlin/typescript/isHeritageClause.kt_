@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isHeritageClause(node: Node): node is HeritageClause;

@@ -1,0 +1,9 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.createNoSubstitutionTemplateLiteral` or the factory supplied by your transformation context instead. */
+const createNoSubstitutionTemplateLiteral: {
+    (text: string, rawText?: string | undefined): NoSubstitutionTemplateLiteral;
+    (text: string | undefined, rawText: string): NoSubstitutionTemplateLiteral;
+};

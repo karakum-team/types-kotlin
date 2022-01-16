@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `AssertsKeyword` instead. */
+type OverrideKeyword = ModifierToken<SyntaxKind.OverrideKeyword>;

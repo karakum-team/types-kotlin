@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function parseIsolatedEntityName(text: string, languageVersion: ScriptTarget): EntityName | undefined;

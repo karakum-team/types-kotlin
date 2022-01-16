@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isReturnStatement(node: Node): node is ReturnStatement;

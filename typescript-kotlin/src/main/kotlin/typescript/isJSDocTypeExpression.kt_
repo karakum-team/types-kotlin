@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isJSDocTypeExpression(node: Node): node is JSDocTypeExpression;

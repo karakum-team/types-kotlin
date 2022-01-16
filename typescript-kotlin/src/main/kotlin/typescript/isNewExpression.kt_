@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isNewExpression(node: Node): node is NewExpression;

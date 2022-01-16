@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.updateContinueStatement` or the factory supplied by your transformation context instead. */
+const updateContinue: (node: ContinueStatement, label: Identifier | undefined) => ContinueStatement;

@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.createBigIntLiteral` or the factory supplied by your transformation context instead. */
+const createBigIntLiteral: (value: string | PseudoBigInt) => BigIntLiteral;

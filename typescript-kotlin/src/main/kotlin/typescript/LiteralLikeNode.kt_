@@ -1,0 +1,10 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Deprecated, please use UpdateExpression */
+interface LiteralLikeNode extends Node {
+    text: string;
+    isUnterminated?: boolean;
+    hasExtendedUnicodeEscape?: boolean;
+}

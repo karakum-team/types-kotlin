@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+interface TextRange {
+    pos: number;
+    end: number;
+}

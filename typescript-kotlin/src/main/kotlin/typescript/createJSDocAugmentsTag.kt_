@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.createJSDocAugmentsTag` or the factory supplied by your transformation context instead. */
+const createJSDocAugmentsTag: (tagName: Identifier | undefined, className: ExpressionWithTypeArguments & {
+    readonly expression: Identifier | PropertyAccessEntityNameExpression;
+}, comment?: string | NodeArray<JSDocComment> | undefined) => JSDocAugmentsTag;

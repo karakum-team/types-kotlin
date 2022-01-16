@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Optionally, get the shebang */
+function getShebang(text: string): string | undefined;

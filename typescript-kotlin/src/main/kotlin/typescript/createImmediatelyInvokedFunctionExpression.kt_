@@ -1,0 +1,9 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.createImmediatelyInvokedFunctionExpression` or the factory supplied by your transformation context instead. */
+const createImmediatelyInvokedFunctionExpression: {
+    (statements: readonly Statement[]): CallExpression;
+    (statements: readonly Statement[], param: ParameterDeclaration, paramValue: Expression): CallExpression;
+};

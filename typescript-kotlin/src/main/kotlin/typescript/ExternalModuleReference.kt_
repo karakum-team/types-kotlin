@@ -1,0 +1,14 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * One of:
+ * - import x = require("mod");
+ * - import x = M.x;
+ */
+interface ExternalModuleReference extends Node {
+    readonly kind: SyntaxKind.ExternalModuleReference;
+    readonly parent: ImportEqualsDeclaration;
+    readonly expression: Expression;
+}

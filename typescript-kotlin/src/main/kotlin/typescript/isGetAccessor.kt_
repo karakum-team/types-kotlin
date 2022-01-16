@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** True if node is of a kind that may contain comment text. */
+function isGetAccessor(node: Node): node is GetAccessorDeclaration;

@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.getGeneratedNameForNode` or the factory supplied by your transformation context instead. */
+const getGeneratedNameForNode: (node: Node | undefined) => Identifier;

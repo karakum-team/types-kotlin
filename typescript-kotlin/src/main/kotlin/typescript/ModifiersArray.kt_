@@ -1,0 +1,13 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `ReadonlyKeyword` instead. */
+type ModifiersArray = NodeArray<Modifier>;
+export enum GeneratedIdentifierFlags {
+    None = 0,
+    ReservedInNestedScopes = 8,
+    Optimistic = 16,
+    FileLevel = 32,
+    AllowNameSubstitution = 64
+}

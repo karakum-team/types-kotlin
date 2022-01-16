@@ -1,0 +1,9 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Deprecated, please use UpdateExpression */
+interface ParenthesizedExpression extends PrimaryExpression, JSDocContainer {
+    readonly kind: SyntaxKind.ParenthesizedExpression;
+    readonly expression: Expression;
+}

@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isBreakStatement(node: Node): node is BreakStatement;

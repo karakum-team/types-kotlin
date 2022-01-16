@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.updateReturnStatement` or the factory supplied by your transformation context instead. */
+const updateReturn: (node: ReturnStatement, expression: Expression | undefined) => ReturnStatement;

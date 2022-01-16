@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isJSDocPropertyTag(node: Node): node is JSDocPropertyTag;

@@ -1,0 +1,42 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Return code used by getEmitOutput function to indicate status of the function */
+export enum ExitStatus {
+    Success = 0,
+    DiagnosticsPresent_OutputsSkipped = 1,
+    DiagnosticsPresent_OutputsGenerated = 2,
+    InvalidProject_OutputsSkipped = 3,
+    ProjectReferenceCycle_OutputsSkipped = 4,
+    /** @deprecated Use ProjectReferenceCycle_OutputsSkipped instead. */
+    ProjectReferenceCycle_OutputsSkupped = 4
+}
+interface Symbol {
+    flags: SymbolFlags;
+    escapedName: __String;
+    declarations?: Declaration[];
+    valueDeclaration?: Declaration;
+    members?: SymbolTable;
+    exports?: SymbolTable;
+    globalExports?: SymbolTable;
+}
+export enum InternalSymbolName {
+    Call = "__call",
+    Constructor = "__constructor",
+    New = "__new",
+    Index = "__index",
+    ExportStar = "__export",
+    Global = "__global",
+    Missing = "__missing",
+    Type = "__type",
+    Object = "__object",
+    JSXAttributes = "__jsxAttributes",
+    Class = "__class",
+    Function = "__function",
+    Computed = "__computed",
+    Resolving = "__resolving__",
+    ExportEquals = "export=",
+    Default = "default",
+    This = "this"
+}

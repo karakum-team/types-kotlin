@@ -1,0 +1,13 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * A list of comma-separated expressions. This node is only created by transformations.
+ */
+interface TryStatement extends Statement {
+    readonly kind: SyntaxKind.TryStatement;
+    readonly tryBlock: Block;
+    readonly catchClause?: CatchClause;
+    readonly finallyBlock?: Block;
+}

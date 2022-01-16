@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isTupleTypeNode(node: Node): node is TupleTypeNode;

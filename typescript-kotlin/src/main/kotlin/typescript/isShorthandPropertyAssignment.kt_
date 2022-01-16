@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function isShorthandPropertyAssignment(node: Node): node is ShorthandPropertyAssignment;

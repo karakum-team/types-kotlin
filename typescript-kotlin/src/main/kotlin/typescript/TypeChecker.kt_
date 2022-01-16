@@ -1,0 +1,186 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Return code used by getEmitOutput function to indicate status of the function */
+export enum ExitStatus {
+    Success = 0,
+    DiagnosticsPresent_OutputsSkipped = 1,
+    DiagnosticsPresent_OutputsGenerated = 2,
+    InvalidProject_OutputsSkipped = 3,
+    ProjectReferenceCycle_OutputsSkipped = 4,
+    /** @deprecated Use ProjectReferenceCycle_OutputsSkipped instead. */
+    ProjectReferenceCycle_OutputsSkupped = 4
+}
+interface TypeChecker {
+    getTypeOfSymbolAtLocation(symbol: Symbol, node: Node): Type;
+    getDeclaredTypeOfSymbol(symbol: Symbol): Type;
+    getPropertiesOfType(type: Type): Symbol[];
+    getPropertyOfType(type: Type, propertyName: string): Symbol | undefined;
+    getPrivateIdentifierPropertyOfType(leftType: Type, name: string, location: Node): Symbol | undefined;
+    getIndexInfoOfType(type: Type, kind: IndexKind): IndexInfo | undefined;
+    getIndexInfosOfType(type: Type): readonly IndexInfo[];
+    getSignaturesOfType(type: Type, kind: SignatureKind): readonly Signature[];
+    getIndexTypeOfType(type: Type, kind: IndexKind): Type | undefined;
+    getBaseTypes(type: InterfaceType): BaseType[];
+    getBaseTypeOfLiteralType(type: Type): Type;
+    getWidenedType(type: Type): Type;
+    getReturnTypeOfSignature(signature: Signature): Type;
+    getNullableType(type: Type, flags: TypeFlags): Type;
+    getNonNullableType(type: Type): Type;
+    getTypeArguments(type: TypeReference): readonly Type[];
+    /** Note that the resulting nodes cannot be checked. */
+    typeToTypeNode(type: Type, enclosingDeclaration: Node | undefined, flags: NodeBuilderFlags | undefined): TypeNode | undefined;
+    /** Note that the resulting nodes cannot be checked. */
+    signatureToSignatureDeclaration(signature: Signature, kind: SyntaxKind, enclosingDeclaration: Node | undefined, flags: NodeBuilderFlags | undefined): SignatureDeclaration & {
+        typeArguments?: NodeArray<TypeNode>;
+    } | undefined;
+    /** Note that the resulting nodes cannot be checked. */
+    indexInfoToIndexSignatureDeclaration(indexInfo: IndexInfo, enclosingDeclaration: Node | undefined, flags: NodeBuilderFlags | undefined): IndexSignatureDeclaration | undefined;
+    /** Note that the resulting nodes cannot be checked. */
+    symbolToEntityName(symbol: Symbol, meaning: SymbolFlags, enclosingDeclaration: Node | undefined, flags: NodeBuilderFlags | undefined): EntityName | undefined;
+    /** Note that the resulting nodes cannot be checked. */
+    symbolToExpression(symbol: Symbol, meaning: SymbolFlags, enclosingDeclaration: Node | undefined, flags: NodeBuilderFlags | undefined): Expression | undefined;
+    /** Note that the resulting nodes cannot be checked. */
+    symbolToTypeParameterDeclarations(symbol: Symbol, enclosingDeclaration: Node | undefined, flags: NodeBuilderFlags | undefined): NodeArray<TypeParameterDeclaration> | undefined;
+    /** Note that the resulting nodes cannot be checked. */
+    symbolToParameterDeclaration(symbol: Symbol, enclosingDeclaration: Node | undefined, flags: NodeBuilderFlags | undefined): ParameterDeclaration | undefined;
+    /** Note that the resulting nodes cannot be checked. */
+    typeParameterToDeclaration(parameter: TypeParameter, enclosingDeclaration: Node | undefined, flags: NodeBuilderFlags | undefined): TypeParameterDeclaration | undefined;
+    getSymbolsInScope(location: Node, meaning: SymbolFlags): Symbol[];
+    getSymbolAtLocation(node: Node): Symbol | undefined;
+    getSymbolsOfParameterPropertyDeclaration(parameter: ParameterDeclaration, parameterName: string): Symbol[];
+    /**
+     * The function returns the value (local variable) symbol of an identifier in the short-hand property assignment.
+     * This is necessary as an identifier in short-hand property assignment can contains two meaning: property name and property value.
+     */
+    getShorthandAssignmentValueSymbol(location: Node | undefined): Symbol | undefined;
+    getExportSpecifierLocalTargetSymbol(location: ExportSpecifier | Identifier): Symbol | undefined;
+    /**
+     * If a symbol is a local symbol with an associated exported symbol, returns the exported symbol.
+     * Otherwise returns its input.
+     * For example, at `export type T = number;`:
+     *     - `getSymbolAtLocation` at the location `T` will return the exported symbol for `T`.
+     *     - But the result of `getSymbolsInScope` will contain the *local* symbol for `T`, not the exported symbol.
+     *     - Calling `getExportSymbolOfSymbol` on that local symbol will return the exported symbol.
+     */
+    getExportSymbolOfSymbol(symbol: Symbol): Symbol;
+    getPropertySymbolOfDestructuringAssignment(location: Identifier): Symbol | undefined;
+    getTypeOfAssignmentPattern(pattern: AssignmentPattern): Type;
+    getTypeAtLocation(node: Node): Type;
+    getTypeFromTypeNode(node: TypeNode): Type;
+    signatureToString(signature: Signature, enclosingDeclaration?: Node, flags?: TypeFormatFlags, kind?: SignatureKind): string;
+    typeToString(type: Type, enclosingDeclaration?: Node, flags?: TypeFormatFlags): string;
+    symbolToString(symbol: Symbol, enclosingDeclaration?: Node, meaning?: SymbolFlags, flags?: SymbolFormatFlags): string;
+    typePredicateToString(predicate: TypePredicate, enclosingDeclaration?: Node, flags?: TypeFormatFlags): string;
+    getFullyQualifiedName(symbol: Symbol): string;
+    getAugmentedPropertiesOfType(type: Type): Symbol[];
+    getRootSymbols(symbol: Symbol): readonly Symbol[];
+    getSymbolOfExpando(node: Node, allowDeclaration: boolean): Symbol | undefined;
+    getContextualType(node: Expression): Type | undefined;
+    /**
+     * returns unknownSignature in the case of an error.
+     * returns undefined if the node is not valid.
+     * @param argumentCount Apparent number of arguments, passed in case of a possibly incomplete call. This should come from an ArgumentListInfo. See `signatureHelp.ts`.
+     */
+    getResolvedSignature(node: CallLikeExpression, candidatesOutArray?: Signature[], argumentCount?: number): Signature | undefined;
+    getSignatureFromDeclaration(declaration: SignatureDeclaration): Signature | undefined;
+    isImplementationOfOverload(node: SignatureDeclaration): boolean | undefined;
+    isUndefinedSymbol(symbol: Symbol): boolean;
+    isArgumentsSymbol(symbol: Symbol): boolean;
+    isUnknownSymbol(symbol: Symbol): boolean;
+    getConstantValue(node: EnumMember | PropertyAccessExpression | ElementAccessExpression): string | number | undefined;
+    isValidPropertyAccess(node: PropertyAccessExpression | QualifiedName | ImportTypeNode, propertyName: string): boolean;
+    /** Follow all aliases to get the original symbol. */
+    getAliasedSymbol(symbol: Symbol): Symbol;
+    /** Follow a *single* alias to get the immediately aliased symbol. */
+    getImmediateAliasedSymbol(symbol: Symbol): Symbol | undefined;
+    getExportsOfModule(moduleSymbol: Symbol): Symbol[];
+    getJsxIntrinsicTagNamesAt(location: Node): Symbol[];
+    isOptionalParameter(node: ParameterDeclaration): boolean;
+    getAmbientModules(): Symbol[];
+    tryGetMemberInModuleExports(memberName: string, moduleSymbol: Symbol): Symbol | undefined;
+    getApparentType(type: Type): Type;
+    getBaseConstraintOfType(type: Type): Type | undefined;
+    getDefaultFromTypeParameter(type: Type): Type | undefined;
+    getTypePredicateOfSignature(signature: Signature): TypePredicate | undefined;
+    /**
+     * Depending on the operation performed, it may be appropriate to throw away the checker
+     * if the cancellation token is triggered. Typically, if it is used for error checking
+     * and the operation is cancelled, then it should be discarded, otherwise it is safe to keep.
+     */
+    runWithCancellationToken<T>(token: CancellationToken, cb: (checker: TypeChecker) => T): T;
+}
+export enum NodeBuilderFlags {
+    None = 0,
+    NoTruncation = 1,
+    WriteArrayAsGenericType = 2,
+    GenerateNamesForShadowedTypeParams = 4,
+    UseStructuralFallback = 8,
+    ForbidIndexedAccessSymbolReferences = 16,
+    WriteTypeArgumentsOfSignature = 32,
+    UseFullyQualifiedType = 64,
+    UseOnlyExternalAliasing = 128,
+    SuppressAnyReturnType = 256,
+    WriteTypeParametersInQualifiedName = 512,
+    MultilineObjectLiterals = 1024,
+    WriteClassExpressionAsTypeLiteral = 2048,
+    UseTypeOfFunction = 4096,
+    OmitParameterModifiers = 8192,
+    UseAliasDefinedOutsideCurrentScope = 16384,
+    UseSingleQuotesForStringLiteralType = 268435456,
+    NoTypeReduction = 536870912,
+    NoUndefinedOptionalParameterType = 1073741824,
+    AllowThisInObjectLiteral = 32768,
+    AllowQualifiedNameInPlaceOfIdentifier = 65536,
+    /** @deprecated AllowQualifedNameInPlaceOfIdentifier. Use AllowQualifiedNameInPlaceOfIdentifier instead. */
+    AllowQualifedNameInPlaceOfIdentifier = 65536,
+    AllowAnonymousIdentifier = 131072,
+    AllowEmptyUnionOrIntersection = 262144,
+    AllowEmptyTuple = 524288,
+    AllowUniqueESSymbolType = 1048576,
+    AllowEmptyIndexInfoType = 2097152,
+    AllowNodeModulesRelativePaths = 67108864,
+    IgnoreErrors = 70221824,
+    InObjectTypeLiteral = 4194304,
+    InTypeAlias = 8388608,
+    InInitialEntityName = 16777216
+}
+export enum TypeFormatFlags {
+    None = 0,
+    NoTruncation = 1,
+    WriteArrayAsGenericType = 2,
+    UseStructuralFallback = 8,
+    WriteTypeArgumentsOfSignature = 32,
+    UseFullyQualifiedType = 64,
+    SuppressAnyReturnType = 256,
+    MultilineObjectLiterals = 1024,
+    WriteClassExpressionAsTypeLiteral = 2048,
+    UseTypeOfFunction = 4096,
+    OmitParameterModifiers = 8192,
+    UseAliasDefinedOutsideCurrentScope = 16384,
+    UseSingleQuotesForStringLiteralType = 268435456,
+    NoTypeReduction = 536870912,
+    AllowUniqueESSymbolType = 1048576,
+    AddUndefined = 131072,
+    WriteArrowStyleSignature = 262144,
+    InArrayType = 524288,
+    InElementType = 2097152,
+    InFirstTypeArgument = 4194304,
+    InTypeAlias = 8388608,
+    /** @deprecated */ WriteOwnNameForAnyLike = 0,
+    NodeBuilderFlagsMask = 814775659
+}
+export enum SymbolFormatFlags {
+    None = 0,
+    WriteTypeParametersOrArguments = 1,
+    UseOnlyExternalAliasing = 2,
+    AllowAnyNodeKind = 4,
+    UseAliasDefinedOutsideCurrentScope = 8,
+}
+export enum TypePredicateKind {
+    This = 0,
+    Identifier = 1,
+    AssertsThis = 2,
+    AssertsIdentifier = 3
+}

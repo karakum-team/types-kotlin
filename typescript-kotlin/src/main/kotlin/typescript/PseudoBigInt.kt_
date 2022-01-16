@@ -1,0 +1,10 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Represents a bigint literal value without requiring bigint support */
+interface PseudoBigInt {
+    negative: boolean;
+    base10Value: string;
+}
+export {};

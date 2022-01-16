@@ -1,0 +1,11 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Deprecated, please use UpdateExpression */
+interface BinaryExpression extends Expression, Declaration {
+    readonly kind: SyntaxKind.BinaryExpression;
+    readonly left: Expression;
+    readonly operatorToken: BinaryOperatorToken;
+    readonly right: Expression;
+}

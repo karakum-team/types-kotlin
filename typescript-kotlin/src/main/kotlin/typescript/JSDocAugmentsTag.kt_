@@ -1,0 +1,14 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Note that `@extends` is a synonym of `@augments`.
+ * Both tags are represented by this interface.
+ */
+interface JSDocAugmentsTag extends JSDocTag {
+    readonly kind: SyntaxKind.JSDocAugmentsTag;
+    readonly class: ExpressionWithTypeArguments & {
+        readonly expression: Identifier | PropertyAccessEntityNameExpression;
+    };
+}

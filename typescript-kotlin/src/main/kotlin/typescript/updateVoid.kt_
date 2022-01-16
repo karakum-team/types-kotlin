@@ -1,0 +1,6 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `factory.updateVoidExpression` or the factory supplied by your transformation context instead. */
+const updateVoid: (node: VoidExpression, expression: Expression) => VoidExpression;

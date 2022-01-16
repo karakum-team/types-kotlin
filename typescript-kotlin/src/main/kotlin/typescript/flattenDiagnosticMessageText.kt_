@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function flattenDiagnosticMessageText(diag: string | DiagnosticMessageChain | undefined, newLine: string, indent?: number): string;

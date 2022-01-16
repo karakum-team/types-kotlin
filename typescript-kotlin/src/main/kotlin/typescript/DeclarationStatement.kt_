@@ -1,0 +1,8 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** @deprecated Use `ReadonlyKeyword` instead. */
+interface DeclarationStatement extends NamedDeclaration, Statement {
+    readonly name?: Identifier | StringLiteral | NumericLiteral;
+}

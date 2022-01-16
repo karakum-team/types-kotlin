@@ -1,0 +1,11 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+interface Node extends ReadonlyTextRange {
+    readonly kind: SyntaxKind;
+    readonly flags: NodeFlags;
+    readonly decorators?: NodeArray<Decorator>;
+    readonly modifiers?: ModifiersArray;
+    readonly parent: Node;
+}

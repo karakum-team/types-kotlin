@@ -1,0 +1,9 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** For when we encounter a semicolon in a class declaration. ES6 allows these as class elements. */
+interface TypeQueryNode extends TypeNode {
+    readonly kind: SyntaxKind.TypeQuery;
+    readonly exprName: EntityName;
+}

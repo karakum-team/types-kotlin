@@ -1,0 +1,14 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * One of:
+ * - import x = require("mod");
+ * - import x = M.x;
+ */
+interface NamedExports extends Node {
+    readonly kind: SyntaxKind.NamedExports;
+    readonly parent: ExportDeclaration;
+    readonly elements: NodeArray<ExportSpecifier>;
+}

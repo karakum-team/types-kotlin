@@ -1,0 +1,10 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/** Deprecated, please use UpdateExpression */
+interface TemplateExpression extends PrimaryExpression {
+    readonly kind: SyntaxKind.TemplateExpression;
+    readonly head: TemplateHead;
+    readonly templateSpans: NodeArray<TemplateSpan>;
+}
