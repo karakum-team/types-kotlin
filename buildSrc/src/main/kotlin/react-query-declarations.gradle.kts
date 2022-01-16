@@ -1,5 +1,3 @@
-import karakum.query.generateKotlinDeclarations
-
 tasks {
     named<Delete>("clean") {
         delete("src")
@@ -15,7 +13,7 @@ tasks {
 
             delete(sourceDir)
 
-            generateKotlinDeclarations(
+            karakum.query.generateKotlinDeclarations(
                 typesDir = typesDir,
                 sourceDir = sourceDir,
             )

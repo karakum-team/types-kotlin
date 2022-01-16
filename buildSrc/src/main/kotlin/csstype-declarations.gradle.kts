@@ -1,5 +1,3 @@
-import karakum.csstype.generateKotlinDeclarations
-
 tasks {
     named<Delete>("clean") {
         delete("src")
@@ -15,7 +13,7 @@ tasks {
 
             delete(sourceDir)
 
-            generateKotlinDeclarations(
+            karakum.csstype.generateKotlinDeclarations(
                 definitionsFile = definitionsFile,
                 sourceDir = sourceDir,
             )

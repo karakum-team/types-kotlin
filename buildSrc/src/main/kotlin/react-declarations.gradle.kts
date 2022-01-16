@@ -1,5 +1,3 @@
-import karakum.react.generateKotlinDeclarations
-
 tasks {
     named<Delete>("clean") {
         delete("src")
@@ -15,7 +13,7 @@ tasks {
 
             delete(sourceDir)
 
-            generateKotlinDeclarations(
+            karakum.react.generateKotlinDeclarations(
                 definitionsFile = definitionsFile,
                 sourceDir = sourceDir,
             )

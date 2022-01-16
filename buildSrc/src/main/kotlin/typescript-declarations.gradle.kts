@@ -1,5 +1,3 @@
-import karakum.typescript.generateKotlinDeclarations
-
 tasks {
     named<Delete>("clean") {
         delete("src")
@@ -15,7 +13,7 @@ tasks {
 
             delete(sourceDir)
 
-            generateKotlinDeclarations(
+            karakum.typescript.generateKotlinDeclarations(
                 definitionsFile = definitionsFile,
                 sourceDir = sourceDir,
             )

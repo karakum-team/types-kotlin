@@ -1,5 +1,3 @@
-import karakum.popper.generateKotlinDeclarations
-
 tasks {
     named<Delete>("clean") {
         delete("src")
@@ -15,7 +13,7 @@ tasks {
 
             delete(sourceDir)
 
-            generateKotlinDeclarations(
+            karakum.popper.generateKotlinDeclarations(
                 definitionsDir = definitionsDir,
                 sourceDir = sourceDir,
             )

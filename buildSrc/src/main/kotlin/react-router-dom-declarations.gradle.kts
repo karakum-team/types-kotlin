@@ -1,5 +1,3 @@
-import karakum.router.generateKotlinDeclarations
-
 tasks {
     named<Delete>("clean") {
         delete("src")
@@ -18,7 +16,7 @@ tasks {
             val routerFile = nodeModules.resolve("react-router/index.d.ts")
             val routerDomFile = nodeModules.resolve("react-router-dom/index.d.ts")
 
-            generateKotlinDeclarations(
+            karakum.router.generateKotlinDeclarations(
                 historyFile = historyFile,
                 routerFile = routerFile,
                 routerDomFile = routerDomFile,
