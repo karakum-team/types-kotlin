@@ -43,6 +43,8 @@ private fun convertDefinitions(
     content.splitToSequence(DELIMITER)
         .filter { it.isNotEmpty() }
         .map { it.removePrefix("export ") }
+        .map { it.removeSuffix("\n") }
+        .map { it.removeSuffix(";") }
         .forEach { part ->
             if (part.startsWith("/**")) {
                 comment = part
@@ -66,9 +68,7 @@ private fun convertDefinition(
 
     val body = sequenceOf(comment, source)
         .filterNotNull()
-        .joinToString("\n") {
-            it.removeSuffix("\n")
-        }
+        .joinToString("\n")
 
     return ConversionResult(name, body)
 }
