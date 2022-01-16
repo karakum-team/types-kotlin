@@ -15,8 +15,6 @@ tasks {
 
             delete(sourceDir)
 
-            // com.github.turansky.react.generateKotlinAdapter(definitionsFile, rootProject.buildDir.resolve("EventHandlerAdapters.kt"))
-
             generateKotlinDeclarations(
                 definitionsFile = definitionsFile,
                 sourceDir = sourceDir,
