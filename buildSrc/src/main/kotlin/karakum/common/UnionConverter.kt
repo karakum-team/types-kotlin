@@ -16,7 +16,13 @@ internal fun unionBodyByConstants(
     constants: List<UnionConstant>,
 ): String {
     val constantNames = constants
-        .joinToString("") { "${it.kotlinName},\n" }
+        .joinToString("") {
+            sequenceOf(
+                it.comment,
+                "${it.kotlinName},\n",
+            ).filterNotNull()
+                .joinToString("\n")
+        }
 
     return """
         ${jsName(constants)}
@@ -88,6 +94,7 @@ internal data class UnionConstant(
     val jsName: String,
     val value: String,
     private val originalValue: Boolean = false,
+    val comment: String? = null,
 ) {
     val jsValue: String
         get() = if (originalValue) {

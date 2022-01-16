@@ -127,11 +127,13 @@ private fun convertEnum(
         .splitToSequence(",\n")
         .map {
             val (cname, cvalue) = it.substringAfterLast("\n").split(" = ")
+            val comment = it.substringBeforeLast("\n", "").ifEmpty { null }
             UnionConstant(
                 kotlinName = cname,
                 jsName = cname,
                 value = cvalue,
                 originalValue = true,
+                comment = comment,
             )
         }
         .toList()
