@@ -12,6 +12,7 @@ internal fun convertDefinitions(
 ): Sequence<ConversionResult> =
     definitionsFile.readText()
         .splitToSequence("declare namespace ts {\n")
+        .drop(1)
         .map { it.substringBefore("\n}\n") }
         .map { it.trimIndent() }
         .flatMap { convertDefinitions(it) }
@@ -38,7 +39,7 @@ private fun convertDefinitions(
 
     var comment: String? = null
     val results = mutableListOf<ConversionResult>()
-    for (part in content.splitToSequence(DELIMITER).drop(1)) {
+    for (part in content.splitToSequence(DELIMITER).filter { it.isNotEmpty() }) {
         if (part.startsWith("/**")) {
             comment = part
         } else {
