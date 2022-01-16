@@ -1,35 +1,23 @@
-tasks {
-    named<Delete>("clean") {
-        delete("src")
-    }
+plugins {
+    id("declarations")
+}
 
-    val generateDeclarations by registering {
-        dependsOn(":kotlinNpmInstall")
+tasks.named("generateDeclarations") {
+    doLast {
+        val sourceDir = projectDir.resolve("src/main/kotlin")
 
-        doLast {
-            val sourceDir = projectDir.resolve("src/main/kotlin")
+        delete(sourceDir)
 
-            delete(sourceDir)
+        val nodeModules = rootProject.buildDir.resolve("js/node_modules")
+        val historyFile = nodeModules.resolve("history/index.d.ts")
+        val routerFile = nodeModules.resolve("react-router/index.d.ts")
+        val routerDomFile = nodeModules.resolve("react-router-dom/index.d.ts")
 
-            val nodeModules = rootProject.buildDir.resolve("js/node_modules")
-            val historyFile = nodeModules.resolve("history/index.d.ts")
-            val routerFile = nodeModules.resolve("react-router/index.d.ts")
-            val routerDomFile = nodeModules.resolve("react-router-dom/index.d.ts")
-
-            karakum.router.generateKotlinDeclarations(
-                historyFile = historyFile,
-                routerFile = routerFile,
-                routerDomFile = routerDomFile,
-                sourceDir = sourceDir,
-            )
-        }
-    }
-
-    named("compileKotlinJsLegacy") {
-        dependsOn(generateDeclarations)
-    }
-
-    named("compileKotlinJsIr") {
-        dependsOn(generateDeclarations)
+        karakum.router.generateKotlinDeclarations(
+            historyFile = historyFile,
+            routerFile = routerFile,
+            routerDomFile = routerDomFile,
+            sourceDir = sourceDir,
+        )
     }
 }

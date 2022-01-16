@@ -1,30 +1,18 @@
-tasks {
-    named<Delete>("clean") {
-        delete("src")
-    }
+plugins {
+    id("declarations")
+}
 
-    val generateDeclarations by registering {
-        dependsOn(":kotlinNpmInstall")
+tasks.named("generateDeclarations") {
+    doLast {
+        val definitionsDir = rootProject.buildDir
+            .resolve("js/node_modules/@popperjs/core/lib")
+        val sourceDir = projectDir.resolve("src/main/kotlin")
 
-        doLast {
-            val definitionsDir = rootProject.buildDir
-                .resolve("js/node_modules/@popperjs/core/lib")
-            val sourceDir = projectDir.resolve("src/main/kotlin")
+        delete(sourceDir)
 
-            delete(sourceDir)
-
-            karakum.popper.generateKotlinDeclarations(
-                definitionsDir = definitionsDir,
-                sourceDir = sourceDir,
-            )
-        }
-    }
-
-    named("compileKotlinJsLegacy") {
-        dependsOn(generateDeclarations)
-    }
-
-    named("compileKotlinJsIr") {
-        dependsOn(generateDeclarations)
+        karakum.popper.generateKotlinDeclarations(
+            definitionsDir = definitionsDir,
+            sourceDir = sourceDir,
+        )
     }
 }

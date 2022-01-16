@@ -1,30 +1,18 @@
-tasks {
-    named<Delete>("clean") {
-        delete("src")
-    }
+plugins {
+    id("declarations")
+}
 
-    val generateDeclarations by registering {
-        dependsOn(":kotlinNpmInstall")
+tasks.named("generateDeclarations") {
+    doLast {
+        val definitionsFile = rootProject.buildDir
+            .resolve("js/node_modules/@types/react/index.d.ts")
+        val sourceDir = projectDir.resolve("src/main/kotlin")
 
-        doLast {
-            val definitionsFile = rootProject.buildDir
-                .resolve("js/node_modules/@types/react/index.d.ts")
-            val sourceDir = projectDir.resolve("src/main/kotlin")
+        delete(sourceDir)
 
-            delete(sourceDir)
-
-            karakum.react.generateKotlinDeclarations(
-                definitionsFile = definitionsFile,
-                sourceDir = sourceDir,
-            )
-        }
-    }
-
-    named("compileKotlinJsLegacy") {
-        dependsOn(generateDeclarations)
-    }
-
-    named("compileKotlinJsIr") {
-        dependsOn(generateDeclarations)
+        karakum.react.generateKotlinDeclarations(
+            definitionsFile = definitionsFile,
+            sourceDir = sourceDir,
+        )
     }
 }
