@@ -31,7 +31,8 @@ fun generateKotlinDeclarations(
         } else ""
 
         val suffix = when {
-            "typealias" in body -> ""
+            "typealias " in body -> ""
+            "enum class " in body -> ""
             else -> "_"
         }
 

@@ -1,5 +1,7 @@
 package karakum.typescript
 
+import karakum.common.UnionConstant
+import karakum.common.unionBodyByConstants
 import java.io.File
 
 internal data class ConversionResult(
@@ -70,7 +72,10 @@ private fun convertDefinition(
         .substringBefore(":")
 
     val type = source.substringBefore(" ")
-    val content = CONVERTER_MAP.getValue(type)(name, source.removePrefix("type "))
+    val contentSource = source
+        .removePrefix("type ")
+        .removePrefix("enum ")
+    val content = CONVERTER_MAP.getValue(type)(name, contentSource)
 
     val body = sequenceOf(comment, content)
         .filterNotNull()
@@ -115,7 +120,23 @@ private fun convertEnum(
     name: String,
     source: String,
 ): String {
-    return source
+    val constants = source
+        .substringAfter("{\n")
+        .substringBeforeLast("\n}")
+        .trimIndent()
+        .splitToSequence(",\n")
+        .map {
+            val (cname, cvalue) = it.substringAfterLast("\n").split(" = ")
+            UnionConstant(
+                kotlinName = cname,
+                jsName = cname,
+                value = cvalue,
+                originalValue = true,
+            )
+        }
+        .toList()
+
+    return unionBodyByConstants(name, constants)
 }
 
 private fun convertInterface(

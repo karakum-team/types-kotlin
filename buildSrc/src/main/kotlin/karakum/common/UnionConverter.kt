@@ -18,7 +18,8 @@ internal fun unionBodyByConstants(
     val constantNames = constants
         .joinToString("") { "${it.kotlinName},\n" }
 
-    return jsName(constants) + """
+    return """
+        ${jsName(constants)}
         external enum class $name {
             $constantNames
             ;
@@ -35,7 +36,8 @@ internal fun sealedUnionBody(
     val bodyMembers = constants
         .joinToString("\n") { "val ${it.kotlinName}: $name" }
 
-    return jsName(constants) + """
+    return """
+        ${jsName(constants)}
         sealed external interface $name {
             companion object {
                 $bodyMembers
@@ -72,7 +74,7 @@ internal fun jsName(
             prefix = "@JsName(\"\"\"($UNION{",
             postfix = "}$UNION)\"\"\")",
         ) {
-            "${it.jsName}: '${it.value}'"
+            "${it.jsName}: ${it.jsValue}"
         }
 
     return """
@@ -85,7 +87,15 @@ internal data class UnionConstant(
     val kotlinName: String,
     val jsName: String,
     val value: String,
-)
+    private val originalValue: Boolean = false,
+) {
+    val jsValue: String
+        get() = if (originalValue) {
+            if (value.startsWith("\"")) {
+                "'${value.removeSurrounding("\"")}'"
+            } else value
+        } else "'$value'"
+}
 
 internal fun unionConstant(value: String): UnionConstant {
     val name = value
