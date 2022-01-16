@@ -11,7 +11,7 @@ fun generateKotlinDeclarations(
     sourceDir: File,
 ) {
     val targetDir = sourceDir
-        .resolve("typescript/ts")
+        .resolve("typescript")
         .also { it.mkdirs() }
 
     for ((name, body) in convertDefinitions(definitionsFile)) {
@@ -43,7 +43,7 @@ private fun fileContent(
     var result = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
-        "package typescript.ts",
+        "package typescript",
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
