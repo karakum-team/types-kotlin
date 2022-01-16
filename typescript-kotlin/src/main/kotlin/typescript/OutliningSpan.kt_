@@ -22,39 +22,3 @@ interface OutliningSpan {
      */
     kind: OutliningSpanKind;
 }
-enum OutliningSpanKind {
-    /** Single or multi-line comments */
-    Comment = "comment",
-    /** Sections marked by '// #region' and '// #endregion' comments */
-    Region = "region",
-    /** Declarations and expressions */
-    Code = "code",
-    /** Contiguous blocks of import declarations */
-    Imports = "imports"
-}
-enum OutputFileType {
-    JavaScript = 0,
-    SourceMap = 1,
-    Declaration = 2
-}
-enum EndOfLineState {
-    None = 0,
-    InMultiLineCommentTrivia = 1,
-    InSingleQuoteStringLiteral = 2,
-    InDoubleQuoteStringLiteral = 3,
-    InTemplateHeadOrNoSubstitutionTemplate = 4,
-    InTemplateMiddleOrTail = 5,
-    InTemplateSubstitutionPosition = 6
-}
-enum TokenClass {
-    Punctuation = 0,
-    Keyword = 1,
-    Operator = 2,
-    Comment = 3,
-    Whitespace = 4,
-    Identifier = 5,
-    NumberLiteral = 6,
-    BigIntLiteral = 7,
-    StringLiteral = 8,
-    RegExpLiteral = 9
-}

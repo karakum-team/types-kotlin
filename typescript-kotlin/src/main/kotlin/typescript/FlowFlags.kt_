@@ -1,0 +1,25 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Note that `@extends` is a synonym of `@augments`.
+ * Both tags are represented by this interface.
+ */
+enum FlowFlags {
+    Unreachable = 1,
+    Start = 2,
+    BranchLabel = 4,
+    LoopLabel = 8,
+    Assignment = 16,
+    TrueCondition = 32,
+    FalseCondition = 64,
+    SwitchClause = 128,
+    ArrayMutation = 256,
+    Call = 512,
+    ReduceLabel = 1024,
+    Referenced = 2048,
+    Shared = 4096,
+    Label = 12,
+    Condition = 96
+}

@@ -13,15 +13,3 @@ interface DiagnosticWithLocation extends Diagnostic {
     start: number;
     length: number;
 }
-export enum DiagnosticCategory {
-    Warning = 0,
-    Error = 1,
-    Suggestion = 2,
-    Message = 3
-}
-export enum ModuleResolutionKind {
-    Classic = 1,
-    NodeJs = 2,
-    Node12 = 3,
-    NodeNext = 99
-}

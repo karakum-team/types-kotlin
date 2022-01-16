@@ -1,0 +1,17 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+/**
+ * Represents a set of signature help items, and the preferred item that should be selected.
+ */
+enum OutliningSpanKind {
+    /** Single or multi-line comments */
+    Comment = "comment",
+    /** Sections marked by '// #region' and '// #endregion' comments */
+    Region = "region",
+    /** Declarations and expressions */
+    Code = "code",
+    /** Contiguous blocks of import declarations */
+    Imports = "imports"
+}

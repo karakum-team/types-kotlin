@@ -7,21 +7,3 @@ package typescript
  * If changing this, remember to change `packageIdIsEqual`.
  */
 type EmitHelperUniqueNameCallback = (name: string) => string;
-export enum EmitHint {
-    SourceFile = 0,
-    Expression = 1,
-    IdentifierName = 2,
-    MappedTypeParameter = 3,
-    Unspecified = 4,
-    EmbeddedStatement = 5,
-    JsxAttributeValue = 6
-}
-export enum OuterExpressionKinds {
-    Parentheses = 1,
-    TypeAssertions = 2,
-    NonNullAssertions = 4,
-    PartiallyEmittedExpressions = 8,
-    Assertions = 6,
-    All = 15,
-    ExcludeJSDocTypeAssertion = 16
-}

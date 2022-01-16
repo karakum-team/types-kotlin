@@ -21,18 +21,3 @@ interface PackageId {
     /** Version of the package, e.g. "1.2.3" */
     version: string;
 }
-export enum Extension {
-    Ts = ".ts",
-    Tsx = ".tsx",
-    Dts = ".d.ts",
-    Js = ".js",
-    Jsx = ".jsx",
-    Json = ".json",
-    TsBuildInfo = ".tsbuildinfo",
-    Mjs = ".mjs",
-    Mts = ".mts",
-    Dmts = ".d.mts",
-    Cjs = ".cjs",
-    Cts = ".cts",
-    Dcts = ".d.cts"
-}

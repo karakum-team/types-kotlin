@@ -17,7 +17,3 @@ interface SubstitutionType extends InstantiableType {
     baseType: Type;
     substitute: Type;
 }
-export enum SignatureKind {
-    Call = 0,
-    Construct = 1
-}

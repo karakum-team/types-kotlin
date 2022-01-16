@@ -10,8 +10,3 @@ interface CallHierarchyOutgoingCall {
     to: CallHierarchyItem;
     fromSpans: TextSpan[];
 }
-enum InlayHintKind {
-    Type = "Type",
-    Parameter = "Parameter",
-    Enum = "Enum"
-}

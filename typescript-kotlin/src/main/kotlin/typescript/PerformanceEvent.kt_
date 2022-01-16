@@ -11,8 +11,3 @@ interface PerformanceEvent {
     kind: "UpdateGraph" | "CreatePackageJsonAutoImportProvider";
     durationMs: number;
 }
-enum LanguageServiceMode {
-    Semantic = 0,
-    PartialSemantic = 1,
-    Syntactic = 2
-}

@@ -17,7 +17,3 @@ interface Signature {
     typeParameters?: readonly TypeParameter[];
     parameters: readonly Symbol[];
 }
-export enum IndexKind {
-    String = 0,
-    Number = 1
-}

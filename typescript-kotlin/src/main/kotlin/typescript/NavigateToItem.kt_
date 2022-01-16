@@ -17,13 +17,3 @@ interface NavigateToItem {
     containerName: string;
     containerKind: ScriptElementKind;
 }
-enum IndentStyle {
-    None = 0,
-    Block = 1,
-    Smart = 2
-}
-enum SemicolonPreference {
-    Ignore = "ignore",
-    Insert = "insert",
-    Remove = "remove"
-}

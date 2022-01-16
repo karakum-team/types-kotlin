@@ -14,13 +14,3 @@ package typescript
  */
 interface GenericType extends InterfaceType, TypeReference {
 }
-export enum ElementFlags {
-    Required = 1,
-    Optional = 2,
-    Rest = 4,
-    Variadic = 8,
-    Fixed = 3,
-    Variable = 12,
-    NonRequired = 14,
-    NonRest = 11
-}

@@ -10,7 +10,3 @@ package typescript
 type WithMetadata<T> = T & {
     metadata?: unknown;
 };
-enum SemanticClassificationFormat {
-    Original = "original",
-    TwentyTwenty = "2020"
-}
