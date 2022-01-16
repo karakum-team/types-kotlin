@@ -18,14 +18,17 @@ internal fun convertDefinitions(
         .flatMap { convertDefinitions(it) }
 
 private const val DELIMITER = "<!--DELIMITER-->"
-private val KEYWORDS = setOf(
-    "const",
-    "function",
-    "type",
-    "enum",
-    "interface",
-    "class",
+
+private val CONVERTER_MAP = mapOf(
+    "const" to ::convertConst,
+    "function" to ::convertFunction,
+    "type" to ::convertType,
+    "enum" to ::convertEnum,
+    "interface" to ::convertInterface,
+    "class" to ::convertClass,
 )
+
+private val KEYWORDS = CONVERTER_MAP.keys
 
 private fun convertDefinitions(
     source: String,
@@ -66,9 +69,56 @@ private fun convertDefinition(
         .substringBefore("(")
         .substringBefore(":")
 
-    val body = sequenceOf(comment, source)
+    val type = source.substringBefore(" ")
+    val content = CONVERTER_MAP.getValue(type)(name, source)
+
+    val body = sequenceOf(comment, content)
         .filterNotNull()
         .joinToString("\n")
 
     return ConversionResult(name, body)
 }
+
+private fun convertConst(
+    name: String,
+    source: String,
+): String {
+    return source
+}
+
+private fun convertFunction(
+    name: String,
+    source: String,
+): String {
+    return source
+}
+
+private fun convertType(
+    name: String,
+    source: String,
+): String {
+    return source
+}
+
+private fun convertEnum(
+    name: String,
+    source: String,
+): String {
+    return source
+}
+
+private fun convertInterface(
+    name: String,
+    source: String,
+): String {
+    return source
+}
+
+private fun convertClass(
+    name: String,
+    source: String,
+): String {
+    return source
+}
+
+
