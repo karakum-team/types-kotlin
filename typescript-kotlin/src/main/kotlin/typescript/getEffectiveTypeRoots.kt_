@@ -1,0 +1,5 @@
+// Automatically generated - do not modify!
+
+package typescript
+
+function getEffectiveTypeRoots(options: CompilerOptions, host: GetEffectiveTypeRootsHost): string[] | undefined;
