@@ -39,13 +39,17 @@ private fun convertDefinitions(
 
     var comment: String? = null
     val results = mutableListOf<ConversionResult>()
-    for (part in content.splitToSequence(DELIMITER).filter { it.isNotEmpty() }) {
-        if (part.startsWith("/**")) {
-            comment = part
-        } else {
-            results += convertDefinition(comment, part)
+
+    content.splitToSequence(DELIMITER)
+        .filter { it.isNotEmpty() }
+        .map { it.removePrefix("export ") }
+        .forEach { part ->
+            if (part.startsWith("/**")) {
+                comment = part
+            } else {
+                results += convertDefinition(comment, part)
+            }
         }
-    }
 
     return results.asSequence()
 }
