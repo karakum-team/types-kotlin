@@ -1,9 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-enum FileWatcherEventKind {
-    Created = 0,
-    Changed = 1,
-    Deleted = 2
-}
