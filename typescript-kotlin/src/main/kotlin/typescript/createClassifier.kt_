@@ -2,4 +2,5 @@
 
 package typescript
 
+/** The classifier is used for syntactic highlighting in editors via the TSServer */
 function createClassifier(): Classifier;

@@ -2,4 +2,5 @@
 
 package typescript
 
+/** The version of the language service API */
 function createLanguageServiceSourceFile(fileName: string, scriptSnapshot: IScriptSnapshot, scriptTarget: ScriptTarget, version: string, setNodeParents: boolean, scriptKind?: ScriptKind): SourceFile;

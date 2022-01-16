@@ -2,6 +2,4 @@
 
 package typescript
 
-export type Path = string & {
-    __pathBrand: any;
-};
+const factory: NodeFactory;

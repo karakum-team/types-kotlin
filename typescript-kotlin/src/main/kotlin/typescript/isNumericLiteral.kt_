@@ -2,6 +2,4 @@
 
 package typescript
 
-export type Path = string & {
-    __pathBrand: any;
-};
+function isNumericLiteral(node: Node): node is NumericLiteral;
