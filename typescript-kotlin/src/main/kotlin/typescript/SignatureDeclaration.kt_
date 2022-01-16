@@ -1,6 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-/** @deprecated Use `ReadonlyKeyword` instead. */
-type SignatureDeclaration = CallSignatureDeclaration | ConstructSignatureDeclaration | MethodSignature | IndexSignatureDeclaration | FunctionTypeNode | ConstructorTypeNode | JSDocFunctionType | FunctionDeclaration | MethodDeclaration | ConstructorDeclaration | AccessorDeclaration | FunctionExpression | ArrowFunction

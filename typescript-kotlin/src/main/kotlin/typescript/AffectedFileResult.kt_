@@ -1,8 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-type AffectedFileResult<T> = {
-    result: T;
-    affected: SourceFile | Program;
-} | undefined

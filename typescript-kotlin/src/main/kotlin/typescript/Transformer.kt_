@@ -1,8 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-/**
- * A function that transforms a node.
- */
-type Transformer<T extends Node> = (node: T) => T

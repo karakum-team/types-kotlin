@@ -1,6 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-/** Return code used by getEmitOutput function to indicate status of the function */
-type TypePredicate = ThisTypePredicate | IdentifierTypePredicate | AssertsThisTypePredicate | AssertsIdentifierTypePredicate

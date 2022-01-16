@@ -1,9 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-/**
- * Unique identifier with a package name and version.
- * If changing this, remember to change `packageIdIsEqual`.
- */
-type TypeOfTag = "undefined" | "number" | "bigint" | "boolean" | "string" | "symbol" | "object" | "function"

@@ -1,5 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-type WatchStatusReporter = (diagnostic: Diagnostic, newLine: string, options: CompilerOptions, errorCount?: number) => void

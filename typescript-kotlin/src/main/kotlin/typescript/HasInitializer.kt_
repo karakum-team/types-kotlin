@@ -1,5 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-type HasInitializer = HasExpressionInitializer | ForStatement | ForInStatement | ForOfStatement | JsxAttribute
