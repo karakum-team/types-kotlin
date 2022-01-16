@@ -30,9 +30,12 @@ fun generateKotlinDeclarations(
             fileSuppress(*suppresses)
         } else ""
 
-        targetDir.resolve("$name.kt")
-            .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(fileContent(annotations, body))
+        val file = targetDir.resolve("$name.kt_")
+        if (file.exists()) {
+            println("Duplicated file: ${name}")
+        } else {
+            file.writeText(fileContent(annotations, body))
+        }
     }
 }
 
