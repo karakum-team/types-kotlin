@@ -32,7 +32,11 @@ fun generateKotlinDeclarations(
 
         val file = targetDir.resolve("$name.kt_")
         if (file.exists()) {
-            println("Duplicated file: ${name}")
+            if (name[0].isLowerCase()) {
+                file.appendText("\n$body")
+            } else {
+                println("Duplicated file: $name")
+            }
         } else {
             file.writeText(fileContent(annotations, body))
         }
