@@ -3,4 +3,4 @@
 package typescript
 
 /** Brand for a PropertyAccessExpression which, like a QualifiedName, consists of a sequence of identifiers separated by dots. */
-type SuperProperty = SuperPropertyAccessExpression | SuperElementAccessExpression;
+type SuperProperty = SuperPropertyAccessExpression | SuperElementAccessExpression

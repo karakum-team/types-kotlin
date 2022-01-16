@@ -2,4 +2,4 @@
 
 package typescript
 
-function isNotEmittedStatement(node: Node): node is NotEmittedStatement;
+function isNotEmittedStatement(node: Node): node is NotEmittedStatement

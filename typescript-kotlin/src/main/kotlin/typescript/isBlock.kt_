@@ -2,4 +2,4 @@
 
 package typescript
 
-function isBlock(node: Node): node is Block;
+function isBlock(node: Node): node is Block

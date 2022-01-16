@@ -2,4 +2,4 @@
 
 package typescript
 
-function isSpreadElement(node: Node): node is SpreadElement;
+function isSpreadElement(node: Node): node is SpreadElement

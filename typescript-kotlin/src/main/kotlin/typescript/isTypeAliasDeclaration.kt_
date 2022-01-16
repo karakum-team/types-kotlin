@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTypeAliasDeclaration(node: Node): node is TypeAliasDeclaration;
+function isTypeAliasDeclaration(node: Node): node is TypeAliasDeclaration

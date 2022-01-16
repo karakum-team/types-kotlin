@@ -5,4 +5,4 @@ package typescript
 /**
  * Sets a custom text range to use when emitting comments.
  */
-function getSyntheticLeadingComments(node: Node): SynthesizedComment[] | undefined;
+function getSyntheticLeadingComments(node: Node): SynthesizedComment[] | undefined

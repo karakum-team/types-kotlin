@@ -3,4 +3,4 @@
 package typescript
 
 /** Deprecated, please use UpdateExpression */
-type PostfixUnaryOperator = SyntaxKind.PlusPlusToken | SyntaxKind.MinusMinusToken;
+type PostfixUnaryOperator = SyntaxKind.PlusPlusToken | SyntaxKind.MinusMinusToken

@@ -2,4 +2,4 @@
 
 package typescript
 
-function transpileModule(input: string, transpileOptions: TranspileOptions): TranspileOutput;
+function transpileModule(input: string, transpileOptions: TranspileOptions): TranspileOutput

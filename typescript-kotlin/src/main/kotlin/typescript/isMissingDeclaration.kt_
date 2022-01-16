@@ -2,4 +2,4 @@
 
 package typescript
 
-function isMissingDeclaration(node: Node): node is MissingDeclaration;
+function isMissingDeclaration(node: Node): node is MissingDeclaration

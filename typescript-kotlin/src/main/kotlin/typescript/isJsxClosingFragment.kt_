@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJsxClosingFragment(node: Node): node is JsxClosingFragment;
+function isJsxClosingFragment(node: Node): node is JsxClosingFragment

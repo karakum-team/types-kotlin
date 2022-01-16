@@ -11,4 +11,4 @@ function validateLocaleAndSetLanguage(locale: string, sys: {
     resolvePath(path: string): string;
     fileExists(fileName: string): boolean;
     readFile(fileName: string): string | undefined;
-}, errors?: Push<Diagnostic>): void;
+}, errors?: Push<Diagnostic>): void

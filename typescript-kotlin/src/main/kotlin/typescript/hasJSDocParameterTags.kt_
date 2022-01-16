@@ -8,4 +8,4 @@ package typescript
  * @remarks Includes parameter tags that are not directly on the node,
  * for example on a variable declaration whose initializer is a function expression.
  */
-function hasJSDocParameterTags(node: FunctionLikeDeclaration | SignatureDeclaration): boolean;
+function hasJSDocParameterTags(node: FunctionLikeDeclaration | SignatureDeclaration): boolean

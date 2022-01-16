@@ -2,4 +2,4 @@
 
 package typescript
 
-function isThrowStatement(node: Node): node is ThrowStatement;
+function isThrowStatement(node: Node): node is ThrowStatement

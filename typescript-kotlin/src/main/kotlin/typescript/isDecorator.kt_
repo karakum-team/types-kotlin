@@ -2,4 +2,4 @@
 
 package typescript
 
-function isDecorator(node: Node): node is Decorator;
+function isDecorator(node: Node): node is Decorator

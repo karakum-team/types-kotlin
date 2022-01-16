@@ -2,4 +2,4 @@
 
 package typescript
 
-function isVoidExpression(node: Node): node is VoidExpression;
+function isVoidExpression(node: Node): node is VoidExpression

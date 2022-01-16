@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createBundle` or the factory supplied by your transformation context instead. */
-const createBundle: (sourceFiles: readonly SourceFile[], prepends?: readonly (UnparsedSource | InputFiles)[] | undefined) => Bundle;
+const createBundle: (sourceFiles: readonly SourceFile[], prepends?: readonly (UnparsedSource | InputFiles)[] | undefined) => Bundle

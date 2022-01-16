@@ -2,4 +2,4 @@
 
 package typescript
 
-function isExportSpecifier(node: Node): node is ExportSpecifier;
+function isExportSpecifier(node: Node): node is ExportSpecifier

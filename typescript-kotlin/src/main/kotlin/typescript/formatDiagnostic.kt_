@@ -2,4 +2,4 @@
 
 package typescript
 
-function formatDiagnostic(diagnostic: Diagnostic, host: FormatDiagnosticsHost): string;
+function formatDiagnostic(diagnostic: Diagnostic, host: FormatDiagnosticsHost): string

@@ -6,4 +6,4 @@ package typescript
 const createConditional: {
     (condition: Expression, whenTrue: Expression, whenFalse: Expression): ConditionalExpression;
     (condition: Expression, questionToken: QuestionToken, whenTrue: Expression, colonToken: ColonToken, whenFalse: Expression): ConditionalExpression;
-};
+}

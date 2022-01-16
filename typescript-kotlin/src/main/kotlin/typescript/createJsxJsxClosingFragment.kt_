@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createJsxJsxClosingFragment` or the factory supplied by your transformation context instead. */
-const createJsxJsxClosingFragment: () => JsxClosingFragment;
+const createJsxJsxClosingFragment: () => JsxClosingFragment

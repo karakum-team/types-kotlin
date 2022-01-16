@@ -2,4 +2,4 @@
 
 package typescript
 
-function isInferTypeNode(node: Node): node is InferTypeNode;
+function isInferTypeNode(node: Node): node is InferTypeNode

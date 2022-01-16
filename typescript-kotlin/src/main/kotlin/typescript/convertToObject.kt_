@@ -5,4 +5,4 @@ package typescript
 /**
  * Convert the json syntax tree into the json value
  */
-function convertToObject(sourceFile: JsonSourceFile, errors: Push<Diagnostic>): any;
+function convertToObject(sourceFile: JsonSourceFile, errors: Push<Diagnostic>): any

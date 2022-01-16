@@ -6,4 +6,4 @@ package typescript
 const createTypeOperatorNode: {
     (type: TypeNode): TypeOperatorNode;
     (operator: SyntaxKind.KeyOfKeyword | SyntaxKind.UniqueKeyword | SyntaxKind.ReadonlyKeyword, type: TypeNode): TypeOperatorNode;
-};
+}

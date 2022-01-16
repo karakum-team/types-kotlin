@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateExternalModuleReference` or the factory supplied by your transformation context instead. */
-const updateExternalModuleReference: (node: ExternalModuleReference, expression: Expression) => ExternalModuleReference;
+const updateExternalModuleReference: (node: ExternalModuleReference, expression: Expression) => ExternalModuleReference

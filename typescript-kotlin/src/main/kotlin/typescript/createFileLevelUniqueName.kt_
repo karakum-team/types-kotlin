@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createUniqueName(text, GeneratedIdentifierFlags.Optimistic | GeneratedIdentifierFlags.FileLevel)` or the factory supplied by your transformation context instead. */
-const createFileLevelUniqueName: (text: string) => Identifier;
+const createFileLevelUniqueName: (text: string) => Identifier

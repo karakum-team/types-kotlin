@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateTypeOperatorNode` or the factory supplied by your transformation context instead. */
-const updateTypeOperatorNode: (node: TypeOperatorNode, type: TypeNode) => TypeOperatorNode;
+const updateTypeOperatorNode: (node: TypeOperatorNode, type: TypeNode) => TypeOperatorNode

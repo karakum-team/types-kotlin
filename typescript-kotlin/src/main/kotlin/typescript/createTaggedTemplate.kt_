@@ -6,4 +6,4 @@ package typescript
 const createTaggedTemplate: {
     (tag: Expression, template: TemplateLiteral): TaggedTemplateExpression;
     (tag: Expression, typeArguments: readonly TypeNode[] | undefined, template: TemplateLiteral): TaggedTemplateExpression;
-};
+}

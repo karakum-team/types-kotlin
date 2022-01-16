@@ -2,4 +2,4 @@
 
 package typescript
 
-type EndOfFileToken = Token<SyntaxKind.EndOfFileToken> & JSDocContainer;
+type EndOfFileToken = Token<SyntaxKind.EndOfFileToken> & JSDocContainer

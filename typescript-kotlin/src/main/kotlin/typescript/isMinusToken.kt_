@@ -2,4 +2,4 @@
 
 package typescript
 
-function isMinusToken(node: Node): node is MinusToken;
+function isMinusToken(node: Node): node is MinusToken

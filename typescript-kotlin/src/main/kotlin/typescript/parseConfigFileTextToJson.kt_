@@ -10,4 +10,4 @@ package typescript
 function parseConfigFileTextToJson(fileName: string, jsonText: string): {
     config?: any;
     error?: Diagnostic;
-};
+}

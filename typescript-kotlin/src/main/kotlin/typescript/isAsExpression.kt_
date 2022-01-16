@@ -2,4 +2,4 @@
 
 package typescript
 
-function isAsExpression(node: Node): node is AsExpression;
+function isAsExpression(node: Node): node is AsExpression

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTemplateMiddle(node: Node): node is TemplateMiddle;
+function isTemplateMiddle(node: Node): node is TemplateMiddle

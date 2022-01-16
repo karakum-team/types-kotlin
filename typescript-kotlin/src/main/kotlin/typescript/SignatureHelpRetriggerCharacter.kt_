@@ -7,4 +7,4 @@ package typescript
  * snapshot is observably immutable. i.e. the same calls with the same parameters will return
  * the same values.
  */
-type SignatureHelpRetriggerCharacter = SignatureHelpTriggerCharacter | ")";
+type SignatureHelpRetriggerCharacter = SignatureHelpTriggerCharacter | ")"

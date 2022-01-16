@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `ReadonlyKeyword` instead. */
-type PropertyName = Identifier | StringLiteral | NumericLiteral | ComputedPropertyName | PrivateIdentifier;
+type PropertyName = Identifier | StringLiteral | NumericLiteral | ComputedPropertyName | PrivateIdentifier

@@ -6,4 +6,4 @@ package typescript
 const createTemplateMiddle: {
     (text: string, rawText?: string | undefined, templateFlags?: TokenFlags | undefined): TemplateMiddle;
     (text: string | undefined, rawText: string, templateFlags?: TokenFlags | undefined): TemplateMiddle;
-};
+}

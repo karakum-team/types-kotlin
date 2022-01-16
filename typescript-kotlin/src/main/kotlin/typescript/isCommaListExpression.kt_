@@ -2,4 +2,4 @@
 
 package typescript
 
-function isCommaListExpression(node: Node): node is CommaListExpression;
+function isCommaListExpression(node: Node): node is CommaListExpression

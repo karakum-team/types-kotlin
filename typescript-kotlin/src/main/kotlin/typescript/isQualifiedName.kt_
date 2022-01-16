@@ -2,4 +2,4 @@
 
 package typescript
 
-function isQualifiedName(node: Node): node is QualifiedName;
+function isQualifiedName(node: Node): node is QualifiedName

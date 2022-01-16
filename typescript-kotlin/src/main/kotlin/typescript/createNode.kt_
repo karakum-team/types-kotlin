@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use an appropriate `factory` method instead. */
-const createNode: (kind: SyntaxKind, pos?: any, end?: any) => Node;
+const createNode: (kind: SyntaxKind, pos?: any, end?: any) => Node

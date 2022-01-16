@@ -2,4 +2,4 @@
 
 package typescript
 
-function textSpanOverlap(span1: TextSpan, span2: TextSpan): TextSpan | undefined;
+function textSpanOverlap(span1: TextSpan, span2: TextSpan): TextSpan | undefined

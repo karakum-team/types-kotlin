@@ -5,4 +5,4 @@ package typescript
 /**
  * A function that accepts and possibly transforms a node.
  */
-type Visitor = (node: Node) => VisitResult<Node>;
+type Visitor = (node: Node) => VisitResult<Node>

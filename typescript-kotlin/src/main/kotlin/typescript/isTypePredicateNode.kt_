@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTypePredicateNode(node: Node): node is TypePredicateNode;
+function isTypePredicateNode(node: Node): node is TypePredicateNode

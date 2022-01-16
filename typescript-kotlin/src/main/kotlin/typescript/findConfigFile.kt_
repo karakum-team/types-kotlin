@@ -2,4 +2,4 @@
 
 package typescript
 
-function findConfigFile(searchPath: string, fileExists: (fileName: string) => boolean, configName?: string): string | undefined;
+function findConfigFile(searchPath: string, fileExists: (fileName: string) => boolean, configName?: string): string | undefined

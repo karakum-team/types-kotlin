@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateDecorator` or the factory supplied by your transformation context instead. */
-const updateDecorator: (node: Decorator, expression: Expression) => Decorator;
+const updateDecorator: (node: Decorator, expression: Expression) => Decorator

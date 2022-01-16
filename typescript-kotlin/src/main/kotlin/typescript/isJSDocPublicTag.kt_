@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocPublicTag(node: Node): node is JSDocPublicTag;
+function isJSDocPublicTag(node: Node): node is JSDocPublicTag

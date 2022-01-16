@@ -2,4 +2,4 @@
 
 package typescript
 
-function isModuleDeclaration(node: Node): node is ModuleDeclaration;
+function isModuleDeclaration(node: Node): node is ModuleDeclaration

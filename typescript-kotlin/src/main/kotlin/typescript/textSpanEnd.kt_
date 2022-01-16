@@ -2,4 +2,4 @@
 
 package typescript
 
-function textSpanEnd(span: TextSpan): number;
+function textSpanEnd(span: TextSpan): number

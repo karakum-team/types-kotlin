@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateThrowStatement` or the factory supplied by your transformation context instead. */
-const updateThrow: (node: ThrowStatement, expression: Expression) => ThrowStatement;
+const updateThrow: (node: ThrowStatement, expression: Expression) => ThrowStatement

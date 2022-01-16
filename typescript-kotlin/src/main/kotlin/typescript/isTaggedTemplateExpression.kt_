@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTaggedTemplateExpression(node: Node): node is TaggedTemplateExpression;
+function isTaggedTemplateExpression(node: Node): node is TaggedTemplateExpression

@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateAwaitExpression` or the factory supplied by your transformation context instead. */
-const updateAwait: (node: AwaitExpression, expression: Expression) => AwaitExpression;
+const updateAwait: (node: AwaitExpression, expression: Expression) => AwaitExpression

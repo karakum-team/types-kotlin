@@ -2,4 +2,4 @@
 
 package typescript
 
-function isBundle(node: Node): node is Bundle;
+function isBundle(node: Node): node is Bundle

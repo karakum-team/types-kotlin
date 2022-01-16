@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateArrayBindingPattern` or the factory supplied by your transformation context instead. */
-const updateArrayBindingPattern: (node: ArrayBindingPattern, elements: readonly ArrayBindingElement[]) => ArrayBindingPattern;
+const updateArrayBindingPattern: (node: ArrayBindingPattern, elements: readonly ArrayBindingElement[]) => ArrayBindingPattern

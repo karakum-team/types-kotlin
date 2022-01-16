@@ -5,4 +5,4 @@ package typescript
 /**
  * Sets a custom text range to use when emitting source maps.
  */
-function setSourceMapRange<T extends Node>(node: T, range: SourceMapRange | undefined): T;
+function setSourceMapRange<T extends Node>(node: T, range: SourceMapRange | undefined): T

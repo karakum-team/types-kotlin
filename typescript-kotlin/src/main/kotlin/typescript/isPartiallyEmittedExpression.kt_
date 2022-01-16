@@ -2,4 +2,4 @@
 
 package typescript
 
-function isPartiallyEmittedExpression(node: Node): node is PartiallyEmittedExpression;
+function isPartiallyEmittedExpression(node: Node): node is PartiallyEmittedExpression

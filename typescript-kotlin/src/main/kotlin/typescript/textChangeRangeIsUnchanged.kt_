@@ -2,4 +2,4 @@
 
 package typescript
 
-function textChangeRangeIsUnchanged(range: TextChangeRange): boolean;
+function textChangeRangeIsUnchanged(range: TextChangeRange): boolean

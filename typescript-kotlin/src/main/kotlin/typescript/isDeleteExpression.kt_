@@ -2,4 +2,4 @@
 
 package typescript
 
-function isDeleteExpression(node: Node): node is DeleteExpression;
+function isDeleteExpression(node: Node): node is DeleteExpression

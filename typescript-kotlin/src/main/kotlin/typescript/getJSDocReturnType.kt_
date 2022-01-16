@@ -8,4 +8,4 @@ package typescript
  * @remarks `getJSDocReturnTag` just gets the whole JSDoc tag. This function
  * gets the type from inside the braces, after the fat arrow, etc.
  */
-function getJSDocReturnType(node: Node): TypeNode | undefined;
+function getJSDocReturnType(node: Node): TypeNode | undefined

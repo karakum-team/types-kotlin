@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `AssertsKeyword` instead. */
-type ReadonlyKeyword = ModifierToken<SyntaxKind.ReadonlyKeyword>;
+type ReadonlyKeyword = ModifierToken<SyntaxKind.ReadonlyKeyword>

@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createBlock` or the factory supplied by your transformation context instead. */
-const createBlock: (statements: readonly Statement[], multiLine?: boolean | undefined) => Block;
+const createBlock: (statements: readonly Statement[], multiLine?: boolean | undefined) => Block

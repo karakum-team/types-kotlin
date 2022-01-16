@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createNamespaceExportDeclaration` or the factory supplied by your transformation context instead. */
-const createNamespaceExportDeclaration: (name: string | Identifier) => NamespaceExportDeclaration;
+const createNamespaceExportDeclaration: (name: string | Identifier) => NamespaceExportDeclaration

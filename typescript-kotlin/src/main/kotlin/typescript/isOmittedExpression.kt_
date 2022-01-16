@@ -2,4 +2,4 @@
 
 package typescript
 
-function isOmittedExpression(node: Node): node is OmittedExpression;
+function isOmittedExpression(node: Node): node is OmittedExpression

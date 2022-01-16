@@ -2,4 +2,4 @@
 
 package typescript
 
-function isContinueStatement(node: Node): node is ContinueStatement;
+function isContinueStatement(node: Node): node is ContinueStatement

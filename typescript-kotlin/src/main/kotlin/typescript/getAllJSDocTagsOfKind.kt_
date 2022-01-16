@@ -3,4 +3,4 @@
 package typescript
 
 /** Gets all JSDoc tags of a specified kind */
-function getAllJSDocTagsOfKind(node: Node, kind: SyntaxKind): readonly JSDocTag[];
+function getAllJSDocTagsOfKind(node: Node, kind: SyntaxKind): readonly JSDocTag[]

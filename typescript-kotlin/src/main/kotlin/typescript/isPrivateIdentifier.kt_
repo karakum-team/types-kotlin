@@ -2,4 +2,4 @@
 
 package typescript
 
-function isPrivateIdentifier(node: Node): node is PrivateIdentifier;
+function isPrivateIdentifier(node: Node): node is PrivateIdentifier

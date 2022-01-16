@@ -3,4 +3,4 @@
 package typescript
 
 /** Brand for a PropertyAccessExpression which, like a QualifiedName, consists of a sequence of identifiers separated by dots. */
-type OptionalChain = PropertyAccessChain | ElementAccessChain | CallChain | NonNullChain;
+type OptionalChain = PropertyAccessChain | ElementAccessChain | CallChain | NonNullChain

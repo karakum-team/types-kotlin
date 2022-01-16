@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createObjectLiteralExpression` or the factory supplied by your transformation context instead. */
-const createObjectLiteral: (properties?: readonly ObjectLiteralElementLike[] | undefined, multiLine?: boolean | undefined) => ObjectLiteralExpression;
+const createObjectLiteral: (properties?: readonly ObjectLiteralElementLike[] | undefined, multiLine?: boolean | undefined) => ObjectLiteralExpression

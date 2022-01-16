@@ -2,4 +2,4 @@
 
 package typescript
 
-const factory: NodeFactory;
+const factory: NodeFactory

@@ -2,4 +2,4 @@
 
 package typescript
 
-function getTsBuildInfoEmitOutputFilePath(options: CompilerOptions): string | undefined;
+function getTsBuildInfoEmitOutputFilePath(options: CompilerOptions): string | undefined

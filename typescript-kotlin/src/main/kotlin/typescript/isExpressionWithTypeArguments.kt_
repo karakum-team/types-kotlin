@@ -2,4 +2,4 @@
 
 package typescript
 
-function isExpressionWithTypeArguments(node: Node): node is ExpressionWithTypeArguments;
+function isExpressionWithTypeArguments(node: Node): node is ExpressionWithTypeArguments

@@ -6,4 +6,4 @@ package typescript
 const createTemplateHead: {
     (text: string, rawText?: string | undefined, templateFlags?: TokenFlags | undefined): TemplateHead;
     (text: string | undefined, rawText: string, templateFlags?: TokenFlags | undefined): TemplateHead;
-};
+}

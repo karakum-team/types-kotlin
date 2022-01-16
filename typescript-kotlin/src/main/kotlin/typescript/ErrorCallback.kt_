@@ -2,4 +2,4 @@
 
 package typescript
 
-type ErrorCallback = (message: DiagnosticMessage, length: number) => void;
+type ErrorCallback = (message: DiagnosticMessage, length: number) => void

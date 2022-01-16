@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJsxOpeningElement(node: Node): node is JsxOpeningElement;
+function isJsxOpeningElement(node: Node): node is JsxOpeningElement

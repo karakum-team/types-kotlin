@@ -3,4 +3,4 @@
 package typescript
 
 /** True if node is of a kind that may contain comment text. */
-function isSetAccessor(node: Node): node is SetAccessorDeclaration;
+function isSetAccessor(node: Node): node is SetAccessorDeclaration

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isMethodDeclaration(node: Node): node is MethodDeclaration;
+function isMethodDeclaration(node: Node): node is MethodDeclaration

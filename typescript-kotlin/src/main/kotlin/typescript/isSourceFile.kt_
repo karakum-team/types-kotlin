@@ -2,4 +2,4 @@
 
 package typescript
 
-function isSourceFile(node: Node): node is SourceFile;
+function isSourceFile(node: Node): node is SourceFile

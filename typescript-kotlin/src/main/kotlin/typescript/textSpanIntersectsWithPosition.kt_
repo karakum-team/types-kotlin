@@ -2,4 +2,4 @@
 
 package typescript
 
-function textSpanIntersectsWithPosition(span: TextSpan, position: number): boolean;
+function textSpanIntersectsWithPosition(span: TextSpan, position: number): boolean

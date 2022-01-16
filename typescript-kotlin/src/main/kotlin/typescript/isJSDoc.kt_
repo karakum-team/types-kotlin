@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDoc(node: Node): node is JSDoc;
+function isJSDoc(node: Node): node is JSDoc

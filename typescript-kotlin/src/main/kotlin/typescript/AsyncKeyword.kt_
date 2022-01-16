@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `AssertsKeyword` instead. */
-type AsyncKeyword = ModifierToken<SyntaxKind.AsyncKeyword>;
+type AsyncKeyword = ModifierToken<SyntaxKind.AsyncKeyword>

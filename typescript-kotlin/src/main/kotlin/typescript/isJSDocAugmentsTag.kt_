@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocAugmentsTag(node: Node): node is JSDocAugmentsTag;
+function isJSDocAugmentsTag(node: Node): node is JSDocAugmentsTag

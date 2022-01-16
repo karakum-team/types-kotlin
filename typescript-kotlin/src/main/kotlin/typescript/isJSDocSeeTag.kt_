@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocSeeTag(node: Node): node is JSDocSeeTag;
+function isJSDocSeeTag(node: Node): node is JSDocSeeTag

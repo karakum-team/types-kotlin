@@ -2,4 +2,4 @@
 
 package typescript
 
-type PlusToken = PunctuationToken<SyntaxKind.PlusToken>;
+type PlusToken = PunctuationToken<SyntaxKind.PlusToken>

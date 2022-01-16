@@ -3,4 +3,4 @@
 package typescript
 
 /** Optionally, get the shebang */
-function isIdentifierStart(ch: number, languageVersion: ScriptTarget | undefined): boolean;
+function isIdentifierStart(ch: number, languageVersion: ScriptTarget | undefined): boolean

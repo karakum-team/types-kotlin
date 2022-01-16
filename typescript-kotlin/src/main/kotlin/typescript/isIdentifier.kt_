@@ -2,4 +2,4 @@
 
 package typescript
 
-function isIdentifier(node: Node): node is Identifier;
+function isIdentifier(node: Node): node is Identifier

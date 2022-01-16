@@ -2,4 +2,4 @@
 
 package typescript
 
-type AssertKeyword = KeywordToken<SyntaxKind.AssertKeyword>;
+type AssertKeyword = KeywordToken<SyntaxKind.AssertKeyword>

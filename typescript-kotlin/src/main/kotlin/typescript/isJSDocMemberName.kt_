@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocMemberName(node: Node): node is JSDocMemberName;
+function isJSDocMemberName(node: Node): node is JSDocMemberName

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isDotDotDotToken(node: Node): node is DotDotDotToken;
+function isDotDotDotToken(node: Node): node is DotDotDotToken

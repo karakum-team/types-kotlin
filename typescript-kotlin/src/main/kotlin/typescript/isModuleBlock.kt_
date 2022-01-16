@@ -2,4 +2,4 @@
 
 package typescript
 
-function isModuleBlock(node: Node): node is ModuleBlock;
+function isModuleBlock(node: Node): node is ModuleBlock

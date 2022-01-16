@@ -12,4 +12,4 @@ package typescript
  * if the class or interface has no type parameters and the reference isn't specifying an
  * explicit "this" argument.
  */
-type TypeVariable = TypeParameter | IndexedAccessType;
+type TypeVariable = TypeParameter | IndexedAccessType

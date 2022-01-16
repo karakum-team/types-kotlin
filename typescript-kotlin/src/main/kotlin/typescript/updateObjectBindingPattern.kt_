@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateObjectBindingPattern` or the factory supplied by your transformation context instead. */
-const updateObjectBindingPattern: (node: ObjectBindingPattern, elements: readonly BindingElement[]) => ObjectBindingPattern;
+const updateObjectBindingPattern: (node: ObjectBindingPattern, elements: readonly BindingElement[]) => ObjectBindingPattern

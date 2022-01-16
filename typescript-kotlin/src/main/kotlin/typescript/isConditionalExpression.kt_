@@ -2,4 +2,4 @@
 
 package typescript
 
-function isConditionalExpression(node: Node): node is ConditionalExpression;
+function isConditionalExpression(node: Node): node is ConditionalExpression

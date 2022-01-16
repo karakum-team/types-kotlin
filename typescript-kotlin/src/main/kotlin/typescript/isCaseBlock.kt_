@@ -2,4 +2,4 @@
 
 package typescript
 
-function isCaseBlock(node: Node): node is CaseBlock;
+function isCaseBlock(node: Node): node is CaseBlock

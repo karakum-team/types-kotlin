@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateArrayTypeNode` or the factory supplied by your transformation context instead. */
-const updateArrayTypeNode: (node: ArrayTypeNode, elementType: TypeNode) => ArrayTypeNode;
+const updateArrayTypeNode: (node: ArrayTypeNode, elementType: TypeNode) => ArrayTypeNode

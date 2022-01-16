@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createTypePredicateNode` or the factory supplied by your transformation context instead. */
-const createTypePredicateNode: (parameterName: Identifier | ThisTypeNode | string, type: TypeNode) => TypePredicateNode;
+const createTypePredicateNode: (parameterName: Identifier | ThisTypeNode | string, type: TypeNode) => TypePredicateNode

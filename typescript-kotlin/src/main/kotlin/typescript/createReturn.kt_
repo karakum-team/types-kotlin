@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createReturnStatement` or the factory supplied by your transformation context instead. */
-const createReturn: (expression?: Expression | undefined) => ReturnStatement;
+const createReturn: (expression?: Expression | undefined) => ReturnStatement

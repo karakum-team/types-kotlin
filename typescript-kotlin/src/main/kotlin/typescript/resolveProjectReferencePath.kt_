@@ -6,4 +6,4 @@ package typescript
  * Returns the target config filename of a project reference.
  * Note: The file might not exist.
  */
-function resolveProjectReferencePath(ref: ProjectReference): ResolvedConfigFileName;
+function resolveProjectReferencePath(ref: ProjectReference): ResolvedConfigFileName

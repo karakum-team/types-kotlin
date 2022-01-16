@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createEnumMember` or the factory supplied by your transformation context instead. */
-const createEnumMember: (name: string | PropertyName, initializer?: Expression | undefined) => EnumMember;
+const createEnumMember: (name: string | PropertyName, initializer?: Expression | undefined) => EnumMember

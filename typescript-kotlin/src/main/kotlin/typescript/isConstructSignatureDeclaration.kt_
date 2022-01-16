@@ -2,4 +2,4 @@
 
 package typescript
 
-function isConstructSignatureDeclaration(node: Node): node is ConstructSignatureDeclaration;
+function isConstructSignatureDeclaration(node: Node): node is ConstructSignatureDeclaration

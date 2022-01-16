@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateParenthesizedExpression` or the factory supplied by your transformation context instead. */
-const updateParen: (node: ParenthesizedExpression, expression: Expression) => ParenthesizedExpression;
+const updateParen: (node: ParenthesizedExpression, expression: Expression) => ParenthesizedExpression

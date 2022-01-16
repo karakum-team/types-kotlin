@@ -2,4 +2,4 @@
 
 package typescript
 
-function isClassExpression(node: Node): node is ClassExpression;
+function isClassExpression(node: Node): node is ClassExpression

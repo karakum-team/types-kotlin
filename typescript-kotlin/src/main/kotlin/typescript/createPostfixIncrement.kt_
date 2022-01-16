@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createPostfixIncrement` or the factory supplied by your transformation context instead. */
-const createPostfixIncrement: (operand: Expression) => PostfixUnaryExpression;
+const createPostfixIncrement: (operand: Expression) => PostfixUnaryExpression

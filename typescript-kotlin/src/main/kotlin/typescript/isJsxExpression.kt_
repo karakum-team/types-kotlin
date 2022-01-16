@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJsxExpression(node: Node): node is JsxExpression;
+function isJsxExpression(node: Node): node is JsxExpression

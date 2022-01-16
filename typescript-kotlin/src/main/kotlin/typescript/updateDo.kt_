@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateDoStatement` or the factory supplied by your transformation context instead. */
-const updateDo: (node: DoStatement, statement: Statement, expression: Expression) => DoStatement;
+const updateDo: (node: DoStatement, statement: Statement, expression: Expression) => DoStatement

@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createUniqueName(text, GeneratedIdentifierFlags.Optimistic)` or the factory supplied by your transformation context instead. */
-const createOptimisticUniqueName: (text: string) => Identifier;
+const createOptimisticUniqueName: (text: string) => Identifier

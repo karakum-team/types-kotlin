@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createAdd` or the factory supplied by your transformation context instead. */
-const createAdd: (left: Expression, right: Expression) => BinaryExpression;
+const createAdd: (left: Expression, right: Expression) => BinaryExpression

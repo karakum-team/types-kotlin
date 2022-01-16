@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createJSDocUnknownTag` or the factory supplied by your transformation context instead. */
-const createJSDocTag: (tagName: Identifier, comment?: string | NodeArray<JSDocComment> | undefined) => JSDocUnknownTag;
+const createJSDocTag: (tagName: Identifier, comment?: string | NodeArray<JSDocComment> | undefined) => JSDocUnknownTag

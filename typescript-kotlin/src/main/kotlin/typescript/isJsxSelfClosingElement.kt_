@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJsxSelfClosingElement(node: Node): node is JsxSelfClosingElement;
+function isJsxSelfClosingElement(node: Node): node is JsxSelfClosingElement

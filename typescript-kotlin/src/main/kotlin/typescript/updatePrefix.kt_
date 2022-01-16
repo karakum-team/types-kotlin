@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updatePrefixExpression` or the factory supplied by your transformation context instead. */
-const updatePrefix: (node: PrefixUnaryExpression, operand: Expression) => PrefixUnaryExpression;
+const updatePrefix: (node: PrefixUnaryExpression, operand: Expression) => PrefixUnaryExpression

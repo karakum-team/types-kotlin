@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateConditionalTypeNode` or the factory supplied by your transformation context instead. */
-const updateConditionalTypeNode: (node: ConditionalTypeNode, checkType: TypeNode, extendsType: TypeNode, trueType: TypeNode, falseType: TypeNode) => ConditionalTypeNode;
+const updateConditionalTypeNode: (node: ConditionalTypeNode, checkType: TypeNode, extendsType: TypeNode, trueType: TypeNode, falseType: TypeNode) => ConditionalTypeNode

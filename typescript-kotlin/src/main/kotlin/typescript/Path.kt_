@@ -4,4 +4,4 @@ package typescript
 
 type Path = string & {
     __pathBrand: any;
-};
+}

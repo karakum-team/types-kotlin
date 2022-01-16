@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createJsxOpeningFragment` or the factory supplied by your transformation context instead. */
-const createJsxOpeningFragment: () => JsxOpeningFragment;
+const createJsxOpeningFragment: () => JsxOpeningFragment

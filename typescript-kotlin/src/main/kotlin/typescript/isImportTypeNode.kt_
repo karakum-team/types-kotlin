@@ -2,4 +2,4 @@
 
 package typescript
 
-function isImportTypeNode(node: Node): node is ImportTypeNode;
+function isImportTypeNode(node: Node): node is ImportTypeNode

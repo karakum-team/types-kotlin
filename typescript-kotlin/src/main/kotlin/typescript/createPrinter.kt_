@@ -2,4 +2,4 @@
 
 package typescript
 
-function createPrinter(printerOptions?: PrinterOptions, handlers?: PrintHandlers): Printer;
+function createPrinter(printerOptions?: PrinterOptions, handlers?: PrintHandlers): Printer

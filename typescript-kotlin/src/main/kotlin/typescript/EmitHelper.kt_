@@ -6,4 +6,4 @@ package typescript
  * Unique identifier with a package name and version.
  * If changing this, remember to change `packageIdIsEqual`.
  */
-type EmitHelper = ScopedEmitHelper | UnscopedEmitHelper;
+type EmitHelper = ScopedEmitHelper | UnscopedEmitHelper

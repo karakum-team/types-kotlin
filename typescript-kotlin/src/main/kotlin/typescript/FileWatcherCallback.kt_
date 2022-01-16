@@ -2,4 +2,4 @@
 
 package typescript
 
-type FileWatcherCallback = (fileName: string, eventKind: FileWatcherEventKind) => void;
+type FileWatcherCallback = (fileName: string, eventKind: FileWatcherEventKind) => void

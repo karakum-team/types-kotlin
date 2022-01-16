@@ -7,4 +7,4 @@ package typescript
  * This differs from the `isPartOfTypeNode` function which determines whether a node is *part*
  * of a TypeNode.
  */
-function isJsxOpeningLikeElement(node: Node): node is JsxOpeningLikeElement;
+function isJsxOpeningLikeElement(node: Node): node is JsxOpeningLikeElement

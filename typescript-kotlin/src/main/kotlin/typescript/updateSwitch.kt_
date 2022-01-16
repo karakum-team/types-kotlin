@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateSwitchStatement` or the factory supplied by your transformation context instead. */
-const updateSwitch: (node: SwitchStatement, expression: Expression, caseBlock: CaseBlock) => SwitchStatement;
+const updateSwitch: (node: SwitchStatement, expression: Expression, caseBlock: CaseBlock) => SwitchStatement

@@ -3,4 +3,4 @@
 package typescript
 
 /** SymbolTable based on ES6 Map interface. */
-type DestructuringPattern = BindingPattern | ObjectLiteralExpression | ArrayLiteralExpression;
+type DestructuringPattern = BindingPattern | ObjectLiteralExpression | ArrayLiteralExpression

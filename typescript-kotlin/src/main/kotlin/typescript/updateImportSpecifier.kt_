@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateImportSpecifier` or the factory supplied by your transformation context instead. */
-const updateImportSpecifier: (node: ImportSpecifier, isTypeOnly: boolean, propertyName: Identifier | undefined, name: Identifier) => ImportSpecifier;
+const updateImportSpecifier: (node: ImportSpecifier, isTypeOnly: boolean, propertyName: Identifier | undefined, name: Identifier) => ImportSpecifier

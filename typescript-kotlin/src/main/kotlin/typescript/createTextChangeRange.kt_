@@ -3,4 +3,4 @@
 package typescript
 
 function createTextChangeRange(span: TextSpan, newLength: number): TextChangeRange;
-let unchangedTextChangeRange: TextChangeRange;
+let unchangedTextChangeRange: TextChangeRange

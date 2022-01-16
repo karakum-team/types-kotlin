@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateTypeAssertion` or the factory supplied by your transformation context instead. */
-const updateTypeAssertion: (node: TypeAssertion, type: TypeNode, expression: Expression) => TypeAssertion;
+const updateTypeAssertion: (node: TypeAssertion, type: TypeNode, expression: Expression) => TypeAssertion

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocImplementsTag(node: Node): node is JSDocImplementsTag;
+function isJSDocImplementsTag(node: Node): node is JSDocImplementsTag

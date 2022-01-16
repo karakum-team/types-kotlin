@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createCallExpression` or the factory supplied by your transformation context instead. */
-const createCall: (expression: Expression, typeArguments: readonly TypeNode[] | undefined, argumentsArray: readonly Expression[] | undefined) => CallExpression;
+const createCall: (expression: Expression, typeArguments: readonly TypeNode[] | undefined, argumentsArray: readonly Expression[] | undefined) => CallExpression

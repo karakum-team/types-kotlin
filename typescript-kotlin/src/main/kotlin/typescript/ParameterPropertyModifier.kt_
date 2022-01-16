@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `ReadonlyKeyword` instead. */
-type ParameterPropertyModifier = AccessibilityModifier | ReadonlyKeyword;
+type ParameterPropertyModifier = AccessibilityModifier | ReadonlyKeyword

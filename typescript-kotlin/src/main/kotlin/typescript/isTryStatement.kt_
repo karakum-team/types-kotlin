@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTryStatement(node: Node): node is TryStatement;
+function isTryStatement(node: Node): node is TryStatement

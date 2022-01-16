@@ -2,4 +2,4 @@
 
 package typescript
 
-function textSpanIsEmpty(span: TextSpan): boolean;
+function textSpanIsEmpty(span: TextSpan): boolean

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocEnumTag(node: Node): node is JSDocEnumTag;
+function isJSDocEnumTag(node: Node): node is JSDocEnumTag

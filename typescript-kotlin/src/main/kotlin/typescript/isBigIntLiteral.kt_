@@ -2,4 +2,4 @@
 
 package typescript
 
-function isBigIntLiteral(node: Node): node is BigIntLiteral;
+function isBigIntLiteral(node: Node): node is BigIntLiteral

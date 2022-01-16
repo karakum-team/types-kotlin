@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateInferTypeNode` or the factory supplied by your transformation context instead. */
-const updateInferTypeNode: (node: InferTypeNode, typeParameter: TypeParameterDeclaration) => InferTypeNode;
+const updateInferTypeNode: (node: InferTypeNode, typeParameter: TypeParameterDeclaration) => InferTypeNode

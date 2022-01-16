@@ -2,4 +2,4 @@
 
 package typescript
 
-function isUnparsedPrepend(node: Node): node is UnparsedPrepend;
+function isUnparsedPrepend(node: Node): node is UnparsedPrepend

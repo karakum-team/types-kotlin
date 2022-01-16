@@ -9,4 +9,4 @@ package typescript
 function readConfigFile(fileName: string, readFile: (path: string) => string | undefined): {
     config?: any;
     error?: Diagnostic;
-};
+}

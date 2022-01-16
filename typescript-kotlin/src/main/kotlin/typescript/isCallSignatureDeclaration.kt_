@@ -2,4 +2,4 @@
 
 package typescript
 
-function isCallSignatureDeclaration(node: Node): node is CallSignatureDeclaration;
+function isCallSignatureDeclaration(node: Node): node is CallSignatureDeclaration

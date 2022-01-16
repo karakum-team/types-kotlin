@@ -3,4 +3,4 @@
 package typescript
 
 /** Deprecated, please use UpdateExpression */
-type BitwiseOperatorOrHigher = EqualityOperatorOrHigher | BitwiseOperator;
+type BitwiseOperatorOrHigher = EqualityOperatorOrHigher | BitwiseOperator

@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateNamedImports` or the factory supplied by your transformation context instead. */
-const updateNamedImports: (node: NamedImports, elements: readonly ImportSpecifier[]) => NamedImports;
+const updateNamedImports: (node: NamedImports, elements: readonly ImportSpecifier[]) => NamedImports

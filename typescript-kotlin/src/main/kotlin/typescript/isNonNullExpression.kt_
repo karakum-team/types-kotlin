@@ -2,4 +2,4 @@
 
 package typescript
 
-function isNonNullExpression(node: Node): node is NonNullExpression;
+function isNonNullExpression(node: Node): node is NonNullExpression

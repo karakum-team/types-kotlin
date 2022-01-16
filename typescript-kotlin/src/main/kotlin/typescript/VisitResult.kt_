@@ -5,4 +5,4 @@ package typescript
 /**
  * A function that accepts and possibly transforms a node.
  */
-type VisitResult<T extends Node> = T | T[] | undefined;
+type VisitResult<T extends Node> = T | T[] | undefined

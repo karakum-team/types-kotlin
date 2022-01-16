@@ -2,4 +2,4 @@
 
 package typescript
 
-type EqualsToken = PunctuationToken<SyntaxKind.EqualsToken>;
+type EqualsToken = PunctuationToken<SyntaxKind.EqualsToken>

@@ -3,4 +3,4 @@
 package typescript
 
 /** The version of the language service API */
-const servicesVersion = "0.8";
+const servicesVersion = "0.8"

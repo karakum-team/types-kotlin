@@ -3,4 +3,4 @@
 package typescript
 
 /** Gets the JSDoc return tag for the node if present */
-function getJSDocReturnTag(node: Node): JSDocReturnTag | undefined;
+function getJSDocReturnTag(node: Node): JSDocReturnTag | undefined

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isUnionTypeNode(node: Node): node is UnionTypeNode;
+function isUnionTypeNode(node: Node): node is UnionTypeNode

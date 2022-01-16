@@ -3,4 +3,4 @@
 package typescript
 
 /** Gets the JSDoc augments tag for the node if present */
-function getJSDocAugmentsTag(node: Node): JSDocAugmentsTag | undefined;
+function getJSDocAugmentsTag(node: Node): JSDocAugmentsTag | undefined

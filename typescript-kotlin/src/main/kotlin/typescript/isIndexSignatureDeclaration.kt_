@@ -2,4 +2,4 @@
 
 package typescript
 
-function isIndexSignatureDeclaration(node: Node): node is IndexSignatureDeclaration;
+function isIndexSignatureDeclaration(node: Node): node is IndexSignatureDeclaration

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isOptionalTypeNode(node: Node): node is OptionalTypeNode;
+function isOptionalTypeNode(node: Node): node is OptionalTypeNode

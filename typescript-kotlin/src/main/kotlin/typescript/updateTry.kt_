@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateTryStatement` or the factory supplied by your transformation context instead. */
-const updateTry: (node: TryStatement, tryBlock: Block, catchClause: CatchClause | undefined, finallyBlock: Block | undefined) => TryStatement;
+const updateTry: (node: TryStatement, tryBlock: Block, catchClause: CatchClause | undefined, finallyBlock: Block | undefined) => TryStatement

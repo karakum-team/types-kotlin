@@ -2,4 +2,4 @@
 
 package typescript
 
-function isWhiteSpaceLike(ch: number): boolean;
+function isWhiteSpaceLike(ch: number): boolean

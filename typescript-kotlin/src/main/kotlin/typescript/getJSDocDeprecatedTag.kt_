@@ -3,4 +3,4 @@
 package typescript
 
 /** Gets the JSDoc deprecated tag for the node if present */
-function getJSDocDeprecatedTag(node: Node): JSDocDeprecatedTag | undefined;
+function getJSDocDeprecatedTag(node: Node): JSDocDeprecatedTag | undefined

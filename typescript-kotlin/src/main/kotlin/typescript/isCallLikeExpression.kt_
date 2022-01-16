@@ -7,4 +7,4 @@ package typescript
  * This differs from the `isPartOfTypeNode` function which determines whether a node is *part*
  * of a TypeNode.
  */
-function isCallLikeExpression(node: Node): node is CallLikeExpression;
+function isCallLikeExpression(node: Node): node is CallLikeExpression

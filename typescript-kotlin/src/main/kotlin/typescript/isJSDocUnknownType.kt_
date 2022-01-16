@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocUnknownType(node: Node): node is JSDocUnknownType;
+function isJSDocUnknownType(node: Node): node is JSDocUnknownType

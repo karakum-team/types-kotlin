@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `ReadonlyKeyword` instead. */
-type AccessibilityModifier = PublicKeyword | PrivateKeyword | ProtectedKeyword;
+type AccessibilityModifier = PublicKeyword | PrivateKeyword | ProtectedKeyword

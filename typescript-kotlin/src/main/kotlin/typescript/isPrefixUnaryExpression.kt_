@@ -2,4 +2,4 @@
 
 package typescript
 
-function isPrefixUnaryExpression(node: Node): node is PrefixUnaryExpression;
+function isPrefixUnaryExpression(node: Node): node is PrefixUnaryExpression

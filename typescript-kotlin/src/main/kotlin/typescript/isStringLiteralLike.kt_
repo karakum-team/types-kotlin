@@ -3,4 +3,4 @@
 package typescript
 
 /** True if has initializer node attached to it. */
-function isStringLiteralLike(node: Node): node is StringLiteralLike;
+function isStringLiteralLike(node: Node): node is StringLiteralLike

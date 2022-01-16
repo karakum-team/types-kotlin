@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `ReadonlyKeyword` instead. */
-type ModifiersArray = NodeArray<Modifier>;
+type ModifiersArray = NodeArray<Modifier>

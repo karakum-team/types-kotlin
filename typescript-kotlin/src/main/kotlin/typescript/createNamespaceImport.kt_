@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createNamespaceImport` or the factory supplied by your transformation context instead. */
-const createNamespaceImport: (name: Identifier) => NamespaceImport;
+const createNamespaceImport: (name: Identifier) => NamespaceImport

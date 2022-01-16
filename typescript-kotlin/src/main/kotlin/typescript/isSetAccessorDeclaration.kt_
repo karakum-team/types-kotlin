@@ -2,4 +2,4 @@
 
 package typescript
 
-function isSetAccessorDeclaration(node: Node): node is SetAccessorDeclaration;
+function isSetAccessorDeclaration(node: Node): node is SetAccessorDeclaration

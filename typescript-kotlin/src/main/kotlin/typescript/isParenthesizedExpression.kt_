@@ -2,4 +2,4 @@
 
 package typescript
 
-function isParenthesizedExpression(node: Node): node is ParenthesizedExpression;
+function isParenthesizedExpression(node: Node): node is ParenthesizedExpression

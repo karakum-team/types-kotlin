@@ -8,4 +8,4 @@ package typescript
  * @param identifier The escaped identifier text.
  * @returns The unescaped identifier text.
  */
-function unescapeLeadingUnderscores(identifier: __String): string;
+function unescapeLeadingUnderscores(identifier: __String): string

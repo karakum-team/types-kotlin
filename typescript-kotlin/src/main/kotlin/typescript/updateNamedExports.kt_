@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateNamedExports` or the factory supplied by your transformation context instead. */
-const updateNamedExports: (node: NamedExports, elements: readonly ExportSpecifier[]) => NamedExports;
+const updateNamedExports: (node: NamedExports, elements: readonly ExportSpecifier[]) => NamedExports

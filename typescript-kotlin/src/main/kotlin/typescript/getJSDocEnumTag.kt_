@@ -3,4 +3,4 @@
 package typescript
 
 /** Gets the JSDoc enum tag for the node if present */
-function getJSDocEnumTag(node: Node): JSDocEnumTag | undefined;
+function getJSDocEnumTag(node: Node): JSDocEnumTag | undefined

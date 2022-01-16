@@ -3,4 +3,4 @@
 package typescript
 
 /** Deprecated, please use UpdateExpression */
-type BinaryOperatorToken = Token<BinaryOperator>;
+type BinaryOperatorToken = Token<BinaryOperator>

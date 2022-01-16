@@ -2,4 +2,4 @@
 
 package typescript
 
-function isImportDeclaration(node: Node): node is ImportDeclaration;
+function isImportDeclaration(node: Node): node is ImportDeclaration

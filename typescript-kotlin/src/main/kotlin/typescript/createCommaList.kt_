@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createCommaListExpression` or the factory supplied by your transformation context instead. */
-const createCommaList: (elements: readonly Expression[]) => CommaListExpression;
+const createCommaList: (elements: readonly Expression[]) => CommaListExpression

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isPostfixUnaryExpression(node: Node): node is PostfixUnaryExpression;
+function isPostfixUnaryExpression(node: Node): node is PostfixUnaryExpression

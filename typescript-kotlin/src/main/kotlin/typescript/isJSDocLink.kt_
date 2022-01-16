@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocLink(node: Node): node is JSDocLink;
+function isJSDocLink(node: Node): node is JSDocLink

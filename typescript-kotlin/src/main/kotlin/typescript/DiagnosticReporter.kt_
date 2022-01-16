@@ -2,4 +2,4 @@
 
 package typescript
 
-type DiagnosticReporter = (diagnostic: Diagnostic) => void;
+type DiagnosticReporter = (diagnostic: Diagnostic) => void

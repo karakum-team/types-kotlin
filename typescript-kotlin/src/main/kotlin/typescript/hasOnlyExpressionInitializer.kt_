@@ -3,4 +3,4 @@
 package typescript
 
 /** True if has initializer node attached to it. */
-function hasOnlyExpressionInitializer(node: Node): node is HasExpressionInitializer;
+function hasOnlyExpressionInitializer(node: Node): node is HasExpressionInitializer

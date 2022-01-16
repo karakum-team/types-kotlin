@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createJsxText` or the factory supplied by your transformation context instead. */
-const createJsxText: (text: string, containsOnlyTriviaWhiteSpaces?: boolean | undefined) => JsxText;
+const createJsxText: (text: string, containsOnlyTriviaWhiteSpaces?: boolean | undefined) => JsxText

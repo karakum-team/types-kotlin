@@ -2,4 +2,4 @@
 
 package typescript
 
-function resolveTripleslashReference(moduleName: string, containingFile: string): string;
+function resolveTripleslashReference(moduleName: string, containingFile: string): string

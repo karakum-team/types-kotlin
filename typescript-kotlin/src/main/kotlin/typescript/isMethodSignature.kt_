@@ -2,4 +2,4 @@
 
 package typescript
 
-function isMethodSignature(node: Node): node is MethodSignature;
+function isMethodSignature(node: Node): node is MethodSignature

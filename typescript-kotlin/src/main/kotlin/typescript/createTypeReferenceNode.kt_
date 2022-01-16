@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createTypeReferenceNode` or the factory supplied by your transformation context instead. */
-const createTypeReferenceNode: (typeName: string | EntityName, typeArguments?: readonly TypeNode[] | undefined) => TypeReferenceNode;
+const createTypeReferenceNode: (typeName: string | EntityName, typeArguments?: readonly TypeNode[] | undefined) => TypeReferenceNode

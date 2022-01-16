@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createNonNullChain` or the factory supplied by your transformation context instead. */
-const createNonNullChain: (expression: Expression) => NonNullChain;
+const createNonNullChain: (expression: Expression) => NonNullChain

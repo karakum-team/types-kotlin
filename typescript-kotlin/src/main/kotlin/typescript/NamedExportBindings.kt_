@@ -7,4 +7,4 @@ package typescript
  * - import x = require("mod");
  * - import x = M.x;
  */
-type NamedExportBindings = NamespaceExport | NamedExports;
+type NamedExportBindings = NamespaceExport | NamedExports

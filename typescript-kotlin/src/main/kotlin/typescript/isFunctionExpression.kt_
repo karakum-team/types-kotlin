@@ -2,4 +2,4 @@
 
 package typescript
 
-function isFunctionExpression(node: Node): node is FunctionExpression;
+function isFunctionExpression(node: Node): node is FunctionExpression

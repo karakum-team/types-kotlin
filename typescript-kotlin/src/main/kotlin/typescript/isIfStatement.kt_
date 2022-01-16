@@ -2,4 +2,4 @@
 
 package typescript
 
-function isIfStatement(node: Node): node is IfStatement;
+function isIfStatement(node: Node): node is IfStatement

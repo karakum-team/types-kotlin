@@ -3,4 +3,4 @@
 package typescript
 
 /** Gets the JSDoc template tag for the node if present */
-function getJSDocTemplateTag(node: Node): JSDocTemplateTag | undefined;
+function getJSDocTemplateTag(node: Node): JSDocTemplateTag | undefined

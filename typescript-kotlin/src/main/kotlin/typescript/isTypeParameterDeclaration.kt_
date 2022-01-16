@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTypeParameterDeclaration(node: Node): node is TypeParameterDeclaration;
+function isTypeParameterDeclaration(node: Node): node is TypeParameterDeclaration

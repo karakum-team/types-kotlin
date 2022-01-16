@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateTypeQueryNode` or the factory supplied by your transformation context instead. */
-const updateTypeQueryNode: (node: TypeQueryNode, exprName: EntityName) => TypeQueryNode;
+const updateTypeQueryNode: (node: TypeQueryNode, exprName: EntityName) => TypeQueryNode

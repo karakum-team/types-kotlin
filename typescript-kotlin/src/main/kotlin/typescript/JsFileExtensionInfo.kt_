@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use FileExtensionInfo instead. */
-type JsFileExtensionInfo = FileExtensionInfo;
+type JsFileExtensionInfo = FileExtensionInfo

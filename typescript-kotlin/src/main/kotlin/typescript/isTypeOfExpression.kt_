@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTypeOfExpression(node: Node): node is TypeOfExpression;
+function isTypeOfExpression(node: Node): node is TypeOfExpression

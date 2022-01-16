@@ -2,4 +2,4 @@
 
 package typescript
 
-function isArrayTypeNode(node: Node): node is ArrayTypeNode;
+function isArrayTypeNode(node: Node): node is ArrayTypeNode

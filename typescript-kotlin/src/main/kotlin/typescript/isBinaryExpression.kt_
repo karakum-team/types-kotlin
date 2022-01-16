@@ -2,4 +2,4 @@
 
 package typescript
 
-function isBinaryExpression(node: Node): node is BinaryExpression;
+function isBinaryExpression(node: Node): node is BinaryExpression

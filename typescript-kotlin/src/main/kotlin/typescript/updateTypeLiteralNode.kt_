@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateTypeLiteralNode` or the factory supplied by your transformation context instead. */
-const updateTypeLiteralNode: (node: TypeLiteralNode, members: NodeArray<TypeElement>) => TypeLiteralNode;
+const updateTypeLiteralNode: (node: TypeLiteralNode, members: NodeArray<TypeElement>) => TypeLiteralNode

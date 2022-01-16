@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateLabelStatement` or the factory supplied by your transformation context instead. */
-const updateLabel: (node: LabeledStatement, label: Identifier, statement: Statement) => LabeledStatement;
+const updateLabel: (node: LabeledStatement, label: Identifier, statement: Statement) => LabeledStatement

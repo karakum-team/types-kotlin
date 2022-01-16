@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJsxAttribute(node: Node): node is JsxAttribute;
+function isJsxAttribute(node: Node): node is JsxAttribute

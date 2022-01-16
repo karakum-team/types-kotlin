@@ -3,4 +3,4 @@
 package typescript
 
 /** Class and interface types (ObjectFlags.Class and ObjectFlags.Interface). */
-type BaseType = ObjectType | IntersectionType | TypeVariable;
+type BaseType = ObjectType | IntersectionType | TypeVariable

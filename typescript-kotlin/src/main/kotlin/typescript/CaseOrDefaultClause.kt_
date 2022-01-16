@@ -5,4 +5,4 @@ package typescript
 /**
  * A list of comma-separated expressions. This node is only created by transformations.
  */
-type CaseOrDefaultClause = CaseClause | DefaultClause;
+type CaseOrDefaultClause = CaseClause | DefaultClause

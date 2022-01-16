@@ -12,4 +12,4 @@ package typescript
  * node are returned first, so in the previous example, the template
  * tag on the containing function expression would be first.
  */
-function getJSDocTypeParameterTags(param: TypeParameterDeclaration): readonly JSDocTemplateTag[];
+function getJSDocTypeParameterTags(param: TypeParameterDeclaration): readonly JSDocTemplateTag[]

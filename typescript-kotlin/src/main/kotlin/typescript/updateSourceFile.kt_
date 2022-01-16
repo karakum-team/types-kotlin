@@ -8,4 +8,4 @@ package typescript
  * @param sourceText
  */
 function updateSourceFile(sourceFile: SourceFile, newText: string, textChangeRange: TextChangeRange, aggressiveChecks?: boolean): SourceFile;
-export {};
+export {}

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isMappedTypeNode(node: Node): node is MappedTypeNode;
+function isMappedTypeNode(node: Node): node is MappedTypeNode

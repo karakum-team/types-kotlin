@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJsxText(node: Node): node is JsxText;
+function isJsxText(node: Node): node is JsxText

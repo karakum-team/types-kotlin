@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJsxOpeningFragment(node: Node): node is JsxOpeningFragment;
+function isJsxOpeningFragment(node: Node): node is JsxOpeningFragment

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isPropertyAccessExpression(node: Node): node is PropertyAccessExpression;
+function isPropertyAccessExpression(node: Node): node is PropertyAccessExpression

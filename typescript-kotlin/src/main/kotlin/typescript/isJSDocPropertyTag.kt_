@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocPropertyTag(node: Node): node is JSDocPropertyTag;
+function isJSDocPropertyTag(node: Node): node is JSDocPropertyTag

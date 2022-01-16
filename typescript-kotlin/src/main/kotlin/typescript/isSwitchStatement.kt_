@@ -2,4 +2,4 @@
 
 package typescript
 
-function isSwitchStatement(node: Node): node is SwitchStatement;
+function isSwitchStatement(node: Node): node is SwitchStatement

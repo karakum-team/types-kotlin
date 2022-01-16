@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createSuper` or the factory supplied by your transformation context instead. */
-const createSuper: () => SuperExpression;
+const createSuper: () => SuperExpression

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isHeritageClause(node: Node): node is HeritageClause;
+function isHeritageClause(node: Node): node is HeritageClause

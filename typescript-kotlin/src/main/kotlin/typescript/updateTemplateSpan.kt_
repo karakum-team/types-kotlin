@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateTemplateSpan` or the factory supplied by your transformation context instead. */
-const updateTemplateSpan: (node: TemplateSpan, expression: Expression, literal: TemplateMiddle | TemplateTail) => TemplateSpan;
+const updateTemplateSpan: (node: TemplateSpan, expression: Expression, literal: TemplateMiddle | TemplateTail) => TemplateSpan

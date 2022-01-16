@@ -2,4 +2,4 @@
 
 package typescript
 
-function isShorthandPropertyAssignment(node: Node): node is ShorthandPropertyAssignment;
+function isShorthandPropertyAssignment(node: Node): node is ShorthandPropertyAssignment

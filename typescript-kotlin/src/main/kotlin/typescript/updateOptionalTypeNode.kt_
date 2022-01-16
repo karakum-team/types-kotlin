@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateOptionalTypeNode` or the factory supplied by your transformation context instead. */
-const updateOptionalTypeNode: (node: OptionalTypeNode, type: TypeNode) => OptionalTypeNode;
+const updateOptionalTypeNode: (node: OptionalTypeNode, type: TypeNode) => OptionalTypeNode

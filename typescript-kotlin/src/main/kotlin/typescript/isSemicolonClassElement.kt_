@@ -2,4 +2,4 @@
 
 package typescript
 
-function isSemicolonClassElement(node: Node): node is SemicolonClassElement;
+function isSemicolonClassElement(node: Node): node is SemicolonClassElement

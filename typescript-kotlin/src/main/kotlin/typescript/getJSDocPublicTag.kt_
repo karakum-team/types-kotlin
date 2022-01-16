@@ -3,4 +3,4 @@
 package typescript
 
 /** Gets the JSDoc public tag for the node if present */
-function getJSDocPublicTag(node: Node): JSDocPublicTag | undefined;
+function getJSDocPublicTag(node: Node): JSDocPublicTag | undefined

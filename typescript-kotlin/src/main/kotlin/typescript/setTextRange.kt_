@@ -2,4 +2,4 @@
 
 package typescript
 
-function setTextRange<T extends TextRange>(range: T, location: TextRange | undefined): T;
+function setTextRange<T extends TextRange>(range: T, location: TextRange | undefined): T

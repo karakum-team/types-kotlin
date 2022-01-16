@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createPrefixExpression` or the factory supplied by your transformation context instead. */
-const createPrefix: (operator: PrefixUnaryOperator, operand: Expression) => PrefixUnaryExpression;
+const createPrefix: (operator: PrefixUnaryOperator, operand: Expression) => PrefixUnaryExpression

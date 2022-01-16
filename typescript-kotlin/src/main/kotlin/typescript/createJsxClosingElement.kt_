@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createJsxClosingElement` or the factory supplied by your transformation context instead. */
-const createJsxClosingElement: (tagName: JsxTagNameExpression) => JsxClosingElement;
+const createJsxClosingElement: (tagName: JsxTagNameExpression) => JsxClosingElement

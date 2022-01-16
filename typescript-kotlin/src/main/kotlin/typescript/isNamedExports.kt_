@@ -2,4 +2,4 @@
 
 package typescript
 
-function isNamedExports(node: Node): node is NamedExports;
+function isNamedExports(node: Node): node is NamedExports

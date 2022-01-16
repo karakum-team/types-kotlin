@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocLinkPlain(node: Node): node is JSDocLinkPlain;
+function isJSDocLinkPlain(node: Node): node is JSDocLinkPlain

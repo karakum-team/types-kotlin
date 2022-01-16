@@ -2,4 +2,4 @@
 
 package typescript
 
-function getPositionOfLineAndCharacter(sourceFile: SourceFileLike, line: number, character: number): number;
+function getPositionOfLineAndCharacter(sourceFile: SourceFileLike, line: number, character: number): number

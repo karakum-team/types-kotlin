@@ -2,4 +2,4 @@
 
 package typescript
 
-function isArrayBindingPattern(node: Node): node is ArrayBindingPattern;
+function isArrayBindingPattern(node: Node): node is ArrayBindingPattern

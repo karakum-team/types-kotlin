@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateVariableStatement` or the factory supplied by your transformation context instead. */
-const updateVariableStatement: (node: VariableStatement, modifiers: readonly Modifier[] | undefined, declarationList: VariableDeclarationList) => VariableStatement;
+const updateVariableStatement: (node: VariableStatement, modifiers: readonly Modifier[] | undefined, declarationList: VariableDeclarationList) => VariableStatement

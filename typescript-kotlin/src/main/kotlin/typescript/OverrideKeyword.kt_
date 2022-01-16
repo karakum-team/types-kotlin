@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `AssertsKeyword` instead. */
-type OverrideKeyword = ModifierToken<SyntaxKind.OverrideKeyword>;
+type OverrideKeyword = ModifierToken<SyntaxKind.OverrideKeyword>

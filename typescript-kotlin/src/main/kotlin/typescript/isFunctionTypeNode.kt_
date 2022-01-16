@@ -2,4 +2,4 @@
 
 package typescript
 
-function isFunctionTypeNode(node: Node): node is FunctionTypeNode;
+function isFunctionTypeNode(node: Node): node is FunctionTypeNode

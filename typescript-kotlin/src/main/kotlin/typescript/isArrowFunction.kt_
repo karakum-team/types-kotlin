@@ -2,4 +2,4 @@
 
 package typescript
 
-function isArrowFunction(node: Node): node is ArrowFunction;
+function isArrowFunction(node: Node): node is ArrowFunction

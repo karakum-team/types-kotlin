@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `ReadonlyKeyword` instead. */
-type ReadonlyToken = ReadonlyKeyword;
+type ReadonlyToken = ReadonlyKeyword

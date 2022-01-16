@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTypeReferenceNode(node: Node): node is TypeReferenceNode;
+function isTypeReferenceNode(node: Node): node is TypeReferenceNode

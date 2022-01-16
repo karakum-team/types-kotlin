@@ -2,4 +2,4 @@
 
 package typescript
 
-function isImportClause(node: Node): node is ImportClause;
+function isImportClause(node: Node): node is ImportClause

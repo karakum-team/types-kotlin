@@ -3,4 +3,4 @@
 package typescript
 
 /** Gets the JSDoc type tag for the node if present and valid */
-function getJSDocTypeTag(node: Node): JSDocTypeTag | undefined;
+function getJSDocTypeTag(node: Node): JSDocTypeTag | undefined

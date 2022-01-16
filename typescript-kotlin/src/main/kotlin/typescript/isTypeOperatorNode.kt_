@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTypeOperatorNode(node: Node): node is TypeOperatorNode;
+function isTypeOperatorNode(node: Node): node is TypeOperatorNode

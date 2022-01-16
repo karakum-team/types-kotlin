@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocOverrideTag(node: Node): node is JSDocOverrideTag;
+function isJSDocOverrideTag(node: Node): node is JSDocOverrideTag

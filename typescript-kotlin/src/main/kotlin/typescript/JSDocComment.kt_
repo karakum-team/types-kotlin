@@ -3,4 +3,4 @@
 package typescript
 
 /** Class#method reference in JSDoc */
-type JSDocComment = JSDocText | JSDocLink | JSDocLinkCode | JSDocLinkPlain;
+type JSDocComment = JSDocText | JSDocLink | JSDocLinkCode | JSDocLinkPlain

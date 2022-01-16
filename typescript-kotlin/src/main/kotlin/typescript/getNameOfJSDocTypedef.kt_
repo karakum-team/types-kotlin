@@ -8,4 +8,4 @@ package typescript
  * @param identifier The escaped identifier text.
  * @returns The unescaped identifier text.
  */
-function getNameOfJSDocTypedef(declaration: JSDocTypedefTag): Identifier | PrivateIdentifier | undefined;
+function getNameOfJSDocTypedef(declaration: JSDocTypedefTag): Identifier | PrivateIdentifier | undefined

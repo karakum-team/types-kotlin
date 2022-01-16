@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocAllType(node: Node): node is JSDocAllType;
+function isJSDocAllType(node: Node): node is JSDocAllType

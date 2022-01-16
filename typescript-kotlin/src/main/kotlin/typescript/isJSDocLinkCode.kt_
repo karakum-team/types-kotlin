@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocLinkCode(node: Node): node is JSDocLinkCode;
+function isJSDocLinkCode(node: Node): node is JSDocLinkCode

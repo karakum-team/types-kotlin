@@ -2,4 +2,4 @@
 
 package typescript
 
-function isNumericLiteral(node: Node): node is NumericLiteral;
+function isNumericLiteral(node: Node): node is NumericLiteral

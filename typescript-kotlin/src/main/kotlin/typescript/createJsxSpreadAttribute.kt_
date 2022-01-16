@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createJsxSpreadAttribute` or the factory supplied by your transformation context instead. */
-const createJsxSpreadAttribute: (expression: Expression) => JsxSpreadAttribute;
+const createJsxSpreadAttribute: (expression: Expression) => JsxSpreadAttribute

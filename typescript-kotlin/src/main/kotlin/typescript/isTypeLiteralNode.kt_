@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTypeLiteralNode(node: Node): node is TypeLiteralNode;
+function isTypeLiteralNode(node: Node): node is TypeLiteralNode

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTemplateExpression(node: Node): node is TemplateExpression;
+function isTemplateExpression(node: Node): node is TemplateExpression

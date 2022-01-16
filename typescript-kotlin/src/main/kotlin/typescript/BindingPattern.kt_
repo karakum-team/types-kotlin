@@ -3,4 +3,4 @@
 package typescript
 
 /** Unlike ObjectLiteralElement, excludes JSXAttribute and JSXSpreadAttribute. */
-type BindingPattern = ObjectBindingPattern | ArrayBindingPattern;
+type BindingPattern = ObjectBindingPattern | ArrayBindingPattern

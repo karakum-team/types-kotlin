@@ -2,4 +2,4 @@
 
 package typescript
 
-function isDoStatement(node: Node): node is DoStatement;
+function isDoStatement(node: Node): node is DoStatement

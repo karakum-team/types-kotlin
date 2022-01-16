@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTemplateHead(node: Node): node is TemplateHead;
+function isTemplateHead(node: Node): node is TemplateHead

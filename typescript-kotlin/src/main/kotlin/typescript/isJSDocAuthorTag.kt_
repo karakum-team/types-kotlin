@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocAuthorTag(node: Node): node is JSDocAuthorTag;
+function isJSDocAuthorTag(node: Node): node is JSDocAuthorTag

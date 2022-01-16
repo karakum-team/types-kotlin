@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocTemplateTag(node: Node): node is JSDocTemplateTag;
+function isJSDocTemplateTag(node: Node): node is JSDocTemplateTag

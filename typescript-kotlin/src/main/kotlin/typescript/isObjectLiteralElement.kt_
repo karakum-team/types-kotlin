@@ -3,4 +3,4 @@
 package typescript
 
 /** True if has initializer node attached to it. */
-function isObjectLiteralElement(node: Node): node is ObjectLiteralElement;
+function isObjectLiteralElement(node: Node): node is ObjectLiteralElement

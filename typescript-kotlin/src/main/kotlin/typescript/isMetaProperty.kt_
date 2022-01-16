@@ -2,4 +2,4 @@
 
 package typescript
 
-function isMetaProperty(node: Node): node is MetaProperty;
+function isMetaProperty(node: Node): node is MetaProperty

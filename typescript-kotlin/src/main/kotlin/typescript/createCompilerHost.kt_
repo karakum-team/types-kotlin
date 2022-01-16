@@ -2,4 +2,4 @@
 
 package typescript
 
-function createCompilerHost(options: CompilerOptions, setParentNodes?: boolean): CompilerHost;
+function createCompilerHost(options: CompilerOptions, setParentNodes?: boolean): CompilerHost

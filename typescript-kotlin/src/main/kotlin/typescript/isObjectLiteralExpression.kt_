@@ -2,4 +2,4 @@
 
 package typescript
 
-function isObjectLiteralExpression(node: Node): node is ObjectLiteralExpression;
+function isObjectLiteralExpression(node: Node): node is ObjectLiteralExpression

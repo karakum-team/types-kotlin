@@ -2,4 +2,4 @@
 
 package typescript
 
-function isAssertClause(node: Node): node is AssertClause;
+function isAssertClause(node: Node): node is AssertClause

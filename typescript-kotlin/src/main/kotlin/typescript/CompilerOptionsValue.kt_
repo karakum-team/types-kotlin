@@ -8,4 +8,4 @@ package typescript
  * While it seems that DiagnosticMessageChain is structurally similar to DiagnosticMessage,
  * the difference is that messages are all preformatted in DMC.
  */
-type CompilerOptionsValue = string | number | boolean | (string | number)[] | string[] | MapLike<string[]> | PluginImport[] | ProjectReference[] | null | undefined;
+type CompilerOptionsValue = string | number | boolean | (string | number)[] | string[] | MapLike<string[]> | PluginImport[] | ProjectReference[] | null | undefined

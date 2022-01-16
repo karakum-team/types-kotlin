@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateBlock` or the factory supplied by your transformation context instead. */
-const updateBlock: (node: Block, statements: readonly Statement[]) => Block;
+const updateBlock: (node: Block, statements: readonly Statement[]) => Block

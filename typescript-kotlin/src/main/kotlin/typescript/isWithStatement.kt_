@@ -2,4 +2,4 @@
 
 package typescript
 
-function isWithStatement(node: Node): node is WithStatement;
+function isWithStatement(node: Node): node is WithStatement

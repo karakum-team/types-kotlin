@@ -2,4 +2,4 @@
 
 package typescript
 
-function isFunctionDeclaration(node: Node): node is FunctionDeclaration;
+function isFunctionDeclaration(node: Node): node is FunctionDeclaration

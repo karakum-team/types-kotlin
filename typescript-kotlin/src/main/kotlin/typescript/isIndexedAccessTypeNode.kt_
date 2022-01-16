@@ -2,4 +2,4 @@
 
 package typescript
 
-function isIndexedAccessTypeNode(node: Node): node is IndexedAccessTypeNode;
+function isIndexedAccessTypeNode(node: Node): node is IndexedAccessTypeNode

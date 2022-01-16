@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateYieldExpression` or the factory supplied by your transformation context instead. */
-const updateYield: (node: YieldExpression, asteriskToken: AsteriskToken | undefined, expression: Expression | undefined) => YieldExpression;
+const updateYield: (node: YieldExpression, asteriskToken: AsteriskToken | undefined, expression: Expression | undefined) => YieldExpression

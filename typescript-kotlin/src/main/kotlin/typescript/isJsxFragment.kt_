@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJsxFragment(node: Node): node is JsxFragment;
+function isJsxFragment(node: Node): node is JsxFragment

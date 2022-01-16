@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateNamespaceExport` or the factory supplied by your transformation context instead. */
-const updateNamespaceExport: (node: NamespaceExport, name: Identifier) => NamespaceExport;
+const updateNamespaceExport: (node: NamespaceExport, name: Identifier) => NamespaceExport

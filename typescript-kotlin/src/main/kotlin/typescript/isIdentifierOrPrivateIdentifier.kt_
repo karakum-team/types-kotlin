@@ -5,4 +5,4 @@ package typescript
 /**
  * @deprecated Use `isMemberName` instead.
  */
-const isIdentifierOrPrivateIdentifier: (node: Node) => node is MemberName;
+const isIdentifierOrPrivateIdentifier: (node: Node) => node is MemberName

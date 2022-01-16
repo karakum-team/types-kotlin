@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJsxSpreadAttribute(node: Node): node is JsxSpreadAttribute;
+function isJsxSpreadAttribute(node: Node): node is JsxSpreadAttribute

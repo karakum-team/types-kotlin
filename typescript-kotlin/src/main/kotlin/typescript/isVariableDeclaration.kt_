@@ -2,4 +2,4 @@
 
 package typescript
 
-function isVariableDeclaration(node: Node): node is VariableDeclaration;
+function isVariableDeclaration(node: Node): node is VariableDeclaration

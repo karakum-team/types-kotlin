@@ -6,4 +6,4 @@ package typescript
  * Note that `@extends` is a synonym of `@augments`.
  * Both tags are represented by this interface.
  */
-type UnparsedNode = UnparsedPrologue | UnparsedSourceText | UnparsedSyntheticReference;
+type UnparsedNode = UnparsedPrologue | UnparsedSourceText | UnparsedSyntheticReference

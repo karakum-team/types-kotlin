@@ -3,4 +3,4 @@
 package typescript
 
 /** SymbolTable based on ES6 Map interface. */
-type SymbolTable = UnderscoreEscapedMap<Symbol>;
+type SymbolTable = UnderscoreEscapedMap<Symbol>

@@ -2,4 +2,4 @@
 
 package typescript
 
-function createTextSpanFromBounds(start: number, end: number): TextSpan;
+function createTextSpanFromBounds(start: number, end: number): TextSpan

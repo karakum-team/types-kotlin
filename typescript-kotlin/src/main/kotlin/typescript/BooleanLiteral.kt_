@@ -3,4 +3,4 @@
 package typescript
 
 /** Deprecated, please use UpdateExpression */
-type BooleanLiteral = TrueLiteral | FalseLiteral;
+type BooleanLiteral = TrueLiteral | FalseLiteral

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isConditionalTypeNode(node: Node): node is ConditionalTypeNode;
+function isConditionalTypeNode(node: Node): node is ConditionalTypeNode

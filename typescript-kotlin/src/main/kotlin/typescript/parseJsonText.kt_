@@ -7,4 +7,4 @@ package typescript
  * @param fileName
  * @param sourceText
  */
-function parseJsonText(fileName: string, sourceText: string): JsonSourceFile;
+function parseJsonText(fileName: string, sourceText: string): JsonSourceFile

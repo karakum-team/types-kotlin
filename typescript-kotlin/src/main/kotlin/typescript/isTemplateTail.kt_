@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTemplateTail(node: Node): node is TemplateTail;
+function isTemplateTail(node: Node): node is TemplateTail

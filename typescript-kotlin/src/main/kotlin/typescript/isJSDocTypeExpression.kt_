@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocTypeExpression(node: Node): node is JSDocTypeExpression;
+function isJSDocTypeExpression(node: Node): node is JSDocTypeExpression

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isExpressionStatement(node: Node): node is ExpressionStatement;
+function isExpressionStatement(node: Node): node is ExpressionStatement

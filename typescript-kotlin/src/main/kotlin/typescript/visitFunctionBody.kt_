@@ -6,15 +6,15 @@ package typescript
  * Resumes a suspended lexical environment and visits a function body, ending the lexical
  * environment and merging hoisted declarations upon completion.
  */
-function visitFunctionBody(node: FunctionBody, visitor: Visitor, context: TransformationContext): FunctionBody;
+function visitFunctionBody(node: FunctionBody, visitor: Visitor, context: TransformationContext): FunctionBody
 
 /**
  * Resumes a suspended lexical environment and visits a function body, ending the lexical
  * environment and merging hoisted declarations upon completion.
  */
-function visitFunctionBody(node: FunctionBody | undefined, visitor: Visitor, context: TransformationContext): FunctionBody | undefined;
+function visitFunctionBody(node: FunctionBody | undefined, visitor: Visitor, context: TransformationContext): FunctionBody | undefined
 /**
  * Resumes a suspended lexical environment and visits a concise body, ending the lexical
  * environment and merging hoisted declarations upon completion.
  */
-function visitFunctionBody(node: ConciseBody, visitor: Visitor, context: TransformationContext): ConciseBody;
+function visitFunctionBody(node: ConciseBody, visitor: Visitor, context: TransformationContext): ConciseBody

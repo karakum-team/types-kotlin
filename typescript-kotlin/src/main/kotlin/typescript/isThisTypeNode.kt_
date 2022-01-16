@@ -2,4 +2,4 @@
 
 package typescript
 
-function isThisTypeNode(node: Node): node is ThisTypeNode;
+function isThisTypeNode(node: Node): node is ThisTypeNode

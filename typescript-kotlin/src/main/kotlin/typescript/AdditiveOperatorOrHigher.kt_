@@ -3,4 +3,4 @@
 package typescript
 
 /** Deprecated, please use UpdateExpression */
-type AdditiveOperatorOrHigher = MultiplicativeOperatorOrHigher | AdditiveOperator;
+type AdditiveOperatorOrHigher = MultiplicativeOperatorOrHigher | AdditiveOperator

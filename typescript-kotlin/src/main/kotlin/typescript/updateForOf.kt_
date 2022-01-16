@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateForOfStatement` or the factory supplied by your transformation context instead. */
-const updateForOf: (node: ForOfStatement, awaitModifier: AwaitKeyword | undefined, initializer: ForInitializer, expression: Expression, statement: Statement) => ForOfStatement;
+const updateForOf: (node: ForOfStatement, awaitModifier: AwaitKeyword | undefined, initializer: ForInitializer, expression: Expression, statement: Statement) => ForOfStatement

@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createIfStatement` or the factory supplied by your transformation context instead. */
-const createIf: (expression: Expression, thenStatement: Statement, elseStatement?: Statement | undefined) => IfStatement;
+const createIf: (expression: Expression, thenStatement: Statement, elseStatement?: Statement | undefined) => IfStatement

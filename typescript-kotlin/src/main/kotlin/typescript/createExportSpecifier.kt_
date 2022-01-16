@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createExportSpecifier` or the factory supplied by your transformation context instead. */
-const createExportSpecifier: (isTypeOnly: boolean, propertyName: string | Identifier | undefined, name: string | Identifier) => ExportSpecifier;
+const createExportSpecifier: (isTypeOnly: boolean, propertyName: string | Identifier | undefined, name: string | Identifier) => ExportSpecifier

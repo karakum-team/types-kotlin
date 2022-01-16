@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createTypeLiteralNode` or the factory supplied by your transformation context instead. */
-const createTypeLiteralNode: (members: readonly TypeElement[] | undefined) => TypeLiteralNode;
+const createTypeLiteralNode: (members: readonly TypeElement[] | undefined) => TypeLiteralNode

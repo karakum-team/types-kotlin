@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createLoopVariable` or the factory supplied by your transformation context instead. */
-const createLoopVariable: (reservedInNestedScopes?: boolean | undefined) => Identifier;
+const createLoopVariable: (reservedInNestedScopes?: boolean | undefined) => Identifier

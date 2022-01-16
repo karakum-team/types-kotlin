@@ -2,4 +2,4 @@
 
 package typescript
 
-function isIntersectionTypeNode(node: Node): node is IntersectionTypeNode;
+function isIntersectionTypeNode(node: Node): node is IntersectionTypeNode

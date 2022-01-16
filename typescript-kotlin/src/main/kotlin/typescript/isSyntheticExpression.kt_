@@ -2,4 +2,4 @@
 
 package typescript
 
-function isSyntheticExpression(node: Node): node is SyntheticExpression;
+function isSyntheticExpression(node: Node): node is SyntheticExpression

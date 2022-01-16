@@ -2,4 +2,4 @@
 
 package typescript
 
-function isAwaitExpression(node: Node): node is AwaitExpression;
+function isAwaitExpression(node: Node): node is AwaitExpression

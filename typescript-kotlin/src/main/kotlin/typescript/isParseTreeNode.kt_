@@ -7,4 +7,4 @@ package typescript
  *
  * @param node The node to test.
  */
-function isParseTreeNode(node: Node): boolean;
+function isParseTreeNode(node: Node): boolean

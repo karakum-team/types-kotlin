@@ -2,4 +2,4 @@
 
 package typescript
 
-function isConstructorDeclaration(node: Node): node is ConstructorDeclaration;
+function isConstructorDeclaration(node: Node): node is ConstructorDeclaration

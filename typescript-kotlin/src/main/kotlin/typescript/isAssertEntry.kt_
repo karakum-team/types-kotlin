@@ -2,4 +2,4 @@
 
 package typescript
 
-function isAssertEntry(node: Node): node is AssertEntry;
+function isAssertEntry(node: Node): node is AssertEntry

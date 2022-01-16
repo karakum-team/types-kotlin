@@ -2,4 +2,4 @@
 
 package typescript
 
-function isLabeledStatement(node: Node): node is LabeledStatement;
+function isLabeledStatement(node: Node): node is LabeledStatement

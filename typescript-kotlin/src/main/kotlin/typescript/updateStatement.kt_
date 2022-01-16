@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateExpressionStatement` or the factory supplied by your transformation context instead. */
-const updateStatement: (node: ExpressionStatement, expression: Expression) => ExpressionStatement;
+const updateStatement: (node: ExpressionStatement, expression: Expression) => ExpressionStatement

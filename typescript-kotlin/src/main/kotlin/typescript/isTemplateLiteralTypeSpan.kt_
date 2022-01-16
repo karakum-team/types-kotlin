@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTemplateLiteralTypeSpan(node: Node): node is TemplateLiteralTypeSpan;
+function isTemplateLiteralTypeSpan(node: Node): node is TemplateLiteralTypeSpan

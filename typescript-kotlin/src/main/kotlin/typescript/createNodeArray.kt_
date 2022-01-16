@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createNodeArray` or the factory supplied by your transformation context instead. */
-const createNodeArray: <T extends Node>(elements?: readonly T[] | undefined, hasTrailingComma?: boolean | undefined) => NodeArray<T>;
+const createNodeArray: <T extends Node>(elements?: readonly T[] | undefined, hasTrailingComma?: boolean | undefined) => NodeArray<T>

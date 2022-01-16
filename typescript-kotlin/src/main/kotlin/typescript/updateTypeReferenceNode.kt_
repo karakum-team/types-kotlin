@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateTypeReferenceNode` or the factory supplied by your transformation context instead. */
-const updateTypeReferenceNode: (node: TypeReferenceNode, typeName: EntityName, typeArguments: NodeArray<TypeNode> | undefined) => TypeReferenceNode;
+const updateTypeReferenceNode: (node: TypeReferenceNode, typeName: EntityName, typeArguments: NodeArray<TypeNode> | undefined) => TypeReferenceNode

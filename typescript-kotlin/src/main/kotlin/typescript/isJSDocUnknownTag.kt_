@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocUnknownTag(node: Node): node is JSDocUnknownTag;
+function isJSDocUnknownTag(node: Node): node is JSDocUnknownTag

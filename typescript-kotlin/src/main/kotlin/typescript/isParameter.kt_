@@ -2,4 +2,4 @@
 
 package typescript
 
-function isParameter(node: Node): node is ParameterDeclaration;
+function isParameter(node: Node): node is ParameterDeclaration

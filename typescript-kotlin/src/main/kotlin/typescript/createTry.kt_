@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createTryStatement` or the factory supplied by your transformation context instead. */
-const createTry: (tryBlock: Block, catchClause: CatchClause | undefined, finallyBlock: Block | undefined) => TryStatement;
+const createTry: (tryBlock: Block, catchClause: CatchClause | undefined, finallyBlock: Block | undefined) => TryStatement

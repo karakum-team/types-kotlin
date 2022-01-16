@@ -2,4 +2,4 @@
 
 package typescript
 
-function isEnumMember(node: Node): node is EnumMember;
+function isEnumMember(node: Node): node is EnumMember

@@ -3,4 +3,4 @@
 package typescript
 
 /** Gets the JSDoc protected tag for the node if present */
-function getJSDocProtectedTag(node: Node): JSDocProtectedTag | undefined;
+function getJSDocProtectedTag(node: Node): JSDocProtectedTag | undefined

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isYieldExpression(node: Node): node is YieldExpression;
+function isYieldExpression(node: Node): node is YieldExpression

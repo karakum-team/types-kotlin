@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `ReadonlyKeyword` instead. */
-type MemberName = Identifier | PrivateIdentifier;
+type MemberName = Identifier | PrivateIdentifier

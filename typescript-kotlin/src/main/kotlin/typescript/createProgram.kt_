@@ -12,7 +12,7 @@ package typescript
  * @param createProgramOptions - The options for creating a program.
  * @returns A 'Program' object.
  */
-function createProgram(createProgramOptions: CreateProgramOptions): Program;
+function createProgram(createProgramOptions: CreateProgramOptions): Program
 
 /**
  * Create a new 'Program' instance. A Program is an immutable collection of 'SourceFile's and a 'CompilerOptions'
@@ -28,4 +28,4 @@ function createProgram(createProgramOptions: CreateProgramOptions): Program;
  * @param configFileParsingDiagnostics - error during config file parsing
  * @returns A 'Program' object.
  */
-function createProgram(rootNames: readonly string[], options: CompilerOptions, host?: CompilerHost, oldProgram?: Program, configFileParsingDiagnostics?: readonly Diagnostic[]): Program;
+function createProgram(rootNames: readonly string[], options: CompilerOptions, host?: CompilerHost, oldProgram?: Program, configFileParsingDiagnostics?: readonly Diagnostic[]): Program

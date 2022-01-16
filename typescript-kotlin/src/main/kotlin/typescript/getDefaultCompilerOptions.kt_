@@ -3,4 +3,4 @@
 package typescript
 
 /** The version of the language service API */
-function getDefaultCompilerOptions(): CompilerOptions;
+function getDefaultCompilerOptions(): CompilerOptions

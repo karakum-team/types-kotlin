@@ -2,4 +2,4 @@
 
 package typescript
 
-function isImportSpecifier(node: Node): node is ImportSpecifier;
+function isImportSpecifier(node: Node): node is ImportSpecifier

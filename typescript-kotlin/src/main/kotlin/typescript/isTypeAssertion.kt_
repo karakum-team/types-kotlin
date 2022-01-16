@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `isTypeAssertionExpression` instead. */
-const isTypeAssertion: (node: Node) => node is TypeAssertion;
+const isTypeAssertion: (node: Node) => node is TypeAssertion

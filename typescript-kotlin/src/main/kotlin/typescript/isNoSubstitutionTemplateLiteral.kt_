@@ -2,4 +2,4 @@
 
 package typescript
 
-function isNoSubstitutionTemplateLiteral(node: Node): node is NoSubstitutionTemplateLiteral;
+function isNoSubstitutionTemplateLiteral(node: Node): node is NoSubstitutionTemplateLiteral

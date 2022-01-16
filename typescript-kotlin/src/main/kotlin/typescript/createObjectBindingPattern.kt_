@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createObjectBindingPattern` or the factory supplied by your transformation context instead. */
-const createObjectBindingPattern: (elements: readonly BindingElement[]) => ObjectBindingPattern;
+const createObjectBindingPattern: (elements: readonly BindingElement[]) => ObjectBindingPattern

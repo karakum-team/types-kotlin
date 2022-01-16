@@ -10,4 +10,4 @@ package typescript
  * This function will then merge those changes into a single change range valid between V1 and
  * Vn.
  */
-function collapseTextChangeRangesAcrossMultipleVersions(changes: readonly TextChangeRange[]): TextChangeRange;
+function collapseTextChangeRangesAcrossMultipleVersions(changes: readonly TextChangeRange[]): TextChangeRange

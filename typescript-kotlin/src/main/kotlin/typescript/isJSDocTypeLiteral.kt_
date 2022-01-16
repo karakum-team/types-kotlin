@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocTypeLiteral(node: Node): node is JSDocTypeLiteral;
+function isJSDocTypeLiteral(node: Node): node is JSDocTypeLiteral

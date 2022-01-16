@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTemplateSpan(node: Node): node is TemplateSpan;
+function isTemplateSpan(node: Node): node is TemplateSpan

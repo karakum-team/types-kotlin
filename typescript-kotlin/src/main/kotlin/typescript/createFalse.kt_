@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createFalse` or the factory supplied by your transformation context instead. */
-const createFalse: () => FalseLiteral;
+const createFalse: () => FalseLiteral

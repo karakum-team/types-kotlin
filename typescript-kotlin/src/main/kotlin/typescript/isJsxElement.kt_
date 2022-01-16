@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJsxElement(node: Node): node is JsxElement;
+function isJsxElement(node: Node): node is JsxElement

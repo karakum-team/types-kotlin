@@ -2,4 +2,4 @@
 
 package typescript
 
-function isNamespaceImport(node: Node): node is NamespaceImport;
+function isNamespaceImport(node: Node): node is NamespaceImport

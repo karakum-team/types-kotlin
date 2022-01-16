@@ -5,4 +5,4 @@ package typescript
 /**
  * Represents a set of signature help items, and the preferred item that should be selected.
  */
-type CompletionEntryData = CompletionEntryDataUnresolved | CompletionEntryDataResolved;
+type CompletionEntryData = CompletionEntryDataUnresolved | CompletionEntryDataResolved

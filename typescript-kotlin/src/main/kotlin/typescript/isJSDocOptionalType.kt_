@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocOptionalType(node: Node): node is JSDocOptionalType;
+function isJSDocOptionalType(node: Node): node is JSDocOptionalType

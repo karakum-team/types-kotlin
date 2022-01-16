@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocCallbackTag(node: Node): node is JSDocCallbackTag;
+function isJSDocCallbackTag(node: Node): node is JSDocCallbackTag

@@ -2,4 +2,4 @@
 
 package typescript
 
-function getDefaultLibFileName(options: CompilerOptions): string;
+function getDefaultLibFileName(options: CompilerOptions): string

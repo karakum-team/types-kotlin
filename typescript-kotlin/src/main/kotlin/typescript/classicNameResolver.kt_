@@ -7,4 +7,4 @@ package typescript
  * We support only non-relative module names because resolution of relative module names is usually more deterministic and thus less expensive.
  */
 function classicNameResolver(moduleName: string, containingFile: string, compilerOptions: CompilerOptions, host: ModuleResolutionHost, cache?: NonRelativeModuleNameResolutionCache, redirectedReference?: ResolvedProjectReference): ResolvedModuleWithFailedLookupLocations;
-export {};
+export {}

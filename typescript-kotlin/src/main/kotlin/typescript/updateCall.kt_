@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateCallExpression` or the factory supplied by your transformation context instead. */
-const updateCall: (node: CallExpression, expression: Expression, typeArguments: readonly TypeNode[] | undefined, argumentsArray: readonly Expression[]) => CallExpression;
+const updateCall: (node: CallExpression, expression: Expression, typeArguments: readonly TypeNode[] | undefined, argumentsArray: readonly Expression[]) => CallExpression

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocNamepathType(node: Node): node is JSDocNamepathType;
+function isJSDocNamepathType(node: Node): node is JSDocNamepathType

@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateTypePredicateNode` or the factory supplied by your transformation context instead. */
-const updateTypePredicateNode: (node: TypePredicateNode, parameterName: Identifier | ThisTypeNode, type: TypeNode) => TypePredicateNode;
+const updateTypePredicateNode: (node: TypePredicateNode, parameterName: Identifier | ThisTypeNode, type: TypeNode) => TypePredicateNode

@@ -2,4 +2,4 @@
 
 package typescript
 
-function textSpanContainsPosition(span: TextSpan, position: number): boolean;
+function textSpanContainsPosition(span: TextSpan, position: number): boolean

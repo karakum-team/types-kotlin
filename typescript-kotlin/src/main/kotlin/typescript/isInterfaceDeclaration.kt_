@@ -2,4 +2,4 @@
 
 package typescript
 
-function isInterfaceDeclaration(node: Node): node is InterfaceDeclaration;
+function isInterfaceDeclaration(node: Node): node is InterfaceDeclaration

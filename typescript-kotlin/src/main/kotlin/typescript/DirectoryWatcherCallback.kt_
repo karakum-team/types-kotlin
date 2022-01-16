@@ -2,4 +2,4 @@
 
 package typescript
 
-type DirectoryWatcherCallback = (fileName: string) => void;
+type DirectoryWatcherCallback = (fileName: string) => void

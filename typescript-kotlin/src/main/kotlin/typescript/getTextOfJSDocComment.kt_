@@ -3,4 +3,4 @@
 package typescript
 
 /** Gets the text of a jsdoc comment, flattening links to their text. */
-function getTextOfJSDocComment(comment?: string | NodeArray<JSDocComment>): string | undefined;
+function getTextOfJSDocComment(comment?: string | NodeArray<JSDocComment>): string | undefined

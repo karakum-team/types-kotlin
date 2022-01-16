@@ -2,4 +2,4 @@
 
 package typescript
 
-function isCaseClause(node: Node): node is CaseClause;
+function isCaseClause(node: Node): node is CaseClause

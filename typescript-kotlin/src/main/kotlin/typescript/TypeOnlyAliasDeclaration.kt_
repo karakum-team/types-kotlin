@@ -28,4 +28,4 @@ type TypeOnlyAliasDeclaration = ImportClause & {
             readonly isTypeOnly: true;
         };
     };
-};
+}

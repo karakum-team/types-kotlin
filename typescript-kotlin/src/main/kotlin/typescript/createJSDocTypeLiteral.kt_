@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createJSDocTypeLiteral` or the factory supplied by your transformation context instead. */
-const createJSDocTypeLiteral: (jsDocPropertyTags?: readonly JSDocPropertyLikeTag[] | undefined, isArrayType?: boolean | undefined) => JSDocTypeLiteral;
+const createJSDocTypeLiteral: (jsDocPropertyTags?: readonly JSDocPropertyLikeTag[] | undefined, isArrayType?: boolean | undefined) => JSDocTypeLiteral

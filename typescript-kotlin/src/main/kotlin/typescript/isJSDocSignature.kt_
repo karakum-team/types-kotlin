@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocSignature(node: Node): node is JSDocSignature;
+function isJSDocSignature(node: Node): node is JSDocSignature

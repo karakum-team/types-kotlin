@@ -2,4 +2,4 @@
 
 package typescript
 
-function isReturnStatement(node: Node): node is ReturnStatement;
+function isReturnStatement(node: Node): node is ReturnStatement

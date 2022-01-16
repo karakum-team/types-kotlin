@@ -2,4 +2,4 @@
 
 package typescript
 
-type EqualsGreaterThanToken = PunctuationToken<SyntaxKind.EqualsGreaterThanToken>;
+type EqualsGreaterThanToken = PunctuationToken<SyntaxKind.EqualsGreaterThanToken>

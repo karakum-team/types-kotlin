@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocTypeTag(node: Node): node is JSDocTypeTag;
+function isJSDocTypeTag(node: Node): node is JSDocTypeTag

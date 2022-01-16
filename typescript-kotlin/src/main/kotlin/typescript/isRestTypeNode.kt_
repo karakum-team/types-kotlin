@@ -2,4 +2,4 @@
 
 package typescript
 
-function isRestTypeNode(node: Node): node is RestTypeNode;
+function isRestTypeNode(node: Node): node is RestTypeNode

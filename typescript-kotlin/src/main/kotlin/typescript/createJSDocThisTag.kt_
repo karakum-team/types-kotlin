@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createJSDocThisTag` or the factory supplied by your transformation context instead. */
-const createJSDocThisTag: (tagName: Identifier | undefined, typeExpression: JSDocTypeExpression, comment?: string | NodeArray<JSDocComment> | undefined) => JSDocThisTag;
+const createJSDocThisTag: (tagName: Identifier | undefined, typeExpression: JSDocTypeExpression, comment?: string | NodeArray<JSDocComment> | undefined) => JSDocThisTag

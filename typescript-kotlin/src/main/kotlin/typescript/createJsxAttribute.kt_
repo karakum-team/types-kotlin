@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createJsxAttribute` or the factory supplied by your transformation context instead. */
-const createJsxAttribute: (name: Identifier, initializer: StringLiteral | JsxExpression | undefined) => JsxAttribute;
+const createJsxAttribute: (name: Identifier, initializer: StringLiteral | JsxExpression | undefined) => JsxAttribute

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocPrivateTag(node: Node): node is JSDocPrivateTag;
+function isJSDocPrivateTag(node: Node): node is JSDocPrivateTag

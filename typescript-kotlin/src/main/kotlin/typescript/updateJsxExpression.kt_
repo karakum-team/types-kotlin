@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateJsxExpression` or the factory supplied by your transformation context instead. */
-const updateJsxExpression: (node: JsxExpression, expression: Expression | undefined) => JsxExpression;
+const updateJsxExpression: (node: JsxExpression, expression: Expression | undefined) => JsxExpression

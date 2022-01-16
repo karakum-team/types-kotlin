@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateTypeOfExpression` or the factory supplied by your transformation context instead. */
-const updateTypeOf: (node: TypeOfExpression, expression: Expression) => TypeOfExpression;
+const updateTypeOf: (node: TypeOfExpression, expression: Expression) => TypeOfExpression

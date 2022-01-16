@@ -10,4 +10,4 @@ package typescript
  *
  * @deprecated Use an appropriate `factory.update...` method instead, use `setCommentRange` or `setSourceMapRange`, and avoid setting `parent`.
  */
-const getMutableClone: <T extends Node>(node: T) => T;
+const getMutableClone: <T extends Node>(node: T) => T

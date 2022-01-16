@@ -2,4 +2,4 @@
 
 package typescript
 
-function isWhileStatement(node: Node): node is WhileStatement;
+function isWhileStatement(node: Node): node is WhileStatement

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocDeprecatedTag(node: Node): node is JSDocDeprecatedTag;
+function isJSDocDeprecatedTag(node: Node): node is JSDocDeprecatedTag

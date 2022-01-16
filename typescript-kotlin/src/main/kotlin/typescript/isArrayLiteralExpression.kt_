@@ -2,4 +2,4 @@
 
 package typescript
 
-function isArrayLiteralExpression(node: Node): node is ArrayLiteralExpression;
+function isArrayLiteralExpression(node: Node): node is ArrayLiteralExpression

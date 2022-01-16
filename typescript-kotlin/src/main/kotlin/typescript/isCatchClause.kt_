@@ -2,4 +2,4 @@
 
 package typescript
 
-function isCatchClause(node: Node): node is CatchClause;
+function isCatchClause(node: Node): node is CatchClause

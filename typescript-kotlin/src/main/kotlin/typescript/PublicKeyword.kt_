@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `AssertsKeyword` instead. */
-type PublicKeyword = ModifierToken<SyntaxKind.PublicKeyword>;
+type PublicKeyword = ModifierToken<SyntaxKind.PublicKeyword>

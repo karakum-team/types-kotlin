@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTupleTypeNode(node: Node): node is TupleTypeNode;
+function isTupleTypeNode(node: Node): node is TupleTypeNode

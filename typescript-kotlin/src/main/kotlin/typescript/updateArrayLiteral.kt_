@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateArrayLiteralExpression` or the factory supplied by your transformation context instead. */
-const updateArrayLiteral: (node: ArrayLiteralExpression, elements: readonly Expression[]) => ArrayLiteralExpression;
+const updateArrayLiteral: (node: ArrayLiteralExpression, elements: readonly Expression[]) => ArrayLiteralExpression

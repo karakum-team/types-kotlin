@@ -2,4 +2,4 @@
 
 package typescript
 
-function isGetAccessorDeclaration(node: Node): node is GetAccessorDeclaration;
+function isGetAccessorDeclaration(node: Node): node is GetAccessorDeclaration

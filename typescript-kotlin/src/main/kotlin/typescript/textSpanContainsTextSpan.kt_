@@ -2,4 +2,4 @@
 
 package typescript
 
-function textSpanContainsTextSpan(span: TextSpan, other: TextSpan): boolean;
+function textSpanContainsTextSpan(span: TextSpan, other: TextSpan): boolean

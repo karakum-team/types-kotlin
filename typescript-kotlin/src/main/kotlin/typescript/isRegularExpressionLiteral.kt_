@@ -2,4 +2,4 @@
 
 package typescript
 
-function isRegularExpressionLiteral(node: Node): node is RegularExpressionLiteral;
+function isRegularExpressionLiteral(node: Node): node is RegularExpressionLiteral

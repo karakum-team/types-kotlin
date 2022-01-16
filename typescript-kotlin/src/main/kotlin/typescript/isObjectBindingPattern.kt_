@@ -2,4 +2,4 @@
 
 package typescript
 
-function isObjectBindingPattern(node: Node): node is ObjectBindingPattern;
+function isObjectBindingPattern(node: Node): node is ObjectBindingPattern

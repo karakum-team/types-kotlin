@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createTempVariable` or the factory supplied by your transformation context instead. */
-const createTempVariable: (recordTempVariable: ((node: Identifier) => void) | undefined) => Identifier;
+const createTempVariable: (recordTempVariable: ((node: Identifier) => void) | undefined) => Identifier

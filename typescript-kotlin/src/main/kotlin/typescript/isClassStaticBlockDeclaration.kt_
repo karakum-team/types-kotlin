@@ -2,4 +2,4 @@
 
 package typescript
 
-function isClassStaticBlockDeclaration(node: Node): node is ClassStaticBlockDeclaration;
+function isClassStaticBlockDeclaration(node: Node): node is ClassStaticBlockDeclaration

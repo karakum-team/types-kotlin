@@ -2,4 +2,4 @@
 
 package typescript
 
-function isParenthesizedTypeNode(node: Node): node is ParenthesizedTypeNode;
+function isParenthesizedTypeNode(node: Node): node is ParenthesizedTypeNode

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocProtectedTag(node: Node): node is JSDocProtectedTag;
+function isJSDocProtectedTag(node: Node): node is JSDocProtectedTag

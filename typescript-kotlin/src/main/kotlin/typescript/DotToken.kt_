@@ -2,4 +2,4 @@
 
 package typescript
 
-type DotToken = PunctuationToken<SyntaxKind.DotToken>;
+type DotToken = PunctuationToken<SyntaxKind.DotToken>

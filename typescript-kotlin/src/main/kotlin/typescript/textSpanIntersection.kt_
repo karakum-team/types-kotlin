@@ -2,4 +2,4 @@
 
 package typescript
 
-function textSpanIntersection(span1: TextSpan, span2: TextSpan): TextSpan | undefined;
+function textSpanIntersection(span1: TextSpan, span2: TextSpan): TextSpan | undefined

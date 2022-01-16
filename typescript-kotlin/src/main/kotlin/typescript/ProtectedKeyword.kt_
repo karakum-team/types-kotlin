@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `AssertsKeyword` instead. */
-type ProtectedKeyword = ModifierToken<SyntaxKind.ProtectedKeyword>;
+type ProtectedKeyword = ModifierToken<SyntaxKind.ProtectedKeyword>

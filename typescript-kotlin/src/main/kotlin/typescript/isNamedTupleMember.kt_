@@ -2,4 +2,4 @@
 
 package typescript
 
-function isNamedTupleMember(node: Node): node is NamedTupleMember;
+function isNamedTupleMember(node: Node): node is NamedTupleMember

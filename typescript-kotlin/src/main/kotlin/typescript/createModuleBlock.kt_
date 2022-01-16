@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createModuleBlock` or the factory supplied by your transformation context instead. */
-const createModuleBlock: (statements: readonly Statement[]) => ModuleBlock;
+const createModuleBlock: (statements: readonly Statement[]) => ModuleBlock

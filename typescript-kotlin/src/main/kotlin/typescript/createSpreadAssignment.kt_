@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createSpreadAssignment` or the factory supplied by your transformation context instead. */
-const createSpreadAssignment: (expression: Expression) => SpreadAssignment;
+const createSpreadAssignment: (expression: Expression) => SpreadAssignment

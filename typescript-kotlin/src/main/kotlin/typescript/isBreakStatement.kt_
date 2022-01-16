@@ -2,4 +2,4 @@
 
 package typescript
 
-function isBreakStatement(node: Node): node is BreakStatement;
+function isBreakStatement(node: Node): node is BreakStatement

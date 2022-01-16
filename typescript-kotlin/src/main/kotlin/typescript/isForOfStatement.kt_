@@ -2,4 +2,4 @@
 
 package typescript
 
-function isForOfStatement(node: Node): node is ForOfStatement;
+function isForOfStatement(node: Node): node is ForOfStatement

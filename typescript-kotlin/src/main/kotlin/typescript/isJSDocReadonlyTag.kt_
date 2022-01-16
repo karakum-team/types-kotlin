@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocReadonlyTag(node: Node): node is JSDocReadonlyTag;
+function isJSDocReadonlyTag(node: Node): node is JSDocReadonlyTag

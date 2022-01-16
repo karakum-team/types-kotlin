@@ -3,4 +3,4 @@
 package typescript
 
 /** Deprecated, please use UpdateExpression */
-type AdditiveOperator = SyntaxKind.PlusToken | SyntaxKind.MinusToken;
+type AdditiveOperator = SyntaxKind.PlusToken | SyntaxKind.MinusToken

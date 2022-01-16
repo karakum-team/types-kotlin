@@ -13,4 +13,4 @@ package typescript
 type ParameterPropertyDeclaration = ParameterDeclaration & {
     parent: ConstructorDeclaration;
     name: Identifier;
-};
+}

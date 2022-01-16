@@ -2,4 +2,4 @@
 
 package typescript
 
-function isDefaultClause(node: Node): node is DefaultClause;
+function isDefaultClause(node: Node): node is DefaultClause

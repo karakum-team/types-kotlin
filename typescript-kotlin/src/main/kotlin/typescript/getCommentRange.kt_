@@ -5,4 +5,4 @@ package typescript
 /**
  * Gets a custom text range to use when emitting comments.
  */
-function getCommentRange(node: Node): TextRange;
+function getCommentRange(node: Node): TextRange

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isPlusToken(node: Node): node is PlusToken;
+function isPlusToken(node: Node): node is PlusToken

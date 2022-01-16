@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `ReadonlyKeyword` instead. */
-type ClassMemberModifier = AccessibilityModifier | ReadonlyKeyword | StaticKeyword;
+type ClassMemberModifier = AccessibilityModifier | ReadonlyKeyword | StaticKeyword

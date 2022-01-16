@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateVariableDeclarationList` or the factory supplied by your transformation context instead. */
-const updateVariableDeclarationList: (node: VariableDeclarationList, declarations: readonly VariableDeclaration[]) => VariableDeclarationList;
+const updateVariableDeclarationList: (node: VariableDeclarationList, declarations: readonly VariableDeclaration[]) => VariableDeclarationList

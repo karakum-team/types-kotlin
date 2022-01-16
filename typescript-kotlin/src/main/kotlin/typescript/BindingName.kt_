@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `ReadonlyKeyword` instead. */
-type BindingName = Identifier | BindingPattern;
+type BindingName = Identifier | BindingPattern

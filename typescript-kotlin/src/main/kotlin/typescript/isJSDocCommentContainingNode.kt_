@@ -3,4 +3,4 @@
 package typescript
 
 /** True if node is of a kind that may contain comment text. */
-function isJSDocCommentContainingNode(node: Node): boolean;
+function isJSDocCommentContainingNode(node: Node): boolean

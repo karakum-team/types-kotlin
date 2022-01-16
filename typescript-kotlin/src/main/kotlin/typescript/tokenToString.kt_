@@ -2,4 +2,4 @@
 
 package typescript
 
-function tokenToString(t: SyntaxKind): string | undefined;
+function tokenToString(t: SyntaxKind): string | undefined

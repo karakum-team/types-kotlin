@@ -2,4 +2,4 @@
 
 package typescript
 
-function isPropertySignature(node: Node): node is PropertySignature;
+function isPropertySignature(node: Node): node is PropertySignature

@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createOmittedExpression` or the factory supplied by your transformation context instead. */
-const createOmittedExpression: () => OmittedExpression;
+const createOmittedExpression: () => OmittedExpression

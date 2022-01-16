@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateQualifiedName` or the factory supplied by your transformation context instead. */
-const updateQualifiedName: (node: QualifiedName, left: EntityName, right: Identifier) => QualifiedName;
+const updateQualifiedName: (node: QualifiedName, left: EntityName, right: Identifier) => QualifiedName

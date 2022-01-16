@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createJSDocTypeExpression` or the factory supplied by your transformation context instead. */
-const createJSDocTypeExpression: (type: TypeNode) => JSDocTypeExpression;
+const createJSDocTypeExpression: (type: TypeNode) => JSDocTypeExpression

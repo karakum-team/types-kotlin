@@ -7,4 +7,4 @@ package typescript
  * - import x = require("mod");
  * - import x = M.x;
  */
-type AssertionKey = Identifier | StringLiteral;
+type AssertionKey = Identifier | StringLiteral

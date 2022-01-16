@@ -2,4 +2,4 @@
 
 package typescript
 
-function isNamedImports(node: Node): node is NamedImports;
+function isNamedImports(node: Node): node is NamedImports

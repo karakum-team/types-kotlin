@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocNullableType(node: Node): node is JSDocNullableType;
+function isJSDocNullableType(node: Node): node is JSDocNullableType

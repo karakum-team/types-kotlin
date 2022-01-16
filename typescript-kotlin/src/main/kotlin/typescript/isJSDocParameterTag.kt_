@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocParameterTag(node: Node): node is JSDocParameterTag;
+function isJSDocParameterTag(node: Node): node is JSDocParameterTag

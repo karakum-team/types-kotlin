@@ -3,4 +3,4 @@
 package typescript
 
 /** True if has initializer node attached to it. */
-function isJSDocLinkLike(node: Node): node is JSDocLink | JSDocLinkCode | JSDocLinkPlain;
+function isJSDocLinkLike(node: Node): node is JSDocLink | JSDocLinkCode | JSDocLinkPlain

@@ -5,4 +5,4 @@ package typescript
 /**
  * Moves matching emit helpers from a source node to a target node.
  */
-function moveEmitHelpers(source: Node, target: Node, predicate: (helper: EmitHelper) => boolean): void;
+function moveEmitHelpers(source: Node, target: Node, predicate: (helper: EmitHelper) => boolean): void

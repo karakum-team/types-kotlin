@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createContinueStatement` or the factory supplied by your transformation context instead. */
-const createContinue: (label?: string | Identifier | undefined) => ContinueStatement;
+const createContinue: (label?: string | Identifier | undefined) => ContinueStatement

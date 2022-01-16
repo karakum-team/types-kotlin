@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocFunctionType(node: Node): node is JSDocFunctionType;
+function isJSDocFunctionType(node: Node): node is JSDocFunctionType

@@ -3,4 +3,4 @@
 package typescript
 
 /** The version of the language service API */
-function toEditorSettings(options: EditorOptions | EditorSettings): EditorSettings;
+function toEditorSettings(options: EditorOptions | EditorSettings): EditorSettings

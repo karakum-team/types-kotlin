@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createStringLiteralFromNode` or the factory supplied by your transformation context instead. */
-const createStringLiteralFromNode: (sourceNode: PropertyNameLiteral, isSingleQuote?: boolean | undefined) => StringLiteral;
+const createStringLiteralFromNode: (sourceNode: PropertyNameLiteral, isSingleQuote?: boolean | undefined) => StringLiteral

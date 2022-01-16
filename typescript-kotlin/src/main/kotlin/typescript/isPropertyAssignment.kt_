@@ -2,4 +2,4 @@
 
 package typescript
 
-function isPropertyAssignment(node: Node): node is PropertyAssignment;
+function isPropertyAssignment(node: Node): node is PropertyAssignment

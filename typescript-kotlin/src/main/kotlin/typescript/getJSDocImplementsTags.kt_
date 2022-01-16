@@ -3,4 +3,4 @@
 package typescript
 
 /** Gets the JSDoc implements tags for the node if present */
-function getJSDocImplementsTags(node: Node): readonly JSDocImplementsTag[];
+function getJSDocImplementsTags(node: Node): readonly JSDocImplementsTag[]

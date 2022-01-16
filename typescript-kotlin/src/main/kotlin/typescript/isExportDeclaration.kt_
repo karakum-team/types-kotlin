@@ -2,4 +2,4 @@
 
 package typescript
 
-function isExportDeclaration(node: Node): node is ExportDeclaration;
+function isExportDeclaration(node: Node): node is ExportDeclaration

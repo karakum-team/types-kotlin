@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createStrictInequality` or the factory supplied by your transformation context instead. */
-const createStrictInequality: (left: Expression, right: Expression) => BinaryExpression;
+const createStrictInequality: (left: Expression, right: Expression) => BinaryExpression

@@ -2,4 +2,4 @@
 
 package typescript
 
-type ExclamationToken = PunctuationToken<SyntaxKind.ExclamationToken>;
+type ExclamationToken = PunctuationToken<SyntaxKind.ExclamationToken>

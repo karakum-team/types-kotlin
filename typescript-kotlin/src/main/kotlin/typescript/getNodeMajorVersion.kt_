@@ -4,4 +4,4 @@ package typescript
 
 function getNodeMajorVersion(): number | undefined;
 export let sys: System;
-export {};
+export {}

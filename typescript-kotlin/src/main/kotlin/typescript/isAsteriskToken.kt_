@@ -2,4 +2,4 @@
 
 package typescript
 
-function isAsteriskToken(node: Node): node is AsteriskToken;
+function isAsteriskToken(node: Node): node is AsteriskToken

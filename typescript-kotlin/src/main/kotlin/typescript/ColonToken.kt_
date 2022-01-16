@@ -2,4 +2,4 @@
 
 package typescript
 
-type ColonToken = PunctuationToken<SyntaxKind.ColonToken>;
+type ColonToken = PunctuationToken<SyntaxKind.ColonToken>

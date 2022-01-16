@@ -2,4 +2,4 @@
 
 package typescript
 
-function isClassDeclaration(node: Node): node is ClassDeclaration;
+function isClassDeclaration(node: Node): node is ClassDeclaration

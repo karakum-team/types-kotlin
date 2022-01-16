@@ -2,4 +2,4 @@
 
 package typescript
 
-function textChangeRangeNewSpan(range: TextChangeRange): TextSpan;
+function textChangeRangeNewSpan(range: TextChangeRange): TextSpan

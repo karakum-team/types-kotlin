@@ -13,4 +13,4 @@ function convertTypeAcquisitionFromJson(jsonOptions: any, basePath: string, conf
     options: TypeAcquisition;
     errors: Diagnostic[];
 };
-export {};
+export {}

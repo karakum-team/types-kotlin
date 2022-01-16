@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateElementAccessChain` or the factory supplied by your transformation context instead. */
-const updateElementAccessChain: (node: ElementAccessChain, expression: Expression, questionDotToken: QuestionDotToken | undefined, argumentExpression: Expression) => ElementAccessChain;
+const updateElementAccessChain: (node: ElementAccessChain, expression: Expression, questionDotToken: QuestionDotToken | undefined, argumentExpression: Expression) => ElementAccessChain

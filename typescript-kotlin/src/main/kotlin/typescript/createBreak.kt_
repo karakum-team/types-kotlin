@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createBreakStatement` or the factory supplied by your transformation context instead. */
-const createBreak: (label?: string | Identifier | undefined) => BreakStatement;
+const createBreak: (label?: string | Identifier | undefined) => BreakStatement

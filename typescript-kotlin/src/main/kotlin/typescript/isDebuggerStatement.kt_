@@ -2,4 +2,4 @@
 
 package typescript
 
-function isDebuggerStatement(node: Node): node is DebuggerStatement;
+function isDebuggerStatement(node: Node): node is DebuggerStatement

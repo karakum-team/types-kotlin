@@ -2,4 +2,4 @@
 
 package typescript
 
-function isElementAccessExpression(node: Node): node is ElementAccessExpression;
+function isElementAccessExpression(node: Node): node is ElementAccessExpression

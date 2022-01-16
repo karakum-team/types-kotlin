@@ -2,4 +2,4 @@
 
 package typescript
 
-function isPropertyDeclaration(node: Node): node is PropertyDeclaration;
+function isPropertyDeclaration(node: Node): node is PropertyDeclaration

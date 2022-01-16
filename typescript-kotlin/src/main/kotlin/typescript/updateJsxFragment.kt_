@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateJsxFragment` or the factory supplied by your transformation context instead. */
-const updateJsxFragment: (node: JsxFragment, openingFragment: JsxOpeningFragment, children: readonly JsxChild[], closingFragment: JsxClosingFragment) => JsxFragment;
+const updateJsxFragment: (node: JsxFragment, openingFragment: JsxOpeningFragment, children: readonly JsxChild[], closingFragment: JsxClosingFragment) => JsxFragment

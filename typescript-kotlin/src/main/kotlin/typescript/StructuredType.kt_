@@ -12,4 +12,4 @@ package typescript
  * if the class or interface has no type parameters and the reference isn't specifying an
  * explicit "this" argument.
  */
-type StructuredType = ObjectType | UnionType | IntersectionType;
+type StructuredType = ObjectType | UnionType | IntersectionType

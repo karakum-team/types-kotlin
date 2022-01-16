@@ -2,4 +2,4 @@
 
 package typescript
 
-function isUnparsedSource(node: Node): node is UnparsedSource;
+function isUnparsedSource(node: Node): node is UnparsedSource

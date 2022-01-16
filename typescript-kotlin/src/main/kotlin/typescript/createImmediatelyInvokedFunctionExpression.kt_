@@ -6,4 +6,4 @@ package typescript
 const createImmediatelyInvokedFunctionExpression: {
     (statements: readonly Statement[]): CallExpression;
     (statements: readonly Statement[], param: ParameterDeclaration, paramValue: Expression): CallExpression;
-};
+}

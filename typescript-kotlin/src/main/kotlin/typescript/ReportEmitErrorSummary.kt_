@@ -2,4 +2,4 @@
 
 package typescript
 
-type ReportEmitErrorSummary = (errorCount: number) => void;
+type ReportEmitErrorSummary = (errorCount: number) => void

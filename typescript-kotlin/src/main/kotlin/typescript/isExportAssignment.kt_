@@ -2,4 +2,4 @@
 
 package typescript
 
-function isExportAssignment(node: Node): node is ExportAssignment;
+function isExportAssignment(node: Node): node is ExportAssignment

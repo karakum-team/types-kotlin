@@ -3,4 +3,4 @@
 package typescript
 
 /** Unlike ObjectLiteralElement, excludes JSXAttribute and JSXSpreadAttribute. */
-type ArrayBindingElement = BindingElement | OmittedExpression;
+type ArrayBindingElement = BindingElement | OmittedExpression

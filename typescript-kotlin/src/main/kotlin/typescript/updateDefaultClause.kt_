@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.updateDefaultClause` or the factory supplied by your transformation context instead. */
-const updateDefaultClause: (node: DefaultClause, statements: readonly Statement[]) => DefaultClause;
+const updateDefaultClause: (node: DefaultClause, statements: readonly Statement[]) => DefaultClause

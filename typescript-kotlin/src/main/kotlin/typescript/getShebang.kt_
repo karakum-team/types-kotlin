@@ -3,4 +3,4 @@
 package typescript
 
 /** Optionally, get the shebang */
-function getShebang(text: string): string | undefined;
+function getShebang(text: string): string | undefined

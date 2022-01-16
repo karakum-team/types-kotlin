@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocNameReference(node: Node): node is JSDocNameReference;
+function isJSDocNameReference(node: Node): node is JSDocNameReference

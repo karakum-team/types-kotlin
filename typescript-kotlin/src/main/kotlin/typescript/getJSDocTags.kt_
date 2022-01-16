@@ -3,4 +3,4 @@
 package typescript
 
 /** Get all JSDoc tags related to a node, including those on parent nodes. */
-function getJSDocTags(node: Node): readonly JSDocTag[];
+function getJSDocTags(node: Node): readonly JSDocTag[]

@@ -8,4 +8,4 @@ const createLiteral: {
     (value: number | PseudoBigInt): NumericLiteral;
     (value: boolean): BooleanLiteral;
     (value: string | number | PseudoBigInt | boolean): PrimaryExpression;
-};
+}

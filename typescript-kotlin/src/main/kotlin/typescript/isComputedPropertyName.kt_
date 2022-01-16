@@ -2,4 +2,4 @@
 
 package typescript
 
-function isComputedPropertyName(node: Node): node is ComputedPropertyName;
+function isComputedPropertyName(node: Node): node is ComputedPropertyName

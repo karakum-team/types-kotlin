@@ -2,4 +2,4 @@
 
 package typescript
 
-function isExternalModuleReference(node: Node): node is ExternalModuleReference;
+function isExternalModuleReference(node: Node): node is ExternalModuleReference

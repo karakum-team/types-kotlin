@@ -8,4 +8,4 @@ package typescript
  * @param identifier The escaped identifier text.
  * @returns The unescaped identifier text.
  */
-function getNameOfDeclaration(declaration: Declaration | Expression | undefined): DeclarationName | undefined;
+function getNameOfDeclaration(declaration: Declaration | Expression | undefined): DeclarationName | undefined

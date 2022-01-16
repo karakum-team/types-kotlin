@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createJsxAttributes` or the factory supplied by your transformation context instead. */
-const createJsxAttributes: (properties: readonly JsxAttributeLike[]) => JsxAttributes;
+const createJsxAttributes: (properties: readonly JsxAttributeLike[]) => JsxAttributes

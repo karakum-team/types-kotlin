@@ -2,4 +2,4 @@
 
 package typescript
 
-function isNamespaceExport(node: Node): node is NamespaceExport;
+function isNamespaceExport(node: Node): node is NamespaceExport

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isTypeAssertionExpression(node: Node): node is TypeAssertion;
+function isTypeAssertionExpression(node: Node): node is TypeAssertion

@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createWithStatement` or the factory supplied by your transformation context instead. */
-const createWith: (expression: Expression, statement: Statement) => WithStatement;
+const createWith: (expression: Expression, statement: Statement) => WithStatement

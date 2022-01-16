@@ -2,4 +2,4 @@
 
 package typescript
 
-function isExternalModuleNameRelative(moduleName: string): boolean;
+function isExternalModuleNameRelative(moduleName: string): boolean

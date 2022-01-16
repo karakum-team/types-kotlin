@@ -9,4 +9,4 @@ package typescript
  */
 type WithMetadata<T> = T & {
     metadata?: unknown;
-};
+}

@@ -2,4 +2,4 @@
 
 package typescript
 
-function createIncrementalCompilerHost(options: CompilerOptions, system?: System): CompilerHost;
+function createIncrementalCompilerHost(options: CompilerOptions, system?: System): CompilerHost

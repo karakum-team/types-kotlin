@@ -2,4 +2,4 @@
 
 package typescript
 
-function isJSDocReturnTag(node: Node): node is JSDocReturnTag;
+function isJSDocReturnTag(node: Node): node is JSDocReturnTag

@@ -2,4 +2,4 @@
 
 package typescript
 
-function isBindingElement(node: Node): node is BindingElement;
+function isBindingElement(node: Node): node is BindingElement

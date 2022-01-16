@@ -8,4 +8,4 @@ package typescript
  * @param identifier The escaped identifier text.
  * @returns The unescaped identifier text.
  */
-function idText(identifierOrPrivateName: Identifier | PrivateIdentifier): string;
+function idText(identifierOrPrivateName: Identifier | PrivateIdentifier): string

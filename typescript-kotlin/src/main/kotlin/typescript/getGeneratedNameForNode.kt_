@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.getGeneratedNameForNode` or the factory supplied by your transformation context instead. */
-const getGeneratedNameForNode: (node: Node | undefined) => Identifier;
+const getGeneratedNameForNode: (node: Node | undefined) => Identifier

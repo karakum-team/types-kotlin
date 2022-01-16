@@ -2,4 +2,4 @@
 
 package typescript
 
-function isEnumDeclaration(node: Node): node is EnumDeclaration;
+function isEnumDeclaration(node: Node): node is EnumDeclaration

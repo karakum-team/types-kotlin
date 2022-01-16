@@ -2,4 +2,4 @@
 
 package typescript
 
-function isEmptyStatement(node: Node): node is EmptyStatement;
+function isEmptyStatement(node: Node): node is EmptyStatement

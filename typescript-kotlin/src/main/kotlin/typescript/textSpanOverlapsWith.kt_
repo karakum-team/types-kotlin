@@ -2,4 +2,4 @@
 
 package typescript
 
-function textSpanOverlapsWith(span: TextSpan, other: TextSpan): boolean;
+function textSpanOverlapsWith(span: TextSpan, other: TextSpan): boolean

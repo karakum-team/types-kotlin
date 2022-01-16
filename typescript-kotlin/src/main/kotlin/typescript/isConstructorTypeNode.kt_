@@ -2,4 +2,4 @@
 
 package typescript
 
-function isConstructorTypeNode(node: Node): node is ConstructorTypeNode;
+function isConstructorTypeNode(node: Node): node is ConstructorTypeNode

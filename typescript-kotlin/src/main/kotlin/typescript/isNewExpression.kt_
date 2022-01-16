@@ -2,4 +2,4 @@
 
 package typescript
 
-function isNewExpression(node: Node): node is NewExpression;
+function isNewExpression(node: Node): node is NewExpression

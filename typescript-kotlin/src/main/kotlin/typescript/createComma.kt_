@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `factory.createComma` or the factory supplied by your transformation context instead. */
-const createComma: (left: Expression, right: Expression) => Expression;
+const createComma: (left: Expression, right: Expression) => Expression

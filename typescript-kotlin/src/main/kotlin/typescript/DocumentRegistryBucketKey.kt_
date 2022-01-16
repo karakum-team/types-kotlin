@@ -19,4 +19,4 @@ package typescript
  */
 type DocumentRegistryBucketKey = string & {
     __bucketKey: any;
-};
+}
