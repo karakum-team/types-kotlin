@@ -30,7 +30,12 @@ fun generateKotlinDeclarations(
             fileSuppress(*suppresses)
         } else ""
 
-        val file = targetDir.resolve("$name.kt_")
+        val suffix = when {
+            "typealias" in body -> ""
+            else -> "_"
+        }
+
+        val file = targetDir.resolve("$name.kt$suffix")
         if (file.exists()) {
             if (name[0].isLowerCase()) {
                 file.appendText("\n$body")

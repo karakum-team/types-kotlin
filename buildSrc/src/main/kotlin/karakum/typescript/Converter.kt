@@ -70,7 +70,7 @@ private fun convertDefinition(
         .substringBefore(":")
 
     val type = source.substringBefore(" ")
-    val content = CONVERTER_MAP.getValue(type)(name, source)
+    val content = CONVERTER_MAP.getValue(type)(name, source.removePrefix("type "))
 
     val body = sequenceOf(comment, content)
         .filterNotNull()
@@ -97,7 +97,18 @@ private fun convertType(
     name: String,
     source: String,
 ): String {
-    return source
+    val (declarationSource, body) = source.split(" = ")
+
+    val declaration = declarationSource
+        .replace("extends BuilderProgram", "/* : BuilderProgram */")
+        .replace("extends Node", "/* : Node */")
+
+
+    var content = "typealias $declaration = Any /* $body */"
+    if ("<T" in declaration)
+        content = "@Suppress(\"UNUSED_TYPEALIAS_PARAMETER\")\n" + content
+
+    return content
 }
 
 private fun convertEnum(
