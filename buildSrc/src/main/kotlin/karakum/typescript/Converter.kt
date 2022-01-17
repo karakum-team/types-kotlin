@@ -141,8 +141,11 @@ private fun convertType(
         .replace("extends BuilderProgram", "/* : BuilderProgram */")
         .replace("extends Node", "/* : Node */")
 
+    // if (" | " !in body && "(" !in body && "{" !in body)
+    //    return "typealias $declaration = $body"
 
-    var content = "typealias $declaration = Any /* $body */"
+    val unionType = if (body.startsWith("SyntaxKind.")) "SyntaxKind" else "Any"
+    var content = "typealias $declaration = $unionType /* $body */"
     if ("<T" in declaration)
         content = "@Suppress(\"UNUSED_TYPEALIAS_PARAMETER\")\n" + content
 
@@ -188,9 +191,6 @@ private fun convertEnum(
 // TEMP
 internal val IGNORED_INTERFACES = setOf(
     "KeywordTypeNode",
-
-    // "KeywordToken",
-    "PunctuationToken",
 
     "NodeArray",
     "SortedArray",
