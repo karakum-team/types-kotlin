@@ -170,7 +170,18 @@ private fun convertEnum(
         }
         .toList()
 
-    return unionBodyByConstants(name, constants)
+    val result = unionBodyByConstants(name, constants)
+    if (name != "SyntaxKind")
+        return result
+
+    return result.replaceFirst(" enum class ", " sealed interface ")
+        .replaceFirst(";\n", "")
+        .splitToSequence("\n")
+        .joinToString("\n") {
+            if (it.endsWith(",")) {
+                "object " + it.removeSuffix(",") + ": $name"
+            } else it
+        }
 }
 
 // TEMP
