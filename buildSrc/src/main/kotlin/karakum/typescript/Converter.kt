@@ -73,6 +73,7 @@ private fun convertDefinition(
 
     val type = source.substringBefore(" ")
     val contentSource = source
+        .removePrefix("function ")
         .removePrefix("type ")
         .removePrefix("enum ")
         .removePrefix("interface ")
@@ -97,7 +98,7 @@ private fun convertFunction(
     name: String,
     source: String,
 ): String {
-    return source
+    return "/*\nexternal fun $source\n*/"
 }
 
 private fun convertType(
