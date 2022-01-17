@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias AssignmentOperatorOrHigher = Any /* SyntaxKind.QuestionQuestionToken | LogicalOperatorOrHigher | AssignmentOperator */
+typealias AssignmentOperatorOrHigher = SyntaxKind /* SyntaxKind.QuestionQuestionToken | LogicalOperatorOrHigher | AssignmentOperator */

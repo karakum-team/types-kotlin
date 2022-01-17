@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias PostfixUnaryOperator = Any /* SyntaxKind.PlusPlusToken | SyntaxKind.MinusMinusToken */
+typealias PostfixUnaryOperator = SyntaxKind /* SyntaxKind.PlusPlusToken | SyntaxKind.MinusMinusToken */

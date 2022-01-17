@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias PseudoLiteralSyntaxKind = Any /* SyntaxKind.TemplateHead | SyntaxKind.TemplateMiddle | SyntaxKind.TemplateTail */
+typealias PseudoLiteralSyntaxKind = SyntaxKind /* SyntaxKind.TemplateHead | SyntaxKind.TemplateMiddle | SyntaxKind.TemplateTail */

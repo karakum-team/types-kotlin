@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias BitwiseOperator = Any /* SyntaxKind.AmpersandToken | SyntaxKind.BarToken | SyntaxKind.CaretToken */
+typealias BitwiseOperator = SyntaxKind /* SyntaxKind.AmpersandToken | SyntaxKind.BarToken | SyntaxKind.CaretToken */

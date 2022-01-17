@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias ExponentiationOperator = Any /* SyntaxKind.AsteriskAsteriskToken */
+typealias ExponentiationOperator = SyntaxKind /* SyntaxKind.AsteriskAsteriskToken */

@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias LogicalOperator = Any /* SyntaxKind.AmpersandAmpersandToken | SyntaxKind.BarBarToken */
+typealias LogicalOperator = SyntaxKind /* SyntaxKind.AmpersandAmpersandToken | SyntaxKind.BarBarToken */

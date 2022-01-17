@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias LogicalOrCoalescingAssignmentOperator = Any /* SyntaxKind.AmpersandAmpersandEqualsToken | SyntaxKind.BarBarEqualsToken | SyntaxKind.QuestionQuestionEqualsToken */
+typealias LogicalOrCoalescingAssignmentOperator = SyntaxKind /* SyntaxKind.AmpersandAmpersandEqualsToken | SyntaxKind.BarBarEqualsToken | SyntaxKind.QuestionQuestionEqualsToken */

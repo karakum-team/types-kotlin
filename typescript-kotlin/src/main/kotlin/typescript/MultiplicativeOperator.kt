@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias MultiplicativeOperator = Any /* SyntaxKind.AsteriskToken | SyntaxKind.SlashToken | SyntaxKind.PercentToken */
+typealias MultiplicativeOperator = SyntaxKind /* SyntaxKind.AsteriskToken | SyntaxKind.SlashToken | SyntaxKind.PercentToken */
