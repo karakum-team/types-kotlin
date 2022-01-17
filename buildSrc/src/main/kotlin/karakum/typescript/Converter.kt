@@ -23,6 +23,7 @@ internal fun convertDefinitions(
 private const val DELIMITER = "<!--DELIMITER-->"
 
 private val CONVERTER_MAP = mapOf(
+    "let" to ::convertLet,
     "const" to ::convertConst,
     "function" to ::convertFunction,
     "type" to ::convertType,
@@ -80,6 +81,13 @@ private fun convertDefinition(
         .joinToString("\n")
 
     return ConversionResult(name, body)
+}
+
+private fun convertLet(
+    name: String,
+    source: String,
+): String {
+    return "external val /* var */ $source"
 }
 
 private fun convertConst(
