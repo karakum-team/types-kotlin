@@ -17,6 +17,7 @@ internal fun convertDefinitions(
         .drop(1)
         .map { it.substringBefore("\n}\n") }
         .map { it.trimIndent() }
+        .map { it.replace("\nexport {}", "") }
         .flatMap { convertDefinitions(it) }
 
 private const val DELIMITER = "<!--DELIMITER-->"
