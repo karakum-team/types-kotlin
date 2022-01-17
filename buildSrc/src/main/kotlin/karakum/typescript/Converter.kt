@@ -94,6 +94,12 @@ private fun convertConst(
     name: String,
     source: String,
 ): String {
+    if (" = " in source)
+        return "const val $source"
+
+    if (source.substringAfter(": ") == "string")
+        return "external val $name: String"
+
     return "/*\nexternal val $source\n*/"
 }
 
