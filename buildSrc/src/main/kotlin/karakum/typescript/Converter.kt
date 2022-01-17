@@ -72,13 +72,7 @@ private fun convertDefinition(
         .substringBefore(":")
 
     val type = source.substringBefore(" ")
-    val contentSource = source
-        .removePrefix("function ")
-        .removePrefix("type ")
-        .removePrefix("enum ")
-        .removePrefix("interface ")
-        .removePrefix("class ")
-    val content = CONVERTER_MAP.getValue(type)(name, contentSource)
+    val content = CONVERTER_MAP.getValue(type)(name, source.removePrefix("$type "))
 
     val body = sequenceOf(comment, content)
         .filterNotNull()
@@ -91,7 +85,7 @@ private fun convertConst(
     name: String,
     source: String,
 ): String {
-    return source
+    return "/*\nexternal val $source\n*/"
 }
 
 private fun convertFunction(
@@ -145,7 +139,7 @@ private fun convertEnum(
 }
 
 // TEMP
-private val IGNORED_INTERFACES = setOf(
+internal val IGNORED_INTERFACES = setOf(
     "KeywordTypeNode",
 
     // "KeywordToken",

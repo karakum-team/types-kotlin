@@ -37,12 +37,11 @@ fun generateKotlinDeclarations(
         }
 
         val extension = when {
-            "typealias " in body -> "kt"
             "external fun " in body -> "fun.kt"
-            "external enum class " in body -> "kt"
-            "external interface " in body -> "kt"
-            "external class " in body -> "kt"
-            else -> "kt_"
+            // TEMP
+            "external val " in body -> "kt_"
+            name in IGNORED_INTERFACES -> "kt_"
+            else -> "kt"
         }
 
         val file = targetDir.resolve("$name.$extension")
