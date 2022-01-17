@@ -47,6 +47,9 @@ fun generateKotlinDeclarations(
             file.writeText(fileContent(annotations, body))
         }
     }
+
+    targetDir.resolve("ReadonlyArray.kt")
+        .writeText(fileContent(body = "typealias ReadonlyArray<T> = Array<out T>"))
 }
 
 private fun fileContent(
