@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun createTextChangeRange(span: TextSpan, newLength: number): TextChangeRange
-*/
+external val /* var */ sys: System

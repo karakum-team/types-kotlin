@@ -6,6 +6,5 @@
 package typescript
 
 /*
-external fun getNodeMajorVersion(): number | undefined;
-export let sys: System;
+external fun getNodeMajorVersion(): number | undefined
 */
