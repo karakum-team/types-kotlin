@@ -75,6 +75,7 @@ private fun convertDefinition(
     val contentSource = source
         .removePrefix("type ")
         .removePrefix("enum ")
+        .removePrefix("interface ")
     val content = CONVERTER_MAP.getValue(type)(name, contentSource)
 
     val body = sequenceOf(comment, content)
@@ -141,11 +142,44 @@ private fun convertEnum(
     return unionBodyByConstants(name, constants)
 }
 
+// TEMP
+private val IGNORED_INTERFACES = setOf(
+    "KeywordTypeNode",
+
+    // "KeywordToken",
+    "PunctuationToken",
+
+    "NodeArray",
+    "SortedArray",
+    "SortedReadonlyArray",
+
+    "JsxAttributes",
+    "ObjectLiteralExpression",
+)
+
 private fun convertInterface(
     name: String,
     source: String,
 ): String {
-    return source
+    if (name in IGNORED_INTERFACES)
+        return "interface $source"
+
+    var declaration = source.substringBefore(" {\n")
+        .replace(" extends ", " : ")
+        .replace("<string", "<String")
+
+    if (name == "KeywordToken")
+        declaration = declaration.replaceFirst("> : ", "> /* : ") + " */"
+
+    val bodySource = source
+        .substringAfter("{\n")
+        .substringBeforeLast("\n}", "")
+
+    val body = if (bodySource.isNotEmpty()) {
+        "    /*\n" + bodySource + "\n    */"
+    } else ""
+
+    return "external interface $declaration {\n$body\n}"
 }
 
 private fun convertClass(

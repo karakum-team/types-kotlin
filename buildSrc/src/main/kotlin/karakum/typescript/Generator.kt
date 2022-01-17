@@ -32,7 +32,8 @@ fun generateKotlinDeclarations(
 
         val suffix = when {
             "typealias " in body -> ""
-            "enum class " in body -> ""
+            "external enum class " in body -> ""
+            "external interface " in body -> ""
             else -> "_"
         }
 
