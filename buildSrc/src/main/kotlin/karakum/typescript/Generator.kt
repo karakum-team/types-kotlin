@@ -36,16 +36,16 @@ fun generateKotlinDeclarations(
             else -> ""
         }
 
-        val suffix = when {
-            "typealias " in body -> ""
-            "external fun " in body -> ""
-            "external enum class " in body -> ""
-            "external interface " in body -> ""
-            "external class " in body -> ""
-            else -> "_"
+        val extension = when {
+            "typealias " in body -> "kt"
+            "external fun " in body -> "fun.kt"
+            "external enum class " in body -> "kt"
+            "external interface " in body -> "kt"
+            "external class " in body -> "kt"
+            else -> "kt_"
         }
 
-        val file = targetDir.resolve("$name.kt$suffix")
+        val file = targetDir.resolve("$name.$extension")
         if (file.exists()) {
             if (name[0].isLowerCase()) {
                 file.appendText("\n$body")
