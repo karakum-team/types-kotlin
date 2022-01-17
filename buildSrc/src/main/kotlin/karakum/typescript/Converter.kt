@@ -58,6 +58,7 @@ private fun convertDefinitions(
                 comment = part
             } else {
                 results += convertDefinition(comment, part)
+                comment = null
             }
         }
 
