@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isJsxClosingElement(node: Node): node is JsxClosingElement
+/*
+external fun isJsxClosingElement(node: Node): node is JsxClosingElement
+*/

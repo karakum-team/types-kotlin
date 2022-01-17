@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isExternalModuleReference(node: Node): node is ExternalModuleReference
+/*
+external fun isExternalModuleReference(node: Node): node is ExternalModuleReference
+*/

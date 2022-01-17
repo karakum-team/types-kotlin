@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** Gets the JSDoc public tag for the node if present */
-function getJSDocPublicTag(node: Node): JSDocPublicTag | undefined
+/*
+external fun getJSDocPublicTag(node: Node): JSDocPublicTag | undefined
+*/

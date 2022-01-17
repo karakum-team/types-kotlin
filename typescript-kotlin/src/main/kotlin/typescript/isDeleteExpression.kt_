@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isDeleteExpression(node: Node): node is DeleteExpression
+/*
+external fun isDeleteExpression(node: Node): node is DeleteExpression
+*/

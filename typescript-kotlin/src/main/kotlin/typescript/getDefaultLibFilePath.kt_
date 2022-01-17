@@ -1,5 +1,8 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
@@ -7,4 +10,6 @@ package typescript
  * node package.
  * The functionality is not supported if the ts module is consumed outside of a node module.
  */
-function getDefaultLibFilePath(options: CompilerOptions): string
+/*
+external fun getDefaultLibFilePath(options: CompilerOptions): string
+*/

@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isTypeQueryNode(node: Node): node is TypeQueryNode
+/*
+external fun isTypeQueryNode(node: Node): node is TypeQueryNode
+*/

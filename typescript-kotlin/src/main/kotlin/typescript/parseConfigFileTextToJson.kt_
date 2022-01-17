@@ -1,5 +1,8 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
@@ -7,7 +10,9 @@ package typescript
  * @param fileName The path to the config file
  * @param jsonText The text of the config file
  */
-function parseConfigFileTextToJson(fileName: string, jsonText: string): {
+/*
+external fun parseConfigFileTextToJson(fileName: string, jsonText: string): {
     config?: any;
     error?: Diagnostic;
 }
+*/

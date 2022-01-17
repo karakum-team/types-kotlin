@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function resolveTripleslashReference(moduleName: string, containingFile: string): string
+/*
+external fun resolveTripleslashReference(moduleName: string, containingFile: string): string
+*/

@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isClassStaticBlockDeclaration(node: Node): node is ClassStaticBlockDeclaration
+/*
+external fun isClassStaticBlockDeclaration(node: Node): node is ClassStaticBlockDeclaration
+*/

@@ -1,5 +1,8 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
@@ -15,4 +18,6 @@ package typescript
  * @remarks `forEachChild` must visit the children of a node in the order
  * that they appear in the source code. The language service depends on this property to locate nodes by position.
  */
-function createSourceFile(fileName: string, sourceText: string, languageVersion: ScriptTarget, setParentNodes?: boolean, scriptKind?: ScriptKind): SourceFile
+/*
+external fun createSourceFile(fileName: string, sourceText: string, languageVersion: ScriptTarget, setParentNodes?: boolean, scriptKind?: ScriptKind): SourceFile
+*/

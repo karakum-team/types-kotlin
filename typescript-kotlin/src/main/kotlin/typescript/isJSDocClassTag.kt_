@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isJSDocClassTag(node: Node): node is JSDocClassTag
+/*
+external fun isJSDocClassTag(node: Node): node is JSDocClassTag
+*/

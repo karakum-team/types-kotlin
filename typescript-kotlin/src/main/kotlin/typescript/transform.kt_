@@ -1,5 +1,8 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
@@ -8,4 +11,6 @@ package typescript
  * @param transformers An array of `TransformerFactory` callbacks used to process the transformation.
  * @param compilerOptions Optional compiler options.
  */
-function transform<T extends Node>(source: T | T[], transformers: TransformerFactory<T>[], compilerOptions?: CompilerOptions): TransformationResult<T>
+/*
+external fun transform<T extends Node>(source: T | T[], transformers: TransformerFactory<T>[], compilerOptions?: CompilerOptions): TransformationResult<T>
+*/

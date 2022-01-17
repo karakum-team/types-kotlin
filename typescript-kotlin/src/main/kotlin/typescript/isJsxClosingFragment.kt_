@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isJsxClosingFragment(node: Node): node is JsxClosingFragment
+/*
+external fun isJsxClosingFragment(node: Node): node is JsxClosingFragment
+*/

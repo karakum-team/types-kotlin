@@ -1,9 +1,14 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
  * Clears any `EmitNode` entries from parse-tree nodes.
  * @param sourceFile A source file.
  */
-function disposeEmitNodes(sourceFile: SourceFile | undefined): void
+/*
+external fun disposeEmitNodes(sourceFile: SourceFile | undefined): void
+*/

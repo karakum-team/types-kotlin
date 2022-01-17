@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function transpileModule(input: string, transpileOptions: TranspileOptions): TranspileOutput
+/*
+external fun transpileModule(input: string, transpileOptions: TranspileOptions): TranspileOutput
+*/

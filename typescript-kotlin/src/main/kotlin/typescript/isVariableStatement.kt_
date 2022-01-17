@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isVariableStatement(node: Node): node is VariableStatement
+/*
+external fun isVariableStatement(node: Node): node is VariableStatement
+*/

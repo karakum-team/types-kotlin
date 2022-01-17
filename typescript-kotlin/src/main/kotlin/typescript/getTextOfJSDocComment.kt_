@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** Gets the text of a jsdoc comment, flattening links to their text. */
-function getTextOfJSDocComment(comment?: string | NodeArray<JSDocComment>): string | undefined
+/*
+external fun getTextOfJSDocComment(comment?: string | NodeArray<JSDocComment>): string | undefined
+*/

@@ -1,9 +1,14 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
  * Gets the effective type parameters. If the node was parsed in a
  * JavaScript file, gets the type parameters from the `@template` tag from JSDoc.
  */
-function isBreakOrContinueStatement(node: Node): node is BreakOrContinueStatement
+/*
+external fun isBreakOrContinueStatement(node: Node): node is BreakOrContinueStatement
+*/

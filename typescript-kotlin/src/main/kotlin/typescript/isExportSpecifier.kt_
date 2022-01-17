@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isExportSpecifier(node: Node): node is ExportSpecifier
+/*
+external fun isExportSpecifier(node: Node): node is ExportSpecifier
+*/

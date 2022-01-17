@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isMethodSignature(node: Node): node is MethodSignature
+/*
+external fun isMethodSignature(node: Node): node is MethodSignature
+*/

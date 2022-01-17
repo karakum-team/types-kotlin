@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isBigIntLiteral(node: Node): node is BigIntLiteral
+/*
+external fun isBigIntLiteral(node: Node): node is BigIntLiteral
+*/

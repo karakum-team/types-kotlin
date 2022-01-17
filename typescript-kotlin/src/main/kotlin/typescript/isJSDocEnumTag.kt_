@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isJSDocEnumTag(node: Node): node is JSDocEnumTag
+/*
+external fun isJSDocEnumTag(node: Node): node is JSDocEnumTag
+*/

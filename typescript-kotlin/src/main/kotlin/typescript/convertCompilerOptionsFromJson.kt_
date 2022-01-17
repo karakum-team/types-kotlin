@@ -1,5 +1,8 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
@@ -9,7 +12,9 @@ package typescript
  * @param basePath A root directory to resolve relative path entries in the config
  *    file to. e.g. outDir
  */
-function convertCompilerOptionsFromJson(jsonOptions: any, basePath: string, configFileName?: string): {
+/*
+external fun convertCompilerOptionsFromJson(jsonOptions: any, basePath: string, configFileName?: string): {
     options: CompilerOptions;
     errors: Diagnostic[];
 }
+*/

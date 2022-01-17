@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isIntersectionTypeNode(node: Node): node is IntersectionTypeNode
+/*
+external fun isIntersectionTypeNode(node: Node): node is IntersectionTypeNode
+*/

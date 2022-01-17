@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isPrivateIdentifier(node: Node): node is PrivateIdentifier
+/*
+external fun isPrivateIdentifier(node: Node): node is PrivateIdentifier
+*/

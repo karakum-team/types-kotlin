@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isNumericLiteral(node: Node): node is NumericLiteral
+/*
+external fun isNumericLiteral(node: Node): node is NumericLiteral
+*/

@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isNamespaceExport(node: Node): node is NamespaceExport
+/*
+external fun isNamespaceExport(node: Node): node is NamespaceExport
+*/

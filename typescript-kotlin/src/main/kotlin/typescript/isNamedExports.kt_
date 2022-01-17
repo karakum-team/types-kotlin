@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isNamedExports(node: Node): node is NamedExports
+/*
+external fun isNamedExports(node: Node): node is NamedExports
+*/

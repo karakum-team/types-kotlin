@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isBreakStatement(node: Node): node is BreakStatement
+/*
+external fun isBreakStatement(node: Node): node is BreakStatement
+*/

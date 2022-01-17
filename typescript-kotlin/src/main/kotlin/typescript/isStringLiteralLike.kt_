@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** True if has initializer node attached to it. */
-function isStringLiteralLike(node: Node): node is StringLiteralLike
+/*
+external fun isStringLiteralLike(node: Node): node is StringLiteralLike
+*/

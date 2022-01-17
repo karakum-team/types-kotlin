@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function createTextSpan(start: number, length: number): TextSpan
+/*
+external fun createTextSpan(start: number, length: number): TextSpan
+*/

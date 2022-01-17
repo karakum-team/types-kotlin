@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isWhiteSpaceLike(ch: number): boolean
+/*
+external fun isWhiteSpaceLike(ch: number): boolean
+*/

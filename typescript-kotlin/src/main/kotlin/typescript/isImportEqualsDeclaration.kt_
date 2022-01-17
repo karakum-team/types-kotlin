@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isImportEqualsDeclaration(node: Node): node is ImportEqualsDeclaration
+/*
+external fun isImportEqualsDeclaration(node: Node): node is ImportEqualsDeclaration
+*/

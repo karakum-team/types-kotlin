@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isJsxOpeningElement(node: Node): node is JsxOpeningElement
+/*
+external fun isJsxOpeningElement(node: Node): node is JsxOpeningElement
+*/

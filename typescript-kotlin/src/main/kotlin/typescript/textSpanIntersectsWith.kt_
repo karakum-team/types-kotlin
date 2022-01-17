@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function textSpanIntersectsWith(span: TextSpan, start: number, length: number): boolean
+/*
+external fun textSpanIntersectsWith(span: TextSpan, start: number, length: number): boolean
+*/

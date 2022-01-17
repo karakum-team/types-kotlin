@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isInterfaceDeclaration(node: Node): node is InterfaceDeclaration
+/*
+external fun isInterfaceDeclaration(node: Node): node is InterfaceDeclaration
+*/

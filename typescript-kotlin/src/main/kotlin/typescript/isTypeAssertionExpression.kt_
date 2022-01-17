@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isTypeAssertionExpression(node: Node): node is TypeAssertion
+/*
+external fun isTypeAssertionExpression(node: Node): node is TypeAssertion
+*/

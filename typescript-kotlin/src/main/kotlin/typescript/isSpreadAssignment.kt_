@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isSpreadAssignment(node: Node): node is SpreadAssignment
+/*
+external fun isSpreadAssignment(node: Node): node is SpreadAssignment
+*/

@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isAssertClause(node: Node): node is AssertClause
+/*
+external fun isAssertClause(node: Node): node is AssertClause
+*/

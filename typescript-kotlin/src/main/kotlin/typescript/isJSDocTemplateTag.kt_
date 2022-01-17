@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isJSDocTemplateTag(node: Node): node is JSDocTemplateTag
+/*
+external fun isJSDocTemplateTag(node: Node): node is JSDocTemplateTag
+*/

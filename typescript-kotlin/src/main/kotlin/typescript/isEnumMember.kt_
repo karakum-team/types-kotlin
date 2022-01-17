@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isEnumMember(node: Node): node is EnumMember
+/*
+external fun isEnumMember(node: Node): node is EnumMember
+*/

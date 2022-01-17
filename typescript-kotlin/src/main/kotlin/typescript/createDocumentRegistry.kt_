@@ -1,5 +1,8 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
@@ -17,4 +20,6 @@ package typescript
  * To create a default DocumentRegistry, use createDocumentRegistry to create one, and pass it
  * to all subsequent createLanguageService calls.
  */
-function createDocumentRegistry(useCaseSensitiveFileNames?: boolean, currentDirectory?: string): DocumentRegistry
+/*
+external fun createDocumentRegistry(useCaseSensitiveFileNames?: boolean, currentDirectory?: string): DocumentRegistry
+*/

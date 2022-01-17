@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isDotDotDotToken(node: Node): node is DotDotDotToken
+/*
+external fun isDotDotDotToken(node: Node): node is DotDotDotToken
+*/

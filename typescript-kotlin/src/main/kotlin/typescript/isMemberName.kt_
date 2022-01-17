@@ -1,9 +1,14 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
  * Gets the effective type parameters. If the node was parsed in a
  * JavaScript file, gets the type parameters from the `@template` tag from JSDoc.
  */
-function isMemberName(node: Node): node is MemberName
+/*
+external fun isMemberName(node: Node): node is MemberName
+*/

@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isPropertyAccessExpression(node: Node): node is PropertyAccessExpression
+/*
+external fun isPropertyAccessExpression(node: Node): node is PropertyAccessExpression
+*/

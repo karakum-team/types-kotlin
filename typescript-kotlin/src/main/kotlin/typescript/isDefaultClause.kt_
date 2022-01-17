@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isDefaultClause(node: Node): node is DefaultClause
+/*
+external fun isDefaultClause(node: Node): node is DefaultClause
+*/

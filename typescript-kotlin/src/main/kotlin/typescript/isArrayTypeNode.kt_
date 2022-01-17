@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isArrayTypeNode(node: Node): node is ArrayTypeNode
+/*
+external fun isArrayTypeNode(node: Node): node is ArrayTypeNode
+*/

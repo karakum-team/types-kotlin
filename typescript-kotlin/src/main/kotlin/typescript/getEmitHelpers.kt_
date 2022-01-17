@@ -1,8 +1,13 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
  * Gets the EmitHelpers of a node.
  */
-function getEmitHelpers(node: Node): EmitHelper[] | undefined
+/*
+external fun getEmitHelpers(node: Node): EmitHelper[] | undefined
+*/

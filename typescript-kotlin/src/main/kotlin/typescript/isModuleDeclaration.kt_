@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isModuleDeclaration(node: Node): node is ModuleDeclaration
+/*
+external fun isModuleDeclaration(node: Node): node is ModuleDeclaration
+*/

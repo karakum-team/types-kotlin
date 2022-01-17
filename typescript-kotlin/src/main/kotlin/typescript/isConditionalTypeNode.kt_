@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isConditionalTypeNode(node: Node): node is ConditionalTypeNode
+/*
+external fun isConditionalTypeNode(node: Node): node is ConditionalTypeNode
+*/

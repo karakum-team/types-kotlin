@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isRegularExpressionLiteral(node: Node): node is RegularExpressionLiteral
+/*
+external fun isRegularExpressionLiteral(node: Node): node is RegularExpressionLiteral
+*/

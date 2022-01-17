@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isJSDocVariadicType(node: Node): node is JSDocVariadicType
+/*
+external fun isJSDocVariadicType(node: Node): node is JSDocVariadicType
+*/

@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isTemplateLiteralTypeNode(node: Node): node is TemplateLiteralTypeNode
+/*
+external fun isTemplateLiteralTypeNode(node: Node): node is TemplateLiteralTypeNode
+*/

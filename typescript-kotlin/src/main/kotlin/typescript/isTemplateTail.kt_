@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isTemplateTail(node: Node): node is TemplateTail
+/*
+external fun isTemplateTail(node: Node): node is TemplateTail
+*/

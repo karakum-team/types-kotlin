@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function textSpanContainsTextSpan(span: TextSpan, other: TextSpan): boolean
+/*
+external fun textSpanContainsTextSpan(span: TextSpan, other: TextSpan): boolean
+*/

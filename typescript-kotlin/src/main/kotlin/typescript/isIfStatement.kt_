@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isIfStatement(node: Node): node is IfStatement
+/*
+external fun isIfStatement(node: Node): node is IfStatement
+*/

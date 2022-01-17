@@ -1,9 +1,14 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
  * Gets the effective type parameters. If the node was parsed in a
  * JavaScript file, gets the type parameters from the `@template` tag from JSDoc.
  */
-function isUnparsedTextLike(node: Node): node is UnparsedTextLike
+/*
+external fun isUnparsedTextLike(node: Node): node is UnparsedTextLike
+*/

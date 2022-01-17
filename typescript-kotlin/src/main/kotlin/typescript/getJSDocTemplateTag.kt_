@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** Gets the JSDoc template tag for the node if present */
-function getJSDocTemplateTag(node: Node): JSDocTemplateTag | undefined
+/*
+external fun getJSDocTemplateTag(node: Node): JSDocTemplateTag | undefined
+*/

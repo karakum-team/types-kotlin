@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isCaseBlock(node: Node): node is CaseBlock
+/*
+external fun isCaseBlock(node: Node): node is CaseBlock
+*/

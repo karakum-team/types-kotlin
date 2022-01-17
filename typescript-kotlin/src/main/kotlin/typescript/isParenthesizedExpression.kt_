@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isParenthesizedExpression(node: Node): node is ParenthesizedExpression
+/*
+external fun isParenthesizedExpression(node: Node): node is ParenthesizedExpression
+*/

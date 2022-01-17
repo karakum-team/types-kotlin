@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isGetAccessorDeclaration(node: Node): node is GetAccessorDeclaration
+/*
+external fun isGetAccessorDeclaration(node: Node): node is GetAccessorDeclaration
+*/

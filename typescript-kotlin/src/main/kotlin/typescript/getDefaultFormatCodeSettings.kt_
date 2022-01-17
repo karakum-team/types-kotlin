@@ -1,9 +1,14 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
  * A set of edits to make in response to a refactor action, plus an optional
  * location where renaming should be invoked from
  */
-function getDefaultFormatCodeSettings(newLineCharacter?: string): FormatCodeSettings
+/*
+external fun getDefaultFormatCodeSettings(newLineCharacter?: string): FormatCodeSettings
+*/

@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isWhileStatement(node: Node): node is WhileStatement
+/*
+external fun isWhileStatement(node: Node): node is WhileStatement
+*/

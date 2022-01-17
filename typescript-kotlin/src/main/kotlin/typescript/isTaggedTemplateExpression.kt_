@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isTaggedTemplateExpression(node: Node): node is TaggedTemplateExpression
+/*
+external fun isTaggedTemplateExpression(node: Node): node is TaggedTemplateExpression
+*/

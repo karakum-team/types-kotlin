@@ -1,5 +1,8 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
@@ -10,4 +13,6 @@ package typescript
  * This function will then merge those changes into a single change range valid between V1 and
  * Vn.
  */
-function getTypeParameterOwner(d: Declaration): Declaration | undefined
+/*
+external fun getTypeParameterOwner(d: Declaration): Declaration | undefined
+*/

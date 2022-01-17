@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isJSDocPropertyTag(node: Node): node is JSDocPropertyTag
+/*
+external fun isJSDocPropertyTag(node: Node): node is JSDocPropertyTag
+*/

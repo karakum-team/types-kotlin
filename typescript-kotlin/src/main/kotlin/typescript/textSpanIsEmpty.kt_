@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function textSpanIsEmpty(span: TextSpan): boolean
+/*
+external fun textSpanIsEmpty(span: TextSpan): boolean
+*/

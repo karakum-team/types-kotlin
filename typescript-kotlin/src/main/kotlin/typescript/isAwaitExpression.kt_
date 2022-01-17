@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isAwaitExpression(node: Node): node is AwaitExpression
+/*
+external fun isAwaitExpression(node: Node): node is AwaitExpression
+*/

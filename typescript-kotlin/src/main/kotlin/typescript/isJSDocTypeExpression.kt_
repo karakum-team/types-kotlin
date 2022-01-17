@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isJSDocTypeExpression(node: Node): node is JSDocTypeExpression
+/*
+external fun isJSDocTypeExpression(node: Node): node is JSDocTypeExpression
+*/

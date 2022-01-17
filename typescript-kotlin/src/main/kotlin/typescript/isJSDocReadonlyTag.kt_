@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isJSDocReadonlyTag(node: Node): node is JSDocReadonlyTag
+/*
+external fun isJSDocReadonlyTag(node: Node): node is JSDocReadonlyTag
+*/

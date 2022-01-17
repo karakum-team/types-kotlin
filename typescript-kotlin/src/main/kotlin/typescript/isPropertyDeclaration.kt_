@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isPropertyDeclaration(node: Node): node is PropertyDeclaration
+/*
+external fun isPropertyDeclaration(node: Node): node is PropertyDeclaration
+*/

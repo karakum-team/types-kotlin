@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function createPrinter(printerOptions?: PrinterOptions, handlers?: PrintHandlers): Printer
+/*
+external fun createPrinter(printerOptions?: PrinterOptions, handlers?: PrintHandlers): Printer
+*/

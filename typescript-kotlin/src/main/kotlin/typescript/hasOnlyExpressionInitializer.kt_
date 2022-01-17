@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** True if has initializer node attached to it. */
-function hasOnlyExpressionInitializer(node: Node): node is HasExpressionInitializer
+/*
+external fun hasOnlyExpressionInitializer(node: Node): node is HasExpressionInitializer
+*/

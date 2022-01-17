@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isJSDocNamepathType(node: Node): node is JSDocNamepathType
+/*
+external fun isJSDocNamepathType(node: Node): node is JSDocNamepathType
+*/

@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isMappedTypeNode(node: Node): node is MappedTypeNode
+/*
+external fun isMappedTypeNode(node: Node): node is MappedTypeNode
+*/

@@ -1,8 +1,13 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
  * Adds an EmitHelper to a node.
  */
-function addEmitHelper<T extends Node>(node: T, helper: EmitHelper): T
+/*
+external fun addEmitHelper<T extends Node>(node: T, helper: EmitHelper): T
+*/

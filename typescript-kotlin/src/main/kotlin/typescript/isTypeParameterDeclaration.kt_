@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isTypeParameterDeclaration(node: Node): node is TypeParameterDeclaration
+/*
+external fun isTypeParameterDeclaration(node: Node): node is TypeParameterDeclaration
+*/

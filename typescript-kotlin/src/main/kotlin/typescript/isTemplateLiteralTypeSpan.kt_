@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isTemplateLiteralTypeSpan(node: Node): node is TemplateLiteralTypeSpan
+/*
+external fun isTemplateLiteralTypeSpan(node: Node): node is TemplateLiteralTypeSpan
+*/

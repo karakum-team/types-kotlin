@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isCommaListExpression(node: Node): node is CommaListExpression
+/*
+external fun isCommaListExpression(node: Node): node is CommaListExpression
+*/

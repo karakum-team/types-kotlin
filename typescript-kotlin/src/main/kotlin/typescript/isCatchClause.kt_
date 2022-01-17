@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isCatchClause(node: Node): node is CatchClause
+/*
+external fun isCatchClause(node: Node): node is CatchClause
+*/

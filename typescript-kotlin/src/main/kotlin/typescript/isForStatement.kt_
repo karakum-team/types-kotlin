@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isForStatement(node: Node): node is ForStatement
+/*
+external fun isForStatement(node: Node): node is ForStatement
+*/

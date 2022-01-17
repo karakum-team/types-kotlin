@@ -1,5 +1,8 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
@@ -12,7 +15,9 @@ package typescript
  * @param createProgramOptions - The options for creating a program.
  * @returns A 'Program' object.
  */
-function createProgram(createProgramOptions: CreateProgramOptions): Program
+/*
+external fun createProgram(createProgramOptions: CreateProgramOptions): Program
+*/
 
 /**
  * Create a new 'Program' instance. A Program is an immutable collection of 'SourceFile's and a 'CompilerOptions'
@@ -28,4 +33,6 @@ function createProgram(createProgramOptions: CreateProgramOptions): Program
  * @param configFileParsingDiagnostics - error during config file parsing
  * @returns A 'Program' object.
  */
-function createProgram(rootNames: readonly string[], options: CompilerOptions, host?: CompilerHost, oldProgram?: Program, configFileParsingDiagnostics?: readonly Diagnostic[]): Program
+/*
+external fun createProgram(rootNames: readonly string[], options: CompilerOptions, host?: CompilerHost, oldProgram?: Program, configFileParsingDiagnostics?: readonly Diagnostic[]): Program
+*/

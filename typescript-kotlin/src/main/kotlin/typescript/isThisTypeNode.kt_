@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isThisTypeNode(node: Node): node is ThisTypeNode
+/*
+external fun isThisTypeNode(node: Node): node is ThisTypeNode
+*/

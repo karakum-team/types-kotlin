@@ -1,15 +1,22 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
  * Gets the effective type parameters. If the node was parsed in a
  * JavaScript file, gets the type parameters from the `@template` tag from JSDoc.
  */
-function skipPartiallyEmittedExpressions(node: Expression): Expression
+/*
+external fun skipPartiallyEmittedExpressions(node: Expression): Expression
+*/
 
 /**
  * Gets the effective type parameters. If the node was parsed in a
  * JavaScript file, gets the type parameters from the `@template` tag from JSDoc.
  */
-function skipPartiallyEmittedExpressions(node: Node): Node
+/*
+external fun skipPartiallyEmittedExpressions(node: Node): Node
+*/

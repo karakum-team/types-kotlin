@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isJSDocPublicTag(node: Node): node is JSDocPublicTag
+/*
+external fun isJSDocPublicTag(node: Node): node is JSDocPublicTag
+*/

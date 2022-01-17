@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isTypePredicateNode(node: Node): node is TypePredicateNode
+/*
+external fun isTypePredicateNode(node: Node): node is TypePredicateNode
+*/

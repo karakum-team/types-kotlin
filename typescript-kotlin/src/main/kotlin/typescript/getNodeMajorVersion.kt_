@@ -1,7 +1,12 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function getNodeMajorVersion(): number | undefined;
+/*
+external fun getNodeMajorVersion(): number | undefined;
 export let sys: System;
 export {}
+*/

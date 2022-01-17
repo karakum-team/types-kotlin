@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isJSDocParameterTag(node: Node): node is JSDocParameterTag
+/*
+external fun isJSDocParameterTag(node: Node): node is JSDocParameterTag
+*/

@@ -1,5 +1,8 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
@@ -8,4 +11,6 @@ package typescript
  * @remarks `getJSDocReturnTag` just gets the whole JSDoc tag. This function
  * gets the type from inside the braces, after the fat arrow, etc.
  */
-function getJSDocReturnType(node: Node): TypeNode | undefined
+/*
+external fun getJSDocReturnType(node: Node): TypeNode | undefined
+*/

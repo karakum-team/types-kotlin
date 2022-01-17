@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function isLabeledStatement(node: Node): node is LabeledStatement
+/*
+external fun isLabeledStatement(node: Node): node is LabeledStatement
+*/

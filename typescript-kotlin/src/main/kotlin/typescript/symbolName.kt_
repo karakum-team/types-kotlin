@@ -1,5 +1,8 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
@@ -8,4 +11,6 @@ package typescript
  * @param identifier The escaped identifier text.
  * @returns The unescaped identifier text.
  */
-function symbolName(symbol: Symbol): string
+/*
+external fun symbolName(symbol: Symbol): string
+*/

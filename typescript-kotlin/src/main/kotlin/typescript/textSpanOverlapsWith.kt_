@@ -1,5 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
-function textSpanOverlapsWith(span: TextSpan, other: TextSpan): boolean
+/*
+external fun textSpanOverlapsWith(span: TextSpan, other: TextSpan): boolean
+*/
