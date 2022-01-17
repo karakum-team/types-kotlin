@@ -17,5 +17,4 @@ external fun convertTypeAcquisitionFromJson(jsonOptions: any, basePath: string, 
     options: TypeAcquisition;
     errors: Diagnostic[];
 };
-export {}
 */

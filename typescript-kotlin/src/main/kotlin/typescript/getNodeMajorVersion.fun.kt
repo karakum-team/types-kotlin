@@ -8,5 +8,4 @@ package typescript
 /*
 external fun getNodeMajorVersion(): number | undefined;
 export let sys: System;
-export {}
 */
