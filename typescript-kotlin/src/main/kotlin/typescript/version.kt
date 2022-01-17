@@ -6,6 +6,4 @@
 package typescript
 
 /** The version of the TypeScript compiler release */
-/*
-external val version: string
-*/
+external val version: String

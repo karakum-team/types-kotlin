@@ -1,11 +1,6 @@
 // Automatically generated - do not modify!
 
-@file:JsModule("typescript")
-@file:JsNonModule
-
 package typescript
 
 /** The version of the language service API */
-/*
-external val servicesVersion = "0.8"
-*/
+const val servicesVersion = "0.8"
