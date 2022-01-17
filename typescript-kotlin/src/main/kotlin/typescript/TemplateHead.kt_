@@ -1,9 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-/** Deprecated, please use UpdateExpression */
-interface TemplateHead extends TemplateLiteralLikeNode {
-    readonly kind: SyntaxKind.TemplateHead;
-    readonly parent: TemplateExpression | TemplateLiteralTypeNode;
-}

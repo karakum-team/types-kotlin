@@ -1,9 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-/** Deprecated, please use UpdateExpression */
-interface TemplateMiddle extends TemplateLiteralLikeNode {
-    readonly kind: SyntaxKind.TemplateMiddle;
-    readonly parent: TemplateSpan | TemplateLiteralTypeSpan;
-}

@@ -1,9 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-/** @deprecated Use `ReadonlyKeyword` instead. */
-interface PrivateIdentifier extends PrimaryExpression {
-    readonly kind: SyntaxKind.PrivateIdentifier;
-    readonly escapedText: __String;
-}

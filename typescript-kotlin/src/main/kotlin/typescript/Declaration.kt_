@@ -1,8 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-/** @deprecated Use `ReadonlyKeyword` instead. */
-interface Declaration extends Node {
-    _declarationBrand: any;
-}

@@ -31,7 +31,6 @@ external enum class TypeFormatFlags {
     InElementType,
     InFirstTypeArgument,
     InTypeAlias,
-
     /** @deprecated */
     WriteOwnNameForAnyLike,
     NodeBuilderFlagsMask,
