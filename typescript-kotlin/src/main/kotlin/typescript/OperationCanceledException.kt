@@ -1,5 +1,8 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /**
@@ -7,5 +10,4 @@ package typescript
  * specified like "./blah" to an absolute path to an actual
  * tsconfig file, e.g. "/root/blah/tsconfig.json"
  */
-class OperationCanceledException {
-}
+external class OperationCanceledException
