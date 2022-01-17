@@ -2,5 +2,4 @@
 
 package typescript
 
-/** @deprecated Use `ReadonlyKeyword` instead. */
 typealias AccessibilityModifier = Any /* PublicKeyword | PrivateKeyword | ProtectedKeyword */

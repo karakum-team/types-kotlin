@@ -6,9 +6,6 @@
 
 package typescript
 
-/**
- * Represents a set of signature help items, and the preferred item that should be selected.
- */
 // language=JavaScript
 @JsName("""(/*union*/{Punctuation: 0, Keyword: 1, Operator: 2, Comment: 3, Whitespace: 4, Identifier: 5, NumberLiteral: 6, BigIntLiteral: 7, StringLiteral: 8, RegExpLiteral: 9}/*union*/)""")
 external enum class TokenClass {

@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Deprecated, please use UpdateExpression */
 external interface TrueLiteral : PrimaryExpression {
     /*
     readonly kind: SyntaxKind.TrueKeyword;

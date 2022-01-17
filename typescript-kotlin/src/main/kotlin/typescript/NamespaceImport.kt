@@ -2,11 +2,6 @@
 
 package typescript
 
-/**
- * One of:
- * - import x = require("mod");
- * - import x = M.x;
- */
 external interface NamespaceImport : NamedDeclaration {
     /*
     readonly kind: SyntaxKind.NamespaceImport;

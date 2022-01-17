@@ -2,10 +2,6 @@
 
 package typescript
 
-/**
- * Note that `@extends` is a synonym of `@augments`.
- * Both tags are represented by this interface.
- */
 external interface JsonSourceFile : SourceFile {
     /*
     readonly statements: NodeArray<JsonObjectExpressionStatement>;

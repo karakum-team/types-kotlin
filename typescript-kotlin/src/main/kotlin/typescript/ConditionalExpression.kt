@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Deprecated, please use UpdateExpression */
 external interface ConditionalExpression : Expression {
     /*
     readonly kind: SyntaxKind.ConditionalExpression;

@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Deprecated, please use UpdateExpression */
 external interface YieldExpression : Expression {
     /*
     readonly kind: SyntaxKind.YieldExpression;

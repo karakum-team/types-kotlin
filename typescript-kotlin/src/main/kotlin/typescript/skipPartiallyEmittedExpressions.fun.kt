@@ -5,18 +5,10 @@
 
 package typescript
 
-/**
- * Gets the effective type parameters. If the node was parsed in a
- * JavaScript file, gets the type parameters from the `@template` tag from JSDoc.
- */
 /*
 external fun skipPartiallyEmittedExpressions(node: Expression): Expression
 */
 
-/**
- * Gets the effective type parameters. If the node was parsed in a
- * JavaScript file, gets the type parameters from the `@template` tag from JSDoc.
- */
 /*
 external fun skipPartiallyEmittedExpressions(node: Node): Node
 */

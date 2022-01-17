@@ -13,10 +13,6 @@ package typescript
 external fun visitParameterList(nodes: NodeArray<ParameterDeclaration>, visitor: Visitor, context: TransformationContext, nodesVisitor?: NodesVisitor): NodeArray<ParameterDeclaration>
 */
 
-/**
- * Starts a new lexical environment and visits a parameter list, suspending the lexical
- * environment upon completion.
- */
 /*
 external fun visitParameterList(nodes: NodeArray<ParameterDeclaration> | undefined, visitor: Visitor, context: TransformationContext, nodesVisitor?: NodesVisitor): NodeArray<ParameterDeclaration> | undefined
 */

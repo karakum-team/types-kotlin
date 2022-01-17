@@ -2,5 +2,4 @@
 
 package typescript
 
-/** @deprecated Use `AssertsKeyword` instead. */
 typealias DeclareKeyword = Any /* ModifierToken<SyntaxKind.DeclareKeyword> */

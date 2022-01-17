@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Host that has watch functionality used in --watch mode */
 external interface WatchCompilerHost<T : BuilderProgram> : ProgramHost<T>, WatchHost {
     /*
     /** Instead of using output d.ts file from project reference, use its source file */

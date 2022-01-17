@@ -5,5 +5,4 @@
 
 package typescript
 
-/** True if node is of a kind that may contain comment text. */
 external fun isGetAccessor(node: Node): Boolean /* node is GetAccessorDeclaration */

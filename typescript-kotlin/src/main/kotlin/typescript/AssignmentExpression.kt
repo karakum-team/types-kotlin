@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Deprecated, please use UpdateExpression */
 external interface AssignmentExpression<TOperator : AssignmentOperatorToken> : BinaryExpression {
     /*
     readonly left: LeftHandSideExpression;

@@ -5,7 +5,6 @@
 
 package typescript
 
-/** Does not include line breaks. For that, see isWhiteSpaceLike. */
 /*
 external fun couldStartTrivia(text: string, pos: number): boolean
 */

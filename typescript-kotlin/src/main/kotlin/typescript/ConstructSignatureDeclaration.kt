@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use `ReadonlyKeyword` instead. */
 external interface ConstructSignatureDeclaration : SignatureDeclarationBase, TypeElement {
     /*
     readonly kind: SyntaxKind.ConstructSignature;

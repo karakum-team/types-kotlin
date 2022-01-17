@@ -2,10 +2,6 @@
 
 package typescript
 
-/**
- * Note that `@extends` is a synonym of `@augments`.
- * Both tags are represented by this interface.
- */
 external interface SourceFile : Declaration {
     /*
     readonly kind: SyntaxKind.SourceFile;

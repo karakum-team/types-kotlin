@@ -5,7 +5,6 @@
 
 package typescript
 
-/** Does not include line breaks. For that, see isWhiteSpaceLike. */
 /*
 external fun getLeadingCommentRanges(text: string, pos: number): CommentRange[] | undefined
 */

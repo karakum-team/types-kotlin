@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use `ReadonlyKeyword` instead. */
 external interface Decorator : Node {
     /*
     readonly kind: SyntaxKind.Decorator;

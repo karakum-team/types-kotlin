@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Class#method reference in JSDoc */
 external interface JSDocTag : Node {
     /*
     readonly parent: JSDoc | JSDocTypeLiteral;

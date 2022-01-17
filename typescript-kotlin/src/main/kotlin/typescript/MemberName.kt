@@ -2,5 +2,4 @@
 
 package typescript
 
-/** @deprecated Use `ReadonlyKeyword` instead. */
 typealias MemberName = Any /* Identifier | PrivateIdentifier */

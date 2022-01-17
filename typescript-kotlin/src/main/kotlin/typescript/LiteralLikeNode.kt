@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Deprecated, please use UpdateExpression */
 external interface LiteralLikeNode : Node {
     /*
     text: string;

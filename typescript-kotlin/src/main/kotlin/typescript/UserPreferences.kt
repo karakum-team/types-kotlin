@@ -2,9 +2,6 @@
 
 package typescript
 
-/**
- * A function that accepts and possibly transforms a node.
- */
 external interface UserPreferences {
     /*
     readonly disableSuggestions?: boolean;

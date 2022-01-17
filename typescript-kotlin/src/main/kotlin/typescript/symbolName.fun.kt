@@ -5,12 +5,6 @@
 
 package typescript
 
-/**
- * Remove extra underscore from escaped identifier text content.
- *
- * @param identifier The escaped identifier text.
- * @returns The unescaped identifier text.
- */
 /*
 external fun symbolName(symbol: Symbol): string
 */

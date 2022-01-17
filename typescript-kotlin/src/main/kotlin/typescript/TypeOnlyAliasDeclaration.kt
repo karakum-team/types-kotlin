@@ -2,11 +2,6 @@
 
 package typescript
 
-/**
- * One of:
- * - import x = require("mod");
- * - import x = M.x;
- */
 typealias TypeOnlyAliasDeclaration = Any /* ImportClause & {
     readonly isTypeOnly: true;
     readonly name: Identifier;

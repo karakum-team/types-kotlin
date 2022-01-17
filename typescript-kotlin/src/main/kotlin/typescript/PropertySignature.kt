@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use `ReadonlyKeyword` instead. */
 external interface PropertySignature : TypeElement, JSDocContainer {
     /*
     readonly kind: SyntaxKind.PropertySignature;

@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use SignatureDeclaration */
 external interface MethodDeclaration : FunctionLikeDeclarationBase, ClassElement, ObjectLiteralElement, JSDocContainer {
     /*
     readonly kind: SyntaxKind.MethodDeclaration;

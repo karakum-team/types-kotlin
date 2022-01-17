@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use SignatureDeclaration */
 external interface ConstructorDeclaration : FunctionLikeDeclarationBase, ClassElement, JSDocContainer {
     /*
     readonly kind: SyntaxKind.Constructor;

@@ -5,7 +5,6 @@
 
 package typescript
 
-/** The version of the language service API */
 /*
 external fun toEditorSettings(options: EditorOptions | EditorSettings): EditorSettings
 */

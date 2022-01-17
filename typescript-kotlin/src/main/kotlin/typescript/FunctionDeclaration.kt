@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use SignatureDeclaration */
 external interface FunctionDeclaration : FunctionLikeDeclarationBase, DeclarationStatement {
     /*
     readonly kind: SyntaxKind.FunctionDeclaration;

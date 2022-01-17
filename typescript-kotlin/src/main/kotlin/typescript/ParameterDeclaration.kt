@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use `ReadonlyKeyword` instead. */
 external interface ParameterDeclaration : NamedDeclaration, JSDocContainer {
     /*
     readonly kind: SyntaxKind.Parameter;

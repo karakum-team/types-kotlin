@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Deprecated, please use UpdateExpression */
 external interface TemplateMiddle : TemplateLiteralLikeNode {
     /*
     readonly kind: SyntaxKind.TemplateMiddle;

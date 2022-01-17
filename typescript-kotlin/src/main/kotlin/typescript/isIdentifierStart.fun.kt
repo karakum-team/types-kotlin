@@ -5,7 +5,6 @@
 
 package typescript
 
-/** Optionally, get the shebang */
 /*
 external fun isIdentifierStart(ch: number, languageVersion: ScriptTarget | undefined): boolean
 */

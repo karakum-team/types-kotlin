@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Deprecated, please use UpdateExpression */
 external interface TemplateSpan : Node {
     /*
     readonly kind: SyntaxKind.TemplateSpan;

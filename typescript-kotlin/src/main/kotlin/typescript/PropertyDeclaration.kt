@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use `ReadonlyKeyword` instead. */
 external interface PropertyDeclaration : ClassElement, JSDocContainer {
     /*
     readonly kind: SyntaxKind.PropertyDeclaration;

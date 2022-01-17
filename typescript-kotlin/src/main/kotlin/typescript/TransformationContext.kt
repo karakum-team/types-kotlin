@@ -2,10 +2,6 @@
 
 package typescript
 
-/**
- * Unique identifier with a package name and version.
- * If changing this, remember to change `packageIdIsEqual`.
- */
 external interface TransformationContext : CoreTransformationContext {
     /*
     /** Records a request for a non-scoped emit helper in the current context. */

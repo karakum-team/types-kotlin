@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Return code used by getEmitOutput function to indicate status of the function */
 external interface TypePredicateBase {
     /*
     kind: TypePredicateKind;

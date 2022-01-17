@@ -5,11 +5,6 @@
 
 package typescript
 
-/**
- * Parse json text into SyntaxTree and return node and parse errors if any
- * @param fileName
- * @param sourceText
- */
 /*
 external fun isExternalModule(file: SourceFile): boolean
 */

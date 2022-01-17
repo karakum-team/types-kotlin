@@ -2,5 +2,4 @@
 
 package typescript
 
-/** Deprecated, please use UpdateExpression */
 typealias ObjectBindingOrAssignmentElement = Any /* BindingElement | PropertyAssignment | ShorthandPropertyAssignment | SpreadAssignment */

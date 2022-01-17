@@ -5,9 +5,6 @@
 
 package typescript
 
-/**
- * Create a function that reports watch status by writing to the system and handles the formating of the diagnostic
- */
 /*
 external fun createSolutionBuilderWithWatch<T extends BuilderProgram>(host: SolutionBuilderWithWatchHost<T>, rootNames: readonly string[], defaultOptions: BuildOptions, baseWatchOptions?: WatchOptions): SolutionBuilder<T>
 */

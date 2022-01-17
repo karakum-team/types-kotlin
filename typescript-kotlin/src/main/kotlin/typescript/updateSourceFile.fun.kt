@@ -5,11 +5,6 @@
 
 package typescript
 
-/**
- * Parse json text into SyntaxTree and return node and parse errors if any
- * @param fileName
- * @param sourceText
- */
 /*
 external fun updateSourceFile(sourceFile: SourceFile, newText: string, textChangeRange: TextChangeRange, aggressiveChecks?: boolean): SourceFile;
 */

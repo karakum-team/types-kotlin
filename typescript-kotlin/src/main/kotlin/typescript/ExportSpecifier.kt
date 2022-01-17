@@ -2,11 +2,6 @@
 
 package typescript
 
-/**
- * One of:
- * - import x = require("mod");
- * - import x = M.x;
- */
 external interface ExportSpecifier : NamedDeclaration {
     /*
     readonly kind: SyntaxKind.ExportSpecifier;

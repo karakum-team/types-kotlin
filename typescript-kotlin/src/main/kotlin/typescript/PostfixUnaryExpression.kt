@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Deprecated, please use UpdateExpression */
 external interface PostfixUnaryExpression : UpdateExpression {
     /*
     readonly kind: SyntaxKind.PostfixUnaryExpression;

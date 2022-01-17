@@ -2,9 +2,6 @@
 
 package typescript
 
-/**
- * Represents a set of signature help items, and the preferred item that should be selected.
- */
 external interface OutliningSpan {
     /*
     /** The span of the document to actually collapse. */

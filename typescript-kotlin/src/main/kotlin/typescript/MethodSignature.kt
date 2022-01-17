@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use SignatureDeclaration */
 external interface MethodSignature : SignatureDeclarationBase, TypeElement {
     /*
     readonly kind: SyntaxKind.MethodSignature;

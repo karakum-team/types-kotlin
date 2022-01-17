@@ -2,7 +2,4 @@
 
 package typescript
 
-/**
- * A list of comma-separated expressions. This node is only created by transformations.
- */
 typealias ForInOrOfStatement = Any /* ForInStatement | ForOfStatement */

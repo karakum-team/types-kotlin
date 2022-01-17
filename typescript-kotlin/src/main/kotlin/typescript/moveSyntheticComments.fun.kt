@@ -5,9 +5,6 @@
 
 package typescript
 
-/**
- * Sets a custom text range to use when emitting comments.
- */
 /*
 external fun moveSyntheticComments<T extends Node>(node: T, original: Node): T
 */

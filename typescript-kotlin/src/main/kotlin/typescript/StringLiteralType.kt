@@ -2,7 +2,6 @@
 
 package typescript
 
-/** SymbolTable based on ES6 Map interface. */
 external interface StringLiteralType : LiteralType {
     /*
     value: string;

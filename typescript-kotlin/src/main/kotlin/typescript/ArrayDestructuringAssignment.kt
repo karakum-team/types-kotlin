@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Deprecated, please use UpdateExpression */
 external interface ArrayDestructuringAssignment : AssignmentExpression<EqualsToken> {
     /*
     readonly left: ArrayLiteralExpression;

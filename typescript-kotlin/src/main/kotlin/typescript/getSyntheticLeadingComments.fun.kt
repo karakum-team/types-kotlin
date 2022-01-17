@@ -5,9 +5,6 @@
 
 package typescript
 
-/**
- * Sets a custom text range to use when emitting comments.
- */
 /*
 external fun getSyntheticLeadingComments(node: Node): SynthesizedComment[] | undefined
 */

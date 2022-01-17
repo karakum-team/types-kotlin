@@ -5,5 +5,4 @@
 
 package typescript
 
-/** True if has initializer node attached to it. */
 external fun isJSDocLinkLike(node: Node): Boolean /* node is JSDocLink | JSDocLinkCode | JSDocLinkPlain */

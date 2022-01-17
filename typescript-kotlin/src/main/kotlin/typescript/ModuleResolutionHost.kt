@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Either a parsed command line or a parsed tsconfig.json */
 external interface ModuleResolutionHost {
     /*
     fileExists(fileName: string): boolean;

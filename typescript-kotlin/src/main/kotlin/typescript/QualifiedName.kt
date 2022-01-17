@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use `ReadonlyKeyword` instead. */
 external interface QualifiedName : Node {
     /*
     readonly kind: SyntaxKind.QualifiedName;

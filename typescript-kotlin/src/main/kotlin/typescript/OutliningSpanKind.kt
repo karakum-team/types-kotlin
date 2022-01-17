@@ -6,9 +6,6 @@
 
 package typescript
 
-/**
- * Represents a set of signature help items, and the preferred item that should be selected.
- */
 // language=JavaScript
 @JsName("""(/*union*/{Comment: 'comment', Region: 'region', Code: 'code', Imports: 'imports'}/*union*/)""")
 external enum class OutliningSpanKind {

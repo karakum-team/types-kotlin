@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use `ReadonlyKeyword` instead. */
 external interface Identifier : PrimaryExpression, Declaration {
     /*
     readonly kind: SyntaxKind.Identifier;

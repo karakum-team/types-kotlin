@@ -2,5 +2,4 @@
 
 package typescript
 
-/** @deprecated Use `ReadonlyKeyword` instead. */
 typealias ClassMemberModifier = Any /* AccessibilityModifier | ReadonlyKeyword | StaticKeyword */

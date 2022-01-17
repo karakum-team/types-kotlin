@@ -2,9 +2,6 @@
 
 package typescript
 
-/**
- * Represents a set of signature help items, and the preferred item that should be selected.
- */
 external interface CompletionInfo {
     /*
     /** Not true for all global completions. This will be true if the enclosing scope matches a few syntax kinds. See `isSnippetScope`. */

@@ -6,7 +6,6 @@
 
 package typescript
 
-/** @deprecated Use `ReadonlyKeyword` instead. */
 // language=JavaScript
 @JsName("""(/*union*/{None: 0, ReservedInNestedScopes: 8, Optimistic: 16, FileLevel: 32, AllowNameSubstitution: 64}/*union*/)""")
 external enum class GeneratedIdentifierFlags {

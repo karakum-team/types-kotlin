@@ -2,10 +2,6 @@
 
 package typescript
 
-/**
- * Node in a tree of nested declarations in a file.
- * The top node is always a script or module node.
- */
 external interface CodeFixAction : CodeAction {
     /*
     /** Short name to identify the fix, for use by telemetry. */

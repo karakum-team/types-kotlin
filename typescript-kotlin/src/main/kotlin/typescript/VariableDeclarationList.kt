@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use `ReadonlyKeyword` instead. */
 external interface VariableDeclarationList : Node {
     /*
     readonly kind: SyntaxKind.VariableDeclarationList;

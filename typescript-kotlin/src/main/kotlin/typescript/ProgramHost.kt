@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Host that has watch functionality used in --watch mode */
 external interface ProgramHost<T : BuilderProgram> {
     /*
     /**

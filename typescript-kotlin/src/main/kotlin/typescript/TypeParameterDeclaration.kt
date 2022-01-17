@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use `ReadonlyKeyword` instead. */
 external interface TypeParameterDeclaration : NamedDeclaration {
     /*
     readonly kind: SyntaxKind.TypeParameter;

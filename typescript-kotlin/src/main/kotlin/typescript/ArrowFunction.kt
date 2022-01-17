@@ -2,7 +2,6 @@
 
 package typescript
 
-/** Deprecated, please use UpdateExpression */
 external interface ArrowFunction : Expression, FunctionLikeDeclarationBase, JSDocContainer {
     /*
     readonly kind: SyntaxKind.ArrowFunction;

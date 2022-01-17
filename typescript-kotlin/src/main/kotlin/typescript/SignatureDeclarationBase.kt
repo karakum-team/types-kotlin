@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use `ReadonlyKeyword` instead. */
 external interface SignatureDeclarationBase : NamedDeclaration, JSDocContainer {
     /*
     readonly kind: SignatureDeclaration["kind"];

@@ -2,7 +2,6 @@
 
 package typescript
 
-/** @deprecated Use FileExtensionInfo instead. */
 external interface FileExtensionInfo {
     /*
     extension: string;

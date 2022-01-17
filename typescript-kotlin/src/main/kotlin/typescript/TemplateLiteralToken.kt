@@ -2,5 +2,4 @@
 
 package typescript
 
-/** Deprecated, please use UpdateExpression */
 typealias TemplateLiteralToken = Any /* NoSubstitutionTemplateLiteral | PseudoLiteralToken */

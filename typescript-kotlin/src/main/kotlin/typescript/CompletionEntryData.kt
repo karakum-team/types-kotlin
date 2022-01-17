@@ -2,7 +2,4 @@
 
 package typescript
 
-/**
- * Represents a set of signature help items, and the preferred item that should be selected.
- */
 typealias CompletionEntryData = Any /* CompletionEntryDataUnresolved | CompletionEntryDataResolved */
