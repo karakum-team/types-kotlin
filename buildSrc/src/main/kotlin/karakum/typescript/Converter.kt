@@ -76,6 +76,7 @@ private fun convertDefinition(
         .removePrefix("type ")
         .removePrefix("enum ")
         .removePrefix("interface ")
+        .removePrefix("class ")
     val content = CONVERTER_MAP.getValue(type)(name, contentSource)
 
     val body = sequenceOf(comment, content)
@@ -186,7 +187,7 @@ private fun convertClass(
     name: String,
     source: String,
 ): String {
-    return source
+    return "external class $source"
 }
 
 
