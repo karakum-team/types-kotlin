@@ -1,6 +1,7 @@
 package karakum.typescript
 
 import karakum.common.UnionConstant
+import karakum.common.unionBody
 import karakum.common.unionBodyByConstants
 import java.io.File
 
@@ -121,6 +122,19 @@ private fun convertType(
     source: String,
 ): String {
     val (declarationSource, body) = source.split(" = ")
+
+    when (name) {
+        "RefactorTriggerReason",
+        "TypeOfTag",
+        -> {
+            val values = body
+                .splitToSequence(" | ")
+                .map { it.removeSurrounding("\"") }
+                .toList()
+
+            return unionBody(name, values)
+        }
+    }
 
     val declaration = declarationSource
         .replace("extends BuilderProgram", "/* : BuilderProgram */")
