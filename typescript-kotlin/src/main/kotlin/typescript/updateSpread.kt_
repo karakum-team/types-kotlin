@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** @deprecated Use `factory.updateSpreadExpression` or the factory supplied by your transformation context instead. */
-const updateSpread: (node: SpreadElement, expression: Expression) => SpreadElement
+/*
+external val updateSpread: (node: SpreadElement, expression: Expression) => SpreadElement
+*/

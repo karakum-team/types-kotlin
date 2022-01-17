@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** @deprecated Use `factory.createDecorator` or the factory supplied by your transformation context instead. */
-const createDecorator: (expression: Expression) => Decorator
+/*
+external val createDecorator: (expression: Expression) => Decorator
+*/

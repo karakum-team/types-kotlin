@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** @deprecated Use `factory.createContinueStatement` or the factory supplied by your transformation context instead. */
-const createContinue: (label?: string | Identifier | undefined) => ContinueStatement
+/*
+external val createContinue: (label?: string | Identifier | undefined) => ContinueStatement
+*/

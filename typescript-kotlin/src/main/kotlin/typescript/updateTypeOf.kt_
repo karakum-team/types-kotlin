@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** @deprecated Use `factory.updateTypeOfExpression` or the factory supplied by your transformation context instead. */
-const updateTypeOf: (node: TypeOfExpression, expression: Expression) => TypeOfExpression
+/*
+external val updateTypeOf: (node: TypeOfExpression, expression: Expression) => TypeOfExpression
+*/

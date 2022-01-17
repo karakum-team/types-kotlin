@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** @deprecated Use `factory.updateWithStatement` or the factory supplied by your transformation context instead. */
-const updateWith: (node: WithStatement, expression: Expression, statement: Statement) => WithStatement
+/*
+external val updateWith: (node: WithStatement, expression: Expression, statement: Statement) => WithStatement
+*/

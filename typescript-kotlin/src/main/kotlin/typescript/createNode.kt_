@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** @deprecated Use an appropriate `factory` method instead. */
-const createNode: (kind: SyntaxKind, pos?: any, end?: any) => Node
+/*
+external val createNode: (kind: SyntaxKind, pos?: any, end?: any) => Node
+*/

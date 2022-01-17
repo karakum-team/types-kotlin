@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** @deprecated Use `factory.createLoopVariable` or the factory supplied by your transformation context instead. */
-const createLoopVariable: (reservedInNestedScopes?: boolean | undefined) => Identifier
+/*
+external val createLoopVariable: (reservedInNestedScopes?: boolean | undefined) => Identifier
+*/

@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** @deprecated Use `factory.createRegularExpressionLiteral` or the factory supplied by your transformation context instead. */
-const createRegularExpressionLiteral: (text: string) => RegularExpressionLiteral
+/*
+external val createRegularExpressionLiteral: (text: string) => RegularExpressionLiteral
+*/

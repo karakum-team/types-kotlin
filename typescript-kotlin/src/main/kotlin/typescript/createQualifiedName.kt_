@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** @deprecated Use `factory.createQualifiedName` or the factory supplied by your transformation context instead. */
-const createQualifiedName: (left: EntityName, right: string | Identifier) => QualifiedName
+/*
+external val createQualifiedName: (left: EntityName, right: string | Identifier) => QualifiedName
+*/

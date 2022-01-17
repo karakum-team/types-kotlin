@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** @deprecated Use `factory.createSubtract` or the factory supplied by your transformation context instead. */
-const createSubtract: (left: Expression, right: Expression) => BinaryExpression
+/*
+external val createSubtract: (left: Expression, right: Expression) => BinaryExpression
+*/

@@ -1,8 +1,13 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** @deprecated Use `factory.createJSDocAugmentsTag` or the factory supplied by your transformation context instead. */
-const createJSDocAugmentsTag: (tagName: Identifier | undefined, className: ExpressionWithTypeArguments & {
+/*
+external val createJSDocAugmentsTag: (tagName: Identifier | undefined, className: ExpressionWithTypeArguments & {
     readonly expression: Identifier | PropertyAccessEntityNameExpression;
 }, comment?: string | NodeArray<JSDocComment> | undefined) => JSDocAugmentsTag
+*/

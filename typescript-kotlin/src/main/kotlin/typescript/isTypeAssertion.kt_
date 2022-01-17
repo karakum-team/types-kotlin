@@ -1,6 +1,11 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("typescript")
+@file:JsNonModule
+
 package typescript
 
 /** @deprecated Use `isTypeAssertionExpression` instead. */
-const isTypeAssertion: (node: Node) => node is TypeAssertion
+/*
+external val isTypeAssertion: (node: Node) => node is TypeAssertion
+*/
