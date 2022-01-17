@@ -92,6 +92,12 @@ private fun convertFunction(
     name: String,
     source: String,
 ): String {
+    if ("): node is " in source && name != "isIterationStatement")
+        return "external fun " +
+                source.replace("): node is ", "): Boolean /* node is ")
+                    .replace("Node | undefined", "Node?") +
+                " */"
+
     return "/*\nexternal fun $source\n*/"
 }
 
