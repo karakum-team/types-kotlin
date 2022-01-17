@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isBindingElement(node: Node): node is BindingElement
-*/
+external fun isBindingElement(node: Node): Boolean /* node is BindingElement */

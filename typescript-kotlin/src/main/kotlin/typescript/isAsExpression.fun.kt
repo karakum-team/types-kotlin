@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isAsExpression(node: Node): node is AsExpression
-*/
+external fun isAsExpression(node: Node): Boolean /* node is AsExpression */

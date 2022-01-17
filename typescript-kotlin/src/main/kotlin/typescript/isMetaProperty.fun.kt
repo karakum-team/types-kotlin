@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isMetaProperty(node: Node): node is MetaProperty
-*/
+external fun isMetaProperty(node: Node): Boolean /* node is MetaProperty */

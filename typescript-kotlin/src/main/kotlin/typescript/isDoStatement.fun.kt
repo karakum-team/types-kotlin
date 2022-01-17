@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isDoStatement(node: Node): node is DoStatement
-*/
+external fun isDoStatement(node: Node): Boolean /* node is DoStatement */

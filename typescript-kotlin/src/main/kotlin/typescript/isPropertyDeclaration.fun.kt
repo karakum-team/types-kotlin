@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isPropertyDeclaration(node: Node): node is PropertyDeclaration
-*/
+external fun isPropertyDeclaration(node: Node): Boolean /* node is PropertyDeclaration */

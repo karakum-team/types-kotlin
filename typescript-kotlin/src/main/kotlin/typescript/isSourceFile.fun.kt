@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isSourceFile(node: Node): node is SourceFile
-*/
+external fun isSourceFile(node: Node): Boolean /* node is SourceFile */

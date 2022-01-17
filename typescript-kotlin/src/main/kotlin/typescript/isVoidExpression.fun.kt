@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isVoidExpression(node: Node): node is VoidExpression
-*/
+external fun isVoidExpression(node: Node): Boolean /* node is VoidExpression */

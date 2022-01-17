@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isMissingDeclaration(node: Node): node is MissingDeclaration
-*/
+external fun isMissingDeclaration(node: Node): Boolean /* node is MissingDeclaration */

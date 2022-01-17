@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isObjectBindingPattern(node: Node): node is ObjectBindingPattern
-*/
+external fun isObjectBindingPattern(node: Node): Boolean /* node is ObjectBindingPattern */

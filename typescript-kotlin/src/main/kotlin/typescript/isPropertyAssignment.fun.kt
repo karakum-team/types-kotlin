@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isPropertyAssignment(node: Node): node is PropertyAssignment
-*/
+external fun isPropertyAssignment(node: Node): Boolean /* node is PropertyAssignment */

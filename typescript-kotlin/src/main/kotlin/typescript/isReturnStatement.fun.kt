@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isReturnStatement(node: Node): node is ReturnStatement
-*/
+external fun isReturnStatement(node: Node): Boolean /* node is ReturnStatement */

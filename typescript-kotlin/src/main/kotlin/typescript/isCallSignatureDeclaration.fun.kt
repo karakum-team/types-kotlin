@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isCallSignatureDeclaration(node: Node): node is CallSignatureDeclaration
-*/
+external fun isCallSignatureDeclaration(node: Node): Boolean /* node is CallSignatureDeclaration */

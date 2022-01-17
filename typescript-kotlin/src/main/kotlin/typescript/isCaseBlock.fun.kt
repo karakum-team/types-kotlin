@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isCaseBlock(node: Node): node is CaseBlock
-*/
+external fun isCaseBlock(node: Node): Boolean /* node is CaseBlock */

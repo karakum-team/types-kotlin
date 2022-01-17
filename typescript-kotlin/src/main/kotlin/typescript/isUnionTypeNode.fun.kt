@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isUnionTypeNode(node: Node): node is UnionTypeNode
-*/
+external fun isUnionTypeNode(node: Node): Boolean /* node is UnionTypeNode */

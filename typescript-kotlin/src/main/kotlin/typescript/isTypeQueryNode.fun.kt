@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isTypeQueryNode(node: Node): node is TypeQueryNode
-*/
+external fun isTypeQueryNode(node: Node): Boolean /* node is TypeQueryNode */

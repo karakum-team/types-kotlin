@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isElementAccessExpression(node: Node): node is ElementAccessExpression
-*/
+external fun isElementAccessExpression(node: Node): Boolean /* node is ElementAccessExpression */

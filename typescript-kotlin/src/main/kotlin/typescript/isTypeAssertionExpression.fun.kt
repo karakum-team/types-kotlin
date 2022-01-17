@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isTypeAssertionExpression(node: Node): node is TypeAssertion
-*/
+external fun isTypeAssertionExpression(node: Node): Boolean /* node is TypeAssertion */

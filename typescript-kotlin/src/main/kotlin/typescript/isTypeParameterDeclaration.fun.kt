@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isTypeParameterDeclaration(node: Node): node is TypeParameterDeclaration
-*/
+external fun isTypeParameterDeclaration(node: Node): Boolean /* node is TypeParameterDeclaration */

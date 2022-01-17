@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocPublicTag(node: Node): node is JSDocPublicTag
-*/
+external fun isJSDocPublicTag(node: Node): Boolean /* node is JSDocPublicTag */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isWhileStatement(node: Node): node is WhileStatement
-*/
+external fun isWhileStatement(node: Node): Boolean /* node is WhileStatement */

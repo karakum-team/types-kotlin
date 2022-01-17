@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJsxFragment(node: Node): node is JsxFragment
-*/
+external fun isJsxFragment(node: Node): Boolean /* node is JsxFragment */

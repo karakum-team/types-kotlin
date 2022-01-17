@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocAllType(node: Node): node is JSDocAllType
-*/
+external fun isJSDocAllType(node: Node): Boolean /* node is JSDocAllType */

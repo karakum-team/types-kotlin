@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isEnumMember(node: Node): node is EnumMember
-*/
+external fun isEnumMember(node: Node): Boolean /* node is EnumMember */

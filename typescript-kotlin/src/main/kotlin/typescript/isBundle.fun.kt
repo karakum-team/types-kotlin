@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isBundle(node: Node): node is Bundle
-*/
+external fun isBundle(node: Node): Boolean /* node is Bundle */

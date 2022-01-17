@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isDeleteExpression(node: Node): node is DeleteExpression
-*/
+external fun isDeleteExpression(node: Node): Boolean /* node is DeleteExpression */

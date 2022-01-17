@@ -10,6 +10,4 @@ package typescript
  * This differs from the `isPartOfTypeNode` function which determines whether a node is *part*
  * of a TypeNode.
  */
-/*
-external fun isTemplateLiteral(node: Node): node is TemplateLiteral
-*/
+external fun isTemplateLiteral(node: Node): Boolean /* node is TemplateLiteral */

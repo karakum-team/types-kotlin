@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isImportEqualsDeclaration(node: Node): node is ImportEqualsDeclaration
-*/
+external fun isImportEqualsDeclaration(node: Node): Boolean /* node is ImportEqualsDeclaration */

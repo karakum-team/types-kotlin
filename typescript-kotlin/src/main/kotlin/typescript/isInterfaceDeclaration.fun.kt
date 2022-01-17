@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isInterfaceDeclaration(node: Node): node is InterfaceDeclaration
-*/
+external fun isInterfaceDeclaration(node: Node): Boolean /* node is InterfaceDeclaration */

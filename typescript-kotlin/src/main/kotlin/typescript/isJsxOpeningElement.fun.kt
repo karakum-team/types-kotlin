@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJsxOpeningElement(node: Node): node is JsxOpeningElement
-*/
+external fun isJsxOpeningElement(node: Node): Boolean /* node is JsxOpeningElement */

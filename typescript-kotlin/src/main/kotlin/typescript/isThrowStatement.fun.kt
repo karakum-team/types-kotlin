@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isThrowStatement(node: Node): node is ThrowStatement
-*/
+external fun isThrowStatement(node: Node): Boolean /* node is ThrowStatement */

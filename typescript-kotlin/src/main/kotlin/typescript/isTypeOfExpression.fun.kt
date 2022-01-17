@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isTypeOfExpression(node: Node): node is TypeOfExpression
-*/
+external fun isTypeOfExpression(node: Node): Boolean /* node is TypeOfExpression */

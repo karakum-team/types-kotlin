@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isMinusToken(node: Node): node is MinusToken
-*/
+external fun isMinusToken(node: Node): Boolean /* node is MinusToken */

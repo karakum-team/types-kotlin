@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isPrefixUnaryExpression(node: Node): node is PrefixUnaryExpression
-*/
+external fun isPrefixUnaryExpression(node: Node): Boolean /* node is PrefixUnaryExpression */

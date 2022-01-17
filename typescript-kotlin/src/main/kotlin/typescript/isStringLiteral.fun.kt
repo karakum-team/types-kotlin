@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isStringLiteral(node: Node): node is StringLiteral
-*/
+external fun isStringLiteral(node: Node): Boolean /* node is StringLiteral */

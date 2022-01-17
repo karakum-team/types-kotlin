@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isBinaryExpression(node: Node): node is BinaryExpression
-*/
+external fun isBinaryExpression(node: Node): Boolean /* node is BinaryExpression */

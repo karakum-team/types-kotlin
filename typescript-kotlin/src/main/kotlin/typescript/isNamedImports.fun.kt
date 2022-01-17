@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isNamedImports(node: Node): node is NamedImports
-*/
+external fun isNamedImports(node: Node): Boolean /* node is NamedImports */

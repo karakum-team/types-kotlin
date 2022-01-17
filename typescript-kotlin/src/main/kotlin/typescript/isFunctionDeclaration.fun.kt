@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isFunctionDeclaration(node: Node): node is FunctionDeclaration
-*/
+external fun isFunctionDeclaration(node: Node): Boolean /* node is FunctionDeclaration */

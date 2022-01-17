@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocTypeLiteral(node: Node): node is JSDocTypeLiteral
-*/
+external fun isJSDocTypeLiteral(node: Node): Boolean /* node is JSDocTypeLiteral */

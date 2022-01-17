@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isTupleTypeNode(node: Node): node is TupleTypeNode
-*/
+external fun isTupleTypeNode(node: Node): Boolean /* node is TupleTypeNode */

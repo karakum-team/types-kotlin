@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isComputedPropertyName(node: Node): node is ComputedPropertyName
-*/
+external fun isComputedPropertyName(node: Node): Boolean /* node is ComputedPropertyName */

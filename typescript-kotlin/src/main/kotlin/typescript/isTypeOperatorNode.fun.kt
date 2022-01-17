@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isTypeOperatorNode(node: Node): node is TypeOperatorNode
-*/
+external fun isTypeOperatorNode(node: Node): Boolean /* node is TypeOperatorNode */

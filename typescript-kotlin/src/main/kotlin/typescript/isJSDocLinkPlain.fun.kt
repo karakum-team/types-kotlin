@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocLinkPlain(node: Node): node is JSDocLinkPlain
-*/
+external fun isJSDocLinkPlain(node: Node): Boolean /* node is JSDocLinkPlain */

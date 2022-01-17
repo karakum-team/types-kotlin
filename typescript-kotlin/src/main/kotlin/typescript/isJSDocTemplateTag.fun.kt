@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocTemplateTag(node: Node): node is JSDocTemplateTag
-*/
+external fun isJSDocTemplateTag(node: Node): Boolean /* node is JSDocTemplateTag */

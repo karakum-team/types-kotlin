@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isNamedTupleMember(node: Node): node is NamedTupleMember
-*/
+external fun isNamedTupleMember(node: Node): Boolean /* node is NamedTupleMember */

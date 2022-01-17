@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isBigIntLiteral(node: Node): node is BigIntLiteral
-*/
+external fun isBigIntLiteral(node: Node): Boolean /* node is BigIntLiteral */

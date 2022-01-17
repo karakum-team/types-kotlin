@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isNoSubstitutionTemplateLiteral(node: Node): node is NoSubstitutionTemplateLiteral
-*/
+external fun isNoSubstitutionTemplateLiteral(node: Node): Boolean /* node is NoSubstitutionTemplateLiteral */

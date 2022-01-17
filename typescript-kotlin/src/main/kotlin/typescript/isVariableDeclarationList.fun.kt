@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isVariableDeclarationList(node: Node): node is VariableDeclarationList
-*/
+external fun isVariableDeclarationList(node: Node): Boolean /* node is VariableDeclarationList */

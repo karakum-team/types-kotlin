@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isUnparsedPrepend(node: Node): node is UnparsedPrepend
-*/
+external fun isUnparsedPrepend(node: Node): Boolean /* node is UnparsedPrepend */

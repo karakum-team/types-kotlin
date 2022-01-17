@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isParenthesizedTypeNode(node: Node): node is ParenthesizedTypeNode
-*/
+external fun isParenthesizedTypeNode(node: Node): Boolean /* node is ParenthesizedTypeNode */

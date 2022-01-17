@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isConstructorTypeNode(node: Node): node is ConstructorTypeNode
-*/
+external fun isConstructorTypeNode(node: Node): Boolean /* node is ConstructorTypeNode */

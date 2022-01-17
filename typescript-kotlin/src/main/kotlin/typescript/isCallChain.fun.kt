@@ -9,6 +9,4 @@ package typescript
  * Gets the effective type parameters. If the node was parsed in a
  * JavaScript file, gets the type parameters from the `@template` tag from JSDoc.
  */
-/*
-external fun isCallChain(node: Node): node is CallChain
-*/
+external fun isCallChain(node: Node): Boolean /* node is CallChain */

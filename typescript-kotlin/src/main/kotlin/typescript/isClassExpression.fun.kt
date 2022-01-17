@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isClassExpression(node: Node): node is ClassExpression
-*/
+external fun isClassExpression(node: Node): Boolean /* node is ClassExpression */

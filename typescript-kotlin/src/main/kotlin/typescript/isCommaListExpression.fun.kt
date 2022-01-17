@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isCommaListExpression(node: Node): node is CommaListExpression
-*/
+external fun isCommaListExpression(node: Node): Boolean /* node is CommaListExpression */

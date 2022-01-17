@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isThisTypeNode(node: Node): node is ThisTypeNode
-*/
+external fun isThisTypeNode(node: Node): Boolean /* node is ThisTypeNode */

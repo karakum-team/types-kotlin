@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isSpreadElement(node: Node): node is SpreadElement
-*/
+external fun isSpreadElement(node: Node): Boolean /* node is SpreadElement */

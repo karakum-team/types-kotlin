@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isForStatement(node: Node): node is ForStatement
-*/
+external fun isForStatement(node: Node): Boolean /* node is ForStatement */

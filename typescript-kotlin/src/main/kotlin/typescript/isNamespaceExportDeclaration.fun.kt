@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isNamespaceExportDeclaration(node: Node): node is NamespaceExportDeclaration
-*/
+external fun isNamespaceExportDeclaration(node: Node): Boolean /* node is NamespaceExportDeclaration */

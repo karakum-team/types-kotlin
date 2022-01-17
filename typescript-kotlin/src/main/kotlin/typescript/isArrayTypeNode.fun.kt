@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isArrayTypeNode(node: Node): node is ArrayTypeNode
-*/
+external fun isArrayTypeNode(node: Node): Boolean /* node is ArrayTypeNode */

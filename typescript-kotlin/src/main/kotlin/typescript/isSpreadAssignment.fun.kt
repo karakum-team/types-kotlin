@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isSpreadAssignment(node: Node): node is SpreadAssignment
-*/
+external fun isSpreadAssignment(node: Node): Boolean /* node is SpreadAssignment */

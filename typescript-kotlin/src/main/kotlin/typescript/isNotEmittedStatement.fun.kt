@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isNotEmittedStatement(node: Node): node is NotEmittedStatement
-*/
+external fun isNotEmittedStatement(node: Node): Boolean /* node is NotEmittedStatement */

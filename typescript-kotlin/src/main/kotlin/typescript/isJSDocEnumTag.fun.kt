@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocEnumTag(node: Node): node is JSDocEnumTag
-*/
+external fun isJSDocEnumTag(node: Node): Boolean /* node is JSDocEnumTag */

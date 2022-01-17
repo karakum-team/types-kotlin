@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocTypeExpression(node: Node): node is JSDocTypeExpression
-*/
+external fun isJSDocTypeExpression(node: Node): Boolean /* node is JSDocTypeExpression */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isTypePredicateNode(node: Node): node is TypePredicateNode
-*/
+external fun isTypePredicateNode(node: Node): Boolean /* node is TypePredicateNode */

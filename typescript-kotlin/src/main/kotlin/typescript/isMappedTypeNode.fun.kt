@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isMappedTypeNode(node: Node): node is MappedTypeNode
-*/
+external fun isMappedTypeNode(node: Node): Boolean /* node is MappedTypeNode */

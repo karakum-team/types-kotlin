@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isSemicolonClassElement(node: Node): node is SemicolonClassElement
-*/
+external fun isSemicolonClassElement(node: Node): Boolean /* node is SemicolonClassElement */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isBlock(node: Node): node is Block
-*/
+external fun isBlock(node: Node): Boolean /* node is Block */

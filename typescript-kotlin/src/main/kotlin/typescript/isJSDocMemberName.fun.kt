@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocMemberName(node: Node): node is JSDocMemberName
-*/
+external fun isJSDocMemberName(node: Node): Boolean /* node is JSDocMemberName */

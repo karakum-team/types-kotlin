@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isTemplateSpan(node: Node): node is TemplateSpan
-*/
+external fun isTemplateSpan(node: Node): Boolean /* node is TemplateSpan */

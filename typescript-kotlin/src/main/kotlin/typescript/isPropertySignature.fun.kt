@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isPropertySignature(node: Node): node is PropertySignature
-*/
+external fun isPropertySignature(node: Node): Boolean /* node is PropertySignature */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isDotDotDotToken(node: Node): node is DotDotDotToken
-*/
+external fun isDotDotDotToken(node: Node): Boolean /* node is DotDotDotToken */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocNameReference(node: Node): node is JSDocNameReference
-*/
+external fun isJSDocNameReference(node: Node): Boolean /* node is JSDocNameReference */

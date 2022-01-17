@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocUnknownType(node: Node): node is JSDocUnknownType
-*/
+external fun isJSDocUnknownType(node: Node): Boolean /* node is JSDocUnknownType */

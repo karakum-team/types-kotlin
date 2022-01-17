@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isIndexedAccessTypeNode(node: Node): node is IndexedAccessTypeNode
-*/
+external fun isIndexedAccessTypeNode(node: Node): Boolean /* node is IndexedAccessTypeNode */

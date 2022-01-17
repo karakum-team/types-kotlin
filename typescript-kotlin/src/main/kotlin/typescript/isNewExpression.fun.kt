@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isNewExpression(node: Node): node is NewExpression
-*/
+external fun isNewExpression(node: Node): Boolean /* node is NewExpression */

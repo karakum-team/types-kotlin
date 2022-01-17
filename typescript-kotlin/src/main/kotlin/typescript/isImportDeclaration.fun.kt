@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isImportDeclaration(node: Node): node is ImportDeclaration
-*/
+external fun isImportDeclaration(node: Node): Boolean /* node is ImportDeclaration */

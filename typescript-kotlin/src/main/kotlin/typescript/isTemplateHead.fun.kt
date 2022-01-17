@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isTemplateHead(node: Node): node is TemplateHead
-*/
+external fun isTemplateHead(node: Node): Boolean /* node is TemplateHead */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isConditionalTypeNode(node: Node): node is ConditionalTypeNode
-*/
+external fun isConditionalTypeNode(node: Node): Boolean /* node is ConditionalTypeNode */

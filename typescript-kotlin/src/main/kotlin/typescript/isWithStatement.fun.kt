@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isWithStatement(node: Node): node is WithStatement
-*/
+external fun isWithStatement(node: Node): Boolean /* node is WithStatement */

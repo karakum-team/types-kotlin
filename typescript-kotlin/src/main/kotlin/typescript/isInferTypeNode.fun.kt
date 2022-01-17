@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isInferTypeNode(node: Node): node is InferTypeNode
-*/
+external fun isInferTypeNode(node: Node): Boolean /* node is InferTypeNode */

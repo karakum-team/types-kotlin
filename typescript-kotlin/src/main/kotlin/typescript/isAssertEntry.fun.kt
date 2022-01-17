@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isAssertEntry(node: Node): node is AssertEntry
-*/
+external fun isAssertEntry(node: Node): Boolean /* node is AssertEntry */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isAsteriskToken(node: Node): node is AsteriskToken
-*/
+external fun isAsteriskToken(node: Node): Boolean /* node is AsteriskToken */

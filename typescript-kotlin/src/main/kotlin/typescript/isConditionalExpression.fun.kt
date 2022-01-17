@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isConditionalExpression(node: Node): node is ConditionalExpression
-*/
+external fun isConditionalExpression(node: Node): Boolean /* node is ConditionalExpression */

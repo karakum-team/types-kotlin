@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isClassStaticBlockDeclaration(node: Node): node is ClassStaticBlockDeclaration
-*/
+external fun isClassStaticBlockDeclaration(node: Node): Boolean /* node is ClassStaticBlockDeclaration */

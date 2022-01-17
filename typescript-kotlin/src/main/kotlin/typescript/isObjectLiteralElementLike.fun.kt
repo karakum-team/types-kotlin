@@ -10,6 +10,4 @@ package typescript
  * For example, this is true for an IfKeyword but not for an IfStatement.
  * Literals are considered tokens, except TemplateLiteral, but does include TemplateHead/Middle/Tail.
  */
-/*
-external fun isObjectLiteralElementLike(node: Node): node is ObjectLiteralElementLike
-*/
+external fun isObjectLiteralElementLike(node: Node): Boolean /* node is ObjectLiteralElementLike */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isTypeReferenceNode(node: Node): node is TypeReferenceNode
-*/
+external fun isTypeReferenceNode(node: Node): Boolean /* node is TypeReferenceNode */

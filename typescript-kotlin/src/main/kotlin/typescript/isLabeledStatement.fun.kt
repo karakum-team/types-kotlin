@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isLabeledStatement(node: Node): node is LabeledStatement
-*/
+external fun isLabeledStatement(node: Node): Boolean /* node is LabeledStatement */

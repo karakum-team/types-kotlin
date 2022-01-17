@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isGetAccessorDeclaration(node: Node): node is GetAccessorDeclaration
-*/
+external fun isGetAccessorDeclaration(node: Node): Boolean /* node is GetAccessorDeclaration */

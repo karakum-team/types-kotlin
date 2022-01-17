@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isYieldExpression(node: Node): node is YieldExpression
-*/
+external fun isYieldExpression(node: Node): Boolean /* node is YieldExpression */

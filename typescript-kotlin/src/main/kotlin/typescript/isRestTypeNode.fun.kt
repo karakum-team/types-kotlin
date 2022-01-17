@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isRestTypeNode(node: Node): node is RestTypeNode
-*/
+external fun isRestTypeNode(node: Node): Boolean /* node is RestTypeNode */

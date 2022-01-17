@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isTaggedTemplateExpression(node: Node): node is TaggedTemplateExpression
-*/
+external fun isTaggedTemplateExpression(node: Node): Boolean /* node is TaggedTemplateExpression */

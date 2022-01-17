@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isTemplateMiddle(node: Node): node is TemplateMiddle
-*/
+external fun isTemplateMiddle(node: Node): Boolean /* node is TemplateMiddle */

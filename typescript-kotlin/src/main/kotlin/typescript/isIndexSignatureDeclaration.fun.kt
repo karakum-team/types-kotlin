@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isIndexSignatureDeclaration(node: Node): node is IndexSignatureDeclaration
-*/
+external fun isIndexSignatureDeclaration(node: Node): Boolean /* node is IndexSignatureDeclaration */

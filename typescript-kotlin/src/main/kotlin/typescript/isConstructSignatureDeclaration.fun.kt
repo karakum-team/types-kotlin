@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isConstructSignatureDeclaration(node: Node): node is ConstructSignatureDeclaration
-*/
+external fun isConstructSignatureDeclaration(node: Node): Boolean /* node is ConstructSignatureDeclaration */

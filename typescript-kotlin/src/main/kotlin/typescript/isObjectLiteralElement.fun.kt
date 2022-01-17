@@ -6,6 +6,4 @@
 package typescript
 
 /** True if has initializer node attached to it. */
-/*
-external fun isObjectLiteralElement(node: Node): node is ObjectLiteralElement
-*/
+external fun isObjectLiteralElement(node: Node): Boolean /* node is ObjectLiteralElement */

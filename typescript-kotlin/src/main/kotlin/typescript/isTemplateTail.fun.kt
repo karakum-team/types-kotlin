@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isTemplateTail(node: Node): node is TemplateTail
-*/
+external fun isTemplateTail(node: Node): Boolean /* node is TemplateTail */

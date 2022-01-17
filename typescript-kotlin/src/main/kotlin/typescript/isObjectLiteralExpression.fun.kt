@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isObjectLiteralExpression(node: Node): node is ObjectLiteralExpression
-*/
+external fun isObjectLiteralExpression(node: Node): Boolean /* node is ObjectLiteralExpression */

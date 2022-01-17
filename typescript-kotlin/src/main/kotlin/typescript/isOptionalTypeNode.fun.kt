@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isOptionalTypeNode(node: Node): node is OptionalTypeNode
-*/
+external fun isOptionalTypeNode(node: Node): Boolean /* node is OptionalTypeNode */

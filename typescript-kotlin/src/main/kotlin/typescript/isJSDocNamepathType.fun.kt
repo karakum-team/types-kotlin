@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocNamepathType(node: Node): node is JSDocNamepathType
-*/
+external fun isJSDocNamepathType(node: Node): Boolean /* node is JSDocNamepathType */

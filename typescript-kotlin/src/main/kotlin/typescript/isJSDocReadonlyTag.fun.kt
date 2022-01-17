@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocReadonlyTag(node: Node): node is JSDocReadonlyTag
-*/
+external fun isJSDocReadonlyTag(node: Node): Boolean /* node is JSDocReadonlyTag */

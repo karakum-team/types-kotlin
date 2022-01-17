@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isMethodSignature(node: Node): node is MethodSignature
-*/
+external fun isMethodSignature(node: Node): Boolean /* node is MethodSignature */

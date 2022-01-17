@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isSyntheticExpression(node: Node): node is SyntheticExpression
-*/
+external fun isSyntheticExpression(node: Node): Boolean /* node is SyntheticExpression */

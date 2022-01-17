@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocUnknownTag(node: Node): node is JSDocUnknownTag
-*/
+external fun isJSDocUnknownTag(node: Node): Boolean /* node is JSDocUnknownTag */

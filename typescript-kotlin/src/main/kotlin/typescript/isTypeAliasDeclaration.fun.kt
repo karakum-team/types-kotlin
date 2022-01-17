@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isTypeAliasDeclaration(node: Node): node is TypeAliasDeclaration
-*/
+external fun isTypeAliasDeclaration(node: Node): Boolean /* node is TypeAliasDeclaration */

@@ -10,6 +10,4 @@ package typescript
  * This differs from the `isPartOfTypeNode` function which determines whether a node is *part*
  * of a TypeNode.
  */
-/*
-external fun isFunctionOrConstructorTypeNode(node: Node): node is FunctionTypeNode | ConstructorTypeNode
-*/
+external fun isFunctionOrConstructorTypeNode(node: Node): Boolean /* node is FunctionTypeNode | ConstructorTypeNode */

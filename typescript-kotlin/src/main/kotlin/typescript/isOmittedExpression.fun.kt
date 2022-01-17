@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isOmittedExpression(node: Node): node is OmittedExpression
-*/
+external fun isOmittedExpression(node: Node): Boolean /* node is OmittedExpression */

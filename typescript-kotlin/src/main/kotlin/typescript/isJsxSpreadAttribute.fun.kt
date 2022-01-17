@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJsxSpreadAttribute(node: Node): node is JsxSpreadAttribute
-*/
+external fun isJsxSpreadAttribute(node: Node): Boolean /* node is JsxSpreadAttribute */

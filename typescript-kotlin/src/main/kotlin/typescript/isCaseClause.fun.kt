@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isCaseClause(node: Node): node is CaseClause
-*/
+external fun isCaseClause(node: Node): Boolean /* node is CaseClause */

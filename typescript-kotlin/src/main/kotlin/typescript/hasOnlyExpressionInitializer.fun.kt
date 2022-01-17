@@ -6,6 +6,4 @@
 package typescript
 
 /** True if has initializer node attached to it. */
-/*
-external fun hasOnlyExpressionInitializer(node: Node): node is HasExpressionInitializer
-*/
+external fun hasOnlyExpressionInitializer(node: Node): Boolean /* node is HasExpressionInitializer */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocCallbackTag(node: Node): node is JSDocCallbackTag
-*/
+external fun isJSDocCallbackTag(node: Node): Boolean /* node is JSDocCallbackTag */

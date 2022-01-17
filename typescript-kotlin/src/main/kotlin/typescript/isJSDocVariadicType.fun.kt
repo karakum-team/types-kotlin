@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocVariadicType(node: Node): node is JSDocVariadicType
-*/
+external fun isJSDocVariadicType(node: Node): Boolean /* node is JSDocVariadicType */

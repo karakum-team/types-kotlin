@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isHeritageClause(node: Node): node is HeritageClause
-*/
+external fun isHeritageClause(node: Node): Boolean /* node is HeritageClause */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isDebuggerStatement(node: Node): node is DebuggerStatement
-*/
+external fun isDebuggerStatement(node: Node): Boolean /* node is DebuggerStatement */

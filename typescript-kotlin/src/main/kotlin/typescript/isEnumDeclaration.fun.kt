@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isEnumDeclaration(node: Node): node is EnumDeclaration
-*/
+external fun isEnumDeclaration(node: Node): Boolean /* node is EnumDeclaration */

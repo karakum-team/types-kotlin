@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJsxAttribute(node: Node): node is JsxAttribute
-*/
+external fun isJsxAttribute(node: Node): Boolean /* node is JsxAttribute */

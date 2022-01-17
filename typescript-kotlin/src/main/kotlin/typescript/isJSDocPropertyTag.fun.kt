@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocPropertyTag(node: Node): node is JSDocPropertyTag
-*/
+external fun isJSDocPropertyTag(node: Node): Boolean /* node is JSDocPropertyTag */

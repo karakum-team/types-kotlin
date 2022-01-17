@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isIdentifier(node: Node): node is Identifier
-*/
+external fun isIdentifier(node: Node): Boolean /* node is Identifier */

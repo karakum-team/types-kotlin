@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isIntersectionTypeNode(node: Node): node is IntersectionTypeNode
-*/
+external fun isIntersectionTypeNode(node: Node): Boolean /* node is IntersectionTypeNode */

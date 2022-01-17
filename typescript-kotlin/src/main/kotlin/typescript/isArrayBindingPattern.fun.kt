@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isArrayBindingPattern(node: Node): node is ArrayBindingPattern
-*/
+external fun isArrayBindingPattern(node: Node): Boolean /* node is ArrayBindingPattern */

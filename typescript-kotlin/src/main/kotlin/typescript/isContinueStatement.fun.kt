@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isContinueStatement(node: Node): node is ContinueStatement
-*/
+external fun isContinueStatement(node: Node): Boolean /* node is ContinueStatement */

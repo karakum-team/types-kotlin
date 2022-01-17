@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isPropertyAccessExpression(node: Node): node is PropertyAccessExpression
-*/
+external fun isPropertyAccessExpression(node: Node): Boolean /* node is PropertyAccessExpression */

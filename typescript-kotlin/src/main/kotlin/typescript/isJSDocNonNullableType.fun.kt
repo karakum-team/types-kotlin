@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocNonNullableType(node: Node): node is JSDocNonNullableType
-*/
+external fun isJSDocNonNullableType(node: Node): Boolean /* node is JSDocNonNullableType */

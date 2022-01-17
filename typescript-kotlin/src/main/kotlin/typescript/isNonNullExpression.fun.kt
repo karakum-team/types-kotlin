@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isNonNullExpression(node: Node): node is NonNullExpression
-*/
+external fun isNonNullExpression(node: Node): Boolean /* node is NonNullExpression */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJsxSelfClosingElement(node: Node): node is JsxSelfClosingElement
-*/
+external fun isJsxSelfClosingElement(node: Node): Boolean /* node is JsxSelfClosingElement */

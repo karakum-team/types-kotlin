@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isDecorator(node: Node): node is Decorator
-*/
+external fun isDecorator(node: Node): Boolean /* node is Decorator */

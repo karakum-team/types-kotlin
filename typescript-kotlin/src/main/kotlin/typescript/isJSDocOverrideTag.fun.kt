@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocOverrideTag(node: Node): node is JSDocOverrideTag
-*/
+external fun isJSDocOverrideTag(node: Node): Boolean /* node is JSDocOverrideTag */

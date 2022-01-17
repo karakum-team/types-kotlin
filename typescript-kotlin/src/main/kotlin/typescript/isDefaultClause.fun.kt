@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isDefaultClause(node: Node): node is DefaultClause
-*/
+external fun isDefaultClause(node: Node): Boolean /* node is DefaultClause */

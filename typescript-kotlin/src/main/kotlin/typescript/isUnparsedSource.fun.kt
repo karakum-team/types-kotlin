@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isUnparsedSource(node: Node): node is UnparsedSource
-*/
+external fun isUnparsedSource(node: Node): Boolean /* node is UnparsedSource */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isSwitchStatement(node: Node): node is SwitchStatement
-*/
+external fun isSwitchStatement(node: Node): Boolean /* node is SwitchStatement */

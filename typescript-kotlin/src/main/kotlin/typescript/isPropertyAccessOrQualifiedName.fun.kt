@@ -10,6 +10,4 @@ package typescript
  * This differs from the `isPartOfTypeNode` function which determines whether a node is *part*
  * of a TypeNode.
  */
-/*
-external fun isPropertyAccessOrQualifiedName(node: Node): node is PropertyAccessExpression | QualifiedName
-*/
+external fun isPropertyAccessOrQualifiedName(node: Node): Boolean /* node is PropertyAccessExpression | QualifiedName */

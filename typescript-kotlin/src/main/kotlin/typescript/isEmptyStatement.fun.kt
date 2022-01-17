@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isEmptyStatement(node: Node): node is EmptyStatement
-*/
+external fun isEmptyStatement(node: Node): Boolean /* node is EmptyStatement */

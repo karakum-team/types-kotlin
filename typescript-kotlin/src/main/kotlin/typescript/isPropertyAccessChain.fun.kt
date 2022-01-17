@@ -9,6 +9,4 @@ package typescript
  * Gets the effective type parameters. If the node was parsed in a
  * JavaScript file, gets the type parameters from the `@template` tag from JSDoc.
  */
-/*
-external fun isPropertyAccessChain(node: Node): node is PropertyAccessChain
-*/
+external fun isPropertyAccessChain(node: Node): Boolean /* node is PropertyAccessChain */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isCallExpression(node: Node): node is CallExpression
-*/
+external fun isCallExpression(node: Node): Boolean /* node is CallExpression */

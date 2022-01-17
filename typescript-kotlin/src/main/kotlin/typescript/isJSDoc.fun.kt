@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDoc(node: Node): node is JSDoc
-*/
+external fun isJSDoc(node: Node): Boolean /* node is JSDoc */

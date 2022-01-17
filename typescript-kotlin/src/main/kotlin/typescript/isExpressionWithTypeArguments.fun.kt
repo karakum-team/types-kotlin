@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isExpressionWithTypeArguments(node: Node): node is ExpressionWithTypeArguments
-*/
+external fun isExpressionWithTypeArguments(node: Node): Boolean /* node is ExpressionWithTypeArguments */

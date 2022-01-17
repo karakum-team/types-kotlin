@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isClassDeclaration(node: Node): node is ClassDeclaration
-*/
+external fun isClassDeclaration(node: Node): Boolean /* node is ClassDeclaration */

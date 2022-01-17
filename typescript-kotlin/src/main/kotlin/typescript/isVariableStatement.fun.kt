@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isVariableStatement(node: Node): node is VariableStatement
-*/
+external fun isVariableStatement(node: Node): Boolean /* node is VariableStatement */

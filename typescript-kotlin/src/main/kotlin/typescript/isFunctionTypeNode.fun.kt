@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isFunctionTypeNode(node: Node): node is FunctionTypeNode
-*/
+external fun isFunctionTypeNode(node: Node): Boolean /* node is FunctionTypeNode */

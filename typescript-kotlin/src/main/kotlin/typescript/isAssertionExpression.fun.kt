@@ -10,6 +10,4 @@ package typescript
  * This differs from the `isPartOfTypeNode` function which determines whether a node is *part*
  * of a TypeNode.
  */
-/*
-external fun isAssertionExpression(node: Node): node is AssertionExpression
-*/
+external fun isAssertionExpression(node: Node): Boolean /* node is AssertionExpression */

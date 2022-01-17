@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isShorthandPropertyAssignment(node: Node): node is ShorthandPropertyAssignment
-*/
+external fun isShorthandPropertyAssignment(node: Node): Boolean /* node is ShorthandPropertyAssignment */

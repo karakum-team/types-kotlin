@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocOptionalType(node: Node): node is JSDocOptionalType
-*/
+external fun isJSDocOptionalType(node: Node): Boolean /* node is JSDocOptionalType */

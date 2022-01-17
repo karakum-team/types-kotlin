@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isRegularExpressionLiteral(node: Node): node is RegularExpressionLiteral
-*/
+external fun isRegularExpressionLiteral(node: Node): Boolean /* node is RegularExpressionLiteral */

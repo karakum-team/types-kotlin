@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isExternalModuleReference(node: Node): node is ExternalModuleReference
-*/
+external fun isExternalModuleReference(node: Node): Boolean /* node is ExternalModuleReference */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isPartiallyEmittedExpression(node: Node): node is PartiallyEmittedExpression
-*/
+external fun isPartiallyEmittedExpression(node: Node): Boolean /* node is PartiallyEmittedExpression */

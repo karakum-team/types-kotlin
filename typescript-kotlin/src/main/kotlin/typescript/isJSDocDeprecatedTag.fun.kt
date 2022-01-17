@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocDeprecatedTag(node: Node): node is JSDocDeprecatedTag
-*/
+external fun isJSDocDeprecatedTag(node: Node): Boolean /* node is JSDocDeprecatedTag */

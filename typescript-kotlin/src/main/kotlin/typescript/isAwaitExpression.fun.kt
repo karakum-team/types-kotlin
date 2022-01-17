@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isAwaitExpression(node: Node): node is AwaitExpression
-*/
+external fun isAwaitExpression(node: Node): Boolean /* node is AwaitExpression */

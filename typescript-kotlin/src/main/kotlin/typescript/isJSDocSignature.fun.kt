@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocSignature(node: Node): node is JSDocSignature
-*/
+external fun isJSDocSignature(node: Node): Boolean /* node is JSDocSignature */

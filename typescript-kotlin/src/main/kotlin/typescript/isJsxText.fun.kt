@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJsxText(node: Node): node is JsxText
-*/
+external fun isJsxText(node: Node): Boolean /* node is JsxText */

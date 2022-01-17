@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocPrivateTag(node: Node): node is JSDocPrivateTag
-*/
+external fun isJSDocPrivateTag(node: Node): Boolean /* node is JSDocPrivateTag */

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isCatchClause(node: Node): node is CatchClause
-*/
+external fun isCatchClause(node: Node): Boolean /* node is CatchClause */

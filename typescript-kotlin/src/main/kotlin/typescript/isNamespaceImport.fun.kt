@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isNamespaceImport(node: Node): node is NamespaceImport
-*/
+external fun isNamespaceImport(node: Node): Boolean /* node is NamespaceImport */

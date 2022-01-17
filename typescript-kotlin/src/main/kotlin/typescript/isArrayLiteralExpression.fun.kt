@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isArrayLiteralExpression(node: Node): node is ArrayLiteralExpression
-*/
+external fun isArrayLiteralExpression(node: Node): Boolean /* node is ArrayLiteralExpression */

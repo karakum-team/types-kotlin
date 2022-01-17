@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isBreakStatement(node: Node): node is BreakStatement
-*/
+external fun isBreakStatement(node: Node): Boolean /* node is BreakStatement */

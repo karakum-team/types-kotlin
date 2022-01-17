@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isPrivateIdentifier(node: Node): node is PrivateIdentifier
-*/
+external fun isPrivateIdentifier(node: Node): Boolean /* node is PrivateIdentifier */

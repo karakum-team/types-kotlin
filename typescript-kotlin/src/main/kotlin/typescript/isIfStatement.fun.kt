@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isIfStatement(node: Node): node is IfStatement
-*/
+external fun isIfStatement(node: Node): Boolean /* node is IfStatement */

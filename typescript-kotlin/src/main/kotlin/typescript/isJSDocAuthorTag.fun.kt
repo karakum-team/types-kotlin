@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocAuthorTag(node: Node): node is JSDocAuthorTag
-*/
+external fun isJSDocAuthorTag(node: Node): Boolean /* node is JSDocAuthorTag */

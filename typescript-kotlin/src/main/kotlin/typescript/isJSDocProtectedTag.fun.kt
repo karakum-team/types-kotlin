@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isJSDocProtectedTag(node: Node): node is JSDocProtectedTag
-*/
+external fun isJSDocProtectedTag(node: Node): Boolean /* node is JSDocProtectedTag */

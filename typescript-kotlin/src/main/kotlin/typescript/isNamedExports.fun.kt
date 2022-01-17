@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isNamedExports(node: Node): node is NamedExports
-*/
+external fun isNamedExports(node: Node): Boolean /* node is NamedExports */

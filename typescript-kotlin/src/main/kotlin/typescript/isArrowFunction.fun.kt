@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isArrowFunction(node: Node): node is ArrowFunction
-*/
+external fun isArrowFunction(node: Node): Boolean /* node is ArrowFunction */

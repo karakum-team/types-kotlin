@@ -10,6 +10,4 @@ package typescript
  * This differs from the `isPartOfTypeNode` function which determines whether a node is *part*
  * of a TypeNode.
  */
-/*
-external fun isCallLikeExpression(node: Node): node is CallLikeExpression
-*/
+external fun isCallLikeExpression(node: Node): Boolean /* node is CallLikeExpression */

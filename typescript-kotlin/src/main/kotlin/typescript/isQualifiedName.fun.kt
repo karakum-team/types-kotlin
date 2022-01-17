@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isQualifiedName(node: Node): node is QualifiedName
-*/
+external fun isQualifiedName(node: Node): Boolean /* node is QualifiedName */
