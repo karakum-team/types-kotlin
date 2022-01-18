@@ -3,12 +3,10 @@
 package typescript
 
 external interface QuickInfo {
-    /*
-    kind: ScriptElementKind;
-    kindModifiers: string;
-    textSpan: TextSpan;
-    displayParts?: SymbolDisplayPart[];
-    documentation?: SymbolDisplayPart[];
-    tags?: JSDocTagInfo[];
-    */
+    var kind: ScriptElementKind
+    var kindModifiers: String
+    var textSpan: TextSpan
+    var displayParts: ReadonlyArray<SymbolDisplayPart>?
+    var documentation: ReadonlyArray<SymbolDisplayPart>?
+    var tags: ReadonlyArray<JSDocTagInfo>?
 }

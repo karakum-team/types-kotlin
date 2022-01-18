@@ -3,7 +3,5 @@
 package typescript
 
 external interface JsonObjectExpressionStatement : ExpressionStatement {
-    /*
-    readonly expression: JsonObjectExpression;
-    */
+    val expression: JsonObjectExpression
 }

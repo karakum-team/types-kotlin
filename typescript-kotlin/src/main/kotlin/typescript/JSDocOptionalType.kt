@@ -3,8 +3,6 @@
 package typescript
 
 external interface JSDocOptionalType : JSDocType {
-    /*
-    readonly kind: SyntaxKind.JSDocOptionalType;
-    readonly type: TypeNode;
-    */
+    override val kind: SyntaxKind.JSDocOptionalType
+    val type: TypeNode
 }

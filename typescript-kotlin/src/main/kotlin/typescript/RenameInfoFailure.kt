@@ -3,8 +3,6 @@
 package typescript
 
 external interface RenameInfoFailure {
-    /*
-    canRename: false;
-    localizedErrorMessage: string;
-    */
+    var canRename: Boolean /* false */
+    var localizedErrorMessage: String
 }

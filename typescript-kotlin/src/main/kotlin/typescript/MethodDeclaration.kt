@@ -3,10 +3,8 @@
 package typescript
 
 external interface MethodDeclaration : FunctionLikeDeclarationBase, ClassElement, ObjectLiteralElement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.MethodDeclaration;
-    readonly parent: ClassLikeDeclaration | ObjectLiteralExpression;
-    readonly name: PropertyName;
-    readonly body?: FunctionBody;
-    */
+    override val kind: SyntaxKind.MethodDeclaration
+    override val parent: dynamic /* ClassLikeDeclaration | ObjectLiteralExpression */
+    override val name: PropertyName
+    val body: FunctionBody?
 }

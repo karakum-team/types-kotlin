@@ -3,8 +3,6 @@
 package typescript
 
 external interface TextChange {
-    /*
-    span: TextSpan;
-    newText: string;
-    */
+    var span: TextSpan
+    var newText: String
 }

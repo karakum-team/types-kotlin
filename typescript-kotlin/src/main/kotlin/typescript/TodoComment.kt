@@ -3,9 +3,7 @@
 package typescript
 
 external interface TodoComment {
-    /*
-    descriptor: TodoCommentDescriptor;
-    message: string;
-    position: number;
-    */
+    var descriptor: TodoCommentDescriptor
+    var message: String
+    var position: Double
 }

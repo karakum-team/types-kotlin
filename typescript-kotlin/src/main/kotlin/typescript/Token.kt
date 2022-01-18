@@ -3,7 +3,5 @@
 package typescript
 
 external interface Token<out TKind : SyntaxKind> : Node {
-    /*
-    readonly kind: TKind;
-    */
+    override val kind: TKind
 }

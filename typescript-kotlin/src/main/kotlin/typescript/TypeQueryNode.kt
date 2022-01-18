@@ -3,8 +3,6 @@
 package typescript
 
 external interface TypeQueryNode : TypeNode {
-    /*
-    readonly kind: SyntaxKind.TypeQuery;
-    readonly exprName: EntityName;
-    */
+    override val kind: SyntaxKind.TypeQuery
+    val exprName: EntityName
 }

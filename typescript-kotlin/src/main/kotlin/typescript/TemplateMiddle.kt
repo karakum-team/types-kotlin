@@ -3,8 +3,6 @@
 package typescript
 
 external interface TemplateMiddle : TemplateLiteralLikeNode {
-    /*
-    readonly kind: SyntaxKind.TemplateMiddle;
-    readonly parent: TemplateSpan | TemplateLiteralTypeSpan;
-    */
+    override val kind: SyntaxKind.TemplateMiddle
+    override val parent: dynamic /* TemplateSpan | TemplateLiteralTypeSpan */
 }

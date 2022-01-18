@@ -8,11 +8,9 @@ package typescript
  * - import x = M.x;
  */
 external interface ImportEqualsDeclaration : DeclarationStatement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.ImportEqualsDeclaration;
-    readonly parent: SourceFile | ModuleBlock;
-    readonly name: Identifier;
-    readonly isTypeOnly: boolean;
-    readonly moduleReference: ModuleReference;
-    */
+    override val kind: SyntaxKind.ImportEqualsDeclaration
+    override val parent: dynamic /* SourceFile | ModuleBlock */
+    override val name: Identifier
+    val isTypeOnly: Boolean
+    val moduleReference: ModuleReference
 }

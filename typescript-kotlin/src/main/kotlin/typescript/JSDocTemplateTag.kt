@@ -3,9 +3,7 @@
 package typescript
 
 external interface JSDocTemplateTag : JSDocTag {
-    /*
-    readonly kind: SyntaxKind.JSDocTemplateTag;
-    readonly constraint: JSDocTypeExpression | undefined;
-    readonly typeParameters: NodeArray<TypeParameterDeclaration>;
-    */
+    override val kind: SyntaxKind.JSDocTemplateTag
+    val constraint: JSDocTypeExpression
+    val typeParameters: NodeArray<TypeParameterDeclaration>
 }

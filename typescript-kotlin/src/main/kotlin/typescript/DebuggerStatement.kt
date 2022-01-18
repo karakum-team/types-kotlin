@@ -3,7 +3,5 @@
 package typescript
 
 external interface DebuggerStatement : Statement {
-    /*
-    readonly kind: SyntaxKind.DebuggerStatement;
-    */
+    override val kind: SyntaxKind.DebuggerStatement
 }

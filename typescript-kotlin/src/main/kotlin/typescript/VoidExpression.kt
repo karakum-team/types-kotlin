@@ -3,8 +3,6 @@
 package typescript
 
 external interface VoidExpression : UnaryExpression {
-    /*
-    readonly kind: SyntaxKind.VoidExpression;
-    readonly expression: UnaryExpression;
-    */
+    override val kind: SyntaxKind.VoidExpression
+    val expression: UnaryExpression
 }

@@ -3,9 +3,7 @@
 package typescript
 
 external interface UnparsedPrologue : UnparsedSection {
-    /*
-    readonly kind: SyntaxKind.UnparsedPrologue;
-    readonly parent: UnparsedSource;
-    readonly data: string;
-    */
+    override val kind: SyntaxKind.UnparsedPrologue
+    override val parent: UnparsedSource
+    val data: String
 }

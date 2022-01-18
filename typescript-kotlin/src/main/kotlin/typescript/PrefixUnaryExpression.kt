@@ -3,9 +3,7 @@
 package typescript
 
 external interface PrefixUnaryExpression : UpdateExpression {
-    /*
-    readonly kind: SyntaxKind.PrefixUnaryExpression;
-    readonly operator: PrefixUnaryOperator;
-    readonly operand: UnaryExpression;
-    */
+    override val kind: SyntaxKind.PrefixUnaryExpression
+    val operator: PrefixUnaryOperator
+    val operand: UnaryExpression
 }

@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias ArrayBindingElement = Any /* BindingElement | OmittedExpression */
+typealias ArrayBindingElement = Node /* BindingElement | OmittedExpression */

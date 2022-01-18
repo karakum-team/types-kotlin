@@ -3,10 +3,9 @@
 package typescript
 
 external interface EmitResult {
-    /*
-    emitSkipped: boolean;
+    var emitSkipped: Boolean
+
     /** Contains declaration emit diagnostics */
-    diagnostics: readonly Diagnostic[];
-    emittedFiles?: string[];
-    */
+    var diagnostics: ReadonlyArray<Diagnostic>
+    var emittedFiles: ReadonlyArray<String>?
 }

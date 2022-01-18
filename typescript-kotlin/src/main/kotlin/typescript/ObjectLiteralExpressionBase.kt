@@ -9,7 +9,5 @@ package typescript
  * ObjectLiteralElement (e.g. PropertyAssignment, ShorthandPropertyAssignment etc.)
  */
 external interface ObjectLiteralExpressionBase<T : ObjectLiteralElement> : PrimaryExpression, Declaration {
-    /*
-    readonly properties: NodeArray<T>;
-    */
+    val properties: NodeArray<T>
 }

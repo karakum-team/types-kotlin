@@ -3,11 +3,9 @@
 package typescript
 
 external interface Node : ReadonlyTextRange {
-    /*
-    readonly kind: SyntaxKind;
-    readonly flags: NodeFlags;
-    readonly decorators?: NodeArray<Decorator>;
-    readonly modifiers?: ModifiersArray;
-    readonly parent: Node;
-    */
+    val kind: SyntaxKind
+    val flags: NodeFlags
+    val decorators: NodeArray<Decorator>?
+    val modifiers: ModifiersArray?
+    val parent: Node
 }

@@ -3,7 +3,5 @@
 package typescript
 
 external interface JSDocAllType : JSDocType {
-    /*
-    readonly kind: SyntaxKind.JSDocAllType;
-    */
+    override val kind: SyntaxKind.JSDocAllType
 }

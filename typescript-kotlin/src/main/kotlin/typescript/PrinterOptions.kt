@@ -3,10 +3,8 @@
 package typescript
 
 external interface PrinterOptions {
-    /*
-    removeComments?: boolean;
-    newLine?: NewLineKind;
-    omitTrailingSemicolon?: boolean;
-    noEmitHelpers?: boolean;
-    */
+    var removeComments: Boolean?
+    var newLine: NewLineKind?
+    var omitTrailingSemicolon: Boolean?
+    var noEmitHelpers: Boolean?
 }

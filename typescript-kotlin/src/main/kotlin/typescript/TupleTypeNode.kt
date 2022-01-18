@@ -3,8 +3,6 @@
 package typescript
 
 external interface TupleTypeNode : TypeNode {
-    /*
-    readonly kind: SyntaxKind.TupleType;
-    readonly elements: NodeArray<TypeNode | NamedTupleMember>;
-    */
+    override val kind: SyntaxKind.TupleType
+    val elements: dynamic /* NodeArray<TypeNode | NamedTupleMember> */
 }

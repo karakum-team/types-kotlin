@@ -3,8 +3,6 @@
 package typescript
 
 external interface IncompleteType {
-    /*
-    flags: TypeFlags;
-    type: Type;
-    */
+    var flags: TypeFlags
+    var type: Type
 }

@@ -3,8 +3,6 @@
 package typescript
 
 external interface ReferencedSymbol {
-    /*
-    definition: ReferencedSymbolDefinitionInfo;
-    references: ReferenceEntry[];
-    */
+    var definition: ReferencedSymbolDefinitionInfo
+    var references: ReadonlyArray<ReferenceEntry>
 }

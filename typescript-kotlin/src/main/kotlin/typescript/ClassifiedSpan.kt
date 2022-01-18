@@ -3,8 +3,6 @@
 package typescript
 
 external interface ClassifiedSpan {
-    /*
-    textSpan: TextSpan;
-    classificationType: ClassificationTypeNames;
-    */
+    var textSpan: TextSpan
+    var classificationType: ClassificationTypeNames
 }

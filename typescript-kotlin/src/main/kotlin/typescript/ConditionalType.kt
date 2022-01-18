@@ -3,11 +3,9 @@
 package typescript
 
 external interface ConditionalType : InstantiableType {
-    /*
-    root: ConditionalRoot;
-    checkType: Type;
-    extendsType: Type;
-    resolvedTrueType?: Type;
-    resolvedFalseType?: Type;
-    */
+    var root: ConditionalRoot
+    var checkType: Type
+    var extendsType: Type
+    var resolvedTrueType: Type?
+    var resolvedFalseType: Type?
 }

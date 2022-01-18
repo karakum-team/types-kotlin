@@ -3,10 +3,8 @@
 package typescript
 
 external interface JsxElement : PrimaryExpression {
-    /*
-    readonly kind: SyntaxKind.JsxElement;
-    readonly openingElement: JsxOpeningElement;
-    readonly children: NodeArray<JsxChild>;
-    readonly closingElement: JsxClosingElement;
-    */
+    override val kind: SyntaxKind.JsxElement
+    val openingElement: JsxOpeningElement
+    val children: NodeArray<JsxChild>
+    val closingElement: JsxClosingElement
 }

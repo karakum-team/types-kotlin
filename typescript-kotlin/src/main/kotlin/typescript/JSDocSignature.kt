@@ -3,10 +3,8 @@
 package typescript
 
 external interface JSDocSignature : JSDocType, Declaration {
-    /*
-    readonly kind: SyntaxKind.JSDocSignature;
-    readonly typeParameters?: readonly JSDocTemplateTag[];
-    readonly parameters: readonly JSDocParameterTag[];
-    readonly type: JSDocReturnTag | undefined;
-    */
+    override val kind: SyntaxKind.JSDocSignature
+    val typeParameters: ReadonlyArray<JSDocTemplateTag>?
+    val parameters: ReadonlyArray<JSDocParameterTag>
+    val type: JSDocReturnTag
 }

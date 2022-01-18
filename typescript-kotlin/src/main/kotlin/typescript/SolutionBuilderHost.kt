@@ -3,7 +3,5 @@
 package typescript
 
 external interface SolutionBuilderHost<T : BuilderProgram> : SolutionBuilderHostBase<T> {
-    /*
-    reportErrorSummary?: ReportEmitErrorSummary;
-    */
+    var reportErrorSummary: ReportEmitErrorSummary?
 }

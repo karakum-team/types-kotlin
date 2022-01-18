@@ -3,9 +3,7 @@
 package typescript
 
 external interface ForInStatement : IterationStatement {
-    /*
-    readonly kind: SyntaxKind.ForInStatement;
-    readonly initializer: ForInitializer;
-    readonly expression: Expression;
-    */
+    override val kind: SyntaxKind.ForInStatement
+    val initializer: ForInitializer
+    val expression: Expression
 }

@@ -3,9 +3,7 @@
 package typescript
 
 external interface JsxSpreadAttribute : ObjectLiteralElement {
-    /*
-    readonly kind: SyntaxKind.JsxSpreadAttribute;
-    readonly parent: JsxAttributes;
-    readonly expression: Expression;
-    */
+    override val kind: SyntaxKind.JsxSpreadAttribute
+    override val parent: JsxAttributes
+    val expression: Expression
 }

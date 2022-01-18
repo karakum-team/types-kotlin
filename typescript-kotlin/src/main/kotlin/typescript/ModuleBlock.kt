@@ -3,9 +3,7 @@
 package typescript
 
 external interface ModuleBlock : Node, Statement {
-    /*
-    readonly kind: SyntaxKind.ModuleBlock;
-    readonly parent: ModuleDeclaration;
-    readonly statements: NodeArray<Statement>;
-    */
+    override val kind: SyntaxKind.ModuleBlock
+    override val parent: ModuleDeclaration
+    val statements: NodeArray<Statement>
 }

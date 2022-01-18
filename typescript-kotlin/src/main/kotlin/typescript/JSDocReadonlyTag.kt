@@ -3,7 +3,5 @@
 package typescript
 
 external interface JSDocReadonlyTag : JSDocTag {
-    /*
-    readonly kind: SyntaxKind.JSDocReadonlyTag;
-    */
+    override val kind: SyntaxKind.JSDocReadonlyTag
 }

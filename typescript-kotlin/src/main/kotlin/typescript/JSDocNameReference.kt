@@ -3,8 +3,6 @@
 package typescript
 
 external interface JSDocNameReference : Node {
-    /*
-    readonly kind: SyntaxKind.JSDocNameReference;
-    readonly name: EntityName | JSDocMemberName;
-    */
+    override val kind: SyntaxKind.JSDocNameReference
+    override val name: dynamic /* EntityName | JSDocMemberName */
 }

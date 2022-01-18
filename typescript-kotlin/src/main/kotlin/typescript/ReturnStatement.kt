@@ -3,8 +3,6 @@
 package typescript
 
 external interface ReturnStatement : Statement {
-    /*
-    readonly kind: SyntaxKind.ReturnStatement;
-    readonly expression?: Expression;
-    */
+    override val kind: SyntaxKind.ReturnStatement
+    val expression: Expression?
 }

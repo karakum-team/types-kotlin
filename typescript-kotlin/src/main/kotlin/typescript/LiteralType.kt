@@ -3,9 +3,7 @@
 package typescript
 
 external interface LiteralType : Type {
-    /*
-    value: string | number | PseudoBigInt;
-    freshType: LiteralType;
-    regularType: LiteralType;
-    */
+    var value: dynamic /* string | number | PseudoBigInt */
+    var freshType: LiteralType
+    var regularType: LiteralType
 }

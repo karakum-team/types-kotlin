@@ -3,10 +3,8 @@
 package typescript
 
 external interface ArrowFunction : Expression, FunctionLikeDeclarationBase, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.ArrowFunction;
-    readonly equalsGreaterThanToken: EqualsGreaterThanToken;
-    readonly body: ConciseBody;
-    readonly name: never;
-    */
+    override val kind: SyntaxKind.ArrowFunction
+    val equalsGreaterThanToken: EqualsGreaterThanToken
+    val body: ConciseBody
+    override val name: never
 }

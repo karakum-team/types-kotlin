@@ -3,7 +3,5 @@
 package typescript
 
 external interface NonNullChain : NonNullExpression {
-    /*
-    _optionalChainBrand: any;
-    */
+    var _optionalChainBrand: Any
 }

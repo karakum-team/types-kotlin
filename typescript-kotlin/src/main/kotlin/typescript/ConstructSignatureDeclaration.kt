@@ -3,7 +3,5 @@
 package typescript
 
 external interface ConstructSignatureDeclaration : SignatureDeclarationBase, TypeElement {
-    /*
-    readonly kind: SyntaxKind.ConstructSignature;
-    */
+    override val kind: SyntaxKind.ConstructSignature
 }

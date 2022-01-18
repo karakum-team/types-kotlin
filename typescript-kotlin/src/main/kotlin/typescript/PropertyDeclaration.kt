@@ -3,13 +3,11 @@
 package typescript
 
 external interface PropertyDeclaration : ClassElement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.PropertyDeclaration;
-    readonly parent: ClassLikeDeclaration;
-    readonly name: PropertyName;
-    readonly questionToken?: QuestionToken;
-    readonly exclamationToken?: ExclamationToken;
-    readonly type?: TypeNode;
-    readonly initializer?: Expression;
-    */
+    override val kind: SyntaxKind.PropertyDeclaration
+    override val parent: ClassLikeDeclaration
+    override val name: PropertyName
+    val questionToken: QuestionToken?
+    val exclamationToken: ExclamationToken?
+    val type: TypeNode?
+    val initializer: Expression?
 }

@@ -3,8 +3,6 @@
 package typescript
 
 external interface TypePredicateBase {
-    /*
-    kind: TypePredicateKind;
-    type: Type | undefined;
-    */
+    var kind: TypePredicateKind
+    var type: Type
 }

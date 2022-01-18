@@ -10,10 +10,9 @@ package typescript
  * Prefer to return a `ResolvedModuleFull` so that the file type does not have to be inferred.
  */
 external interface ResolvedModule {
-    /*
     /** Path of the file the module was resolved to. */
-    resolvedFileName: string;
+    var resolvedFileName: String
+
     /** True if `resolvedFileName` comes from `node_modules`. */
-    isExternalLibraryImport?: boolean;
-    */
+    var isExternalLibraryImport: Boolean?
 }

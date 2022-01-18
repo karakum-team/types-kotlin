@@ -3,7 +3,5 @@
 package typescript
 
 external interface RegularExpressionLiteral : LiteralExpression {
-    /*
-    readonly kind: SyntaxKind.RegularExpressionLiteral;
-    */
+    override val kind: SyntaxKind.RegularExpressionLiteral
 }

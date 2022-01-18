@@ -3,10 +3,8 @@
 package typescript
 
 external interface EnumMember : NamedDeclaration, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.EnumMember;
-    readonly parent: EnumDeclaration;
-    readonly name: PropertyName;
-    readonly initializer?: Expression;
-    */
+    override val kind: SyntaxKind.EnumMember
+    override val parent: EnumDeclaration
+    override val name: PropertyName
+    val initializer: Expression?
 }

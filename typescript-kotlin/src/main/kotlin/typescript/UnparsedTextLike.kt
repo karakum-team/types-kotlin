@@ -3,8 +3,6 @@
 package typescript
 
 external interface UnparsedTextLike : UnparsedSection {
-    /*
-    readonly kind: SyntaxKind.UnparsedText | SyntaxKind.UnparsedInternalText;
-    readonly parent: UnparsedSource;
-    */
+    override val kind: dynamic /* SyntaxKind.UnparsedText | SyntaxKind.UnparsedInternalText */
+    override val parent: UnparsedSource
 }

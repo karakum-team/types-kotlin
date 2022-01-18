@@ -3,8 +3,6 @@
 package typescript
 
 external interface JSDocTagInfo {
-    /*
-    name: string;
-    text?: SymbolDisplayPart[];
-    */
+    var name: String
+    var text: ReadonlyArray<SymbolDisplayPart>?
 }

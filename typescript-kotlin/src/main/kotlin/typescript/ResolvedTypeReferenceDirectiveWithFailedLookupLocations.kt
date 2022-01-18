@@ -3,8 +3,6 @@
 package typescript
 
 external interface ResolvedTypeReferenceDirectiveWithFailedLookupLocations {
-    /*
-    readonly resolvedTypeReferenceDirective: ResolvedTypeReferenceDirective | undefined;
-    readonly failedLookupLocations: string[];
-    */
+    val resolvedTypeReferenceDirective: ResolvedTypeReferenceDirective
+    val failedLookupLocations: ReadonlyArray<String>
 }

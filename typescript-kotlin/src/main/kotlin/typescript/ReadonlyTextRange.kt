@@ -3,8 +3,6 @@
 package typescript
 
 external interface ReadonlyTextRange {
-    /*
-    readonly pos: number;
-    readonly end: number;
-    */
+    val pos: Double
+    val end: Double
 }

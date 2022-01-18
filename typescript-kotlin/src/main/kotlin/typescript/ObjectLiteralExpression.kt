@@ -3,7 +3,5 @@
 package typescript
 
 external interface ObjectLiteralExpression : ObjectLiteralExpressionBase<ObjectLiteralElementLike> {
-    /*
-    readonly kind: SyntaxKind.ObjectLiteralExpression;
-    */
+    override val kind: SyntaxKind.ObjectLiteralExpression
 }

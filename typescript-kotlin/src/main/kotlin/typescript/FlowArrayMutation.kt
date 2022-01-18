@@ -3,8 +3,6 @@
 package typescript
 
 external interface FlowArrayMutation : FlowNodeBase {
-    /*
-    node: CallExpression | BinaryExpression;
-    antecedent: FlowNode;
-    */
+    var node: dynamic /* CallExpression | BinaryExpression */
+    var antecedent: FlowNode
 }

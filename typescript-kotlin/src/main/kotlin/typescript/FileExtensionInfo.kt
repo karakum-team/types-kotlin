@@ -3,9 +3,7 @@
 package typescript
 
 external interface FileExtensionInfo {
-    /*
-    extension: string;
-    isMixedContent: boolean;
-    scriptKind?: ScriptKind;
-    */
+    var extension: String
+    var isMixedContent: Boolean
+    var scriptKind: ScriptKind?
 }

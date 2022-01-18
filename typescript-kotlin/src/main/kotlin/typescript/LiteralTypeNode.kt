@@ -3,8 +3,6 @@
 package typescript
 
 external interface LiteralTypeNode : TypeNode {
-    /*
-    readonly kind: SyntaxKind.LiteralType;
-    readonly literal: NullLiteral | BooleanLiteral | LiteralExpression | PrefixUnaryExpression;
-    */
+    override val kind: SyntaxKind.LiteralType
+    val literal: dynamic /* NullLiteral | BooleanLiteral | LiteralExpression | PrefixUnaryExpression */
 }

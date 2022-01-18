@@ -3,7 +3,5 @@
 package typescript
 
 external interface JsxTagNamePropertyAccess : PropertyAccessExpression {
-    /*
-    readonly expression: JsxTagNameExpression;
-    */
+    val expression: JsxTagNameExpression
 }

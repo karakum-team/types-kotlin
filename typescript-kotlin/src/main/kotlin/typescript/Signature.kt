@@ -3,9 +3,7 @@
 package typescript
 
 external interface Signature {
-    /*
-    declaration?: SignatureDeclaration | JSDocSignature;
-    typeParameters?: readonly TypeParameter[];
-    parameters: readonly Symbol[];
-    */
+    var declaration: dynamic /* SignatureDeclaration | JSDocSignature */
+    var typeParameters: ReadonlyArray<TypeParameter>?
+    var parameters: ReadonlyArray<Symbol>
 }

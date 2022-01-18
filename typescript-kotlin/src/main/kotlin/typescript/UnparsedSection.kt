@@ -3,9 +3,7 @@
 package typescript
 
 external interface UnparsedSection : Node {
-    /*
-    readonly kind: SyntaxKind;
-    readonly parent: UnparsedSource;
-    readonly data?: string;
-    */
+    override val kind: SyntaxKind
+    override val parent: UnparsedSource
+    val data: String?
 }

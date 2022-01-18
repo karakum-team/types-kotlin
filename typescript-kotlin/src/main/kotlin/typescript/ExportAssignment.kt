@@ -7,10 +7,8 @@ package typescript
  * Unless `isExportEquals` is set, this node was parsed as an `export default`.
  */
 external interface ExportAssignment : DeclarationStatement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.ExportAssignment;
-    readonly parent: SourceFile;
-    readonly isExportEquals?: boolean;
-    readonly expression: Expression;
-    */
+    override val kind: SyntaxKind.ExportAssignment
+    override val parent: SourceFile
+    val isExportEquals: Boolean?
+    val expression: Expression
 }

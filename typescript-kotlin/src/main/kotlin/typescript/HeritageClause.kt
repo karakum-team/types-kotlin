@@ -3,10 +3,8 @@
 package typescript
 
 external interface HeritageClause : Node {
-    /*
-    readonly kind: SyntaxKind.HeritageClause;
-    readonly parent: InterfaceDeclaration | ClassLikeDeclaration;
-    readonly token: SyntaxKind.ExtendsKeyword | SyntaxKind.ImplementsKeyword;
-    readonly types: NodeArray<ExpressionWithTypeArguments>;
-    */
+    override val kind: SyntaxKind.HeritageClause
+    override val parent: dynamic /* InterfaceDeclaration | ClassLikeDeclaration */
+    val token: dynamic /* SyntaxKind.ExtendsKeyword | SyntaxKind.ImplementsKeyword */
+    val types: NodeArray<ExpressionWithTypeArguments>
 }

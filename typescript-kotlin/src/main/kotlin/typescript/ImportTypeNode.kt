@@ -3,10 +3,8 @@
 package typescript
 
 external interface ImportTypeNode : NodeWithTypeArguments {
-    /*
-    readonly kind: SyntaxKind.ImportType;
-    readonly isTypeOf: boolean;
-    readonly argument: TypeNode;
-    readonly qualifier?: EntityName;
-    */
+    override val kind: SyntaxKind.ImportType
+    val isTypeOf: Boolean
+    val argument: TypeNode
+    val qualifier: EntityName?
 }

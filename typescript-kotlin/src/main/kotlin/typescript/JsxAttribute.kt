@@ -3,10 +3,8 @@
 package typescript
 
 external interface JsxAttribute : ObjectLiteralElement {
-    /*
-    readonly kind: SyntaxKind.JsxAttribute;
-    readonly parent: JsxAttributes;
-    readonly name: Identifier;
-    readonly initializer?: StringLiteral | JsxExpression;
-    */
+    override val kind: SyntaxKind.JsxAttribute
+    override val parent: JsxAttributes
+    override val name: Identifier
+    val initializer: dynamic /* StringLiteral | JsxExpression */
 }

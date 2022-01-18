@@ -3,9 +3,7 @@
 package typescript
 
 external interface MethodSignature : SignatureDeclarationBase, TypeElement {
-    /*
-    readonly kind: SyntaxKind.MethodSignature;
-    readonly parent: ObjectTypeDeclaration;
-    readonly name: PropertyName;
-    */
+    override val kind: SyntaxKind.MethodSignature
+    override val parent: ObjectTypeDeclaration
+    override val name: PropertyName
 }

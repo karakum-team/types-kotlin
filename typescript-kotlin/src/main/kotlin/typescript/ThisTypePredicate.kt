@@ -3,10 +3,8 @@
 package typescript
 
 external interface ThisTypePredicate : TypePredicateBase {
-    /*
-    kind: TypePredicateKind.This;
-    parameterName: undefined;
-    parameterIndex: undefined;
-    type: Type;
-    */
+    override var kind: TypePredicateKind.This
+    var parameterName: Nothing?
+    var parameterIndex: Nothing?
+    var type: Type
 }

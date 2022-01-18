@@ -3,9 +3,8 @@
 package typescript
 
 external interface TextInsertion {
-    /*
-    newText: string;
+    var newText: String
+
     /** The position in newText the caret should point to after the insertion. */
-    caretOffset: number;
-    */
+    var caretOffset: Double
 }

@@ -3,8 +3,6 @@
 package typescript
 
 external interface JsxClosingFragment : Expression {
-    /*
-    readonly kind: SyntaxKind.JsxClosingFragment;
-    readonly parent: JsxFragment;
-    */
+    override val kind: SyntaxKind.JsxClosingFragment
+    override val parent: JsxFragment
 }

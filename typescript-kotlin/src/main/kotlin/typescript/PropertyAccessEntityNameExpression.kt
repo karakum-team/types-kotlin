@@ -4,9 +4,7 @@ package typescript
 
 /** Brand for a PropertyAccessExpression which, like a QualifiedName, consists of a sequence of identifiers separated by dots. */
 external interface PropertyAccessEntityNameExpression : PropertyAccessExpression {
-    /*
-    _propertyAccessExpressionLikeQualifiedNameBrand?: any;
-    readonly expression: EntityNameExpression;
-    readonly name: Identifier;
-    */
+    var _propertyAccessExpressionLikeQualifiedNameBrand: Any?
+    val expression: EntityNameExpression
+    override val name: Identifier
 }

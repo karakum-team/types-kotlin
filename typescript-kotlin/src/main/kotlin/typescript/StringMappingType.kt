@@ -3,8 +3,6 @@
 package typescript
 
 external interface StringMappingType : InstantiableType {
-    /*
-    symbol: Symbol;
-    type: Type;
-    */
+    var symbol: Symbol
+    var type: Type
 }

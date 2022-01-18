@@ -3,8 +3,6 @@
 package typescript
 
 external interface ClassificationResult {
-    /*
-    finalLexState: EndOfLineState;
-    entries: ClassificationInfo[];
-    */
+    var finalLexState: EndOfLineState
+    var entries: ReadonlyArray<ClassificationInfo>
 }

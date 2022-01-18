@@ -3,11 +3,9 @@
 package typescript
 
 external interface ExportSpecifier : NamedDeclaration {
-    /*
-    readonly kind: SyntaxKind.ExportSpecifier;
-    readonly parent: NamedExports;
-    readonly isTypeOnly: boolean;
-    readonly propertyName?: Identifier;
-    readonly name: Identifier;
-    */
+    override val kind: SyntaxKind.ExportSpecifier
+    override val parent: NamedExports
+    val isTypeOnly: Boolean
+    val propertyName: Identifier?
+    override val name: Identifier
 }

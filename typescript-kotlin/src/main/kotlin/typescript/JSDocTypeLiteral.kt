@@ -3,10 +3,9 @@
 package typescript
 
 external interface JSDocTypeLiteral : JSDocType {
-    /*
-    readonly kind: SyntaxKind.JSDocTypeLiteral;
-    readonly jsDocPropertyTags?: readonly JSDocPropertyLikeTag[];
+    override val kind: SyntaxKind.JSDocTypeLiteral
+    val jsDocPropertyTags: ReadonlyArray<JSDocPropertyLikeTag>?
+
     /** If true, then this type literal represents an *array* of its type. */
-    readonly isArrayType: boolean;
-    */
+    val isArrayType: Boolean
 }

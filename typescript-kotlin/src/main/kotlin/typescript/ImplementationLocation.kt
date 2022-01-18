@@ -3,8 +3,6 @@
 package typescript
 
 external interface ImplementationLocation : DocumentSpan {
-    /*
-    kind: ScriptElementKind;
-    displayParts: SymbolDisplayPart[];
-    */
+    override var kind: ScriptElementKind
+    var displayParts: ReadonlyArray<SymbolDisplayPart>
 }

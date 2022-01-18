@@ -7,19 +7,19 @@ package typescript
  * If changing this, remember to change `packageIdIsEqual`.
  */
 external interface PackageId {
-    /*
     /**
      * Name of the package.
      * Should not include `@types`.
      * If accessing a non-index file, this should include its name e.g. "foo/bar".
      */
-    name: string;
+    var name: String
+
     /**
      * Name of a submodule within this package.
      * May be "".
      */
-    subModuleName: string;
+    var subModuleName: String
+
     /** Version of the package, e.g. "1.2.3" */
-    version: string;
-    */
+    var version: String
 }

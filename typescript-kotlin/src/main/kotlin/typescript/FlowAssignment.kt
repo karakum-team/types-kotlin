@@ -3,8 +3,6 @@
 package typescript
 
 external interface FlowAssignment : FlowNodeBase {
-    /*
-    node: Expression | VariableDeclaration | BindingElement;
-    antecedent: FlowNode;
-    */
+    var node: dynamic /* Expression | VariableDeclaration | BindingElement */
+    var antecedent: FlowNode
 }

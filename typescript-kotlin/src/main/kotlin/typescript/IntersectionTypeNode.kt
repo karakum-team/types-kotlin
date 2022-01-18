@@ -3,8 +3,6 @@
 package typescript
 
 external interface IntersectionTypeNode : TypeNode {
-    /*
-    readonly kind: SyntaxKind.IntersectionType;
-    readonly types: NodeArray<TypeNode>;
-    */
+    override val kind: SyntaxKind.IntersectionType
+    val types: NodeArray<TypeNode>
 }

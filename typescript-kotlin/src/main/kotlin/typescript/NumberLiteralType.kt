@@ -3,7 +3,5 @@
 package typescript
 
 external interface NumberLiteralType : LiteralType {
-    /*
-    value: number;
-    */
+    var value: Double
 }

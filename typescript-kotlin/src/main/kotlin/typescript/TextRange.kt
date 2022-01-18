@@ -3,8 +3,6 @@
 package typescript
 
 external interface TextRange {
-    /*
-    pos: number;
-    end: number;
-    */
+    var pos: Double
+    var end: Double
 }

@@ -3,14 +3,13 @@
 package typescript
 
 external interface ParsedTsconfig {
-    /*
-    raw: any;
-    options?: CompilerOptions;
-    watchOptions?: WatchOptions;
-    typeAcquisition?: TypeAcquisition;
+    var raw: Any
+    var options: CompilerOptions?
+    var watchOptions: WatchOptions?
+    var typeAcquisition: TypeAcquisition?
+
     /**
      * Note that the case of the config path has not yet been normalized, as no files have been imported into the project yet
      */
-    extendedConfigPath?: string;
-    */
+    var extendedConfigPath: String?
 }

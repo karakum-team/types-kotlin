@@ -3,7 +3,5 @@
 package typescript
 
 external interface TrueLiteral : PrimaryExpression {
-    /*
-    readonly kind: SyntaxKind.TrueKeyword;
-    */
+    override val kind: SyntaxKind.TrueKeyword
 }

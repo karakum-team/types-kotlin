@@ -3,8 +3,6 @@
 package typescript
 
 external interface FlowCall : FlowNodeBase {
-    /*
-    node: CallExpression;
-    antecedent: FlowNode;
-    */
+    var node: CallExpression
+    var antecedent: FlowNode
 }

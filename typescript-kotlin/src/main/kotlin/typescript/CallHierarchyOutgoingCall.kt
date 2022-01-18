@@ -3,8 +3,6 @@
 package typescript
 
 external interface CallHierarchyOutgoingCall {
-    /*
-    to: CallHierarchyItem;
-    fromSpans: TextSpan[];
-    */
+    var to: CallHierarchyItem
+    var fromSpans: ReadonlyArray<TextSpan>
 }

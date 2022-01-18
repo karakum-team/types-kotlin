@@ -3,11 +3,9 @@
 package typescript
 
 external interface JSDocCallbackTag : JSDocTag, NamedDeclaration {
-    /*
-    readonly kind: SyntaxKind.JSDocCallbackTag;
-    readonly parent: JSDoc;
-    readonly fullName?: JSDocNamespaceDeclaration | Identifier;
-    readonly name?: Identifier;
-    readonly typeExpression: JSDocSignature;
-    */
+    override val kind: SyntaxKind.JSDocCallbackTag
+    override val parent: JSDoc
+    val fullName: dynamic /* JSDocNamespaceDeclaration | Identifier */
+    override val name: Identifier?
+    val typeExpression: JSDocSignature
 }

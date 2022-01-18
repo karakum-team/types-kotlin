@@ -3,7 +3,5 @@
 package typescript
 
 external interface DocCommentTemplateOptions {
-    /*
-    readonly generateReturnInDocTemplate?: boolean;
-    */
+    val generateReturnInDocTemplate: Boolean?
 }

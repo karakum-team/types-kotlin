@@ -10,13 +10,11 @@ package typescript
  * questions like 'what parameter is the user currently contained within?'.
  */
 external interface SignatureHelpItem {
-    /*
-    isVariadic: boolean;
-    prefixDisplayParts: SymbolDisplayPart[];
-    suffixDisplayParts: SymbolDisplayPart[];
-    separatorDisplayParts: SymbolDisplayPart[];
-    parameters: SignatureHelpParameter[];
-    documentation: SymbolDisplayPart[];
-    tags: JSDocTagInfo[];
-    */
+    var isVariadic: Boolean
+    var prefixDisplayParts: ReadonlyArray<SymbolDisplayPart>
+    var suffixDisplayParts: ReadonlyArray<SymbolDisplayPart>
+    var separatorDisplayParts: ReadonlyArray<SymbolDisplayPart>
+    var parameters: ReadonlyArray<SignatureHelpParameter>
+    var documentation: ReadonlyArray<SymbolDisplayPart>
+    var tags: ReadonlyArray<JSDocTagInfo>
 }

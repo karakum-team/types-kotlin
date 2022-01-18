@@ -3,9 +3,7 @@
 package typescript
 
 external interface MetaProperty : PrimaryExpression {
-    /*
-    readonly kind: SyntaxKind.MetaProperty;
-    readonly keywordToken: SyntaxKind.NewKeyword | SyntaxKind.ImportKeyword;
-    readonly name: Identifier;
-    */
+    override val kind: SyntaxKind.MetaProperty
+    val keywordToken: dynamic /* SyntaxKind.NewKeyword | SyntaxKind.ImportKeyword */
+    override val name: Identifier
 }

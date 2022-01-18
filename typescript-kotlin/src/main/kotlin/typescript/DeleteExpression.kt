@@ -3,8 +3,6 @@
 package typescript
 
 external interface DeleteExpression : UnaryExpression {
-    /*
-    readonly kind: SyntaxKind.DeleteExpression;
-    readonly expression: UnaryExpression;
-    */
+    override val kind: SyntaxKind.DeleteExpression
+    val expression: UnaryExpression
 }

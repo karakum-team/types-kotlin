@@ -3,8 +3,6 @@
 package typescript
 
 external interface PartiallyEmittedExpression : LeftHandSideExpression {
-    /*
-    readonly kind: SyntaxKind.PartiallyEmittedExpression;
-    readonly expression: Expression;
-    */
+    override val kind: SyntaxKind.PartiallyEmittedExpression
+    val expression: Expression
 }

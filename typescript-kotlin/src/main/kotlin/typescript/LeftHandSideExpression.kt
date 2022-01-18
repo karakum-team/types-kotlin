@@ -3,7 +3,5 @@
 package typescript
 
 external interface LeftHandSideExpression : UpdateExpression {
-    /*
-    _leftHandSideExpressionBrand: any;
-    */
+    var _leftHandSideExpressionBrand: Any
 }

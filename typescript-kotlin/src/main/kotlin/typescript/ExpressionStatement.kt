@@ -3,8 +3,6 @@
 package typescript
 
 external interface ExpressionStatement : Statement {
-    /*
-    readonly kind: SyntaxKind.ExpressionStatement;
-    readonly expression: Expression;
-    */
+    override val kind: SyntaxKind.ExpressionStatement
+    val expression: Expression
 }

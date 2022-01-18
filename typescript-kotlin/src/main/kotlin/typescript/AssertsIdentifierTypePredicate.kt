@@ -3,10 +3,8 @@
 package typescript
 
 external interface AssertsIdentifierTypePredicate : TypePredicateBase {
-    /*
-    kind: TypePredicateKind.AssertsIdentifier;
-    parameterName: string;
-    parameterIndex: number;
-    type: Type | undefined;
-    */
+    override var kind: TypePredicateKind.AssertsIdentifier
+    var parameterName: String
+    var parameterIndex: Double
+    var type: Type
 }

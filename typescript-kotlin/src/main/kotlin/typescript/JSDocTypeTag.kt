@@ -3,8 +3,6 @@
 package typescript
 
 external interface JSDocTypeTag : JSDocTag {
-    /*
-    readonly kind: SyntaxKind.JSDocTypeTag;
-    readonly typeExpression: JSDocTypeExpression;
-    */
+    override val kind: SyntaxKind.JSDocTypeTag
+    val typeExpression: JSDocTypeExpression
 }

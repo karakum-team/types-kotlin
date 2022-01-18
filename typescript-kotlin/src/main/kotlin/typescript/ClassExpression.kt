@@ -3,7 +3,5 @@
 package typescript
 
 external interface ClassExpression : ClassLikeDeclarationBase, PrimaryExpression {
-    /*
-    readonly kind: SyntaxKind.ClassExpression;
-    */
+    override val kind: SyntaxKind.ClassExpression
 }

@@ -3,12 +3,10 @@
 package typescript
 
 external interface PropertyAssignment : ObjectLiteralElement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.PropertyAssignment;
-    readonly parent: ObjectLiteralExpression;
-    readonly name: PropertyName;
-    readonly questionToken?: QuestionToken;
-    readonly exclamationToken?: ExclamationToken;
-    readonly initializer: Expression;
-    */
+    override val kind: SyntaxKind.PropertyAssignment
+    override val parent: ObjectLiteralExpression
+    override val name: PropertyName
+    val questionToken: QuestionToken?
+    val exclamationToken: ExclamationToken?
+    val initializer: Expression
 }

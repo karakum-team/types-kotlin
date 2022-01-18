@@ -3,10 +3,8 @@
 package typescript
 
 external interface ModuleDeclaration : DeclarationStatement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.ModuleDeclaration;
-    readonly parent: ModuleBody | SourceFile;
-    readonly name: ModuleName;
-    readonly body?: ModuleBody | JSDocNamespaceDeclaration;
-    */
+    override val kind: SyntaxKind.ModuleDeclaration
+    override val parent: dynamic /* ModuleBody | SourceFile */
+    override val name: ModuleName
+    val body: dynamic /* ModuleBody | JSDocNamespaceDeclaration */
 }

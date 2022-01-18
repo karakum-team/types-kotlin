@@ -3,9 +3,7 @@
 package typescript
 
 external interface ObjectBindingPattern : Node {
-    /*
-    readonly kind: SyntaxKind.ObjectBindingPattern;
-    readonly parent: VariableDeclaration | ParameterDeclaration | BindingElement;
-    readonly elements: NodeArray<BindingElement>;
-    */
+    override val kind: SyntaxKind.ObjectBindingPattern
+    override val parent: dynamic /* VariableDeclaration | ParameterDeclaration | BindingElement */
+    val elements: NodeArray<BindingElement>
 }

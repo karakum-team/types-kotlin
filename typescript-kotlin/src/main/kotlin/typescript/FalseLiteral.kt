@@ -3,7 +3,5 @@
 package typescript
 
 external interface FalseLiteral : PrimaryExpression {
-    /*
-    readonly kind: SyntaxKind.FalseKeyword;
-    */
+    override val kind: SyntaxKind.FalseKeyword
 }

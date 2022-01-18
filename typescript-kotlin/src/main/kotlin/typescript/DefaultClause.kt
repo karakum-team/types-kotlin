@@ -3,9 +3,7 @@
 package typescript
 
 external interface DefaultClause : Node {
-    /*
-    readonly kind: SyntaxKind.DefaultClause;
-    readonly parent: CaseBlock;
-    readonly statements: NodeArray<Statement>;
-    */
+    override val kind: SyntaxKind.DefaultClause
+    override val parent: CaseBlock
+    val statements: NodeArray<Statement>
 }

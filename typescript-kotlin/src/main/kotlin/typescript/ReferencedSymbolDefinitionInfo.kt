@@ -3,7 +3,5 @@
 package typescript
 
 external interface ReferencedSymbolDefinitionInfo : DefinitionInfo {
-    /*
-    displayParts: SymbolDisplayPart[];
-    */
+    var displayParts: ReadonlyArray<SymbolDisplayPart>
 }

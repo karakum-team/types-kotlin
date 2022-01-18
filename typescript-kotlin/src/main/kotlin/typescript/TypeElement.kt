@@ -3,9 +3,7 @@
 package typescript
 
 external interface TypeElement : NamedDeclaration {
-    /*
-    _typeElementBrand: any;
-    readonly name?: PropertyName;
-    readonly questionToken?: QuestionToken;
-    */
+    var _typeElementBrand: Any
+    override val name: PropertyName?
+    val questionToken: QuestionToken?
 }

@@ -3,101 +3,100 @@
 package typescript
 
 external interface CompilerOptions {
-    /*
-    allowJs?: boolean;
-    allowSyntheticDefaultImports?: boolean;
-    allowUmdGlobalAccess?: boolean;
-    allowUnreachableCode?: boolean;
-    allowUnusedLabels?: boolean;
-    alwaysStrict?: boolean;
-    baseUrl?: string;
-    charset?: string;
-    checkJs?: boolean;
-    declaration?: boolean;
-    declarationMap?: boolean;
-    emitDeclarationOnly?: boolean;
-    declarationDir?: string;
-    disableSizeLimit?: boolean;
-    disableSourceOfProjectReferenceRedirect?: boolean;
-    disableSolutionSearching?: boolean;
-    disableReferencedProjectLoad?: boolean;
-    downlevelIteration?: boolean;
-    emitBOM?: boolean;
-    emitDecoratorMetadata?: boolean;
-    exactOptionalPropertyTypes?: boolean;
-    experimentalDecorators?: boolean;
-    forceConsistentCasingInFileNames?: boolean;
-    importHelpers?: boolean;
-    importsNotUsedAsValues?: ImportsNotUsedAsValues;
-    inlineSourceMap?: boolean;
-    inlineSources?: boolean;
-    isolatedModules?: boolean;
-    jsx?: JsxEmit;
-    keyofStringsOnly?: boolean;
-    lib?: string[];
-    locale?: string;
-    mapRoot?: string;
-    maxNodeModuleJsDepth?: number;
-    module?: ModuleKind;
-    moduleResolution?: ModuleResolutionKind;
-    newLine?: NewLineKind;
-    noEmit?: boolean;
-    noEmitHelpers?: boolean;
-    noEmitOnError?: boolean;
-    noErrorTruncation?: boolean;
-    noFallthroughCasesInSwitch?: boolean;
-    noImplicitAny?: boolean;
-    noImplicitReturns?: boolean;
-    noImplicitThis?: boolean;
-    noStrictGenericChecks?: boolean;
-    noUnusedLocals?: boolean;
-    noUnusedParameters?: boolean;
-    noImplicitUseStrict?: boolean;
-    noPropertyAccessFromIndexSignature?: boolean;
-    assumeChangesOnlyAffectDirectDependencies?: boolean;
-    noLib?: boolean;
-    noResolve?: boolean;
-    noUncheckedIndexedAccess?: boolean;
-    out?: string;
-    outDir?: string;
-    outFile?: string;
-    paths?: MapLike<string[]>;
-    preserveConstEnums?: boolean;
-    noImplicitOverride?: boolean;
-    preserveSymlinks?: boolean;
-    preserveValueImports?: boolean;
-    project?: string;
-    reactNamespace?: string;
-    jsxFactory?: string;
-    jsxFragmentFactory?: string;
-    jsxImportSource?: string;
-    composite?: boolean;
-    incremental?: boolean;
-    tsBuildInfoFile?: string;
-    removeComments?: boolean;
-    rootDir?: string;
-    rootDirs?: string[];
-    skipLibCheck?: boolean;
-    skipDefaultLibCheck?: boolean;
-    sourceMap?: boolean;
-    sourceRoot?: string;
-    strict?: boolean;
-    strictFunctionTypes?: boolean;
-    strictBindCallApply?: boolean;
-    strictNullChecks?: boolean;
-    strictPropertyInitialization?: boolean;
-    stripInternal?: boolean;
-    suppressExcessPropertyErrors?: boolean;
-    suppressImplicitAnyIndexErrors?: boolean;
-    target?: ScriptTarget;
-    traceResolution?: boolean;
-    useUnknownInCatchVariables?: boolean;
-    resolveJsonModule?: boolean;
-    types?: string[];
+    var allowJs: Boolean?
+    var allowSyntheticDefaultImports: Boolean?
+    var allowUmdGlobalAccess: Boolean?
+    var allowUnreachableCode: Boolean?
+    var allowUnusedLabels: Boolean?
+    var alwaysStrict: Boolean?
+    var baseUrl: String?
+    var charset: String?
+    var checkJs: Boolean?
+    var declaration: Boolean?
+    var declarationMap: Boolean?
+    var emitDeclarationOnly: Boolean?
+    var declarationDir: String?
+    var disableSizeLimit: Boolean?
+    var disableSourceOfProjectReferenceRedirect: Boolean?
+    var disableSolutionSearching: Boolean?
+    var disableReferencedProjectLoad: Boolean?
+    var downlevelIteration: Boolean?
+    var emitBOM: Boolean?
+    var emitDecoratorMetadata: Boolean?
+    var exactOptionalPropertyTypes: Boolean?
+    var experimentalDecorators: Boolean?
+    var forceConsistentCasingInFileNames: Boolean?
+    var importHelpers: Boolean?
+    var importsNotUsedAsValues: ImportsNotUsedAsValues?
+    var inlineSourceMap: Boolean?
+    var inlineSources: Boolean?
+    var isolatedModules: Boolean?
+    var jsx: JsxEmit?
+    var keyofStringsOnly: Boolean?
+    var lib: ReadonlyArray<String>?
+    var locale: String?
+    var mapRoot: String?
+    var maxNodeModuleJsDepth: Double?
+    var module: ModuleKind?
+    var moduleResolution: ModuleResolutionKind?
+    var newLine: NewLineKind?
+    var noEmit: Boolean?
+    var noEmitHelpers: Boolean?
+    var noEmitOnError: Boolean?
+    var noErrorTruncation: Boolean?
+    var noFallthroughCasesInSwitch: Boolean?
+    var noImplicitAny: Boolean?
+    var noImplicitReturns: Boolean?
+    var noImplicitThis: Boolean?
+    var noStrictGenericChecks: Boolean?
+    var noUnusedLocals: Boolean?
+    var noUnusedParameters: Boolean?
+    var noImplicitUseStrict: Boolean?
+    var noPropertyAccessFromIndexSignature: Boolean?
+    var assumeChangesOnlyAffectDirectDependencies: Boolean?
+    var noLib: Boolean?
+    var noResolve: Boolean?
+    var noUncheckedIndexedAccess: Boolean?
+    var out: String?
+    var outDir: String?
+    var outFile: String?
+    var paths: MapLike<ReadonlyArray<String>>?
+    var preserveConstEnums: Boolean?
+    var noImplicitOverride: Boolean?
+    var preserveSymlinks: Boolean?
+    var preserveValueImports: Boolean?
+    var project: String?
+    var reactNamespace: String?
+    var jsxFactory: String?
+    var jsxFragmentFactory: String?
+    var jsxImportSource: String?
+    var composite: Boolean?
+    var incremental: Boolean?
+    var tsBuildInfoFile: String?
+    var removeComments: Boolean?
+    var rootDir: String?
+    var rootDirs: ReadonlyArray<String>?
+    var skipLibCheck: Boolean?
+    var skipDefaultLibCheck: Boolean?
+    var sourceMap: Boolean?
+    var sourceRoot: String?
+    var strict: Boolean?
+    var strictFunctionTypes: Boolean?
+    var strictBindCallApply: Boolean?
+    var strictNullChecks: Boolean?
+    var strictPropertyInitialization: Boolean?
+    var stripInternal: Boolean?
+    var suppressExcessPropertyErrors: Boolean?
+    var suppressImplicitAnyIndexErrors: Boolean?
+    var target: ScriptTarget?
+    var traceResolution: Boolean?
+    var useUnknownInCatchVariables: Boolean?
+    var resolveJsonModule: Boolean?
+    var types: ReadonlyArray<String>?
+
     /** Paths used to compute primary types search locations */
-    typeRoots?: string[];
-    esModuleInterop?: boolean;
-    useDefineForClassFields?: boolean;
-    [option: string]: CompilerOptionsValue | TsConfigSourceFile | undefined;
-    */
+    var typeRoots: ReadonlyArray<String>?
+    var esModuleInterop: Boolean?
+    var useDefineForClassFields: Boolean?
+    // [option: string]: CompilerOptionsValue | TsConfigSourceFile | undefined
 }

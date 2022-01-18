@@ -3,7 +3,5 @@
 package typescript
 
 external interface NumericLiteral : LiteralExpression, Declaration {
-    /*
-    readonly kind: SyntaxKind.NumericLiteral;
-    */
+    override val kind: SyntaxKind.NumericLiteral
 }

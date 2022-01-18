@@ -3,12 +3,10 @@
 package typescript
 
 external interface ConditionalExpression : Expression {
-    /*
-    readonly kind: SyntaxKind.ConditionalExpression;
-    readonly condition: Expression;
-    readonly questionToken: QuestionToken;
-    readonly whenTrue: Expression;
-    readonly colonToken: ColonToken;
-    readonly whenFalse: Expression;
-    */
+    override val kind: SyntaxKind.ConditionalExpression
+    val condition: Expression
+    val questionToken: QuestionToken
+    val whenTrue: Expression
+    val colonToken: ColonToken
+    val whenFalse: Expression
 }

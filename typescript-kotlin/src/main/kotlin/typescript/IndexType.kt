@@ -3,7 +3,5 @@
 package typescript
 
 external interface IndexType : InstantiableType {
-    /*
-    type: InstantiableType | UnionOrIntersectionType;
-    */
+    var type: dynamic /* InstantiableType | UnionOrIntersectionType */
 }

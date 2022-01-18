@@ -3,7 +3,5 @@
 package typescript
 
 external interface JSDocLinkDisplayPart : SymbolDisplayPart {
-    /*
-    target: DocumentSpan;
-    */
+    var target: DocumentSpan
 }

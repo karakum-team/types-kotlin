@@ -3,15 +3,13 @@
 package typescript
 
 external interface ConditionalRoot {
-    /*
-    node: ConditionalTypeNode;
-    checkType: Type;
-    extendsType: Type;
-    isDistributive: boolean;
-    inferTypeParameters?: TypeParameter[];
-    outerTypeParameters?: TypeParameter[];
-    instantiations?: Map<Type>;
-    aliasSymbol?: Symbol;
-    aliasTypeArguments?: Type[];
-    */
+    var node: ConditionalTypeNode
+    var checkType: Type
+    var extendsType: Type
+    var isDistributive: Boolean
+    var inferTypeParameters: ReadonlyArray<TypeParameter>?
+    var outerTypeParameters: ReadonlyArray<TypeParameter>?
+    var instantiations: Map<Type>?
+    var aliasSymbol: Symbol?
+    var aliasTypeArguments: ReadonlyArray<Type>?
 }

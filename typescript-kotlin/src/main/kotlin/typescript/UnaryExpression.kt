@@ -3,7 +3,5 @@
 package typescript
 
 external interface UnaryExpression : Expression {
-    /*
-    _unaryExpressionBrand: any;
-    */
+    var _unaryExpressionBrand: Any
 }

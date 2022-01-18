@@ -3,7 +3,5 @@
 package typescript
 
 external interface CompletionEntryDataResolved : CompletionEntryDataAutoImport {
-    /*
-    moduleSpecifier: string;
-    */
+    var moduleSpecifier: String
 }

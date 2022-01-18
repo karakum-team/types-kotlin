@@ -3,7 +3,5 @@
 package typescript
 
 external interface BigIntLiteral : LiteralExpression {
-    /*
-    readonly kind: SyntaxKind.BigIntLiteral;
-    */
+    override val kind: SyntaxKind.BigIntLiteral
 }

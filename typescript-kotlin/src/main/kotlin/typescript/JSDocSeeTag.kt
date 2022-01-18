@@ -3,8 +3,6 @@
 package typescript
 
 external interface JSDocSeeTag : JSDocTag {
-    /*
-    readonly kind: SyntaxKind.JSDocSeeTag;
-    readonly name?: JSDocNameReference;
-    */
+    override val kind: SyntaxKind.JSDocSeeTag
+    override val name: JSDocNameReference?
 }

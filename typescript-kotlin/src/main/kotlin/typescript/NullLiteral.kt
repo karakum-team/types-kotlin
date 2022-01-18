@@ -3,7 +3,5 @@
 package typescript
 
 external interface NullLiteral : PrimaryExpression {
-    /*
-    readonly kind: SyntaxKind.NullKeyword;
-    */
+    override val kind: SyntaxKind.NullKeyword
 }

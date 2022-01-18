@@ -3,11 +3,9 @@
 package typescript
 
 external interface SignatureHelpParameter {
-    /*
-    name: string;
-    documentation: SymbolDisplayPart[];
-    displayParts: SymbolDisplayPart[];
-    isOptional: boolean;
-    isRest?: boolean;
-    */
+    var name: String
+    var documentation: ReadonlyArray<SymbolDisplayPart>
+    var displayParts: ReadonlyArray<SymbolDisplayPart>
+    var isOptional: Boolean
+    var isRest: Boolean?
 }

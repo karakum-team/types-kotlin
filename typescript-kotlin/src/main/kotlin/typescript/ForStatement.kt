@@ -3,10 +3,8 @@
 package typescript
 
 external interface ForStatement : IterationStatement {
-    /*
-    readonly kind: SyntaxKind.ForStatement;
-    readonly initializer?: ForInitializer;
-    readonly condition?: Expression;
-    readonly incrementor?: Expression;
-    */
+    override val kind: SyntaxKind.ForStatement
+    val initializer: ForInitializer?
+    val condition: Expression?
+    val incrementor: Expression?
 }

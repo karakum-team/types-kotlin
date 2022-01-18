@@ -3,9 +3,7 @@
 package typescript
 
 external interface JSDocTag : Node {
-    /*
-    readonly parent: JSDoc | JSDocTypeLiteral;
-    readonly tagName: Identifier;
-    readonly comment?: string | NodeArray<JSDocComment>;
-    */
+    override val parent: dynamic /* JSDoc | JSDocTypeLiteral */
+    val tagName: Identifier
+    val comment: dynamic /* string | NodeArray<JSDocComment> */
 }

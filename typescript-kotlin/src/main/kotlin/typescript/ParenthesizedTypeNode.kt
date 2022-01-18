@@ -3,8 +3,6 @@
 package typescript
 
 external interface ParenthesizedTypeNode : TypeNode {
-    /*
-    readonly kind: SyntaxKind.ParenthesizedType;
-    readonly type: TypeNode;
-    */
+    override val kind: SyntaxKind.ParenthesizedType
+    val type: TypeNode
 }

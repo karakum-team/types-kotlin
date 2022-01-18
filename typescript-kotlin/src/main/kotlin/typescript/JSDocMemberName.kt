@@ -4,9 +4,7 @@ package typescript
 
 /** Class#method reference in JSDoc */
 external interface JSDocMemberName : Node {
-    /*
-    readonly kind: SyntaxKind.JSDocMemberName;
-    readonly left: EntityName | JSDocMemberName;
-    readonly right: Identifier;
-    */
+    override val kind: SyntaxKind.JSDocMemberName
+    val left: dynamic /* EntityName | JSDocMemberName */
+    val right: Identifier
 }

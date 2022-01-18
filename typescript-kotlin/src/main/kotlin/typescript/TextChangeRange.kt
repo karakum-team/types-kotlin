@@ -3,8 +3,6 @@
 package typescript
 
 external interface TextChangeRange {
-    /*
-    span: TextSpan;
-    newLength: number;
-    */
+    var span: TextSpan
+    var newLength: Double
 }

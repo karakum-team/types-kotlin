@@ -3,8 +3,6 @@
 package typescript
 
 external interface SelectionRange {
-    /*
-    textSpan: TextSpan;
-    parent?: SelectionRange;
-    */
+    var textSpan: TextSpan
+    var parent: SelectionRange?
 }

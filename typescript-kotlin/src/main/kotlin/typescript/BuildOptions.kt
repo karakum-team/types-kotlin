@@ -3,13 +3,11 @@
 package typescript
 
 external interface BuildOptions {
-    /*
-    dry?: boolean;
-    force?: boolean;
-    verbose?: boolean;
-    incremental?: boolean;
-    assumeChangesOnlyAffectDirectDependencies?: boolean;
-    traceResolution?: boolean;
-    [option: string]: CompilerOptionsValue | undefined;
-    */
+    var dry: Boolean?
+    var force: Boolean?
+    var verbose: Boolean?
+    var incremental: Boolean?
+    var assumeChangesOnlyAffectDirectDependencies: Boolean?
+    var traceResolution: Boolean?
+    // [option: string]: CompilerOptionsValue | undefined
 }

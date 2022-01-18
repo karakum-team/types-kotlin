@@ -3,17 +3,16 @@
 package typescript
 
 external interface RenameInfoSuccess {
-    /*
-    canRename: true;
+    var canRename: Boolean /* true */
+
     /**
      * File or directory to rename.
      * If set, `getEditsForFileRename` should be called instead of `findRenameLocations`.
      */
-    fileToRename?: string;
-    displayName: string;
-    fullDisplayName: string;
-    kind: ScriptElementKind;
-    kindModifiers: string;
-    triggerSpan: TextSpan;
-    */
+    var fileToRename: String?
+    var displayName: String
+    var fullDisplayName: String
+    var kind: ScriptElementKind
+    var kindModifiers: String
+    var triggerSpan: TextSpan
 }

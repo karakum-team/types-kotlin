@@ -3,7 +3,5 @@
 package typescript
 
 external interface JSDocParameterTag : JSDocPropertyLikeTag {
-    /*
-    readonly kind: SyntaxKind.JSDocParameterTag;
-    */
+    override val kind: SyntaxKind.JSDocParameterTag
 }

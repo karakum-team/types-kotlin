@@ -3,10 +3,8 @@
 package typescript
 
 external interface IfStatement : Statement {
-    /*
-    readonly kind: SyntaxKind.IfStatement;
-    readonly expression: Expression;
-    readonly thenStatement: Statement;
-    readonly elseStatement?: Statement;
-    */
+    override val kind: SyntaxKind.IfStatement
+    val expression: Expression
+    val thenStatement: Statement
+    val elseStatement: Statement?
 }

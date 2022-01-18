@@ -3,10 +3,8 @@
 package typescript
 
 external interface IndexInfo {
-    /*
-    keyType: Type;
-    type: Type;
-    isReadonly: boolean;
-    declaration?: IndexSignatureDeclaration;
-    */
+    var keyType: Type
+    var type: Type
+    var isReadonly: Boolean
+    var declaration: IndexSignatureDeclaration?
 }

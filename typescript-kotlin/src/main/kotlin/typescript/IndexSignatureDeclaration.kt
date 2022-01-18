@@ -3,9 +3,7 @@
 package typescript
 
 external interface IndexSignatureDeclaration : SignatureDeclarationBase, ClassElement, TypeElement {
-    /*
-    readonly kind: SyntaxKind.IndexSignature;
-    readonly parent: ObjectTypeDeclaration;
-    readonly type: TypeNode;
-    */
+    override val kind: SyntaxKind.IndexSignature
+    override val parent: ObjectTypeDeclaration
+    val type: TypeNode
 }

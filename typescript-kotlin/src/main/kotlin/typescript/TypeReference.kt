@@ -13,8 +13,6 @@ package typescript
  * explicit "this" argument.
  */
 external interface TypeReference : ObjectType {
-    /*
-    target: GenericType;
-    node?: TypeReferenceNode | ArrayTypeNode | TupleTypeNode;
-    */
+    var target: GenericType
+    var node: dynamic /* TypeReferenceNode | ArrayTypeNode | TupleTypeNode */
 }

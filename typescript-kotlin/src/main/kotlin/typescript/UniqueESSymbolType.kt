@@ -3,8 +3,6 @@
 package typescript
 
 external interface UniqueESSymbolType : Type {
-    /*
-    symbol: Symbol;
-    escapedName: __String;
-    */
+    var symbol: Symbol
+    var escapedName: __String
 }

@@ -3,7 +3,5 @@
 package typescript
 
 external interface TransientIdentifier : Identifier {
-    /*
-    resolvedSymbol: Symbol;
-    */
+    var resolvedSymbol: Symbol
 }

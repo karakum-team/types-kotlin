@@ -3,12 +3,10 @@
 package typescript
 
 external interface DiagnosticMessage {
-    /*
-    key: string;
-    category: DiagnosticCategory;
-    code: number;
-    message: string;
-    reportsUnnecessary?: {};
-    reportsDeprecated?: {};
-    */
+    var key: String
+    var category: DiagnosticCategory
+    var code: Double
+    var message: String
+    var reportsUnnecessary: Any?
+    var reportsDeprecated: Any?
 }

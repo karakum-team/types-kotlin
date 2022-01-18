@@ -4,15 +4,13 @@ package typescript
 
 /** Either a parsed command line or a parsed tsconfig.json */
 external interface ParsedCommandLine {
-    /*
-    options: CompilerOptions;
-    typeAcquisition?: TypeAcquisition;
-    fileNames: string[];
-    projectReferences?: readonly ProjectReference[];
-    watchOptions?: WatchOptions;
-    raw?: any;
-    errors: Diagnostic[];
-    wildcardDirectories?: MapLike<WatchDirectoryFlags>;
-    compileOnSave?: boolean;
-    */
+    var options: CompilerOptions
+    var typeAcquisition: TypeAcquisition?
+    var fileNames: ReadonlyArray<String>
+    var projectReferences: ReadonlyArray<ProjectReference>?
+    var watchOptions: WatchOptions?
+    var raw: Any?
+    var errors: ReadonlyArray<Diagnostic>
+    var wildcardDirectories: MapLike<WatchDirectoryFlags>?
+    var compileOnSave: Boolean?
 }

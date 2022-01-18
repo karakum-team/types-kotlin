@@ -3,16 +3,14 @@
 package typescript
 
 external interface TypeAcquisition {
-    /*
     /**
      * @deprecated typingOptions.enableAutoDiscovery
      * Use typeAcquisition.enable instead.
      */
-    enableAutoDiscovery?: boolean;
-    enable?: boolean;
-    include?: string[];
-    exclude?: string[];
-    disableFilenameBasedTypeAcquisition?: boolean;
-    [option: string]: CompilerOptionsValue | undefined;
-    */
+    var enableAutoDiscovery: Boolean?
+    var enable: Boolean?
+    var include: ReadonlyArray<String>?
+    var exclude: ReadonlyArray<String>?
+    var disableFilenameBasedTypeAcquisition: Boolean?
+    // [option: string]: CompilerOptionsValue | undefined
 }

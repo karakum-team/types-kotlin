@@ -3,8 +3,6 @@
 package typescript
 
 external interface FunctionOrConstructorTypeNodeBase : TypeNode, SignatureDeclarationBase {
-    /*
-    readonly kind: SyntaxKind.FunctionType | SyntaxKind.ConstructorType;
-    readonly type: TypeNode;
-    */
+    override val kind: dynamic /* SyntaxKind.FunctionType | SyntaxKind.ConstructorType */
+    val type: TypeNode
 }

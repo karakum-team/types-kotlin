@@ -3,9 +3,7 @@
 package typescript
 
 external interface SubstitutionType : InstantiableType {
-    /*
-    objectFlags: ObjectFlags;
-    baseType: Type;
-    substitute: Type;
-    */
+    var objectFlags: ObjectFlags
+    var baseType: Type
+    var substitute: Type
 }

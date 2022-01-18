@@ -3,10 +3,8 @@
 package typescript
 
 external interface SyntheticExpression : Expression {
-    /*
-    readonly kind: SyntaxKind.SyntheticExpression;
-    readonly isSpread: boolean;
-    readonly type: Type;
-    readonly tupleNameSource?: ParameterDeclaration | NamedTupleMember;
-    */
+    override val kind: SyntaxKind.SyntheticExpression
+    val isSpread: Boolean
+    val type: Type
+    val tupleNameSource: dynamic /* ParameterDeclaration | NamedTupleMember */
 }

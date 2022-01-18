@@ -3,10 +3,8 @@
 package typescript
 
 external interface TypeAliasDeclaration : DeclarationStatement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.TypeAliasDeclaration;
-    readonly name: Identifier;
-    readonly typeParameters?: NodeArray<TypeParameterDeclaration>;
-    readonly type: TypeNode;
-    */
+    override val kind: SyntaxKind.TypeAliasDeclaration
+    override val name: Identifier
+    val typeParameters: NodeArray<TypeParameterDeclaration>?
+    val type: TypeNode
 }

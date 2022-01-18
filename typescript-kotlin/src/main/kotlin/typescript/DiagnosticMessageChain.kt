@@ -9,10 +9,8 @@ package typescript
  * the difference is that messages are all preformatted in DMC.
  */
 external interface DiagnosticMessageChain {
-    /*
-    messageText: string;
-    category: DiagnosticCategory;
-    code: number;
-    next?: DiagnosticMessageChain[];
-    */
+    var messageText: String
+    var category: DiagnosticCategory
+    var code: Double
+    var next: ReadonlyArray<DiagnosticMessageChain>?
 }

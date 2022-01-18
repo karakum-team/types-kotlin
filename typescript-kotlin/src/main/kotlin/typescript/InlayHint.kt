@@ -3,11 +3,9 @@
 package typescript
 
 external interface InlayHint {
-    /*
-    text: string;
-    position: number;
-    kind: InlayHintKind;
-    whitespaceBefore?: boolean;
-    whitespaceAfter?: boolean;
-    */
+    var text: String
+    var position: Double
+    var kind: InlayHintKind
+    var whitespaceBefore: Boolean?
+    var whitespaceAfter: Boolean?
 }

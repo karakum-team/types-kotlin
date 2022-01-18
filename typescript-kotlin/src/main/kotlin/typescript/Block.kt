@@ -3,8 +3,6 @@
 package typescript
 
 external interface Block : Statement {
-    /*
-    readonly kind: SyntaxKind.Block;
-    readonly statements: NodeArray<Statement>;
-    */
+    override val kind: SyntaxKind.Block
+    val statements: NodeArray<Statement>
 }

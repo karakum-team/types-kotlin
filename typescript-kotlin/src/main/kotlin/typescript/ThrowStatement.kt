@@ -3,8 +3,6 @@
 package typescript
 
 external interface ThrowStatement : Statement {
-    /*
-    readonly kind: SyntaxKind.ThrowStatement;
-    readonly expression: Expression;
-    */
+    override val kind: SyntaxKind.ThrowStatement
+    val expression: Expression
 }

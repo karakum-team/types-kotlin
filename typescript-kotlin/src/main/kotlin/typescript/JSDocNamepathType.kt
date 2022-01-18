@@ -3,8 +3,6 @@
 package typescript
 
 external interface JSDocNamepathType : JSDocType {
-    /*
-    readonly kind: SyntaxKind.JSDocNamepathType;
-    readonly type: TypeNode;
-    */
+    override val kind: SyntaxKind.JSDocNamepathType
+    val type: TypeNode
 }

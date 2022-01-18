@@ -3,8 +3,6 @@
 package typescript
 
 external interface ArrayTypeNode : TypeNode {
-    /*
-    readonly kind: SyntaxKind.ArrayType;
-    readonly elementType: TypeNode;
-    */
+    override val kind: SyntaxKind.ArrayType
+    val elementType: TypeNode
 }

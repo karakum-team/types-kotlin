@@ -3,7 +3,5 @@
 package typescript
 
 external interface SuperCall : CallExpression {
-    /*
-    readonly expression: SuperExpression;
-    */
+    val expression: SuperExpression
 }

@@ -3,9 +3,7 @@
 package typescript
 
 external interface IndexedAccessTypeNode : TypeNode {
-    /*
-    readonly kind: SyntaxKind.IndexedAccessType;
-    readonly objectType: TypeNode;
-    readonly indexType: TypeNode;
-    */
+    override val kind: SyntaxKind.IndexedAccessType
+    val objectType: TypeNode
+    val indexType: TypeNode
 }

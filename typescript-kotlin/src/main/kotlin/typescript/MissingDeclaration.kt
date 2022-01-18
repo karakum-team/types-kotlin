@@ -3,8 +3,6 @@
 package typescript
 
 external interface MissingDeclaration : DeclarationStatement {
-    /*
-    readonly kind: SyntaxKind.MissingDeclaration;
-    readonly name?: Identifier;
-    */
+    override val kind: SyntaxKind.MissingDeclaration
+    override val name: Identifier?
 }

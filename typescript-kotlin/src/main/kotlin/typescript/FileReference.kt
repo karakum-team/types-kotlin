@@ -3,7 +3,5 @@
 package typescript
 
 external interface FileReference : TextRange {
-    /*
-    fileName: string;
-    */
+    var fileName: String
 }

@@ -3,8 +3,6 @@
 package typescript
 
 external interface JSDocTypeExpression : TypeNode {
-    /*
-    readonly kind: SyntaxKind.JSDocTypeExpression;
-    readonly type: TypeNode;
-    */
+    override val kind: SyntaxKind.JSDocTypeExpression
+    val type: TypeNode
 }

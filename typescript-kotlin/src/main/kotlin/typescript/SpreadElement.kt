@@ -3,9 +3,7 @@
 package typescript
 
 external interface SpreadElement : Expression {
-    /*
-    readonly kind: SyntaxKind.SpreadElement;
-    readonly parent: ArrayLiteralExpression | CallExpression | NewExpression;
-    readonly expression: Expression;
-    */
+    override val kind: SyntaxKind.SpreadElement
+    override val parent: dynamic /* ArrayLiteralExpression | CallExpression | NewExpression */
+    val expression: Expression
 }

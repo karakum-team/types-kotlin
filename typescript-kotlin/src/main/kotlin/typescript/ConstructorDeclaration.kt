@@ -3,9 +3,7 @@
 package typescript
 
 external interface ConstructorDeclaration : FunctionLikeDeclarationBase, ClassElement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.Constructor;
-    readonly parent: ClassLikeDeclaration;
-    readonly body?: FunctionBody;
-    */
+    override val kind: SyntaxKind.Constructor
+    override val parent: ClassLikeDeclaration
+    val body: FunctionBody?
 }

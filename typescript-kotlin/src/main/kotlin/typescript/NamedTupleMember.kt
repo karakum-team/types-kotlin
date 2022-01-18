@@ -3,11 +3,9 @@
 package typescript
 
 external interface NamedTupleMember : TypeNode, JSDocContainer, Declaration {
-    /*
-    readonly kind: SyntaxKind.NamedTupleMember;
-    readonly dotDotDotToken?: Token<SyntaxKind.DotDotDotToken>;
-    readonly name: Identifier;
-    readonly questionToken?: Token<SyntaxKind.QuestionToken>;
-    readonly type: TypeNode;
-    */
+    override val kind: SyntaxKind.NamedTupleMember
+    val dotDotDotToken: Token<SyntaxKind.DotDotDotToken>?
+    override val name: Identifier
+    val questionToken: Token<SyntaxKind.QuestionToken>?
+    val type: TypeNode
 }

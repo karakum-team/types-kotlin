@@ -3,11 +3,9 @@
 package typescript
 
 external interface ClassLikeDeclarationBase : NamedDeclaration, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.ClassDeclaration | SyntaxKind.ClassExpression;
-    readonly name?: Identifier;
-    readonly typeParameters?: NodeArray<TypeParameterDeclaration>;
-    readonly heritageClauses?: NodeArray<HeritageClause>;
-    readonly members: NodeArray<ClassElement>;
-    */
+    override val kind: dynamic /* SyntaxKind.ClassDeclaration | SyntaxKind.ClassExpression */
+    override val name: Identifier?
+    val typeParameters: NodeArray<TypeParameterDeclaration>?
+    val heritageClauses: NodeArray<HeritageClause>?
+    val members: NodeArray<ClassElement>
 }

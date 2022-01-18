@@ -3,11 +3,9 @@
 package typescript
 
 external interface Type {
-    /*
-    flags: TypeFlags;
-    symbol: Symbol;
-    pattern?: DestructuringPattern;
-    aliasSymbol?: Symbol;
-    aliasTypeArguments?: readonly Type[];
-    */
+    var flags: TypeFlags
+    var symbol: Symbol
+    var pattern: DestructuringPattern?
+    var aliasSymbol: Symbol?
+    var aliasTypeArguments: ReadonlyArray<Type>?
 }

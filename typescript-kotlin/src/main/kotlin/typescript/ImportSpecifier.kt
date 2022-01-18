@@ -3,11 +3,9 @@
 package typescript
 
 external interface ImportSpecifier : NamedDeclaration {
-    /*
-    readonly kind: SyntaxKind.ImportSpecifier;
-    readonly parent: NamedImports;
-    readonly propertyName?: Identifier;
-    readonly name: Identifier;
-    readonly isTypeOnly: boolean;
-    */
+    override val kind: SyntaxKind.ImportSpecifier
+    override val parent: NamedImports
+    val propertyName: Identifier?
+    override val name: Identifier
+    val isTypeOnly: Boolean
 }

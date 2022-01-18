@@ -3,9 +3,7 @@
 package typescript
 
 external interface ComputedPropertyName : Node {
-    /*
-    readonly kind: SyntaxKind.ComputedPropertyName;
-    readonly parent: Declaration;
-    readonly expression: Expression;
-    */
+    override val kind: SyntaxKind.ComputedPropertyName
+    override val parent: Declaration
+    val expression: Expression
 }

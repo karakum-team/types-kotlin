@@ -3,7 +3,5 @@
 package typescript
 
 external interface ResolvedModuleWithFailedLookupLocations {
-    /*
-    readonly resolvedModule: ResolvedModuleFull | undefined;
-    */
+    val resolvedModule: ResolvedModuleFull
 }

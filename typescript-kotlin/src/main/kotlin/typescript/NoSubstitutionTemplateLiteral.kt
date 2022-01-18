@@ -3,7 +3,5 @@
 package typescript
 
 external interface NoSubstitutionTemplateLiteral : LiteralExpression, TemplateLiteralLikeNode, Declaration {
-    /*
-    readonly kind: SyntaxKind.NoSubstitutionTemplateLiteral;
-    */
+    override val kind: SyntaxKind.NoSubstitutionTemplateLiteral
 }

@@ -3,9 +3,7 @@
 package typescript
 
 external interface TemplateExpression : PrimaryExpression {
-    /*
-    readonly kind: SyntaxKind.TemplateExpression;
-    readonly head: TemplateHead;
-    readonly templateSpans: NodeArray<TemplateSpan>;
-    */
+    override val kind: SyntaxKind.TemplateExpression
+    val head: TemplateHead
+    val templateSpans: NodeArray<TemplateSpan>
 }

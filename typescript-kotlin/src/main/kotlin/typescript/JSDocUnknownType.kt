@@ -3,7 +3,5 @@
 package typescript
 
 external interface JSDocUnknownType : JSDocType {
-    /*
-    readonly kind: SyntaxKind.JSDocUnknownType;
-    */
+    override val kind: SyntaxKind.JSDocUnknownType
 }

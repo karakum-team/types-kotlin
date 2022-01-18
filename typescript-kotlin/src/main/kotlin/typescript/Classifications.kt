@@ -3,8 +3,6 @@
 package typescript
 
 external interface Classifications {
-    /*
-    spans: number[];
-    endOfLineState: EndOfLineState;
-    */
+    var spans: ReadonlyArray<Double>
+    var endOfLineState: EndOfLineState
 }

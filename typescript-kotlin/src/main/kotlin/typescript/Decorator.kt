@@ -3,9 +3,7 @@
 package typescript
 
 external interface Decorator : Node {
-    /*
-    readonly kind: SyntaxKind.Decorator;
-    readonly parent: NamedDeclaration;
-    readonly expression: LeftHandSideExpression;
-    */
+    override val kind: SyntaxKind.Decorator
+    override val parent: NamedDeclaration
+    val expression: LeftHandSideExpression
 }

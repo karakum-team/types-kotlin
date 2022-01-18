@@ -3,25 +3,23 @@
 package typescript
 
 external interface FormatCodeSettings : EditorSettings {
-    /*
-    readonly insertSpaceAfterCommaDelimiter?: boolean;
-    readonly insertSpaceAfterSemicolonInForStatements?: boolean;
-    readonly insertSpaceBeforeAndAfterBinaryOperators?: boolean;
-    readonly insertSpaceAfterConstructor?: boolean;
-    readonly insertSpaceAfterKeywordsInControlFlowStatements?: boolean;
-    readonly insertSpaceAfterFunctionKeywordForAnonymousFunctions?: boolean;
-    readonly insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis?: boolean;
-    readonly insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets?: boolean;
-    readonly insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces?: boolean;
-    readonly insertSpaceAfterOpeningAndBeforeClosingEmptyBraces?: boolean;
-    readonly insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces?: boolean;
-    readonly insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces?: boolean;
-    readonly insertSpaceAfterTypeAssertion?: boolean;
-    readonly insertSpaceBeforeFunctionParenthesis?: boolean;
-    readonly placeOpenBraceOnNewLineForFunctions?: boolean;
-    readonly placeOpenBraceOnNewLineForControlBlocks?: boolean;
-    readonly insertSpaceBeforeTypeAnnotation?: boolean;
-    readonly indentMultiLineObjectLiteralBeginningOnBlankLine?: boolean;
-    readonly semicolons?: SemicolonPreference;
-    */
+    val insertSpaceAfterCommaDelimiter: Boolean?
+    val insertSpaceAfterSemicolonInForStatements: Boolean?
+    val insertSpaceBeforeAndAfterBinaryOperators: Boolean?
+    val insertSpaceAfterConstructor: Boolean?
+    val insertSpaceAfterKeywordsInControlFlowStatements: Boolean?
+    val insertSpaceAfterFunctionKeywordForAnonymousFunctions: Boolean?
+    val insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis: Boolean?
+    val insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets: Boolean?
+    val insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces: Boolean?
+    val insertSpaceAfterOpeningAndBeforeClosingEmptyBraces: Boolean?
+    val insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces: Boolean?
+    val insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces: Boolean?
+    val insertSpaceAfterTypeAssertion: Boolean?
+    val insertSpaceBeforeFunctionParenthesis: Boolean?
+    val placeOpenBraceOnNewLineForFunctions: Boolean?
+    val placeOpenBraceOnNewLineForControlBlocks: Boolean?
+    val insertSpaceBeforeTypeAnnotation: Boolean?
+    val indentMultiLineObjectLiteralBeginningOnBlankLine: Boolean?
+    val semicolons: SemicolonPreference?
 }

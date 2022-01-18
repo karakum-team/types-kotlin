@@ -3,8 +3,6 @@
 package typescript
 
 external interface UnscopedEmitHelper : EmitHelperBase {
-    /*
-    readonly scoped: false;
-    readonly text: string;
-    */
+    val scoped: Boolean /* false */
+    val text: String
 }

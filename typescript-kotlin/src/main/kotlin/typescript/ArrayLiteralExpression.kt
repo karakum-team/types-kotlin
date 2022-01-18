@@ -3,8 +3,6 @@
 package typescript
 
 external interface ArrayLiteralExpression : PrimaryExpression {
-    /*
-    readonly kind: SyntaxKind.ArrayLiteralExpression;
-    readonly elements: NodeArray<Expression>;
-    */
+    override val kind: SyntaxKind.ArrayLiteralExpression
+    val elements: NodeArray<Expression>
 }

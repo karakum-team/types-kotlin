@@ -3,7 +3,5 @@
 package typescript
 
 external interface StringLiteral : LiteralExpression, Declaration {
-    /*
-    readonly kind: SyntaxKind.StringLiteral;
-    */
+    override val kind: SyntaxKind.StringLiteral
 }

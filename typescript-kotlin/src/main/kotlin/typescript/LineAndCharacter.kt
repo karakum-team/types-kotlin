@@ -3,9 +3,7 @@
 package typescript
 
 external interface LineAndCharacter {
-    /*
     /** 0-based. */
-    line: number;
-    character: number;
-    */
+    var line: Double
+    var character: Double
 }

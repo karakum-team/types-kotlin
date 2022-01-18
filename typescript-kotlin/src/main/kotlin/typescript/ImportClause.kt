@@ -3,11 +3,9 @@
 package typescript
 
 external interface ImportClause : NamedDeclaration {
-    /*
-    readonly kind: SyntaxKind.ImportClause;
-    readonly parent: ImportDeclaration;
-    readonly isTypeOnly: boolean;
-    readonly name?: Identifier;
-    readonly namedBindings?: NamedImportBindings;
-    */
+    override val kind: SyntaxKind.ImportClause
+    override val parent: ImportDeclaration
+    val isTypeOnly: Boolean
+    override val name: Identifier?
+    val namedBindings: NamedImportBindings?
 }

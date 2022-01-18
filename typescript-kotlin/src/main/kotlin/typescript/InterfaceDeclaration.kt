@@ -3,11 +3,9 @@
 package typescript
 
 external interface InterfaceDeclaration : DeclarationStatement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.InterfaceDeclaration;
-    readonly name: Identifier;
-    readonly typeParameters?: NodeArray<TypeParameterDeclaration>;
-    readonly heritageClauses?: NodeArray<HeritageClause>;
-    readonly members: NodeArray<TypeElement>;
-    */
+    override val kind: SyntaxKind.InterfaceDeclaration
+    override val name: Identifier
+    val typeParameters: NodeArray<TypeParameterDeclaration>?
+    val heritageClauses: NodeArray<HeritageClause>?
+    val members: NodeArray<TypeElement>
 }

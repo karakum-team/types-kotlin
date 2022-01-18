@@ -3,7 +3,5 @@
 package typescript
 
 external interface PluginImport {
-    /*
-    name: string;
-    */
+    var name: String
 }

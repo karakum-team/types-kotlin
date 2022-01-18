@@ -3,7 +3,5 @@
 package typescript
 
 external interface Declaration : Node {
-    /*
-    _declarationBrand: any;
-    */
+    var _declarationBrand: Any
 }

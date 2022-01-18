@@ -3,10 +3,8 @@
 package typescript
 
 external interface JsxSelfClosingElement : PrimaryExpression {
-    /*
-    readonly kind: SyntaxKind.JsxSelfClosingElement;
-    readonly tagName: JsxTagNameExpression;
-    readonly typeArguments?: NodeArray<TypeNode>;
-    readonly attributes: JsxAttributes;
-    */
+    override val kind: SyntaxKind.JsxSelfClosingElement
+    val tagName: JsxTagNameExpression
+    val typeArguments: NodeArray<TypeNode>?
+    val attributes: JsxAttributes
 }

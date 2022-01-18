@@ -3,11 +3,9 @@
 package typescript
 
 external interface PropertySignature : TypeElement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.PropertySignature;
-    readonly name: PropertyName;
-    readonly questionToken?: QuestionToken;
-    readonly type?: TypeNode;
-    initializer?: Expression;
-    */
+    override val kind: SyntaxKind.PropertySignature
+    override val name: PropertyName
+    val questionToken: QuestionToken?
+    val type: TypeNode?
+    var initializer: Expression?
 }

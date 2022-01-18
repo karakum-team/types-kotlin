@@ -3,9 +3,7 @@
 package typescript
 
 external interface LiteralLikeNode : Node {
-    /*
-    text: string;
-    isUnterminated?: boolean;
-    hasExtendedUnicodeEscape?: boolean;
-    */
+    var text: String
+    var isUnterminated: Boolean?
+    var hasExtendedUnicodeEscape: Boolean?
 }

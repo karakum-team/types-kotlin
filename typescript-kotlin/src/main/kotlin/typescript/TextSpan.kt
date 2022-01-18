@@ -3,8 +3,6 @@
 package typescript
 
 external interface TextSpan {
-    /*
-    start: number;
-    length: number;
-    */
+    var start: Double
+    var length: Double
 }

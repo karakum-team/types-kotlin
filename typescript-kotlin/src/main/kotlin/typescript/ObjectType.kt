@@ -3,7 +3,5 @@
 package typescript
 
 external interface ObjectType : Type {
-    /*
-    objectFlags: ObjectFlags;
-    */
+    var objectFlags: ObjectFlags
 }

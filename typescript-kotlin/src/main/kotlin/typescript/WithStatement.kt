@@ -3,9 +3,7 @@
 package typescript
 
 external interface WithStatement : Statement {
-    /*
-    readonly kind: SyntaxKind.WithStatement;
-    readonly expression: Expression;
-    readonly statement: Statement;
-    */
+    override val kind: SyntaxKind.WithStatement
+    val expression: Expression
+    val statement: Statement
 }

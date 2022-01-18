@@ -3,7 +3,5 @@
 package typescript
 
 external interface NotEmittedStatement : Statement {
-    /*
-    readonly kind: SyntaxKind.NotEmittedStatement;
-    */
+    override val kind: SyntaxKind.NotEmittedStatement
 }

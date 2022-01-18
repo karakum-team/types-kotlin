@@ -3,7 +3,5 @@
 package typescript
 
 external interface CheckJsDirective : TextRange {
-    /*
-    enabled: boolean;
-    */
+    var enabled: Boolean
 }

@@ -3,11 +3,9 @@
 package typescript
 
 external interface SignatureDeclarationBase : NamedDeclaration, JSDocContainer {
-    /*
-    readonly kind: SignatureDeclaration["kind"];
-    readonly name?: PropertyName;
-    readonly typeParameters?: NodeArray<TypeParameterDeclaration>;
-    readonly parameters: NodeArray<ParameterDeclaration>;
-    readonly type?: TypeNode;
-    */
+    override val kind: SignatureDeclaration["kind"]
+    override val name: PropertyName?
+    val typeParameters: NodeArray<TypeParameterDeclaration>?
+    val parameters: NodeArray<ParameterDeclaration>
+    val type: TypeNode?
 }

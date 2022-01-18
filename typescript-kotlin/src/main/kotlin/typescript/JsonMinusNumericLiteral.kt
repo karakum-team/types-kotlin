@@ -3,9 +3,7 @@
 package typescript
 
 external interface JsonMinusNumericLiteral : PrefixUnaryExpression {
-    /*
-    readonly kind: SyntaxKind.PrefixUnaryExpression;
-    readonly operator: SyntaxKind.MinusToken;
-    readonly operand: NumericLiteral;
-    */
+    override val kind: SyntaxKind.PrefixUnaryExpression
+    val operator: SyntaxKind.MinusToken
+    val operand: NumericLiteral
 }

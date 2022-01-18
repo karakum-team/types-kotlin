@@ -3,10 +3,8 @@
 package typescript
 
 external interface NewExpression : PrimaryExpression, Declaration {
-    /*
-    readonly kind: SyntaxKind.NewExpression;
-    readonly expression: LeftHandSideExpression;
-    readonly typeArguments?: NodeArray<TypeNode>;
-    readonly arguments?: NodeArray<Expression>;
-    */
+    override val kind: SyntaxKind.NewExpression
+    val expression: LeftHandSideExpression
+    val typeArguments: NodeArray<TypeNode>?
+    val arguments: NodeArray<Expression>?
 }

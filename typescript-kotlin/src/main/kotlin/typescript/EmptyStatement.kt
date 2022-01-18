@@ -3,7 +3,5 @@
 package typescript
 
 external interface EmptyStatement : Statement {
-    /*
-    readonly kind: SyntaxKind.EmptyStatement;
-    */
+    override val kind: SyntaxKind.EmptyStatement
 }

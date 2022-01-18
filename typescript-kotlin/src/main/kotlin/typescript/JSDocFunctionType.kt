@@ -3,7 +3,5 @@
 package typescript
 
 external interface JSDocFunctionType : JSDocType, SignatureDeclarationBase {
-    /*
-    readonly kind: SyntaxKind.JSDocFunctionType;
-    */
+    override val kind: SyntaxKind.JSDocFunctionType
 }

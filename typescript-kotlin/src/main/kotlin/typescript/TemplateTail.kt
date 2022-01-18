@@ -3,8 +3,6 @@
 package typescript
 
 external interface TemplateTail : TemplateLiteralLikeNode {
-    /*
-    readonly kind: SyntaxKind.TemplateTail;
-    readonly parent: TemplateSpan | TemplateLiteralTypeSpan;
-    */
+    override val kind: SyntaxKind.TemplateTail
+    override val parent: dynamic /* TemplateSpan | TemplateLiteralTypeSpan */
 }

@@ -3,7 +3,5 @@
 package typescript
 
 external interface DeclarationStatement : NamedDeclaration, Statement {
-    /*
-    readonly name?: Identifier | StringLiteral | NumericLiteral;
-    */
+    override val name: dynamic /* Identifier | StringLiteral | NumericLiteral */
 }

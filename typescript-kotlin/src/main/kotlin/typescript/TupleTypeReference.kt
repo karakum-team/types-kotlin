@@ -3,7 +3,5 @@
 package typescript
 
 external interface TupleTypeReference : TypeReference {
-    /*
-    target: TupleType;
-    */
+    var target: TupleType
 }

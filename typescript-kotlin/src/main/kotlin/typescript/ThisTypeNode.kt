@@ -3,7 +3,5 @@
 package typescript
 
 external interface ThisTypeNode : TypeNode {
-    /*
-    readonly kind: SyntaxKind.ThisType;
-    */
+    override val kind: SyntaxKind.ThisType
 }

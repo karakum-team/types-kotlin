@@ -3,9 +3,7 @@
 package typescript
 
 external interface TypeOperatorNode : TypeNode {
-    /*
-    readonly kind: SyntaxKind.TypeOperator;
-    readonly operator: SyntaxKind.KeyOfKeyword | SyntaxKind.UniqueKeyword | SyntaxKind.ReadonlyKeyword;
-    readonly type: TypeNode;
-    */
+    override val kind: SyntaxKind.TypeOperator
+    val operator: dynamic /* SyntaxKind.KeyOfKeyword | SyntaxKind.UniqueKeyword | SyntaxKind.ReadonlyKeyword */
+    val type: TypeNode
 }

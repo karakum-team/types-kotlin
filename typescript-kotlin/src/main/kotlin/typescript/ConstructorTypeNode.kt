@@ -3,7 +3,5 @@
 package typescript
 
 external interface ConstructorTypeNode : FunctionOrConstructorTypeNodeBase {
-    /*
-    readonly kind: SyntaxKind.ConstructorType;
-    */
+    override val kind: SyntaxKind.ConstructorType
 }

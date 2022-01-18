@@ -3,9 +3,7 @@
 package typescript
 
 external interface YieldExpression : Expression {
-    /*
-    readonly kind: SyntaxKind.YieldExpression;
-    readonly asteriskToken?: AsteriskToken;
-    readonly expression?: Expression;
-    */
+    override val kind: SyntaxKind.YieldExpression
+    val asteriskToken: AsteriskToken?
+    val expression: Expression?
 }

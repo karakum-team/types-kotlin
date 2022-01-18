@@ -3,8 +3,6 @@
 package typescript
 
 external interface PropertyAccessChain : PropertyAccessExpression {
-    /*
-    _optionalChainBrand: any;
-    readonly name: MemberName;
-    */
+    var _optionalChainBrand: Any
+    override val name: MemberName
 }

@@ -3,8 +3,6 @@
 package typescript
 
 external interface FlowNodeBase {
-    /*
-    flags: FlowFlags;
-    id?: number;
-    */
+    var flags: FlowFlags
+    var id: Double?
 }

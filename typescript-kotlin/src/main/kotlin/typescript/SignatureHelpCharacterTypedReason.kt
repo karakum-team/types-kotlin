@@ -7,11 +7,10 @@ package typescript
  * Depending on the character and the syntactic context, the request may or may not be served a result.
  */
 external interface SignatureHelpCharacterTypedReason {
-    /*
-    kind: "characterTyped";
+    var kind: String /* "characterTyped" */
+
     /**
      * Character that was responsible for triggering signature help.
      */
-    triggerCharacter: SignatureHelpTriggerCharacter;
-    */
+    var triggerCharacter: SignatureHelpTriggerCharacter
 }

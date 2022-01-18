@@ -7,8 +7,6 @@ package typescript
  * The language service will unconditionally attempt to provide a result.
  */
 external interface SignatureHelpInvokedReason {
-    /*
-    kind: "invoked";
-    triggerCharacter?: undefined;
-    */
+    var kind: String /* "invoked" */
+    var triggerCharacter: Nothing??
 }

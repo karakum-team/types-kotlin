@@ -3,8 +3,6 @@
 package typescript
 
 external interface RestTypeNode : TypeNode {
-    /*
-    readonly kind: SyntaxKind.RestType;
-    readonly type: TypeNode;
-    */
+    override val kind: SyntaxKind.RestType
+    val type: TypeNode
 }

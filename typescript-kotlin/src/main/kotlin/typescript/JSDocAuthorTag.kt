@@ -3,7 +3,5 @@
 package typescript
 
 external interface JSDocAuthorTag : JSDocTag {
-    /*
-    readonly kind: SyntaxKind.JSDocAuthorTag;
-    */
+    override val kind: SyntaxKind.JSDocAuthorTag
 }

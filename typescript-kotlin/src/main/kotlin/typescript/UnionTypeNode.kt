@@ -3,8 +3,6 @@
 package typescript
 
 external interface UnionTypeNode : TypeNode {
-    /*
-    readonly kind: SyntaxKind.UnionType;
-    readonly types: NodeArray<TypeNode>;
-    */
+    override val kind: SyntaxKind.UnionType
+    val types: NodeArray<TypeNode>
 }

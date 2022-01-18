@@ -3,7 +3,5 @@
 package typescript
 
 external interface StringLiteralType : LiteralType {
-    /*
-    value: string;
-    */
+    var value: String
 }

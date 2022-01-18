@@ -3,8 +3,6 @@
 package typescript
 
 external interface SyntaxList : Node {
-    /*
-    kind: SyntaxKind.SyntaxList;
-    _children: Node[];
-    */
+    override var kind: SyntaxKind.SyntaxList
+    var _children: ReadonlyArray<Node>
 }

@@ -3,13 +3,12 @@
 package typescript
 
 external interface TypeParameterDeclaration : NamedDeclaration {
-    /*
-    readonly kind: SyntaxKind.TypeParameter;
-    readonly parent: DeclarationWithTypeParameterChildren | InferTypeNode;
-    readonly name: Identifier;
+    override val kind: SyntaxKind.TypeParameter
+    override val parent: dynamic /* DeclarationWithTypeParameterChildren | InferTypeNode */
+    override val name: Identifier
+
     /** Note: Consider calling `getEffectiveConstraintOfTypeParameter` */
-    readonly constraint?: TypeNode;
-    readonly default?: TypeNode;
-    expression?: Expression;
-    */
+    val constraint: TypeNode?
+    val default: TypeNode?
+    var expression: Expression?
 }

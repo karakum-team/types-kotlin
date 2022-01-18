@@ -3,11 +3,9 @@
 package typescript
 
 external interface JSDocTypedefTag : JSDocTag, NamedDeclaration {
-    /*
-    readonly kind: SyntaxKind.JSDocTypedefTag;
-    readonly parent: JSDoc;
-    readonly fullName?: JSDocNamespaceDeclaration | Identifier;
-    readonly name?: Identifier;
-    readonly typeExpression?: JSDocTypeExpression | JSDocTypeLiteral;
-    */
+    override val kind: SyntaxKind.JSDocTypedefTag
+    override val parent: JSDoc
+    val fullName: dynamic /* JSDocNamespaceDeclaration | Identifier */
+    override val name: Identifier?
+    val typeExpression: dynamic /* JSDocTypeExpression | JSDocTypeLiteral */
 }

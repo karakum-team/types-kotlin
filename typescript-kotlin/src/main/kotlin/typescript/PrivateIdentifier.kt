@@ -3,8 +3,6 @@
 package typescript
 
 external interface PrivateIdentifier : PrimaryExpression {
-    /*
-    readonly kind: SyntaxKind.PrivateIdentifier;
-    readonly escapedText: __String;
-    */
+    override val kind: SyntaxKind.PrivateIdentifier
+    val escapedText: __String
 }

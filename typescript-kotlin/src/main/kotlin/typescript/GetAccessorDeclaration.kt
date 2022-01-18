@@ -3,10 +3,8 @@
 package typescript
 
 external interface GetAccessorDeclaration : FunctionLikeDeclarationBase, ClassElement, TypeElement, ObjectLiteralElement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.GetAccessor;
-    readonly parent: ClassLikeDeclaration | ObjectLiteralExpression | TypeLiteralNode | InterfaceDeclaration;
-    readonly name: PropertyName;
-    readonly body?: FunctionBody;
-    */
+    override val kind: SyntaxKind.GetAccessor
+    override val parent: dynamic /* ClassLikeDeclaration | ObjectLiteralExpression | TypeLiteralNode | InterfaceDeclaration */
+    override val name: PropertyName
+    val body: FunctionBody?
 }

@@ -3,7 +3,5 @@
 package typescript
 
 external interface SourceMapRange : TextRange {
-    /*
-    source?: SourceMapSource;
-    */
+    var source: SourceMapSource?
 }

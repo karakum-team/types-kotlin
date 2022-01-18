@@ -3,9 +3,7 @@
 package typescript
 
 external interface SpreadAssignment : ObjectLiteralElement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.SpreadAssignment;
-    readonly parent: ObjectLiteralExpression;
-    readonly expression: Expression;
-    */
+    override val kind: SyntaxKind.SpreadAssignment
+    override val parent: ObjectLiteralExpression
+    val expression: Expression
 }

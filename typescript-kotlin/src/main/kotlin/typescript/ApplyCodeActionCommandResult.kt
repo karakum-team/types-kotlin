@@ -3,7 +3,5 @@
 package typescript
 
 external interface ApplyCodeActionCommandResult {
-    /*
-    successMessage: string;
-    */
+    var successMessage: String
 }

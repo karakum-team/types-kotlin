@@ -4,8 +4,6 @@ package typescript
 
 /** For when we encounter a semicolon in a class declaration. ES6 allows these as class elements. */
 external interface SemicolonClassElement : ClassElement {
-    /*
-    readonly kind: SyntaxKind.SemicolonClassElement;
-    readonly parent: ClassLikeDeclaration;
-    */
+    override val kind: SyntaxKind.SemicolonClassElement
+    override val parent: ClassLikeDeclaration
 }

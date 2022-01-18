@@ -3,9 +3,7 @@
 package typescript
 
 external interface ExpressionWithTypeArguments : NodeWithTypeArguments {
-    /*
-    readonly kind: SyntaxKind.ExpressionWithTypeArguments;
-    readonly parent: HeritageClause | JSDocAugmentsTag | JSDocImplementsTag;
-    readonly expression: LeftHandSideExpression;
-    */
+    override val kind: SyntaxKind.ExpressionWithTypeArguments
+    override val parent: dynamic /* HeritageClause | JSDocAugmentsTag | JSDocImplementsTag */
+    val expression: LeftHandSideExpression
 }

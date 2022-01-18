@@ -3,12 +3,10 @@
 package typescript
 
 external interface CreateProgramOptions {
-    /*
-    rootNames: readonly string[];
-    options: CompilerOptions;
-    projectReferences?: readonly ProjectReference[];
-    host?: CompilerHost;
-    oldProgram?: Program;
-    configFileParsingDiagnostics?: readonly Diagnostic[];
-    */
+    var rootNames: ReadonlyArray<String>
+    var options: CompilerOptions
+    var projectReferences: ReadonlyArray<ProjectReference>?
+    var host: CompilerHost?
+    var oldProgram: Program?
+    var configFileParsingDiagnostics: ReadonlyArray<Diagnostic>?
 }

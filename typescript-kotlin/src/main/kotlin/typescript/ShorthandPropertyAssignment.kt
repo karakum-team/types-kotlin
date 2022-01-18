@@ -3,13 +3,11 @@
 package typescript
 
 external interface ShorthandPropertyAssignment : ObjectLiteralElement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.ShorthandPropertyAssignment;
-    readonly parent: ObjectLiteralExpression;
-    readonly name: Identifier;
-    readonly questionToken?: QuestionToken;
-    readonly exclamationToken?: ExclamationToken;
-    readonly equalsToken?: EqualsToken;
-    readonly objectAssignmentInitializer?: Expression;
-    */
+    override val kind: SyntaxKind.ShorthandPropertyAssignment
+    override val parent: ObjectLiteralExpression
+    override val name: Identifier
+    val questionToken: QuestionToken?
+    val exclamationToken: ExclamationToken?
+    val equalsToken: EqualsToken?
+    val objectAssignmentInitializer: Expression?
 }

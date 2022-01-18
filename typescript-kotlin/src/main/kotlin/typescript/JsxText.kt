@@ -3,9 +3,7 @@
 package typescript
 
 external interface JsxText : LiteralLikeNode {
-    /*
-    readonly kind: SyntaxKind.JsxText;
-    readonly parent: JsxElement | JsxFragment;
-    readonly containsOnlyTriviaWhiteSpaces: boolean;
-    */
+    override val kind: SyntaxKind.JsxText
+    override val parent: dynamic /* JsxElement | JsxFragment */
+    val containsOnlyTriviaWhiteSpaces: Boolean
 }

@@ -3,7 +3,5 @@
 package typescript
 
 external interface FlowStart : FlowNodeBase {
-    /*
-    node?: FunctionExpression | ArrowFunction | MethodDeclaration | GetAccessorDeclaration | SetAccessorDeclaration;
-    */
+    var node: dynamic /* FunctionExpression | ArrowFunction | MethodDeclaration | GetAccessorDeclaration | SetAccessorDeclaration */
 }

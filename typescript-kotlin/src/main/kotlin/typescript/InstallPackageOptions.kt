@@ -3,8 +3,6 @@
 package typescript
 
 external interface InstallPackageOptions {
-    /*
-    fileName: Path;
-    packageName: string;
-    */
+    var fileName: Path
+    var packageName: String
 }

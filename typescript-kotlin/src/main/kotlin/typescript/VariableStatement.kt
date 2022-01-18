@@ -3,8 +3,6 @@
 package typescript
 
 external interface VariableStatement : Statement {
-    /*
-    readonly kind: SyntaxKind.VariableStatement;
-    readonly declarationList: VariableDeclarationList;
-    */
+    override val kind: SyntaxKind.VariableStatement
+    val declarationList: VariableDeclarationList
 }

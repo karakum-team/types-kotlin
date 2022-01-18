@@ -3,10 +3,8 @@
 package typescript
 
 external interface AssertsThisTypePredicate : TypePredicateBase {
-    /*
-    kind: TypePredicateKind.AssertsThis;
-    parameterName: undefined;
-    parameterIndex: undefined;
-    type: Type | undefined;
-    */
+    override var kind: TypePredicateKind.AssertsThis
+    var parameterName: Nothing?
+    var parameterIndex: Nothing?
+    var type: Type
 }

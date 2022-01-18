@@ -3,8 +3,6 @@
 package typescript
 
 external interface DoStatement : IterationStatement {
-    /*
-    readonly kind: SyntaxKind.DoStatement;
-    readonly expression: Expression;
-    */
+    override val kind: SyntaxKind.DoStatement
+    val expression: Expression
 }

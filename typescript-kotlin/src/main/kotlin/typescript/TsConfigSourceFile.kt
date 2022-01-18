@@ -3,7 +3,5 @@
 package typescript
 
 external interface TsConfigSourceFile : JsonSourceFile {
-    /*
-    extendedSourceFiles?: string[];
-    */
+    var extendedSourceFiles: ReadonlyArray<String>?
 }

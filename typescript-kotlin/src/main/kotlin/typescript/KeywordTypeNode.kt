@@ -3,7 +3,5 @@
 package typescript
 
 external interface KeywordTypeNode<TKind : KeywordTypeSyntaxKind> : KeywordToken<TKind>, TypeNode {
-    /*
-    readonly kind: TKind;
-    */
+    override val kind: TKind
 }

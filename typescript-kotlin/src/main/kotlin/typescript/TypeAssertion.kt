@@ -3,9 +3,7 @@
 package typescript
 
 external interface TypeAssertion : UnaryExpression {
-    /*
-    readonly kind: SyntaxKind.TypeAssertionExpression;
-    readonly type: TypeNode;
-    readonly expression: UnaryExpression;
-    */
+    override val kind: SyntaxKind.TypeAssertionExpression
+    val type: TypeNode
+    val expression: UnaryExpression
 }

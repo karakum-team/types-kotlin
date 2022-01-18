@@ -3,10 +3,8 @@
 package typescript
 
 external interface CatchClause : Node {
-    /*
-    readonly kind: SyntaxKind.CatchClause;
-    readonly parent: TryStatement;
-    readonly variableDeclaration?: VariableDeclaration;
-    readonly block: Block;
-    */
+    override val kind: SyntaxKind.CatchClause
+    override val parent: TryStatement
+    val variableDeclaration: VariableDeclaration?
+    val block: Block
 }

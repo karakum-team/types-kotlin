@@ -3,8 +3,6 @@
 package typescript
 
 external interface JSDocText : Node {
-    /*
-    readonly kind: SyntaxKind.JSDocText;
-    text: string;
-    */
+    override val kind: SyntaxKind.JSDocText
+    var text: String
 }

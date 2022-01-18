@@ -3,7 +3,5 @@
 package typescript
 
 external interface NodeWithTypeArguments : TypeNode {
-    /*
-    readonly typeArguments?: NodeArray<TypeNode>;
-    */
+    val typeArguments: NodeArray<TypeNode>?
 }

@@ -3,8 +3,6 @@
 package typescript
 
 external interface ClassifiedSpan2020 {
-    /*
-    textSpan: TextSpan;
-    classificationType: number;
-    */
+    var textSpan: TextSpan
+    var classificationType: Double
 }

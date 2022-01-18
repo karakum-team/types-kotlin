@@ -6,10 +6,8 @@ package typescript
  * Reports config file diagnostics
  */
 external interface ConfigFileDiagnosticsReporter {
-    /*
     /**
      * Reports unrecoverable error when parsing config file
      */
-    onUnRecoverableConfigFileDiagnostic: DiagnosticReporter;
-    */
+    var onUnRecoverableConfigFileDiagnostic: DiagnosticReporter
 }

@@ -3,11 +3,9 @@
 package typescript
 
 external interface DefinitionInfo : DocumentSpan {
-    /*
-    kind: ScriptElementKind;
-    name: string;
-    containerKind: ScriptElementKind;
-    containerName: string;
-    unverified?: boolean;
-    */
+    override var kind: ScriptElementKind
+    override var name: String
+    var containerKind: ScriptElementKind
+    var containerName: String
+    var unverified: Boolean?
 }

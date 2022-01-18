@@ -3,9 +3,7 @@
 package typescript
 
 external interface ExternalModuleReference : Node {
-    /*
-    readonly kind: SyntaxKind.ExternalModuleReference;
-    readonly parent: ImportEqualsDeclaration;
-    readonly expression: Expression;
-    */
+    override val kind: SyntaxKind.ExternalModuleReference
+    override val parent: ImportEqualsDeclaration
+    val expression: Expression
 }

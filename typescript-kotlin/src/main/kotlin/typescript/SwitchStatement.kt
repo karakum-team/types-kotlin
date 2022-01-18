@@ -3,10 +3,8 @@
 package typescript
 
 external interface SwitchStatement : Statement {
-    /*
-    readonly kind: SyntaxKind.SwitchStatement;
-    readonly expression: Expression;
-    readonly caseBlock: CaseBlock;
-    possiblyExhaustive?: boolean;
-    */
+    override val kind: SyntaxKind.SwitchStatement
+    val expression: Expression
+    val caseBlock: CaseBlock
+    var possiblyExhaustive: Boolean?
 }

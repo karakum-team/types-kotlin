@@ -3,7 +3,5 @@
 package typescript
 
 external interface SuperPropertyAccessExpression : PropertyAccessExpression {
-    /*
-    readonly expression: SuperExpression;
-    */
+    val expression: SuperExpression
 }

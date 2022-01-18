@@ -3,8 +3,6 @@
 package typescript
 
 external interface CombinedCodeFixScope {
-    /*
-    type: "file";
-    fileName: string;
-    */
+    var type: String /* "file" */
+    var fileName: String
 }

@@ -3,9 +3,7 @@
 package typescript
 
 external interface VariableDeclarationList : Node {
-    /*
-    readonly kind: SyntaxKind.VariableDeclarationList;
-    readonly parent: VariableStatement | ForStatement | ForOfStatement | ForInStatement;
-    readonly declarations: NodeArray<VariableDeclaration>;
-    */
+    override val kind: SyntaxKind.VariableDeclarationList
+    override val parent: dynamic /* VariableStatement | ForStatement | ForOfStatement | ForInStatement */
+    val declarations: NodeArray<VariableDeclaration>
 }

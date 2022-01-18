@@ -3,8 +3,6 @@
 package typescript
 
 external interface JSDocNonNullableType : JSDocType {
-    /*
-    readonly kind: SyntaxKind.JSDocNonNullableType;
-    readonly type: TypeNode;
-    */
+    override val kind: SyntaxKind.JSDocNonNullableType
+    val type: TypeNode
 }

@@ -3,7 +3,5 @@
 package typescript
 
 external interface UnionOrIntersectionType : Type {
-    /*
-    types: Type[];
-    */
+    var types: ReadonlyArray<Type>
 }

@@ -3,9 +3,7 @@
 package typescript
 
 external interface FileTextChanges {
-    /*
-    fileName: string;
-    textChanges: readonly TextChange[];
-    isNewFile?: boolean;
-    */
+    var fileName: String
+    var textChanges: ReadonlyArray<TextChange>
+    var isNewFile: Boolean?
 }

@@ -3,8 +3,6 @@
 package typescript
 
 external interface ClassElement : NamedDeclaration {
-    /*
-    _classElementBrand: any;
-    readonly name?: PropertyName;
-    */
+    var _classElementBrand: Any
+    override val name: PropertyName?
 }

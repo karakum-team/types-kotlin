@@ -3,14 +3,13 @@
 package typescript
 
 external interface MappedTypeNode : TypeNode, Declaration {
-    /*
-    readonly kind: SyntaxKind.MappedType;
-    readonly readonlyToken?: ReadonlyToken | PlusToken | MinusToken;
-    readonly typeParameter: TypeParameterDeclaration;
-    readonly nameType?: TypeNode;
-    readonly questionToken?: QuestionToken | PlusToken | MinusToken;
-    readonly type?: TypeNode;
+    override val kind: SyntaxKind.MappedType
+    val readonlyToken: dynamic /* ReadonlyToken | PlusToken | MinusToken */
+    val typeParameter: TypeParameterDeclaration
+    val nameType: TypeNode?
+    val questionToken: dynamic /* QuestionToken | PlusToken | MinusToken */
+    val type: TypeNode?
+
     /** Used only to produce grammar errors */
-    readonly members?: NodeArray<TypeElement>;
-    */
+    val members: NodeArray<TypeElement>?
 }

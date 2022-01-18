@@ -3,8 +3,6 @@
 package typescript
 
 external interface SymbolDisplayPart {
-    /*
-    text: string;
-    kind: string;
-    */
+    var text: String
+    var kind: String
 }

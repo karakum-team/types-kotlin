@@ -3,10 +3,8 @@
 package typescript
 
 external interface UnparsedPrepend : UnparsedSection {
-    /*
-    readonly kind: SyntaxKind.UnparsedPrepend;
-    readonly parent: UnparsedSource;
-    readonly data: string;
-    readonly texts: readonly UnparsedTextLike[];
-    */
+    override val kind: SyntaxKind.UnparsedPrepend
+    override val parent: UnparsedSource
+    val data: String
+    val texts: ReadonlyArray<UnparsedTextLike>
 }

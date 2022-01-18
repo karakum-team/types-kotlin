@@ -3,8 +3,6 @@
 package typescript
 
 external interface PerformanceEvent {
-    /*
-    kind: "UpdateGraph" | "CreatePackageJsonAutoImportProvider";
-    durationMs: number;
-    */
+    var kind: dynamic /* "UpdateGraph" | "CreatePackageJsonAutoImportProvider" */
+    var durationMs: Double
 }

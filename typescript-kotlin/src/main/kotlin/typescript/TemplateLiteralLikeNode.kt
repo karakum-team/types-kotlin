@@ -3,7 +3,5 @@
 package typescript
 
 external interface TemplateLiteralLikeNode : LiteralLikeNode {
-    /*
-    rawText?: string;
-    */
+    var rawText: String?
 }

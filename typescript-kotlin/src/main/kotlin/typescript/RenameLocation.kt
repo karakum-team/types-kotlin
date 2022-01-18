@@ -3,8 +3,6 @@
 package typescript
 
 external interface RenameLocation : DocumentSpan {
-    /*
-    readonly prefixText?: string;
-    readonly suffixText?: string;
-    */
+    val prefixText: String?
+    val suffixText: String?
 }

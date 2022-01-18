@@ -3,8 +3,6 @@
 package typescript
 
 external interface ContinueStatement : Statement {
-    /*
-    readonly kind: SyntaxKind.ContinueStatement;
-    readonly label?: Identifier;
-    */
+    override val kind: SyntaxKind.ContinueStatement
+    val label: Identifier?
 }

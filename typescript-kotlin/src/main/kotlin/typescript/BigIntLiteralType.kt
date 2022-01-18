@@ -3,7 +3,5 @@
 package typescript
 
 external interface BigIntLiteralType : LiteralType {
-    /*
-    value: PseudoBigInt;
-    */
+    var value: PseudoBigInt
 }

@@ -3,9 +3,7 @@
 package typescript
 
 external interface ReferenceEntry : DocumentSpan {
-    /*
-    isWriteAccess: boolean;
-    isDefinition: boolean;
-    isInString?: true;
-    */
+    var isWriteAccess: Boolean
+    var isDefinition: Boolean
+    var isInString: Boolean? /* true */
 }

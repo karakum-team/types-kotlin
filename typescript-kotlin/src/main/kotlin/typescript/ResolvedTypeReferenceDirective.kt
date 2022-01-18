@@ -3,11 +3,10 @@
 package typescript
 
 external interface ResolvedTypeReferenceDirective {
-    /*
-    primary: boolean;
-    resolvedFileName: string | undefined;
-    packageId?: PackageId;
+    var primary: Boolean
+    var resolvedFileName: String
+    var packageId: PackageId?
+
     /** True if `resolvedFileName` comes from `node_modules`. */
-    isExternalLibraryImport?: boolean;
-    */
+    var isExternalLibraryImport: Boolean?
 }

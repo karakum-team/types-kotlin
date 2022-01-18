@@ -3,12 +3,10 @@
 package typescript
 
 external interface DiagnosticRelatedInformation {
-    /*
-    category: DiagnosticCategory;
-    code: number;
-    file: SourceFile | undefined;
-    start: number | undefined;
-    length: number | undefined;
-    messageText: string | DiagnosticMessageChain;
-    */
+    var category: DiagnosticCategory
+    var code: Double
+    var file: SourceFile
+    var start: Double
+    var length: Double
+    var messageText: dynamic /* string | DiagnosticMessageChain */
 }

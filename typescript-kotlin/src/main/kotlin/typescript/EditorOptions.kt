@@ -3,12 +3,10 @@
 package typescript
 
 external interface EditorOptions {
-    /*
-    BaseIndentSize?: number;
-    IndentSize: number;
-    TabSize: number;
-    NewLineCharacter: string;
-    ConvertTabsToSpaces: boolean;
-    IndentStyle: IndentStyle;
-    */
+    var BaseIndentSize: Double?
+    var IndentSize: Double
+    var TabSize: Double
+    var NewLineCharacter: String
+    var ConvertTabsToSpaces: Boolean
+    var IndentStyle: IndentStyle
 }

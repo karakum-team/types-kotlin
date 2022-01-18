@@ -3,9 +3,7 @@
 package typescript
 
 external interface PostfixUnaryExpression : UpdateExpression {
-    /*
-    readonly kind: SyntaxKind.PostfixUnaryExpression;
-    readonly operand: LeftHandSideExpression;
-    readonly operator: PostfixUnaryOperator;
-    */
+    override val kind: SyntaxKind.PostfixUnaryExpression
+    val operand: LeftHandSideExpression
+    val operator: PostfixUnaryOperator
 }

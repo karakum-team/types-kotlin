@@ -3,15 +3,13 @@
 package typescript
 
 external interface InputFiles : Node {
-    /*
-    readonly kind: SyntaxKind.InputFiles;
-    javascriptPath?: string;
-    javascriptText: string;
-    javascriptMapPath?: string;
-    javascriptMapText?: string;
-    declarationPath?: string;
-    declarationText: string;
-    declarationMapPath?: string;
-    declarationMapText?: string;
-    */
+    override val kind: SyntaxKind.InputFiles
+    var javascriptPath: String?
+    var javascriptText: String
+    var javascriptMapPath: String?
+    var javascriptMapText: String?
+    var declarationPath: String?
+    var declarationText: String
+    var declarationMapPath: String?
+    var declarationMapText: String?
 }

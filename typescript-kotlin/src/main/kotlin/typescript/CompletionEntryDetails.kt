@@ -3,16 +3,15 @@
 package typescript
 
 external interface CompletionEntryDetails {
-    /*
-    name: string;
-    kind: ScriptElementKind;
-    kindModifiers: string;
-    displayParts: SymbolDisplayPart[];
-    documentation?: SymbolDisplayPart[];
-    tags?: JSDocTagInfo[];
-    codeActions?: CodeAction[];
+    var name: String
+    var kind: ScriptElementKind
+    var kindModifiers: String
+    var displayParts: ReadonlyArray<SymbolDisplayPart>
+    var documentation: ReadonlyArray<SymbolDisplayPart>?
+    var tags: ReadonlyArray<JSDocTagInfo>?
+    var codeActions: ReadonlyArray<CodeAction>?
+
     /** @deprecated Use `sourceDisplay` instead. */
-    source?: SymbolDisplayPart[];
-    sourceDisplay?: SymbolDisplayPart[];
-    */
+    var source: ReadonlyArray<SymbolDisplayPart>?
+    var sourceDisplay: ReadonlyArray<SymbolDisplayPart>?
 }

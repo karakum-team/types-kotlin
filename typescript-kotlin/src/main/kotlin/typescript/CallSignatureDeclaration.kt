@@ -3,7 +3,5 @@
 package typescript
 
 external interface CallSignatureDeclaration : SignatureDeclarationBase, TypeElement {
-    /*
-    readonly kind: SyntaxKind.CallSignature;
-    */
+    override val kind: SyntaxKind.CallSignature
 }

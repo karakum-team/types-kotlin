@@ -3,9 +3,7 @@
 package typescript
 
 external interface OutputFile {
-    /*
-    name: string;
-    writeByteOrderMark: boolean;
-    text: string;
-    */
+    var name: String
+    var writeByteOrderMark: Boolean
+    var text: String
 }

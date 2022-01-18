@@ -6,13 +6,13 @@ package typescript
  * Host to create watch with root files and options
  */
 external interface WatchCompilerHostOfFilesAndCompilerOptions<T : BuilderProgram> : WatchCompilerHost<T> {
-    /*
     /** root files to use to generate program */
-    rootFiles: string[];
+    var rootFiles: ReadonlyArray<String>
+
     /** Compiler options */
-    options: CompilerOptions;
-    watchOptions?: WatchOptions;
+    var options: CompilerOptions
+    var watchOptions: WatchOptions?
+
     /** Project References */
-    projectReferences?: readonly ProjectReference[];
-    */
+    var projectReferences: ReadonlyArray<ProjectReference>?
 }

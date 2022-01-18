@@ -3,10 +3,8 @@
 package typescript
 
 external interface JsxFragment : PrimaryExpression {
-    /*
-    readonly kind: SyntaxKind.JsxFragment;
-    readonly openingFragment: JsxOpeningFragment;
-    readonly children: NodeArray<JsxChild>;
-    readonly closingFragment: JsxClosingFragment;
-    */
+    override val kind: SyntaxKind.JsxFragment
+    val openingFragment: JsxOpeningFragment
+    val children: NodeArray<JsxChild>
+    val closingFragment: JsxClosingFragment
 }

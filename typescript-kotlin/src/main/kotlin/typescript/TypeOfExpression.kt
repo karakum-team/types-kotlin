@@ -3,8 +3,6 @@
 package typescript
 
 external interface TypeOfExpression : UnaryExpression {
-    /*
-    readonly kind: SyntaxKind.TypeOfExpression;
-    readonly expression: UnaryExpression;
-    */
+    override val kind: SyntaxKind.TypeOfExpression
+    val expression: UnaryExpression
 }

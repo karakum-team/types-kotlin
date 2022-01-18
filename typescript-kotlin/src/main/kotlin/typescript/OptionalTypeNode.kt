@@ -3,8 +3,6 @@
 package typescript
 
 external interface OptionalTypeNode : TypeNode {
-    /*
-    readonly kind: SyntaxKind.OptionalType;
-    readonly type: TypeNode;
-    */
+    override val kind: SyntaxKind.OptionalType
+    val type: TypeNode
 }

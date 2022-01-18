@@ -3,10 +3,8 @@
 package typescript
 
 external interface BinaryExpression : Expression, Declaration {
-    /*
-    readonly kind: SyntaxKind.BinaryExpression;
-    readonly left: Expression;
-    readonly operatorToken: BinaryOperatorToken;
-    readonly right: Expression;
-    */
+    override val kind: SyntaxKind.BinaryExpression
+    val left: Expression
+    val operatorToken: BinaryOperatorToken
+    val right: Expression
 }

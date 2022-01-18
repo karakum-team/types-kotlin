@@ -3,11 +3,9 @@
 package typescript
 
 external interface TypePredicateNode : TypeNode {
-    /*
-    readonly kind: SyntaxKind.TypePredicate;
-    readonly parent: SignatureDeclaration | JSDocTypeExpression;
-    readonly assertsModifier?: AssertsToken;
-    readonly parameterName: Identifier | ThisTypeNode;
-    readonly type?: TypeNode;
-    */
+    override val kind: SyntaxKind.TypePredicate
+    override val parent: dynamic /* SignatureDeclaration | JSDocTypeExpression */
+    val assertsModifier: AssertsToken?
+    val parameterName: dynamic /* Identifier | ThisTypeNode */
+    val type: TypeNode?
 }

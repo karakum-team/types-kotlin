@@ -3,8 +3,6 @@
 package typescript
 
 external interface NonNullExpression : LeftHandSideExpression {
-    /*
-    readonly kind: SyntaxKind.NonNullExpression;
-    readonly expression: Expression;
-    */
+    override val kind: SyntaxKind.NonNullExpression
+    val expression: Expression
 }

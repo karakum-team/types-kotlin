@@ -3,8 +3,6 @@
 package typescript
 
 external interface JSDocNamespaceDeclaration : ModuleDeclaration {
-    /*
-    readonly name: Identifier;
-    readonly body?: JSDocNamespaceBody;
-    */
+    override val name: Identifier
+    val body: JSDocNamespaceBody?
 }

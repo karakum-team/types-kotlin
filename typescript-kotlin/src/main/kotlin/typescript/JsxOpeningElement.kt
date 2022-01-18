@@ -3,11 +3,9 @@
 package typescript
 
 external interface JsxOpeningElement : Expression {
-    /*
-    readonly kind: SyntaxKind.JsxOpeningElement;
-    readonly parent: JsxElement;
-    readonly tagName: JsxTagNameExpression;
-    readonly typeArguments?: NodeArray<TypeNode>;
-    readonly attributes: JsxAttributes;
-    */
+    override val kind: SyntaxKind.JsxOpeningElement
+    override val parent: JsxElement
+    val tagName: JsxTagNameExpression
+    val typeArguments: NodeArray<TypeNode>?
+    val attributes: JsxAttributes
 }

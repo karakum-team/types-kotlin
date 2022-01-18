@@ -4,8 +4,6 @@ package typescript
 
 /** Represents a bigint literal value without requiring bigint support */
 external interface PseudoBigInt {
-    /*
-    negative: boolean;
-    base10Value: string;
-    */
+    var negative: Boolean
+    var base10Value: String
 }

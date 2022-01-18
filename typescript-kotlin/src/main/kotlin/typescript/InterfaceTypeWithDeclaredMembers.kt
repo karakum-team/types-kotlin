@@ -3,10 +3,8 @@
 package typescript
 
 external interface InterfaceTypeWithDeclaredMembers : InterfaceType {
-    /*
-    declaredProperties: Symbol[];
-    declaredCallSignatures: Signature[];
-    declaredConstructSignatures: Signature[];
-    declaredIndexInfos: IndexInfo[];
-    */
+    var declaredProperties: ReadonlyArray<Symbol>
+    var declaredCallSignatures: ReadonlyArray<Signature>
+    var declaredConstructSignatures: ReadonlyArray<Signature>
+    var declaredIndexInfos: ReadonlyArray<IndexInfo>
 }

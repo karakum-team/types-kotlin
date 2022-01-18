@@ -3,8 +3,6 @@
 package typescript
 
 external interface JSDocVariadicType : JSDocType {
-    /*
-    readonly kind: SyntaxKind.JSDocVariadicType;
-    readonly type: TypeNode;
-    */
+    override val kind: SyntaxKind.JSDocVariadicType
+    val type: TypeNode
 }

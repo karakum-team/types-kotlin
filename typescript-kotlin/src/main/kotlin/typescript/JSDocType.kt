@@ -3,7 +3,5 @@
 package typescript
 
 external interface JSDocType : TypeNode {
-    /*
-    _jsDocTypeBrand: any;
-    */
+    var _jsDocTypeBrand: Any
 }

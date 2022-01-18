@@ -3,8 +3,6 @@
 package typescript
 
 external interface UnparsedSyntheticReference : UnparsedSection {
-    /*
-    readonly kind: SyntaxKind.UnparsedSyntheticReference;
-    readonly parent: UnparsedSource;
-    */
+    override val kind: SyntaxKind.UnparsedSyntheticReference
+    override val parent: UnparsedSource
 }

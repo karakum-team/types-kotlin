@@ -3,7 +3,5 @@
 package typescript
 
 external interface PrimaryExpression : MemberExpression {
-    /*
-    _primaryExpressionBrand: any;
-    */
+    var _primaryExpressionBrand: Any
 }

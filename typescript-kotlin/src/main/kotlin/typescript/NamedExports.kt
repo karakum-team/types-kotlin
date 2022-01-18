@@ -3,9 +3,7 @@
 package typescript
 
 external interface NamedExports : Node {
-    /*
-    readonly kind: SyntaxKind.NamedExports;
-    readonly parent: ExportDeclaration;
-    readonly elements: NodeArray<ExportSpecifier>;
-    */
+    override val kind: SyntaxKind.NamedExports
+    override val parent: ExportDeclaration
+    val elements: NodeArray<ExportSpecifier>
 }

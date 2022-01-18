@@ -7,10 +7,8 @@ package typescript
  * location where renaming should be invoked from
  */
 external interface RefactorEditInfo {
-    /*
-    edits: FileTextChanges[];
-    renameFilename?: string;
-    renameLocation?: number;
-    commands?: CodeActionCommand[];
-    */
+    var edits: ReadonlyArray<FileTextChanges>
+    var renameFilename: String?
+    var renameLocation: Double?
+    var commands: ReadonlyArray<CodeActionCommand>?
 }

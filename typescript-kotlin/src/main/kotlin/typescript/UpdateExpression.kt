@@ -3,7 +3,5 @@
 package typescript
 
 external interface UpdateExpression : UnaryExpression {
-    /*
-    _updateExpressionBrand: any;
-    */
+    var _updateExpressionBrand: Any
 }

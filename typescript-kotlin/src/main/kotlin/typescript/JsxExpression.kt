@@ -3,10 +3,8 @@
 package typescript
 
 external interface JsxExpression : Expression {
-    /*
-    readonly kind: SyntaxKind.JsxExpression;
-    readonly parent: JsxElement | JsxFragment | JsxAttributeLike;
-    readonly dotDotDotToken?: Token<SyntaxKind.DotDotDotToken>;
-    readonly expression?: Expression;
-    */
+    override val kind: SyntaxKind.JsxExpression
+    override val parent: dynamic /* JsxElement | JsxFragment | JsxAttributeLike */
+    val dotDotDotToken: Token<SyntaxKind.DotDotDotToken>?
+    val expression: Expression?
 }

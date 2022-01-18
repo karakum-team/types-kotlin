@@ -3,9 +3,7 @@
 package typescript
 
 external interface FunctionDeclaration : FunctionLikeDeclarationBase, DeclarationStatement {
-    /*
-    readonly kind: SyntaxKind.FunctionDeclaration;
-    readonly name?: Identifier;
-    readonly body?: FunctionBody;
-    */
+    override val kind: SyntaxKind.FunctionDeclaration
+    override val name: Identifier?
+    val body: FunctionBody?
 }

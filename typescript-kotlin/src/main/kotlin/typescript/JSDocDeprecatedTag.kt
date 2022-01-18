@@ -3,7 +3,5 @@
 package typescript
 
 external interface JSDocDeprecatedTag : JSDocTag {
-    /*
-    kind: SyntaxKind.JSDocDeprecatedTag;
-    */
+    override var kind: SyntaxKind.JSDocDeprecatedTag
 }

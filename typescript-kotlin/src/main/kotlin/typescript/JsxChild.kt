@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias JsxChild = Any /* JsxText | JsxExpression | JsxElement | JsxSelfClosingElement | JsxFragment */
+typealias JsxChild = Node /* JsxText | JsxExpression | JsxElement | JsxSelfClosingElement | JsxFragment */

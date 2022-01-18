@@ -9,7 +9,5 @@
 package typescript
 
 external interface SortedReadonlyArray<T> : ReadonlyArray<T> {
-    /*
-    " __sortedArrayBrand": any;
-    */
+    var " __sortedArrayBrand": Any
 }

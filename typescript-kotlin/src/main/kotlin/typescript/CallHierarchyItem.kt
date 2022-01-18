@@ -3,13 +3,11 @@
 package typescript
 
 external interface CallHierarchyItem {
-    /*
-    name: string;
-    kind: ScriptElementKind;
-    kindModifiers?: string;
-    file: string;
-    span: TextSpan;
-    selectionSpan: TextSpan;
-    containerName?: string;
-    */
+    var name: String
+    var kind: ScriptElementKind
+    var kindModifiers: String?
+    var file: String
+    var span: TextSpan
+    var selectionSpan: TextSpan
+    var containerName: String?
 }

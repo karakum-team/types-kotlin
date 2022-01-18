@@ -3,8 +3,6 @@
 package typescript
 
 external interface ParenthesizedExpression : PrimaryExpression, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.ParenthesizedExpression;
-    readonly expression: Expression;
-    */
+    override val kind: SyntaxKind.ParenthesizedExpression
+    val expression: Expression
 }

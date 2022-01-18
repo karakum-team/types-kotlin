@@ -3,8 +3,6 @@
 package typescript
 
 external interface TypeReferenceNode : NodeWithTypeArguments {
-    /*
-    readonly kind: SyntaxKind.TypeReference;
-    readonly typeName: EntityName;
-    */
+    override val kind: SyntaxKind.TypeReference
+    val typeName: EntityName
 }

@@ -3,10 +3,8 @@
 package typescript
 
 external interface TemplateSpan : Node {
-    /*
-    readonly kind: SyntaxKind.TemplateSpan;
-    readonly parent: TemplateExpression;
-    readonly expression: Expression;
-    readonly literal: TemplateMiddle | TemplateTail;
-    */
+    override val kind: SyntaxKind.TemplateSpan
+    override val parent: TemplateExpression
+    val expression: Expression
+    val literal: dynamic /* TemplateMiddle | TemplateTail */
 }

@@ -3,7 +3,5 @@
 package typescript
 
 external interface CallChain : CallExpression {
-    /*
-    _optionalChainBrand: any;
-    */
+    var _optionalChainBrand: Any
 }

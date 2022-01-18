@@ -3,12 +3,10 @@
 package typescript
 
 external interface PreProcessedFileInfo {
-    /*
-    referencedFiles: FileReference[];
-    typeReferenceDirectives: FileReference[];
-    libReferenceDirectives: FileReference[];
-    importedFiles: FileReference[];
-    ambientExternalModules?: string[];
-    isLibFile: boolean;
-    */
+    var referencedFiles: ReadonlyArray<FileReference>
+    var typeReferenceDirectives: ReadonlyArray<FileReference>
+    var libReferenceDirectives: ReadonlyArray<FileReference>
+    var importedFiles: ReadonlyArray<FileReference>
+    var ambientExternalModules: ReadonlyArray<String>?
+    var isLibFile: Boolean
 }

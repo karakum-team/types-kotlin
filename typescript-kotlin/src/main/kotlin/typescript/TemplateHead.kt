@@ -3,8 +3,6 @@
 package typescript
 
 external interface TemplateHead : TemplateLiteralLikeNode {
-    /*
-    readonly kind: SyntaxKind.TemplateHead;
-    readonly parent: TemplateExpression | TemplateLiteralTypeNode;
-    */
+    override val kind: SyntaxKind.TemplateHead
+    override val parent: dynamic /* TemplateExpression | TemplateLiteralTypeNode */
 }

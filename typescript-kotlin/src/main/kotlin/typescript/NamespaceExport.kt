@@ -3,9 +3,7 @@
 package typescript
 
 external interface NamespaceExport : NamedDeclaration {
-    /*
-    readonly kind: SyntaxKind.NamespaceExport;
-    readonly parent: ExportDeclaration;
-    readonly name: Identifier;
-    */
+    override val kind: SyntaxKind.NamespaceExport
+    override val parent: ExportDeclaration
+    override val name: Identifier
 }

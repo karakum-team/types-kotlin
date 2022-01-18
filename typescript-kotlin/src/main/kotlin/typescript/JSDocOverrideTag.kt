@@ -3,7 +3,5 @@
 package typescript
 
 external interface JSDocOverrideTag : JSDocTag {
-    /*
-    readonly kind: SyntaxKind.JSDocOverrideTag;
-    */
+    override val kind: SyntaxKind.JSDocOverrideTag
 }

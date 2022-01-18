@@ -3,11 +3,9 @@
 package typescript
 
 external interface HighlightSpan {
-    /*
-    fileName?: string;
-    isInString?: true;
-    textSpan: TextSpan;
-    contextSpan?: TextSpan;
-    kind: HighlightSpanKind;
-    */
+    var fileName: String?
+    var isInString: Boolean? /* true */
+    var textSpan: TextSpan
+    var contextSpan: TextSpan?
+    var kind: HighlightSpanKind
 }

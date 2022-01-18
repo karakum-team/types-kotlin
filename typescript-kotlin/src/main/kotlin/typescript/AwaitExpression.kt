@@ -3,8 +3,6 @@
 package typescript
 
 external interface AwaitExpression : UnaryExpression {
-    /*
-    readonly kind: SyntaxKind.AwaitExpression;
-    readonly expression: UnaryExpression;
-    */
+    override val kind: SyntaxKind.AwaitExpression
+    val expression: UnaryExpression
 }

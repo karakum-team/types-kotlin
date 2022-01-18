@@ -3,9 +3,7 @@
 package typescript
 
 external interface ClassStaticBlockDeclaration : ClassElement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.ClassStaticBlockDeclaration;
-    readonly parent: ClassDeclaration | ClassExpression;
-    readonly body: Block;
-    */
+    override val kind: SyntaxKind.ClassStaticBlockDeclaration
+    override val parent: dynamic /* ClassDeclaration | ClassExpression */
+    val body: Block
 }

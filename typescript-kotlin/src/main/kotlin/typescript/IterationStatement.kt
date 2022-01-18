@@ -3,7 +3,5 @@
 package typescript
 
 external interface IterationStatement : Statement {
-    /*
-    readonly statement: Statement;
-    */
+    val statement: Statement
 }

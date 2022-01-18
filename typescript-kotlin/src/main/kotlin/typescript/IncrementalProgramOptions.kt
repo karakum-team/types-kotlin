@@ -3,12 +3,10 @@
 package typescript
 
 external interface IncrementalProgramOptions<T : BuilderProgram> {
-    /*
-    rootNames: readonly string[];
-    options: CompilerOptions;
-    configFileParsingDiagnostics?: readonly Diagnostic[];
-    projectReferences?: readonly ProjectReference[];
-    host?: CompilerHost;
-    createProgram?: CreateProgram<T>;
-    */
+    var rootNames: ReadonlyArray<String>
+    var options: CompilerOptions
+    var configFileParsingDiagnostics: ReadonlyArray<Diagnostic>?
+    var projectReferences: ReadonlyArray<ProjectReference>?
+    var host: CompilerHost?
+    var createProgram: CreateProgram<T>?
 }

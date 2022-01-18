@@ -3,8 +3,6 @@
 package typescript
 
 external interface EmitOutput {
-    /*
-    outputFiles: OutputFile[];
-    emitSkipped: boolean;
-    */
+    var outputFiles: ReadonlyArray<OutputFile>
+    var emitSkipped: Boolean
 }

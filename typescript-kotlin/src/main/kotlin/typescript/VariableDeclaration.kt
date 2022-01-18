@@ -3,12 +3,10 @@
 package typescript
 
 external interface VariableDeclaration : NamedDeclaration, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.VariableDeclaration;
-    readonly parent: VariableDeclarationList | CatchClause;
-    readonly name: BindingName;
-    readonly exclamationToken?: ExclamationToken;
-    readonly type?: TypeNode;
-    readonly initializer?: Expression;
-    */
+    override val kind: SyntaxKind.VariableDeclaration
+    override val parent: dynamic /* VariableDeclarationList | CatchClause */
+    override val name: BindingName
+    val exclamationToken: ExclamationToken?
+    val type: TypeNode?
+    val initializer: Expression?
 }

@@ -3,9 +3,7 @@
 package typescript
 
 external interface TranspileOutput {
-    /*
-    outputText: string;
-    diagnostics?: Diagnostic[];
-    sourceMapText?: string;
-    */
+    var outputText: String
+    var diagnostics: ReadonlyArray<Diagnostic>?
+    var sourceMapText: String?
 }

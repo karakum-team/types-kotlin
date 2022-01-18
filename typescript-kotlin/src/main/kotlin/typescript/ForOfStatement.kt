@@ -3,10 +3,8 @@
 package typescript
 
 external interface ForOfStatement : IterationStatement {
-    /*
-    readonly kind: SyntaxKind.ForOfStatement;
-    readonly awaitModifier?: AwaitKeywordToken;
-    readonly initializer: ForInitializer;
-    readonly expression: Expression;
-    */
+    override val kind: SyntaxKind.ForOfStatement
+    val awaitModifier: AwaitKeywordToken?
+    val initializer: ForInitializer
+    val expression: Expression
 }

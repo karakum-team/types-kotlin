@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias ClassLikeDeclaration = Any /* ClassDeclaration | ClassExpression */
+typealias ClassLikeDeclaration = Node /* ClassDeclaration | ClassExpression */

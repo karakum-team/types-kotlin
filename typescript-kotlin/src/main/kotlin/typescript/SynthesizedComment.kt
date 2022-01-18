@@ -3,10 +3,8 @@
 package typescript
 
 external interface SynthesizedComment : CommentRange {
-    /*
-    text: string;
-    pos: -1;
-    end: -1;
-    hasLeadingNewline?: boolean;
-    */
+    var text: String
+    var pos: -1
+    var end: -1
+    var hasLeadingNewline: Boolean?
 }

@@ -3,9 +3,7 @@
 package typescript
 
 external interface LabeledStatement : Statement {
-    /*
-    readonly kind: SyntaxKind.LabeledStatement;
-    readonly label: Identifier;
-    readonly statement: Statement;
-    */
+    override val kind: SyntaxKind.LabeledStatement
+    val label: Identifier
+    val statement: Statement
 }

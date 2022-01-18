@@ -3,13 +3,11 @@
 package typescript
 
 external interface WatchOptions {
-    /*
-    watchFile?: WatchFileKind;
-    watchDirectory?: WatchDirectoryKind;
-    fallbackPolling?: PollingWatchKind;
-    synchronousWatchDirectory?: boolean;
-    excludeDirectories?: string[];
-    excludeFiles?: string[];
-    [option: string]: CompilerOptionsValue | undefined;
-    */
+    var watchFile: WatchFileKind?
+    var watchDirectory: WatchDirectoryKind?
+    var fallbackPolling: PollingWatchKind?
+    var synchronousWatchDirectory: Boolean?
+    var excludeDirectories: ReadonlyArray<String>?
+    var excludeFiles: ReadonlyArray<String>?
+    // [option: string]: CompilerOptionsValue | undefined
 }

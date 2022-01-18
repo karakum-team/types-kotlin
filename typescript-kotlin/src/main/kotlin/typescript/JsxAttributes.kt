@@ -3,8 +3,6 @@
 package typescript
 
 external interface JsxAttributes : ObjectLiteralExpressionBase<JsxAttributeLike> {
-    /*
-    readonly kind: SyntaxKind.JsxAttributes;
-    readonly parent: JsxOpeningLikeElement;
-    */
+    override val kind: SyntaxKind.JsxAttributes
+    override val parent: JsxOpeningLikeElement
 }

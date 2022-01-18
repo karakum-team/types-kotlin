@@ -3,8 +3,6 @@
 package typescript
 
 external interface TodoCommentDescriptor {
-    /*
-    text: string;
-    priority: number;
-    */
+    var text: String
+    var priority: Double
 }

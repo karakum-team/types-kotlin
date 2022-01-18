@@ -3,12 +3,10 @@
 package typescript
 
 external interface TranspileOptions {
-    /*
-    compilerOptions?: CompilerOptions;
-    fileName?: string;
-    reportDiagnostics?: boolean;
-    moduleName?: string;
-    renamedDependencies?: MapLike<string>;
-    transformers?: CustomTransformers;
-    */
+    var compilerOptions: CompilerOptions?
+    var fileName: String?
+    var reportDiagnostics: Boolean?
+    var moduleName: String?
+    var renamedDependencies: MapLike<String>?
+    var transformers: CustomTransformers?
 }

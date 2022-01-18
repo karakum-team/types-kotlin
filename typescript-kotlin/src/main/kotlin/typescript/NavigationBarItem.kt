@@ -9,14 +9,12 @@ package typescript
  * Child items always have an empty array for their `childItems`.
  */
 external interface NavigationBarItem {
-    /*
-    text: string;
-    kind: ScriptElementKind;
-    kindModifiers: string;
-    spans: TextSpan[];
-    childItems: NavigationBarItem[];
-    indent: number;
-    bolded: boolean;
-    grayed: boolean;
-    */
+    var text: String
+    var kind: ScriptElementKind
+    var kindModifiers: String
+    var spans: ReadonlyArray<TextSpan>
+    var childItems: ReadonlyArray<NavigationBarItem>
+    var indent: Double
+    var bolded: Boolean
+    var grayed: Boolean
 }

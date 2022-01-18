@@ -3,9 +3,7 @@
 package typescript
 
 external interface FunctionExpression : PrimaryExpression, FunctionLikeDeclarationBase, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.FunctionExpression;
-    readonly name?: Identifier;
-    readonly body: FunctionBody;
-    */
+    override val kind: SyntaxKind.FunctionExpression
+    override val name: Identifier?
+    val body: FunctionBody
 }

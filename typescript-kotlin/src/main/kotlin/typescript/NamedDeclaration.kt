@@ -3,7 +3,5 @@
 package typescript
 
 external interface NamedDeclaration : Declaration {
-    /*
-    readonly name?: DeclarationName;
-    */
+    override val name: DeclarationName?
 }

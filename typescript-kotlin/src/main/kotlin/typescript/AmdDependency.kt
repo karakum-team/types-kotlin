@@ -3,8 +3,6 @@
 package typescript
 
 external interface AmdDependency {
-    /*
-    path: string;
-    name?: string;
-    */
+    var path: String
+    var name: String?
 }

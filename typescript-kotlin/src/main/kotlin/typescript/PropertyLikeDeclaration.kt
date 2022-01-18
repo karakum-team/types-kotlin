@@ -3,7 +3,5 @@
 package typescript
 
 external interface PropertyLikeDeclaration : NamedDeclaration {
-    /*
-    readonly name: PropertyName;
-    */
+    override val name: PropertyName
 }

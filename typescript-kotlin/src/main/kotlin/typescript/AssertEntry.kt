@@ -3,10 +3,8 @@
 package typescript
 
 external interface AssertEntry : Node {
-    /*
-    readonly kind: SyntaxKind.AssertEntry;
-    readonly parent: AssertClause;
-    readonly name: AssertionKey;
-    readonly value: StringLiteral;
-    */
+    override val kind: SyntaxKind.AssertEntry
+    override val parent: AssertClause
+    override val name: AssertionKey
+    val value: StringLiteral
 }

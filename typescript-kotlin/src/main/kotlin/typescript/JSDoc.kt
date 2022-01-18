@@ -3,10 +3,8 @@
 package typescript
 
 external interface JSDoc : Node {
-    /*
-    readonly kind: SyntaxKind.JSDocComment;
-    readonly parent: HasJSDoc;
-    readonly tags?: NodeArray<JSDocTag>;
-    readonly comment?: string | NodeArray<JSDocComment>;
-    */
+    override val kind: SyntaxKind.JSDocComment
+    override val parent: HasJSDoc
+    val tags: NodeArray<JSDocTag>?
+    val comment: dynamic /* string | NodeArray<JSDocComment> */
 }

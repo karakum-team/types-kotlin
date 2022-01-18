@@ -3,7 +3,5 @@
 package typescript
 
 external interface MemberExpression : LeftHandSideExpression {
-    /*
-    _memberExpressionBrand: any;
-    */
+    var _memberExpressionBrand: Any
 }

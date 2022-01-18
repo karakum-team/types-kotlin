@@ -3,7 +3,5 @@
 package typescript
 
 external interface TypeNode : Node {
-    /*
-    _typeNodeBrand: any;
-    */
+    var _typeNodeBrand: Any
 }

@@ -3,8 +3,6 @@
 package typescript
 
 external interface CompletionEntryDataUnresolved : CompletionEntryDataAutoImport {
-    /*
     /** The key in the `ExportMapCache` where the completion entry's `SymbolExportInfo[]` is found */
-    exportMapKey: string;
-    */
+    var exportMapKey: String
 }

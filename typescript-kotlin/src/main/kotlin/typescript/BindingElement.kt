@@ -3,12 +3,10 @@
 package typescript
 
 external interface BindingElement : NamedDeclaration {
-    /*
-    readonly kind: SyntaxKind.BindingElement;
-    readonly parent: BindingPattern;
-    readonly propertyName?: PropertyName;
-    readonly dotDotDotToken?: DotDotDotToken;
-    readonly name: BindingName;
-    readonly initializer?: Expression;
-    */
+    override val kind: SyntaxKind.BindingElement
+    override val parent: BindingPattern
+    val propertyName: PropertyName?
+    val dotDotDotToken: DotDotDotToken?
+    override val name: BindingName
+    val initializer: Expression?
 }

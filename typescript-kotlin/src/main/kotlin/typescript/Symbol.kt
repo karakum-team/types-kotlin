@@ -3,13 +3,11 @@
 package typescript
 
 external interface Symbol {
-    /*
-    flags: SymbolFlags;
-    escapedName: __String;
-    declarations?: Declaration[];
-    valueDeclaration?: Declaration;
-    members?: SymbolTable;
-    exports?: SymbolTable;
-    globalExports?: SymbolTable;
-    */
+    var flags: SymbolFlags
+    var escapedName: __String
+    var declarations: ReadonlyArray<Declaration>?
+    var valueDeclaration: Declaration?
+    var members: SymbolTable?
+    var exports: SymbolTable?
+    var globalExports: SymbolTable?
 }

@@ -3,9 +3,7 @@
 package typescript
 
 external interface JsxClosingElement : Node {
-    /*
-    readonly kind: SyntaxKind.JsxClosingElement;
-    readonly parent: JsxElement;
-    readonly tagName: JsxTagNameExpression;
-    */
+    override val kind: SyntaxKind.JsxClosingElement
+    override val parent: JsxElement
+    val tagName: JsxTagNameExpression
 }

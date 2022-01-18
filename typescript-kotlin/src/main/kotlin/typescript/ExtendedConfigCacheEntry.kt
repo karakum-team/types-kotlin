@@ -3,8 +3,6 @@
 package typescript
 
 external interface ExtendedConfigCacheEntry {
-    /*
-    extendedResult: TsConfigSourceFile;
-    extendedConfig: ParsedTsconfig | undefined;
-    */
+    var extendedResult: TsConfigSourceFile
+    var extendedConfig: ParsedTsconfig
 }

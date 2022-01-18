@@ -3,7 +3,5 @@
 package typescript
 
 external interface ElementAccessChain : ElementAccessExpression {
-    /*
-    _optionalChainBrand: any;
-    */
+    var _optionalChainBrand: Any
 }

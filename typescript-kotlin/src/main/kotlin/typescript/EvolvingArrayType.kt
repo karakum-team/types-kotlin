@@ -3,8 +3,6 @@
 package typescript
 
 external interface EvolvingArrayType : ObjectType {
-    /*
-    elementType: Type;
-    finalArrayType?: Type;
-    */
+    var elementType: Type
+    var finalArrayType: Type?
 }

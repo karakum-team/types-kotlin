@@ -3,11 +3,9 @@
 package typescript
 
 external interface IndexedAccessType : InstantiableType {
-    /*
-    objectType: Type;
-    indexType: Type;
-    constraint?: Type;
-    simplifiedForReading?: Type;
-    simplifiedForWriting?: Type;
-    */
+    var objectType: Type
+    var indexType: Type
+    var constraint: Type?
+    var simplifiedForReading: Type?
+    var simplifiedForWriting: Type?
 }

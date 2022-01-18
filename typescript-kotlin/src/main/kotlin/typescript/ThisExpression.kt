@@ -3,7 +3,5 @@
 package typescript
 
 external interface ThisExpression : PrimaryExpression {
-    /*
-    readonly kind: SyntaxKind.ThisKeyword;
-    */
+    override val kind: SyntaxKind.ThisKeyword
 }

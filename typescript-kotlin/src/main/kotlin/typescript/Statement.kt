@@ -3,7 +3,5 @@
 package typescript
 
 external interface Statement : Node, JSDocContainer {
-    /*
-    _statementBrand: any;
-    */
+    var _statementBrand: Any
 }

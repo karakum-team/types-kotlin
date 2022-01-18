@@ -3,9 +3,8 @@
 package typescript
 
 external interface ClassDeclaration : ClassLikeDeclarationBase, DeclarationStatement {
-    /*
-    readonly kind: SyntaxKind.ClassDeclaration;
+    override val kind: SyntaxKind.ClassDeclaration
+
     /** May be undefined in `export default class { ... }`. */
-    readonly name?: Identifier;
-    */
+    override val name: Identifier?
 }

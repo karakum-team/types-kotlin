@@ -3,7 +3,5 @@
 package typescript
 
 external interface OrganizeImportsArgs : CombinedCodeFixScope {
-    /*
-    skipDestructiveCodeActions?: boolean;
-    */
+    var skipDestructiveCodeActions: Boolean?
 }

@@ -9,7 +9,5 @@
 package typescript
 
 external interface NodeArray<T : Node> : ReadonlyArray<T>, ReadonlyTextRange {
-    /*
-    readonly hasTrailingComma: boolean;
-    */
+    val hasTrailingComma: Boolean
 }

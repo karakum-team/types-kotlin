@@ -3,7 +3,5 @@
 package typescript
 
 external interface Expression : Node {
-    /*
-    _expressionBrand: any;
-    */
+    var _expressionBrand: Any
 }

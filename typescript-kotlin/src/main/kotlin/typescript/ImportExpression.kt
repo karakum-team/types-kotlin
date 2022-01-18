@@ -3,7 +3,5 @@
 package typescript
 
 external interface ImportExpression : PrimaryExpression {
-    /*
-    readonly kind: SyntaxKind.ImportKeyword;
-    */
+    override val kind: SyntaxKind.ImportKeyword
 }

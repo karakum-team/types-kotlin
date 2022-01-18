@@ -3,7 +3,5 @@
 package typescript
 
 external interface OmittedExpression : Expression {
-    /*
-    readonly kind: SyntaxKind.OmittedExpression;
-    */
+    override val kind: SyntaxKind.OmittedExpression
 }

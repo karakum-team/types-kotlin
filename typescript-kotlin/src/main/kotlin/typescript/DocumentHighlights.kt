@@ -3,8 +3,6 @@
 package typescript
 
 external interface DocumentHighlights {
-    /*
-    fileName: string;
-    highlightSpans: HighlightSpan[];
-    */
+    var fileName: String
+    var highlightSpans: ReadonlyArray<HighlightSpan>
 }

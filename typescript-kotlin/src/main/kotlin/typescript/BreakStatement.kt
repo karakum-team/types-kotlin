@@ -3,8 +3,6 @@
 package typescript
 
 external interface BreakStatement : Statement {
-    /*
-    readonly kind: SyntaxKind.BreakStatement;
-    readonly label?: Identifier;
-    */
+    override val kind: SyntaxKind.BreakStatement
+    val label: Identifier?
 }

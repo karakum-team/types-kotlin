@@ -3,10 +3,8 @@
 package typescript
 
 external interface TryStatement : Statement {
-    /*
-    readonly kind: SyntaxKind.TryStatement;
-    readonly tryBlock: Block;
-    readonly catchClause?: CatchClause;
-    readonly finallyBlock?: Block;
-    */
+    override val kind: SyntaxKind.TryStatement
+    val tryBlock: Block
+    val catchClause: CatchClause?
+    val finallyBlock: Block?
 }

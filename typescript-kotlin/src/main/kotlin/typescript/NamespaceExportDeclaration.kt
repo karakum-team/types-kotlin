@@ -3,8 +3,6 @@
 package typescript
 
 external interface NamespaceExportDeclaration : DeclarationStatement, JSDocContainer {
-    /*
-    readonly kind: SyntaxKind.NamespaceExportDeclaration;
-    readonly name: Identifier;
-    */
+    override val kind: SyntaxKind.NamespaceExportDeclaration
+    override val name: Identifier
 }

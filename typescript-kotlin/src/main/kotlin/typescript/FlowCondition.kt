@@ -3,8 +3,6 @@
 package typescript
 
 external interface FlowCondition : FlowNodeBase {
-    /*
-    node: Expression;
-    antecedent: FlowNode;
-    */
+    var node: Expression
+    var antecedent: FlowNode
 }

@@ -3,11 +3,9 @@
 package typescript
 
 external interface CallExpression : LeftHandSideExpression, Declaration {
-    /*
-    readonly kind: SyntaxKind.CallExpression;
-    readonly expression: LeftHandSideExpression;
-    readonly questionDotToken?: QuestionDotToken;
-    readonly typeArguments?: NodeArray<TypeNode>;
-    readonly arguments: NodeArray<Expression>;
-    */
+    override val kind: SyntaxKind.CallExpression
+    val expression: LeftHandSideExpression
+    val questionDotToken: QuestionDotToken?
+    val typeArguments: NodeArray<TypeNode>?
+    val arguments: NodeArray<Expression>
 }

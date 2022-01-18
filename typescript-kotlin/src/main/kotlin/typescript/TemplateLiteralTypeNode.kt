@@ -3,9 +3,7 @@
 package typescript
 
 external interface TemplateLiteralTypeNode : TypeNode {
-    /*
-    kind: SyntaxKind.TemplateLiteralType;
-    readonly head: TemplateHead;
-    readonly templateSpans: NodeArray<TemplateLiteralTypeSpan>;
-    */
+    override var kind: SyntaxKind.TemplateLiteralType
+    val head: TemplateHead
+    val templateSpans: NodeArray<TemplateLiteralTypeSpan>
 }

@@ -3,8 +3,6 @@
 package typescript
 
 external interface CommentRange : TextRange {
-    /*
-    hasTrailingNewLine?: boolean;
-    kind: CommentKind;
-    */
+    var hasTrailingNewLine: Boolean?
+    override var kind: CommentKind
 }

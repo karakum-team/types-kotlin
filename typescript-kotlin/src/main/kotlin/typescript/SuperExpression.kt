@@ -3,7 +3,5 @@
 package typescript
 
 external interface SuperExpression : PrimaryExpression {
-    /*
-    readonly kind: SyntaxKind.SuperKeyword;
-    */
+    override val kind: SyntaxKind.SuperKeyword
 }

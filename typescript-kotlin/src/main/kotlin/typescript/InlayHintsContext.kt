@@ -3,12 +3,10 @@
 package typescript
 
 external interface InlayHintsContext {
-    /*
-    file: SourceFile;
-    program: Program;
-    cancellationToken: CancellationToken;
-    host: LanguageServiceHost;
-    span: TextSpan;
-    preferences: InlayHintsOptions;
-    */
+    var file: SourceFile
+    var program: Program
+    var cancellationToken: CancellationToken
+    var host: LanguageServiceHost
+    var span: TextSpan
+    var preferences: InlayHintsOptions
 }

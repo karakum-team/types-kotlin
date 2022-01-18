@@ -3,8 +3,6 @@
 package typescript
 
 external interface AssignmentExpression<TOperator : AssignmentOperatorToken> : BinaryExpression {
-    /*
-    readonly left: LeftHandSideExpression;
-    readonly operatorToken: TOperator;
-    */
+    val left: LeftHandSideExpression
+    val operatorToken: TOperator
 }

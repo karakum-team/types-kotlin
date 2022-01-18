@@ -3,15 +3,13 @@
 package typescript
 
 external interface NavigateToItem {
-    /*
-    name: string;
-    kind: ScriptElementKind;
-    kindModifiers: string;
-    matchKind: "exact" | "prefix" | "substring" | "camelCase";
-    isCaseSensitive: boolean;
-    fileName: string;
-    textSpan: TextSpan;
-    containerName: string;
-    containerKind: ScriptElementKind;
-    */
+    var name: String
+    var kind: ScriptElementKind
+    var kindModifiers: String
+    var matchKind: dynamic /* "exact" | "prefix" | "substring" | "camelCase" */
+    var isCaseSensitive: Boolean
+    var fileName: String
+    var textSpan: TextSpan
+    var containerName: String
+    var containerKind: ScriptElementKind
 }

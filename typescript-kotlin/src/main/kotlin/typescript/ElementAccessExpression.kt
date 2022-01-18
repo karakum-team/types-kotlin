@@ -3,10 +3,8 @@
 package typescript
 
 external interface ElementAccessExpression : MemberExpression {
-    /*
-    readonly kind: SyntaxKind.ElementAccessExpression;
-    readonly expression: LeftHandSideExpression;
-    readonly questionDotToken?: QuestionDotToken;
-    readonly argumentExpression: Expression;
-    */
+    override val kind: SyntaxKind.ElementAccessExpression
+    val expression: LeftHandSideExpression
+    val questionDotToken: QuestionDotToken?
+    val argumentExpression: Expression
 }

@@ -3,7 +3,5 @@
 package typescript
 
 external interface SignatureHelpItemsOptions {
-    /*
-    triggerReason?: SignatureHelpTriggerReason;
-    */
+    var triggerReason: SignatureHelpTriggerReason?
 }

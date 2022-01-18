@@ -3,9 +3,7 @@
 package typescript
 
 external interface JSDocLinkPlain : Node {
-    /*
-    readonly kind: SyntaxKind.JSDocLinkPlain;
-    readonly name?: EntityName | JSDocMemberName;
-    text: string;
-    */
+    override val kind: SyntaxKind.JSDocLinkPlain
+    override val name: dynamic /* EntityName | JSDocMemberName */
+    var text: String
 }

@@ -3,8 +3,6 @@
 package typescript
 
 external interface ObjectLiteralElement : NamedDeclaration {
-    /*
-    _objectLiteralBrand: any;
-    readonly name?: PropertyName;
-    */
+    var _objectLiteralBrand: Any
+    override val name: PropertyName?
 }
