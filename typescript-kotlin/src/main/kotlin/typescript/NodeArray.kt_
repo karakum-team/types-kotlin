@@ -1,7 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-interface NodeArray<T extends Node> extends ReadonlyArray<T>, ReadonlyTextRange {
-    readonly hasTrailingComma: boolean;
-}

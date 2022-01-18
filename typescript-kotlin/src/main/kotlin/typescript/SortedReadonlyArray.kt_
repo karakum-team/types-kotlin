@@ -1,7 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-interface SortedReadonlyArray<T> extends ReadonlyArray<T> {
-    " __sortedArrayBrand": any;
-}

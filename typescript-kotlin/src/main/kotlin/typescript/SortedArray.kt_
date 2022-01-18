@@ -1,7 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-interface SortedArray<T> extends Array<T> {
-    " __sortedArrayBrand": any;
-}
