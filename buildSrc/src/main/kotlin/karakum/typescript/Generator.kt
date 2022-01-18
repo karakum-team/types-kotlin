@@ -49,7 +49,6 @@ fun generateKotlinDeclarations(
 
         val extension = when {
             "external fun " in body -> "fun.kt"
-            name in IGNORED_INTERFACES -> "kt_"
             else -> "kt"
         }
 

@@ -153,7 +153,8 @@ private fun convertType(
 
     val unionType = when {
         body.startsWith("SyntaxKind.") -> "SyntaxKind"
-        body == "JsxAttribute | JsxSpreadAttribute" -> "ObjectLiteralElement"
+        name == "JsxAttributeLike" -> "ObjectLiteralElement"
+        name == "ObjectLiteralElementLike" -> "ObjectLiteralElement"
         else -> "Any"
     }
     var content = "typealias $declaration = $unionType /* $body */"
@@ -199,18 +200,10 @@ private fun convertEnum(
         }
 }
 
-// TEMP
-internal val IGNORED_INTERFACES = setOf(
-    "ObjectLiteralExpression",
-)
-
 private fun convertInterface(
     name: String,
     source: String,
 ): String {
-    if (name in IGNORED_INTERFACES)
-        return "interface $source"
-
     var declaration = source.substringBefore(" {\n")
         .replace(" extends ", " : ")
         .replace("<string", "<String")
