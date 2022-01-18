@@ -66,9 +66,6 @@ fun generateKotlinDeclarations(
 
     targetDir.resolve("ReadonlyArray.kt")
         .writeText(fileContent(body = "typealias ReadonlyArray<T> = Array<out T>"))
-
-    targetDir.resolve("Union.kt")
-        .writeText(fileContent(body = "typealias Union = Any"))
 }
 
 private fun fileContent(
