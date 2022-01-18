@@ -219,7 +219,10 @@ private fun convertInterface(
         .substringAfter("{\n")
         .substringBeforeLast("\n}", "")
 
-    val body = convertMembers(bodySource)
+    val members = convertMembers(bodySource)
+    val body = if (" extends " in source) {
+        fixOverrides(name, members)
+    } else members
 
     return "external interface $declaration {\n$body\n}"
 }
