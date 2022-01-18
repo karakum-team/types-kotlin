@@ -24,7 +24,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "false" to "Boolean /* false */",
     "true" to "Boolean /* true */",
 
-    "MapLike<string[]>" to "MapLike<ReadonlyArray<String>>"
+    "MapLike<string>" to "MapLike<String>",
+    "MapLike<string[]>" to "MapLike<ReadonlyArray<String>>",
 )
 
 internal fun kotlinType(
