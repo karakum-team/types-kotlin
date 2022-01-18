@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `AssertsKeyword` instead. */
-typealias AssertsToken = Any /* AssertsKeyword */
+typealias AssertsToken = AssertsKeyword

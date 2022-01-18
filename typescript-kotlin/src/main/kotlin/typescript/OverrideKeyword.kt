@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias OverrideKeyword = Any /* ModifierToken<SyntaxKind.OverrideKeyword> */
+typealias OverrideKeyword = ModifierToken<SyntaxKind.OverrideKeyword>

@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use `AwaitKeyword` instead. */
-typealias AwaitKeywordToken = Any /* AwaitKeyword */
+typealias AwaitKeywordToken = AwaitKeyword

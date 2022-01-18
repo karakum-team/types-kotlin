@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias DotDotDotToken = Any /* PunctuationToken<SyntaxKind.DotDotDotToken> */
+typealias DotDotDotToken = PunctuationToken<SyntaxKind.DotDotDotToken>

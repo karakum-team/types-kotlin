@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias AsteriskToken = Any /* PunctuationToken<SyntaxKind.AsteriskToken> */
+typealias AsteriskToken = PunctuationToken<SyntaxKind.AsteriskToken>

@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias AsyncKeyword = Any /* ModifierToken<SyntaxKind.AsyncKeyword> */
+typealias AsyncKeyword = ModifierToken<SyntaxKind.AsyncKeyword>

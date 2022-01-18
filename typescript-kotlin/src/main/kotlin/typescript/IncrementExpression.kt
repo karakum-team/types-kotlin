@@ -3,4 +3,4 @@
 package typescript
 
 /** Deprecated, please use UpdateExpression */
-typealias IncrementExpression = Any /* UpdateExpression */
+typealias IncrementExpression = UpdateExpression

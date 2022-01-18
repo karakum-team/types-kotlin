@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias ExportKeyword = Any /* ModifierToken<SyntaxKind.ExportKeyword> */
+typealias ExportKeyword = ModifierToken<SyntaxKind.ExportKeyword>

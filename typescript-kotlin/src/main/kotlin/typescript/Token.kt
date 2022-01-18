@@ -2,7 +2,7 @@
 
 package typescript
 
-external interface Token<TKind : SyntaxKind> : Node {
+external interface Token<out TKind : SyntaxKind> : Node {
     /*
     readonly kind: TKind;
     */

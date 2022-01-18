@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias AssignmentOperatorToken = Any /* Token<AssignmentOperator> */
+typealias AssignmentOperatorToken = Token<AssignmentOperator>

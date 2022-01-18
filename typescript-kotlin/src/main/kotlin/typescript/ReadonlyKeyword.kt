@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias ReadonlyKeyword = Any /* ModifierToken<SyntaxKind.ReadonlyKeyword> */
+typealias ReadonlyKeyword = ModifierToken<SyntaxKind.ReadonlyKeyword>

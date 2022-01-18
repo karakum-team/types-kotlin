@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias CodeActionCommand = Any /* InstallPackageAction */
+typealias CodeActionCommand = InstallPackageAction

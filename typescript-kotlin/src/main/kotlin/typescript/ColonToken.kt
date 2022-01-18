@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias ColonToken = Any /* PunctuationToken<SyntaxKind.ColonToken> */
+typealias ColonToken = PunctuationToken<SyntaxKind.ColonToken>

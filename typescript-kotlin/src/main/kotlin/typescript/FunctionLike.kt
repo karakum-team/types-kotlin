@@ -3,4 +3,4 @@
 package typescript
 
 /** @deprecated Use SignatureDeclaration */
-typealias FunctionLike = Any /* SignatureDeclaration */
+typealias FunctionLike = SignatureDeclaration

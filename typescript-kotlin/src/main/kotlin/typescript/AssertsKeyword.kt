@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias AssertsKeyword = Any /* KeywordToken<SyntaxKind.AssertsKeyword> */
+typealias AssertsKeyword = KeywordToken<SyntaxKind.AssertsKeyword>

@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias ConstKeyword = Any /* ModifierToken<SyntaxKind.ConstKeyword> */
+typealias ConstKeyword = ModifierToken<SyntaxKind.ConstKeyword>

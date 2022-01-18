@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias ProtectedKeyword = Any /* ModifierToken<SyntaxKind.ProtectedKeyword> */
+typealias ProtectedKeyword = ModifierToken<SyntaxKind.ProtectedKeyword>

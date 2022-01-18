@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias EqualsToken = Any /* PunctuationToken<SyntaxKind.EqualsToken> */
+typealias EqualsToken = PunctuationToken<SyntaxKind.EqualsToken>

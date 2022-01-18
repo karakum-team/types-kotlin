@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias EqualsGreaterThanToken = Any /* PunctuationToken<SyntaxKind.EqualsGreaterThanToken> */
+typealias EqualsGreaterThanToken = PunctuationToken<SyntaxKind.EqualsGreaterThanToken>

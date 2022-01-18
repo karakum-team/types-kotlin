@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias PrivateKeyword = Any /* ModifierToken<SyntaxKind.PrivateKeyword> */
+typealias PrivateKeyword = ModifierToken<SyntaxKind.PrivateKeyword>

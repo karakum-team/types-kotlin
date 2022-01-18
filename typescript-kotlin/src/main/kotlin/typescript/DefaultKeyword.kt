@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias DefaultKeyword = Any /* ModifierToken<SyntaxKind.DefaultKeyword> */
+typealias DefaultKeyword = ModifierToken<SyntaxKind.DefaultKeyword>

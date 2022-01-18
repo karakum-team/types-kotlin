@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias MinusToken = Any /* PunctuationToken<SyntaxKind.MinusToken> */
+typealias MinusToken = PunctuationToken<SyntaxKind.MinusToken>

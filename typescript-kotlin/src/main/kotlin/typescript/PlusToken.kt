@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias PlusToken = Any /* PunctuationToken<SyntaxKind.PlusToken> */
+typealias PlusToken = PunctuationToken<SyntaxKind.PlusToken>

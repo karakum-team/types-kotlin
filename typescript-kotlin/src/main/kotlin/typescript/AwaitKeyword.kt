@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias AwaitKeyword = Any /* KeywordToken<SyntaxKind.AwaitKeyword> */
+typealias AwaitKeyword = KeywordToken<SyntaxKind.AwaitKeyword>

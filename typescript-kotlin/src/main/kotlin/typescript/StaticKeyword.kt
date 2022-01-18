@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias StaticKeyword = Any /* ModifierToken<SyntaxKind.StaticKeyword> */
+typealias StaticKeyword = ModifierToken<SyntaxKind.StaticKeyword>

@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias FunctionBody = Any /* Block */
+typealias FunctionBody = Block

@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias PublicKeyword = Any /* ModifierToken<SyntaxKind.PublicKeyword> */
+typealias PublicKeyword = ModifierToken<SyntaxKind.PublicKeyword>

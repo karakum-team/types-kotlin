@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias AbstractKeyword = Any /* ModifierToken<SyntaxKind.AbstractKeyword> */
+typealias AbstractKeyword = ModifierToken<SyntaxKind.AbstractKeyword>

@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias DeclareKeyword = Any /* ModifierToken<SyntaxKind.DeclareKeyword> */
+typealias DeclareKeyword = ModifierToken<SyntaxKind.DeclareKeyword>
