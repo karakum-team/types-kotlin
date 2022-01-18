@@ -151,7 +151,11 @@ private fun convertType(
     if (" | " !in body && "(" !in body && "{" !in body && name !in IGNORED_TYPES)
         return "typealias $declaration = $body"
 
-    val unionType = if (body.startsWith("SyntaxKind.")) "SyntaxKind" else "Any"
+    val unionType = when {
+        body.startsWith("SyntaxKind.") -> "SyntaxKind"
+        body == "JsxAttribute | JsxSpreadAttribute" -> "ObjectLiteralElement"
+        else -> "Any"
+    }
     var content = "typealias $declaration = $unionType /* $body */"
     if ("<T" in declaration)
         content = "@Suppress(\"UNUSED_TYPEALIAS_PARAMETER\")\n" + content
@@ -197,7 +201,6 @@ private fun convertEnum(
 
 // TEMP
 internal val IGNORED_INTERFACES = setOf(
-    "JsxAttributes",
     "ObjectLiteralExpression",
 )
 
