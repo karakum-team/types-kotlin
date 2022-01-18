@@ -44,6 +44,9 @@ internal fun kotlinType(
     if (" | " in type)
         return "$DYNAMIC /* $type */"
 
+    if (type.startsWith("\""))
+        return "$STRING /* $type */"
+
     if (type.endsWith("[]"))
         return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
 
