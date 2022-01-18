@@ -219,9 +219,7 @@ private fun convertInterface(
         .substringAfter("{\n")
         .substringBeforeLast("\n}", "")
 
-    val body = if (bodySource.isNotEmpty()) {
-        "    /*\n" + bodySource + "\n    */"
-    } else ""
+    val body = convertMembers(bodySource)
 
     return "external interface $declaration {\n$body\n}"
 }
