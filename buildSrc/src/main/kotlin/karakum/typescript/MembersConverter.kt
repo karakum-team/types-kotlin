@@ -33,7 +33,7 @@ internal fun convertMember(
     var type = kotlinType(body.substringAfter(": "), name)
 
     val optional = body.startsWith("${name}?")
-    if (optional) {
+    if (optional && type != DYNAMIC && !type.startsWith("$DYNAMIC ")) {
         type = if (" /*" in type) type.replace(" /*", "? /*") else "$type?"
     }
 
