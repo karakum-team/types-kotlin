@@ -6,7 +6,7 @@ internal fun convertMembers(
     if (source.isEmpty())
         return ""
 
-    if ("(" in source)
+    if ("(" in source || " & {" in source)
         return "    /*\n" + source + "\n    */"
 
     return source.trimIndent()
