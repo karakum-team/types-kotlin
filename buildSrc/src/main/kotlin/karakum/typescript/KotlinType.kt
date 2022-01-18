@@ -42,7 +42,7 @@ internal fun kotlinType(
         ?.also { return it }
 
     if (" | " in type)
-        return "Union /* $type */"
+        return "$DYNAMIC /* $type */"
 
     if (type.endsWith("[]"))
         return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"

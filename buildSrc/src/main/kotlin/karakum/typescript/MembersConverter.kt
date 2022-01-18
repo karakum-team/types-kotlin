@@ -19,6 +19,9 @@ internal fun convertMembers(
 internal fun convertMember(
     source: String,
 ): String {
+    if (source.startsWith("["))
+        return "    // $source"
+
     val comment = source.substringBeforeLast("\n", "")
         .ifEmpty { null }
 
