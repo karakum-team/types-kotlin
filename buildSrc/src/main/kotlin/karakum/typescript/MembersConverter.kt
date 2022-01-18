@@ -23,7 +23,7 @@ internal fun convertMember(
         .ifEmpty { null }
 
     var body = source.substringAfterLast("\n")
-    val modifier = if (body.startsWith("readonly ")) "val" else "var"
+    var modifier = if (body.startsWith("readonly ")) "val" else "var"
     body = body.removePrefix("readonly ")
 
     val name = body.substringBefore(": ").removeSuffix("?")
@@ -32,6 +32,13 @@ internal fun convertMember(
     val optional = body.startsWith("${name}?")
     if (optional) {
         type = if (" /*" in type) type.replace(" /*", "? /*") else "$type?"
+    }
+
+    when (name) {
+        "kind",
+        "name",
+        "parent",
+        -> modifier = "override $modifier"
     }
 
     return sequenceOf(

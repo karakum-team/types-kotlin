@@ -8,6 +8,7 @@ internal const val STRING = "String"
 private val STANDARD_TYPE_MAP = mapOf(
     "any" to "Any",
     "object" to "Any",
+    "{}" to "Any",
 
     "boolean" to "Boolean",
     "string" to STRING,
@@ -16,6 +17,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "void" to UNIT,
     "null" to "Nothing?",
+    "undefined" to "Nothing?",
 
     "Date" to "kotlin.js.Date",
 
