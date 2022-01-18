@@ -27,9 +27,7 @@ internal fun convertMember(
     body = body.removePrefix("readonly ")
 
     val name = body.substringBefore(": ").removeSuffix("?")
-    var type = body.substringAfter(": ")
-    if (" | " in type)
-        type = "Union /* $type */"
+    var type = kotlinType(body.substringAfter(": "), name)
 
     val optional = body.startsWith("${name}?")
     if (optional) {
