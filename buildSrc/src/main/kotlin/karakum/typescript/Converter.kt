@@ -153,6 +153,9 @@ private fun convertType(
 
     val unionType = when {
         body.startsWith("SyntaxKind.") -> "SyntaxKind"
+        name == "ArrayBindingElement" -> "Node"
+        name == "JsxChild" -> "Node"
+        name == "ClassLikeDeclaration" -> "Node"
         name == "JsxAttributeLike" -> "ObjectLiteralElement"
         name == "ObjectLiteralElementLike" -> "ObjectLiteralElement"
         else -> "Any"

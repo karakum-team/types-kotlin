@@ -5,6 +5,8 @@ internal fun fixOverrides(
     content: String,
 ): String =
     when (name) {
+        "Node",
+        -> content
 
         else ->
             content
