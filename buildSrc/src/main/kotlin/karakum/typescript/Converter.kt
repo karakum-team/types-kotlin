@@ -190,7 +190,7 @@ private fun convertEnum(
         .toList()
 
     val result = unionBodyByConstants(name, constants)
-    if (name != "SyntaxKind")
+    if (name != "SyntaxKind" && name != "TypePredicateKind")
         return result
 
     return result.replaceFirst(" enum class ", " sealed interface ")
