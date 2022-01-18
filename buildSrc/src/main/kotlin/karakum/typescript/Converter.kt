@@ -197,8 +197,6 @@ private fun convertEnum(
 
 // TEMP
 internal val IGNORED_INTERFACES = setOf(
-    "KeywordTypeNode",
-
     "JsxAttributes",
     "ObjectLiteralExpression",
 )
@@ -213,6 +211,7 @@ private fun convertInterface(
     var declaration = source.substringBefore(" {\n")
         .replace(" extends ", " : ")
         .replace("<string", "<String")
+        .replace(" = KeywordTypeSyntaxKind", "")
 
     if (name == "KeywordToken")
         declaration = declaration.replaceFirst("> : ", "> /* : ") + " */"
