@@ -1,7 +1,0 @@
-// Automatically generated - do not modify!
-
-package typescript
-
-interface KeywordTypeNode<TKind extends KeywordTypeSyntaxKind = KeywordTypeSyntaxKind> extends KeywordToken<TKind>, TypeNode {
-    readonly kind: TKind;
-}
