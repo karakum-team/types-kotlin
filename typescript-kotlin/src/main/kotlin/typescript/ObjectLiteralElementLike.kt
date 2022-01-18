@@ -3,4 +3,4 @@
 package typescript
 
 /** Unlike ObjectLiteralElement, excludes JSXAttribute and JSXSpreadAttribute. */
-typealias ObjectLiteralElementLike = Any /* PropertyAssignment | ShorthandPropertyAssignment | SpreadAssignment | MethodDeclaration | AccessorDeclaration */
+typealias ObjectLiteralElementLike = ObjectLiteralElement /* PropertyAssignment | ShorthandPropertyAssignment | SpreadAssignment | MethodDeclaration | AccessorDeclaration */

@@ -2,6 +2,8 @@
 
 package typescript
 
-interface ObjectLiteralExpression extends ObjectLiteralExpressionBase<ObjectLiteralElementLike> {
+external interface ObjectLiteralExpression : ObjectLiteralExpressionBase<ObjectLiteralElementLike> {
+    /*
     readonly kind: SyntaxKind.ObjectLiteralExpression;
+    */
 }
