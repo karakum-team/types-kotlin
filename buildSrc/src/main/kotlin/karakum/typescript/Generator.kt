@@ -24,6 +24,17 @@ fun generateKotlinDeclarations(
 
             if ("inline operator fun " in body)
                 add(DECLARATION_CANT_BE_INLINED)
+
+            when (name) {
+                "NodeArray",
+                "SortedArray",
+                "SortedReadonlyArray",
+                -> {
+                    add(EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE)
+                    add(INTERFACE_WITH_SUPERCLASS)
+                    add(FINAL_SUPERTYPE)
+                }
+            }
         }.toTypedArray()
 
         val annotations = when {

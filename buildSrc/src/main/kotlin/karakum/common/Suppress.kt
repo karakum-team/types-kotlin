@@ -9,6 +9,9 @@ internal enum class Suppress {
     NAME_CONTAINS_ILLEGAL_CHARS,
     NESTED_CLASS_IN_EXTERNAL_INTERFACE,
 
+    INTERFACE_WITH_SUPERCLASS,
+    FINAL_SUPERTYPE,
+
     ;
 }
 

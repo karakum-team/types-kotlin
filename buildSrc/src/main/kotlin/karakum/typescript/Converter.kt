@@ -199,10 +199,6 @@ private fun convertEnum(
 internal val IGNORED_INTERFACES = setOf(
     "KeywordTypeNode",
 
-    "NodeArray",
-    "SortedArray",
-    "SortedReadonlyArray",
-
     "JsxAttributes",
     "ObjectLiteralExpression",
 )
