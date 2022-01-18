@@ -118,6 +118,13 @@ private fun convertFunction(
     return "/*\nexternal fun $source\n*/"
 }
 
+// TEMP
+private val IGNORED_TYPES = setOf(
+    "BinaryOperatorToken",
+    "EndOfFileToken",
+    "ModifiersArray",
+)
+
 private fun convertType(
     name: String,
     source: String,
@@ -141,8 +148,8 @@ private fun convertType(
         .replace("extends BuilderProgram", "/* : BuilderProgram */")
         .replace("extends Node", "/* : Node */")
 
-    // if (" | " !in body && "(" !in body && "{" !in body)
-    //    return "typealias $declaration = $body"
+    if (" | " !in body && "(" !in body && "{" !in body && name !in IGNORED_TYPES)
+        return "typealias $declaration = $body"
 
     val unionType = if (body.startsWith("SyntaxKind.")) "SyntaxKind" else "Any"
     var content = "typealias $declaration = $unionType /* $body */"
@@ -213,6 +220,9 @@ private fun convertInterface(
 
     if (name == "KeywordToken")
         declaration = declaration.replaceFirst("> : ", "> /* : ") + " */"
+
+    if (name == "Token")
+        declaration = declaration.replaceFirst("<TKind", "<out TKind")
 
     val bodySource = source
         .substringAfter("{\n")
