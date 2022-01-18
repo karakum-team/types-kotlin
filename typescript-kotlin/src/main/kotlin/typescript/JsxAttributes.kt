@@ -2,7 +2,9 @@
 
 package typescript
 
-interface JsxAttributes extends ObjectLiteralExpressionBase<JsxAttributeLike> {
+external interface JsxAttributes : ObjectLiteralExpressionBase<JsxAttributeLike> {
+    /*
     readonly kind: SyntaxKind.JsxAttributes;
     readonly parent: JsxOpeningLikeElement;
+    */
 }

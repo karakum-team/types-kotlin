@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias JsxAttributeLike = Any /* JsxAttribute | JsxSpreadAttribute */
+typealias JsxAttributeLike = ObjectLiteralElement /* JsxAttribute | JsxSpreadAttribute */
