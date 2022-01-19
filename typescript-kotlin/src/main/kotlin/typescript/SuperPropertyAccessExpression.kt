@@ -3,5 +3,5 @@
 package typescript
 
 external interface SuperPropertyAccessExpression : PropertyAccessExpression {
-    val expression: SuperExpression
+    override val expression: SuperExpression
 }

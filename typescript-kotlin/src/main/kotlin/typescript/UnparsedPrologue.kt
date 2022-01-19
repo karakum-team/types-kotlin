@@ -5,5 +5,5 @@ package typescript
 external interface UnparsedPrologue : UnparsedSection {
     override val kind: SyntaxKind.UnparsedPrologue
     override val parent: UnparsedSource
-    val data: String
+    override val data: String
 }

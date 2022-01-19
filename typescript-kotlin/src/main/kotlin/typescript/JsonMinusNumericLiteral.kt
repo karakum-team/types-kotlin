@@ -4,6 +4,6 @@ package typescript
 
 external interface JsonMinusNumericLiteral : PrefixUnaryExpression {
     override val kind: SyntaxKind.PrefixUnaryExpression
-    val operator: SyntaxKind.MinusToken
-    val operand: NumericLiteral
+    override val operator: SyntaxKind.MinusToken
+    override val operand: NumericLiteral
 }

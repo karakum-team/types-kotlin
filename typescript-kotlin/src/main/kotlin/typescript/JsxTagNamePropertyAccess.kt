@@ -3,5 +3,5 @@
 package typescript
 
 external interface JsxTagNamePropertyAccess : PropertyAccessExpression {
-    val expression: JsxTagNameExpression
+    override val expression: JsxTagNameExpression
 }
