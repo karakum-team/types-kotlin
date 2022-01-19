@@ -3,42 +3,50 @@
 package typescript
 
 external interface ProgramHost<T : BuilderProgram> {
-    /*
     /**
      * Used to create the program when need for program creation or recreation detected
      */
-    createProgram: CreateProgram<T>;
-    useCaseSensitiveFileNames(): boolean;
-    getNewLine(): string;
-    getCurrentDirectory(): string;
-    getDefaultLibFileName(options: CompilerOptions): string;
-    getDefaultLibLocation?(): string;
-    createHash?(data: string): string;
+    var createProgram: CreateProgram<T>
+    fun useCaseSensitiveFileNames(): Boolean
+    fun getNewLine(): String
+    fun getCurrentDirectory(): String
+    fun getDefaultLibFileName(options: CompilerOptions): String
+    val getDefaultLibLocation: (() -> String)?
+    val createHash: ((data: String) -> String)?
+
     /**
      * Use to check file presence for source files and
      * if resolveModuleNames is not provided (complier is in charge of module resolution) then module files as well
      */
-    fileExists(path: string): boolean;
+    fun fileExists(path: String): Boolean
+
     /**
      * Use to read file text for source files and
      * if resolveModuleNames is not provided (complier is in charge of module resolution) then module files as well
      */
-    readFile(path: string, encoding?: string): string | undefined;
+    fun readFile(path: String, encoding: String = definedExternally): String?
+
     /** If provided, used for module resolution as well as to handle directory structure */
-    directoryExists?(path: string): boolean;
+    val directoryExists: ((path: String) -> Boolean)?
+
     /** If provided, used in resolutions as well as handling directory structure */
-    getDirectories?(path: string): string[];
+    val getDirectories: ((path: String) -> ReadonlyArray<String>)?
+
     /** If provided, used to cache and handle directory structure modifications */
-    readDirectory?(path: string, extensions?: readonly string[], exclude?: readonly string[], include?: readonly string[], depth?: number): string[];
+    val readDirectory: ((path: String, extensions: ReadonlyArray<String>?, exclude: ReadonlyArray<String>?, include: ReadonlyArray<String>?, depth: Double?) -> ReadonlyArray<String>)?
+
     /** Symbol links resolution */
-    realpath?(path: string): string;
+    val realpath: ((path: String) -> String)?
+
     /** If provided would be used to write log about compilation */
-    trace?(s: string): void;
+    val trace: ((s: String) -> Unit)?
+
     /** If provided is used to get the environment variable */
-    getEnvironmentVariable?(name: string): string | undefined;
+    val getEnvironmentVariable: ((name: String) -> String?)?
+
     /** If provided, used to resolve the module names, otherwise typescript's default module resolution */
-    resolveModuleNames?(moduleNames: string[], containingFile: string, reusedNames: string[] | undefined, redirectedReference: ResolvedProjectReference | undefined, options: CompilerOptions, containingSourceFile?: SourceFile): (ResolvedModule | undefined)[];
+    val resolveModuleNames: ((moduleNames: ReadonlyArray<String>, containingFile: String, reusedNames: ReadonlyArray<String>?, redirectedReference: ResolvedProjectReference?, options: CompilerOptions, containingSourceFile: SourceFile?) -> dynamic /* (ResolvedModule | undefined)[] */)?
+
     /** If provided, used to resolve type reference directives, otherwise typescript's default resolution */
-    resolveTypeReferenceDirectives?(typeReferenceDirectiveNames: string[], containingFile: string, redirectedReference: ResolvedProjectReference | undefined, options: CompilerOptions): (ResolvedTypeReferenceDirective | undefined)[];
-    */
+    val resolveTypeReferenceDirectives: ((typeReferenceDirectiveNames: ReadonlyArray<String>, containingFile: String, redirectedReference: ResolvedProjectReference?, options: CompilerOptions) -> dynamic /* (ResolvedTypeReferenceDirective | undefined)[] */)?
 }
