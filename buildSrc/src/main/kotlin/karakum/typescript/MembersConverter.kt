@@ -19,7 +19,7 @@ internal fun convertMembers(
 internal fun convertMember(
     source: String,
 ): String {
-    if (source.startsWith("["))
+    if (source.startsWith("[") || source.startsWith("\" __sortedArrayBrand\""))
         return "    // $source"
 
     val comment = source.substringBeforeLast("\n", "")
