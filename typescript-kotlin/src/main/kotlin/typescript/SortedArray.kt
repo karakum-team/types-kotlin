@@ -9,5 +9,5 @@
 package typescript
 
 external interface SortedArray<T> : Array<T> {
-    var " __sortedArrayBrand": Any
+    // " __sortedArrayBrand": any
 }
