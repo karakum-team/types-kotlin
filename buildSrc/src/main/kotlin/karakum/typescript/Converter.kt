@@ -231,11 +231,20 @@ private fun convertInterface(
         .replace("<string", "<String")
         .replace(" = KeywordTypeSyntaxKind", "")
 
-    if (name == "KeywordToken")
-        declaration = declaration.replaceFirst("> : ", "> /* : ") + " */"
+    declaration = when (name) {
+        "KeywordToken",
+        -> declaration.replaceFirst("> : ", "> /* : ") + " */"
 
-    if (name == "Token")
-        declaration = declaration.replaceFirst("<TKind", "<out TKind")
+        "Token",
+        -> declaration.replaceFirst("<TKind", "<out TKind")
+
+        "NodeArray",
+        "SortedReadonlyArray",
+        -> declaration.replaceFirst("<T", "<out T")
+
+        else -> declaration
+    }
+
 
     val bodySource = source
         .substringAfter("{\n")
