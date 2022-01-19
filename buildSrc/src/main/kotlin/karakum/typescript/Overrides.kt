@@ -3,10 +3,19 @@ package karakum.typescript
 internal fun fixOverrides(
     name: String,
     content: String,
-): String =
-    when (name) {
+): String {
+    if (name.endsWith("Predicate"))
+        return content
+            .override("kind")
+            .override("type")
+
+    return when (name) {
         "Node",
         -> content
+
+        "ArrayDestructuringAssignment",
+        -> content
+            .override("left")
 
         else ->
             content
@@ -14,6 +23,7 @@ internal fun fixOverrides(
                 .override("name")
                 .override("parent")
     }
+}
 
 private fun String.override(
     name: String,
