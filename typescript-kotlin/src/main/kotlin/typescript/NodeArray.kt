@@ -8,6 +8,6 @@
 
 package typescript
 
-external interface NodeArray<T : Node> : ReadonlyArray<T>, ReadonlyTextRange {
+external interface NodeArray<out T : Node> : ReadonlyArray<T>, ReadonlyTextRange {
     val hasTrailingComma: Boolean
 }

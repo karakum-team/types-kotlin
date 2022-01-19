@@ -8,6 +8,6 @@
 
 package typescript
 
-external interface SortedReadonlyArray<T> : ReadonlyArray<T> {
+external interface SortedReadonlyArray<out T> : ReadonlyArray<T> {
     // " __sortedArrayBrand": any
 }
