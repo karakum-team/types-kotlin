@@ -3,5 +3,5 @@
 package typescript
 
 external interface ObjectDestructuringAssignment : AssignmentExpression<EqualsToken> {
-    val left: ObjectLiteralExpression
+    override val left: ObjectLiteralExpression
 }

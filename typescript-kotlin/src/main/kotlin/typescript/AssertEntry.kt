@@ -5,6 +5,6 @@ package typescript
 external interface AssertEntry : Node {
     override val kind: SyntaxKind.AssertEntry
     override val parent: AssertClause
-    override val name: AssertionKey
+    val name: AssertionKey
     val value: StringLiteral
 }

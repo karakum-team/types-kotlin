@@ -4,6 +4,6 @@ package typescript
 
 external interface JSDocLinkCode : Node {
     override val kind: SyntaxKind.JSDocLinkCode
-    override val name: dynamic /* EntityName | JSDocMemberName */
+    val name: dynamic /* EntityName | JSDocMemberName */
     var text: String
 }

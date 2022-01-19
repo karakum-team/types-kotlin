@@ -3,6 +3,6 @@
 package typescript
 
 external interface AssignmentExpression<TOperator : AssignmentOperatorToken> : BinaryExpression {
-    val left: LeftHandSideExpression
-    val operatorToken: TOperator
+    override val left: LeftHandSideExpression
+    override val operatorToken: TOperator
 }

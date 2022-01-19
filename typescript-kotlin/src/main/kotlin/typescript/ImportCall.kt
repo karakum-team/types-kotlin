@@ -3,5 +3,5 @@
 package typescript
 
 external interface ImportCall : CallExpression {
-    val expression: ImportExpression
+    override val expression: ImportExpression
 }

@@ -4,5 +4,5 @@ package typescript
 
 external interface JSDocSeeTag : JSDocTag {
     override val kind: SyntaxKind.JSDocSeeTag
-    override val name: JSDocNameReference?
+    val name: JSDocNameReference?
 }

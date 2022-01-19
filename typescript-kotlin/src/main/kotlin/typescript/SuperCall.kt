@@ -3,5 +3,5 @@
 package typescript
 
 external interface SuperCall : CallExpression {
-    val expression: SuperExpression
+    override val expression: SuperExpression
 }

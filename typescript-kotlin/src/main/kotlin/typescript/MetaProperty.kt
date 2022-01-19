@@ -5,5 +5,5 @@ package typescript
 external interface MetaProperty : PrimaryExpression {
     override val kind: SyntaxKind.MetaProperty
     val keywordToken: dynamic /* SyntaxKind.NewKeyword | SyntaxKind.ImportKeyword */
-    override val name: Identifier
+    val name: Identifier
 }

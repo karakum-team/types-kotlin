@@ -4,7 +4,7 @@ package typescript
 
 external interface JSDocPropertyLikeTag : JSDocTag, Declaration {
     override val parent: JSDoc
-    override val name: EntityName
+    val name: EntityName
     val typeExpression: JSDocTypeExpression?
 
     /** Whether the property name came before the type -- non-standard for JSDoc, but Typescript-like */
