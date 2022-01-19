@@ -3,8 +3,6 @@
 package typescript
 
 external interface UpdateBundleProject<T : BuilderProgram> : InvalidatedProjectBase {
-    /*
-    readonly kind: InvalidatedProjectKind.UpdateBundle;
-    emit(writeFile?: WriteFileCallback, customTransformers?: CustomTransformers): EmitResult | BuildInvalidedProject<T> | undefined;
-    */
+    override val kind: InvalidatedProjectKind.UpdateBundle
+    fun emit(writeFile: WriteFileCallback = definedExternally, customTransformers: CustomTransformers = definedExternally): dynamic /* EmitResult | BuildInvalidedProject<T> */
 }

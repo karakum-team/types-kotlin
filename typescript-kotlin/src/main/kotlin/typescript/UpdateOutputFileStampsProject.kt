@@ -3,8 +3,6 @@
 package typescript
 
 external interface UpdateOutputFileStampsProject : InvalidatedProjectBase {
-    /*
-    readonly kind: InvalidatedProjectKind.UpdateOutputFileStamps;
-    updateOutputFileStatmps(): void;
-    */
+    override val kind: InvalidatedProjectKind.UpdateOutputFileStamps
+    fun updateOutputFileStatmps()
 }
