@@ -50,6 +50,12 @@ private val REQUIRED = setOf(
     "ModuleResolutionHost",
     "ParseConfigHost",
     "WatchCompilerHost",
+
+    "LanguageServiceHost",
+    "ProgramHost",
+    "Push",
+    // "Scanner",
+    "WatchHost",
 )
 
 internal fun convertMembers(
@@ -79,6 +85,8 @@ private fun convertMember(
         .ifEmpty { null }
 
     val body = source.substringAfterLast("\n")
+        .replace("(...args: any[]) => void", "Function<$UNIT>")
+
     val content = if (isProperty(body)) {
         convertProperty(body)
     } else {
@@ -120,17 +128,18 @@ private fun convertMethod(
         .substringAfter("(")
         .substringBeforeLast("): ")
 
+    val optional = source.startsWith("$name?")
     val parameters = if (parametersSource.isNotEmpty()) {
         parametersSource
             .splitToSequence(", ")
             .joinToString(", ") {
-                convertParameter(it)
+                convertParameter(it, optional)
             }
     } else ""
 
     val returnType = kotlinType(source.substringAfterLast("): "), name)
 
-    return if (source.startsWith("$name?")) {
+    return if (optional) {
         "val $name: (($parameters) -> $returnType)?"
     } else {
         val returnDeclaration = if (returnType != UNIT) {
@@ -143,15 +152,25 @@ private fun convertMethod(
 
 private fun convertParameter(
     source: String,
+    lambdaMode: Boolean,
 ): String {
+    when (source) {
+        "...values: T[]" -> return "vararg values: T"
+        "...args: any[]" -> return "/* vararg */ args: $DYNAMIC"
+    }
+
     val name = source
         .substringBefore(": ")
         .removeSuffix("?")
 
     val type = kotlinType(source.substringAfter(": "), name)
-    var result = "$name: $type"
-    if (source.startsWith("$name?:"))
-        result += " = definedExternally"
+    val declaration = if (source.startsWith("$name?:")) {
+        if (lambdaMode) {
+            type.addOptionality()
+        } else {
+            "$type = definedExternally"
+        }
+    } else type
 
-    return result
+    return "$name: $declaration"
 }
