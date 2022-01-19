@@ -13,6 +13,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "boolean" to "Boolean",
     "string" to STRING,
 
+    "never" to "Nothing",
+
     "number" to "Double",
 
     "void" to UNIT,
@@ -46,6 +48,9 @@ internal fun kotlinType(
 
     if (type.startsWith("\""))
         return "$STRING /* $type */"
+
+    if ("[\"" in type)
+        return "$DYNAMIC /* $type */"
 
     if (type.endsWith("[]"))
         return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
