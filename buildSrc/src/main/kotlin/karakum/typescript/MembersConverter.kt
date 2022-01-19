@@ -32,7 +32,7 @@ internal fun convertMembers(
         .joinToString("\n")
 }
 
-internal fun convertMember(
+private fun convertMember(
     source: String,
 ): String {
     if (source.startsWith("[") || source.startsWith("\" __sortedArrayBrand\""))
@@ -41,6 +41,17 @@ internal fun convertMember(
     val comment = source.substringBeforeLast("\n", "")
         .ifEmpty { null }
 
+    val body = source.substringAfterLast("\n")
+    val content = convertProperty(body)
+
+    return sequenceOf(comment, content)
+        .filterNotNull()
+        .joinToString("\n")
+}
+
+private fun convertProperty(
+    source: String,
+): String {
     var body = source.substringAfterLast("\n")
     val modifier = if (body.startsWith("readonly ")) "val" else "var"
     body = body.removePrefix("readonly ")
@@ -53,9 +64,5 @@ internal fun convertMember(
         type = if (" /*" in type) type.replace(" /*", "? /*") else "$type?"
     }
 
-    return sequenceOf(
-        comment,
-        "$modifier $name: $type"
-    ).filterNotNull()
-        .joinToString("\n")
+    return "$modifier $name: $type"
 }
