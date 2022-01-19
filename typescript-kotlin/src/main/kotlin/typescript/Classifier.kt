@@ -3,7 +3,6 @@
 package typescript
 
 external interface Classifier {
-    /*
     /**
      * Gives lexical classifications of tokens on a line without any syntactic context.
      * For instance, a token consisting of the text 'string' can be either an identifier
@@ -24,7 +23,6 @@ external interface Classifier {
      *                                  subsume the classification.
      * @deprecated Use getLexicalClassifications instead.
      */
-    getClassificationsForLine(text: string, lexState: EndOfLineState, syntacticClassifierAbsent: boolean): ClassificationResult;
-    getEncodedLexicalClassifications(text: string, endOfLineState: EndOfLineState, syntacticClassifierAbsent: boolean): Classifications;
-    */
+    fun getClassificationsForLine(text: String, lexState: EndOfLineState, syntacticClassifierAbsent: Boolean): ClassificationResult
+    fun getEncodedLexicalClassifications(text: String, endOfLineState: EndOfLineState, syntacticClassifierAbsent: Boolean): Classifications
 }

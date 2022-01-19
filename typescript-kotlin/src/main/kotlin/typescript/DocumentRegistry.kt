@@ -18,7 +18,6 @@ package typescript
  * to all subsequent createLanguageService calls.
  */
 external interface DocumentRegistry {
-    /*
     /**
      * Request a stored SourceFile with a given fileName and compilationSettings.
      * The first call to acquire will call createLanguageServiceSourceFile to generate
@@ -33,8 +32,17 @@ external interface DocumentRegistry {
      * @param version Current version of the file. Only used if the file was not found
      * in the registry and a new one was created.
      */
-    acquireDocument(fileName: string, compilationSettings: CompilerOptions, scriptSnapshot: IScriptSnapshot, version: string, scriptKind?: ScriptKind): SourceFile;
-    acquireDocumentWithKey(fileName: string, path: Path, compilationSettings: CompilerOptions, key: DocumentRegistryBucketKey, scriptSnapshot: IScriptSnapshot, version: string, scriptKind?: ScriptKind): SourceFile;
+    fun acquireDocument(fileName: String, compilationSettings: CompilerOptions, scriptSnapshot: IScriptSnapshot, version: String, scriptKind: ScriptKind = definedExternally): SourceFile
+    fun acquireDocumentWithKey(
+        fileName: String,
+        path: Path,
+        compilationSettings: CompilerOptions,
+        key: DocumentRegistryBucketKey,
+        scriptSnapshot: IScriptSnapshot,
+        version: String,
+        scriptKind: ScriptKind = definedExternally,
+    ): SourceFile
+
     /**
      * Request an updated version of an already existing SourceFile with a given fileName
      * and compilationSettings. The update will in-turn call updateLanguageServiceSourceFile
@@ -47,9 +55,18 @@ external interface DocumentRegistry {
      * @param scriptSnapshot Text of the file.
      * @param version Current version of the file.
      */
-    updateDocument(fileName: string, compilationSettings: CompilerOptions, scriptSnapshot: IScriptSnapshot, version: string, scriptKind?: ScriptKind): SourceFile;
-    updateDocumentWithKey(fileName: string, path: Path, compilationSettings: CompilerOptions, key: DocumentRegistryBucketKey, scriptSnapshot: IScriptSnapshot, version: string, scriptKind?: ScriptKind): SourceFile;
-    getKeyForCompilationSettings(settings: CompilerOptions): DocumentRegistryBucketKey;
+    fun updateDocument(fileName: String, compilationSettings: CompilerOptions, scriptSnapshot: IScriptSnapshot, version: String, scriptKind: ScriptKind = definedExternally): SourceFile
+    fun updateDocumentWithKey(
+        fileName: String,
+        path: Path,
+        compilationSettings: CompilerOptions,
+        key: DocumentRegistryBucketKey,
+        scriptSnapshot: IScriptSnapshot,
+        version: String,
+        scriptKind: ScriptKind = definedExternally,
+    ): SourceFile
+
+    fun getKeyForCompilationSettings(settings: CompilerOptions): DocumentRegistryBucketKey
     /**
      * Informs the DocumentRegistry that a file is not needed any longer.
      *
@@ -60,7 +77,8 @@ external interface DocumentRegistry {
      * @param compilationSettings The compilation settings used to acquire the file
      */
     /**@deprecated pass scriptKind for correctness */
-    releaseDocument(fileName: string, compilationSettings: CompilerOptions): void;
+    fun releaseDocument(fileName: String, compilationSettings: CompilerOptions)
+
     /**
      * Informs the DocumentRegistry that a file is not needed any longer.
      *
@@ -71,11 +89,11 @@ external interface DocumentRegistry {
      * @param compilationSettings The compilation settings used to acquire the file
      * @param scriptKind The script kind of the file to be released
      */
-    releaseDocument(fileName: string, compilationSettings: CompilerOptions, scriptKind: ScriptKind): void;
+    fun releaseDocument(fileName: String, compilationSettings: CompilerOptions, scriptKind: ScriptKind)
+
     /**
      * @deprecated pass scriptKind for correctness */
-    releaseDocumentWithKey(path: Path, key: DocumentRegistryBucketKey): void;
-    releaseDocumentWithKey(path: Path, key: DocumentRegistryBucketKey, scriptKind: ScriptKind): void;
-    reportStats(): string;
-    */
+    fun releaseDocumentWithKey(path: Path, key: DocumentRegistryBucketKey)
+    fun releaseDocumentWithKey(path: Path, key: DocumentRegistryBucketKey, scriptKind: ScriptKind)
+    fun reportStats(): String
 }

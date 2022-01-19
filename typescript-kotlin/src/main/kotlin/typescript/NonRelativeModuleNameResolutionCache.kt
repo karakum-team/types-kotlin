@@ -7,7 +7,9 @@ package typescript
  * We support only non-relative module names because resolution of relative module names is usually more deterministic and thus less expensive.
  */
 external interface NonRelativeModuleNameResolutionCache : PackageJsonInfoCache {
-    /*
-    getOrCreateCacheForModuleName(nonRelativeModuleName: string, mode: ModuleKind.CommonJS | ModuleKind.ESNext | undefined, redirectedReference?: ResolvedProjectReference): PerModuleNameCache;
-    */
+    fun getOrCreateCacheForModuleName(
+        nonRelativeModuleName: String,
+        mode: dynamic, /* ModuleKind.CommonJS | ModuleKind.ESNext */
+        redirectedReference: ResolvedProjectReference = definedExternally,
+    ): PerModuleNameCache
 }

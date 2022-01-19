@@ -6,17 +6,23 @@ package typescript
  * Host to create watch with config file
  */
 external interface WatchCompilerHostOfConfigFile<T : BuilderProgram> : WatchCompilerHost<T>, ConfigFileDiagnosticsReporter {
-    /*
     /** Name of the config file to compile */
-    configFileName: string;
+    var configFileName: String
+
     /** Options to extend */
-    optionsToExtend?: CompilerOptions;
-    watchOptionsToExtend?: WatchOptions;
-    extraFileExtensions?: readonly FileExtensionInfo[];
+    var optionsToExtend: CompilerOptions?
+    var watchOptionsToExtend: WatchOptions?
+    var extraFileExtensions: ReadonlyArray<FileExtensionInfo>?
+
     /**
      * Used to generate source file names from the config file and its include, exclude, files rules
      * and also to cache the directory stucture
      */
-    readDirectory(path: string, extensions?: readonly string[], exclude?: readonly string[], include?: readonly string[], depth?: number): string[];
-    */
+    fun readDirectory(
+        path: String,
+        extensions: ReadonlyArray<String> = definedExternally,
+        exclude: ReadonlyArray<String> = definedExternally,
+        include: ReadonlyArray<String> = definedExternally,
+        depth: Double = definedExternally,
+    ): ReadonlyArray<String>
 }

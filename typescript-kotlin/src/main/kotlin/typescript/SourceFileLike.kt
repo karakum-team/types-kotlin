@@ -3,7 +3,5 @@
 package typescript
 
 external interface SourceFileLike {
-    /*
-    getLineAndCharacterOfPosition(pos: number): LineAndCharacter;
-    */
+    fun getLineAndCharacterOfPosition(pos: Double): LineAndCharacter
 }

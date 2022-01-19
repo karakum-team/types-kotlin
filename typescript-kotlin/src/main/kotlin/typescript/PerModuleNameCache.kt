@@ -3,8 +3,6 @@
 package typescript
 
 external interface PerModuleNameCache {
-    /*
-    get(directory: string): ResolvedModuleWithFailedLookupLocations | undefined;
-    set(directory: string, result: ResolvedModuleWithFailedLookupLocations): void;
-    */
+    fun get(directory: String): ResolvedModuleWithFailedLookupLocations
+    fun set(directory: String, result: ResolvedModuleWithFailedLookupLocations)
 }

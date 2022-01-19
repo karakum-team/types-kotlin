@@ -3,9 +3,7 @@
 package typescript
 
 external interface FormatDiagnosticsHost {
-    /*
-    getCurrentDirectory(): string;
-    getCanonicalFileName(fileName: string): string;
-    getNewLine(): string;
-    */
+    fun getCurrentDirectory(): String
+    fun getCanonicalFileName(fileName: String): String
+    fun getNewLine(): String
 }

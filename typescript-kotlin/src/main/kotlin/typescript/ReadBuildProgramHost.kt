@@ -3,9 +3,7 @@
 package typescript
 
 external interface ReadBuildProgramHost {
-    /*
-    useCaseSensitiveFileNames(): boolean;
-    getCurrentDirectory(): string;
-    readFile(fileName: string): string | undefined;
-    */
+    fun useCaseSensitiveFileNames(): Boolean
+    fun getCurrentDirectory(): String
+    fun readFile(fileName: String): String
 }

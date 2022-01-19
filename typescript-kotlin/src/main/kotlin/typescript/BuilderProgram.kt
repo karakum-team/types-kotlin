@@ -6,47 +6,56 @@ package typescript
  * Builder to manage the program state changes
  */
 external interface BuilderProgram {
-    /*
     /**
      * Returns current program
      */
-    getProgram(): Program;
+    fun getProgram(): Program
+
     /**
      * Get compiler options of the program
      */
-    getCompilerOptions(): CompilerOptions;
+    fun getCompilerOptions(): CompilerOptions
+
     /**
      * Get the source file in the program with file name
      */
-    getSourceFile(fileName: string): SourceFile | undefined;
+    fun getSourceFile(fileName: String): SourceFile
+
     /**
      * Get a list of files in the program
      */
-    getSourceFiles(): readonly SourceFile[];
+    fun getSourceFiles(): ReadonlyArray<SourceFile>
+
     /**
      * Get the diagnostics for compiler options
      */
-    getOptionsDiagnostics(cancellationToken?: CancellationToken): readonly Diagnostic[];
+    fun getOptionsDiagnostics(cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
+
     /**
      * Get the diagnostics that dont belong to any file
      */
-    getGlobalDiagnostics(cancellationToken?: CancellationToken): readonly Diagnostic[];
+    fun getGlobalDiagnostics(cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
+
     /**
      * Get the diagnostics from config file parsing
      */
-    getConfigFileParsingDiagnostics(): readonly Diagnostic[];
+    fun getConfigFileParsingDiagnostics(): ReadonlyArray<Diagnostic>
+
     /**
      * Get the syntax diagnostics, for all source files if source file is not supplied
      */
-    getSyntacticDiagnostics(sourceFile?: SourceFile, cancellationToken?: CancellationToken): readonly Diagnostic[];
+    fun getSyntacticDiagnostics(sourceFile: SourceFile = definedExternally, cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
+
     /**
      * Get the declaration diagnostics, for all source files if source file is not supplied
      */
-    getDeclarationDiagnostics(sourceFile?: SourceFile, cancellationToken?: CancellationToken): readonly DiagnosticWithLocation[];
+    fun getDeclarationDiagnostics(sourceFile: SourceFile = definedExternally, cancellationToken: CancellationToken = definedExternally): ReadonlyArray<DiagnosticWithLocation>
+
     /**
      * Get all the dependencies of the file
      */
-    getAllDependencies(sourceFile: SourceFile): readonly string[];
+    fun getAllDependencies(sourceFile: SourceFile): ReadonlyArray<String>
+
     /**
      * Gets the semantic diagnostics from the program corresponding to this state of file (if provided) or whole program
      * The semantic diagnostics are cached and managed here
@@ -55,7 +64,8 @@ external interface BuilderProgram {
      * In case of SemanticDiagnosticsBuilderProgram if the source file is not provided,
      * it will iterate through all the affected files, to ensure that cache stays valid and yet provide a way to get all semantic diagnostics
      */
-    getSemanticDiagnostics(sourceFile?: SourceFile, cancellationToken?: CancellationToken): readonly Diagnostic[];
+    fun getSemanticDiagnostics(sourceFile: SourceFile = definedExternally, cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
+
     /**
      * Emits the JavaScript and declaration files.
      * When targetSource file is specified, emits the files corresponding to that source file,
@@ -67,10 +77,16 @@ external interface BuilderProgram {
      * The first of writeFile if provided, writeFile of BuilderProgramHost if provided, writeFile of compiler host
      * in that order would be used to write the files
      */
-    emit(targetSourceFile?: SourceFile, writeFile?: WriteFileCallback, cancellationToken?: CancellationToken, emitOnlyDtsFiles?: boolean, customTransformers?: CustomTransformers): EmitResult;
+    fun emit(
+        targetSourceFile: SourceFile = definedExternally,
+        writeFile: WriteFileCallback = definedExternally,
+        cancellationToken: CancellationToken = definedExternally,
+        emitOnlyDtsFiles: Boolean = definedExternally,
+        customTransformers: CustomTransformers = definedExternally,
+    ): EmitResult
+
     /**
      * Get the current directory of the program
      */
-    getCurrentDirectory(): string;
-    */
+    fun getCurrentDirectory(): String
 }

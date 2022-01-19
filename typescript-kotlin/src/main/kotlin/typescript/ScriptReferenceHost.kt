@@ -3,10 +3,8 @@
 package typescript
 
 external interface ScriptReferenceHost {
-    /*
-    getCompilerOptions(): CompilerOptions;
-    getSourceFile(fileName: string): SourceFile | undefined;
-    getSourceFileByPath(path: Path): SourceFile | undefined;
-    getCurrentDirectory(): string;
-    */
+    fun getCompilerOptions(): CompilerOptions
+    fun getSourceFile(fileName: String): SourceFile
+    fun getSourceFileByPath(path: Path): SourceFile
+    fun getCurrentDirectory(): String
 }
