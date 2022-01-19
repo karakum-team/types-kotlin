@@ -34,12 +34,20 @@ internal fun fixOverrides(
         -> content
             .override("value")
 
-        else ->
-            content
-                .override("kind")
-                .override("name")
-                .override("parent")
-                .override("symbol")
+        "ClassStaticBlockDeclaration",
+        "FunctionLikeDeclarationBase",
+        "ModuleDeclaration",
+        -> content
+            .override("kind")
+            .override("name")
+            .override("parent")
+
+        else -> content
+            .override("body")
+            .override("kind")
+            .override("name")
+            .override("parent")
+            .override("symbol")
     }
 }
 
