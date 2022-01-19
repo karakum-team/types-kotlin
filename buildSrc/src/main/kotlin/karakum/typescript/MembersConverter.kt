@@ -45,6 +45,11 @@ private val REQUIRED = setOf(
 
     "UpdateBundleProject",
     "UpdateOutputFileStampsProject",
+
+    "GetEffectiveTypeRootsHost",
+    "ModuleResolutionHost",
+    "ParseConfigHost",
+    "WatchCompilerHost",
 )
 
 internal fun convertMembers(
@@ -111,6 +116,7 @@ private fun convertMethod(
     source: String,
 ): String {
     val name = source.substringBefore("(")
+        .removeSuffix("?")
 
     val parametersSource = source
         .substringAfter("(")
@@ -125,11 +131,16 @@ private fun convertMethod(
     } else ""
 
     val returnType = kotlinType(source.substringAfterLast("): "), name)
-    val returnDeclaration = if (returnType != UNIT) {
-        ": $returnType"
-    } else ""
 
-    return "fun $name($parameters)$returnDeclaration"
+    return if (source.startsWith("$name?")) {
+        "val $name: (($parameters) -> $returnType)?"
+    } else {
+        val returnDeclaration = if (returnType != UNIT) {
+            ": $returnType"
+        } else ""
+
+        "fun $name($parameters)$returnDeclaration"
+    }
 }
 
 private fun convertParameter(
