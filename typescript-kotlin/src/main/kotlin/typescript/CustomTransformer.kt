@@ -3,8 +3,6 @@
 package typescript
 
 external interface CustomTransformer {
-    /*
-    transformSourceFile(node: SourceFile): SourceFile;
-    transformBundle(node: Bundle): Bundle;
-    */
+    fun transformSourceFile(node: SourceFile): SourceFile
+    fun transformBundle(node: Bundle): Bundle
 }

@@ -3,10 +3,9 @@
 package typescript
 
 external interface Watch<T> {
-    /*
     /** Synchronize with host and get updated program */
-    getProgram(): T;
+    fun getProgram(): T
+
     /** Closes the watch */
-    close(): void;
-    */
+    fun close()
 }

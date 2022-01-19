@@ -3,7 +3,5 @@
 package typescript
 
 external interface FileWatcher {
-    /*
-    close(): void;
-    */
+    fun close()
 }

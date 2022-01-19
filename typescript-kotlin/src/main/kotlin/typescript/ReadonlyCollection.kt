@@ -4,9 +4,7 @@ package typescript
 
 /** Common read methods for ES6 Map/Set. */
 external interface ReadonlyCollection<K> {
-    /*
-    readonly size: number;
-    has(key: K): boolean;
-    keys(): Iterator<K>;
-    */
+    val size: Double
+    fun has(key: K): Boolean
+    fun keys(): Iterator<K>
 }

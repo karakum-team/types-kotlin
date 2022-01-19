@@ -3,21 +3,26 @@
 package typescript
 
 external interface CoreTransformationContext {
-    /*
-    readonly factory: NodeFactory;
+    val factory: NodeFactory
+
     /** Gets the compiler options supplied to the transformer. */
-    getCompilerOptions(): CompilerOptions;
+    fun getCompilerOptions(): CompilerOptions
+
     /** Starts a new lexical environment. */
-    startLexicalEnvironment(): void;
+    fun startLexicalEnvironment()
+
     /** Suspends the current lexical environment, usually after visiting a parameter list. */
-    suspendLexicalEnvironment(): void;
+    fun suspendLexicalEnvironment()
+
     /** Resumes a suspended lexical environment, usually before visiting a function body. */
-    resumeLexicalEnvironment(): void;
+    fun resumeLexicalEnvironment()
+
     /** Ends a lexical environment, returning any declarations. */
-    endLexicalEnvironment(): Statement[] | undefined;
+    fun endLexicalEnvironment(): ReadonlyArray<Statement>
+
     /** Hoists a function declaration to the containing scope. */
-    hoistFunctionDeclaration(node: FunctionDeclaration): void;
+    fun hoistFunctionDeclaration(node: FunctionDeclaration)
+
     /** Hoists a variable declaration to the containing scope. */
-    hoistVariableDeclaration(node: Identifier): void;
-    */
+    fun hoistVariableDeclaration(node: Identifier)
 }

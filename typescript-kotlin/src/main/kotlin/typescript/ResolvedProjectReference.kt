@@ -3,9 +3,7 @@
 package typescript
 
 external interface ResolvedProjectReference {
-    /*
-    commandLine: ParsedCommandLine;
-    sourceFile: SourceFile;
-    references?: readonly (ResolvedProjectReference | undefined)[];
-    */
+    var commandLine: ParsedCommandLine
+    var sourceFile: SourceFile
+    var references: dynamic /* (ResolvedProjectReference | undefined)[] */
 }

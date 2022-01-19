@@ -3,7 +3,5 @@
 package typescript
 
 external interface ModuleResolutionCache : PerDirectoryResolutionCache<ResolvedModuleWithFailedLookupLocations>, NonRelativeModuleNameResolutionCache, PackageJsonInfoCache {
-    /*
-    getPackageJsonInfoCache(): PackageJsonInfoCache;
-    */
+    fun getPackageJsonInfoCache(): PackageJsonInfoCache
 }

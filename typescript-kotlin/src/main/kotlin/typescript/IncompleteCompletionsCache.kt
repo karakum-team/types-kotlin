@@ -3,9 +3,7 @@
 package typescript
 
 external interface IncompleteCompletionsCache {
-    /*
-    get(): CompletionInfo | undefined;
-    set(response: CompletionInfo): void;
-    clear(): void;
-    */
+    fun get(): CompletionInfo
+    fun set(response: CompletionInfo)
+    fun clear()
 }

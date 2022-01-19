@@ -3,9 +3,8 @@
 package typescript
 
 external interface CancellationToken {
-    /*
-    isCancellationRequested(): boolean;
+    fun isCancellationRequested(): Boolean
+
     /** @throws OperationCanceledException if isCancellationRequested is true */
-    throwIfCancellationRequested(): void;
-    */
+    fun throwIfCancellationRequested()
 }

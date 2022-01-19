@@ -3,7 +3,5 @@
 package typescript
 
 external interface HostCancellationToken {
-    /*
-    isCancellationRequested(): boolean;
-    */
+    fun isCancellationRequested(): Boolean
 }

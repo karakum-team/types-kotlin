@@ -3,7 +3,5 @@
 package typescript
 
 external interface PackageJsonInfoCache {
-    /*
-    clear(): void;
-    */
+    fun clear()
 }
