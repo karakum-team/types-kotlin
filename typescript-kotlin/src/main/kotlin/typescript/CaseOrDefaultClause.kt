@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias CaseOrDefaultClause = Any /* CaseClause | DefaultClause */
+typealias CaseOrDefaultClause = Node /* CaseClause | DefaultClause */

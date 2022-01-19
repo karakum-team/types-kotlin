@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias JsxTagNameExpression = Any /* Identifier | ThisExpression | JsxTagNamePropertyAccess */
+typealias JsxTagNameExpression = LeftHandSideExpression /* Identifier | ThisExpression | JsxTagNamePropertyAccess */

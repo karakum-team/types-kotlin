@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias JsonObjectExpression = Any /* ObjectLiteralExpression | ArrayLiteralExpression | JsonMinusNumericLiteral | NumericLiteral | StringLiteral | BooleanLiteral | NullLiteral */
+typealias JsonObjectExpression = Expression /* ObjectLiteralExpression | ArrayLiteralExpression | JsonMinusNumericLiteral | NumericLiteral | StringLiteral | BooleanLiteral | NullLiteral */
