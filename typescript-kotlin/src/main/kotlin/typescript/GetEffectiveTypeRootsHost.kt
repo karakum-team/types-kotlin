@@ -3,8 +3,6 @@
 package typescript
 
 external interface GetEffectiveTypeRootsHost {
-    /*
-    directoryExists?(directoryName: string): boolean;
-    getCurrentDirectory?(): string;
-    */
+    val directoryExists: ((directoryName: String) -> Boolean)?
+    val getCurrentDirectory: (() -> String)?
 }

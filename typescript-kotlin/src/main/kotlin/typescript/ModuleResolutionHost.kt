@@ -3,18 +3,17 @@
 package typescript
 
 external interface ModuleResolutionHost {
-    /*
-    fileExists(fileName: string): boolean;
-    readFile(fileName: string): string | undefined;
-    trace?(s: string): void;
-    directoryExists?(directoryName: string): boolean;
+    fun fileExists(fileName: String): Boolean
+    fun readFile(fileName: String): String?
+    val trace: ((s: String) -> Unit)?
+    val directoryExists: ((directoryName: String) -> Boolean)?
+
     /**
      * Resolve a symbolic link.
      * @see https://nodejs.org/api/fs.html#fs_fs_realpathsync_path_options
      */
-    realpath?(path: string): string;
-    getCurrentDirectory?(): string;
-    getDirectories?(path: string): string[];
-    useCaseSensitiveFileNames?: boolean | (() => boolean);
-    */
+    val realpath: ((path: String) -> String)?
+    val getCurrentDirectory: (() -> String)?
+    val getDirectories: ((path: String) -> ReadonlyArray<String>)?
+    var useCaseSensitiveFileNames: dynamic /* boolean | (() => boolean) */
 }
