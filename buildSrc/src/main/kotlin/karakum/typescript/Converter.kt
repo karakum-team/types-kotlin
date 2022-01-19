@@ -151,15 +151,29 @@ private fun convertType(
     if (" | " !in body && "(" !in body && "{" !in body && name !in IGNORED_TYPES)
         return "typealias $declaration = $body"
 
-    val unionType = when {
-        body.startsWith("SyntaxKind.") -> "SyntaxKind"
-        name == "ArrayBindingElement" -> "Node"
-        name == "JsxChild" -> "Node"
-        name == "ClassLikeDeclaration" -> "Node"
-        name == "JsxAttributeLike" -> "ObjectLiteralElement"
-        name == "ObjectLiteralElementLike" -> "ObjectLiteralElement"
-        else -> "Any"
+    val unionType = when (name) {
+        "ArrayBindingElement",
+        "CaseOrDefaultClause",
+        "ClassLikeDeclaration",
+        "JsxChild",
+        -> "Node"
+
+        "JsxAttributeLike",
+        "ObjectLiteralElementLike",
+        -> "ObjectLiteralElement"
+
+        "JsonObjectExpression",
+        -> "Expression"
+
+        "EntityNameExpression",
+        "JsxTagNameExpression",
+        -> "LeftHandSideExpression"
+
+        else -> if (body.startsWith("SyntaxKind.")) {
+            "SyntaxKind"
+        } else "Any"
     }
+
     var content = "typealias $declaration = $unionType /* $body */"
     if ("<T" in declaration)
         content = "@Suppress(\"UNUSED_TYPEALIAS_PARAMETER\")\n" + content
