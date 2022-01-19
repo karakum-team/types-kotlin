@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias BindingPattern = Any /* ObjectBindingPattern | ArrayBindingPattern */
+typealias BindingPattern = Node /* ObjectBindingPattern | ArrayBindingPattern */

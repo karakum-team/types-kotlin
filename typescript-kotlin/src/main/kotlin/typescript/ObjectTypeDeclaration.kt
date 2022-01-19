@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias ObjectTypeDeclaration = Any /* ClassLikeDeclaration | InterfaceDeclaration | TypeLiteralNode */
+typealias ObjectTypeDeclaration = Node /* ClassLikeDeclaration | InterfaceDeclaration | TypeLiteralNode */
