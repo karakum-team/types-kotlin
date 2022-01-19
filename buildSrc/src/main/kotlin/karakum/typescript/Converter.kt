@@ -153,9 +153,14 @@ private fun convertType(
 
     val unionType = when (name) {
         "ArrayBindingElement",
+        "BindingPattern",
         "CaseOrDefaultClause",
         "ClassLikeDeclaration",
+        "HasJSDoc",
         "JsxChild",
+        "JsxOpeningLikeElement",
+        "ObjectTypeDeclaration",
+        "SignatureDeclaration",
         -> "Node"
 
         "JsxAttributeLike",
