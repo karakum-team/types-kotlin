@@ -17,6 +17,10 @@ internal fun fixOverrides(
         "Node",
         -> content
 
+        "TupleTypeReference",
+        -> content
+            .override("target")
+
         "SynthesizedComment",
         -> content
             .override("pos")
@@ -28,6 +32,12 @@ internal fun fixOverrides(
             .override("kind")
             .override("parent")
             .override("type")
+
+        "PropertySignature",
+        -> content
+            .override("kind")
+            .override("name")
+            .override("questionToken")
 
         "JsonMinusNumericLiteral",
         -> content
