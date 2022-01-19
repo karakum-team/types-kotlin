@@ -28,7 +28,9 @@ internal fun fixOverrides(
             .override("start")
             .override("length")
 
+        "BigIntLiteralType",
         "NumberLiteralType",
+        "StringLiteralType",
         -> content
             .override("value")
 
@@ -37,6 +39,7 @@ internal fun fixOverrides(
                 .override("kind")
                 .override("name")
                 .override("parent")
+                .override("symbol")
     }
 }
 
