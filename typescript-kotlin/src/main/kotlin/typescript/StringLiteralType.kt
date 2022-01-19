@@ -3,5 +3,5 @@
 package typescript
 
 external interface StringLiteralType : LiteralType {
-    var value: String
+    override var value: String
 }

@@ -3,6 +3,6 @@
 package typescript
 
 external interface StringMappingType : InstantiableType {
-    var symbol: Symbol
+    override var symbol: Symbol
     var type: Type
 }
