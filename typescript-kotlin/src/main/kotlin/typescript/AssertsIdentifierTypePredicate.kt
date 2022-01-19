@@ -6,5 +6,5 @@ external interface AssertsIdentifierTypePredicate : TypePredicateBase {
     override var kind: TypePredicateKind.AssertsIdentifier
     var parameterName: String
     var parameterIndex: Double
-    var type: Type
+    override var type: Type
 }

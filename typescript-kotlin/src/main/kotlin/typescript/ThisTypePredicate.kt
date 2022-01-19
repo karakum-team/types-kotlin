@@ -6,5 +6,5 @@ external interface ThisTypePredicate : TypePredicateBase {
     override var kind: TypePredicateKind.This
     var parameterName: Nothing?
     var parameterIndex: Nothing?
-    var type: Type
+    override var type: Type
 }

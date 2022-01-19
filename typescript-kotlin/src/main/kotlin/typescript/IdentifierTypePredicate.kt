@@ -6,5 +6,5 @@ external interface IdentifierTypePredicate : TypePredicateBase {
     override var kind: TypePredicateKind.Identifier
     var parameterName: String
     var parameterIndex: Double
-    var type: Type
+    override var type: Type
 }
