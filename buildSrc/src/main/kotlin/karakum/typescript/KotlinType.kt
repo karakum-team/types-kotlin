@@ -39,8 +39,11 @@ internal fun kotlinType(
     if (type.startsWith("readonly "))
         return kotlinType(type.removePrefix("readonly "), name)
 
-    if (type.endsWith(" | undefined"))
-        return kotlinType(type.removeSuffix(" | undefined"), name)
+    if (type.endsWith(" | undefined")) {
+        var result = kotlinType(type.removeSuffix(" | undefined"), name)
+        if (!result.startsWith(DYNAMIC)) result += "?"
+        return result
+    }
 
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
