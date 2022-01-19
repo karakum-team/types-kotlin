@@ -6,5 +6,5 @@ external interface ArrowFunction : Expression, FunctionLikeDeclarationBase, JSDo
     override val kind: SyntaxKind.ArrowFunction
     val equalsGreaterThanToken: EqualsGreaterThanToken
     val body: ConciseBody
-    override val name: never
+    override val name: Nothing
 }
