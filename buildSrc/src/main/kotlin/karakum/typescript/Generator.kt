@@ -22,6 +22,9 @@ fun generateKotlinDeclarations(
             if ("companion object" in body || name == "SyntaxKind" || name == "TypePredicateKind")
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
+            if ("override var kind: TypePredicateKind." in body)
+                add(VAR_TYPE_MISMATCH_ON_OVERRIDE)
+
             if ("inline operator fun " in body)
                 add(DECLARATION_CANT_BE_INLINED)
 
