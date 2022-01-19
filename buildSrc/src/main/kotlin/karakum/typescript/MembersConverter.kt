@@ -104,10 +104,8 @@ private fun convertProperty(
     val name = body.substringBefore(": ").removeSuffix("?")
     var type = kotlinType(body.substringAfter(": "), name)
 
-    val optional = body.startsWith("${name}?")
-    if (optional && type != DYNAMIC && !type.startsWith("$DYNAMIC ") && type != "Nothing?") {
-        type = if (" /*" in type) type.replace(" /*", "? /*") else "$type?"
-    }
+    if (body.startsWith("$name?"))
+        type = type.addOptionality()
 
     return "$modifier $name: $type"
 }

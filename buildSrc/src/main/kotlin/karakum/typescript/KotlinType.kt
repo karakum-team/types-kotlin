@@ -39,11 +39,9 @@ internal fun kotlinType(
     if (type.startsWith("readonly "))
         return kotlinType(type.removePrefix("readonly "), name)
 
-    if (type.endsWith(" | undefined")) {
-        var result = kotlinType(type.removeSuffix(" | undefined"), name)
-        if (!result.startsWith(DYNAMIC)) result += "?"
-        return result
-    }
+    if (type.endsWith(" | undefined"))
+        return kotlinType(type.removeSuffix(" | undefined"), name)
+            .addOptionality()
 
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
@@ -59,6 +57,9 @@ internal fun kotlinType(
 
     if (type.endsWith("[]"))
         return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
+
+    if (type.startsWith("Promise<"))
+        return type.replaceFirst("Promise<", "kotlin.js.Promise<")
 
     return type
 }
