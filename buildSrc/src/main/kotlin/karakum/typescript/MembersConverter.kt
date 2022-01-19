@@ -42,19 +42,27 @@ private fun convertMember(
         .ifEmpty { null }
 
     val body = source.substringAfterLast("\n")
-    val content = convertProperty(body)
+    val content = if (isProperty(body)) {
+        convertProperty(body)
+    } else {
+        convertMethod(body)
+    }
 
     return sequenceOf(comment, content)
         .filterNotNull()
         .joinToString("\n")
 }
 
+private fun isProperty(
+    source: String,
+): Boolean =
+    ("(" !in source) || (source.indexOf(":") < source.indexOf("("))
+
 private fun convertProperty(
     source: String,
 ): String {
-    var body = source.substringAfterLast("\n")
-    val modifier = if (body.startsWith("readonly ")) "val" else "var"
-    body = body.removePrefix("readonly ")
+    val modifier = if (source.startsWith("readonly ")) "val" else "var"
+    val body = source.removePrefix("readonly ")
 
     val name = body.substringBefore(": ").removeSuffix("?")
     var type = kotlinType(body.substringAfter(": "), name)
@@ -65,4 +73,20 @@ private fun convertProperty(
     }
 
     return "$modifier $name: $type"
+}
+
+private fun convertMethod(
+    source: String,
+): String {
+    val name = source.substringBefore("(")
+    val parameters = source
+        .substringAfter("(")
+        .substringBeforeLast("): ")
+
+    val returnType = kotlinType(source.substringAfterLast("):"), name)
+    val returnDeclaration = if (returnType != UNIT) {
+        ": $returnType"
+    } else ""
+
+    return "fun $name($parameters)$returnDeclaration"
 }
