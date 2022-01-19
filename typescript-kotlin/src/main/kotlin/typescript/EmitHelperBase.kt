@@ -3,11 +3,9 @@
 package typescript
 
 external interface EmitHelperBase {
-    /*
-    readonly name: string;
-    readonly scoped: boolean;
-    readonly text: string | ((node: EmitHelperUniqueNameCallback) => string);
-    readonly priority?: number;
-    readonly dependencies?: EmitHelper[];
-    */
+    val name: String
+    val scoped: Boolean
+    val text: dynamic /* string | ((node: EmitHelperUniqueNameCallback) => string) */
+    val priority: Double?
+    val dependencies: ReadonlyArray<EmitHelper>?
 }

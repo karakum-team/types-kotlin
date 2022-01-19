@@ -3,18 +3,21 @@
 package typescript
 
 external interface SourceMapSpan {
-    /*
     /** Line number in the .js file. */
-    emittedLine: number;
+    var emittedLine: Double
+
     /** Column number in the .js file. */
-    emittedColumn: number;
+    var emittedColumn: Double
+
     /** Line number in the .ts file. */
-    sourceLine: number;
+    var sourceLine: Double
+
     /** Column number in the .ts file. */
-    sourceColumn: number;
+    var sourceColumn: Double
+
     /** Optional name (index into names array) associated with this span. */
-    nameIndex?: number;
+    var nameIndex: Double?
+
     /** .ts file (index into sources array) associated with this span */
-    sourceIndex: number;
-    */
+    var sourceIndex: Double
 }

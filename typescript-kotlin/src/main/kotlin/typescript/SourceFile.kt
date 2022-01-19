@@ -3,19 +3,19 @@
 package typescript
 
 external interface SourceFile : Declaration {
-    /*
-    readonly kind: SyntaxKind.SourceFile;
-    readonly statements: NodeArray<Statement>;
-    readonly endOfFileToken: Token<SyntaxKind.EndOfFileToken>;
-    fileName: string;
-    text: string;
-    amdDependencies: readonly AmdDependency[];
-    moduleName?: string;
-    referencedFiles: readonly FileReference[];
-    typeReferenceDirectives: readonly FileReference[];
-    libReferenceDirectives: readonly FileReference[];
-    languageVariant: LanguageVariant;
-    isDeclarationFile: boolean;
+    override val kind: SyntaxKind.SourceFile
+    val statements: NodeArray<Statement>
+    val endOfFileToken: Token<SyntaxKind.EndOfFileToken>
+    var fileName: String
+    var text: String
+    var amdDependencies: ReadonlyArray<AmdDependency>
+    var moduleName: String?
+    var referencedFiles: ReadonlyArray<FileReference>
+    var typeReferenceDirectives: ReadonlyArray<FileReference>
+    var libReferenceDirectives: ReadonlyArray<FileReference>
+    var languageVariant: LanguageVariant
+    var isDeclarationFile: Boolean
+
     /**
      * lib.d.ts should have a reference comment like
      *
@@ -24,8 +24,9 @@ external interface SourceFile : Declaration {
      * If any other file has this comment, it signals not to include lib.d.ts
      * because this containing file is intended to act as a default library.
      */
-    hasNoDefaultLib: boolean;
-    languageVersion: ScriptTarget;
+    var hasNoDefaultLib: Boolean
+    var languageVersion: ScriptTarget
+
     /**
      * When `module` is `Node12` or `NodeNext`, this field controls whether the
      * source file in question is an ESNext-output-format file, or a CommonJS-output-format
@@ -37,6 +38,5 @@ external interface SourceFile : Declaration {
      * since it switches the builtin `node` module transform. Generally speaking, if unset,
      * the field is treated as though it is `ModuleKind.CommonJS`.
      */
-    impliedNodeFormat?: ModuleKind.ESNext | ModuleKind.CommonJS;
-    */
+    var impliedNodeFormat: dynamic /* ModuleKind.ESNext | ModuleKind.CommonJS */
 }

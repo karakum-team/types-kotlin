@@ -3,16 +3,16 @@
 package typescript
 
 external interface GetCompletionsAtPositionOptions : UserPreferences {
-    /*
     /**
      * If the editor is asking for completions because a certain character was typed
      * (as opposed to when the user explicitly requested them) this should be set.
      */
-    triggerCharacter?: CompletionsTriggerCharacter;
-    triggerKind?: CompletionTriggerKind;
+    var triggerCharacter: CompletionsTriggerCharacter?
+    var triggerKind: CompletionTriggerKind?
+
     /** @deprecated Use includeCompletionsForModuleExports */
-    includeExternalModuleExports?: boolean;
+    var includeExternalModuleExports: Boolean?
+
     /** @deprecated Use includeCompletionsWithInsertText */
-    includeInsertTextCompletions?: boolean;
-    */
+    var includeInsertTextCompletions: Boolean?
 }

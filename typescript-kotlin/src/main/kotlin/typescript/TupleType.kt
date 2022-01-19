@@ -3,13 +3,11 @@
 package typescript
 
 external interface TupleType : GenericType {
-    /*
-    elementFlags: readonly ElementFlags[];
-    minLength: number;
-    fixedLength: number;
-    hasRestElement: boolean;
-    combinedFlags: ElementFlags;
-    readonly: boolean;
-    labeledElementDeclarations?: readonly (NamedTupleMember | ParameterDeclaration)[];
-    */
+    var elementFlags: ReadonlyArray<ElementFlags>
+    var minLength: Double
+    var fixedLength: Double
+    var hasRestElement: Boolean
+    var combinedFlags: ElementFlags
+    var readonly: Boolean
+    var labeledElementDeclarations: dynamic /* (NamedTupleMember | ParameterDeclaration)[] */
 }

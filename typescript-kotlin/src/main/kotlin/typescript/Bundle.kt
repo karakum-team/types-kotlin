@@ -3,9 +3,7 @@
 package typescript
 
 external interface Bundle : Node {
-    /*
-    readonly kind: SyntaxKind.Bundle;
-    readonly prepends: readonly (InputFiles | UnparsedSource)[];
-    readonly sourceFiles: readonly SourceFile[];
-    */
+    override val kind: SyntaxKind.Bundle
+    val prepends: dynamic /* (InputFiles | UnparsedSource)[] */
+    val sourceFiles: ReadonlyArray<SourceFile>
 }

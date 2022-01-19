@@ -3,5 +3,5 @@
 package typescript
 
 external interface ScopedEmitHelper : EmitHelperBase {
-    val scoped: Boolean /* true */
+    override val scoped: Boolean /* true */
 }

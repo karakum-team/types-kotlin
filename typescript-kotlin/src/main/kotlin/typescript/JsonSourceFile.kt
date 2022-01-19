@@ -3,5 +3,5 @@
 package typescript
 
 external interface JsonSourceFile : SourceFile {
-    val statements: NodeArray<JsonObjectExpressionStatement>
+    override val statements: NodeArray<JsonObjectExpressionStatement>
 }

@@ -3,5 +3,5 @@
 package typescript
 
 external interface CompletionEntryDataResolved : CompletionEntryDataAutoImport {
-    var moduleSpecifier: String
+    override var moduleSpecifier: String
 }
