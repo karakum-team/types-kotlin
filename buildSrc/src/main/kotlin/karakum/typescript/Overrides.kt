@@ -17,6 +17,20 @@ internal fun fixOverrides(
         "Node",
         -> content
 
+        "CompletionEntryDataResolved",
+        -> content
+            .override("moduleSpecifier")
+
+        "JsonSourceFile",
+        -> content
+            .override("statements")
+
+        "ScopedEmitHelper",
+        "UnscopedEmitHelper",
+        -> content
+            .override("scoped")
+            .override("text")
+
         "TupleTypeReference",
         -> content
             .override("target")

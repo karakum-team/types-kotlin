@@ -1,12 +1,28 @@
 package karakum.typescript
 
+private val REQUIRED = setOf(
+    "ApplicableRefactorInfo",
+    "Bundle",
+    "CodeAction",
+    "CompletionEntryDataAutoImport",
+    "CustomTransformers",
+    "DocumentSpan",
+    "EmitHelperBase",
+    "GetCompletionsAtPositionOptions",
+    "Identifier",
+    "SourceFile",
+    "SourceMapSpan",
+    "TupleType",
+)
+
 internal fun convertMembers(
+    name: String,
     source: String,
 ): String {
     if (source.isEmpty())
         return ""
 
-    if ("(" in source || " & {" in source)
+    if (("(" in source || " & {" in source) && name !in REQUIRED)
         return "    /*\n" + source + "\n    */"
 
     return source.trimIndent()
