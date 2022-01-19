@@ -28,6 +28,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "MapLike<string>" to "MapLike<String>",
     "MapLike<string[]>" to "MapLike<ReadonlyArray<String>>",
+
+    "-1" to "Double /* -1 */",
 )
 
 internal fun kotlinType(

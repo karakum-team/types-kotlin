@@ -17,6 +17,18 @@ internal fun fixOverrides(
         "Node",
         -> content
 
+        "SynthesizedComment",
+        -> content
+            .override("pos")
+            .override("end")
+
+        "FunctionOrConstructorTypeNodeBase",
+        "IndexSignatureDeclaration",
+        -> content
+            .override("kind")
+            .override("parent")
+            .override("type")
+
         "JsonMinusNumericLiteral",
         -> content
             .override("kind")
