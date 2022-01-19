@@ -4,7 +4,7 @@ package typescript
 
 external interface SynthesizedComment : CommentRange {
     var text: String
-    var pos: -1
-    var end: -1
+    override var pos: Double /* -1 */
+    override var end: Double /* -1 */
     var hasLeadingNewline: Boolean?
 }

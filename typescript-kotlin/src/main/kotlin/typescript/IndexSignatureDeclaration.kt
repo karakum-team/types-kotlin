@@ -5,5 +5,5 @@ package typescript
 external interface IndexSignatureDeclaration : SignatureDeclarationBase, ClassElement, TypeElement {
     override val kind: SyntaxKind.IndexSignature
     override val parent: ObjectTypeDeclaration
-    val type: TypeNode
+    override val type: TypeNode
 }
