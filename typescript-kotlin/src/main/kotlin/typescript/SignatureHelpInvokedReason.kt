@@ -8,5 +8,5 @@ package typescript
  */
 external interface SignatureHelpInvokedReason {
     var kind: String /* "invoked" */
-    var triggerCharacter: Nothing??
+    var triggerCharacter: Nothing?
 }
