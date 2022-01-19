@@ -10,5 +10,5 @@ external interface AssertsThisTypePredicate : TypePredicateBase {
     override var kind: TypePredicateKind.AssertsThis
     var parameterName: Nothing?
     var parameterIndex: Nothing?
-    override var type: Type
+    override var type: Type?
 }

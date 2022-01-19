@@ -3,5 +3,5 @@
 package typescript
 
 external interface ResolvedModuleWithFailedLookupLocations {
-    val resolvedModule: ResolvedModuleFull
+    val resolvedModule: ResolvedModuleFull?
 }

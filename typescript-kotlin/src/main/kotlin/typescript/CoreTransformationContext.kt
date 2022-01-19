@@ -18,7 +18,7 @@ external interface CoreTransformationContext {
     fun resumeLexicalEnvironment()
 
     /** Ends a lexical environment, returning any declarations. */
-    fun endLexicalEnvironment(): ReadonlyArray<Statement>
+    fun endLexicalEnvironment(): ReadonlyArray<Statement>?
 
     /** Hoists a function declaration to the containing scope. */
     fun hoistFunctionDeclaration(node: FunctionDeclaration)

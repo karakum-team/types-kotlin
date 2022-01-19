@@ -3,5 +3,5 @@
 package typescript
 
 external interface FlowLabel : FlowNodeBase {
-    var antecedents: ReadonlyArray<FlowNode>
+    var antecedents: ReadonlyArray<FlowNode>?
 }

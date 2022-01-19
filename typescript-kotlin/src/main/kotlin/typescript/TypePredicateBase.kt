@@ -4,5 +4,5 @@ package typescript
 
 external interface TypePredicateBase {
     var kind: TypePredicateKind
-    var type: Type
+    var type: Type?
 }

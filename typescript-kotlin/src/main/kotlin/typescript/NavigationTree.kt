@@ -19,7 +19,7 @@ external interface NavigationTree {
      * There will be more than one if this is the result of merging.
      */
     var spans: ReadonlyArray<TextSpan>
-    var nameSpan: TextSpan
+    var nameSpan: TextSpan?
 
     /** Present if non-empty */
     var childItems: ReadonlyArray<NavigationTree>?

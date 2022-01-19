@@ -7,9 +7,9 @@ external interface UnparsedSource : Node {
     var fileName: String
     var text: String
     val prologues: ReadonlyArray<UnparsedPrologue>
-    var helpers: ReadonlyArray<UnscopedEmitHelper>
+    var helpers: ReadonlyArray<UnscopedEmitHelper>?
     var referencedFiles: ReadonlyArray<FileReference>
-    var typeReferenceDirectives: ReadonlyArray<String>
+    var typeReferenceDirectives: ReadonlyArray<String>?
     var libReferenceDirectives: ReadonlyArray<FileReference>
     var hasNoDefaultLib: Boolean?
     var sourceMapPath: String?

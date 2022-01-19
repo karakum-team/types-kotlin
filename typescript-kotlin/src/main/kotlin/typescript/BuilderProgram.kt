@@ -19,7 +19,7 @@ external interface BuilderProgram {
     /**
      * Get the source file in the program with file name
      */
-    fun getSourceFile(fileName: String): SourceFile
+    fun getSourceFile(fileName: String): SourceFile?
 
     /**
      * Get a list of files in the program
