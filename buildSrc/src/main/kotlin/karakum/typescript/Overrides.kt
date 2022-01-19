@@ -10,12 +10,27 @@ internal fun fixOverrides(
             .override("type")
 
     return when (name) {
+        "CommentRange",
+        "DefinitionInfo",
+        "ImportCall",
+        "JsxTagNamePropertyAccess",
+        "NamedDeclaration",
         "Node",
         -> content
 
         "ArrayDestructuringAssignment",
         -> content
             .override("left")
+
+        "DiagnosticWithLocation",
+        -> content
+            .override("file")
+            .override("start")
+            .override("length")
+
+        "NumberLiteralType",
+        -> content
+            .override("value")
 
         else ->
             content
