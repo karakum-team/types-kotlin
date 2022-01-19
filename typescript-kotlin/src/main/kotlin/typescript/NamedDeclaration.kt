@@ -3,5 +3,5 @@
 package typescript
 
 external interface NamedDeclaration : Declaration {
-    override val name: DeclarationName?
+    val name: DeclarationName?
 }

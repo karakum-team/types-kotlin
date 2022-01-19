@@ -3,7 +3,7 @@
 package typescript
 
 external interface DiagnosticWithLocation : Diagnostic {
-    var file: SourceFile
-    var start: Double
-    var length: Double
+    override var file: SourceFile
+    override var start: Double
+    override var length: Double
 }

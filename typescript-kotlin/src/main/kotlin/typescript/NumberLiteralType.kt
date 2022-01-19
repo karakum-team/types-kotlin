@@ -3,5 +3,5 @@
 package typescript
 
 external interface NumberLiteralType : LiteralType {
-    var value: Double
+    override var value: Double
 }
