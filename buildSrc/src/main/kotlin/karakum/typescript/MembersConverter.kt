@@ -42,6 +42,9 @@ private val REQUIRED = setOf(
     "SourceFileLike",
     "WatchCompilerHostOfConfigFile",
     "WatchOfFilesAndCompilerOptions",
+
+    "UpdateBundleProject",
+    "UpdateOutputFileStampsProject",
 )
 
 internal fun convertMembers(

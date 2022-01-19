@@ -19,7 +19,7 @@ fun generateKotlinDeclarations(
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
 
-            if ("companion object" in body || name == "SyntaxKind" || name == "TypePredicateKind")
+            if ("companion object" in body || name == "SyntaxKind" || name == "TypePredicateKind" || name == "InvalidatedProjectKind")
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
             if ("override var kind: TypePredicateKind." in body || name == "TupleTypeReference" || name == "CompletionEntryDataResolved" || name == "DiagnosticWithLocation")
