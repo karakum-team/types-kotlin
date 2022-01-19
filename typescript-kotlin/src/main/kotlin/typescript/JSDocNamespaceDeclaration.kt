@@ -4,5 +4,5 @@ package typescript
 
 external interface JSDocNamespaceDeclaration : ModuleDeclaration {
     override val name: Identifier
-    val body: JSDocNamespaceBody?
+    override val body: JSDocNamespaceBody?
 }

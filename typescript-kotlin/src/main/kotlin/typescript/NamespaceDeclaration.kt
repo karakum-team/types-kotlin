@@ -4,5 +4,5 @@ package typescript
 
 external interface NamespaceDeclaration : ModuleDeclaration {
     override val name: Identifier
-    val body: NamespaceBody
+    override val body: NamespaceBody
 }

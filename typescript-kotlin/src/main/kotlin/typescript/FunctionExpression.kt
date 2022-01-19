@@ -5,5 +5,5 @@ package typescript
 external interface FunctionExpression : PrimaryExpression, FunctionLikeDeclarationBase, JSDocContainer {
     override val kind: SyntaxKind.FunctionExpression
     override val name: Identifier?
-    val body: FunctionBody
+    override val body: FunctionBody
 }

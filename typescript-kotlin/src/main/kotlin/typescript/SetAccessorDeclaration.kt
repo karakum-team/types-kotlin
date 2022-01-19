@@ -6,5 +6,5 @@ external interface SetAccessorDeclaration : FunctionLikeDeclarationBase, ClassEl
     override val kind: SyntaxKind.SetAccessor
     override val parent: dynamic /* ClassLikeDeclaration | ObjectLiteralExpression | TypeLiteralNode | InterfaceDeclaration */
     override val name: PropertyName
-    val body: FunctionBody?
+    override val body: FunctionBody?
 }

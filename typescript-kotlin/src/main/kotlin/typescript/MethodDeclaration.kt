@@ -6,5 +6,5 @@ external interface MethodDeclaration : FunctionLikeDeclarationBase, ClassElement
     override val kind: SyntaxKind.MethodDeclaration
     override val parent: dynamic /* ClassLikeDeclaration | ObjectLiteralExpression */
     override val name: PropertyName
-    val body: FunctionBody?
+    override val body: FunctionBody?
 }
