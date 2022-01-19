@@ -12,15 +12,36 @@ internal fun fixOverrides(
     return when (name) {
         "CommentRange",
         "DefinitionInfo",
-        "ImportCall",
+        "ImplementationLocation",
         "JsxTagNamePropertyAccess",
         "NamedDeclaration",
         "Node",
         -> content
 
+        "ImportCall",
+        "SuperCall",
+        -> content
+            .override("expression")
+
+        "AssertEntry",
+        "JSDocLink",
+        "JSDocLinkCode",
+        "JSDocLinkPlain",
+        "JSDocNameReference",
+        "JSDocPropertyLikeTag",
+        "JSDocSeeTag",
+        "MetaProperty",
+        "NamedTupleMember",
+        -> content
+            .override("kind")
+            .override("parent")
+
         "ArrayDestructuringAssignment",
+        "AssignmentExpression",
+        "ObjectDestructuringAssignment",
         -> content
             .override("left")
+            .override("operatorToken")
 
         "DiagnosticWithLocation",
         -> content
