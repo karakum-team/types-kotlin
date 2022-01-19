@@ -13,15 +13,26 @@ internal fun fixOverrides(
         "CommentRange",
         "DefinitionInfo",
         "ImplementationLocation",
-        "JsxTagNamePropertyAccess",
         "NamedDeclaration",
         "Node",
         -> content
 
+        "JsonMinusNumericLiteral",
+        -> content
+            .override("kind")
+            .override("operator")
+            .override("operand")
+
         "ImportCall",
+        "JsonObjectExpressionStatement",
+        "JsxTagNamePropertyAccess",
+        "PropertyAccessEntityNameExpression",
         "SuperCall",
+        "SuperElementAccessExpression",
+        "SuperPropertyAccessExpression",
         -> content
             .override("expression")
+            .override("name")
 
         "AssertEntry",
         "JSDocLink",
@@ -61,6 +72,13 @@ internal fun fixOverrides(
         -> content
             .override("kind")
             .override("name")
+            .override("parent")
+
+        "UnparsedPrepend",
+        "UnparsedPrologue",
+        -> content
+            .override("data")
+            .override("kind")
             .override("parent")
 
         else -> content
