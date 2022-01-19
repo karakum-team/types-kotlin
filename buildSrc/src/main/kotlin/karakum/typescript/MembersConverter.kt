@@ -27,6 +27,21 @@ private val REQUIRED = setOf(
     "ReadonlyCollection",
     "ResolvedProjectReference",
     "Watch",
+
+    "BuilderProgram",
+    "Classifier",
+    "DocumentRegistry",
+    "EmitAndSemanticDiagnosticsBuilderProgram",
+    "FormatDiagnosticsHost",
+    "InvalidatedProjectBase",
+    "NonRelativeModuleNameResolutionCache",
+    "PerDirectoryResolutionCache",
+    "PerModuleNameCache",
+    "ReadBuildProgramHost",
+    "ScriptReferenceHost",
+    "SourceFileLike",
+    "WatchCompilerHostOfConfigFile",
+    "WatchOfFilesAndCompilerOptions",
 )
 
 internal fun convertMembers(
@@ -37,7 +52,7 @@ internal fun convertMembers(
         return ""
 
     if (("(" in source || " & {" in source) && name !in REQUIRED)
-        return "    /*\n" + source + "\n    */"
+        return "    /*\n$source\n    */"
 
     return source.trimIndent()
         .removeSuffix(";")
@@ -93,9 +108,18 @@ private fun convertMethod(
     source: String,
 ): String {
     val name = source.substringBefore("(")
-    val parameters = source
+
+    val parametersSource = source
         .substringAfter("(")
         .substringBeforeLast("): ")
+
+    val parameters = if (parametersSource.isNotEmpty()) {
+        parametersSource
+            .splitToSequence(", ")
+            .joinToString(", ") {
+                convertParameter(it)
+            }
+    } else ""
 
     val returnType = kotlinType(source.substringAfterLast("): "), name)
     val returnDeclaration = if (returnType != UNIT) {
@@ -103,4 +127,19 @@ private fun convertMethod(
     } else ""
 
     return "fun $name($parameters)$returnDeclaration"
+}
+
+private fun convertParameter(
+    source: String,
+): String {
+    val name = source
+        .substringBefore(": ")
+        .removeSuffix("?")
+
+    val type = kotlinType(source.substringAfter(": "), name)
+    var result = "$name: $type"
+    if (source.startsWith("$name?:"))
+        result += " = definedExternally"
+
+    return result
 }
