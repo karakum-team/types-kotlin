@@ -13,6 +13,20 @@ private val REQUIRED = setOf(
     "SourceFile",
     "SourceMapSpan",
     "TupleType",
+
+    "CancellationToken",
+    "Collection",
+    "CoreTransformationContext",
+    "CustomTransformer",
+    "FileWatcher",
+    "HostCancellationToken",
+    "IncompleteCompletionsCache",
+    "ModuleResolutionCache",
+    "PackageJsonInfoCache",
+    "ParseConfigFileHost",
+    "ReadonlyCollection",
+    "ResolvedProjectReference",
+    "Watch",
 )
 
 internal fun convertMembers(
@@ -83,7 +97,7 @@ private fun convertMethod(
         .substringAfter("(")
         .substringBeforeLast("): ")
 
-    val returnType = kotlinType(source.substringAfterLast("):"), name)
+    val returnType = kotlinType(source.substringAfterLast("): "), name)
     val returnDeclaration = if (returnType != UNIT) {
         ": $returnType"
     } else ""
