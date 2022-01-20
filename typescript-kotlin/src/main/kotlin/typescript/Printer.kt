@@ -3,7 +3,6 @@
 package typescript
 
 external interface Printer {
-    /*
     /**
      * Print a node and its subtree as-is, without any emit transformations.
      * @param hint A value indicating the purpose of a node. This is primarily used to
@@ -17,18 +16,20 @@ external interface Printer {
      * the identifiers of the source file are used when generating unique names to avoid
      * collisions.
      */
-    printNode(hint: EmitHint, node: Node, sourceFile: SourceFile): string;
+    fun printNode(hint: EmitHint, node: Node, sourceFile: SourceFile): String
+
     /**
      * Prints a list of nodes using the given format flags
      */
-    printList<T extends Node>(format: ListFormat, list: NodeArray<T>, sourceFile: SourceFile): string;
+    fun <T : Node> printList(format: ListFormat, list: NodeArray<T>, sourceFile: SourceFile): String
+
     /**
      * Prints a source file as-is, without any emit transformations.
      */
-    printFile(sourceFile: SourceFile): string;
+    fun printFile(sourceFile: SourceFile): String
+
     /**
      * Prints a bundle of source files as-is, without any emit transformations.
      */
-    printBundle(bundle: Bundle): string;
-    */
+    fun printBundle(bundle: Bundle): String
 }

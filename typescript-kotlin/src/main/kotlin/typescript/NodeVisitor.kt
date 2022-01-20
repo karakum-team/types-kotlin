@@ -3,8 +3,6 @@
 package typescript
 
 external interface NodeVisitor {
-    /*
-    <T extends Node>(nodes: T, visitor: Visitor | undefined, test?: (node: Node) => boolean, lift?: (node: readonly Node[]) => T): T;
-    <T extends Node>(nodes: T | undefined, visitor: Visitor | undefined, test?: (node: Node) => boolean, lift?: (node: readonly Node[]) => T): T | undefined;
-    */
+    fun <T : Node> /* native */ invoke(nodes: T, visitor: Visitor?, test: (node: Node) -> Boolean = definedExternally, lift: (node: ReadonlyArray<Node>) -> T = definedExternally): T
+    fun <T : Node> /* native */ invoke(nodes: T?, visitor: Visitor?, test: (node: Node) -> Boolean = definedExternally, lift: (node: ReadonlyArray<Node>) -> T = definedExternally): T?
 }
