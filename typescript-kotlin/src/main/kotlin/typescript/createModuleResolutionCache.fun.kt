@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun createModuleResolutionCache(currentDirectory: string, getCanonicalFileName: (s: string) => string, options?: CompilerOptions): ModuleResolutionCache
-*/
+external fun createModuleResolutionCache(currentDirectory: String, getCanonicalFileName: (s: String) -> String, options: CompilerOptions = definedExternally): ModuleResolutionCache

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
 external fun getDefaultCompilerOptions(): CompilerOptions
-*/

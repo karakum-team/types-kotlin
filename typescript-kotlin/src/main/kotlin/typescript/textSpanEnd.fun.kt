@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun textSpanEnd(span: TextSpan): number
-*/
+external fun textSpanEnd(span: TextSpan): Double

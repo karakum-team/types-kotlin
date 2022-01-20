@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isEmptyBindingElement(node: BindingElement): boolean
-*/
+external fun isEmptyBindingElement(node: BindingElement): Boolean

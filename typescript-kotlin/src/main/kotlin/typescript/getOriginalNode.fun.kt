@@ -5,16 +5,8 @@
 
 package typescript
 
-/*
 external fun getOriginalNode(node: Node): Node
-*/
 
-/*
-external fun getOriginalNode<T extends Node>(node: Node, nodeTest: (node: Node) => node is T): T
-*/
-/*
-external fun getOriginalNode(node: Node | undefined): Node | undefined
-*/
-/*
-external fun getOriginalNode<T extends Node>(node: Node | undefined, nodeTest: (node: Node | undefined) => node is T): T | undefined
-*/
+external fun <T : Node> getOriginalNode(node: Node, nodeTest: (node: Node) -> Boolean /* node is T */): T
+external fun getOriginalNode(node: Node?): Node?
+external fun <T : Node> getOriginalNode(node: Node?, nodeTest: dynamic /* (node: Node | undefined) => node is T */): T?

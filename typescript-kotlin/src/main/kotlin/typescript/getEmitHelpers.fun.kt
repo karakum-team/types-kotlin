@@ -8,6 +8,4 @@ package typescript
 /**
  * Gets the EmitHelpers of a node.
  */
-/*
-external fun getEmitHelpers(node: Node): EmitHelper[] | undefined
-*/
+external fun getEmitHelpers(node: Node): ReadonlyArray<EmitHelper>?

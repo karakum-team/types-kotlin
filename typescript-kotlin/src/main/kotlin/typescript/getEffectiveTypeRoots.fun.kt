@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun getEffectiveTypeRoots(options: CompilerOptions, host: GetEffectiveTypeRootsHost): string[] | undefined
-*/
+external fun getEffectiveTypeRoots(options: CompilerOptions, host: GetEffectiveTypeRootsHost): ReadonlyArray<String>?

@@ -8,6 +8,4 @@ package typescript
 /**
  * Adds an EmitHelper to a node.
  */
-/*
-external fun addEmitHelper<T extends Node>(node: T, helper: EmitHelper): T
-*/
+external fun <T : Node> addEmitHelper(node: T, helper: EmitHelper): T

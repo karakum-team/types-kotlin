@@ -5,6 +5,9 @@
 
 package typescript
 
-/*
-external fun createSolutionBuilderWithWatch<T extends BuilderProgram>(host: SolutionBuilderWithWatchHost<T>, rootNames: readonly string[], defaultOptions: BuildOptions, baseWatchOptions?: WatchOptions): SolutionBuilder<T>
-*/
+external fun <T : BuilderProgram> createSolutionBuilderWithWatch(
+    host: SolutionBuilderWithWatchHost<T>,
+    rootNames: ReadonlyArray<String>,
+    defaultOptions: BuildOptions,
+    baseWatchOptions: WatchOptions = definedExternally,
+): SolutionBuilder<T>

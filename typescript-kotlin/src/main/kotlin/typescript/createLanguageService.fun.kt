@@ -5,6 +5,8 @@
 
 package typescript
 
-/*
-external fun createLanguageService(host: LanguageServiceHost, documentRegistry?: DocumentRegistry, syntaxOnlyOrLanguageServiceMode?: boolean | LanguageServiceMode): LanguageService
-*/
+external fun createLanguageService(
+    host: LanguageServiceHost,
+    documentRegistry: DocumentRegistry = definedExternally,
+    syntaxOnlyOrLanguageServiceMode: dynamic /* boolean | LanguageServiceMode */ = definedExternally,
+): LanguageService

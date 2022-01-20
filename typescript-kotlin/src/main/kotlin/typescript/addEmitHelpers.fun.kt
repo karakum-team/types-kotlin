@@ -8,6 +8,4 @@ package typescript
 /**
  * Add EmitHelpers to a node.
  */
-/*
-external fun addEmitHelpers<T extends Node>(node: T, helpers: EmitHelper[] | undefined): T
-*/
+external fun <T : Node> addEmitHelpers(node: T, helpers: ReadonlyArray<EmitHelper>?): T

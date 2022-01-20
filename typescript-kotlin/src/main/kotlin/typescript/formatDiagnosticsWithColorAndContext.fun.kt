@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun formatDiagnosticsWithColorAndContext(diagnostics: readonly Diagnostic[], host: FormatDiagnosticsHost): string
-*/
+external fun formatDiagnosticsWithColorAndContext(diagnostics: ReadonlyArray<Diagnostic>, host: FormatDiagnosticsHost): String

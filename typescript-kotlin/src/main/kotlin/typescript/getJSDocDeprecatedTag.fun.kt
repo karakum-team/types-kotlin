@@ -6,6 +6,4 @@
 package typescript
 
 /** Gets the JSDoc deprecated tag for the node if present */
-/*
-external fun getJSDocDeprecatedTag(node: Node): JSDocDeprecatedTag | undefined
-*/
+external fun getJSDocDeprecatedTag(node: Node): JSDocDeprecatedTag?

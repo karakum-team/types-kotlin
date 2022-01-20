@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun formatDiagnostics(diagnostics: readonly Diagnostic[], host: FormatDiagnosticsHost): string
-*/
+external fun formatDiagnostics(diagnostics: ReadonlyArray<Diagnostic>, host: FormatDiagnosticsHost): String

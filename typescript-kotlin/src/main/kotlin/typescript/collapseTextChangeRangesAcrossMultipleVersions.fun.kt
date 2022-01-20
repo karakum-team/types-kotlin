@@ -13,6 +13,4 @@ package typescript
  * This function will then merge those changes into a single change range valid between V1 and
  * Vn.
  */
-/*
-external fun collapseTextChangeRangesAcrossMultipleVersions(changes: readonly TextChangeRange[]): TextChangeRange
-*/
+external fun collapseTextChangeRangesAcrossMultipleVersions(changes: ReadonlyArray<TextChangeRange>): TextChangeRange

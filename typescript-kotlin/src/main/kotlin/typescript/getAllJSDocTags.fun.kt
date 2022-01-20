@@ -6,6 +6,4 @@
 package typescript
 
 /** Gets all JSDoc tags that match a specified predicate */
-/*
-external fun getAllJSDocTags<T extends JSDocTag>(node: Node, predicate: (tag: JSDocTag) => tag is T): readonly T[]
-*/
+external fun <T : JSDocTag> getAllJSDocTags(node: Node, predicate: (tag: JSDocTag) -> Boolean /* tag is T */): ReadonlyArray<T>

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
 external fun getCombinedNodeFlags(node: Node): NodeFlags
-*/

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun createIncrementalCompilerHost(options: CompilerOptions, system?: System): CompilerHost
-*/
+external fun createIncrementalCompilerHost(options: CompilerOptions, system: System = definedExternally): CompilerHost

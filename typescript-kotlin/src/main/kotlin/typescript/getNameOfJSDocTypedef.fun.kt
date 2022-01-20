@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun getNameOfJSDocTypedef(declaration: JSDocTypedefTag): Identifier | PrivateIdentifier | undefined
-*/
+external fun getNameOfJSDocTypedef(declaration: JSDocTypedefTag): dynamic /* Identifier | PrivateIdentifier */

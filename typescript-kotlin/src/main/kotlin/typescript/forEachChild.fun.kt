@@ -18,6 +18,4 @@ package typescript
  * @remarks `forEachChild` must visit the children of a node in the order
  * that they appear in the source code. The language service depends on this property to locate nodes by position.
  */
-/*
-external fun forEachChild<T>(node: Node, cbNode: (node: Node) => T | undefined, cbNodes?: (nodes: NodeArray<Node>) => T | undefined): T | undefined
-*/
+external fun <T> forEachChild(node: Node, cbNode: (node: Node) -> T?, cbNodes: (nodes: NodeArray<Node>) -> T? = definedExternally): T?

@@ -8,13 +8,9 @@ package typescript
 /**
  * Creates the watch from the host for root files and compiler options
  */
-/*
-external fun createWatchProgram<T extends BuilderProgram>(host: WatchCompilerHostOfFilesAndCompilerOptions<T>): WatchOfFilesAndCompilerOptions<T>
-*/
+external fun <T : BuilderProgram> createWatchProgram(host: WatchCompilerHostOfFilesAndCompilerOptions<T>): WatchOfFilesAndCompilerOptions<T>
 
 /**
  * Creates the watch from the host for config file
  */
-/*
-external fun createWatchProgram<T extends BuilderProgram>(host: WatchCompilerHostOfConfigFile<T>): WatchOfConfigFile<T>
-*/
+external fun <T : BuilderProgram> createWatchProgram(host: WatchCompilerHostOfConfigFile<T>): WatchOfConfigFile<T>

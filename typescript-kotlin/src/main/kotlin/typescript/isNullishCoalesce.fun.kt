@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isNullishCoalesce(node: Node): boolean
-*/
+external fun isNullishCoalesce(node: Node): Boolean

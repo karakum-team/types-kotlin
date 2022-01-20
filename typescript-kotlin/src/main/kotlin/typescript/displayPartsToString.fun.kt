@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun displayPartsToString(displayParts: SymbolDisplayPart[] | undefined): string
-*/
+external fun displayPartsToString(displayParts: ReadonlyArray<SymbolDisplayPart>?): String

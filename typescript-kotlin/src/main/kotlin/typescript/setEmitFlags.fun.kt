@@ -8,6 +8,4 @@ package typescript
 /**
  * Sets flags that control emit behavior of a node.
  */
-/*
-external fun setEmitFlags<T extends Node>(node: T, emitFlags: EmitFlags): T
-*/
+external fun <T : Node> setEmitFlags(node: T, emitFlags: EmitFlags): T

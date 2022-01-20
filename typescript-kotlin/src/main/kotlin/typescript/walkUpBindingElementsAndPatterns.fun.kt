@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun walkUpBindingElementsAndPatterns(binding: BindingElement): VariableDeclaration | ParameterDeclaration
-*/
+external fun walkUpBindingElementsAndPatterns(binding: BindingElement): dynamic /* VariableDeclaration | ParameterDeclaration */

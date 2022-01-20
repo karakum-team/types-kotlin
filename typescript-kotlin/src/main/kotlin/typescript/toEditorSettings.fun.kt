@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun toEditorSettings(options: EditorOptions | EditorSettings): EditorSettings
-*/
+external fun toEditorSettings(options: dynamic /* EditorOptions | EditorSettings */): EditorSettings

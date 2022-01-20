@@ -11,6 +11,4 @@ package typescript
  * @param transformers An array of `TransformerFactory` callbacks used to process the transformation.
  * @param compilerOptions Optional compiler options.
  */
-/*
-external fun transform<T extends Node>(source: T | T[], transformers: TransformerFactory<T>[], compilerOptions?: CompilerOptions): TransformationResult<T>
-*/
+external fun <T : Node> transform(source: dynamic /* T | T[] */, transformers: ReadonlyArray<TransformerFactory<T>>, compilerOptions: CompilerOptions = definedExternally): TransformationResult<T>

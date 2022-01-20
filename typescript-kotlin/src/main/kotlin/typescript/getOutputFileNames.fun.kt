@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun getOutputFileNames(commandLine: ParsedCommandLine, inputFileName: string, ignoreCase: boolean): readonly string[]
-*/
+external fun getOutputFileNames(commandLine: ParsedCommandLine, inputFileName: String, ignoreCase: Boolean): ReadonlyArray<String>

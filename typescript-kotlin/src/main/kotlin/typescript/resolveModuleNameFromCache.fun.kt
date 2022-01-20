@@ -5,6 +5,9 @@
 
 package typescript
 
-/*
-external fun resolveModuleNameFromCache(moduleName: string, containingFile: string, cache: ModuleResolutionCache, mode?: ModuleKind.CommonJS | ModuleKind.ESNext): ResolvedModuleWithFailedLookupLocations | undefined
-*/
+external fun resolveModuleNameFromCache(
+    moduleName: String,
+    containingFile: String,
+    cache: ModuleResolutionCache,
+    mode: dynamic /* ModuleKind.CommonJS | ModuleKind.ESNext */ = definedExternally,
+): ResolvedModuleWithFailedLookupLocations?

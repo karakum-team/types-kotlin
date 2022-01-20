@@ -5,10 +5,6 @@
 
 package typescript
 
-/*
 external fun skipPartiallyEmittedExpressions(node: Expression): Expression
-*/
 
-/*
 external fun skipPartiallyEmittedExpressions(node: Node): Node
-*/

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun textSpanOverlapsWith(span: TextSpan, other: TextSpan): boolean
-*/
+external fun textSpanOverlapsWith(span: TextSpan, other: TextSpan): Boolean

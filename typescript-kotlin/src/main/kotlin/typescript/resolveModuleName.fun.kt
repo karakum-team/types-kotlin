@@ -5,6 +5,12 @@
 
 package typescript
 
-/*
-external fun resolveModuleName(moduleName: string, containingFile: string, compilerOptions: CompilerOptions, host: ModuleResolutionHost, cache?: ModuleResolutionCache, redirectedReference?: ResolvedProjectReference, resolutionMode?: ModuleKind.CommonJS | ModuleKind.ESNext): ResolvedModuleWithFailedLookupLocations
-*/
+external fun resolveModuleName(
+    moduleName: String,
+    containingFile: String,
+    compilerOptions: CompilerOptions,
+    host: ModuleResolutionHost,
+    cache: ModuleResolutionCache = definedExternally,
+    redirectedReference: ResolvedProjectReference = definedExternally,
+    resolutionMode: dynamic /* ModuleKind.CommonJS | ModuleKind.ESNext */ = definedExternally,
+): ResolvedModuleWithFailedLookupLocations

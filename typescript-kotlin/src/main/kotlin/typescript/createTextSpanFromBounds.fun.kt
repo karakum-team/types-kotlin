@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun createTextSpanFromBounds(start: number, end: number): TextSpan
-*/
+external fun createTextSpanFromBounds(start: Double, end: Double): TextSpan

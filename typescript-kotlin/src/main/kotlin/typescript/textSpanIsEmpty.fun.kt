@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun textSpanIsEmpty(span: TextSpan): boolean
-*/
+external fun textSpanIsEmpty(span: TextSpan): Boolean

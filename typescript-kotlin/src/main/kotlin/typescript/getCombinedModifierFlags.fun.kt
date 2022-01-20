@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
 external fun getCombinedModifierFlags(node: Declaration): ModifierFlags
-*/

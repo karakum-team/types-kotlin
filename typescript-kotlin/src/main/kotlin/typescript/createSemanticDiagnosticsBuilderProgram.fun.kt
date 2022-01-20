@@ -8,10 +8,18 @@ package typescript
 /**
  * Create the builder to manage semantic diagnostics and cache them
  */
-/*
-external fun createSemanticDiagnosticsBuilderProgram(newProgram: Program, host: BuilderProgramHost, oldProgram?: SemanticDiagnosticsBuilderProgram, configFileParsingDiagnostics?: readonly Diagnostic[]): SemanticDiagnosticsBuilderProgram
-*/
+external fun createSemanticDiagnosticsBuilderProgram(
+    newProgram: Program,
+    host: BuilderProgramHost,
+    oldProgram: SemanticDiagnosticsBuilderProgram = definedExternally,
+    configFileParsingDiagnostics: ReadonlyArray<Diagnostic> = definedExternally,
+): SemanticDiagnosticsBuilderProgram
 
-/*
-external fun createSemanticDiagnosticsBuilderProgram(rootNames: readonly string[] | undefined, options: CompilerOptions | undefined, host?: CompilerHost, oldProgram?: SemanticDiagnosticsBuilderProgram, configFileParsingDiagnostics?: readonly Diagnostic[], projectReferences?: readonly ProjectReference[]): SemanticDiagnosticsBuilderProgram
-*/
+external fun createSemanticDiagnosticsBuilderProgram(
+    rootNames: ReadonlyArray<String>?,
+    options: CompilerOptions?,
+    host: CompilerHost = definedExternally,
+    oldProgram: SemanticDiagnosticsBuilderProgram = definedExternally,
+    configFileParsingDiagnostics: ReadonlyArray<Diagnostic> = definedExternally,
+    projectReferences: ReadonlyArray<ProjectReference> = definedExternally,
+): SemanticDiagnosticsBuilderProgram

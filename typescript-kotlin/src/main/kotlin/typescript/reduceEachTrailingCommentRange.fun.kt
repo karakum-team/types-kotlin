@@ -5,6 +5,10 @@
 
 package typescript
 
-/*
-external fun reduceEachTrailingCommentRange<T, U>(text: string, pos: number, cb: (pos: number, end: number, kind: CommentKind, hasTrailingNewLine: boolean, state: T, memo: U) => U, state: T, initial: U): U | undefined
-*/
+external fun <T, U> reduceEachTrailingCommentRange(
+    text: String,
+    pos: Double,
+    cb: (pos: Double, end: Double, kind: CommentKind, hasTrailingNewLine: Boolean, state: T, memo: U) -> U,
+    state: T,
+    initial: U,
+): U?

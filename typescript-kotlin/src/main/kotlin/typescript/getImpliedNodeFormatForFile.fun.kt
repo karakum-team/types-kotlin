@@ -15,6 +15,9 @@ package typescript
  * @param options The compiler options to perform the analysis under - relevant options are `moduleResolution` and `traceResolution`
  * @returns `undefined` if the path has no relevant implied format, `ModuleKind.ESNext` for esm format, and `ModuleKind.CommonJS` for cjs format
  */
-/*
-external fun getImpliedNodeFormatForFile(fileName: Path, packageJsonInfoCache: PackageJsonInfoCache | undefined, host: ModuleResolutionHost, options: CompilerOptions): ModuleKind.ESNext | ModuleKind.CommonJS | undefined
-*/
+external fun getImpliedNodeFormatForFile(
+    fileName: Path,
+    packageJsonInfoCache: PackageJsonInfoCache?,
+    host: ModuleResolutionHost,
+    options: CompilerOptions,
+): dynamic /* ModuleKind.ESNext | ModuleKind.CommonJS */

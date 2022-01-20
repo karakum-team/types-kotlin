@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isExternalModule(file: SourceFile): boolean
-*/
+external fun isExternalModule(file: SourceFile): Boolean

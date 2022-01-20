@@ -5,6 +5,11 @@
 
 package typescript
 
-/*
-external fun classicNameResolver(moduleName: string, containingFile: string, compilerOptions: CompilerOptions, host: ModuleResolutionHost, cache?: NonRelativeModuleNameResolutionCache, redirectedReference?: ResolvedProjectReference): ResolvedModuleWithFailedLookupLocations;
-*/
+external fun classicNameResolver(
+    moduleName: String,
+    containingFile: String,
+    compilerOptions: CompilerOptions,
+    host: ModuleResolutionHost,
+    cache: NonRelativeModuleNameResolutionCache = definedExternally,
+    redirectedReference: ResolvedProjectReference = definedExternally,
+): ResolvedModuleWithFailedLookupLocations

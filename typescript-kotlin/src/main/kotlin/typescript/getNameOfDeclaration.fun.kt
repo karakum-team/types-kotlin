@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun getNameOfDeclaration(declaration: Declaration | Expression | undefined): DeclarationName | undefined
-*/
+external fun getNameOfDeclaration(declaration: dynamic /* Declaration | Expression */): DeclarationName?

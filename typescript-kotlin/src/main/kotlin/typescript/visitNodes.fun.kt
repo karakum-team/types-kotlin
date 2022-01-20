@@ -14,9 +14,13 @@ package typescript
  * @param start An optional value indicating the starting offset at which to start visiting.
  * @param count An optional value indicating the maximum number of nodes to visit.
  */
-/*
-external fun visitNodes<T extends Node>(nodes: NodeArray<T>, visitor: Visitor | undefined, test?: (node: Node) => boolean, start?: number, count?: number): NodeArray<T>
-*/
+external fun <T : Node> visitNodes(
+    nodes: NodeArray<T>,
+    visitor: Visitor?,
+    test: (node: Node) -> Boolean = definedExternally,
+    start: Double = definedExternally,
+    count: Double = definedExternally,
+): NodeArray<T>
 
 /**
  * Visits a NodeArray using the supplied visitor, possibly returning a new NodeArray in its place.
@@ -27,6 +31,10 @@ external fun visitNodes<T extends Node>(nodes: NodeArray<T>, visitor: Visitor | 
  * @param start An optional value indicating the starting offset at which to start visiting.
  * @param count An optional value indicating the maximum number of nodes to visit.
  */
-/*
-external fun visitNodes<T extends Node>(nodes: NodeArray<T> | undefined, visitor: Visitor | undefined, test?: (node: Node) => boolean, start?: number, count?: number): NodeArray<T> | undefined
-*/
+external fun <T : Node> visitNodes(
+    nodes: NodeArray<T>?,
+    visitor: Visitor?,
+    test: (node: Node) -> Boolean = definedExternally,
+    start: Double = definedExternally,
+    count: Double = definedExternally,
+): NodeArray<T>?

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun findConfigFile(searchPath: string, fileExists: (fileName: string) => boolean, configName?: string): string | undefined
-*/
+external fun findConfigFile(searchPath: String, fileExists: (fileName: String) -> Boolean, configName: String = definedExternally): String?

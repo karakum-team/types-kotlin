@@ -10,6 +10,4 @@ package typescript
  * node package.
  * The functionality is not supported if the ts module is consumed outside of a node module.
  */
-/*
-external fun getDefaultLibFilePath(options: CompilerOptions): string
-*/
+external fun getDefaultLibFilePath(options: CompilerOptions): String

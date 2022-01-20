@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun moveSyntheticComments<T extends Node>(node: T, original: Node): T
-*/
+external fun <T : Node> moveSyntheticComments(node: T, original: Node): T

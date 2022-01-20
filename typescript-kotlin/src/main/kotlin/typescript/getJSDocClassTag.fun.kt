@@ -6,6 +6,4 @@
 package typescript
 
 /** Gets the JSDoc class tag for the node if present */
-/*
-external fun getJSDocClassTag(node: Node): JSDocClassTag | undefined
-*/
+external fun getJSDocClassTag(node: Node): JSDocClassTag?

@@ -5,6 +5,11 @@
 
 package typescript
 
-/*
-external fun createLanguageServiceSourceFile(fileName: string, scriptSnapshot: IScriptSnapshot, scriptTarget: ScriptTarget, version: string, setNodeParents: boolean, scriptKind?: ScriptKind): SourceFile
-*/
+external fun createLanguageServiceSourceFile(
+    fileName: String,
+    scriptSnapshot: IScriptSnapshot,
+    scriptTarget: ScriptTarget,
+    version: String,
+    setNodeParents: Boolean,
+    scriptKind: ScriptKind = definedExternally,
+): SourceFile

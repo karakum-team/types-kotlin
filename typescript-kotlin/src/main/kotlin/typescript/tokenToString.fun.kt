@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun tokenToString(t: SyntaxKind): string | undefined
-*/
+external fun tokenToString(t: SyntaxKind): String?

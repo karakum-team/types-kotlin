@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun parseIsolatedEntityName(text: string, languageVersion: ScriptTarget): EntityName | undefined
-*/
+external fun parseIsolatedEntityName(text: String, languageVersion: ScriptTarget): EntityName?

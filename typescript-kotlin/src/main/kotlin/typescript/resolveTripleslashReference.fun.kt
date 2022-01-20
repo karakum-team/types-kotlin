@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun resolveTripleslashReference(moduleName: string, containingFile: string): string
-*/
+external fun resolveTripleslashReference(moduleName: String, containingFile: String): String

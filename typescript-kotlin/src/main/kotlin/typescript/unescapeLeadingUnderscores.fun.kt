@@ -11,6 +11,4 @@ package typescript
  * @param identifier The escaped identifier text.
  * @returns The unescaped identifier text.
  */
-/*
-external fun unescapeLeadingUnderscores(identifier: __String): string
-*/
+external fun unescapeLeadingUnderscores(identifier: __String): String

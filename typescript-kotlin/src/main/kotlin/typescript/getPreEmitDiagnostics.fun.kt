@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun getPreEmitDiagnostics(program: Program, sourceFile?: SourceFile, cancellationToken?: CancellationToken): readonly Diagnostic[]
-*/
+external fun getPreEmitDiagnostics(program: Program, sourceFile: SourceFile = definedExternally, cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>

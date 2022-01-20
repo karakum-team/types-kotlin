@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun textSpanOverlap(span1: TextSpan, span2: TextSpan): TextSpan | undefined
-*/
+external fun textSpanOverlap(span1: TextSpan, span2: TextSpan): TextSpan?

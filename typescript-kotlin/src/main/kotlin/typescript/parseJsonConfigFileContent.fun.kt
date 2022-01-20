@@ -12,6 +12,14 @@ package typescript
  * @param basePath A root directory to resolve relative path entries in the config
  *    file to. e.g. outDir
  */
-/*
-external fun parseJsonConfigFileContent(json: any, host: ParseConfigHost, basePath: string, existingOptions?: CompilerOptions, configFileName?: string, resolutionStack?: Path[], extraFileExtensions?: readonly FileExtensionInfo[], extendedConfigCache?: Map<ExtendedConfigCacheEntry>, existingWatchOptions?: WatchOptions): ParsedCommandLine
-*/
+external fun parseJsonConfigFileContent(
+    json: Any,
+    host: ParseConfigHost,
+    basePath: String,
+    existingOptions: CompilerOptions = definedExternally,
+    configFileName: String = definedExternally,
+    resolutionStack: ReadonlyArray<Path> = definedExternally,
+    extraFileExtensions: ReadonlyArray<FileExtensionInfo> = definedExternally,
+    extendedConfigCache: Map<ExtendedConfigCacheEntry> = definedExternally,
+    existingWatchOptions: WatchOptions = definedExternally,
+): ParsedCommandLine

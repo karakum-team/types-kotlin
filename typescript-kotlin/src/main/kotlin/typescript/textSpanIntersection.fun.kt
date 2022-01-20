@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun textSpanIntersection(span1: TextSpan, span2: TextSpan): TextSpan | undefined
-*/
+external fun textSpanIntersection(span1: TextSpan, span2: TextSpan): TextSpan?

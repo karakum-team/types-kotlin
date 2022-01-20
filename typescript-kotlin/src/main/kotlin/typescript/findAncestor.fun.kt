@@ -11,10 +11,6 @@ package typescript
  * If no such value is found, it applies the callback until the parent pointer is undefined or the callback returns "quit"
  * At that point findAncestor returns undefined.
  */
-/*
-external fun findAncestor<T extends Node>(node: Node | undefined, callback: (element: Node) => element is T): T | undefined
-*/
+external fun <T : Node> findAncestor(node: Node?, callback: (element: Node) -> Boolean /* element is T */): T?
 
-/*
-external fun findAncestor(node: Node | undefined, callback: (element: Node) => boolean | "quit"): Node | undefined
-*/
+external fun findAncestor(node: Node?, callback: dynamic /* (element: Node) => boolean | "quit" */): Node?

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun createPrinter(printerOptions?: PrinterOptions, handlers?: PrintHandlers): Printer
-*/
+external fun createPrinter(printerOptions: PrinterOptions = definedExternally, handlers: PrintHandlers = definedExternally): Printer

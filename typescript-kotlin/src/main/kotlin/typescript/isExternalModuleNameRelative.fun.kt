@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isExternalModuleNameRelative(moduleName: string): boolean
-*/
+external fun isExternalModuleNameRelative(moduleName: String): Boolean

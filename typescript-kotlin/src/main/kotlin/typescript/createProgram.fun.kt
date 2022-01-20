@@ -15,9 +15,7 @@ package typescript
  * @param createProgramOptions - The options for creating a program.
  * @returns A 'Program' object.
  */
-/*
 external fun createProgram(createProgramOptions: CreateProgramOptions): Program
-*/
 
 /**
  * Create a new 'Program' instance. A Program is an immutable collection of 'SourceFile's and a 'CompilerOptions'
@@ -33,6 +31,10 @@ external fun createProgram(createProgramOptions: CreateProgramOptions): Program
  * @param configFileParsingDiagnostics - error during config file parsing
  * @returns A 'Program' object.
  */
-/*
-external fun createProgram(rootNames: readonly string[], options: CompilerOptions, host?: CompilerHost, oldProgram?: Program, configFileParsingDiagnostics?: readonly Diagnostic[]): Program
-*/
+external fun createProgram(
+    rootNames: ReadonlyArray<String>,
+    options: CompilerOptions,
+    host: CompilerHost = definedExternally,
+    oldProgram: Program = definedExternally,
+    configFileParsingDiagnostics: ReadonlyArray<Diagnostic> = definedExternally,
+): Program

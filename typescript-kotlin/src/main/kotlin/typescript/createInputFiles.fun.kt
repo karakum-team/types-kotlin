@@ -5,13 +5,22 @@
 
 package typescript
 
-/*
-external fun createInputFiles(javascriptText: string, declarationText: string): InputFiles
-*/
+external fun createInputFiles(javascriptText: String, declarationText: String): InputFiles
 
-/*
-external fun createInputFiles(readFileText: (path: string) => string | undefined, javascriptPath: string, javascriptMapPath: string | undefined, declarationPath: string, declarationMapPath: string | undefined, buildInfoPath: string | undefined): InputFiles
-*/
-/*
-external fun createInputFiles(javascriptText: string, declarationText: string, javascriptMapPath: string | undefined, javascriptMapText: string | undefined, declarationMapPath: string | undefined, declarationMapText: string | undefined): InputFiles
-*/
+external fun createInputFiles(
+    readFileText: (path: String) -> String?,
+    javascriptPath: String,
+    javascriptMapPath: String?,
+    declarationPath: String,
+    declarationMapPath: String?,
+    buildInfoPath: String?,
+): InputFiles
+
+external fun createInputFiles(
+    javascriptText: String,
+    declarationText: String,
+    javascriptMapPath: String?,
+    javascriptMapText: String?,
+    declarationMapPath: String?,
+    declarationMapText: String?,
+): InputFiles

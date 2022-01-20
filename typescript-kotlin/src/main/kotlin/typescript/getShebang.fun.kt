@@ -6,6 +6,4 @@
 package typescript
 
 /** Optionally, get the shebang */
-/*
-external fun getShebang(text: string): string | undefined
-*/
+external fun getShebang(text: String): String?

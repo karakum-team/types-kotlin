@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isIdentifierPart(ch: number, languageVersion: ScriptTarget | undefined, identifierVariant?: LanguageVariant): boolean
-*/
+external fun isIdentifierPart(ch: Double, languageVersion: ScriptTarget?, identifierVariant: LanguageVariant = definedExternally): Boolean

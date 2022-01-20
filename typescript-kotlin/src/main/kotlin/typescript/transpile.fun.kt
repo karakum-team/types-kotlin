@@ -5,6 +5,10 @@
 
 package typescript
 
-/*
-external fun transpile(input: string, compilerOptions?: CompilerOptions, fileName?: string, diagnostics?: Diagnostic[], moduleName?: string): string
-*/
+external fun transpile(
+    input: String,
+    compilerOptions: CompilerOptions = definedExternally,
+    fileName: String = definedExternally,
+    diagnostics: ReadonlyArray<Diagnostic> = definedExternally,
+    moduleName: String = definedExternally,
+): String

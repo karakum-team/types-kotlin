@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun textChangeRangeIsUnchanged(range: TextChangeRange): boolean
-*/
+external fun textChangeRangeIsUnchanged(range: TextChangeRange): Boolean

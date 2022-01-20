@@ -13,6 +13,4 @@ package typescript
  * More type directives might appear in the program later as a result of loading actual source files;
  *   this list is only the set of defaults that are implicitly included.
  */
-/*
-external fun getAutomaticTypeDirectiveNames(options: CompilerOptions, host: ModuleResolutionHost): string[]
-*/
+external fun getAutomaticTypeDirectiveNames(options: CompilerOptions, host: ModuleResolutionHost): ReadonlyArray<String>

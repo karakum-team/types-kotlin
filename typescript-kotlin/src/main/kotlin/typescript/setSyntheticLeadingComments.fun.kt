@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun setSyntheticLeadingComments<T extends Node>(node: T, comments: SynthesizedComment[] | undefined): T
-*/
+external fun <T : Node> setSyntheticLeadingComments(node: T, comments: ReadonlyArray<SynthesizedComment>?): T

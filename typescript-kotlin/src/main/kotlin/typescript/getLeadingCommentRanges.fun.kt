@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun getLeadingCommentRanges(text: string, pos: number): CommentRange[] | undefined
-*/
+external fun getLeadingCommentRanges(text: String, pos: Double): ReadonlyArray<CommentRange>?

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun isConstTypeReference(node: Node): boolean
-*/
+external fun isConstTypeReference(node: Node): Boolean

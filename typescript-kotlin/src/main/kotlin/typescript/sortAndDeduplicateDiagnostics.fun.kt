@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun sortAndDeduplicateDiagnostics<T extends Diagnostic>(diagnostics: readonly T[]): SortedReadonlyArray<T>
-*/
+external fun <T : Diagnostic> sortAndDeduplicateDiagnostics(diagnostics: ReadonlyArray<T>): SortedReadonlyArray<T>

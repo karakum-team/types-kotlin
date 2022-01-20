@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun textSpanContainsPosition(span: TextSpan, position: number): boolean
-*/
+external fun textSpanContainsPosition(span: TextSpan, position: Double): Boolean

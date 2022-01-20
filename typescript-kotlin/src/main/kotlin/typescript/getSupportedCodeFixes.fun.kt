@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun getSupportedCodeFixes(): string[]
-*/
+external fun getSupportedCodeFixes(): ReadonlyArray<String>

@@ -6,6 +6,4 @@
 package typescript
 
 /** Gets the JSDoc implements tags for the node if present */
-/*
-external fun getJSDocImplementsTags(node: Node): readonly JSDocImplementsTag[]
-*/
+external fun getJSDocImplementsTags(node: Node): ReadonlyArray<JSDocImplementsTag>

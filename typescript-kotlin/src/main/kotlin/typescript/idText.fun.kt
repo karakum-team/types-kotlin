@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun idText(identifierOrPrivateName: Identifier | PrivateIdentifier): string
-*/
+external fun idText(identifierOrPrivateName: dynamic /* Identifier | PrivateIdentifier */): String

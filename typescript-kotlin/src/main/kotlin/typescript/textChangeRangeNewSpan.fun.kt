@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
 external fun textChangeRangeNewSpan(range: TextChangeRange): TextSpan
-*/

@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun setTextRange<T extends TextRange>(range: T, location: TextRange | undefined): T
-*/
+external fun <T : TextRange> setTextRange(range: T, location: TextRange?): T

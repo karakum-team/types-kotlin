@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun getSyntheticTrailingComments(node: Node): SynthesizedComment[] | undefined
-*/
+external fun getSyntheticTrailingComments(node: Node): ReadonlyArray<SynthesizedComment>?

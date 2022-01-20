@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun getConfigFileParsingDiagnostics(configFileParseResult: ParsedCommandLine): readonly Diagnostic[]
-*/
+external fun getConfigFileParsingDiagnostics(configFileParseResult: ParsedCommandLine): ReadonlyArray<Diagnostic>

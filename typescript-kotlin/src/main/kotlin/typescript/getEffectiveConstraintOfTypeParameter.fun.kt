@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun getEffectiveConstraintOfTypeParameter(node: TypeParameterDeclaration): TypeNode | undefined
-*/
+external fun getEffectiveConstraintOfTypeParameter(node: TypeParameterDeclaration): TypeNode?

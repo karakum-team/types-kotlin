@@ -6,6 +6,4 @@
 package typescript
 
 /** Gets the text of a jsdoc comment, flattening links to their text. */
-/*
-external fun getTextOfJSDocComment(comment?: string | NodeArray<JSDocComment>): string | undefined
-*/
+external fun getTextOfJSDocComment(comment: dynamic /* string | NodeArray<JSDocComment> */ = definedExternally): String?

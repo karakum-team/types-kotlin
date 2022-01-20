@@ -5,6 +5,10 @@
 
 package typescript
 
-/*
-external fun updateLanguageServiceSourceFile(sourceFile: SourceFile, scriptSnapshot: IScriptSnapshot, version: string, textChangeRange: TextChangeRange | undefined, aggressiveChecks?: boolean): SourceFile
-*/
+external fun updateLanguageServiceSourceFile(
+    sourceFile: SourceFile,
+    scriptSnapshot: IScriptSnapshot,
+    version: String,
+    textChangeRange: TextChangeRange?,
+    aggressiveChecks: Boolean = definedExternally,
+): SourceFile

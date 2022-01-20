@@ -6,6 +6,4 @@
 package typescript
 
 /** Gets the JSDoc template tag for the node if present */
-/*
-external fun getJSDocTemplateTag(node: Node): JSDocTemplateTag | undefined
-*/
+external fun getJSDocTemplateTag(node: Node): JSDocTemplateTag?

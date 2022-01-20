@@ -6,6 +6,4 @@
 package typescript
 
 /** Gets the JSDoc public tag for the node if present */
-/*
-external fun getJSDocPublicTag(node: Node): JSDocPublicTag | undefined
-*/
+external fun getJSDocPublicTag(node: Node): JSDocPublicTag?

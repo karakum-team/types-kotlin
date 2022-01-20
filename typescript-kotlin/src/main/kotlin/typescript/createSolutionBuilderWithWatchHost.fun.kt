@@ -5,6 +5,10 @@
 
 package typescript
 
-/*
-external fun createSolutionBuilderWithWatchHost<T extends BuilderProgram = EmitAndSemanticDiagnosticsBuilderProgram>(system?: System, createProgram?: CreateProgram<T>, reportDiagnostic?: DiagnosticReporter, reportSolutionBuilderStatus?: DiagnosticReporter, reportWatchStatus?: WatchStatusReporter): SolutionBuilderWithWatchHost<T>
-*/
+external fun <T : BuilderProgram /* = EmitAndSemanticDiagnosticsBuilderProgram */> createSolutionBuilderWithWatchHost(
+    system: System = definedExternally,
+    createProgram: CreateProgram<T> = definedExternally,
+    reportDiagnostic: DiagnosticReporter = definedExternally,
+    reportSolutionBuilderStatus: DiagnosticReporter = definedExternally,
+    reportWatchStatus: WatchStatusReporter = definedExternally,
+): SolutionBuilderWithWatchHost<T>

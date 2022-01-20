@@ -17,6 +17,4 @@ package typescript
  *
  * For binding patterns, parameter tags are matched by position.
  */
-/*
-external fun getJSDocParameterTags(param: ParameterDeclaration): readonly JSDocParameterTag[]
-*/
+external fun getJSDocParameterTags(param: ParameterDeclaration): ReadonlyArray<JSDocParameterTag>

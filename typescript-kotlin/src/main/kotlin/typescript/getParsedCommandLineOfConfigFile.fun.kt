@@ -8,6 +8,11 @@ package typescript
 /**
  * Reads the config file, reports errors if any and exits if the config file cannot be found
  */
-/*
-external fun getParsedCommandLineOfConfigFile(configFileName: string, optionsToExtend: CompilerOptions | undefined, host: ParseConfigFileHost, extendedConfigCache?: Map<ExtendedConfigCacheEntry>, watchOptionsToExtend?: WatchOptions, extraFileExtensions?: readonly FileExtensionInfo[]): ParsedCommandLine | undefined
-*/
+external fun getParsedCommandLineOfConfigFile(
+    configFileName: String,
+    optionsToExtend: CompilerOptions?,
+    host: ParseConfigFileHost,
+    extendedConfigCache: Map<ExtendedConfigCacheEntry> = definedExternally,
+    watchOptionsToExtend: WatchOptions = definedExternally,
+    extraFileExtensions: ReadonlyArray<FileExtensionInfo> = definedExternally,
+): ParsedCommandLine?

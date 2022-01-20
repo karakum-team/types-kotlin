@@ -5,10 +5,6 @@
 
 package typescript
 
-/*
-external fun forEachLeadingCommentRange<U>(text: string, pos: number, cb: (pos: number, end: number, kind: CommentKind, hasTrailingNewLine: boolean) => U): U | undefined
-*/
+external fun <U> forEachLeadingCommentRange(text: String, pos: Double, cb: (pos: Double, end: Double, kind: CommentKind, hasTrailingNewLine: Boolean) -> U): U?
 
-/*
-external fun forEachLeadingCommentRange<T, U>(text: string, pos: number, cb: (pos: number, end: number, kind: CommentKind, hasTrailingNewLine: boolean, state: T) => U, state: T): U | undefined
-*/
+external fun <T, U> forEachLeadingCommentRange(text: String, pos: Double, cb: (pos: Double, end: Double, kind: CommentKind, hasTrailingNewLine: Boolean, state: T) -> U, state: T): U?

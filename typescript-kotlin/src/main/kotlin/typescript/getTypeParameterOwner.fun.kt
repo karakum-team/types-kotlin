@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun getTypeParameterOwner(d: Declaration): Declaration | undefined
-*/
+external fun getTypeParameterOwner(d: Declaration): Declaration?

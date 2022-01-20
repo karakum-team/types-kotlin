@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun couldStartTrivia(text: string, pos: number): boolean
-*/
+external fun couldStartTrivia(text: String, pos: Double): Boolean

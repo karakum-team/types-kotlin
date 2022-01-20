@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun parseCommandLine(commandLine: readonly string[], readFile?: (path: string) => string | undefined): ParsedCommandLine
-*/
+external fun parseCommandLine(commandLine: ReadonlyArray<String>, readFile: (path: String) -> String? = definedExternally): ParsedCommandLine

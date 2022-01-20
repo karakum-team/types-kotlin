@@ -5,6 +5,4 @@
 
 package typescript
 
-/*
-external fun getLineAndCharacterOfPosition(sourceFile: SourceFileLike, position: number): LineAndCharacter
-*/
+external fun getLineAndCharacterOfPosition(sourceFile: SourceFileLike, position: Double): LineAndCharacter

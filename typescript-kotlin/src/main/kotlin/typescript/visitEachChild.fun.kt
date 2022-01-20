@@ -12,9 +12,7 @@ package typescript
  * @param visitor The callback used to visit each child.
  * @param context A lexical environment context for the visitor.
  */
-/*
-external fun visitEachChild<T extends Node>(node: T, visitor: Visitor, context: TransformationContext): T
-*/
+external fun <T : Node> visitEachChild(node: T, visitor: Visitor, context: TransformationContext): T
 
 /**
  * Visits each child of a Node using the supplied visitor, possibly returning a new Node of the same kind in its place.
@@ -23,6 +21,10 @@ external fun visitEachChild<T extends Node>(node: T, visitor: Visitor, context: 
  * @param visitor The callback used to visit each child.
  * @param context A lexical environment context for the visitor.
  */
-/*
-external fun visitEachChild<T extends Node>(node: T | undefined, visitor: Visitor, context: TransformationContext, nodesVisitor?: typeof visitNodes, tokenVisitor?: Visitor): T | undefined
-*/
+external fun <T : Node> visitEachChild(
+    node: T?,
+    visitor: Visitor,
+    context: TransformationContext,
+    nodesVisitor: dynamic /* typeof visitNodes */ = definedExternally,
+    tokenVisitor: Visitor = definedExternally,
+): T?

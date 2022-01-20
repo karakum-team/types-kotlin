@@ -5,13 +5,7 @@
 
 package typescript
 
-/*
-external fun createUnparsedSourceFile(text: string): UnparsedSource
-*/
+external fun createUnparsedSourceFile(text: String): UnparsedSource
 
-/*
-external fun createUnparsedSourceFile(inputFile: InputFiles, type: "js" | "dts", stripInternal?: boolean): UnparsedSource
-*/
-/*
-external fun createUnparsedSourceFile(text: string, mapPath: string | undefined, map: string | undefined): UnparsedSource
-*/
+external fun createUnparsedSourceFile(inputFile: InputFiles, type: dynamic /* "js" | "dts" */, stripInternal: Boolean = definedExternally): UnparsedSource
+external fun createUnparsedSourceFile(text: String, mapPath: String?, map: String?): UnparsedSource

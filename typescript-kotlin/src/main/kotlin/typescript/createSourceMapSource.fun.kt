@@ -8,6 +8,4 @@ package typescript
 /**
  * Create an external source map source file reference
  */
-/*
-external fun createSourceMapSource(fileName: string, text: string, skipTrivia?: (pos: number) => number): SourceMapSource
-*/
+external fun createSourceMapSource(fileName: String, text: String, skipTrivia: (pos: Double) -> Double = definedExternally): SourceMapSource
