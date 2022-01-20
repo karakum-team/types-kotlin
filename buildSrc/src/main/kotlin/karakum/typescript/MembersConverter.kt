@@ -11,8 +11,6 @@ private val IGNORED = setOf(
     "TransformationResult",
     "PrintHandlers",
     "ModeAwareCache",
-    "SemanticDiagnosticsBuilderProgram",
-    "BuildInvalidedProject",
 )
 
 internal fun convertMembers(
@@ -26,6 +24,7 @@ internal fun convertMembers(
 
     val thisReplacement = when (name) {
         "ESMap" -> "ESMap<K, V>"
+        "ModeAwareCache" -> "ModeAwareCache<T>"
         "Set" -> "Set<T>"
         else -> "<this>"
     }

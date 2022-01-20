@@ -43,6 +43,9 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "(node: Node) => boolean" to "(node: Node) -> Boolean",
     "(node: readonly Node[]) => T" to "(node: ReadonlyArray<Node>) -> T",
+
+    "(sourceFile: SourceFile) => boolean" to "(sourceFile: SourceFile) -> Boolean",
+    "AffectedFileResult<readonly Diagnostic[]>" to "AffectedFileResult<ReadonlyArray<Diagnostic>>"
 )
 
 internal fun kotlinType(
