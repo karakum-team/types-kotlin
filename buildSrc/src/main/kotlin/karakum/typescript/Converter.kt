@@ -108,13 +108,18 @@ private fun convertConst(
 
 private val EXCLUDED_FUNCTIONS = setOf(
     "isIterationStatement",
+    "readConfigFile",
+    "parseConfigFileTextToJson",
+    "convertCompilerOptionsFromJson",
+    "convertTypeAcquisitionFromJson",
+    "createIncrementalProgram",
 )
 
 private fun convertFunction(
     name: String,
     source: String,
 ): String {
-    if ("): {" in source || "({" in source || name in EXCLUDED_FUNCTIONS)
+    if (name in EXCLUDED_FUNCTIONS)
         return "/*\nexternal fun $source\n*/"
 
     val result = "external ${convertMethod(source)}"
