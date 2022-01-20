@@ -104,7 +104,7 @@ private fun convertConst(
     if (body == "string")
         return "external val $name: String"
 
-    if (body.startsWith("(")) {
+    if (body.startsWith("(") || body.startsWith("<")) {
         val functionSource = when (name) {
             "createTempVariable" -> body.replace(") => Identifier", "): Identifier")
             else -> body.replace(") => ", "): ")

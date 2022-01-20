@@ -49,7 +49,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "ModuleKind.CommonJS | ModuleKind.ESNext | undefined" to "$DYNAMIC /* ModuleKind.CommonJS | ModuleKind.ESNext | undefined */",
 
-    "typeof visitNodes" to "$DYNAMIC /* typeof visitNodes */"
+    "typeof visitNodes" to "$DYNAMIC /* typeof visitNodes */",
 )
 
 internal fun kotlinType(
