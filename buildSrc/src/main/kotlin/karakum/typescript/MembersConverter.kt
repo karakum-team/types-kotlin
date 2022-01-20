@@ -35,11 +35,13 @@ internal fun convertMembers(
     }
 
     return source.trimIndent()
+        .replace(";\n * ", ";---\n * ")
         .removeSuffix(";")
         .replace(": this", ": $thisReplacement")
         .splitToSequence(";\n")
         .map { convertMember(it) }
         .joinToString("\n")
+        .replace(";---\n * ", ";\n * ")
 }
 
 private fun convertMember(
