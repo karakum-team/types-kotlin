@@ -55,6 +55,7 @@ private val REQUIRED = setOf(
     "ProgramHost",
     "Push",
     // "Scanner",
+    "System",
     "WatchHost",
 )
 
