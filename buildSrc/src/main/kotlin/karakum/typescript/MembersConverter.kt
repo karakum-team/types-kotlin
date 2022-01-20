@@ -54,9 +54,15 @@ private val REQUIRED = setOf(
     "LanguageServiceHost",
     "ProgramHost",
     "Push",
-    // "Scanner",
     "System",
     "WatchHost",
+
+    "BuilderProgramHost",
+    "CompilerHost",
+    "LanguageService",
+    "SolutionBuilder",
+    "SolutionBuilderHostBase",
+    "SourceMapSource",
 )
 
 internal fun convertMembers(

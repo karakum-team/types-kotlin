@@ -32,6 +32,13 @@ private val STANDARD_TYPE_MAP = mapOf(
     "-1" to "Double /* -1 */",
 
     "() => T" to "() -> T",
+
+    "(data: string) => string" to "(data: String) -> String",
+    "(message: string) => void" to "(message: String) -> Unit",
+    "(project: string) => CustomTransformers" to "(project: String) -> CustomTransformers",
+    // "(value: V, key: K) => void" to "(value: V, key: K) -> Unit",
+    "(pos: number) => number" to "(pos: Double) -> Double",
+    "Iterator<[K, V]>" to "Iterator<$DYNAMIC /* [K, V] */>",
 )
 
 internal fun kotlinType(
@@ -41,9 +48,11 @@ internal fun kotlinType(
     if (type.startsWith("readonly "))
         return kotlinType(type.removePrefix("readonly "), name)
 
-    if (type.endsWith(" | undefined"))
-        return kotlinType(type.removeSuffix(" | undefined"), name)
-            .addOptionality()
+    if (type.endsWith(" | undefined")) {
+        var result = kotlinType(type.removeSuffix(" | undefined"), name)
+        if (!result.startsWith(DYNAMIC)) result += "?"
+        return result
+    }
 
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
@@ -60,8 +69,10 @@ internal fun kotlinType(
     if (type.endsWith("[]"))
         return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
 
-    if (type.startsWith("Promise<"))
-        return type.replaceFirst("Promise<", "kotlin.js.Promise<")
+    if (type.startsWith("Promise<")) {
+        val parameter = kotlinType(type.removeSurrounding("Promise<", ">"), name)
+        return "kotlin.js.Promise<$parameter>"
+    }
 
     return type
 }
