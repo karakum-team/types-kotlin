@@ -106,17 +106,25 @@ private fun convertConst(
     return "/*\nexternal val $source\n*/"
 }
 
+private val EXCLUDED_FUNCTIONS = setOf(
+    "isIterationStatement",
+)
+
 private fun convertFunction(
     name: String,
     source: String,
 ): String {
-    if ("): node is " in source && name != "isIterationStatement")
-        return "external fun " +
-                source.replace("): node is ", "): Boolean /* node is ")
-                    .replace("Node | undefined", "Node?") +
-                " */"
+    if ("): {" in source || "({" in source || name in EXCLUDED_FUNCTIONS)
+        return "/*\nexternal fun $source\n*/"
 
-    return "/*\nexternal fun $source\n*/"
+    val result = "external ${convertMethod(source)}"
+        .replace(" = EmitAndSemanticDiagnosticsBuilderProgram", " /* = EmitAndSemanticDiagnosticsBuilderProgram */")
+
+    return if (name.endsWith("CommentRange")) {
+        result.replace(": number", ": Double")
+            .replace(": boolean", ": Boolean")
+            .replace(" => U", " -> U")
+    } else result
 }
 
 // TEMP

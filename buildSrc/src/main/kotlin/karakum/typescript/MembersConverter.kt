@@ -80,7 +80,7 @@ private fun convertProperty(
     return "$modifier $name: $type"
 }
 
-private fun convertMethod(
+internal fun convertMethod(
     source: String,
 ): String {
     val name = source.substringBefore("(")

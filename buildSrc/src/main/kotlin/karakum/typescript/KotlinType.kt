@@ -48,6 +48,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "AffectedFileResult<readonly Diagnostic[]>" to "AffectedFileResult<ReadonlyArray<Diagnostic>>",
 
     "ModuleKind.CommonJS | ModuleKind.ESNext | undefined" to "$DYNAMIC /* ModuleKind.CommonJS | ModuleKind.ESNext | undefined */",
+
+    "typeof visitNodes" to "$DYNAMIC /* typeof visitNodes */"
 )
 
 internal fun kotlinType(
@@ -85,7 +87,17 @@ internal fun kotlinType(
 
     if (type.startsWith("("))
         return type.replace(" => void", " -> $UNIT")
+            .replace(" => T", " -> T")
             .replace(" => Node", " -> Node")
+            .replace(" => string", " -> String")
+            .replace(" => boolean", " -> Boolean")
+            .replace(" => element is T", " -> Boolean /* element is T */")
+            .replace(" => tag is T", " -> Boolean /* tag is T */")
+            .replace(" => node is T", " -> Boolean /* node is T */")
+            .replace(": string", ": String")
+
+    if (type.startsWith("node is "))
+        return "Boolean /* $type */"
 
     return type
 }
