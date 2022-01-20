@@ -8,11 +8,12 @@ package typescript
  * the same values.
  */
 external interface IScriptSnapshot {
-    /*
     /** Gets a portion of the script snapshot specified by [start, end). */
-    getText(start: number, end: number): string;
+    fun getText(start: Double, end: Double): String
+
     /** Gets the length of this script snapshot. */
-    getLength(): number;
+    fun getLength(): Double
+
     /**
      * Gets the TextChangeRange that describe how the text changed between this text and
      * an older version.  This information is used by the incremental parser to determine
@@ -20,11 +21,8 @@ external interface IScriptSnapshot {
      * change range cannot be determined.  However, in that case, incremental parsing will
      * not happen and the entire document will be re - parsed.
      */
-    getChangeRange(oldSnapshot: IScriptSnapshot): TextChangeRange | undefined;
+    fun getChangeRange(oldSnapshot: IScriptSnapshot): TextChangeRange?
+
     /** Releases all resources held by this script snapshot */
-    dispose?(): void;
-}
-namespace ScriptSnapshot {
-    function fromString(text: string): IScriptSnapshot;
-    */
+    val dispose: (() -> Unit)?
 }
