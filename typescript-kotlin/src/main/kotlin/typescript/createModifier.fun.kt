@@ -6,6 +6,4 @@
 package typescript
 
 /** @deprecated Use `factory.createModifier` or the factory supplied by your transformation context instead. */
-/*
-external val createModifier: <T extends ModifierSyntaxKind>(kind: T) => ModifierToken<T>
-*/
+external fun <T : ModifierSyntaxKind> createModifier(kind: T): ModifierToken<T>

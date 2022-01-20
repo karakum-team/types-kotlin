@@ -13,6 +13,4 @@ package typescript
  *
  * @deprecated Use an appropriate `factory.update...` method instead, use `setCommentRange` or `setSourceMapRange`, and avoid setting `parent`.
  */
-/*
-external val getMutableClone: <T extends Node>(node: T) => T
-*/
+external fun <T : Node> getMutableClone(node: T): T

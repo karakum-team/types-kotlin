@@ -6,6 +6,4 @@
 package typescript
 
 /** @deprecated Use `factory.createToken` or the factory supplied by your transformation context instead. */
-/*
-external val createToken: <TKind extends SyntaxKind>(kind: TKind) => Token<TKind>
-*/
+external fun <TKind : SyntaxKind> createToken(kind: TKind): Token<TKind>

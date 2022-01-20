@@ -6,6 +6,4 @@
 package typescript
 
 /** @deprecated Use `factory.createNodeArray` or the factory supplied by your transformation context instead. */
-/*
-external val createNodeArray: <T extends Node>(elements?: readonly T[] | undefined, hasTrailingComma?: boolean | undefined) => NodeArray<T>
-*/
+external fun <T : Node> createNodeArray(elements: ReadonlyArray<T>? = definedExternally, hasTrailingComma: Boolean? = definedExternally): NodeArray<T>

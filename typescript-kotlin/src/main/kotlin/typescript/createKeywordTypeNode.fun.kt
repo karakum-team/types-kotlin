@@ -6,6 +6,4 @@
 package typescript
 
 /** @deprecated Use `factory.createKeywordTypeNode` or the factory supplied by your transformation context instead. */
-/*
-external val createKeywordTypeNode: <TKind extends KeywordTypeSyntaxKind>(kind: TKind) => KeywordTypeNode<TKind>
-*/
+external fun <TKind : KeywordTypeSyntaxKind> createKeywordTypeNode(kind: TKind): KeywordTypeNode<TKind>
