@@ -31,6 +31,7 @@ private val CONVERTER_MAP = mapOf(
     "enum" to ::convertEnum,
     "interface" to ::convertInterface,
     "class" to ::convertClass,
+    "namespace" to ::convertNamespace,
 )
 
 private val KEYWORDS = CONVERTER_MAP.keys
@@ -265,4 +266,15 @@ private fun convertClass(
     return "external class $source"
 }
 
+private fun convertNamespace(
+    name: String,
+    source: String,
+): String {
+    val bodySource = source
+        .substringAfter("{\n")
+        .substringBeforeLast("\n}", "")
+        .replace("function ", "")
 
+    val body = convertMembers(name, bodySource)
+    return "external object $name {\n$body\n}"
+}

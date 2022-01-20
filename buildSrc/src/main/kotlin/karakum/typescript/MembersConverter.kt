@@ -63,6 +63,9 @@ private val REQUIRED = setOf(
     "SolutionBuilder",
     "SolutionBuilderHostBase",
     "SourceMapSource",
+
+    "IScriptSnapshot",
+    "ScriptSnapshot",
 )
 
 internal fun convertMembers(
