@@ -3,19 +3,27 @@
 package typescript
 
 external interface BuildInvalidedProject<T : BuilderProgram> : InvalidatedProjectBase {
-    /*
-    readonly kind: InvalidatedProjectKind.Build;
-    getBuilderProgram(): T | undefined;
-    getProgram(): Program | undefined;
-    getSourceFile(fileName: string): SourceFile | undefined;
-    getSourceFiles(): readonly SourceFile[];
-    getOptionsDiagnostics(cancellationToken?: CancellationToken): readonly Diagnostic[];
-    getGlobalDiagnostics(cancellationToken?: CancellationToken): readonly Diagnostic[];
-    getConfigFileParsingDiagnostics(): readonly Diagnostic[];
-    getSyntacticDiagnostics(sourceFile?: SourceFile, cancellationToken?: CancellationToken): readonly Diagnostic[];
-    getAllDependencies(sourceFile: SourceFile): readonly string[];
-    getSemanticDiagnostics(sourceFile?: SourceFile, cancellationToken?: CancellationToken): readonly Diagnostic[];
-    getSemanticDiagnosticsOfNextAffectedFile(cancellationToken?: CancellationToken, ignoreSourceFile?: (sourceFile: SourceFile) => boolean): AffectedFileResult<readonly Diagnostic[]>;
-    emit(targetSourceFile?: SourceFile, writeFile?: WriteFileCallback, cancellationToken?: CancellationToken, emitOnlyDtsFiles?: boolean, customTransformers?: CustomTransformers): EmitResult | undefined;
-    */
+    override val kind: InvalidatedProjectKind.Build
+    fun getBuilderProgram(): T?
+    fun getProgram(): Program?
+    fun getSourceFile(fileName: String): SourceFile?
+    fun getSourceFiles(): ReadonlyArray<SourceFile>
+    fun getOptionsDiagnostics(cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
+    fun getGlobalDiagnostics(cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
+    fun getConfigFileParsingDiagnostics(): ReadonlyArray<Diagnostic>
+    fun getSyntacticDiagnostics(sourceFile: SourceFile = definedExternally, cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
+    fun getAllDependencies(sourceFile: SourceFile): ReadonlyArray<String>
+    fun getSemanticDiagnostics(sourceFile: SourceFile = definedExternally, cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
+    fun getSemanticDiagnosticsOfNextAffectedFile(
+        cancellationToken: CancellationToken = definedExternally,
+        ignoreSourceFile: (sourceFile: SourceFile) -> Boolean = definedExternally,
+    ): AffectedFileResult<ReadonlyArray<Diagnostic>>
+
+    fun emit(
+        targetSourceFile: SourceFile = definedExternally,
+        writeFile: WriteFileCallback = definedExternally,
+        cancellationToken: CancellationToken = definedExternally,
+        emitOnlyDtsFiles: Boolean = definedExternally,
+        customTransformers: CustomTransformers = definedExternally,
+    ): EmitResult?
 }
