@@ -4,10 +4,8 @@ package typescript
 
 /** ES6 Map interface, only read methods included. */
 external interface ReadonlyESMap<K, V> : ReadonlyCollection<K> {
-    /*
-    get(key: K): V | undefined;
-    values(): Iterator<V>;
-    entries(): Iterator<[K, V]>;
-    forEach(action: (value: V, key: K) => void): void;
-    */
+    fun get(key: K): V?
+    fun values(): Iterator<V>
+    fun entries(): Iterator<dynamic /* [K, V] */>
+    fun forEach(action: (value: V, key: K) -> Unit)
 }
