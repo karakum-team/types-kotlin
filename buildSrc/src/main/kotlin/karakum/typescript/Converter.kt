@@ -100,8 +100,21 @@ private fun convertConst(
     if (" = " in source)
         return "const val $source"
 
-    if (source.substringAfter(": ") == "string")
+    val body = source.substringAfter(": ")
+    if (body == "string")
         return "external val $name: String"
+
+    if (body.startsWith("(")) {
+        val functionSource = when (name) {
+            "createTempVariable" -> body.replace(") => Identifier", "): Identifier")
+            else -> body.replace(") => ", "): ")
+        }
+
+        return convertFunction(
+            name = name,
+            source = name + functionSource,
+        )
+    }
 
     return "/*\nexternal val $source\n*/"
 }
