@@ -3,9 +3,9 @@
 package typescript
 
 external interface LanguageService {
-    /*
     /** This is used as a part of restarting the language service. */
-    cleanupSemanticCache(): void;
+    fun cleanupSemanticCache()
+
     /**
      * Gets errors indicating invalid syntax in a file.
      *
@@ -23,7 +23,8 @@ external interface LanguageService {
      *
      * @param fileName A path to the file you want syntactic diagnostics for
      */
-    getSyntacticDiagnostics(fileName: string): DiagnosticWithLocation[];
+    fun getSyntacticDiagnostics(fileName: String): ReadonlyArray<DiagnosticWithLocation>
+
     /**
      * Gets warnings or errors indicating type system issues in a given file.
      * Requesting semantic diagnostics may start up the type system and
@@ -39,7 +40,8 @@ external interface LanguageService {
      *
      * @param fileName A path to the file you want semantic diagnostics for
      */
-    getSemanticDiagnostics(fileName: string): Diagnostic[];
+    fun getSemanticDiagnostics(fileName: String): ReadonlyArray<Diagnostic>
+
     /**
      * Gets suggestion diagnostics for a specific file. These diagnostics tend to
      * proactively suggest refactors, as opposed to diagnostics that indicate
@@ -47,19 +49,24 @@ external interface LanguageService {
      *
      * @param fileName A path to the file you want semantic diagnostics for
      */
-    getSuggestionDiagnostics(fileName: string): DiagnosticWithLocation[];
+    fun getSuggestionDiagnostics(fileName: String): ReadonlyArray<DiagnosticWithLocation>
+
     /**
      * Gets global diagnostics related to the program configuration and compiler options.
      */
-    getCompilerOptionsDiagnostics(): Diagnostic[];
+    fun getCompilerOptionsDiagnostics(): ReadonlyArray<Diagnostic>
+
     /** @deprecated Use getEncodedSyntacticClassifications instead. */
-    getSyntacticClassifications(fileName: string, span: TextSpan): ClassifiedSpan[];
-    getSyntacticClassifications(fileName: string, span: TextSpan, format: SemanticClassificationFormat): ClassifiedSpan[] | ClassifiedSpan2020[];
+    fun getSyntacticClassifications(fileName: String, span: TextSpan): ReadonlyArray<ClassifiedSpan>
+    fun getSyntacticClassifications(fileName: String, span: TextSpan, format: SemanticClassificationFormat): dynamic /* ClassifiedSpan[] | ClassifiedSpan2020[] */
+
     /** @deprecated Use getEncodedSemanticClassifications instead. */
-    getSemanticClassifications(fileName: string, span: TextSpan): ClassifiedSpan[];
-    getSemanticClassifications(fileName: string, span: TextSpan, format: SemanticClassificationFormat): ClassifiedSpan[] | ClassifiedSpan2020[];
+    fun getSemanticClassifications(fileName: String, span: TextSpan): ReadonlyArray<ClassifiedSpan>
+    fun getSemanticClassifications(fileName: String, span: TextSpan, format: SemanticClassificationFormat): dynamic /* ClassifiedSpan[] | ClassifiedSpan2020[] */
+
     /** Encoded as triples of [start, length, ClassificationType]. */
-    getEncodedSyntacticClassifications(fileName: string, span: TextSpan): Classifications;
+    fun getEncodedSyntacticClassifications(fileName: String, span: TextSpan): Classifications
+
     /**
      * Gets semantic highlights information for a particular file. Has two formats, an older
      * version used by VS and a format used by VS Code.
@@ -69,7 +76,8 @@ external interface LanguageService {
      * @param format Which format to use, defaults to "original"
      * @returns a number array encoded as triples of [start, length, ClassificationType, ...].
      */
-    getEncodedSemanticClassifications(fileName: string, span: TextSpan, format?: SemanticClassificationFormat): Classifications;
+    fun getEncodedSemanticClassifications(fileName: String, span: TextSpan, format: SemanticClassificationFormat = definedExternally): Classifications
+
     /**
      * Gets completion entries at a particular position in a file.
      *
@@ -78,7 +86,8 @@ external interface LanguageService {
      * @param options An object describing how the request was triggered and what kinds
      * of code actions can be returned with the completions.
      */
-    getCompletionsAtPosition(fileName: string, position: number, options: GetCompletionsAtPositionOptions | undefined): WithMetadata<CompletionInfo> | undefined;
+    fun getCompletionsAtPosition(fileName: String, position: Double, options: GetCompletionsAtPositionOptions?): WithMetadata<CompletionInfo>?
+
     /**
      * Gets the extended details for a completion entry retrieved from `getCompletionsAtPosition`.
      *
@@ -90,8 +99,18 @@ external interface LanguageService {
      * @param preferences User settings, can be undefined for backwards compatibility
      * @param data `data` property from the completion entry
      */
-    getCompletionEntryDetails(fileName: string, position: number, entryName: string, formatOptions: FormatCodeOptions | FormatCodeSettings | undefined, source: string | undefined, preferences: UserPreferences | undefined, data: CompletionEntryData | undefined): CompletionEntryDetails | undefined;
-    getCompletionEntrySymbol(fileName: string, position: number, name: string, source: string | undefined): Symbol | undefined;
+    fun getCompletionEntryDetails(
+        fileName: String,
+        position: Double,
+        entryName: String,
+        formatOptions: dynamic, /* FormatCodeOptions | FormatCodeSettings */
+        source: String?,
+        preferences: UserPreferences?,
+        data: CompletionEntryData?,
+    ): CompletionEntryDetails?
+
+    fun getCompletionEntrySymbol(fileName: String, position: Double, name: String, source: String?): Symbol?
+
     /**
      * Gets semantic information about the identifier at a particular position in a
      * file. Quick info is what you typically see when you hover in an editor.
@@ -99,67 +118,110 @@ external interface LanguageService {
      * @param fileName The path to the file
      * @param position A zero-based index of the character where you want the quick info
      */
-    getQuickInfoAtPosition(fileName: string, position: number): QuickInfo | undefined;
-    getNameOrDottedNameSpan(fileName: string, startPos: number, endPos: number): TextSpan | undefined;
-    getBreakpointStatementAtPosition(fileName: string, position: number): TextSpan | undefined;
-    getSignatureHelpItems(fileName: string, position: number, options: SignatureHelpItemsOptions | undefined): SignatureHelpItems | undefined;
-    getRenameInfo(fileName: string, position: number, options?: RenameInfoOptions): RenameInfo;
-    findRenameLocations(fileName: string, position: number, findInStrings: boolean, findInComments: boolean, providePrefixAndSuffixTextForRename?: boolean): readonly RenameLocation[] | undefined;
-    getSmartSelectionRange(fileName: string, position: number): SelectionRange;
-    getDefinitionAtPosition(fileName: string, position: number): readonly DefinitionInfo[] | undefined;
-    getDefinitionAndBoundSpan(fileName: string, position: number): DefinitionInfoAndBoundSpan | undefined;
-    getTypeDefinitionAtPosition(fileName: string, position: number): readonly DefinitionInfo[] | undefined;
-    getImplementationAtPosition(fileName: string, position: number): readonly ImplementationLocation[] | undefined;
-    getReferencesAtPosition(fileName: string, position: number): ReferenceEntry[] | undefined;
-    findReferences(fileName: string, position: number): ReferencedSymbol[] | undefined;
-    getDocumentHighlights(fileName: string, position: number, filesToSearch: string[]): DocumentHighlights[] | undefined;
-    getFileReferences(fileName: string): ReferenceEntry[];
+    fun getQuickInfoAtPosition(fileName: String, position: Double): QuickInfo?
+    fun getNameOrDottedNameSpan(fileName: String, startPos: Double, endPos: Double): TextSpan?
+    fun getBreakpointStatementAtPosition(fileName: String, position: Double): TextSpan?
+    fun getSignatureHelpItems(fileName: String, position: Double, options: SignatureHelpItemsOptions?): SignatureHelpItems?
+    fun getRenameInfo(fileName: String, position: Double, options: RenameInfoOptions = definedExternally): RenameInfo
+    fun findRenameLocations(
+        fileName: String,
+        position: Double,
+        findInStrings: Boolean,
+        findInComments: Boolean,
+        providePrefixAndSuffixTextForRename: Boolean = definedExternally,
+    ): ReadonlyArray<RenameLocation>?
+
+    fun getSmartSelectionRange(fileName: String, position: Double): SelectionRange
+    fun getDefinitionAtPosition(fileName: String, position: Double): ReadonlyArray<DefinitionInfo>?
+    fun getDefinitionAndBoundSpan(fileName: String, position: Double): DefinitionInfoAndBoundSpan?
+    fun getTypeDefinitionAtPosition(fileName: String, position: Double): ReadonlyArray<DefinitionInfo>?
+    fun getImplementationAtPosition(fileName: String, position: Double): ReadonlyArray<ImplementationLocation>?
+    fun getReferencesAtPosition(fileName: String, position: Double): ReadonlyArray<ReferenceEntry>?
+    fun findReferences(fileName: String, position: Double): ReadonlyArray<ReferencedSymbol>?
+    fun getDocumentHighlights(fileName: String, position: Double, filesToSearch: ReadonlyArray<String>): ReadonlyArray<DocumentHighlights>?
+    fun getFileReferences(fileName: String): ReadonlyArray<ReferenceEntry>
+
     /** @deprecated */
-    getOccurrencesAtPosition(fileName: string, position: number): readonly ReferenceEntry[] | undefined;
-    getNavigateToItems(searchValue: string, maxResultCount?: number, fileName?: string, excludeDtsFiles?: boolean): NavigateToItem[];
-    getNavigationBarItems(fileName: string): NavigationBarItem[];
-    getNavigationTree(fileName: string): NavigationTree;
-    prepareCallHierarchy(fileName: string, position: number): CallHierarchyItem | CallHierarchyItem[] | undefined;
-    provideCallHierarchyIncomingCalls(fileName: string, position: number): CallHierarchyIncomingCall[];
-    provideCallHierarchyOutgoingCalls(fileName: string, position: number): CallHierarchyOutgoingCall[];
-    provideInlayHints(fileName: string, span: TextSpan, preferences: UserPreferences | undefined): InlayHint[];
-    getOutliningSpans(fileName: string): OutliningSpan[];
-    getTodoComments(fileName: string, descriptors: TodoCommentDescriptor[]): TodoComment[];
-    getBraceMatchingAtPosition(fileName: string, position: number): TextSpan[];
-    getIndentationAtPosition(fileName: string, position: number, options: EditorOptions | EditorSettings): number;
-    getFormattingEditsForRange(fileName: string, start: number, end: number, options: FormatCodeOptions | FormatCodeSettings): TextChange[];
-    getFormattingEditsForDocument(fileName: string, options: FormatCodeOptions | FormatCodeSettings): TextChange[];
-    getFormattingEditsAfterKeystroke(fileName: string, position: number, key: string, options: FormatCodeOptions | FormatCodeSettings): TextChange[];
-    getDocCommentTemplateAtPosition(fileName: string, position: number, options?: DocCommentTemplateOptions): TextInsertion | undefined;
-    isValidBraceCompletionAtPosition(fileName: string, position: number, openingBrace: number): boolean;
+    fun getOccurrencesAtPosition(fileName: String, position: Double): ReadonlyArray<ReferenceEntry>?
+    fun getNavigateToItems(
+        searchValue: String,
+        maxResultCount: Double = definedExternally,
+        fileName: String = definedExternally,
+        excludeDtsFiles: Boolean = definedExternally,
+    ): ReadonlyArray<NavigateToItem>
+
+    fun getNavigationBarItems(fileName: String): ReadonlyArray<NavigationBarItem>
+    fun getNavigationTree(fileName: String): NavigationTree
+    fun prepareCallHierarchy(fileName: String, position: Double): dynamic /* CallHierarchyItem | CallHierarchyItem[] */
+    fun provideCallHierarchyIncomingCalls(fileName: String, position: Double): ReadonlyArray<CallHierarchyIncomingCall>
+    fun provideCallHierarchyOutgoingCalls(fileName: String, position: Double): ReadonlyArray<CallHierarchyOutgoingCall>
+    fun provideInlayHints(fileName: String, span: TextSpan, preferences: UserPreferences?): ReadonlyArray<InlayHint>
+    fun getOutliningSpans(fileName: String): ReadonlyArray<OutliningSpan>
+    fun getTodoComments(fileName: String, descriptors: ReadonlyArray<TodoCommentDescriptor>): ReadonlyArray<TodoComment>
+    fun getBraceMatchingAtPosition(fileName: String, position: Double): ReadonlyArray<TextSpan>
+    fun getIndentationAtPosition(fileName: String, position: Double, options: dynamic /* EditorOptions | EditorSettings */): Double
+    fun getFormattingEditsForRange(fileName: String, start: Double, end: Double, options: dynamic /* FormatCodeOptions | FormatCodeSettings */): ReadonlyArray<TextChange>
+    fun getFormattingEditsForDocument(fileName: String, options: dynamic /* FormatCodeOptions | FormatCodeSettings */): ReadonlyArray<TextChange>
+    fun getFormattingEditsAfterKeystroke(fileName: String, position: Double, key: String, options: dynamic /* FormatCodeOptions | FormatCodeSettings */): ReadonlyArray<TextChange>
+    fun getDocCommentTemplateAtPosition(fileName: String, position: Double, options: DocCommentTemplateOptions = definedExternally): TextInsertion?
+    fun isValidBraceCompletionAtPosition(fileName: String, position: Double, openingBrace: Double): Boolean
+
     /**
      * This will return a defined result if the position is after the `>` of the opening tag, or somewhere in the text, of a JSXElement with no closing tag.
      * Editors should call this after `>` is typed.
      */
-    getJsxClosingTagAtPosition(fileName: string, position: number): JsxClosingTagInfo | undefined;
-    getSpanOfEnclosingComment(fileName: string, position: number, onlyMultiLine: boolean): TextSpan | undefined;
-    toLineColumnOffset?(fileName: string, position: number): LineAndCharacter;
-    getCodeFixesAtPosition(fileName: string, start: number, end: number, errorCodes: readonly number[], formatOptions: FormatCodeSettings, preferences: UserPreferences): readonly CodeFixAction[];
-    getCombinedCodeFix(scope: CombinedCodeFixScope, fixId: {}, formatOptions: FormatCodeSettings, preferences: UserPreferences): CombinedCodeActions;
-    applyCodeActionCommand(action: CodeActionCommand, formatSettings?: FormatCodeSettings): Promise<ApplyCodeActionCommandResult>;
-    applyCodeActionCommand(action: CodeActionCommand[], formatSettings?: FormatCodeSettings): Promise<ApplyCodeActionCommandResult[]>;
-    applyCodeActionCommand(action: CodeActionCommand | CodeActionCommand[], formatSettings?: FormatCodeSettings): Promise<ApplyCodeActionCommandResult | ApplyCodeActionCommandResult[]>;
+    fun getJsxClosingTagAtPosition(fileName: String, position: Double): JsxClosingTagInfo?
+    fun getSpanOfEnclosingComment(fileName: String, position: Double, onlyMultiLine: Boolean): TextSpan?
+    val toLineColumnOffset: ((fileName: String, position: Double) -> LineAndCharacter)?
+    fun getCodeFixesAtPosition(
+        fileName: String,
+        start: Double,
+        end: Double,
+        errorCodes: ReadonlyArray<Double>,
+        formatOptions: FormatCodeSettings,
+        preferences: UserPreferences,
+    ): ReadonlyArray<CodeFixAction>
+
+    fun getCombinedCodeFix(scope: CombinedCodeFixScope, fixId: Any, formatOptions: FormatCodeSettings, preferences: UserPreferences): CombinedCodeActions
+    fun applyCodeActionCommand(action: CodeActionCommand, formatSettings: FormatCodeSettings = definedExternally): kotlin.js.Promise<ApplyCodeActionCommandResult>
+    fun applyCodeActionCommand(action: ReadonlyArray<CodeActionCommand>, formatSettings: FormatCodeSettings = definedExternally): kotlin.js.Promise<ReadonlyArray<ApplyCodeActionCommandResult>>
+    fun applyCodeActionCommand(
+        action: dynamic, /* CodeActionCommand | CodeActionCommand[] */
+        formatSettings: FormatCodeSettings = definedExternally,
+    ): dynamic /* Promise<ApplyCodeActionCommandResult | ApplyCodeActionCommandResult[]> */
+
     /** @deprecated `fileName` will be ignored */
-    applyCodeActionCommand(fileName: string, action: CodeActionCommand): Promise<ApplyCodeActionCommandResult>;
+    fun applyCodeActionCommand(fileName: String, action: CodeActionCommand): kotlin.js.Promise<ApplyCodeActionCommandResult>
+
     /** @deprecated `fileName` will be ignored */
-    applyCodeActionCommand(fileName: string, action: CodeActionCommand[]): Promise<ApplyCodeActionCommandResult[]>;
+    fun applyCodeActionCommand(fileName: String, action: ReadonlyArray<CodeActionCommand>): kotlin.js.Promise<ReadonlyArray<ApplyCodeActionCommandResult>>
+
     /** @deprecated `fileName` will be ignored */
-    applyCodeActionCommand(fileName: string, action: CodeActionCommand | CodeActionCommand[]): Promise<ApplyCodeActionCommandResult | ApplyCodeActionCommandResult[]>;
-    getApplicableRefactors(fileName: string, positionOrRange: number | TextRange, preferences: UserPreferences | undefined, triggerReason?: RefactorTriggerReason, kind?: string): ApplicableRefactorInfo[];
-    getEditsForRefactor(fileName: string, formatOptions: FormatCodeSettings, positionOrRange: number | TextRange, refactorName: string, actionName: string, preferences: UserPreferences | undefined): RefactorEditInfo | undefined;
-    organizeImports(args: OrganizeImportsArgs, formatOptions: FormatCodeSettings, preferences: UserPreferences | undefined): readonly FileTextChanges[];
-    getEditsForFileRename(oldFilePath: string, newFilePath: string, formatOptions: FormatCodeSettings, preferences: UserPreferences | undefined): readonly FileTextChanges[];
-    getEmitOutput(fileName: string, emitOnlyDtsFiles?: boolean, forceDtsEmit?: boolean): EmitOutput;
-    getProgram(): Program | undefined;
-    toggleLineComment(fileName: string, textRange: TextRange): TextChange[];
-    toggleMultilineComment(fileName: string, textRange: TextRange): TextChange[];
-    commentSelection(fileName: string, textRange: TextRange): TextChange[];
-    uncommentSelection(fileName: string, textRange: TextRange): TextChange[];
-    dispose(): void;
-    */
+    fun applyCodeActionCommand(fileName: String, action: dynamic /* CodeActionCommand | CodeActionCommand[] */): dynamic /* Promise<ApplyCodeActionCommandResult | ApplyCodeActionCommandResult[]> */
+    fun getApplicableRefactors(
+        fileName: String,
+        positionOrRange: dynamic, /* number | TextRange */
+        preferences: UserPreferences?,
+        triggerReason: RefactorTriggerReason = definedExternally,
+        kind: String = definedExternally,
+    ): ReadonlyArray<ApplicableRefactorInfo>
+
+    fun getEditsForRefactor(
+        fileName: String,
+        formatOptions: FormatCodeSettings,
+        positionOrRange: dynamic, /* number | TextRange */
+        refactorName: String,
+        actionName: String,
+        preferences: UserPreferences?,
+    ): RefactorEditInfo?
+
+    fun organizeImports(args: OrganizeImportsArgs, formatOptions: FormatCodeSettings, preferences: UserPreferences?): ReadonlyArray<FileTextChanges>
+    fun getEditsForFileRename(oldFilePath: String, newFilePath: String, formatOptions: FormatCodeSettings, preferences: UserPreferences?): ReadonlyArray<FileTextChanges>
+    fun getEmitOutput(fileName: String, emitOnlyDtsFiles: Boolean = definedExternally, forceDtsEmit: Boolean = definedExternally): EmitOutput
+    fun getProgram(): Program?
+    fun toggleLineComment(fileName: String, textRange: TextRange): ReadonlyArray<TextChange>
+    fun toggleMultilineComment(fileName: String, textRange: TextRange): ReadonlyArray<TextChange>
+    fun commentSelection(fileName: String, textRange: TextRange): ReadonlyArray<TextChange>
+    fun uncommentSelection(fileName: String, textRange: TextRange): ReadonlyArray<TextChange>
+    fun dispose()
 }

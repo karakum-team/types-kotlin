@@ -3,29 +3,29 @@
 package typescript
 
 external interface CompilerHost : ModuleResolutionHost {
-    /*
-    getSourceFile(fileName: string, languageVersion: ScriptTarget, onError?: (message: string) => void, shouldCreateNewSourceFile?: boolean): SourceFile | undefined;
-    getSourceFileByPath?(fileName: string, path: Path, languageVersion: ScriptTarget, onError?: (message: string) => void, shouldCreateNewSourceFile?: boolean): SourceFile | undefined;
-    getCancellationToken?(): CancellationToken;
-    getDefaultLibFileName(options: CompilerOptions): string;
-    getDefaultLibLocation?(): string;
-    writeFile: WriteFileCallback;
-    getCurrentDirectory(): string;
-    getCanonicalFileName(fileName: string): string;
-    useCaseSensitiveFileNames(): boolean;
-    getNewLine(): string;
-    readDirectory?(rootDir: string, extensions: readonly string[], excludes: readonly string[] | undefined, includes: readonly string[], depth?: number): string[];
-    resolveModuleNames?(moduleNames: string[], containingFile: string, reusedNames: string[] | undefined, redirectedReference: ResolvedProjectReference | undefined, options: CompilerOptions, containingSourceFile?: SourceFile): (ResolvedModule | undefined)[];
+    fun getSourceFile(fileName: String, languageVersion: ScriptTarget, onError: (message: String) -> Unit = definedExternally, shouldCreateNewSourceFile: Boolean = definedExternally): SourceFile?
+    val getSourceFileByPath: ((fileName: String, path: Path, languageVersion: ScriptTarget, onError: ((message: String) -> Unit)?, shouldCreateNewSourceFile: Boolean?) -> SourceFile?)?
+    val getCancellationToken: (() -> CancellationToken)?
+    fun getDefaultLibFileName(options: CompilerOptions): String
+    val getDefaultLibLocation: (() -> String)?
+    var writeFile: WriteFileCallback
+    fun getCurrentDirectory(): String
+    fun getCanonicalFileName(fileName: String): String
+    fun useCaseSensitiveFileNames(): Boolean
+    fun getNewLine(): String
+    val readDirectory: ((rootDir: String, extensions: ReadonlyArray<String>, excludes: ReadonlyArray<String>?, includes: ReadonlyArray<String>, depth: Double?) -> ReadonlyArray<String>)?
+    val resolveModuleNames: ((moduleNames: ReadonlyArray<String>, containingFile: String, reusedNames: ReadonlyArray<String>?, redirectedReference: ResolvedProjectReference?, options: CompilerOptions, containingSourceFile: SourceFile?) -> dynamic /* (ResolvedModule | undefined)[] */)?
+
     /**
      * Returns the module resolution cache used by a provided `resolveModuleNames` implementation so that any non-name module resolution operations (eg, package.json lookup) can reuse it
      */
-    getModuleResolutionCache?(): ModuleResolutionCache | undefined;
+    val getModuleResolutionCache: (() -> ModuleResolutionCache?)?
+
     /**
      * This method is a companion for 'resolveModuleNames' and is used to resolve 'types' references to actual type declaration files
      */
-    resolveTypeReferenceDirectives?(typeReferenceDirectiveNames: string[], containingFile: string, redirectedReference: ResolvedProjectReference | undefined, options: CompilerOptions): (ResolvedTypeReferenceDirective | undefined)[];
-    getEnvironmentVariable?(name: string): string | undefined;
-    createHash?(data: string): string;
-    getParsedCommandLine?(fileName: string): ParsedCommandLine | undefined;
-    */
+    val resolveTypeReferenceDirectives: ((typeReferenceDirectiveNames: ReadonlyArray<String>, containingFile: String, redirectedReference: ResolvedProjectReference?, options: CompilerOptions) -> dynamic /* (ResolvedTypeReferenceDirective | undefined)[] */)?
+    val getEnvironmentVariable: ((name: String) -> String?)?
+    val createHash: ((data: String) -> String)?
+    val getParsedCommandLine: ((fileName: String) -> ParsedCommandLine?)?
 }

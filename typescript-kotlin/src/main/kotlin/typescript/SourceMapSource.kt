@@ -3,9 +3,7 @@
 package typescript
 
 external interface SourceMapSource {
-    /*
-    fileName: string;
-    text: string;
-    skipTrivia?: (pos: number) => number;
-    */
+    var fileName: String
+    var text: String
+    var skipTrivia: ((pos: Double) -> Double)?
 }
