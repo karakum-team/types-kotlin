@@ -26,8 +26,7 @@ internal fun convertMembers(
     if (source.isEmpty())
         return ""
 
-    if (name in IGNORED)
-        return "    /*\n$source\n    */"
+    if (name in IGNORED) return "    /*\n$source\n    */"
 
     val thisReplacement = when (name) {
         "ESMap" -> "ESMap<K, V>"
