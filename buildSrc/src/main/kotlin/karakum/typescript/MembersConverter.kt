@@ -66,6 +66,11 @@ private val REQUIRED = setOf(
 
     "IScriptSnapshot",
     "ScriptSnapshot",
+
+    "ESMap",
+    "ReadonlyESMap",
+    "ReadonlySet",
+    "Set",
 )
 
 internal fun convertMembers(
@@ -78,8 +83,15 @@ internal fun convertMembers(
     if (("(" in source || " & {" in source) && name !in REQUIRED)
         return "    /*\n$source\n    */"
 
+    val thisReplacement = when (name) {
+        "ESMap" -> "ESMap<K, V>"
+        "Set" -> "Set<T>"
+        else -> "<this>"
+    }
+
     return source.trimIndent()
         .removeSuffix(";")
+        .replace(": this", ": $thisReplacement")
         .splitToSequence(";\n")
         .map { convertMember(it) }
         .joinToString("\n")
@@ -139,13 +151,19 @@ private fun convertMethod(
         .substringBeforeLast("): ")
 
     val optional = source.startsWith("$name?")
-    val parameters = if (parametersSource.isNotEmpty()) {
-        parametersSource
+    val parameters = when {
+        parametersSource == "action: (value: V, key: K) => void" || parametersSource == "action: (value: T, key: T) => void"
+        -> parametersSource.replace(" => void", " -> $UNIT")
+
+        parametersSource.isNotEmpty()
+        -> parametersSource
             .splitToSequence(", ")
             .joinToString(", ") {
                 convertParameter(it, optional)
             }
-    } else ""
+
+        else -> ""
+    }
 
     val returnType = kotlinType(source.substringAfterLast("): "), name)
 

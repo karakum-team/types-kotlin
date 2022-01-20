@@ -39,6 +39,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     // "(value: V, key: K) => void" to "(value: V, key: K) -> Unit",
     "(pos: number) => number" to "(pos: Double) -> Double",
     "Iterator<[K, V]>" to "Iterator<$DYNAMIC /* [K, V] */>",
+    "Iterator<[T, T]>" to "Iterator<$DYNAMIC /* [T, T] */>",
 )
 
 internal fun kotlinType(

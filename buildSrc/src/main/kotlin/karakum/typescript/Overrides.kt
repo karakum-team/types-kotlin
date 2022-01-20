@@ -117,6 +117,14 @@ internal fun fixOverrides(
             .override("kind")
             .override("parent")
 
+        "ReadonlySet",
+        -> content
+            .override("has")
+
+        "Set",
+        -> content
+            .override("delete")
+
         else -> content
             .override("body")
             .override("kind")
@@ -131,3 +139,4 @@ private fun String.override(
 ): String =
     replaceFirst("var $name:", "override var $name:")
         .replaceFirst("val $name:", "override val $name:")
+        .replaceFirst("fun $name(", "override fun $name(")
