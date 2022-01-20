@@ -45,13 +45,18 @@ private val STANDARD_TYPE_MAP = mapOf(
     "(node: readonly Node[]) => T" to "(node: ReadonlyArray<Node>) -> T",
 
     "(sourceFile: SourceFile) => boolean" to "(sourceFile: SourceFile) -> Boolean",
-    "AffectedFileResult<readonly Diagnostic[]>" to "AffectedFileResult<ReadonlyArray<Diagnostic>>"
+    "AffectedFileResult<readonly Diagnostic[]>" to "AffectedFileResult<ReadonlyArray<Diagnostic>>",
+
+    "ModuleKind.CommonJS | ModuleKind.ESNext | undefined" to "$DYNAMIC /* ModuleKind.CommonJS | ModuleKind.ESNext | undefined */",
 )
 
 internal fun kotlinType(
     type: String,
     name: String,
 ): String {
+    STANDARD_TYPE_MAP[type]
+        ?.also { return it }
+
     if (type.startsWith("readonly "))
         return kotlinType(type.removePrefix("readonly "), name)
 
@@ -60,9 +65,6 @@ internal fun kotlinType(
         if (!result.startsWith(DYNAMIC)) result += "?"
         return result
     }
-
-    STANDARD_TYPE_MAP[type]
-        ?.also { return it }
 
     if (" | " in type)
         return "$DYNAMIC /* $type */"
@@ -80,6 +82,10 @@ internal fun kotlinType(
         val parameter = kotlinType(type.removeSurrounding("Promise<", ">"), name)
         return "kotlin.js.Promise<$parameter>"
     }
+
+    if (type.startsWith("("))
+        return type.replace(" => void", " -> $UNIT")
+            .replace(" => Node", " -> Node")
 
     return type
 }

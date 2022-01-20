@@ -7,10 +7,8 @@ private val IGNORED = setOf(
     "Program",
     "TypeChecker",
     "NodeFactory",
-    "TransformationContext",
     "TransformationResult",
     "PrintHandlers",
-    "ModeAwareCache",
 )
 
 internal fun convertMembers(
@@ -103,6 +101,9 @@ private fun convertMethod(
     val parameters = when {
         parametersSource == "action: (value: V, key: K) => void" || parametersSource == "action: (value: T, key: T) => void"
         -> parametersSource.replace(" => void", " -> $UNIT")
+
+        parametersSource == "cb: (elem: T, key: string, mode: ModuleKind.CommonJS | ModuleKind.ESNext | undefined) => void"
+        -> "cb: (elem: T, key: String, mode: ModuleKind? /* ModuleKind.CommonJS | ModuleKind.ESNext | undefined */) -> Unit"
 
         parametersSource.isNotEmpty()
         -> parametersSource
