@@ -40,6 +40,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "(pos: number) => number" to "(pos: Double) -> Double",
     "Iterator<[K, V]>" to "Iterator<$DYNAMIC /* [K, V] */>",
     "Iterator<[T, T]>" to "Iterator<$DYNAMIC /* [T, T] */>",
+
+    "(node: Node) => boolean" to "(node: Node) -> Boolean",
+    "(node: readonly Node[]) => T" to "(node: ReadonlyArray<Node>) -> T",
 )
 
 internal fun kotlinType(

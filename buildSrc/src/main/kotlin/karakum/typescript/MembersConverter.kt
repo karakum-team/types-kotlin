@@ -9,11 +9,7 @@ private val IGNORED = setOf(
     "NodeFactory",
     "TransformationContext",
     "TransformationResult",
-    "NodeVisitor",
-    "NodesVisitor",
-    "Printer",
     "PrintHandlers",
-    "Scanner",
     "ModeAwareCache",
     "SemanticDiagnosticsBuilderProgram",
     "BuildInvalidedProject",
@@ -91,7 +87,14 @@ private fun convertMethod(
     source: String,
 ): String {
     val name = source.substringBefore("(")
+        .substringBefore("<")
         .removeSuffix("?")
+        .ifEmpty { "/* native */ invoke" }
+
+    val typeParameters = source.substringBefore("(")
+        .substringAfter("<", "")
+        .let { if (it.isNotEmpty()) "<$it" else "" }
+        .replace(" extends ", " : ")
 
     val parametersSource = source
         .substringAfter("(")
@@ -121,7 +124,7 @@ private fun convertMethod(
             ": $returnType"
         } else ""
 
-        "fun $name($parameters)$returnDeclaration"
+        "fun $typeParameters $name($parameters)$returnDeclaration"
     }
 }
 

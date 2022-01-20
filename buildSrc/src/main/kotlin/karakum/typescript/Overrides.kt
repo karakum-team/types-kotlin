@@ -140,3 +140,4 @@ private fun String.override(
     replaceFirst("var $name:", "override var $name:")
         .replaceFirst("val $name:", "override val $name:")
         .replaceFirst("fun $name(", "override fun $name(")
+        .replaceFirst("fun  $name(", "override fun $name(")
