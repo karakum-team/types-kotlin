@@ -1,76 +1,22 @@
 package karakum.typescript
 
-private val REQUIRED = setOf(
-    "ApplicableRefactorInfo",
-    "Bundle",
-    "CodeAction",
-    "CompletionEntryDataAutoImport",
-    "CustomTransformers",
-    "DocumentSpan",
-    "EmitHelperBase",
-    "GetCompletionsAtPositionOptions",
-    "Identifier",
-    "SourceFile",
-    "SourceMapSpan",
-    "TupleType",
-
-    "CancellationToken",
-    "Collection",
-    "CoreTransformationContext",
-    "CustomTransformer",
-    "FileWatcher",
-    "HostCancellationToken",
-    "IncompleteCompletionsCache",
-    "ModuleResolutionCache",
-    "PackageJsonInfoCache",
-    "ParseConfigFileHost",
-    "ReadonlyCollection",
-    "ResolvedProjectReference",
-    "Watch",
-
-    "BuilderProgram",
-    "Classifier",
-    "DocumentRegistry",
-    "EmitAndSemanticDiagnosticsBuilderProgram",
-    "FormatDiagnosticsHost",
-    "InvalidatedProjectBase",
-    "NonRelativeModuleNameResolutionCache",
-    "PerDirectoryResolutionCache",
-    "PerModuleNameCache",
-    "ReadBuildProgramHost",
-    "ScriptReferenceHost",
-    "SourceFileLike",
-    "WatchCompilerHostOfConfigFile",
-    "WatchOfFilesAndCompilerOptions",
-
-    "UpdateBundleProject",
-    "UpdateOutputFileStampsProject",
-
-    "GetEffectiveTypeRootsHost",
-    "ModuleResolutionHost",
-    "ParseConfigHost",
-    "WatchCompilerHost",
-
-    "LanguageServiceHost",
-    "ProgramHost",
-    "Push",
-    "System",
-    "WatchHost",
-
-    "BuilderProgramHost",
-    "CompilerHost",
-    "LanguageService",
-    "SolutionBuilder",
-    "SolutionBuilderHostBase",
-    "SourceMapSource",
-
-    "IScriptSnapshot",
-    "ScriptSnapshot",
-
-    "ESMap",
-    "ReadonlyESMap",
-    "ReadonlySet",
-    "Set",
+private val IGNORED = setOf(
+    "Iterator",
+    "JSDocAugmentsTag",
+    "JSDocImplementsTag",
+    "Program",
+    "TypeChecker",
+    "NodeFactory",
+    "TransformationContext",
+    "TransformationResult",
+    "NodeVisitor",
+    "NodesVisitor",
+    "Printer",
+    "PrintHandlers",
+    "Scanner",
+    "ModeAwareCache",
+    "SemanticDiagnosticsBuilderProgram",
+    "BuildInvalidedProject",
 )
 
 internal fun convertMembers(
@@ -80,7 +26,7 @@ internal fun convertMembers(
     if (source.isEmpty())
         return ""
 
-    if (("(" in source || " & {" in source) && name !in REQUIRED)
+    if (name in IGNORED)
         return "    /*\n$source\n    */"
 
     val thisReplacement = when (name) {
