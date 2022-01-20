@@ -3,12 +3,10 @@
 package typescript
 
 external interface ModeAwareCache<T> {
-    /*
-    get(key: string, mode: ModuleKind.CommonJS | ModuleKind.ESNext | undefined): T | undefined;
-    set(key: string, mode: ModuleKind.CommonJS | ModuleKind.ESNext | undefined, value: T): this;
-    delete(key: string, mode: ModuleKind.CommonJS | ModuleKind.ESNext | undefined): this;
-    has(key: string, mode: ModuleKind.CommonJS | ModuleKind.ESNext | undefined): boolean;
-    forEach(cb: (elem: T, key: string, mode: ModuleKind.CommonJS | ModuleKind.ESNext | undefined) => void): void;
-    size(): number;
-    */
+    fun get(key: String, mode: dynamic /* ModuleKind.CommonJS | ModuleKind.ESNext | undefined */): T?
+    fun set(key: String, mode: dynamic /* ModuleKind.CommonJS | ModuleKind.ESNext | undefined */, value: T): ModeAwareCache<T>
+    fun delete(key: String, mode: dynamic /* ModuleKind.CommonJS | ModuleKind.ESNext | undefined */): ModeAwareCache<T>
+    fun has(key: String, mode: dynamic /* ModuleKind.CommonJS | ModuleKind.ESNext | undefined */): Boolean
+    fun forEach(cb: (elem: T, key: String, mode: ModuleKind? /* ModuleKind.CommonJS | ModuleKind.ESNext | undefined */) -> Unit)
+    fun size(): Double
 }
