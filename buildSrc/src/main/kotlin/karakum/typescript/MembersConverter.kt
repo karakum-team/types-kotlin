@@ -4,7 +4,6 @@ private val IGNORED = setOf(
     "Iterator",
     "JSDocAugmentsTag",
     "JSDocImplementsTag",
-    "Program",
     "TypeChecker",
     "NodeFactory",
 )
@@ -27,6 +26,7 @@ internal fun convertMembers(
 
     return source.trimIndent()
         .replace(";\n * ", ";---\n * ")
+        .replace(RELATION_CACHE_SIZES_BODY, RELATION_CACHE_SIZES)
         .removeSuffix(";")
         .replace(": this", ": $thisReplacement")
         .splitToSequence(";\n")

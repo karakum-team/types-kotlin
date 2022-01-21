@@ -19,6 +19,7 @@ internal fun convertDefinitions(
         .map { it.substringBefore("\n}\n") }
         .map { it.trimIndent() }
         .map { it.replace("\nexport {}", "") }
+        .plus(RELATION_CACHE_SIZES_SOURCE)
         .flatMap { convertDefinitions(it) }
 
 private const val DELIMITER = "<!--DELIMITER-->"
