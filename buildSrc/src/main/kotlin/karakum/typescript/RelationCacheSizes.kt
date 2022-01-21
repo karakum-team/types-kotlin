@@ -9,4 +9,5 @@ internal const val RELATION_CACHE_SIZES_BODY = """{
     strictSubtype: number;
 }"""
 
-internal const val RELATION_CACHE_SIZES_SOURCE = "interface $RELATION_CACHE_SIZES $RELATION_CACHE_SIZES_BODY"
+internal val RELATION_CACHE_SIZES_SOURCE = "interface $RELATION_CACHE_SIZES " +
+        RELATION_CACHE_SIZES_BODY.replace("\n    ", "\n    readonly ")
