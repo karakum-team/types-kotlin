@@ -3,16 +3,18 @@
 package typescript
 
 external interface Program : ScriptReferenceHost {
-    /*
-    getCurrentDirectory(): string;
+    override fun getCurrentDirectory(): String
+
     /**
      * Get a list of root file names that were passed to a 'createProgram'
      */
-    getRootFileNames(): readonly string[];
+    fun getRootFileNames(): ReadonlyArray<String>
+
     /**
      * Get a list of files in the program
      */
-    getSourceFiles(): readonly SourceFile[];
+    fun getSourceFiles(): ReadonlyArray<SourceFile>
+
     /**
      * Emits the JavaScript and declaration files.  If targetSourceFile is not specified, then
      * the JavaScript and declaration files will be produced for all the files in this program.
@@ -23,32 +25,46 @@ external interface Program : ScriptReferenceHost {
      * used for writing the JavaScript and declaration files.  Otherwise, the writeFile parameter
      * will be invoked when writing the JavaScript and declaration files.
      */
-    emit(targetSourceFile?: SourceFile, writeFile?: WriteFileCallback, cancellationToken?: CancellationToken, emitOnlyDtsFiles?: boolean, customTransformers?: CustomTransformers): EmitResult;
-    getOptionsDiagnostics(cancellationToken?: CancellationToken): readonly Diagnostic[];
-    getGlobalDiagnostics(cancellationToken?: CancellationToken): readonly Diagnostic[];
-    getSyntacticDiagnostics(sourceFile?: SourceFile, cancellationToken?: CancellationToken): readonly DiagnosticWithLocation[];
+    fun emit(
+        targetSourceFile: SourceFile = definedExternally,
+        writeFile: WriteFileCallback = definedExternally,
+        cancellationToken: CancellationToken = definedExternally,
+        emitOnlyDtsFiles: Boolean = definedExternally,
+        customTransformers: CustomTransformers = definedExternally,
+    ): EmitResult
+
+    fun getOptionsDiagnostics(cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
+    fun getGlobalDiagnostics(cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
+    fun getSyntacticDiagnostics(
+        sourceFile: SourceFile = definedExternally,
+        cancellationToken: CancellationToken = definedExternally,
+    ): ReadonlyArray<DiagnosticWithLocation>
+
     /** The first time this is called, it will return global diagnostics (no location). */
-    getSemanticDiagnostics(sourceFile?: SourceFile, cancellationToken?: CancellationToken): readonly Diagnostic[];
-    getDeclarationDiagnostics(sourceFile?: SourceFile, cancellationToken?: CancellationToken): readonly DiagnosticWithLocation[];
-    getConfigFileParsingDiagnostics(): readonly Diagnostic[];
+    fun getSemanticDiagnostics(
+        sourceFile: SourceFile = definedExternally,
+        cancellationToken: CancellationToken = definedExternally,
+    ): ReadonlyArray<Diagnostic>
+
+    fun getDeclarationDiagnostics(
+        sourceFile: SourceFile = definedExternally,
+        cancellationToken: CancellationToken = definedExternally,
+    ): ReadonlyArray<DiagnosticWithLocation>
+
+    fun getConfigFileParsingDiagnostics(): ReadonlyArray<Diagnostic>
+
     /**
      * Gets a type checker that can be used to semantically analyze source files in the program.
      */
-    getTypeChecker(): TypeChecker;
-    getNodeCount(): number;
-    getIdentifierCount(): number;
-    getSymbolCount(): number;
-    getTypeCount(): number;
-    getInstantiationCount(): number;
-    getRelationCacheSizes(): {
-        assignable: number;
-        identity: number;
-        subtype: number;
-        strictSubtype: number;
-    };
-    isSourceFileFromExternalLibrary(file: SourceFile): boolean;
-    isSourceFileDefaultLibrary(file: SourceFile): boolean;
-    getProjectReferences(): readonly ProjectReference[] | undefined;
-    getResolvedProjectReferences(): readonly (ResolvedProjectReference | undefined)[] | undefined;
-    */
+    fun getTypeChecker(): TypeChecker
+    fun getNodeCount(): Double
+    fun getIdentifierCount(): Double
+    fun getSymbolCount(): Double
+    fun getTypeCount(): Double
+    fun getInstantiationCount(): Double
+    fun getRelationCacheSizes(): RelationCacheSizes
+    fun isSourceFileFromExternalLibrary(file: SourceFile): Boolean
+    fun isSourceFileDefaultLibrary(file: SourceFile): Boolean
+    fun getProjectReferences(): ReadonlyArray<ProjectReference>?
+    fun getResolvedProjectReferences(): ReadonlyArray<ResolvedProjectReference?>?
 }
