@@ -7,8 +7,6 @@ private val IGNORED = setOf(
     "Program",
     "TypeChecker",
     "NodeFactory",
-    "TransformationResult",
-    "PrintHandlers",
 )
 
 internal fun convertMembers(
