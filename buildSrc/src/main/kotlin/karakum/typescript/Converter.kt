@@ -268,9 +268,6 @@ private fun convertInterface(
         "KeywordToken",
         -> declaration.replaceFirst("> : ", "> /* : ") + " */"
 
-        "Token",
-        -> declaration.replaceFirst("<TKind", "<out TKind")
-
         "NodeArray",
         "SortedReadonlyArray",
         -> declaration.replaceFirst("<T", "<out T")
@@ -278,6 +275,7 @@ private fun convertInterface(
         else -> declaration
     }
 
+    declaration = declaration.replaceFirst("<TKind", "<out TKind")
 
     val bodySource = source
         .substringAfter("{\n")
