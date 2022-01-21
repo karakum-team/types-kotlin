@@ -115,22 +115,21 @@ internal fun convertMethod(
 
     val returnType = kotlinType(source.substringAfterLast("): "), name)
 
-    return if (optional) {
-        "val $name: (($parameters) -> $returnType)?"
-    } else {
-        val isOperator = when (name) {
-            "get" -> parameters.count { it == ':' } == 1
-            "set" -> parameters.count { it == ':' } == 2
-            else -> false
-        }
-        val keyword = if (isOperator) "operator fun" else "fun"
+    if (optional)
+        return "val $name: (($parameters) -> $returnType)?"
 
-        val returnDeclaration = if (returnType != UNIT) {
-            ": $returnType"
-        } else ""
-
-        "$keyword $typeParameters $name($parameters)$returnDeclaration"
+    val isOperator = when (name) {
+        "get" -> parameters.count { it == ':' } == 1
+        "set" -> parameters.count { it == ':' } == 2
+        else -> false
     }
+    val keyword = if (isOperator) "operator fun" else "fun"
+
+    val returnDeclaration = if (returnType != UNIT) {
+        ": $returnType"
+    } else ""
+
+    return "$keyword $typeParameters $name($parameters)$returnDeclaration"
 }
 
 private fun convertParameter(
