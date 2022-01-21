@@ -58,7 +58,10 @@ private fun convertDefinitions(
             if (part.startsWith("/**")) {
                 comment = part
             } else {
-                results += convertDefinition(comment, part)
+                if (comment?.startsWith("/** @deprecated ") != true) {
+                    results += convertDefinition(comment, part)
+                }
+
                 comment = null
             }
         }
@@ -101,9 +104,6 @@ private fun convertConst(
         return "const val $source"
 
     val body = source.substringAfter(": ")
-
-    if (body.startsWith("{"))
-        return "/*\nexternal val $source\n*/"
 
     if (body.startsWith("(") || body.startsWith("<")) {
         val functionSource = when (name) {
