@@ -118,11 +118,18 @@ internal fun convertMethod(
     return if (optional) {
         "val $name: (($parameters) -> $returnType)?"
     } else {
+        val isOperator = when (name) {
+            "get" -> parameters.count { it == ':' } == 1
+            "set" -> parameters.count { it == ':' } == 2
+            else -> false
+        }
+        val keyword = if (isOperator) "operator fun" else "fun"
+
         val returnDeclaration = if (returnType != UNIT) {
             ": $returnType"
         } else ""
 
-        "fun $typeParameters $name($parameters)$returnDeclaration"
+        "$keyword $typeParameters $name($parameters)$returnDeclaration"
     }
 }
 
