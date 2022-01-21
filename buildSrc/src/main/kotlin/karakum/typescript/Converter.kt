@@ -58,7 +58,11 @@ private fun convertDefinitions(
             if (part.startsWith("/**")) {
                 comment = part
             } else {
-                if (comment?.startsWith("/** @deprecated ") != true) {
+                val ignore = comment?.let {
+                    it.startsWith("/** @deprecated ") || it.startsWith("/**\n * @deprecated ")
+                } ?: false
+
+                if (!ignore) {
                     results += convertDefinition(comment, part)
                 }
 
