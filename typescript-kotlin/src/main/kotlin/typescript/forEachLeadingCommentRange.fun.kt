@@ -9,7 +9,7 @@ external fun <U> forEachLeadingCommentRange(
     text: String,
     pos: Int,
     cb: (
-        pos: Double,
+        pos: Int,
         end: Int,
         kind: CommentKind,
         hasTrailingNewLine: Boolean,
@@ -20,7 +20,7 @@ external fun <T, U> forEachLeadingCommentRange(
     text: String,
     pos: Int,
     cb: (
-        pos: Double,
+        pos: Int,
         end: Int,
         kind: CommentKind,
         hasTrailingNewLine: Boolean,
