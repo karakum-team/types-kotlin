@@ -53,8 +53,6 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "AwaitKeywordToken" to "AwaitKeyword",
     "AssertsToken" to "AssertsKeyword",
-
-    "(ResolvedProjectReference | undefined)[]" to "ReadonlyArray<ResolvedProjectReference?>",
 )
 
 internal fun kotlinType(
@@ -72,6 +70,9 @@ internal fun kotlinType(
         if (!result.startsWith(DYNAMIC)) result += "?"
         return result
     }
+
+    if (type.startsWith("(") && type.endsWith(" | undefined)[]"))
+        return "ReadonlyArray<${kotlinType(type.removeSurrounding("(", " | undefined)[]"), name)}?>"
 
     if (" | " in type)
         return "$DYNAMIC /* $type */"
