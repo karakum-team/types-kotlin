@@ -3,8 +3,8 @@
 package typescript
 
 external interface PerModuleNameCache {
-    fun get(directory: String): ResolvedModuleWithFailedLookupLocations?
-    fun set(
+    operator fun get(directory: String): ResolvedModuleWithFailedLookupLocations?
+    operator fun set(
         directory: String,
         result: ResolvedModuleWithFailedLookupLocations,
     )
