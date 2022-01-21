@@ -15,7 +15,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "never" to "Nothing",
 
-    "number" to "Double",
+    "number" to "Int",
 
     "void" to UNIT,
     "null" to "Nothing?",
@@ -29,7 +29,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "MapLike<string>" to "MapLike<String>",
     "MapLike<string[]>" to "MapLike<ReadonlyArray<String>>",
 
-    "-1" to "Double /* -1 */",
+    "-1" to "Int /* -1 */",
 
     "() => T" to "() -> T",
 
