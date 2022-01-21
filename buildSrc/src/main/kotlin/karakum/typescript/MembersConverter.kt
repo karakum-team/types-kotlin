@@ -5,7 +5,6 @@ private val IGNORED = setOf(
     "JSDocAugmentsTag",
     "JSDocImplementsTag",
     "TypeChecker",
-    "NodeFactory",
 )
 
 internal fun convertMembers(
@@ -129,7 +128,11 @@ internal fun convertMethod(
         ": $returnType"
     } else ""
 
-    return "$keyword $typeParameters $name($parameters)$returnDeclaration"
+    var result = "$keyword $typeParameters $name($parameters)$returnDeclaration"
+    if (name == "createToken" && typeParameters.isNotEmpty())
+        result = "    // TODO: restore after alias update\n    // $result"
+
+    return result
 }
 
 private fun convertParameter(
