@@ -3,12 +3,12 @@
 package typescript
 
 external interface PrintHandlers {
-    /*
     /**
      * A hook used by the Printer when generating unique names to avoid collisions with
      * globally defined names that exist outside of the current source file.
      */
-    hasGlobalName?(name: string): boolean;
+    val hasGlobalName: ((name: String) -> Boolean)?
+
     /**
      * A hook used by the Printer to provide notifications prior to emitting a node. A
      * compatible implementation **must** invoke `emitCallback` with the provided `hint` and
@@ -27,12 +27,21 @@ external interface PrintHandlers {
      * });
      * ```
      */
-    onEmitNode?(hint: EmitHint, node: Node, emitCallback: (hint: EmitHint, node: Node) => void): void;
+    val onEmitNode: ((
+        hint: EmitHint,
+        node: Node,
+        emitCallback: (
+            hint: EmitHint,
+            node: Node,
+        ) -> Unit,
+    ) -> Unit)?
+
     /**
      * A hook used to check if an emit notification is required for a node.
      * @param node The node to emit.
      */
-    isEmitNotificationEnabled?(node: Node): boolean;
+    val isEmitNotificationEnabled: ((node: Node) -> Boolean)?
+
     /**
      * A hook used by the Printer to perform just-in-time substitution of a node. This is
      * primarily used by node transformations that need to substitute one node for another,
@@ -49,6 +58,8 @@ external interface PrintHandlers {
      * });
      * ```
      */
-    substituteNode?(hint: EmitHint, node: Node): Node;
-    */
+    val substituteNode: ((
+        hint: EmitHint,
+        node: Node,
+    ) -> Node)?
 }

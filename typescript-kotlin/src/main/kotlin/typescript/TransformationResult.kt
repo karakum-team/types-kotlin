@@ -3,18 +3,23 @@
 package typescript
 
 external interface TransformationResult<T : Node> {
-    /*
     /** Gets the transformed source files. */
-    transformed: T[];
+    var transformed: ReadonlyArray<T>
+
     /** Gets diagnostics for the transformation. */
-    diagnostics?: DiagnosticWithLocation[];
+    var diagnostics: ReadonlyArray<DiagnosticWithLocation>?
+
     /**
      * Gets a substitute for a node, if one is available; otherwise, returns the original node.
      *
      * @param hint A hint as to the intended usage of the node.
      * @param node The node to substitute.
      */
-    substituteNode(hint: EmitHint, node: Node): Node;
+    fun substituteNode(
+        hint: EmitHint,
+        node: Node,
+    ): Node
+
     /**
      * Emits a node with possible notification.
      *
@@ -22,16 +27,24 @@ external interface TransformationResult<T : Node> {
      * @param node The node to emit.
      * @param emitCallback A callback used to emit the node.
      */
-    emitNodeWithNotification(hint: EmitHint, node: Node, emitCallback: (hint: EmitHint, node: Node) => void): void;
+    fun emitNodeWithNotification(
+        hint: EmitHint,
+        node: Node,
+        emitCallback: (
+            hint: EmitHint,
+            node: Node,
+        ) -> Unit,
+    )
+
     /**
      * Indicates if a given node needs an emit notification
      *
      * @param node The node to emit.
      */
-    isEmitNotificationEnabled?(node: Node): boolean;
+    val isEmitNotificationEnabled: ((node: Node) -> Boolean)?
+
     /**
      * Clean up EmitNode entries on any parse-tree nodes.
      */
-    dispose(): void;
-    */
+    fun dispose()
 }
