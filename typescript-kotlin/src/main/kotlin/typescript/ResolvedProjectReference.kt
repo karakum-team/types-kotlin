@@ -5,5 +5,5 @@ package typescript
 external interface ResolvedProjectReference {
     var commandLine: ParsedCommandLine
     var sourceFile: SourceFile
-    var references: dynamic /* (ResolvedProjectReference | undefined)[] */
+    var references: ReadonlyArray<ResolvedProjectReference?>?
 }
