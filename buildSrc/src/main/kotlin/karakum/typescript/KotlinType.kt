@@ -53,6 +53,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "AwaitKeywordToken" to "AwaitKeyword",
     "AssertsToken" to "AssertsKeyword",
+
+    "(ResolvedProjectReference | undefined)[]" to "ReadonlyArray<ResolvedProjectReference?>",
 )
 
 internal fun kotlinType(

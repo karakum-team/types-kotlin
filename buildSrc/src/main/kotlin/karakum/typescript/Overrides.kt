@@ -125,6 +125,10 @@ internal fun fixOverrides(
         -> content
             .override("delete")
 
+        "Program",
+        -> content
+            .override("getCurrentDirectory")
+
         else -> content
             .override("body")
             .override("kind")
