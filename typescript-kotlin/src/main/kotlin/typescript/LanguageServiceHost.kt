@@ -40,7 +40,7 @@ external interface LanguageServiceHost : GetEffectiveTypeRootsHost {
         redirectedReference: ResolvedProjectReference?,
         options: CompilerOptions,
         containingSourceFile: SourceFile?,
-    ) -> dynamic /* (ResolvedModule | undefined)[] */)?
+    ) -> ReadonlyArray<ResolvedModule?>)?
     val getResolvedModuleWithFailedLookupLocationsFromCache: ((
         modulename: String,
         containingFile: String,
@@ -51,7 +51,7 @@ external interface LanguageServiceHost : GetEffectiveTypeRootsHost {
         containingFile: String,
         redirectedReference: ResolvedProjectReference?,
         options: CompilerOptions,
-    ) -> dynamic /* (ResolvedTypeReferenceDirective | undefined)[] */)?
+    ) -> ReadonlyArray<ResolvedTypeReferenceDirective?>)?
     val getDirectories: ((directoryName: String) -> ReadonlyArray<String>)?
 
     /**

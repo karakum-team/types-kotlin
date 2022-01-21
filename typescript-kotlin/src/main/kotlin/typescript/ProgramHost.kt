@@ -61,7 +61,7 @@ external interface ProgramHost<T : BuilderProgram> {
         redirectedReference: ResolvedProjectReference?,
         options: CompilerOptions,
         containingSourceFile: SourceFile?,
-    ) -> dynamic /* (ResolvedModule | undefined)[] */)?
+    ) -> ReadonlyArray<ResolvedModule?>)?
 
     /** If provided, used to resolve type reference directives, otherwise typescript's default resolution */
     val resolveTypeReferenceDirectives: ((
@@ -69,5 +69,5 @@ external interface ProgramHost<T : BuilderProgram> {
         containingFile: String,
         redirectedReference: ResolvedProjectReference?,
         options: CompilerOptions,
-    ) -> dynamic /* (ResolvedTypeReferenceDirective | undefined)[] */)?
+    ) -> ReadonlyArray<ResolvedTypeReferenceDirective?>)?
 }
