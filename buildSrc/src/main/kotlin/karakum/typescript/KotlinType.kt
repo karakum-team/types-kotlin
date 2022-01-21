@@ -71,6 +71,9 @@ internal fun kotlinType(
         return result
     }
 
+    if (type.startsWith("SignatureDeclaration & {"))
+        return "SignatureDeclaration /* $type */"
+
     if (type.startsWith("(") && type.endsWith(" | undefined)[]"))
         return "ReadonlyArray<${kotlinType(type.removeSurrounding("(", " | undefined)[]"), name)}?>"
 

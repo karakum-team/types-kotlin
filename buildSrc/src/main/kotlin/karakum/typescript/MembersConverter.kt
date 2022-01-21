@@ -4,8 +4,15 @@ private val IGNORED = setOf(
     "Iterator",
     "JSDocAugmentsTag",
     "JSDocImplementsTag",
-    "TypeChecker",
 )
+
+private const val SIGNATURE_TO_SIGNATURE = """ & {
+    typeArguments?: NodeArray<TypeNode>;
+} | undefined;"""
+
+val SIGNATURE_TO_SIGNATURE_REPLACEMENT = SIGNATURE_TO_SIGNATURE
+    .replace("\n    ", " ")
+    .replace(";\n", "; ")
 
 internal fun convertMembers(
     name: String,
@@ -26,6 +33,7 @@ internal fun convertMembers(
     return source.trimIndent()
         .replace(";\n * ", ";---\n * ")
         .replace(RELATION_CACHE_SIZES_BODY, RELATION_CACHE_SIZES)
+        .replace(SIGNATURE_TO_SIGNATURE, SIGNATURE_TO_SIGNATURE_REPLACEMENT)
         .removeSuffix(";")
         .replace(": this", ": $thisReplacement")
         .splitToSequence(";\n")
