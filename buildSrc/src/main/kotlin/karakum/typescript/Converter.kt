@@ -145,7 +145,7 @@ private fun convertFunction(
         .replace(" = EmitAndSemanticDiagnosticsBuilderProgram", " /* = EmitAndSemanticDiagnosticsBuilderProgram */")
 
     return if (name.endsWith("CommentRange")) {
-        result.replace(": number", ": Double")
+        result.replace(": number", ": Int")
             .replace(": boolean", ": Boolean")
             .replace(" => U", " -> U")
     } else result

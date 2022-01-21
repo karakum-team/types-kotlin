@@ -37,7 +37,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "(message: string) => void" to "(message: String) -> Unit",
     "(project: string) => CustomTransformers" to "(project: String) -> CustomTransformers",
     // "(value: V, key: K) => void" to "(value: V, key: K) -> Unit",
-    "(pos: number) => number" to "(pos: Double) -> Double",
+    "(pos: number) => number" to "(pos: Int) -> Int",
     "Iterator<[K, V]>" to "Iterator<$DYNAMIC /* [K, V] */>",
     "Iterator<[T, T]>" to "Iterator<$DYNAMIC /* [T, T] */>",
 
