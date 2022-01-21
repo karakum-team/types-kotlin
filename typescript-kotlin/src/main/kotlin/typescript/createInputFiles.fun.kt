@@ -5,7 +5,10 @@
 
 package typescript
 
-external fun createInputFiles(javascriptText: String, declarationText: String): InputFiles
+external fun createInputFiles(
+    javascriptText: String,
+    declarationText: String,
+): InputFiles
 
 external fun createInputFiles(
     readFileText: (path: String) -> String?,

@@ -5,4 +5,7 @@
 
 package typescript
 
-external fun formatDiagnostic(diagnostic: Diagnostic, host: FormatDiagnosticsHost): String
+external fun formatDiagnostic(
+    diagnostic: Diagnostic,
+    host: FormatDiagnosticsHost,
+): String

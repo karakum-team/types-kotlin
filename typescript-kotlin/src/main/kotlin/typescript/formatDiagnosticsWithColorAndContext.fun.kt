@@ -5,4 +5,7 @@
 
 package typescript
 
-external fun formatDiagnosticsWithColorAndContext(diagnostics: ReadonlyArray<Diagnostic>, host: FormatDiagnosticsHost): String
+external fun formatDiagnosticsWithColorAndContext(
+    diagnostics: ReadonlyArray<Diagnostic>,
+    host: FormatDiagnosticsHost,
+): String

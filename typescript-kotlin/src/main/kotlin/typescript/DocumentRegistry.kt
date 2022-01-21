@@ -32,7 +32,14 @@ external interface DocumentRegistry {
      * @param version Current version of the file. Only used if the file was not found
      * in the registry and a new one was created.
      */
-    fun acquireDocument(fileName: String, compilationSettings: CompilerOptions, scriptSnapshot: IScriptSnapshot, version: String, scriptKind: ScriptKind = definedExternally): SourceFile
+    fun acquireDocument(
+        fileName: String,
+        compilationSettings: CompilerOptions,
+        scriptSnapshot: IScriptSnapshot,
+        version: String,
+        scriptKind: ScriptKind = definedExternally,
+    ): SourceFile
+
     fun acquireDocumentWithKey(
         fileName: String,
         path: Path,
@@ -55,7 +62,14 @@ external interface DocumentRegistry {
      * @param scriptSnapshot Text of the file.
      * @param version Current version of the file.
      */
-    fun updateDocument(fileName: String, compilationSettings: CompilerOptions, scriptSnapshot: IScriptSnapshot, version: String, scriptKind: ScriptKind = definedExternally): SourceFile
+    fun updateDocument(
+        fileName: String,
+        compilationSettings: CompilerOptions,
+        scriptSnapshot: IScriptSnapshot,
+        version: String,
+        scriptKind: ScriptKind = definedExternally,
+    ): SourceFile
+
     fun updateDocumentWithKey(
         fileName: String,
         path: Path,
@@ -77,7 +91,10 @@ external interface DocumentRegistry {
      * @param compilationSettings The compilation settings used to acquire the file
      */
     /**@deprecated pass scriptKind for correctness */
-    fun releaseDocument(fileName: String, compilationSettings: CompilerOptions)
+    fun releaseDocument(
+        fileName: String,
+        compilationSettings: CompilerOptions,
+    )
 
     /**
      * Informs the DocumentRegistry that a file is not needed any longer.
@@ -89,11 +106,24 @@ external interface DocumentRegistry {
      * @param compilationSettings The compilation settings used to acquire the file
      * @param scriptKind The script kind of the file to be released
      */
-    fun releaseDocument(fileName: String, compilationSettings: CompilerOptions, scriptKind: ScriptKind)
+    fun releaseDocument(
+        fileName: String,
+        compilationSettings: CompilerOptions,
+        scriptKind: ScriptKind,
+    )
 
     /**
      * @deprecated pass scriptKind for correctness */
-    fun releaseDocumentWithKey(path: Path, key: DocumentRegistryBucketKey)
-    fun releaseDocumentWithKey(path: Path, key: DocumentRegistryBucketKey, scriptKind: ScriptKind)
+    fun releaseDocumentWithKey(
+        path: Path,
+        key: DocumentRegistryBucketKey,
+    )
+
+    fun releaseDocumentWithKey(
+        path: Path,
+        key: DocumentRegistryBucketKey,
+        scriptKind: ScriptKind,
+    )
+
     fun reportStats(): String
 }

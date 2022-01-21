@@ -5,4 +5,9 @@
 
 package typescript
 
-external fun updateSourceFile(sourceFile: SourceFile, newText: String, textChangeRange: TextChangeRange, aggressiveChecks: Boolean = definedExternally): SourceFile
+external fun updateSourceFile(
+    sourceFile: SourceFile,
+    newText: String,
+    textChangeRange: TextChangeRange,
+    aggressiveChecks: Boolean = definedExternally,
+): SourceFile

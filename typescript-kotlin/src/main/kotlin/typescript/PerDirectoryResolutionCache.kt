@@ -7,7 +7,11 @@ package typescript
  * This assumes that any module id will have the same resolution for sibling files located in the same folder.
  */
 external interface PerDirectoryResolutionCache<T> {
-    fun getOrCreateCacheForDirectory(directoryName: String, redirectedReference: ResolvedProjectReference = definedExternally): ModeAwareCache<T>
+    fun getOrCreateCacheForDirectory(
+        directoryName: String,
+        redirectedReference: ResolvedProjectReference = definedExternally,
+    ): ModeAwareCache<T>
+
     fun clear()
 
     /**

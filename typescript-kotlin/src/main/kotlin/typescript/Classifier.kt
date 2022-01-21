@@ -23,6 +23,15 @@ external interface Classifier {
      *                                  subsume the classification.
      * @deprecated Use getLexicalClassifications instead.
      */
-    fun getClassificationsForLine(text: String, lexState: EndOfLineState, syntacticClassifierAbsent: Boolean): ClassificationResult
-    fun getEncodedLexicalClassifications(text: String, endOfLineState: EndOfLineState, syntacticClassifierAbsent: Boolean): Classifications
+    fun getClassificationsForLine(
+        text: String,
+        lexState: EndOfLineState,
+        syntacticClassifierAbsent: Boolean,
+    ): ClassificationResult
+
+    fun getEncodedLexicalClassifications(
+        text: String,
+        endOfLineState: EndOfLineState,
+        syntacticClassifierAbsent: Boolean,
+    ): Classifications
 }

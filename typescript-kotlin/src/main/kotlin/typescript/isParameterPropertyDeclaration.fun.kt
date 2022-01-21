@@ -5,4 +5,7 @@
 
 package typescript
 
-external fun isParameterPropertyDeclaration(node: Node, parent: Node): Boolean /* node is ParameterPropertyDeclaration */
+external fun isParameterPropertyDeclaration(
+    node: Node,
+    parent: Node,
+): Boolean /* node is ParameterPropertyDeclaration */

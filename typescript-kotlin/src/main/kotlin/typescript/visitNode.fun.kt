@@ -13,7 +13,12 @@ package typescript
  * @param test A callback to execute to verify the Node is valid.
  * @param lift An optional callback to execute to lift a NodeArray into a valid Node.
  */
-external fun <T : Node> visitNode(node: T, visitor: Visitor?, test: (node: Node) -> Boolean = definedExternally, lift: (node: ReadonlyArray<Node>) -> T = definedExternally): T
+external fun <T : Node> visitNode(
+    node: T,
+    visitor: Visitor?,
+    test: (node: Node) -> Boolean = definedExternally,
+    lift: (node: ReadonlyArray<Node>) -> T = definedExternally,
+): T
 
 /**
  * Visits a Node using the supplied visitor, possibly returning a new Node in its place.
@@ -23,4 +28,9 @@ external fun <T : Node> visitNode(node: T, visitor: Visitor?, test: (node: Node)
  * @param test A callback to execute to verify the Node is valid.
  * @param lift An optional callback to execute to lift a NodeArray into a valid Node.
  */
-external fun <T : Node> visitNode(node: T?, visitor: Visitor?, test: (node: Node) -> Boolean = definedExternally, lift: (node: ReadonlyArray<Node>) -> T = definedExternally): T?
+external fun <T : Node> visitNode(
+    node: T?,
+    visitor: Visitor?,
+    test: (node: Node) -> Boolean = definedExternally,
+    lift: (node: ReadonlyArray<Node>) -> T = definedExternally,
+): T?

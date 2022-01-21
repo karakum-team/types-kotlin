@@ -44,12 +44,18 @@ external interface BuilderProgram {
     /**
      * Get the syntax diagnostics, for all source files if source file is not supplied
      */
-    fun getSyntacticDiagnostics(sourceFile: SourceFile = definedExternally, cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
+    fun getSyntacticDiagnostics(
+        sourceFile: SourceFile = definedExternally,
+        cancellationToken: CancellationToken = definedExternally,
+    ): ReadonlyArray<Diagnostic>
 
     /**
      * Get the declaration diagnostics, for all source files if source file is not supplied
      */
-    fun getDeclarationDiagnostics(sourceFile: SourceFile = definedExternally, cancellationToken: CancellationToken = definedExternally): ReadonlyArray<DiagnosticWithLocation>
+    fun getDeclarationDiagnostics(
+        sourceFile: SourceFile = definedExternally,
+        cancellationToken: CancellationToken = definedExternally,
+    ): ReadonlyArray<DiagnosticWithLocation>
 
     /**
      * Get all the dependencies of the file
@@ -64,7 +70,10 @@ external interface BuilderProgram {
      * In case of SemanticDiagnosticsBuilderProgram if the source file is not provided,
      * it will iterate through all the affected files, to ensure that cache stays valid and yet provide a way to get all semantic diagnostics
      */
-    fun getSemanticDiagnostics(sourceFile: SourceFile = definedExternally, cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
+    fun getSemanticDiagnostics(
+        sourceFile: SourceFile = definedExternally,
+        cancellationToken: CancellationToken = definedExternally,
+    ): ReadonlyArray<Diagnostic>
 
     /**
      * Emits the JavaScript and declaration files.

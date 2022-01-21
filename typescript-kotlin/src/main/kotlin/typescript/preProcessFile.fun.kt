@@ -5,4 +5,8 @@
 
 package typescript
 
-external fun preProcessFile(sourceText: String, readImportFiles: Boolean = definedExternally, detectJavaScriptImports: Boolean = definedExternally): PreProcessedFileInfo
+external fun preProcessFile(
+    sourceText: String,
+    readImportFiles: Boolean = definedExternally,
+    detectJavaScriptImports: Boolean = definedExternally,
+): PreProcessedFileInfo

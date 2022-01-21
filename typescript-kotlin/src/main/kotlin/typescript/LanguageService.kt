@@ -57,15 +57,34 @@ external interface LanguageService {
     fun getCompilerOptionsDiagnostics(): ReadonlyArray<Diagnostic>
 
     /** @deprecated Use getEncodedSyntacticClassifications instead. */
-    fun getSyntacticClassifications(fileName: String, span: TextSpan): ReadonlyArray<ClassifiedSpan>
-    fun getSyntacticClassifications(fileName: String, span: TextSpan, format: SemanticClassificationFormat): dynamic /* ClassifiedSpan[] | ClassifiedSpan2020[] */
+    fun getSyntacticClassifications(
+        fileName: String,
+        span: TextSpan,
+    ): ReadonlyArray<ClassifiedSpan>
+
+    fun getSyntacticClassifications(
+        fileName: String,
+        span: TextSpan,
+        format: SemanticClassificationFormat,
+    ): dynamic /* ClassifiedSpan[] | ClassifiedSpan2020[] */
 
     /** @deprecated Use getEncodedSemanticClassifications instead. */
-    fun getSemanticClassifications(fileName: String, span: TextSpan): ReadonlyArray<ClassifiedSpan>
-    fun getSemanticClassifications(fileName: String, span: TextSpan, format: SemanticClassificationFormat): dynamic /* ClassifiedSpan[] | ClassifiedSpan2020[] */
+    fun getSemanticClassifications(
+        fileName: String,
+        span: TextSpan,
+    ): ReadonlyArray<ClassifiedSpan>
+
+    fun getSemanticClassifications(
+        fileName: String,
+        span: TextSpan,
+        format: SemanticClassificationFormat,
+    ): dynamic /* ClassifiedSpan[] | ClassifiedSpan2020[] */
 
     /** Encoded as triples of [start, length, ClassificationType]. */
-    fun getEncodedSyntacticClassifications(fileName: String, span: TextSpan): Classifications
+    fun getEncodedSyntacticClassifications(
+        fileName: String,
+        span: TextSpan,
+    ): Classifications
 
     /**
      * Gets semantic highlights information for a particular file. Has two formats, an older
@@ -76,7 +95,11 @@ external interface LanguageService {
      * @param format Which format to use, defaults to "original"
      * @returns a number array encoded as triples of [start, length, ClassificationType, ...].
      */
-    fun getEncodedSemanticClassifications(fileName: String, span: TextSpan, format: SemanticClassificationFormat = definedExternally): Classifications
+    fun getEncodedSemanticClassifications(
+        fileName: String,
+        span: TextSpan,
+        format: SemanticClassificationFormat = definedExternally,
+    ): Classifications
 
     /**
      * Gets completion entries at a particular position in a file.
@@ -86,7 +109,11 @@ external interface LanguageService {
      * @param options An object describing how the request was triggered and what kinds
      * of code actions can be returned with the completions.
      */
-    fun getCompletionsAtPosition(fileName: String, position: Double, options: GetCompletionsAtPositionOptions?): WithMetadata<CompletionInfo>?
+    fun getCompletionsAtPosition(
+        fileName: String,
+        position: Double,
+        options: GetCompletionsAtPositionOptions?,
+    ): WithMetadata<CompletionInfo>?
 
     /**
      * Gets the extended details for a completion entry retrieved from `getCompletionsAtPosition`.
@@ -109,7 +136,12 @@ external interface LanguageService {
         data: CompletionEntryData?,
     ): CompletionEntryDetails?
 
-    fun getCompletionEntrySymbol(fileName: String, position: Double, name: String, source: String?): Symbol?
+    fun getCompletionEntrySymbol(
+        fileName: String,
+        position: Double,
+        name: String,
+        source: String?,
+    ): Symbol?
 
     /**
      * Gets semantic information about the identifier at a particular position in a
@@ -118,11 +150,34 @@ external interface LanguageService {
      * @param fileName The path to the file
      * @param position A zero-based index of the character where you want the quick info
      */
-    fun getQuickInfoAtPosition(fileName: String, position: Double): QuickInfo?
-    fun getNameOrDottedNameSpan(fileName: String, startPos: Double, endPos: Double): TextSpan?
-    fun getBreakpointStatementAtPosition(fileName: String, position: Double): TextSpan?
-    fun getSignatureHelpItems(fileName: String, position: Double, options: SignatureHelpItemsOptions?): SignatureHelpItems?
-    fun getRenameInfo(fileName: String, position: Double, options: RenameInfoOptions = definedExternally): RenameInfo
+    fun getQuickInfoAtPosition(
+        fileName: String,
+        position: Double,
+    ): QuickInfo?
+
+    fun getNameOrDottedNameSpan(
+        fileName: String,
+        startPos: Double,
+        endPos: Double,
+    ): TextSpan?
+
+    fun getBreakpointStatementAtPosition(
+        fileName: String,
+        position: Double,
+    ): TextSpan?
+
+    fun getSignatureHelpItems(
+        fileName: String,
+        position: Double,
+        options: SignatureHelpItemsOptions?,
+    ): SignatureHelpItems?
+
+    fun getRenameInfo(
+        fileName: String,
+        position: Double,
+        options: RenameInfoOptions = definedExternally,
+    ): RenameInfo
+
     fun findRenameLocations(
         fileName: String,
         position: Double,
@@ -131,18 +186,55 @@ external interface LanguageService {
         providePrefixAndSuffixTextForRename: Boolean = definedExternally,
     ): ReadonlyArray<RenameLocation>?
 
-    fun getSmartSelectionRange(fileName: String, position: Double): SelectionRange
-    fun getDefinitionAtPosition(fileName: String, position: Double): ReadonlyArray<DefinitionInfo>?
-    fun getDefinitionAndBoundSpan(fileName: String, position: Double): DefinitionInfoAndBoundSpan?
-    fun getTypeDefinitionAtPosition(fileName: String, position: Double): ReadonlyArray<DefinitionInfo>?
-    fun getImplementationAtPosition(fileName: String, position: Double): ReadonlyArray<ImplementationLocation>?
-    fun getReferencesAtPosition(fileName: String, position: Double): ReadonlyArray<ReferenceEntry>?
-    fun findReferences(fileName: String, position: Double): ReadonlyArray<ReferencedSymbol>?
-    fun getDocumentHighlights(fileName: String, position: Double, filesToSearch: ReadonlyArray<String>): ReadonlyArray<DocumentHighlights>?
+    fun getSmartSelectionRange(
+        fileName: String,
+        position: Double,
+    ): SelectionRange
+
+    fun getDefinitionAtPosition(
+        fileName: String,
+        position: Double,
+    ): ReadonlyArray<DefinitionInfo>?
+
+    fun getDefinitionAndBoundSpan(
+        fileName: String,
+        position: Double,
+    ): DefinitionInfoAndBoundSpan?
+
+    fun getTypeDefinitionAtPosition(
+        fileName: String,
+        position: Double,
+    ): ReadonlyArray<DefinitionInfo>?
+
+    fun getImplementationAtPosition(
+        fileName: String,
+        position: Double,
+    ): ReadonlyArray<ImplementationLocation>?
+
+    fun getReferencesAtPosition(
+        fileName: String,
+        position: Double,
+    ): ReadonlyArray<ReferenceEntry>?
+
+    fun findReferences(
+        fileName: String,
+        position: Double,
+    ): ReadonlyArray<ReferencedSymbol>?
+
+    fun getDocumentHighlights(
+        fileName: String,
+        position: Double,
+        filesToSearch: ReadonlyArray<String>,
+    ): ReadonlyArray<DocumentHighlights>?
+
     fun getFileReferences(fileName: String): ReadonlyArray<ReferenceEntry>
 
     /** @deprecated */
-    fun getOccurrencesAtPosition(fileName: String, position: Double): ReadonlyArray<ReferenceEntry>?
+    fun getOccurrencesAtPosition(
+        fileName: String,
+        position: Double,
+    ): ReadonlyArray<ReferenceEntry>?
+
     fun getNavigateToItems(
         searchValue: String,
         maxResultCount: Double = definedExternally,
@@ -152,27 +244,95 @@ external interface LanguageService {
 
     fun getNavigationBarItems(fileName: String): ReadonlyArray<NavigationBarItem>
     fun getNavigationTree(fileName: String): NavigationTree
-    fun prepareCallHierarchy(fileName: String, position: Double): dynamic /* CallHierarchyItem | CallHierarchyItem[] */
-    fun provideCallHierarchyIncomingCalls(fileName: String, position: Double): ReadonlyArray<CallHierarchyIncomingCall>
-    fun provideCallHierarchyOutgoingCalls(fileName: String, position: Double): ReadonlyArray<CallHierarchyOutgoingCall>
-    fun provideInlayHints(fileName: String, span: TextSpan, preferences: UserPreferences?): ReadonlyArray<InlayHint>
+    fun prepareCallHierarchy(
+        fileName: String,
+        position: Double,
+    ): dynamic /* CallHierarchyItem | CallHierarchyItem[] */
+
+    fun provideCallHierarchyIncomingCalls(
+        fileName: String,
+        position: Double,
+    ): ReadonlyArray<CallHierarchyIncomingCall>
+
+    fun provideCallHierarchyOutgoingCalls(
+        fileName: String,
+        position: Double,
+    ): ReadonlyArray<CallHierarchyOutgoingCall>
+
+    fun provideInlayHints(
+        fileName: String,
+        span: TextSpan,
+        preferences: UserPreferences?,
+    ): ReadonlyArray<InlayHint>
+
     fun getOutliningSpans(fileName: String): ReadonlyArray<OutliningSpan>
-    fun getTodoComments(fileName: String, descriptors: ReadonlyArray<TodoCommentDescriptor>): ReadonlyArray<TodoComment>
-    fun getBraceMatchingAtPosition(fileName: String, position: Double): ReadonlyArray<TextSpan>
-    fun getIndentationAtPosition(fileName: String, position: Double, options: dynamic /* EditorOptions | EditorSettings */): Double
-    fun getFormattingEditsForRange(fileName: String, start: Double, end: Double, options: dynamic /* FormatCodeOptions | FormatCodeSettings */): ReadonlyArray<TextChange>
-    fun getFormattingEditsForDocument(fileName: String, options: dynamic /* FormatCodeOptions | FormatCodeSettings */): ReadonlyArray<TextChange>
-    fun getFormattingEditsAfterKeystroke(fileName: String, position: Double, key: String, options: dynamic /* FormatCodeOptions | FormatCodeSettings */): ReadonlyArray<TextChange>
-    fun getDocCommentTemplateAtPosition(fileName: String, position: Double, options: DocCommentTemplateOptions = definedExternally): TextInsertion?
-    fun isValidBraceCompletionAtPosition(fileName: String, position: Double, openingBrace: Double): Boolean
+    fun getTodoComments(
+        fileName: String,
+        descriptors: ReadonlyArray<TodoCommentDescriptor>,
+    ): ReadonlyArray<TodoComment>
+
+    fun getBraceMatchingAtPosition(
+        fileName: String,
+        position: Double,
+    ): ReadonlyArray<TextSpan>
+
+    fun getIndentationAtPosition(
+        fileName: String,
+        position: Double,
+        options: dynamic, /* EditorOptions | EditorSettings */
+    ): Double
+
+    fun getFormattingEditsForRange(
+        fileName: String,
+        start: Double,
+        end: Double,
+        options: dynamic, /* FormatCodeOptions | FormatCodeSettings */
+    ): ReadonlyArray<TextChange>
+
+    fun getFormattingEditsForDocument(
+        fileName: String,
+        options: dynamic, /* FormatCodeOptions | FormatCodeSettings */
+    ): ReadonlyArray<TextChange>
+
+    fun getFormattingEditsAfterKeystroke(
+        fileName: String,
+        position: Double,
+        key: String,
+        options: dynamic, /* FormatCodeOptions | FormatCodeSettings */
+    ): ReadonlyArray<TextChange>
+
+    fun getDocCommentTemplateAtPosition(
+        fileName: String,
+        position: Double,
+        options: DocCommentTemplateOptions = definedExternally,
+    ): TextInsertion?
+
+    fun isValidBraceCompletionAtPosition(
+        fileName: String,
+        position: Double,
+        openingBrace: Double,
+    ): Boolean
 
     /**
      * This will return a defined result if the position is after the `>` of the opening tag, or somewhere in the text, of a JSXElement with no closing tag.
      * Editors should call this after `>` is typed.
      */
-    fun getJsxClosingTagAtPosition(fileName: String, position: Double): JsxClosingTagInfo?
-    fun getSpanOfEnclosingComment(fileName: String, position: Double, onlyMultiLine: Boolean): TextSpan?
-    val toLineColumnOffset: ((fileName: String, position: Double) -> LineAndCharacter)?
+    fun getJsxClosingTagAtPosition(
+        fileName: String,
+        position: Double,
+    ): JsxClosingTagInfo?
+
+    fun getSpanOfEnclosingComment(
+        fileName: String,
+        position: Double,
+        onlyMultiLine: Boolean,
+    ): TextSpan?
+
+    val toLineColumnOffset: ((
+        fileName: String,
+        position: Double,
+    ) -> LineAndCharacter)?
+
     fun getCodeFixesAtPosition(
         fileName: String,
         start: Double,
@@ -182,22 +342,46 @@ external interface LanguageService {
         preferences: UserPreferences,
     ): ReadonlyArray<CodeFixAction>
 
-    fun getCombinedCodeFix(scope: CombinedCodeFixScope, fixId: Any, formatOptions: FormatCodeSettings, preferences: UserPreferences): CombinedCodeActions
-    fun applyCodeActionCommand(action: CodeActionCommand, formatSettings: FormatCodeSettings = definedExternally): kotlin.js.Promise<ApplyCodeActionCommandResult>
-    fun applyCodeActionCommand(action: ReadonlyArray<CodeActionCommand>, formatSettings: FormatCodeSettings = definedExternally): kotlin.js.Promise<ReadonlyArray<ApplyCodeActionCommandResult>>
+    fun getCombinedCodeFix(
+        scope: CombinedCodeFixScope,
+        fixId: Any,
+        formatOptions: FormatCodeSettings,
+        preferences: UserPreferences,
+    ): CombinedCodeActions
+
+    fun applyCodeActionCommand(
+        action: CodeActionCommand,
+        formatSettings: FormatCodeSettings = definedExternally,
+    ): kotlin.js.Promise<ApplyCodeActionCommandResult>
+
+    fun applyCodeActionCommand(
+        action: ReadonlyArray<CodeActionCommand>,
+        formatSettings: FormatCodeSettings = definedExternally,
+    ): kotlin.js.Promise<ReadonlyArray<ApplyCodeActionCommandResult>>
+
     fun applyCodeActionCommand(
         action: dynamic, /* CodeActionCommand | CodeActionCommand[] */
         formatSettings: FormatCodeSettings = definedExternally,
     ): dynamic /* Promise<ApplyCodeActionCommandResult | ApplyCodeActionCommandResult[]> */
 
     /** @deprecated `fileName` will be ignored */
-    fun applyCodeActionCommand(fileName: String, action: CodeActionCommand): kotlin.js.Promise<ApplyCodeActionCommandResult>
+    fun applyCodeActionCommand(
+        fileName: String,
+        action: CodeActionCommand,
+    ): kotlin.js.Promise<ApplyCodeActionCommandResult>
 
     /** @deprecated `fileName` will be ignored */
-    fun applyCodeActionCommand(fileName: String, action: ReadonlyArray<CodeActionCommand>): kotlin.js.Promise<ReadonlyArray<ApplyCodeActionCommandResult>>
+    fun applyCodeActionCommand(
+        fileName: String,
+        action: ReadonlyArray<CodeActionCommand>,
+    ): kotlin.js.Promise<ReadonlyArray<ApplyCodeActionCommandResult>>
 
     /** @deprecated `fileName` will be ignored */
-    fun applyCodeActionCommand(fileName: String, action: dynamic /* CodeActionCommand | CodeActionCommand[] */): dynamic /* Promise<ApplyCodeActionCommandResult | ApplyCodeActionCommandResult[]> */
+    fun applyCodeActionCommand(
+        fileName: String,
+        action: dynamic, /* CodeActionCommand | CodeActionCommand[] */
+    ): dynamic /* Promise<ApplyCodeActionCommandResult | ApplyCodeActionCommandResult[]> */
+
     fun getApplicableRefactors(
         fileName: String,
         positionOrRange: dynamic, /* number | TextRange */
@@ -215,13 +399,45 @@ external interface LanguageService {
         preferences: UserPreferences?,
     ): RefactorEditInfo?
 
-    fun organizeImports(args: OrganizeImportsArgs, formatOptions: FormatCodeSettings, preferences: UserPreferences?): ReadonlyArray<FileTextChanges>
-    fun getEditsForFileRename(oldFilePath: String, newFilePath: String, formatOptions: FormatCodeSettings, preferences: UserPreferences?): ReadonlyArray<FileTextChanges>
-    fun getEmitOutput(fileName: String, emitOnlyDtsFiles: Boolean = definedExternally, forceDtsEmit: Boolean = definedExternally): EmitOutput
+    fun organizeImports(
+        args: OrganizeImportsArgs,
+        formatOptions: FormatCodeSettings,
+        preferences: UserPreferences?,
+    ): ReadonlyArray<FileTextChanges>
+
+    fun getEditsForFileRename(
+        oldFilePath: String,
+        newFilePath: String,
+        formatOptions: FormatCodeSettings,
+        preferences: UserPreferences?,
+    ): ReadonlyArray<FileTextChanges>
+
+    fun getEmitOutput(
+        fileName: String,
+        emitOnlyDtsFiles: Boolean = definedExternally,
+        forceDtsEmit: Boolean = definedExternally,
+    ): EmitOutput
+
     fun getProgram(): Program?
-    fun toggleLineComment(fileName: String, textRange: TextRange): ReadonlyArray<TextChange>
-    fun toggleMultilineComment(fileName: String, textRange: TextRange): ReadonlyArray<TextChange>
-    fun commentSelection(fileName: String, textRange: TextRange): ReadonlyArray<TextChange>
-    fun uncommentSelection(fileName: String, textRange: TextRange): ReadonlyArray<TextChange>
+    fun toggleLineComment(
+        fileName: String,
+        textRange: TextRange,
+    ): ReadonlyArray<TextChange>
+
+    fun toggleMultilineComment(
+        fileName: String,
+        textRange: TextRange,
+    ): ReadonlyArray<TextChange>
+
+    fun commentSelection(
+        fileName: String,
+        textRange: TextRange,
+    ): ReadonlyArray<TextChange>
+
+    fun uncommentSelection(
+        fileName: String,
+        textRange: TextRange,
+    ): ReadonlyArray<TextChange>
+
     fun dispose()
 }

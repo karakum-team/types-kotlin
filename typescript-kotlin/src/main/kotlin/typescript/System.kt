@@ -9,16 +9,35 @@ external interface System {
     fun write(s: String)
     val writeOutputIsTTY: (() -> Boolean)?
     val getWidthOfTerminal: (() -> Double)?
-    fun readFile(path: String, encoding: String = definedExternally): String?
+    fun readFile(
+        path: String,
+        encoding: String = definedExternally,
+    ): String?
+
     val getFileSize: ((path: String) -> Double)?
-    fun writeFile(path: String, data: String, writeByteOrderMark: Boolean = definedExternally)
+    fun writeFile(
+        path: String,
+        data: String,
+        writeByteOrderMark: Boolean = definedExternally,
+    )
 
     /**
      * @pollingInterval - this parameter is used in polling-based watchers and ignored in watchers that
      * use native OS file watching
      */
-    val watchFile: ((path: String, callback: FileWatcherCallback, pollingInterval: Double?, options: WatchOptions?) -> FileWatcher)?
-    val watchDirectory: ((path: String, callback: DirectoryWatcherCallback, recursive: Boolean?, options: WatchOptions?) -> FileWatcher)?
+    val watchFile: ((
+        path: String,
+        callback: FileWatcherCallback,
+        pollingInterval: Double?,
+        options: WatchOptions?,
+    ) -> FileWatcher)?
+    val watchDirectory: ((
+        path: String,
+        callback: DirectoryWatcherCallback,
+        recursive: Boolean?,
+        options: WatchOptions?,
+    ) -> FileWatcher)?
+
     fun resolvePath(path: String): String
     fun fileExists(path: String): Boolean
     fun directoryExists(path: String): Boolean
@@ -35,7 +54,10 @@ external interface System {
     ): ReadonlyArray<String>
 
     val getModifiedTime: ((path: String) -> kotlin.js.Date?)?
-    val setModifiedTime: ((path: String, time: kotlin.js.Date) -> Unit)?
+    val setModifiedTime: ((
+        path: String,
+        time: kotlin.js.Date,
+    ) -> Unit)?
     val deleteFile: ((path: String) -> Unit)?
 
     /**
@@ -48,7 +70,12 @@ external interface System {
     val getMemoryUsage: (() -> Double)?
     fun exit(exitCode: Double = definedExternally)
     val realpath: ((path: String) -> String)?
-    val setTimeout: ((callback: Function<Unit>, ms: Double, /* vararg */ args: dynamic) -> Any)?
+    val setTimeout: ((
+        callback: Function<Unit>,
+        ms: Double,
+/* vararg */
+        args: dynamic,
+    ) -> Any)?
     val clearTimeout: ((timeoutId: Any) -> Unit)?
     val clearScreen: (() -> Unit)?
     val base64decode: ((input: String) -> String)?

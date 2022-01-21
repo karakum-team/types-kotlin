@@ -11,9 +11,17 @@ external interface BuildInvalidedProject<T : BuilderProgram> : InvalidatedProjec
     fun getOptionsDiagnostics(cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
     fun getGlobalDiagnostics(cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
     fun getConfigFileParsingDiagnostics(): ReadonlyArray<Diagnostic>
-    fun getSyntacticDiagnostics(sourceFile: SourceFile = definedExternally, cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
+    fun getSyntacticDiagnostics(
+        sourceFile: SourceFile = definedExternally,
+        cancellationToken: CancellationToken = definedExternally,
+    ): ReadonlyArray<Diagnostic>
+
     fun getAllDependencies(sourceFile: SourceFile): ReadonlyArray<String>
-    fun getSemanticDiagnostics(sourceFile: SourceFile = definedExternally, cancellationToken: CancellationToken = definedExternally): ReadonlyArray<Diagnostic>
+    fun getSemanticDiagnostics(
+        sourceFile: SourceFile = definedExternally,
+        cancellationToken: CancellationToken = definedExternally,
+    ): ReadonlyArray<Diagnostic>
+
     fun getSemanticDiagnosticsOfNextAffectedFile(
         cancellationToken: CancellationToken = definedExternally,
         ignoreSourceFile: (sourceFile: SourceFile) -> Boolean = definedExternally,

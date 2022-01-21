@@ -5,4 +5,7 @@
 
 package typescript
 
-external fun parseCommandLine(commandLine: ReadonlyArray<String>, readFile: (path: String) -> String? = definedExternally): ParsedCommandLine
+external fun parseCommandLine(
+    commandLine: ReadonlyArray<String>,
+    readFile: (path: String) -> String? = definedExternally,
+): ParsedCommandLine

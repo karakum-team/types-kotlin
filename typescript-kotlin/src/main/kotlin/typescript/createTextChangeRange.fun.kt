@@ -5,4 +5,7 @@
 
 package typescript
 
-external fun createTextChangeRange(span: TextSpan, newLength: Double): TextChangeRange
+external fun createTextChangeRange(
+    span: TextSpan,
+    newLength: Double,
+): TextChangeRange

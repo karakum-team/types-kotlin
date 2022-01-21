@@ -8,4 +8,7 @@ package typescript
 /**
  * Convert the json syntax tree into the json value
  */
-external fun convertToObject(sourceFile: JsonSourceFile, errors: Push<Diagnostic>): Any
+external fun convertToObject(
+    sourceFile: JsonSourceFile,
+    errors: Push<Diagnostic>,
+): Any

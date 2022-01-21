@@ -4,5 +4,8 @@ package typescript
 
 /** ES6 Map interface. */
 external interface ESMap<K, V> : ReadonlyESMap<K, V>, Collection<K> {
-    fun set(key: K, value: V): ESMap<K, V>
+    fun set(
+        key: K,
+        value: V,
+    ): ESMap<K, V>
 }

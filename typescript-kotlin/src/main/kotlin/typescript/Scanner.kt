@@ -32,12 +32,22 @@ external interface Scanner {
     fun scanJsDocToken(): JSDocSyntaxKind
     fun scan(): SyntaxKind
     fun getText(): String
-    fun setText(text: String?, start: Double = definedExternally, length: Double = definedExternally)
+    fun setText(
+        text: String?,
+        start: Double = definedExternally,
+        length: Double = definedExternally,
+    )
+
     fun setOnError(onError: ErrorCallback?)
     fun setScriptTarget(scriptTarget: ScriptTarget)
     fun setLanguageVariant(variant: LanguageVariant)
     fun setTextPos(textPos: Double)
     fun <T> lookAhead(callback: () -> T): T
-    fun <T> scanRange(start: Double, length: Double, callback: () -> T): T
+    fun <T> scanRange(
+        start: Double,
+        length: Double,
+        callback: () -> T,
+    ): T
+
     fun <T> tryScan(callback: () -> T): T
 }

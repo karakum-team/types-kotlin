@@ -4,7 +4,13 @@ package typescript
 
 external interface ParseConfigHost {
     var useCaseSensitiveFileNames: Boolean
-    fun readDirectory(rootDir: String, extensions: ReadonlyArray<String>, excludes: ReadonlyArray<String>?, includes: ReadonlyArray<String>, depth: Double = definedExternally): ReadonlyArray<String>
+    fun readDirectory(
+        rootDir: String,
+        extensions: ReadonlyArray<String>,
+        excludes: ReadonlyArray<String>?,
+        includes: ReadonlyArray<String>,
+        depth: Double = definedExternally,
+    ): ReadonlyArray<String>
 
     /**
      * Gets a value indicating whether the specified path exists and is a file.

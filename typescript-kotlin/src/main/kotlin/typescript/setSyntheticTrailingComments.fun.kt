@@ -5,4 +5,7 @@
 
 package typescript
 
-external fun <T : Node> setSyntheticTrailingComments(node: T, comments: ReadonlyArray<SynthesizedComment>?): T
+external fun <T : Node> setSyntheticTrailingComments(
+    node: T,
+    comments: ReadonlyArray<SynthesizedComment>?,
+): T

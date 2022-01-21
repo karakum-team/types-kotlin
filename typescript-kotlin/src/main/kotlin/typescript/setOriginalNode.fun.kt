@@ -5,4 +5,7 @@
 
 package typescript
 
-external fun <T : Node> setOriginalNode(node: T, original: Node?): T
+external fun <T : Node> setOriginalNode(
+    node: T,
+    original: Node?,
+): T

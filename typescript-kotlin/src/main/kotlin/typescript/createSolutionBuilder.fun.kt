@@ -5,4 +5,8 @@
 
 package typescript
 
-external fun <T : BuilderProgram> createSolutionBuilder(host: SolutionBuilderHost<T>, rootNames: ReadonlyArray<String>, defaultOptions: BuildOptions): SolutionBuilder<T>
+external fun <T : BuilderProgram> createSolutionBuilder(
+    host: SolutionBuilderHost<T>,
+    rootNames: ReadonlyArray<String>,
+    defaultOptions: BuildOptions,
+): SolutionBuilder<T>
