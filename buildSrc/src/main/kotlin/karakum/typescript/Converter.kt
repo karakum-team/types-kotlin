@@ -101,8 +101,9 @@ private fun convertConst(
         return "const val $source"
 
     val body = source.substringAfter(": ")
-    if (body == "string")
-        return "external val $name: String"
+
+    if (body.startsWith("{"))
+        return "/*\nexternal val $source\n*/"
 
     if (body.startsWith("(") || body.startsWith("<")) {
         val functionSource = when (name) {
@@ -116,7 +117,7 @@ private fun convertConst(
         )
     }
 
-    return "/*\nexternal val $source\n*/"
+    return "external val $name: ${kotlinType(body, name)}"
 }
 
 private val EXCLUDED_FUNCTIONS = setOf(
