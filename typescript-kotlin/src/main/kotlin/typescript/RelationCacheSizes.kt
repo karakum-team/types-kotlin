@@ -3,8 +3,8 @@
 package typescript
 
 external interface RelationCacheSizes {
-    var assignable: Double
-    var identity: Double
-    var subtype: Double
-    var strictSubtype: Double
+    val assignable: Double
+    val identity: Double
+    val subtype: Double
+    val strictSubtype: Double
 }
