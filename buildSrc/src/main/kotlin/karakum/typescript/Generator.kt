@@ -55,8 +55,8 @@ fun generateKotlinDeclarations(
             else -> ""
         }
 
-        val extension = when {
-            "external fun " in body -> "fun.kt"
+        val extension = when (name) {
+            "CreateProgram" -> "alias.kt"
             else -> "kt"
         }
 
