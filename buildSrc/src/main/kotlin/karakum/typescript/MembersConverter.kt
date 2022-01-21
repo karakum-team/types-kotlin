@@ -108,7 +108,7 @@ internal fun convertMethod(
         parametersSource.isNotEmpty()
         -> parametersSource
             .splitToSequence(", ")
-            .joinToString(", ") {
+            .joinToString(",\n") {
                 convertParameter(it, optional)
             }
 
