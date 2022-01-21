@@ -11,6 +11,6 @@ package typescript
 external interface DiagnosticMessageChain {
     var messageText: String
     var category: DiagnosticCategory
-    var code: Double
+    var code: Int
     var next: ReadonlyArray<DiagnosticMessageChain>?
 }

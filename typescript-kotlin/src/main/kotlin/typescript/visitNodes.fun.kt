@@ -18,8 +18,8 @@ external fun <T : Node> visitNodes(
     nodes: NodeArray<T>,
     visitor: Visitor?,
     test: (node: Node) -> Boolean = definedExternally,
-    start: Double = definedExternally,
-    count: Double = definedExternally,
+    start: Int = definedExternally,
+    count: Int = definedExternally,
 ): NodeArray<T>
 
 /**
@@ -35,6 +35,6 @@ external fun <T : Node> visitNodes(
     nodes: NodeArray<T>?,
     visitor: Visitor?,
     test: (node: Node) -> Boolean = definedExternally,
-    start: Double = definedExternally,
-    count: Double = definedExternally,
+    start: Int = definedExternally,
+    count: Int = definedExternally,
 ): NodeArray<T>?

@@ -7,10 +7,10 @@ package typescript
 
 external fun <T, U> reduceEachLeadingCommentRange(
     text: String,
-    pos: Double,
+    pos: Int,
     cb: (
         pos: Double,
-        end: Double,
+        end: Int,
         kind: CommentKind,
         hasTrailingNewLine: Boolean,
         state: T,

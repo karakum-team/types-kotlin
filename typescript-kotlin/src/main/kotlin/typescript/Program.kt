@@ -57,11 +57,11 @@ external interface Program : ScriptReferenceHost {
      * Gets a type checker that can be used to semantically analyze source files in the program.
      */
     fun getTypeChecker(): TypeChecker
-    fun getNodeCount(): Double
-    fun getIdentifierCount(): Double
-    fun getSymbolCount(): Double
-    fun getTypeCount(): Double
-    fun getInstantiationCount(): Double
+    fun getNodeCount(): Int
+    fun getIdentifierCount(): Int
+    fun getSymbolCount(): Int
+    fun getTypeCount(): Int
+    fun getInstantiationCount(): Int
     fun getRelationCacheSizes(): RelationCacheSizes
     fun isSourceFileFromExternalLibrary(file: SourceFile): Boolean
     fun isSourceFileDefaultLibrary(file: SourceFile): Boolean

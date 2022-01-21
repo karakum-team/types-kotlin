@@ -24,7 +24,7 @@ external interface LanguageServiceHost : GetEffectiveTypeRootsHost {
         extensions: ReadonlyArray<String>?,
         exclude: ReadonlyArray<String>?,
         include: ReadonlyArray<String>?,
-        depth: Double?,
+        depth: Int?,
     ) -> ReadonlyArray<String>)?
     val readFile: ((
         path: String,
@@ -32,7 +32,7 @@ external interface LanguageServiceHost : GetEffectiveTypeRootsHost {
     ) -> String?)?
     val realpath: ((path: String) -> String)?
     val fileExists: ((path: String) -> Boolean)?
-    val getTypeRootsVersion: (() -> Double)?
+    val getTypeRootsVersion: (() -> Int)?
     val resolveModuleNames: ((
         moduleNames: ReadonlyArray<String>,
         containingFile: String,

@@ -6,4 +6,4 @@
 package typescript
 
 /** Does not include line breaks. For that, see isWhiteSpaceLike. */
-external fun isWhiteSpaceSingleLine(ch: Double): Boolean
+external fun isWhiteSpaceSingleLine(ch: Int): Boolean

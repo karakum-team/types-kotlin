@@ -36,7 +36,7 @@ external interface CompilerOptions {
     var lib: ReadonlyArray<String>?
     var locale: String?
     var mapRoot: String?
-    var maxNodeModuleJsDepth: Double?
+    var maxNodeModuleJsDepth: Int?
     var module: ModuleKind?
     var moduleResolution: ModuleResolutionKind?
     var newLine: NewLineKind?

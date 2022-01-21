@@ -25,5 +25,5 @@ external interface ModeAwareCache<T> {
     ): Boolean
 
     fun forEach(cb: (elem: T, key: String, mode: ModuleKind? /* ModuleKind.CommonJS | ModuleKind.ESNext | undefined */) -> Unit)
-    fun size(): Double
+    fun size(): Int
 }

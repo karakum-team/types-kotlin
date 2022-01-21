@@ -7,10 +7,10 @@ package typescript
 
 external fun <U> forEachLeadingCommentRange(
     text: String,
-    pos: Double,
+    pos: Int,
     cb: (
         pos: Double,
-        end: Double,
+        end: Int,
         kind: CommentKind,
         hasTrailingNewLine: Boolean,
     ) -> U,
@@ -18,10 +18,10 @@ external fun <U> forEachLeadingCommentRange(
 
 external fun <T, U> forEachLeadingCommentRange(
     text: String,
-    pos: Double,
+    pos: Int,
     cb: (
         pos: Double,
-        end: Double,
+        end: Int,
         kind: CommentKind,
         hasTrailingNewLine: Boolean,
         state: T,

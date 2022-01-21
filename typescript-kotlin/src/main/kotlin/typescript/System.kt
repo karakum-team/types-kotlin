@@ -8,13 +8,13 @@ external interface System {
     var useCaseSensitiveFileNames: Boolean
     fun write(s: String)
     val writeOutputIsTTY: (() -> Boolean)?
-    val getWidthOfTerminal: (() -> Double)?
+    val getWidthOfTerminal: (() -> Int)?
     fun readFile(
         path: String,
         encoding: String = definedExternally,
     ): String?
 
-    val getFileSize: ((path: String) -> Double)?
+    val getFileSize: ((path: String) -> Int)?
     fun writeFile(
         path: String,
         data: String,
@@ -28,7 +28,7 @@ external interface System {
     val watchFile: ((
         path: String,
         callback: FileWatcherCallback,
-        pollingInterval: Double?,
+        pollingInterval: Int?,
         options: WatchOptions?,
     ) -> FileWatcher)?
     val watchDirectory: ((
@@ -50,7 +50,7 @@ external interface System {
         extensions: ReadonlyArray<String> = definedExternally,
         exclude: ReadonlyArray<String> = definedExternally,
         include: ReadonlyArray<String> = definedExternally,
-        depth: Double = definedExternally,
+        depth: Int = definedExternally,
     ): ReadonlyArray<String>
 
     val getModifiedTime: ((path: String) -> kotlin.js.Date?)?
@@ -67,12 +67,12 @@ external interface System {
 
     /** This must be cryptographically secure. Only implement this method using `crypto.createHash("sha256")`. */
     val createSHA256Hash: ((data: String) -> String)?
-    val getMemoryUsage: (() -> Double)?
-    fun exit(exitCode: Double = definedExternally)
+    val getMemoryUsage: (() -> Int)?
+    fun exit(exitCode: Int = definedExternally)
     val realpath: ((path: String) -> String)?
     val setTimeout: ((
         callback: Function<Unit>,
-        ms: Double,
+        ms: Int,
 /* vararg */
         args: dynamic,
     ) -> Any)?

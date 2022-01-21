@@ -4,5 +4,5 @@ package typescript
 
 external interface PerformanceEvent {
     var kind: dynamic /* "UpdateGraph" | "CreatePackageJsonAutoImportProvider" */
-    var durationMs: Double
+    var durationMs: Int
 }

@@ -30,7 +30,7 @@ external interface CompilerHost : ModuleResolutionHost {
         extensions: ReadonlyArray<String>,
         excludes: ReadonlyArray<String>?,
         includes: ReadonlyArray<String>,
-        depth: Double?,
+        depth: Int?,
     ) -> ReadonlyArray<String>)?
     val resolveModuleNames: ((
         moduleNames: ReadonlyArray<String>,

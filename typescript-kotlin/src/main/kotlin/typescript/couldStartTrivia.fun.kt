@@ -7,5 +7,5 @@ package typescript
 
 external fun couldStartTrivia(
     text: String,
-    pos: Double,
+    pos: Int,
 ): Boolean

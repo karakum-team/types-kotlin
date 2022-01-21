@@ -4,5 +4,5 @@ package typescript
 
 external interface TodoCommentDescriptor {
     var text: String
-    var priority: Double
+    var priority: Int
 }

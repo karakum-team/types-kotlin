@@ -5,4 +5,4 @@
 
 package typescript
 
-external fun isWhiteSpaceLike(ch: Double): Boolean
+external fun isWhiteSpaceLike(ch: Int): Boolean

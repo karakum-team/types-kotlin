@@ -7,15 +7,15 @@ external interface NodesVisitor {
         nodes: NodeArray<T>,
         visitor: Visitor?,
         test: (node: Node) -> Boolean = definedExternally,
-        start: Double = definedExternally,
-        count: Double = definedExternally,
+        start: Int = definedExternally,
+        count: Int = definedExternally,
     ): NodeArray<T>
 
     fun <T : Node> /* native */ invoke(
         nodes: NodeArray<T>?,
         visitor: Visitor?,
         test: (node: Node) -> Boolean = definedExternally,
-        start: Double = definedExternally,
-        count: Double = definedExternally,
+        start: Int = definedExternally,
+        count: Int = definedExternally,
     ): NodeArray<T>?
 }

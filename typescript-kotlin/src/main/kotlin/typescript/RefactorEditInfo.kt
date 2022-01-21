@@ -9,6 +9,6 @@ package typescript
 external interface RefactorEditInfo {
     var edits: ReadonlyArray<FileTextChanges>
     var renameFilename: String?
-    var renameLocation: Double?
+    var renameLocation: Int?
     var commands: ReadonlyArray<CodeActionCommand>?
 }

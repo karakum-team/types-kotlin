@@ -9,7 +9,7 @@ external interface ParseConfigHost {
         extensions: ReadonlyArray<String>,
         excludes: ReadonlyArray<String>?,
         includes: ReadonlyArray<String>,
-        depth: Double = definedExternally,
+        depth: Int = definedExternally,
     ): ReadonlyArray<String>
 
     /**

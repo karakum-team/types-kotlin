@@ -8,7 +8,7 @@ package typescript
 external interface SignatureHelpItems {
     var items: ReadonlyArray<SignatureHelpItem>
     var applicableSpan: TextSpan
-    var selectedItemIndex: Double
-    var argumentIndex: Double
-    var argumentCount: Double
+    var selectedItemIndex: Int
+    var argumentIndex: Int
+    var argumentCount: Int
 }

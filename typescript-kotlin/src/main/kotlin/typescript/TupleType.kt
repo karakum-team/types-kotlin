@@ -4,8 +4,8 @@ package typescript
 
 external interface TupleType : GenericType {
     var elementFlags: ReadonlyArray<ElementFlags>
-    var minLength: Double
-    var fixedLength: Double
+    var minLength: Int
+    var fixedLength: Int
     var hasRestElement: Boolean
     var combinedFlags: ElementFlags
     var readonly: Boolean

@@ -41,7 +41,7 @@ external interface ProgramHost<T : BuilderProgram> {
         extensions: ReadonlyArray<String>?,
         exclude: ReadonlyArray<String>?,
         include: ReadonlyArray<String>?,
-        depth: Double?,
+        depth: Int?,
     ) -> ReadonlyArray<String>)?
 
     /** Symbol links resolution */

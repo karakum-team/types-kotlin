@@ -9,14 +9,14 @@ external interface WatchHost {
         diagnostic: Diagnostic,
         newLine: String,
         options: CompilerOptions,
-        errorCount: Double?,
+        errorCount: Int?,
     ) -> Unit)?
 
     /** Used to watch changes in source files, missing files needed to update the program or config file */
     fun watchFile(
         path: String,
         callback: FileWatcherCallback,
-        pollingInterval: Double = definedExternally,
+        pollingInterval: Int = definedExternally,
         options: CompilerOptions = definedExternally,
     ): FileWatcher
 
@@ -31,7 +31,7 @@ external interface WatchHost {
     /** If provided, will be used to set delayed compilation, so that multiple changes in short span are compiled together */
     val setTimeout: ((
         callback: Function<Unit>,
-        ms: Double,
+        ms: Int,
 /* vararg */
         args: dynamic,
     ) -> Any)?

@@ -5,4 +5,4 @@
 
 package typescript
 
-external fun isLineBreak(ch: Double): Boolean
+external fun isLineBreak(ch: Int): Boolean

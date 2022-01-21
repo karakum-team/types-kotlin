@@ -3,6 +3,6 @@
 package typescript
 
 external interface Classifications {
-    var spans: ReadonlyArray<Double>
+    var spans: ReadonlyArray<Int>
     var endOfLineState: EndOfLineState
 }

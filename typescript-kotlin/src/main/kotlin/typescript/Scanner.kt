@@ -3,10 +3,10 @@
 package typescript
 
 external interface Scanner {
-    fun getStartPos(): Double
+    fun getStartPos(): Int
     fun getToken(): SyntaxKind
-    fun getTextPos(): Double
-    fun getTokenPos(): Double
+    fun getTextPos(): Int
+    fun getTokenPos(): Int
     fun getTokenText(): String
     fun getTokenValue(): String
     fun hasUnicodeEscape(): Boolean
@@ -34,18 +34,18 @@ external interface Scanner {
     fun getText(): String
     fun setText(
         text: String?,
-        start: Double = definedExternally,
-        length: Double = definedExternally,
+        start: Int = definedExternally,
+        length: Int = definedExternally,
     )
 
     fun setOnError(onError: ErrorCallback?)
     fun setScriptTarget(scriptTarget: ScriptTarget)
     fun setLanguageVariant(variant: LanguageVariant)
-    fun setTextPos(textPos: Double)
+    fun setTextPos(textPos: Int)
     fun <T> lookAhead(callback: () -> T): T
     fun <T> scanRange(
-        start: Double,
-        length: Double,
+        start: Int,
+        length: Int,
         callback: () -> T,
     ): T
 

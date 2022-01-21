@@ -4,9 +4,9 @@ package typescript
 
 external interface DiagnosticRelatedInformation {
     var category: DiagnosticCategory
-    var code: Double
+    var code: Int
     var file: SourceFile?
-    var start: Double?
-    var length: Double?
+    var start: Int?
+    var length: Int?
     var messageText: dynamic /* string | DiagnosticMessageChain */
 }

@@ -4,7 +4,7 @@ package typescript
 
 external interface InlayHint {
     var text: String
-    var position: Double
+    var position: Int
     var kind: InlayHintKind
     var whitespaceBefore: Boolean?
     var whitespaceAfter: Boolean?

@@ -4,5 +4,5 @@ package typescript
 
 external interface FlowNodeBase {
     var flags: FlowFlags
-    var id: Double?
+    var id: Int?
 }

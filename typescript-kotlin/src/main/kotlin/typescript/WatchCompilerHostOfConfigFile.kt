@@ -23,6 +23,6 @@ external interface WatchCompilerHostOfConfigFile<T : BuilderProgram> : WatchComp
         extensions: ReadonlyArray<String> = definedExternally,
         exclude: ReadonlyArray<String> = definedExternally,
         include: ReadonlyArray<String> = definedExternally,
-        depth: Double = definedExternally,
+        depth: Int = definedExternally,
     ): ReadonlyArray<String>
 }

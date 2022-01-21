@@ -5,4 +5,4 @@
 
 package typescript
 
-external fun getNodeMajorVersion(): Double?
+external fun getNodeMajorVersion(): Int?

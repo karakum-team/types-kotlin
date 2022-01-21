@@ -14,7 +14,7 @@ external interface NavigationBarItem {
     var kindModifiers: String
     var spans: ReadonlyArray<TextSpan>
     var childItems: ReadonlyArray<NavigationBarItem>
-    var indent: Double
+    var indent: Int
     var bolded: Boolean
     var grayed: Boolean
 }

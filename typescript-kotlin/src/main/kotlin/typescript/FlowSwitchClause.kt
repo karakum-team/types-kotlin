@@ -4,7 +4,7 @@ package typescript
 
 external interface FlowSwitchClause : FlowNodeBase {
     var switchStatement: SwitchStatement
-    var clauseStart: Double
-    var clauseEnd: Double
+    var clauseStart: Int
+    var clauseEnd: Int
     var antecedent: FlowNode
 }

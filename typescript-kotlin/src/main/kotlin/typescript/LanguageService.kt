@@ -111,7 +111,7 @@ external interface LanguageService {
      */
     fun getCompletionsAtPosition(
         fileName: String,
-        position: Double,
+        position: Int,
         options: GetCompletionsAtPositionOptions?,
     ): WithMetadata<CompletionInfo>?
 
@@ -128,7 +128,7 @@ external interface LanguageService {
      */
     fun getCompletionEntryDetails(
         fileName: String,
-        position: Double,
+        position: Int,
         entryName: String,
         formatOptions: dynamic, /* FormatCodeOptions | FormatCodeSettings */
         source: String?,
@@ -138,7 +138,7 @@ external interface LanguageService {
 
     fun getCompletionEntrySymbol(
         fileName: String,
-        position: Double,
+        position: Int,
         name: String,
         source: String?,
     ): Symbol?
@@ -152,35 +152,35 @@ external interface LanguageService {
      */
     fun getQuickInfoAtPosition(
         fileName: String,
-        position: Double,
+        position: Int,
     ): QuickInfo?
 
     fun getNameOrDottedNameSpan(
         fileName: String,
-        startPos: Double,
-        endPos: Double,
+        startPos: Int,
+        endPos: Int,
     ): TextSpan?
 
     fun getBreakpointStatementAtPosition(
         fileName: String,
-        position: Double,
+        position: Int,
     ): TextSpan?
 
     fun getSignatureHelpItems(
         fileName: String,
-        position: Double,
+        position: Int,
         options: SignatureHelpItemsOptions?,
     ): SignatureHelpItems?
 
     fun getRenameInfo(
         fileName: String,
-        position: Double,
+        position: Int,
         options: RenameInfoOptions = definedExternally,
     ): RenameInfo
 
     fun findRenameLocations(
         fileName: String,
-        position: Double,
+        position: Int,
         findInStrings: Boolean,
         findInComments: Boolean,
         providePrefixAndSuffixTextForRename: Boolean = definedExternally,
@@ -188,42 +188,42 @@ external interface LanguageService {
 
     fun getSmartSelectionRange(
         fileName: String,
-        position: Double,
+        position: Int,
     ): SelectionRange
 
     fun getDefinitionAtPosition(
         fileName: String,
-        position: Double,
+        position: Int,
     ): ReadonlyArray<DefinitionInfo>?
 
     fun getDefinitionAndBoundSpan(
         fileName: String,
-        position: Double,
+        position: Int,
     ): DefinitionInfoAndBoundSpan?
 
     fun getTypeDefinitionAtPosition(
         fileName: String,
-        position: Double,
+        position: Int,
     ): ReadonlyArray<DefinitionInfo>?
 
     fun getImplementationAtPosition(
         fileName: String,
-        position: Double,
+        position: Int,
     ): ReadonlyArray<ImplementationLocation>?
 
     fun getReferencesAtPosition(
         fileName: String,
-        position: Double,
+        position: Int,
     ): ReadonlyArray<ReferenceEntry>?
 
     fun findReferences(
         fileName: String,
-        position: Double,
+        position: Int,
     ): ReadonlyArray<ReferencedSymbol>?
 
     fun getDocumentHighlights(
         fileName: String,
-        position: Double,
+        position: Int,
         filesToSearch: ReadonlyArray<String>,
     ): ReadonlyArray<DocumentHighlights>?
 
@@ -232,12 +232,12 @@ external interface LanguageService {
     /** @deprecated */
     fun getOccurrencesAtPosition(
         fileName: String,
-        position: Double,
+        position: Int,
     ): ReadonlyArray<ReferenceEntry>?
 
     fun getNavigateToItems(
         searchValue: String,
-        maxResultCount: Double = definedExternally,
+        maxResultCount: Int = definedExternally,
         fileName: String = definedExternally,
         excludeDtsFiles: Boolean = definedExternally,
     ): ReadonlyArray<NavigateToItem>
@@ -246,17 +246,17 @@ external interface LanguageService {
     fun getNavigationTree(fileName: String): NavigationTree
     fun prepareCallHierarchy(
         fileName: String,
-        position: Double,
+        position: Int,
     ): dynamic /* CallHierarchyItem | CallHierarchyItem[] */
 
     fun provideCallHierarchyIncomingCalls(
         fileName: String,
-        position: Double,
+        position: Int,
     ): ReadonlyArray<CallHierarchyIncomingCall>
 
     fun provideCallHierarchyOutgoingCalls(
         fileName: String,
-        position: Double,
+        position: Int,
     ): ReadonlyArray<CallHierarchyOutgoingCall>
 
     fun provideInlayHints(
@@ -273,19 +273,19 @@ external interface LanguageService {
 
     fun getBraceMatchingAtPosition(
         fileName: String,
-        position: Double,
+        position: Int,
     ): ReadonlyArray<TextSpan>
 
     fun getIndentationAtPosition(
         fileName: String,
-        position: Double,
+        position: Int,
         options: dynamic, /* EditorOptions | EditorSettings */
-    ): Double
+    ): Int
 
     fun getFormattingEditsForRange(
         fileName: String,
-        start: Double,
-        end: Double,
+        start: Int,
+        end: Int,
         options: dynamic, /* FormatCodeOptions | FormatCodeSettings */
     ): ReadonlyArray<TextChange>
 
@@ -296,21 +296,21 @@ external interface LanguageService {
 
     fun getFormattingEditsAfterKeystroke(
         fileName: String,
-        position: Double,
+        position: Int,
         key: String,
         options: dynamic, /* FormatCodeOptions | FormatCodeSettings */
     ): ReadonlyArray<TextChange>
 
     fun getDocCommentTemplateAtPosition(
         fileName: String,
-        position: Double,
+        position: Int,
         options: DocCommentTemplateOptions = definedExternally,
     ): TextInsertion?
 
     fun isValidBraceCompletionAtPosition(
         fileName: String,
-        position: Double,
-        openingBrace: Double,
+        position: Int,
+        openingBrace: Int,
     ): Boolean
 
     /**
@@ -319,25 +319,25 @@ external interface LanguageService {
      */
     fun getJsxClosingTagAtPosition(
         fileName: String,
-        position: Double,
+        position: Int,
     ): JsxClosingTagInfo?
 
     fun getSpanOfEnclosingComment(
         fileName: String,
-        position: Double,
+        position: Int,
         onlyMultiLine: Boolean,
     ): TextSpan?
 
     val toLineColumnOffset: ((
         fileName: String,
-        position: Double,
+        position: Int,
     ) -> LineAndCharacter)?
 
     fun getCodeFixesAtPosition(
         fileName: String,
-        start: Double,
-        end: Double,
-        errorCodes: ReadonlyArray<Double>,
+        start: Int,
+        end: Int,
+        errorCodes: ReadonlyArray<Int>,
         formatOptions: FormatCodeSettings,
         preferences: UserPreferences,
     ): ReadonlyArray<CodeFixAction>

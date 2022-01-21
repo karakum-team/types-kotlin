@@ -9,6 +9,6 @@ package typescript
 external interface IdentifierTypePredicate : TypePredicateBase {
     override var kind: TypePredicateKind.Identifier
     var parameterName: String
-    var parameterIndex: Double
+    var parameterIndex: Int
     override var type: Type
 }
