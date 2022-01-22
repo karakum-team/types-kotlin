@@ -19,6 +19,7 @@ internal fun convertDefinitions(
         .map { it.substringBefore("\n}\n") }
         .map { it.trimIndent() }
         .map { it.replace("\nexport {}", "") }
+        .plus(CONFIG_PROVIDER_SOURCE)
         .plus(RELATION_CACHE_SIZES_SOURCE)
         .flatMap { convertDefinitions(it) }
 
@@ -127,8 +128,6 @@ private fun convertConst(
 
 private val EXCLUDED_FUNCTIONS = setOf(
     "isIterationStatement",
-    "readConfigFile",
-    "parseConfigFileTextToJson",
     "convertCompilerOptionsFromJson",
     "convertTypeAcquisitionFromJson",
 )
@@ -141,7 +140,13 @@ private fun convertFunction(
         return "/*\nexternal fun $source\n*/"
 
     val content = when (name) {
-        "createIncrementalProgram" -> source.replace("{ rootNames, options, configFileParsingDiagnostics, projectReferences, host, createProgram }", "options")
+        "createIncrementalProgram",
+        -> source.replace("{ rootNames, options, configFileParsingDiagnostics, projectReferences, host, createProgram }", "options")
+
+        "readConfigFile",
+        "parseConfigFileTextToJson",
+        -> source.replace(CONFIG_PROVIDER_BODY, CONFIG_PROVIDER)
+
         else -> source
     }
 
