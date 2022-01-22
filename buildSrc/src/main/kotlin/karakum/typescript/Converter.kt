@@ -131,7 +131,6 @@ private val EXCLUDED_FUNCTIONS = setOf(
     "parseConfigFileTextToJson",
     "convertCompilerOptionsFromJson",
     "convertTypeAcquisitionFromJson",
-    "createIncrementalProgram",
 )
 
 private fun convertFunction(
@@ -141,7 +140,12 @@ private fun convertFunction(
     if (name in EXCLUDED_FUNCTIONS)
         return "/*\nexternal fun $source\n*/"
 
-    val result = "external ${convertMethod(source)}"
+    val content = when (name) {
+        "createIncrementalProgram" -> source.replace("{ rootNames, options, configFileParsingDiagnostics, projectReferences, host, createProgram }", "options")
+        else -> source
+    }
+
+    val result = "external ${convertMethod(content)}"
         .replace(" = EmitAndSemanticDiagnosticsBuilderProgram", " /* = EmitAndSemanticDiagnosticsBuilderProgram */")
 
     return if (name.endsWith("CommentRange")) {
