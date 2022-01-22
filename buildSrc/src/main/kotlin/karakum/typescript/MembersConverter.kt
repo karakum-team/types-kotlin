@@ -143,7 +143,7 @@ internal fun convertMethod(
     return result
 }
 
-private fun convertParameter(
+internal fun convertParameter(
     source: String,
     lambdaMode: Boolean,
 ): String {

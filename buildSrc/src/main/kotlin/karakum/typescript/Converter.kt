@@ -184,6 +184,22 @@ private fun convertType(
     if (" | " !in body && "(" !in body && "{" !in body && name !in IGNORED_TYPES)
         return "typealias $declaration = $body"
 
+    if (body.startsWith("(") && " & {" !in body) {
+        val parameters = body
+            .removePrefix("(")
+            .substringBeforeLast(") => ")
+            .splitToSequence(", ")
+            .joinToString(",\n") {
+                convertParameter(it, true)
+            }
+            // TODO: remove
+            .replace("??", "?")
+
+        val returnType = kotlinType(body.substringAfterLast(") => "), name)
+
+        return "typealias $declaration = ($parameters) -> $returnType"
+    }
+
     val unionType = when (name) {
         "ArrayBindingElement",
         "BindingPattern",
