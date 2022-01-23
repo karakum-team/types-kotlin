@@ -24,6 +24,6 @@ external interface ModeAwareCache<T> {
         mode: ResolutionMode?,
     ): Boolean
 
-    fun forEach(cb: (elem: T, key: String, mode: ModuleKind? /* ModuleKind.CommonJS | ModuleKind.ESNext | undefined */) -> Unit)
+    fun forEach(cb: (elem: T, key: String, mode: ResolutionMode?) -> Unit)
     fun size(): Int
 }
