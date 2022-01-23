@@ -176,9 +176,7 @@ private fun convertFunction(
 
 // TEMP
 private val IGNORED_TYPES = setOf(
-    "BinaryOperatorToken",
     "EndOfFileToken",
-    "ModifiersArray",
 )
 
 private fun convertType(
@@ -232,6 +230,7 @@ private fun convertType(
         "JsxChild",
         "JsxOpeningLikeElement",
         "ObjectTypeDeclaration",
+        "Modifier",
         "SignatureDeclaration",
         -> "Node"
 
@@ -245,6 +244,9 @@ private fun convertType(
         "EntityNameExpression",
         "JsxTagNameExpression",
         -> "LeftHandSideExpression"
+
+        "BinaryOperator",
+        -> "SyntaxKind"
 
         else -> if (body.startsWith("SyntaxKind.")) {
             "SyntaxKind"
