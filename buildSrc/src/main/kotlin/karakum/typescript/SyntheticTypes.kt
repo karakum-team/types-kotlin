@@ -12,6 +12,18 @@ internal const val CONFIG_PROVIDER_BODY = """{
 internal val CONFIG_PROVIDER_SOURCE = "interface $CONFIG_PROVIDER " +
         CONFIG_PROVIDER_BODY.replace("\n    ", "\n    readonly ")
 
+// OptionsProvider
+
+internal const val OPTIONS_PROVIDER = "OptionsProvider"
+
+internal const val OPTIONS_PROVIDER_BODY = """{
+    options: T;
+    errors: Diagnostic[];
+}"""
+
+internal val OPTIONS_PROVIDER_SOURCE = "interface $OPTIONS_PROVIDER<T extends Any> " +
+        OPTIONS_PROVIDER_BODY.replace("\n    ", "\n    readonly ")
+
 // RelationCacheSizes
 
 internal const val RELATION_CACHE_SIZES = "RelationCacheSizes"
