@@ -47,12 +47,13 @@ private val STANDARD_TYPE_MAP = mapOf(
     "(sourceFile: SourceFile) => boolean" to "(sourceFile: SourceFile) -> Boolean",
     "AffectedFileResult<readonly Diagnostic[]>" to "AffectedFileResult<ReadonlyArray<Diagnostic>>",
 
-    "ModuleKind.CommonJS | ModuleKind.ESNext | undefined" to "$DYNAMIC /* ModuleKind.CommonJS | ModuleKind.ESNext | undefined */",
-
     "typeof visitNodes" to "$DYNAMIC /* typeof visitNodes */",
 
     "AwaitKeywordToken" to "AwaitKeyword",
     "AssertsToken" to "AssertsKeyword",
+
+    NodeFormat.alias to NodeFormat.name,
+    ResolutionMode.alias to ResolutionMode.name,
 )
 
 internal fun kotlinType(
