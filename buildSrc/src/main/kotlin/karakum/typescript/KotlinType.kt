@@ -65,6 +65,9 @@ internal fun kotlinType(
     if (type.startsWith("readonly "))
         return kotlinType(type.removePrefix("readonly "), name)
 
+    if (type.startsWith("node is "))
+        return "Boolean /* $type */"
+
     if (type.endsWith(" | undefined")) {
         var result = kotlinType(type.removeSuffix(" | undefined"), name)
         if (!result.startsWith(DYNAMIC)) result += "?"
@@ -104,9 +107,6 @@ internal fun kotlinType(
             .replace(" => tag is T", " -> Boolean /* tag is T */")
             .replace(" => node is T", " -> Boolean /* node is T */")
             .replace(": string", ": String")
-
-    if (type.startsWith("node is "))
-        return "Boolean /* $type */"
 
     return type
 }
