@@ -108,7 +108,7 @@ internal fun convertMethod(
         -> parametersSource.replace(" => void", " -> $UNIT")
 
         parametersSource == "cb: (elem: T, key: string, mode: ModuleKind.CommonJS | ModuleKind.ESNext | undefined) => void"
-        -> "cb: (elem: T, key: String, mode: ModuleKind? /* ModuleKind.CommonJS | ModuleKind.ESNext | undefined */) -> Unit"
+        -> "cb: (elem: T, key: String, mode: ResolutionMode?) -> Unit"
 
         parametersSource.isNotEmpty()
         -> parametersSource
