@@ -14,6 +14,7 @@ internal fun convertDefinitions(
     definitionsFile: File,
 ): Sequence<ConversionResult> =
     definitionsFile.readText()
+        .injectUnions()
         .splitToSequence("declare namespace ts {\n")
         .drop(1)
         .map { it.substringBefore("\n}\n") }
@@ -25,6 +26,7 @@ internal fun convertDefinitions(
         .flatMap { convertDefinitions(it) }
         .plus(ConversionResult(NodeFormat.name, NodeFormat.body))
         .plus(ConversionResult(ResolutionMode.name, ResolutionMode.body))
+        .plus(UNIONS.map { ConversionResult(it.name, it.body) })
 
 private const val DELIMITER = "<!--DELIMITER-->"
 
