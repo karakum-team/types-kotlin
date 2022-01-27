@@ -14,6 +14,11 @@ internal class SimpleTypeConverter(
         type: String,
         name: String,
     ): String {
+        /*
+        if (" | " in type && " | undefined" !in type && "(" !in type && "string" !in type)
+            println(type)
+        */
+
         return kotlinType(type, name)
     }
 }
