@@ -326,7 +326,8 @@ private fun convertInterface(
         .substringAfter("{\n")
         .substringBeforeLast("\n}", "")
 
-    val members = convertMembers(name, bodySource)
+    val typeConverter = SimpleTypeConverter(name)
+    val members = convertMembers(name, bodySource, typeConverter)
     var body = if (" extends " in source) {
         fixOverrides(name, members)
     } else members
@@ -356,6 +357,7 @@ private fun convertNamespace(
         .substringBeforeLast("\n}", "")
         .replace("function ", "")
 
-    val body = convertMembers(name, bodySource)
+    val typeConverter = SimpleTypeConverter(name)
+    val body = convertMembers(name, bodySource, typeConverter)
     return "external object $name {\n$body\n}"
 }

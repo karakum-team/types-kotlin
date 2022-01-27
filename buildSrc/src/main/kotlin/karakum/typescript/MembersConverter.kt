@@ -17,6 +17,7 @@ val SIGNATURE_TO_SIGNATURE_REPLACEMENT = SIGNATURE_TO_SIGNATURE
 internal fun convertMembers(
     name: String,
     source: String,
+    typeConverter: TypeConverter,
 ): String {
     if (source.isEmpty())
         return ""
@@ -37,13 +38,14 @@ internal fun convertMembers(
         .removeSuffix(";")
         .replace(": this", ": $thisReplacement")
         .splitToSequence(";\n")
-        .map { convertMember(it) }
+        .map { convertMember(it, typeConverter) }
         .joinToString("\n")
         .replace(";---\n * ", ";\n * ")
 }
 
 private fun convertMember(
     source: String,
+    typeConverter: TypeConverter,
 ): String {
     if (source.startsWith("[") || source.startsWith("\" __sortedArrayBrand\""))
         return "    // $source"
@@ -55,7 +57,7 @@ private fun convertMember(
         .replace("(...args: any[]) => void", "Function<$UNIT>")
 
     val content = if (isProperty(body)) {
-        convertProperty(body)
+        convertProperty(body, typeConverter)
     } else {
         convertMethod(body)
     }
@@ -72,12 +74,13 @@ private fun isProperty(
 
 private fun convertProperty(
     source: String,
+    typeConverter: TypeConverter,
 ): String {
     val modifier = if (source.startsWith("readonly ")) "val" else "var"
     val body = source.removePrefix("readonly ")
 
     val name = body.substringBefore(": ").removeSuffix("?")
-    var type = kotlinType(body.substringAfter(": "), name)
+    var type = typeConverter.convert(body.substringAfter(": "), name)
 
     if (body.startsWith("$name?"))
         type = type.addOptionality()
