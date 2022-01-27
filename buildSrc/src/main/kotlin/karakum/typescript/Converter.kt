@@ -79,6 +79,7 @@ private fun convertDefinitions(
         }
 
     return results.asSequence()
+        .flatMap(::addContractSupport)
 }
 
 private fun convertDefinition(
