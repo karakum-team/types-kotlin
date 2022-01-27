@@ -10,11 +10,7 @@ fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
 ) {
-    val targetDir = sourceDir
-        .resolve("typescript")
-        .also { it.mkdirs() }
-
-    for ((name, body) in convertDefinitions(definitionsFile)) {
+    for ((name, body, pkg) in convertDefinitions(definitionsFile)) {
         val suppresses = mutableListOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
@@ -60,7 +56,11 @@ fun generateKotlinDeclarations(
             else -> "kt"
         }
 
-        val file = targetDir.resolve("$name.$extension")
+        val file = sourceDir
+            .resolve(pkg.path)
+            .also { it.mkdirs() }
+            .resolve("$name.$extension")
+
         if (file.exists()) {
             if (name[0].isLowerCase()) {
                 file.appendText("\n$body")
@@ -72,22 +72,24 @@ fun generateKotlinDeclarations(
                 file.writeText(content)
             }
         } else {
-            file.writeText(fileContent(annotations, body))
+            file.writeText(fileContent(pkg, annotations, body))
         }
     }
 
-    targetDir.resolve("ReadonlyArray.kt")
-        .writeText(fileContent(body = "typealias ReadonlyArray<T> = Array<out T>"))
+    sourceDir.resolve(Package.TYPESCRIPT.path)
+        .resolve("ReadonlyArray.kt")
+        .writeText(fileContent(pkg = Package.TYPESCRIPT, body = "typealias ReadonlyArray<T> = Array<out T>"))
 }
 
 private fun fileContent(
+    pkg: Package,
     annotations: String = "",
     body: String,
 ): String {
     var result = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
-        "package typescript",
+        pkg.pkg,
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")

@@ -8,6 +8,7 @@ import java.io.File
 internal data class ConversionResult(
     val name: String,
     val body: String,
+    val pkg: Package = Package.TYPESCRIPT,
 )
 
 internal fun convertDefinitions(
