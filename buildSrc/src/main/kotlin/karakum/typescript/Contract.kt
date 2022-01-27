@@ -23,12 +23,19 @@ internal fun addContractSupport(
         pkg = Package.TYPESCRIPT_RAW,
     )
 
+    val parameters = body.substringAfter("external fun")
+        .substringAfter("(")
+        .substringBefore("):")
+        .split(",\n")
+        .map { it.substringBefore(":") }
+        .joinToString(", ")
+
     val functionBody = """{
         contract {
             returns(true) implies (node is $type)
         }
     
-        return typescript.raw.$name(node)
+        return typescript.raw.$name($parameters)
     }"""
 
     val contractBody = "import kotlin.contracts.contract\n\n" +
