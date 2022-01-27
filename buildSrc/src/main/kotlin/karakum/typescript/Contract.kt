@@ -23,5 +23,22 @@ internal fun addContractSupport(
         pkg = Package.TYPESCRIPT_RAW,
     )
 
-    return sequenceOf(original)
+    val functionBody = """{
+        contract {
+            returns(true) implies (node is $type)
+        }
+    
+        return typescript.raw.$name(node)
+    }"""
+
+    val contractBody = "import kotlin.contracts.contract\n\n" +
+            body.replace("external fun ", "fun ")
+                .substringBefore(" /* node is ") + functionBody
+
+    val contract = ConversionResult(
+        name = name,
+        body = contractBody,
+    )
+
+    return sequenceOf(original, contract)
 }
