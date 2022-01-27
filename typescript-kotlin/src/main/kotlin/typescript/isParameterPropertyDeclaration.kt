@@ -16,5 +16,5 @@ fun isParameterPropertyDeclaration(
         returns(true) implies (node is ParameterPropertyDeclaration)
     }
 
-    return typescript.raw.isParameterPropertyDeclaration(node)
+    return typescript.raw.isParameterPropertyDeclaration(node, parent)
 }
