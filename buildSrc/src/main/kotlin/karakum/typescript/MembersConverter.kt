@@ -35,8 +35,8 @@ internal fun convertMembers(
         .replace(";\n * ", ";---\n * ")
         .replace(RELATION_CACHE_SIZES_BODY, RELATION_CACHE_SIZES)
         .replace(SIGNATURE_TO_SIGNATURE, SIGNATURE_TO_SIGNATURE_REPLACEMENT)
+        .replace(": this;", ": $thisReplacement;")
         .removeSuffix(";")
-        .replace(": this", ": $thisReplacement")
         .splitToSequence(";\n")
         .map { convertMember(it, typeConverter) }
         .joinToString("\n")

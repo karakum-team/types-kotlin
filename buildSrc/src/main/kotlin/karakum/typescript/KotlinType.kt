@@ -66,7 +66,7 @@ internal fun kotlinType(
     if (type.startsWith("readonly "))
         return kotlinType(type.removePrefix("readonly "), name)
 
-    if (type.startsWith("node is "))
+    if (type.startsWith("node is ") || type.startsWith("this is "))
         return "Boolean /* $type */"
 
     if (type.endsWith(" | undefined")) {

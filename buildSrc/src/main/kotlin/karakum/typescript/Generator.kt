@@ -65,7 +65,11 @@ fun generateKotlinDeclarations(
             if (name[0].isLowerCase()) {
                 file.appendText("\n$body")
             } else {
-                println("Duplicated file: $name")
+                val content = file.readText()
+                    .substringBeforeLast("\n}") + "\n" +
+                        body.substringAfter("{\n")
+
+                file.writeText(content)
             }
         } else {
             file.writeText(fileContent(annotations, body))
