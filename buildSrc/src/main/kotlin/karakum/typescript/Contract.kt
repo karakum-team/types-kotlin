@@ -8,7 +8,10 @@ internal fun addContractSupport(
     if ("external fun " !in body)
         return sequenceOf(result)
 
-    if ("): Boolean /* node is " !in body)
+    val type = body.substringAfter("): Boolean /* node is ", "")
+        .substringBefore(" */")
+
+    if (type.isEmpty() || " | " in type)
         return sequenceOf(result)
 
     val originalBody = "import typescript.*\n\n" +
