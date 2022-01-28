@@ -371,7 +371,7 @@ private fun convertInterface(
         -> body = body.replace(") => void)", ") -> Unit)")
     }
 
-    return "external interface $declaration {\n$body\n}"
+    return "external sealed interface $declaration {\n$body\n}"
 }
 
 private fun convertClass(
