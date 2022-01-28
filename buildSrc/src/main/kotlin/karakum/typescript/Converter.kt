@@ -260,13 +260,19 @@ private fun convertType(
         -> "Statement"
 
         "Modifier",
-        -> "Node" // "ModifierToken<*>"
+        -> "ModifierToken<*>"
 
         "ParameterPropertyDeclaration",
         -> "ParameterDeclaration"
 
         "TypeOnlyAliasDeclaration",
         -> "ImportClause"
+
+        "UnparsedNode",
+        -> "UnparsedSection"
+
+        "TemplateLiteralToken",
+        -> "LiteralLikeNode"
 
         "JsxAttributeLike",
         "ObjectLiteralElementLike",
@@ -340,9 +346,6 @@ private fun convertInterface(
         .replace(" = KeywordTypeSyntaxKind", "")
 
     declaration = when (name) {
-        "KeywordToken",
-        -> declaration.replaceFirst("> : ", "> /* : ") + " */"
-
         "NodeArray",
         "SortedReadonlyArray",
         -> declaration.replaceFirst("<T", "<out T")
