@@ -14,7 +14,7 @@ internal class GlobalTypeConverter {
         name: String,
         type: String,
     ): String? {
-        if (" | " in type && " | undefined" !in type && "(" !in type && "string" !in type) {
+        if (" | " in type && " | undefined" !in type && "(" !in type && "string" !in type && "ModuleKind." !in type && "<" !in type) {
             map[name] = type
             return null // TODO: return type name
         }
