@@ -246,7 +246,7 @@ private fun convertType(
         return "typealias $declaration = ($parameters) -> $returnType"
     }
 
-    val unionType = when (name) {
+    val baseType = when (name) {
         "ArrayBindingElement",
         "BindingName",
         "BindingPattern",
@@ -309,10 +309,16 @@ private fun convertType(
 
         else -> if (body.startsWith("SyntaxKind.")) {
             "SyntaxKind"
-        } else "Any"
+        } else null
     }
 
-    var content = "typealias $declaration = $unionType /* $body */"
+    var content = if ("{" in body || "<" in body) {
+        val parentDeclaration = if (baseType != null) " : $baseType" else ""
+        "sealed interface $declaration$parentDeclaration /* $body */"
+    } else {
+        "typealias $declaration = ${baseType ?: "Any"} /* $body */"
+    }
+
     if ("<T" in declaration)
         content = "@Suppress(\"UNUSED_TYPEALIAS_PARAMETER\")\n" + content
 
