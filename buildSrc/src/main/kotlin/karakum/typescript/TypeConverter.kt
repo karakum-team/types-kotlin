@@ -21,6 +21,16 @@ internal class GlobalTypeConverter {
 
         return null
     }
+
+    fun print() {
+        println("----------------")
+        println(
+            map.asSequence()
+                .map { (key, value) -> """ "$key" to "$value", """ }
+                .joinToString("\n")
+        )
+        println("----------------")
+    }
 }
 
 internal class SimpleTypeConverter(

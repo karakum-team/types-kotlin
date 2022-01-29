@@ -13,8 +13,10 @@ internal data class ConversionResult(
 
 internal fun convertDefinitions(
     definitionsFile: File,
-): Sequence<ConversionResult> =
-    definitionsFile.readText()
+): Sequence<ConversionResult> {
+    val typeConverter = GlobalTypeConverter()
+
+    val result = definitionsFile.readText()
         .injectUnions()
         .splitToSequence("declare namespace ts {\n")
         .drop(1)
@@ -24,10 +26,16 @@ internal fun convertDefinitions(
         .plus(CONFIG_PROVIDER_SOURCE)
         .plus(OPTIONS_PROVIDER_SOURCE)
         .plus(RELATION_CACHE_SIZES_SOURCE)
-        .flatMap { convertDefinitions(it) }
+        .flatMap { convertDefinitions(it, typeConverter) }
         .plus(ConversionResult(NodeFormat.name, NodeFormat.body))
         .plus(ConversionResult(ResolutionMode.name, ResolutionMode.body))
         .plus(UNIONS.map { ConversionResult(it.name, it.body) })
+        .toList()
+
+    typeConverter.print()
+
+    return result.asSequence()
+}
 
 private const val DELIMITER = "<!--DELIMITER-->"
 
@@ -44,6 +52,7 @@ private val KEYWORDS = setOf(
 
 private fun convertDefinitions(
     source: String,
+    typeConverter: GlobalTypeConverter,
 ): Sequence<ConversionResult> {
     var content = source.replace("\n/**", "\n$DELIMITER/**")
     for (keyword in KEYWORDS) {
@@ -69,7 +78,7 @@ private fun convertDefinitions(
                 } ?: false
 
                 if (!ignore) {
-                    results += convertDefinition(comment, part)
+                    results += convertDefinition(comment, part, typeConverter)
                 }
 
                 comment = null
@@ -83,6 +92,7 @@ private fun convertDefinitions(
 private fun convertDefinition(
     comment: String?,
     source: String,
+    typeConverter: GlobalTypeConverter,
 ): ConversionResult {
     val name = source.substringAfter(" ")
         .substringBefore(" ")
@@ -98,7 +108,7 @@ private fun convertDefinition(
         "function" -> convertFunction(name, shortSource)
         "type" -> convertType(name, shortSource)
         "enum" -> convertEnum(name, shortSource)
-        "interface" -> convertInterface(name, shortSource)
+        "interface" -> convertInterface(name, shortSource, SimpleTypeConverter(name, typeConverter))
         "class" -> convertClass(shortSource)
         "namespace" -> convertNamespace(name, shortSource)
 
@@ -348,6 +358,7 @@ private fun convertEnum(
 private fun convertInterface(
     name: String,
     source: String,
+    typeConverter: SimpleTypeConverter,
 ): String {
     var declaration = source.substringBefore(" {\n")
         .replace(" extends ", " : ")
@@ -368,7 +379,6 @@ private fun convertInterface(
         .substringAfter("{\n")
         .substringBeforeLast("\n}", "")
 
-    val typeConverter = SimpleTypeConverter(name, GlobalTypeConverter())
     val members = convertMembers(name, bodySource, typeConverter)
     var body = if (" extends " in source) {
         fixOverrides(name, members)
