@@ -93,13 +93,13 @@ private fun convertDefinition(
     val type = source.substringBefore(" ")
     val shortSource = source.removePrefix("$type ")
     val content = when (type) {
-        "let" -> convertLet(name, shortSource)
+        "let" -> convertLet(shortSource)
         "const" -> convertConst(name, shortSource)
         "function" -> convertFunction(name, shortSource)
         "type" -> convertType(name, shortSource)
         "enum" -> convertEnum(name, shortSource)
         "interface" -> convertInterface(name, shortSource)
-        "class" -> convertClass(name, shortSource)
+        "class" -> convertClass(shortSource)
         "namespace" -> convertNamespace(name, shortSource)
 
         else -> TODO("Unable to parse definition: $source")
@@ -113,7 +113,6 @@ private fun convertDefinition(
 }
 
 private fun convertLet(
-    name: String,
     source: String,
 ): String {
     return "external val /* var */ $source"
@@ -385,7 +384,6 @@ private fun convertInterface(
 }
 
 private fun convertClass(
-    name: String,
     source: String,
 ): String {
     return "external class $source"
