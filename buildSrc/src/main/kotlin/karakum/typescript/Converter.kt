@@ -31,18 +31,16 @@ internal fun convertDefinitions(
 
 private const val DELIMITER = "<!--DELIMITER-->"
 
-private val CONVERTER_MAP = mapOf(
-    "let" to ::convertLet,
-    "const" to ::convertConst,
-    "function" to ::convertFunction,
-    "type" to ::convertType,
-    "enum" to ::convertEnum,
-    "interface" to ::convertInterface,
-    "class" to ::convertClass,
-    "namespace" to ::convertNamespace,
+private val KEYWORDS = setOf(
+    "let",
+    "const",
+    "function",
+    "type",
+    "enum",
+    "interface",
+    "class",
+    "namespace",
 )
-
-private val KEYWORDS = CONVERTER_MAP.keys
 
 private fun convertDefinitions(
     source: String,
@@ -93,7 +91,19 @@ private fun convertDefinition(
         .substringBefore(":")
 
     val type = source.substringBefore(" ")
-    val content = CONVERTER_MAP.getValue(type)(name, source.removePrefix("$type "))
+    val shortSource = source.removePrefix("$type ")
+    val content = when (type) {
+        "let" -> convertLet(name, shortSource)
+        "const" -> convertConst(name, shortSource)
+        "function" -> convertFunction(name, shortSource)
+        "type" -> convertType(name, shortSource)
+        "enum" -> convertEnum(name, shortSource)
+        "interface" -> convertInterface(name, shortSource)
+        "class" -> convertClass(name, shortSource)
+        "namespace" -> convertNamespace(name, shortSource)
+
+        else -> TODO("Unable to parse definition: $source")
+    }
 
     val body = sequenceOf(comment, content)
         .filterNotNull()
@@ -359,7 +369,7 @@ private fun convertInterface(
         .substringAfter("{\n")
         .substringBeforeLast("\n}", "")
 
-    val typeConverter = SimpleTypeConverter(name)
+    val typeConverter = SimpleTypeConverter(name, GlobalTypeConverter())
     val members = convertMembers(name, bodySource, typeConverter)
     var body = if (" extends " in source) {
         fixOverrides(name, members)
@@ -390,7 +400,7 @@ private fun convertNamespace(
         .substringBeforeLast("\n}", "")
         .replace("function ", "")
 
-    val typeConverter = SimpleTypeConverter(name)
+    val typeConverter = SimpleTypeConverter(name, GlobalTypeConverter())
     val body = convertMembers(name, bodySource, typeConverter)
     return "external object $name {\n$body\n}"
 }
