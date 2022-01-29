@@ -313,7 +313,7 @@ private fun convertType(
         } else null
     }
 
-    var content = if ("{" in body || "<" in body) {
+    var content = if ("{" in body || "<" in body || "[]" in body || "\"" in body) {
         val parentDeclaration = if (baseType != null) " : $baseType" else ""
         "sealed interface $declaration$parentDeclaration /* $body */"
     } else {
