@@ -1,6 +1,6 @@
 package karakum.typescript
 
-private val RAW_UNIONS = mapOf(
+internal val RAW_UNIONS = mapOf(
     "TriviaSyntaxKind" to "SyntaxKind.SingleLineCommentTrivia | SyntaxKind.MultiLineCommentTrivia | SyntaxKind.NewLineTrivia | SyntaxKind.WhitespaceTrivia | SyntaxKind.ShebangTrivia | SyntaxKind.ConflictMarkerTrivia",
     "LiteralSyntaxKind" to "SyntaxKind.NumericLiteral | SyntaxKind.BigIntLiteral | SyntaxKind.StringLiteral | SyntaxKind.JsxText | SyntaxKind.JsxTextAllWhiteSpaces | SyntaxKind.RegularExpressionLiteral | SyntaxKind.NoSubstitutionTemplateLiteral",
     "PseudoLiteralSyntaxKind" to "SyntaxKind.TemplateHead | SyntaxKind.TemplateMiddle | SyntaxKind.TemplateTail",
