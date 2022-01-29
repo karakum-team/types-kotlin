@@ -106,7 +106,7 @@ private fun convertDefinition(
         "let" -> convertLet(shortSource)
         "const" -> convertConst(name, shortSource)
         "function" -> convertFunction(name, shortSource)
-        "type" -> convertType(name, shortSource)
+        "type" -> convertType(name, shortSource, typeConverter)
         "enum" -> convertEnum(name, shortSource)
         "interface" -> convertInterface(name, shortSource, SimpleTypeConverter(name, typeConverter))
         "class" -> convertClass(shortSource)
@@ -207,6 +207,7 @@ private val IGNORED_TYPES = setOf(
 private fun convertType(
     name: String,
     source: String,
+    typeConverter: GlobalTypeConverter,
 ): String {
     val (declarationSource, body) = source.split(" = ")
 
@@ -316,6 +317,7 @@ private fun convertType(
         val parentDeclaration = if (baseType != null) " : $baseType" else ""
         "sealed interface $declaration$parentDeclaration /* $body */"
     } else {
+        typeConverter.register(name, body)
         "typealias $declaration = ${baseType ?: "Any"} /* $body */"
     }
 

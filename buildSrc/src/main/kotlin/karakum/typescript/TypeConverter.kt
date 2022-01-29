@@ -8,7 +8,15 @@ internal interface TypeConverter {
 }
 
 internal class GlobalTypeConverter {
+    private val typeMap = mutableMapOf<String, String>()
     private val map = mutableMapOf<String, String>()
+
+    fun register(
+        name: String,
+        body: String,
+    ) {
+        typeMap[name] = body
+    }
 
     fun add(
         name: String,
@@ -25,7 +33,8 @@ internal class GlobalTypeConverter {
     fun print() {
         println("----------------")
         println(
-            map.asSequence()
+            typeMap.asSequence()
+                .plus(map.asSequence())
                 .map { (key, value) -> """ "$key" to "$value", """ }
                 .joinToString("\n")
         )
