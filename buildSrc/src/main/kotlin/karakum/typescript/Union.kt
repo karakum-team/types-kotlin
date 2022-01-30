@@ -16,6 +16,7 @@ private val TYPES = RAW_UNIONS.asSequence()
             .forEach {
                 val parentType = when (it.substringAfterLast(".")) {
                     "kind" -> "SyntaxKind"
+                    "name" -> "DeclarationName"
                     "parent" -> "Node"
                     else -> null
                 }
