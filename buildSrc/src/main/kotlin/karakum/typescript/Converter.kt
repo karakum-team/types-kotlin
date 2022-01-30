@@ -248,7 +248,7 @@ private fun convertType(
         return "typealias $declaration = ($parameters) -> $returnType"
     }
 
-    val baseType = when (name) {
+    var baseType = when (name) {
         "ArrayBindingElement",
         "BindingPattern",
         "CallLikeExpression",
@@ -319,6 +319,11 @@ private fun convertType(
         else -> if (body.startsWith("SyntaxKind.")) {
             "SyntaxKind"
         } else null
+    }
+
+    if (hasUnionParent(name)) {
+        baseType = listOfNotNull(baseType, "Union.${name}_")
+            .joinToString(", ")
     }
 
     if ("{" !in body && "<" !in body && "[]" !in body && "\"" !in body)
