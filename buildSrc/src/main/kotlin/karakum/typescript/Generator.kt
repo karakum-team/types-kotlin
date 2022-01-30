@@ -89,10 +89,6 @@ fun generateKotlinDeclarations(
             file.writeText(fileContent(pkg, annotations, body))
         }
     }
-
-    sourceDir.resolve(Package.TYPESCRIPT.path)
-        .resolve("ReadonlyArray.kt")
-        .writeText(fileContent(pkg = Package.TYPESCRIPT, body = "typealias ReadonlyArray<T> = Array<out T>"))
 }
 
 private fun fileContent(

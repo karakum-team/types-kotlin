@@ -27,6 +27,7 @@ internal fun convertDefinitions(
         .plus(OPTIONS_PROVIDER_SOURCE)
         .plus(RELATION_CACHE_SIZES_SOURCE)
         .flatMap { convertDefinitions(it, typeConverter) }
+        .plus(arrayHelpers())
         .plus(ConversionResult(NodeFormat.name, NodeFormat.body))
         .plus(ConversionResult(ResolutionMode.name, ResolutionMode.body))
         .plus(UNIONS.map { ConversionResult(it.name, it.body) })
