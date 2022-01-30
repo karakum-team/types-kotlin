@@ -180,7 +180,7 @@ sealed external interface Union {
 
     sealed interface FlowAssignment_node
 
-    sealed interface FlowCall : FlowNode, FlowNode
+    sealed interface FlowCall : FlowNode
 
     sealed interface FlowCondition : FlowNode
 
