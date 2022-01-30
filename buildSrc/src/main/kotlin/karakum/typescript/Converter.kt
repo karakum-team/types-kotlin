@@ -30,6 +30,7 @@ internal fun convertDefinitions(
         .plus(ConversionResult(NodeFormat.name, NodeFormat.body))
         .plus(ConversionResult(ResolutionMode.name, ResolutionMode.body))
         .plus(UNIONS.map { ConversionResult(it.name, it.body) })
+        .plus(union())
         .toList()
 
     typeConverter.print()
@@ -280,7 +281,7 @@ private fun convertType(
         -> "Statement"
 
         "Modifier",
-        -> "ModifierToken<*>"
+        -> "Node" // "ModifierToken<*>"
 
         "ParameterPropertyDeclaration",
         -> "ParameterDeclaration"
@@ -313,14 +314,11 @@ private fun convertType(
         } else null
     }
 
-    var content = if ("{" in body || "<" in body || "[]" in body || "\"" in body) {
-        val parentDeclaration = if (baseType != null) " : $baseType" else ""
-        "sealed interface $declaration$parentDeclaration /* $body */"
-    } else {
+    if ("{" !in body && "<" !in body && "[]" !in body && "\"" !in body)
         typeConverter.register(name, body)
-        "typealias $declaration = ${baseType ?: "Any"} /* $body */"
-    }
 
+    val parentDeclaration = if (baseType != null) " : $baseType" else ""
+    var content = "sealed external interface $declaration$parentDeclaration /* $body */"
     if ("<T" in declaration)
         content = "@Suppress(\"UNUSED_TYPEALIAS_PARAMETER\")\n" + content
 
