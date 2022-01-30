@@ -38,8 +38,6 @@ private val STANDARD_TYPE_MAP = mapOf(
     "(project: string) => CustomTransformers" to "(project: String) -> CustomTransformers",
     // "(value: V, key: K) => void" to "(value: V, key: K) -> Unit",
     "(pos: number) => number" to "(pos: Int) -> Int",
-    "Iterator<[K, V]>" to "Iterator<$DYNAMIC /* [K, V] */>",
-    "Iterator<[T, T]>" to "Iterator<$DYNAMIC /* [T, T] */>",
 
     "(node: Node) => boolean" to "(node: Node) -> Boolean",
     "(node: readonly Node[]) => T" to "(node: ReadonlyArray<Node>) -> T",
@@ -62,6 +60,14 @@ internal fun kotlinType(
 ): String {
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
+
+    if (type.startsWith("Iterator<")) {
+        var typeParameter = type.removeSurrounding("Iterator<", ">")
+        if (typeParameter.startsWith("["))
+            typeParameter = "$DYNAMIC /* $typeParameter */"
+
+        return "JsIterator<$typeParameter>"
+    }
 
     if (type.startsWith("readonly "))
         return kotlinType(type.removePrefix("readonly "), name)

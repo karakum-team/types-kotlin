@@ -27,6 +27,7 @@ internal fun convertDefinitions(
         .plus(OPTIONS_PROVIDER_SOURCE)
         .plus(RELATION_CACHE_SIZES_SOURCE)
         .flatMap { convertDefinitions(it, typeConverter) }
+        .filter { it.name != "Iterator" }
         .plus(arrayHelpers())
         .plus(ConversionResult(NodeFormat.name, NodeFormat.body))
         .plus(ConversionResult(ResolutionMode.name, ResolutionMode.body))
