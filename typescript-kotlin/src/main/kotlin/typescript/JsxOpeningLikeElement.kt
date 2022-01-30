@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias JsxOpeningLikeElement = Expression /* JsxSelfClosingElement | JsxOpeningElement */
+sealed external interface JsxOpeningLikeElement : Expression /* JsxSelfClosingElement | JsxOpeningElement */

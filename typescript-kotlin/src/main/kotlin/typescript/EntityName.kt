@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias EntityName = Node /* Identifier | QualifiedName */
+sealed external interface EntityName : Node /* Identifier | QualifiedName */

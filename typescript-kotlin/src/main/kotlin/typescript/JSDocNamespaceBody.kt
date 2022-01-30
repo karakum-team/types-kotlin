@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias JSDocNamespaceBody = Any /* Identifier | JSDocNamespaceDeclaration */
+sealed external interface JSDocNamespaceBody /* Identifier | JSDocNamespaceDeclaration */

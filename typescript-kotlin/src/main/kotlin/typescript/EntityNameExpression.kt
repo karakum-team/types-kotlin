@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias EntityNameExpression = LeftHandSideExpression /* Identifier | PropertyAccessEntityNameExpression */
+sealed external interface EntityNameExpression : LeftHandSideExpression /* Identifier | PropertyAccessEntityNameExpression */

@@ -2,4 +2,5 @@
 
 package typescript
 
-typealias HasExpressionInitializer = Declaration /* VariableDeclaration | ParameterDeclaration | BindingElement | PropertySignature | PropertyDeclaration | PropertyAssignment | EnumMember */
+sealed external interface HasExpressionInitializer :
+    Declaration /* VariableDeclaration | ParameterDeclaration | BindingElement | PropertySignature | PropertyDeclaration | PropertyAssignment | EnumMember */

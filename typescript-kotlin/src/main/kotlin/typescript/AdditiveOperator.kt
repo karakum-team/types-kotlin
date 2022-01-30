@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias AdditiveOperator = SyntaxKind /* SyntaxKind.PlusToken | SyntaxKind.MinusToken */
+sealed external interface AdditiveOperator : SyntaxKind /* SyntaxKind.PlusToken | SyntaxKind.MinusToken */

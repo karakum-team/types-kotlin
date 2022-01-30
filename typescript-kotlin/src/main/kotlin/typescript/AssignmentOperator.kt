@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias AssignmentOperator = SyntaxKind /* SyntaxKind.EqualsToken | CompoundAssignmentOperator */
+sealed external interface AssignmentOperator : SyntaxKind /* SyntaxKind.EqualsToken | CompoundAssignmentOperator */

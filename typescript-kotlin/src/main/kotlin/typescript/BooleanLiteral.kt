@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias BooleanLiteral = Any /* TrueLiteral | FalseLiteral */
+sealed external interface BooleanLiteral /* TrueLiteral | FalseLiteral */

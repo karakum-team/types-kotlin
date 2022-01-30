@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias MultiplicativeOperatorOrHigher = Any /* ExponentiationOperator | MultiplicativeOperator */
+sealed external interface MultiplicativeOperatorOrHigher /* ExponentiationOperator | MultiplicativeOperator */

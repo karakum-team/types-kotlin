@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias BitwiseOperator = SyntaxKind /* SyntaxKind.AmpersandToken | SyntaxKind.BarToken | SyntaxKind.CaretToken */
+sealed external interface BitwiseOperator : SyntaxKind /* SyntaxKind.AmpersandToken | SyntaxKind.BarToken | SyntaxKind.CaretToken */

@@ -2,4 +2,4 @@
 
 package typescript
 
-sealed interface EndOfFileToken /* Token<SyntaxKind.EndOfFileToken> & JSDocContainer */
+sealed external interface EndOfFileToken /* Token<SyntaxKind.EndOfFileToken> & JSDocContainer */

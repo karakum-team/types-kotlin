@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias EqualityOperatorOrHigher = Any /* RelationalOperatorOrHigher | EqualityOperator */
+sealed external interface EqualityOperatorOrHigher /* RelationalOperatorOrHigher | EqualityOperator */

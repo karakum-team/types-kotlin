@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias ShiftOperator = SyntaxKind /* SyntaxKind.LessThanLessThanToken | SyntaxKind.GreaterThanGreaterThanToken | SyntaxKind.GreaterThanGreaterThanGreaterThanToken */
+sealed external interface ShiftOperator : SyntaxKind /* SyntaxKind.LessThanLessThanToken | SyntaxKind.GreaterThanGreaterThanToken | SyntaxKind.GreaterThanGreaterThanGreaterThanToken */

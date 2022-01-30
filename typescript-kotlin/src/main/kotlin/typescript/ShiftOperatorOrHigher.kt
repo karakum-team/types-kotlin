@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias ShiftOperatorOrHigher = Any /* AdditiveOperatorOrHigher | ShiftOperator */
+sealed external interface ShiftOperatorOrHigher /* AdditiveOperatorOrHigher | ShiftOperator */

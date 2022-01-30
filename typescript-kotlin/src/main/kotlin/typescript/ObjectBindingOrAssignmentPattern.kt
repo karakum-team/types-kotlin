@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias ObjectBindingOrAssignmentPattern = Any /* ObjectBindingPattern | ObjectLiteralExpression */
+sealed external interface ObjectBindingOrAssignmentPattern /* ObjectBindingPattern | ObjectLiteralExpression */

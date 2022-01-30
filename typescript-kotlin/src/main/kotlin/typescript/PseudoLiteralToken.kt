@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias PseudoLiteralToken = Any /* TemplateHead | TemplateMiddle | TemplateTail */
+sealed external interface PseudoLiteralToken /* TemplateHead | TemplateMiddle | TemplateTail */

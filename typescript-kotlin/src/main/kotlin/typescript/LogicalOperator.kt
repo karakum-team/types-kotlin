@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias LogicalOperator = SyntaxKind /* SyntaxKind.AmpersandAmpersandToken | SyntaxKind.BarBarToken */
+sealed external interface LogicalOperator : SyntaxKind /* SyntaxKind.AmpersandAmpersandToken | SyntaxKind.BarBarToken */

@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias AdditiveOperatorOrHigher = Any /* MultiplicativeOperatorOrHigher | AdditiveOperator */
+sealed external interface AdditiveOperatorOrHigher /* MultiplicativeOperatorOrHigher | AdditiveOperator */

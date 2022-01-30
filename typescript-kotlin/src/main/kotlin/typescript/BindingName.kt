@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias BindingName = Node /* Identifier | BindingPattern */
+sealed external interface BindingName : Node /* Identifier | BindingPattern */

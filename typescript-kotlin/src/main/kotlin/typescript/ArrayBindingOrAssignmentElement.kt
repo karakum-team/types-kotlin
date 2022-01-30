@@ -2,4 +2,4 @@
 
 package typescript
 
-sealed interface ArrayBindingOrAssignmentElement /* BindingElement | OmittedExpression | SpreadElement | ArrayLiteralExpression | ObjectLiteralExpression | AssignmentExpression<EqualsToken> | Identifier | PropertyAccessExpression | ElementAccessExpression */
+sealed external interface ArrayBindingOrAssignmentElement /* BindingElement | OmittedExpression | SpreadElement | ArrayLiteralExpression | ObjectLiteralExpression | AssignmentExpression<EqualsToken> | Identifier | PropertyAccessExpression | ElementAccessExpression */

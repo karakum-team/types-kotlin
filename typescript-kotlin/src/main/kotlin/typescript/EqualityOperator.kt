@@ -2,4 +2,5 @@
 
 package typescript
 
-typealias EqualityOperator = SyntaxKind /* SyntaxKind.EqualsEqualsToken | SyntaxKind.EqualsEqualsEqualsToken | SyntaxKind.ExclamationEqualsEqualsToken | SyntaxKind.ExclamationEqualsToken */
+sealed external interface EqualityOperator :
+    SyntaxKind /* SyntaxKind.EqualsEqualsToken | SyntaxKind.EqualsEqualsEqualsToken | SyntaxKind.ExclamationEqualsEqualsToken | SyntaxKind.ExclamationEqualsToken */

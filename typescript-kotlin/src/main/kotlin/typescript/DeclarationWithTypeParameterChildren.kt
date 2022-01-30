@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias DeclarationWithTypeParameterChildren = Any /* SignatureDeclaration | ClassLikeDeclaration | InterfaceDeclaration | TypeAliasDeclaration | JSDocTemplateTag */
+sealed external interface DeclarationWithTypeParameterChildren /* SignatureDeclaration | ClassLikeDeclaration | InterfaceDeclaration | TypeAliasDeclaration | JSDocTemplateTag */

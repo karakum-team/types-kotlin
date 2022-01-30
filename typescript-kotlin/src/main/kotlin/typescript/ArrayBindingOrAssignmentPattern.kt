@@ -2,4 +2,4 @@
 
 package typescript
 
-typealias ArrayBindingOrAssignmentPattern = Any /* ArrayBindingPattern | ArrayLiteralExpression */
+sealed external interface ArrayBindingOrAssignmentPattern /* ArrayBindingPattern | ArrayLiteralExpression */
