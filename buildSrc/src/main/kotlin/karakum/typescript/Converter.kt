@@ -250,7 +250,6 @@ private fun convertType(
 
     val baseType = when (name) {
         "ArrayBindingElement",
-        "BindingName",
         "BindingPattern",
         "CallLikeExpression",
         "CaseOrDefaultClause",
@@ -260,9 +259,15 @@ private fun convertType(
         "JsxChild",
         "NamedExportBindings",
         "ObjectTypeDeclaration",
-        "PropertyName",
         "SignatureDeclaration",
         -> "Node"
+
+        "BindingName",
+        "PropertyName",
+        -> "DeclarationName"
+
+        "MemberName",
+        -> "PrimaryExpression, DeclarationName"
 
         "AccessorDeclaration",
         "HasExpressionInitializer",
@@ -273,9 +278,6 @@ private fun convertType(
         "JsxOpeningLikeElement",
         "TemplateLiteral",
         -> "Expression"
-
-        "MemberName",
-        -> "PrimaryExpression"
 
         "BreakOrContinueStatement",
         -> "Statement"
