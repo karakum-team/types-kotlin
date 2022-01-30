@@ -308,6 +308,11 @@ private fun convertType(
         "JsxTagNameExpression",
         -> "LeftHandSideExpression"
 
+        "KeywordTypeSyntaxKind",
+        "ModifierSyntaxKind",
+            // TODO: check
+        -> "SyntaxKind, KeywordSyntaxKind"
+
         "BinaryOperator",
         -> "SyntaxKind"
 
