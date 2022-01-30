@@ -29,7 +29,7 @@ internal fun union(): ConversionResult {
             declaration
         }
 
-    val body = "external interface Union {\n\n$types\n\n}"
+    val body = "sealed external interface Union {\n\n$types\n\n}"
 
     return ConversionResult("Union", body)
 }
