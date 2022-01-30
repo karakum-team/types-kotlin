@@ -395,6 +395,8 @@ private fun convertInterface(
         .replace(" extends ", " : ")
         .replace("<string", "<String")
         .replace(" = KeywordTypeSyntaxKind", "")
+        .replace(" : Array<T>", " : ReadonlyArrayAdapter<T>")
+        .replace(" : ReadonlyArray<T>", " : ReadonlyArrayAdapter<T>")
 
     declaration = when (name) {
         "NodeArray",

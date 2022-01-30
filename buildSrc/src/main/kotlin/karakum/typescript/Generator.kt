@@ -35,23 +35,12 @@ fun generateKotlinDeclarations(
             if ("override var kind: TypePredicateKind." in body || name == "TupleTypeReference" || name == "CompletionEntryDataResolved" || name == "DiagnosticWithLocation")
                 add(VAR_TYPE_MISMATCH_ON_OVERRIDE)
 
-            if ("inline operator fun " in body)
+            if ("inline operator fun " in body && name != "ReadonlyArrayAdapter")
                 add(DECLARATION_CANT_BE_INLINED)
 
             if (name == "ReadonlySet" || name == "Set") {
                 add(PARAMETER_NAME_CHANGED_ON_OVERRIDE)
                 add(DIFFERENT_NAMES_FOR_THE_SAME_PARAMETER_IN_SUPERTYPES)
-            }
-
-            when (name) {
-                "NodeArray",
-                "SortedArray",
-                "SortedReadonlyArray",
-                -> {
-                    add(EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE)
-                    add(INTERFACE_WITH_SUPERCLASS)
-                    add(FINAL_SUPERTYPE)
-                }
             }
         }.toTypedArray()
 
