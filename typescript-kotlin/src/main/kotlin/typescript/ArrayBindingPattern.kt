@@ -4,6 +4,6 @@ package typescript
 
 sealed external interface ArrayBindingPattern : Node, Union.ArrayBindingPattern_ {
     override val kind: SyntaxKind.ArrayBindingPattern
-    override val parent: dynamic /* VariableDeclaration | ParameterDeclaration | BindingElement */
+    override val parent: Union.ArrayBindingPattern_parent
     val elements: NodeArray<ArrayBindingElement>
 }

@@ -4,5 +4,5 @@ package typescript
 
 sealed external interface TemplateMiddle : TemplateLiteralLikeNode, Union.TemplateMiddle_ {
     override val kind: SyntaxKind.TemplateMiddle
-    override val parent: dynamic /* TemplateSpan | TemplateLiteralTypeSpan */
+    override val parent: Union.TemplateMiddle_parent
 }

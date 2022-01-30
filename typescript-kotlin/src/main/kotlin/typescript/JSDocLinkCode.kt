@@ -4,6 +4,6 @@ package typescript
 
 sealed external interface JSDocLinkCode : Node, Union.JSDocLinkCode_ {
     override val kind: SyntaxKind.JSDocLinkCode
-    val name: dynamic /* EntityName | JSDocMemberName */
+    val name: Union.JSDocLinkCode_name?
     var text: String
 }
