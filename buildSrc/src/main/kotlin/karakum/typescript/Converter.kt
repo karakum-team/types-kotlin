@@ -33,7 +33,7 @@ internal fun convertDefinitions(
         .plus(union())
         .toList()
 
-    typeConverter.print()
+    // typeConverter.print()
 
     return result.asSequence()
 }
