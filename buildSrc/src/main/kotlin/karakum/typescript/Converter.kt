@@ -356,7 +356,12 @@ private fun convertEnum(
         .splitToSequence("\n")
         .joinToString("\n") {
             if (it.endsWith(",")) {
-                "object " + it.removeSuffix(",") + ": $name"
+                val constName = it.removeSuffix(",")
+                var declaration = "object $constName: $name"
+                if (hasUnionParent("$name.$constName"))
+                    declaration += ", Union.${name}_$constName"
+
+                declaration
             } else it
         }
 }
