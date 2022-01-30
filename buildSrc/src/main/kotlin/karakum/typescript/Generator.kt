@@ -29,20 +29,6 @@ fun generateKotlinDeclarations(
                 }
             }
 
-            // TODO: remove after unions
-            when (name) {
-                "isAssertionKey",
-                "isBindingName",
-                "isCallLikeExpression",
-                "isCaseOrDefaultClause",
-                "isClassLike",
-                "isEmptyBindingPattern",
-                "isEntityName",
-                "isNamedExportBindings",
-                "isPropertyName",
-                -> add(USELESS_IS_CHECK)
-            }
-
             if ("companion object" in body || name == "SyntaxKind" || name == "TypePredicateKind" || name == "InvalidatedProjectKind")
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
