@@ -13,7 +13,15 @@ private val TYPES = RAW_UNIONS.asSequence()
     .also { map ->
         RAW_UNIONS.keys.asSequence()
             .filter { "." in it }
-            .forEach { map[it] = emptyList() }
+            .forEach {
+                val parentType = when (it.substringAfterLast(".")) {
+                    "kind" -> "SyntaxKind"
+                    "parent" -> "Node"
+                    else -> null
+                }
+
+                map[it] = listOfNotNull(parentType)
+            }
     }
 
 internal fun hasUnionParent(name: String): Boolean =

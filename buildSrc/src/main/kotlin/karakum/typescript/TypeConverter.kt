@@ -24,7 +24,7 @@ internal class GlobalTypeConverter {
     ): String? {
         if (" | " in type && " | undefined" !in type && "(" !in type && "string" !in type && "ModuleKind." !in type && "<" !in type) {
             map[name] = type
-            return null // TODO: return type name
+            return "Union.${name.replace(".", "_")}"
         }
 
         return null
