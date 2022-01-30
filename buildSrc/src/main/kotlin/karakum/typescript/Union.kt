@@ -21,6 +21,7 @@ internal fun union(): ConversionResult {
         .sortedBy { it.key }
         .joinToString("\n\n") { (name, parentNames) ->
             val parentTypes = parentNames
+                .distinct() // For `FlowNode`
                 .joinToString(", ") { it.replace(".", "_") }
 
             var declaration = "sealed interface ${name.replace(".", "_")}"
