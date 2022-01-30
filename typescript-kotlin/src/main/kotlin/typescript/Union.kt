@@ -112,7 +112,7 @@ sealed external interface Union {
 
     sealed interface DebuggerStatement_ : HasJSDoc
 
-    sealed interface DeclarationStatement_name
+    sealed interface DeclarationStatement_name : DeclarationName
 
     sealed interface DeclarationWithTypeParameterChildren_ : DeclarationWithTypeParameters, TypeParameterDeclaration_parent
 
@@ -277,21 +277,21 @@ sealed external interface Union {
 
     sealed interface JSDocLink_ : JSDocComment
 
-    sealed interface JSDocLink_name
+    sealed interface JSDocLink_name : DeclarationName
 
     sealed interface JSDocLinkCode_ : JSDocComment
 
-    sealed interface JSDocLinkCode_name
+    sealed interface JSDocLinkCode_name : DeclarationName
 
     sealed interface JSDocLinkPlain_ : JSDocComment
 
-    sealed interface JSDocLinkPlain_name
+    sealed interface JSDocLinkPlain_name : DeclarationName
 
     sealed interface JSDocMemberName_ : JSDocNameReference_name, JSDocMemberName_left, JSDocLink_name, JSDocLinkCode_name, JSDocLinkPlain_name
 
     sealed interface JSDocMemberName_left
 
-    sealed interface JSDocNameReference_name
+    sealed interface JSDocNameReference_name : DeclarationName
 
     sealed interface JSDocNamespaceBody_ : ModuleBody
 
