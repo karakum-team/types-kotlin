@@ -2,4 +2,4 @@
 
 package typescript
 
-sealed external interface ClassLikeDeclaration : Node /* ClassDeclaration | ClassExpression */
+sealed external interface ClassLikeDeclaration : Node, Union.ClassLikeDeclaration_ /* ClassDeclaration | ClassExpression */

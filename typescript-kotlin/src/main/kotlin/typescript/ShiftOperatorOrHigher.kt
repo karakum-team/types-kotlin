@@ -2,4 +2,4 @@
 
 package typescript
 
-sealed external interface ShiftOperatorOrHigher /* AdditiveOperatorOrHigher | ShiftOperator */
+sealed external interface ShiftOperatorOrHigher : Union.ShiftOperatorOrHigher_ /* AdditiveOperatorOrHigher | ShiftOperator */

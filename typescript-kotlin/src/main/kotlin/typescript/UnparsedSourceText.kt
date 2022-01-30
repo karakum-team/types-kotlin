@@ -2,4 +2,4 @@
 
 package typescript
 
-sealed external interface UnparsedSourceText /* UnparsedPrepend | UnparsedTextLike */
+sealed external interface UnparsedSourceText : Union.UnparsedSourceText_ /* UnparsedPrepend | UnparsedTextLike */

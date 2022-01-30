@@ -2,4 +2,4 @@
 
 package typescript
 
-sealed external interface BindingOrAssignmentPattern /* ObjectBindingOrAssignmentPattern | ArrayBindingOrAssignmentPattern */
+sealed external interface BindingOrAssignmentPattern : Union.BindingOrAssignmentPattern_ /* ObjectBindingOrAssignmentPattern | ArrayBindingOrAssignmentPattern */

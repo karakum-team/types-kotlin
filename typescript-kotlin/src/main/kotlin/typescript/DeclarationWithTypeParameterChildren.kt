@@ -2,4 +2,5 @@
 
 package typescript
 
-sealed external interface DeclarationWithTypeParameterChildren /* SignatureDeclaration | ClassLikeDeclaration | InterfaceDeclaration | TypeAliasDeclaration | JSDocTemplateTag */
+sealed external interface DeclarationWithTypeParameterChildren :
+    Union.DeclarationWithTypeParameterChildren_ /* SignatureDeclaration | ClassLikeDeclaration | InterfaceDeclaration | TypeAliasDeclaration | JSDocTemplateTag */
