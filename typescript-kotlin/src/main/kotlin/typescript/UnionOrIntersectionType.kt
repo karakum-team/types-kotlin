@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface UnionOrIntersectionType : Type {
+sealed external interface UnionOrIntersectionType : Type, Union.UnionOrIntersectionType {
     var types: ReadonlyArray<Type>
 }

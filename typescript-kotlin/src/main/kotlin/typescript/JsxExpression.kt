@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface JsxExpression : Expression {
+sealed external interface JsxExpression : Expression, Union.JsxExpression {
     override val kind: SyntaxKind.JsxExpression
     override val parent: dynamic /* JsxElement | JsxFragment | JsxAttributeLike */
     val dotDotDotToken: Token<SyntaxKind.DotDotDotToken>?

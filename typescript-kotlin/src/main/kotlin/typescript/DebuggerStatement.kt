@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface DebuggerStatement : Statement {
+sealed external interface DebuggerStatement : Statement, Union.DebuggerStatement {
     override val kind: SyntaxKind.DebuggerStatement
 }

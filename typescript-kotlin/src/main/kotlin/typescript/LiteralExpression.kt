@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface LiteralExpression : LiteralLikeNode, PrimaryExpression {
+sealed external interface LiteralExpression : LiteralLikeNode, PrimaryExpression, Union.LiteralExpression {
     var _literalExpressionBrand: Any
 }

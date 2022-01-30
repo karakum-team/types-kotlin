@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface IndexedAccessType : InstantiableType {
+sealed external interface IndexedAccessType : InstantiableType, Union.IndexedAccessType {
     var objectType: Type
     var indexType: Type
     var constraint: Type?

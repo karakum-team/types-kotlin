@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface ExportSpecifier : NamedDeclaration {
+sealed external interface ExportSpecifier : NamedDeclaration, Union.ExportSpecifier {
     override val kind: SyntaxKind.ExportSpecifier
     override val parent: NamedExports
     val isTypeOnly: Boolean

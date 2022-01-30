@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface NonNullChain : NonNullExpression {
+sealed external interface NonNullChain : NonNullExpression, Union.NonNullChain {
     var _optionalChainBrand: Any
 }

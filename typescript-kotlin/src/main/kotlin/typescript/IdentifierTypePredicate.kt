@@ -6,7 +6,7 @@
 
 package typescript
 
-sealed external interface IdentifierTypePredicate : TypePredicateBase {
+sealed external interface IdentifierTypePredicate : TypePredicateBase, Union.IdentifierTypePredicate {
     override var kind: TypePredicateKind.Identifier
     var parameterName: String
     var parameterIndex: Int

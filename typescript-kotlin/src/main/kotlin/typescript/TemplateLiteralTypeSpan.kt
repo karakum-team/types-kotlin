@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface TemplateLiteralTypeSpan : TypeNode {
+sealed external interface TemplateLiteralTypeSpan : TypeNode, Union.TemplateLiteralTypeSpan {
     override val kind: SyntaxKind.TemplateLiteralTypeSpan
     override val parent: TemplateLiteralTypeNode
     val type: TypeNode

@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface JSDocParameterTag : JSDocPropertyLikeTag {
+sealed external interface JSDocParameterTag : JSDocPropertyLikeTag, Union.JSDocParameterTag {
     override val kind: SyntaxKind.JSDocParameterTag
 }

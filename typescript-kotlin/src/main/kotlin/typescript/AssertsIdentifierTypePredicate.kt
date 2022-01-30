@@ -6,7 +6,7 @@
 
 package typescript
 
-sealed external interface AssertsIdentifierTypePredicate : TypePredicateBase {
+sealed external interface AssertsIdentifierTypePredicate : TypePredicateBase, Union.AssertsIdentifierTypePredicate {
     override var kind: TypePredicateKind.AssertsIdentifier
     var parameterName: String
     var parameterIndex: Int

@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface ArrayLiteralExpression : PrimaryExpression {
+sealed external interface ArrayLiteralExpression : PrimaryExpression, Union.ArrayLiteralExpression {
     override val kind: SyntaxKind.ArrayLiteralExpression
     val elements: NodeArray<Expression>
 }

@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface BinaryExpression : Expression, Declaration {
+sealed external interface BinaryExpression : Expression, Declaration, Union.BinaryExpression {
     override val kind: SyntaxKind.BinaryExpression
     val left: Expression
     val operatorToken: BinaryOperatorToken

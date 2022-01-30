@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface RenameInfoSuccess {
+sealed external interface RenameInfoSuccess : Union.RenameInfoSuccess {
     var canRename: Boolean /* true */
 
     /**

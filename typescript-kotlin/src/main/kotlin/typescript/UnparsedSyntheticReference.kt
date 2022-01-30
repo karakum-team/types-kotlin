@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface UnparsedSyntheticReference : UnparsedSection {
+sealed external interface UnparsedSyntheticReference : UnparsedSection, Union.UnparsedSyntheticReference {
     override val kind: SyntaxKind.UnparsedSyntheticReference
     override val parent: UnparsedSource
 }
