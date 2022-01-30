@@ -16,6 +16,9 @@ private val TYPES = RAW_UNIONS.asSequence()
             .forEach { map[it] = emptyList() }
     }
 
+internal fun hasUnionParent(name: String): Boolean =
+    TYPES.containsKey(name)
+
 internal fun union(): ConversionResult {
     val types = TYPES.asSequence()
         .sortedBy { it.key }
