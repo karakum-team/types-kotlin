@@ -308,6 +308,12 @@ private fun convertType(
         "JsxTagNameExpression",
         -> "LeftHandSideExpression"
 
+        "ConciseBody",
+        -> "Union.FunctionLikeDeclarationBase_body"
+
+        "ModuleName",
+        -> "Union.DeclarationStatement_name"
+
         "KeywordTypeSyntaxKind",
         "ModifierSyntaxKind",
             // TODO: check
