@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface ExportDeclaration : DeclarationStatement, JSDocContainer, Union.ExportDeclaration {
+sealed external interface ExportDeclaration : DeclarationStatement, JSDocContainer, Union.ExportDeclaration_ {
     override val kind: SyntaxKind.ExportDeclaration
     override val parent: dynamic /* SourceFile | ModuleBlock */
     val isTypeOnly: Boolean

@@ -2,4 +2,4 @@
 
 package typescript
 
-sealed external interface TypeParameter : InstantiableType, Union.TypeParameter
+sealed external interface TypeParameter : InstantiableType, Union.TypeParameter_

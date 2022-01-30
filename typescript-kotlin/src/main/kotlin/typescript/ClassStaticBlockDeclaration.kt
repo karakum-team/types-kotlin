@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface ClassStaticBlockDeclaration : ClassElement, JSDocContainer, Union.ClassStaticBlockDeclaration {
+sealed external interface ClassStaticBlockDeclaration : ClassElement, JSDocContainer, Union.ClassStaticBlockDeclaration_ {
     override val kind: SyntaxKind.ClassStaticBlockDeclaration
     override val parent: dynamic /* ClassDeclaration | ClassExpression */
     val body: Block

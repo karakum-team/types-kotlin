@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface TypePredicateNode : TypeNode, Union.TypePredicateNode {
+sealed external interface TypePredicateNode : TypeNode, Union.TypePredicateNode_ {
     override val kind: SyntaxKind.TypePredicate
     override val parent: dynamic /* SignatureDeclaration | JSDocTypeExpression */
     val assertsModifier: AssertsKeyword?

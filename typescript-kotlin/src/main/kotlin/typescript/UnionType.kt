@@ -2,4 +2,4 @@
 
 package typescript
 
-sealed external interface UnionType : UnionOrIntersectionType, Union.UnionType
+sealed external interface UnionType : UnionOrIntersectionType, Union.UnionType_

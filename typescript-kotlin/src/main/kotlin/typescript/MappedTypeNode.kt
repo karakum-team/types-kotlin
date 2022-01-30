@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface MappedTypeNode : TypeNode, Declaration, Union.MappedTypeNode {
+sealed external interface MappedTypeNode : TypeNode, Declaration, Union.MappedTypeNode_ {
     override val kind: SyntaxKind.MappedType
     val readonlyToken: dynamic /* ReadonlyToken | PlusToken | MinusToken */
     val typeParameter: TypeParameterDeclaration

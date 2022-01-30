@@ -4,374 +4,374 @@ package typescript
 
 sealed external interface Union {
 
-    sealed interface AbstractKeyword : Modifier
+    sealed interface AbstractKeyword_ : Modifier
 
-    sealed interface AccessibilityModifier : ParameterPropertyModifier, ClassMemberModifier
+    sealed interface AccessibilityModifier_ : ParameterPropertyModifier, ClassMemberModifier
 
-    sealed interface AccessorDeclaration : HasJSDoc, SignatureDeclaration, ObjectLiteralElementLike
+    sealed interface AccessorDeclaration_ : HasJSDoc, SignatureDeclaration, ObjectLiteralElementLike
 
-    sealed interface AdditiveOperator : AdditiveOperatorOrHigher
+    sealed interface AdditiveOperator_ : AdditiveOperatorOrHigher
 
-    sealed interface AdditiveOperatorOrHigher : ShiftOperatorOrHigher
+    sealed interface AdditiveOperatorOrHigher_ : ShiftOperatorOrHigher
 
-    sealed interface ArrayBindingOrAssignmentElement : BindingOrAssignmentElement
+    sealed interface ArrayBindingOrAssignmentElement_ : BindingOrAssignmentElement
 
-    sealed interface ArrayBindingOrAssignmentPattern : BindingOrAssignmentPattern
+    sealed interface ArrayBindingOrAssignmentPattern_ : BindingOrAssignmentPattern
 
-    sealed interface ArrayBindingPattern : BindingPattern, ArrayBindingOrAssignmentPattern
+    sealed interface ArrayBindingPattern_ : BindingPattern, ArrayBindingOrAssignmentPattern
 
     sealed interface ArrayBindingPattern_parent
 
-    sealed interface ArrayDestructuringAssignment : DestructuringAssignment
+    sealed interface ArrayDestructuringAssignment_ : DestructuringAssignment
 
-    sealed interface ArrayLiteralExpression : ArrayBindingOrAssignmentPattern, AssignmentPattern, JsonObjectExpression, DestructuringPattern, SpreadElement_parent
+    sealed interface ArrayLiteralExpression_ : ArrayBindingOrAssignmentPattern, AssignmentPattern, JsonObjectExpression, DestructuringPattern, SpreadElement_parent
 
-    sealed interface ArrayTypeNode : TypeReference_node
+    sealed interface ArrayTypeNode_ : TypeReference_node
 
-    sealed interface ArrowFunction : HasJSDoc, SignatureDeclaration, FunctionLikeDeclaration, FlowStart_node
+    sealed interface ArrowFunction_ : HasJSDoc, SignatureDeclaration, FunctionLikeDeclaration, FlowStart_node
 
-    sealed interface AsExpression : AssertionExpression
+    sealed interface AsExpression_ : AssertionExpression
 
     sealed interface AssertClause_parent
 
-    sealed interface AssertionExpression : HasType
+    sealed interface AssertionExpression_ : HasType
 
-    sealed interface AssertsIdentifierTypePredicate : TypePredicate
+    sealed interface AssertsIdentifierTypePredicate_ : TypePredicate
 
-    sealed interface AssertsThisTypePredicate : TypePredicate
+    sealed interface AssertsThisTypePredicate_ : TypePredicate
 
-    sealed interface AssignmentOperator : AssignmentOperatorOrHigher
+    sealed interface AssignmentOperator_ : AssignmentOperatorOrHigher
 
-    sealed interface AssignmentOperatorOrHigher : BinaryOperator
+    sealed interface AssignmentOperatorOrHigher_ : BinaryOperator
 
-    sealed interface AsyncKeyword : Modifier
+    sealed interface AsyncKeyword_ : Modifier
 
-    sealed interface BigIntLiteral : LiteralToken
+    sealed interface BigIntLiteral_ : LiteralToken
 
-    sealed interface BinaryExpression : FlowArrayMutation_node
+    sealed interface BinaryExpression_ : FlowArrayMutation_node
 
-    sealed interface BindingElement : HasExpressionInitializer, VariableLikeDeclaration, ArrayBindingElement, ObjectBindingOrAssignmentElement, ObjectBindingPattern_parent, ArrayBindingPattern_parent,
-        FlowAssignment_node
+    sealed interface BindingElement_ : HasExpressionInitializer, VariableLikeDeclaration, ArrayBindingElement, ObjectBindingOrAssignmentElement, ObjectBindingPattern_parent,
+        ArrayBindingPattern_parent, FlowAssignment_node
 
-    sealed interface BindingOrAssignmentPattern : BindingOrAssignmentElementTarget
+    sealed interface BindingOrAssignmentPattern_ : BindingOrAssignmentElementTarget
 
-    sealed interface BindingPattern : DeclarationName, BindingName, DestructuringPattern
+    sealed interface BindingPattern_ : DeclarationName, BindingName, DestructuringPattern
 
-    sealed interface BitwiseOperator : BitwiseOperatorOrHigher
+    sealed interface BitwiseOperator_ : BitwiseOperatorOrHigher
 
-    sealed interface BitwiseOperatorOrHigher : LogicalOperatorOrHigher
+    sealed interface BitwiseOperatorOrHigher_ : LogicalOperatorOrHigher
 
-    sealed interface Block : HasJSDoc, BlockLike, FunctionLikeDeclarationBase_body
+    sealed interface Block_ : HasJSDoc, BlockLike, FunctionLikeDeclarationBase_body
 
-    sealed interface BooleanLiteral : JsonObjectExpression, LiteralTypeNode_literal
+    sealed interface BooleanLiteral_ : JsonObjectExpression, LiteralTypeNode_literal
 
-    sealed interface BreakStatement : HasJSDoc, BreakOrContinueStatement
+    sealed interface BreakStatement_ : HasJSDoc, BreakOrContinueStatement
 
-    sealed interface CallChain : OptionalChain
+    sealed interface CallChain_ : OptionalChain
 
-    sealed interface CallExpression : HasTypeArguments, CallLikeExpression, SpreadElement_parent, FlowArrayMutation_node
+    sealed interface CallExpression_ : HasTypeArguments, CallLikeExpression, SpreadElement_parent, FlowArrayMutation_node
 
-    sealed interface CallSignatureDeclaration : HasJSDoc, SignatureDeclaration
+    sealed interface CallSignatureDeclaration_ : HasJSDoc, SignatureDeclaration
 
-    sealed interface CaseClause : CaseOrDefaultClause
+    sealed interface CaseClause_ : CaseOrDefaultClause
 
-    sealed interface CaseOrDefaultClause : BlockLike
+    sealed interface CaseOrDefaultClause_ : BlockLike
 
-    sealed interface CatchClause : VariableDeclaration_parent
+    sealed interface CatchClause_ : VariableDeclaration_parent
 
-    sealed interface ClassDeclaration : ClassLikeDeclaration, ClassStaticBlockDeclaration_parent
+    sealed interface ClassDeclaration_ : ClassLikeDeclaration, ClassStaticBlockDeclaration_parent
 
-    sealed interface ClassExpression : ClassLikeDeclaration, ClassStaticBlockDeclaration_parent
+    sealed interface ClassExpression_ : ClassLikeDeclaration, ClassStaticBlockDeclaration_parent
 
-    sealed interface ClassLikeDeclaration : HasJSDoc, ObjectTypeDeclaration, DeclarationWithTypeParameterChildren, MethodDeclaration_parent, GetAccessorDeclaration_parent,
+    sealed interface ClassLikeDeclaration_ : HasJSDoc, ObjectTypeDeclaration, DeclarationWithTypeParameterChildren, MethodDeclaration_parent, GetAccessorDeclaration_parent,
         SetAccessorDeclaration_parent, HeritageClause_parent
 
     sealed interface ClassLikeDeclarationBase_kind
 
-    sealed interface ClassStaticBlockDeclaration : HasJSDoc
+    sealed interface ClassStaticBlockDeclaration_ : HasJSDoc
 
     sealed interface ClassStaticBlockDeclaration_parent
 
-    sealed interface CompletionEntryDataResolved : CompletionEntryData
+    sealed interface CompletionEntryDataResolved_ : CompletionEntryData
 
-    sealed interface CompletionEntryDataUnresolved : CompletionEntryData
+    sealed interface CompletionEntryDataUnresolved_ : CompletionEntryData
 
-    sealed interface CompoundAssignmentOperator : AssignmentOperator
+    sealed interface CompoundAssignmentOperator_ : AssignmentOperator
 
-    sealed interface ComputedPropertyName : PropertyName, DeclarationName
+    sealed interface ComputedPropertyName_ : PropertyName, DeclarationName
 
-    sealed interface ConstKeyword : Modifier
+    sealed interface ConstKeyword_ : Modifier
 
-    sealed interface ConstructSignatureDeclaration : HasJSDoc, SignatureDeclaration
+    sealed interface ConstructSignatureDeclaration_ : HasJSDoc, SignatureDeclaration
 
-    sealed interface ConstructorDeclaration : HasJSDoc, SignatureDeclaration, FunctionLikeDeclaration
+    sealed interface ConstructorDeclaration_ : HasJSDoc, SignatureDeclaration, FunctionLikeDeclaration
 
-    sealed interface ConstructorTypeNode : HasJSDoc, SignatureDeclaration, FunctionOrConstructorTypeNode
+    sealed interface ConstructorTypeNode_ : HasJSDoc, SignatureDeclaration, FunctionOrConstructorTypeNode
 
-    sealed interface ContinueStatement : HasJSDoc, BreakOrContinueStatement
+    sealed interface ContinueStatement_ : HasJSDoc, BreakOrContinueStatement
 
-    sealed interface DebuggerStatement : HasJSDoc
+    sealed interface DebuggerStatement_ : HasJSDoc
 
     sealed interface DeclarationStatement_name
 
-    sealed interface DeclarationWithTypeParameterChildren : DeclarationWithTypeParameters, TypeParameterDeclaration_parent
+    sealed interface DeclarationWithTypeParameterChildren_ : DeclarationWithTypeParameters, TypeParameterDeclaration_parent
 
-    sealed interface DeclareKeyword : Modifier
+    sealed interface DeclareKeyword_ : Modifier
 
-    sealed interface Decorator : CallLikeExpression
+    sealed interface Decorator_ : CallLikeExpression
 
-    sealed interface DefaultClause : CaseOrDefaultClause
+    sealed interface DefaultClause_ : CaseOrDefaultClause
 
-    sealed interface DefaultKeyword : Modifier
+    sealed interface DefaultKeyword_ : Modifier
 
-    sealed interface DoStatement : HasJSDoc
+    sealed interface DoStatement_ : HasJSDoc
 
-    sealed interface DotDotDotToken : BindingOrAssignmentElementRestIndicator
+    sealed interface DotDotDotToken_ : BindingOrAssignmentElementRestIndicator
 
-    sealed interface ElementAccessChain : OptionalChain
+    sealed interface ElementAccessChain_ : OptionalChain
 
-    sealed interface ElementAccessExpression : DeclarationName, BindingOrAssignmentElementTarget, AccessExpression
+    sealed interface ElementAccessExpression_ : DeclarationName, BindingOrAssignmentElementTarget, AccessExpression
 
-    sealed interface EmptyStatement : HasJSDoc
+    sealed interface EmptyStatement_ : HasJSDoc
 
-    sealed interface EndOfFileToken : HasJSDoc
+    sealed interface EndOfFileToken_ : HasJSDoc
 
-    sealed interface EntityName : EntityNameOrEntityNameExpression, ModuleReference, JSDocNameReference_name, JSDocMemberName_left, JSDocLink_name, JSDocLinkCode_name, JSDocLinkPlain_name
+    sealed interface EntityName_ : EntityNameOrEntityNameExpression, ModuleReference, JSDocNameReference_name, JSDocMemberName_left, JSDocLink_name, JSDocLinkCode_name, JSDocLinkPlain_name
 
-    sealed interface EntityNameExpression : DeclarationName, EntityNameOrEntityNameExpression
+    sealed interface EntityNameExpression_ : DeclarationName, EntityNameOrEntityNameExpression
 
-    sealed interface EnumDeclaration : HasJSDoc
+    sealed interface EnumDeclaration_ : HasJSDoc
 
-    sealed interface EnumMember : HasJSDoc, HasExpressionInitializer, VariableLikeDeclaration
+    sealed interface EnumMember_ : HasJSDoc, HasExpressionInitializer, VariableLikeDeclaration
 
-    sealed interface EqualityOperator : EqualityOperatorOrHigher
+    sealed interface EqualityOperator_ : EqualityOperatorOrHigher
 
-    sealed interface EqualityOperatorOrHigher : BitwiseOperatorOrHigher
+    sealed interface EqualityOperatorOrHigher_ : BitwiseOperatorOrHigher
 
-    sealed interface ExponentiationOperator : MultiplicativeOperatorOrHigher
+    sealed interface ExponentiationOperator_ : MultiplicativeOperatorOrHigher
 
-    sealed interface ExportAssignment : HasJSDoc
+    sealed interface ExportAssignment_ : HasJSDoc
 
-    sealed interface ExportDeclaration : HasJSDoc, AssertClause_parent
+    sealed interface ExportDeclaration_ : HasJSDoc, AssertClause_parent
 
     sealed interface ExportDeclaration_parent
 
-    sealed interface ExportKeyword : Modifier
+    sealed interface ExportKeyword_ : Modifier
 
-    sealed interface ExportSpecifier : ImportOrExportSpecifier
+    sealed interface ExportSpecifier_ : ImportOrExportSpecifier
 
-    sealed interface Expression : ConciseBody, ForInitializer, FunctionLikeDeclarationBase_body, FlowAssignment_node
+    sealed interface Expression_ : ConciseBody, ForInitializer, FunctionLikeDeclarationBase_body, FlowAssignment_node
 
-    sealed interface ExpressionStatement : HasJSDoc
+    sealed interface ExpressionStatement_ : HasJSDoc
 
-    sealed interface ExpressionWithTypeArguments : TypeReferenceType
+    sealed interface ExpressionWithTypeArguments_ : TypeReferenceType
 
     sealed interface ExpressionWithTypeArguments_parent
 
-    sealed interface ExternalModuleReference : ModuleReference
+    sealed interface ExternalModuleReference_ : ModuleReference
 
-    sealed interface FalseLiteral : BooleanLiteral
+    sealed interface FalseLiteral_ : BooleanLiteral
 
-    sealed interface FlowArrayMutation : FlowNode
+    sealed interface FlowArrayMutation_ : FlowNode
 
     sealed interface FlowArrayMutation_node
 
-    sealed interface FlowAssignment : FlowNode
+    sealed interface FlowAssignment_ : FlowNode
 
     sealed interface FlowAssignment_node
 
-    sealed interface FlowCall : FlowNode
+    sealed interface FlowCall_ : FlowNode
 
-    sealed interface FlowCondition : FlowNode
+    sealed interface FlowCondition_ : FlowNode
 
-    sealed interface FlowLabel : FlowNode
+    sealed interface FlowLabel_ : FlowNode
 
-    sealed interface FlowReduceLabel : FlowNode
+    sealed interface FlowReduceLabel_ : FlowNode
 
-    sealed interface FlowStart : FlowNode
+    sealed interface FlowStart_ : FlowNode
 
     sealed interface FlowStart_node
 
-    sealed interface FlowSwitchClause : FlowNode
+    sealed interface FlowSwitchClause_ : FlowNode
 
-    sealed interface ForInStatement : HasJSDoc, HasInitializer, ForInOrOfStatement, VariableDeclarationList_parent
+    sealed interface ForInStatement_ : HasJSDoc, HasInitializer, ForInOrOfStatement, VariableDeclarationList_parent
 
-    sealed interface ForOfStatement : HasJSDoc, HasInitializer, ForInOrOfStatement, VariableDeclarationList_parent
+    sealed interface ForOfStatement_ : HasJSDoc, HasInitializer, ForInOrOfStatement, VariableDeclarationList_parent
 
-    sealed interface ForStatement : HasJSDoc, HasInitializer, VariableDeclarationList_parent
+    sealed interface ForStatement_ : HasJSDoc, HasInitializer, VariableDeclarationList_parent
 
-    sealed interface FunctionBody : ConciseBody
+    sealed interface FunctionBody_ : ConciseBody
 
-    sealed interface FunctionDeclaration : HasJSDoc, SignatureDeclaration, FunctionLikeDeclaration
+    sealed interface FunctionDeclaration_ : HasJSDoc, SignatureDeclaration, FunctionLikeDeclaration
 
-    sealed interface FunctionExpression : HasJSDoc, SignatureDeclaration, FunctionLikeDeclaration, FlowStart_node
+    sealed interface FunctionExpression_ : HasJSDoc, SignatureDeclaration, FunctionLikeDeclaration, FlowStart_node
 
     sealed interface FunctionLikeDeclarationBase_body
 
     sealed interface FunctionOrConstructorTypeNodeBase_kind
 
-    sealed interface FunctionTypeNode : HasJSDoc, SignatureDeclaration, FunctionOrConstructorTypeNode
+    sealed interface FunctionTypeNode_ : HasJSDoc, SignatureDeclaration, FunctionOrConstructorTypeNode
 
-    sealed interface GetAccessorDeclaration : FunctionLikeDeclaration, AccessorDeclaration, FlowStart_node
+    sealed interface GetAccessorDeclaration_ : FunctionLikeDeclaration, AccessorDeclaration, FlowStart_node
 
     sealed interface GetAccessorDeclaration_parent
 
-    sealed interface HasExpressionInitializer : HasInitializer
+    sealed interface HasExpressionInitializer_ : HasInitializer
 
-    sealed interface HeritageClause : ExpressionWithTypeArguments_parent
+    sealed interface HeritageClause_ : ExpressionWithTypeArguments_parent
 
     sealed interface HeritageClause_parent
 
     sealed interface HeritageClause_token
 
-    sealed interface Identifier : EntityName, PropertyName, MemberName, DeclarationName, BindingName, PropertyNameLiteral, BindingOrAssignmentElementTarget, EntityNameExpression, JsxTagNameExpression,
-        ModuleName, JSDocNamespaceBody, AssertionKey, DeclarationStatement_name, TypePredicateNode_parameterName, JSDocTypedefTag_fullName, JSDocCallbackTag_fullName
+    sealed interface Identifier_ : EntityName, PropertyName, MemberName, DeclarationName, BindingName, PropertyNameLiteral, BindingOrAssignmentElementTarget, EntityNameExpression,
+        JsxTagNameExpression, ModuleName, JSDocNamespaceBody, AssertionKey, DeclarationStatement_name, TypePredicateNode_parameterName, JSDocTypedefTag_fullName, JSDocCallbackTag_fullName
 
-    sealed interface IdentifierTypePredicate : TypePredicate
+    sealed interface IdentifierTypePredicate_ : TypePredicate
 
-    sealed interface IfStatement : HasJSDoc
+    sealed interface IfStatement_ : HasJSDoc
 
-    sealed interface ImportClause : TypeOnlyCompatibleAliasDeclaration
+    sealed interface ImportClause_ : TypeOnlyCompatibleAliasDeclaration
 
-    sealed interface ImportDeclaration : HasJSDoc, AssertClause_parent
+    sealed interface ImportDeclaration_ : HasJSDoc, AssertClause_parent
 
     sealed interface ImportDeclaration_parent
 
-    sealed interface ImportEqualsDeclaration : HasJSDoc, TypeOnlyCompatibleAliasDeclaration
+    sealed interface ImportEqualsDeclaration_ : HasJSDoc, TypeOnlyCompatibleAliasDeclaration
 
     sealed interface ImportEqualsDeclaration_parent
 
-    sealed interface ImportOrExportSpecifier : TypeOnlyCompatibleAliasDeclaration
+    sealed interface ImportOrExportSpecifier_ : TypeOnlyCompatibleAliasDeclaration
 
-    sealed interface ImportSpecifier : ImportOrExportSpecifier
+    sealed interface ImportSpecifier_ : ImportOrExportSpecifier
 
-    sealed interface IncompleteType : FlowType
+    sealed interface IncompleteType_ : FlowType
 
-    sealed interface IndexSignatureDeclaration : HasJSDoc, SignatureDeclaration
+    sealed interface IndexSignatureDeclaration_ : HasJSDoc, SignatureDeclaration
 
     sealed interface IndexType_type
 
-    sealed interface IndexedAccessType : TypeVariable
+    sealed interface IndexedAccessType_ : TypeVariable
 
-    sealed interface InferTypeNode : TypeParameterDeclaration_parent
+    sealed interface InferTypeNode_ : TypeParameterDeclaration_parent
 
-    sealed interface InstantiableType : IndexType_type
+    sealed interface InstantiableType_ : IndexType_type
 
-    sealed interface InterfaceDeclaration : HasJSDoc, ObjectTypeDeclaration, DeclarationWithTypeParameterChildren, GetAccessorDeclaration_parent, SetAccessorDeclaration_parent, HeritageClause_parent
+    sealed interface InterfaceDeclaration_ : HasJSDoc, ObjectTypeDeclaration, DeclarationWithTypeParameterChildren, GetAccessorDeclaration_parent, SetAccessorDeclaration_parent, HeritageClause_parent
 
-    sealed interface IntersectionType : BaseType, StructuredType
+    sealed interface IntersectionType_ : BaseType, StructuredType
 
-    sealed interface IntersectionTypeNode : UnionOrIntersectionTypeNode
+    sealed interface IntersectionTypeNode_ : UnionOrIntersectionTypeNode
 
-    sealed interface JSDoc : JSDocTag_parent
+    sealed interface JSDoc_ : JSDocTag_parent
 
-    sealed interface JSDocAugmentsTag : ExpressionWithTypeArguments_parent
+    sealed interface JSDocAugmentsTag_ : ExpressionWithTypeArguments_parent
 
-    sealed interface JSDocCallbackTag : DeclarationWithTypeParameters
+    sealed interface JSDocCallbackTag_ : DeclarationWithTypeParameters
 
     sealed interface JSDocCallbackTag_fullName
 
-    sealed interface JSDocFunctionType : HasJSDoc, SignatureDeclaration
+    sealed interface JSDocFunctionType_ : HasJSDoc, SignatureDeclaration
 
-    sealed interface JSDocImplementsTag : ExpressionWithTypeArguments_parent
+    sealed interface JSDocImplementsTag_ : ExpressionWithTypeArguments_parent
 
-    sealed interface JSDocLink : JSDocComment
+    sealed interface JSDocLink_ : JSDocComment
 
     sealed interface JSDocLink_name
 
-    sealed interface JSDocLinkCode : JSDocComment
+    sealed interface JSDocLinkCode_ : JSDocComment
 
     sealed interface JSDocLinkCode_name
 
-    sealed interface JSDocLinkPlain : JSDocComment
+    sealed interface JSDocLinkPlain_ : JSDocComment
 
     sealed interface JSDocLinkPlain_name
 
-    sealed interface JSDocMemberName : JSDocNameReference_name, JSDocMemberName_left, JSDocLink_name, JSDocLinkCode_name, JSDocLinkPlain_name
+    sealed interface JSDocMemberName_ : JSDocNameReference_name, JSDocMemberName_left, JSDocLink_name, JSDocLinkCode_name, JSDocLinkPlain_name
 
     sealed interface JSDocMemberName_left
 
     sealed interface JSDocNameReference_name
 
-    sealed interface JSDocNamespaceBody : ModuleBody
+    sealed interface JSDocNamespaceBody_ : ModuleBody
 
-    sealed interface JSDocNamespaceDeclaration : JSDocNamespaceBody, ModuleDeclaration_body, JSDocTypedefTag_fullName, JSDocCallbackTag_fullName
+    sealed interface JSDocNamespaceDeclaration_ : JSDocNamespaceBody, ModuleDeclaration_body, JSDocTypedefTag_fullName, JSDocCallbackTag_fullName
 
-    sealed interface JSDocNonNullableType : HasType, JSDocTypeReferencingNode
+    sealed interface JSDocNonNullableType_ : HasType, JSDocTypeReferencingNode
 
-    sealed interface JSDocNullableType : HasType, JSDocTypeReferencingNode
+    sealed interface JSDocNullableType_ : HasType, JSDocTypeReferencingNode
 
-    sealed interface JSDocOptionalType : HasType, JSDocTypeReferencingNode
+    sealed interface JSDocOptionalType_ : HasType, JSDocTypeReferencingNode
 
-    sealed interface JSDocParameterTag : VariableLikeDeclaration
+    sealed interface JSDocParameterTag_ : VariableLikeDeclaration
 
-    sealed interface JSDocPropertyTag : VariableLikeDeclaration
+    sealed interface JSDocPropertyTag_ : VariableLikeDeclaration
 
-    sealed interface JSDocSignature : DeclarationWithTypeParameters, Signature_declaration
+    sealed interface JSDocSignature_ : DeclarationWithTypeParameters, Signature_declaration
 
     sealed interface JSDocTag_parent
 
-    sealed interface JSDocTemplateTag : DeclarationWithTypeParameterChildren
+    sealed interface JSDocTemplateTag_ : DeclarationWithTypeParameterChildren
 
-    sealed interface JSDocText : JSDocComment
+    sealed interface JSDocText_ : JSDocComment
 
-    sealed interface JSDocTypeExpression : HasType, TypePredicateNode_parent, JSDocTypedefTag_typeExpression
+    sealed interface JSDocTypeExpression_ : HasType, TypePredicateNode_parent, JSDocTypedefTag_typeExpression
 
-    sealed interface JSDocTypeLiteral : JSDocTag_parent, JSDocTypedefTag_typeExpression
+    sealed interface JSDocTypeLiteral_ : JSDocTag_parent, JSDocTypedefTag_typeExpression
 
-    sealed interface JSDocTypedefTag : DeclarationWithTypeParameters
+    sealed interface JSDocTypedefTag_ : DeclarationWithTypeParameters
 
     sealed interface JSDocTypedefTag_fullName
 
     sealed interface JSDocTypedefTag_typeExpression
 
-    sealed interface JSDocVariadicType : HasType, JSDocTypeReferencingNode
+    sealed interface JSDocVariadicType_ : HasType, JSDocTypeReferencingNode
 
-    sealed interface JsonMinusNumericLiteral : JsonObjectExpression
+    sealed interface JsonMinusNumericLiteral_ : JsonObjectExpression
 
-    sealed interface JsxAttribute : HasInitializer, VariableLikeDeclaration, JsxAttributeLike
+    sealed interface JsxAttribute_ : HasInitializer, VariableLikeDeclaration, JsxAttributeLike
 
     sealed interface JsxAttribute_initializer
 
-    sealed interface JsxAttributeLike : JsxExpression_parent
+    sealed interface JsxAttributeLike_ : JsxExpression_parent
 
-    sealed interface JsxElement : JsxChild, JsxExpression_parent, JsxText_parent
+    sealed interface JsxElement_ : JsxChild, JsxExpression_parent, JsxText_parent
 
-    sealed interface JsxExpression : JsxChild, JsxAttribute_initializer
+    sealed interface JsxExpression_ : JsxChild, JsxAttribute_initializer
 
     sealed interface JsxExpression_parent
 
-    sealed interface JsxFragment : JsxChild, JsxExpression_parent, JsxText_parent
+    sealed interface JsxFragment_ : JsxChild, JsxExpression_parent, JsxText_parent
 
-    sealed interface JsxOpeningElement : HasTypeArguments, JsxOpeningLikeElement
+    sealed interface JsxOpeningElement_ : HasTypeArguments, JsxOpeningLikeElement
 
-    sealed interface JsxOpeningLikeElement : CallLikeExpression
+    sealed interface JsxOpeningLikeElement_ : CallLikeExpression
 
-    sealed interface JsxSelfClosingElement : HasTypeArguments, JsxOpeningLikeElement, JsxChild
+    sealed interface JsxSelfClosingElement_ : HasTypeArguments, JsxOpeningLikeElement, JsxChild
 
-    sealed interface JsxSpreadAttribute : JsxAttributeLike
+    sealed interface JsxSpreadAttribute_ : JsxAttributeLike
 
-    sealed interface JsxTagNamePropertyAccess : JsxTagNameExpression
+    sealed interface JsxTagNamePropertyAccess_ : JsxTagNameExpression
 
-    sealed interface JsxText : LiteralToken, JsxChild
+    sealed interface JsxText_ : LiteralToken, JsxChild
 
     sealed interface JsxText_parent
 
-    sealed interface KeywordSyntaxKind : TokenSyntaxKind, JSDocSyntaxKind
+    sealed interface KeywordSyntaxKind_ : TokenSyntaxKind, JSDocSyntaxKind
 
-    sealed interface LabeledStatement : HasJSDoc
+    sealed interface LabeledStatement_ : HasJSDoc
 
-    sealed interface LiteralExpression : LiteralTypeNode_literal
+    sealed interface LiteralExpression_ : LiteralTypeNode_literal
 
-    sealed interface LiteralSyntaxKind : TokenSyntaxKind
+    sealed interface LiteralSyntaxKind_ : TokenSyntaxKind
 
     sealed interface LiteralTypeNode_literal
 
-    sealed interface LogicalOperator : LogicalOperatorOrHigher
+    sealed interface LogicalOperator_ : LogicalOperatorOrHigher
 
-    sealed interface LogicalOperatorOrHigher : AssignmentOperatorOrHigher
+    sealed interface LogicalOperatorOrHigher_ : AssignmentOperatorOrHigher
 
-    sealed interface MappedTypeNode : HasType
+    sealed interface MappedTypeNode_ : HasType
 
     sealed interface MappedTypeNode_questionToken
 
@@ -379,171 +379,171 @@ sealed external interface Union {
 
     sealed interface MetaProperty_keywordToken
 
-    sealed interface MethodDeclaration : HasJSDoc, SignatureDeclaration, ObjectLiteralElementLike, FunctionLikeDeclaration, FlowStart_node
+    sealed interface MethodDeclaration_ : HasJSDoc, SignatureDeclaration, ObjectLiteralElementLike, FunctionLikeDeclaration, FlowStart_node
 
     sealed interface MethodDeclaration_parent
 
-    sealed interface MethodSignature : HasJSDoc, SignatureDeclaration
+    sealed interface MethodSignature_ : HasJSDoc, SignatureDeclaration
 
-    sealed interface MinusToken : MappedTypeNode_readonlyToken, MappedTypeNode_questionToken
+    sealed interface MinusToken_ : MappedTypeNode_readonlyToken, MappedTypeNode_questionToken
 
-    sealed interface ModuleBlock : BlockLike, NamespaceBody, ImportEqualsDeclaration_parent, ImportDeclaration_parent, ExportDeclaration_parent
+    sealed interface ModuleBlock_ : BlockLike, NamespaceBody, ImportEqualsDeclaration_parent, ImportDeclaration_parent, ExportDeclaration_parent
 
-    sealed interface ModuleBody : ModuleDeclaration_parent, ModuleDeclaration_body
+    sealed interface ModuleBody_ : ModuleDeclaration_parent, ModuleDeclaration_body
 
-    sealed interface ModuleDeclaration : HasJSDoc
+    sealed interface ModuleDeclaration_ : HasJSDoc
 
     sealed interface ModuleDeclaration_body
 
     sealed interface ModuleDeclaration_parent
 
-    sealed interface MultiplicativeOperator : MultiplicativeOperatorOrHigher
+    sealed interface MultiplicativeOperator_ : MultiplicativeOperatorOrHigher
 
-    sealed interface MultiplicativeOperatorOrHigher : AdditiveOperatorOrHigher
+    sealed interface MultiplicativeOperatorOrHigher_ : AdditiveOperatorOrHigher
 
-    sealed interface NamedExports : NamedExportBindings, NamedImportsOrExports
+    sealed interface NamedExports_ : NamedExportBindings, NamedImportsOrExports
 
-    sealed interface NamedImports : NamedImportBindings, NamedImportsOrExports
+    sealed interface NamedImports_ : NamedImportBindings, NamedImportsOrExports
 
-    sealed interface NamedTupleMember : HasJSDoc, SyntheticExpression_tupleNameSource
+    sealed interface NamedTupleMember_ : HasJSDoc, SyntheticExpression_tupleNameSource
 
-    sealed interface NamespaceBody : ModuleBody
+    sealed interface NamespaceBody_ : ModuleBody
 
-    sealed interface NamespaceDeclaration : NamespaceBody
+    sealed interface NamespaceDeclaration_ : NamespaceBody
 
-    sealed interface NamespaceExport : NamedExportBindings
+    sealed interface NamespaceExport_ : NamedExportBindings
 
-    sealed interface NamespaceExportDeclaration : HasJSDoc
+    sealed interface NamespaceExportDeclaration_ : HasJSDoc
 
-    sealed interface NamespaceImport : NamedImportBindings, TypeOnlyCompatibleAliasDeclaration
+    sealed interface NamespaceImport_ : NamedImportBindings, TypeOnlyCompatibleAliasDeclaration
 
-    sealed interface NewExpression : HasTypeArguments, CallLikeExpression, SpreadElement_parent
+    sealed interface NewExpression_ : HasTypeArguments, CallLikeExpression, SpreadElement_parent
 
-    sealed interface NoSubstitutionTemplateLiteral : StringLiteralLike, LiteralToken, TemplateLiteralToken, TemplateLiteral
+    sealed interface NoSubstitutionTemplateLiteral_ : StringLiteralLike, LiteralToken, TemplateLiteralToken, TemplateLiteral
 
-    sealed interface NonNullChain : OptionalChain
+    sealed interface NonNullChain_ : OptionalChain
 
-    sealed interface NullLiteral : JsonObjectExpression, LiteralTypeNode_literal
+    sealed interface NullLiteral_ : JsonObjectExpression, LiteralTypeNode_literal
 
-    sealed interface NumericLiteral : PropertyName, DeclarationName, PropertyNameLiteral, LiteralToken, JsonObjectExpression, DeclarationStatement_name
+    sealed interface NumericLiteral_ : PropertyName, DeclarationName, PropertyNameLiteral, LiteralToken, JsonObjectExpression, DeclarationStatement_name
 
-    sealed interface ObjectBindingOrAssignmentElement : BindingOrAssignmentElement
+    sealed interface ObjectBindingOrAssignmentElement_ : BindingOrAssignmentElement
 
-    sealed interface ObjectBindingOrAssignmentPattern : BindingOrAssignmentPattern
+    sealed interface ObjectBindingOrAssignmentPattern_ : BindingOrAssignmentPattern
 
-    sealed interface ObjectBindingPattern : BindingPattern, ObjectBindingOrAssignmentPattern
+    sealed interface ObjectBindingPattern_ : BindingPattern, ObjectBindingOrAssignmentPattern
 
     sealed interface ObjectBindingPattern_parent
 
-    sealed interface ObjectDestructuringAssignment : DestructuringAssignment
+    sealed interface ObjectDestructuringAssignment_ : DestructuringAssignment
 
-    sealed interface ObjectLiteralExpression : ObjectBindingOrAssignmentPattern, AssignmentPattern, JsonObjectExpression, DestructuringPattern, MethodDeclaration_parent, GetAccessorDeclaration_parent,
-        SetAccessorDeclaration_parent
+    sealed interface ObjectLiteralExpression_ : ObjectBindingOrAssignmentPattern, AssignmentPattern, JsonObjectExpression, DestructuringPattern, MethodDeclaration_parent,
+        GetAccessorDeclaration_parent, SetAccessorDeclaration_parent
 
-    sealed interface ObjectType : BaseType, StructuredType
+    sealed interface ObjectType_ : BaseType, StructuredType
 
-    sealed interface OmittedExpression : ArrayBindingElement, BindingOrAssignmentElementTarget
+    sealed interface OmittedExpression_ : ArrayBindingElement, BindingOrAssignmentElementTarget
 
-    sealed interface OverrideKeyword : Modifier
+    sealed interface OverrideKeyword_ : Modifier
 
-    sealed interface ParameterDeclaration : HasJSDoc, HasType, HasExpressionInitializer, VariableLikeDeclaration, BindingOrAssignmentElement, ObjectBindingPattern_parent, ArrayBindingPattern_parent,
+    sealed interface ParameterDeclaration_ : HasJSDoc, HasType, HasExpressionInitializer, VariableLikeDeclaration, BindingOrAssignmentElement, ObjectBindingPattern_parent, ArrayBindingPattern_parent,
         SyntheticExpression_tupleNameSource
 
-    sealed interface ParenthesizedExpression : HasJSDoc
+    sealed interface ParenthesizedExpression_ : HasJSDoc
 
-    sealed interface ParenthesizedTypeNode : HasType
+    sealed interface ParenthesizedTypeNode_ : HasType
 
-    sealed interface PlusToken : MappedTypeNode_readonlyToken, MappedTypeNode_questionToken
+    sealed interface PlusToken_ : MappedTypeNode_readonlyToken, MappedTypeNode_questionToken
 
-    sealed interface PrefixUnaryExpression : LiteralTypeNode_literal
+    sealed interface PrefixUnaryExpression_ : LiteralTypeNode_literal
 
-    sealed interface PrivateIdentifier : PropertyName, MemberName, DeclarationName
+    sealed interface PrivateIdentifier_ : PropertyName, MemberName, DeclarationName
 
-    sealed interface PrivateKeyword : Modifier, AccessibilityModifier
+    sealed interface PrivateKeyword_ : Modifier, AccessibilityModifier
 
-    sealed interface PropertyAccessChain : OptionalChain
+    sealed interface PropertyAccessChain_ : OptionalChain
 
-    sealed interface PropertyAccessEntityNameExpression : EntityNameExpression
+    sealed interface PropertyAccessEntityNameExpression_ : EntityNameExpression
 
-    sealed interface PropertyAccessExpression : BindingOrAssignmentElementTarget, AccessExpression
+    sealed interface PropertyAccessExpression_ : BindingOrAssignmentElementTarget, AccessExpression
 
-    sealed interface PropertyAssignment : HasJSDoc, HasExpressionInitializer, ObjectLiteralElementLike, VariableLikeDeclaration, ObjectBindingOrAssignmentElement
+    sealed interface PropertyAssignment_ : HasJSDoc, HasExpressionInitializer, ObjectLiteralElementLike, VariableLikeDeclaration, ObjectBindingOrAssignmentElement
 
-    sealed interface PropertyDeclaration : HasJSDoc, HasType, HasExpressionInitializer, VariableLikeDeclaration
+    sealed interface PropertyDeclaration_ : HasJSDoc, HasType, HasExpressionInitializer, VariableLikeDeclaration
 
-    sealed interface PropertySignature : HasJSDoc, HasType, HasExpressionInitializer, VariableLikeDeclaration
+    sealed interface PropertySignature_ : HasJSDoc, HasType, HasExpressionInitializer, VariableLikeDeclaration
 
-    sealed interface ProtectedKeyword : Modifier, AccessibilityModifier
+    sealed interface ProtectedKeyword_ : Modifier, AccessibilityModifier
 
-    sealed interface PseudoLiteralSyntaxKind : TokenSyntaxKind
+    sealed interface PseudoLiteralSyntaxKind_ : TokenSyntaxKind
 
-    sealed interface PseudoLiteralToken : TemplateLiteralToken
+    sealed interface PseudoLiteralToken_ : TemplateLiteralToken
 
-    sealed interface PublicKeyword : Modifier, AccessibilityModifier
+    sealed interface PublicKeyword_ : Modifier, AccessibilityModifier
 
-    sealed interface PunctuationSyntaxKind : TokenSyntaxKind
+    sealed interface PunctuationSyntaxKind_ : TokenSyntaxKind
 
-    sealed interface QualifiedName : EntityName
+    sealed interface QualifiedName_ : EntityName
 
-    sealed interface QuestionToken : MappedTypeNode_questionToken
+    sealed interface QuestionToken_ : MappedTypeNode_questionToken
 
-    sealed interface ReadonlyKeyword : Modifier, ParameterPropertyModifier, ClassMemberModifier
+    sealed interface ReadonlyKeyword_ : Modifier, ParameterPropertyModifier, ClassMemberModifier
 
-    sealed interface ReadonlyToken : MappedTypeNode_readonlyToken
+    sealed interface ReadonlyToken_ : MappedTypeNode_readonlyToken
 
-    sealed interface RegularExpressionLiteral : LiteralToken
+    sealed interface RegularExpressionLiteral_ : LiteralToken
 
-    sealed interface RelationalOperator : RelationalOperatorOrHigher
+    sealed interface RelationalOperator_ : RelationalOperatorOrHigher
 
-    sealed interface RelationalOperatorOrHigher : EqualityOperatorOrHigher
+    sealed interface RelationalOperatorOrHigher_ : EqualityOperatorOrHigher
 
-    sealed interface RenameInfoFailure : RenameInfo
+    sealed interface RenameInfoFailure_ : RenameInfo
 
-    sealed interface RenameInfoSuccess : RenameInfo
+    sealed interface RenameInfoSuccess_ : RenameInfo
 
-    sealed interface ReturnStatement : HasJSDoc
+    sealed interface ReturnStatement_ : HasJSDoc
 
-    sealed interface ScopedEmitHelper : EmitHelper
+    sealed interface ScopedEmitHelper_ : EmitHelper
 
-    sealed interface SetAccessorDeclaration : FunctionLikeDeclaration, AccessorDeclaration, FlowStart_node
+    sealed interface SetAccessorDeclaration_ : FunctionLikeDeclaration, AccessorDeclaration, FlowStart_node
 
     sealed interface SetAccessorDeclaration_parent
 
-    sealed interface ShiftOperator : ShiftOperatorOrHigher
+    sealed interface ShiftOperator_ : ShiftOperatorOrHigher
 
-    sealed interface ShiftOperatorOrHigher : RelationalOperatorOrHigher
+    sealed interface ShiftOperatorOrHigher_ : RelationalOperatorOrHigher
 
-    sealed interface ShorthandPropertyAssignment : HasJSDoc, ObjectLiteralElementLike, VariableLikeDeclaration, ObjectBindingOrAssignmentElement
+    sealed interface ShorthandPropertyAssignment_ : HasJSDoc, ObjectLiteralElementLike, VariableLikeDeclaration, ObjectBindingOrAssignmentElement
 
     sealed interface Signature_declaration
 
-    sealed interface SignatureDeclaration : HasType, DeclarationWithTypeParameterChildren, TypePredicateNode_parent, Signature_declaration
+    sealed interface SignatureDeclaration_ : HasType, DeclarationWithTypeParameterChildren, TypePredicateNode_parent, Signature_declaration
 
-    sealed interface SignatureHelpCharacterTypedReason : SignatureHelpTriggerReason
+    sealed interface SignatureHelpCharacterTypedReason_ : SignatureHelpTriggerReason
 
-    sealed interface SignatureHelpInvokedReason : SignatureHelpTriggerReason
+    sealed interface SignatureHelpInvokedReason_ : SignatureHelpTriggerReason
 
-    sealed interface SignatureHelpRetriggeredReason : SignatureHelpTriggerReason
+    sealed interface SignatureHelpRetriggeredReason_ : SignatureHelpTriggerReason
 
-    sealed interface SourceFile : BlockLike, ModuleDeclaration_parent, ImportEqualsDeclaration_parent, ImportDeclaration_parent, ExportDeclaration_parent
+    sealed interface SourceFile_ : BlockLike, ModuleDeclaration_parent, ImportEqualsDeclaration_parent, ImportDeclaration_parent, ExportDeclaration_parent
 
-    sealed interface SpreadAssignment : HasJSDoc, ObjectLiteralElementLike, ObjectBindingOrAssignmentElement, BindingOrAssignmentElementRestIndicator
+    sealed interface SpreadAssignment_ : HasJSDoc, ObjectLiteralElementLike, ObjectBindingOrAssignmentElement, BindingOrAssignmentElementRestIndicator
 
-    sealed interface SpreadElement : BindingOrAssignmentElementRestIndicator
+    sealed interface SpreadElement_ : BindingOrAssignmentElementRestIndicator
 
     sealed interface SpreadElement_parent
 
-    sealed interface StaticKeyword : Modifier, ClassMemberModifier
+    sealed interface StaticKeyword_ : Modifier, ClassMemberModifier
 
-    sealed interface StringLiteral : PropertyName, StringLiteralLike, LiteralToken, ModuleName, AssertionKey, JsonObjectExpression, DeclarationStatement_name, JsxAttribute_initializer
+    sealed interface StringLiteral_ : PropertyName, StringLiteralLike, LiteralToken, ModuleName, AssertionKey, JsonObjectExpression, DeclarationStatement_name, JsxAttribute_initializer
 
-    sealed interface StringLiteralLike : DeclarationName, PropertyNameLiteral
+    sealed interface StringLiteralLike_ : DeclarationName, PropertyNameLiteral
 
-    sealed interface SuperElementAccessExpression : SuperProperty
+    sealed interface SuperElementAccessExpression_ : SuperProperty
 
-    sealed interface SuperPropertyAccessExpression : SuperProperty
+    sealed interface SuperPropertyAccessExpression_ : SuperProperty
 
-    sealed interface SwitchStatement : HasJSDoc
+    sealed interface SwitchStatement_ : HasJSDoc
 
     sealed interface SyntaxKind_AbstractKeyword : KeywordSyntaxKind, ModifierSyntaxKind
 
@@ -877,65 +877,65 @@ sealed external interface Union {
 
     sealed interface SyntheticExpression_tupleNameSource
 
-    sealed interface TaggedTemplateExpression : HasTypeArguments, CallLikeExpression
+    sealed interface TaggedTemplateExpression_ : HasTypeArguments, CallLikeExpression
 
-    sealed interface TemplateExpression : TemplateLiteral, TemplateHead_parent
+    sealed interface TemplateExpression_ : TemplateLiteral, TemplateHead_parent
 
-    sealed interface TemplateHead : PseudoLiteralToken
+    sealed interface TemplateHead_ : PseudoLiteralToken
 
     sealed interface TemplateHead_parent
 
-    sealed interface TemplateLiteralTypeNode : TemplateHead_parent
+    sealed interface TemplateLiteralTypeNode_ : TemplateHead_parent
 
-    sealed interface TemplateLiteralTypeSpan : TemplateMiddle_parent, TemplateTail_parent
+    sealed interface TemplateLiteralTypeSpan_ : TemplateMiddle_parent, TemplateTail_parent
 
     sealed interface TemplateLiteralTypeSpan_literal
 
-    sealed interface TemplateMiddle : PseudoLiteralToken, TemplateLiteralTypeSpan_literal, TemplateSpan_literal
+    sealed interface TemplateMiddle_ : PseudoLiteralToken, TemplateLiteralTypeSpan_literal, TemplateSpan_literal
 
     sealed interface TemplateMiddle_parent
 
-    sealed interface TemplateSpan : TemplateMiddle_parent, TemplateTail_parent
+    sealed interface TemplateSpan_ : TemplateMiddle_parent, TemplateTail_parent
 
     sealed interface TemplateSpan_literal
 
-    sealed interface TemplateTail : PseudoLiteralToken, TemplateLiteralTypeSpan_literal, TemplateSpan_literal
+    sealed interface TemplateTail_ : PseudoLiteralToken, TemplateLiteralTypeSpan_literal, TemplateSpan_literal
 
     sealed interface TemplateTail_parent
 
-    sealed interface ThisExpression : JsxTagNameExpression
+    sealed interface ThisExpression_ : JsxTagNameExpression
 
-    sealed interface ThisTypeNode : TypePredicateNode_parameterName
+    sealed interface ThisTypeNode_ : TypePredicateNode_parameterName
 
-    sealed interface ThisTypePredicate : TypePredicate
+    sealed interface ThisTypePredicate_ : TypePredicate
 
-    sealed interface ThrowStatement : HasJSDoc
+    sealed interface ThrowStatement_ : HasJSDoc
 
-    sealed interface TriviaSyntaxKind : TokenSyntaxKind
+    sealed interface TriviaSyntaxKind_ : TokenSyntaxKind
 
-    sealed interface TrueLiteral : BooleanLiteral
+    sealed interface TrueLiteral_ : BooleanLiteral
 
-    sealed interface TryStatement : HasJSDoc
+    sealed interface TryStatement_ : HasJSDoc
 
-    sealed interface TupleTypeNode : TypeReference_node
+    sealed interface TupleTypeNode_ : TypeReference_node
 
-    sealed interface Type : FlowType
+    sealed interface Type_ : FlowType
 
-    sealed interface TypeAliasDeclaration : HasJSDoc, HasType, DeclarationWithTypeParameterChildren
+    sealed interface TypeAliasDeclaration_ : HasJSDoc, HasType, DeclarationWithTypeParameterChildren
 
-    sealed interface TypeAssertion : AssertionExpression
+    sealed interface TypeAssertion_ : AssertionExpression
 
-    sealed interface TypeLiteralNode : ObjectTypeDeclaration, GetAccessorDeclaration_parent, SetAccessorDeclaration_parent
+    sealed interface TypeLiteralNode_ : ObjectTypeDeclaration, GetAccessorDeclaration_parent, SetAccessorDeclaration_parent
 
-    sealed interface TypeOperatorNode : HasType
+    sealed interface TypeOperatorNode_ : HasType
 
     sealed interface TypeOperatorNode_operator
 
-    sealed interface TypeParameter : TypeVariable
+    sealed interface TypeParameter_ : TypeVariable
 
     sealed interface TypeParameterDeclaration_parent
 
-    sealed interface TypePredicateNode : HasType
+    sealed interface TypePredicateNode_ : HasType
 
     sealed interface TypePredicateNode_parameterName
 
@@ -943,43 +943,43 @@ sealed external interface Union {
 
     sealed interface TypeReference_node
 
-    sealed interface TypeReferenceNode : TypeReferenceType, TypeReference_node
+    sealed interface TypeReferenceNode_ : TypeReferenceType, TypeReference_node
 
-    sealed interface TypeVariable : BaseType
+    sealed interface TypeVariable_ : BaseType
 
-    sealed interface UnionOrIntersectionType : IndexType_type
+    sealed interface UnionOrIntersectionType_ : IndexType_type
 
-    sealed interface UnionType : StructuredType
+    sealed interface UnionType_ : StructuredType
 
-    sealed interface UnionTypeNode : UnionOrIntersectionTypeNode
+    sealed interface UnionTypeNode_ : UnionOrIntersectionTypeNode
 
-    sealed interface UnparsedPrepend : UnparsedSourceText
+    sealed interface UnparsedPrepend_ : UnparsedSourceText
 
-    sealed interface UnparsedPrologue : UnparsedNode
+    sealed interface UnparsedPrologue_ : UnparsedNode
 
-    sealed interface UnparsedSourceText : UnparsedNode
+    sealed interface UnparsedSourceText_ : UnparsedNode
 
-    sealed interface UnparsedSyntheticReference : UnparsedNode
+    sealed interface UnparsedSyntheticReference_ : UnparsedNode
 
-    sealed interface UnparsedTextLike : UnparsedSourceText
+    sealed interface UnparsedTextLike_ : UnparsedSourceText
 
     sealed interface UnparsedTextLike_kind
 
-    sealed interface UnscopedEmitHelper : EmitHelper
+    sealed interface UnscopedEmitHelper_ : EmitHelper
 
-    sealed interface VariableDeclaration : HasJSDoc, HasType, HasExpressionInitializer, VariableLikeDeclaration, BindingOrAssignmentElement, ObjectBindingPattern_parent, ArrayBindingPattern_parent,
+    sealed interface VariableDeclaration_ : HasJSDoc, HasType, HasExpressionInitializer, VariableLikeDeclaration, BindingOrAssignmentElement, ObjectBindingPattern_parent, ArrayBindingPattern_parent,
         FlowAssignment_node
 
     sealed interface VariableDeclaration_parent
 
-    sealed interface VariableDeclarationList : ForInitializer, VariableDeclaration_parent
+    sealed interface VariableDeclarationList_ : ForInitializer, VariableDeclaration_parent
 
     sealed interface VariableDeclarationList_parent
 
-    sealed interface VariableStatement : HasJSDoc, VariableDeclarationList_parent
+    sealed interface VariableStatement_ : HasJSDoc, VariableDeclarationList_parent
 
-    sealed interface WhileStatement : HasJSDoc
+    sealed interface WhileStatement_ : HasJSDoc
 
-    sealed interface WithStatement : HasJSDoc
+    sealed interface WithStatement_ : HasJSDoc
 
 }

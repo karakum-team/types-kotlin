@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface TupleTypeNode : TypeNode, Union.TupleTypeNode {
+sealed external interface TupleTypeNode : TypeNode, Union.TupleTypeNode_ {
     override val kind: SyntaxKind.TupleType
     val elements: dynamic /* NodeArray<TypeNode | NamedTupleMember> */
 }
