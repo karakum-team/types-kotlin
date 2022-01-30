@@ -27,7 +27,8 @@ internal fun union(): ConversionResult {
                 .distinct() // For `FlowNode`
                 .joinToString(", ") { it.replace(".", "_") }
 
-            var declaration = "sealed interface ${name.replace(".", "_")}"
+            val finalName = if ("." in name) name.replace(".", "_") else "${name}_"
+            var declaration = "sealed interface $finalName"
             if (parentTypes.isNotEmpty())
                 declaration += ": $parentTypes"
             declaration

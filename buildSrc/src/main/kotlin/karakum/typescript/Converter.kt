@@ -387,7 +387,7 @@ private fun convertInterface(
     declaration = declaration.replaceFirst("<TKind", "<out TKind")
 
     if (hasUnionParent(name))
-        declaration += (if (":" in declaration) ", " else ": ") + "Union.$name"
+        declaration += (if (":" in declaration) ", " else ": ") + "Union.${name}_"
 
     val bodySource = source
         .substringAfter("{\n")
