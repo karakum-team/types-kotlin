@@ -27,7 +27,14 @@ private fun convertInterface(
     var body = source.substringAfter(" {\n")
         .substringBefore("\n}")
 
-    body = "/*\n$body\n*/"
+    val commentBody = !body
+        .trimIndent()
+        .split("\n")
+        .all { it.startsWith("//") }
+
+    if (commentBody) {
+        body = "/*\n$body\n*/"
+    }
 
     return ConversionResult(
         name = name,
