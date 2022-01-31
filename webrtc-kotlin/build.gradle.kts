@@ -1,6 +1,6 @@
 plugins {
     id("com.github.turansky.kfc.library")
-    // `webrtc-declarations`
+    `webrtc-declarations`
 }
 
 val webrtcTypesVersion = property("webrtc-types.version") as String
