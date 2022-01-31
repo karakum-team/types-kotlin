@@ -3,8 +3,6 @@
 package webrtc
 
 sealed external interface RTCRtpCapabilities {
-/*
     //codecs: RTCRtpCodecCapability[];
     //headerExtensions: RTCRtpHeaderExtensionCapability[];
-*/
 }

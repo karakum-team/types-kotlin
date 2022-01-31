@@ -3,7 +3,5 @@
 package webrtc
 
 sealed external interface RTCRtpRtxParameters {
-/*
     //ssrc: number;
-*/
 }
