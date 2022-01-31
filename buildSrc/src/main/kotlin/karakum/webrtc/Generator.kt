@@ -4,10 +4,21 @@ import karakum.common.GENERATOR_COMMENT
 import java.io.File
 
 fun generateKotlinDeclarations(
-    definitionsFile: File,
+    definitionsDir: File,
     sourceDir: File,
 ) {
-    // TODO
+    val targetDir = sourceDir
+        .resolve("webrtc")
+        .also { it.mkdirs() }
+
+    sequenceOf("MediaStream.d.ts", "RTCPeerConnection.d.ts")
+        .map { definitionsDir.resolve(it) }
+        .flatMap { convertDefinitions(it) }
+        .forEach { (name, body) ->
+            targetDir.resolve("$name.kt")
+                .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
+                .writeText(fileContent(body = body))
+        }
 }
 
 private fun fileContent(
