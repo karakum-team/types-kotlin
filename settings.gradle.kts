@@ -6,7 +6,7 @@ pluginManagement {
         kotlin("js") version kotlinVersion
 
         val kfcVersion = extra["kfc.version"] as String
-        id("com.github.turansky.kfc.library") version kfcVersion
+        id("io.github.turansky.kfc.library") version kfcVersion
     }
 }
 
