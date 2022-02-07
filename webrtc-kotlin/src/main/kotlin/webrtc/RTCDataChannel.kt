@@ -16,7 +16,10 @@ external class RTCDataChannel : org.w3c.dom.events.EventTarget {
 
     // binaryType: string;
     fun close()
-    fun send(data: dynamic /* string | Blob | ArrayBuffer | ArrayBufferView */)
+    fun send(data: String)
+    fun send(data: org.w3c.files.Blob)
+    fun send(data: org.khronos.webgl.ArrayBuffer)
+    fun send(data: org.khronos.webgl.ArrayBufferView)
     var onopen: DataChannelEventHandler<org.w3c.dom.events.Event>
     var onmessage: DataChannelEventHandler<org.w3c.dom.MessageEvent>
     var onbufferedamountlow: DataChannelEventHandler<org.w3c.dom.events.Event>
