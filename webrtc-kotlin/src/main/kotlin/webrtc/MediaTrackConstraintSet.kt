@@ -3,18 +3,16 @@
 package webrtc
 
 sealed external interface MediaTrackConstraintSet {
-/*
-    width?: W3C.ConstrainLong | undefined;
-    height?: W3C.ConstrainLong | undefined;
-    aspectRatio?: W3C.ConstrainDouble | undefined;
-    frameRate?: W3C.ConstrainDouble | undefined;
-    facingMode?: W3C.ConstrainString | undefined;
-    volume?: W3C.ConstrainDouble | undefined;
-    sampleRate?: W3C.ConstrainLong | undefined;
-    sampleSize?: W3C.ConstrainLong | undefined;
-    echoCancellation?: W3C.ConstrainBoolean | undefined;
-    latency?: W3C.ConstrainDouble | undefined;
-    deviceId?: W3C.ConstrainString | undefined;
-    groupId?: W3C.ConstrainString | undefined;
-*/
+    var width: dynamic /* W3C.ConstrainLong */?
+    var height: dynamic /* W3C.ConstrainLong */?
+    var aspectRatio: dynamic /* W3C.ConstrainDouble */?
+    var frameRate: dynamic /* W3C.ConstrainDouble */?
+    var facingMode: dynamic /* W3C.ConstrainString */?
+    var volume: dynamic /* W3C.ConstrainDouble */?
+    var sampleRate: dynamic /* W3C.ConstrainLong */?
+    var sampleSize: dynamic /* W3C.ConstrainLong */?
+    var echoCancellation: dynamic /* W3C.ConstrainBoolean */?
+    var latency: dynamic /* W3C.ConstrainDouble */?
+    var deviceId: dynamic /* W3C.ConstrainString */?
+    var groupId: dynamic /* W3C.ConstrainString */?
 }

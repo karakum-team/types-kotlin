@@ -3,8 +3,6 @@
 package webrtc
 
 sealed external interface ConstrainStringParameters {
-/*
-    exact?: string | string[] | undefined;
-    ideal?: string | string[] | undefined;
-*/
+    var exact: dynamic /* string | string[] */?
+    var ideal: dynamic /* string | string[] */?
 }

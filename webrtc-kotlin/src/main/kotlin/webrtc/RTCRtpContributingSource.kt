@@ -3,10 +3,9 @@
 package webrtc
 
 sealed external interface RTCRtpContributingSource {
-/*
     //readonly timestamp: number;
-    source: number;
+    var source: Number
+
     //readonly audioLevel: number | null;
-    readonly voiceActivityFlag?: boolean | undefined;
-*/
+    val voiceActivityFlag: Boolean?
 }

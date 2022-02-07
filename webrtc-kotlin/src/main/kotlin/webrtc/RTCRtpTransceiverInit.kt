@@ -2,10 +2,10 @@
 
 package webrtc
 
+import kotlinext.js.ReadonlyArray
+
 sealed external interface RTCRtpTransceiverInit {
-/*
-    direction?: RTCRtpTransceiverDirection | undefined; // default = 'sendrecv'
-    streams?: MediaStream[] | undefined;
-    sendEncodings?: RTCRtpEncodingParameters[] | undefined;
-*/
+    var direction: RTCRtpTransceiverDirection? // default = 'sendrecv'
+    var streams: ReadonlyArray<MediaStream>?
+    var sendEncodings: ReadonlyArray<RTCRtpEncodingParameters>?
 }

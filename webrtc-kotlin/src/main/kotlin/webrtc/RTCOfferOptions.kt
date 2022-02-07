@@ -3,7 +3,5 @@
 package webrtc
 
 sealed external interface RTCOfferOptions {
-/*
-    iceRestart?: boolean | undefined; // default = false
-*/
+    var iceRestart: Boolean? // default = false
 }

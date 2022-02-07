@@ -3,7 +3,6 @@
 package webrtc
 
 sealed external interface RTCRtpEncodingParameters {
-/*
     //ssrc: number;
     //rtx: RTCRtpRtxParameters;
     //fec: RTCRtpFecParameters;
@@ -11,7 +10,6 @@ sealed external interface RTCRtpEncodingParameters {
     //active: boolean;
     //priority: RTCPriorityType;
     //maxBitrate: number;
-    rid: string;
-    scaleResolutionDownBy?: number | undefined; // default = 1
-*/
+    var rid: String
+    var scaleResolutionDownBy: Number? // default = 1
 }

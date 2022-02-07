@@ -3,12 +3,10 @@
 package webrtc
 
 sealed external interface RTCDataChannelInit {
-/*
-    ordered?: boolean | undefined; // default = true
-    maxPacketLifeTime?: number | undefined;
-    maxRetransmits?: number | undefined;
-    protocol?: string | undefined; // default = ''
-    negotiated?: boolean | undefined; // default = false
-    id?: number | undefined;
-*/
+    var ordered: Boolean? // default = true
+    var maxPacketLifeTime: Number?
+    var maxRetransmits: Number?
+    var protocol: String? // default = ''
+    var negotiated: Boolean? // default = false
+    var id: Number?
 }

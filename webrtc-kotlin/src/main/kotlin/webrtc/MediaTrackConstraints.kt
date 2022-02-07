@@ -2,8 +2,8 @@
 
 package webrtc
 
+import kotlinext.js.ReadonlyArray
+
 sealed external interface MediaTrackConstraints {
-/*
-    advanced?: MediaTrackConstraintSet[] | undefined;
-*/
+    var advanced: ReadonlyArray<MediaTrackConstraintSet>?
 }

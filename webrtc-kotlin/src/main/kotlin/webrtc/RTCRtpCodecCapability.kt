@@ -3,7 +3,5 @@
 package webrtc
 
 sealed external interface RTCRtpCodecCapability {
-/*
-    mimeType: string;
-*/
+    var mimeType: String
 }

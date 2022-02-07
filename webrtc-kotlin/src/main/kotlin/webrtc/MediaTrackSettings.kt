@@ -3,7 +3,6 @@
 package webrtc
 
 sealed external interface MediaTrackSettings {
-/*
     //width: number;
     //height: number;
     //aspectRatio: number;
@@ -13,8 +12,7 @@ sealed external interface MediaTrackSettings {
     //sampleRate: number;
     //sampleSize: number;
     //echoCancellation: boolean;
-    latency?: number | undefined;
+    var latency: Number?
     //deviceId: string;
     //groupId: string;
-*/
 }

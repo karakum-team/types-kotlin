@@ -3,8 +3,6 @@
 package webrtc
 
 sealed external interface RTCSctpTransport {
-/*
-    readonly transport: RTCDtlsTransport;
-    readonly maxMessageSize: number;
-*/
+    val transport: RTCDtlsTransport
+    val maxMessageSize: Number
 }

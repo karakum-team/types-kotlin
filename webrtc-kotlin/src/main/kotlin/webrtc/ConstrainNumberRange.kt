@@ -3,8 +3,6 @@
 package webrtc
 
 sealed external interface ConstrainNumberRange {
-/*
-    exact?: number | undefined;
-    ideal?: number | undefined;
-*/
+    var exact: Number?
+    var ideal: Number?
 }

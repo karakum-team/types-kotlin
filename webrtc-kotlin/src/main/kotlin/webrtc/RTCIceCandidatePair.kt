@@ -3,8 +3,6 @@
 package webrtc
 
 sealed external interface RTCIceCandidatePair {
-/*
-    local?: RTCIceCandidate | undefined;
-    remote?: RTCIceCandidate | undefined;
-*/
+    var local: RTCIceCandidate?
+    var remote: RTCIceCandidate?
 }

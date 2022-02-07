@@ -3,7 +3,6 @@
 package webrtc
 
 sealed external interface MediaTrackCapabilities {
-/*
     //width: number | W3C.LongRange;
     //height: number | W3C.LongRange;
     //aspectRatio: number | W3C.DoubleRange;
@@ -13,8 +12,7 @@ sealed external interface MediaTrackCapabilities {
     //sampleRate: number | W3C.LongRange;
     //sampleSize: number | W3C.LongRange;
     //echoCancellation: boolean[];
-    latency?: W3C.DoubleRange | undefined;
+    var latency: dynamic /* W3C.DoubleRange */?
     //deviceId: string;
     //groupId: string;
-*/
 }

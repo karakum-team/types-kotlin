@@ -3,15 +3,9 @@
 package webrtc
 
 sealed external interface Navigator {
-/*
-    getUserMedia: NavigatorGetUserMedia;
-
-    webkitGetUserMedia: NavigatorGetUserMedia;
-
-    mozGetUserMedia: NavigatorGetUserMedia;
-
-    msGetUserMedia: NavigatorGetUserMedia;
-
-    readonly mediaDevices: MediaDevices;
-*/
+    var getUserMedia: NavigatorGetUserMedia
+    var webkitGetUserMedia: NavigatorGetUserMedia
+    var mozGetUserMedia: NavigatorGetUserMedia
+    var msGetUserMedia: NavigatorGetUserMedia
+    val mediaDevices: MediaDevices
 }

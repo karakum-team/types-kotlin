@@ -3,10 +3,8 @@
 package webrtc
 
 sealed external interface RTCIceServer {
-/*
-    credential?: string | undefined;
-    credentialType?: RTCIceCredentialType | undefined;
-    urls: string | string[];
-    username?: string | undefined;
-*/
+    var credential: String?
+    var credentialType: RTCIceCredentialType?
+    var urls: dynamic /* string | string[] */
+    var username: String?
 }

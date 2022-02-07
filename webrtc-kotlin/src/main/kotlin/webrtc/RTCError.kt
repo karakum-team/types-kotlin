@@ -3,12 +3,10 @@
 package webrtc
 
 sealed external interface RTCError {
-/*
-    readonly errorDetail: RTCErrorDetailType;
-    readonly httpRequestStatusCode: number | null;
-    readonly receivedAlert: number | null;
-    readonly sctpCauseCode: number | null;
-    readonly sdpLineNumber: number | null;
-    readonly sentAlert: number | null;
-*/
+    val errorDetail: RTCErrorDetailType
+    val httpRequestStatusCode: dynamic /* number | null */
+    val receivedAlert: dynamic /* number | null */
+    val sctpCauseCode: dynamic /* number | null */
+    val sdpLineNumber: dynamic /* number | null */
+    val sentAlert: dynamic /* number | null */
 }

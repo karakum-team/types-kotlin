@@ -2,9 +2,9 @@
 
 package webrtc
 
+import kotlinext.js.ReadonlyArray
+
 sealed external interface RTCRtcCapabilities {
-/*
-    codecs: RTCRtpCodecCapability[];
-    headerExtensions: RTCRtpHeaderExtensionCapability[];
-*/
+    var codecs: ReadonlyArray<RTCRtpCodecCapability>
+    var headerExtensions: ReadonlyArray<RTCRtpHeaderExtensionCapability>
 }

@@ -3,7 +3,5 @@
 package webrtc
 
 sealed external interface RTCDataChannelEvent {
-/*
-    readonly channel: RTCDataChannel;
-*/
+    val channel: RTCDataChannel
 }

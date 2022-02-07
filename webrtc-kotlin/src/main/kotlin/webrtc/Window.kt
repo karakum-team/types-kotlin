@@ -3,7 +3,5 @@
 package webrtc
 
 sealed external interface Window {
-/*
-    RTCPeerConnection: RTCPeerConnectionStatic;
-*/
+    var RTCPeerConnection: RTCPeerConnectionStatic
 }

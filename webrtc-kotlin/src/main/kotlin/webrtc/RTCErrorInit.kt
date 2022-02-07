@@ -3,12 +3,10 @@
 package webrtc
 
 sealed external interface RTCErrorInit {
-/*
-    errorDetail: RTCErrorDetailType;
-    httpRequestStatusCode?: number | undefined;
-    receivedAlert?: number | undefined;
-    sctpCauseCode?: number | undefined;
-    sdpLineNumber?: number | undefined;
-    sentAlert?: number | undefined;
-*/
+    var errorDetail: RTCErrorDetailType
+    var httpRequestStatusCode: Number?
+    var receivedAlert: Number?
+    var sctpCauseCode: Number?
+    var sdpLineNumber: Number?
+    var sentAlert: Number?
 }

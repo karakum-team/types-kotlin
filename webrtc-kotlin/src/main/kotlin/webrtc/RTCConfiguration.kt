@@ -2,14 +2,14 @@
 
 package webrtc
 
+import kotlinext.js.ReadonlyArray
+
 sealed external interface RTCConfiguration {
-/*
-    iceServers?: RTCIceServer[] | undefined;
-    iceTransportPolicy?: RTCIceTransportPolicy | undefined; // default = 'all'
-    bundlePolicy?: RTCBundlePolicy | undefined; // default = 'balanced'
-    rtcpMuxPolicy?: RTCRtcpMuxPolicy | undefined; // default = 'require'
-    peerIdentity?: string | undefined; // default = null
-    certificates?: RTCCertificate[] | undefined;
-    iceCandidatePoolSize?: number | undefined; // default = 0
-*/
+    var iceServers: ReadonlyArray<RTCIceServer>?
+    var iceTransportPolicy: RTCIceTransportPolicy? // default = 'all'
+    var bundlePolicy: RTCBundlePolicy? // default = 'balanced'
+    var rtcpMuxPolicy: RTCRtcpMuxPolicy? // default = 'require'
+    var peerIdentity: String? // default = null
+    var certificates: ReadonlyArray<RTCCertificate>?
+    var iceCandidatePoolSize: Number? // default = 0
 }

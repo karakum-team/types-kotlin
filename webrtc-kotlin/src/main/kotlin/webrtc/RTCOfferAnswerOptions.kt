@@ -3,7 +3,5 @@
 package webrtc
 
 sealed external interface RTCOfferAnswerOptions {
-/*
-    voiceActivityDetection?: boolean | undefined; // default = true
-*/
+    var voiceActivityDetection: Boolean? // default = true
 }

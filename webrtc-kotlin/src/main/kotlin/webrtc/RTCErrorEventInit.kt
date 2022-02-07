@@ -3,7 +3,5 @@
 package webrtc
 
 sealed external interface RTCErrorEventInit {
-/*
-    error: RTCError;
-*/
+    var error: RTCError
 }

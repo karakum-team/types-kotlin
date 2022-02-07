@@ -2,11 +2,11 @@
 
 package webrtc
 
+import kotlinext.js.ReadonlyArray
+
 sealed external interface RTCTrackEvent {
-/*
-    readonly receiver: RTCRtpReceiver;
-    readonly track: MediaStreamTrack;
-    readonly streams: ReadonlyArray<MediaStream>;
-    readonly transceiver: RTCRtpTransceiver;
-*/
+    val receiver: RTCRtpReceiver
+    val track: MediaStreamTrack
+    val streams: ReadonlyArray<MediaStream>
+    val transceiver: RTCRtpTransceiver
 }

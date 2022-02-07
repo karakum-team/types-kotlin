@@ -3,7 +3,5 @@
 package webrtc
 
 sealed external interface RTCErrorEvent {
-/*
-    readonly error: RTCError;
-*/
+    val error: RTCError
 }

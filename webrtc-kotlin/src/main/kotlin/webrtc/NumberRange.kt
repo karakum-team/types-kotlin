@@ -3,8 +3,6 @@
 package webrtc
 
 sealed external interface NumberRange {
-/*
-    max?: number | undefined;
-    min?: number | undefined;
-*/
+    var max: Number?
+    var min: Number?
 }

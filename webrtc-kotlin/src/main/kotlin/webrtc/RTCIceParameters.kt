@@ -3,9 +3,7 @@
 package webrtc
 
 sealed external interface RTCIceParameters {
-/*
-    iceLite?: boolean | undefined;
-    password?: string | undefined;
-    usernameFragment?: string | undefined;
-*/
+    var iceLite: Boolean?
+    var password: String?
+    var usernameFragment: String?
 }

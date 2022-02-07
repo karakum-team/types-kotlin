@@ -3,8 +3,6 @@
 package webrtc
 
 sealed external interface MediaStreamConstraints {
-/*
-    video?: boolean | MediaTrackConstraints | undefined;
-    audio?: boolean | MediaTrackConstraints | undefined;
-*/
+    var video: dynamic /* boolean | MediaTrackConstraints */?
+    var audio: dynamic /* boolean | MediaTrackConstraints */?
 }

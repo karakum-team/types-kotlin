@@ -3,8 +3,6 @@
 package webrtc
 
 sealed external interface ConstrainBooleanParameters {
-/*
-    exact?: boolean | undefined;
-    ideal?: boolean | undefined;
-*/
+    var exact: Boolean?
+    var ideal: Boolean?
 }

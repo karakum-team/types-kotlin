@@ -3,12 +3,10 @@
 package webrtc
 
 sealed external interface RTCRtpParameters {
-/*
-    transactionId: string;
+    var transactionId: String
     //encodings: RTCRtpEncodingParameters[];
     //headerExtensions: RTCRtpHeaderExtensionParameters[];
     //rtcp: RTCRtcpParameters;
     //codecs: RTCRtpCodecParameters[];
     // degradationPreference?: RTCDegradationPreference; // default = 'balanced'
-*/
 }

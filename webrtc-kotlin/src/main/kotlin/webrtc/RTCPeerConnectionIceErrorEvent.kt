@@ -3,10 +3,8 @@
 package webrtc
 
 sealed external interface RTCPeerConnectionIceErrorEvent {
-/*
-    readonly hostCandidate: string;
-    readonly url: string;
-    readonly errorCode: number;
-    readonly errorText: string;
-*/
+    val hostCandidate: String
+    val url: String
+    val errorCode: Number
+    val errorText: String
 }
