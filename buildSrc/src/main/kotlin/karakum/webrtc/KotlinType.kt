@@ -23,8 +23,20 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Date" to "kotlin.js.Date",
 
+    "Event" to "org.w3c.dom.events.Event",
+    "MessageEvent" to "org.w3c.dom.MessageEvent",
+
     "MediaStream" to "org.w3c.dom.mediacapture.MediaStream",
     "MediaStreamTrack" to "org.w3c.dom.mediacapture.MediaStreamTrack",
+
+    "ArrayBuffer" to "org.khronos.webgl.ArrayBuffer",
+)
+
+private val TYPED = setOf(
+    "ReadonlyArray",
+    "DataChannelEventHandler",
+    "DtlsTransportEventHandler",
+    "IceTransportEventHandler",
 )
 
 internal fun kotlinType(
@@ -46,8 +58,10 @@ internal fun kotlinType(
     if (type.endsWith("[]"))
         return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
 
-    if (type.startsWith("ReadonlyArray<"))
-        return "ReadonlyArray<${kotlinType(type.removeSurrounding("ReadonlyArray<", ">"), name)}>"
+    for (typedType in TYPED) {
+        if (type.startsWith("$typedType<"))
+            return "$typedType<${kotlinType(type.removeSurrounding("$typedType<", ">"), name)}>"
+    }
 
     if (type.startsWith("Promise<")) {
         val parameter = kotlinType(type.removeSurrounding("Promise<", ">"), name)

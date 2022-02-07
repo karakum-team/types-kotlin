@@ -1,15 +1,10 @@
 package karakum.webrtc
 
 private val IGNORED = setOf(
-    "NavigatorGetUserMedia",
     "RTCDtlsTransportEventMap",
     "RTCIceTransportEventMap",
     "RTCPeerConnection",
     "RTCPeerConnectionStatic",
-
-    "RTCDataChannel",
-    "RTCDtlsTransport",
-    "RTCIceTransport",
 )
 
 internal fun convertMembers(
