@@ -52,7 +52,7 @@ private fun convertProperty(
     var type = kotlinType(body.substringAfter(": "), name)
 
     if (body.startsWith("$name?"))
-        type = "$type?"
+        type = type.addOptionality()
 
     return "$modifier $name: $type"
 }
@@ -126,7 +126,7 @@ internal fun convertParameter(
     val type = kotlinType(source.substringAfter(": "), name)
     val declaration = if (source.startsWith("$name?:")) {
         if (lambdaMode) {
-            "$type?" // TODO: check
+            type.addOptionality()
         } else {
             "$type = definedExternally"
         }
