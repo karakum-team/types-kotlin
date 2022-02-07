@@ -1,7 +1,16 @@
 package karakum.webrtc
 
 private val SUPPORTED = setOf(
+    "MediaDevices",
+    "MediaStream",
+    "MediaStreamTrack",
+
+    "RTCCertificate",
+    // "RTCDataChannel",
     "RTCIceCandidate",
+    "RTCRtpReceiver",
+    "RTCRtpSender",
+    "RTCRtpTransceiver",
 )
 
 internal fun convertMembers(
