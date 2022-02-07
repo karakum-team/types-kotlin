@@ -40,10 +40,7 @@ private fun convertInterface(
         .substringBefore("\n}")
         .trimIndent()
 
-    val body = "" /*convertMembers(
-        name = name,
-        source = bodySource,
-    )*/
+    val body = convertMembers(bodySource)
 
     return ConversionResult(
         name = name,
