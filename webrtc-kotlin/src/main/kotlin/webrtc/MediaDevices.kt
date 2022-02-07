@@ -2,11 +2,10 @@
 
 package webrtc
 
-sealed external interface MediaDevices {
-/*
-    getSupportedConstraints(): MediaTrackSupportedConstraints;
+import kotlinext.js.ReadonlyArray
 
-    getUserMedia(constraints: MediaStreamConstraints): Promise<MediaStream>;
-    enumerateDevices(): Promise<MediaDeviceInfo[]>;
-*/
+sealed external interface MediaDevices {
+    fun getSupportedConstraints(): MediaTrackSupportedConstraints
+    fun getUserMedia(constraints: MediaStreamConstraints): kotlin.js.Promise<MediaStream>
+    fun enumerateDevices(): kotlin.js.Promise<ReadonlyArray<MediaDeviceInfo>>
 }

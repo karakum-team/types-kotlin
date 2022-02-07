@@ -3,8 +3,6 @@
 package webrtc
 
 sealed external interface RTCCertificate {
-/*
-    readonly expires: number;
-    getAlgorithm(): string;
-*/
+    val expires: Number
+    fun getAlgorithm(): String
 }
