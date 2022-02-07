@@ -18,7 +18,8 @@ external class RTCPeerConnection(
     val remoteDescription: RTCSessionDescription?
     val currentRemoteDescription: RTCSessionDescription?
     val pendingRemoteDescription: RTCSessionDescription?
-    fun addIceCandidate(candidate: dynamic /* RTCIceCandidateInit | RTCIceCandidate */ = definedExternally): kotlin.js.Promise<Unit>
+    fun addIceCandidate(candidate: RTCIceCandidateInit = definedExternally): kotlin.js.Promise<Unit>
+    fun addIceCandidate(candidate: RTCIceCandidate = definedExternally): kotlin.js.Promise<Unit>
     val signalingState: RTCSignalingState
     val connectionState: RTCPeerConnectionState
     fun getConfiguration(): RTCConfiguration
@@ -38,7 +39,12 @@ external class RTCPeerConnection(
 
     fun removeTrack(sender: RTCRtpSender)
     fun addTransceiver(
-        trackOrKind: dynamic, /* MediaStreamTrack | string */
+        trackOrKind: org.w3c.dom.mediacapture.MediaStreamTrack,
+        init: RTCRtpTransceiverInit = definedExternally,
+    ): RTCRtpTransceiver
+
+    fun addTransceiver(
+        trackOrKind: String,
         init: RTCRtpTransceiverInit = definedExternally,
     ): RTCRtpTransceiver
 
@@ -82,7 +88,13 @@ external class RTCPeerConnection(
     ): kotlin.js.Promise<Unit>
 
     fun addIceCandidate(
-        candidate: dynamic, /* RTCIceCandidateInit | RTCIceCandidate */
+        candidate: RTCIceCandidateInit,
+        successCallback: () -> Unit,
+        failureCallback: RTCPeerConnectionErrorCallback,
+    ): kotlin.js.Promise<Unit>
+
+    fun addIceCandidate(
+        candidate: RTCIceCandidate,
         successCallback: () -> Unit,
         failureCallback: RTCPeerConnectionErrorCallback,
     ): kotlin.js.Promise<Unit>
