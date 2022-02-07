@@ -39,11 +39,24 @@ private fun convertInterface(
         .replace(" extends Event", " : org.w3c.dom.events.Event")
         .replace(" extends ", " : ")
 
+    val bodySource = source.substringAfter(" {\n")
+        .let { if (it.startsWith("}")) "" else it }
+        .substringBefore("\n}")
+        .trimIndent()
+
+    if (bodySource.startsWith("("))
+        return ConversionResult(
+            name = name,
+            body = "typealias $name = " +
+                    bodySource
+                        .removeSuffix(";")
+                        .replace(": DOMException", ": Throwable")
+                        .replace("): void", ") -> Unit")
+        )
+
     val body = convertMembers(
         name = name,
-        source = source.substringAfter(" {\n")
-            .let { if (it.startsWith("}")) "" else it }
-            .substringBefore("\n}")
+        source = bodySource,
     )
 
     val type = when {

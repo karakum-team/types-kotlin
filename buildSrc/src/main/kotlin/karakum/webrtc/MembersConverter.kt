@@ -18,7 +18,7 @@ internal fun convertMembers(
     if (name in IGNORED)
         return "/*\n$source\n*/"
 
-    return source.trimIndent()
+    return source
         .replace(",\n    ", ", ")
         .splitToSequence("\n")
         .filter { it.isNotEmpty() }
