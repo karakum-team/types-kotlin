@@ -7,6 +7,9 @@ internal fun String.addOptionality(): String {
     if (this == DYNAMIC || this.startsWith("$DYNAMIC ") || this == "Nothing?")
         return this
 
+    if (endsWith("?"))
+        return this
+
     return if (" /*" in this) {
         replace(" /*", "? /*")
     } else "$this?"
