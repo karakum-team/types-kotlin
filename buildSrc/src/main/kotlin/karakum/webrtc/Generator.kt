@@ -1,6 +1,8 @@
 package karakum.webrtc
 
 import karakum.common.GENERATOR_COMMENT
+import karakum.common.Suppress
+import karakum.common.fileSuppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = "import kotlinext.js.ReadonlyArray"
@@ -16,10 +18,23 @@ fun generateKotlinDeclarations(
     sequenceOf("MediaStream.d.ts", "RTCPeerConnection.d.ts")
         .map { definitionsDir.resolve(it) }
         .flatMap { convertDefinitions(it) }
+        .plus(unions())
         .forEach { (name, body) ->
+            val suppresses = mutableListOf<Suppress>().apply {
+                if ("JsName(\"\"\"(" in body)
+                    add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+            }.toTypedArray()
+
+            val annotations = when {
+                suppresses.isNotEmpty() ->
+                    fileSuppress(*suppresses)
+
+                else -> ""
+            }
+
             targetDir.resolve("$name.kt")
                 .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-                .writeText(fileContent(body = body))
+                .writeText(fileContent(annotations = annotations, body = body))
         }
 }
 
