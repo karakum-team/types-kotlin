@@ -20,7 +20,6 @@ internal fun convertDefinitions(
         .splitToSequence("\ntype ")
         .drop(1)
         .map { it.substringBefore(";\n") }
-        .filter { " | '" in it }
         .map { convertType(it) }
 
     return interfaces + types
@@ -69,16 +68,38 @@ private fun convertInterface(
 private fun convertType(
     source: String,
 ): ConversionResult {
-    val (name, body) = source
-        .split(" =")
+    if (" | '" in source) {
+        val (name, body) = source
+            .split(" =")
 
-    val values = body.removePrefix(" ")
-        .splitToSequence(" | ", "\n    | ")
-        .map { it.removeSurrounding("'") }
-        .toList()
+        val values = body.removePrefix(" ")
+            .splitToSequence(" | ", "\n    | ")
+            .map { it.removeSurrounding("'") }
+            .toList()
+
+        return ConversionResult(
+            name = name,
+            body = unionBody(name, values),
+        )
+    }
+
+    val (declaration, bodySource) = source
+        .split(" = ")
+
+    val name = declaration.substringBefore("<")
+    val body = "typealias " +
+            declaration.replace("<E extends Event>", "<E>") +
+            " = " +
+            bodySource
+                .replace("this: RTCDataChannel, ", "")
+                .replace("this: RTCDtlsTransport, ", "")
+                .replace("this: RTCIceTransport, ", "")
+                .replace("this: RTCPeerConnection, ", "")
+                .replace("ev: Event)", "ev: org.w3c.dom.events.Event)")
+                .replace(") => any) | null", ") -> Nothing?)?")
 
     return ConversionResult(
         name = name,
-        body = unionBody(name, values),
+        body = body,
     )
 }
