@@ -6,7 +6,11 @@ private val IGNORED = setOf(
     "RTCPeerConnectionStatic",
 )
 
-private const val CHANNEL_DATA = "string | Blob | ArrayBuffer | ArrayBufferView"
+private val UNIONS = setOf(
+    "string | Blob | ArrayBuffer | ArrayBufferView",
+    "MediaStreamTrack | string",
+    "RTCIceCandidateInit | RTCIceCandidate",
+)
 
 internal fun convertMembers(
     name: String,
@@ -32,9 +36,10 @@ private fun convertMember(
     if (source.startsWith("//"))
         return "    $source"
 
-    if (CHANNEL_DATA in source)
-        return CHANNEL_DATA.splitToSequence(" | ")
-            .map { source.replace(CHANNEL_DATA, it) }
+    val union = UNIONS.firstOrNull { it in source }
+    if (union != null)
+        return union.splitToSequence(" | ")
+            .map { source.replace(union, it) }
             .joinToString("\n") { convertMember(it) }
 
     val body = source.substringBefore(";")
