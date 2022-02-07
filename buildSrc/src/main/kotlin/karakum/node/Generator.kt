@@ -5,21 +5,32 @@ import java.io.File
 
 private val DEFAULT_IMPORTS = "import kotlinext.js.ReadonlyArray"
 
+private val MODULES = setOf(
+    "path",
+)
+
 fun generateKotlinDeclarations(
     definitionsDir: File,
     sourceDir: File,
 ) {
-    val targetDir = sourceDir
-        .resolve("node")
-        .also { it.mkdirs() }
+    for (module in MODULES) {
+        val pkg = Package(module)
+        val targetDir = sourceDir
+            .resolve(pkg.path)
+            .also { it.mkdirs() }
 
-    println("Node definitions:")
-    println(definitionsDir.listFiles()!!.joinToString("\n") { it.name })
+        val source = definitionsDir.resolve("$module.d.ts").readText()
+        for ((name, body) in convertDefinitions(source, pkg)) {
+            targetDir.resolve("$name.kt")
+                .writeText(fileContent(body = body, pkg = pkg))
+        }
+    }
 }
 
 private fun fileContent(
     annotations: String = "",
     body: String,
+    pkg: Package,
 ): String {
     val defaultImports = if ("ReadonlyArray" in body) {
         DEFAULT_IMPORTS
@@ -28,7 +39,7 @@ private fun fileContent(
     var result = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
-        "package node",
+        pkg.pkg,
         defaultImports,
         body,
     ).filter { it.isNotEmpty() }
