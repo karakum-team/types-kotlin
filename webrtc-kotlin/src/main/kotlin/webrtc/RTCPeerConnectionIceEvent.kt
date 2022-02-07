@@ -3,5 +3,5 @@
 package webrtc
 
 sealed external interface RTCPeerConnectionIceEvent {
-    val url: dynamic /* string | null */
+    val url: String?
 }

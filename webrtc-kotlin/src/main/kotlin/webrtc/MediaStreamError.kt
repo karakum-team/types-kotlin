@@ -4,6 +4,6 @@ package webrtc
 
 sealed external interface MediaStreamError {
     val name: String
-    val message: dynamic /* string | null */
-    val constraintName: dynamic /* string | null */
+    val message: String?
+    val constraintName: String?
 }
