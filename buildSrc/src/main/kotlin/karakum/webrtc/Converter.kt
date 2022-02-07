@@ -48,6 +48,9 @@ private fun convertInterface(
     )
 
     val type = when {
+        name == "RTCError"
+        -> "class"
+
         declaration.endsWith(" : org.w3c.dom.events.Event")
         -> "class"
 
