@@ -1,6 +1,6 @@
 plugins {
     id("io.github.turansky.kfc.library")
-    // `node-declarations`
+    `node-declarations`
 }
 
 val nodeTypesVersion = property("node-types.version") as String
