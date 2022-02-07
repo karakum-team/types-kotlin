@@ -4,7 +4,10 @@ package webrtc
 
 import kotlinext.js.ReadonlyArray
 
-external class RTCPeerConnection : org.w3c.dom.events.EventTarget {
+external class RTCPeerConnection(
+    configuration: RTCConfiguration = definedExternally,
+    options: Any = definedExternally,
+) : org.w3c.dom.events.EventTarget {
     fun createOffer(options: RTCOfferOptions = definedExternally): kotlin.js.Promise<RTCSessionDescriptionInit>
     fun createAnswer(options: RTCAnswerOptions = definedExternally): kotlin.js.Promise<RTCSessionDescriptionInit>
     fun setLocalDescription(description: RTCSessionDescriptionInit): kotlin.js.Promise<Unit>
@@ -89,4 +92,11 @@ external class RTCPeerConnection : org.w3c.dom.events.EventTarget {
         successCallback: (report: RTCStatsReport) -> Unit,
         failureCallback: RTCPeerConnectionErrorCallback,
     ): kotlin.js.Promise<Unit>
+
+    companion object {
+        val defaultIceServers: ReadonlyArray<RTCIceServer>
+
+        // Extension: https://www.w3.org/TR/webrtc/#sec.cert-mgmt
+        fun generateCertificate(keygenAlgorithm: String): kotlin.js.Promise<RTCCertificate>
+    }
 }

@@ -33,7 +33,7 @@ private fun convertInterface(
         .substringBefore("(")
         .substringBefore(":")
 
-    val declaration = source.substringBefore(" {\n")
+    var declaration = source.substringBefore(" {\n")
         .replace(" extends DOMException", " /* : DOMException */")
         .replace(" extends EventInit", " : org.w3c.dom.EventInit")
         .replace(" extends Event", " : org.w3c.dom.events.Event")
@@ -54,7 +54,7 @@ private fun convertInterface(
                         .replace("): void", ") -> Unit")
         )
 
-    val body = convertMembers(
+    var body = convertMembers(
         name = name,
         source = bodySource,
     )
@@ -70,6 +70,25 @@ private fun convertInterface(
         -> "class"
 
         else -> "sealed interface"
+    }
+
+    if (name == "RTCPeerConnection") {
+        declaration = declaration.replace(" : ", """(
+            configuration: RTCConfiguration = definedExternally,
+            options: Any = definedExternally,
+        ) : """.trimIndent())
+
+
+        // language=Kotlin
+        body += """
+        companion object {
+            val defaultIceServers: ReadonlyArray<RTCIceServer>
+
+            // Extension: https://www.w3.org/TR/webrtc/#sec.cert-mgmt
+            fun generateCertificate(keygenAlgorithm: String): kotlin.js.Promise<RTCCertificate>;
+        }
+        """.trimIndent()
+
     }
 
     return ConversionResult(
