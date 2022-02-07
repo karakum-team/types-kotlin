@@ -43,9 +43,6 @@ internal fun kotlinType(
     if (" | " in type)
         return "$DYNAMIC /* $type */"
 
-    if (type.startsWith("W3C."))
-        return "$DYNAMIC /* $type */"
-
     if (type.endsWith("[]"))
         return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
 
