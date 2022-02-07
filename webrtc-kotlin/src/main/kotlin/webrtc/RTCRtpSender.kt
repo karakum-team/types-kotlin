@@ -8,5 +8,5 @@ sealed external interface RTCRtpSender {
     //readonly rtcpTransport?: RTCDtlsTransport;
     fun setParameters(parameters: RTCRtpParameters = definedExternally): kotlin.js.Promise<Unit>
     fun getParameters(): RTCRtpParameters
-    fun replaceTrack(withTrack: MediaStreamTrack): kotlin.js.Promise<Unit>
+    fun replaceTrack(withTrack: org.w3c.dom.mediacapture.MediaStreamTrack): kotlin.js.Promise<Unit>
 }

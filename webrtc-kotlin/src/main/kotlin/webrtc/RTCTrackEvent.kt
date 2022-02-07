@@ -6,7 +6,7 @@ import kotlinext.js.ReadonlyArray
 
 external class RTCTrackEvent : org.w3c.dom.events.Event {
     val receiver: RTCRtpReceiver
-    val track: MediaStreamTrack
-    val streams: ReadonlyArray<MediaStream>
+    val track: org.w3c.dom.mediacapture.MediaStreamTrack
+    val streams: ReadonlyArray<org.w3c.dom.mediacapture.MediaStream>
     val transceiver: RTCRtpTransceiver
 }
