@@ -2,6 +2,4 @@
 
 package webrtc
 
-sealed external interface RTCSessionDescriptionCallback {
-    fun  /* native */ invoke(description: RTCSessionDescriptionInit)
-}
+typealias RTCSessionDescriptionCallback = (description: RTCSessionDescriptionInit) -> Unit

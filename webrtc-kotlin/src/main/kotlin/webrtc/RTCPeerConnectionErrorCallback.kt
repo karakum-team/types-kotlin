@@ -2,6 +2,4 @@
 
 package webrtc
 
-sealed external interface RTCPeerConnectionErrorCallback {
-    fun  /* native */ invoke(error: DOMException)
-}
+typealias RTCPeerConnectionErrorCallback = (error: Throwable) -> Unit
