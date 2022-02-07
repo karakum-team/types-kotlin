@@ -1,7 +1,6 @@
 package karakum.webrtc
 
 import karakum.common.unionBody
-import java.io.File
 
 internal data class ConversionResult(
     val name: String,
@@ -9,15 +8,15 @@ internal data class ConversionResult(
 )
 
 internal fun convertDefinitions(
-    definitionsFile: File,
+    source: String,
 ): Sequence<ConversionResult> {
-    val interfaces = definitionsFile.readText()
+    val interfaces = source
         .splitToSequence("\ninterface ")
         .drop(1)
         .map { convertInterface(it) }
         .filter { it.name != "Window" }
 
-    val types = definitionsFile.readText()
+    val types = source
         .splitToSequence("\ntype ")
         .drop(1)
         .map { it.substringBefore(";\n") }

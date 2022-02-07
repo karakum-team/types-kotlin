@@ -17,6 +17,8 @@ fun generateKotlinDeclarations(
 
     sequenceOf("MediaStream.d.ts", "RTCPeerConnection.d.ts")
         .map { definitionsDir.resolve(it) }
+        .map { it.readText() }
+        .plus(RTC_ICE_CANDIDATE)
         .flatMap { convertDefinitions(it) }
         .plus(unions())
         .forEach { (name, body) ->
