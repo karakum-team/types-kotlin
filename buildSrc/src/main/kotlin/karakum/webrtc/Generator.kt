@@ -15,9 +15,7 @@ fun generateKotlinDeclarations(
         .resolve("webrtc")
         .also { it.mkdirs() }
 
-    sequenceOf("MediaStream.d.ts", "RTCPeerConnection.d.ts")
-        .map { definitionsDir.resolve(it) }
-        .map { it.readText() }
+    sequenceOf(definitionsDir.resolve("RTCPeerConnection.d.ts").readText())
         .plus(RTC_ICE_CANDIDATE)
         .flatMap { convertDefinitions(it) }
         .plus(unions())
