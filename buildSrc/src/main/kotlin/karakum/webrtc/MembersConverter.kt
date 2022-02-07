@@ -1,16 +1,15 @@
 package karakum.webrtc
 
-private val SUPPORTED = setOf(
-    "MediaDevices",
-    "MediaStream",
-    "MediaStreamTrack",
+private val IGNORED = setOf(
+    "NavigatorGetUserMedia",
+    "RTCDtlsTransportEventMap",
+    "RTCIceTransportEventMap",
+    "RTCPeerConnection",
+    "RTCPeerConnectionStatic",
 
-    "RTCCertificate",
-    // "RTCDataChannel",
-    "RTCIceCandidate",
-    "RTCRtpReceiver",
-    "RTCRtpSender",
-    "RTCRtpTransceiver",
+    "RTCDataChannel",
+    "RTCDtlsTransport",
+    "RTCIceTransport",
 )
 
 internal fun convertMembers(
@@ -20,7 +19,7 @@ internal fun convertMembers(
     if (source.isEmpty())
         return ""
 
-    if (name !in SUPPORTED && ("(" in source || "\"" in source))
+    if (name in IGNORED)
         return "/*\n$source\n*/"
 
     return source.trimIndent()
@@ -79,6 +78,9 @@ internal fun convertMethod(
         .removeSuffix("?")
         .ifEmpty { "/* native */ invoke" }
 
+    if (name == "addEventListener" || name == "removeEventListener")
+        return "    // $source"
+
     val typeParameters = source.substringBefore("(")
         .substringAfter("<", "")
         .let { if (it.isNotEmpty()) "<$it" else "" }
@@ -90,12 +92,6 @@ internal fun convertMethod(
 
     val optional = source.startsWith("$name?")
     val parameters = when {
-        parametersSource == "action: (value: V, key: K) => void" || parametersSource == "action: (value: T, key: T) => void"
-        -> parametersSource.replace(" => void", " -> $UNIT")
-
-        parametersSource == "cb: (elem: T, key: string, mode: ModuleKind.CommonJS | ModuleKind.ESNext | undefined) => void"
-        -> "cb: (elem: T, key: String, mode: ResolutionMode?) -> Unit"
-
         parametersSource.isNotEmpty()
         -> parametersSource
             .splitToSequence(", ")
