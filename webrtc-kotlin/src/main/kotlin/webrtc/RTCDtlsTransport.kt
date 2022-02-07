@@ -2,7 +2,7 @@
 
 package webrtc
 
-sealed external interface RTCDtlsTransport {
+external class RTCDtlsTransport : org.w3c.dom.events.EventTarget {
 /*
     readonly iceTransport: RTCIceTransport;
     readonly state: RTCDtlsTransportState;

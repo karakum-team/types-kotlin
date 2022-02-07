@@ -2,4 +2,4 @@
 
 package webrtc
 
-sealed external interface RTCAnswerOptions
+sealed external interface RTCAnswerOptions : RTCOfferAnswerOptions

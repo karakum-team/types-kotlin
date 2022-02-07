@@ -2,7 +2,7 @@
 
 package webrtc
 
-sealed external interface RTCPeerConnection {
+external class RTCPeerConnection : org.w3c.dom.events.EventTarget {
 /*
     createOffer(options?: RTCOfferOptions): Promise<RTCSessionDescriptionInit>;
     createAnswer(options?: RTCAnswerOptions): Promise<RTCSessionDescriptionInit>;

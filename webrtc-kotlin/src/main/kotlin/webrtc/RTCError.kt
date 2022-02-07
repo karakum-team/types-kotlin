@@ -2,7 +2,7 @@
 
 package webrtc
 
-sealed external interface RTCError {
+sealed external interface RTCError /* : DOMException */ {
     val errorDetail: RTCErrorDetailType
     val httpRequestStatusCode: Number?
     val receivedAlert: Number?

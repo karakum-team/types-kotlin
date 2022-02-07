@@ -2,6 +2,6 @@
 
 package webrtc
 
-sealed external interface RTCPeerConnectionIceEvent {
+external class RTCPeerConnectionIceEvent : org.w3c.dom.events.Event {
     val url: String?
 }

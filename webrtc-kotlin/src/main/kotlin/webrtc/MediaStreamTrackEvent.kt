@@ -2,6 +2,6 @@
 
 package webrtc
 
-sealed external interface MediaStreamTrackEvent {
+external class MediaStreamTrackEvent : org.w3c.dom.events.Event {
     //track: MediaStreamTrack;
 }

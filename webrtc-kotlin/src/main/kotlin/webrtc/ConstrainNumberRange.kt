@@ -2,7 +2,7 @@
 
 package webrtc
 
-sealed external interface ConstrainNumberRange {
+sealed external interface ConstrainNumberRange : NumberRange {
     var exact: Number?
     var ideal: Number?
 }

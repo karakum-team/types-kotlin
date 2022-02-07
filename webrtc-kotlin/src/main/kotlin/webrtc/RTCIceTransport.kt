@@ -2,7 +2,7 @@
 
 package webrtc
 
-sealed external interface RTCIceTransport {
+external class RTCIceTransport : org.w3c.dom.events.EventTarget {
 /*
     readonly role: RTCIceRole;
     //readonly component: RTCIceComponent;

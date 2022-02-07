@@ -4,7 +4,7 @@ package webrtc
 
 import kotlinext.js.ReadonlyArray
 
-sealed external interface MediaStream {
+external class MediaStream : org.w3c.dom.events.EventTarget {
     //id: string;
     //active: boolean;
     //onactive: EventListener;

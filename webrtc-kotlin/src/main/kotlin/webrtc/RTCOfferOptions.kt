@@ -2,6 +2,6 @@
 
 package webrtc
 
-sealed external interface RTCOfferOptions {
+sealed external interface RTCOfferOptions : RTCOfferAnswerOptions {
     var iceRestart: Boolean? // default = false
 }

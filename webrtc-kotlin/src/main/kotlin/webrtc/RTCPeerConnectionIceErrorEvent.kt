@@ -2,7 +2,7 @@
 
 package webrtc
 
-sealed external interface RTCPeerConnectionIceErrorEvent {
+external class RTCPeerConnectionIceErrorEvent : org.w3c.dom.events.Event {
     val hostCandidate: String
     val url: String
     val errorCode: Number

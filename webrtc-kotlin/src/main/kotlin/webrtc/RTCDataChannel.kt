@@ -2,7 +2,7 @@
 
 package webrtc
 
-sealed external interface RTCDataChannel {
+external class RTCDataChannel : org.w3c.dom.events.EventTarget {
 /*
     readonly label: string;
     readonly ordered: boolean;
