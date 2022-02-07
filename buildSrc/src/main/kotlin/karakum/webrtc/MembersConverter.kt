@@ -6,6 +6,9 @@ internal fun convertMembers(
     if (source.isEmpty())
         return ""
 
+    if ("(" in source || "\"" in source)
+        return "/*\n$source\n*/"
+
     return source.trimIndent()
         .splitToSequence("\n")
         .filter { it.isNotEmpty() }
@@ -16,6 +19,9 @@ internal fun convertMembers(
 private fun convertMember(
     source: String,
 ): String {
+    if (source.startsWith("//"))
+        return "    $source"
+
     val body = source.substringBefore(";")
     val content = if (isProperty(body)) {
         convertProperty(body)
@@ -23,9 +29,11 @@ private fun convertMember(
         convertMethod(body)
     }
 
-    val comment = source.substringAfter("; // ")
+    val comment = source.substringAfter("; // ", "")
+        .ifEmpty { null }
+
     return sequenceOf(content, comment)
-        .filter { it.isNotEmpty() }
+        .filterNotNull()
         .joinToString(" // ")
 }
 

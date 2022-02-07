@@ -3,6 +3,8 @@ package karakum.webrtc
 import karakum.common.GENERATOR_COMMENT
 import java.io.File
 
+private val DEFAULT_IMPORTS = "import kotlinext.js.ReadonlyArray"
+
 fun generateKotlinDeclarations(
     definitionsDir: File,
     sourceDir: File,
@@ -25,10 +27,15 @@ private fun fileContent(
     annotations: String = "",
     body: String,
 ): String {
+    val defaultImports = if ("ReadonlyArray" in body) {
+        DEFAULT_IMPORTS
+    } else ""
+
     var result = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
         "package webrtc",
+        defaultImports,
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")

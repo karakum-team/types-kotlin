@@ -24,17 +24,10 @@ private fun convertInterface(
         .substringBefore(":")
 
     val declaration = name // source.substringBefore(" {\n")
-    var body = source.substringAfter(" {\n")
-        .substringBefore("\n}")
-
-    val commentBody = !body
-        .trimIndent()
-        .split("\n")
-        .all { it.startsWith("//") }
-
-    if (commentBody) {
-        body = "/*\n$body\n*/"
-    }
+    val body = convertMembers(
+        source.substringAfter(" {\n")
+            .substringBefore("\n}")
+    )
 
     return ConversionResult(
         name = name,

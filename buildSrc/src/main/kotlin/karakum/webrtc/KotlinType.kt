@@ -31,11 +31,14 @@ internal fun kotlinType(
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
 
-    if (type.endsWith(" | undefined")) {
-        var result = kotlinType(type.removeSuffix(" | undefined"), name)
-        if (!result.startsWith(DYNAMIC)) result += "?"
-        return result
-    }
+    if (type.endsWith(" | undefined"))
+        return kotlinType(type.removeSuffix(" | undefined"), name)
+
+    if (" | " in type)
+        return "$DYNAMIC /* $type */"
+
+    if (type.startsWith("W3C."))
+        return "$DYNAMIC /* $type */"
 
     if (type.endsWith("[]"))
         return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
