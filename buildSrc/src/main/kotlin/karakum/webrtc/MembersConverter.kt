@@ -7,6 +7,8 @@ private val IGNORED = setOf(
     "RTCPeerConnectionStatic",
 )
 
+private const val CHANNEL_DATA = "string | Blob | ArrayBuffer | ArrayBufferView"
+
 internal fun convertMembers(
     name: String,
     source: String,
@@ -29,6 +31,11 @@ private fun convertMember(
 ): String {
     if (source.startsWith("//"))
         return "    $source"
+
+    if (CHANNEL_DATA in source)
+        return CHANNEL_DATA.splitToSequence(" | ")
+            .map { source.replace(CHANNEL_DATA, it) }
+            .joinToString("\n") { convertMember(it) }
 
     val body = source.substringBefore(";")
     val content = if (isProperty(body)) {
