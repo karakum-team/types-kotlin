@@ -18,6 +18,7 @@ fun generateKotlinDeclarations(
     sequenceOf(definitionsDir.resolve("RTCPeerConnection.d.ts").readText())
         .plus(RTC_ICE_CANDIDATE)
         .plus(RTC_SESSION_DESCRIPTION)
+        .plus(RTC_PEER_CONNECTION)
         .flatMap { convertDefinitions(it) }
         .plus(unions())
         .forEach { (name, body) ->

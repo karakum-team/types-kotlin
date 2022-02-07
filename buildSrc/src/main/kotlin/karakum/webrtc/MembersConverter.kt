@@ -132,6 +132,7 @@ internal fun convertParameter(
     lambdaMode: Boolean,
 ): String {
     val name = source
+        .removePrefix("...")
         .substringBefore(": ")
         .removeSuffix("?")
 
@@ -144,5 +145,9 @@ internal fun convertParameter(
         }
     } else type
 
-    return "$name: $declaration"
+    var result = "$name: $declaration"
+    if (source.startsWith("..."))
+        result = "vararg $result"
+
+    return result
 }
