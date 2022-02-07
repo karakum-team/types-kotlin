@@ -12,7 +12,7 @@ sealed external interface MediaTrackCapabilities {
     //sampleRate: number | W3C.LongRange;
     //sampleSize: number | W3C.LongRange;
     //echoCancellation: boolean[];
-    var latency: dynamic /* W3C.DoubleRange */?
+    var latency: dynamic /* W3C.DoubleRange */
     //deviceId: string;
     //groupId: string;
 }
