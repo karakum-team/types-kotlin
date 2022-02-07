@@ -22,6 +22,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "undefined" to "Nothing?",
 
     "Date" to "kotlin.js.Date",
+
+    "MediaStream" to "org.w3c.dom.mediacapture.MediaStream",
+    "MediaStreamTrack" to "org.w3c.dom.mediacapture.MediaStreamTrack",
 )
 
 internal fun kotlinType(
@@ -45,6 +48,9 @@ internal fun kotlinType(
 
     if (type.endsWith("[]"))
         return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
+
+    if (type.startsWith("ReadonlyArray<"))
+        return "ReadonlyArray<${kotlinType(type.removeSurrounding("ReadonlyArray<", ">"), name)}>"
 
     if (type.startsWith("Promise<")) {
         val parameter = kotlinType(type.removeSurrounding("Promise<", ">"), name)
