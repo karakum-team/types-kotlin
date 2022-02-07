@@ -109,20 +109,15 @@ internal fun convertMethod(
     if (optional)
         return "val $name: (($parameters) -> $returnType)?"
 
-    val isOperator = when (name) {
-        "get" -> parameters.count { it == ':' } == 1
-        "set" -> parameters.count { it == ':' } == 2
-        else -> false
-    }
-    val keyword = if (isOperator) "operator fun" else "fun"
-
     val returnDeclaration = if (returnType != UNIT) {
         ": $returnType"
     } else ""
 
-    var result = "$keyword $typeParameters $name($parameters)$returnDeclaration"
-    if (name == "createToken" && typeParameters.isNotEmpty())
-        result = "    // TODO: restore after alias update\n    // $result"
+    var result = "fun $typeParameters $name($parameters)$returnDeclaration"
+    if (" => " in result)
+        result = result
+            .replace("value: any", "value: Any")
+            .replace(" => void", "-> Unit")
 
     return result
 }
