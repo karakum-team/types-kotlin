@@ -17,6 +17,7 @@ dependencyResolutionManagement {
 }
 
 include("csstype-kotlin")
+include("node-kotlin")
 include("popper-kotlin")
 include("react-kotlin")
 include("react-query-kotlin")
