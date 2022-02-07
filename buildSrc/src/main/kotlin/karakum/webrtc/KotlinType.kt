@@ -40,6 +40,7 @@ private val TYPED = setOf(
     "DataChannelEventHandler",
     "DtlsTransportEventHandler",
     "IceTransportEventHandler",
+    "PeerConnectionEventHandler",
 )
 
 internal fun kotlinType(
