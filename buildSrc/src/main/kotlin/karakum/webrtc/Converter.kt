@@ -14,6 +14,7 @@ internal fun convertDefinitions(
         .splitToSequence("\ninterface ")
         .drop(1)
         .map { convertInterface(it) }
+        .filter { it.name != "Window" }
 
 private fun convertInterface(
     source: String,
