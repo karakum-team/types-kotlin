@@ -3,7 +3,6 @@ package karakum.webrtc
 private val IGNORED = setOf(
     "RTCDtlsTransportEventMap",
     "RTCIceTransportEventMap",
-    "RTCPeerConnection",
     "RTCPeerConnectionStatic",
 )
 
@@ -20,6 +19,7 @@ internal fun convertMembers(
         return "/*\n$source\n*/"
 
     return source.trimIndent()
+        .replace(",\n    ", ", ")
         .splitToSequence("\n")
         .filter { it.isNotEmpty() }
         .map { convertMember(it) }

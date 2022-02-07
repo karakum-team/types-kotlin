@@ -33,6 +33,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "ArrayBufferView" to "org.khronos.webgl.ArrayBufferView",
 
     "Blob" to "org.w3c.files.Blob",
+
+    "() => void" to "() -> Unit",
+    "(report: RTCStatsReport) => void" to "(report: RTCStatsReport) -> Unit",
 )
 
 private val TYPED = setOf(
