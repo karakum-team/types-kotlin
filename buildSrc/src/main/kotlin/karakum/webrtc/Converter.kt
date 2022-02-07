@@ -36,7 +36,8 @@ private fun convertInterface(
 
     val declaration = name // source.substringBefore(" {\n")
     val body = convertMembers(
-        source.substringAfter(" {\n")
+        name = name,
+        source = source.substringAfter(" {\n")
             .let { if (it.startsWith("}")) "" else it }
             .substringBefore("\n}")
     )

@@ -1,12 +1,17 @@
 package karakum.webrtc
 
+private val SUPPORTED = setOf(
+    "RTCIceCandidate",
+)
+
 internal fun convertMembers(
+    name: String,
     source: String,
 ): String {
     if (source.isEmpty())
         return ""
 
-    if ("(" in source || "\"" in source)
+    if (name !in SUPPORTED && ("(" in source || "\"" in source))
         return "/*\n$source\n*/"
 
     return source.trimIndent()
