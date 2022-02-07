@@ -34,6 +34,9 @@ internal fun kotlinType(
     if (type.endsWith(" | undefined"))
         return kotlinType(type.removeSuffix(" | undefined"), name)
 
+    if (type.endsWith(" | null"))
+        return kotlinType(type.removeSuffix(" | null"), name) + "?"
+
     if (" | " in type)
         return "$DYNAMIC /* $type */"
 
