@@ -34,7 +34,12 @@ private fun convertInterface(
         .substringBefore("(")
         .substringBefore(":")
 
-    val declaration = name // source.substringBefore(" {\n")
+    val declaration = source.substringBefore(" {\n")
+        .replace(" extends DOMException", " /* : DOMException */")
+        .replace(" extends EventInit", " : org.w3c.dom.EventInit")
+        .replace(" extends Event", " : org.w3c.dom.events.Event")
+        .replace(" extends ", " : ")
+
     val body = convertMembers(
         name = name,
         source = source.substringAfter(" {\n")
@@ -42,9 +47,19 @@ private fun convertInterface(
             .substringBefore("\n}")
     )
 
+    val type = when {
+        declaration.endsWith(" : org.w3c.dom.events.Event")
+        -> "class"
+
+        declaration.endsWith(" : org.w3c.dom.events.EventTarget")
+        -> "class"
+
+        else -> "sealed interface"
+    }
+
     return ConversionResult(
         name = name,
-        body = "external sealed interface $declaration {\n$body\n}",
+        body = "external $type $declaration {\n$body\n}",
     )
 }
 
