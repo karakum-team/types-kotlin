@@ -30,7 +30,7 @@ external class RTCPeerConnection : org.w3c.dom.events.EventTarget {
     fun getTransceivers(): ReadonlyArray<RTCRtpTransceiver>
     fun addTrack(
         track: org.w3c.dom.mediacapture.MediaStreamTrack,
-        ...streams: ReadonlyArray<org.w3c.dom.mediacapture.MediaStream>,
+        vararg streams: ReadonlyArray<org.w3c.dom.mediacapture.MediaStream>,
     ): RTCRtpSender
 
     fun removeTrack(sender: RTCRtpSender)
