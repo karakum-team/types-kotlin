@@ -5,7 +5,7 @@ import karakum.common.Suppress
 import karakum.common.fileSuppress
 import java.io.File
 
-private val DEFAULT_IMPORTS = "import kotlinext.js.ReadonlyArray"
+private val DEFAULT_IMPORTS = "import kotlinx.js.ReadonlyArray"
 
 fun generateKotlinDeclarations(
     definitionsDir: File,

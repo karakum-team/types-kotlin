@@ -27,9 +27,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "React.ReactNode" to "react.ReactNode",
     "React.ReactElement" to "react.ReactElement",
 
-    "InitialEntry[]" to "kotlinext.js.ReadonlyArray<history.InitialEntry>",
-    "RouteObject[]" to "kotlinext.js.ReadonlyArray<RouteObject>",
-    "RouteMatch[]" to "kotlinext.js.ReadonlyArray<RouteMatch>",
+    "InitialEntry[]" to "kotlinx.js.ReadonlyArray<history.InitialEntry>",
+    "RouteObject[]" to "kotlinx.js.ReadonlyArray<RouteObject>",
+    "RouteMatch[]" to "kotlinx.js.ReadonlyArray<RouteMatch>",
 
     "To" to "history.To",
     "Path" to "history.Path",

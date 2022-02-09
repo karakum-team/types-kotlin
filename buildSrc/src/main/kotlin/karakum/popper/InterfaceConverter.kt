@@ -16,7 +16,7 @@ internal fun convertInterface(
     if (source == "[key in Placement]?: Offsets")
         return ConversionResult(
             name = name,
-            body = "typealias $name = kotlinext.js.Record<Placement, Offsets>",
+            body = "typealias $name = kotlinx.js.Record<Placement, Offsets>",
         )
 
     var members = source

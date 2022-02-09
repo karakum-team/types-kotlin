@@ -32,14 +32,14 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Partial<Options>" to "Options",
 
-    "Array<string>" to "kotlinext.js.ReadonlyArray<String>",
-    "Array<TModifier>" to "kotlinext.js.ReadonlyArray<TModifier>",
-    "Array<Placement>" to "kotlinext.js.ReadonlyArray<popper.core.Placement>",
-    "Array<Partial<Modifier<any, any>>>" to "kotlinext.js.ReadonlyArray<Modifier<*>>",
+    "Array<string>" to "kotlinx.js.ReadonlyArray<String>",
+    "Array<TModifier>" to "kotlinx.js.ReadonlyArray<TModifier>",
+    "Array<Placement>" to "kotlinx.js.ReadonlyArray<popper.core.Placement>",
+    "Array<Partial<Modifier<any, any>>>" to "kotlinx.js.ReadonlyArray<Modifier<*>>",
     "(arg0: Partial<State>) => void" to "UpdateCallback",
 
     "Name" to "ModifierName<Options>",
-    "Obj" to "kotlinext.js.Record<String, *>",
+    "Obj" to "kotlinx.js.Record<String, *>",
 
     "Padding" to "popper.core.Padding",
 
