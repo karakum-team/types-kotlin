@@ -3,7 +3,7 @@ package karakum.node
 import karakum.common.GENERATOR_COMMENT
 import java.io.File
 
-private val DEFAULT_IMPORTS = "import kotlinx.js.ReadonlyArray"
+private const val DEFAULT_IMPORTS = "import kotlinx.js.ReadonlyArray"
 
 private val MODULES = setOf(
     "path",

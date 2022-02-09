@@ -50,10 +50,6 @@ private class JsIteratorAdapter<T>(
 internal fun arrayHelpers(): Sequence<ConversionResult> =
     sequenceOf(
         ConversionResult(
-            name = "ReadonlyArray",
-            body = "typealias ReadonlyArray<T> = Array<out T>",
-        ),
-        ConversionResult(
             name = "ReadonlyArrayAdapter",
             body = READONLY_ARRAY_ADAPTER_BODY,
         ),
