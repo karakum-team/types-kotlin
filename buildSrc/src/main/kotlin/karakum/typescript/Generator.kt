@@ -87,9 +87,15 @@ private fun fileContent(
     annotations: String = "",
     body: String,
 ): String {
-    val defaultImports = if ("ReadonlyArray<" in body) {
+    var defaultImports = if ("ReadonlyArray<" in body) {
         DEFAULT_IMPORTS
     } else ""
+
+    when {
+        "interface Node " in body -> defaultImports = DEFAULT_IMPORTS
+        "interface TypeReference " in body -> defaultImports = DEFAULT_IMPORTS
+        "fun  createProgram(" in body -> defaultImports = DEFAULT_IMPORTS
+    }
 
     var result = sequenceOf(
         "// $GENERATOR_COMMENT",
