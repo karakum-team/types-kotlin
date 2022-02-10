@@ -87,6 +87,7 @@ internal fun convertDefinitions(
         BlendModeProperty(),
 
         FilterFunction(),
+        TransformFunction(),
     )
 
     val builderTypes = listOf(
