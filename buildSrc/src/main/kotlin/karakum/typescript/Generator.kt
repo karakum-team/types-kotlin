@@ -6,8 +6,6 @@ import karakum.common.Suppress.*
 import karakum.common.fileSuppress
 import java.io.File
 
-private const val DEFAULT_IMPORTS = "import kotlinx.js.ReadonlyArray"
-
 fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
@@ -76,9 +74,10 @@ private fun fileContent(
     annotations: String = "",
     body: String,
 ): String {
-    val defaultImports = if ("ReadonlyArray<" in body) {
-        DEFAULT_IMPORTS
-    } else ""
+    val defaultImports = sequenceOf("JsPair", "ReadonlyArray")
+        .filter { "$it<" in body }
+        .map { "import kotlinx.js.$it" }
+        .joinToString("\n")
 
     var result = sequenceOf(
         "// $GENERATOR_COMMENT",
