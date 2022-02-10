@@ -85,6 +85,8 @@ internal fun convertDefinitions(
         LineStyleProperty(),
         LineWidthProperty(),
         BlendModeProperty(),
+
+        FilterFunction(),
     )
 
     val builderTypes = listOf(
@@ -274,12 +276,7 @@ private fun convertUnion(
         return ConversionResult(name, "typealias $name = Boolean")
 
     tryToUnion(name, body, enumMode)
-        ?.let { result ->
-            return when (name) {
-                FILTER -> result.copy(body = result.body + "\n\n" + filterFactories())
-                else -> result
-            }
-        }
+        ?.let { return it }
 
     when (name) {
         "ColumnGap",

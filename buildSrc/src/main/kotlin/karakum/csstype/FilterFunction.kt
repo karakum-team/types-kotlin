@@ -2,7 +2,7 @@ package karakum.csstype
 
 import karakum.common.kebabToCamel
 
-internal const val FILTER = "Filter"
+private const val FILTER_FUNCTION = "FilterFunction"
 
 private const val NUMBER = "Number"
 private const val STRING = "String"
@@ -33,25 +33,31 @@ private fun FilterFactory(
 ): FilterFactory =
     FilterFactory(name, types)
 
-internal fun filterFactories(): String {
-    val declarations = FilterFactory.FACTORIES
+internal fun FilterFunction(): ConversionResult {
+    val declarations = sequenceOf(
+        """
+        sealed external interface $FILTER_FUNCTION:
+                Filter,
+                BackdropFilter
+        """.trimIndent()
+    ) + FilterFactory.FACTORIES
         .flatMap { f -> f.types.map { f.name to it } }
         .map { (name, type) ->
             """
             inline fun ${name.kebabToCamel()}(
                 value: $type,
-            ): $FILTER =
-                "$name(${'$'}value)".unsafeCast<$FILTER>()
+            ): $FILTER_FUNCTION =
+                "$name(${'$'}value)".unsafeCast<$FILTER_FUNCTION>()
             """.trimIndent()
         }.plus(
             """
-            fun $FILTER(
-                vararg values: $FILTER,
-            ): $FILTER =
+            fun $FILTER_FUNCTION(
+                vararg values: $FILTER_FUNCTION,
+            ): $FILTER_FUNCTION =
                 values.joinToString(" ")
-                    .unsafeCast<$FILTER>()
+                    .unsafeCast<$FILTER_FUNCTION>()
             """.trimIndent()
         )
 
-    return declarations.joinToString("\n\n")
+    return ConversionResult(FILTER_FUNCTION, declarations.joinToString("\n\n"))
 }
