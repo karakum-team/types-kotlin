@@ -72,6 +72,7 @@ internal fun convertDefinitions(
     )
 
     val propertyTypes = listOf(
+        Angle(),
         Length(),
         LengthProperty(lengthContext),
         AutoLengthProperty(),
