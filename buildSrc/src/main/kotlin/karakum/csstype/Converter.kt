@@ -274,7 +274,12 @@ private fun convertUnion(
         return ConversionResult(name, "typealias $name = Boolean")
 
     tryToUnion(name, body, enumMode)
-        ?.let { return it }
+        ?.let { result ->
+            return when (name) {
+                FILTER -> result.copy(body = result.body + "\n\n" + filterFactories())
+                else -> result
+            }
+        }
 
     when (name) {
         "ColumnGap",
