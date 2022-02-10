@@ -26,6 +26,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "unknown | undefined" to "Any?",
     "TError | null" to "TError?",
 
+    "AbortController" to "org.w3c.fetch.AbortController",
+    "AbortSignal" to "org.w3c.fetch.AbortSignal",
+
     "Mutation<any, any>" to "Mutation<*, *, *, *>",
     "MutationState" to "MutationState<*, *, *, *>",
 

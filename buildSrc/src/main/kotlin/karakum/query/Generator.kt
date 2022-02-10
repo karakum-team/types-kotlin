@@ -26,9 +26,6 @@ fun generateKotlinDeclarations(
     val targetDir = sourceDir.resolve("react/query")
         .also { it.mkdirs() }
 
-    targetDir.resolve("abort.kt")
-        .writeText(ABORT)
-
     targetDir.resolve("aliases.kt")
         .writeText(ALIASES)
 
