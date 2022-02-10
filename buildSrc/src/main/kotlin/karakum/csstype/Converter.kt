@@ -76,6 +76,7 @@ internal fun convertDefinitions(
         Length(),
         LengthProperty(lengthContext),
         AutoLengthProperty(),
+        Percent(),
         GridLength(),
         GridLengthProperty(),
         Time(),

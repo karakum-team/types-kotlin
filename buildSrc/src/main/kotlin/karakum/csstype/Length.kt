@@ -2,7 +2,7 @@ package karakum.csstype
 
 import karakum.common.sealedUnionBody
 
-private const val LENGTH = "Length"
+const val LENGTH = "Length"
 
 private val LENGTH_LIKE_VALUES = listOf(
     "auto",

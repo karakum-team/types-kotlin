@@ -20,9 +20,6 @@ internal val LENGTH_UNITS = listOf(
     LengthUnits("`in`", "in"),
     LengthUnits("pc"),
     LengthUnits("pt"),
-
-    // Percent
-    LengthUnits("pct", "%"),
 )
 
 internal data class LengthUnits(
