@@ -4,6 +4,11 @@ import karakum.common.kebabToCamel
 
 private const val FILTER_FUNCTION = "FilterFunction"
 
+private val PARENT_TYPES = listOf(
+    "Filter",
+    "BackdropFilter",
+)
+
 private const val NUMBER = "Number"
 private const val STRING = "String"
 
@@ -37,8 +42,7 @@ internal fun FilterFunction(): ConversionResult {
     val declarations = sequenceOf(
         """
         sealed external interface $FILTER_FUNCTION:
-                Filter,
-                BackdropFilter
+                ${PARENT_TYPES.joinToString(",\n")}
         """.trimIndent()
     ) + FilterFactory.FACTORIES
         .flatMap { f -> f.types.map { f.name to it } }
@@ -49,15 +53,15 @@ internal fun FilterFunction(): ConversionResult {
             ): $FILTER_FUNCTION =
                 "$name(${'$'}value)".unsafeCast<$FILTER_FUNCTION>()
             """.trimIndent()
-        }.plus(
-            """
-            fun $FILTER_FUNCTION(
+        } + PARENT_TYPES.map { name ->
+        """
+            fun $name(
                 vararg values: $FILTER_FUNCTION,
-            ): $FILTER_FUNCTION =
+            ): $name =
                 values.joinToString(" ")
-                    .unsafeCast<$FILTER_FUNCTION>()
+                    .unsafeCast<$name>()
             """.trimIndent()
-        )
+    }
 
     return ConversionResult(FILTER_FUNCTION, declarations.joinToString("\n\n"))
 }
