@@ -33,11 +33,34 @@ internal fun convertDefinitions(
         .plus(ConversionResult(ResolutionMode.name, ResolutionMode.body))
         .plus(UNIONS.map { ConversionResult(it.name, it.body) })
         .plus(union())
+        .groupBy { it.pkg to it.name }
+        .values
+        .map { it.merge() }
         .toList()
 
     // typeConverter.print()
 
     return result.asSequence()
+}
+
+private fun List<ConversionResult>.merge(): ConversionResult {
+    if (size == 1)
+        return single()
+
+    val name = first().name
+    val body = if (name[0].isLowerCase()) {
+        joinToString("\n\n") { it.body }
+    } else {
+        check(size == 2)
+        val mainBody = first().body
+        val additionalBody = last().body
+
+        mainBody.substringBeforeLast("\n}") +
+                "\n" +
+                additionalBody.substringAfter("{\n")
+    }
+
+    return ConversionResult(name, body)
 }
 
 private const val DELIMITER = "<!--DELIMITER-->"

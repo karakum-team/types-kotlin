@@ -66,19 +66,8 @@ fun generateKotlinDeclarations(
             .also { it.mkdirs() }
             .resolve("$name.$extension")
 
-        if (file.exists()) {
-            if (name[0].isLowerCase()) {
-                file.appendText("\n$body")
-            } else {
-                val content = file.readText()
-                    .substringBeforeLast("\n}") + "\n" +
-                        body.substringAfter("{\n")
-
-                file.writeText(content)
-            }
-        } else {
-            file.writeText(fileContent(pkg, annotations, body))
-        }
+        check(!file.exists())
+        file.writeText(fileContent(pkg, annotations, body))
     }
 }
 
@@ -87,15 +76,9 @@ private fun fileContent(
     annotations: String = "",
     body: String,
 ): String {
-    var defaultImports = if ("ReadonlyArray<" in body) {
+    val defaultImports = if ("ReadonlyArray<" in body) {
         DEFAULT_IMPORTS
     } else ""
-
-    when {
-        "interface Node " in body -> defaultImports = DEFAULT_IMPORTS
-        "interface TypeReference " in body -> defaultImports = DEFAULT_IMPORTS
-        "fun  createProgram(" in body -> defaultImports = DEFAULT_IMPORTS
-    }
 
     var result = sequenceOf(
         "// $GENERATOR_COMMENT",
