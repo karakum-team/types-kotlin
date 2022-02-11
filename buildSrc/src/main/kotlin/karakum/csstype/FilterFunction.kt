@@ -53,15 +53,7 @@ internal fun FilterFunction(): ConversionResult {
             ): $FILTER_FUNCTION =
                 "$name(${'$'}value)".unsafeCast<$FILTER_FUNCTION>()
             """.trimIndent()
-        } + PARENT_TYPES.map { name ->
-        """
-            fun $name(
-                vararg values: $FILTER_FUNCTION,
-            ): $name =
-                values.joinToString(" ")
-                    .unsafeCast<$name>()
-            """.trimIndent()
-    }
+        }
 
     return ConversionResult(FILTER_FUNCTION, declarations.joinToString("\n\n"))
 }

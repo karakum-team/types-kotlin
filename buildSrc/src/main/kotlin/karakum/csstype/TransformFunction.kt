@@ -74,15 +74,7 @@ internal fun TransformFunction(): ConversionResult {
             ): $TRANSFORM_FUNCTION =
                 "${factory.name}($parametersCall)".unsafeCast<$TRANSFORM_FUNCTION>()
             """.trimIndent()
-        }.plus(
-            """
-            fun $TRANSFORM(
-                vararg values: $TRANSFORM_FUNCTION,
-            ): $TRANSFORM =
-                values.joinToString(" ")
-                    .unsafeCast<$TRANSFORM>()
-            """.trimIndent()
-        )
+        }
 
     return ConversionResult(TRANSFORM_FUNCTION, declarations.joinToString("\n\n"))
 }
