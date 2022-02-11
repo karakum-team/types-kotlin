@@ -8,7 +8,6 @@ private val PARENT_TYPES = listOf(
 )
 
 private const val NUMBER = "Number"
-private const val STRING = "String"
 
 private class FilterFactory(
     val name: String,
@@ -19,7 +18,7 @@ private class FilterFactory(
             FilterFactory("blur", NUMBER, LENGTH),
             FilterFactory("brightness", NUMBER, PERCENT),
             FilterFactory("contrast", NUMBER, PERCENT),
-            FilterFactory("drop-shadow", STRING),
+            FilterFactory("drop-shadow"),
             FilterFactory("grayscale", NUMBER, PERCENT),
             FilterFactory("hue-rotate", NUMBER, ANGLE),
             FilterFactory("invert", NUMBER, PERCENT),
@@ -29,6 +28,13 @@ private class FilterFactory(
         )
     }
 }
+
+private val DROP_SHADOW_PARAMETERS = arrayOf(
+    "offsetX" to LENGTH,
+    "offsetY" to LENGTH,
+    "blurRadius" to LENGTH,
+    "color" to COLOR,
+)
 
 private fun FilterFactory(
     name: String,
@@ -43,8 +49,15 @@ internal fun FilterFunction(): ConversionResult {
                 ${PARENT_TYPES.joinToString(",\n")}
         """.trimIndent()
     ) + FilterFactory.FACTORIES
-        .flatMap { f -> f.types.map { f.name to it } }
-        .map { (name, type) -> factory(name, FILTER_FUNCTION, "value" to type) }
+        .flatMap { f ->
+            when (f.name) {
+                "drop-shadow" -> (2..4)
+                    .map { f.name to DROP_SHADOW_PARAMETERS.sliceArray(0..(it - 1)) }
+
+                else -> f.types.map { f.name to arrayOf("value" to it) }
+            }
+        }
+        .map { (name, parameters) -> factory(name, FILTER_FUNCTION, parameters, " ") }
 
     return ConversionResult(FILTER_FUNCTION, declarations.joinToString("\n\n"))
 }

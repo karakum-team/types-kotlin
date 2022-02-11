@@ -1,5 +1,6 @@
 package karakum.csstype
 
+internal const val COLOR = "Color"
 internal const val COLOR_PROPERTY = "ColorProperty"
 
 internal class ColorConsumer : ParentConsumer {
