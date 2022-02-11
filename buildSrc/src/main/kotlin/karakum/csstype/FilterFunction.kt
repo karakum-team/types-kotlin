@@ -1,7 +1,5 @@
 package karakum.csstype
 
-import karakum.common.kebabToCamel
-
 private const val FILTER_FUNCTION = "FilterFunction"
 
 private val PARENT_TYPES = listOf(
@@ -46,14 +44,7 @@ internal fun FilterFunction(): ConversionResult {
         """.trimIndent()
     ) + FilterFactory.FACTORIES
         .flatMap { f -> f.types.map { f.name to it } }
-        .map { (name, type) ->
-            """
-            inline fun ${name.kebabToCamel()}(
-                value: $type,
-            ): $FILTER_FUNCTION =
-                "$name(${'$'}value)".unsafeCast<$FILTER_FUNCTION>()
-            """.trimIndent()
-        }
+        .map { (name, type) -> factory(name, FILTER_FUNCTION, "value" to type) }
 
     return ConversionResult(FILTER_FUNCTION, declarations.joinToString("\n\n"))
 }

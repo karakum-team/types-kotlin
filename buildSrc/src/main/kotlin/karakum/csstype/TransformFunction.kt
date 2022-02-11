@@ -60,20 +60,13 @@ internal fun TransformFunction(): ConversionResult {
         """.trimIndent()
     ) + TransformFactory.FACTORIES
         .map { factory ->
-            val parameters = factory.parameters
-                .joinToString("\n") {
-                    "${it.name}: ${it.type},"
-                }
-
-            val parametersCall = factory.parameters
-                .joinToString(", ") { '$' + it.name }
-
-            """
-            inline fun ${factory.name}(
-                $parameters
-            ): $TRANSFORM_FUNCTION =
-                "${factory.name}($parametersCall)".unsafeCast<$TRANSFORM_FUNCTION>()
-            """.trimIndent()
+            factory(
+                name = factory.name,
+                returnType = TRANSFORM_FUNCTION,
+                parameters = factory.parameters
+                    .map { it.name to it.type }
+                    .toTypedArray()
+            )
         }
 
     return ConversionResult(TRANSFORM_FUNCTION, declarations.joinToString("\n\n"))
