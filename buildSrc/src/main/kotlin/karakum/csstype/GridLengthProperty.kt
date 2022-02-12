@@ -3,10 +3,8 @@ package karakum.csstype
 internal const val GRID_LENGTH_PROPERTY = "GridLengthProperty"
 
 internal val GRID_LENGTH_PROPERTY_PARENTS = listOf(
-    "GridAutoColumns",
-    "GridAutoRows",
-    "GridTemplateColumns",
-    "GridTemplateRows",
+    "GridAutoStripes",
+    "GridTemplateStripes",
 )
 
 internal fun GridLengthProperty(): ConversionResult {

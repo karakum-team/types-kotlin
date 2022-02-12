@@ -198,6 +198,22 @@ private fun convertDefinition(
         .replace("<TLength>", "")
         .replace("<TTime>", "")
 
+    when (name) {
+        "GridAutoColumns",
+        "GridTemplateColumns",
+        -> {
+            val stripesName = name.replace("Columns", "Stripes")
+            return convertDefinition(stripesName, content.replace(name, stripesName))
+                .plus(ConversionResult(name, "typealias $name = $stripesName"))
+        }
+
+        "GridAutoRows",
+        "GridTemplateRows",
+        -> return sequenceOf(
+            ConversionResult(name, "typealias $name = ${name.replace("Rows", "Stripes")}")
+        )
+    }
+
     return when {
         content.startsWith("type ") -> sequenceOf(convertUnion(name, content))
         else -> sequenceOf(convertInterface(name, content))
