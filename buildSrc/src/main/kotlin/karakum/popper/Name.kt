@@ -9,7 +9,7 @@ internal fun nameTypes(): Sequence<ConversionResult> =
         ConversionResult(
             name = "ModifierName",
             body = """
-                import kotlinext.js.jso
+                import kotlinx.js.jso
                 
                 external interface ModifierName<Options>: Name
                 
