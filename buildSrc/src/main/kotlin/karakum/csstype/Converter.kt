@@ -89,6 +89,7 @@ internal fun convertDefinitions(
         FilterFunction(),
         TransformFunction(),
         AutoRepeat(),
+        GridFunction(),
     )
 
     val builderTypes = listOf(
