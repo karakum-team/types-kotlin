@@ -69,5 +69,8 @@ internal fun TransformFunction(): ConversionResult {
             )
         }
 
-    return ConversionResult(TRANSFORM_FUNCTION, declarations.joinToString("\n\n"))
+    return ConversionResult(
+        name = TRANSFORM_FUNCTION,
+        body = declarations.joinToString("\n\n"),
+    )
 }

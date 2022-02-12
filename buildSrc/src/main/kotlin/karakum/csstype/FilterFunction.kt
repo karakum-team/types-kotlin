@@ -59,5 +59,8 @@ internal fun FilterFunction(): ConversionResult {
         }
         .map { (name, parameters) -> factory(name, FILTER_FUNCTION, parameters, " ") }
 
-    return ConversionResult(FILTER_FUNCTION, declarations.joinToString("\n\n"))
+    return ConversionResult(
+        name = FILTER_FUNCTION,
+        body = declarations.joinToString("\n\n"),
+    )
 }
