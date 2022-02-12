@@ -12,5 +12,5 @@ internal fun flexFactories(): String =
         arrayOf(GROW, SHRINK),
         arrayOf(GROW, SHRINK, BASIS),
     ).joinToString("\n\n") { parameters ->
-        factory(FLEX, FLEX, parameters, " ")
+        factory(FLEX, parameters)
     }

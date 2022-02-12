@@ -3,6 +3,18 @@ package karakum.csstype
 import karakum.common.kebabToCamel
 
 internal fun factory(
+    type: String,
+    parameters: Array<out Pair<String, String>>,
+): String {
+    return """
+    inline fun ${type.kebabToCamel()}(
+        ${parameters.joinToString("\n") { (n, v) -> "$n: $v," }}
+    ): $type =
+        "${parameters.joinToString(" ") { (n) -> "$$n" }}".unsafeCast<$type>()
+    """.trimIndent()
+}
+
+internal fun factory(
     name: String,
     returnType: String,
     parameters: Array<out Pair<String, String>>,
