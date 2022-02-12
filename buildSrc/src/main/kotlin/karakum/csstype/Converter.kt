@@ -292,8 +292,12 @@ private fun convertUnion(
     if (body == """"false" | "true"""")
         return ConversionResult(name, "typealias $name = Boolean")
 
-    tryToUnion(name, body, enumMode)
-        ?.let { return it }
+    tryToUnion(name, body, enumMode)?.let {
+        return when (name) {
+            FLEX -> it.copy(body = it.body + "\n\n" + flexFactories())
+            else -> it
+        }
+    }
 
     when (name) {
         "ColumnGap",
