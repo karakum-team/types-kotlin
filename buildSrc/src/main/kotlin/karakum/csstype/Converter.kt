@@ -33,7 +33,7 @@ internal fun convertDefinitions(
                 content.startsWith("namespace AtRule ") -> convertNamespace(content) + convertNamespaceTypes(content, AT_RULE_TYPES)
                 content.startsWith("namespace DataType ") -> convertNamespaceTypes(content)
                 content.startsWith("namespace ") -> convertNamespace(content)
-                else -> sequenceOf(convertDefinition(name, content))
+                else -> convertDefinition(name, content)
             }
         }
         .toList()
@@ -111,19 +111,19 @@ private fun convertNamespace(
         .let { "\n" + it }
         .splitToSequence("\nexport ")
         .drop(1)
-        .mapNotNull { content ->
+        .flatMap { content ->
             val name = content.substringAfter(" ")
                 .substringBefore(" ")
                 .substringBefore("<")
 
             when {
-                name.startsWith("Moz") -> null
-                name.startsWith("Ms") -> null
-                name.startsWith("Webkit") -> null
-                name.contains("Hyphen") && name != "Hyphens" -> null
-                name.contains("Fallback") -> null
-                name in DEPRECATED_TYPES -> null
-                name in SVG_TYPES -> null
+                name.startsWith("Moz") -> emptySequence()
+                name.startsWith("Ms") -> emptySequence()
+                name.startsWith("Webkit") -> emptySequence()
+                name.contains("Hyphen") && name != "Hyphens" -> emptySequence()
+                name.contains("Fallback") -> emptySequence()
+                name in DEPRECATED_TYPES -> emptySequence()
+                name in SVG_TYPES -> emptySequence()
                 else -> convertDefinition(name, content)
             }
         }
@@ -190,7 +190,7 @@ private fun convertNamespaceTypes(
 private fun convertDefinition(
     name: String,
     source: String,
-): ConversionResult {
+): Sequence<ConversionResult> {
     val content = source
         .replace("TLength = (string & {}) | 0", "TLength")
         .replace("TTime = string & {}", "TTime")
@@ -198,10 +198,10 @@ private fun convertDefinition(
         .replace("<TLength>", "")
         .replace("<TTime>", "")
 
-    if (content.startsWith("type "))
-        return convertUnion(name, content)
-
-    return convertInterface(name, content)
+    return when {
+        content.startsWith("type ") -> sequenceOf(convertUnion(name, content))
+        else -> sequenceOf(convertInterface(name, content))
+    }
 }
 
 private val ENUMS = setOf(
