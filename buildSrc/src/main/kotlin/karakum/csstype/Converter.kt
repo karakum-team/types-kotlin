@@ -204,7 +204,7 @@ private fun convertDefinition(
         "GridAutoColumns",
         "GridTemplateColumns",
         -> {
-            val stripesName = name.replace("Columns", "Stripes")
+            val stripesName = name.replace("Columns", "Tracks")
             return convertDefinition(stripesName, content.replace(name, stripesName))
                 .plus(ConversionResult(name, "typealias $name = $stripesName"))
         }
@@ -212,7 +212,7 @@ private fun convertDefinition(
         "GridAutoRows",
         "GridTemplateRows",
         -> return sequenceOf(
-            ConversionResult(name, "typealias $name = ${name.replace("Rows", "Stripes")}")
+            ConversionResult(name, "typealias $name = ${name.replace("Rows", "Tracks")}")
         )
     }
 

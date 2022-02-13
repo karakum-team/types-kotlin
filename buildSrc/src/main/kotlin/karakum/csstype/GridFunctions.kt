@@ -3,7 +3,7 @@ package karakum.csstype
 import karakum.common.unionBody
 
 private const val AUTO_REPEAT = "AutoRepeat"
-private const val GRID_TEMPLATE_STRIPES = "GridTemplateStripes"
+private const val GRID_TEMPLATE_TRACKS = "GridTemplateTracks"
 
 internal fun AutoRepeat(): ConversionResult =
     ConversionResult(
@@ -18,10 +18,10 @@ internal fun GridFunction(): ConversionResult {
     ).map { firstParameter ->
         factory(
             name = "repeat",
-            returnType = GRID_TEMPLATE_STRIPES,
+            returnType = GRID_TEMPLATE_TRACKS,
             parameters = arrayOf(
                 firstParameter,
-                "value" to GRID_TEMPLATE_STRIPES,
+                "value" to GRID_TEMPLATE_TRACKS,
             )
         )
     }
