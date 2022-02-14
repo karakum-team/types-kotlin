@@ -42,10 +42,6 @@ fun generateKotlinDeclarations(
                 .writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
         }
     }
-
-    sourceDir.resolve("kotlinx/js/BigInt.kt")
-        .also { it.parentFile.mkdirs() }
-        .writeText(BIG_INT)
 }
 
 private fun fileContent(
