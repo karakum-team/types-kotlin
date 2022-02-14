@@ -88,8 +88,13 @@ private fun convertInterface(
     val body = convertMembers(bodySource)
         .replace(";--\n *", ";\n *")
 
+    val type = when (name) {
+        "Buffer" -> "class"
+        else -> "sealed interface"
+    }
+
     return ConversionResult(
         name = name,
-        body = "external sealed interface $declaration {\n$body\n}",
+        body = "external $type $declaration {\n$body\n}",
     )
 }
