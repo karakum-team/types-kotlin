@@ -16,6 +16,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "never" to "Nothing",
 
     "number" to "Number",
+    "bigint" to "BigInt",
 
     "void" to UNIT,
     "null" to "Nothing?",

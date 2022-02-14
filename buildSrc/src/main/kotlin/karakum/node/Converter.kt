@@ -1,6 +1,8 @@
 package karakum.node
 
 private val IGNORE_LIST = setOf(
+    "BufferConstructor",
+
     "BigIntOptions",
     "BigIntStats",
     "FSWatcher",
@@ -18,18 +20,24 @@ internal fun convertDefinitions(
     source: String,
     pkg: Package,
 ): Sequence<ConversionResult> {
-    if (pkg == Package("buffer"))
-        return sequenceOf(BufferEncoding())
-
     var content = source
         .substringAfter("declare module '${pkg.name}' {\n")
         .substringBefore("\n}")
         .trimIndent()
 
-    val namespaceStart = "namespace ${pkg.name} {\n"
+    val namespaceStart = "\nnamespace ${pkg.name} {\n"
     if (namespaceStart in content) {
         content = content
             .substringAfter(namespaceStart)
+            .substringBefore("\n}")
+            .trimIndent()
+            .let { "\n$it" }
+    }
+
+    val globalsStart = "\nglobal {\n"
+    if (globalsStart in content) {
+        content += "\n\n" + content
+            .substringAfter(globalsStart)
             .substringBefore("\n}")
             .trimIndent()
             .let { "\n$it" }
@@ -41,12 +49,16 @@ internal fun convertDefinitions(
         .map { convertInterface(it) }
         .filter { it.name !in IGNORE_LIST }
 
-    if (pkg == Package("fs"))
-        return interfaces
+    return when (pkg) {
+        Package("buffer") -> interfaces
+            .plus(BufferEncoding())
+
+        Package("fs") -> interfaces
             .plus(ConversionResult("Mode", "typealias Mode = Int"))
             .plus(ConversionResult("ReadPosition", "typealias ReadPosition = Number"))
 
-    return interfaces
+        else -> interfaces
+    }
 }
 
 private fun convertInterface(
@@ -68,9 +80,12 @@ private fun convertInterface(
             .let { if (it.startsWith("}")) "" else it }
             .substringBefore("\n}")
             .trimIndent()
+            .replace("toJSON(): {\n    type: 'Buffer';\n    data: number[];\n};", "toJSON(): any;")
+            .replace(";\n *", ";--\n *")
     } else ""
 
     val body = convertMembers(bodySource)
+        .replace(";--\n *", ";\n *")
 
     return ConversionResult(
         name = name,

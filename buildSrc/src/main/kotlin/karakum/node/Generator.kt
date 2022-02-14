@@ -5,7 +5,11 @@ import karakum.common.Suppress
 import karakum.common.fileSuppress
 import java.io.File
 
-private const val DEFAULT_IMPORTS = "import kotlinx.js.ReadonlyArray"
+private val DEFAULT_IMPORTS = listOf(
+    "BigInt" to "kotlinx.js.BigInt",
+    "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
+    "Uint8Array" to "org.khronos.webgl.Uint8Array",
+)
 
 private val MODULES = setOf(
     "buffer",
@@ -38,6 +42,10 @@ fun generateKotlinDeclarations(
                 .writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
         }
     }
+
+    sourceDir.resolve("kotlinx/js/BigInt.kt")
+        .also { it.parentFile.mkdirs() }
+        .writeText(BIG_INT)
 }
 
 private fun fileContent(
@@ -45,9 +53,10 @@ private fun fileContent(
     body: String,
     pkg: Package,
 ): String {
-    val defaultImports = if ("ReadonlyArray" in body) {
-        DEFAULT_IMPORTS
-    } else ""
+    val defaultImports = DEFAULT_IMPORTS
+        .filter { it.first in body }
+        .map { "import ${it.second}" }
+        .joinToString("\n")
 
     var result = sequenceOf(
         "// $GENERATOR_COMMENT",
