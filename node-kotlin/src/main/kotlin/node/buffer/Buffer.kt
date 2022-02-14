@@ -5,7 +5,7 @@ package node.buffer
 import kotlinx.js.BigInt
 import org.khronos.webgl.Uint8Array
 
-sealed external interface Buffer : Uint8Array {
+external class Buffer : Uint8Array {
     /**
      * Writes `string` to `buf` at `offset` according to the character encoding in`encoding`. The `length` parameter is the number of bytes to write. If `buf` did
      * not contain enough space to fit the entire string, only part of `string` will be
