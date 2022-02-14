@@ -20,30 +20,30 @@ internal fun convertDefinitions(
     source: String,
     pkg: Package,
 ): Sequence<ConversionResult> {
-    var content = source
+    val content = source
         .substringAfter("declare module '${pkg.name}' {\n")
         .substringBefore("\n}")
         .trimIndent()
 
-    val namespaceStart = "\nnamespace ${pkg.name} {\n"
-    if (namespaceStart in content) {
-        content = content
+    val namespaceStart = "namespace ${pkg.name} {\n"
+    var mainContent = if (namespaceStart in content) {
+        content
             .substringAfter(namespaceStart)
             .substringBefore("\n}")
             .trimIndent()
             .let { "\n$it" }
-    }
+    } else content
 
     val globalsStart = "\nglobal {\n"
     if (globalsStart in content) {
-        content += "\n\n" + content
+        mainContent += "\n\n" + (content
             .substringAfter(globalsStart)
             .substringBefore("\n}")
             .trimIndent()
-            .let { "\n$it" }
+            .let { "\n$it" })
     }
 
-    val interfaces = content
+    val interfaces = mainContent
         .splitToSequence("\nexport interface ", "\ninterface ")
         .drop(1)
         .map { convertInterface(it) }
@@ -80,6 +80,7 @@ private fun convertInterface(
             .let { if (it.startsWith("}")) "" else it }
             .substringBefore("\n}")
             .trimIndent()
+            .replace("): this", "): $name")
             .replace("toJSON(): {\n    type: 'Buffer';\n    data: number[];\n};", "toJSON(): any;")
             .replace(";\n *", ";--\n *")
     } else ""

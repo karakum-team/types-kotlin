@@ -73,5 +73,9 @@ internal fun kotlinType(
         return "kotlin.js.Promise<$parameter>"
     }
 
+    // TODO: remove
+    if ("IterableIterator" in type)
+        return "$DYNAMIC /* $type */"
+
     return type
 }
