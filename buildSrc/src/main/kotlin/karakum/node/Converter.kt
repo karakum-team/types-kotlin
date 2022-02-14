@@ -41,6 +41,11 @@ internal fun convertDefinitions(
         .map { convertInterface(it) }
         .filter { it.name !in IGNORE_LIST }
 
+    if (pkg == Package("fs"))
+        return interfaces
+            .plus(ConversionResult("Mode", "typealias Mode = Int"))
+            .plus(ConversionResult("ReadPosition", "typealias ReadPosition = Number"))
+
     return interfaces
 }
 
