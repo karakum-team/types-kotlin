@@ -1,11 +1,15 @@
 package karakum.node
 
 import karakum.common.GENERATOR_COMMENT
+import karakum.common.Suppress
+import karakum.common.fileSuppress
 import java.io.File
 
 private const val DEFAULT_IMPORTS = "import kotlinx.js.ReadonlyArray"
 
 private val MODULES = setOf(
+    "buffer",
+    "fs",
     "path",
 )
 
@@ -21,8 +25,17 @@ fun generateKotlinDeclarations(
 
         val source = definitionsDir.resolve("$module.d.ts").readText()
         for ((name, body) in convertDefinitions(source, pkg)) {
+            val suppresses = mutableListOf<Suppress>().apply {
+                if ("JsName(\"\"\"(" in body)
+                    add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+            }.toTypedArray()
+
+            val annotations = if (suppresses.isNotEmpty()) {
+                fileSuppress(*suppresses)
+            } else ""
+
             targetDir.resolve("$name.kt")
-                .writeText(fileContent(body = body, pkg = pkg))
+                .writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
         }
     }
 }

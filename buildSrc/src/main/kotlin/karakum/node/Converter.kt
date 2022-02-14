@@ -1,5 +1,14 @@
 package karakum.node
 
+private val IGNORE_LIST = setOf(
+    "BigIntOptions",
+    "BigIntStats",
+    "FSWatcher",
+    "StatSyncFn",
+    "StatWatcher",
+    "WatchOptions",
+)
+
 internal data class ConversionResult(
     val name: String,
     val body: String,
@@ -9,19 +18,28 @@ internal fun convertDefinitions(
     source: String,
     pkg: Package,
 ): Sequence<ConversionResult> {
-    val content = source
+    if (pkg == Package("buffer"))
+        return sequenceOf(BufferEncoding())
+
+    var content = source
         .substringAfter("declare module '${pkg.name}' {\n")
         .substringBefore("\n}")
         .trimIndent()
-        .substringAfter("namespace ${pkg.name} {\n")
-        .substringBefore("\n}")
-        .trimIndent()
-        .let { "\n$it" }
+
+    val namespaceStart = "namespace ${pkg.name} {\n"
+    if (namespaceStart in content) {
+        content = content
+            .substringAfter(namespaceStart)
+            .substringBefore("\n}")
+            .trimIndent()
+            .let { "\n$it" }
+    }
 
     val interfaces = content
         .splitToSequence("\nexport interface ", "\ninterface ")
         .drop(1)
         .map { convertInterface(it) }
+        .filter { it.name !in IGNORE_LIST }
 
     return interfaces
 }
@@ -34,11 +52,18 @@ private fun convertInterface(
         .substringBefore("(")
         .substringBefore(":")
 
-    val declaration = source.substringBefore(" {\n")
-    val bodySource = source.substringAfter(" {\n")
-        .let { if (it.startsWith("}")) "" else it }
-        .substringBefore("\n}")
-        .trimIndent()
+    val declaration = source
+        .substringBefore(" {}\n")
+        .substringBefore(" {\n")
+        .replace(" extends ", " : ")
+        .replace("<number>", "<Number>")
+
+    val bodySource = if (!source.substringBefore("\n").endsWith("{}")) {
+        source.substringAfter(" {\n")
+            .let { if (it.startsWith("}")) "" else it }
+            .substringBefore("\n}")
+            .trimIndent()
+    } else ""
 
     val body = convertMembers(bodySource)
 

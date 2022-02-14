@@ -30,11 +30,13 @@ private val STANDARD_TYPE_MAP = mapOf(
     "MediaStreamTrack" to "org.w3c.dom.mediacapture.MediaStreamTrack",
 
     "ArrayBuffer" to "org.khronos.webgl.ArrayBuffer",
-    "ArrayBufferView" to "org.khronos.webgl.ArrayBufferView",
+    "NodeJS.ArrayBufferView" to "org.khronos.webgl.ArrayBufferView",
 
     "Blob" to "org.w3c.files.Blob",
 
     "() => void" to "() -> Unit",
+
+    "BufferEncoding" to "node.buffer.BufferEncoding"
 )
 
 private val TYPED = setOf(
