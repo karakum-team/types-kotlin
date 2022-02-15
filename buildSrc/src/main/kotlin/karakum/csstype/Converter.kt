@@ -87,10 +87,11 @@ internal fun convertDefinitions(
         LineWidthProperty(),
         BlendModeProperty(),
 
-        FilterFunction(),
         TransformFunction(),
+        FilterFunction(),
+        ReferenceFunctions(),
         AutoRepeat(),
-        GridFunction(),
+        GridFunctions(),
     )
 
     val builderTypes = listOf(
