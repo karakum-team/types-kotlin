@@ -16,15 +16,15 @@ private class FilterFactory(
     companion object {
         val FACTORIES = listOf(
             FilterFactory("blur", NUMBER, LENGTH),
-            FilterFactory("brightness", NUMBER, PERCENT),
-            FilterFactory("contrast", NUMBER, PERCENT),
+            FilterFactory("brightness", NUMBER, PERCENTAGE),
+            FilterFactory("contrast", NUMBER, PERCENTAGE),
             FilterFactory("drop-shadow"),
-            FilterFactory("grayscale", NUMBER, PERCENT),
+            FilterFactory("grayscale", NUMBER, PERCENTAGE),
             FilterFactory("hue-rotate", NUMBER, ANGLE),
-            FilterFactory("invert", NUMBER, PERCENT),
-            FilterFactory("opacity", NUMBER, PERCENT),
-            FilterFactory("saturate", NUMBER, PERCENT),
-            FilterFactory("sepia", NUMBER, PERCENT),
+            FilterFactory("invert", NUMBER, PERCENTAGE),
+            FilterFactory("opacity", NUMBER, PERCENTAGE),
+            FilterFactory("saturate", NUMBER, PERCENTAGE),
+            FilterFactory("sepia", NUMBER, PERCENTAGE),
         )
     }
 }
