@@ -8,7 +8,14 @@ internal fun ReferenceFunctions(): ConversionResult {
             parameters = arrayOf(
                 "name" to "String",
             )
-        )
+        ),
+        factory(
+            name = "url",
+            returnType = URL,
+            parameters = arrayOf(
+                "value" to "String",
+            )
+        ),
     )
 
     return ConversionResult(
