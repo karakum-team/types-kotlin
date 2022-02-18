@@ -94,6 +94,10 @@ internal fun convertDefinitions(
         ReferenceFunctions(),
         AutoRepeat(),
         GridFunctions(),
+
+        ColorType(),
+        AngularColorStop(),
+        LinearColorStop(),
     )
 
     val builderTypes = listOf(
