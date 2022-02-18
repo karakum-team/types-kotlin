@@ -81,6 +81,8 @@ internal fun convertDefinitions(
         GridLengthProperty(),
         Time(),
         TimeProperty(timeContext),
+        Gradient(),
+        Image(),
         Url(),
         GridLineProperty(),
         LineStyleProperty(),
