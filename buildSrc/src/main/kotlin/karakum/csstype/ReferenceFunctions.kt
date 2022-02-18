@@ -2,14 +2,14 @@ package karakum.csstype
 
 internal fun ReferenceFunctions(): ConversionResult {
     val declarations = sequenceOf(
-        factory(
+        function(
             name = "attr",
             returnType = "Content",
             parameters = arrayOf(
                 "name" to "String",
             )
         ),
-        factory(
+        function(
             name = "url",
             returnType = URL,
             parameters = arrayOf(

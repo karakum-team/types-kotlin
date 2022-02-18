@@ -60,7 +60,7 @@ internal fun TransformFunction(): ConversionResult {
         """.trimIndent()
     ) + TransformFactory.FACTORIES
         .map { factory ->
-            factory(
+            function(
                 name = factory.name,
                 returnType = TRANSFORM_FUNCTION,
                 parameters = factory.parameters

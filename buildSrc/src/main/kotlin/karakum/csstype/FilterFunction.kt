@@ -57,7 +57,7 @@ internal fun FilterFunction(): ConversionResult {
                 else -> f.types.map { f.name to arrayOf("value" to it) }
             }
         }
-        .map { (name, parameters) -> factory(name, FILTER_FUNCTION, parameters, " ") }
+        .map { (name, parameters) -> function(name, FILTER_FUNCTION, parameters, " ") }
 
     return ConversionResult(
         name = FILTER_FUNCTION,

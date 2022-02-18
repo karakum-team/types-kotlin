@@ -18,6 +18,19 @@ internal fun factory(
     name: String,
     returnType: String,
     parameters: Array<out Pair<String, String>>,
+): String {
+    return """
+    inline fun ${name.kebabToCamel()}(
+        ${parameters.joinToString("\n") { (n, v) -> "$n: $v," }}
+    ): $returnType =
+        "${parameters.joinToString(" ") { (n) -> "$$n" }}".unsafeCast<$returnType>()
+    """.trimIndent()
+}
+
+internal fun function(
+    name: String,
+    returnType: String,
+    parameters: Array<out Pair<String, String>>,
     delimiter: String = ", ",
 ): String {
     return """

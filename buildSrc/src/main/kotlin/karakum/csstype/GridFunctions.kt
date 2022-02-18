@@ -16,7 +16,7 @@ internal fun GridFunctions(): ConversionResult {
         "times" to "Int",
         "repeat" to AUTO_REPEAT,
     ).map { firstParameter ->
-        factory(
+        function(
             name = "repeat",
             returnType = GRID_TEMPLATE_TRACKS,
             parameters = arrayOf(
