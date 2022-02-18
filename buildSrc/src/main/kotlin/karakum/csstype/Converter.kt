@@ -331,8 +331,11 @@ private fun convertUnion(
         .filter { !it.startsWith("\"-webkit-") }
         .joinToString(" | ")
 
-    tryToAlias(name, values)
-        ?.let { return it }
+    tryToAlias(name, values)?.let {
+        return if (name in LAYOUT_CLASSES) {
+            it.copy(body = it.body + "\n\n" + layoutFactories(name))
+        } else it
+    }
 
     return ConversionResult(name, "// $values\nsealed external interface $declaration")
 }
