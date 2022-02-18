@@ -24,8 +24,7 @@ internal class ColorConsumer : ParentConsumer {
         val newBody = oldType.body
             .replaceFirst("// Globals | DataType.Color\n", "")
             .replaceFirst(COLOR_PROPERTY, "$COLOR_PROPERTY:\n$parentTypes")
-        val newType = oldType.copy(body = newBody
-        )
+        val newType = oldType.copy(body = newBody)
         return result - oldType + newType
     }
 }
