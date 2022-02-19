@@ -49,6 +49,9 @@ private val EXCLUDED_ENUMS = setOf(
 
     "Marks",
     "LineStyle",
+
+    "FontDisplay",
+    "SpeakAs",
 )
 
 private val VALID_PARENT = setOf(

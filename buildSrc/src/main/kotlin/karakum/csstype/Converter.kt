@@ -78,7 +78,7 @@ internal fun convertDefinitions(
     )
 
     val propertyTypes = listOf(
-        AutoType(noneContext),
+        AutoType(autoContext),
         NoneType(noneContext),
 
         Angle(),
