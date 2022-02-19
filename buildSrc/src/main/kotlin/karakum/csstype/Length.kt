@@ -5,13 +5,11 @@ import karakum.common.sealedUnionBody
 const val LENGTH = "Length"
 
 private val LENGTH_LIKE_VALUES = listOf(
-    "auto",
     "fit-content",
     "intrinsic",
     "max-content",
     "min-content",
     "min-intrinsic",
-    "none",
     "normal",
 )
 

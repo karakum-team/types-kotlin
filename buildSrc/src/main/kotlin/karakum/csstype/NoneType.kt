@@ -5,8 +5,8 @@ internal const val NONE_TYPE = "NoneType"
 internal fun NoneType(
     parentProvider: ParentProvider,
 ): ConversionResult {
-    val parentTypes = parentProvider.parentTypes
-        .sorted()
+    val parentTypes = sequenceOf("$LENGTH_TYPE.$NONE")
+        .plus(parentProvider.parentTypes.sorted())
         .joinToString(",\n")
 
     val body = """
