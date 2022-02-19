@@ -5,6 +5,8 @@ import karakum.common.sealedUnionBody
 import karakum.common.unionBody
 import karakum.common.unionBodyByConstants
 
+private const val NONE_VALUE = "\"none\""
+
 private val LENGTH_UNIONS = setOf(
     "MaskPosition",
     "ObjectPosition",
@@ -126,14 +128,16 @@ internal fun tryToUnion(
         else -> "// $parentType\n"
     }
 
-    if (items.singleOrNull() == "\"none\"") {
+    if (NONE_VALUE in items) {
         comment += "// $NONE\n"
+        items = items - NONE_VALUE
+    }
 
+    if (items.isEmpty())
         return ConversionResult(
             name = name,
             body = comment + "sealed external interface $name",
         )
-    }
 
     return ConversionResult(
         name = name,
