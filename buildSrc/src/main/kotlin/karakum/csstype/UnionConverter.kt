@@ -45,6 +45,15 @@ private val EXCLUDED_ENUMS = setOf(
     "Color",
     "LineWidth",
     "Bleed",
+
+    "Marks",
+    "LineStyle",
+)
+
+private val VALID_PARENT = setOf(
+    "Globals",
+    NAMED_COLOR,
+    "TLength"
 )
 
 internal fun tryToUnion(
@@ -78,17 +87,17 @@ internal fun tryToUnion(
     }
 
     items = items - "(string & {})"
-    when (items[0]) {
-        "Globals",
-        NAMED_COLOR,
-        "TLength",
-        -> Unit
+    var parentType = items[0]
+
+    when {
+        parentType in VALID_PARENT
+        -> items = items.drop(1)
+
+        name in EXCLUDED_ENUMS
+        -> parentType = ""
 
         else -> return null
     }
-
-    var parentType = items[0]
-    items = items.drop(1)
 
     items = when (name) {
         "TextDecoration",
@@ -124,7 +133,10 @@ internal fun tryToUnion(
         return null
 
     var comment = when (parentType) {
-        NAMED_COLOR -> ""
+        NAMED_COLOR,
+        "",
+        -> ""
+
         else -> "// $parentType\n"
     }
 
