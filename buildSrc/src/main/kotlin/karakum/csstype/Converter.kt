@@ -91,9 +91,9 @@ internal fun convertDefinitions(
 
         TransformFunction(),
         FilterFunction(),
-        ReferenceFunctions(),
+        referenceFunctions(),
         AutoRepeat(),
-        GridFunctions(),
+        gridFunctions(),
 
         ColorType(),
         AngularColorStop(),

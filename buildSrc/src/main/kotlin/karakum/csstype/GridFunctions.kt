@@ -11,7 +11,7 @@ internal fun AutoRepeat(): ConversionResult =
         unionBody(AUTO_REPEAT, listOf("auto-fill", "auto-fit")),
     )
 
-internal fun GridFunctions(): ConversionResult {
+internal fun gridFunctions(): ConversionResult {
     val declarations = sequenceOf(
         "times" to "Int",
         "repeat" to AUTO_REPEAT,

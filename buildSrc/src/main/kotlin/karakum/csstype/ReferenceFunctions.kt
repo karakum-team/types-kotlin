@@ -1,6 +1,6 @@
 package karakum.csstype
 
-internal fun ReferenceFunctions(): ConversionResult {
+internal fun referenceFunctions(): ConversionResult {
     val declarations = sequenceOf(
         function(
             name = "attr",
