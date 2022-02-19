@@ -33,7 +33,7 @@ internal fun function(
     name: String,
     returnType: String,
     parameters: Parameters,
-    delimiter: String = ", ",
+    delimiter: String = ",",
 ): String {
     return """
     inline fun ${name.kebabToCamel()}(
