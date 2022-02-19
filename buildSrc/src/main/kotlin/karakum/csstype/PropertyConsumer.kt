@@ -5,6 +5,7 @@ internal class PropertyConsumer : ParentConsumer {
         items: List<ConversionResult>,
     ): List<ConversionResult> {
         val typeMap = sequenceOf(
+            NONE_TYPE,
             COLOR_TYPE,
             GRID_LINE_PROPERTY,
             LINE_STYLE_PROPERTY,

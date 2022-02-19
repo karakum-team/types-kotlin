@@ -36,6 +36,8 @@ internal fun convertDefinitions(
                 else -> convertDefinition(name, content)
             }
         }
+        .plus(None())
+        .plus(NoneType())
         .toList()
 
     val globalsContext = ParentContext("Globals")
