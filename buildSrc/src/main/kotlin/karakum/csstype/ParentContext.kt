@@ -12,7 +12,7 @@ internal interface ParentConsumer {
 }
 
 internal class ParentContext(
-    private val type: String,
+    type: String,
 ) : ParentProvider, ParentConsumer {
     private val marker: String = "// $type\n"
 

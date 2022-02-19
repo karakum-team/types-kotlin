@@ -121,13 +121,24 @@ internal fun tryToUnion(
     if (!items.all { it.startsWith('"') })
         return null
 
-    val comment = when (parentType) {
+    var comment = when (parentType) {
         NAMED_COLOR -> ""
         else -> "// $parentType\n"
     }
 
-    val enumBody = comment + sealedUnionBody(name, items.toUnionValues())
-    return ConversionResult(name, enumBody)
+    if (items.singleOrNull() == "\"none\"") {
+        comment += "// $NONE\n"
+
+        return ConversionResult(
+            name = name,
+            body = comment + "sealed external interface $name",
+        )
+    }
+
+    return ConversionResult(
+        name = name,
+        body = comment + sealedUnionBody(name, items.toUnionValues()),
+    )
 }
 
 internal fun List<String>.toUnionValues(): List<String> =

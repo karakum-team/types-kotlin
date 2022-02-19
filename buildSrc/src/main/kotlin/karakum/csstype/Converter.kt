@@ -37,10 +37,10 @@ internal fun convertDefinitions(
             }
         }
         .plus(None())
-        .plus(NoneType())
         .toList()
 
     val globalsContext = ParentContext("Globals")
+    val noneContext = ParentContext(NONE)
     val lengthContext = ParentContext(LENGTH_PROPERTY)
     val timeContext = ParentContext(TIME_PROPERTY)
 
@@ -48,6 +48,7 @@ internal fun convertDefinitions(
         LengthTypeConsumer(),
         PropertyConsumer(),
         globalsContext,
+        noneContext,
         lengthContext,
         timeContext,
         ColorConsumer(),
@@ -74,6 +75,8 @@ internal fun convertDefinitions(
     )
 
     val propertyTypes = listOf(
+        NoneType(noneContext),
+
         Angle(),
         Length(),
         LengthProperty(lengthContext),
