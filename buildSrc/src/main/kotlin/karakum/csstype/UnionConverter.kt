@@ -5,6 +5,7 @@ import karakum.common.sealedUnionBody
 import karakum.common.unionBody
 import karakum.common.unionBodyByConstants
 
+private const val AUTO_VALUE = "\"auto\""
 private const val NONE_VALUE = "\"none\""
 
 private val LENGTH_UNIONS = setOf(
@@ -138,6 +139,11 @@ internal fun tryToUnion(
         -> ""
 
         else -> "// $parentType\n"
+    }
+
+    if (AUTO_VALUE in items) {
+        comment += "// $AUTO\n"
+        items = items - AUTO_VALUE
     }
 
     if (NONE_VALUE in items) {
