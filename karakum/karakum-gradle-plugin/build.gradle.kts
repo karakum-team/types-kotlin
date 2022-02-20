@@ -13,6 +13,6 @@ dependencies {
 gradlePlugin {
     val karakum by plugins.creating {
         id = "team.karakum.converter"
-        implementationClass = "team.karakum.gradle.plugin.KarakumGradlePlugin"
+        implementationClass = "team.karakum.converter.gradle.plugin.KarakumConverterPlugin"
     }
 }

@@ -1,9 +1,9 @@
-package team.karakum.gradle.plugin
+package team.karakum.converter.gradle.plugin
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-class KarakumGradlePlugin : Plugin<Project> {
+class KarakumConverterPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         // Register a task
         project.tasks.register("convert") { task ->
