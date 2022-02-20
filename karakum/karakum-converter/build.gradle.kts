@@ -16,12 +16,12 @@ val executableJs by configurations.creating {
 dependencies {
 }
 
-kotlin {
-    js(IR) {
-        useCommonJs()
-        binaries.executable()
-        nodejs()
-    }
+kotlin.js {
+    moduleName = project.name
+
+    nodejs()
+    useCommonJs()
+    binaries.executable()
 }
 
 val compileProductionExecutableKotlinJs = tasks.named<Kotlin2JsCompile>("compileProductionExecutableKotlinJs")
