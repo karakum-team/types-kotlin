@@ -13,6 +13,8 @@ val executableJs by configurations.creating {
 }
 
 dependencies {
+    compileOnly(kotlin("gradle-plugin"))
+
     executableJs(
         project(
             mapOf(
