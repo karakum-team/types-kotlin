@@ -13,6 +13,14 @@ internal fun AutoRepeat(): ConversionResult =
 
 internal fun gridFunctions(): ConversionResult {
     val declarations = sequenceOf(
+        function(
+            name = "fit-content",
+            returnType = GRID_TEMPLATE_TRACKS,
+            parameters = arrayOf(
+                "value" to LENGTH,
+            )
+        )
+    ) + sequenceOf(
         "times" to "Int",
         "repeat" to AUTO_REPEAT,
     ).map { firstParameter ->
