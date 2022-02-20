@@ -84,6 +84,7 @@ internal fun convertDefinitions(
         Angle(),
         Length(),
         LengthProperty(lengthContext),
+        AutoLength(),
         AutoLengthProperty(),
         Percentage(),
         GridLength(),

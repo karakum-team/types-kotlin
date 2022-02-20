@@ -26,7 +26,7 @@ internal class LengthTypeConsumer : ParentConsumer {
                     .map { it.removeSurrounding("\"") }
                     .map { it to item.name }
             }
-            .plus("auto" to AUTO_LENGTH_PROPERTY)
+            .plus("auto" to AUTO_LENGTH)
             .groupBy({ it.first }, { it.second })
 
         val childTypes = parentMap.asSequence()
@@ -44,6 +44,7 @@ internal class LengthTypeConsumer : ParentConsumer {
             .joinToString("\n\n")
 
         val lengthTypeParents = sequenceOf(
+            AUTO_LENGTH,
             GRID_LENGTH,
             LENGTH_PROPERTY,
         ).plus(simpleLengthItems.map { it.name })

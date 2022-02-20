@@ -15,8 +15,7 @@ private val PARAMETERS = listOf(
 internal fun layoutFactories(name: String): String {
     val parameterType = when (name) {
         "Padding" -> LENGTH
-        // TODO: use AutoLength
-        else -> AUTO_LENGTH_PROPERTY
+        else -> AUTO_LENGTH
     }
 
     return PARAMETERS.asSequence()
