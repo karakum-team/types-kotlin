@@ -1,5 +1,6 @@
 plugins {
     id("io.github.turansky.kfc.library")
+    id("org.karakum.plugin")
     `node-declarations`
 }
 

@@ -16,6 +16,8 @@ dependencyResolutionManagement {
     }
 }
 
+includeBuild("karakum-plugin")
+
 include("csstype-kotlin")
 include("node-kotlin")
 include("popper-kotlin")
