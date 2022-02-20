@@ -16,7 +16,7 @@ dependencyResolutionManagement {
     }
 }
 
-includeBuild("karakum-plugin")
+includeBuild("karakum")
 
 include("csstype-kotlin")
 include("node-kotlin")
