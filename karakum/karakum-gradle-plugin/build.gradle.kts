@@ -26,6 +26,8 @@ dependencies {
 }
 
 tasks.named<Jar>("jar") {
+    dependsOn(":karakum-converter:compileProductionExecutableKotlinJs")
+
     from(executableJs.asPath)
 }
 
