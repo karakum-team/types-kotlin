@@ -10,7 +10,7 @@ import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsExec
 
 class KarakumConverterPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-//        val jsResource = requireNotNull(KarakumConverterPlugin::class.java.getResource("/karakum-converter.js"))
+        val jsResource = requireNotNull(KarakumConverterPlugin::class.java.getResource("/karakum-converter.js"))
 //        val executableJs = project.layout.buildDirectory.file("karakum/karakum-converter.js").get().asFile
 //
 //        val kotlinJsTarget = project.kotlinExtension.targets.firstNotNullOf { it as? KotlinJsTarget }
