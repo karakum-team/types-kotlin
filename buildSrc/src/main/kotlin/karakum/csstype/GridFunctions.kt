@@ -3,6 +3,7 @@ package karakum.csstype
 import karakum.common.unionBody
 
 private const val AUTO_REPEAT = "AutoRepeat"
+private const val GRID_AUTO_TRACKS = "GridAutoTracks"
 private const val GRID_TEMPLATE_TRACKS = "GridTemplateTracks"
 
 internal fun AutoRepeat(): ConversionResult =
@@ -18,8 +19,16 @@ internal fun gridFunctions(): ConversionResult {
             returnType = GRID_TEMPLATE_TRACKS,
             parameters = arrayOf(
                 "value" to LENGTH,
-            )
-        )
+            ),
+        ),
+        function(
+            name = "minmax",
+            returnType = GRID_AUTO_TRACKS,
+            parameters = arrayOf(
+                "min" to GRID_AUTO_TRACKS,
+                "max" to GRID_AUTO_TRACKS,
+            ),
+        ),
     ) + sequenceOf(
         "times" to "Int",
         "repeat" to AUTO_REPEAT,
