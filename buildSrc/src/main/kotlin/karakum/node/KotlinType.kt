@@ -37,7 +37,9 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "() => void" to "() -> Unit",
 
-    "BufferEncoding" to "node.buffer.BufferEncoding"
+    "BufferEncoding" to "node.buffer.BufferEncoding",
+
+    "-1 | 0 | 1" to "Int /* -1 | 0 | 1 */",
 )
 
 private val TYPED = setOf(
