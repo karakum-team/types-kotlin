@@ -278,8 +278,11 @@ private fun convertUnion(
             enumMode = true,
         )
 
-    val declaration = source.removePrefix("type ")
+    var declaration = source.removePrefix("type ")
         .substringBefore(" =")
+
+    if (declaration == "GridAutoTracks")
+        declaration += ":\nGridTemplateTracks"
 
     val body = source.substringAfter(" =")
         .removePrefix("\n")
