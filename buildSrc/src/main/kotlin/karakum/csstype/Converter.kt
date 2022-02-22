@@ -41,6 +41,8 @@ internal fun convertDefinitions(
         .toList()
 
     val globalsContext = ParentContext("Globals")
+    val integerContext = ParentContext(INTEGER)
+    val numberContext = ParentContext(NUMBER)
     val autoContext = ParentContext(AUTO)
     val noneContext = ParentContext(NONE)
     val lengthContext = ParentContext(LENGTH_PROPERTY)
@@ -50,6 +52,8 @@ internal fun convertDefinitions(
         LengthTypeConsumer(),
         PropertyConsumer(),
         globalsContext,
+        integerContext,
+        numberContext,
         autoContext,
         noneContext,
         lengthContext,
@@ -78,6 +82,8 @@ internal fun convertDefinitions(
     )
 
     val propertyTypes = listOf(
+        IntegerType(integerContext),
+        NumberType(numberContext),
         AutoType(autoContext),
         NoneType(noneContext),
 
@@ -380,9 +386,9 @@ private fun convertNumberType(
     name: String,
     source: String,
 ): ConversionResult {
-    val type = when (name) {
-        in INT_TYPES -> "Int"
-        in DOUBLE_TYPES -> "Double"
+    val comment = when (name) {
+        in INT_TYPES -> INTEGER
+        in DOUBLE_TYPES -> NUMBER
         else -> TODO("Support number type for `$name`")
     }
 
@@ -390,14 +396,7 @@ private fun convertNumberType(
         .replace(" | (number & {}) | (string & {})", "")
         .replace(" | (number & {})", "")
 
-    val mainBody = convertUnion(name, bodySource).body
-
-    val body = """
-        $mainBody
-        
-        inline fun $name(value: $type): $name =
-            value.unsafeCast<$name>()
-    """.trimIndent()
+    val body = "// $comment\n" + convertUnion(name, bodySource).body
 
     return ConversionResult(
         name = name,

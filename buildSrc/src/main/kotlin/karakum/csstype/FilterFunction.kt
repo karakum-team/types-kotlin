@@ -7,8 +7,6 @@ private val PARENT_TYPES = listOf(
     "BackdropFilter",
 )
 
-private const val NUMBER = "Number"
-
 private class FilterFactory(
     val name: String,
     val types: Array<out String>,

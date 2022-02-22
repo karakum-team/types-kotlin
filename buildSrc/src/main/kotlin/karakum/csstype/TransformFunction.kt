@@ -3,8 +3,6 @@ package karakum.csstype
 private const val TRANSFORM = "Transform"
 private const val TRANSFORM_FUNCTION = "TransformFunction"
 
-private const val NUMBER = "Number"
-
 private data class Parameter(
     val name: String,
     val type: String,
