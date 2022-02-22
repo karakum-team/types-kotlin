@@ -13,5 +13,7 @@ sealed external interface NumberType :
     Scale,
     Zoom
 
-inline fun number(value: Double): NumberType =
+inline fun number(
+    value: Double,
+): NumberType =
     value.unsafeCast<NumberType>()

@@ -16,5 +16,7 @@ sealed external interface IntegerType :
     Widows,
     ZIndex
 
-inline fun integer(value: Int): IntegerType =
+inline fun integer(
+    value: Int,
+): IntegerType =
     value.unsafeCast<IntegerType>()
