@@ -3,11 +3,16 @@ package karakum.csstype
 internal const val NUMBER = "Number"
 internal const val NUMBER_TYPE = "NumberType"
 
+private val PARENT_TYPES = listOf(
+    "LineHeight",
+)
+
 internal fun NumberType(
     parentProvider: ParentProvider,
 ): ConversionResult {
-    val parentTypes = parentProvider
-        .parentTypes.sorted()
+    val parentTypes = parentProvider.parentTypes
+        .plus(PARENT_TYPES)
+        .sorted()
         .joinToString(",\n")
 
     val body = """
