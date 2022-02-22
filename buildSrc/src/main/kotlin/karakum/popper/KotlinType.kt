@@ -23,23 +23,23 @@ private val STANDARD_TYPE_MAP = mapOf(
     "boolean | RoundOffsets" to "Boolean /* boolean | RoundOffsets */",
 
     "() => void" to "() -> Unit",
-    "() => Promise<Partial<State>>" to "() -> kotlin.js.Promise<State>",
+    "() => Promise<Partial<State>>" to "() -> Promise<State>",
     "(setOptionsAction: SetAction<Partial<OptionsGeneric<any>>>) => Promise<Partial<State>>" to
-            "(SetAction<OptionsGeneric<*>>) -> kotlin.js.Promise<State>",
+            "(SetAction<OptionsGeneric<*>>) -> Promise<State>",
 
     "Element" to "org.w3c.dom.Element",
     "() => ClientRect | DOMRect" to "() -> org.w3c.dom.DOMRect /* () -> ClientRect */",
 
     "Partial<Options>" to "Options",
 
-    "Array<string>" to "kotlinx.js.ReadonlyArray<String>",
-    "Array<TModifier>" to "kotlinx.js.ReadonlyArray<TModifier>",
-    "Array<Placement>" to "kotlinx.js.ReadonlyArray<popper.core.Placement>",
-    "Array<Partial<Modifier<any, any>>>" to "kotlinx.js.ReadonlyArray<Modifier<*>>",
+    "Array<string>" to "ReadonlyArray<String>",
+    "Array<TModifier>" to "ReadonlyArray<TModifier>",
+    "Array<Placement>" to "ReadonlyArray<popper.core.Placement>",
+    "Array<Partial<Modifier<any, any>>>" to "ReadonlyArray<Modifier<*>>",
     "(arg0: Partial<State>) => void" to "UpdateCallback",
 
     "Name" to "ModifierName<Options>",
-    "Obj" to "kotlinx.js.Record<String, *>",
+    "Obj" to "Record<String, *>",
 
     "Padding" to "popper.core.Padding",
 
