@@ -14,8 +14,7 @@ internal fun IntegerType(
         sealed external interface $INTEGER_TYPE:
         $parentTypes
         
-        inline fun integer(value: Int): $INTEGER_TYPE =
-            value.unsafeCast<$INTEGER_TYPE>()
+        ${factory("integer", INTEGER_TYPE, arrayOf("value" to "Int"))}
     """.trimIndent()
 
     return ConversionResult(INTEGER, body)

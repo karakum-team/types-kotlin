@@ -14,8 +14,7 @@ internal fun NumberType(
         sealed external interface $NUMBER_TYPE:
         $parentTypes
         
-        inline fun number(value: Double): $NUMBER_TYPE =
-            value.unsafeCast<$NUMBER_TYPE>()
+        ${factory("number", NUMBER_TYPE, arrayOf("value" to "Double"))}
     """.trimIndent()
 
     return ConversionResult(NUMBER, body)

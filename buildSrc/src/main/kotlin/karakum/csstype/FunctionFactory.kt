@@ -21,11 +21,17 @@ internal fun factory(
     returnType: String,
     parameters: Parameters,
 ): String {
+    val source = if (parameters.size > 1) {
+        """"${parameters.joinToString(" ") { (n) -> "$$n" }}""""
+    } else {
+        parameters.single().first
+    }
+
     return """
     inline fun ${name.kebabToCamel()}(
         ${parameters.stringify()}
     ): $returnType =
-        "${parameters.joinToString(" ") { (n) -> "$$n" }}".unsafeCast<$returnType>()
+        $source.unsafeCast<$returnType>()
     """.trimIndent()
 }
 
