@@ -84,6 +84,7 @@ internal fun convertDefinitions(
     val propertyTypes = listOf(
         IntegerType(integerContext),
         NumberType(numberContext),
+        StringType(),
         AutoType(autoContext),
         NoneType(noneContext),
 
