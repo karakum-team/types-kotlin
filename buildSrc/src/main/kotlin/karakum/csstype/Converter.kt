@@ -85,6 +85,7 @@ internal fun convertDefinitions(
         IntegerType(integerContext),
         NumberType(numberContext),
         StringType(),
+        IdentType(),
         AutoType(autoContext),
         NoneType(noneContext),
 
