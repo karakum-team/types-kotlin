@@ -6,6 +6,7 @@ plugins {
 val kotlinWrappersVersion = property("kotlin-wrappers.version") as String
 
 dependencies {
+    implementation(npmv("history"))
     implementation(npmv("react-router-dom"))
 
     implementation(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:$kotlinWrappersVersion"))
