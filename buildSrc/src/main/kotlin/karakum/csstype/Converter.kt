@@ -100,6 +100,7 @@ internal fun convertDefinitions(
         BlendModeProperty(),
 
         TransformFunction(),
+        mathFunctions(),
         FilterFunction(),
         referenceFunctions(),
         AutoRepeat(),

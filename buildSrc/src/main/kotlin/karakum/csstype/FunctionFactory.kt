@@ -45,6 +45,6 @@ internal fun function(
 
 private fun Parameters.stringify(): String =
     joinToString("\n") { (n, v) ->
-        val vararg = if (n == "stops") "vararg" else ""
+        val vararg = if (n == "stops" || n == "values") "vararg" else ""
         "$vararg $n: $v,"
     }
