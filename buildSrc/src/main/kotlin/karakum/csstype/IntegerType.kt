@@ -14,7 +14,7 @@ internal fun IntegerType(
         sealed external interface $INTEGER_TYPE:
         $parentTypes
         
-        inline fun integer(value: Double): $INTEGER_TYPE =
+        inline fun integer(value: Int): $INTEGER_TYPE =
             value.unsafeCast<$INTEGER_TYPE>()
     """.trimIndent()
 
