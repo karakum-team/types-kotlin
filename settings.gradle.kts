@@ -18,6 +18,8 @@ dependencyResolutionManagement {
 
 includeBuild("karakum")
 
+include("cesium-kotlin")
+include("cesium-kotlin-nm")
 include("csstype-kotlin")
 include("node-kotlin")
 include("popper-kotlin")
