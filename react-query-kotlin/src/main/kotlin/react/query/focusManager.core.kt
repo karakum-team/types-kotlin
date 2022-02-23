@@ -9,12 +9,12 @@
 
 package react.query
 
-typealias SetupFn = (setFocused: (focused: Boolean?) -> Unit) -> (() -> Unit)?
+typealias FocusManagerSetupFn = (setFocused: (focused: Boolean?) -> Unit) -> (() -> Unit)?
 
 open external class FocusManager : Subscribable<Listener> {
     override fun onSubscribe()
     override fun onUnsubscribe()
-    open fun setEventListener(setup: SetupFn)
+    open fun setEventListener(setup: FocusManagerSetupFn)
     open fun setFocused(focused: Boolean = definedExternally)
     open fun onFocus()
     open fun isFocused(): Boolean

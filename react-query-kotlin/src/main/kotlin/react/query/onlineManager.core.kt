@@ -9,12 +9,12 @@
 
 package react.query
 
-typealias SetupFn = (setOnline: (online: Boolean?) -> Unit) -> (() -> Unit)?
+typealias OnlineManagerSetupFn = (setOnline: (online: Boolean?) -> Unit) -> (() -> Unit)?
 
 open external class OnlineManager : Subscribable<Listener> {
     override fun onSubscribe()
     override fun onUnsubscribe()
-    open fun setEventListener(setup: SetupFn)
+    open fun setEventListener(setup: OnlineManagerSetupFn)
     open fun setOnline(online: Boolean = definedExternally)
     open fun onOnline()
     open fun isOnline(): Boolean
