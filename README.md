@@ -2,7 +2,7 @@
 [![Kotlin](https://img.shields.io/badge/kotlin-1.6.10-blue.svg?logo=kotlin)](http://kotlinlang.org)
 [![Kotlin/JS. IR supported](https://img.shields.io/badge/kotlin-IR%20supported-yellow?logo=kotlin&logoColor=yellow)](https://kotl.in/jsirsupported)
 
-# React types [Kotlin]
+# Types [Kotlin]
 
 | Library                                                                                   | NPM version                                                                                             | Version                                                                                                                                                                                                    |
 |-------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
