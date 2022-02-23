@@ -7,7 +7,7 @@ repositories {
     mavenCentral()
 }
 
-val executableJs by configurations.creating {
+val embeddedJsLibrary by configurations.creating {
     isCanBeConsumed = false
     isCanBeResolved = true
 }
@@ -15,20 +15,32 @@ val executableJs by configurations.creating {
 dependencies {
     compileOnly(kotlin("gradle-plugin"))
 
-    executableJs(
+    embeddedJsLibrary(
         project(
             mapOf(
                 "path" to ":karakum-converter",
-                "configuration" to "executableJs"
+                "configuration" to "embeddedJsLibrary"
             )
         )
     )
 }
 
-tasks.named<Jar>("jar") {
-    dependsOn(":karakum-converter:compileProductionExecutableKotlinJs")
+val embeddedJsLibraryFileName = "karakum.zip"
+val embeddedJsLibraryDestinationDirectory = layout.buildDirectory.dir("tmp")
 
-    from(executableJs.asPath)
+val embeddedJsLibraryZip by tasks.registering(Zip::class) {
+    dependsOn(embeddedJsLibrary)
+
+    archiveFileName.set(embeddedJsLibraryFileName)
+    destinationDirectory.set(embeddedJsLibraryDestinationDirectory)
+
+    from(embeddedJsLibrary.files)
+}
+
+tasks.named<Jar>("jar") {
+    dependsOn(embeddedJsLibraryZip)
+
+    from(embeddedJsLibraryDestinationDirectory.get().file(embeddedJsLibraryFileName))
 }
 
 gradlePlugin {

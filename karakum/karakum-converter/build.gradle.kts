@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
+import org.jetbrains.kotlin.gradle.targets.js.npm.PublicPackageJsonTask
 
 plugins {
     kotlin("js") version "1.6.10"
@@ -8,7 +8,7 @@ repositories {
     mavenCentral()
 }
 
-val executableJs by configurations.creating {
+val embeddedJsLibrary by configurations.creating {
     isCanBeConsumed = true
     isCanBeResolved = false
 }
@@ -24,10 +24,14 @@ kotlin.js {
     binaries.executable()
 }
 
-val compileProductionExecutableKotlinJs = tasks.named<Kotlin2JsCompile>("compileProductionExecutableKotlinJs")
+val productionExecutableCompileSync = tasks.named<Copy>("productionExecutableCompileSync")
+val publicPackageJson = tasks.named<PublicPackageJsonTask>("publicPackageJson")
 
 artifacts {
-    add("executableJs", compileProductionExecutableKotlinJs.get().outputFileProperty) {
-        builtBy(compileProductionExecutableKotlinJs)
+    add(embeddedJsLibrary.name, productionExecutableCompileSync.get().destinationDir) {
+        builtBy(productionExecutableCompileSync)
+    }
+    add(embeddedJsLibrary.name, publicPackageJson.get().packageJsonFile) {
+        builtBy(publicPackageJson)
     }
 }
