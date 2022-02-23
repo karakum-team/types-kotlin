@@ -217,6 +217,7 @@ fun kotlinFunctionType(type: String): String =
         .replace("void", "Unit")
         .replace("string", "String")
         .replace("number", "Int")
+        .replace("?: boolean", ": Boolean?")
         .replace("boolean", "Boolean")
         .replace("Query)", "Query<*, *, *, *>)")
         .replace("TPageData[]", "ReadonlyArray<TPageData>")
