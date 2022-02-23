@@ -34,7 +34,7 @@ fun parseTypeParameters(
     return source.substringAfter("<")
         .removeSuffix(">")
         .replace(" extends QueryOptions<any, any, any, ", " extends QueryOptions<*, *, *, ")
-        .replace(" any[]", " Array<*>")
+        .replace(" any[]", " ReadonlyArray<*>")
         .splitToSequence(", ")
         .map { it.substringBefore(" = ") }
         .map { it.replace(" extends ", ": ") }
