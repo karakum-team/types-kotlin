@@ -1,6 +1,6 @@
 package karakum.query
 
-private const val PROMISE = "kotlin.js.Promise"
+private const val PROMISE = "Promise"
 
 private val CLASS_REGEX = Regex("""[\w\d]+""")
 
@@ -34,9 +34,9 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "QueryState" to "QueryState<*, *>",
     "QueryOptions<any, any>" to "QueryOptions<*, *, *, *>",
-    "QueryObserverOptions[]" to "Array<out QueryObserverOptions<*, *, *, *, *>>",
-    "UseQueryOptions[]" to "Array<out UseQueryOptions<*, *, *, *>>",
-    "UseQueryResult[]" to "Array<out UseQueryResult<*, *>>",
+    "QueryObserverOptions[]" to "ReadonlyArray<QueryObserverOptions<*, *, *, *, *>>",
+    "UseQueryOptions[]" to "ReadonlyArray<UseQueryOptions<*, *, *, *>>",
+    "UseQueryResult[]" to "ReadonlyArray<UseQueryResult<*, *>>",
     "RefetchOptions & RefetchQueryFilters<TPageData>" to "RefetchOptions /* & RefetchQueryFilters<TPageData> */",
 
     "QueriesResults<T>" to "QueriesResults<T,*,*>",
@@ -154,7 +154,7 @@ internal fun kotlinType(
                         else -> itemType
                     }
 
-                    "Array<out $itemType>"
+                    "ReadonlyArray<$itemType>"
                 } else t
             }
 
@@ -167,14 +167,14 @@ internal fun kotlinType(
     }
 
     if (type.endsWith("[]") && "|" !in type)
-        return "Array<out ${kotlinType(type.removeSuffix("[]"), name)}>"
+        return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
 
     if (type.startsWith("[") && type.endsWith("]")) {
         val (a, b) = type.removeSurrounding("[", "]")
             .split(", ")
             .map { kotlinType(it) }
 
-        return "kotlinx.js.JsPair<$a, $b>"
+        return "JsPair<$a, $b>"
     }
 
     val promiseResult = type.removeSurrounding("Promise<", ">")
@@ -218,10 +218,9 @@ fun kotlinFunctionType(type: String): String =
         .replace("string", "String")
         .replace("number", "Int")
         .replace("boolean", "Boolean")
-        .replace("Promise", "kotlin.js.Promise")
         .replace("Query)", "Query<*, *, *, *>)")
-        .replace("TPageData[]", "Array<out TPageData>")
-        .replace("TQueryFnData[]", "Array<out TQueryFnData>")
+        .replace("TPageData[]", "ReadonlyArray<TPageData>")
+        .replace("TQueryFnData[]", "ReadonlyArray<TQueryFnData>")
         .replace("Query<unknown, unknown, unknown>", "Query<*, *, *, *>")
         .replace("Mutation<any, any, any>", "Mutation<*, *, *, *>")
         .replace("RefetchOptions & RefetchQueryFilters<TPageData>?", "RefetchOptions? /* & RefetchQueryFilters<TPageData> */")

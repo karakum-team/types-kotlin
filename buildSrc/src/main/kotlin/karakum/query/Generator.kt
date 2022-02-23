@@ -14,6 +14,15 @@ private enum class Suppress {
     ;
 }
 
+private val DEFAULT_IMPORTS = listOf(
+    "Promise" to "kotlin.js.Promise",
+
+    "JsPair" to "kotlinx.js.JsPair",
+    "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
+    "Record" to "kotlinx.js.Record",
+    "Void" to "kotlinx.js.Void",
+)
+
 // language=Kotlin
 private const val PACKAGE = """package react.query"""
 
@@ -123,11 +132,17 @@ private fun generate(
         } else ""
     }
 
+    val defaultImports = DEFAULT_IMPORTS
+        .filter { it.first in body }
+        .map { "import ${it.second}" }
+        .joinToString("\n")
+
     val text = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
         suppresses,
         PACKAGE,
+        defaultImports,
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")

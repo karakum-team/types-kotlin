@@ -54,8 +54,8 @@ class Type(
 
             body.startsWith("(") && "..." !in body -> {
                 kotlinFunctionType(body)
-                    .replace("QueryObserverResult[]", "Array<out QueryObserverResult<*, *>>")
-                    .replace("TQueryFnData[]", "Array<out TQueryFnData>")
+                    .replace("QueryObserverResult[]", "ReadonlyArray<QueryObserverResult<*, *>>")
+                    .replace("TQueryFnData[]", "ReadonlyArray<TQueryFnData>")
 
                     .replace("mutation: Mutation", "mutation: Mutation<*, *, *, *>")
                     .replace("mutation?: Mutation", "mutation: Mutation<*, *, *, *>?")
