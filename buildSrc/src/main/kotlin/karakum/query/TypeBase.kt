@@ -43,6 +43,11 @@ abstract class TypeBase : Declaration() {
             line.substringAfterLast(" extends ")
         }
 
+        if (type.startsWith("Omit<"))
+            return@lazy type
+                .removePrefix("Omit<")
+                .substringBefore(", '")
+
         if (type == "Subscribable")
             type = "Subscribable<Listener>"
 
