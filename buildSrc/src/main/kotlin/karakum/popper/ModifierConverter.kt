@@ -21,7 +21,7 @@ internal fun convertModifier(
 
     val typeParameter = when (optionsType) {
         "Options" -> "${name}Options"
-        "{}" -> "Nothing?"
+        "{}" -> "Void"
         else -> TODO()
     }
 
@@ -30,7 +30,7 @@ internal fun convertModifier(
         external val $name: popper.core.ModifierName<$typeParameter>
     """.trimIndent()
 
-    if (typeParameter == "Nothing?")
+    if (typeParameter == "Void")
         return ConversionResult(name, modifierBody)
 
     val optionsSource = source
