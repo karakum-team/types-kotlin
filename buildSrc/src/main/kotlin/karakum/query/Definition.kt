@@ -20,7 +20,14 @@ fun toDeclarations(
 ): List<Declaration> {
     val fixAction = definitionFile.name == "mutation.d.ts"
 
-    return getBlocks(definitionFile.readLines())
+    var content = definitionFile.readText()
+    content = when (definitionFile.name) {
+        "focusManager.d.ts" -> content.replace("SetupFn", "FocusManagerSetupFn")
+        "onlineManager.d.ts" -> content.replace("SetupFn", "OnlineManagerSetupFn")
+        else -> content
+    }
+
+    return getBlocks(content.split("\n"))
         .asSequence()
         .mapNotNull { (keyword, source) ->
             when (keyword) {
