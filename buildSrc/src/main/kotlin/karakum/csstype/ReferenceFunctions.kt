@@ -10,6 +10,21 @@ internal fun referenceFunctions(): ConversionResult {
             )
         ),
         function(
+            name = "env",
+            returnType = "T",
+            parameters = arrayOf(
+                "id" to IDENT,
+            )
+        ),
+        function(
+            name = "env",
+            returnType = "T",
+            parameters = arrayOf(
+                "id" to IDENT,
+                "fallback" to "T",
+            )
+        ),
+        function(
             name = "url",
             returnType = URL,
             parameters = arrayOf(

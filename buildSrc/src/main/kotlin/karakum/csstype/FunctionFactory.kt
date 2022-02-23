@@ -41,8 +41,10 @@ internal fun function(
     parameters: Parameters,
     delimiter: String = ",",
 ): String {
+    val typeParameters = if (returnType == "T") "<T: Any>" else ""
+
     return """
-    inline fun ${name.kebabToCamel()}(
+    inline fun $typeParameters ${name.kebabToCamel()}(
         ${parameters.stringify()}
     ): $returnType =
         "$name(${parameters.joinToString(delimiter) { (n) -> "$$n" }})".unsafeCast<$returnType>()
