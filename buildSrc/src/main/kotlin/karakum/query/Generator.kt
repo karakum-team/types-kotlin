@@ -119,7 +119,7 @@ private fun generate(
 
     val suppresses: String = run {
         val types = mutableListOf<Suppress>()
-        if ("> = Union" in body || "> = (" in body || "> = Any" in body)
+        if ("> = Union" in body || "> = (" in body || "> = Any" in body || "> = Function<" in body)
             types.add(Suppress.UNUSED_TYPEALIAS_PARAMETER)
 
         if (moduleRequired && "typealias " in body)

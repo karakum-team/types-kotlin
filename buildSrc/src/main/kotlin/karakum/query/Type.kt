@@ -46,13 +46,20 @@ class Type(
         when {
             body in SPECIAL_TYPES -> body.substringAfterLast(" | ")
 
+            body.toIntOrNull() != null -> body
+
             "|" in body -> "Union /* $body */"
 
             name.endsWith("Result") -> body
 
+            body == "Record<string, unknown>" -> "Record<String, *>"
+            body.startsWith("MutateFunction<") -> body
+
             body == "(...args: any[]) => void" -> "Function<Unit>"
 
-            body.startsWith("(") && "..." !in body -> {
+            body.startsWith("(") && "..." in body -> "Function<Unit> /* $body */"
+
+            body.startsWith("(") -> {
                 kotlinFunctionType(body)
                     .replace("QueryObserverResult[]", "ReadonlyArray<QueryObserverResult<*, *>>")
                     .replace("TQueryFnData[]", "ReadonlyArray<TQueryFnData>")
@@ -94,6 +101,9 @@ class Type(
             val parentDeclaration = declaration.replace("Result<", "BaseResult<")
             return "external sealed interface $declaration\n: $parentDeclaration"
         }
+
+        if (body.toIntOrNull() != null)
+            return "const val $name = $body"
 
         return "typealias $name${formatParameters(typeParameters)} = $body"
     }
