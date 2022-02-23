@@ -1,6 +1,7 @@
 // Automatically generated - do not modify!
 
 @file:JsModule("cesium")
+@file:JsNonModule
 
 @file:Suppress(
     "NESTED_CLASS_IN_EXTERNAL_INTERFACE",

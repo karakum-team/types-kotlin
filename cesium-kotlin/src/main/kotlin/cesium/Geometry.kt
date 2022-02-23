@@ -1,6 +1,7 @@
 // Automatically generated - do not modify!
 
 @file:JsModule("cesium")
+@file:JsNonModule
 
 @file:Suppress(
     "NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE",
