@@ -23,7 +23,11 @@ fun generateKotlinDeclarations(
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
             if ("inline operator fun " in body)
-                add(DECLARATION_CANT_BE_INLINED)
+                if (name == "$LENGTH.operators") {
+                    add(NOTHING_TO_INLINE)
+                } else {
+                    add(DECLARATION_CANT_BE_INLINED)
+                }
 
             if ("inline fun " in body)
                 add(if (RULE_BUILDER in body) DECLARATION_CANT_BE_INLINED else NOTHING_TO_INLINE)

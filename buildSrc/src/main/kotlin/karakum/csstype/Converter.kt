@@ -109,6 +109,7 @@ internal fun convertDefinitions(
 
         TransformFunction(),
         mathFunctions(),
+        lengthOperators(),
         FilterFunction(),
         referenceFunctions(),
         AutoRepeat(),

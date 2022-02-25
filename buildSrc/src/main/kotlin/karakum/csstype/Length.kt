@@ -2,7 +2,7 @@ package karakum.csstype
 
 import karakum.common.sealedUnionBody
 
-const val LENGTH = "Length"
+internal const val LENGTH = "Length"
 
 private val LENGTH_LIKE_VALUES = listOf(
     "fit-content",
@@ -13,15 +13,9 @@ private val LENGTH_LIKE_VALUES = listOf(
     "normal",
 )
 
-
 internal fun Length(): ConversionResult {
     val declarations = sequenceOf(
         sealedUnionBody(LENGTH, LENGTH_TYPE, LENGTH_LIKE_VALUES),
-
-        """
-            inline fun $LENGTH(value: String): $LENGTH =
-                value.unsafeCast<$LENGTH>()
-        """.trimIndent()
     ) + LENGTH_UNITS.map { (name, suffix) ->
         unitsExtension(LENGTH, name, suffix)
     }
