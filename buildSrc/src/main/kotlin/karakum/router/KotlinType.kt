@@ -25,7 +25,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "URLSearchParams" to "org.w3c.dom.url.URLSearchParams",
 
     "React.ReactNode" to "react.ReactNode",
-    "React.ReactElement" to "react.ReactElement",
+    "React.ReactElement" to "react.ReactElement<*>",
 
     "InitialEntry[]" to "kotlinx.js.ReadonlyArray<history.InitialEntry>",
     "RouteObject[]" to "kotlinx.js.ReadonlyArray<RouteObject>",
