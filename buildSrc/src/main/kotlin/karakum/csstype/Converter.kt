@@ -221,6 +221,9 @@ private fun convertDefinition(
     name: String,
     source: String,
 ): Sequence<ConversionResult> {
+    if (OVERFLOW_ALIAS_MAP.containsKey(name))
+        return emptySequence()
+
     val content = source
         .replace("TLength = (string & {}) | 0", "TLength")
         .replace("TTime = string & {}", "TTime")
