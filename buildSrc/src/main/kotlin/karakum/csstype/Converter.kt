@@ -456,18 +456,22 @@ private fun convertInterface(
         .replace(PRE_1_REGEX, "   $1′  ")
         .replace(PRE_2_REGEX, "    $1′   ")
         .splitToSequence("\n")
-        .map {
-            if ("?: " in it) {
-                var (pname, ptype) = it.split("?: ")
+        .map { line ->
+            if ("?: " in line) {
+                var (pname, ptype) = line.split("?: ")
                 ptype = ptype
                     .replace(" | undefined;", ";")
                     .replace("Property.Color;", COLOR_PROPERTY)
                     .removePrefix("Property.")
                     .removeSuffix(";")
 
+                OVERFLOW_ALIAS_MAP[ptype]?.let {
+                    ptype = it
+                }
+
                 if (ptype == "string") ptype = "String"
                 "var $pname: $ptype?"
-            } else it
+            } else line
         }
         .joinToString("\n")
         .replaceIndent("    ")
