@@ -111,6 +111,7 @@ internal fun convertDefinitions(
         mathFunctions(),
         lengthOperators(),
         FilterFunction(),
+        colorFunctions(),
         referenceFunctions(),
         AutoRepeat(),
         gridFunctions(),
