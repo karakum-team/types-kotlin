@@ -20,6 +20,7 @@ internal const val POSITION_PROPERTY: String = "PositionProperty"
 private val FACTORY_MAP = mapOf(
     Function.PREFIX to ::Function,
     Enum.PREFIX to ::Enum,
+    Enum.CONST_PREFIX to ::Enum,
     TopType.PREFIX to ::TopType,
     "interface " to ::Interface,
     Interface.PREFIX to ::Interface,

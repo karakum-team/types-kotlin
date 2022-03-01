@@ -35,7 +35,8 @@ internal class Enum(
     }
 
     companion object {
-        const val PREFIX = "export const enum "
+        const val PREFIX = "export enum "
+        const val CONST_PREFIX = "export const enum "
     }
 }
 
