@@ -12,6 +12,7 @@ internal fun tryToAlias(
         "Globals | DataType.LineWidth | DataType.LineStyle | DataType.Color | (string & {})",
         -> when (name) {
             BORDER -> ConversionResult(name, "sealed external interface $name")
+                .let { it.copy(body = it.body + "\n\n" + borderFactories(name)) }
             else -> ConversionResult(name, "typealias $name = $BORDER")
         }
 

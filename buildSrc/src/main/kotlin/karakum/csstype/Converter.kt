@@ -342,12 +342,12 @@ private fun convertUnion(
         "RowGap",
         -> return ConversionResult(name, "typealias $name = Gap")
 
-        "Outline",
+        OUTLINE,
         -> return tryToUnion(
             name = name,
             body = body.replace("DataType.Color | DataType.LineStyle | DataType.LineWidth | ", ""),
             enumMode = false,
-        )!!
+        )!!.let { it.copy(body = it.body + "\n\n" + borderFactories(name)) }
     }
 
     val values = body
