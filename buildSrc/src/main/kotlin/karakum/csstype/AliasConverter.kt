@@ -41,6 +41,12 @@ internal fun tryToAlias(
         "Globals | DataType.LineStyle | (string & {})",
         -> ConversionResult(name, "typealias $name = $LINE_STYLE_PROPERTY")
 
+        "Globals | DataType.LineStyle | \"auto\" | (string & {})",
+        -> {
+            require(name == OUTLINE_STYLE)
+            ConversionResult(name, "sealed external interface $name")
+        }
+
         "Globals | DataType.LineWidth",
         "Globals | DataType.LineWidth | (string & {})",
         -> ConversionResult(name, "typealias $name = $LINE_WIDTH_PROPERTY")

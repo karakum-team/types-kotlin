@@ -6,7 +6,7 @@ internal fun AutoType(
     parentProvider: ParentProvider,
 ): ConversionResult {
     val parentTypes = sequenceOf("$LENGTH_TYPE.$AUTO")
-        .plus(parentProvider.parentTypes.sorted())
+        .plus((parentProvider.parentTypes + OUTLINE_STYLE).sorted())
         .joinToString(",\n")
 
     val body = """

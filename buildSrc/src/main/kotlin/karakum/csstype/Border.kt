@@ -2,6 +2,7 @@ package karakum.csstype
 
 internal const val BORDER = "Border"
 internal const val OUTLINE = "Outline"
+internal const val OUTLINE_STYLE = "OutlineStyle"
 
 private val PARAMETERS = listOf(
     "width" to LENGTH,
