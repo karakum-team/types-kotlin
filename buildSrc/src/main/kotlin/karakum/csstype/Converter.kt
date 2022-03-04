@@ -151,7 +151,7 @@ private fun convertNamespace(
                 name.startsWith("Moz") -> emptySequence()
                 name.startsWith("Ms") -> emptySequence()
                 name.startsWith("Webkit") -> emptySequence()
-                name.contains("Hyphen") && name != "Hyphens" -> emptySequence()
+                name.contains("Hyphen") && name != "Hyphens" && name != "HyphenateCharacter" -> emptySequence()
                 name.contains("Fallback") -> emptySequence()
                 name in DEPRECATED_TYPES -> emptySequence()
                 name in SVG_TYPES -> emptySequence()
