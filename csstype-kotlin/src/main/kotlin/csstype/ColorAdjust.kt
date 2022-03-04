@@ -9,9 +9,9 @@ package csstype
 
 // language=JavaScript
 @JsName("""(/*union*/{economy: 'economy', exact: 'exact'}/*union*/)""")
-sealed external interface PrintColorAdjust {
+sealed external interface ColorAdjust {
     companion object {
-        val economy: PrintColorAdjust
-        val exact: PrintColorAdjust
+        val economy: ColorAdjust
+        val exact: ColorAdjust
     }
 }

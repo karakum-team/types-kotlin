@@ -27,7 +27,6 @@ sealed external interface AutoType :
     ForcedColorAdjust,
     Hyphens,
     ImageRendering,
-    InputSecurity,
     Isolation,
     JustifySelf,
     LineBreak,
