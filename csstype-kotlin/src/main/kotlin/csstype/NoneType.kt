@@ -36,6 +36,7 @@ sealed external interface NoneType :
     GridTemplateAreas,
     HangingPunctuation,
     Hyphens,
+    InputSecurity,
     LineClamp,
     LineStyle,
     ListStyle,
