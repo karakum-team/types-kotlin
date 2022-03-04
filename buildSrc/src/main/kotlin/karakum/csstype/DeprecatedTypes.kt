@@ -16,8 +16,6 @@ internal val DEPRECATED_TYPES = setOf(
 
     "Dasharray",
 
-    "FontVariantAlternates",
-
     "GridColumnGap",
     "GridGap",
     "GridRowGap",

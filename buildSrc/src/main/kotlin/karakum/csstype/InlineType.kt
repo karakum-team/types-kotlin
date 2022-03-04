@@ -36,6 +36,7 @@ internal fun String.inlineTypes(): String =
         .inlineType("FontWeightAbsolute")
         .inlineType("FinalBgLayer")
         .inlineType("MaskLayer")
+        .inlineType("SingleAnimationTimeline")
 
 private fun String.inlineType(
     name: String,
