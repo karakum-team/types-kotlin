@@ -124,6 +124,7 @@ internal fun convertDefinitions(
     val builderTypes = listOf(
         CssDsl(),
         RuleBuilder(),
+        Rules(),
         Selector(),
     )
 

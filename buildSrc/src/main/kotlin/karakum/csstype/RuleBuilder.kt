@@ -4,11 +4,13 @@ internal const val RULE_BUILDER = "RuleBuilder"
 
 // language=Kotlin
 private val BODY = """
+import kotlinx.js.jso    
+    
 interface $RULE_BUILDER<T : Any> {
     inline operator fun $SELECTOR.invoke(
         block: T.() -> Unit,
     ) {
-        this@$RULE_BUILDER.asDynamic()[this] = js("({})").unsafeCast<T>().apply(block)
+        this@$RULE_BUILDER.unsafeCast<Rules>()[this] = jso(block)
     }
 
     inline operator fun String.invoke(
