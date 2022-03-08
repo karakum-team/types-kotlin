@@ -35,14 +35,16 @@ internal fun convertPseudos(
         }
 
         "AdvancedPseudos" -> { selector ->
-            """
-            inline fun ${unionConstant(selector).kotlinName}(
-                selector: String,
-                block: T.() -> Unit,
-            ) {
-                "$selector(${'$'}selector)"(block)
+            sequenceOf(SELECTOR, "String").joinToString("\n\n") { type ->
+                """
+                inline fun ${unionConstant(selector).kotlinName}(
+                    selector: $type,
+                    block: T.() -> Unit,
+                ) {
+                    "$selector(${'$'}selector)"(block)
+                }
+                """.trimIndent()
             }
-            """.trimIndent()
         }
 
         else -> TODO("Method for `$name`")
