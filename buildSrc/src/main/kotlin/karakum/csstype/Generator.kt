@@ -29,8 +29,15 @@ fun generateKotlinDeclarations(
                     add(DECLARATION_CANT_BE_INLINED)
                 }
 
-            if ("inline fun " in body)
-                add(if (RULE_BUILDER in body) DECLARATION_CANT_BE_INLINED else NOTHING_TO_INLINE)
+            if ("inline fun " in body) {
+                if (RULE_BUILDER in body) {
+                    add(DECLARATION_CANT_BE_INLINED)
+                    if (name == "AdvancedPseudosRuleBuilder")
+                        add(NOTHING_TO_INLINE)
+                } else {
+                    add(NOTHING_TO_INLINE)
+                }
+            }
         }.toTypedArray()
 
         val annotations = if (suppresses.isNotEmpty()) {
