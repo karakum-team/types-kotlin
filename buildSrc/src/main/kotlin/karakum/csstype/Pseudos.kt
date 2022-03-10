@@ -39,8 +39,10 @@ internal fun convertPseudos(
                 """
                 inline fun ${unionConstant(selector).kotlinName}(
                     selector: $type,
-                ): $SELECTOR =
-                    $SELECTOR("$selector(${'$'}selector)")
+                    block: T.() -> Unit,
+                ) {
+                    "$selector(${'$'}selector)"(block)
+                }
                 """.trimIndent()
             }
         }
