@@ -65,6 +65,7 @@ private fun convertPseudos(
         .trimMargin("| ")
         .split("\n")
         .toUnionValues()
+        .filter { it != ":matches()" }
         .distinctBy { it.removePrefix("::").removePrefix(":") }
 
     val methods = selectors.joinToString("\n\n", transform = method)
