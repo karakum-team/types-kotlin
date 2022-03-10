@@ -25,24 +25,19 @@ internal fun convertPseudos(
 ): ConversionResult {
     val method: (String) -> String = when (name) {
         "SimplePseudos" -> { selector ->
-            val kotlinName = unionConstant(selector).kotlinName
             """
-            inline fun $kotlinName(
+            inline fun ${unionConstant(selector).kotlinName}(
                 block: T.() -> Unit,
             ) {
                 "$selector"(block)
             }
-            
-            inline val $SELECTOR.$kotlinName
-                get() = $SELECTOR("${'$'}{this}$selector")
             """.trimIndent()
         }
 
         "AdvancedPseudos" -> { selector ->
-            val kotlinName = unionConstant(selector).kotlinName
             sequenceOf(SELECTOR, "String").joinToString("\n\n") { type ->
                 """
-                inline fun $kotlinName(
+                inline fun ${unionConstant(selector).kotlinName}(
                     selector: $type,
                 ): $SELECTOR =
                     $SELECTOR("$selector(${'$'}selector)")
