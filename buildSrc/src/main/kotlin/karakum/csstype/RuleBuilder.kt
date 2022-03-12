@@ -10,7 +10,13 @@ interface $RULE_BUILDER<T : Any> {
     inline operator fun $SELECTOR.invoke(
         block: T.() -> Unit,
     ) {
-        this@$RULE_BUILDER.unsafeCast<Rules>()[this] = jso(block)
+        this@$RULE_BUILDER.unsafeCast<$RULES>()[this] = jso(block)
+    }
+
+    inline operator fun $CLASS_NAME.invoke(
+        block: T.() -> Unit,
+    ) {
+        $SELECTOR(".${'$'}this")(block)
     }
 
     inline operator fun String.invoke(
