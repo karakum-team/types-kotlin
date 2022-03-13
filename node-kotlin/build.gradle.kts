@@ -1,6 +1,7 @@
 plugins {
     id("io.github.turansky.kfc.library")
-    id("team.karakum.converter")
+    // TODO: restore after M1 support
+    // id("team.karakum.converter")
     `node-declarations`
 }
 
