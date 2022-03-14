@@ -477,7 +477,11 @@ private fun convertInterface(
                 }
 
                 if (ptype == "string") ptype = "String"
-                "var $pname: $ptype?"
+
+                getPropertyNames(pname)
+                    .joinToString("\n") {
+                        "var $it: $ptype?"
+                    }
             } else line
         }
         .joinToString("\n")
@@ -485,3 +489,17 @@ private fun convertInterface(
 
     return ConversionResult(name, "external interface $declaration{\n$body\n}")
 }
+
+private fun getPropertyNames(
+    name: String,
+): Sequence<String> =
+    when (name) {
+        "appearance",
+        -> sequenceOf(
+            name,
+            "Webkit${name.capitalize()}",
+            "Moz${name.capitalize()}",
+        )
+
+        else -> sequenceOf(name)
+    }
