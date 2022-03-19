@@ -39,7 +39,12 @@ private fun convertInterface(
     typeConverter: TypeConverter,
 ): ConversionResult {
     val members = convertMembers(source, !name.endsWith("HTML"), typeConverter)
-    val body = "external interface $name {\n$members\n}"
+    val modifiers = when (name) {
+        "DangerouslySetInnerHTML" -> "sealed external"
+        else -> "external"
+    }
+
+    val body = "$modifiers interface $name {\n$members\n}"
     return ConversionResult(name, body)
 }
 
