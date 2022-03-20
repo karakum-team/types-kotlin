@@ -313,6 +313,7 @@ private fun convertUnion(
         "Globals | \"auto\" | (number & {}) | (string & {})",
         "Globals | \"none\" | (number & {})",
         "Globals | \"none\" | (number & {}) | (string & {})",
+        "Globals | \"infinite\" | (string & {}) | (number & {})",
         -> return convertNumberType(name, source)
     }
 
@@ -384,6 +385,7 @@ private val INT_TYPES = setOf(
 )
 
 private val DOUBLE_TYPES = setOf(
+    "AnimationIterationCount",
     "FlexGrow",
     "FlexShrink",
 
