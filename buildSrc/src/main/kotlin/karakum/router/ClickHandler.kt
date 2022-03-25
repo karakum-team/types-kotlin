@@ -23,7 +23,7 @@ internal fun toClickHandler(
         convertFunction(
             name = name,
             source = source
-                .replace("{ target, replace: replaceProp, state }", "options")
+                .replace("{ target, replace: replaceProp, state, }", "options")
                 .replace(OPTIONS_BODY, "ClickHandlerOptions")
         )
     ).joinToString("\n\n")

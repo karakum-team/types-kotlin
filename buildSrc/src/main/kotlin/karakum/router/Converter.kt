@@ -52,6 +52,8 @@ private fun convert(
     val comment = source.removeSuffix(contentSource).removeSuffix("\n")
 
     contentSource = contentSource.removePrefix("declare ")
+        .takeIf { !it.startsWith("type {") }
+        ?: return null
 
     val content = when (contentSource.substringBefore(" ")) {
         "const" -> convertConst(name, contentSource)
@@ -64,6 +66,9 @@ private fun convert(
 
         // HistoryRouter workaround
         "{" -> return null
+
+        // TODO: check
+        "import" -> return null
 
         else -> TODO()
     }

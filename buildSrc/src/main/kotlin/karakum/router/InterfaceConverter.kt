@@ -9,7 +9,7 @@ private val CHILDREN = """
 private val CLASS_NAME = """
     className?: string | ((props: {
         isActive: boolean;
-    }) => string);
+    }) => string | undefined);
 """.removeSuffix("\n")
 
 private val STYLE = """
