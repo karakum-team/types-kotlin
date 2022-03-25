@@ -74,6 +74,7 @@ private fun convertInterface(
         .substringBefore(" {\n")
         .replace(" extends ", " : ")
         .replace("<number>", "<Number>")
+        .replace("NodeJS.ArrayBufferView", "org.khronos.webgl.ArrayBufferView")
 
     val bodySource = if (!source.substringBefore("\n").endsWith("{}")) {
         source.substringAfter(" {\n")
