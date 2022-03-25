@@ -30,7 +30,9 @@ internal fun convertDefinitions(
                 name.contains("Fallback") -> emptySequence()
                 name == "Pseudos" -> sequenceOf(convertMetaPseudos(name, content))
                 name == "SimplePseudos" || name == "AdvancedPseudos" -> sequenceOf(convertPseudos(name, content))
-                content.startsWith("namespace AtRule ") -> convertNamespace(content) + convertNamespaceTypes(content, AT_RULE_TYPES)
+                content.startsWith("namespace AtRule ") ->
+                    convertNamespace(content) +
+                            convertNamespaceTypes(content, AT_RULE_TYPES)
                 content.startsWith("namespace DataType ") -> convertNamespaceTypes(content)
                 content.startsWith("namespace ") -> convertNamespace(content)
                 else -> convertDefinition(name, content)
@@ -314,6 +316,7 @@ private fun convertUnion(
         "Globals | \"none\" | (number & {})",
         "Globals | \"none\" | (number & {}) | (string & {})",
         "Globals | \"infinite\" | (string & {}) | (number & {})",
+        "\"auto\" | (string & {}) | (number & {})",
         -> return convertNumberType(name, source)
     }
 
@@ -376,6 +379,7 @@ private val INT_TYPES = setOf(
     "Orphans",
     "Widows",
 
+    GRID_LINE,
     "ColumnCount",
     "LineClamp",
     "MaxLines",
@@ -406,6 +410,7 @@ private fun convertNumberType(
 
     val bodySource = source
         .replace(" | (number & {}) | (string & {})", "")
+        .replace(" | (string & {}) | (number & {})", "")
         .replace(" | (number & {})", "")
 
     val body = "// $comment\n" + convertUnion(name, bodySource).body
