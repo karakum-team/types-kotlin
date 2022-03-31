@@ -19,6 +19,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "void" to UNIT,
     "null" to "Nothing?",
 
+    "string | undefined" to "String?",
+
     "Date" to "kotlin.js.Date",
 
     "Window" to "org.w3c.dom.Window",
@@ -27,6 +29,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "React.ReactNode" to "react.ReactNode",
     "React.ReactElement" to "react.ReactElement<*>",
 
+    "string[]" to "kotlinx.js.ReadonlyArray<String>",
     "InitialEntry[]" to "kotlinx.js.ReadonlyArray<history.InitialEntry>",
     "RouteObject[]" to "kotlinx.js.ReadonlyArray<RouteObject>",
     "RouteMatch[]" to "kotlinx.js.ReadonlyArray<RouteMatch>",
@@ -44,7 +47,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "PathPattern | string" to "String /* PathPattern | string */",
 
     "React.HTMLAttributeAnchorTarget" to "react.dom.html.AnchorTarget",
-    "(event: React.MouseEvent<E, MouseEvent>) => void" to "react.dom.events.MouseEventHandler<E>"
+    "(event: React.MouseEvent<E, MouseEvent>) => void" to "react.dom.events.MouseEventHandler<E>",
+
+    "asserts cond" to "Boolean /* asserts cond */"
 )
 
 internal fun kotlinType(

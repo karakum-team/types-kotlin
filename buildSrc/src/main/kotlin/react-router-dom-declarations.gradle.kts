@@ -10,12 +10,13 @@ tasks.named("generateDeclarations") {
 
         val nodeModules = rootProject.buildDir.resolve("js/node_modules")
         val historyFile = nodeModules.resolve("history/index.d.ts")
-        val routerFile = nodeModules.resolve("react-router/index.d.ts")
+        val routerFiles = nodeModules.resolve("react-router/lib")
+            .listFiles { file -> file.name.endsWith(".d.ts") }!!
         val routerDomFile = nodeModules.resolve("react-router-dom/index.d.ts")
 
         karakum.router.generateKotlinDeclarations(
             historyFile = historyFile,
-            routerFile = routerFile,
+            routerFiles = routerFiles,
             routerDomFile = routerDomFile,
             sourceDir = sourceDir,
         )

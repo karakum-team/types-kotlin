@@ -7,14 +7,27 @@ import java.io.File
 
 fun generateKotlinDeclarations(
     historyFile: File,
-    routerFile: File,
+    routerFiles: Array<File>,
     routerDomFile: File,
     sourceDir: File,
 ) {
     generate(historyFile, sourceDir, Package.HISTORY)
-    generate(routerFile, sourceDir, Package.ROUTER)
+
+    for (routerFile in routerFiles)
+        generate(routerFile, sourceDir, Package.ROUTER)
+
     generate(routerDomFile, sourceDir, Package.ROUTER_DOM)
 }
+
+private val EXCLUDED_NAMES = setOf(
+    "_renderMatches",
+    "invariant",
+    "joinPaths",
+    "normalizePathname",
+    "ParamParseKey",
+    "warning",
+    "warningOnce",
+)
 
 private fun generate(
     definitionsFile: File,
@@ -37,6 +50,9 @@ private fun generate(
     }
 
     for ((name, body) in results) {
+        if (name in EXCLUDED_NAMES)
+            continue
+
         val suppresses = mutableListOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body)
                 add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)

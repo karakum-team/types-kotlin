@@ -55,7 +55,8 @@ private fun convert(
         .takeIf { !it.startsWith("type {") }
         ?: return null
 
-    val content = when (contentSource.substringBefore(" ")) {
+    val sourceType = contentSource.substringBefore(" ")
+    val content = when (sourceType) {
         "const" -> convertConst(name, contentSource)
         "function" -> convertFunction(name, contentSource)
         "type" -> convertType(name, contentSource)
@@ -70,7 +71,18 @@ private fun convert(
         // TODO: check
         "import" -> return null
 
-        else -> TODO()
+        else -> {
+            if (sourceType.startsWith("{};"))
+                return null
+
+            if (sourceType.startsWith("///"))
+                return null
+
+            println("FAILED")
+            println(sourceType)
+
+            TODO()
+        }
     }
 
     val body = sequenceOf(comment, content)
