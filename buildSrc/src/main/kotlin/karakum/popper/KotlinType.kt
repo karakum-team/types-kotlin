@@ -47,6 +47,11 @@ private val STANDARD_TYPE_MAP = mapOf(
     "(arg0: ModifierArguments<Options>) => (() => void) | void" to "(ModifierArguments<Options>) -> (() -> Unit)?",
 )
 
+internal val SYNTHETIC_TYPE_MAP = mapOf(
+    "Offset" to OFFSET_TYPE,
+    "TetherOffset" to  TETHER_OFFSET_TYPE,
+)
+
 internal fun kotlinType(
     type: String,
     name: String,
@@ -54,11 +59,12 @@ internal fun kotlinType(
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
 
+    SYNTHETIC_TYPE_MAP[type]
+        ?.also { return it }
+
     when (type) {
-        "Offset",
         "Boundary",
         "RootBoundary",
-        "TetherOffset",
         -> return "$DYNAMIC /* $type */"
     }
 
