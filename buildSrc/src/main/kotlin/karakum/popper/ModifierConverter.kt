@@ -8,6 +8,10 @@ private val EXTENDED_PADDING = """
     }) => Padding)
 """.removeSurrounding("\n")
 
+private const val PADDING_TYPE =  "PaddingType"
+internal const val OFFSET_TYPE = "OffsetType"
+internal const val TETHER_OFFSET_TYPE = "TetherOffsetType"
+
 internal fun convertModifier(
     source: String,
 ): ConversionResult {
@@ -33,15 +37,30 @@ internal fun convertModifier(
     if (typeParameter == "Void")
         return ConversionResult(name, modifierBody)
 
-    val optionsSource = source
+    var optionsSource = source
         .replace(EXTENDED_PADDING, "")
         .substringAfter("export declare type Options = {\n")
         .substringBefore(";\n};\n")
 
+    if (name == "Arrow") {
+        optionsSource = optionsSource.replace("Padding", PADDING_TYPE)
+    }
+
     val body = sequenceOf(
-        convertInterface(typeParameter, optionsSource)!!.body,
+        convertSyntheticInterface(name),
+        convertInterface(typeParameter, optionsSource)?.body,
         modifierBody,
-    ).joinToString("\n\n")
+    ).filterNotNull().joinToString("\n\n")
 
     return ConversionResult(name, body)
+}
+
+private fun convertSyntheticInterface(name: String): String? {
+    val type = when(name) {
+        "Arrow" -> PADDING_TYPE
+        "PreventOverflow" -> TETHER_OFFSET_TYPE
+        "Offset" -> OFFSET_TYPE
+        else -> return null
+    }
+    return "sealed external interface $type"
 }
