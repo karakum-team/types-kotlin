@@ -1,7 +1,7 @@
 package karakum.router
 
 private val CHILDREN = """
-    children: React.ReactNode | ((props: {
+    children?: React.ReactNode | ((props: {
         isActive: boolean;
     }) => React.ReactNode);
 """.removeSuffix("\n")
