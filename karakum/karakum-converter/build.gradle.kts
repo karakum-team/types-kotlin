@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.targets.js.npm.PublicPackageJsonTask
 
 plugins {
-    kotlin("js") version "1.6.20"
+    kotlin("js")
 }
 
 repositories {
