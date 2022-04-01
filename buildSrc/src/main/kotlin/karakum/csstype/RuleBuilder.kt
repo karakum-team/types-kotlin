@@ -7,6 +7,12 @@ private val BODY = """
 import kotlinx.js.jso    
     
 interface $RULE_BUILDER<T : Any> {
+    inline fun fontFace(
+        block: FontFace.() -> Unit,
+    ) {
+        this@$RULE_BUILDER.unsafeCast<$RULES>()[$SELECTOR("@font-face")] = jso(block)
+    }
+
     inline operator fun $SELECTOR.invoke(
         block: T.() -> Unit,
     ) {

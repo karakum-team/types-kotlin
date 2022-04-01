@@ -6,7 +6,7 @@ internal const val RULES = "Rules"
 private val BODY = """
 import kotlinx.js.Record
 
-typealias $RULES = Record<$SELECTOR, Properties>
+typealias $RULES = Record<$SELECTOR, Any>
 """.trimIndent()
 
 internal fun Rules(): ConversionResult =
