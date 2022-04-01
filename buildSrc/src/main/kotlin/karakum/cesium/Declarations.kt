@@ -69,7 +69,7 @@ internal fun parseDeclarations(
 
     // TODO: remove temp hack
     declarations.removeAll {
-        it.name == "DictionaryLike" || it.name == "HilbertOrder"
+        it.name == "DictionaryLike" || it.name == "HilbertOrder" || it.name == "ImagerySplitDirection"
     }
 
     declarations.removeAll {

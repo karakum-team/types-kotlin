@@ -75,10 +75,10 @@ broadcast-channel@^3.4.1:
     rimraf "3.0.2"
     unload "2.2.0"
 
-cesium@1.91.0:
-  version "1.91.0"
-  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.91.0.tgz#3b901913b5dca286406227d588617697ee3b6afc"
-  integrity sha512-HCwwYq7+qqB8c9ydz51luX1KP/apMiMVA8UAu8C7V2SOANUjOZQSi3CcXAtXXn1oUZQDrJlBs6sBT9nt0zRRLg==
+cesium@1.92.0:
+  version "1.92.0"
+  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.92.0.tgz#d4a736be7f3516830a814c4c99780a385c12a258"
+  integrity sha512-qU2EIV3M+ru6uF5UQUjUWXeq9UVieMBeq+Q8fzzNbFgeSbLrvnJ7jSJq0vvgaVDPe0PnmN72FZKMDiJdTFpMnQ==
 
 concat-map@0.0.1:
   version "0.0.1"
