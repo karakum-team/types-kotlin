@@ -8,7 +8,7 @@ private val EXTENDED_PADDING = """
     }) => Padding)
 """.removeSurrounding("\n")
 
-private const val PADDING_TYPE =  "PaddingType"
+internal const val PADDING_TYPE = "PaddingType"
 internal const val OFFSET_TYPE = "OffsetType"
 internal const val TETHER_OFFSET_TYPE = "TetherOffsetType"
 
@@ -56,11 +56,16 @@ internal fun convertModifier(
 }
 
 private fun convertSyntheticInterface(name: String): String? {
-    val type = when(name) {
+    val type = when (name) {
         "Arrow" -> PADDING_TYPE
         "PreventOverflow" -> TETHER_OFFSET_TYPE
         "Offset" -> OFFSET_TYPE
         else -> return null
     }
-    return "sealed external interface $type"
+    val sealed = when (name) {
+        "Arrow" -> ""
+        else -> "sealed "
+    }
+
+    return "${sealed}external interface $type"
 }
