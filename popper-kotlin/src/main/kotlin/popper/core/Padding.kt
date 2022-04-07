@@ -2,4 +2,6 @@
 
 package popper.core
 
-typealias Padding = SideObject // number | Partial<SideObject>
+import popper.core.modifiers.PaddingType
+
+sealed external interface Padding : PaddingType // number | Partial<SideObject>
