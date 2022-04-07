@@ -16,15 +16,20 @@ internal fun convertType(
         "S | ((prev: S) => S)",
         -> "(prev: S) -> S // $source"
 
-        "number | Partial<SideObject>",
-        -> "SideObject // $source"
-
         "(arg0: State) => void",
         -> "(State) -> Unit"
 
         else -> source
     }
-    val body = "typealias $declaration = $content"
+
+    val body = when (name) {
+        "Padding" -> """
+            import ${Package.MODIFIERS.id}.$PADDING_TYPE
+            
+            sealed external interface $name:$PADDING_TYPE // $source
+        """.trimIndent()
+        else -> "typealias $declaration = $content"
+    }
 
     return ConversionResult(name, body)
 }

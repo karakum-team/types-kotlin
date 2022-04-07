@@ -49,7 +49,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
 internal val SYNTHETIC_TYPE_MAP = mapOf(
     "Offset" to OFFSET_TYPE,
-    "TetherOffset" to  TETHER_OFFSET_TYPE,
+    "TetherOffset" to TETHER_OFFSET_TYPE,
 )
 
 internal fun kotlinType(

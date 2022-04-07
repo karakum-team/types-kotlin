@@ -1,7 +1,7 @@
 package karakum.popper
 
 internal enum class Package(
-    id: String,
+    val id: String,
 ) {
     CORE("popper.core"),
     MODIFIERS("popper.core.modifiers"),

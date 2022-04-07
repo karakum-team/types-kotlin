@@ -37,7 +37,12 @@ internal fun convertInterface(
         "<$parameters>"
     } else ""
 
-    val body = "external interface $name $typeParameters {\n$members\n}"
+    val inherited = when (name) {
+        "SideObject" -> ":Padding"
+        else -> ""
+    }
+
+    val body = "external interface ${name}$inherited $typeParameters {\n$members\n}"
 
     return ConversionResult(name, body)
 }
