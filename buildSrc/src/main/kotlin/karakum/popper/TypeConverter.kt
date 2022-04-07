@@ -26,7 +26,8 @@ internal fun convertType(
         "Padding" -> """
             import ${Package.MODIFIERS.id}.$PADDING_TYPE
             
-            sealed external interface $name:$PADDING_TYPE // $source
+            // $source
+            sealed external interface $name:$PADDING_TYPE 
         """.trimIndent()
         else -> "typealias $declaration = $content"
     }
