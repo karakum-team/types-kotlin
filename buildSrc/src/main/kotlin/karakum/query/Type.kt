@@ -6,7 +6,7 @@ private val SPECIAL_TYPES = setOf(
     "TOutput | DataUpdateFunction<TInput, TOutput>",
 )
 
-private const val QUERY_KEY="QueryKey"
+private const val QUERY_KEY = "QueryKey"
 
 class Type(
     override val source: String,
@@ -71,7 +71,10 @@ class Type(
                     .replace("mutation: Mutation", "mutation: Mutation<*, *, *, *>")
                     .replace("mutation?: Mutation", "mutation: Mutation<*, *, *, *>?")
                     .replace("event?: QueryCacheNotifyEvent", "event: QueryCacheNotifyEvent?")
-                    .replace("options?: MutateOptions<TData, TError, TVariables, TContext>", "options: MutateOptions<TData, TError, TVariables, TContext>?")
+                    .replace(
+                        "options?: MutateOptions<TData, TError, TVariables, TContext>",
+                        "options: MutateOptions<TData, TError, TVariables, TContext>?"
+                    )
             }
 
             else -> "Any"
@@ -109,10 +112,10 @@ class Type(
         if (body.toIntOrNull() != null)
             return "const val $name = $body"
 
-        if (name == "QueryKey")
+        if (name == QUERY_KEY)
             return """
                 // $body 
-                external interface QueryKey
+                external interface $QUERY_KEY
                 """.trimIndent()
 
         return "typealias $name${formatParameters(typeParameters)} = $body"
