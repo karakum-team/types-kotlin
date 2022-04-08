@@ -6,6 +6,8 @@ private val SPECIAL_TYPES = setOf(
     "TOutput | DataUpdateFunction<TInput, TOutput>",
 )
 
+private const val QUERY_KEY="QueryKey"
+
 class Type(
     override val source: String,
     fixAction: Boolean,
@@ -47,6 +49,8 @@ class Type(
             body in SPECIAL_TYPES -> body.substringAfterLast(" | ")
 
             body.toIntOrNull() != null -> body
+
+            name == QUERY_KEY -> body
 
             "|" in body -> "Union /* $body */"
 
@@ -104,6 +108,12 @@ class Type(
 
         if (body.toIntOrNull() != null)
             return "const val $name = $body"
+
+        if (name == "QueryKey")
+            return """
+                // $body 
+                external interface QueryKey
+                """.trimIndent()
 
         return "typealias $name${formatParameters(typeParameters)} = $body"
     }
