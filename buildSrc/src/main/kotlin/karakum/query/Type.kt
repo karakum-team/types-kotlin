@@ -115,7 +115,7 @@ class Type(
         if (name == QUERY_KEY)
             return """
                 // $body 
-                external interface $QUERY_KEY
+                external interface $name
                 """.trimIndent()
 
         return "typealias $name${formatParameters(typeParameters)} = $body"
