@@ -16,6 +16,7 @@ fun generateKotlinDeclarations(
         .also { it.mkdirs() }
 
     sequenceOf(definitionsDir.resolve("RTCPeerConnection.d.ts").readText())
+        .plus(RTC_ERROR_DETAIL_TYPE)
         .plus(RTC_ICE_CANDIDATE)
         .plus(RTC_SESSION_DESCRIPTION)
         .plus(RTC_PEER_CONNECTION)

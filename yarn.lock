@@ -38,10 +38,10 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
-"@types/webrtc@0.0.31":
-  version "0.0.31"
-  resolved "https://registry.yarnpkg.com/@types/webrtc/-/webrtc-0.0.31.tgz#164b8d6f40ff0238b3e62604e8d23f7377125284"
-  integrity sha512-GEoJIoM/ddxdaGnu0enJVDTdvwwr3/tPkpXz0LBTSi282gqxWDg1ffk4fzHU2dosNshp+Slq1kfGxpKs5083Nw==
+"@types/webrtc@0.0.32":
+  version "0.0.32"
+  resolved "https://registry.yarnpkg.com/@types/webrtc/-/webrtc-0.0.32.tgz#b2d55194202879ad241640e291382419a19250d9"
+  integrity sha512-+F0Ozq+ksnKtjcMHujSgb4A1Vjt0b4wvvxP3/pTnXKsIrLo34EgHh2z3qJq3ntX4dbK6ytxpY1rzO/4Z8rVrHg==
 
 balanced-match@^1.0.0:
   version "1.0.2"
