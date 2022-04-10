@@ -106,6 +106,7 @@ private fun convertType(
 
         val values = body.removePrefix(" ")
             .splitToSequence(" | ", "\n    | ")
+            .filter { it.isNotEmpty() }
             .map { it.removeSurrounding("'") }
             .toList()
 
