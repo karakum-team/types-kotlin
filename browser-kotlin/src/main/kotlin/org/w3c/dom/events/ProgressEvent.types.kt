@@ -13,10 +13,10 @@ inline val ProgressEvent.Companion.ERROR: EventType<ProgressEvent>
 inline val ProgressEvent.Companion.LOAD: EventType<ProgressEvent>
     get() = EventType("load")
 
-inline val ProgressEvent.Companion.LOADEND: EventType<ProgressEvent>
+inline val ProgressEvent.Companion.LOAD_END: EventType<ProgressEvent>
     get() = EventType("loadend")
 
-inline val ProgressEvent.Companion.LOADSTART: EventType<ProgressEvent>
+inline val ProgressEvent.Companion.LOAD_START: EventType<ProgressEvent>
     get() = EventType("loadstart")
 
 inline val ProgressEvent.Companion.PROGRESS: EventType<ProgressEvent>

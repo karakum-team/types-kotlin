@@ -8,8 +8,8 @@ inline val FocusEvent.Companion.BLUR: EventType<FocusEvent>
 inline val FocusEvent.Companion.FOCUS: EventType<FocusEvent>
     get() = EventType("focus")
 
-inline val FocusEvent.Companion.FOCUSIN: EventType<FocusEvent>
+inline val FocusEvent.Companion.FOCUS_IN: EventType<FocusEvent>
     get() = EventType("focusin")
 
-inline val FocusEvent.Companion.FOCUSOUT: EventType<FocusEvent>
+inline val FocusEvent.Companion.FOCUS_OUT: EventType<FocusEvent>
     get() = EventType("focusout")

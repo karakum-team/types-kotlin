@@ -4,8 +4,8 @@ package org.w3c.dom.events
 
 import org.w3c.dom.mediacapture.MediaStreamTrackEvent
 
-inline val MediaStreamTrackEvent.Companion.ADDTRACK: EventType<MediaStreamTrackEvent>
+inline val MediaStreamTrackEvent.Companion.ADD_TRACK: EventType<MediaStreamTrackEvent>
     get() = EventType("addtrack")
 
-inline val MediaStreamTrackEvent.Companion.REMOVETRACK: EventType<MediaStreamTrackEvent>
+inline val MediaStreamTrackEvent.Companion.REMOVE_TRACK: EventType<MediaStreamTrackEvent>
     get() = EventType("removetrack")

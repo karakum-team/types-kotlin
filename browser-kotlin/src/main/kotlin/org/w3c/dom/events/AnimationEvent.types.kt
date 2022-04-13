@@ -2,14 +2,14 @@
 
 package org.w3c.dom.events
 
-inline val AnimationEvent.Companion.ANIMATIONCANCEL: EventType<AnimationEvent>
+inline val AnimationEvent.Companion.ANIMATION_CANCEL: EventType<AnimationEvent>
     get() = EventType("animationcancel")
 
-inline val AnimationEvent.Companion.ANIMATIONEND: EventType<AnimationEvent>
+inline val AnimationEvent.Companion.ANIMATION_END: EventType<AnimationEvent>
     get() = EventType("animationend")
 
-inline val AnimationEvent.Companion.ANIMATIONITERATION: EventType<AnimationEvent>
+inline val AnimationEvent.Companion.ANIMATION_ITERATION: EventType<AnimationEvent>
     get() = EventType("animationiteration")
 
-inline val AnimationEvent.Companion.ANIMATIONSTART: EventType<AnimationEvent>
+inline val AnimationEvent.Companion.ANIMATION_START: EventType<AnimationEvent>
     get() = EventType("animationstart")

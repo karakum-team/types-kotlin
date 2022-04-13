@@ -2,35 +2,35 @@
 
 package org.w3c.dom.events
 
-inline val MouseEvent.Companion.AUXCLICK: EventType<MouseEvent>
+inline val MouseEvent.Companion.AUX_CLICK: EventType<MouseEvent>
     get() = EventType("auxclick")
 
 inline val MouseEvent.Companion.CLICK: EventType<MouseEvent>
     get() = EventType("click")
 
-inline val MouseEvent.Companion.CONTEXTMENU: EventType<MouseEvent>
+inline val MouseEvent.Companion.CONTEXT_MENU: EventType<MouseEvent>
     get() = EventType("contextmenu")
 
-inline val MouseEvent.Companion.DBLCLICK: EventType<MouseEvent>
+inline val MouseEvent.Companion.DB_LCLICK: EventType<MouseEvent>
     get() = EventType("dblclick")
 
-inline val MouseEvent.Companion.MOUSEDOWN: EventType<MouseEvent>
+inline val MouseEvent.Companion.MOUSE_DOWN: EventType<MouseEvent>
     get() = EventType("mousedown")
 
-inline val MouseEvent.Companion.MOUSEENTER: EventType<MouseEvent>
+inline val MouseEvent.Companion.MOUSE_ENTER: EventType<MouseEvent>
     get() = EventType("mouseenter")
 
-inline val MouseEvent.Companion.MOUSELEAVE: EventType<MouseEvent>
+inline val MouseEvent.Companion.MOUSE_LEAVE: EventType<MouseEvent>
     get() = EventType("mouseleave")
 
-inline val MouseEvent.Companion.MOUSEMOVE: EventType<MouseEvent>
+inline val MouseEvent.Companion.MOUSE_MOVE: EventType<MouseEvent>
     get() = EventType("mousemove")
 
-inline val MouseEvent.Companion.MOUSEOUT: EventType<MouseEvent>
+inline val MouseEvent.Companion.MOUSE_OUT: EventType<MouseEvent>
     get() = EventType("mouseout")
 
-inline val MouseEvent.Companion.MOUSEOVER: EventType<MouseEvent>
+inline val MouseEvent.Companion.MOUSE_OVER: EventType<MouseEvent>
     get() = EventType("mouseover")
 
-inline val MouseEvent.Companion.MOUSEUP: EventType<MouseEvent>
+inline val MouseEvent.Companion.MOUSE_UP: EventType<MouseEvent>
     get() = EventType("mouseup")
