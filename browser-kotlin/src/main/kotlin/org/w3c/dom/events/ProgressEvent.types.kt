@@ -4,44 +4,23 @@ package org.w3c.dom.events
 
 import org.w3c.xhr.ProgressEvent
 
-inline val ProgressEvent.Companion.ABORT: EventType<ProgressEvent<FileReader>>
+inline val ProgressEvent.Companion.ABORT: EventType<ProgressEvent>
     get() = EventType("abort")
 
-inline val ProgressEvent.Companion.ERROR: EventType<ProgressEvent<FileReader>>
+inline val ProgressEvent.Companion.ERROR: EventType<ProgressEvent>
     get() = EventType("error")
 
-inline val ProgressEvent.Companion.LOAD: EventType<ProgressEvent<FileReader>>
+inline val ProgressEvent.Companion.LOAD: EventType<ProgressEvent>
     get() = EventType("load")
 
-inline val ProgressEvent.Companion.LOADEND: EventType<ProgressEvent<FileReader>>
+inline val ProgressEvent.Companion.LOADEND: EventType<ProgressEvent>
     get() = EventType("loadend")
 
-inline val ProgressEvent.Companion.LOADSTART: EventType<ProgressEvent<FileReader>>
+inline val ProgressEvent.Companion.LOADSTART: EventType<ProgressEvent>
     get() = EventType("loadstart")
-
-inline val ProgressEvent.Companion.PROGRESS: EventType<ProgressEvent<FileReader>>
-    get() = EventType("progress")
 
 inline val ProgressEvent.Companion.PROGRESS: EventType<ProgressEvent>
     get() = EventType("progress")
 
-inline val ProgressEvent.Companion.ABORT: EventType<ProgressEvent<XMLHttpRequestEventTarget>>
-    get() = EventType("abort")
-
-inline val ProgressEvent.Companion.ERROR: EventType<ProgressEvent<XMLHttpRequestEventTarget>>
-    get() = EventType("error")
-
-inline val ProgressEvent.Companion.LOAD: EventType<ProgressEvent<XMLHttpRequestEventTarget>>
-    get() = EventType("load")
-
-inline val ProgressEvent.Companion.LOADEND: EventType<ProgressEvent<XMLHttpRequestEventTarget>>
-    get() = EventType("loadend")
-
-inline val ProgressEvent.Companion.LOADSTART: EventType<ProgressEvent<XMLHttpRequestEventTarget>>
-    get() = EventType("loadstart")
-
-inline val ProgressEvent.Companion.PROGRESS: EventType<ProgressEvent<XMLHttpRequestEventTarget>>
-    get() = EventType("progress")
-
-inline val ProgressEvent.Companion.TIMEOUT: EventType<ProgressEvent<XMLHttpRequestEventTarget>>
+inline val ProgressEvent.Companion.TIMEOUT: EventType<ProgressEvent>
     get() = EventType("timeout")
