@@ -31,7 +31,9 @@ internal fun eventDeclarations(): List<ConversionResult> =
                 body = body,
             )
         }
-        .plus(eventType())
+        .plus(EventType())
+        .plus(AnimationEvent())
+        .plus(TransitionEvent())
 
 private fun parseEventData(
     source: String,

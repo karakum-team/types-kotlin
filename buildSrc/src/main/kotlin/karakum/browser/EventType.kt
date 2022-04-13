@@ -11,7 +11,7 @@ inline fun <T : Event> $EVENT_TYPE(
     value.unsafeCast<$EVENT_TYPE<T>>()
 """.trimIndent()
 
-internal fun eventType(): ConversionResult =
+internal fun EventType(): ConversionResult =
     ConversionResult(
         name = EVENT_TYPE,
         body = BODY,
