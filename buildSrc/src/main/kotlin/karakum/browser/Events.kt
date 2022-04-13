@@ -3,21 +3,23 @@ package karakum.browser
 private data class EventData(
     val name: String,
     val type: String,
-)
+) {
+    val typeName: String = type.substringBefore("<")
+}
 
 internal fun eventDeclarations(): List<ConversionResult> =
     EVENT_SOURCES
         .splitToSequence("\n")
         .mapNotNull { parseEventData(it) }
         .distinct()
-        .groupBy { it.type }
+        .groupBy { it.typeName }
         // TODO: temp
         .filter { EVENT_TYPE_MAP.containsKey(it.key) }
-        .map { (type, items) ->
-            val imports = "import " + EVENT_TYPE_MAP.getValue(type)
-            val members = items.map { (name) ->
+        .map { (typeName, items) ->
+            val imports = "import " + EVENT_TYPE_MAP.getValue(typeName)
+            val members = items.map { (name, type) ->
                 """
-                    inline val $type.Companion.${name.toUpperCase()} : $EVENT_TYPE<$type>
+                    inline val $typeName.Companion.${name.toUpperCase()} : $EVENT_TYPE<$type>
                         get() = $EVENT_TYPE("$name")                        
                 """.trimIndent()
             }
@@ -27,7 +29,7 @@ internal fun eventDeclarations(): List<ConversionResult> =
                 .joinToString("\n\n")
 
             ConversionResult(
-                name = "$type.types",
+                name = "$typeName.types",
                 body = body,
             )
         }
