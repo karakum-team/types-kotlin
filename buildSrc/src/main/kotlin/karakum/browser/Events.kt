@@ -7,16 +7,27 @@ private data class EventData(
     val typeName: String = type.substringBefore("<")
 }
 
+private val EXCLUDED = setOf(
+    "MediaRecorderErrorEvent",
+    "OfflineAudioCompletionEvent",
+    "SpeechSynthesisErrorEvent",
+    "SpeechSynthesisEvent",
+)
+
 internal fun eventDeclarations(): List<ConversionResult> =
     EVENT_SOURCES
         .splitToSequence("\n")
         .mapNotNull { parseEventData(it) }
         .distinct()
         .groupBy { it.typeName }
-        // TODO: temp
-        .filter { EVENT_TYPE_MAP.containsKey(it.key) }
+        .filter { it.key !in EXCLUDED }
         .map { (typeName, items) ->
-            val imports = "import " + EVENT_TYPE_MAP.getValue(typeName)
+            val imports = if (EVENT_TYPE_MAP.containsKey(typeName)) {
+                "import " + EVENT_TYPE_MAP.getValue(typeName)
+            } else {
+                "import org.w3c.dom.events.Event as $typeName"
+            }
+
             val members = items.map { (name, type) ->
                 """
                     inline val $typeName.Companion.${name.toUpperCase()} : $EVENT_TYPE<$type>
