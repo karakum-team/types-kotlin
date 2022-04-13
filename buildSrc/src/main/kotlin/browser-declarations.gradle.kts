@@ -8,10 +8,8 @@ tasks.named("generateDeclarations") {
 
         delete(sourceDir)
 
-        /*
         karakum.browser.generateKotlinDeclarations(
             sourceDir = sourceDir,
         )
-        */
     }
 }
