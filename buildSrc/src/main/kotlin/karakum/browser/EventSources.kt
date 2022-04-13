@@ -10,7 +10,7 @@ package karakum.browser
  */
 
 // language=TypeScript
-private const val EVENT_SOURCES = """
+internal const val EVENT_SOURCES = """
 interface AbortSignalEventMap {
     "abort": Event;
 }
