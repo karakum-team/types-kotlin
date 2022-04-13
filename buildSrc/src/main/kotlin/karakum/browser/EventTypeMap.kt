@@ -25,7 +25,7 @@ internal val EVENT_TYPE_MAP = mapOf(
     // AnimationPlaybackEvent
     "MessageEvent" to "org.w3c.dom.MessageEvent",
     "ProgressEvent" to "org.w3c.xhr.ProgressEvent",
-    "InputEvent" to "org.w3c.dom.InputEvent",
+    "InputEvent" to "org.w3c.dom.events.InputEvent",
     // FormDataEvent
     // SecurityPolicyViolationEvent
     // SubmitEvent

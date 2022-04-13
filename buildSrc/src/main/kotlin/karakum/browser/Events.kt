@@ -44,7 +44,7 @@ private fun parseEventData(
 
     val (name, type) = source
         .removeSurrounding("    \"", ";")
-        .split("\": ")
+        .split("\": ", "<")
 
     return EventData(name, type)
 }
