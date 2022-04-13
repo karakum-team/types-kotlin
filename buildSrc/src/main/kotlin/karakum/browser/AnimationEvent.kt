@@ -1,13 +1,24 @@
 package karakum.browser
 
-internal const val ANIMATION_EVENT = "AnimationEvent"
+private const val ANIMATION_EVENT = "AnimationEvent"
+private const val ANIMATION_EVENT_INIT = "AnimationEventInit"
 
 private val BODY = """
+import kotlinx.js.HighResTimeStamp
+import org.w3c.dom.EventInit
+    
+external interface $ANIMATION_EVENT_INIT : EventInit {
+    var animationName: String?
+    var elapsedTime: HighResTimeStamp?
+    var pseudoElement: String?
+}    
+    
 external class $ANIMATION_EVENT(
-    // TODO: parameters
+    type: String,
+    init: $ANIMATION_EVENT_INIT = definedExternally,
 ) : Event {
     val animationName: String
-    val elapsedTime: Number
+    val elapsedTime: HighResTimeStamp
     val pseudoElement: String
     
     companion object
