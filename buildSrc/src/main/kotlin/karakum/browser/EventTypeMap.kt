@@ -27,7 +27,6 @@ internal val EVENT_TYPE_MAP = mapOf(
     "ProgressEvent" to "org.w3c.xhr.ProgressEvent",
     "InputEvent" to "org.w3c.dom.InputEvent",
     // FormDataEvent
-    "ProgressEvent" to "org.w3c.dom.ProgressEvent",
     // SecurityPolicyViolationEvent
     // SubmitEvent
     "MediaEncryptedEvent" to "org.w3c.dom.encryptedmedia.MediaEncryptedEvent",
