@@ -29,8 +29,12 @@ internal fun eventDeclarations(): List<ConversionResult> =
             }
 
             val members = items.map { (name, type) ->
+                val memberName = EVENT_CORRECTION_MAP
+                    .getOrDefault(name, name)
+                    .toUpperCase()
+
                 """
-                    inline val $typeName.Companion.${name.toUpperCase()} : $EVENT_TYPE<$type>
+                    inline val $typeName.Companion.$memberName : $EVENT_TYPE<$type>
                         get() = $EVENT_TYPE("$name")                        
                 """.trimIndent()
             }
