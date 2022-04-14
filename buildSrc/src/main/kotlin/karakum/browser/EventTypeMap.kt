@@ -82,7 +82,7 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     "cuechange" to "cue_change",
     "dataavailable" to "data_available",
     "datachannel" to "data_channel",
-    "dblclick" to "db_lclick",
+    "dblclick" to "dbl_click",
     "devicechange" to "device_change",
     "devicemotion" to "device_motion",
     "deviceorientation" to "device_orientation",
