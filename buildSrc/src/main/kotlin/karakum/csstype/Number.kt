@@ -4,6 +4,7 @@ internal const val NUMBER = "Number"
 internal const val NUMBER_TYPE = "NumberType"
 
 private val PARENT_TYPES = listOf(
+    FLEX,
     "LineHeight",
 )
 
