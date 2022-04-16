@@ -7,6 +7,10 @@ private data class EventData(
     val typeName: String = type.substringBefore("<")
 }
 
+private val ADDITIONAL_EVENTS = listOf(
+    EventData("webkitfullscreenchange", "Event"),
+)
+
 private val EXCLUDED = setOf(
     "MediaRecorderErrorEvent",
     "OfflineAudioCompletionEvent",
@@ -18,6 +22,7 @@ internal fun eventDeclarations(): List<ConversionResult> =
     EVENT_SOURCES
         .splitToSequence("\n")
         .mapNotNull { parseEventData(it) }
+        .plus(ADDITIONAL_EVENTS)
         .distinct()
         .groupBy { it.typeName }
         .filter { it.key !in EXCLUDED }

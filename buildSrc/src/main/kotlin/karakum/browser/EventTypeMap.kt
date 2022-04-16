@@ -177,5 +177,6 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     "webkitanimationend" to "webkit_animation_end",
     "webkitanimationiteration" to "webkit_animation_iteration",
     "webkitanimationstart" to "webkit_animation_start",
+    "webkitfullscreenchange" to "webkit_fullscreen_change",
     "webkittransitionend" to "webkit_transition_end",
 )
