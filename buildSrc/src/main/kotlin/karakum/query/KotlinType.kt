@@ -54,6 +54,11 @@ private val STANDARD_TYPE_MAP = mapOf(
             "(value: QueryErrorResetBoundaryValue) -> react.ReactNode",
 
     "boolean | ((error: TError) => boolean)" to "(error: TError) -> Boolean",
+
+    "({ children, }: QueryErrorResetBoundaryProps) => JSX.Element" to
+            "react.FC<QueryErrorResetBoundaryProps>",
+    "({ client, contextSharing, children, }: QueryClientProviderProps) => JSX.Element" to
+            "react.FC<QueryClientProviderProps>",
 )
 
 private val SAFE_PREFIXES = setOf(
