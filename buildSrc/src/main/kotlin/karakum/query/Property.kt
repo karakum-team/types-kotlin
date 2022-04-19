@@ -12,6 +12,9 @@ class Property(
     }
 
     override fun toCode(): String {
+        if (name == "children" && type == "react.ReactNode")
+            return "override var children: react.ReactNode?"
+
         val optional = MARK_OPTIONAL && source.startsWith("$name?: ")
         val typeDeclaration = if (optional && type != DYNAMIC && !type.endsWith(">?")) {
             if (type.startsWith("(")) "($type)?" else "$type?"

@@ -22,10 +22,10 @@ abstract class TypeBase : Declaration() {
         if (name.endsWith("Props"))
             return@lazy when (name) {
                 "QueryClientProviderProps",
+                "HydrateProps",
                 -> "react.PropsWithChildren"
 
                 "QueryErrorResetBoundaryProps",
-                "HydrateProps",
                 -> "react.Props"
 
                 else -> TODO()
