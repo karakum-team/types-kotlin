@@ -16,4 +16,4 @@ external interface HydrateProps : react.Props {
     var children: react.ReactNode
 }
 
-external val Hydrate: dynamic
+external val Hydrate: react.FC<HydrateProps>
