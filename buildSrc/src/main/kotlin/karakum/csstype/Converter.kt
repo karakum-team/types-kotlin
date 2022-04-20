@@ -340,6 +340,7 @@ private fun convertUnion(
         return when (name) {
             FLEX -> it.copy(body = it.body + "\n\n" + flexFactories())
             BOX_SHADOW -> it.copy(body = it.body + "\n\n" + boxShadowFactories())
+            TEXT_SHADOW -> it.copy(body = it.body + "\n\n" + textShadowFactories())
             else -> it
         }
     }
