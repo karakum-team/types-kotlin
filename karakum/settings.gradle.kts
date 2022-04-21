@@ -5,6 +5,9 @@ pluginManagement {
         val kotlinVersion = extra["kotlin.version"] as String
         kotlin("jvm") version kotlinVersion
         kotlin("js") version kotlinVersion
+
+        val kfcVersion = extra["kfc.version"] as String
+        id("io.github.turansky.kfc.webpack") version kfcVersion
     }
 }
 
