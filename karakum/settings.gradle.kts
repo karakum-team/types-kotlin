@@ -8,5 +8,11 @@ pluginManagement {
     }
 }
 
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
+
 include("karakum-converter")
 include("karakum-gradle-plugin")

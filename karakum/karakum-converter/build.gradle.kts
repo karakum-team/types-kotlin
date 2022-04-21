@@ -4,10 +4,6 @@ plugins {
     kotlin("js")
 }
 
-repositories {
-    mavenCentral()
-}
-
 val embeddedJsLibrary by configurations.creating {
     isCanBeConsumed = true
     isCanBeResolved = false
