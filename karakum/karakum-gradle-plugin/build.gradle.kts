@@ -15,11 +15,9 @@ dependencies {
 }
 
 val embeddedJsLibraryZip by tasks.registering(Zip::class) {
-    dependsOn(embeddedJsLibrary)
-
     archiveFileName.set("karakum.zip")
 
-    from(embeddedJsLibrary.files)
+    from(embeddedJsLibrary)
 }
 
 tasks.jar {
