@@ -26,7 +26,7 @@ val embeddedJsLibraryZip by tasks.registering(Zip::class) {
     from(embeddedJsLibrary.files)
 }
 
-tasks.named<Jar>("jar") {
+tasks.jar {
     dependsOn(embeddedJsLibraryZip)
 
     from(embeddedJsLibraryDestinationDirectory.get().file(embeddedJsLibraryFileName))
