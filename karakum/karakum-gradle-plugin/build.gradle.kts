@@ -11,14 +11,7 @@ val embeddedJsLibrary by configurations.creating {
 dependencies {
     compileOnly(kotlin("gradle-plugin"))
 
-    embeddedJsLibrary(
-        project(
-            mapOf(
-                "path" to ":karakum-converter",
-                "configuration" to "embeddedJsLibrary"
-            )
-        )
-    )
+    embeddedJsLibrary(project(":karakum-converter", "embeddedJsLibrary"))
 }
 
 val embeddedJsLibraryFileName = "karakum.zip"
