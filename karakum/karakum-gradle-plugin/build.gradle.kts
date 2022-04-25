@@ -14,22 +14,16 @@ dependencies {
     embeddedJsLibrary(project(":karakum-converter", embeddedJsLibrary.name))
 }
 
-val embeddedJsLibraryFileName = "karakum.zip"
-val embeddedJsLibraryDestinationDirectory = layout.buildDirectory.dir("tmp")
-
 val embeddedJsLibraryZip by tasks.registering(Zip::class) {
     dependsOn(embeddedJsLibrary)
 
-    archiveFileName.set(embeddedJsLibraryFileName)
-    destinationDirectory.set(embeddedJsLibraryDestinationDirectory)
+    archiveFileName.set("karakum.zip")
 
     from(embeddedJsLibrary.files)
 }
 
 tasks.jar {
-    dependsOn(embeddedJsLibraryZip)
-
-    from(embeddedJsLibraryDestinationDirectory.get().file(embeddedJsLibraryFileName))
+    from(embeddedJsLibraryZip)
 }
 
 gradlePlugin {
