@@ -54,19 +54,19 @@ external class GeoJsonDataSource(var name: String = definedExternally) {
      * Gets an event that will be raised when the underlying data changes.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/GeoJsonDataSource.html#changedEvent">Online Documentation</a>
      */
-    var changedEvent: Event
+    var changedEvent: Event<*>
 
     /**
      * Gets an event that will be raised if an error is encountered during processing.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/GeoJsonDataSource.html#errorEvent">Online Documentation</a>
      */
-    var errorEvent: Event
+    var errorEvent: Event<*>
 
     /**
      * Gets an event that will be raised when the data source either starts or stops loading.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/GeoJsonDataSource.html#loadingEvent">Online Documentation</a>
      */
-    var loadingEvent: Event
+    var loadingEvent: Event<*>
 
     /**
      * Gets whether or not this data source should be displayed.

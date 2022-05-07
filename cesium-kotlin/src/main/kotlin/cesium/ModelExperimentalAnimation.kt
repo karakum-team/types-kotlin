@@ -36,7 +36,7 @@ external class ModelExperimentalAnimation {
      * ```
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelExperimentalAnimation.html#start">Online Documentation</a>
      */
-    var start: Event
+    var start: Event<*>
 
     /**
      * The event fired when on each frame when this animation is updated.  The
@@ -52,7 +52,7 @@ external class ModelExperimentalAnimation {
      * ```
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelExperimentalAnimation.html#update">Online Documentation</a>
      */
-    var update: Event
+    var update: Event<*>
 
     /**
      * The event fired when this animation is stopped.  This can be used, for
@@ -66,7 +66,7 @@ external class ModelExperimentalAnimation {
      * ```
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelExperimentalAnimation.html#stop">Online Documentation</a>
      */
-    var stop: Event
+    var stop: Event<*>
 
     /**
      * The name that identifies this animation in the model, if it exists.
