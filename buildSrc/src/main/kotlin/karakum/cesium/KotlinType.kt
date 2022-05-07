@@ -70,6 +70,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "string | string[]" to "Array<out String>",
     "number[] | Cartesian3[]" to "Array<out Cartesian3 /* or number */>",
+    "HeadingPitchRollValues | DirectionUp" to "Any /* HeadingPitchRollValues | DirectionUp */",
 
     "Event" to "Event<*>",
     PACKABLE to "$PACKABLE<*>",
@@ -101,9 +102,6 @@ internal fun kotlinType(
 
     if (type == JS_FUNCTION && name == "listener")
         return "() -> Unit"
-
-    if (type == "any" && name == "orientation")
-        return CameraOrientation.name
 
     if (STANDARD_TYPE_MAP.containsKey(type))
         return STANDARD_TYPE_MAP.getValue(type)

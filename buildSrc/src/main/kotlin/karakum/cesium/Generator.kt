@@ -24,7 +24,6 @@ internal fun generateKotlinDeclarations(
     parseDeclarations(definitionsFile)
         .asSequence()
         .plus(Record)
-        .plus(CameraOrientation)
         .sortedBy(Declaration::name)
         .forEach { declaration ->
             val file = cesiumDir.resolve("${declaration.name}.kt")
