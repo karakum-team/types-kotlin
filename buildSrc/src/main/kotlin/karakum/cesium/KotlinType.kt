@@ -80,6 +80,15 @@ internal fun kotlinType(
     if (type in WHITE_LIST)
         return type
 
+    if (type.startsWith("Event<"))
+        return type
+            .replace("arg0: this, ", "")
+            .replace(" => void", " -> Unit")
+            .replace(": boolean", ": Boolean")
+            .replace("EntityCluster.", "")
+            .replace("EntityCollection.", "")
+            .replace("TerrainProvider.ErrorEvent", "* /* ErrorEvent */")
+
     if (type.startsWith("Record<"))
         return type
 
