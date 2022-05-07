@@ -6,7 +6,7 @@ tasks {
     }
 
     val sourceDir = file("src/main/kotlin")
-    val remoteProjectDir = rootDir.parentFile.resolve("cesium-declarations/${project.name}")
+    val remoteProjectDir = rootDir.parentFile.resolve("cesium-kotlin/${project.name}")
     val remoteSourceDir = remoteProjectDir.resolve("src/main/kotlin")
 
     val generateDeclarations by registering {
