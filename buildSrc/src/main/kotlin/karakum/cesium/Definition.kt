@@ -41,7 +41,9 @@ internal data class Definition(
                 "be instantiated directly." in doc
 
     val defaultName: String
-        get() = body.substringBefore(" ")
+        get() = body
+            .substringBefore(" ")
+            .substringBefore("<")
 
     fun doc(
         link: DocLink? = null,

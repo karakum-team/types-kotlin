@@ -140,6 +140,7 @@ private fun readDeclarations(
         .replace("The DOM element or ID", "The DOM element")
         .replace(RECORD) { record(it.groupValues[1]) }
         .applyTypeAliasCorrection()
+        .let { "\n$it" }
         .splitToSequence("\n\n/**")
         .filter { it.isNotBlank() }
         .map { "/**$it" }

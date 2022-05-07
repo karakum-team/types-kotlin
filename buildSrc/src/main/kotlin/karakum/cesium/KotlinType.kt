@@ -28,6 +28,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "string" to "String",
 
     "void" to "Unit",
+    "undefined" to "Nothing?",
 
     JS_FUNCTION to "Function<*>",
     "Date" to "kotlin.js.Date",
@@ -68,7 +69,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "string | string[]" to "Array<out String>",
 
-    PACKABLE to "$PACKABLE<*>"
+    // "Event" to "Event<*>",
+    PACKABLE to "$PACKABLE<*>",
 )
 
 internal fun kotlinType(
