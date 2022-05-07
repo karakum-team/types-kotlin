@@ -4,6 +4,7 @@
 @file:JsNonModule
 
 @file:Suppress(
+    "NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE",
     "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
@@ -156,7 +157,7 @@ external class CzmlDataSource(var name: String = definedExternally) {
          * Gets the array of CZML processing functions.
          * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CzmlDataSource.html#.updaters">Online Documentation</a>
          */
-        var updaters: Array<out CzmlDataSource.UpdaterFunction>
+        var updaters: Array<out UpdaterFunction>
 
         /**
          * A helper function used by custom CZML updater functions
@@ -229,8 +230,12 @@ external class CzmlDataSource(var name: String = definedExternally) {
         interface LoadOptions {
             var sourceUri: Resource?
             var credit: Credit?
-            var
-        }: dynamic
+        }
     }
 }
-}
+
+/**
+ * Function
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CzmlDataSource.html#.UpdaterFunction">Online Documentation</a>
+ */
+typealias UpdaterFunction = (entity: Entity, packet: Any, entityCollection: EntityCollection, sourceUri: String) -> Unit
