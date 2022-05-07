@@ -138,6 +138,7 @@ private fun readDeclarations(
         .replace("[webAssemblyOptions", "[options")
         .replace("(webAssemblyOptions", "(options")
         .replace("The DOM element or ID", "The DOM element")
+        .replace("this: TerrainProvider, ", "")
         .replace(RECORD) { record(it.groupValues[1]) }
         .applyTypeAliasCorrection()
         .let { "\n$it" }
