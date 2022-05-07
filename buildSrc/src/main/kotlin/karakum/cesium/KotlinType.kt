@@ -58,6 +58,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "GeometryInstance[] | GeometryInstance" to "Array<out GeometryInstance>",
 
     "Promise<HTMLImageElement | HTMLCanvasElement> | undefined" to "$PROMISE<$HTML_ELEMENT>?",
+    "Promise<ImageryTypes | CompressedTextureBuffer> | undefined" to "$PROMISE<Any /* ImageryTypes | CompressedTextureBuffer */>?",
     "undefined | Promise<void>" to "$PROMISE<Nothing?>?",
     "Cartesian2 | Cartesian3" to "Cartesian3",
 
@@ -68,6 +69,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Credit | string" to "Credit",
 
     "string | string[]" to "Array<out String>",
+    "number[] | Cartesian3[]" to "Array<out Cartesian3 /* or number */>",
 
     "Event" to "Event<*>",
     PACKABLE to "$PACKABLE<*>",
