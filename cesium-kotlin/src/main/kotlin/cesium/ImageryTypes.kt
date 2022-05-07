@@ -10,6 +10,4 @@ package cesium
  *
  * See the documentation for each ImageryProvider class for more information about how they return images.
  */
-external interface ImageryTypes {
-    var HTMLImageElement | HTMLCanvasElement | ImageBitmap: dynamic
-}
+typealias ImageryTypes = Any /* HTMLImageElement | HTMLCanvasElement | ImageBitmap */
