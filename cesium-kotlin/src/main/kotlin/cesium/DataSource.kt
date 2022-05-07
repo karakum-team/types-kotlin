@@ -46,13 +46,13 @@ abstract external class DataSource {
      * Gets an event that will be raised if an error is encountered during processing.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/DataSource.html#errorEvent">Online Documentation</a>
      */
-    abstract var errorEvent: Event
+    abstract var errorEvent: dynamic
 
     /**
      * Gets an event that will be raised when the value of isLoading changes.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/DataSource.html#loadingEvent">Online Documentation</a>
      */
-    abstract var loadingEvent: Event
+    abstract var loadingEvent: dynamic
 
     /**
      * Gets whether or not this data source should be displayed.

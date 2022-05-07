@@ -32,13 +32,13 @@ external class CallbackProperty(
 
     /**
      * Gets the value of the property.
-     * @param [time] The time for which to retrieve the value.  This parameter is unused since the value does not change with respect to time.
+     * @param [time] The time for which to retrieve the value.
      * @param [result] The object to store the value into, if omitted, a new instance is created and returned.
      * @return The modified result parameter or a new instance if the result parameter was not supplied or is unsupported.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CallbackProperty.html#getValue">Online Documentation</a>
      */
     fun getValue(
-        time: JulianDate? = definedExternally,
+        time: JulianDate,
         result: Any? = definedExternally,
     ): Any
 
@@ -57,7 +57,7 @@ external class CallbackProperty(
 /**
  * A function that returns the value of the property.
  * @param [time] The time for which to retrieve the value.
- * @param [result] The object to store the value into, if omitted, a new instance is created and returned.
+ * @param [result] The object to store the value into. If omitted, the function must create and return a new instance.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CallbackProperty.html#.Callback">Online Documentation</a>
  */
-typealias CallbackPropertyCallback = (time: JulianDate?, result: Any?) -> Any
+typealias CallbackPropertyCallback = (time: JulianDate, result: Any?) -> Any

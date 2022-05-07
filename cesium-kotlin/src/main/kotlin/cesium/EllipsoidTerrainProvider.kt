@@ -136,14 +136,14 @@ external class EllipsoidTerrainProvider(options: ConstructorOptions? = definedEx
      * @param [x] The X coordinate of the tile for which to request geometry.
      * @param [y] The Y coordinate of the tile for which to request geometry.
      * @param [level] The level of the tile for which to request geometry.
-     * @return Undefined if nothing need to be loaded or a Promise that resolves when all required tiles are loaded
+     * @return This provider does not support loading availability.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/EllipsoidTerrainProvider.html#loadTileDataAvailability">Online Documentation</a>
      */
     override fun loadTileDataAvailability(
         x: Double,
         y: Double,
         level: Int,
-    ): kotlin.js.Promise<Nothing?>?
+    ): Nothing?
 }
 
 inline fun EllipsoidTerrainProvider(

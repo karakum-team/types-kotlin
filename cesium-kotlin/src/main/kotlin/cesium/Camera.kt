@@ -261,7 +261,7 @@ external class Camera(scene: Scene) {
      */
     interface SetViewOptions {
         var destination: dynamic
-        var orientation: CameraOrientation?
+        var orientation: dynamic
         var endTransform: Matrix4?
         var convert: Boolean?
     }
