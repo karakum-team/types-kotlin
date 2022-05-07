@@ -71,6 +71,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Event" to "Event<*>",
     PACKABLE to "$PACKABLE<*>",
+    "CzmlDataSource.UpdaterFunction" to "UpdaterFunction",
 )
 
 internal fun kotlinType(
