@@ -226,7 +226,7 @@ external class HermiteSpline(options: ConstructorOptions) {
          */
         interface CreateClampedCubicOptions {
             var times: Array<out Double>
-            var points: dynamic
+            var points: Array<out Cartesian3 /* or number */>
             var firstTangent: Cartesian3
             var lastTangent: Cartesian3
         }

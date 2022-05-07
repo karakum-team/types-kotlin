@@ -245,11 +245,11 @@ abstract external class ImageryProvider {
         fun loadImage(
             imageryProvider: ImageryProvider,
             url: Resource,
-        ): dynamic
+        ): kotlin.js.Promise<Any /* ImageryTypes | CompressedTextureBuffer */>?
 
         fun loadImage(
             imageryProvider: ImageryProvider,
             url: String,
-        ): dynamic
+        ): kotlin.js.Promise<Any /* ImageryTypes | CompressedTextureBuffer */>?
     }
 }

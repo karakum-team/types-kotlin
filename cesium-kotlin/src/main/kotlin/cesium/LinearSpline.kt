@@ -36,7 +36,7 @@ external class LinearSpline(options: ConstructorOptions) {
      */
     interface ConstructorOptions {
         var times: Array<out Double>
-        var points: dynamic
+        var points: Array<out Cartesian3 /* or number */>
     }
 
     /**
@@ -49,7 +49,7 @@ external class LinearSpline(options: ConstructorOptions) {
      * An array of [Cartesian3] control points.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/LinearSpline.html#points">Online Documentation</a>
      */
-    val points: dynamic
+    val points: Array<out Cartesian3 /* or number */>
 
     /**
      * Finds an index `i` in `times` such that the parameter
