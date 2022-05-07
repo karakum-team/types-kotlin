@@ -42,7 +42,7 @@ external class EntityCluster {
      * Gets the event that will be raised when a new cluster will be displayed. The signature of the event listener is [EntityCluster.newClusterCallback].
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/EntityCluster.html#clusterEvent">Online Documentation</a>
      */
-    var clusterEvent: dynamic
+    var clusterEvent: Event<newClusterCallback>
 
     /**
      * Gets or sets whether clustering billboard entities is enabled.

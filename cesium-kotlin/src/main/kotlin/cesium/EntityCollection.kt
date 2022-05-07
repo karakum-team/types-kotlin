@@ -44,7 +44,7 @@ external class EntityCollection() {
      * The generated event is a [EntityCollection.CollectionChangedEventCallback].
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/EntityCollection.html#collectionChanged">Online Documentation</a>
      */
-    val collectionChanged: dynamic
+    val collectionChanged: Event<CollectionChangedEventCallback>
 
     /**
      * Gets a globally unique identifier for this collection.
