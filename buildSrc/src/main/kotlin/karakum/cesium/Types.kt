@@ -12,11 +12,17 @@ internal fun typeDeclaration(
     top: Boolean,
 ): String {
     val (name, body) = source.split(" = ")
-    return if (body.startsWith("(")) {
-        "typealias ${applyCallbackFix(name)} = ${typeBody(body)}"
-    } else {
-        val modifier = if (top) "external" else ""
-        "$modifier interface $name {\n${optionsBody(body)}\n}"
+    return when {
+        body.startsWith("(")
+        -> "typealias ${applyCallbackFix(name)} = ${typeBody(body)}"
+
+        body == "HTMLImageElement | HTMLCanvasElement | ImageBitmap"
+        -> "typealias $name = Any /* $body */"
+
+        else -> {
+            val modifier = if (top) "external" else ""
+            "$modifier interface $name {\n${optionsBody(body)}\n}"
+        }
     }
 }
 
@@ -66,4 +72,3 @@ private fun optionsBody(
         .map { "var ${it.toCode()}" }
         .joinToString("\n")
 }
-
