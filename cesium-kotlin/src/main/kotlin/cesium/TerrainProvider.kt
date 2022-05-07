@@ -180,4 +180,4 @@ abstract external class TerrainProvider {
  * @param [err] An object holding details about the error that occurred.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/TerrainProvider.html#.ErrorEvent">Online Documentation</a>
  */
-typealias ErrorEvent = (this: TerrainProvider, err: TileProviderError) -> Unit
+typealias ErrorEvent = (err: TileProviderError) -> Unit
