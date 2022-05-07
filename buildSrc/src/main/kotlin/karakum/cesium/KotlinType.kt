@@ -69,7 +69,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "string | string[]" to "Array<out String>",
 
-    // "Event" to "Event<*>",
+    "Event" to "Event<*>",
     PACKABLE to "$PACKABLE<*>",
 )
 
