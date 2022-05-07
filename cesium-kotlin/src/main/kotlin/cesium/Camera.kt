@@ -261,7 +261,7 @@ external class Camera(scene: Scene) {
      */
     interface SetViewOptions {
         var destination: dynamic
-        var orientation: dynamic
+        var orientation: Any /* HeadingPitchRollValues | DirectionUp */?
         var endTransform: Matrix4?
         var convert: Boolean?
     }
@@ -738,7 +738,7 @@ external class Camera(scene: Scene) {
      */
     interface FlyToOptions {
         var destination: dynamic
-        var orientation: CameraOrientation?
+        var orientation: Any?
         var duration: Double?
         var complete: FlightCompleteCallback?
         var cancel: FlightCancelledCallback?
