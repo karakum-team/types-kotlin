@@ -20,6 +20,7 @@ internal fun convertDefinitions(
         .replace("HTMLAttributeReferrerPolicy", "ReferrerPolicy")
         .replace("HTMLInputTypeAttribute", "InputType")
         .replace("    autoComplete?: string | undefined;", "    autoComplete?: AutoComplete | undefined;")
+        .replace(" |  undefined", " | undefined")
         .replace("\r\n", "\n")
 
     val svgTypes = content.substringAfter("    interface IntrinsicElements {\n")
