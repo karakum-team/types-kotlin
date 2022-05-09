@@ -6,11 +6,21 @@ internal class TopType(
     override val name: String =
         source.defaultName
 
-    override fun toCode(): String =
-        DEFAULT_PACKAGE +
+    override fun toCode(): String {
+        val bodySource = typeDeclaration(source.body, true)
+        val body = when (name) {
+            "HeadingPitchRollValues",
+            "DirectionUp",
+            -> bodySource.replaceFirst(name, "$name : ${CameraOrientation.name}")
+
+            else -> bodySource
+        }
+
+        return DEFAULT_PACKAGE +
                 source.doc() +
                 "\n" +
-                typeDeclaration(source.body, true)
+                body
+    }
 
     companion object {
         const val PREFIX = "export type "
