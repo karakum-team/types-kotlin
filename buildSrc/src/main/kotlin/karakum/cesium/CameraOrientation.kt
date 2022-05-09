@@ -16,7 +16,17 @@ fun CameraOrientation(
     o.pitch = pitch
     o.roll = roll
     return o
-}    
+}
+
+fun CameraOrientation(
+    var direction: Cartesian3
+    var up: Cartesian3
+): CameraOrientation {
+    val o: DirectionUp = js("({})")
+    o.direction = direction
+    o.up = up
+    return o
+}
 """
 
 internal object CameraOrientation : Declaration() {
