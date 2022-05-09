@@ -178,7 +178,7 @@ internal abstract class TypeBase(
             }
 
         val declaration = when (name) {
-            "Event" -> "$name<Listener : Function<*>>"
+            "Event" -> "$name<Listener : Function<Unit>>"
             else -> name
         }
 

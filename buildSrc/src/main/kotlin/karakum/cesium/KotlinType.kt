@@ -72,7 +72,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "string | string[]" to "Array<out String>",
     "number[] | Cartesian3[]" to "Array<out Cartesian3 /* or number */>",
 
-    "Event" to "Event<*>",
+    "Event" to DefaultEvent.name,
     PACKABLE to "$PACKABLE<*>",
     "CzmlDataSource.UpdaterFunction" to "UpdaterFunction",
 )
