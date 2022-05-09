@@ -19,8 +19,8 @@ fun CameraOrientation(
 }
 
 fun CameraOrientation(
-    var direction: Cartesian3
-    var up: Cartesian3
+    var direction: Cartesian3,
+    var up: Cartesian3,
 ): CameraOrientation {
     val o: DirectionUp = js("({})")
     o.direction = direction
