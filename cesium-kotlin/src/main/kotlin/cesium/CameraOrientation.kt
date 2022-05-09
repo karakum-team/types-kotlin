@@ -14,4 +14,14 @@ fun CameraOrientation(
     o.pitch = pitch
     o.roll = roll
     return o
-}    
+}
+
+fun CameraOrientation(
+    direction: Cartesian3,
+    up: Cartesian3,
+): CameraOrientation {
+    val o: DirectionUp = js("({})")
+    o.direction = direction
+    o.up = up
+    return o
+}
