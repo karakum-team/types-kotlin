@@ -177,7 +177,7 @@ internal abstract class TypeBase(
                 acc.replaceFirst("@param [${p.name}]", "@property [${p.name}]")
             }
 
-        val declaration = when(name) {
+        val declaration = when (name) {
             "Event" -> "$name<Listener : Function<*>>"
             else -> name
         }

@@ -4,18 +4,14 @@ package karakum.cesium
 private const val CODE: String = """
 package cesium
 
-external interface CameraOrientation {
-    var heading: Double
-    var pitch: Double
-    var roll: Double
-}
+sealed external interface CameraOrientation
 
 fun CameraOrientation(
     heading: Double,
     pitch: Double,
     roll: Double,
 ): CameraOrientation {
-    val o: CameraOrientation = js("({})")
+    val o: HeadingPitchRollValues = js("({})")
     o.heading = heading
     o.pitch = pitch
     o.roll = roll

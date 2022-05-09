@@ -63,6 +63,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Cartesian2 | Cartesian3" to "Cartesian3",
 
     "Entity | Entity.ConstructorOptions" to "Entity",
+    "HeadingPitchRollValues | DirectionUp" to CameraOrientation.name,
 
     "Resource | string" to "Resource",
     "string | Resource" to "Resource",
