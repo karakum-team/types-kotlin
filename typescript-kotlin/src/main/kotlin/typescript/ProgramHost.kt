@@ -67,9 +67,10 @@ sealed external interface ProgramHost<T : BuilderProgram> {
 
     /** If provided, used to resolve type reference directives, otherwise typescript's default resolution */
     val resolveTypeReferenceDirectives: ((
-        typeReferenceDirectiveNames: ReadonlyArray<String>,
+        typeReferenceDirectiveNames: dynamic, /* string[] | readonly FileReference[] */
         containingFile: String,
         redirectedReference: ResolvedProjectReference?,
         options: CompilerOptions,
+        containingFileMode: dynamic, /* SourceFile["impliedNodeFormat"] */
     ) -> ReadonlyArray<ResolvedTypeReferenceDirective?>)?
 }
