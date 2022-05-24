@@ -17,5 +17,5 @@ external fun resolveTypeReferenceDirective(
     host: ModuleResolutionHost,
     redirectedReference: ResolvedProjectReference = definedExternally,
     cache: TypeReferenceDirectiveResolutionCache = definedExternally,
-    resolutionMode: dynamic /* SourceFile["impliedNodeFormat"] */ = definedExternally,
+    resolutionMode: NodeFormat = definedExternally,
 ): ResolvedTypeReferenceDirectiveWithFailedLookupLocations

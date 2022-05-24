@@ -56,7 +56,7 @@ sealed external interface CompilerHost : ModuleResolutionHost {
         containingFile: String,
         redirectedReference: ResolvedProjectReference?,
         options: CompilerOptions,
-        containingFileMode: dynamic, /* SourceFile["impliedNodeFormat"] */
+        containingFileMode: NodeFormat??,
     ) -> ReadonlyArray<ResolvedTypeReferenceDirective?>)?
     val getEnvironmentVariable: ((name: String) -> String?)?
     val createHash: ((data: String) -> String)?

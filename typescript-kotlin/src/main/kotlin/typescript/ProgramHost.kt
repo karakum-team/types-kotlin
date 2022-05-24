@@ -71,6 +71,6 @@ sealed external interface ProgramHost<T : BuilderProgram> {
         containingFile: String,
         redirectedReference: ResolvedProjectReference?,
         options: CompilerOptions,
-        containingFileMode: dynamic, /* SourceFile["impliedNodeFormat"] */
+        containingFileMode: NodeFormat??,
     ) -> ReadonlyArray<ResolvedTypeReferenceDirective?>)?
 }
