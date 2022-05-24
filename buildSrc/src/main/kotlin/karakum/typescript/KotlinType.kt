@@ -52,6 +52,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     NodeFormat.alias to NodeFormat.name,
     ResolutionMode.alias to ResolutionMode.name,
+
+    """SourceFile["impliedNodeFormat"]""" to NodeFormat.name,
 )
 
 internal fun kotlinType(
