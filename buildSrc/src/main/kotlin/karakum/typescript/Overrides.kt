@@ -129,6 +129,19 @@ internal fun fixOverrides(
         -> content
             .override("getCurrentDirectory")
 
+        "LanguageServiceHost",
+        -> content
+            .override("getCompilationSettings")
+            .override("trace")
+            .override("useCaseSensitiveFileNames")
+            .override("realpath")
+            .override("fileExists")
+            .override("getDirectories")
+            .replace(
+                "val useCaseSensitiveFileNames",
+                "/* val */ var useCaseSensitiveFileNames",
+            )
+
         else -> content
             .override("body")
             .override("kind")
