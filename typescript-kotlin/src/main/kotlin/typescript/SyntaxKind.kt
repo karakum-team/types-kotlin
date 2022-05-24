@@ -160,7 +160,7 @@ sealed external interface SyntaxKind {
     object ModuleKeyword : SyntaxKind, Union.SyntaxKind_ModuleKeyword
     object NamespaceKeyword : SyntaxKind, Union.SyntaxKind_NamespaceKeyword
     object NeverKeyword : SyntaxKind, Union.SyntaxKind_NeverKeyword
-    object OutKeyword : SyntaxKind
+    object OutKeyword : SyntaxKind, Union.SyntaxKind_OutKeyword
     object ReadonlyKeyword : SyntaxKind, Union.SyntaxKind_ReadonlyKeyword
     object RequireKeyword : SyntaxKind, Union.SyntaxKind_RequireKeyword
     object NumberKeyword : SyntaxKind, Union.SyntaxKind_NumberKeyword

@@ -73,7 +73,7 @@ sealed external interface Union {
 
     sealed interface CallSignatureDeclaration_ : HasJSDoc, SignatureDeclaration
 
-    sealed interface CaseClause_ : CaseOrDefaultClause
+    sealed interface CaseClause_ : HasJSDoc, CaseOrDefaultClause
 
     sealed interface CaseOrDefaultClause_ : BlockLike
 
@@ -158,15 +158,13 @@ sealed external interface Union {
 
     sealed interface ExportKeyword_ : Modifier
 
-    sealed interface ExportSpecifier_ : ImportOrExportSpecifier
+    sealed interface ExportSpecifier_ : HasJSDoc, ImportOrExportSpecifier
 
     sealed interface Expression_ : ConciseBody, ForInitializer, FunctionLikeDeclarationBase_body, FlowAssignment_node
 
     sealed interface ExpressionStatement_ : HasJSDoc
 
     sealed interface ExpressionWithTypeArguments_ : TypeReferenceType
-
-    sealed interface ExpressionWithTypeArguments_parent : Node
 
     sealed interface ExternalModuleReference_ : ModuleReference
 
@@ -218,8 +216,6 @@ sealed external interface Union {
 
     sealed interface HasExpressionInitializer_ : HasInitializer
 
-    sealed interface HeritageClause_ : ExpressionWithTypeArguments_parent
-
     sealed interface HeritageClause_parent : Node
 
     sealed interface HeritageClause_token
@@ -245,6 +241,8 @@ sealed external interface Union {
 
     sealed interface ImportSpecifier_ : ImportOrExportSpecifier
 
+    sealed interface InKeyword_ : Modifier
+
     sealed interface IncompleteType_ : FlowType
 
     sealed interface IndexSignatureDeclaration_ : HasJSDoc, SignatureDeclaration
@@ -265,15 +263,11 @@ sealed external interface Union {
 
     sealed interface JSDoc_ : JSDocTag_parent
 
-    sealed interface JSDocAugmentsTag_ : ExpressionWithTypeArguments_parent
-
     sealed interface JSDocCallbackTag_ : DeclarationWithTypeParameters
 
     sealed interface JSDocCallbackTag_fullName
 
     sealed interface JSDocFunctionType_ : HasJSDoc, SignatureDeclaration
-
-    sealed interface JSDocImplementsTag_ : ExpressionWithTypeArguments_parent
 
     sealed interface JSDocLink_ : JSDocComment
 
@@ -444,6 +438,8 @@ sealed external interface Union {
 
     sealed interface OmittedExpression_ : ArrayBindingElement, BindingOrAssignmentElementTarget
 
+    sealed interface OutKeyword_ : Modifier
+
     sealed interface OverrideKeyword_ : Modifier
 
     sealed interface ParameterDeclaration_ : HasJSDoc, HasType, HasExpressionInitializer, VariableLikeDeclaration, BindingOrAssignmentElement, ObjectBindingPattern_parent, ArrayBindingPattern_parent,
@@ -487,9 +483,7 @@ sealed external interface Union {
 
     sealed interface QuestionToken_ : MappedTypeNode_questionToken
 
-    sealed interface ReadonlyKeyword_ : Modifier, ParameterPropertyModifier, ClassMemberModifier
-
-    sealed interface ReadonlyToken_ : MappedTypeNode_readonlyToken
+    sealed interface ReadonlyKeyword_ : Modifier, ParameterPropertyModifier, ClassMemberModifier, MappedTypeNode_readonlyToken
 
     sealed interface RegularExpressionLiteral_ : LiteralToken
 
@@ -705,7 +699,7 @@ sealed external interface Union {
 
     sealed interface SyntaxKind_ImportKeyword : KeywordSyntaxKind, MetaProperty_keywordToken
 
-    sealed interface SyntaxKind_InKeyword : KeywordSyntaxKind, RelationalOperator
+    sealed interface SyntaxKind_InKeyword : KeywordSyntaxKind, ModifierSyntaxKind, RelationalOperator
 
     sealed interface SyntaxKind_InferKeyword : KeywordSyntaxKind
 
@@ -770,6 +764,8 @@ sealed external interface Union {
     sealed interface SyntaxKind_OpenBracketToken : PunctuationSyntaxKind, JSDocSyntaxKind
 
     sealed interface SyntaxKind_OpenParenToken : PunctuationSyntaxKind
+
+    sealed interface SyntaxKind_OutKeyword : KeywordSyntaxKind, ModifierSyntaxKind
 
     sealed interface SyntaxKind_OverrideKeyword : KeywordSyntaxKind, ModifierSyntaxKind
 
