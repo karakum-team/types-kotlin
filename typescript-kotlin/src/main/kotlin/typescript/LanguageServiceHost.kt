@@ -54,7 +54,7 @@ sealed external interface LanguageServiceHost : GetEffectiveTypeRootsHost, Minim
         containingFile: String,
         redirectedReference: ResolvedProjectReference?,
         options: CompilerOptions,
-        containingFileMode: NodeFormat??,
+        containingFileMode: NodeFormat?,
     ) -> ReadonlyArray<ResolvedTypeReferenceDirective?>)?
     override val getDirectories: ((directoryName: String) -> ReadonlyArray<String>)?
 
