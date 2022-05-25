@@ -141,6 +141,7 @@ internal fun fixOverrides(
                 "val useCaseSensitiveFileNames",
                 "/* val */ var useCaseSensitiveFileNames",
             )
+            .replace("fileExists(path:", "fileExists(fileName:")
 
         else -> content
             .override("body")
