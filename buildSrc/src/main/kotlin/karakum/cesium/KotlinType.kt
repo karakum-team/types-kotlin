@@ -75,6 +75,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Event" to DefaultEvent.name,
     PACKABLE to "$PACKABLE<*>",
     "CzmlDataSource.UpdaterFunction" to "UpdaterFunction",
+
+    "ModelAnimation.AnimationTimeCallback" to "AnimationTimeCallback",
+    "ModelExperimentalAnimation.AnimationTimeCallback" to "AnimationTimeCallback",
 )
 
 internal fun kotlinType(

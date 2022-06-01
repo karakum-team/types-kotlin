@@ -104,6 +104,7 @@ internal abstract class TypeBase(
                 when (it.name) {
                     "RemoveCallback" -> name == "Event"
                     "DoneCallback" -> name == "KmlTourFlyTo"
+                    "AnimationTimeCallback" -> name == "ModelAnimation"
                     else -> true
                 }
             }

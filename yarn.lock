@@ -80,10 +80,10 @@ buffer-from@^1.0.0:
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.2.tgz#2b146a6fd72e80b4f55d255f35ed59a3a9a41bd5"
   integrity sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==
 
-cesium@1.93.0:
-  version "1.93.0"
-  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.93.0.tgz#4e98e7770b993a87e53bffa95ac5cbb89137d390"
-  integrity sha512-y5+KkISn3+0MZxGj96mNaZc5LAfpiOs1fmZCInH2xHwYw43FaaRbvdSHXZs8OwJ5dZIlo/m1biMyOKr354L+UA==
+cesium@1.94.0:
+  version "1.94.0"
+  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.94.0.tgz#286ac5c92db46227b510f1626518fee1597e32c5"
+  integrity sha512-BeZ44Xg/RpojzeWt+UwzIm1fu0Yxrjc92EpEMc3lhSqYfuxCcCK5Ao/rAap+wgNxnhEeLCObVyIqPjqpT1qj3w==
 
 concat-map@0.0.1:
   version "0.0.1"
