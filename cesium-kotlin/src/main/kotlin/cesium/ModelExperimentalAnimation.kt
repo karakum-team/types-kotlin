@@ -3,6 +3,10 @@
 @file:JsModule("cesium")
 @file:JsNonModule
 
+@file:Suppress(
+    "NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE",
+)
+
 package cesium
 
 /**
@@ -15,7 +19,7 @@ package cesium
  * Create this by calling [ModelExperimentalAnimationCollection.add].
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelExperimentalAnimation.html">Online Documentation</a>
  */
-external class ModelExperimentalAnimation {
+external class ModelExperimentalAnimation() {
     /**
      * When `true`, the animation is removed after it stops playing.
      * This is slightly more efficient that not removing it, but if, for example,
@@ -116,4 +120,11 @@ external class ModelExperimentalAnimation {
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelExperimentalAnimation.html#loop">Online Documentation</a>
      */
     val loop: ModelAnimationLoop
+
+    /**
+     * If this is defined, it will be used to compute the local animation time
+     * instead of the scene's time.
+     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelExperimentalAnimation.html#animationTime">Online Documentation</a>
+     */
+    var animationTime: AnimationTimeCallback
 }
