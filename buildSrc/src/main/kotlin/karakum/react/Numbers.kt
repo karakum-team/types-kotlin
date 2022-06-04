@@ -21,6 +21,7 @@ private val INT_NAMES = setOf(
     "tabIndex",
     "start",
 
+    "border",
     "frameBorder",
 
     // Enums
