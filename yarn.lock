@@ -14,20 +14,20 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.5.tgz#db5a11bf66bdab39569719555b0f76e138d7bd64"
   integrity sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==
 
-"@types/node@17.0.39":
-  version "17.0.39"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.39.tgz#3652d82e2a16b4ea679d5ea3143b816c91b7e113"
-  integrity sha512-JDU3YLlnPK3WDao6/DlXLOgSNpG13ct+CwIO17V8q0/9fWJyeMJJ/VyZ1lv8kDprihvZMydzVwf0tQOqGiY2Nw==
+"@types/node@17.0.40":
+  version "17.0.40"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.40.tgz#76ee88ae03650de8064a6cf75b8d95f9f4a16090"
+  integrity sha512-UXdBxNGqTMtm7hCwh9HtncFVLrXoqA3oJW30j6XWp5BH/wu3mVeaxo7cq5benFdBw34HB3XDT2TRPI7rXZ+mDg==
 
 "@types/prop-types@*":
   version "15.7.5"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
-"@types/react@18.0.11":
-  version "18.0.11"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.11.tgz#94c9b62020caff17d117374d724de853ec711d21"
-  integrity sha512-JxSwm54IgMW4XTR+zFF5QpNx4JITmFbB4WHR2J0vg9RpjNeyqEMlODXsD2e64br6GX70TL0UYjZJETpyyC1WdA==
+"@types/react@18.0.12":
+  version "18.0.12"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.12.tgz#cdaa209d0a542b3fcf69cf31a03976ec4cdd8840"
+  integrity sha512-duF1OTASSBQtcigUvhuiTB1Ya3OvSy+xORCiEf20H0P0lzx+/KeVsA99U5UjLXSbyo1DRJDlLKqTeM1ngosqtg==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
