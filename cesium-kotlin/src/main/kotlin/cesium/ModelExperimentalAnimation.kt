@@ -19,7 +19,7 @@ package cesium
  * Create this by calling [ModelExperimentalAnimationCollection.add].
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelExperimentalAnimation.html">Online Documentation</a>
  */
-external class ModelExperimentalAnimation() {
+external class ModelExperimentalAnimation {
     /**
      * When `true`, the animation is removed after it stops playing.
      * This is slightly more efficient that not removing it, but if, for example,
