@@ -57,7 +57,7 @@ internal fun kotlinType(
     name: String,
 ): String {
     if (type.endsWith(" | null"))
-        return kotlinType(type.removeSuffix(" | null"), name)
+        return kotlinType(type.removeSuffix(" | null"), name) + "?"
 
     when (type) {
         "false",
