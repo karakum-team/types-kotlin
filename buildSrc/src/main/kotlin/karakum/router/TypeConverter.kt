@@ -16,6 +16,7 @@ internal fun convertType(
         body == "object | null" -> "Any?"
         body == "[string, string]" -> "kotlinx.js.JsPair<String, String>"
 
+        body.startsWith("Pick<History, ") -> "history.History"
         body.startsWith("Partial<") -> "Any // $body"
         body.startsWith("Omit<") -> "Any // $body"
         body.startsWith("Pick<") -> "Any // $body"
