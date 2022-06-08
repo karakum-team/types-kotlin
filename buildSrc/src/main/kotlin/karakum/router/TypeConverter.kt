@@ -23,6 +23,9 @@ internal fun convertType(
         else -> null
     }
 
+    if (name == "State" && alias == "Any?")
+        return "sealed external interface Location$name"
+
     if (alias != null)
         return "typealias $name = $alias"
 

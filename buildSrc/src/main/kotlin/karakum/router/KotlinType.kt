@@ -78,6 +78,13 @@ internal fun kotlinType(
     if (name == "defaultInit" && type == "URLSearchParamsInit")
         return "org.w3c.dom.url.URLSearchParams"
 
+    if (name == "state") {
+        when (type) {
+            "unknown" -> return "history.LocationState?"
+            "any" -> return "history.LocationState"
+        }
+    }
+
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
 
