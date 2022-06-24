@@ -1,5 +1,7 @@
 package karakum.cesium
 
+import karakum.common.Suppress
+import karakum.common.suppress
 import java.io.File
 
 private var nonModularMode: Boolean = false
@@ -72,5 +74,8 @@ private fun String.addLazyAnnotations(): String =
             .splitToSequence(" ")
             .last()
 
-        "\n@JsName(\"\\${'$'}cesium__$name\")$value"
+        sequenceOf(
+            suppress(Suppress.NAME_CONTAINS_ILLEGAL_CHARS),
+            "@JsName(\"Cesium.$name\")$value",
+        ).joinToString("\n", "\n")
     }
