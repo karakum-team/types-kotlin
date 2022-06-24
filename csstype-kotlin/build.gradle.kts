@@ -9,5 +9,5 @@ dependencies {
     implementation(npmv("csstype"))
 
     implementation(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:$kotlinWrappersVersion"))
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-extensions")
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-js")
 }
