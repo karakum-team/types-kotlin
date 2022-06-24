@@ -7,6 +7,9 @@ pluginManagement {
 
         val kfcVersion = extra["kfc.version"] as String
         id("io.github.turansky.kfc.library") version kfcVersion
+
+        val seskarVersion = extra["seskar.version"] as String
+        id("io.github.turansky.seskar") version seskarVersion
     }
 }
 

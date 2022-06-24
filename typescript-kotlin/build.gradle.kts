@@ -1,5 +1,6 @@
 plugins {
     id("io.github.turansky.kfc.library")
+    id("io.github.turansky.seskar")
     `typescript-declarations`
 }
 
