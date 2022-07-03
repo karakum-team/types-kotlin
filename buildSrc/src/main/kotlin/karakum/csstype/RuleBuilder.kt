@@ -30,6 +30,13 @@ interface $RULE_BUILDER<T : Any> {
     ) {
         $SELECTOR(this)(block)
     }
+    
+    inline fun and(
+        className: ClassName,
+        block: T.() -> Unit,
+    ) {
+        $SELECTOR("&.${'$'}className")(block)
+    }
 }
 """.trimIndent()
 
