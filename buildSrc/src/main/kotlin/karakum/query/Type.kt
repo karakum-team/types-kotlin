@@ -118,6 +118,15 @@ class Type(
                 external interface $name
                 """.trimIndent()
 
+        if (name == "UseBaseMutationResult") {
+            return sequenceOf(
+                "external interface $name${formatParameters(typeParameters)} : $body {",
+                "    // override val mutate: UseMutateFunction<TData, TError, TVariables, TContext>",
+                "    val mutateAsync: UseMutateAsyncFunction<TData, TError, TVariables, TContext>",
+                "}",
+            ).joinToString("\n")
+        }
+
         return "typealias $name${formatParameters(typeParameters)} = $body"
     }
 }
