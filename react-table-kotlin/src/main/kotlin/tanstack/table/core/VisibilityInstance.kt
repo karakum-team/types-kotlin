@@ -11,8 +11,8 @@ external interface VisibilityInstance<TData : RowData> {
     var getRightVisibleLeafColumns: () -> ReadonlyArray<Column<TData>>
     var getCenterVisibleLeafColumns: () -> ReadonlyArray<Column<TData>>
     var setColumnVisibility: (updater: Updater<VisibilityState>) -> Unit
-    var resetColumnVisibility: (defaultState?: boolean) -> Unit
-    var toggleAllColumnsVisible: (value?: boolean) -> Unit
+    var resetColumnVisibility: (defaultState: Boolean?) -> Unit
+    var toggleAllColumnsVisible: (value: Boolean?) -> Unit
     var getIsAllColumnsVisible: () -> Boolean
     var getIsSomeColumnsVisible: () -> Boolean
     var getToggleAllColumnsVisibilityHandler: () -> (event: unknown) -> Unit

@@ -4,11 +4,11 @@ package tanstack.table.core
 
 external interface PaginationInstance<TData : RowData> {
     var setPagination: (updater: Updater<PaginationState>) -> Unit
-    var resetPagination: (defaultState?: boolean) -> Unit
+    var resetPagination: (defaultState: Boolean?) -> Unit
     var setPageIndex: (updater: Updater<number>) -> Unit
-    var resetPageIndex: (defaultState?: boolean) -> Unit
+    var resetPageIndex: (defaultState: Boolean?) -> Unit
     var setPageSize: (updater: Updater<number>) -> Unit
-    var resetPageSize: (defaultState?: boolean) -> Unit
+    var resetPageSize: (defaultState: Boolean?) -> Unit
     var setPageCount: (updater: Updater<number>) -> Unit
     var getPageOptions: () -> number[]
     var getCanPreviousPage: () -> Boolean
