@@ -20,6 +20,9 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "void" to UNIT,
     "null" to "Nothing?",
+
+    "() => boolean" to "() -> Boolean",
+    "() => number" to "() -> Number",
 )
 
 internal fun kotlinType(
@@ -32,5 +35,5 @@ internal fun kotlinType(
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
 
-    return type
+    return type.replace(" => ", " -> ")
 }

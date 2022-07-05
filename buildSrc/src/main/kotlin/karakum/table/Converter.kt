@@ -116,7 +116,6 @@ private fun convertMember(
         .removeSuffix("?")
 
     var type = source.substringAfter(": ")
-        .replace(" => ", " -> ")
         .let { kotlinType(it, name) }
 
     if (optional) {
