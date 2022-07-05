@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 external interface ColumnPinningRow<TData : RowData> {
-    var getLeftVisibleCells: () -> Cell<TData>[]
-    var getCenterVisibleCells: () -> Cell<TData>[]
-    var getRightVisibleCells: () -> Cell<TData>[]
+    var getLeftVisibleCells: () -> ReadonlyArray<Cell<TData>>
+    var getCenterVisibleCells: () -> ReadonlyArray<Cell<TData>>
+    var getRightVisibleCells: () -> ReadonlyArray<Cell<TData>>
 }
