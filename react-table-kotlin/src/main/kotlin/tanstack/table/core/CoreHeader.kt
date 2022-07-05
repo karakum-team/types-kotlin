@@ -2,16 +2,18 @@
 
 package tanstack.table.core
 
+import kotlinx.js.ReadonlyArray
+
 external interface CoreHeader<TData : RowData> {
     var id: String
     var index: Number
     var depth: Number
     var column: Column<TData>
     var headerGroup: HeaderGroup<TData>
-    var subHeaders: Header<TData>[]
+    var subHeaders: ReadonlyArray<Header<TData>>
     var colSpan: Number
     var rowSpan: Number
-    var getLeafHeaders: () -> Header<TData>[]
+    var getLeafHeaders: () -> ReadonlyArray<Header<TData>>
     var isPlaceholder: Boolean
     var placeholderId: String?
     var getContext: () ->

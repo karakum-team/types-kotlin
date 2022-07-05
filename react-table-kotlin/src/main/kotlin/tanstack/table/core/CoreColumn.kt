@@ -9,7 +9,7 @@ external interface CoreColumn<TData : RowData> {
     var depth: Number
     var accessorFn: AccessorFn<TData>?
     var columnDef: ColumnDef<TData>
-    var columns: Column<TData>[]
+    var columns: ReadonlyArray<Column<TData>>
     var parent: Column<TData>?
     var getFlatColumns: () -> ReadonlyArray<Column<TData>>
     var getLeafColumns: () -> ReadonlyArray<Column<TData>>

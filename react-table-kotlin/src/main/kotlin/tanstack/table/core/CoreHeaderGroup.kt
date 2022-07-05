@@ -2,8 +2,10 @@
 
 package tanstack.table.core
 
+import kotlinx.js.ReadonlyArray
+
 external interface CoreHeaderGroup<TData : RowData> {
     var id: String
     var depth: Number
-    var headers: Header<TData>[]
+    var headers: ReadonlyArray<Header<TData>>
 }

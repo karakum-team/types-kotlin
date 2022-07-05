@@ -2,21 +2,23 @@
 
 package tanstack.table.core
 
+import kotlinx.js.ReadonlyArray
+
 external interface HeadersInstance<TData : RowData> {
-    var getHeaderGroups: () -> HeaderGroup<TData>[]
-    var getLeftHeaderGroups: () -> HeaderGroup<TData>[]
-    var getCenterHeaderGroups: () -> HeaderGroup<TData>[]
-    var getRightHeaderGroups: () -> HeaderGroup<TData>[]
-    var getFooterGroups: () -> HeaderGroup<TData>[]
-    var getLeftFooterGroups: () -> HeaderGroup<TData>[]
-    var getCenterFooterGroups: () -> HeaderGroup<TData>[]
-    var getRightFooterGroups: () -> HeaderGroup<TData>[]
-    var getFlatHeaders: () -> Header<TData>[]
-    var getLeftFlatHeaders: () -> Header<TData>[]
-    var getCenterFlatHeaders: () -> Header<TData>[]
-    var getRightFlatHeaders: () -> Header<TData>[]
-    var getLeafHeaders: () -> Header<TData>[]
-    var getLeftLeafHeaders: () -> Header<TData>[]
-    var getCenterLeafHeaders: () -> Header<TData>[]
-    var getRightLeafHeaders: () -> Header<TData>[]
+    var getHeaderGroups: () -> ReadonlyArray<HeaderGroup<TData>>
+    var getLeftHeaderGroups: () -> ReadonlyArray<HeaderGroup<TData>>
+    var getCenterHeaderGroups: () -> ReadonlyArray<HeaderGroup<TData>>
+    var getRightHeaderGroups: () -> ReadonlyArray<HeaderGroup<TData>>
+    var getFooterGroups: () -> ReadonlyArray<HeaderGroup<TData>>
+    var getLeftFooterGroups: () -> ReadonlyArray<HeaderGroup<TData>>
+    var getCenterFooterGroups: () -> ReadonlyArray<HeaderGroup<TData>>
+    var getRightFooterGroups: () -> ReadonlyArray<HeaderGroup<TData>>
+    var getFlatHeaders: () -> ReadonlyArray<Header<TData>>
+    var getLeftFlatHeaders: () -> ReadonlyArray<Header<TData>>
+    var getCenterFlatHeaders: () -> ReadonlyArray<Header<TData>>
+    var getRightFlatHeaders: () -> ReadonlyArray<Header<TData>>
+    var getLeafHeaders: () -> ReadonlyArray<Header<TData>>
+    var getLeftLeafHeaders: () -> ReadonlyArray<Header<TData>>
+    var getCenterLeafHeaders: () -> ReadonlyArray<Header<TData>>
+    var getRightLeafHeaders: () -> ReadonlyArray<Header<TData>>
 }

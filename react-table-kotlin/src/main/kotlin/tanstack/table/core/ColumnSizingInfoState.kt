@@ -2,11 +2,13 @@
 
 package tanstack.table.core
 
+import kotlinx.js.ReadonlyArray
+
 external interface ColumnSizingInfoState {
-    var startOffset: null | number
-    var startSize: null | number
-    var deltaOffset: null | number
-    var deltaPercentage: null | number
+    var startOffset: Number?
+    var startSize: Number?
+    var deltaOffset: Number?
+    var deltaPercentage: Number?
     var isResizingColumn: false | string
-    var columnSizingStart: [string, number][]
+    var columnSizingStart: ReadonlyArray<JsPair<String, Number>>
 }

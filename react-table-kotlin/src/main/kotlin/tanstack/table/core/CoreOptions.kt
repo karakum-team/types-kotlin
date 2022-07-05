@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
+import kotlinx.js.ReadonlyArray
+
 external interface CoreOptions<TData : RowData> {
     var data: TData[]
     var state: Partial<TableState>
@@ -18,7 +20,7 @@ external interface CoreOptions<TData : RowData> {
     var getCoreRowModel: (table: Table<any>) -> () -> RowModel<any>
     var getSubRows: ((originalRow: TData, index: number) -> undefined | TData[])?
     var getRowId: ((originalRow: TData, index: number, parent?: Row<TData>) -> string)?
-    var columns: ColumnDef<TData>[]
+    var columns: ReadonlyArray<ColumnDef<TData>>
     var defaultColumn: Partial<ColumnDef<TData>>?
     var renderFallbackValue: Any
 }
