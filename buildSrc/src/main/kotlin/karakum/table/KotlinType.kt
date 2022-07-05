@@ -23,6 +23,9 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "() => boolean" to "() -> Boolean",
     "() => number" to "() -> Number",
+
+    "() => Column<TData>[]" to "() -> ReadonlyArray<Column<TData>>",
+    "() => Cell<TData>[]" to "() -> ReadonlyArray<Cell<TData>>",
 )
 
 internal fun kotlinType(
