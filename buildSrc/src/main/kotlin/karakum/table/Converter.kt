@@ -100,5 +100,10 @@ private fun convertMembers(
         .splitToSequence("\n")
         .filter { !it.startsWith("_") }
         .map { it.removeSuffix(";") }
-        .map { "var $it" }
+        .map { convertMember(it) }
         .joinToString("\n")
+
+private fun convertMember(
+    source: String,
+): String =
+    "var " + source.replace(" => ", " -> ")
