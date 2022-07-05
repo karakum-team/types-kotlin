@@ -13,6 +13,7 @@ internal fun convertDefinitions(
     definitionFile.readText()
         .splitToSequence("\ndeclare ")
         .drop(1)
+        .map { it.removeSuffix(";") }
         .map { convertDefinition(it) }
 
 private fun convertDefinition(
