@@ -16,6 +16,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "boolean" to "Boolean",
     "string" to STRING,
 
+    "number" to "Number",
+
     "void" to UNIT,
     "null" to "Nothing?",
 )
