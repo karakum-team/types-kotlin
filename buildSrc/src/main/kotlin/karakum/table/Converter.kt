@@ -79,7 +79,9 @@ private fun convertTypealias(
         .substringBefore("<")
         .substringBefore("(")
 
-    val body = source.replace(" extends ", " : ")
+    val body = source
+        .replace(" extends ", " : ")
+        .replace(": RowData>", "/* : RowData */>")
     return ConversionResult(name, "typealias $body")
 }
 
