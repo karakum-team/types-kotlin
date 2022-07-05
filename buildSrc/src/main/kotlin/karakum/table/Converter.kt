@@ -117,6 +117,7 @@ private fun convertMember(
 
     var type = source.substringAfter(": ")
         .replace(" => ", " -> ")
+        .let { kotlinType(it, name) }
 
     if (optional) {
         type = if (type.startsWith("(")) {
