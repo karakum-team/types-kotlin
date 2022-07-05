@@ -4,5 +4,5 @@ package tanstack.table.core
 
 external interface ColumnFilter {
     var id: String
-    var value: unknown
+    var value: Any
 }
