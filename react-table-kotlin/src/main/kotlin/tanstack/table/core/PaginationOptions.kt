@@ -7,5 +7,5 @@ external interface PaginationOptions {
     var manualPagination?: boolean
     var onPaginationChange?: OnChangeFn<PaginationState>
     var autoResetPageIndex?: boolean
-    var getPaginationRowModel?: (table: Table<any>) => () => RowModel<any>
+    var getPaginationRowModel?: (table: Table<any>) -> () -> RowModel<any>
 }

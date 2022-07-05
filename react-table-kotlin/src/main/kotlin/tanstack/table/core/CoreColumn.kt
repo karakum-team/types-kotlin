@@ -9,6 +9,6 @@ external interface CoreColumn<TData : RowData> {
     var columnDef: ColumnDef<TData>
     var columns: Column<TData>[]
     var parent?: Column<TData>
-    var getFlatColumns: () => Column<TData>[]
-    var getLeafColumns: () => Column<TData>[]
+    var getFlatColumns: () -> Column<TData>[]
+    var getLeafColumns: () -> Column<TData>[]
 }

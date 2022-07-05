@@ -11,10 +11,11 @@ external interface CoreHeader<TData : RowData> {
     var subHeaders: Header<TData>[]
     var colSpan: number
     var rowSpan: number
-    var getLeafHeaders: () => Header<TData>[]
+    var getLeafHeaders: () -> Header<TData>[]
     var isPlaceholder: boolean
     var placeholderId?: string
-    var getContext: () =>
+    var getContext: () ->
+
     {
         var table: Table<TData>
         var header: Header<TData>

@@ -7,10 +7,10 @@ external interface CoreRow<TData : RowData> {
     var index: number
     var original?: TData
     var depth: number
-    var getValue: (columnId: string) => any
-    var renderValue: (columnId: string) => unknown
+    var getValue: (columnId: string) -> any
+    var renderValue: (columnId: string) -> unknown
     var subRows: Row<TData>[]
-    var getLeafRows: () => Row<TData>[]
+    var getLeafRows: () -> Row<TData>[]
     var originalSubRows?: TData[]
-    var getAllCells: () => Cell<TData>[]
+    var getAllCells: () -> Cell<TData>[]
 }
