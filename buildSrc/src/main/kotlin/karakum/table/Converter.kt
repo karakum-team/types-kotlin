@@ -88,6 +88,9 @@ private fun convertInterface(
     val name = declaration.substringBefore("<")
 
     val body = "{" + source.substringAfter(" = {")
+        .splitToSequence("\n")
+        .filter { !it.trimStart().startsWith("_") }
+        .joinToString("\n")
 
     return ConversionResult(name, "external interface $declaration$body")
 }
