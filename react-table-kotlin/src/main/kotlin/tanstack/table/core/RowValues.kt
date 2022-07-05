@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-external interface RowValues = {
+external interface RowValues {
     [key: string]: any
 }

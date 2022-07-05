@@ -2,13 +2,14 @@
 
 package tanstack.table.core
 
-external interface CoreCell<TData extends RowData> = {
+external interface CoreCell<TData : RowData> {
     id: string
     getValue: () => any
     renderValue: () => unknown
     row: Row<TData>
     column: Column<TData>
-    getContext: () => {
+    getContext: () =>
+    {
         table: Table<TData>
         column: Column<TData>
         row: Row<TData>

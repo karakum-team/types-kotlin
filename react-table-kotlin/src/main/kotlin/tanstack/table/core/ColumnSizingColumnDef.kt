@@ -2,9 +2,9 @@
 
 package tanstack.table.core
 
-external interface ColumnSizingColumnDef = {
-    enableResizing ?: boolean
-    size ?: number
-    minSize ?: number
-    maxSize ?: number
+external interface ColumnSizingColumnDef {
+    enableResizing?: boolean
+    size?: number
+    minSize?: number
+    maxSize?: number
 }

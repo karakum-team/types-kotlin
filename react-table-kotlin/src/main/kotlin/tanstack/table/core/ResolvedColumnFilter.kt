@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-external interface ResolvedColumnFilter<TData extends RowData> = {
+external interface ResolvedColumnFilter<TData : RowData> {
     id: string
     resolvedValue: unknown
     filterFn: FilterFn<TData>

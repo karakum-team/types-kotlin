@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-external interface ColumnPinningTableState = {
+external interface ColumnPinningTableState {
     columnPinning: ColumnPinningState
 }

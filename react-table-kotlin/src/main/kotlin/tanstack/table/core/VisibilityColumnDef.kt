@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-external interface VisibilityColumnDef = {
-    enableHiding ?: boolean
+external interface VisibilityColumnDef {
+    enableHiding?: boolean
 }

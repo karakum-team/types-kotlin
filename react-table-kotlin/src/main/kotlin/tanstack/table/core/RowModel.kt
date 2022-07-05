@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-external interface RowModel<TData extends RowData> = {
+external interface RowModel<TData : RowData> {
     rows: Row<TData>[]
     flatRows: Row<TData>[]
     rowsById: Record<string, Row<TData>>

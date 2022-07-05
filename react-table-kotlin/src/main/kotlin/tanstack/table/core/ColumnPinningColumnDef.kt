@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-external interface ColumnPinningColumnDef = {
-    enablePinning ?: boolean
+external interface ColumnPinningColumnDef {
+    enablePinning?: boolean
 }

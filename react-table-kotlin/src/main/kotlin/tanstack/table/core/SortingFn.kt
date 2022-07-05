@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-external interface SortingFn<TData extends RowData> = {
+external interface SortingFn<TData : RowData> {
     (rowA: Row<TData>, rowB: Row<TData>, columnId: string): number
 }

@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-external interface SortingTableState = {
+external interface SortingTableState {
     sorting: SortingState
 }

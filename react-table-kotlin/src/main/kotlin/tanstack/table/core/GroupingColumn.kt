@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-external interface GroupingColumn<TData extends RowData> = {
+external interface GroupingColumn<TData : RowData> {
     getCanGroup: () => boolean
     getIsGrouped: () => boolean
     getGroupedIndex: () => number

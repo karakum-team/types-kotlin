@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-external interface ColumnSizingInfoState = {
+external interface ColumnSizingInfoState {
     startOffset: null | number
     startSize: null | number
     deltaOffset: null | number

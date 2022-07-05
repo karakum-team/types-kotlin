@@ -2,17 +2,17 @@
 
 package tanstack.table.core
 
-external interface CoreRow<TData extends RowData> = {
+external interface CoreRow<TData : RowData> {
     id: string
     index: number
-    original ?: TData
+    original?: TData
     depth: number
     _valuesCache: Record<string, any>
     getValue: (columnId: string) => any
     renderValue: (columnId: string) => unknown
     subRows: Row<TData>[]
     getLeafRows: () => Row<TData>[]
-    originalSubRows ?: TData[]
+    originalSubRows?: TData[]
     getAllCells: () => Cell<TData>[]
     _getAllCellsByColumnId: () => Record<string, Cell<TData>>
 }

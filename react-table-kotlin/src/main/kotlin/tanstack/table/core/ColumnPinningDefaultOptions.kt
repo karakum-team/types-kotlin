@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-external interface ColumnPinningDefaultOptions = {
+external interface ColumnPinningDefaultOptions {
     onColumnPinningChange: OnChangeFn<ColumnPinningState>
 }

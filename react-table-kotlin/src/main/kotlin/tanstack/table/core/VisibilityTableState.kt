@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-external interface VisibilityTableState = {
+external interface VisibilityTableState {
     columnVisibility: VisibilityState
 }

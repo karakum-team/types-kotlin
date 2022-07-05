@@ -2,8 +2,8 @@
 
 package tanstack.table.core
 
-external interface ColumnSizingHeader = {
+external interface ColumnSizingHeader {
     getSize: () => number
-    getStart: (position ?: ColumnPinningPosition) => number
+    getStart: (position?: ColumnPinningPosition) => number
     getResizeHandler: () => (event: unknown) => void
 }

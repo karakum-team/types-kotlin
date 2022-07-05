@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-external interface VisibilityOptions = {
-    onColumnVisibilityChange ?: OnChangeFn<VisibilityState>
-    enableHiding ?: boolean
+external interface VisibilityOptions {
+    onColumnVisibilityChange?: OnChangeFn<VisibilityState>
+    enableHiding?: boolean
 }

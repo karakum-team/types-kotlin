@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-external interface ColumnOrderDefaultOptions = {
+external interface ColumnOrderDefaultOptions {
     onColumnOrderChange: OnChangeFn<ColumnOrderState>
 }

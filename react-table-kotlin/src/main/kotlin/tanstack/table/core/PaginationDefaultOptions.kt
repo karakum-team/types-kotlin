@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-external interface PaginationDefaultOptions = {
+external interface PaginationDefaultOptions {
     onPaginationChange: OnChangeFn<PaginationState>
 }

@@ -2,11 +2,11 @@
 
 package tanstack.table.core
 
-external interface SortingColumnDef<TData extends RowData> = {
-    sortingFn ?: SortingFnOption<TData>
-    sortDescFirst ?: boolean
-    enableSorting ?: boolean
-    enableMultiSort ?: boolean
-    invertSorting ?: boolean
-    sortUndefined ?: false |-1 | 1
+external interface SortingColumnDef<TData : RowData> {
+    sortingFn?: SortingFnOption<TData>
+    sortDescFirst?: boolean
+    enableSorting?: boolean
+    enableMultiSort?: boolean
+    invertSorting?: boolean
+    sortUndefined?: false | -1 | 1
 }

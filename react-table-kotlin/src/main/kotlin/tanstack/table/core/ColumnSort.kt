@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-external interface ColumnSort = {
+external interface ColumnSort {
     id: string
     desc: boolean
 }

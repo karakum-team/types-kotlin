@@ -2,9 +2,9 @@
 
 package tanstack.table.core
 
-external interface TableGenerics = {
-    Row ?: any
-    Value ?: any
-    ColumnMeta ?: any
-    TableMeta ?: any
+external interface TableGenerics {
+    Row?: any
+    Value?: any
+    ColumnMeta?: any
+    TableMeta?: any
 }

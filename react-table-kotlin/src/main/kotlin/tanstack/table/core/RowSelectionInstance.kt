@@ -2,11 +2,11 @@
 
 package tanstack.table.core
 
-external interface RowSelectionInstance<TData extends RowData> = {
+external interface RowSelectionInstance<TData : RowData> {
     getToggleAllRowsSelectedHandler: () => (event: unknown) => void
     getToggleAllPageRowsSelectedHandler: () => (event: unknown) => void
     setRowSelection: (updater: Updater<RowSelectionState>) => void
-    resetRowSelection: (defaultState ?: boolean) => void
+    resetRowSelection: (defaultState?: boolean) => void
     getIsAllRowsSelected: () => boolean
     getIsAllPageRowsSelected: () => boolean
     getIsSomeRowsSelected: () => boolean

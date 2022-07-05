@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-external interface CoreHeader<TData extends RowData> = {
+external interface CoreHeader<TData : RowData> {
     id: string
     index: number
     depth: number
@@ -13,8 +13,9 @@ external interface CoreHeader<TData extends RowData> = {
     rowSpan: number
     getLeafHeaders: () => Header<TData>[]
     isPlaceholder: boolean
-    placeholderId ?: string
-    getContext: () => {
+    placeholderId?: string
+    getContext: () =>
+    {
         table: Table<TData>
         header: Header<TData>
         column: Column<TData>

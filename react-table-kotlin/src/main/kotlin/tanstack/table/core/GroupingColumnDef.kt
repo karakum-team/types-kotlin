@@ -2,8 +2,8 @@
 
 package tanstack.table.core
 
-external interface GroupingColumnDef<TData extends RowData> = {
-    aggregationFn ?: AggregationFnOption<TData>
-    aggregatedCell ?: ColumnDefTemplate < ReturnType < Cell<TData>['getContext'] > >
-    enableGrouping ?: boolean
+external interface GroupingColumnDef<TData : RowData> {
+    aggregationFn?: AggregationFnOption<TData>
+    aggregatedCell?: ColumnDefTemplate<ReturnType<Cell<TData>['getContext']>>
+    enableGrouping?: boolean
 }

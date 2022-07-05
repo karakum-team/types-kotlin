@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-external interface ColumnPinningColumn = {
+external interface ColumnPinningColumn {
     getCanPin: () => boolean
     getPinnedIndex: () => number
     getIsPinned: () => ColumnPinningPosition

@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-external interface RowSelectionRow = {
+external interface RowSelectionRow {
     getIsSelected: () => boolean
     getIsSomeSelected: () => boolean
     getIsAllSubRowsSelected: () => boolean

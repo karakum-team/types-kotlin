@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-external interface PaginationTableState = {
+external interface PaginationTableState {
     pagination: PaginationState
 }

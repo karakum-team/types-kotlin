@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-external interface CoreInstance<TData extends RowData> = {
+external interface CoreInstance<TData : RowData> {
     initialState: TableState
     reset: () => void
     options: RequiredKeys<TableOptionsResolved<TData>, 'state'>
@@ -11,9 +11,9 @@ external interface CoreInstance<TData extends RowData> = {
     setState: (updater: Updater<TableState>) => void
     _features: readonly TableFeature[]
     _queue: (cb: () => void) => void
-    _getRowId: (_: TData, index: number, parent ?: Row<TData>) => string
+    _getRowId: (_: TData, index: number, parent?: Row<TData>) => string
     getCoreRowModel: () => RowModel<TData>
-    _getCoreRowModel ?: () => RowModel<TData>
+    _getCoreRowModel?: () => RowModel<TData>
     getRowModel: () => RowModel<TData>
     getRow: (id: string) => Row<TData>
     _getDefaultColumnDef: () => Partial<ColumnDef<TData>>
