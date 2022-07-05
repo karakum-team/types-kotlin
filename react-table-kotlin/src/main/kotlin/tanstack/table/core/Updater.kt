@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias Updater<T> = T | ((old: T) => T)
+typealias Updater<T> = T | ((old: T) -> T)

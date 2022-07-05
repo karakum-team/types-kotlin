@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-external fun <TNode> flattenBy(arr: TNode[], getChildren: (item: TNode) => TNode[]): TNode[]
+external fun <TNode> flattenBy(arr: TNode[], getChildren: (item: TNode) -> TNode[]): TNode[]
