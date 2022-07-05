@@ -39,6 +39,7 @@ private fun convertConst(
     val body = source.replace(": {", " {")
         .replace("\n    ", "\n    val ")
         .replace("<any>", "<*>")
+        .replace("number", "Double")
 
     val content = "external $type $body"
     return ConversionResult(name, content)
