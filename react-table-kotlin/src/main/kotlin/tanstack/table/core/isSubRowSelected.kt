@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-function isSubRowSelected<TData extends RowData>(row: Row<TData>, selection: Record<string, boolean>, table: Table<TData>): boolean | 'some' | 'all'
+external fun <TData extends RowData> isSubRowSelected(row: Row<TData>, selection: Record<string, boolean>, table: Table<TData>): boolean | 'some' | 'all'

@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-function makeStateUpdater(key: keyof TableState, table: unknown): (updater: Updater<any>) => void
+external fun makeStateUpdater(key: keyof TableState, table: unknown): (updater: Updater<any>) => void

@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-function getGroupedRowModel<TData extends RowData>(): (table: Table<TData>) => () => RowModel<TData>
+external fun <TData extends RowData> getGroupedRowModel(): (table: Table<TData>) => () => RowModel<TData>

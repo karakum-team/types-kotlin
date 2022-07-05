@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-function getSortedRowModel<TData extends RowData>(): (table: Table<TData>) => () => RowModel<TData>
+external fun <TData extends RowData> getSortedRowModel(): (table: Table<TData>) => () => RowModel<TData>

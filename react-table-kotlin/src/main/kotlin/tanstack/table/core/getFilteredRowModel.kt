@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-function getFilteredRowModel<TData extends RowData>(): (table: Table<TData>) => () => RowModel<TData>
+external fun <TData extends RowData> getFilteredRowModel(): (table: Table<TData>) => () => RowModel<TData>

@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-function orderColumns<TData extends RowData>(leafColumns: Column<TData>[], grouping: string[], groupedColumnMode?: GroupingColumnMode): Column<TData>[]
+external fun <TData extends RowData> orderColumns(leafColumns: Column<TData>[], grouping: string[], groupedColumnMode?: GroupingColumnMode): Column<TData>[]

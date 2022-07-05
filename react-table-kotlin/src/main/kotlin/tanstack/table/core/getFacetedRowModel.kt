@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-function getFacetedRowModel<TData extends RowData>(): (table: Table<TData>, columnId: string) => () => RowModel<TData>
+external fun <TData extends RowData> getFacetedRowModel(): (table: Table<TData>, columnId: string) => () => RowModel<TData>

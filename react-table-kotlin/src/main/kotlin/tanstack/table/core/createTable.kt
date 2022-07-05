@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-function createTable<TData extends RowData>(options: TableOptionsResolved<TData>): Table<TData>
+external fun <TData extends RowData> createTable(options: TableOptionsResolved<TData>): Table<TData>

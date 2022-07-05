@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-function getFacetedMinMaxValues<TData extends RowData>(): (table: Table<TData>, columnId: string) => () => undefined | [number, number]
+external fun <TData extends RowData> getFacetedMinMaxValues(): (table: Table<TData>, columnId: string) => () => undefined | [number, number]

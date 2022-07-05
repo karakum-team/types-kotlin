@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-function functionalUpdate<T>(updater: Updater<T>, input: T): T
+external fun <T> functionalUpdate(updater: Updater<T>, input: T): T

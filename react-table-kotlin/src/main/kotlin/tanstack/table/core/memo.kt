@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-function memo<TDeps extends readonly any[], TResult>(getDeps: () => [...TDeps], fn: (...args: NoInfer<[...TDeps]>) => TResult, opts: {
+external fun <TDeps extends readonly any[], TResult> memo(getDeps: () => [...TDeps], fn: (...args: NoInfer<[...TDeps]>) => TResult, opts: {
     key: any
     debug ?: () => any
     onChange ?: (result: TResult) => void

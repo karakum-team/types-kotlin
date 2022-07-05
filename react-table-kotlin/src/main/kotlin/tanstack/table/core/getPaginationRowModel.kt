@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-function getPaginationRowModel<TData extends RowData>(opts?: {
+external fun <TData extends RowData> getPaginationRowModel(opts?: {
     initialSync: boolean
 }): (table: Table<TData>) => () => RowModel<TData>
 

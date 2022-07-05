@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-function getFacetedUniqueValues<TData extends RowData>(): (table: Table<TData>, columnId: string) => () => Map<any, number>
+external fun <TData extends RowData> getFacetedUniqueValues(): (table: Table<TData>, columnId: string) => () => Map<any, number>

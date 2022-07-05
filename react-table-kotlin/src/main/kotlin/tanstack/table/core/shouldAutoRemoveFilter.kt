@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-function shouldAutoRemoveFilter<TData extends RowData>(filterFn?: FilterFn<TData>, value ?: any, column?: Column<TData>): boolean
+external fun <TData extends RowData> shouldAutoRemoveFilter(filterFn?: FilterFn<TData>, value ?: any, column?: Column<TData>): boolean

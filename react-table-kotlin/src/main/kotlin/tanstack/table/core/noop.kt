@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-function noop(): void
+external fun noop(): void

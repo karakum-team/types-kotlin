@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-function createColumn<TData extends RowData>(table: Table<TData>, columnDef: ColumnDef<TData>, depth: number, parent?: Column<TData>): Column<TData>
+external fun <TData extends RowData> createColumn(table: Table<TData>, columnDef: ColumnDef<TData>, depth: number, parent?: Column<TData>): Column<TData>
