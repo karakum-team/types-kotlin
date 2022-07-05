@@ -35,7 +35,11 @@ private fun convertConst(
 ): ConversionResult {
     val name = source.substringBefore(":")
     val type = if (": {" in source) "object" else "val"
-    val content = "external $type ${source.replace(": {", " {")}"
+
+    val body = source.replace(": {", " {")
+        .replace("\n    ", "\n    val ")
+
+    val content = "external $type $body"
     return ConversionResult(name, content)
 }
 
