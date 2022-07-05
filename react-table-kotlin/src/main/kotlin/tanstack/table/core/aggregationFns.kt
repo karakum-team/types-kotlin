@@ -3,13 +3,13 @@
 package tanstack.table.core
 
 external object aggregationFns {
-    val sum: AggregationFn<any>
-    val min: AggregationFn<any>
-    val max: AggregationFn<any>
-    val extent: AggregationFn<any>
-    val mean: AggregationFn<any>
-    val median: AggregationFn<any>
-    val unique: AggregationFn<any>
-    val uniqueCount: AggregationFn<any>
-    val count: AggregationFn<any>
+    val sum: AggregationFn<*>
+    val min: AggregationFn<*>
+    val max: AggregationFn<*>
+    val extent: AggregationFn<*>
+    val mean: AggregationFn<*>
+    val median: AggregationFn<*>
+    val unique: AggregationFn<*>
+    val uniqueCount: AggregationFn<*>
+    val count: AggregationFn<*>
 }

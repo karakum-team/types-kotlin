@@ -3,10 +3,10 @@
 package tanstack.table.core
 
 external object sortingFns {
-    val alphanumeric: SortingFn<any>
-    val alphanumericCaseSensitive: SortingFn<any>
-    val text: SortingFn<any>
-    val textCaseSensitive: SortingFn<any>
-    val datetime: SortingFn<any>
-    val basic: SortingFn<any>
+    val alphanumeric: SortingFn<*>
+    val alphanumericCaseSensitive: SortingFn<*>
+    val text: SortingFn<*>
+    val textCaseSensitive: SortingFn<*>
+    val datetime: SortingFn<*>
+    val basic: SortingFn<*>
 }
