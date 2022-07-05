@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias FilterFnOption<TData extends RowData> = 'auto' | BuiltInFilterFn | FilterFn<TData>
+typealias FilterFnOption<TData : RowData> = 'auto' | BuiltInFilterFn | FilterFn<TData>

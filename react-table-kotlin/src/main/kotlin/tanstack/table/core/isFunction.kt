@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-external fun <T extends AnyFunction> isFunction(d: any): d is T
+external fun <T : AnyFunction> isFunction(d: any): d is T

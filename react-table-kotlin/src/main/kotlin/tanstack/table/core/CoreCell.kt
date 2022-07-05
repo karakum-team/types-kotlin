@@ -9,7 +9,6 @@ external interface CoreCell<TData : RowData> {
     var row: Row<TData>
     var column: Column<TData>
     var getContext: () ->
-
     {
         var table: Table<TData>
         var column: Column<TData>

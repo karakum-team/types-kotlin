@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias CustomFilterFns<TData extends RowData> = Record<string, FilterFn<TData>>
+typealias CustomFilterFns<TData : RowData> = Record<string, FilterFn<TData>>

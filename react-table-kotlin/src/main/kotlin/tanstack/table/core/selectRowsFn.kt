@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-external fun <TData extends RowData> selectRowsFn(table: Table<TData>, rowModel: RowModel<TData>): RowModel<TData>
+external fun <TData : RowData> selectRowsFn(table: Table<TData>, rowModel: RowModel<TData>): RowModel<TData>

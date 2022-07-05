@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-external fun <TData extends RowData> getExpandedRowModel(): (table: Table<TData>) => () => RowModel<TData>
+external fun <TData : RowData> getExpandedRowModel(): (table: Table<TData>) => () => RowModel<TData>

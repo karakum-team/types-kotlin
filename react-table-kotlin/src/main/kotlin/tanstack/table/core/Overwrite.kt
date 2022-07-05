@@ -2,7 +2,9 @@
 
 package tanstack.table.core
 
-typealias Overwrite<T, U extends
+typealias Overwrite<
+        T,
+        U :
 
 {
     [TKey in keyof T]

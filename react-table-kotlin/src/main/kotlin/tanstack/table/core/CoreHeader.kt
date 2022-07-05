@@ -15,7 +15,6 @@ external interface CoreHeader<TData : RowData> {
     var isPlaceholder: boolean
     var placeholderId: string?
     var getContext: () ->
-
     {
         var table: Table<TData>
         var header: Header<TData>

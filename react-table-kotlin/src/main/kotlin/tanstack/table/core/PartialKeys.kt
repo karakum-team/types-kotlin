@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias PartialKeys<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
+typealias PartialKeys<T, K : keyof T> = Omit<T, K> & Partial<Pick<T, K>>

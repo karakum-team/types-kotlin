@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias UnionToIntersection<T> = (T extends any? (x: T) => any : never) extends (x: infer R) => any ? R : never
+typealias UnionToIntersection<T> = (T: any? (x: T) => any : never) : (x: infer R) => any ? R : never

@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias NoInfer<A extends any> = [A][A extends any ? 0 : never]
+typealias NoInfer<A : any> = [A][A : any ? 0 : never]

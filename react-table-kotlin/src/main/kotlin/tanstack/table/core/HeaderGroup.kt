@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias HeaderGroup<TData extends RowData> = CoreHeaderGroup<TData>
+typealias HeaderGroup<TData : RowData> = CoreHeaderGroup<TData>

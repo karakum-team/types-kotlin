@@ -2,7 +2,9 @@
 
 package tanstack.table.core
 
-typealias CoreColumnDefDisplayWithStringHeader<TData extends RowData> = CoreColumnDefBase<TData> & {
+typealias CoreColumnDefDisplayWithStringHeader<TData : RowData> = CoreColumnDefBase<TData> &
+
+{
     header: string
     id ?: string
 }

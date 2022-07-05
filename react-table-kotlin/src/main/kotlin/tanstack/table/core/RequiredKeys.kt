@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias RequiredKeys<T, K extends keyof T> = Omit<T, K> & Required<Pick<T, K>>
+typealias RequiredKeys<T, K : keyof T> = Omit<T, K> & Required<Pick<T, K>>
