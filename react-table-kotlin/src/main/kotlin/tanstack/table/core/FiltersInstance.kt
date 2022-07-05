@@ -9,8 +9,8 @@ external interface FiltersInstance<TData : RowData> {
     var getFilteredRowModel: () -> RowModel<TData>
     var setGlobalFilter: (updater: Updater<any>) -> void
     var resetGlobalFilter: (defaultState?: boolean) -> void
-    var getGlobalAutoFilterFn: () -> FilterFn<TData> | undefined
-    var getGlobalFilterFn: () -> FilterFn<TData> | undefined
+    var getGlobalAutoFilterFn: () -> FilterFn<TData>
+    var getGlobalFilterFn: () -> FilterFn<TData>
     var getGlobalFacetedRowModel: () -> RowModel<TData>
     var getGlobalFacetedUniqueValues: () -> Map<any, number>
     var getGlobalFacetedMinMaxValues: () -> undefined | [number, number]

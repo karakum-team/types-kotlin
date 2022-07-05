@@ -3,12 +3,12 @@
 package tanstack.table.core
 
 external interface ExpandedOptions<TData : RowData> {
-    var manualExpanding: boolean?
+    var manualExpanding: Boolean?
     var onExpandedChange: OnChangeFn<ExpandedState>?
-    var autoResetExpanded: boolean?
-    var enableExpanding: boolean?
+    var autoResetExpanded: Boolean?
+    var enableExpanding: Boolean?
     var getExpandedRowModel: ((table: Table<any>) -> () -> RowModel<any>)?
     var getIsRowExpanded: ((row: Row<TData>) -> boolean)?
     var getRowCanExpand: ((row: Row<TData>) -> boolean)?
-    var paginateExpandedRows: boolean?
+    var paginateExpandedRows: Boolean?
 }

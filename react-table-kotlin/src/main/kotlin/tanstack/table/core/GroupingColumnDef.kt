@@ -5,5 +5,5 @@ package tanstack.table.core
 external interface GroupingColumnDef<TData : RowData> {
     var aggregationFn: AggregationFnOption<TData>?
     var aggregatedCell: ColumnDefTemplate<ReturnType<Cell<TData>['getContext']>>?
-    var enableGrouping: boolean?
+    var enableGrouping: Boolean?
 }

@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 external interface CoreHeaderGroup<TData : RowData> {
-    var id: string
+    var id: String
     var depth: number
     var headers: Header<TData>[]
 }

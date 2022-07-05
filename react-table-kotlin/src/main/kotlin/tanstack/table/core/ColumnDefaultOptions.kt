@@ -4,5 +4,5 @@ package tanstack.table.core
 
 external interface ColumnDefaultOptions {
     var onGroupingChange: OnChangeFn<GroupingState>
-    var enableGrouping: boolean
+    var enableGrouping: Boolean
 }

@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 external interface CoreCell<TData : RowData> {
-    var id: string
+    var id: String
     var getValue: () -> any
     var renderValue: () -> unknown
     var row: Row<TData>

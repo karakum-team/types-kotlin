@@ -8,6 +8,6 @@ external interface GroupingColumn<TData : RowData> {
     var getGroupedIndex: () -> number
     var toggleGrouping: () -> void
     var getToggleGroupingHandler: () -> () -> void
-    var getAutoAggregationFn: () -> AggregationFn<TData> | undefined
-    var getAggregationFn: () -> AggregationFn<TData> | undefined
+    var getAutoAggregationFn: () -> AggregationFn<TData>
+    var getAggregationFn: () -> AggregationFn<TData>
 }

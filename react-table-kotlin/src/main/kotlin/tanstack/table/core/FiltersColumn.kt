@@ -3,8 +3,8 @@
 package tanstack.table.core
 
 external interface FiltersColumn<TData : RowData> {
-    var getAutoFilterFn: () -> FilterFn<TData> | undefined
-    var getFilterFn: () -> FilterFn<TData> | undefined
+    var getAutoFilterFn: () -> FilterFn<TData>
+    var getFilterFn: () -> FilterFn<TData>
     var setFilterValue: (updater: Updater<any>) -> void
     var getCanFilter: () -> boolean
     var getCanGlobalFilter: () -> boolean

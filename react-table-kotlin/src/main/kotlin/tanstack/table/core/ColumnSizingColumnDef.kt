@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 external interface ColumnSizingColumnDef {
-    var enableResizing: boolean?
+    var enableResizing: Boolean?
     var size: number?
     var minSize: number?
     var maxSize: number?

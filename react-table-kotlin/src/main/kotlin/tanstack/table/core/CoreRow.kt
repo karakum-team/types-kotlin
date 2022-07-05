@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 external interface CoreRow<TData : RowData> {
-    var id: string
+    var id: String
     var index: number
     var original: TData?
     var depth: number
