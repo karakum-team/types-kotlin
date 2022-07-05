@@ -55,5 +55,10 @@ internal fun kotlinType(
         .replace(") -> void", ") -> Unit")
         .replace("?: ColumnPinningPosition", ": ColumnPinningPosition?")
         .replace("?: boolean", ": Boolean?")
+        .replace("?: string", ": String?")
+        .replace("?: any", ": Any?")
         .replace(": boolean", ": Boolean")
+        .replace(": string", ": String")
+        .replace(": any", ": Any")
+        .replace("<any>", "<*>")
 }
