@@ -84,5 +84,5 @@ private fun convertInterface(
         .substringBefore("<")
         .substringBefore("(")
 
-    return ConversionResult(name, "type " + source)
+    return ConversionResult(name, "external interface " + source)
 }
