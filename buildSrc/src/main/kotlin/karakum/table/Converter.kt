@@ -105,5 +105,21 @@ private fun convertMembers(
 
 private fun convertMember(
     source: String,
-): String =
-    "var " + source.replace(" => ", " -> ")
+): String {
+    val optional = source.substringBefore(": ")
+        .endsWith("?")
+
+    val name = source.substringBefore(": ")
+        .removeSuffix("?")
+
+    var type = source.substringAfter(": ")
+        .replace(" => ", " -> ")
+
+    if (optional) {
+        type = if (type.startsWith("(")) {
+            "($type)?"
+        } else "$type?"
+    }
+
+    return "var $name: $type"
+}
