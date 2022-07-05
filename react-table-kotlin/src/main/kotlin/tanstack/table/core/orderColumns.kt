@@ -2,6 +2,9 @@
 
 package tanstack.table.core
 
+import kotlinx.js.ReadonlyArray
+
 external fun <TData : RowData> orderColumns(
-    leafColumns: Column<TData>
-    [], grouping: string[], groupedColumnMode?: GroupingColumnMode): Column<TData>[]
+    leafColumns: ReadonlyArray<Column<TData>>,
+    grouping: string
+    [], groupedColumnMode?: GroupingColumnMode): ReadonlyArray<Column<TData>>

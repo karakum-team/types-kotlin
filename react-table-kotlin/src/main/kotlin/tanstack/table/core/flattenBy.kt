@@ -2,4 +2,6 @@
 
 package tanstack.table.core
 
-external fun <TNode> flattenBy(arr: TNode[], getChildren: (item: TNode) -> TNode[]): TNode[]
+import kotlinx.js.ReadonlyArray
+
+external fun <TNode> flattenBy(arr: ReadonlyArray<TNode>, getChildren: (item: TNode) -> TNode[]): ReadonlyArray<TNode>

@@ -2,6 +2,10 @@
 
 package tanstack.table.core
 
+import kotlinx.js.ReadonlyArray
+
 external fun <TData : RowData> buildHeaderGroups(
-    allColumns: Column<TData>
-    [], columnsToGroup: Column<TData>[], table: Table<TData>, headerFamily?: 'center' | 'left' | 'right'): HeaderGroup<TData>[]
+    allColumns: ReadonlyArray<Column<TData>>,
+    columnsToGroup: ReadonlyArray<Column<TData>>,
+    table: Table<TData>,
+    headerFamily?: 'center' | 'left' | 'right'): HeaderGroup<TData>[]
