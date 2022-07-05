@@ -11,6 +11,7 @@ internal const val DOUBLE = "Double"
 private val STANDARD_TYPE_MAP = mapOf(
     "any" to "Any",
     "object" to "Any",
+    "unknown" to "Any",
 
     "boolean" to "Boolean",
     "string" to STRING,
