@@ -48,7 +48,10 @@ private fun convertFunction(
         .substringBefore("<")
         .substringBefore("(")
 
-    return ConversionResult(name, "function " + source)
+    val body = source.removePrefix(name)
+        .replaceFirst("(", " $name(")
+
+    return ConversionResult(name, "external fun " + body)
 }
 
 private fun convertType(
