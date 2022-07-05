@@ -3,8 +3,8 @@
 package tanstack.table.core
 
 external interface TableGenerics {
-    var Row?: any
-    var Value?: any
-    var ColumnMeta?: any
-    var TableMeta?: any
+    var Row: any?
+    var Value: any?
+    var ColumnMeta: any?
+    var TableMeta: any?
 }

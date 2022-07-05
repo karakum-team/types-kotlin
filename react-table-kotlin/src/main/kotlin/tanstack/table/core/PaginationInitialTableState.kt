@@ -3,5 +3,5 @@
 package tanstack.table.core
 
 external interface PaginationInitialTableState {
-    var pagination?: Partial<PaginationState>
+    var pagination: Partial<PaginationState>?
 }

@@ -3,6 +3,6 @@
 package tanstack.table.core
 
 external interface ColumnPinningState {
-    var left?: string[]
-    var right?: string[]
+    var left: string[]?
+    var right: string[]?
 }

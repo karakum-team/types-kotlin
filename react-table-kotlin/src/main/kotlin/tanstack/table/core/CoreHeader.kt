@@ -13,7 +13,7 @@ external interface CoreHeader<TData : RowData> {
     var rowSpan: number
     var getLeafHeaders: () -> Header<TData>[]
     var isPlaceholder: boolean
-    var placeholderId?: string
+    var placeholderId: string?
     var getContext: () ->
 
     {
@@ -21,5 +21,6 @@ external interface CoreHeader<TData : RowData> {
         var header: Header<TData>
         var column: Column<TData>
         var
-    }
+    }:
+}
 }

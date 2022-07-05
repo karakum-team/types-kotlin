@@ -3,5 +3,5 @@
 package tanstack.table.core
 
 external interface ColumnPinningColumnDef {
-    var enablePinning?: boolean
+    var enablePinning: boolean?
 }

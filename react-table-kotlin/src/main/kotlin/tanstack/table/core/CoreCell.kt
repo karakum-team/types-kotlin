@@ -18,5 +18,6 @@ external interface CoreCell<TData : RowData> {
         var getValue: () -> any
         var renderValue: () -> any
         var
-    }
+    }:
+}
 }
