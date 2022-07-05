@@ -5,7 +5,7 @@ package tanstack.table.core
 external interface CoreOptions<TData : RowData> {
     var data: TData[]
     var state: Partial<TableState>
-    var onStateChange: (updater: Updater<TableState>) -> void
+    var onStateChange: (updater: Updater<TableState>) -> Unit
     var debugAll: Boolean?
     var debugTable: Boolean?
     var debugHeaders: Boolean?

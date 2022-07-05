@@ -7,5 +7,5 @@ external interface ColumnSizingColumn {
     var getStart: (position?: ColumnPinningPosition) -> number
     var getCanResize: () -> Boolean
     var getIsResizing: () -> Boolean
-    var resetSize: () -> void
+    var resetSize: () -> Unit
 }

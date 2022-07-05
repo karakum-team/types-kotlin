@@ -6,5 +6,5 @@ external interface ColumnPinningColumn {
     var getCanPin: () -> Boolean
     var getPinnedIndex: () -> Number
     var getIsPinned: () -> ColumnPinningPosition
-    var pin: (position: ColumnPinningPosition) -> void
+    var pin: (position: ColumnPinningPosition) -> Unit
 }
