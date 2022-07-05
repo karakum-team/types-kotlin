@@ -3,5 +3,5 @@
 package tanstack.table.core
 
 external interface ExpandedTableState {
-    expanded: ExpandedState
+    var expanded: ExpandedState
 }

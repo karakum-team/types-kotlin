@@ -3,5 +3,5 @@
 package tanstack.table.core
 
 external interface SortingTableState {
-    sorting: SortingState
+    var sorting: SortingState
 }

@@ -3,5 +3,5 @@
 package tanstack.table.core
 
 external interface ColumnOrderTableState {
-    columnOrder: ColumnOrderState
+    var columnOrder: ColumnOrderState
 }

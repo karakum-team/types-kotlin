@@ -3,5 +3,5 @@
 package tanstack.table.core
 
 external interface ColumnPinningTableState {
-    columnPinning: ColumnPinningState
+    var columnPinning: ColumnPinningState
 }

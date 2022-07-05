@@ -3,15 +3,15 @@
 package tanstack.table.core
 
 external interface FiltersInstance<TData : RowData> {
-    setColumnFilters: (updater: Updater<ColumnFiltersState>) => void
-    resetColumnFilters: (defaultState?: boolean) => void
-    getPreFilteredRowModel: () => RowModel<TData>
-    getFilteredRowModel: () => RowModel<TData>
-    setGlobalFilter: (updater: Updater<any>) => void
-    resetGlobalFilter: (defaultState?: boolean) => void
-    getGlobalAutoFilterFn: () => FilterFn<TData> | undefined
-    getGlobalFilterFn: () => FilterFn<TData> | undefined
-    getGlobalFacetedRowModel: () => RowModel<TData>
-    getGlobalFacetedUniqueValues: () => Map<any, number>
-    getGlobalFacetedMinMaxValues: () => undefined | [number, number]
+    var setColumnFilters: (updater: Updater<ColumnFiltersState>) => void
+    var resetColumnFilters: (defaultState?: boolean) => void
+    var getPreFilteredRowModel: () => RowModel<TData>
+    var getFilteredRowModel: () => RowModel<TData>
+    var setGlobalFilter: (updater: Updater<any>) => void
+    var resetGlobalFilter: (defaultState?: boolean) => void
+    var getGlobalAutoFilterFn: () => FilterFn<TData> | undefined
+    var getGlobalFilterFn: () => FilterFn<TData> | undefined
+    var getGlobalFacetedRowModel: () => RowModel<TData>
+    var getGlobalFacetedUniqueValues: () => Map<any, number>
+    var getGlobalFacetedMinMaxValues: () => undefined | [number, number]
 }

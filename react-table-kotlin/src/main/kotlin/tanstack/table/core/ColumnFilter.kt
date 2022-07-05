@@ -3,6 +3,6 @@
 package tanstack.table.core
 
 external interface ColumnFilter {
-    id: string
-    value : unknown
+    var id: string
+    var value: unknown
 }

@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 external interface ColumnSizingDefaultOptions {
-    columnResizeMode: ColumnResizeMode
-    onColumnSizingChange: OnChangeFn<ColumnSizingState>
-    onColumnSizingInfoChange: OnChangeFn<ColumnSizingInfoState>
+    var columnResizeMode: ColumnResizeMode
+    var onColumnSizingChange: OnChangeFn<ColumnSizingState>
+    var onColumnSizingInfoChange: OnChangeFn<ColumnSizingInfoState>
 }

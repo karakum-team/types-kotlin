@@ -3,6 +3,6 @@
 package tanstack.table.core
 
 external interface ColumnSizingTableState {
-    columnSizing: ColumnSizingState
-    columnSizingInfo: ColumnSizingInfoState
+    var columnSizing: ColumnSizingState
+    var columnSizingInfo: ColumnSizingInfoState
 }

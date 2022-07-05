@@ -3,14 +3,14 @@
 package tanstack.table.core
 
 external interface SortingOptions<TData : RowData> {
-    manualSorting?: boolean
-    onSortingChange?: OnChangeFn<SortingState>
-    enableSorting?: boolean
-    enableSortingRemoval?: boolean
-    enableMultiRemove?: boolean
-    enableMultiSort?: boolean
-    sortDescFirst?: boolean
-    getSortedRowModel?: (table: Table<any>) => () => RowModel<any>
-    maxMultiSortColCount?: number
-    isMultiSortEvent?: (e: unknown) => boolean
+    var manualSorting?: boolean
+    var onSortingChange?: OnChangeFn<SortingState>
+    var enableSorting?: boolean
+    var enableSortingRemoval?: boolean
+    var enableMultiRemove?: boolean
+    var enableMultiSort?: boolean
+    var sortDescFirst?: boolean
+    var getSortedRowModel?: (table: Table<any>) => () => RowModel<any>
+    var maxMultiSortColCount?: number
+    var isMultiSortEvent?: (e: unknown) => boolean
 }

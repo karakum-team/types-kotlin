@@ -3,18 +3,18 @@
 package tanstack.table.core
 
 external interface RowSelectionInstance<TData : RowData> {
-    getToggleAllRowsSelectedHandler: () => (event: unknown) => void
-    getToggleAllPageRowsSelectedHandler: () => (event: unknown) => void
-    setRowSelection: (updater: Updater<RowSelectionState>) => void
-    resetRowSelection: (defaultState?: boolean) => void
-    getIsAllRowsSelected: () => boolean
-    getIsAllPageRowsSelected: () => boolean
-    getIsSomeRowsSelected: () => boolean
-    getIsSomePageRowsSelected: () => boolean
-    toggleAllRowsSelected: (value ?: boolean) => void
-    toggleAllPageRowsSelected: (value ?: boolean) => void
-    getPreSelectedRowModel: () => RowModel<TData>
-    getSelectedRowModel: () => RowModel<TData>
-    getFilteredSelectedRowModel: () => RowModel<TData>
-    getGroupedSelectedRowModel: () => RowModel<TData>
+    var getToggleAllRowsSelectedHandler: () => (event: unknown) => void
+    var getToggleAllPageRowsSelectedHandler: () => (event: unknown) => void
+    var setRowSelection: (updater: Updater<RowSelectionState>) => void
+    var resetRowSelection: (defaultState?: boolean) => void
+    var getIsAllRowsSelected: () => boolean
+    var getIsAllPageRowsSelected: () => boolean
+    var getIsSomeRowsSelected: () => boolean
+    var getIsSomePageRowsSelected: () => boolean
+    var toggleAllRowsSelected: (value?: boolean) => void
+    var toggleAllPageRowsSelected: (value?: boolean) => void
+    var getPreSelectedRowModel: () => RowModel<TData>
+    var getSelectedRowModel: () => RowModel<TData>
+    var getFilteredSelectedRowModel: () => RowModel<TData>
+    var getGroupedSelectedRowModel: () => RowModel<TData>
 }

@@ -3,6 +3,6 @@
 package tanstack.table.core
 
 external interface ColumnDefaultOptions {
-    onGroupingChange: OnChangeFn<GroupingState>
-    enableGrouping: boolean
+    var onGroupingChange: OnChangeFn<GroupingState>
+    var enableGrouping: boolean
 }

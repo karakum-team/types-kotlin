@@ -3,6 +3,6 @@
 package tanstack.table.core
 
 external interface FiltersTableState {
-    columnFilters: ColumnFiltersState
-    globalFilter: any
+    var columnFilters: ColumnFiltersState
+    var globalFilter: any
 }

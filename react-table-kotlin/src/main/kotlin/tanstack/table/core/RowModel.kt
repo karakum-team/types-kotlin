@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 external interface RowModel<TData : RowData> {
-    rows: Row<TData>[]
-    flatRows: Row<TData>[]
-    rowsById: Record<string, Row<TData>>
+    var rows: Row<TData>[]
+    var flatRows: Row<TData>[]
+    var rowsById: Record<string, Row<TData>>
 }

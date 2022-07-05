@@ -3,14 +3,14 @@
 package tanstack.table.core
 
 external interface CoreRow<TData : RowData> {
-    id: string
-    index: number
-    original?: TData
-    depth: number
-    getValue: (columnId: string) => any
-    renderValue: (columnId: string) => unknown
-    subRows: Row<TData>[]
-    getLeafRows: () => Row<TData>[]
-    originalSubRows?: TData[]
-    getAllCells: () => Cell<TData>[]
+    var id: string
+    var index: number
+    var original?: TData
+    var depth: number
+    var getValue: (columnId: string) => any
+    var renderValue: (columnId: string) => unknown
+    var subRows: Row<TData>[]
+    var getLeafRows: () => Row<TData>[]
+    var originalSubRows?: TData[]
+    var getAllCells: () => Cell<TData>[]
 }

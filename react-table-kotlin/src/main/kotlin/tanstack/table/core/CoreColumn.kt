@@ -3,12 +3,12 @@
 package tanstack.table.core
 
 external interface CoreColumn<TData : RowData> {
-    id: string
-    depth: number
-    accessorFn?: AccessorFn<TData>
-    columnDef: ColumnDef<TData>
-    columns: Column<TData>[]
-    parent?: Column<TData>
-    getFlatColumns: () => Column<TData>[]
-    getLeafColumns: () => Column<TData>[]
+    var id: string
+    var depth: number
+    var accessorFn?: AccessorFn<TData>
+    var columnDef: ColumnDef<TData>
+    var columns: Column<TData>[]
+    var parent?: Column<TData>
+    var getFlatColumns: () => Column<TData>[]
+    var getLeafColumns: () => Column<TData>[]
 }

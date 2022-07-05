@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 external interface GroupingRow {
-    groupingColumnId?: string
-    groupingValue?: any
-    getIsGrouped: () => boolean
+    var groupingColumnId?: string
+    var groupingValue?: any
+    var getIsGrouped: () => boolean
 }

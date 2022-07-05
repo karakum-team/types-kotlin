@@ -3,5 +3,5 @@
 package tanstack.table.core
 
 external interface VisibilityDefaultOptions {
-    onColumnVisibilityChange: OnChangeFn<VisibilityState>
+    var onColumnVisibilityChange: OnChangeFn<VisibilityState>
 }

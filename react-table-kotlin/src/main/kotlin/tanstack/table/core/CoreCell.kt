@@ -3,18 +3,19 @@
 package tanstack.table.core
 
 external interface CoreCell<TData : RowData> {
-    id: string
-    getValue: () => any
-    renderValue: () => unknown
-    row: Row<TData>
-    column: Column<TData>
-    getContext: () =>
+    var id: string
+    var getValue: () => any
+    var renderValue: () => unknown
+    var row: Row<TData>
+    var column: Column<TData>
+    var getContext: () =>
     {
-        table: Table<TData>
-        column: Column<TData>
-        row: Row<TData>
-        cell: Cell<TData>
-        getValue: () => any
-        renderValue: () => any
+        var table: Table<TData>
+        var column: Column<TData>
+        var row: Row<TData>
+        var cell: Cell<TData>
+        var getValue: () => any
+        var renderValue: () => any
+        var
     }
 }

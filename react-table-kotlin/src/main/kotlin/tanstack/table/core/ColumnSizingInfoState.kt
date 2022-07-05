@@ -3,10 +3,10 @@
 package tanstack.table.core
 
 external interface ColumnSizingInfoState {
-    startOffset: null | number
-    startSize: null | number
-    deltaOffset: null | number
-    deltaPercentage: null | number
-    isResizingColumn: false | string
-    columnSizingStart: [string, number][]
+    var startOffset: null | number
+    var startSize: null | number
+    var deltaOffset: null | number
+    var deltaPercentage: null | number
+    var isResizingColumn: false | string
+    var columnSizingStart: [string, number][]
 }

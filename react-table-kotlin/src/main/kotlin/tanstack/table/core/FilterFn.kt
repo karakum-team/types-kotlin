@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 external interface FilterFn<TData : RowData> {
-    (row: Row<TData>, columnId: string, filterValue: any, addMeta: (meta: any) => void): boolean
-    resolveFilterValue?: TransformFilterValueFn<TData>
-    autoRemove?: ColumnFilterAutoRemoveTestFn<TData>
+    var (row: Row<TData>, columnId: string, filterValue: any, addMeta: (meta: any) => void): boolean
+    var resolveFilterValue?: TransformFilterValueFn<TData>
+    var autoRemove?: ColumnFilterAutoRemoveTestFn<TData>
 }

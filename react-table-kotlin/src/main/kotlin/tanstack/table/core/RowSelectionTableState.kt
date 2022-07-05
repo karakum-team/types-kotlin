@@ -3,5 +3,5 @@
 package tanstack.table.core
 
 external interface RowSelectionTableState {
-    rowSelection: RowSelectionState
+    var rowSelection: RowSelectionState
 }

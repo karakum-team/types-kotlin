@@ -3,6 +3,6 @@
 package tanstack.table.core
 
 external interface FiltersRow<TData : RowData> {
-    columnFilters: Record<string, boolean>
-    columnFiltersMeta: Record<string, any>
+    var columnFilters: Record<string, boolean>
+    var columnFiltersMeta: Record<string, any>
 }

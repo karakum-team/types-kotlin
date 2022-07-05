@@ -3,15 +3,15 @@
 package tanstack.table.core
 
 external interface SortingColumn<TData : RowData> {
-    getAutoSortingFn: () => SortingFn<TData>
-    getAutoSortDir: () => SortDirection
-    getSortingFn: () => SortingFn<TData>
-    getNextSortingOrder: () => SortDirection | false
-    getCanSort: () => boolean
-    getCanMultiSort: () => boolean
-    getSortIndex: () => number
-    getIsSorted: () => false | SortDirection
-    clearSorting: () => void
-    toggleSorting: (desc?: boolean, isMulti?: boolean) => void
-    getToggleSortingHandler: () => undefined | ((event: unknown) => void)
+    var getAutoSortingFn: () => SortingFn<TData>
+    var getAutoSortDir: () => SortDirection
+    var getSortingFn: () => SortingFn<TData>
+    var getNextSortingOrder: () => SortDirection | false
+    var getCanSort: () => boolean
+    var getCanMultiSort: () => boolean
+    var getSortIndex: () => number
+    var getIsSorted: () => false | SortDirection
+    var clearSorting: () => void
+    var toggleSorting: (desc?: boolean, isMulti ?: boolean) => void
+    var getToggleSortingHandler: () => undefined | ((event: unknown) => void)
 }

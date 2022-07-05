@@ -3,5 +3,5 @@
 package tanstack.table.core
 
 external interface PaginationTableState {
-    pagination: PaginationState
+    var pagination: PaginationState
 }

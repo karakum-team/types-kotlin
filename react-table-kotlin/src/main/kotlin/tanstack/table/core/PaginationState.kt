@@ -3,6 +3,6 @@
 package tanstack.table.core
 
 external interface PaginationState {
-    pageIndex: number
-    pageSize: number
+    var pageIndex: number
+    var pageSize: number
 }

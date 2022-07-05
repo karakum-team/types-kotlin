@@ -3,6 +3,6 @@
 package tanstack.table.core
 
 external interface ColumnSort {
-    id: string
-    desc: boolean
+    var id: string
+    var desc: boolean
 }

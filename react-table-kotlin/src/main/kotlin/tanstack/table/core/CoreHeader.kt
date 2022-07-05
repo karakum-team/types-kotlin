@@ -3,21 +3,22 @@
 package tanstack.table.core
 
 external interface CoreHeader<TData : RowData> {
-    id: string
-    index: number
-    depth: number
-    column: Column<TData>
-    headerGroup: HeaderGroup<TData>
-    subHeaders: Header<TData>[]
-    colSpan: number
-    rowSpan: number
-    getLeafHeaders: () => Header<TData>[]
-    isPlaceholder: boolean
-    placeholderId?: string
-    getContext: () =>
+    var id: string
+    var index: number
+    var depth: number
+    var column: Column<TData>
+    var headerGroup: HeaderGroup<TData>
+    var subHeaders: Header<TData>[]
+    var colSpan: number
+    var rowSpan: number
+    var getLeafHeaders: () => Header<TData>[]
+    var isPlaceholder: boolean
+    var placeholderId?: string
+    var getContext: () =>
     {
-        table: Table<TData>
-        header: Header<TData>
-        column: Column<TData>
+        var table: Table<TData>
+        var header: Header<TData>
+        var column: Column<TData>
+        var
     }
 }

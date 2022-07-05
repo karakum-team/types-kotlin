@@ -3,8 +3,8 @@
 package tanstack.table.core
 
 external interface RowSelectionOptions<TData : RowData> {
-    enableRowSelection?: boolean | ((row: Row<TData>) => boolean)
-    enableMultiRowSelection?: boolean | ((row: Row<TData>) => boolean)
-    enableSubRowSelection?: boolean | ((row: Row<TData>) => boolean)
-    onRowSelectionChange?: OnChangeFn<RowSelectionState>
+    var enableRowSelection?: boolean | ((row: Row<TData>) => boolean)
+    var enableMultiRowSelection?: boolean | ((row: Row<TData>) => boolean)
+    var enableSubRowSelection?: boolean | ((row: Row<TData>) => boolean)
+    var onRowSelectionChange?: OnChangeFn<RowSelectionState>
 }

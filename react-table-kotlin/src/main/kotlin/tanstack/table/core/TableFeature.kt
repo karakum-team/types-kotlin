@@ -3,12 +3,12 @@
 package tanstack.table.core
 
 external interface TableFeature {
-    getDefaultOptions?: (table: any) => any
-    getInitialState?: (initialState?: InitialTableState) => any
-    createTable?: (table: any) => any
-    getDefaultColumnDef?: () => any
-    createColumn?: (column: any, table: any) => any
-    createHeader?: (column: any, table: any) => any
-    createCell?: (cell: any, column: any, row: any, table: any) => any
-    createRow?: (row: any, table: any) => any
+    var getDefaultOptions?: (table: any) => any
+    var getInitialState?: (initialState ?: InitialTableState) => any
+    var createTable?: (table: any) => any
+    var getDefaultColumnDef?: () => any
+    var createColumn?: (column: any, table: any) => any
+    var createHeader?: (column: any, table: any) => any
+    var createCell?: (cell: any, column: any, row: any, table: any) => any
+    var createRow?: (row: any, table: any) => any
 }

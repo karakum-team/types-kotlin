@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 external interface GroupingColumnDef<TData : RowData> {
-    aggregationFn?: AggregationFnOption<TData>
-    aggregatedCell?: ColumnDefTemplate<ReturnType<Cell<TData>['getContext']>>
-    enableGrouping?: boolean
+    var aggregationFn?: AggregationFnOption<TData>
+    var aggregatedCell?: ColumnDefTemplate<ReturnType<Cell<TData>['getContext']>>
+    var enableGrouping?: boolean
 }

@@ -3,5 +3,5 @@
 package tanstack.table.core
 
 external interface RowValues {
-    [key: string]: any
+    var [key: string]: any
 }

@@ -3,8 +3,8 @@
 package tanstack.table.core
 
 external interface VisibilityColumn {
-    getCanHide: () => boolean
-    getIsVisible: () => boolean
-    toggleVisibility: (value ?: boolean) => void
-    getToggleVisibilityHandler: () => (event: unknown) => void
+    var getCanHide: () => boolean
+    var getIsVisible: () => boolean
+    var toggleVisibility: (value?: boolean) => void
+    var getToggleVisibilityHandler: () => (event: unknown) => void
 }

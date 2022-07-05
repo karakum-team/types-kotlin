@@ -3,15 +3,15 @@
 package tanstack.table.core
 
 external interface VisibilityInstance<TData : RowData> {
-    getVisibleFlatColumns: () => Column<TData>[]
-    getVisibleLeafColumns: () => Column<TData>[]
-    getLeftVisibleLeafColumns: () => Column<TData>[]
-    getRightVisibleLeafColumns: () => Column<TData>[]
-    getCenterVisibleLeafColumns: () => Column<TData>[]
-    setColumnVisibility: (updater: Updater<VisibilityState>) => void
-    resetColumnVisibility: (defaultState?: boolean) => void
-    toggleAllColumnsVisible: (value ?: boolean) => void
-    getIsAllColumnsVisible: () => boolean
-    getIsSomeColumnsVisible: () => boolean
-    getToggleAllColumnsVisibilityHandler: () => (event: unknown) => void
+    var getVisibleFlatColumns: () => Column<TData>[]
+    var getVisibleLeafColumns: () => Column<TData>[]
+    var getLeftVisibleLeafColumns: () => Column<TData>[]
+    var getRightVisibleLeafColumns: () => Column<TData>[]
+    var getCenterVisibleLeafColumns: () => Column<TData>[]
+    var setColumnVisibility: (updater: Updater<VisibilityState>) => void
+    var resetColumnVisibility: (defaultState?: boolean) => void
+    var toggleAllColumnsVisible: (value?: boolean) => void
+    var getIsAllColumnsVisible: () => boolean
+    var getIsSomeColumnsVisible: () => boolean
+    var getToggleAllColumnsVisibilityHandler: () => (event: unknown) => void
 }

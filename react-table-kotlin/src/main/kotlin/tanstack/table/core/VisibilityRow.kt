@@ -3,5 +3,5 @@
 package tanstack.table.core
 
 external interface VisibilityRow<TData : RowData> {
-    getVisibleCells: () => Cell<TData>[]
+    var getVisibleCells: () => Cell<TData>[]
 }

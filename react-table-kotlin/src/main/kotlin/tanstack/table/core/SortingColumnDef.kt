@@ -3,10 +3,10 @@
 package tanstack.table.core
 
 external interface SortingColumnDef<TData : RowData> {
-    sortingFn?: SortingFnOption<TData>
-    sortDescFirst?: boolean
-    enableSorting?: boolean
-    enableMultiSort?: boolean
-    invertSorting?: boolean
-    sortUndefined?: false | -1 | 1
+    var sortingFn?: SortingFnOption<TData>
+    var sortDescFirst?: boolean
+    var enableSorting?: boolean
+    var enableMultiSort?: boolean
+    var invertSorting?: boolean
+    var sortUndefined?: false |-1 | 1
 }

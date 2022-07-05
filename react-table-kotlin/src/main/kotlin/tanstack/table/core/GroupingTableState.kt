@@ -3,5 +3,5 @@
 package tanstack.table.core
 
 external interface GroupingTableState {
-    grouping: GroupingState
+    var grouping: GroupingState
 }

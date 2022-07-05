@@ -3,8 +3,8 @@
 package tanstack.table.core
 
 external interface GroupingInstance<TData : RowData> {
-    setGrouping: (updater: Updater<GroupingState>) => void
-    resetGrouping: (defaultState?: boolean) => void
-    getPreGroupedRowModel: () => RowModel<TData>
-    getGroupedRowModel: () => RowModel<TData>
+    var setGrouping: (updater: Updater<GroupingState>) => void
+    var resetGrouping: (defaultState?: boolean) => void
+    var getPreGroupedRowModel: () => RowModel<TData>
+    var getGroupedRowModel: () => RowModel<TData>
 }

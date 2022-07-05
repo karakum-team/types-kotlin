@@ -3,11 +3,11 @@
 package tanstack.table.core
 
 external interface GroupingColumn<TData : RowData> {
-    getCanGroup: () => boolean
-    getIsGrouped: () => boolean
-    getGroupedIndex: () => number
-    toggleGrouping: () => void
-    getToggleGroupingHandler: () => () => void
-    getAutoAggregationFn: () => AggregationFn<TData> | undefined
-    getAggregationFn: () => AggregationFn<TData> | undefined
+    var getCanGroup: () => boolean
+    var getIsGrouped: () => boolean
+    var getGroupedIndex: () => number
+    var toggleGrouping: () => void
+    var getToggleGroupingHandler: () => () => void
+    var getAutoAggregationFn: () => AggregationFn<TData> | undefined
+    var getAggregationFn: () => AggregationFn<TData> | undefined
 }

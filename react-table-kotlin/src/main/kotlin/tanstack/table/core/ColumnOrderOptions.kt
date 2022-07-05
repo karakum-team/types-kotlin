@@ -3,5 +3,5 @@
 package tanstack.table.core
 
 external interface ColumnOrderOptions {
-    onColumnOrderChange?: OnChangeFn<ColumnOrderState>
+    var onColumnOrderChange?: OnChangeFn<ColumnOrderState>
 }

@@ -3,8 +3,8 @@
 package tanstack.table.core
 
 external interface SortingInstance<TData : RowData> {
-    setSorting: (updater: Updater<SortingState>) => void
-    resetSorting: (defaultState?: boolean) => void
-    getPreSortedRowModel: () => RowModel<TData>
-    getSortedRowModel: () => RowModel<TData>
+    var setSorting: (updater: Updater<SortingState>) => void
+    var resetSorting: (defaultState?: boolean) => void
+    var getPreSortedRowModel: () => RowModel<TData>
+    var getSortedRowModel: () => RowModel<TData>
 }

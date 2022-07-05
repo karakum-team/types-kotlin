@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 external interface FiltersColumnDef<TData : RowData> {
-    filterFn?: FilterFnOption<TData>
-    enableColumnFilter?: boolean
-    enableGlobalFilter?: boolean
+    var filterFn?: FilterFnOption<TData>
+    var enableColumnFilter?: boolean
+    var enableGlobalFilter?: boolean
 }
