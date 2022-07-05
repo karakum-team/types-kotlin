@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias ColumnDef<TData : RowData> = CoreColumnDef<TData> & VisibilityColumnDef & ColumnPinningColumnDef & FiltersColumnDef<TData> & SortingColumnDef<TData> & GroupingColumnDef<TData> & ColumnSizingColumnDef
+typealias ColumnDef<TData /* : RowData */> = CoreColumnDef<TData> & VisibilityColumnDef & ColumnPinningColumnDef & FiltersColumnDef<TData> & SortingColumnDef<TData> & GroupingColumnDef<TData> & ColumnSizingColumnDef

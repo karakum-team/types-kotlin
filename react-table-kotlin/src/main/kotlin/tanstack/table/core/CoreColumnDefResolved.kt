@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias CoreColumnDefResolved<TData : RowData> = Partial<UnionToIntersection<CoreColumnDef<TData>>>
+typealias CoreColumnDefResolved<TData /* : RowData */> = Partial<UnionToIntersection<CoreColumnDef<TData>>>

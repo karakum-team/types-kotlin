@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-typealias CoreColumnDefDisplay<TData : RowData> = CoreColumnDefBase<TData> &
+typealias CoreColumnDefDisplay<TData /* : RowData */> = CoreColumnDefBase<TData> &
 
 {
     id: string
