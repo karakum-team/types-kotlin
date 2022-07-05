@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-external val createRow: <TData extends RowData>(table: Table<TData>, id: string, original: TData | undefined, rowIndex: number, depth: number, subRows ?: Row<TData>[] | undefined) => Row<TData>
+external val createRow: <TData extends RowData>(table: Table<TData>, id: string, original: TData | undefined, rowIndex: Double, depth: Double, subRows ?: Row<TData>[] | undefined) => Row<TData>
