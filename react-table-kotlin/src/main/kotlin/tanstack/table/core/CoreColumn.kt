@@ -4,7 +4,7 @@ package tanstack.table.core
 
 external interface CoreColumn<TData : RowData> {
     var id: String
-    var depth: number
+    var depth: Number
     var accessorFn: AccessorFn<TData>?
     var columnDef: ColumnDef<TData>
     var columns: Column<TData>[]

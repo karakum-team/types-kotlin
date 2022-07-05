@@ -4,6 +4,6 @@ package tanstack.table.core
 
 external interface CoreHeaderGroup<TData : RowData> {
     var id: String
-    var depth: number
+    var depth: Number
     var headers: Header<TData>[]
 }

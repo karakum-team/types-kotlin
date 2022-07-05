@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 external interface PaginationOptions {
-    var pageCount: number?
+    var pageCount: Number?
     var manualPagination: Boolean?
     var onPaginationChange: OnChangeFn<PaginationState>?
     var autoResetPageIndex: Boolean?

@@ -11,6 +11,6 @@ external interface SortingOptions<TData : RowData> {
     var enableMultiSort: Boolean?
     var sortDescFirst: Boolean?
     var getSortedRowModel: ((table: Table<any>) -> () -> RowModel<any>)?
-    var maxMultiSortColCount: number?
+    var maxMultiSortColCount: Number?
     var isMultiSortEvent: ((e: unknown) -> boolean)?
 }
