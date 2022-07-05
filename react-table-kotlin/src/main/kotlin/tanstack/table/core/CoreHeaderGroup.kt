@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type CoreHeaderGroup<TData extends RowData> = {
+external interface CoreHeaderGroup<TData extends RowData> = {
     id: string
     depth: number
     headers: Header<TData>[]

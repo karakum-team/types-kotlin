@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type ExpandedRow = {
+external interface ExpandedRow = {
     toggleExpanded: (expanded ?: boolean) => void
     getIsExpanded: () => boolean
     getCanExpand: () => boolean

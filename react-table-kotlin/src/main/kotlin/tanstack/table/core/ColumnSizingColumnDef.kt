@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type ColumnSizingColumnDef = {
+external interface ColumnSizingColumnDef = {
     enableResizing ?: boolean
     size ?: number
     minSize ?: number

@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type VisibilityInstance<TData extends RowData> = {
+external interface VisibilityInstance<TData extends RowData> = {
     getVisibleFlatColumns: () => Column<TData>[]
     getVisibleLeafColumns: () => Column<TData>[]
     getLeftVisibleLeafColumns: () => Column<TData>[]

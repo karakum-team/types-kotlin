@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type CoreColumn<TData extends RowData> = {
+external interface CoreColumn<TData extends RowData> = {
     id: string
     depth: number
     accessorFn ?: AccessorFn<TData>

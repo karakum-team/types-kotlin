@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type ColumnSizingColumn = {
+external interface ColumnSizingColumn = {
     getSize: () => number
     getStart: (position ?: ColumnPinningPosition) => number
     getCanResize: () => boolean

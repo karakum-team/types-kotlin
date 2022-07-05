@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type HeadersInstance<TData extends RowData> = {
+external interface HeadersInstance<TData extends RowData> = {
     getHeaderGroups: () => HeaderGroup<TData>[]
     getLeftHeaderGroups: () => HeaderGroup<TData>[]
     getCenterHeaderGroups: () => HeaderGroup<TData>[]

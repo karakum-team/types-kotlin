@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type ColumnDefaultOptions = {
+external interface ColumnDefaultOptions = {
     onGroupingChange: OnChangeFn<GroupingState>
     enableGrouping: boolean
 }

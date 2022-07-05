@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type ExpandedInstance<TData extends RowData> = {
+external interface ExpandedInstance<TData extends RowData> = {
     _autoResetExpanded: () => void
     setExpanded: (updater: Updater<ExpandedState>) => void
     toggleAllRowsExpanded: (expanded ?: boolean) => void

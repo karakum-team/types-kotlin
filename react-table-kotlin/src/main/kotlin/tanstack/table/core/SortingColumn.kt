@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type SortingColumn<TData extends RowData> = {
+external interface SortingColumn<TData extends RowData> = {
     getAutoSortingFn: () => SortingFn<TData>
     getAutoSortDir: () => SortDirection
     getSortingFn: () => SortingFn<TData>

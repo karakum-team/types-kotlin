@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type TableFeature = {
+external interface TableFeature = {
     getDefaultOptions ?: (table: any) => any
     getInitialState ?: (initialState ?: InitialTableState) => any
     createTable ?: (table: any) => any

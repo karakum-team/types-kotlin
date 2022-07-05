@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type CoreOptions<TData extends RowData> = {
+external interface CoreOptions<TData extends RowData> = {
     data: TData[]
     state: Partial<TableState>
     onStateChange: (updater: Updater<TableState>) => void

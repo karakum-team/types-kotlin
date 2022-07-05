@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type CoreInstance<TData extends RowData> = {
+external interface CoreInstance<TData extends RowData> = {
     initialState: TableState
     reset: () => void
     options: RequiredKeys<TableOptionsResolved<TData>, 'state'>

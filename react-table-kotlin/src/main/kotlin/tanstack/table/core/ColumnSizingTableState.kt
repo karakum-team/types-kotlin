@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type ColumnSizingTableState = {
+external interface ColumnSizingTableState = {
     columnSizing: ColumnSizingState
     columnSizingInfo: ColumnSizingInfoState
 }

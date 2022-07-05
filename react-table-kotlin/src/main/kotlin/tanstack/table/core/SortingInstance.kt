@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type SortingInstance<TData extends RowData> = {
+external interface SortingInstance<TData extends RowData> = {
     setSorting: (updater: Updater<SortingState>) => void
     resetSorting: (defaultState ?: boolean) => void
     getPreSortedRowModel: () => RowModel<TData>

@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type PaginationState = {
+external interface PaginationState = {
     pageIndex: number
     pageSize: number
 }

@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type CoreColumnDefBase<TData extends RowData> = {
+external interface CoreColumnDefBase<TData extends RowData> = {
     columns ?: ColumnDef<TData>[]
     header ?: ColumnDefTemplate < ReturnType < CoreHeader<TData>['getContext'] > >
     footer ?: ColumnDefTemplate < ReturnType < CoreHeader<TData>['getContext'] > >

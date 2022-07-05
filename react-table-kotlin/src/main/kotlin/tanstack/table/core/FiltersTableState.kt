@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type FiltersTableState = {
+external interface FiltersTableState = {
     columnFilters: ColumnFiltersState
     globalFilter: any
 }

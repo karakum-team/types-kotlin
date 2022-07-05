@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type CoreRow<TData extends RowData> = {
+external interface CoreRow<TData extends RowData> = {
     id: string
     index: number
     original ?: TData

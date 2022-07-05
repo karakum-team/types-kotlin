@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type FiltersOptions<TData extends RowData> = {
+external interface FiltersOptions<TData extends RowData> = {
     enableFilters ?: boolean
     manualFiltering ?: boolean
     filterFromLeafRows ?: boolean

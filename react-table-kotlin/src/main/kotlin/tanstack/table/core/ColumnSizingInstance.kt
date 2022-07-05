@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type ColumnSizingInstance = {
+external interface ColumnSizingInstance = {
     setColumnSizing: (updater: Updater<ColumnSizingState>) => void
     setColumnSizingInfo: (updater: Updater<ColumnSizingInfoState>) => void
     resetColumnSizing: (defaultState ?: boolean) => void

@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type ColumnPinningState = {
+external interface ColumnPinningState = {
     left ?: string[]
     right ?: string[]
 }

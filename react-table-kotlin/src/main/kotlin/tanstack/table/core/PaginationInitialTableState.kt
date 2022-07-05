@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-type PaginationInitialTableState = {
+external interface PaginationInitialTableState = {
     pagination ?: Partial<PaginationState>
 }

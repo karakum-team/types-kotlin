@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type GroupingOptions = {
+external interface GroupingOptions = {
     manualGrouping ?: boolean
     onGroupingChange ?: OnChangeFn<GroupingState>
     enableGrouping ?: boolean

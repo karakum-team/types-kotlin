@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-type RowSelectionTableState = {
+external interface RowSelectionTableState = {
     rowSelection: RowSelectionState
 }

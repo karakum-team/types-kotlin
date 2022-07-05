@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-type ExpandedTableState = {
+external interface ExpandedTableState = {
     expanded: ExpandedState
 }

@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type SortingOptions<TData extends RowData> = {
+external interface SortingOptions<TData extends RowData> = {
     manualSorting ?: boolean
     onSortingChange ?: OnChangeFn<SortingState>
     enableSorting ?: boolean

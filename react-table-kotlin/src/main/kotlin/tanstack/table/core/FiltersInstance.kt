@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type FiltersInstance<TData extends RowData> = {
+external interface FiltersInstance<TData extends RowData> = {
     setColumnFilters: (updater: Updater<ColumnFiltersState>) => void
     resetColumnFilters: (defaultState ?: boolean) => void
     getPreFilteredRowModel: () => RowModel<TData>

@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-type GroupingTableState = {
+external interface GroupingTableState = {
     grouping: GroupingState
 }

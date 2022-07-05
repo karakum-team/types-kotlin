@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type CoreCell<TData extends RowData> = {
+external interface CoreCell<TData extends RowData> = {
     id: string
     getValue: () => any
     renderValue: () => unknown

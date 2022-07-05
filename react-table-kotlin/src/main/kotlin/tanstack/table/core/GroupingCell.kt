@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type GroupingCell = {
+external interface GroupingCell = {
     getIsGrouped: () => boolean
     getIsPlaceholder: () => boolean
     getIsAggregated: () => boolean

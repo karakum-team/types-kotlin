@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type ColumnFilter = {
+external interface ColumnFilter = {
     id: string
     value: unknown
 }

@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type SortingColumnDef<TData extends RowData> = {
+external interface SortingColumnDef<TData extends RowData> = {
     sortingFn ?: SortingFnOption<TData>
     sortDescFirst ?: boolean
     enableSorting ?: boolean

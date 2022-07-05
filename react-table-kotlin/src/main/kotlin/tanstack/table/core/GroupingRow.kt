@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type GroupingRow = {
+external interface GroupingRow = {
     groupingColumnId ?: string
     groupingValue ?: any
     getIsGrouped: () => boolean

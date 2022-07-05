@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type ColumnPinningOptions = {
+external interface ColumnPinningOptions = {
     onColumnPinningChange ?: OnChangeFn<ColumnPinningState>
     enablePinning ?: boolean
 }

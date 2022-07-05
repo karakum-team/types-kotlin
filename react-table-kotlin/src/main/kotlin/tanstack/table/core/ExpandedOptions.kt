@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type ExpandedOptions<TData extends RowData> = {
+external interface ExpandedOptions<TData extends RowData> = {
     manualExpanding ?: boolean
     onExpandedChange ?: OnChangeFn<ExpandedState>
     autoResetExpanded ?: boolean

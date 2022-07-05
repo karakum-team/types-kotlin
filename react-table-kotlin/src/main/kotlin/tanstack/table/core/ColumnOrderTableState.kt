@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-type ColumnOrderTableState = {
+external interface ColumnOrderTableState = {
     columnOrder: ColumnOrderState
 }

@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type FiltersColumn<TData extends RowData> = {
+external interface FiltersColumn<TData extends RowData> = {
     getAutoFilterFn: () => FilterFn<TData> | undefined
     getFilterFn: () => FilterFn<TData> | undefined
     setFilterValue: (updater: Updater<any>) => void

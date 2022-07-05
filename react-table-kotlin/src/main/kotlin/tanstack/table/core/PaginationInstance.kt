@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type PaginationInstance<TData extends RowData> = {
+external interface PaginationInstance<TData extends RowData> = {
     _autoResetPageIndex: () => void
     setPagination: (updater: Updater<PaginationState>) => void
     resetPagination: (defaultState ?: boolean) => void

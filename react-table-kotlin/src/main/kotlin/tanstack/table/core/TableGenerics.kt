@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type TableGenerics = {
+external interface TableGenerics = {
     Row ?: any
     Value ?: any
     ColumnMeta ?: any
