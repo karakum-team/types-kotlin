@@ -56,6 +56,27 @@ private fun convertFunction(
 
 private fun convertType(
     source: String,
+): ConversionResult =
+    if (" = {\n" in source) {
+        convertInterface(source)
+    } else {
+        convertTypealias(source)
+    }
+
+private fun convertTypealias(
+    source: String,
+): ConversionResult {
+    val name = source
+        .substringBefore(" ")
+        .substringBefore(":")
+        .substringBefore("<")
+        .substringBefore("(")
+
+    return ConversionResult(name, "typealias " + source)
+}
+
+private fun convertInterface(
+    source: String,
 ): ConversionResult {
     val name = source
         .substringBefore(" ")
