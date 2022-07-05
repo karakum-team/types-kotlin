@@ -59,9 +59,13 @@ private fun convertFunction(
         .replace(" extends ", " : ")
         .replace(" => void", " -> Unit")
         .replace(" => ", " -> ")
-        .replace(": TNode[]", ": ReadonlyArray<TNode>")
+        .replace(": string[]", ": ReadonlyArray<String>")
+        .replace(" TNode[]", " ReadonlyArray<TNode>")
         .replace(": Column<TData>[]", ": ReadonlyArray<Column<TData>>")
         .replace(": HeaderGroup<TData>[]", ": ReadonlyArray<HeaderGroup<TData>>")
+        .replace("?: Column<TData>", ": Column<TData>?")
+        .replace(": string", ": String")
+        .replace(": number", ": Number")
 
     return ConversionResult(name, "external fun " + body)
 }
