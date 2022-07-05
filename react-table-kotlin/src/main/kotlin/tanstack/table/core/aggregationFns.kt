@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-const aggregationFns: {
+external object aggregationFns {
     sum: AggregationFn<any>
     min: AggregationFn<any>
     max: AggregationFn<any>

@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-const Grouping: TableFeature
+external val Grouping: TableFeature

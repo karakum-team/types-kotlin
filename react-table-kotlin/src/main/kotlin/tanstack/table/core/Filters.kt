@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-const Filters: TableFeature
+external val Filters: TableFeature

@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-const reSplitAlphaNumeric: RegExp
+external val reSplitAlphaNumeric: RegExp

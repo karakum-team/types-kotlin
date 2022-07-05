@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-const RowSelection: TableFeature
+external val RowSelection: TableFeature

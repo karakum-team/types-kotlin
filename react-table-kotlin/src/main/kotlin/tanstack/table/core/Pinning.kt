@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-const Pinning: TableFeature
+external val Pinning: TableFeature

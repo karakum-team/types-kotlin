@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-const filterFns: {
+external object filterFns {
     includesString: FilterFn<any>
     includesStringSensitive: FilterFn<any>
     equalsString: FilterFn<any>

@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-const Sorting: TableFeature
+external val Sorting: TableFeature

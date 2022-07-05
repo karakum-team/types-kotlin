@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-const Visibility: TableFeature
+external val Visibility: TableFeature

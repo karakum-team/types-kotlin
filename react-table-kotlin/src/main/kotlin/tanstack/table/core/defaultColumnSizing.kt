@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-const defaultColumnSizing: {
+external object defaultColumnSizing {
     size: number
     minSize: number
     maxSize: number

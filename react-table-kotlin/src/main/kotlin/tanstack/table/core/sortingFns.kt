@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-const sortingFns: {
+external object sortingFns {
     alphanumeric: SortingFn<any>
     alphanumericCaseSensitive: SortingFn<any>
     text: SortingFn<any>

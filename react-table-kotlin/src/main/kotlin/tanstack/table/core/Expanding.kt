@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-const Expanding: TableFeature
+external val Expanding: TableFeature

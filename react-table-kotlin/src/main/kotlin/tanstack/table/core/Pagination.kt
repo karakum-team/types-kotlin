@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-const Pagination: TableFeature
+external val Pagination: TableFeature

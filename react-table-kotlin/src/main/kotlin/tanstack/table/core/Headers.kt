@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-const Headers: TableFeature
+external val Headers: TableFeature
