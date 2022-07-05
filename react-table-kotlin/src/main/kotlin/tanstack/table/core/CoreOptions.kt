@@ -5,7 +5,7 @@ package tanstack.table.core
 import kotlinx.js.ReadonlyArray
 
 external interface CoreOptions<TData : RowData> {
-    var data: TData[]
+    var data: ReadonlyArray<TData>
     var state: Partial<TableState>
     var onStateChange: (updater: Updater<TableState>) -> Unit
     var debugAll: Boolean?
