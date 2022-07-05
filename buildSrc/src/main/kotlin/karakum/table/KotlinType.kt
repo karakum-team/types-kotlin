@@ -38,5 +38,7 @@ internal fun kotlinType(
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
 
-    return type.replace(" => ", " -> ")
+    return type
+        .replace(" => ", " -> ")
+        .replace(") -> void", ") -> Unit")
 }
