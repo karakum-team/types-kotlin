@@ -87,10 +87,18 @@ private fun convertInterface(
         .replace(" extends ", " : ")
     val name = declaration.substringBefore("<")
 
-    val body = "{" + source.substringAfter(" = {")
-        .splitToSequence("\n")
-        .filter { !it.trimStart().startsWith("_") }
-        .joinToString("\n")
-
+    val body = "{\n" + convertMembers(source.substringAfter(" = {")) + "\n}\n"
     return ConversionResult(name, "external interface $declaration$body")
 }
+
+private fun convertMembers(
+    source: String,
+): String =
+    source.removeSuffix("\n")
+        .substringBeforeLast("\n}")
+        .trimIndent()
+        .splitToSequence("\n")
+        .filter { !it.startsWith("_") }
+        .map { it.removeSuffix(";") }
+        .map { "var $it" }
+        .joinToString("\n")
