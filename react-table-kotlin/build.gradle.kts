@@ -1,7 +1,7 @@
 plugins {
     id("io.github.turansky.kfc.library")
     id("io.github.turansky.seskar")
-    // `react-declarations`
+    `react-table-declarations`
 }
 
 val reactTableVersion = property("react-table.version") as String
