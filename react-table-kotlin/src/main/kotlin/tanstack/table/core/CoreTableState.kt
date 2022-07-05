@@ -2,4 +2,6 @@
 
 package tanstack.table.core
 
-type CoreTableState = {}
+typealias CoreTableState =
+
+{}

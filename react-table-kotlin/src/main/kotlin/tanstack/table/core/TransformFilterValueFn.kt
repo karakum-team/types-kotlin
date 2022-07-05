@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type TransformFilterValueFn<TData extends RowData> = (value : any, column?: Column<TData>) => unknown
+typealias TransformFilterValueFn<TData extends RowData> = (value : any, column?: Column<TData>) => unknown

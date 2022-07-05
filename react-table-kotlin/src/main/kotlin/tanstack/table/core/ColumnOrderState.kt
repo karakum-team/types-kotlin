@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type ColumnOrderState = string[]
+typealias ColumnOrderState = string[]

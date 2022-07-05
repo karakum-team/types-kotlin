@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type CoreColumnDefType = 'data' | 'display' | 'group'
+typealias CoreColumnDefType = 'data' | 'display' | 'group'

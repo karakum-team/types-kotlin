@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type BuiltInSortingFn = keyof typeof sortingFns
+typealias BuiltInSortingFn = keyof typeof sortingFns

@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-type CoreColumnDefDisplay<TData extends RowData> = CoreColumnDefBase<TData> & {
+typealias CoreColumnDefDisplay<TData extends RowData> = CoreColumnDefBase<TData> & {
     id: string
 }

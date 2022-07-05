@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type AggregationFnOption<TData extends RowData> = 'auto' | BuiltInAggregationFn | AggregationFn<TData>
+typealias AggregationFnOption<TData extends RowData> = 'auto' | BuiltInAggregationFn | AggregationFn<TData>

@@ -2,7 +2,7 @@
 
 package tanstack.table.core
 
-type CoreColumnDefAccessorFn<TData extends RowData> = CoreColumnDefBase<TData> & {
+typealias CoreColumnDefAccessorFn<TData extends RowData> = CoreColumnDefBase<TData> & {
     accessorFn: AccessorFn<TData>
     id: string
 }

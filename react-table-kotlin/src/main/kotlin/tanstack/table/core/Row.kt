@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type Row<TData extends RowData> = CoreRow<TData> & VisibilityRow<TData> & ColumnPinningRow<TData> & FiltersRow<TData> & GroupingRow & RowSelectionRow & ExpandedRow
+typealias Row<TData extends RowData> = CoreRow<TData> & VisibilityRow<TData> & ColumnPinningRow<TData> & FiltersRow<TData> & GroupingRow & RowSelectionRow & ExpandedRow

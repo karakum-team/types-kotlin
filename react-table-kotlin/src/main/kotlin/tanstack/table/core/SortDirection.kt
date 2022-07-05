@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type SortDirection = 'asc' | 'desc'
+typealias SortDirection = 'asc' | 'desc'

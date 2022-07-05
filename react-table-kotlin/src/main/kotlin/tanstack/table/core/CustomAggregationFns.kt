@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type CustomAggregationFns = Record<string, AggregationFn<any>>
+typealias CustomAggregationFns = Record<string, AggregationFn<any>>

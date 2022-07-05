@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type Header<TData extends RowData> = CoreHeader<TData> & ColumnSizingHeader
+typealias Header<TData extends RowData> = CoreHeader<TData> & ColumnSizingHeader

@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type BuiltInFilterFn = keyof typeof filterFns
+typealias BuiltInFilterFn = keyof typeof filterFns

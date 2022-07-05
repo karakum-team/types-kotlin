@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type AnyFunction = (...args: any) => any
+typealias AnyFunction = (...args: any) => any

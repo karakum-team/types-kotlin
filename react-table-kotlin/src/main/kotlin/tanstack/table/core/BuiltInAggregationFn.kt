@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type BuiltInAggregationFn = keyof typeof aggregationFns
+typealias BuiltInAggregationFn = keyof typeof aggregationFns

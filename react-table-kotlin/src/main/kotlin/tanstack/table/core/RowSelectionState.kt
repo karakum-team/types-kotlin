@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type RowSelectionState = Record<string, boolean>
+typealias RowSelectionState = Record<string, boolean>

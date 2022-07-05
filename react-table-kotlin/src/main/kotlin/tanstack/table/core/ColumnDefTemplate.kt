@@ -2,4 +2,6 @@
 
 package tanstack.table.core
 
-type ColumnDefTemplate<TProps extends object> = string | ((props: TProps) => any)
+typealias ColumnDefTemplate<TProps extends
+
+object> = string | ((props: TProps) => any)

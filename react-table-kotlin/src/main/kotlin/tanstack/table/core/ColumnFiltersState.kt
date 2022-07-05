@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type ColumnFiltersState = ColumnFilter[]
+typealias ColumnFiltersState = ColumnFilter[]

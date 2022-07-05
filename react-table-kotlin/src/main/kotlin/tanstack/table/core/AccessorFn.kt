@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type AccessorFn<TData extends RowData> = (originalRow: TData, index: number) => any
+typealias AccessorFn<TData extends RowData> = (originalRow: TData, index: number) => any

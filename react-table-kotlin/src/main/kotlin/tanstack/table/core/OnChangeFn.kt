@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type OnChangeFn<T> = (updaterOrValue: Updater<T>) => void
+typealias OnChangeFn<T> = (updaterOrValue: Updater<T>) => void

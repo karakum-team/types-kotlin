@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type GroupingColumnMode = false | 'reorder' | 'remove'
+typealias GroupingColumnMode = false | 'reorder' | 'remove'

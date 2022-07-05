@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type Cell<TData extends RowData> = CoreCell<TData> & GroupingCell
+typealias Cell<TData extends RowData> = CoreCell<TData> & GroupingCell

@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type VisibilityState = Record<string, boolean>
+typealias VisibilityState = Record<string, boolean>

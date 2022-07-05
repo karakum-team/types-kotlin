@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
-type Overwrite<T, U extends {
+typealias Overwrite<T, U extends
+
+{
     [TKey in keyof T]
 }> = Omit<T, keyof U> & U

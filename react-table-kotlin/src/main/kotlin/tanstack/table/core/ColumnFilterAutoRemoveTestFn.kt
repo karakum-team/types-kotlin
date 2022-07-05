@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type ColumnFilterAutoRemoveTestFn<TData extends RowData> = (value : any, column?: Column<TData>) => boolean
+typealias ColumnFilterAutoRemoveTestFn<TData extends RowData> = (value : any, column?: Column<TData>) => boolean

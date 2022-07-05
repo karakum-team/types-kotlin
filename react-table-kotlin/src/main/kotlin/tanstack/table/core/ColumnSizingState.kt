@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type ColumnSizingState = Record<string, number>
+typealias ColumnSizingState = Record<string, number>

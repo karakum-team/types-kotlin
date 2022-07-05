@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type ExpandedState = true | Record<string, boolean>
+typealias ExpandedState = true | Record<string, boolean>

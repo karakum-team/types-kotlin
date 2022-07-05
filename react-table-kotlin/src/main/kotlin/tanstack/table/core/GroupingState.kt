@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type GroupingState = string[]
+typealias GroupingState = string[]

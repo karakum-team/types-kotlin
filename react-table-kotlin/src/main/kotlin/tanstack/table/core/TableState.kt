@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type TableState = CoreTableState & VisibilityTableState & ColumnOrderTableState & ColumnPinningTableState & FiltersTableState & SortingTableState & ExpandedTableState & GroupingTableState & ColumnSizingTableState & PaginationTableState & RowSelectionTableState
+typealias TableState = CoreTableState & VisibilityTableState & ColumnOrderTableState & ColumnPinningTableState & FiltersTableState & SortingTableState & ExpandedTableState & GroupingTableState & ColumnSizingTableState & PaginationTableState & RowSelectionTableState

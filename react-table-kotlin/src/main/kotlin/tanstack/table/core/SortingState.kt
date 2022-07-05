@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type SortingState = ColumnSort[]
+typealias SortingState = ColumnSort[]

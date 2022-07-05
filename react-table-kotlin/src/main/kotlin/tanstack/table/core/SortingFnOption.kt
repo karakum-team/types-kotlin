@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type SortingFnOption<TData extends RowData> = 'auto' | BuiltInSortingFn | SortingFn<TData>
+typealias SortingFnOption<TData extends RowData> = 'auto' | BuiltInSortingFn | SortingFn<TData>

@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-type TableOptions<TData extends RowData> = PartialKeys<TableOptionsResolved<TData>, 'state' | 'onStateChange' | 'renderFallbackValue'>
+typealias TableOptions<TData extends RowData> = PartialKeys<TableOptionsResolved<TData>, 'state' | 'onStateChange' | 'renderFallbackValue'>
