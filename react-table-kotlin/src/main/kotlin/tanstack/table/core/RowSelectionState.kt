@@ -2,4 +2,6 @@
 
 package tanstack.table.core
 
+import kotlinx.js.Record
+
 typealias RowSelectionState = Record<string, boolean>

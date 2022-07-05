@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
+import kotlinx.js.ReadonlyArray
+
 external interface CoreInstance<TData : RowData> {
     var initialState: TableState
     var reset: () -> void

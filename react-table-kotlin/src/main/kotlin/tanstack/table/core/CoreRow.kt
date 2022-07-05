@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
+import kotlinx.js.ReadonlyArray
+
 external interface CoreRow<TData : RowData> {
     var id: String
     var index: Number

@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
+import kotlinx.js.Record
+
 external fun <TData : RowData> isSubRowSelected(
     row: Row<TData>,
     selection: Record<string, boolean>,
