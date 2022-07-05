@@ -61,6 +61,7 @@ private fun convertFunction(
         .replace(" => ", " -> ")
         .replace(": TNode[]", ": ReadonlyArray<TNode>")
         .replace(": Column<TData>[]", ": ReadonlyArray<Column<TData>>")
+        .replace(": HeaderGroup<TData>[]", ": ReadonlyArray<HeaderGroup<TData>>")
 
     return ConversionResult(name, "external fun " + body)
 }
