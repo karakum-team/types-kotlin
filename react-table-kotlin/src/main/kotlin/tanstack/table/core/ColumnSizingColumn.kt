@@ -3,9 +3,9 @@
 package tanstack.table.core
 
 external interface ColumnSizingColumn {
-    var getSize: () -> number
+    var getSize: () -> Number
     var getStart: (position?: ColumnPinningPosition) -> number
-    var getCanResize: () -> boolean
-    var getIsResizing: () -> boolean
+    var getCanResize: () -> Boolean
+    var getIsResizing: () -> Boolean
     var resetSize: () -> void
 }

@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 external interface GroupingCell {
-    var getIsGrouped: () -> boolean
-    var getIsPlaceholder: () -> boolean
-    var getIsAggregated: () -> boolean
+    var getIsGrouped: () -> Boolean
+    var getIsPlaceholder: () -> Boolean
+    var getIsAggregated: () -> Boolean
 }

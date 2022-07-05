@@ -3,8 +3,8 @@
 package tanstack.table.core
 
 external interface ColumnPinningColumn {
-    var getCanPin: () -> boolean
-    var getPinnedIndex: () -> number
+    var getCanPin: () -> Boolean
+    var getPinnedIndex: () -> Number
     var getIsPinned: () -> ColumnPinningPosition
     var pin: (position: ColumnPinningPosition) -> void
 }

@@ -11,11 +11,11 @@ external interface PaginationInstance<TData : RowData> {
     var resetPageSize: (defaultState?: boolean) -> void
     var setPageCount: (updater: Updater<number>) -> void
     var getPageOptions: () -> number[]
-    var getCanPreviousPage: () -> boolean
-    var getCanNextPage: () -> boolean
+    var getCanPreviousPage: () -> Boolean
+    var getCanNextPage: () -> Boolean
     var previousPage: () -> void
     var nextPage: () -> void
     var getPrePaginationRowModel: () -> RowModel<TData>
     var getPaginationRowModel: () -> RowModel<TData>
-    var getPageCount: () -> number
+    var getPageCount: () -> Number
 }
