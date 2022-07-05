@@ -55,6 +55,7 @@ private fun convertFunction(
 
     val body = source.removePrefix(name)
         .replaceFirst("(", " $name(")
+        .replace(" extends ", " : ")
 
     return ConversionResult(name, "external fun " + body)
 }
@@ -77,7 +78,8 @@ private fun convertTypealias(
         .substringBefore("<")
         .substringBefore("(")
 
-    return ConversionResult(name, "typealias " + source)
+    val body = source.replace(" extends ", " : ")
+    return ConversionResult(name, "typealias $body")
 }
 
 private fun convertInterface(
