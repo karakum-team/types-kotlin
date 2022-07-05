@@ -78,11 +78,11 @@ private fun convertTypealias(
 private fun convertInterface(
     source: String,
 ): ConversionResult {
-    val name = source
-        .substringBefore(" ")
-        .substringBefore(":")
-        .substringBefore("<")
-        .substringBefore("(")
+    val declaration = source.substringBefore(" = {")
+        .replace(" extends ", " : ")
+    val name = declaration.substringBefore("<")
 
-    return ConversionResult(name, "external interface " + source)
+    val body = "{" + source.substringAfter(" = {")
+
+    return ConversionResult(name, "external interface $declaration$body")
 }
