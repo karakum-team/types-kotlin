@@ -57,6 +57,8 @@ private fun convertFunction(
     val body = source.removePrefix(name)
         .replaceFirst("(", " $name(")
         .replace(" extends ", " : ")
+        .replace(" => void", " -> Unit")
+        .replace(" => ", " -> ")
 
     return ConversionResult(name, "external fun " + body)
 }
@@ -82,6 +84,8 @@ private fun convertTypealias(
     val body = source
         .replace(" extends ", " : ")
         .replace(": RowData>", "/* : RowData */>")
+        .replace(" => ", " -> ")
+
     return ConversionResult(name, "typealias $body")
 }
 
