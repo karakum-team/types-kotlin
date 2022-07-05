@@ -7,5 +7,4 @@ external interface SortingInstance<TData : RowData> {
     resetSorting: (defaultState?: boolean) => void
     getPreSortedRowModel: () => RowModel<TData>
     getSortedRowModel: () => RowModel<TData>
-    _getSortedRowModel?: () => RowModel<TData>
 }

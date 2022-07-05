@@ -6,5 +6,4 @@ external interface GroupingRow {
     groupingColumnId?: string
     groupingValue?: any
     getIsGrouped: () => boolean
-    _groupingValuesCache: Record<string, any>
 }

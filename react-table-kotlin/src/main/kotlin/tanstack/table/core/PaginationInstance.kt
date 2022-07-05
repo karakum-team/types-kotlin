@@ -3,7 +3,6 @@
 package tanstack.table.core
 
 external interface PaginationInstance<TData : RowData> {
-    _autoResetPageIndex: () => void
     setPagination: (updater: Updater<PaginationState>) => void
     resetPagination: (defaultState?: boolean) => void
     setPageIndex: (updater: Updater<number>) => void
@@ -18,6 +17,5 @@ external interface PaginationInstance<TData : RowData> {
     nextPage: () => void
     getPrePaginationRowModel: () => RowModel<TData>
     getPaginationRowModel: () => RowModel<TData>
-    _getPaginationRowModel?: () => RowModel<TData>
     getPageCount: () => number
 }

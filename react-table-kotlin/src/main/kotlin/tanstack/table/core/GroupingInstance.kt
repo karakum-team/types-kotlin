@@ -7,5 +7,4 @@ external interface GroupingInstance<TData : RowData> {
     resetGrouping: (defaultState?: boolean) => void
     getPreGroupedRowModel: () => RowModel<TData>
     getGroupedRowModel: () => RowModel<TData>
-    _getGroupedRowModel?: () => RowModel<TData>
 }

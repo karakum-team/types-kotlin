@@ -9,12 +9,9 @@ external interface FiltersColumn<TData : RowData> {
     getCanFilter: () => boolean
     getCanGlobalFilter: () => boolean
     getFacetedRowModel: () => RowModel<TData>
-    _getFacetedRowModel?: () => RowModel<TData>
     getIsFiltered: () => boolean
     getFilterValue: () => unknown
     getFilterIndex: () => number
     getFacetedUniqueValues: () => Map<any, number>
-    _getFacetedUniqueValues?: () => Map<any, number>
     getFacetedMinMaxValues: () => undefined | [number, number]
-    _getFacetedMinMaxValues?: () => undefined | [number, number]
 }
