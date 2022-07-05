@@ -28,6 +28,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => boolean" to "() -> Boolean",
     "() => number" to "() -> Number",
 
+    "TData[]" to "ReadonlyArray<TData>",
     "Column<TData>[]" to "ReadonlyArray<Column<TData>>",
     "ColumnDef<TData>[]" to "ReadonlyArray<ColumnDef<TData>>",
     "Header<TData>[]" to "ReadonlyArray<Header<TData>>",
