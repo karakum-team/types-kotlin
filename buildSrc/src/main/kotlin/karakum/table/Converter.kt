@@ -105,7 +105,7 @@ private fun convertTypealias(
     var declaration = source.substringBefore(" = ")
         .replace(" extends ", " : ")
 
-    val body = source.substringAfter(" = ")
+    var body = source.substringAfter(" = ")
         .replace(" => ", " -> ")
 
     if ("&" in body && "{" !in body) {
@@ -117,6 +117,13 @@ private fun convertTypealias(
     }
 
     declaration = declaration.replace(": RowData>", "/* : RowData */>")
+
+    body = body
+        .replace("string[]", "ReadonlyArray<String>")
+        .replace("string", "String")
+        .replace("boolean", "Boolean")
+        .replace(": any", ": Any")
+        .replace(" -> any", " -> Any")
 
     return ConversionResult(name, "typealias $declaration = $body")
 }
