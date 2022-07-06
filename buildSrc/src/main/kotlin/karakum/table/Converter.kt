@@ -71,7 +71,7 @@ private fun convertFunction(
         .substringBefore("<")
         .substringBefore("(")
 
-    val body = source.removePrefix(name)
+    var body = source.removePrefix(name)
         .replaceFirst("(", " $name(")
         .replace(" extends ", " : ")
         .replace("?: {\n    initialSync: boolean;\n}", ": dynamic = definedExternally /* { initialSync: boolean } */")
@@ -81,6 +81,7 @@ private fun convertFunction(
         )
         .replace(": boolean | 'some' | 'all'", ": Any /* Boolean | 'some' | 'all' */")
         .replace("Record<string, boolean>", "Record<String, Boolean>")
+        .replace("Map<any, number>", "Record<Any, Int> /* JS Map */")
         .replace(" => void", " -> Unit")
         .replace(" => ", " -> ")
         .replace(": string[]", ": ReadonlyArray<String>")
@@ -96,6 +97,10 @@ private fun convertFunction(
         .replace("?: FilterFn<TData>", ": FilterFn<TData> = definedExternally")
         .replace("?: any", ": Any = definedExternally")
         .replace(": void", "")
+
+    // TODO: use result interface instead
+    if ("): {" in body)
+        body = body.replace("): {", "): Any /* {") + " */"
 
     return ConversionResult(name, "external fun " + body)
 }
@@ -163,7 +168,6 @@ private fun convertTypealias(
         .replace(" -> any", " -> Any")
         .replace("<any>", "<*>")
         .replace(" -> void", " -> Unit")
-        .replace("Map<any, number>", "Record<Any, Int> /* JS Map */")
 
     return ConversionResult(name, "typealias $declaration = $body")
 }
