@@ -45,6 +45,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "false | -1 | 1" to "Int /* false | -1 | 1 */",
     "false | string" to "String /* false | string */",
+
+    "() => undefined | ((event: unknown) => void)" to "() -> ((event: Any) -> Unit)?"
 ) + (sequenceOf(
     "Cell", "CoreCell", "CoreHeader",
 ).map {
@@ -87,4 +89,6 @@ internal fun kotlinType(
         .replace("undefined | [number, number]", "JsPair<Number, Number>?")
         .replace("boolean | (", "(")
         .replace("Map<any, number>", "Record<Any, Int> /* JS Map */")
+        .replace("SortDirection | false", "SortDirection?")
+        .replace("false | SortDirection", "SortDirection?")
 }
