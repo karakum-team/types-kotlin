@@ -18,12 +18,19 @@ fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
 ) {
+    val targetDir = sourceDir.resolve("tanstack/table/core")
+        .also { it.mkdirs() }
+
     for ((name, body) in convertDefinitions(coreDefinitionsFile)) {
-        val targetDir = sourceDir.resolve("tanstack/table/core")
-            .also { it.mkdirs() }
+        val annotations = when {
+            "external val " in body || "external object " in body || "external fun " in body
+            -> "@file:JsModule(\"${Package.TABLE_CORE.moduleName}\")\n@file:JsNonModule"
+
+            else -> ""
+        }
 
         targetDir.resolve("${name}.kt")
-            .writeText(fileContent(Package.TABLE_CORE, "", body))
+            .writeText(fileContent(Package.TABLE_CORE, annotations, body))
     }
 }
 
