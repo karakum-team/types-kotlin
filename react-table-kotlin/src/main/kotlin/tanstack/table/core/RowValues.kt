@@ -2,6 +2,6 @@
 
 package tanstack.table.core
 
-external interface RowValues {
-    var [key: string]: Any
-}
+import kotlinx.js.Record
+
+typealias RowValues = Record<String, Any>
