@@ -2,8 +2,6 @@
 
 package tanstack.table.core
 
-typealias CoreColumnDefDisplay<TData /* : RowData */> = CoreColumnDefBase<TData> &
-
-{
-    id: String
+external interface CoreColumnDefDisplay<TData : RowData> : CoreColumnDefBase<TData> {
+    var id: String
 }

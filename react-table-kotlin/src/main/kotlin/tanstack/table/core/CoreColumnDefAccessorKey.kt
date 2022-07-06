@@ -2,9 +2,7 @@
 
 package tanstack.table.core
 
-typealias CoreColumnDefAccessorKey<TData /* : RowData */> = CoreColumnDefBase<TData> &
-
-{
-    accessorKey: keyof TData
-    id ?: String
+external interface CoreColumnDefAccessorKey<TData : RowData> : CoreColumnDefBase<TData> {
+    var accessorKey: keyof TData
+    var id: String?
 }
