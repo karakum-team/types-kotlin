@@ -6,12 +6,12 @@ external interface SortingColumn<TData : RowData> {
     var getAutoSortingFn: () -> SortingFn<TData>
     var getAutoSortDir: () -> SortDirection
     var getSortingFn: () -> SortingFn<TData>
-    var getNextSortingOrder: () -> SortDirection | false
+    var getNextSortingOrder: () -> SortDirection?
     var getCanSort: () -> Boolean
     var getCanMultiSort: () -> Boolean
     var getSortIndex: () -> Number
-    var getIsSorted: () -> false | SortDirection
+    var getIsSorted: () -> SortDirection?
     var clearSorting: () -> Unit
     var toggleSorting: (desc: Boolean?, isMulti: Boolean?) -> Unit
-    var getToggleSortingHandler: () -> undefined | ((event: Any) -> Unit)
+    var getToggleSortingHandler: () -> ((event: Any) -> Unit)?
 }
