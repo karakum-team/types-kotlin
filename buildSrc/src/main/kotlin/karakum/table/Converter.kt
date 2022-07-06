@@ -11,6 +11,11 @@ private val EXCLUDED_ITEMS = setOf(
     "IfDefined",
     "memo",
     "Overwrite",
+
+    "NoInfer",
+    "PartialKeys",
+    "RequiredKeys",
+    "UnionToIntersection",
 )
 
 internal fun convertDefinitions(
@@ -21,6 +26,7 @@ internal fun convertDefinitions(
         .splitToSequence("\ndeclare ")
         .drop(1)
         .map { it.removeSuffix(";") }
+        .filter { " = keyof typeof " !in it }
         .map { convertDefinition(it) }
         .filter { it.name !in EXCLUDED_ITEMS }
 
@@ -96,12 +102,23 @@ private fun convertTypealias(
         .substringBefore("<")
         .substringBefore("(")
 
-    val body = source
+    var declaration = source.substringBefore(" = ")
         .replace(" extends ", " : ")
-        .replace(": RowData>", "/* : RowData */>")
+
+    val body = source.substringAfter(" = ")
         .replace(" => ", " -> ")
 
-    return ConversionResult(name, "typealias $body")
+    if ("&" in body && "{" !in body) {
+        val interfaceBody = body
+            .removeSurrounding("Partial<", ">")
+            .replace(" & ", ",\n")
+
+        return ConversionResult(name, "external interface $declaration :\n$interfaceBody")
+    }
+
+    declaration = declaration.replace(": RowData>", "/* : RowData */>")
+
+    return ConversionResult(name, "typealias $declaration = $body")
 }
 
 private fun convertInterface(
