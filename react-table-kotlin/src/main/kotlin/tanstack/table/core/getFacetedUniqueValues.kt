@@ -2,4 +2,6 @@
 
 package tanstack.table.core
 
-external fun <TData : RowData> getFacetedUniqueValues(): (table: Table<TData>, columnId: String) -> () -> Map<any, number>
+import kotlinx.js.Record
+
+external fun <TData : RowData> getFacetedUniqueValues(): (table: Table<TData>, columnId: String) -> () -> Record<Any, Int> /* JS Map */
