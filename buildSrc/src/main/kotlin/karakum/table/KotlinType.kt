@@ -29,11 +29,12 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Record<string, any>" to "Record<String, Any>",
 
     "Partial<TableState>" to "TableState /* Partial */",
-    "Partial<PaginationState>" to "PaginationState",
+    "Partial<PaginationState>" to "PaginationState /* Partial */",
     "Partial<ColumnDef<TData>>" to "ColumnDef<TData> /* Partial */",
 
     "() => boolean" to "() -> Boolean",
     "() => number" to "() -> Number",
+    "() => number[]" to "() -> ReadonlyArray<Number>",
 
     "TData[]" to "ReadonlyArray<TData>",
     "Column<TData>[]" to "ReadonlyArray<Column<TData>>",
