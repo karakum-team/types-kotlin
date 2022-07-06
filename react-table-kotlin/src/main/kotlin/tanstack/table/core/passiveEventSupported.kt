@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-external fun passiveEventSupported(): boolean
+external fun passiveEventSupported(): Boolean

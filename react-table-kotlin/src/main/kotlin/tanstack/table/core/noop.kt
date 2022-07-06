@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-external fun noop(): void
+external fun noop()

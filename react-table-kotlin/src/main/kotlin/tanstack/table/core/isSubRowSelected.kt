@@ -8,4 +8,4 @@ external fun <TData : RowData> isSubRowSelected(
     row: Row<TData>,
     selection: Record<string, boolean>,
     table: Table<TData>,
-): boolean | 'some' | 'all'
+): Boolean | 'some' | 'all'

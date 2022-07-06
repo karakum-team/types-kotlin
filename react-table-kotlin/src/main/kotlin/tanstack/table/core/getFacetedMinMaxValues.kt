@@ -2,4 +2,6 @@
 
 package tanstack.table.core
 
-external fun <TData : RowData> getFacetedMinMaxValues(): (table: Table<TData>, columnId: String) -> () -> undefined | [number, number]
+import kotlinx.js.JsPair
+
+external fun <TData : RowData> getFacetedMinMaxValues(): (table: Table<TData>, columnId: String) -> () -> JsPair<Number, Number>?
