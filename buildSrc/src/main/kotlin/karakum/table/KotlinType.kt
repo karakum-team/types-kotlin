@@ -38,6 +38,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => Cell<TData>[]" to "() -> ReadonlyArray<Cell<TData>>",
     "() => Header<TData>[]" to "() -> ReadonlyArray<Header<TData>>",
     "() => HeaderGroup<TData>[]" to "() -> ReadonlyArray<HeaderGroup<TData>>",
+    "() => Row<TData>[]" to "() -> ReadonlyArray<Row<TData>>",
 ) + (sequenceOf(
     "Cell", "CoreCell", "CoreHeader",
 ).map {
@@ -65,7 +66,15 @@ internal fun kotlinType(
         .replace("?: any", ": Any?")
         .replace(": boolean", ": Boolean")
         .replace(": string", ": String")
+        .replace(": unknown", ": Any")
         .replace(": any", ": Any")
+        .replace(" -> number", " -> Number")
+        .replace(" -> boolean", " -> Boolean")
+        .replace(" -> unknown", " -> Any")
         .replace(" -> any", " -> Any")
+        .replace("<number>", "<Number>")
         .replace("<any>", "<*>")
+        .replace("number[]", "ReadonlyArray<Number>")
+        .replace("undefined | [number, number]", "JsPair<Number, Number>?")
+        .replace("boolean | (", "(")
 }

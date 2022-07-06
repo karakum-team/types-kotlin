@@ -134,10 +134,12 @@ private fun convertTypealias(
         .replace(": RowData>", "/* : RowData */>")
 
     body = body
+        .replace("(...args: any) -> any", "Function<Unit>")
         .replace("string[]", "ReadonlyArray<String>")
         .replace("ColumnFilter[]", "ReadonlyArray<ColumnFilter>")
         .replace("ColumnSort[]", "ReadonlyArray<ColumnSort>")
         .replace("Row<TData>[]", "ReadonlyArray<Row<TData>>")
+        .replace("column?: Column<TData>", "column: Column<TData>?")
         .replace("string", "String")
         .replace("boolean", "Boolean")
         .replace("number", "Number")
