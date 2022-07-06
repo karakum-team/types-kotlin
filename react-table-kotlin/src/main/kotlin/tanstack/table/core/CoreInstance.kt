@@ -7,7 +7,7 @@ import kotlinx.js.ReadonlyArray
 external interface CoreInstance<TData : RowData> {
     var initialState: TableState
     var reset: () -> Unit
-    var options: RequiredKeys<TableOptionsResolved<TData>, 'state'>
+    var options: Any /* RequiredKeys<TableOptionsResolved<TData>, 'state'> */
     var setOptions: (newOptions: Updater<TableOptionsResolved<TData>>) -> Unit
     var getState: () -> TableState
     var setState: (updater: Updater<TableState>) -> Unit

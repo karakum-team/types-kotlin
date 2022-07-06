@@ -7,5 +7,5 @@ external interface GroupingOptions {
     var onGroupingChange: OnChangeFn<GroupingState>?
     var enableGrouping: Boolean?
     var getGroupedRowModel: ((table: Table<*>) -> () -> RowModel<*>)?
-    var groupedColumnMode: false | 'reorder' | 'remove'?
+    var groupedColumnMode: String /* false | 'reorder' | 'remove' */?
 }
