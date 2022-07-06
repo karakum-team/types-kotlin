@@ -25,6 +25,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "string[]" to "ReadonlyArray<String>",
     "[string, number][]" to "ReadonlyArray<JsPair<String, Number>>",
 
+    "Record<string, boolean>" to "Record<String, Boolean>",
+    "Record<string, any>" to "Record<String, Any>",
+
     "() => boolean" to "() -> Boolean",
     "() => number" to "() -> Number",
 
@@ -39,6 +42,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => Header<TData>[]" to "() -> ReadonlyArray<Header<TData>>",
     "() => HeaderGroup<TData>[]" to "() -> ReadonlyArray<HeaderGroup<TData>>",
     "() => Row<TData>[]" to "() -> ReadonlyArray<Row<TData>>",
+
+    "false |-1 | 1" to "Int /* false |-1 | 1 */",
+    "false | string" to "String /* false | string */",
 ) + (sequenceOf(
     "Cell", "CoreCell", "CoreHeader",
 ).map {
@@ -61,6 +67,7 @@ internal fun kotlinType(
         .replace(" => ", " -> ")
         .replace(") -> void", ") -> Unit")
         .replace("?: ColumnPinningPosition", ": ColumnPinningPosition?")
+        .replace("?: InitialTableState", ": InitialTableState?")
         .replace("?: number", ": Number?")
         .replace("?: boolean", ": Boolean?")
         .replace("?: string", ": String?")

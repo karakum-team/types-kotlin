@@ -18,6 +18,7 @@ private val EXCLUDED_ITEMS = setOf(
     "UnionToIntersection",
 
     "isFunction",
+    "makeStateUpdater",
 )
 
 internal fun convertDefinitions(
@@ -78,6 +79,8 @@ private fun convertFunction(
             "headerFamily?: 'center' | 'left' | 'right'",
             "headerFamily: String = definedExternally /* 'center' | 'left' | 'right' */"
         )
+        .replace(": boolean | 'some' | 'all'", ": Any /* Boolean | 'some' | 'all' */")
+        .replace("Record<string, boolean>", "Record<String, Boolean>")
         .replace(" => void", " -> Unit")
         .replace(" => ", " -> ")
         .replace(": string[]", ": ReadonlyArray<String>")
