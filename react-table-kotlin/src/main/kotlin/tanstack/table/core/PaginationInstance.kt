@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
+import kotlinx.js.ReadonlyArray
+
 external interface PaginationInstance<TData : RowData> {
     var setPagination: (updater: Updater<PaginationState>) -> Unit
     var resetPagination: (defaultState: Boolean?) -> Unit
@@ -10,7 +12,7 @@ external interface PaginationInstance<TData : RowData> {
     var setPageSize: (updater: Updater<Number>) -> Unit
     var resetPageSize: (defaultState: Boolean?) -> Unit
     var setPageCount: (updater: Updater<Number>) -> Unit
-    var getPageOptions: () -> Number[]
+    var getPageOptions: () -> ReadonlyArray<Number>
     var getCanPreviousPage: () -> Boolean
     var getCanNextPage: () -> Boolean
     var previousPage: () -> Unit
