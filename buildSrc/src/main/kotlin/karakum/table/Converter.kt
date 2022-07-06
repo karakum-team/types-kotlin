@@ -117,15 +117,30 @@ private fun convertInterface(
 
 private fun convertMembers(
     source: String,
-): String =
-    source.removeSuffix("\n")
+): String {
+    val content = source
+        .removeSuffix("\n")
         .substringBeforeLast("\n}")
         .trimIndent()
+
+    if ("\ngetContext: () => {\n" in content) {
+        val contextBody = content
+            .substringAfter("\ngetContext: () => {\n")
+            .substringBefore("\n}")
+
+        return sequenceOf(
+            convertMembers(content.replace("() => {\n$contextBody\n}", "() -> Context<TData>")),
+            "interface Context<TData : RowData> {\n" + convertMembers(contextBody) + "\n}\n",
+        ).joinToString("\n\n")
+    }
+
+    return content
         .splitToSequence("\n")
         .filter { !it.startsWith("_") }
         .map { it.removeSuffix(";") }
         .map { convertMember(it) }
         .joinToString("\n")
+}
 
 private fun convertMember(
     source: String,
