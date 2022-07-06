@@ -16,14 +16,14 @@ private val STANDARD_TYPE_MAP = mapOf(
     "boolean" to "Boolean",
     "string" to STRING,
 
-    "number" to "Number",
-    "null | number" to "Number?",
+    "number" to "Int",
+    "null | number" to "Int?",
 
     "void" to UNIT,
     "null" to "Nothing?",
 
     "string[]" to "ReadonlyArray<String>",
-    "[string, number][]" to "ReadonlyArray<JsPair<String, Number>>",
+    "[string, number][]" to "ReadonlyArray<JsPair<String, Int>>",
 
     "Record<string, boolean>" to "Record<String, Boolean>",
     "Record<string, any>" to "Record<String, Any>",
@@ -34,8 +34,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Partial<ColumnDef<TData>>" to "ColumnDef<TData> /* Partial */",
 
     "() => boolean" to "() -> Boolean",
-    "() => number" to "() -> Number",
-    "() => number[]" to "() -> ReadonlyArray<Number>",
+    "() => number" to "() -> Int",
+    "() => number[]" to "() -> ReadonlyArray<Int>",
 
     "TData[]" to "ReadonlyArray<TData>",
     "Column<TData>[]" to "ReadonlyArray<Column<TData>>",
@@ -80,24 +80,24 @@ internal fun kotlinType(
         .replace(") -> void", ") -> Unit")
         .replace("?: ColumnPinningPosition", ": ColumnPinningPosition?")
         .replace("?: InitialTableState", ": InitialTableState?")
-        .replace("?: number", ": Number?")
+        .replace("?: number", ": Int?")
         .replace("?: boolean", ": Boolean?")
         .replace("?: string", ": String?")
         .replace("?: any", ": Any?")
-        .replace(": number", ": Number")
+        .replace(": number", ": Int")
         .replace(": boolean", ": Boolean")
         .replace(": string", ": String")
         .replace(": unknown", ": Any")
         .replace(": any", ": Any")
-        .replace(" -> number", " -> Number")
+        .replace(" -> number", " -> Int")
         .replace(" -> string", " -> String")
         .replace(" -> boolean", " -> Boolean")
         .replace(" -> unknown", " -> Any")
         .replace(" -> any", " -> Any")
-        .replace("<number>", "<Number>")
+        .replace("<number>", "<Int>")
         .replace("<any>", "<*>")
-        .replace("number[]", "ReadonlyArray<Number>")
-        .replace("undefined | [number, number]", "JsPair<Number, Number>?")
+        .replace("number[]", "ReadonlyArray<Int>")
+        .replace("undefined | [number, number]", "JsPair<Int, Int>?")
         .replace("boolean | (", "(")
         .replace("Map<any, number>", "Record<Any, Int> /* JS Map */")
         .replace("SortDirection | false", "SortDirection?")
