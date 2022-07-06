@@ -18,8 +18,8 @@ external interface CoreOptions<TData : RowData> {
     var mergeOptions: ((defaultOptions: TableOptions<TData>, options: Partial<TableOptions<TData>>) -> TableOptions<TData>)?
     var meta: Any?
     var getCoreRowModel: (table: Table<*>) -> () -> RowModel<*>
-    var getSubRows: ((originalRow: TData, index: number) -> undefined | TData[])?
-    var getRowId: ((originalRow: TData, index: number, parent?: Row<TData>) -> string)?
+    var getSubRows: ((originalRow: TData, index: Number) -> undefined | TData[])?
+    var getRowId: ((originalRow: TData, index: Number, parent?: Row<TData>) -> string)?
     var columns: ReadonlyArray<ColumnDef<TData>>
     var defaultColumn: Partial<ColumnDef<TData>>?
     var renderFallbackValue: Any

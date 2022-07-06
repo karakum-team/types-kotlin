@@ -3,6 +3,7 @@
 package tanstack.table.core
 
 import kotlinx.js.JsPair
+import kotlinx.js.Record
 
 external interface FiltersOptions<TData : RowData> {
     var enableFilters: Boolean?
@@ -16,6 +17,6 @@ external interface FiltersOptions<TData : RowData> {
     var enableGlobalFilter: Boolean?
     var getColumnCanGlobalFilter: ((column: Column<TData>) -> Boolean)?
     var getFacetedRowModel: ((table: Table<TData>, columnId: String) -> () -> RowModel<TData>)?
-    var getFacetedUniqueValues: ((table: Table<TData>, columnId: String) -> () -> Map<any, number>)?
+    var getFacetedUniqueValues: ((table: Table<TData>, columnId: String) -> () -> Record<Any, Int> /* JS Map */)?
     var getFacetedMinMaxValues: ((table: Table<TData>, columnId: String) -> () -> JsPair<Number, Number>?)?
 }
