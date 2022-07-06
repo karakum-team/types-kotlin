@@ -40,7 +40,11 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => HeaderGroup<TData>[]" to "() -> ReadonlyArray<HeaderGroup<TData>>",
 ) + (sequenceOf(
     "Cell", "CoreCell", "CoreHeader",
-).map { "ColumnDefTemplate<ReturnType<$it<TData>['getContext']>>" to "ColumnDefTemplate<() -> $it.Context<TData>>" })
+).map {
+    val contextParent = if (it == "Cell") "CoreCell" else it
+    "ColumnDefTemplate<ReturnType<$it<TData>['getContext']>>" to
+            "ColumnDefTemplate<() -> $contextParent.Context<TData>>"
+})
 
 internal fun kotlinType(
     type: String,
