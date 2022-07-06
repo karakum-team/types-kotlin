@@ -5,6 +5,7 @@ import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
     "Promise" to "kotlin.js.Promise",
+    "RegExp" to "kotlin.js.RegExp",
 
     "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
     "Record" to "kotlinx.js.Record",
