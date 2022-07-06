@@ -4,4 +4,4 @@ package tanstack.table.core
 
 import kotlinx.js.Record
 
-typealias CustomSortingFns<TData /* : RowData */> = Record<string, SortingFn<TData>>
+typealias CustomSortingFns<TData /* : RowData */> = Record<String, SortingFn<TData>>

@@ -4,4 +4,4 @@ package tanstack.table.core
 
 import kotlinx.js.Record
 
-typealias ExpandedStateList = Record<string, boolean>
+typealias ExpandedStateList = Record<String, Boolean>

@@ -4,4 +4,4 @@ package tanstack.table.core
 
 import kotlinx.js.Record
 
-typealias ColumnSizingState = Record<string, number>
+typealias ColumnSizingState = Record<String, number>

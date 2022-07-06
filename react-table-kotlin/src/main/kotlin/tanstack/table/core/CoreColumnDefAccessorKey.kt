@@ -6,5 +6,5 @@ typealias CoreColumnDefAccessorKey<TData /* : RowData */> = CoreColumnDefBase<TD
 
 {
     accessorKey: keyof TData
-    id ?: string
+    id ?: String
 }

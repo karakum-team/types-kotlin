@@ -5,5 +5,5 @@ package tanstack.table.core
 typealias CoreColumnDefDisplay<TData /* : RowData */> = CoreColumnDefBase<TData> &
 
 {
-    id: string
+    id: String
 }

@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias AnyRender = (Comp: any, props: any) -> any
+typealias AnyRender = (Comp: Any, props: Any) -> Any

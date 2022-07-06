@@ -4,4 +4,4 @@ package tanstack.table.core
 
 import kotlinx.js.Record
 
-typealias VisibilityState = Record<string, boolean>
+typealias VisibilityState = Record<String, Boolean>

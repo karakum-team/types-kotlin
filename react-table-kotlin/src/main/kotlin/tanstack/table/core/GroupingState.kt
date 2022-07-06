@@ -2,4 +2,6 @@
 
 package tanstack.table.core
 
-typealias GroupingState = string[]
+import kotlinx.js.ReadonlyArray
+
+typealias GroupingState = ReadonlyArray<String>

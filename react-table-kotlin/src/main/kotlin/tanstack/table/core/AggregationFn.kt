@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias AggregationFn<TData /* : RowData */> = (columnId: string, leafRows: Row<TData>[], childRows: Row<TData>[]) -> any
+typealias AggregationFn<TData /* : RowData */> = (columnId: String, leafRows: Row<TData>[], childRows: Row<TData>[]) -> Any

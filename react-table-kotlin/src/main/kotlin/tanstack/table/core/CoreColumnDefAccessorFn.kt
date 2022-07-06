@@ -6,5 +6,5 @@ typealias CoreColumnDefAccessorFn<TData /* : RowData */> = CoreColumnDefBase<TDa
 
 {
     accessorFn: AccessorFn<TData>
-    id: string
+    id: String
 }
