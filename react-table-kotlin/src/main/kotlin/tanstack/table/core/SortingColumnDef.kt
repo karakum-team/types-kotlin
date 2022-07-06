@@ -8,5 +8,5 @@ external interface SortingColumnDef<TData : RowData> {
     var enableSorting: Boolean?
     var enableMultiSort: Boolean?
     var invertSorting: Boolean?
-    var sortUndefined: false |-1 | 1?
+    var sortUndefined: Int /* false | -1 | 1 */?
 }
