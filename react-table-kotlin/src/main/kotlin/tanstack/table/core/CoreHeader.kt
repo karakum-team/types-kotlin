@@ -16,12 +16,12 @@ external interface CoreHeader<TData : RowData> {
     var getLeafHeaders: () -> ReadonlyArray<Header<TData>>
     var isPlaceholder: Boolean
     var placeholderId: String?
-    var getContext: () ->
-    {
+    var getContext: () -> Context<TData>
+
+    interface Context<TData : RowData> {
         var table: Table<TData>
         var header: Header<TData>
         var column: Column<TData>
-        var
-    }:
-}
+    }
+
 }
