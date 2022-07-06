@@ -108,7 +108,12 @@ private fun convertTypealias(
     var body = source.substringAfter(" = ")
         .replace(" => ", " -> ")
 
-    if ("&" in body && "{" !in body) {
+    if ("&" in body) {
+        if (body.startsWith("CoreColumnDefBase<TData> & {\n")) {
+            val members = convertMembers(body.substringAfter("CoreColumnDefBase<TData> & {\n"))
+            return ConversionResult(name, "external interface $declaration : CoreColumnDefBase<TData> {\n${members}\n}")
+        }
+
         val interfaceBody = body
             .removeSurrounding("Partial<", ">")
             .replace(" & ", ",\n")
