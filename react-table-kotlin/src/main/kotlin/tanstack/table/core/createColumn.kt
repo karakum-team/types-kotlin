@@ -6,5 +6,5 @@ external fun <TData : RowData> createColumn(
     table: Table<TData>,
     columnDef: ColumnDef<TData>,
     depth: Number,
-    parent: Column<TData>?,
+    parent: Column<TData> = definedExternally,
 ): Column<TData>

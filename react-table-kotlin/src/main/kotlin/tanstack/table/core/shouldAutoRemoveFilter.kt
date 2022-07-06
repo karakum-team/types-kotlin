@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 external fun <TData : RowData> shouldAutoRemoveFilter(
-    filterFn: FilterFn<TData>?,
-    value: Any?,
-    column: Column<TData>?,
+    filterFn: FilterFn<TData> = definedExternally,
+    value: Any = definedExternally,
+    column: Column<TData> = definedExternally,
 ): Boolean
