@@ -77,9 +77,15 @@ private fun convertFunction(
         .replace(" TNode[]", " ReadonlyArray<TNode>")
         .replace(": Column<TData>[]", ": ReadonlyArray<Column<TData>>")
         .replace(": HeaderGroup<TData>[]", ": ReadonlyArray<HeaderGroup<TData>>")
+        .replace("undefined | [number, number]", "JsPair<Number, Number>?")
         .replace("?: Column<TData>", ": Column<TData>?")
         .replace(": string", ": String")
         .replace(": number", ": Number")
+        .replace(": boolean", ": Boolean")
+        .replace("?: GroupingColumnMode", ": GroupingColumnMode?")
+        .replace("?: FilterFn<TData>", ": FilterFn<TData>?")
+        .replace("?: any", ": Any?")
+        .replace(": void", "")
 
     return ConversionResult(name, "external fun " + body)
 }
