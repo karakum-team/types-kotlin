@@ -150,7 +150,10 @@ private fun convertTypealias(
 
     if ("&" in body) {
         if (body.startsWith("CoreColumnDefBase<TData> & {\n")) {
-            val members = convertMembers(body.substringAfter("CoreColumnDefBase<TData> & {\n"))
+            var members = convertMembers(body.substringAfter("CoreColumnDefBase<TData> & {\n"))
+            if (name == "CoreColumnDefDisplayWithStringHeader")
+                members = members.replace("var header: String", "override var header: dynamic /* String */")
+
             return ConversionResult(name, "external interface $declaration : CoreColumnDefBase<TData> {\n${members}\n}")
         }
 
@@ -179,6 +182,9 @@ private fun convertTypealias(
         .replace(" -> unknown", " -> Any")
         .replace("<any>", "<*>")
         .replace(" -> void", " -> Unit")
+
+    if (body == "Partial<UnionToIntersection<CoreColumnDef<TData>>>")
+        body = "CoreColumnDef<TData> /* Partial<UnionToIntersection<CoreColumnDef<TData>>> */"
 
     return ConversionResult(name, "typealias $declaration = $body")
 }

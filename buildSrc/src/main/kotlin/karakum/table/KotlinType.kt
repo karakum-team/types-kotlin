@@ -29,6 +29,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Record<string, any>" to "Record<String, Any>",
 
     "Partial<TableState>" to "TableState /* Partial */",
+    "Partial<PaginationState>" to "PaginationState",
     "Partial<ColumnDef<TData>>" to "ColumnDef<TData> /* Partial */",
 
     "() => boolean" to "() -> Boolean",
@@ -48,8 +49,12 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "false | -1 | 1" to "Int /* false | -1 | 1 */",
     "false | string" to "String /* false | string */",
+    "false | 'reorder' | 'remove'" to "String /* false | 'reorder' | 'remove' */",
 
-    "() => undefined | ((event: unknown) => void)" to "() -> ((event: Any) -> Unit)?"
+    "keyof TData" to "String /* keyof TData */",
+
+    "() => undefined | ((event: unknown) => void)" to "() -> ((event: Any) -> Unit)?",
+    "RequiredKeys<TableOptionsResolved<TData>, 'state'>" to "Any /* RequiredKeys<TableOptionsResolved<TData>, 'state'> */",
 ) + (sequenceOf(
     "Cell", "CoreCell", "CoreHeader",
 ).map {
