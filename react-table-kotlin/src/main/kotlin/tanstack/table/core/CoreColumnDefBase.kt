@@ -6,8 +6,8 @@ import kotlinx.js.ReadonlyArray
 
 external interface CoreColumnDefBase<TData : RowData> {
     var columns: ReadonlyArray<ColumnDef<TData>>?
-    var header: ColumnDefTemplate<ReturnType<CoreHeader<TData>['getContext']>>?
-    var footer: ColumnDefTemplate<ReturnType<CoreHeader<TData>['getContext']>>?
-    var cell: ColumnDefTemplate<ReturnType<CoreCell<TData>['getContext']>>?
+    var header: ColumnDefTemplate<() -> CoreHeader.Context<TData>>?
+    var footer: ColumnDefTemplate<() -> CoreHeader.Context<TData>>?
+    var cell: ColumnDefTemplate<() -> CoreCell.Context<TData>>?
     var meta: Any?
 }
