@@ -51,6 +51,14 @@ private fun convertConst(
     source: String,
 ): ConversionResult {
     val name = source.substringBefore(":")
+    if (name == "createRow") {
+        val newSource = source
+            .replaceFirst(": ", "")
+            .replace(" => ", ": ")
+
+        return convertFunction(newSource)
+    }
+
     val type = if (": {" in source) "object" else "val"
 
     val body = source.replace(": {", " {")
@@ -90,6 +98,8 @@ private fun convertFunction(
         .replace(": HeaderGroup<TData>[]", ": ReadonlyArray<HeaderGroup<TData>>")
         .replace("undefined | [number, number]", "JsPair<Number, Number>?")
         .replace("?: Column<TData>", ": Column<TData> = definedExternally")
+        .replace(": TData | undefined", ": TData?")
+        .replace("?: Row<TData>[] | undefined", ": ReadonlyArray<Row<TData>>? = definedExternally")
         .replace(": string", ": String")
         .replace(": number", ": Number")
         .replace(": boolean", ": Boolean")
@@ -166,6 +176,7 @@ private fun convertTypealias(
         .replace("number", "Number")
         .replace(": any", ": Any")
         .replace(" -> any", " -> Any")
+        .replace(" -> unknown", " -> Any")
         .replace("<any>", "<*>")
         .replace(" -> void", " -> Unit")
 

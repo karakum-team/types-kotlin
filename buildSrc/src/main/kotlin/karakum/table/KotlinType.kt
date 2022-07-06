@@ -43,7 +43,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => HeaderGroup<TData>[]" to "() -> ReadonlyArray<HeaderGroup<TData>>",
     "() => Row<TData>[]" to "() -> ReadonlyArray<Row<TData>>",
 
-    "false |-1 | 1" to "Int /* false |-1 | 1 */",
+    "false | -1 | 1" to "Int /* false | -1 | 1 */",
     "false | string" to "String /* false | string */",
 ) + (sequenceOf(
     "Cell", "CoreCell", "CoreHeader",
