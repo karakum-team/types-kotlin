@@ -10,6 +10,6 @@ external interface ColumnSizingInfoState {
     var startSize: Number?
     var deltaOffset: Number?
     var deltaPercentage: Number?
-    var isResizingColumn: false | string
+    var isResizingColumn: String /* false | string */
     var columnSizingStart: ReadonlyArray<JsPair<String, Number>>
 }

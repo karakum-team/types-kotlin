@@ -6,6 +6,6 @@ import kotlinx.js.Record
 
 external fun <TData : RowData> isSubRowSelected(
     row: Row<TData>,
-    selection: Record<string, boolean>,
+    selection: Record<String, Boolean>,
     table: Table<TData>,
-): Boolean | 'some' | 'all'
+): Any /* Boolean | 'some' | 'all' */
