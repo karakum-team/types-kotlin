@@ -147,6 +147,7 @@ private fun convertTypealias(
         .replace(" -> any", " -> Any")
         .replace("<any>", "<*>")
         .replace(" -> void", " -> Unit")
+        .replace("Map<any, number>", "Record<Any, Int> /* JS Map */")
 
     return ConversionResult(name, "typealias $declaration = $body")
 }

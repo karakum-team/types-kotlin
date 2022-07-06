@@ -61,9 +61,11 @@ internal fun kotlinType(
         .replace(" => ", " -> ")
         .replace(") -> void", ") -> Unit")
         .replace("?: ColumnPinningPosition", ": ColumnPinningPosition?")
+        .replace("?: number", ": Number?")
         .replace("?: boolean", ": Boolean?")
         .replace("?: string", ": String?")
         .replace("?: any", ": Any?")
+        .replace(": number", ": Number")
         .replace(": boolean", ": Boolean")
         .replace(": string", ": String")
         .replace(": unknown", ": Any")
@@ -77,4 +79,5 @@ internal fun kotlinType(
         .replace("number[]", "ReadonlyArray<Number>")
         .replace("undefined | [number, number]", "JsPair<Number, Number>?")
         .replace("boolean | (", "(")
+        .replace("Map<any, number>", "Record<Any, Int> /* JS Map */")
 }
