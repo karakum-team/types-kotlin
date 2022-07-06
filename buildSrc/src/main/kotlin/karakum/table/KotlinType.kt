@@ -28,6 +28,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Record<string, boolean>" to "Record<String, Boolean>",
     "Record<string, any>" to "Record<String, Any>",
 
+    "Partial<TableState>" to "TableState /* Partial */",
+    "Partial<ColumnDef<TData>>" to "ColumnDef<TData> /* Partial */",
+
     "() => boolean" to "() -> Boolean",
     "() => number" to "() -> Number",
 
@@ -80,6 +83,7 @@ internal fun kotlinType(
         .replace(": unknown", ": Any")
         .replace(": any", ": Any")
         .replace(" -> number", " -> Number")
+        .replace(" -> string", " -> String")
         .replace(" -> boolean", " -> Boolean")
         .replace(" -> unknown", " -> Any")
         .replace(" -> any", " -> Any")
@@ -91,4 +95,7 @@ internal fun kotlinType(
         .replace("Map<any, number>", "Record<Any, Int> /* JS Map */")
         .replace("SortDirection | false", "SortDirection?")
         .replace("false | SortDirection", "SortDirection?")
+        .replace(": Partial<TableOptions<TData>>", ": TableOptions<TData> /* Partial */")
+        .replace("?: Row<TData>", ": Row<TData>?")
+        .replace(" -> undefined | TData[]", " -> ReadonlyArray<TData>")
 }
