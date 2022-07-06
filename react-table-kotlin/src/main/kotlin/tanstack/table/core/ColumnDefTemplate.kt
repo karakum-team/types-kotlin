@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias ColumnDefTemplate<TProps /* : Any */> = String | ((props: TProps) -> Any)
+external interface ColumnDefTemplate<TProps /* : Any */> /* string | ((props: TProps) -> any) */

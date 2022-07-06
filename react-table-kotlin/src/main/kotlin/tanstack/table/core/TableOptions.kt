@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias TableOptions<TData /* : RowData */> = PartialKeys<TableOptionsResolved<TData>, 'state' | 'onStateChange' | 'renderFallbackValue'>
+external interface TableOptions<TData : RowData> /* PartialKeys<TableOptionsResolved<TData>, 'state' | 'onStateChange' | 'renderFallbackValue'> */

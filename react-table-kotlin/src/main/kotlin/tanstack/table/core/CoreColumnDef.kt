@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias CoreColumnDef<TData /* : RowData */> = CoreColumnDefDisplay<TData> | CoreColumnDefDisplayWithStringHeader<TData> | CoreColumnDefAccessorFn<TData> | CoreColumnDefAccessorKey<TData>
+external interface CoreColumnDef<TData : RowData> /* CoreColumnDefDisplay<TData> | CoreColumnDefDisplayWithStringHeader<TData> | CoreColumnDefAccessorFn<TData> | CoreColumnDefAccessorKey<TData> */

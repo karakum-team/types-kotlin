@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias ColumnResizeMode = 'onChange' | 'onEnd'
+external interface ColumnResizeMode /* 'onChange' | 'onEnd' */

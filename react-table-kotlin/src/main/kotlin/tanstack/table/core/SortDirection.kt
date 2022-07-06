@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias SortDirection = 'asc' | 'desc'
+external interface SortDirection /* 'asc' | 'desc' */

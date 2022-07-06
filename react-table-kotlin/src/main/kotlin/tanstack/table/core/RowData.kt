@@ -2,6 +2,4 @@
 
 package tanstack.table.core
 
-typealias RowData =
-
-object | any[]
+external interface RowData /* object | any[] */

@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias SortingFnOption<TData /* : RowData */> = 'auto' | BuiltInSortingFn | SortingFn<TData>
+external interface SortingFnOption<TData : RowData> /* 'auto' | BuiltInSortingFn | SortingFn<TData> */

@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias ExpandedState = true | Record<String, Boolean>
+external interface ExpandedState /* true | Record<string, boolean> */

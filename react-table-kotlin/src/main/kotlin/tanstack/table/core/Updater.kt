@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias Updater<T> = T | ((old: T) -> T)
+external interface Updater<T> /* T | ((old: T) -> T) */

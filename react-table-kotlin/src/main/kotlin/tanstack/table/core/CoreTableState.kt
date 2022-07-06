@@ -2,6 +2,4 @@
 
 package tanstack.table.core
 
-typealias CoreTableState =
-
-{}
+external interface CoreTableState

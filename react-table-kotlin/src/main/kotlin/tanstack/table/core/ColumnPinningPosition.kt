@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias ColumnPinningPosition = false | 'left' | 'right'
+external interface ColumnPinningPosition /* false | 'left' | 'right' */
