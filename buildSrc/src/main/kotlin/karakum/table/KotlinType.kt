@@ -60,5 +60,6 @@ internal fun kotlinType(
         .replace(": boolean", ": Boolean")
         .replace(": string", ": String")
         .replace(": any", ": Any")
+        .replace(" -> any", " -> Any")
         .replace("<any>", "<*>")
 }
