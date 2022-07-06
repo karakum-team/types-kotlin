@@ -108,6 +108,15 @@ private fun convertTypealias(
     var body = source.substringAfter(" = ")
         .replace(" => ", " -> ")
 
+    if (body == "{}")
+        return ConversionResult(name, "external interface $declaration")
+
+    if (" | " in body) {
+        declaration = declaration.replace(": object>", "/* : Any */>")
+
+        return ConversionResult(name, "external interface $declaration /* $body */")
+    }
+
     if ("&" in body) {
         if (body.startsWith("CoreColumnDefBase<TData> & {\n")) {
             val members = convertMembers(body.substringAfter("CoreColumnDefBase<TData> & {\n"))
@@ -123,7 +132,6 @@ private fun convertTypealias(
 
     declaration = declaration
         .replace(": RowData>", "/* : RowData */>")
-        .replace(": object>", "/* : Any */>")
 
     body = body
         .replace("string[]", "ReadonlyArray<String>")
