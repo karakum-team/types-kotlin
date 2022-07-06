@@ -7,7 +7,7 @@ external interface ExpandedOptions<TData : RowData> {
     var onExpandedChange: OnChangeFn<ExpandedState>?
     var autoResetExpanded: Boolean?
     var enableExpanding: Boolean?
-    var getExpandedRowModel: ((table: Table<any>) -> () -> RowModel<any>)?
+    var getExpandedRowModel: ((table: Table<*>) -> () -> RowModel<*>)?
     var getIsRowExpanded: ((row: Row<TData>) -> boolean)?
     var getRowCanExpand: ((row: Row<TData>) -> boolean)?
     var paginateExpandedRows: Boolean?

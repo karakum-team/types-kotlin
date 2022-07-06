@@ -5,7 +5,7 @@ package tanstack.table.core
 external interface FiltersColumn<TData : RowData> {
     var getAutoFilterFn: () -> FilterFn<TData>
     var getFilterFn: () -> FilterFn<TData>
-    var setFilterValue: (updater: Updater<any>) -> Unit
+    var setFilterValue: (updater: Updater<*>) -> Unit
     var getCanFilter: () -> Boolean
     var getCanGlobalFilter: () -> Boolean
     var getFacetedRowModel: () -> RowModel<TData>

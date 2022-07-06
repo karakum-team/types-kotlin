@@ -13,9 +13,9 @@ external interface CoreInstance<TData : RowData> {
     var setState: (updater: Updater<TableState>) -> Unit
     var getCoreRowModel: () -> RowModel<TData>
     var getRowModel: () -> RowModel<TData>
-    var getRow: (id: string) -> Row<TData>
+    var getRow: (id: String) -> Row<TData>
     var getAllColumns: () -> ReadonlyArray<Column<TData>>
     var getAllFlatColumns: () -> ReadonlyArray<Column<TData>>
     var getAllLeafColumns: () -> ReadonlyArray<Column<TData>>
-    var getColumn: (columnId: string) -> Column<TData>
+    var getColumn: (columnId: String) -> Column<TData>
 }

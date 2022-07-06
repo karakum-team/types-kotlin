@@ -6,6 +6,6 @@ external interface GroupingOptions {
     var manualGrouping: Boolean?
     var onGroupingChange: OnChangeFn<GroupingState>?
     var enableGrouping: Boolean?
-    var getGroupedRowModel: ((table: Table<any>) -> () -> RowModel<any>)?
+    var getGroupedRowModel: ((table: Table<*>) -> () -> RowModel<*>)?
     var groupedColumnMode: false | 'reorder' | 'remove'?
 }
