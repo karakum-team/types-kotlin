@@ -71,7 +71,11 @@ private fun convertFunction(
     val body = source.removePrefix(name)
         .replaceFirst("(", " $name(")
         .replace(" extends ", " : ")
-        .replace("?: {\n    initialSync: boolean;\n}", ": dynamic /* { initialSync: boolean } */")
+        .replace("?: {\n    initialSync: boolean;\n}", ": dynamic = definedExternally /* { initialSync: boolean } */")
+        .replace(
+            "headerFamily?: 'center' | 'left' | 'right'",
+            "headerFamily: String = definedExternally /* 'center' | 'left' | 'right' */"
+        )
         .replace(" => void", " -> Unit")
         .replace(" => ", " -> ")
         .replace(": string[]", ": ReadonlyArray<String>")
@@ -79,13 +83,13 @@ private fun convertFunction(
         .replace(": Column<TData>[]", ": ReadonlyArray<Column<TData>>")
         .replace(": HeaderGroup<TData>[]", ": ReadonlyArray<HeaderGroup<TData>>")
         .replace("undefined | [number, number]", "JsPair<Number, Number>?")
-        .replace("?: Column<TData>", ": Column<TData>?")
+        .replace("?: Column<TData>", ": Column<TData> = definedExternally")
         .replace(": string", ": String")
         .replace(": number", ": Number")
         .replace(": boolean", ": Boolean")
-        .replace("?: GroupingColumnMode", ": GroupingColumnMode?")
-        .replace("?: FilterFn<TData>", ": FilterFn<TData>?")
-        .replace("?: any", ": Any?")
+        .replace("?: GroupingColumnMode", ": GroupingColumnMode = definedExternally")
+        .replace("?: FilterFn<TData>", ": FilterFn<TData> = definedExternally")
+        .replace("?: any", ": Any = definedExternally")
         .replace(": void", "")
 
     return ConversionResult(name, "external fun " + body)
