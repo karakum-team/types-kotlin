@@ -11,6 +11,7 @@ internal fun convertDefinitions(
     definitionFile: File,
 ): Sequence<ConversionResult> =
     definitionFile.readText()
+        .substringBefore("\n\nexport {")
         .splitToSequence("\ndeclare ")
         .drop(1)
         .map { it.removeSuffix(";") }
