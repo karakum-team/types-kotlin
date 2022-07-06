@@ -27,6 +27,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Record<string, boolean>" to "Record<String, Boolean>",
     "Record<string, any>" to "Record<String, Any>",
+    "Record<string, Row<TData>>" to "Record<String, Row<TData>>",
 
     "Partial<TableState>" to "TableState /* Partial */",
     "Partial<PaginationState>" to "PaginationState /* Partial */",

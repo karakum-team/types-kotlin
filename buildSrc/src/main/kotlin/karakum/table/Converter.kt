@@ -196,6 +196,9 @@ private fun convertInterface(
         .replace(" extends ", " : ")
     val name = declaration.substringBefore("<")
 
+    if (name == "RowValues")
+        return ConversionResult(name, "typealias $name = Record<String, Any>")
+
     val body = "{\n" + convertMembers(source.substringAfter(" = {")) + "\n}\n"
     return ConversionResult(name, "external interface $declaration$body")
 }
