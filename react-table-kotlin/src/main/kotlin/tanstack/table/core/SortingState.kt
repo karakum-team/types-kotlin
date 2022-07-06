@@ -2,4 +2,6 @@
 
 package tanstack.table.core
 
-typealias SortingState = ColumnSort[]
+import kotlinx.js.ReadonlyArray
+
+typealias SortingState = ReadonlyArray<ColumnSort>

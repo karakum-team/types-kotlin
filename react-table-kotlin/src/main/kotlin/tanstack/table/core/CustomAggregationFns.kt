@@ -4,4 +4,4 @@ package tanstack.table.core
 
 import kotlinx.js.Record
 
-typealias CustomAggregationFns = Record<String, AggregationFn<any>>
+typealias CustomAggregationFns = Record<String, AggregationFn<*>>

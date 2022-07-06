@@ -2,4 +2,6 @@
 
 package tanstack.table.core
 
-typealias ColumnFiltersState = ColumnFilter[]
+import kotlinx.js.ReadonlyArray
+
+typealias ColumnFiltersState = ReadonlyArray<ColumnFilter>

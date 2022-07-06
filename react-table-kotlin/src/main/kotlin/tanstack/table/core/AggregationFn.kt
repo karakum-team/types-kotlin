@@ -2,4 +2,6 @@
 
 package tanstack.table.core
 
-typealias AggregationFn<TData /* : RowData */> = (columnId: String, leafRows: Row<TData>[], childRows: Row<TData>[]) -> Any
+import kotlinx.js.ReadonlyArray
+
+typealias AggregationFn<TData /* : RowData */> = (columnId: String, leafRows: ReadonlyArray<Row<TData>>, childRows: ReadonlyArray<Row<TData>>) -> Any
