@@ -2,4 +2,6 @@
 
 package tanstack.table.core
 
-typealias Cell<TData /* : RowData */> = CoreCell<TData> & GroupingCell
+external interface Cell<TData : RowData> :
+    CoreCell<TData>,
+    GroupingCell
