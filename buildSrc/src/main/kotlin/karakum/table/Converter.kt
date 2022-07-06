@@ -71,6 +71,7 @@ private fun convertFunction(
     val body = source.removePrefix(name)
         .replaceFirst("(", " $name(")
         .replace(" extends ", " : ")
+        .replace("?: {\n    initialSync: boolean;\n}", ": dynamic /* { initialSync: boolean } */")
         .replace(" => void", " -> Unit")
         .replace(" => ", " -> ")
         .replace(": string[]", ": ReadonlyArray<String>")
