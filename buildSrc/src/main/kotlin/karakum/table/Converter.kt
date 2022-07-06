@@ -116,14 +116,22 @@ private fun convertTypealias(
         return ConversionResult(name, "external interface $declaration :\n$interfaceBody")
     }
 
-    declaration = declaration.replace(": RowData>", "/* : RowData */>")
+    declaration = declaration
+        .replace(": RowData>", "/* : RowData */>")
+        .replace(": object>", "/* : Any */>")
 
     body = body
         .replace("string[]", "ReadonlyArray<String>")
+        .replace("ColumnFilter[]", "ReadonlyArray<ColumnFilter>")
+        .replace("ColumnSort[]", "ReadonlyArray<ColumnSort>")
+        .replace("Row<TData>[]", "ReadonlyArray<Row<TData>>")
         .replace("string", "String")
         .replace("boolean", "Boolean")
+        .replace("number", "Number")
         .replace(": any", ": Any")
         .replace(" -> any", " -> Any")
+        .replace("<any>", "<*>")
+        .replace(" -> void", " -> Unit")
 
     return ConversionResult(name, "typealias $declaration = $body")
 }
