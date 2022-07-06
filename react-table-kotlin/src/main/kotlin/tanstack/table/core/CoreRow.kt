@@ -10,9 +10,9 @@ external interface CoreRow<TData : RowData> {
     var original: TData?
     var depth: Number
     var getValue: (columnId: String) -> Any
-    var renderValue: (columnId: String) -> unknown
+    var renderValue: (columnId: String) -> Any
     var subRows: ReadonlyArray<Row<TData>>
-    var getLeafRows: () -> Row<TData>[]
+    var getLeafRows: () -> ReadonlyArray<Row<TData>>
     var originalSubRows: ReadonlyArray<TData>?
     var getAllCells: () -> ReadonlyArray<Cell<TData>>
 }

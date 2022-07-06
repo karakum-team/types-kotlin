@@ -15,5 +15,5 @@ external interface VisibilityInstance<TData : RowData> {
     var toggleAllColumnsVisible: (value: Boolean?) -> Unit
     var getIsAllColumnsVisible: () -> Boolean
     var getIsSomeColumnsVisible: () -> Boolean
-    var getToggleAllColumnsVisibilityHandler: () -> (event: unknown) -> Unit
+    var getToggleAllColumnsVisibilityHandler: () -> (event: Any) -> Unit
 }

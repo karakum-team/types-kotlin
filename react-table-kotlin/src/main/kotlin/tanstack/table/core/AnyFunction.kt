@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-typealias AnyFunction = (...args: Any) -> Any
+typealias AnyFunction = Function<Unit>

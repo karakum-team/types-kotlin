@@ -7,7 +7,7 @@ external interface ExpandedInstance<TData : RowData> {
     var toggleAllRowsExpanded: (expanded: Boolean?) -> Unit
     var resetExpanded: (defaultState: Boolean?) -> Unit
     var getCanSomeRowsExpand: () -> Boolean
-    var getToggleAllRowsExpandedHandler: () -> (event: unknown) -> Unit
+    var getToggleAllRowsExpandedHandler: () -> (event: Any) -> Unit
     var getIsSomeRowsExpanded: () -> Boolean
     var getIsAllRowsExpanded: () -> Boolean
     var getExpandedDepth: () -> Number

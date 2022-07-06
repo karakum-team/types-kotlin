@@ -6,5 +6,5 @@ external interface VisibilityColumn {
     var getCanHide: () -> Boolean
     var getIsVisible: () -> Boolean
     var toggleVisibility: (value: Boolean?) -> Unit
-    var getToggleVisibilityHandler: () -> (event: unknown) -> Unit
+    var getToggleVisibilityHandler: () -> (event: Any) -> Unit
 }

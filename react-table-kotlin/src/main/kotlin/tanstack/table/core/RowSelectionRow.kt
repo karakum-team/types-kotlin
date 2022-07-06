@@ -10,5 +10,5 @@ external interface RowSelectionRow {
     var getCanMultiSelect: () -> Boolean
     var getCanSelectSubRows: () -> Boolean
     var toggleSelected: (value: Boolean?) -> Unit
-    var getToggleSelectedHandler: () -> (event: unknown) -> Unit
+    var getToggleSelectedHandler: () -> (event: Any) -> Unit
 }

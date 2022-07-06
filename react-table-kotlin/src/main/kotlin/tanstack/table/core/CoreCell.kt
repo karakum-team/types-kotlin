@@ -5,7 +5,7 @@ package tanstack.table.core
 external interface CoreCell<TData : RowData> {
     var id: String
     var getValue: () -> Any
-    var renderValue: () -> unknown
+    var renderValue: () -> Any
     var row: Row<TData>
     var column: Column<TData>
     var getContext: () -> Context<TData>

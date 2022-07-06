@@ -13,5 +13,5 @@ external interface SortingColumn<TData : RowData> {
     var getIsSorted: () -> false | SortDirection
     var clearSorting: () -> Unit
     var toggleSorting: (desc: Boolean?, isMulti: Boolean?) -> Unit
-    var getToggleSortingHandler: () -> undefined | ((event: unknown) -> Unit)
+    var getToggleSortingHandler: () -> undefined | ((event: Any) -> Unit)
 }

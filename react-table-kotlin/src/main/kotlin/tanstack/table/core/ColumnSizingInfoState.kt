@@ -2,6 +2,7 @@
 
 package tanstack.table.core
 
+import kotlinx.js.JsPair
 import kotlinx.js.ReadonlyArray
 
 external interface ColumnSizingInfoState {
