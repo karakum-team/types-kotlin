@@ -16,6 +16,8 @@ private val EXCLUDED_ITEMS = setOf(
     "PartialKeys",
     "RequiredKeys",
     "UnionToIntersection",
+
+    "isFunction",
 )
 
 internal fun convertDefinitions(
@@ -204,6 +206,9 @@ private fun convertMembers(
 private fun convertMember(
     source: String,
 ): String {
+    if (source.startsWith("("))
+        return "    // TODO: support invoke\n    /* $source */"
+
     val optional = source.substringBefore(": ")
         .endsWith("?")
 
