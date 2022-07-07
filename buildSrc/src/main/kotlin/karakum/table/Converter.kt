@@ -145,6 +145,23 @@ private fun convertTypealias(
     if (body.startsWith("'") && !body.startsWith("'auto'"))
         return convertUnion(name, body)
 
+    if (body.startsWith("PartialKeys<")) {
+        body = body.removeSurrounding("PartialKeys<", ">")
+        val parent = body.substringBefore(", ")
+        val interfaceBody = body.substringAfter(", ")
+            .splitToSequence(" | ")
+            .map { it.removeSurrounding("'") }
+            .flatMap {
+                sequenceOf(
+                    "@Deprecated(message = \"Excluded property\", level = DeprecationLevel.HIDDEN)",
+                    "override var $it: dynamic",
+                )
+            }
+            .joinToString("\n")
+
+        return ConversionResult(name, "external interface $declaration : $parent {\n$interfaceBody\n}")
+    }
+
     if (" | " in body) {
         declaration = declaration.replace(": object>", "/* : Any */>")
 
