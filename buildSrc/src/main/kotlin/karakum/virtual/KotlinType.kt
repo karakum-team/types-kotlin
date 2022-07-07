@@ -46,6 +46,7 @@ internal fun kotlinType(
     return type
         .removeSurrounding("Required<", ">")
         .replace(" => ", " -> ")
+        .replace(" -> void | (() -> void)", " -> (() -> Unit)?")
         .replace(") -> void", ") -> Unit")
         .replace("number[]", "ReadonlyArray<Int>")
         .replace("VirtualItem<TItemElement>[]", "ReadonlyArray<VirtualItem<TItemElement>>")
