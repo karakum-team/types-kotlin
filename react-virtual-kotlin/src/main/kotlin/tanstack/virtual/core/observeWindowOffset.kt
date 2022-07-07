@@ -5,4 +5,4 @@
 
 package tanstack.virtual.core
 
-external val observeWindowOffset: (instance: Virtualizer<*, *>, cb: (offset: Int) -> Unit) -> (() -> Unit) | undefined
+external val observeWindowOffset: (instance: Virtualizer<*, *>, cb: (offset: Int) -> Unit) -> (() -> Unit)?

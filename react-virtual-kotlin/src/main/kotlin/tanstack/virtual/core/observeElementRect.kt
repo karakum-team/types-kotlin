@@ -5,4 +5,4 @@
 
 package tanstack.virtual.core
 
-external val observeElementRect: (instance: Virtualizer<*, *>, cb: (rect: Rect) -> Unit) -> (() -> Unit) | undefined
+external val observeElementRect: (instance: Virtualizer<*, *>, cb: (rect: Rect) -> Unit) -> (() -> Unit)?
