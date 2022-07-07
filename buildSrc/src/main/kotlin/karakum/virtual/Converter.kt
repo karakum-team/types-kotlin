@@ -106,8 +106,8 @@ private fun convertTypealias(
     var body = source.substringAfter(" = ")
         .replace(" => ", " -> ")
 
-    if (body == "{}")
-        return ConversionResult(name, "external interface $declaration")
+    if (body == "number | string")
+        body = "String"
 
     if (" | " in body) {
         declaration = declaration.replace(": object>", "/* : Any */>")
