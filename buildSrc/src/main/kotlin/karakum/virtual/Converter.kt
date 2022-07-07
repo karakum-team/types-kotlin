@@ -46,12 +46,14 @@ private fun convertConst(
     val body = source.replace(": {", " {")
         .replace("\n    ", "\n    val ")
         .replace("Virtualizer<any, any>", "Virtualizer<*, *>")
+        .replace("number[]", "ReadonlyArray<Int>")
         .replace("<any>", "<*>")
         .replace("number", "Int")
         .replace(": boolean", ": Boolean")
         .replace(": unknown", ": Any")
         .replace(" => void", " -> Unit")
         .replace(" => ", " -> ")
+        .replace(" | undefined", "?")
 
     val content = "external $type $body"
     return ConversionResult(name, content)
@@ -71,7 +73,6 @@ private fun convertFunction(
         .replace(" extends ", " : ")
         .replace(" => void", " -> Unit")
         .replace(" => ", " -> ")
-        .replace("number[]", "ReadonlyArray<Int>")
         .replace(": string", ": String")
         .replace(": number", ": Int")
         .replace(": boolean", ": Boolean")
