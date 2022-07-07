@@ -1,6 +1,5 @@
 package karakum.virtual
 
-import karakum.table.ConversionResult
 import java.io.File
 
 internal data class ConversionResult(
@@ -105,6 +104,9 @@ private fun convertTypealias(
 
     var body = source.substringAfter(" = ")
         .replace(" => ", " -> ")
+
+    if (body.startsWith("'"))
+        return convertUnion(name, body)
 
     if (body == "number | string")
         body = "String"
