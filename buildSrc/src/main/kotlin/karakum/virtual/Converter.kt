@@ -3,10 +3,6 @@ package karakum.virtual
 import karakum.table.ConversionResult
 import java.io.File
 
-private val EXCLUDED_ITEMS = setOf(
-    "Key",
-)
-
 internal data class ConversionResult(
     val name: String,
     val body: String,
@@ -24,7 +20,6 @@ internal fun convertDefinitions(
         .drop(1)
         .map { it.removeSuffix(";") }
         .map { convertDefinition(it) }
-        .filter { it.name !in EXCLUDED_ITEMS }
 
 private fun convertDefinition(
     source: String,
@@ -136,6 +131,7 @@ private fun convertInterface(
 ): ConversionResult {
     val declaration = source.substringBefore(" {")
         .replace(" extends ", " : ")
+        .replace(" = unknown", "")
     val name = declaration.substringBefore("<")
 
     val body = "{\n" + convertMembers(source.substringAfter(" {")) + "\n}\n"
@@ -169,7 +165,7 @@ private fun convertMember(
         .removeSuffix("?")
 
     var type = source.substringAfter(": ")
-        .let { karakum.table.kotlinType(it, name) }
+        .let { kotlinType(it, name) }
 
     if (optional) {
         type = if (type.startsWith("(")) {
