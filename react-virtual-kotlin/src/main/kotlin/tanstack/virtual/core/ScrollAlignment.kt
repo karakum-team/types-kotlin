@@ -2,4 +2,14 @@
 
 package tanstack.virtual.core
 
-external interface ScrollAlignment /* 'start' | 'center' | 'end' | 'auto' */
+@Suppress("NAME_CONTAINS_ILLEGAL_CHARS")
+// language=JavaScript
+@JsName("""(/*union*/{start: 'start', center: 'center', end: 'end', auto: 'auto'}/*union*/)""")
+external enum class ScrollAlignment {
+    start,
+    center,
+    end,
+    auto,
+
+    ;
+}
