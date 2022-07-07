@@ -5,4 +5,4 @@
 
 package tanstack.virtual.core
 
-external val defaultRangeExtractor: (range: Range) => Int[]
+external val defaultRangeExtractor: (range: Range) -> Int[]

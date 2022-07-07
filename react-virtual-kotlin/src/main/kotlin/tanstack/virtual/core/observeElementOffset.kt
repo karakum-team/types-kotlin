@@ -5,4 +5,4 @@
 
 package tanstack.virtual.core
 
-external val observeElementOffset: (instance: Virtualizer<any, any>, cb: (offset: Int) => void) => (() => void) | undefined
+external val observeElementOffset: (instance: Virtualizer<*, *>, cb: (offset: Int) -> Unit) -> (() -> Unit) | undefined

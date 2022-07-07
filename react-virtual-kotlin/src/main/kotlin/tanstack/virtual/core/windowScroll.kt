@@ -5,4 +5,4 @@
 
 package tanstack.virtual.core
 
-external val windowScroll: (offset: Int, canSmooth: boolean, instance: Virtualizer<any, any>) => void
+external val windowScroll: (offset: Int, canSmooth: boolean, instance: Virtualizer<*, *>) -> Unit
