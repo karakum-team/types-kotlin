@@ -46,6 +46,7 @@ internal fun kotlinType(
     return type
         .replace(" => ", " -> ")
         .replace(") -> void", ") -> Unit")
+        .replace("number[]", "ReadonlyArray<Int>")
         .replace("?: number", ": Int?")
         .replace("?: boolean", ": Boolean?")
         .replace("?: string", ": String?")
@@ -62,7 +63,6 @@ internal fun kotlinType(
         .replace(" -> any", " -> Any")
         .replace("<number>", "<Int>")
         .replace("<any>", "<*>")
-        .replace("number[]", "ReadonlyArray<Int>")
         .replace("undefined | [number, number]", "JsPair<Int, Int>?")
         .replace("boolean | (", "(")
 }

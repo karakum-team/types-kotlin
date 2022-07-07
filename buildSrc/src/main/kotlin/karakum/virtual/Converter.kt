@@ -50,8 +50,11 @@ private fun convertConst(
 
     val body = source.replace(": {", " {")
         .replace("\n    ", "\n    val ")
+        .replace("Virtualizer<any, any>", "Virtualizer<*, *>")
         .replace("<any>", "<*>")
         .replace("number", "Int")
+        .replace(" => void", " -> Unit")
+        .replace(" => ", " -> ")
 
     val content = "external $type $body"
     return ConversionResult(name, content)
