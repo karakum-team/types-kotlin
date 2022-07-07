@@ -15,7 +15,6 @@ private val DEFAULT_IMPORTS = listOf(
 
 fun generateKotlinDeclarations(
     coreDefinitionsFile: File,
-    definitionsFile: File,
     sourceDir: File,
 ) {
     val targetDir = sourceDir.resolve("tanstack/table/core")

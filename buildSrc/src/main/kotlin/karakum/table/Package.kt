@@ -5,7 +5,7 @@ internal enum class Package(
     val moduleName: String,
 ) {
     TABLE_CORE("tanstack.table.core", "@tanstack/table-core"),
-    REACT_TABLE("tanstack.react.table", "@tanstack/react-table"),
+    // REACT_TABLE("tanstack.react.table", "@tanstack/react-table"),
 
     ;
 
