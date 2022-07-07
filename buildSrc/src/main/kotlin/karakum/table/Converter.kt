@@ -142,6 +142,9 @@ private fun convertTypealias(
     if (body == "{}")
         return ConversionResult(name, "external interface $declaration")
 
+    if (body.startsWith("'") && !body.startsWith("'auto'"))
+        return convertUnion(name, body)
+
     if (" | " in body) {
         declaration = declaration.replace(": object>", "/* : Any */>")
 
