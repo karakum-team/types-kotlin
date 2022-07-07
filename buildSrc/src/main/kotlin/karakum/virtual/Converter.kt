@@ -48,6 +48,8 @@ private fun convertConst(
         .replace("Virtualizer<any, any>", "Virtualizer<*, *>")
         .replace("<any>", "<*>")
         .replace("number", "Int")
+        .replace(": boolean", ": Boolean")
+        .replace(": unknown", ": Any")
         .replace(" => void", " -> Unit")
         .replace(" => ", " -> ")
 
