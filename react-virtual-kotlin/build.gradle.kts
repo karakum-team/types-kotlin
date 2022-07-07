@@ -1,14 +1,16 @@
 plugins {
     id("io.github.turansky.kfc.library")
     id("io.github.turansky.seskar")
-    // `react-virtual-declarations`
+    `react-virtual-declarations`
 }
 
-val reactTableVersion = property("react-virtual.version") as String
+val reactVirtualVersion = property("react-virtual.version") as String
 val kotlinWrappersVersion = property("kotlin-wrappers.version") as String
 
 dependencies {
-    implementation(npm("@tanstack/react-virtual", reactTableVersion))
+    implementation(npm("@tanstack/react-virtual", reactVirtualVersion))
+    // TEMP
+    implementation(npm("@tanstack/virtual-core", reactVirtualVersion))
 
     implementation(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:$kotlinWrappersVersion"))
     implementation("org.jetbrains.kotlin-wrappers:kotlin-browser")

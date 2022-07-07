@@ -38,6 +38,13 @@
   resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.1.4.tgz#799b2bc4ced5d8c4ee099ece513270c1b73f16a7"
   integrity sha512-iSlAT2BpkBFayJBgVxqQNXOgnF2S1r8b3aS1QlRGIusc4iZP0lRr0ie0CJ7Jhp0BZ62UH10RBIoBYHVYkg8Ejw==
 
+"@tanstack/virtual-core@3.0.0-beta.2":
+  version "3.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.0.0-beta.2.tgz#1d26ee71ef4ec22fd59443c467b2bde9a3ceeefe"
+  integrity sha512-o6W+iD7vrwc1FiHnXJzSrfsYb/gvu2rssEuzH2n+McsU9p3y+95wyd5iPezAspYDzrr3KV4GOUVR/D47ZXgzuw==
+  dependencies:
+    "@reach/observe-rect" "^1.1.0"
+
 "@types/node@18.0.3":
   version "18.0.3"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.0.3.tgz#463fc47f13ec0688a33aec75d078a0541a447199"
