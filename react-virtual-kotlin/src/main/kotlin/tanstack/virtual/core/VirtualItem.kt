@@ -3,5 +3,5 @@
 package tanstack.virtual.core
 
 external interface VirtualItem<TItemElement> : Item {
-    var measureElement: (el: TItemElement | null) -> Unit
+    var measureElement: (el: TItemElement?) -> Unit
 }
