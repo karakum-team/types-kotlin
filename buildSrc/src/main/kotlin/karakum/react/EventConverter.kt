@@ -69,6 +69,7 @@ internal fun convertEventInterface(
         "ChangeEvent",
         "FocusEvent",
         "InvalidEvent",
+        "KeyboardEvent",
         -> members = members.replaceFirst("val target:", "override val target:")
     }
 
