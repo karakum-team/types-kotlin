@@ -5,4 +5,4 @@
 
 package tanstack.virtual.core
 
-external val measureElement: (element: unknown, instance: Virtualizer<*, *>) -> Int
+external val measureElement: (element: Any, instance: Virtualizer<*, *>) -> Int
