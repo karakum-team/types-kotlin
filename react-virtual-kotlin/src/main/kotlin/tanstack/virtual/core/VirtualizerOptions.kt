@@ -2,7 +2,9 @@
 
 package tanstack.virtual.core
 
-external interface VirtualizerOptions<TScrollElement = unknown, TItemElement = unknown>{
+import kotlinx.js.ReadonlyArray
+
+external interface VirtualizerOptions<TScrollElement, TItemElement> {
     var count: Int
     var getScrollElement: () -> TScrollElement
     var estimateSize: (index: Int) -> Int
@@ -21,6 +23,6 @@ external interface VirtualizerOptions<TScrollElement = unknown, TItemElement = u
     var scrollPaddingEnd: Int?
     var initialOffset: Int?
     var getItemKey: ((index: Int) -> Key)?
-    var rangeExtractor: ((range: Range) -> Int[])?
+    var rangeExtractor: ((range: Range) -> ReadonlyArray<Int>)?
     var enableSmoothScroll: Boolean?
 }
