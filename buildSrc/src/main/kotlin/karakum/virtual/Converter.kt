@@ -150,6 +150,7 @@ private fun convertMembers(
         .substringBeforeLast("\n}")
         .trimIndent()
         .splitToSequence("\n")
+        .filter { !it.startsWith("private ") }
         .filter { !it.startsWith("_") }
         .map { it.removeSuffix(";") }
         .map { convertMember(it) }
