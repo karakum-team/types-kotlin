@@ -32,7 +32,7 @@ private fun convertDefinition(
         "function" -> convertFunction(body)
         "type" -> convertType(body)
         "interface" -> convertInterface(body)
-        "class" -> convertInterface(body)
+        "class" -> convertClass(body)
         else -> TODO()
     }
 }
@@ -130,6 +130,14 @@ private fun convertTypealias(
     return ConversionResult(name, "typealias $declaration = $body")
 }
 
+private fun convertClass(
+    source: String,
+): ConversionResult {
+    val result = convertInterface(source)
+    val newBody = result.body.replace("external interface ", "external class ")
+    return result.copy(body = newBody)
+}
+
 private fun convertInterface(
     source: String,
 ): ConversionResult {
@@ -163,7 +171,7 @@ private fun convertMember(
         return "    // TODO: support invoke\n    /* $source */"
 
     if (source.startsWith("constructor("))
-        return "    // $source"
+        return source
 
     val optional = source.substringBefore(": ")
         .endsWith("?")
