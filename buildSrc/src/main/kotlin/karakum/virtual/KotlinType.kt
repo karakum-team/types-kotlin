@@ -44,9 +44,11 @@ internal fun kotlinType(
         ?.also { return it }
 
     return type
+        .removeSurrounding("Required<", ">")
         .replace(" => ", " -> ")
         .replace(") -> void", ") -> Unit")
         .replace("number[]", "ReadonlyArray<Int>")
+        .replace("VirtualItem<TItemElement>[]", "ReadonlyArray<VirtualItem<TItemElement>>")
         .replace("?: number", ": Int?")
         .replace("?: boolean", ": Boolean?")
         .replace("?: string", ": String?")
@@ -67,4 +69,5 @@ internal fun kotlinType(
         .replace("boolean | (", "(")
         .replace("{ align }?: ScrollToOffsetOptions", "options: ScrollToOffsetOptions?")
         .replace("{ align, ...rest }?: ScrollToIndexOptions", "options: ScrollToIndexOptions?")
+        .replace(" | null", "?")
 }

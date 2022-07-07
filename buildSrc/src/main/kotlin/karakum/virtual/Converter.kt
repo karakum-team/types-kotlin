@@ -69,6 +69,7 @@ private fun convertFunction(
         .replace(" extends ", " : ")
         .replace(" => void", " -> Unit")
         .replace(" => ", " -> ")
+        .replace("number[]", "ReadonlyArray<Int>")
         .replace(": string", ": String")
         .replace(": number", ": Int")
         .replace(": boolean", ": Boolean")
@@ -157,6 +158,9 @@ private fun convertMember(
 ): String {
     if (source.startsWith("("))
         return "    // TODO: support invoke\n    /* $source */"
+
+    if (source.startsWith("constructor("))
+        return "    // $source"
 
     val optional = source.substringBefore(": ")
         .endsWith("?")
