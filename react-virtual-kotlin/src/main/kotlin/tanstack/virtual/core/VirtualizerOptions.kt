@@ -9,8 +9,8 @@ external interface VirtualizerOptions<TScrollElement, TItemElement> {
     var getScrollElement: () -> TScrollElement
     var estimateSize: (index: Int) -> Int
     var scrollToFn: (offset: Int, canSmooth: Boolean, instance: Virtualizer<TScrollElement, TItemElement>) -> Unit
-    var observeElementRect: (instance: Virtualizer<TScrollElement, TItemElement>, cb: (rect: Rect) -> Unit) -> Unit | (() -> Unit)
-    var observeElementOffset: (instance: Virtualizer<TScrollElement, TItemElement>, cb: (offset: Int) -> Unit) -> Unit | (() -> Unit)
+    var observeElementRect: (instance: Virtualizer<TScrollElement, TItemElement>, cb: (rect: Rect) -> Unit) -> (() -> Unit)?
+    var observeElementOffset: (instance: Virtualizer<TScrollElement, TItemElement>, cb: (offset: Int) -> Unit) -> (() -> Unit)?
     var debug: Any?
     var initialRect: Rect?
     var onChange: ((instance: Virtualizer<TScrollElement, TItemElement>) -> Unit)?
