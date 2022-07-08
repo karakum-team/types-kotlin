@@ -32,7 +32,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Partial<TableState>" to "TableState /* Partial */",
     "Partial<PaginationState>" to "PaginationState /* Partial */",
-    "Partial<ColumnDef<TData>>" to "ColumnDef<TData> /* Partial */",
+    "Partial<ColumnDef<TData>>" to "ColumnDef<TData, *> /* Partial */",
 
     "() => boolean" to "() -> Boolean",
     "() => number" to "() -> Int",

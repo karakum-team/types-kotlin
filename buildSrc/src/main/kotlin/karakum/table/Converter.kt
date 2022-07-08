@@ -182,7 +182,10 @@ private fun convertTypealias(
             if (name == "CoreColumnDefDisplayWithStringHeader")
                 members = members.replace("var header: String", "override var header: dynamic /* String */")
 
-            return ConversionResult(name, "external interface $declaration : CoreColumnDefBase<TData, TValue> {\n${members}\n}")
+            return ConversionResult(
+                name,
+                "external interface $declaration : CoreColumnDefBase<TData, TValue> {\n${members}\n}"
+            )
         }
 
         val interfaceBody = body
@@ -214,7 +217,7 @@ private fun convertTypealias(
         .replace(" -> void", " -> Unit")
 
     if (body == "Partial<UnionToIntersection<CoreColumnDef<TData, TValue>>>")
-        body = "CoreColumnDef<TData> /* Partial<UnionToIntersection<CoreColumnDef<TData, TValue>>> */"
+        body = "CoreColumnDef<TData, TValue> /* Partial<UnionToIntersection<CoreColumnDef<TData, TValue>>> */"
 
     return ConversionResult(name, "typealias $declaration = $body")
 }
