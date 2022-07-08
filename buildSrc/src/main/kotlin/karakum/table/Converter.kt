@@ -102,6 +102,7 @@ private fun convertFunction(
         .replace("undefined | [number, number]", "JsPair<Int, Int>?")
         .replace("?: Column<TData, unknown>", ": Column<TData, *> = definedExternally")
         .replace("?: Column<TData, TValue>", ": Column<TData, TValue> = definedExternally")
+        .replace(": ColumnDef<TData>", ": ColumnDef<TData, *>")
         .replace(": TData | undefined", ": TData?")
         .replace("?: Row<TData>[] | undefined", ": ReadonlyArray<Row<TData>>? = definedExternally")
         .replace(": string", ": String")
@@ -115,6 +116,10 @@ private fun convertFunction(
     // TODO: use result interface instead
     if ("): {" in body)
         body = body.replace("): {", "): Any /* {") + " */"
+
+    if (name == "createRow") {
+        body = body.replaceFirst("<TData>", "<TData : RowData>")
+    }
 
     return ConversionResult(name, "external fun " + body)
 }
