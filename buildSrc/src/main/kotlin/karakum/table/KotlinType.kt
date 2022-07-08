@@ -38,14 +38,14 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => number[]" to "() -> ReadonlyArray<Int>",
 
     "TData[]" to "ReadonlyArray<TData>",
-    "Column<TData>[]" to "ReadonlyArray<Column<TData>>",
-    "ColumnDef<TData>[]" to "ReadonlyArray<ColumnDef<TData>>",
-    "Header<TData>[]" to "ReadonlyArray<Header<TData>>",
+    "Column<TData, unknown>[]" to "ReadonlyArray<Column<TData, *>>",
+    "ColumnDef<TData, unknown>[]" to "ReadonlyArray<ColumnDef<TData, *>>",
+    "Header<TData, unknown>[]" to "ReadonlyArray<Header<TData, *>>",
     "HeaderGroup<TData>[]" to "ReadonlyArray<HeaderGroup<TData>>",
     "Row<TData>[]" to "ReadonlyArray<Row<TData>>",
-    "() => Column<TData>[]" to "() -> ReadonlyArray<Column<TData>>",
-    "() => Cell<TData>[]" to "() -> ReadonlyArray<Cell<TData>>",
-    "() => Header<TData>[]" to "() -> ReadonlyArray<Header<TData>>",
+    "() => Column<TData, unknown>[]" to "() -> ReadonlyArray<Column<TData, *>>",
+    "() => Cell<TData, unknown>[]" to "() -> ReadonlyArray<Cell<TData, *>>",
+    "() => Header<TData, unknown>[]" to "() -> ReadonlyArray<Header<TData, *>>",
     "() => HeaderGroup<TData>[]" to "() -> ReadonlyArray<HeaderGroup<TData>>",
     "() => Row<TData>[]" to "() -> ReadonlyArray<Row<TData>>",
 
@@ -61,8 +61,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Cell", "CoreCell", "CoreHeader",
 ).map {
     val contextParent = if (it == "Cell") "CoreCell" else it
-    "ColumnDefTemplate<ReturnType<$it<TData>['getContext']>>" to
-            "ColumnDefTemplate<() -> $contextParent.Context<TData>>"
+    "ColumnDefTemplate<ReturnType<$it<TData, TValue>['getContext']>>" to
+            "ColumnDefTemplate<() -> $contextParent.Context<TData, TValue>>"
 })
 
 internal fun kotlinType(

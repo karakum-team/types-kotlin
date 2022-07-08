@@ -26,6 +26,7 @@ internal fun convertDefinitions(
 ): Sequence<ConversionResult> =
     definitionFile.readText()
         .substringBefore("\n\nexport {")
+        .replace("\ninterface ", "\ndeclare interface ")
         .splitToSequence("\ndeclare ")
         .drop(1)
         .map { it.removeSuffix(";") }
@@ -43,6 +44,7 @@ private fun convertDefinition(
         "const" -> convertConst(body)
         "function" -> convertFunction(body)
         "type" -> convertType(body)
+        "interface" -> convertInterface(body)
         else -> TODO()
     }
 }
@@ -81,6 +83,7 @@ private fun convertFunction(
 
     var body = source.removePrefix(name)
         .replaceFirst("(", " $name(")
+        .replace(" extends unknown", "")
         .replace(" extends ", " : ")
         .replace("?: {\n    initialSync: boolean;\n}", ": dynamic = definedExternally /* { initialSync: boolean } */")
         .replace(
@@ -94,10 +97,10 @@ private fun convertFunction(
         .replace(" => ", " -> ")
         .replace(": string[]", ": ReadonlyArray<String>")
         .replace(" TNode[]", " ReadonlyArray<TNode>")
-        .replace(": Column<TData>[]", ": ReadonlyArray<Column<TData>>")
+        .replace(": Column<TData, unknown>[]", ": ReadonlyArray<Column<TData, *>>")
         .replace(": HeaderGroup<TData>[]", ": ReadonlyArray<HeaderGroup<TData>>")
         .replace("undefined | [number, number]", "JsPair<Int, Int>?")
-        .replace("?: Column<TData>", ": Column<TData> = definedExternally")
+        .replace("?: Column<TData, TValue>", ": Column<TData, TValue> = definedExternally")
         .replace(": TData | undefined", ": TData?")
         .replace("?: Row<TData>[] | undefined", ": ReadonlyArray<Row<TData>>? = definedExternally")
         .replace(": string", ": String")
@@ -133,10 +136,14 @@ private fun convertTypealias(
         .substringBefore("<")
         .substringBefore("(")
 
-    var declaration = source.substringBefore(" = ")
+    var declaration = source
+        .replace(" = unknown", "")
+        .substringBefore(" = ")
         .replace(" extends ", " : ")
 
-    var body = source.substringAfter(" = ")
+    var body = source
+        .replace(" = unknown", "")
+        .substringAfter(" = ")
         .replace(" => ", " -> ")
 
     if (body == "{}")
@@ -169,12 +176,12 @@ private fun convertTypealias(
     }
 
     if ("&" in body) {
-        if (body.startsWith("CoreColumnDefBase<TData> & {\n")) {
-            var members = convertMembers(body.substringAfter("CoreColumnDefBase<TData> & {\n"))
+        if (body.startsWith("CoreColumnDefBase<TData, TValue> & {\n")) {
+            var members = convertMembers(body.substringAfter("CoreColumnDefBase<TData, TValue> & {\n"))
             if (name == "CoreColumnDefDisplayWithStringHeader")
                 members = members.replace("var header: String", "override var header: dynamic /* String */")
 
-            return ConversionResult(name, "external interface $declaration : CoreColumnDefBase<TData> {\n${members}\n}")
+            return ConversionResult(name, "external interface $declaration : CoreColumnDefBase<TData, TValue> {\n${members}\n}")
         }
 
         val interfaceBody = body
@@ -193,7 +200,7 @@ private fun convertTypealias(
         .replace("ColumnFilter[]", "ReadonlyArray<ColumnFilter>")
         .replace("ColumnSort[]", "ReadonlyArray<ColumnSort>")
         .replace("Row<TData>[]", "ReadonlyArray<Row<TData>>")
-        .replace("column?: Column<TData>", "column: Column<TData>?")
+        .replace("column?: Column<TData, TValue>", "column: Column<TData, TValue>?")
         .replace("string", "String")
         .replace("boolean", "Boolean")
         .replace("number", "Int")
@@ -212,14 +219,15 @@ private fun convertTypealias(
 private fun convertInterface(
     source: String,
 ): ConversionResult {
-    val declaration = source.substringBefore(" = {")
+    val declaration = source.substringBefore(" {")
+        .removeSuffix(" =")
         .replace(" extends ", " : ")
     val name = declaration.substringBefore("<")
 
     if (name == "RowValues")
         return ConversionResult(name, "typealias $name = Record<String, Any>")
 
-    val body = "{\n" + convertMembers(source.substringAfter(" = {")) + "\n}\n"
+    val body = "{\n" + convertMembers(source.substringAfter(" {")) + "\n}\n"
     return ConversionResult(name, "external interface $declaration$body")
 }
 
@@ -237,8 +245,8 @@ private fun convertMembers(
             .substringBefore("\n}")
 
         return sequenceOf(
-            convertMembers(content.replace("() => {\n$contextBody\n}", "() -> Context<TData>")),
-            "interface Context<TData : RowData> {\n" + convertMembers(contextBody) + "\n}\n",
+            convertMembers(content.replace("() => {\n$contextBody\n}", "() -> Context<TData, TValue>")),
+            "interface Context<TData : RowData, TValue> {\n" + convertMembers(contextBody) + "\n}\n",
         ).joinToString("\n\n")
     }
 
