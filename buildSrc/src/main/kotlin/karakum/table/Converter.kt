@@ -239,6 +239,9 @@ private fun convertMembers(
         .substringBeforeLast("\n}")
         .trimIndent()
 
+    if (content == "")
+        return ""
+
     if ("\ngetContext: () => {\n" in content) {
         val contextBody = content
             .substringAfter("\ngetContext: () => {\n")
