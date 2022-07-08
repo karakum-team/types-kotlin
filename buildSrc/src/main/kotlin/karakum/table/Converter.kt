@@ -192,6 +192,8 @@ private fun convertTypealias(
             )
         }
 
+        declaration = declaration.replace(" : any", " : Any")
+
         val interfaceBody = body
             .removeSurrounding("Partial<", ">")
             .replace(" & ", ",\n")
@@ -232,7 +234,6 @@ private fun convertInterface(
     val declaration = source.substringBefore(" {")
         .removeSuffix(" =")
         .replace(" extends ", " : ")
-        .replace(" : any", " : Any")
 
     val name = declaration.substringBefore("<")
 
