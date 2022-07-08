@@ -39,11 +39,16 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "TData[]" to "ReadonlyArray<TData>",
     "Column<TData, unknown>[]" to "ReadonlyArray<Column<TData, *>>",
+    "Column<TData, TValue>[]" to "ReadonlyArray<Column<TData, TValue>>",
+    "ColumnDef<TData>" to "ColumnDef<TData, *>",
+    "ColumnDef<TData>[]" to "ReadonlyArray<ColumnDef<TData, *>>",
     "ColumnDef<TData, unknown>[]" to "ReadonlyArray<ColumnDef<TData, *>>",
     "Header<TData, unknown>[]" to "ReadonlyArray<Header<TData, *>>",
+    "Header<TData, TValue>[]" to "ReadonlyArray<Header<TData, TValue>>",
     "HeaderGroup<TData>[]" to "ReadonlyArray<HeaderGroup<TData>>",
     "Row<TData>[]" to "ReadonlyArray<Row<TData>>",
     "() => Column<TData, unknown>[]" to "() -> ReadonlyArray<Column<TData, *>>",
+    "() => Column<TData, TValue>[]" to "() -> ReadonlyArray<Column<TData, TValue>>",
     "() => Cell<TData, unknown>[]" to "() -> ReadonlyArray<Cell<TData, *>>",
     "() => Header<TData, unknown>[]" to "() -> ReadonlyArray<Header<TData, *>>",
     "() => HeaderGroup<TData>[]" to "() -> ReadonlyArray<HeaderGroup<TData>>",
@@ -105,4 +110,5 @@ internal fun kotlinType(
         .replace(": Partial<TableOptions<TData>>", ": TableOptions<TData> /* Partial */")
         .replace("?: Row<TData>", ": Row<TData>?")
         .replace(" -> undefined | TData[]", " -> ReadonlyArray<TData>")
+        .replace("Column<TData, unknown>", "Column<TData, *>")
 }
