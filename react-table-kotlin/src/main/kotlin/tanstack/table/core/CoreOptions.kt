@@ -20,7 +20,7 @@ external interface CoreOptions<TData : RowData> {
     var getCoreRowModel: (table: Table<*>) -> () -> RowModel<*>
     var getSubRows: ((originalRow: TData, index: Int) -> ReadonlyArray<TData>)?
     var getRowId: ((originalRow: TData, index: Int, parent: Row<TData>?) -> String)?
-    var columns: ColumnDef<TData>[]
-    var defaultColumn: ColumnDef<TData> /* Partial */?
+    var columns: ReadonlyArray<ColumnDef<TData, *>>
+    var defaultColumn: ColumnDef<TData, *> /* Partial */?
     var renderFallbackValue: Any
 }
