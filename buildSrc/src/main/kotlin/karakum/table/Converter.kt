@@ -117,9 +117,8 @@ private fun convertFunction(
     if ("): {" in body)
         body = body.replace("): {", "): Any /* {") + " */"
 
-    if (name == "createRow") {
+    if (name == "createRow")
         body = body.replaceFirst("<TData>", "<TData : RowData>")
-    }
 
     return ConversionResult(name, "external fun " + body)
 }
