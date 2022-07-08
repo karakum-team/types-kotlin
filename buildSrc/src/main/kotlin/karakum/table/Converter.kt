@@ -138,12 +138,12 @@ private fun convertTypealias(
         .substringBefore("(")
 
     var declaration = source
-        .replace(" = unknown", "")
+        .replace(" = unknown>", ">")
         .substringBefore(" = ")
         .replace(" extends ", " : ")
 
     var body = source
-        .replace(" = unknown", "")
+        .replace(" = unknown>", ">")
         .substringAfter(" = ")
         .replace(" => ", " -> ")
 
