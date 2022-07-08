@@ -100,7 +100,7 @@ private fun convertFunction(
         .replace(": Column<TData, unknown>[]", ": ReadonlyArray<Column<TData, *>>")
         .replace(": HeaderGroup<TData>[]", ": ReadonlyArray<HeaderGroup<TData>>")
         .replace("undefined | [number, number]", "JsPair<Int, Int>?")
-        .replace("?: Column<TData, TValue>", ": Column<TData, TValue> = definedExternally")
+        .replace("?: Column<TData, unknown>", ": Column<TData, *> = definedExternally")
         .replace(": TData | undefined", ": TData?")
         .replace("?: Row<TData>[] | undefined", ": ReadonlyArray<Row<TData>>? = definedExternally")
         .replace(": string", ": String")
@@ -201,6 +201,7 @@ private fun convertTypealias(
         .replace("ColumnSort[]", "ReadonlyArray<ColumnSort>")
         .replace("Row<TData>[]", "ReadonlyArray<Row<TData>>")
         .replace("column?: Column<TData, TValue>", "column: Column<TData, TValue>?")
+        .replace("column?: Column<TData, unknown>", "column: Column<TData, *>?")
         .replace("string", "String")
         .replace("boolean", "Boolean")
         .replace("number", "Int")
@@ -210,8 +211,8 @@ private fun convertTypealias(
         .replace("<any>", "<*>")
         .replace(" -> void", " -> Unit")
 
-    if (body == "Partial<UnionToIntersection<CoreColumnDef<TData>>>")
-        body = "CoreColumnDef<TData> /* Partial<UnionToIntersection<CoreColumnDef<TData>>> */"
+    if (body == "Partial<UnionToIntersection<CoreColumnDef<TData, TValue>>>")
+        body = "CoreColumnDef<TData> /* Partial<UnionToIntersection<CoreColumnDef<TData, TValue>>> */"
 
     return ConversionResult(name, "typealias $declaration = $body")
 }
@@ -222,10 +223,9 @@ private fun convertInterface(
     val declaration = source.substringBefore(" {")
         .removeSuffix(" =")
         .replace(" extends ", " : ")
-    val name = declaration.substringBefore("<")
+        .replace(" : any", " : Any")
 
-    if (name == "RowValues")
-        return ConversionResult(name, "typealias $name = Record<String, Any>")
+    val name = declaration.substringBefore("<")
 
     val body = "{\n" + convertMembers(source.substringAfter(" {")) + "\n}\n"
     return ConversionResult(name, "external interface $declaration$body")
