@@ -17,5 +17,5 @@ external interface CoreInstance<TData : RowData> {
     var getAllColumns: () -> ReadonlyArray<Column<TData, *>>
     var getAllFlatColumns: () -> ReadonlyArray<Column<TData, *>>
     var getAllLeafColumns: () -> ReadonlyArray<Column<TData, *>>
-    var getColumn: (columnId: String) -> Column<TData, unknown>
+    var getColumn: (columnId: String) -> Column<TData, *>
 }
