@@ -28,6 +28,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Record<string, boolean>" to "Record<String, Boolean>",
     "Record<string, any>" to "Record<String, Any>",
     "Record<string, Row<TData>>" to "Record<String, Row<TData>>",
+    "Record<string, FilterMeta>" to "Record<String, FilterMeta>",
 
     "Partial<TableState>" to "TableState /* Partial */",
     "Partial<PaginationState>" to "PaginationState /* Partial */",
@@ -36,6 +37,10 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => boolean" to "() -> Boolean",
     "() => number" to "() -> Int",
     "() => number[]" to "() -> ReadonlyArray<Int>",
+
+    "<TTValue = TValue>() => TTValue" to "() -> TValue",
+    "<TTValue = TValue>() => TTValue | null" to "() -> TValue?",
+    "<TValue>(columnId: string) => TValue" to "(columnId: String) -> Any? /* TValue */",
 
     "TData[]" to "ReadonlyArray<TData>",
     "Column<TData, unknown>[]" to "ReadonlyArray<Column<TData, *>>",

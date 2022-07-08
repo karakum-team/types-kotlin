@@ -101,6 +101,7 @@ private fun convertFunction(
         .replace(": HeaderGroup<TData>[]", ": ReadonlyArray<HeaderGroup<TData>>")
         .replace("undefined | [number, number]", "JsPair<Int, Int>?")
         .replace("?: Column<TData, unknown>", ": Column<TData, *> = definedExternally")
+        .replace("?: Column<TData, TValue>", ": Column<TData, TValue> = definedExternally")
         .replace(": TData | undefined", ": TData?")
         .replace("?: Row<TData>[] | undefined", ": ReadonlyArray<Row<TData>>? = definedExternally")
         .replace(": string", ": String")
@@ -193,6 +194,7 @@ private fun convertTypealias(
 
     declaration = declaration
         .replace(": RowData>", "/* : RowData */>")
+        .replace(": RowData, ", "/* : RowData */, ")
 
     body = body
         .replace("(...args: any) -> any", "Function<Unit>")
