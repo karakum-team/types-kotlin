@@ -154,7 +154,7 @@ private fun convertTypealias(
     if (body == "{}")
         return ConversionResult(name, "external interface $declaration")
 
-    if (body.startsWith("'") && !body.startsWith("'auto'"))
+    if (body.startsWith("'") && !body.startsWith("'auto'") || body.startsWith("false | '"))
         return convertUnion(name, body)
 
     if (body.startsWith("PartialKeys<")) {

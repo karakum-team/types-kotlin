@@ -61,7 +61,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "false | -1 | 1" to "Int /* false | -1 | 1 */",
     "false | string" to "String /* false | string */",
-    "false | 'reorder' | 'remove'" to "String /* false | 'reorder' | 'remove' */",
+    "false | 'reorder' | 'remove'" to "GroupingColumnMode",
 
     "keyof TData" to "String /* keyof TData */",
 
