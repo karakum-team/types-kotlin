@@ -24,8 +24,30 @@ internal fun convertInterface(
         .map(::convertParameter)
         .joinToString("\n")
 
-    if (name == "State")
-        members = "/*\n$source\n*/"
+    if (name == "State") {
+        members = source
+            .splitToSequence("\n")
+            .map { line ->
+                when {
+                    line.startsWith("    ") -> line
+
+                    ": {" in line -> "val " + line.replace(": {", ": dynamic /* {")
+                    line.startsWith("};") -> line + " */"
+
+                    else -> {
+                        val (propName, propType) = line.removeSuffix(";").split(": ")
+                        val type = when (propType) {
+                            "boolean" -> "Boolean"
+                            "Array<Modifier<any, any>>" -> "ReadonlyArray<Modifier<*>>"
+                            else -> propType.replace("any", "*")
+                        }
+
+                        "val $propName: $type"
+                    }
+                }
+            }.joinToString("\n")
+            .prependIndent("    ")
+    }
 
     val typeParameters = if ("<" in declaration) {
         val parameters = declaration
