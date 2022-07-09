@@ -175,6 +175,15 @@ private fun convertTypealias(
     }
 
     if (" | " in body) {
+        if (name == "CoreColumnDef") {
+            body = body
+                .splitToSequence(" | ")
+                .map { it.replace("<TData>", "<TData, TValue>") }
+                .joinToString(",\n", "\n")
+
+            return ConversionResult(name, "external interface $declaration : $body")
+        }
+
         declaration = declaration.replace(": object>", "/* : Any */>")
 
         return ConversionResult(name, "external interface $declaration /* $body */")
@@ -183,8 +192,15 @@ private fun convertTypealias(
     if ("&" in body) {
         if (body.startsWith("CoreColumnDefBase<TData, TValue> & {\n")) {
             var members = convertMembers(body.substringAfter("CoreColumnDefBase<TData, TValue> & {\n"))
-            if (name == "CoreColumnDefDisplayWithStringHeader")
-                members = members.replace("var header: String", "override var header: dynamic /* String */")
+                .replace("\nvar id: String?", "")
+
+            if (name == "CoreColumnDefDisplayWithStringHeader") {
+                members = members
+                    .replace(
+                        "var header: String",
+                        "/* var header: String */"
+                    )
+            }
 
             return ConversionResult(
                 name,
