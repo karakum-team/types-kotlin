@@ -192,13 +192,13 @@ private fun convertTypealias(
     if ("&" in body) {
         if (body.startsWith("CoreColumnDefBase<TData, TValue> & {\n")) {
             var members = convertMembers(body.substringAfter("CoreColumnDefBase<TData, TValue> & {\n"))
-                .replace("\nvar id: String?", "")
+                .replace("var id: String?", "    /* var id: String? */")
 
             if (name == "CoreColumnDefDisplayWithStringHeader") {
                 members = members
                     .replace(
                         "var header: String",
-                        "/* var header: String */"
+                        "    /* var header: String */"
                     )
             }
 
