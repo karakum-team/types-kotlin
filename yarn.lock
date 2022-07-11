@@ -19,12 +19,12 @@
   resolved "https://registry.yarnpkg.com/@reach/observe-rect/-/observe-rect-1.2.0.tgz#d7a6013b8aafcc64c778a0ccb83355a11204d3b2"
   integrity sha512-Ba7HmkFgfQxZqqaeIWWkNK0rEhpxVQHIoVyW1YDSkGsGIXzcaW4deC8B0pZrNSSyLTdIk7y+5olKt5+g0GmFIQ==
 
-"@tanstack/react-table@8.2.2":
-  version "8.2.2"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-table/-/react-table-8.2.2.tgz#4d07be1c68ba1955d4afb04db483c5be3082e29d"
-  integrity sha512-X5odzgYciE3PUhlt2Adnc/p2PrR6lMAnUCHAwUGIiwA0TspkIjdhrgrkJf044BDIVytiofdb5fICDfZ77lcz1g==
+"@tanstack/react-table@8.2.3":
+  version "8.2.3"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-table/-/react-table-8.2.3.tgz#bc451497d53b788581c0c226626e625c904a2d20"
+  integrity sha512-48vfd1gOsjE6XCUrFQ8ZSUNRDEbDhFNmYgPlB8RkO+kyvOGut219lZ5rsu8Znw6YVU/WhUmsdE+GMGUeCjFdVQ==
   dependencies:
-    "@tanstack/table-core" "8.2.2"
+    "@tanstack/table-core" "8.2.3"
 
 "@tanstack/react-virtual@3.0.0-beta.2":
   version "3.0.0-beta.2"
@@ -33,10 +33,10 @@
   dependencies:
     "@reach/observe-rect" "^1.1.0"
 
-"@tanstack/table-core@8.2.2":
-  version "8.2.2"
-  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.2.2.tgz#e7413e077fe5e6e52a521fbc52c9dff8b15ae521"
-  integrity sha512-DQpX6S7Fob0ytfx8BzMLNAx/X4s1qxP66xZ5I2h7gHM2pCXmKMPU/dF4IMzq1lbJo7rDFlEMHffSz3knh7yX/Q==
+"@tanstack/table-core@8.2.3":
+  version "8.2.3"
+  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.2.3.tgz#2ca0c8564262a6624bfddfd9b8361c4b829621e9"
+  integrity sha512-jzWAXgoXj8OK5zCrUfApesZ0+Admley/+T+W21MQxkfFaPRyoz+wiM+3xARpwGkB7SPzc3FuAzF4Ae9JcKq6gw==
 
 "@tanstack/virtual-core@3.0.0-beta.2":
   version "3.0.0-beta.2"
