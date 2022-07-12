@@ -2,4 +2,14 @@
 
 package tanstack.table.core
 
-external interface ColumnDefTemplate<TProps : Any> /* string | ((props: TProps) -> any) */
+sealed external interface ColumnDefTemplate<TProps : Any> /* string | ((props: TProps) -> any) */
+
+inline fun <TProps : Any> ColumnDefTemplate(
+    source: String,
+): ColumnDefTemplate<TProps> =
+    source.unsafeCast<ColumnDefTemplate<TProps>>()
+
+inline fun <TProps : Any> ColumnDefTemplate(
+    source: (props: TProps) -> Any?,
+): ColumnDefTemplate<TProps> =
+    source.unsafeCast<ColumnDefTemplate<TProps>>()
