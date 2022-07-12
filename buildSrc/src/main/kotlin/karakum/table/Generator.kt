@@ -1,6 +1,10 @@
 package karakum.table
 
 import karakum.common.GENERATOR_COMMENT
+import karakum.common.Suppress
+import karakum.common.Suppress.NOTHING_TO_INLINE
+import karakum.common.fileSuppress
+import karakum.common.suppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
@@ -24,6 +28,9 @@ fun generateKotlinDeclarations(
         val annotations = when {
             "external val " in body || "external object " in body || "external fun " in body
             -> "@file:JsModule(\"${Package.TABLE_CORE.moduleName}\")\n@file:JsNonModule"
+
+            "inline fun " in body
+            -> fileSuppress(NOTHING_TO_INLINE)
 
             else -> ""
         }
