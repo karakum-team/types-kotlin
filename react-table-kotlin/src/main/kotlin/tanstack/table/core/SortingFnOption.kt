@@ -1,5 +1,9 @@
 // Automatically generated - do not modify!
 
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+)
+
 package tanstack.table.core
 
 sealed external interface SortingFnOption<TData : RowData> /* 'auto' | BuiltInSortingFn | SortingFn<TData> */
