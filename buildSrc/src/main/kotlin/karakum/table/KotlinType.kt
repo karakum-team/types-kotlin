@@ -82,6 +82,9 @@ internal fun kotlinType(
     if (type.endsWith(" | undefined"))
         return kotlinType(type.removeSuffix(" | undefined"), name)
 
+    if (name == "getCoreRowModel" && type == "(table: Table<any>) => () => RowModel<any>" )
+        return "(table: Table<TData>) -> () -> RowModel<TData>"
+
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
 
