@@ -72,7 +72,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 ).map {
     val contextParent = if (it == "Cell") "CoreCell" else it
     "ColumnDefTemplate<ReturnType<$it<TData, TValue>['getContext']>>" to
-            "ColumnDefTemplate<() -> $contextParent.Context<TData, TValue>>"
+            "ColumnDefTemplate<$contextParent.Context<TData, TValue>>"
 })
 
 internal fun kotlinType(
