@@ -190,7 +190,33 @@ private fun convertTypealias(
         declaration = declaration
             .replace(": object>", ": Any>")
 
-        return ConversionResult(name, "external interface $declaration /* $body */")
+        val typeParameters = declaration.removePrefix(name)
+        val factoryType = declaration
+            .replace(": RowData", "")
+            .replace(": Any", "")
+        val factories = body.splitToSequence(" | ")
+            .map { it.removeSurrounding("(", ")") }
+            .filter { !it.startsWith("BuiltIn") }
+            .map { type ->
+                when (type) {
+                    "true" -> "Boolean /* $type */"
+                    "'auto'" -> "String /* $type */"
+                    else -> type
+                        .replace("string", "String")
+                        .replace("boolean", "Boolean")
+                        .replace("any", "Any?") // No element
+                }
+            }
+            .joinToString("\n\n") { type ->
+                """
+                inline fun $typeParameters $name(
+                    source: $type,
+                ): $factoryType =
+                    source.unsafeCast<$factoryType>()
+                """.trimIndent()
+            }
+
+        return ConversionResult(name, "sealed external interface $declaration /* $body */\n\n$factories")
     }
 
     if ("&" in body) {
