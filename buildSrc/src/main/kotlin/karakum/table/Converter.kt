@@ -157,6 +157,9 @@ private fun convertTypealias(
     if (body.startsWith("'") && !body.startsWith("'auto'") || body.startsWith("false | '"))
         return convertUnion(name, body)
 
+    if (name == "RowData")
+        return ConversionResult(name, "typealias $declaration = Any /* $body */")
+
     if (body.startsWith("PartialKeys<")) {
         body = body.removeSurrounding("PartialKeys<", ">")
         val parent = body.substringBefore(", ")
@@ -184,7 +187,8 @@ private fun convertTypealias(
             return ConversionResult(name, "external interface $declaration : $body")
         }
 
-        declaration = declaration.replace(": object>", "/* : Any */>")
+        declaration = declaration
+            .replace(": object>", ": Any>")
 
         return ConversionResult(name, "external interface $declaration /* $body */")
     }
