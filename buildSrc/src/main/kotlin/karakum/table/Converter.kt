@@ -242,7 +242,16 @@ private fun convertTypealias(
 
         val interfaceBody = body
             .removeSurrounding("Partial<", ">")
-            .replace(" & ", ",\n")
+            .splitToSequence(" & ")
+            .joinToString(",\n") { parentType ->
+                when (parentType) {
+                    "GroupingOptions",
+                    "PaginationOptions",
+                    -> parentType + "<TData>"
+
+                    else -> parentType
+                }
+            }
 
         return ConversionResult(name, "external interface $declaration :\n$interfaceBody")
     }
@@ -277,11 +286,17 @@ private fun convertTypealias(
 private fun convertInterface(
     source: String,
 ): ConversionResult {
-    val declaration = source.substringBefore(" {")
+    var declaration = source.substringBefore(" {")
         .removeSuffix(" =")
         .replace(" extends ", " : ")
 
     val name = declaration.substringBefore("<")
+
+    when (name) {
+        "GroupingOptions",
+        "PaginationOptions",
+        -> declaration += "<TData : RowData>"
+    }
 
     val body = "{\n" + convertMembers(source.substringAfter(" {")) + "\n}\n"
     return ConversionResult(name, "external interface $declaration$body")
