@@ -7,6 +7,12 @@ internal data class ConversionResult(
     val body: String,
 )
 
+private val EXCLUDED = setOf(
+    "memo",
+    "NoInfer",
+    "PartialKeys",
+)
+
 internal fun convertDefinitions(
     definitionFile: File,
 ): Sequence<ConversionResult> =
@@ -19,6 +25,7 @@ internal fun convertDefinitions(
         .drop(1)
         .map { it.removeSuffix(";") }
         .map { convertDefinition(it) }
+        .filter { it.name !in EXCLUDED }
 
 private fun convertDefinition(
     source: String,
