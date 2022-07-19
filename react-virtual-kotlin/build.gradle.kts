@@ -9,8 +9,6 @@ val kotlinWrappersVersion = property("kotlin-wrappers.version") as String
 
 dependencies {
     implementation(npm("@tanstack/react-virtual", reactVirtualVersion))
-    // TEMP
-    implementation(npm("@tanstack/virtual-core", reactVirtualVersion))
 
     implementation(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:$kotlinWrappersVersion"))
     implementation("org.jetbrains.kotlin-wrappers:kotlin-browser")
