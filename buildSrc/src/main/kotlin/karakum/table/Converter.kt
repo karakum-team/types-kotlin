@@ -260,18 +260,23 @@ private fun convertTypealias(
 
         declaration = declaration.replace(" : any", " : Any")
 
-        val interfaceBody = body
-            .removeSurrounding("Partial<", ">")
-            .splitToSequence(" & ")
-            .joinToString(",\n") { parentType ->
-                when (parentType) {
-                    "GroupingOptions",
-                    "PaginationOptions",
-                    -> parentType + "<TData>"
+        var interfaceBody = when (name) {
+            "CoreColumnDefResolved",
+            -> "CoreColumnDef<TData, TValue> /* $body */"
 
-                    else -> parentType
+            else -> body
+                .removeSurrounding("Partial<", ">")
+                .splitToSequence(" & ")
+                .joinToString(",\n") { parentType ->
+                    when (parentType) {
+                        "GroupingOptions",
+                        "PaginationOptions",
+                        -> parentType + "<TData>"
+
+                        else -> parentType
+                    }
                 }
-            }
+        }
 
         return ConversionResult(name, "external interface $declaration :\n$interfaceBody")
     }
@@ -297,9 +302,6 @@ private fun convertTypealias(
         .replace("<any>", "<*>")
         .replace(" -> void", " -> Unit")
 
-    if (body == "Partial<UnionToIntersection<CoreColumnDef<TData, TValue>>>")
-        body = "CoreColumnDef<TData, TValue> /* Partial<UnionToIntersection<CoreColumnDef<TData, TValue>>> */"
-
     return ConversionResult(name, "typealias $declaration = $body")
 }
 
@@ -316,6 +318,9 @@ private fun convertInterface(
         "GroupingOptions",
         "PaginationOptions",
         -> declaration += "<TData : RowData>"
+
+        "HeaderContext",
+        -> declaration = declaration.replace("<TData,", "<TData : RowData,")
     }
 
     val body = "{\n" + convertMembers(source.substringAfter(" {")) + "\n}\n"
