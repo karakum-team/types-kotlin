@@ -13,12 +13,29 @@ private val EXCLUDED_ITEMS = setOf(
     "Overwrite",
 
     "NoInfer",
+    "NoInfer$1",
+
     "PartialKeys",
     "RequiredKeys",
     "UnionToIntersection",
 
     "isFunction",
     "makeStateUpdater",
+
+    "AllowedIndexes",
+    "ComputeRange",
+
+    "Index100",
+    "IsAny",
+    "IsKnown",
+    "IsTuple",
+
+    "DeepKeys",
+    "DeepKeysPrefix",
+    "DeepValue",
+
+    "createColumnHelper",
+    "ColumnHelper",
 )
 
 internal fun convertDefinitions(
@@ -159,6 +176,9 @@ private fun convertTypealias(
 
     if (name == "RowData")
         return ConversionResult(name, "typealias $declaration = Any /* $body */")
+
+    if (name == "Getter")
+        body = "() -> TValue /* $body */"
 
     if (body.startsWith("PartialKeys<")) {
         body = body.removeSurrounding("PartialKeys<", ">")

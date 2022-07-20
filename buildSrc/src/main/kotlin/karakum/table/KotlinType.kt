@@ -119,4 +119,5 @@ internal fun kotlinType(
         .replace("?: Row<TData>", ": Row<TData>?")
         .replace(" -> undefined | TData[]", " -> ReadonlyArray<TData>")
         .replace("Column<TData, unknown>", "Column<TData, *>")
+        .replace("<TValue | null>", "<TValue?>")
 }
