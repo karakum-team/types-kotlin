@@ -333,17 +333,6 @@ private fun convertMembers(
     if (content == "")
         return ""
 
-    if ("\ngetContext: () => {\n" in content) {
-        val contextBody = content
-            .substringAfter("\ngetContext: () => {\n")
-            .substringBefore("\n}")
-
-        return sequenceOf(
-            convertMembers(content.replace("() => {\n$contextBody\n}", "() -> Context<TData, TValue>")),
-            "interface Context<TData : RowData, TValue> {\n" + convertMembers(contextBody) + "\n}\n",
-        ).joinToString("\n\n")
-    }
-
     return content
         .splitToSequence("\n")
         .filter { !it.startsWith("_") }

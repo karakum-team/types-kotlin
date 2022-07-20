@@ -32,7 +32,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Partial<TableState>" to "TableState /* Partial */",
     "Partial<PaginationState>" to "PaginationState /* Partial */",
-    "Partial<ColumnDef<TData>>" to "ColumnDef<TData, *> /* Partial */",
+    "Partial<ColumnDef<TData, unknown>>" to "ColumnDef<TData, *> /* Partial */",
 
     "() => boolean" to "() -> Boolean",
     "() => number" to "() -> Int",
@@ -47,6 +47,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Column<TData, TValue>[]" to "ReadonlyArray<Column<TData, TValue>>",
     "ColumnDef<TData>" to "ColumnDef<TData, *>",
     "ColumnDef<TData>[]" to "ReadonlyArray<ColumnDef<TData, *>>",
+    "ColumnDef<TData, any>[]" to "ReadonlyArray<ColumnDef<TData, *>>",
     "ColumnDef<TData, unknown>[]" to "ReadonlyArray<ColumnDef<TData, *>>",
     "Header<TData, unknown>[]" to "ReadonlyArray<Header<TData, *>>",
     "Header<TData, TValue>[]" to "ReadonlyArray<Header<TData, TValue>>",
@@ -63,17 +64,16 @@ private val STANDARD_TYPE_MAP = mapOf(
     "false | string" to "String /* false | string */",
     "false | 'reorder' | 'remove'" to "GroupingColumnMode",
 
-    "keyof TData" to "String /* keyof TData */",
+    "DeepKeys<TData>" to "String /* DeepKeys<TData> */",
 
     "() => undefined | ((event: unknown) => void)" to "() -> ((event: Any) -> Unit)?",
     "RequiredKeys<TableOptionsResolved<TData>, 'state'>" to "Any /* RequiredKeys<TableOptionsResolved<TData>, 'state'> */",
-) + (sequenceOf(
-    "Cell", "CoreCell", "CoreHeader",
-).map {
-    val contextParent = if (it == "Cell") "CoreCell" else it
-    "ColumnDefTemplate<ReturnType<$it<TData, TValue>['getContext']>>" to
-            "ColumnDefTemplate<$contextParent.Context<TData, TValue>>"
-})
+
+    "CellContext<TData, TValue>['getValue']" to "Getter<TValue> /* CellContext<TData, TValue>['getValue'] */",
+    "CellContext<TData, TValue>['renderValue']" to "Getter<TValue?> /* CellContext<TData, TValue>['renderValue'] */",
+
+    "ColumnDefTemplate<ReturnType<Cell<TData, TValue>['getContext']>>" to "ColumnDefTemplate<CellContext<TData, TValue>>"
+)
 
 internal fun kotlinType(
     type: String,
