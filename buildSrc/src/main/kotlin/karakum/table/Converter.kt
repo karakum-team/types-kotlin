@@ -260,6 +260,9 @@ private fun convertTypealias(
 
         declaration = declaration.replace(" : any", " : Any")
 
+        if (name == "ColumnDef")
+            declaration = declaration.replace("TValue : Any", "TValue")
+
         var interfaceBody = when (name) {
             "CoreColumnDefResolved",
             -> "CoreColumnDef<TData, TValue> /* $body */"
