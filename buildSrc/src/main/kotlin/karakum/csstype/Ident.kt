@@ -4,7 +4,7 @@ internal const val IDENT = "Ident"
 internal const val IDENT_TYPE = "IdentType"
 
 private val PARENT_TYPES = listOf(
-    "AnimationName",
+    ANIMATION_NAME,
     "GridArea",
     TRANSITION_PROPERTY,
 )

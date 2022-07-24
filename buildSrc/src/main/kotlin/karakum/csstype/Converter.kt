@@ -368,12 +368,18 @@ private fun convertUnion(
         .joinToString(" | ")
 
     tryToAlias(name, values)?.let {
-        return if (name in LAYOUT_CLASSES) {
-            it.copy(body = it.body + "\n\n" + layoutFactories(name))
-        } else it
+        return when (name) {
+            in LAYOUT_CLASSES -> it.copy(body = it.body + "\n\n" + layoutFactories(name))
+            else -> it
+        }
     }
 
-    return ConversionResult(name, "// $values\nsealed external interface $declaration")
+    return ConversionResult(name, "// $values\nsealed external interface $declaration").let {
+        when (name) {
+            ANIMATION -> it.copy(body = it.body + "\n\n" + animationFactories())
+            else -> it
+        }
+    }
 }
 
 private val INT_TYPES = setOf(
