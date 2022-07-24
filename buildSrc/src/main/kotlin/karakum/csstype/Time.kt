@@ -1,6 +1,6 @@
 package karakum.csstype
 
-private const val TIME = "Time"
+internal const val TIME = "Time"
 
 internal fun Time(): ConversionResult {
     val body = sequenceOf(

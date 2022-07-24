@@ -6,6 +6,7 @@ internal const val IDENT_TYPE = "IdentType"
 private val PARENT_TYPES = listOf(
     "AnimationName",
     "GridArea",
+    TRANSITION_PROPERTY,
 )
 
 internal fun IdentType(): ConversionResult {
