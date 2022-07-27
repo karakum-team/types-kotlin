@@ -215,6 +215,7 @@ private fun convertTypealias(
             .replace(": RowData", "")
             .replace(": Any", "")
         val factories = body.splitToSequence(" | ")
+            .filter { !it.startsWith("keyof ") }
             .map { it.removeSurrounding("(", ")") }
             .filter { !it.startsWith("BuiltIn") }
             .map { type ->
@@ -335,6 +336,7 @@ private fun convertMembers(
 ): String {
     val content = source
         .removeSuffix("\n")
+        .substringBefore(" & (keyof ")
         .substringBeforeLast("\n}")
         .trimIndent()
 

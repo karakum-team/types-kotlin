@@ -1,10 +1,8 @@
 package karakum.table
 
 import karakum.common.GENERATOR_COMMENT
-import karakum.common.Suppress
 import karakum.common.Suppress.NOTHING_TO_INLINE
 import karakum.common.fileSuppress
-import karakum.common.suppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
@@ -35,7 +33,11 @@ fun generateKotlinDeclarations(
             else -> ""
         }
 
-        targetDir.resolve("${name}.kt")
+        val fileName = if (name.endsWith("Fns") && "interface" in body) {
+            name + ".type"
+        } else name
+
+        targetDir.resolve("$fileName.kt")
             .writeText(fileContent(Package.TABLE_CORE, annotations, body))
     }
 }
