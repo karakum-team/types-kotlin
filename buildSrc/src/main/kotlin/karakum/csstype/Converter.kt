@@ -10,17 +10,9 @@ internal data class ConversionResult(
 internal fun convertDefinitions(
     definitionsFile: File,
 ): Sequence<ConversionResult> {
-    var types = definitionsFile.readText()
-        .removePrefix("export {};\n")
-        .inlineTypes()
-        .replace("DeprecatedSystemColor | ", "")
-        .splitToSequence("\nexport ", "\ndeclare ")
-        .drop(1)
-        .flatMap { content ->
-            val name = content.substringAfter(" ")
-                .substringBefore(" ")
-                .substringBefore("<")
-
+    var types = contentMap(definitionsFile)
+        .asSequence()
+        .flatMap { (name, content) ->
             when {
                 name == "PropertyValue" -> emptySequence()
                 name.startsWith("Svg") -> emptySequence()
@@ -33,6 +25,7 @@ internal fun convertDefinitions(
                 content.startsWith("namespace AtRule ") ->
                     convertNamespace(content) +
                             convertNamespaceTypes(content, AT_RULE_TYPES)
+
                 content.startsWith("namespace DataType ") -> convertNamespaceTypes(content)
                 content.startsWith("namespace ") -> convertNamespace(content)
                 else -> convertDefinition(name, content)
@@ -136,6 +129,24 @@ internal fun convertDefinitions(
         .plus(globalsType)
         .plus(builderTypes)
 }
+
+private fun contentMap(
+    definitionsFile: File,
+): Map<String, String> =
+    definitionsFile.readText()
+        .removePrefix("export {};\n")
+        .inlineTypes()
+        .replace("DeprecatedSystemColor | ", "")
+        .splitToSequence("\nexport ", "\ndeclare ")
+        .drop(1)
+        .associate { content ->
+            val name = content.substringAfter(" ")
+                .substringBefore(" ")
+                .substringBefore("<")
+
+            name to content
+        }
+
 
 private fun convertNamespace(
     source: String,
