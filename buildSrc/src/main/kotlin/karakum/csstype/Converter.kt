@@ -10,7 +10,9 @@ internal data class ConversionResult(
 internal fun convertDefinitions(
     definitionsFile: File,
 ): Sequence<ConversionResult> {
-    var types = contentMap(definitionsFile)
+    val contentMap = contentMap(definitionsFile)
+
+    var types = contentMap
         .asSequence()
         .flatMap { (name, content) ->
             when {
@@ -114,6 +116,8 @@ internal fun convertDefinitions(
         ColorType(),
         AngularColorStop(),
         LinearColorStop(),
+
+        PropertyName(contentMap)
     )
 
     val builderTypes = listOf(
