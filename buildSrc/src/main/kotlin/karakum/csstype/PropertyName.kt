@@ -16,7 +16,10 @@ internal fun PropertyName(
         .toList()
 
 
-    return ConversionResult(PROPERTY_NAME, unionBody(PROPERTY_NAME, values))
+    val body = unionBody(PROPERTY_NAME, values)
+        .replace(PROPERTY_NAME, "$PROPERTY_NAME : $IDENT")
+
+    return ConversionResult(PROPERTY_NAME, body)
 }
 
 private fun propertyNames(
