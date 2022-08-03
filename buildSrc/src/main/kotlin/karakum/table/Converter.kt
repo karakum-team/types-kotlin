@@ -241,11 +241,13 @@ private fun convertTypealias(
     }
 
     if ("&" in body) {
-        if (body.startsWith("ColumnDefBase<TData, TValue> & ColumnIdentifiers<TData, TValue> & {\n") ||
+        if (body.startsWith("ColumnDefBase<TData, TValue> & {\n") ||
+            body.startsWith("ColumnDefBase<TData, TValue> & ColumnIdentifiers<TData, TValue> & {\n") ||
             "\n} & ColumnIdentifiers<TData, TValue> & ColumnDefBase<TData, TValue> & {" in body
         ) {
             var members = body
-                .substringAfter("ColumnDefBase<TData, TValue> & ColumnIdentifiers<TData, TValue> & {\n")
+                .removePrefix("ColumnDefBase<TData, TValue> & {\n")
+                .removePrefix("ColumnDefBase<TData, TValue> & ColumnIdentifiers<TData, TValue> & {\n")
                 .replace("\n} & ColumnIdentifiers<TData, TValue> & ColumnDefBase<TData, TValue> & {", "")
                 .removePrefix("{\n")
                 .let { convertMembers(it) }
@@ -258,9 +260,13 @@ private fun convertTypealias(
                     )
             }
 
+            val parentTypes = mutableListOf("ColumnDefBase<TData, TValue>")
+            if ("ColumnIdentifiers<TData, TValue>" in body)
+                parentTypes.add("ColumnIdentifiers<TData, TValue>")
+
             return ConversionResult(
                 name,
-                "external interface $declaration : ColumnDefBase<TData, TValue>, ColumnIdentifiers<TData, TValue> {\n${members}\n}"
+                "external interface $declaration : ${parentTypes.joinToString(",")} {\n${members}\n}"
             )
         }
 
