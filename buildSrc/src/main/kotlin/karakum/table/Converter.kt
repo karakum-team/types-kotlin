@@ -201,6 +201,9 @@ private fun convertTypealias(
         declaration = declaration
             .replace(": object>", ": Any>")
 
+        if (name == "StringOrTemplateHeader")
+            declaration = declaration.replace("<TData,", "<TData : RowData,")
+
         val typeParameters = declaration.removePrefix(name)
         val factoryType = declaration
             .replace(": RowData", "")
