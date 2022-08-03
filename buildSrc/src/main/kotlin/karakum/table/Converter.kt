@@ -19,6 +19,10 @@ private val EXCLUDED_ITEMS = setOf(
     "RequiredKeys",
     "UnionToIntersection",
 
+    "Key",
+    "Union",
+    "Join",
+
     "isFunction",
     "makeStateUpdater",
 
@@ -226,6 +230,8 @@ private fun convertTypealias(
                     "'auto'" -> "String /* $type */"
                     else -> type
                         .replace("string", "String")
+                        .replace("number", "Number")
+                        .replace("symbol", "Symbol")
                         .replace("boolean", "Boolean")
                         .replace("any", "Any?") // No element
                 }

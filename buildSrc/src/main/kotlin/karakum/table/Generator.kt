@@ -10,6 +10,7 @@ private val DEFAULT_IMPORTS = listOf(
     "RegExp" to "kotlin.js.RegExp",
 
     "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
+    "Symbol" to "kotlinx.js.Symbol",
     "Record" to "kotlinx.js.Record",
     "JsPair" to "kotlinx.js.JsPair",
     "Void" to "kotlinx.js.Void",
