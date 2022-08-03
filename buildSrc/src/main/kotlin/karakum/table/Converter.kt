@@ -143,7 +143,7 @@ private fun convertFunction(
 private fun convertType(
     source: String,
 ): ConversionResult =
-    if (" = {\n" in source) {
+    if (" = {\n" in source && !source.startsWith("AccessorKeyColumnDef")) {
         convertInterface(source)
     } else {
         convertTypealias(source)
@@ -241,9 +241,14 @@ private fun convertTypealias(
     }
 
     if ("&" in body) {
-        if (body.startsWith("CoreColumnDefBase<TData, TValue> & {\n")) {
-            var members = convertMembers(body.substringAfter("CoreColumnDefBase<TData, TValue> & {\n"))
-                .replace("var id: String?", "    /* var id: String? */")
+        if (body.startsWith("ColumnDefBase<TData, TValue> & ColumnIdentifiers<TData, TValue> & {\n") ||
+            "\n} & ColumnIdentifiers<TData, TValue> & ColumnDefBase<TData, TValue> & {" in body
+        ) {
+            var members = body
+                .substringAfter("ColumnDefBase<TData, TValue> & ColumnIdentifiers<TData, TValue> & {\n")
+                .replace("\n} & ColumnIdentifiers<TData, TValue> & ColumnDefBase<TData, TValue> & {", "")
+                .removePrefix("{\n")
+                .let { convertMembers(it) }
 
             if (name == "CoreColumnDefDisplayWithStringHeader") {
                 members = members
@@ -255,7 +260,7 @@ private fun convertTypealias(
 
             return ConversionResult(
                 name,
-                "external interface $declaration : CoreColumnDefBase<TData, TValue> {\n${members}\n}"
+                "external interface $declaration : ColumnDefBase<TData, TValue>, ColumnIdentifiers<TData, TValue> {\n${members}\n}"
             )
         }
 
@@ -265,8 +270,8 @@ private fun convertTypealias(
             declaration = declaration.replace("TValue : Any", "TValue")
 
         var interfaceBody = when (name) {
-            "CoreColumnDefResolved",
-            -> "CoreColumnDef<TData, TValue> /* $body */"
+            "ColumnDefResolved",
+            -> "ColumnDef<TData, TValue> /* $body */"
 
             else -> body
                 .removeSurrounding("Partial<", ">")
@@ -313,6 +318,7 @@ private fun convertInterface(
     source: String,
 ): ConversionResult {
     var declaration = source.substringBefore(" {")
+        .replace(" = unknown>", ">")
         .removeSuffix(" =")
         .replace(" extends ", " : ")
 
