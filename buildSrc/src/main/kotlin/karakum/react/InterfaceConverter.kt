@@ -95,6 +95,10 @@ private fun convertAttributesInterface(
             .replaceFirst("children?: ReactNode | undefined;\n", "")
             .replaceFirst("{\n        __html: string;\n    }", "DangerouslySetInnerHTML")
 
+        "InputHTMLAttributes" -> source
+            .replaceFirst("min?: number | string | undefined;\n", "min?: number | Date | undefined;\n")
+            .replaceFirst("max?: number | string | undefined;\n", "max?: number | Date | undefined;\n")
+
         else -> source
     }
 

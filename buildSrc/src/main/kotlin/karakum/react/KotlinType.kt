@@ -37,6 +37,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 private val ANY_ALIASES = setOf(
     "string | ReadonlyArray<string> | number",
     "string | number | ReadonlyArray<string>",
+    "number | Date",
 )
 
 internal fun kotlinType(
