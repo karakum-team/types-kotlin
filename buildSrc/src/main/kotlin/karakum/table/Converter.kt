@@ -198,15 +198,6 @@ private fun convertTypealias(
     }
 
     if (" | " in body) {
-        if (name == "CoreColumnDef") {
-            body = body
-                .splitToSequence(" | ")
-                .map { it.replace("<TData>", "<TData, TValue>") }
-                .joinToString(",\n", "\n")
-
-            return ConversionResult(name, "external interface $declaration : $body")
-        }
-
         declaration = declaration
             .replace(": object>", ": Any>")
 
@@ -251,14 +242,6 @@ private fun convertTypealias(
                 .replace("\n} & ColumnIdentifiers<TData, TValue> & ColumnDefBase<TData, TValue> & {", "")
                 .removePrefix("{\n")
                 .let { convertMembers(it) }
-
-            if (name == "CoreColumnDefDisplayWithStringHeader") {
-                members = members
-                    .replace(
-                        "var header: String",
-                        "    /* var header: String */"
-                    )
-            }
 
             val parentTypes = mutableListOf("ColumnDefBase<TData, TValue>")
             if ("ColumnIdentifiers<TData, TValue>" in body)
