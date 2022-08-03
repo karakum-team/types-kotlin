@@ -87,6 +87,7 @@ private fun convertProperty(
                 !optional -> it
                 it.startsWith(DYNAMIC) -> it
                 " // " in it -> it.replace(" // ", "? // ")
+                " /* " in it -> it.replace(" /* ", "? /* ")
                 else -> "$it?"
             }
         }

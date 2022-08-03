@@ -32,9 +32,11 @@ private val STANDARD_TYPE_MAP = mapOf(
     // TODO: check
     "Booleanish" to "Boolean",
     "boolean | string" to "Boolean",
+)
 
-    "string | ReadonlyArray<string> | number" to STRING,
-    "string | number | ReadonlyArray<string>" to STRING,
+private val ANY_ALIASES = setOf(
+    "string | ReadonlyArray<string> | number",
+    "string | number | ReadonlyArray<string>",
 )
 
 internal fun kotlinType(
@@ -50,6 +52,9 @@ internal fun kotlinType(
 
     if (type == "number" || type == "number | string")
         return numberType(name)
+
+    if (type in ANY_ALIASES)
+        return "Any /* $type */"
 
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
