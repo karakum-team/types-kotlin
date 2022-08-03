@@ -188,7 +188,7 @@ private fun convertHtmlType(
 
     return """
         inline val $id: $type
-            get() = "$name".unsafeCast<$type>()
+            get() = IntrinsicType("$name")
     """.trimIndent()
 }
 
@@ -208,6 +208,6 @@ private fun convertSvgType(
 
     return """
         inline val $name: $type
-            get() = "$name".unsafeCast<$type>()
+            get() = IntrinsicType("$name")
     """.trimIndent()
 }
