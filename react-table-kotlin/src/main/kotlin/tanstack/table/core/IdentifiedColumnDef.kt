@@ -2,8 +2,7 @@
 
 package tanstack.table.core
 
-external interface IdentifiedColumnDef<TData : RowData, TValue> :
-    ColumnDefBase<TData, TValue>, {
-    id?: string
-    header ?: StringOrTemplateHeader<TData, TValue>
+external interface IdentifiedColumnDef<TData : RowData, TValue> : ColumnDefBase<TData, TValue> {
+    var id: String?
+    var header: StringOrTemplateHeader<TData, TValue>?
 }
