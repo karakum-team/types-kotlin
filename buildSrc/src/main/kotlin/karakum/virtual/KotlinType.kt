@@ -68,7 +68,7 @@ internal fun kotlinType(
         .replace("<any>", "<*>")
         .replace("undefined | [number, number]", "JsPair<Int, Int>?")
         .replace("boolean | (", "(")
-        .replace("{ align }?: ScrollToOffsetOptions", "options: ScrollToOffsetOptions?")
-        .replace("{ align, ...rest }?: ScrollToIndexOptions", "options: ScrollToIndexOptions?")
+        .replace("{ align, smoothScroll }?: ScrollToOffsetOptions", "options: ScrollToOffsetOptions?")
+        .replace("{ align, smoothScroll, ...rest }?: ScrollToIndexOptions", "options: ScrollToIndexOptions?")
         .replace(" | null", "?")
 }
