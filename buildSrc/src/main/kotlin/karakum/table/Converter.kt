@@ -198,6 +198,14 @@ private fun convertTypealias(
     }
 
     if (" | " in body) {
+        if (name == "ColumnDef") {
+            body = body
+                .splitToSequence(" | ")
+                .joinToString(",\n", "\n")
+
+            return ConversionResult(name, "external interface $declaration : $body")
+        }
+
         declaration = declaration
             .replace(": object>", ": Any>")
 
