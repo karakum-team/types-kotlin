@@ -8,11 +8,16 @@ internal fun factory(
     type: String,
     parameters: Parameters,
 ): String {
+    val dataString = parameters
+        .flatMap { (n) -> if (n == "lineHeight") sequenceOf("/", "$$n") else sequenceOf(" ", "$$n") }
+        .drop(1)
+        .joinToString("")
+
     return """
     inline fun $type(
         ${parameters.stringify()}
     ): $type =
-        "${parameters.joinToString(" ") { (n) -> "$$n" }}".unsafeCast<$type>()
+        "$dataString".unsafeCast<$type>()
     """.trimIndent()
 }
 
