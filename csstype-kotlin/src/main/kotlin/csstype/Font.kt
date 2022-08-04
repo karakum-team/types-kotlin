@@ -30,4 +30,4 @@ inline fun Font(
     lineHeight: LineHeight,
     family: FontFamily,
 ): Font =
-    "$style $variant $weight $stretch $size $lineHeight $family".unsafeCast<Font>()
+    "$style $variant $weight $stretch $size/$lineHeight $family".unsafeCast<Font>()
