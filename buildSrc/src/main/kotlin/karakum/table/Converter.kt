@@ -257,12 +257,12 @@ private fun convertTypealias(
     if ("&" in body) {
         if (body.startsWith("ColumnDefBase<TData, TValue> & {\n") ||
             body.startsWith("ColumnDefBase<TData, TValue> & ColumnIdentifiers<TData, TValue> & {\n") ||
-            "\n} & ColumnIdentifiers<TData, TValue> & ColumnDefBase<TData, TValue> & {" in body
+            "\n} & Partial<ColumnIdentifiers<TData, TValue>> & ColumnDefBase<TData, TValue> & {" in body
         ) {
             var members = body
                 .removePrefix("ColumnDefBase<TData, TValue> & {\n")
                 .removePrefix("ColumnDefBase<TData, TValue> & ColumnIdentifiers<TData, TValue> & {\n")
-                .replace("\n} & ColumnIdentifiers<TData, TValue> & ColumnDefBase<TData, TValue> & {", "")
+                .replace("\n} & Partial<ColumnIdentifiers<TData, TValue>> & ColumnDefBase<TData, TValue> & {", "")
                 .removePrefix("{\n")
                 .let { convertMembers(it) }
 
