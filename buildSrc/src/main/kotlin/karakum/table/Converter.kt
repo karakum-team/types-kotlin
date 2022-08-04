@@ -29,6 +29,7 @@ private val EXCLUDED_ITEMS = setOf(
     "AllowedIndexes",
     "ComputeRange",
 
+    "Index40",
     "Index100",
     "IsAny",
     "IsKnown",
