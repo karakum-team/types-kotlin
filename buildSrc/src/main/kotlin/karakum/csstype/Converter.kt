@@ -353,6 +353,7 @@ private fun convertUnion(
 
     tryToUnion(name, body, enumMode)?.let {
         return when (name) {
+            FONT -> it.copy(body = it.body + "\n\n" + fontFactories())
             FLEX -> it.copy(body = it.body + "\n\n" + flexFactories())
             BOX_SHADOW -> it.copy(body = it.body + "\n\n" + boxShadowFactories())
             TEXT_SHADOW -> it.copy(body = it.body + "\n\n" + textShadowFactories())
