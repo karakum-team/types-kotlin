@@ -12,6 +12,7 @@ private val COMBINATIONS = listOf(
     listOf(0, 3),
     listOf(1, 2),
     listOf(1, 3),
+    listOf(2, 3),
     listOf(0, 1, 2),
     listOf(0, 1, 3),
     listOf(1, 2, 3),
