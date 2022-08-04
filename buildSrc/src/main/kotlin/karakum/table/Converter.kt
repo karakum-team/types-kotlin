@@ -202,12 +202,18 @@ private fun convertTypealias(
     }
 
     if (" | " in body) {
-        if (name == "ColumnDef") {
-            body = body
-                .splitToSequence(" | ")
-                .joinToString(",\n", "\n")
+        when (name) {
+            "ColumnDef",
+            "ColumnIdentifiers",
+            "AccessorColumnDef",
+            -> {
+                body = body
+                    .splitToSequence(" | ")
+                    .joinToString(",\n", "\n")
+                    .replace(",\nStringHeaderIdentifier", "\n    /* StringHeaderIdentifier */")
 
-            return ConversionResult(name, "external interface $declaration : $body")
+                return ConversionResult(name, "external interface $declaration : $body")
+            }
         }
 
         declaration = declaration
@@ -259,6 +265,9 @@ private fun convertTypealias(
                 .replace("\n} & ColumnIdentifiers<TData, TValue> & ColumnDefBase<TData, TValue> & {", "")
                 .removePrefix("{\n")
                 .let { convertMembers(it) }
+
+            if (name == "AccessorKeyColumnDef")
+                members = members.replace("var id: String?", "    /* var id: String? */")
 
             val parentTypes = mutableListOf("ColumnDefBase<TData, TValue>")
             if ("ColumnIdentifiers<TData, TValue>" in body)
