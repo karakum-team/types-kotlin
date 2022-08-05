@@ -202,7 +202,7 @@ private fun convertTypealias(
         return ConversionResult(name, "external interface $declaration : $parent {\n$interfaceBody\n}")
     }
 
-    if (" | " in body) {
+    if (" | " in body && name != "AccessorKeyColumnDef") {
         when (name) {
             "ColumnDef",
             "ColumnIdentifiers",

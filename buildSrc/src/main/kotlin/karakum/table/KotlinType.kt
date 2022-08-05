@@ -64,7 +64,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "false | string" to "String /* false | string */",
     "false | 'reorder' | 'remove'" to "GroupingColumnMode",
 
-    "DeepKeys<TData>" to "String /* DeepKeys<TData> */",
+    "string | keyof TData" to "String /* string | keyof TData */",
 
     "() => undefined | ((event: unknown) => void)" to "() -> ((event: Any) -> Unit)?",
     "RequiredKeys<TableOptionsResolved<TData>, 'state'>" to "Any /* RequiredKeys<TableOptionsResolved<TData>, 'state'> */",
