@@ -53,6 +53,7 @@ internal val EVENT_TYPE_MAP = mapOf(
 )
 
 internal val EVENT_CORRECTION_MAP = mapOf(
+    "DOMContentLoaded" to "dom_content_loaded",
     "addsourcebuffer" to "add_source_buffer",
     "addtrack" to "add_track",
     "afterprint" to "after_print",
@@ -95,6 +96,7 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     "fullscreenerror" to "fullscreen_error",
     "gamepadconnected" to "gamepad_connected",
     "gamepaddisconnected" to "gamepad_disconnected",
+    "gatheringstatechange" to "gathering_state_change",
     "gotpointercapture" to "got_pointer_capture",
     "hashchange" to "hash_change",
     "icecandidate" to "ice_candidate",
@@ -116,6 +118,7 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     "loadstart" to "load_start",
     "lostpointercapture" to "lost_pointer_capture",
     "messageerror" to "message_error",
+    "midimessage" to "midi_message",
     "mousedown" to "mouse_down",
     "mouseenter" to "mouse_enter",
     "mouseleave" to "mouse_leave",
@@ -150,6 +153,7 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     "selectionchange" to "selection_change",
     "selectstart" to "select_start",
     "signalingstatechange" to "signaling_state_change",
+    "slotchange" to "slot_change",
     "sourceclose" to "source_close",
     "sourceended" to "source_ended",
     "sourceopen" to "source_open",
