@@ -23,8 +23,9 @@ private val EXCLUDED = setOf(
 internal fun eventDeclarations(
     definitionsFile: File,
 ): List<ConversionResult> =
-    EVENT_SOURCES
-        .splitToSequence("\n")
+    Regex("""interface .+?EventMap \{\n    "[\s\S]+?\n\}""")
+        .findAll(definitionsFile.readText())
+        .flatMap { it.value.splitToSequence("\n") }
         .mapNotNull { parseEventData(it) }
         .plus(ADDITIONAL_EVENTS)
         .distinct()
