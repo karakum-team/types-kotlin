@@ -1,5 +1,7 @@
 package karakum.browser
 
+import java.io.File
+
 private data class EventData(
     val name: String,
     val type: String,
@@ -18,7 +20,9 @@ private val EXCLUDED = setOf(
     "SpeechSynthesisEvent",
 )
 
-internal fun eventDeclarations(): List<ConversionResult> =
+internal fun eventDeclarations(
+    definitionsFile: File,
+): List<ConversionResult> =
     EVENT_SOURCES
         .splitToSequence("\n")
         .mapNotNull { parseEventData(it) }

@@ -8,7 +8,12 @@ tasks.named("generateDeclarations") {
 
         delete(sourceDir)
 
+        val definitionsFile = rootProject.buildDir
+            .resolve("js/node_modules/typescript")
+            .resolve("lib/lib.dom.d.ts")
+
         karakum.browser.generateKotlinDeclarations(
+            definitionsFile = definitionsFile,
             sourceDir = sourceDir,
         )
     }

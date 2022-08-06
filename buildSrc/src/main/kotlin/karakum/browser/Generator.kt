@@ -7,13 +7,14 @@ import karakum.common.fileSuppress
 import java.io.File
 
 fun generateKotlinDeclarations(
+    definitionsFile: File,
     sourceDir: File,
 ) {
     val targetDir = sourceDir
         .resolve("org/w3c/dom/events")
         .also { it.mkdirs() }
 
-    for ((name, body) in eventDeclarations()) {
+    for ((name, body) in eventDeclarations(definitionsFile)) {
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
