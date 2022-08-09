@@ -5,6 +5,9 @@
 
 package node.fs
 
+import kotlinx.js.Void
+import kotlin.js.Promise
+
 /**
  * Removes the directory identified by `path`.
  *
@@ -18,4 +21,4 @@ package node.fs
 external fun rmdir(
     path: PathLike,
     options: RmDirOptions = definedExternally,
-): kotlin.js.Promise<Unit>
+): Promise<Void>

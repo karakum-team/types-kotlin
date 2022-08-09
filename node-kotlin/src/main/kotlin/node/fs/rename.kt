@@ -5,6 +5,9 @@
 
 package node.fs
 
+import kotlinx.js.Void
+import kotlin.js.Promise
+
 /**
  * Renames `oldPath` to `newPath`.
  * @since v10.0.0
@@ -13,4 +16,4 @@ package node.fs
 external fun rename(
     oldPath: PathLike,
     newPath: PathLike,
-): kotlin.js.Promise<Unit>
+): Promise<Void>

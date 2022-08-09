@@ -5,6 +5,9 @@
 
 package node.fs
 
+import kotlinx.js.Void
+import kotlin.js.Promise
+
 /**
  * Asynchronously append data to a file, creating the file if it does not yet
  * exist. `data` can be a string or a `Buffer`.
@@ -23,4 +26,4 @@ external fun appendFile(
     path: dynamic, /* PathLike | FileHandle */
     data: dynamic, /* string | Uint8Array */
     options: dynamic /* (ObjectEncodingOptions & FlagAndOpenMode) | BufferEncoding */ = definedExternally,
-): kotlin.js.Promise<Unit>
+): Promise<Void>

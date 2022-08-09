@@ -5,6 +5,9 @@
 
 package node.fs
 
+import kotlinx.js.Void
+import kotlin.js.Promise
+
 /**
  * Asynchronously copies the entire directory structure from `src` to `dest`,
  * including subdirectories and files.
@@ -21,4 +24,4 @@ external fun cp(
     source: dynamic, /* string | URL */
     destination: dynamic, /* string | URL */
     opts: CopyOptions = definedExternally,
-): kotlin.js.Promise<Unit>
+): Promise<Void>

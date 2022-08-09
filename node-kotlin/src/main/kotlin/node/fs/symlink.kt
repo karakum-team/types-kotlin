@@ -5,6 +5,9 @@
 
 package node.fs
 
+import kotlinx.js.Void
+import kotlin.js.Promise
+
 /**
  * Creates a symbolic link.
  *
@@ -19,4 +22,4 @@ external fun symlink(
     target: PathLike,
     path: PathLike,
     type: String? = definedExternally,
-): kotlin.js.Promise<Unit>
+): Promise<Void>

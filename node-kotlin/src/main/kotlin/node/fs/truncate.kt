@@ -5,6 +5,9 @@
 
 package node.fs
 
+import kotlinx.js.Void
+import kotlin.js.Promise
+
 /**
  * Truncates (shortens or extends the length) of the content at `path` to `len`bytes.
  * @since v10.0.0
@@ -14,4 +17,4 @@ package node.fs
 external fun truncate(
     path: PathLike,
     len: Number = definedExternally,
-): kotlin.js.Promise<Unit>
+): Promise<Void>

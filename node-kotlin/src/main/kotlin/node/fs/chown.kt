@@ -5,6 +5,9 @@
 
 package node.fs
 
+import kotlinx.js.Void
+import kotlin.js.Promise
+
 /**
  * Changes the ownership on a symbolic link.
  * @since v10.0.0
@@ -14,4 +17,4 @@ external fun chown(
     path: PathLike,
     uid: Number,
     gid: Number,
-): kotlin.js.Promise<Unit>
+): Promise<Void>

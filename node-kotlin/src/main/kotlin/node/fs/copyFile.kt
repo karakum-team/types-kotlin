@@ -5,6 +5,9 @@
 
 package node.fs
 
+import kotlinx.js.Void
+import kotlin.js.Promise
+
 /**
  * Asynchronously copies `src` to `dest`. By default, `dest` is overwritten if it
  * already exists.
@@ -43,4 +46,4 @@ external fun copyFile(
     src: PathLike,
     dest: PathLike,
     mode: Number = definedExternally,
-): kotlin.js.Promise<Unit>
+): Promise<Void>

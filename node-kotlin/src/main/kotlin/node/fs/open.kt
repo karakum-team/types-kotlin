@@ -5,6 +5,8 @@
 
 package node.fs
 
+import kotlin.js.Promise
+
 /**
  * Opens a `FileHandle`.
  *
@@ -22,4 +24,4 @@ external fun open(
     path: PathLike,
     flags: dynamic /* string | number */ = definedExternally,
     mode: Mode = definedExternally,
-): kotlin.js.Promise<FileHandle>
+): Promise<FileHandle>

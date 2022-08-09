@@ -5,6 +5,9 @@
 
 package node.fs
 
+import kotlinx.js.Void
+import kotlin.js.Promise
+
 /**
  * Tests a user's permissions for the file or directory specified by `path`.
  * The `mode` argument is an optional integer that specifies the accessibility
@@ -41,4 +44,4 @@ package node.fs
 external fun access(
     path: PathLike,
     mode: Number = definedExternally,
-): kotlin.js.Promise<Unit>
+): Promise<Void>

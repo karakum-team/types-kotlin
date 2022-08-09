@@ -5,6 +5,8 @@
 
 package node.fs
 
+import kotlin.js.Promise
+
 /**
  * Asynchronously open a directory for iterative scanning. See the POSIX [`opendir(3)`](http://man7.org/linux/man-pages/man3/opendir.3.html) documentation for more detail.
  *
@@ -36,4 +38,4 @@ package node.fs
 external fun opendir(
     path: PathLike,
     options: OpenDirOptions = definedExternally,
-): kotlin.js.Promise<Dir>
+): Promise<Dir>

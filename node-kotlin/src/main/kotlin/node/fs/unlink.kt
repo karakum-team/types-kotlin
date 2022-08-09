@@ -5,6 +5,9 @@
 
 package node.fs
 
+import kotlinx.js.Void
+import kotlin.js.Promise
+
 /**
  * If `path` refers to a symbolic link, then the link is removed without affecting
  * the file or directory to which that link refers. If the `path` refers to a file
@@ -14,4 +17,4 @@ package node.fs
  */
 external fun unlink(
     path: PathLike,
-): kotlin.js.Promise<Unit>
+): Promise<Void>

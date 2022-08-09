@@ -5,6 +5,9 @@
 
 package node.fs
 
+import kotlinx.js.Void
+import kotlin.js.Promise
+
 /**
  * Changes the permissions of a file.
  * @since v10.0.0
@@ -13,4 +16,4 @@ package node.fs
 external fun chmod(
     path: PathLike,
     mode: Mode,
-): kotlin.js.Promise<Unit>
+): Promise<Void>

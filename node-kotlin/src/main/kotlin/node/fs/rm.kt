@@ -5,6 +5,9 @@
 
 package node.fs
 
+import kotlinx.js.Void
+import kotlin.js.Promise
+
 /**
  * Removes files and directories (modeled on the standard POSIX `rm` utility).
  * @since v14.14.0
@@ -13,4 +16,4 @@ package node.fs
 external fun rm(
     path: PathLike,
     options: RmOptions = definedExternally,
-): kotlin.js.Promise<Unit>
+): Promise<Void>

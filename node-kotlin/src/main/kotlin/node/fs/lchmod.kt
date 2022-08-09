@@ -5,6 +5,9 @@
 
 package node.fs
 
+import kotlinx.js.Void
+import kotlin.js.Promise
+
 /**
  * Changes the permissions on a symbolic link.
  *
@@ -15,4 +18,4 @@ package node.fs
 external fun lchmod(
     path: PathLike,
     mode: Mode,
-): kotlin.js.Promise<Unit>
+): Promise<Void>
