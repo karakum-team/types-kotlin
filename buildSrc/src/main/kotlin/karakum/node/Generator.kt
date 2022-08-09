@@ -59,13 +59,8 @@ fun generateKotlinDeclarations(
             val targetFile = targetDir.resolve("$name.kt")
             if (!targetFile.exists()) {
                 targetFile.writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
-            } else {
-                when {
-                    "/* string | Buffer */" in body -> Unit
-                    "/* AsyncIterable<FileChangeInfo<string>> | AsyncIterable<FileChangeInfo<Buffer>> */" in body -> Unit
-
-                    else -> targetFile.appendText("\n\n$body")
-                }
+            } else if ("/* string | Buffer */" !in body) {
+                targetFile.appendText("\n\n$body")
             }
         }
     }
