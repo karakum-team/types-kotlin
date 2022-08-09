@@ -41,8 +41,6 @@ internal fun convertDefinitions(
             .let { "\n$it" })
     }
 
-    val functions = convertFunctions(content)
-
     val interfaces = mainContent
         .splitToSequence("\nexport interface ", "\ninterface ")
         .drop(1)
@@ -54,7 +52,7 @@ internal fun convertDefinitions(
             .plus(BufferEncoding())
 
         Package("fs") -> interfaces
-            .plus(functions)
+            .plus(convertFunctions(content, syncOnly = true))
             .plus(SymlinkType())
             .plus(WatchEventType())
             .plus(ConversionResult("PathLike", "typealias PathLike = String"))
@@ -68,6 +66,9 @@ internal fun convertDefinitions(
             .plus(ConversionResult("Dir", "external class Dir"))
             .plus(ConversionResult("ReadStream", "external class ReadStream"))
             .plus(ConversionResult("WriteStream", "external class WriteStream"))
+
+        Package("fs/promises") -> interfaces
+            .plus(convertFunctions(content))
 
         Package("stream/web") -> emptySequence<ConversionResult>()
             .plus(ConversionResult("ReadableStream", "external class ReadableStream"))
@@ -120,6 +121,7 @@ private fun convertInterface(
 
 private fun convertFunctions(
     source: String,
+    syncOnly: Boolean = false,
 ): Sequence<ConversionResult> =
     source
         .splitToSequence("\nexport function ")
@@ -130,7 +132,7 @@ private fun convertFunctions(
         .map { it.removeSuffix(";") }
         .filter { "{" !in it }
         .mapNotNull { functionSource ->
-            convertFunction(functionSource)?.let { result ->
+            convertFunction(functionSource, syncOnly)?.let { result ->
                 val comment = "/**\n" + source.substringBefore(functionSource)
                     .substringAfterLast("\n/**\n")
                     .substringBeforeLast("\n */\n") + "\n */"
@@ -141,9 +143,10 @@ private fun convertFunctions(
 
 private fun convertFunction(
     source: String,
+    syncOnly: Boolean,
 ): ConversionResult? {
     val name = source.substringBefore("(")
-    if (!name.endsWith("Sync"))
+    if (syncOnly && !name.endsWith("Sync"))
         return null
 
     val parameters = source.substringAfter("(")
