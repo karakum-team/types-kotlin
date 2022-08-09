@@ -61,7 +61,7 @@ internal fun kotlinType(
         return resultType
     }
 
-    if (" | " in type)
+    if (" | " in type && !type.startsWith("Promise<"))
         return "$DYNAMIC /* $type */"
 
     if (type.endsWith("[]"))
