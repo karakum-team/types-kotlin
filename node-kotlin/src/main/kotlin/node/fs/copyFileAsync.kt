@@ -42,7 +42,8 @@ import kotlin.js.Promise
  * `fs.constants.COPYFILE_EXCL | fs.constants.COPYFILE_FICLONE`)
  * @return Fulfills with `undefined` upon success.
  */
-external fun copyFile(
+@JsName("copyFile")
+external fun copyFileAsync(
     src: PathLike,
     dest: PathLike,
     mode: Number = definedExternally,

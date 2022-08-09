@@ -13,7 +13,8 @@ import kotlin.js.Promise
  * @since v10.0.0
  * @return Fulfills with `undefined` upon success.
  */
-external fun chown(
+@JsName("chown")
+external fun chownAsync(
     path: PathLike,
     uid: Number,
     gid: Number,

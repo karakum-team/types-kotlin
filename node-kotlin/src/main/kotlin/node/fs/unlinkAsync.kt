@@ -15,6 +15,7 @@ import kotlin.js.Promise
  * @since v10.0.0
  * @return Fulfills with `undefined` upon success.
  */
-external fun unlink(
+@JsName("unlink")
+external fun unlinkAsync(
     path: PathLike,
 ): Promise<Void>

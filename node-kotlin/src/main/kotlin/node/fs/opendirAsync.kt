@@ -35,7 +35,8 @@ import kotlin.js.Promise
  * @since v12.12.0
  * @return Fulfills with an {fs.Dir}.
  */
-external fun opendir(
+@JsName("opendir")
+external fun opendirAsync(
     path: PathLike,
     options: OpenDirOptions = definedExternally,
 ): Promise<Dir>

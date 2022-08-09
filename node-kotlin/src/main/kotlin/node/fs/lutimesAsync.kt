@@ -15,7 +15,8 @@ import kotlin.js.Promise
  * @since v14.5.0, v12.19.0
  * @return Fulfills with `undefined` upon success.
  */
-external fun utimes(
+@JsName("lutimes")
+external fun lutimesAsync(
     path: PathLike,
     atime: dynamic, /* string | number | Date */
     mtime: dynamic, /* string | number | Date */

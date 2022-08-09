@@ -9,11 +9,12 @@ import kotlinx.js.Void
 import kotlin.js.Promise
 
 /**
- * Changes the permissions of a file.
+ * Renames `oldPath` to `newPath`.
  * @since v10.0.0
  * @return Fulfills with `undefined` upon success.
  */
-external fun chmod(
-    path: PathLike,
-    mode: Mode,
+@JsName("rename")
+external fun renameAsync(
+    oldPath: PathLike,
+    newPath: PathLike,
 ): Promise<Void>

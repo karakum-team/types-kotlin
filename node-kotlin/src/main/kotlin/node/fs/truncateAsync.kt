@@ -9,11 +9,13 @@ import kotlinx.js.Void
 import kotlin.js.Promise
 
 /**
- * Removes files and directories (modeled on the standard POSIX `rm` utility).
- * @since v14.14.0
+ * Truncates (shortens or extends the length) of the content at `path` to `len`bytes.
+ * @since v10.0.0
+ * @param [len=0]
  * @return Fulfills with `undefined` upon success.
  */
-external fun rm(
+@JsName("truncate")
+external fun truncateAsync(
     path: PathLike,
-    options: RmOptions = definedExternally,
+    len: Number = definedExternally,
 ): Promise<Void>

@@ -9,11 +9,13 @@ import kotlinx.js.Void
 import kotlin.js.Promise
 
 /**
- * Renames `oldPath` to `newPath`.
+ * Changes the ownership on a symbolic link.
  * @since v10.0.0
  * @return Fulfills with `undefined` upon success.
  */
-external fun rename(
-    oldPath: PathLike,
-    newPath: PathLike,
+@JsName("lchown")
+external fun lchownAsync(
+    path: PathLike,
+    uid: Number,
+    gid: Number,
 ): Promise<Void>

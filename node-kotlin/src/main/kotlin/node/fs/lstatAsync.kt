@@ -14,7 +14,8 @@ import kotlin.js.Promise
  * @since v10.0.0
  * @return Fulfills with the {fs.Stats} object for the given symbolic link `path`.
  */
-external fun stat(
+@JsName("lstat")
+external fun lstatAsync(
     path: PathLike,
     opts: StatOptions = definedExternally,
 ): Promise<dynamic /* Stats | BigIntStats */>

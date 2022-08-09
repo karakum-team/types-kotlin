@@ -41,7 +41,8 @@ import kotlin.js.Promise
  * @param [mode=fs.constants.F_OK]
  * @return Fulfills with `undefined` upon success.
  */
-external fun access(
+@JsName("access")
+external fun accessAsync(
     path: PathLike,
     mode: Number = definedExternally,
 ): Promise<Void>

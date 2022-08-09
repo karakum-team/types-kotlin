@@ -9,12 +9,12 @@ import kotlinx.js.Void
 import kotlin.js.Promise
 
 /**
- * Changes the ownership on a symbolic link.
- * @since v10.0.0
+ * Removes files and directories (modeled on the standard POSIX `rm` utility).
+ * @since v14.14.0
  * @return Fulfills with `undefined` upon success.
  */
-external fun lchown(
+@JsName("rm")
+external fun rmAsync(
     path: PathLike,
-    uid: Number,
-    gid: Number,
+    options: RmOptions = definedExternally,
 ): Promise<Void>

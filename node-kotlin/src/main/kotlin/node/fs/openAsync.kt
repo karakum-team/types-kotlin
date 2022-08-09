@@ -20,7 +20,8 @@ import kotlin.js.Promise
  * @param [mode=0o666] Sets the file mode (permission and sticky bits) if the file is created.
  * @return Fulfills with a {FileHandle} object.
  */
-external fun open(
+@JsName("open")
+external fun openAsync(
     path: PathLike,
     flags: dynamic /* string | number */ = definedExternally,
     mode: Mode = definedExternally,

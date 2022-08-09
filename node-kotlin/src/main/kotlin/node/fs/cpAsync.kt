@@ -20,7 +20,8 @@ import kotlin.js.Promise
  * @param dest destination path to copy to.
  * @return Fulfills with `undefined` upon success.
  */
-external fun cp(
+@JsName("cp")
+external fun cpAsync(
     source: dynamic, /* string | URL */
     destination: dynamic, /* string | URL */
     opts: CopyOptions = definedExternally,

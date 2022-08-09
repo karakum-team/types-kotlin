@@ -15,7 +15,8 @@ import kotlin.js.Promise
  * @deprecated Since v10.0.0
  * @return Fulfills with `undefined` upon success.
  */
-external fun lchmod(
+@JsName("lchmod")
+external fun lchmodAsync(
     path: PathLike,
     mode: Mode,
 ): Promise<Void>

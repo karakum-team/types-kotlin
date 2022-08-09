@@ -18,7 +18,8 @@ import kotlin.js.Promise
  * @param [type='file']
  * @return Fulfills with `undefined` upon success.
  */
-external fun symlink(
+@JsName("symlink")
+external fun symlinkAsync(
     target: PathLike,
     path: PathLike,
     type: String? = definedExternally,

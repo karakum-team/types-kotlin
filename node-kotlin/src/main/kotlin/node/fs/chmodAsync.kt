@@ -9,11 +9,12 @@ import kotlinx.js.Void
 import kotlin.js.Promise
 
 /**
- * Creates a new link from the `existingPath` to the `newPath`. See the POSIX [`link(2)`](http://man7.org/linux/man-pages/man2/link.2.html) documentation for more detail.
+ * Changes the permissions of a file.
  * @since v10.0.0
  * @return Fulfills with `undefined` upon success.
  */
-external fun link(
-    existingPath: PathLike,
-    newPath: PathLike,
+@JsName("chmod")
+external fun chmodAsync(
+    path: PathLike,
+    mode: Mode,
 ): Promise<Void>
