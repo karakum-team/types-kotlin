@@ -59,7 +59,7 @@ fun generateKotlinDeclarations(
             val targetFile = targetDir.resolve("$name.kt")
             if (!targetFile.exists()) {
                 targetFile.writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
-            } else if ("/* string | Buffer */" !in body) {
+            } else {
                 targetFile.appendText("\n\n$body")
             }
         }

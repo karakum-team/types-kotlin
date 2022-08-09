@@ -156,6 +156,11 @@ private fun convertFunction(
         .joinToString(",\n")
 
     val returnType = kotlinType(source.substringAfter("): "), name)
+
+    // ignore fallbacks
+    if ("/* string | Buffer */" in returnType)
+        return emptySequence()
+
     val returnDeclaration = when (returnType) {
         "Unit" -> ""
         else -> ": $returnType"
