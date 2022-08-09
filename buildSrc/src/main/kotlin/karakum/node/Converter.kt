@@ -161,9 +161,13 @@ private fun convertFunction(
         else -> ": $returnType"
     }
 
-    val body = "external fun $name(\n$parameters\n)$returnDeclaration"
+    val finalName = if (returnType.startsWith("Promise<")) name + "Async" else name
+    var body = "external fun $finalName(\n$parameters\n)$returnDeclaration"
 
-    return ConversionResult(name, body)
+    if (name != finalName)
+        body = "@JsName(\"$name\")\n$body"
+
+    return ConversionResult(finalName, body)
 }
 
 private fun convertParameter(
