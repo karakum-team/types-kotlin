@@ -9,6 +9,9 @@ private val IGNORE_LIST = setOf(
     "StatSyncFn",
     "StatWatcher",
     "WatchOptions",
+
+    // TEMP
+    "FileHandle",
 )
 
 internal data class ConversionResult(
@@ -86,6 +89,8 @@ private fun convertInterface(
         .replace(" extends ", " : ")
         .replace("<number>", "<Number>")
         .replace("NodeJS.ArrayBufferView", "org.khronos.webgl.ArrayBufferView")
+        .replace(" = Buffer", "")
+        .replace("string | Buffer", "Any /* string | Buffer */")
 
     val bodySource = if (!source.substringBefore("\n").endsWith("{}")) {
         source.substringAfter(" {\n")

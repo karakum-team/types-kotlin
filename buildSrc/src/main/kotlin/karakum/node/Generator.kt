@@ -14,6 +14,7 @@ private val DEFAULT_IMPORTS = listOf(
 private val MODULES = setOf(
     "buffer",
     "fs",
+    "fs/promises",
     "path",
 )
 
