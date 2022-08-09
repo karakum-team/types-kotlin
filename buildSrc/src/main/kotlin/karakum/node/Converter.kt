@@ -61,6 +61,7 @@ internal fun convertDefinitions(
         Package("fs") -> interfaces
             .plus(functions)
             .plus(SymlinkType())
+            .plus(WatchEventType())
             .plus(ConversionResult("PathLike", "typealias PathLike = String"))
             .plus(ConversionResult("PathOrFileDescriptor", "typealias PathOrFileDescriptor = PathLike"))
             .plus(ConversionResult("TimeLike", "typealias TimeLike = kotlin.js.Date"))
