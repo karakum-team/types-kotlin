@@ -6,9 +6,12 @@ import karakum.common.fileSuppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
+    "Promise" to "kotlin.js.Promise",
+
     "BigInt" to "kotlinx.js.BigInt",
     "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
     "Void" to "kotlinx.js.Void",
+
     "Uint8Array" to "org.khronos.webgl.Uint8Array",
     "ArrayBuffer" to "org.khronos.webgl.ArrayBuffer",
     "ArrayBufferView" to "org.khronos.webgl.ArrayBufferView",

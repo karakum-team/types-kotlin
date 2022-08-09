@@ -73,8 +73,11 @@ internal fun kotlinType(
     }
 
     if (type.startsWith("Promise<")) {
-        val parameter = kotlinType(type.removeSurrounding("Promise<", ">"), name)
-        return "kotlin.js.Promise<$parameter>"
+        var parameter = kotlinType(type.removeSurrounding("Promise<", ">"), name)
+        if (parameter == UNIT)
+            parameter = "Void"
+
+        return "Promise<$parameter>"
     }
 
     // TODO: remove
