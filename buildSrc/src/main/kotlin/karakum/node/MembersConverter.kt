@@ -58,7 +58,7 @@ private fun convertProperty(
     return "$modifier $name: $type"
 }
 
-internal fun convertMethod(
+private fun convertMethod(
     source: String,
 ): String {
     if ("{" in source) {
@@ -111,7 +111,7 @@ internal fun convertMethod(
     return result
 }
 
-internal fun convertParameter(
+private fun convertParameter(
     source: String,
     lambdaMode: Boolean,
 ): String {
