@@ -43,6 +43,8 @@ internal fun convertDefinitions(
             .let { "\n$it" })
     }
 
+    val functions = convertFunctions(content)
+
     val interfaces = mainContent
         .splitToSequence("\nexport interface ", "\ninterface ")
         .drop(1)
@@ -54,8 +56,17 @@ internal fun convertDefinitions(
             .plus(BufferEncoding())
 
         Package("fs") -> interfaces
+            .plus(functions)
+            .plus(SymlinkType())
+            .plus(ConversionResult("PathLike", "typealias PathLike = String"))
+            .plus(ConversionResult("PathOrFileDescriptor", "typealias PathOrFileDescriptor = PathLike"))
+            .plus(ConversionResult("TimeLike", "typealias TimeLike = kotlin.js.Date"))
+            .plus(ConversionResult("EncodingOption", "typealias EncodingOption = ObjectEncodingOptions?"))
+            .plus(ConversionResult("WriteFileOptions", "typealias WriteFileOptions = node.buffer.BufferEncoding?"))
             .plus(ConversionResult("Mode", "typealias Mode = Int"))
+            .plus(ConversionResult("OpenMode", "typealias OpenMode = Int"))
             .plus(ConversionResult("ReadPosition", "typealias ReadPosition = Number"))
+            .plus(ConversionResult("Dir", "external class Dir"))
 
         else -> interfaces
     }
@@ -98,4 +109,63 @@ private fun convertInterface(
         name = name,
         body = "external $type $declaration {\n$body\n}",
     )
+}
+
+private fun convertFunctions(
+    source: String,
+): Sequence<ConversionResult> =
+    source
+        .splitToSequence("\nexport function ")
+        .drop(1)
+        .map { it.substringBefore(";\nexport ") }
+        .map { it.substringBefore(";\ninterface ") }
+        .map { it.substringBefore("\n/**") }
+        .map { it.removeSuffix(";") }
+        .filter { "{" !in it }
+        .mapNotNull { functionSource ->
+            convertFunction(functionSource)?.let { result ->
+                val comment = "/**\n" + source.substringBefore(functionSource)
+                    .substringAfterLast("\n/**\n")
+                    .substringBeforeLast("\n */\n") + "\n */"
+
+                result.copy(result.name, comment + "\n" + result.body)
+            }
+        }
+
+private fun convertFunction(
+    source: String,
+): ConversionResult? {
+    val name = source.substringBefore("(")
+    if (!name.endsWith("Sync"))
+        return null
+
+    val parameters = source.substringAfter("(")
+        .substringBeforeLast(")")
+        .splitToSequence(", ")
+        .map { convertParameter(it) }
+        .joinToString(",\n")
+
+    val returnType = kotlinType(source.substringAfter("): "), name)
+    val returnDeclaration = when (returnType) {
+        "Unit" -> ""
+        else -> ": $returnType"
+    }
+
+    val body = "external fun $name(\n$parameters\n)$returnDeclaration"
+
+    return ConversionResult(name, body)
+}
+
+private fun convertParameter(
+    source: String,
+): String {
+    val name = source
+        .substringBefore("?:")
+        .substringBefore(":")
+
+    val optional = source.startsWith("$name?")
+    val type = kotlinType(source.substringAfter(": "), name) +
+            if (optional) " = definedExternally" else ""
+
+    return "$name: $type"
 }

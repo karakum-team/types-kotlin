@@ -38,6 +38,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => void" to "() -> Unit",
 
     "BufferEncoding" to "node.buffer.BufferEncoding",
+    "symlink.Type" to "SymlinkType",
 
     "-1 | 0 | 1" to "Int /* -1 | 0 | 1 */",
 )
