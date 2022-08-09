@@ -26,12 +26,6 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Date" to "kotlin.js.Date",
 
-    "Event" to "org.w3c.dom.events.Event",
-    "MessageEvent" to "org.w3c.dom.MessageEvent",
-
-    "MediaStream" to "org.w3c.dom.mediacapture.MediaStream",
-    "MediaStreamTrack" to "org.w3c.dom.mediacapture.MediaStreamTrack",
-
     "NodeJS.ArrayBufferView" to "ArrayBufferView",
 
     "Blob" to "org.w3c.files.Blob",
@@ -39,6 +33,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => void" to "() -> Unit",
 
     "BufferEncoding" to "node.buffer.BufferEncoding",
+    "ReadableStream" to "node.stream.ReadableStream",
     "symlink.Type" to "SymlinkType",
 
     "-1 | 0 | 1" to "Int /* -1 | 0 | 1 */",

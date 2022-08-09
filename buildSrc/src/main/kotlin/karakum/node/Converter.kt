@@ -69,6 +69,9 @@ internal fun convertDefinitions(
             .plus(ConversionResult("ReadStream", "external class ReadStream"))
             .plus(ConversionResult("WriteStream", "external class WriteStream"))
 
+        Package("stream/web") -> emptySequence<ConversionResult>()
+            .plus(ConversionResult("ReadableStream", "external class ReadableStream"))
+
         else -> interfaces
     }
 }

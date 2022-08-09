@@ -19,6 +19,7 @@ private val MODULES = setOf(
     "fs",
     "fs/promises",
     "path",
+    "stream/web",
 )
 
 fun generateKotlinDeclarations(
