@@ -62,7 +62,7 @@ internal fun convertMethod(
     source: String,
 ): String {
     if ("{" in source) {
-        return "/*\n$source\n*/".prependIndent("    ")
+        return "\n// HIDDEN METHOD START\n/*\n$source\n*/\n// HIDDEN METHOD END\n".prependIndent("    ")
     }
 
     val name = source.substringBefore("(")
