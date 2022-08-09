@@ -3,8 +3,6 @@ package karakum.node
 private val IGNORE_LIST = setOf(
     "BufferConstructor",
 
-    "BigIntOptions",
-    "BigIntStats",
     "FSWatcher",
     "StatSyncFn",
     "StatWatcher",
@@ -89,6 +87,7 @@ private fun convertInterface(
         .substringBefore(" {\n")
         .replace(" extends ", " : ")
         .replace("<number>", "<Number>")
+        .replace("<bigint>", "<BigInt>")
         .replace("NodeJS.ArrayBufferView", "org.khronos.webgl.ArrayBufferView")
         .replace(" = Buffer", "")
         .replace("string | Buffer", "Any /* string | Buffer */")

@@ -11,6 +11,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "{}" to "Any",
 
     "boolean" to "Boolean",
+    "true" to "Boolean /* true */",
+
     "string" to STRING,
 
     "never" to "Nothing",
@@ -19,8 +21,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "bigint" to "BigInt",
 
     "void" to UNIT,
-    "null" to "Nothing?",
-    "undefined" to "Nothing?",
+    "null" to "Void",
+    "undefined" to "Void",
 
     "Date" to "kotlin.js.Date",
 
