@@ -124,7 +124,7 @@ private fun convertFunctions(
     syncOnly: Boolean = false,
 ): Sequence<ConversionResult> =
     source
-        .splitToSequence("\nexport function ")
+        .splitToSequence("\nexport function ", "\nfunction ")
         .drop(1)
         .map { it.substringBefore(";\nexport ") }
         .map { it.substringBefore(";\ninterface ") }
