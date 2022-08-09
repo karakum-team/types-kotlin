@@ -7,7 +7,11 @@ internal fun convertMembers(
         return ""
 
     return source.removeSuffix(";")
+        .replace(";\n  ", "-111-\n  ")
+        .replace(";\n}", "-222-\n}")
         .splitToSequence(";\n")
+        .map { it.replace("-111-\n  ", ";\n  ") }
+        .map { it.replace("-222-\n}", ";\n}") }
         .map { convertMember(it) }
         .joinToString("\n")
 }
@@ -15,10 +19,14 @@ internal fun convertMembers(
 private fun convertMember(
     source: String,
 ): String {
-    val comment = source.substringBeforeLast("\n", "")
+    val comment = source.substringBeforeLast("\n */\n", "")
         .ifEmpty { null }
+        ?.let { "$it\n */" }
 
-    val body = source.substringAfterLast("\n")
+    val body = if (comment != null) {
+        source.substringAfter("$comment\n")
+    } else source
+
     val content = if (isProperty(body)) {
         convertProperty(body)
     } else {
@@ -53,6 +61,10 @@ private fun convertProperty(
 internal fun convertMethod(
     source: String,
 ): String {
+    if ("{" in source) {
+        return "/*\n$source\n*/".prependIndent("    ")
+    }
+
     val name = source.substringBefore("(")
         .substringBefore("<")
         .removeSuffix("?")

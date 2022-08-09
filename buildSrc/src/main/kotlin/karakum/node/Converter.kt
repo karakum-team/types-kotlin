@@ -7,9 +7,6 @@ private val IGNORE_LIST = setOf(
     "StatSyncFn",
     "StatWatcher",
     "WatchOptions",
-
-    // TEMP
-    "FileHandle",
 )
 
 internal data class ConversionResult(
@@ -69,6 +66,8 @@ internal fun convertDefinitions(
             .plus(ConversionResult("OpenMode", "typealias OpenMode = Int"))
             .plus(ConversionResult("ReadPosition", "typealias ReadPosition = Number"))
             .plus(ConversionResult("Dir", "external class Dir"))
+            .plus(ConversionResult("ReadStream", "external class ReadStream"))
+            .plus(ConversionResult("WriteStream", "external class WriteStream"))
 
         else -> interfaces
     }
