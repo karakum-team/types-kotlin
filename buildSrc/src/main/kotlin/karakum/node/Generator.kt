@@ -34,9 +34,18 @@ fun generateKotlinDeclarations(
                     add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
             }.toTypedArray()
 
-            val annotations = if (suppresses.isNotEmpty()) {
-                fileSuppress(*suppresses)
-            } else ""
+            val annotations = when {
+                // TEMP
+                name == "Buffer" -> ""
+
+                "external class " in body || "external val " in body || "external fun " in body
+                -> "@file:JsModule(\"${pkg.id}\")\n@file:JsNonModule"
+
+                suppresses.isNotEmpty()
+                -> fileSuppress(*suppresses)
+
+                else -> ""
+            }
 
             targetDir.resolve("$name.kt")
                 .writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
