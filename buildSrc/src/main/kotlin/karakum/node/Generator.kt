@@ -8,7 +8,7 @@ import java.io.File
 private val DEFAULT_IMPORTS = listOf(
     "BigInt" to "kotlinx.js.BigInt",
     "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
-    "Void" to "Void",
+    "Void" to "kotlinx.js.Void",
     "Uint8Array" to "org.khronos.webgl.Uint8Array",
 )
 
