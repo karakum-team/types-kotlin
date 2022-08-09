@@ -74,6 +74,8 @@ internal fun convertMethod(
         .substringAfter("<", "")
         .let { if (it.isNotEmpty()) "<$it" else "" }
         .replace(" extends ", " : ")
+        .replace("NodeJS.ArrayBufferView", "ArrayBufferView")
+        .replace(" = Buffer", "")
 
     val parametersSource = source
         .substringAfter("(")

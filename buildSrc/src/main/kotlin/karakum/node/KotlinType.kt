@@ -32,8 +32,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "MediaStream" to "org.w3c.dom.mediacapture.MediaStream",
     "MediaStreamTrack" to "org.w3c.dom.mediacapture.MediaStreamTrack",
 
-    "ArrayBuffer" to "org.khronos.webgl.ArrayBuffer",
-    "NodeJS.ArrayBufferView" to "org.khronos.webgl.ArrayBufferView",
+    "NodeJS.ArrayBufferView" to "ArrayBufferView",
 
     "Blob" to "org.w3c.files.Blob",
 

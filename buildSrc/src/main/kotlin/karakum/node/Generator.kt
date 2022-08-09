@@ -10,6 +10,8 @@ private val DEFAULT_IMPORTS = listOf(
     "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
     "Void" to "kotlinx.js.Void",
     "Uint8Array" to "org.khronos.webgl.Uint8Array",
+    "ArrayBuffer" to "org.khronos.webgl.ArrayBuffer",
+    "ArrayBufferView" to "org.khronos.webgl.ArrayBufferView",
 )
 
 private val MODULES = setOf(

@@ -87,7 +87,7 @@ private fun convertInterface(
         .replace(" extends ", " : ")
         .replace("<number>", "<Number>")
         .replace("<bigint>", "<BigInt>")
-        .replace("NodeJS.ArrayBufferView", "org.khronos.webgl.ArrayBufferView")
+        .replace("NodeJS.ArrayBufferView", "ArrayBufferView")
         .replace(" = Buffer", "")
         .replace("string | Buffer", "Any /* string | Buffer */")
 
