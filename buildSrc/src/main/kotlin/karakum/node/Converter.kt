@@ -59,6 +59,7 @@ internal fun convertDefinitions(
             .plus(ConversionResult("PathOrFileDescriptor", "typealias PathOrFileDescriptor = PathLike"))
             .plus(ConversionResult("TimeLike", "typealias TimeLike = kotlin.js.Date"))
             .plus(ConversionResult("EncodingOption", "typealias EncodingOption = ObjectEncodingOptions?"))
+            .plus(ConversionResult("BufferEncodingOption", "sealed interface BufferEncodingOption"))
             .plus(ConversionResult("WriteFileOptions", "typealias WriteFileOptions = node.buffer.BufferEncoding?"))
             .plus(ConversionResult("Mode", "typealias Mode = Int"))
             .plus(ConversionResult("OpenMode", "typealias OpenMode = Int"))

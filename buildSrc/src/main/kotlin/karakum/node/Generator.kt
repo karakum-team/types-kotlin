@@ -8,6 +8,7 @@ import java.io.File
 private val DEFAULT_IMPORTS = listOf(
     "Promise" to "kotlin.js.Promise",
 
+    "AsyncIterable" to "kotlinx.js.AsyncIterable",
     "BigInt" to "kotlinx.js.BigInt",
     "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
     "Void" to "kotlinx.js.Void",
@@ -55,8 +56,17 @@ fun generateKotlinDeclarations(
                 else -> ""
             }
 
-            targetDir.resolve("$name.kt")
-                .writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
+            val targetFile = targetDir.resolve("$name.kt")
+            if (!targetFile.exists()) {
+                targetFile.writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
+            } else {
+                when {
+                    "/* string | Buffer */" in body -> Unit
+                    "/* AsyncIterable<FileChangeInfo<string>> | AsyncIterable<FileChangeInfo<Buffer>> */" in body -> Unit
+
+                    else -> targetFile.appendText("\n\n$body")
+                }
+            }
         }
     }
 }

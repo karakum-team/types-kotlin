@@ -32,6 +32,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "() => void" to "() -> Unit",
 
+    "Buffer" to "node.buffer.Buffer",
     "BufferEncoding" to "node.buffer.BufferEncoding",
     "ReadableStream" to "node.stream.ReadableStream",
     "symlink.Type" to "SymlinkType",
@@ -85,4 +86,5 @@ internal fun kotlinType(
         return "$DYNAMIC /* $type */"
 
     return type
+        .replace("<string>", "<String>")
 }
