@@ -5,6 +5,8 @@
 
 package node.fs
 
+import kotlin.js.Promise
+
 /**
  * Asynchronous readlink(2) - read value of a symbolic link.
  * @param path A path to a file. If a URL is provided, it must use the `file:` protocol.
@@ -13,4 +15,4 @@ package node.fs
 external fun readlink(
     path: PathLike,
     options: dynamic /* ObjectEncodingOptions | string */ = definedExternally,
-): dynamic /* Promise<string | Buffer> */
+): Promise<dynamic /* string | Buffer */>

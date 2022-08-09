@@ -5,6 +5,8 @@
 
 package node.fs
 
+import kotlin.js.Promise
+
 /**
  * Asynchronous realpath(3) - return the canonicalized absolute pathname.
  * @param path A path to a file. If a URL is provided, it must use the `file:` protocol.
@@ -13,4 +15,4 @@ package node.fs
 external fun realpath(
     path: PathLike,
     options: dynamic /* ObjectEncodingOptions | BufferEncoding */ = definedExternally,
-): dynamic /* Promise<string | Buffer> */
+): Promise<dynamic /* string | Buffer */>

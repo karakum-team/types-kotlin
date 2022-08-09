@@ -5,6 +5,8 @@
 
 package node.fs
 
+import kotlin.js.Promise
+
 /**
  * Asynchronously creates a unique temporary directory.
  * Generates six random characters to be appended behind a required `prefix` to create a unique temporary directory.
@@ -13,4 +15,4 @@ package node.fs
 external fun mkdtemp(
     prefix: String,
     options: dynamic /* ObjectEncodingOptions | BufferEncoding */ = definedExternally,
-): dynamic /* Promise<string | Buffer> */
+): Promise<dynamic /* string | Buffer */>

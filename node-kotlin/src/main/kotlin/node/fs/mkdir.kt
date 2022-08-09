@@ -5,6 +5,8 @@
 
 package node.fs
 
+import kotlin.js.Promise
+
 /**
  * Asynchronous mkdir(2) - create a directory.
  * @param path A path to a file. If a URL is provided, it must use the `file:` protocol.
@@ -14,4 +16,4 @@ package node.fs
 external fun mkdir(
     path: PathLike,
     options: dynamic /* Mode | MakeDirectoryOptions */ = definedExternally,
-): dynamic /* Promise<string | undefined> */
+): Promise<String>

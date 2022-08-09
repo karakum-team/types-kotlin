@@ -276,7 +276,7 @@ sealed external interface FileHandle {
     */
     // HIDDEN METHOD END
 
-    fun stat(opts: StatOptions = definedExternally): dynamic /* Promise<Stats | BigIntStats> */
+    fun stat(opts: StatOptions = definedExternally): Promise<dynamic /* Stats | BigIntStats */>
 
     /**
      * Truncates the file.

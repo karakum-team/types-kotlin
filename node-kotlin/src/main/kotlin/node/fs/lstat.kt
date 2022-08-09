@@ -5,6 +5,8 @@
 
 package node.fs
 
+import kotlin.js.Promise
+
 /**
  * Equivalent to `fsPromises.stat()` unless `path` refers to a symbolic link,
  * in which case the link itself is stat-ed, not the file that it refers to.
@@ -15,4 +17,4 @@ package node.fs
 external fun lstat(
     path: PathLike,
     opts: StatOptions = definedExternally,
-): dynamic /* Promise<Stats | BigIntStats> */
+): Promise<dynamic /* Stats | BigIntStats */>
