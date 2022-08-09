@@ -3,6 +3,7 @@
 package node.fs
 
 import kotlinx.js.ReadonlyArray
+import org.khronos.webgl.ArrayBufferView
 
 sealed external interface FileHandle {
     /**
@@ -149,14 +150,15 @@ sealed external interface FileHandle {
      * integer, the current file position will remain unchanged.
      * @return Fulfills upon success with an object with two properties:
      */
-    fun <T : NodeJS.ArrayBufferView> read(
+    fun <T : ArrayBufferView> read(
         buffer: T,
         offset: Number? = definedExternally,
         length: Number? = definedExternally,
         position: Number? = definedExternally,
     ): kotlin.js.Promise<FileReadResult<T>>
 
-    fun <T : NodeJS.ArrayBufferView = Buffer> read(options: FileReadOptions<T> = definedExternally): kotlin.js.Promise<FileReadResult<T>>
+    fun <T : ArrayBufferView> read(options: FileReadOptions<T> = definedExternally): kotlin.js.Promise<FileReadResult<T>>
+
     /**
      * Returns a `ReadableStream` that may be used to read the files data.
      *
@@ -398,7 +400,7 @@ sealed external interface FileHandle {
      * position.
      */
     fun writev(
-        buffers: ReadonlyArray<org.khronos.webgl.ArrayBufferView>,
+        buffers: ReadonlyArray<ArrayBufferView>,
         position: Number = definedExternally,
     ): kotlin.js.Promise<WriteVResult>
 
@@ -409,7 +411,7 @@ sealed external interface FileHandle {
      * @return Fulfills upon success an object containing two properties:
      */
     fun readv(
-        buffers: ReadonlyArray<org.khronos.webgl.ArrayBufferView>,
+        buffers: ReadonlyArray<ArrayBufferView>,
         position: Number = definedExternally,
     ): kotlin.js.Promise<ReadVResult>
 
