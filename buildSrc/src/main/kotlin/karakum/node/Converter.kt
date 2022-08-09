@@ -132,23 +132,22 @@ private fun convertFunctions(
         .map { it.substringBefore("\n/**") }
         .map { it.removeSuffix(";") }
         .filter { "{" !in it }
-        .mapNotNull { functionSource ->
-            convertFunction(functionSource, syncOnly)?.let { result ->
-                val comment = "/**\n" + source.substringBefore(functionSource)
-                    .substringAfterLast("\n/**\n")
-                    .substringBeforeLast("\n */\n") + "\n */"
+        .flatMap { functionSource ->
+            val comment = "/**\n" + source.substringBefore(functionSource)
+                .substringAfterLast("\n/**\n")
+                .substringBeforeLast("\n */\n") + "\n */"
 
-                result.copy(result.name, comment + "\n" + result.body)
-            }
+            convertFunction(functionSource, comment, syncOnly)
         }
 
 private fun convertFunction(
     source: String,
+    comment: String,
     syncOnly: Boolean,
-): ConversionResult? {
+): Sequence<ConversionResult> {
     val name = source.substringBefore("(")
     if (syncOnly && !name.endsWith("Sync"))
-        return null
+        return emptySequence()
 
     val parameters = source.substringAfter("(")
         .substringBeforeLast(")")
@@ -168,7 +167,12 @@ private fun convertFunction(
     if (name != finalName)
         body = "@JsName(\"$name\")\n$body"
 
-    return ConversionResult(finalName, body)
+    if (comment.isNotEmpty())
+        body = "$comment\n$body"
+
+    return sequenceOf(
+        ConversionResult(finalName, body),
+    )
 }
 
 private fun convertParameter(
