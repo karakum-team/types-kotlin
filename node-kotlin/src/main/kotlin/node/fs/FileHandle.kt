@@ -194,6 +194,8 @@ sealed external interface FileHandle {
      * @return Fulfills upon a successful read with the contents of the file. If no encoding is specified (using `options.encoding`), the data is returned as a {Buffer} object. Otherwise, the
      * data will be a string.
      */
+
+    // HIDDEN METHOD START
     /*
     readFile(
         options?: {
@@ -202,12 +204,16 @@ sealed external interface FileHandle {
         } | null
     ): Promise<Buffer>
     */
+    // HIDDEN METHOD END
+
     /**
      * Asynchronously reads the entire contents of a file. The underlying file will _not_ be closed automatically.
      * The `FileHandle` must have been opened for reading.
      * @param options An object that may contain an optional flag.
      * If a flag is not provided, it defaults to `'r'`.
      */
+
+    // HIDDEN METHOD START
     /*
     readFile(
         options:
@@ -218,12 +224,16 @@ sealed external interface FileHandle {
             | BufferEncoding
     ): Promise<string>
     */
+    // HIDDEN METHOD END
+
     /**
      * Asynchronously reads the entire contents of a file. The underlying file will _not_ be closed automatically.
      * The `FileHandle` must have been opened for reading.
      * @param options An object that may contain an optional flag.
      * If a flag is not provided, it defaults to `'r'`.
      */
+
+    // HIDDEN METHOD START
     /*
     readFile(
         options?:
@@ -234,10 +244,14 @@ sealed external interface FileHandle {
             | null
     ): Promise<string | Buffer>
     */
+    // HIDDEN METHOD END
+
     /**
      * @since v10.0.0
      * @return Fulfills with an {fs.Stats} for the file.
      */
+
+    // HIDDEN METHOD START
     /*
     stat(
         opts?: StatOptions & {
@@ -245,6 +259,10 @@ sealed external interface FileHandle {
         }
     ): Promise<Stats>
     */
+    // HIDDEN METHOD END
+
+
+    // HIDDEN METHOD START
     /*
     stat(
         opts: StatOptions & {
@@ -252,6 +270,8 @@ sealed external interface FileHandle {
         }
     ): Promise<BigIntStats>
     */
+    // HIDDEN METHOD END
+
     fun stat(opts: StatOptions = definedExternally): dynamic /* Promise<Stats | BigIntStats> */
 
     /**
@@ -333,6 +353,8 @@ sealed external interface FileHandle {
      * @param position The offset from the beginning of the file where the data from `buffer` should be written. If `position` is not a `number`, the data will be written at the current position.
      * See the POSIX pwrite(2) documentation for more detail.
      */
+
+    // HIDDEN METHOD START
     /*
     write<TBuffer extends Uint8Array>(
         buffer: TBuffer,
@@ -344,6 +366,10 @@ sealed external interface FileHandle {
         buffer: TBuffer;
     }>
     */
+    // HIDDEN METHOD END
+
+
+    // HIDDEN METHOD START
     /*
     write(
         data: string,
@@ -354,6 +380,8 @@ sealed external interface FileHandle {
         buffer: string;
     }>
     */
+    // HIDDEN METHOD END
+
     /**
      * Write an array of [ArrayBufferView](https://developer.mozilla.org/en-US/docs/Web/API/ArrayBufferView) s to the file.
      *
