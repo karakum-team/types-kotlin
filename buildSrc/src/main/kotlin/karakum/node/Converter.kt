@@ -168,7 +168,7 @@ private fun convertFunction(
 
     val finalName = if (returnType.startsWith("Promise<")) name + "Async" else name
     var body = "external fun $finalName(" +
-            parameters.joinToString(",\n", "\n", "\n") +
+            parameters.joinToString(",\n", "\n", ",\n") +
             ")$returnDeclaration"
 
     if (name != finalName)
@@ -179,7 +179,7 @@ private fun convertFunction(
 
     return sequenceOf(
         ConversionResult(finalName, body),
-        // suspendFunction(name, parameters, returnType)
+        suspendFunctions(name, parameters, returnType)
     ).filterNotNull()
 }
 
@@ -197,13 +197,13 @@ private fun convertParameter(
     )
 }
 
-private fun suspendFunction(
+private fun suspendFunctions(
     name: String,
     parameters: List<Parameter>,
-    resultType: String,
+    returnType: String,
 ): ConversionResult? {
-    val promiseResult = resultType.removeSurrounding("Promise<", ">")
-    if (promiseResult == resultType)
+    val promiseResult = returnType.removeSurrounding("Promise<", ">")
+    if (promiseResult == returnType)
         return null
 
     val endIndex = parameters.lastIndex
@@ -212,12 +212,32 @@ private fun suspendFunction(
         ?: endIndex
 
     var body = (startIndex..endIndex)
-        .map { parameters.subList(0, it) }
+        .map { parameters.subList(0, it + 1) }
         .map { it.map { it.copy(optional = false) } }
-        .map {
-            "suspend fun $name"
-        }
+        .map { params -> suspendFunction(name, params, promiseResult) }
         .joinToString("\n\n")
 
     return ConversionResult(name, body)
+}
+
+private fun suspendFunction(
+    name: String,
+    parameters: List<Parameter>,
+    returnType: String,
+): String {
+    val declaration = "suspend fun $name(" +
+            parameters.joinToString(",\n", "\n", ",\n") +
+            ")"
+
+    val call = "${name}Async(" +
+            parameters.joinToString(",\n", "\n", ",\n") {
+                "${it.name} = ${it.name}"
+            } +
+            ").await()"
+
+    return if (returnType != "Void") {
+        "$declaration : $returnType =\n $call"
+    } else {
+        "$declaration {\n $call \n}"
+    }
 }

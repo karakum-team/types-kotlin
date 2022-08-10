@@ -16,6 +16,8 @@ private val DEFAULT_IMPORTS = listOf(
     "Uint8Array" to "org.khronos.webgl.Uint8Array",
     "ArrayBuffer" to "org.khronos.webgl.ArrayBuffer",
     "ArrayBufferView" to "org.khronos.webgl.ArrayBufferView",
+
+    ".await()" to "kotlinx.coroutines.await",
 )
 
 private val MODULES = setOf(

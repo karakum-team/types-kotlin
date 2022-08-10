@@ -37,6 +37,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "ReadableStream" to "node.stream.ReadableStream",
     "symlink.Type" to "SymlinkType",
 
+    "ObjectEncodingOptions | BufferEncoding" to "node.buffer.BufferEncoding /* ObjectEncodingOptions | BufferEncoding */",
+
     "AsyncIterable<FileChangeInfo<string>> | AsyncIterable<FileChangeInfo<Buffer>>" to
             "AsyncIterable<FileChangeInfo<Any /* string | Buffer */>>",
 
