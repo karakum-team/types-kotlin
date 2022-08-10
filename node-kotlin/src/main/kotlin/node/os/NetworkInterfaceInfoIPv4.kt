@@ -3,5 +3,5 @@
 package node.os
 
 sealed external interface NetworkInterfaceInfoIPv4 : NetworkInterfaceBase {
-    var family: 'IPv4'
+    var family: String /* 'IPv4' */
 }
