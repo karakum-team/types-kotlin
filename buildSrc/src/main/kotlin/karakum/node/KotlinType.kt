@@ -100,6 +100,9 @@ internal fun kotlinType(
     if ("IterableIterator" in type)
         return "$DYNAMIC /* $type */"
 
+    if (type.startsWith("'"))
+        return "$STRING /* $type */"
+
     if (type.startsWith("{"))
         return "$DYNAMIC /* $type */"
             .prependIndent("    ")
