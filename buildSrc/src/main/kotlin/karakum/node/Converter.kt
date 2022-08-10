@@ -153,7 +153,7 @@ private fun convertFunction(
         .substringBeforeLast(")")
         .splitToSequence(", ")
         .map { convertParameter(it) }
-        .joinToString(",\n")
+        .toList()
 
     val returnType = kotlinType(source.substringAfter("): "), name)
 
@@ -167,7 +167,9 @@ private fun convertFunction(
     }
 
     val finalName = if (returnType.startsWith("Promise<")) name + "Async" else name
-    var body = "external fun $finalName(\n$parameters\n)$returnDeclaration"
+    var body = "external fun $finalName(" +
+            parameters.joinToString(",\n", "\n", "\n") +
+            ")$returnDeclaration"
 
     if (name != finalName)
         body = "@JsName(\"$name\")\n$body"
@@ -177,7 +179,8 @@ private fun convertFunction(
 
     return sequenceOf(
         ConversionResult(finalName, body),
-    )
+        // suspendFunction(name, parameters, returnType)
+    ).filterNotNull()
 }
 
 private fun convertParameter(
@@ -192,4 +195,29 @@ private fun convertParameter(
         type = kotlinType(source.substringAfter(": "), name),
         optional = source.startsWith("$name?"),
     )
+}
+
+private fun suspendFunction(
+    name: String,
+    parameters: List<Parameter>,
+    resultType: String,
+): ConversionResult? {
+    val promiseResult = resultType.removeSurrounding("Promise<", ">")
+    if (promiseResult == resultType)
+        return null
+
+    val endIndex = parameters.lastIndex
+    val startIndex = parameters.indexOfFirst { it.optional }
+        .takeIf { it != -1 }
+        ?: endIndex
+
+    var body = (startIndex..endIndex)
+        .map { parameters.subList(0, it) }
+        .map { it.map { it.copy(optional = false) } }
+        .map {
+            "suspend fun $name"
+        }
+        .joinToString("\n\n")
+
+    return ConversionResult(name, body)
 }
