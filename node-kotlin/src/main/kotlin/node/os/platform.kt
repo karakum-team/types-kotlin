@@ -16,4 +16,4 @@ package node.os
  * operating system. [Android support is experimental](https://github.com/nodejs/node/blob/HEAD/BUILDING.md#androidandroid-based-devices-eg-firefox-os).
  * @since v0.5.0
  */
-external fun platform(): NodeJS.Platform
+external fun platform(): node.process.Platform
