@@ -39,7 +39,7 @@ internal fun convertDefinitions(
             .let { "\n$it" })
     }
 
-    val interfaces = mainContent
+    val interfaces = "\n$mainContent"
         .splitToSequence("\nexport interface ", "\ninterface ")
         .drop(1)
         .map { convertInterface(it) }
