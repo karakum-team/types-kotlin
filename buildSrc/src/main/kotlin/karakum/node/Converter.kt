@@ -46,7 +46,7 @@ internal fun convertDefinitions(
         .filter { it.name !in IGNORE_LIST }
 
     return when (pkg) {
-        Package("buffer") -> interfaces
+        Package("buffer") -> mergeBuffers(interfaces)
             .plus(BufferEncoding())
 
         Package("fs") -> interfaces
