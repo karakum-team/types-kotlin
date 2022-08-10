@@ -63,7 +63,7 @@ internal fun kotlinType(
         var resultType = kotlinType(type.removeSuffix(" | null"), name)
         if (!resultType.startsWith(DYNAMIC)) {
             if (" /* " in resultType) {
-                resultType.replace(" /* ", "? /* ")
+                resultType = resultType.replace(" /* ", "? /* ")
             } else {
                 resultType += "?"
             }
