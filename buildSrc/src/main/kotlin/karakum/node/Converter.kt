@@ -182,14 +182,14 @@ private fun convertFunction(
 
 private fun convertParameter(
     source: String,
-): String {
+): Parameter {
     val name = source
         .substringBefore("?:")
         .substringBefore(":")
 
-    val optional = source.startsWith("$name?")
-    val type = kotlinType(source.substringAfter(": "), name) +
-            if (optional) " = definedExternally" else ""
-
-    return "$name: $type"
+    return Parameter(
+        name = name,
+        type = kotlinType(source.substringAfter(": "), name),
+        optional = source.startsWith("$name?"),
+    )
 }
