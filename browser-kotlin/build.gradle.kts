@@ -4,11 +4,9 @@ plugins {
     `browser-declarations`
 }
 
-val kotlinWrappersVersion = property("kotlin-wrappers.version") as String
-
 dependencies {
     implementation(npmv("typescript"))
 
-    implementation(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:$kotlinWrappersVersion"))
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-js")
+    implementation(enforcedPlatform(kotlinwBom()))
+    implementation(kotlinw("js"))
 }
