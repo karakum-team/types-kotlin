@@ -61,14 +61,19 @@ internal fun kotlinType(
 
     if (type.endsWith(" | null")) {
         var resultType = kotlinType(type.removeSuffix(" | null"), name)
-        if (!resultType.startsWith(DYNAMIC))
-            resultType += "?"
+        if (!resultType.startsWith(DYNAMIC)) {
+            if (" /* " in resultType) {
+                resultType.replace(" /* ", "? /* ")
+            } else {
+                resultType += "?"
+            }
+        }
 
         return resultType
     }
 
     if (" | " in type && !type.startsWith("Promise<"))
-        return "$DYNAMIC /* $type */"
+        return "Any /* $type */"
 
     if (type.endsWith("[]"))
         return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
