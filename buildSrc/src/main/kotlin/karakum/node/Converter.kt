@@ -69,6 +69,9 @@ internal fun convertDefinitions(
         Package("fs/promises") -> interfaces
             .plus(convertFunctions(content))
 
+        Package("os") -> interfaces
+            .plus(convertFunctions(content))
+
         Package("stream/web") -> emptySequence<ConversionResult>()
             .plus(ConversionResult("ReadableStream", "external class ReadableStream"))
 
@@ -151,6 +154,7 @@ private fun convertFunction(
     val parameters = source.substringAfter("(")
         .substringBeforeLast(")")
         .splitToSequence(", ")
+        .filter { it.isNotEmpty() }
         .map { convertParameter(it) }
         .toList()
 
@@ -166,8 +170,13 @@ private fun convertFunction(
     }
 
     val finalName = if (returnType.startsWith("Promise<")) name + "Async" else name
+    val params = parameters
+        .takeIf { it.isNotEmpty() }
+        ?.joinToString(",\n", "\n", ",\n")
+        ?: ""
+
     var body = "external fun $finalName(" +
-            parameters.joinToString(",\n", "\n", ",\n") +
+            params +
             ")$returnDeclaration"
 
     if (name != finalName)

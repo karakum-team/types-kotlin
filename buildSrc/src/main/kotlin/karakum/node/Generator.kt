@@ -24,6 +24,7 @@ private val MODULES = setOf(
     "buffer",
     "fs",
     "fs/promises",
+    "os",
     "path",
     "stream/web",
 )
