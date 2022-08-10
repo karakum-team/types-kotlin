@@ -145,7 +145,7 @@ private fun convertFunction(
     syncOnly: Boolean,
 ): Sequence<ConversionResult> {
     val name = source.substringBefore("(")
-    if (syncOnly && !name.endsWith("Sync"))
+    if (syncOnly && !(name.endsWith("Sync") || name.endsWith("Stream")))
         return emptySequence()
 
     val parameters = source.substringAfter("(")
