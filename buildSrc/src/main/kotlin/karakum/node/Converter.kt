@@ -72,6 +72,9 @@ internal fun convertDefinitions(
         Package("os") -> interfaces
             .plus(convertFunctions(content))
 
+        Package("process") -> emptySequence<ConversionResult>()
+            .plus(Platform())
+
         Package("stream/web") -> emptySequence<ConversionResult>()
             .plus(ConversionResult("ReadableStream", "external class ReadableStream"))
 
