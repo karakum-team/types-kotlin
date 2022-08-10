@@ -1,8 +1,6 @@
 package karakum.node
 
 private val IGNORE_LIST = setOf(
-    "BufferConstructor",
-
     "FSWatcher",
     "StatSyncFn",
     "StatWatcher",
@@ -111,6 +109,7 @@ private fun convertInterface(
 
     val type = when (name) {
         "Buffer" -> "class"
+        "BufferConstructor" -> "class"
         else -> "sealed interface"
     }
 

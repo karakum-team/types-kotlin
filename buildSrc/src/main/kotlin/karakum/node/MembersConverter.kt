@@ -27,7 +27,9 @@ private fun convertMember(
         source.substringAfter("$comment\n")
     } else source
 
-    val content = if (isProperty(body)) {
+    val content = if (body.startsWith("new (")) {
+        convertConstructor(body)
+    } else if (isProperty(body)) {
         convertProperty(body)
     } else {
         convertMethod(body)
@@ -56,6 +58,27 @@ private fun convertProperty(
         type = type.addOptionality()
 
     return "$modifier $name: $type"
+}
+
+private fun convertConstructor(
+    source: String,
+): String {
+    val parametersSource = source
+        .substringAfter("(")
+        .substringBeforeLast("): ")
+
+    val parameters = when {
+        parametersSource.isNotEmpty()
+        -> parametersSource
+            .splitToSequence(", ")
+            .joinToString(",\n") {
+                convertParameter(it, false)
+            }
+
+        else -> ""
+    }
+
+    return "constructor($parameters)"
 }
 
 private fun convertMethod(

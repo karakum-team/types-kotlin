@@ -26,6 +26,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Date" to "kotlin.js.Date",
 
+    "Uint8Array | ReadonlyArray<number>" to "Uint8Array /* | ReadonlyArray<number> */",
     "NodeJS.ArrayBufferView" to "ArrayBufferView",
 
     "Blob" to "org.w3c.files.Blob",
@@ -57,6 +58,9 @@ internal fun kotlinType(
 ): String {
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
+
+    if (" is " in type)
+        return "Boolean /* $type */"
 
     if (type.endsWith(" | undefined"))
         return kotlinType(type.removeSuffix(" | undefined"), name)
