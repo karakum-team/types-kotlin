@@ -28,6 +28,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Uint8Array | ReadonlyArray<number>" to "Uint8Array /* | ReadonlyArray<number> */",
     "NodeJS.ArrayBufferView" to "ArrayBufferView",
+    "NodeJS.Platform" to "node.process.Platform",
 
     "Blob" to "org.w3c.files.Blob",
 
