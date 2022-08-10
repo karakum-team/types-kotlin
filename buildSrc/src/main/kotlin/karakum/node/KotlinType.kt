@@ -44,6 +44,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "AsyncIterable<FileChangeInfo<string>> | AsyncIterable<FileChangeInfo<Buffer>>" to
             "AsyncIterable<FileChangeInfo<Any /* string | Buffer */>>",
 
+    "NodeJS.Dict<NetworkInterfaceInfo[]>" to "Record<String, ReadonlyArray<NetworkInterfaceInfo>>",
+
     "-1 | 0 | 1" to "Int /* -1 | 0 | 1 */",
 )
 

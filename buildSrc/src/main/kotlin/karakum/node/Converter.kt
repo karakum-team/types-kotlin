@@ -71,6 +71,7 @@ internal fun convertDefinitions(
 
         Package("os") -> interfaces
             .plus(convertFunctions(content))
+            .plus(ConversionResult("NetworkInterfaceInfo", "typealias NetworkInterfaceInfo = NetworkInterfaceBase"))
 
         Package("process") -> emptySequence<ConversionResult>()
             .plus(Platform())

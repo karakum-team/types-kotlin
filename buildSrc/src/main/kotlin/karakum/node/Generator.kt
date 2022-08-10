@@ -10,6 +10,7 @@ private val DEFAULT_IMPORTS = listOf(
 
     "AsyncIterable" to "kotlinx.js.AsyncIterable",
     "BigInt" to "kotlinx.js.BigInt",
+    "Record" to "kotlinx.js.Record",
     "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
     "Void" to "kotlinx.js.Void",
 
