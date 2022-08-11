@@ -86,7 +86,7 @@ internal fun convertDefinitions(
             .plus(ConversionResult("NetworkInterfaceInfo", "typealias NetworkInterfaceInfo = NetworkInterfaceBase"))
 
         Package("path") -> interfaces
-            .plus(ConversionResult("path", "external val path: PlatformPath"))
+            .plus(rootVal("path", "PlatformPath"))
 
         Package("process") -> emptySequence<ConversionResult>()
             .plus(Platform())

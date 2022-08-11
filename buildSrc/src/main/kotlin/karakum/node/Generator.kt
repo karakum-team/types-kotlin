@@ -55,6 +55,8 @@ fun generateKotlinDeclarations(
                 // TEMP
                 name == "Buffer" -> ""
 
+                "@JsModule(" in body -> ""
+
                 "external class " in body || "external val " in body || "external fun " in body
                 -> "@file:JsModule(\"${pkg.id}\")\n@file:JsNonModule"
 
