@@ -49,6 +49,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "-1 | 0 | 1" to "Int /* -1 | 0 | 1 */",
 
     "UrlWithStringQuery" to "Url /* UrlWithStringQuery */",
+
+    // TEMP
+    "ClientRequestArgs" to "$DYNAMIC /* ClientRequestArgs */",
 )
 
 private val TYPED = setOf(

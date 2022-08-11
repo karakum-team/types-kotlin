@@ -170,7 +170,8 @@ private fun convertFunctions(
         .flatMap { functionSource ->
             val comment = "/**\n" + source.substringBefore(functionSource)
                 .substringAfterLast("\n/**\n")
-                .substringBeforeLast("\n */\n") + "\n */"
+                .substringBeforeLast("\n */\n")
+                .let { it + "\n */" }
                 .replace("* /*\n", "* ---\n")
 
             convertFunction(functionSource, comment, syncOnly)
