@@ -65,6 +65,9 @@ fun generateKotlinDeclarations(
 
                 "@JsModule(" in body -> ""
 
+                name == RECORD_TEMP
+                -> fileSuppress(Suppress.NOTHING_TO_INLINE)
+
                 "external class " in body || "external val " in body || "external fun " in body
                 -> "@file:JsModule(\"${pkg.id}\")\n@file:JsNonModule"
 
@@ -76,7 +79,14 @@ fun generateKotlinDeclarations(
 
             val targetFile = targetDir.resolve("$name.kt")
             if (!targetFile.exists()) {
-                targetFile.writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
+                targetFile.writeText(
+                    fileContent(
+                        annotations = annotations,
+                        body = body,
+                        pkg = pkg,
+                        imp = name != RECORD_TEMP,
+                    )
+                )
             } else {
                 targetFile.appendText("\n\n$body")
             }
@@ -88,11 +98,14 @@ private fun fileContent(
     annotations: String = "",
     body: String,
     pkg: Package,
+    imp: Boolean,
 ): String {
     val defaultImports = DEFAULT_IMPORTS
         .filter { it.first in body }
         .map { "import ${it.second}" }
         .joinToString("\n")
+        .takeIf { imp }
+        ?: ""
 
     var result = sequenceOf(
         "// $GENERATOR_COMMENT",

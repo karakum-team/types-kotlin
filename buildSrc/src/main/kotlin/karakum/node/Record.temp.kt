@@ -1,5 +1,7 @@
 package karakum.node
 
+internal const val RECORD_TEMP = "Record.temp"
+
 // language=kotlin
 private val RECORD_BODY = """
 // TODO: remove after next wrappers release    
@@ -31,6 +33,6 @@ fun <K : Any, V : Any> Record(
 
 internal fun Record(): ConversionResult =
     ConversionResult(
-        "Record.temp",
+        RECORD_TEMP,
         RECORD_BODY,
     )
