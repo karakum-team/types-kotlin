@@ -907,7 +907,7 @@ sealed external interface Process /* : EventEmitter */ {
      * @since v0.1.17
      * @deprecated Since v14.0.0 - Use `main` instead.
      */
-    var mainModule: Module?
+    var mainModule: dynamic /* Module */
     var memoryUsage: MemoryUsageFn
 
     /**
