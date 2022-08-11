@@ -65,8 +65,9 @@ internal fun convertDefinitions(
             .plus(BufferEncoding())
 
         Package("globals") -> abortClasses()
-            .plus(ConversionResult("Dict", "typealias Dict<T> = Record<String, T>"))
-            .plus(ConversionResult("ReadOnlyDict", "typealias ReadOnlyDict<T> = Record<String, out T>"))
+            .plus(Record())
+            .plus(ConversionResult("Dict", "typealias Dict<T> = node.Record<String, T>"))
+            .plus(ConversionResult("ReadOnlyDict", "typealias ReadOnlyDict<T> = node.Record<String, out T>"))
 
         Package("fs") -> interfaces
             .plus(convertFunctions(content, syncOnly = true))
