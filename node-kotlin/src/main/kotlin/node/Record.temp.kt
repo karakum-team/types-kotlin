@@ -1,0 +1,29 @@
+// Automatically generated - do not modify!
+
+package node
+
+import kotlinx.js.Record
+
+import kotlinx.js.jso
+
+external interface Record<in K : Any, V : Any>
+
+inline operator fun <K : Any, V : Any> Record<K, V>.get(
+    key: K,
+): V? =
+    asDynamic()[key]
+
+inline operator fun <K : Any, V : Any> Record<K, V>.set(
+    key: K,
+    value: V,
+) {
+    asDynamic()[key] = value
+}
+
+fun <K : Any, V : Any> Record(): Record<K, V> =
+    jso()
+
+fun <K : Any, V : Any> Record(
+    block: Record<K, V>.() -> Unit,
+): Record<K, V> =
+    jso(block)
