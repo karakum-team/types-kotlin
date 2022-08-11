@@ -2,6 +2,8 @@
 
 package node.process
 
+import node.Dict
+
 sealed external interface ProcessVersions : Dict<string> {
     var http_parser: String
     var node: String
