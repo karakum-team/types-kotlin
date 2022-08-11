@@ -2,6 +2,7 @@
 
 package node.process
 
+import kotlinx.js.JsSet
 import kotlinx.js.ReadonlyArray
 
 sealed external interface Process /* : EventEmitter */ {
@@ -1175,7 +1176,7 @@ sealed external interface Process /* : EventEmitter */ {
      * contain what _would have_ been allowable.
      * @since v10.10.0
      */
-    var allowedNodeEnvironmentFlags: ReadonlySet<String>
+    var allowedNodeEnvironmentFlags: JsSet<out String>
 
     /**
      * `process.report` is an object whose methods are used to generate diagnostic
