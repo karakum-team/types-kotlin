@@ -60,9 +60,13 @@ internal fun convertDefinitions(
         .map { convertInterface(it) }
         .filter { it.name !in IGNORE_LIST }
 
+    val types = "\n$mainContent"
+        .splitToSequence("\ntype ")
+        .drop(1)
+        .mapNotNull { convertType(it) }
+
     return when (pkg) {
         Package("buffer") -> mergeBuffers(interfaces)
-            .plus(BufferEncoding())
 
         Package("globals") -> abortClasses()
             .plus(Record())
@@ -98,7 +102,6 @@ internal fun convertDefinitions(
 
         Package("process") -> interfaces
             .plus(rootVal("process", "Process"))
-            .plus(Platform())
 
         Package("querystring") -> interfaces
             .plus(convertFunctions(content))
@@ -117,7 +120,17 @@ internal fun convertDefinitions(
             )
 
         else -> interfaces
-    }
+    } + types
+}
+
+private fun convertType(
+    source: String,
+): ConversionResult? {
+    val name = source.substringBefore(" = ")
+    val bodySource = source.substringAfter(" = ")
+        .substringBefore(";")
+
+    return convertUnion(name, bodySource)
 }
 
 private fun convertInterface(
