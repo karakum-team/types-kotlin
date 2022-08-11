@@ -29,6 +29,7 @@ private val MODULES = setOf(
     "os",
     "path",
     "process",
+    "querystring",
     "stream/web",
 )
 

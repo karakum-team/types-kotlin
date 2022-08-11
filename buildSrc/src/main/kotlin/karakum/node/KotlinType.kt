@@ -111,4 +111,6 @@ internal fun kotlinType(
 
     return type
         .replace("<string>", "<String>")
+        .replace(": string", ": String")
+        .replace("=> string", "-> String")
 }

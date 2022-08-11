@@ -80,6 +80,9 @@ internal fun convertDefinitions(
         Package("process") -> emptySequence<ConversionResult>()
             .plus(Platform())
 
+        Package("querystring") -> interfaces
+            .plus(convertFunctions(content))
+
         Package("stream/web") -> emptySequence<ConversionResult>()
             .plus(ConversionResult("ReadableStream", "external class ReadableStream"))
 
@@ -94,6 +97,17 @@ private fun convertInterface(
         .substringBefore("<")
         .substringBefore("(")
         .substringBefore(":")
+
+    if (" extends NodeJS.Dict<" in source) {
+        val type = source
+            .substringAfter(" extends NodeJS.Dict<")
+            .substringBeforeLast("> {")
+
+        return ConversionResult(
+            name = name,
+            body = "typealias $name = node.Dict<Any /* $type */>",
+        )
+    }
 
     val declaration = source
         .substringBefore(" {}\n")
