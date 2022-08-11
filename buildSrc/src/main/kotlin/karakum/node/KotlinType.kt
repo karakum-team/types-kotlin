@@ -128,4 +128,5 @@ internal fun kotlinType(
         .replace("<string>", "<String>")
         .replace(": string", ": String")
         .replace("=> string", "-> String")
+        .replace("=> number", "-> Number")
 }
