@@ -437,7 +437,7 @@ sealed external interface Process /* : EventEmitter */ {
      * Android).
      * @since v0.1.31
      */
-    var getgid: (() => number)?
+    var getgid: (() -> Number)?
 
     /**
      * The `process.setgid()` method sets the group identity of the process. (See [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html).) The `id` can be passed as either a
@@ -483,7 +483,7 @@ sealed external interface Process /* : EventEmitter */ {
      * Android).
      * @since v0.1.28
      */
-    var getuid: (() => number)?
+    var getuid: (() -> Number)?
 
     /**
      * The `process.setuid(id)` method sets the user identity of the process. (See [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html).) The `id` can be passed as either a
@@ -528,7 +528,7 @@ sealed external interface Process /* : EventEmitter */ {
      * Android).
      * @since v2.0.0
      */
-    var geteuid: (() => number)?
+    var geteuid: (() -> Number)?
 
     /**
      * The `process.seteuid()` method sets the effective user identity of the process.
@@ -574,7 +574,7 @@ sealed external interface Process /* : EventEmitter */ {
      * Android).
      * @since v2.0.0
      */
-    var getegid: (() => number)?
+    var getegid: (() -> Number)?
 
     /**
      * The `process.setegid()` method sets the effective group identity of the process.
@@ -621,7 +621,7 @@ sealed external interface Process /* : EventEmitter */ {
      * Android).
      * @since v0.9.4
      */
-    var getgroups: ReadonlyArray<() => number>?
+    var getgroups: ReadonlyArray<() -> Number>?
 
     /**
      * The `process.setgroups()` method sets the supplementary group IDs for the
