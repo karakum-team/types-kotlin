@@ -1183,42 +1183,44 @@ sealed external interface Process /* : EventEmitter */ {
      * @since v11.8.0
      */
     var report: ProcessReport?
-/**
- * ```js
- * import { resourceUsage } from 'process';
- *
- * console.log(resourceUsage());
- * /*
- *   Will output:
- *   {
- *     userCPUTime: 82872,
- *     systemCPUTime: 4143,
- *     maxRSS: 33164,
- *     sharedMemorySize: 0,
- *     unsharedDataSize: 0,
- *     unsharedStackSize: 0,
- *     minorPageFault: 2469,
- *     majorPageFault: 0,
- *     swappedOut: 0,
- *     fsRead: 0,
- *     fsWrite: 8,
- *     ipcSent: 0,
- *     ipcReceived: 0,
- *     signalsCount: 0,
- *     voluntaryContextSwitches: 79,
- *     involuntaryContextSwitches: 1
- *   }
- *
- * ```
- * @since v12.6.0
- * @return the resource usage for the current process. All of these values come from the `uv_getrusage` call which returns a [`uv_rusage_t` struct][uv_rusage_t].
-*/
-fun  resourceUsage(): ResourceUsage
-/**
- * The `process.traceDeprecation` property indicates whether the`--trace-deprecation` flag is set on the current Node.js process. See the
- * documentation for the `'warning' event` and the `emitWarning() method` for more information about this
- * flag's behavior.
- * @since v0.8.0
-*/
-var traceDeprecation: Boolean
+
+    /**
+     * ```js
+     * import { resourceUsage } from 'process';
+     *
+     * console.log(resourceUsage());
+     * ---
+     *   Will output:
+     *   {
+     *     userCPUTime: 82872,
+     *     systemCPUTime: 4143,
+     *     maxRSS: 33164,
+     *     sharedMemorySize: 0,
+     *     unsharedDataSize: 0,
+     *     unsharedStackSize: 0,
+     *     minorPageFault: 2469,
+     *     majorPageFault: 0,
+     *     swappedOut: 0,
+     *     fsRead: 0,
+     *     fsWrite: 8,
+     *     ipcSent: 0,
+     *     ipcReceived: 0,
+     *     signalsCount: 0,
+     *     voluntaryContextSwitches: 79,
+     *     involuntaryContextSwitches: 1
+     *   }
+     *
+     * ```
+     * @since v12.6.0
+     * @return the resource usage for the current process. All of these values come from the `uv_getrusage` call which returns a [`uv_rusage_t` struct][uv_rusage_t].
+     */
+    fun resourceUsage(): ResourceUsage
+
+    /**
+     * The `process.traceDeprecation` property indicates whether the`--trace-deprecation` flag is set on the current Node.js process. See the
+     * documentation for the `'warning' event` and the `emitWarning() method` for more information about this
+     * flag's behavior.
+     * @since v0.8.0
+     */
+    var traceDeprecation: Boolean
 }
