@@ -19,11 +19,9 @@ sealed external interface Process /* : EventEmitter */ {
      *
      * `process.stdout` differs from other Node.js streams in important ways. See `note on process I/O` for more information.
      */
-    var stdout: WriteStream &
-
-    {
-        fd: 1
-    }
+    var stdout: WriteStream /* {
+        fd: 1;
+    } */
 
     /**
      * The `process.stderr` property returns a stream connected to`stderr` (fd `2`). It is a `net.Socket` (which is a `Duplex` stream) unless fd `2` refers to a file, in which case it is
@@ -31,11 +29,9 @@ sealed external interface Process /* : EventEmitter */ {
      *
      * `process.stderr` differs from other Node.js streams in important ways. See `note on process I/O` for more information.
      */
-    var stderr: WriteStream &
-
-    {
-        fd: 2
-    }
+    var stderr: WriteStream /* {
+        fd: 2;
+    } */
 
     /**
      * The `process.stdin` property returns a stream connected to`stdin` (fd `0`). It is a `net.Socket` (which is a `Duplex` stream) unless fd `0` refers to a file, in which case it is
@@ -50,12 +46,9 @@ sealed external interface Process /* : EventEmitter */ {
      * In "old" streams mode the `stdin` stream is paused by default, so one
      * must call `process.stdin.resume()` to read from it. Note also that calling`process.stdin.resume()` itself would switch stream to "old" mode.
      */
-    var stdin: ReadStream &
-
-    {
-        fd: 0
-    }
-
+    var stdin: ReadStream /* {
+        fd: 0;
+    } */
     fun openStdin(): Socket
 
     /**
