@@ -8,6 +8,9 @@ private val IGNORE_LIST = setOf(
     "StatWatcher",
     "WatchOptions",
 
+    "UrlWithParsedQuery",
+    "UrlWithStringQuery",
+
     "URL",
     "URLSearchParams",
 )
@@ -180,6 +183,9 @@ private fun convertFunction(
 ): Sequence<ConversionResult> {
     val name = source.substringBefore("(")
     if (syncOnly && !(name.endsWith("Sync") || name.endsWith("Stream")))
+        return emptySequence()
+
+    if ("parseQueryString: false" in source || "parseQueryString: true" in source)
         return emptySequence()
 
     val parameters = source.substringAfter("(")
