@@ -96,6 +96,7 @@ internal fun convertDefinitions(
             .plus(rootVal("path", "PlatformPath"))
 
         Package("process") -> interfaces
+            .plus(rootVal("process", "Process"))
             .plus(Platform())
 
         Package("querystring") -> interfaces

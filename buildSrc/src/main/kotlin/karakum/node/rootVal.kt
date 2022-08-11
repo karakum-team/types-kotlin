@@ -5,7 +5,7 @@ internal fun rootVal(
     type: String,
 ): ConversionResult =
     ConversionResult(
-        name = name,
+        name = "$name.export",
         body = """
             @JsModule("node:$name")
             @JsNonModule
