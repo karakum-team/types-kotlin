@@ -1,8 +1,7 @@
 // Automatically generated - do not modify!
 
-@file:JsModule("node:path")
-@file:JsNonModule
-
 package node.path
 
+@JsModule("node:path")
+@JsNonModule
 external val path: PlatformPath
