@@ -1,0 +1,14 @@
+// Automatically generated - do not modify!
+
+package node.process
+
+sealed external interface ProcessVersions : Dict<string> {
+    var http_parser: String
+    var node: String
+    var v8: String
+    var ares: String
+    var uv: String
+    var zlib: String
+    var modules: String
+    var openssl: String
+}
