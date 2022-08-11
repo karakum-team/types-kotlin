@@ -4,6 +4,8 @@ package node
 
 import kotlinx.js.Record
 
+// TODO: remove after next wrappers release
+
 import kotlinx.js.jso
 
 external interface Record<in K : Any, V : Any>
