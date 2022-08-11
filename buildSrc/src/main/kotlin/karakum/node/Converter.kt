@@ -144,6 +144,7 @@ private fun convertInterface(
         .substringBefore(" {\n")
         .replace(" extends ", " : ")
         .replace("<number>", "<Number>")
+        .replace("<string>", "<String>")
         .replace("<bigint>", "<BigInt>")
         .replace("NodeJS.ArrayBufferView", "ArrayBufferView")
         .replace(" = Buffer", "")
