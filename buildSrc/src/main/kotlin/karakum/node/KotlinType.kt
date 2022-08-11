@@ -68,6 +68,9 @@ internal fun kotlinType(
     if (" is " in type)
         return "Boolean /* $type */"
 
+    if (name == "port" && type.startsWith("string | number"))
+        return STRING
+
     if (type.endsWith(" | undefined"))
         return kotlinType(type.removeSuffix(" | undefined"), name)
 
