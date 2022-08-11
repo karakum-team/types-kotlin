@@ -119,6 +119,11 @@ internal fun kotlinType(
         return "$DYNAMIC /* $type */"
             .prependIndent("    ")
 
+    if (" & " in type)
+        return (type.substringBefore(" & ") + " /* " + type.substringAfter(" & ") + " */")
+            .prependIndent("    ")
+            .removePrefix("    ")
+
     return type
         .replace("<string>", "<String>")
         .replace(": string", ": String")
