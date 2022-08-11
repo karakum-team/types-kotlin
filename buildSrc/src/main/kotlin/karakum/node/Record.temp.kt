@@ -2,6 +2,8 @@ package karakum.node
 
 // language=kotlin
 private val RECORD_BODY = """
+// TODO: remove after next wrappers release    
+
 import kotlinx.js.jso    
 
 external interface Record<in K : Any, V : Any>
