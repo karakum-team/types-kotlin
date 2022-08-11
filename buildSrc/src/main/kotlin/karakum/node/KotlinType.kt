@@ -55,6 +55,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "UrlWithStringQuery" to "Url /* UrlWithStringQuery */",
 
     // TEMP
+    "Module" to "$DYNAMIC /* Module */",
     "ClientRequestArgs" to "$DYNAMIC /* ClientRequestArgs */",
 )
 
