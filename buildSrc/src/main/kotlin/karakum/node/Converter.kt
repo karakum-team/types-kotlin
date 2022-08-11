@@ -140,6 +140,7 @@ private fun convertInterface(
     }
 
     val declaration = source
+        .removeSuffix("{}")
         .substringBefore(" {}\n")
         .substringBefore(" {\n")
         .replace(" extends ", " : ")
@@ -153,6 +154,7 @@ private fun convertInterface(
         .replace(": EventEmitter", "/* : EventEmitter */")
         .replace(": tty.ReadStream", "/* : tty.ReadStream */")
         .replace(": tty.WriteStream", "/* : tty.WriteStream */")
+        .replace(": ReadWriteStream", "/* : ReadWriteStream */")
 
     val bodySource = if (!source.substringBefore("\n").endsWith("{}")) {
         source.substringAfter(" {\n")
