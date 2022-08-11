@@ -12,6 +12,6 @@ sealed external interface UrlObject {
     var protocol: String?
     var search: String?
     var slashes: Boolean?
-    var port: Any?? /* string | number */
+    var port: String?
     var query: Any? /* string | null | ParsedUrlQueryInput */
 }
