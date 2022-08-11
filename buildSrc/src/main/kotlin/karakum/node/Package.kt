@@ -5,8 +5,19 @@ internal data class Package(
 ) {
     private val root = name.substringBefore("/")
 
-    val id: String = "node:$name"
-    val pkg: String = "package node.$root"
+    val id: String = concat("node", ":", name)
+    val pkg: String = "package " + concat("node", ".", root)
 
-    val path: String = "node/$root"
+    val path: String = concat("node", "/", root)
 }
+
+private fun concat(
+    base: String,
+    delimiter: String,
+    suffix: String,
+): String =
+    if (suffix != "globals") {
+        "$base$delimiter$suffix"
+    } else {
+        base
+    }
