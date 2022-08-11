@@ -88,6 +88,9 @@ private fun convertMethod(
         return "\n// HIDDEN METHOD START\n/*\n$source\n*/\n// HIDDEN METHOD END\n".prependIndent("    ")
     }
 
+    if (source.startsWith("(time?: ["))
+        return "    /* $source */"
+
     val name = source.substringBefore("(")
         .substringBefore("<")
         .removeSuffix("?")

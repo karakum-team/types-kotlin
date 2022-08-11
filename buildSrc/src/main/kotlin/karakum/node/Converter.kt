@@ -40,11 +40,18 @@ internal fun convertDefinitions(
 
     val globalsStart = "\nglobal {\n"
     if (globalsStart in content) {
-        mainContent += "\n\n" + (content
+        var globals = content
             .substringAfter(globalsStart)
             .substringBefore("\n}")
             .trimIndent()
-            .let { "\n$it" })
+
+        if (globals.startsWith("var process: NodeJS.Process;"))
+            globals = globals
+                .substringAfter("namespace NodeJS {\n")
+                .substringBefore("\n}")
+                .trimIndent()
+
+        mainContent += "\n\n$globals"
     }
 
     val interfaces = "\n$mainContent"
@@ -88,7 +95,7 @@ internal fun convertDefinitions(
         Package("path") -> interfaces
             .plus(rootVal("path", "PlatformPath"))
 
-        Package("process") -> emptySequence<ConversionResult>()
+        Package("process") -> interfaces
             .plus(Platform())
 
         Package("querystring") -> interfaces
@@ -148,6 +155,8 @@ private fun convertInterface(
             .replace("): this", "): $name")
             .replace("toJSON(): {\n    type: 'Buffer';\n    data: number[];\n};", "toJSON(): any;")
             .replace(";\n *", ";--\n *")
+            // WA for `process`
+            .substringBefore("\n/* EventEmitter */")
     } else ""
 
     val body = convertMembers(bodySource)

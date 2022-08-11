@@ -24,6 +24,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "null" to "Void",
     "undefined" to "Void",
 
+    "Function" to "Function<*>",
+
     "Date" to "kotlin.js.Date",
 
     "Uint8Array | ReadonlyArray<number>" to "Uint8Array /* | ReadonlyArray<number> */",
