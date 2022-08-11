@@ -1,8 +1,10 @@
 // Automatically generated - do not modify!
 
-package node
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+)
 
-import kotlinx.js.Record
+package node
 
 // TODO: remove after next wrappers release
 
