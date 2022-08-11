@@ -47,6 +47,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "NodeJS.Dict<NetworkInterfaceInfo[]>" to "node.Dict<ReadonlyArray<NetworkInterfaceInfo>>",
 
     "-1 | 0 | 1" to "Int /* -1 | 0 | 1 */",
+
+    "UrlWithStringQuery" to "Url /* UrlWithStringQuery */",
 )
 
 private val TYPED = setOf(
