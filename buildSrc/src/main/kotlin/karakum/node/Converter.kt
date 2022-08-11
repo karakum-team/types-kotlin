@@ -57,7 +57,7 @@ internal fun convertDefinitions(
         Package("buffer") -> mergeBuffers(interfaces)
             .plus(BufferEncoding())
 
-        Package("globals") -> emptySequence<ConversionResult>()
+        Package("globals") -> abortClasses()
             .plus(ConversionResult("Dict", "typealias Dict<T> = Record<String, T>"))
             .plus(ConversionResult("ReadOnlyDict", "typealias ReadOnlyDict<T> = Record<String, out T>"))
 

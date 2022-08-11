@@ -34,6 +34,12 @@ private val MODULES = setOf(
     "url",
 )
 
+private val GLOBAL_TYPES = setOf(
+    ABORT_CONTROLLER,
+    ABORT_SIGNAL,
+    "Buffer",
+)
+
 fun generateKotlinDeclarations(
     definitionsDir: File,
     sourceDir: File,
@@ -52,8 +58,7 @@ fun generateKotlinDeclarations(
             }.toTypedArray()
 
             val annotations = when {
-                // TEMP
-                name == "Buffer" -> ""
+                name in GLOBAL_TYPES -> ""
 
                 "@JsModule(" in body -> ""
 
