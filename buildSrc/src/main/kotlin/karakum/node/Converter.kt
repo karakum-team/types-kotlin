@@ -126,8 +126,9 @@ internal fun convertDefinitions(
 private fun convertType(
     source: String,
 ): ConversionResult? {
-    val name = source.substringBefore(" = ")
-    val bodySource = source.substringAfter(" = ")
+    val name = source.substringBefore(" =")
+    val bodySource = source.substringAfter(" =")
+        .removePrefix(" ")
         .substringBefore(";")
 
     return convertUnion(name, bodySource)

@@ -1,18 +1,17 @@
 package karakum.node
 
-import karakum.common.Suppress.NAME_CONTAINS_ILLEGAL_CHARS
-import karakum.common.suppress
 import karakum.common.unionBody
 
 internal fun convertUnion(
     name: String,
     source: String,
 ): ConversionResult? {
-    if (!source.startsWith("'"))
+    val unionSource = source.removePrefix("\n    | ")
+    if (!unionSource.startsWith("'"))
         return null
 
-    val values = source
-        .splitToSequence(" | ")
+    val values = unionSource
+        .splitToSequence("\n    | ", " | ")
         .map { it.removeSurrounding("'") }
         .minus("utf-8") // BufferEncoding
         .minus("ucs-2") // BufferEncoding
