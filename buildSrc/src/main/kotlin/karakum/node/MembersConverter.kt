@@ -19,7 +19,7 @@ internal fun convertMembers(
 private fun convertMember(
     source: String,
 ): String {
-    val comment = source.substringBeforeLast("\n */\n", "")
+    var comment = source.substringBeforeLast("\n */\n", "")
         .ifEmpty { null }
         ?.let { "$it\n */" }
 
@@ -34,6 +34,8 @@ private fun convertMember(
     } else {
         convertMethod(body)
     }
+
+    comment = comment?.replace("* /*\n", "* ---\n")
 
     return sequenceOf(comment, content)
         .filterNotNull()
