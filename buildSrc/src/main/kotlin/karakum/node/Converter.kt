@@ -149,6 +149,10 @@ private fun convertInterface(
         .replace("NodeJS.ArrayBufferView", "ArrayBufferView")
         .replace(" = Buffer", "")
         .replace("string | Buffer", "Any /* string | Buffer */")
+        // TEMP
+        .replace(": EventEmitter", "/* : EventEmitter */")
+        .replace(": tty.ReadStream", "/* : tty.ReadStream */")
+        .replace(": tty.WriteStream", "/* : tty.WriteStream */")
 
     val bodySource = if (!source.substringBefore("\n").endsWith("{}")) {
         source.substringAfter(" {\n")
