@@ -19,6 +19,8 @@ private val DEFAULT_IMPORTS = listOf(
     "ArrayBufferView" to "org.khronos.webgl.ArrayBufferView",
 
     ".await()" to "kotlinx.coroutines.await",
+
+    "Dict<" to "node.Dict",
 )
 
 private val MODULES = setOf(

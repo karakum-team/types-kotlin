@@ -135,7 +135,7 @@ private fun convertInterface(
 
         return ConversionResult(
             name = name,
-            body = "typealias $name = node.Dict<Any /* $type */>",
+            body = "typealias $name = Dict<Any /* $type */>",
         )
     }
 
