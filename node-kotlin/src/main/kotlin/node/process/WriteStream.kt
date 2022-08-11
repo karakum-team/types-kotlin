@@ -2,8 +2,4 @@
 
 package node.process
 
-sealed external interface WriteStream : tty.WriteStream
-
-{
-
-}
+sealed external interface WriteStream /* : tty.WriteStream */

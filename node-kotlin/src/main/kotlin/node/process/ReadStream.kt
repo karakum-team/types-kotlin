@@ -2,8 +2,4 @@
 
 package node.process
 
-sealed external interface ReadStream : tty.ReadStream
-
-{
-
-}
+sealed external interface ReadStream /* : tty.ReadStream */
