@@ -1,10 +1,15 @@
 package karakum.node
 
 private val IGNORE_LIST = setOf(
+    "Global",
+
     "FSWatcher",
     "StatSyncFn",
     "StatWatcher",
     "WatchOptions",
+
+    "URL",
+    "URLSearchParams",
 )
 
 internal data class ConversionResult(
@@ -86,6 +91,9 @@ internal fun convertDefinitions(
         Package("stream/web") -> emptySequence<ConversionResult>()
             .plus(ConversionResult("ReadableStream", "external class ReadableStream"))
 
+        Package("url") -> interfaces
+            .plus(convertFunctions(content))
+
         else -> interfaces
     }
 }
@@ -160,6 +168,7 @@ private fun convertFunctions(
             val comment = "/**\n" + source.substringBefore(functionSource)
                 .substringAfterLast("\n/**\n")
                 .substringBeforeLast("\n */\n") + "\n */"
+                .replace("* /*\n", "* ---\n")
 
             convertFunction(functionSource, comment, syncOnly)
         }

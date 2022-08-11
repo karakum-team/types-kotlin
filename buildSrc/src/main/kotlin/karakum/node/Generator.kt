@@ -8,6 +8,9 @@ import java.io.File
 private val DEFAULT_IMPORTS = listOf(
     "Promise" to "kotlin.js.Promise",
 
+    "URL" to "org.w3c.dom.url.URL",
+    "URLSearchParams" to "org.w3c.dom.url.URLSearchParams",
+
     "AsyncIterable" to "kotlinx.js.AsyncIterable",
     "BigInt" to "kotlinx.js.BigInt",
     "Record" to "kotlinx.js.Record",
@@ -31,6 +34,7 @@ private val MODULES = setOf(
     "process",
     "querystring",
     "stream/web",
+    "url",
 )
 
 fun generateKotlinDeclarations(
