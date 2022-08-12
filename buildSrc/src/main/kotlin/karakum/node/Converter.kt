@@ -57,7 +57,13 @@ internal fun convertDefinitions(
     val interfaces = "\n$mainContent"
         .splitToSequence("\nexport interface ", "\ninterface ")
         .drop(1)
-        .map { convertInterface(it) }
+        .map { convertInterface(it, false) }
+        .filter { it.name !in IGNORE_LIST }
+
+    val classes = "\n$mainContent"
+        .splitToSequence("\nexport class ", "\nclass ")
+        .drop(1)
+        .map { convertInterface(it, true) }
         .filter { it.name !in IGNORE_LIST }
 
     val types = "\n$mainContent"
@@ -67,6 +73,8 @@ internal fun convertDefinitions(
 
     return when (pkg) {
         Package("buffer") -> mergeBuffers(interfaces)
+
+        Package("events") -> interfaces + classes
 
         Package("globals") -> abortClasses()
             .plus(ConversionResult("Dict", "typealias Dict<T> = Record<String, T>"))
@@ -135,14 +143,15 @@ private fun convertType(
 
 private fun convertInterface(
     source: String,
+    classMode: Boolean,
 ): ConversionResult {
     var name = source.substringBefore(" ")
         .substringBefore("<")
         .substringBefore("(")
         .substringBefore(":")
 
-    if (name == "EventEmitter")
-        return convertInterface("I$source")
+    if (!classMode && name == "EventEmitter")
+        return convertInterface("I$source", classMode)
 
     if (" extends NodeJS.Dict<" in source) {
         val type = source
@@ -188,9 +197,11 @@ private fun convertInterface(
         .replace(";--\n *", ";\n *")
 
     val type = when (name) {
-        "Buffer" -> "class"
-        "BufferConstructor" -> "class"
-        else -> "sealed interface"
+        "Buffer",
+        "BufferConstructor",
+        -> "class"
+
+        else -> if (classMode) "class" else "sealed interface"
     }
 
     return ConversionResult(
