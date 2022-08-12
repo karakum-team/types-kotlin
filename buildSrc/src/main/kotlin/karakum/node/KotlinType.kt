@@ -28,6 +28,9 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Date" to "kotlin.js.Date",
 
+    "string | symbol" to "String /* | Symbol */",
+    "Array<string | symbol>" to "ReadonlyArray<String /* | Symbol */>",
+
     "boolean | Promise<boolean>" to "PromiseResult<Boolean>",
 
     "ReadonlySet<string>" to "JsSet<out String>",
