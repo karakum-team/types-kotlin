@@ -4,19 +4,20 @@ internal const val RULE_BUILDER = "RuleBuilder"
 
 // language=Kotlin
 private val BODY = """
-import kotlinx.js.jso    
+import kotlinx.js.jso
+import kotlinx.js.set
     
-interface $RULE_BUILDER<T : Any> {
+interface $RULE_BUILDER<T : Any> : $RULES {
     inline fun fontFace(
         block: FontFace.() -> Unit,
     ) {
-        this@$RULE_BUILDER.unsafeCast<$RULES>()[$SELECTOR("@font-face")] = jso(block)
+        set($SELECTOR("@font-face"), jso(block))
     }
 
     inline operator fun $SELECTOR.invoke(
         block: T.() -> Unit,
     ) {
-        this@$RULE_BUILDER.unsafeCast<$RULES>()[this] = jso(block)
+        set(this, jso(block))
     }
 
     inline operator fun $CLASS_NAME.invoke(
