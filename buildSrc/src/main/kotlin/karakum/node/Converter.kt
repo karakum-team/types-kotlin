@@ -136,10 +136,13 @@ private fun convertType(
 private fun convertInterface(
     source: String,
 ): ConversionResult {
-    val name = source.substringBefore(" ")
+    var name = source.substringBefore(" ")
         .substringBefore("<")
         .substringBefore("(")
         .substringBefore(":")
+
+    if (name == "EventEmitter")
+        return convertInterface("I$source")
 
     if (" extends NodeJS.Dict<" in source) {
         val type = source
