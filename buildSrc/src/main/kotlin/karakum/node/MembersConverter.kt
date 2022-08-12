@@ -1,19 +1,37 @@
 package karakum.node
 
+private const val STATIC_MARKER = "/* STATIC */\n"
+
 internal fun convertMembers(
     source: String,
 ): String {
     if (source.isEmpty())
         return ""
 
-    return source.removeSuffix(";")
+    val members = source.removeSuffix(";")
         .replace(";\n  ", "-111-\n  ")
         .replace(";\n}", "-222-\n}")
         .splitToSequence(";\n")
         .map { it.replace("-111-\n  ", ";\n  ") }
         .map { it.replace("-222-\n}", ";\n}") }
         .map { convertMember(it) }
+        .toList()
+
+    if (members.none { STATIC_MARKER in it })
+        return members.joinToString("\n")
+
+    val groups = members.groupBy { STATIC_MARKER in it }
+
+    val body = groups.getValue(false)
         .joinToString("\n")
+
+    val companionBody = groups.getValue(true)
+        .joinToString("\n") {
+            it.replace(STATIC_MARKER, "")
+        }
+
+    return body + "\n\n" +
+            "companion object {\n$companionBody\n}"
 }
 
 private fun convertMember(
@@ -56,7 +74,7 @@ private fun convertProperty(
     source: String,
 ): String {
     if (source.startsWith("static "))
-        return "/* STATIC */\n" + convertProperty(source.removePrefix("static "))
+        return STATIC_MARKER + convertProperty(source.removePrefix("static "))
 
     val modifier = if (source.startsWith("readonly ")) "val" else "var"
     val body = source.removePrefix("readonly ")
@@ -103,7 +121,7 @@ private fun convertMethod(
         return "    /* $source */"
 
     if (source.startsWith("static "))
-        return "/* STATIC */\n" + convertMethod(source.removePrefix("static "))
+        return STATIC_MARKER + convertMethod(source.removePrefix("static "))
 
     val name = source.substringBefore("(")
         .substringBefore("<")
