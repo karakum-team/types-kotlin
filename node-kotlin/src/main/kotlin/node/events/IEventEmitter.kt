@@ -4,7 +4,7 @@ package node.events
 
 import kotlinx.js.ReadonlyArray
 
-sealed external interface EventEmitter {
+sealed external interface IEventEmitter {
     /**
      * Alias for `emitter.on(eventName, listener)`.
      * @since v0.1.26
@@ -12,7 +12,7 @@ sealed external interface EventEmitter {
     fun addListener(
         eventName: Any, /* string | symbol */
         listener: Function<Unit>,
-    ): EventEmitter
+    ): IEventEmitter
 
     /**
      * Adds the `listener` function to the end of the listeners array for the
@@ -47,7 +47,7 @@ sealed external interface EventEmitter {
     fun on(
         eventName: Any, /* string | symbol */
         listener: Function<Unit>,
-    ): EventEmitter
+    ): IEventEmitter
 
     /**
      * Adds a **one-time**`listener` function for the event named `eventName`. The
@@ -80,7 +80,7 @@ sealed external interface EventEmitter {
     fun once(
         eventName: Any, /* string | symbol */
         listener: Function<Unit>,
-    ): EventEmitter
+    ): IEventEmitter
 
     /**
      * Removes the specified `listener` from the listener array for the event named`eventName`.
@@ -164,7 +164,7 @@ sealed external interface EventEmitter {
     fun removeListener(
         eventName: Any, /* string | symbol */
         listener: Function<Unit>,
-    ): EventEmitter
+    ): IEventEmitter
 
     /**
      * Alias for `emitter.removeListener()`.
@@ -173,7 +173,7 @@ sealed external interface EventEmitter {
     fun off(
         eventName: Any, /* string | symbol */
         listener: Function<Unit>,
-    ): EventEmitter
+    ): IEventEmitter
 
     /**
      * Removes all listeners, or those of the specified `eventName`.
@@ -185,7 +185,7 @@ sealed external interface EventEmitter {
      * Returns a reference to the `EventEmitter`, so that calls can be chained.
      * @since v0.1.26
      */
-    fun removeAllListeners(event: Any /* string | symbol */ = definedExternally): EventEmitter
+    fun removeAllListeners(event: Any /* string | symbol */ = definedExternally): IEventEmitter
 
     /**
      * By default `EventEmitter`s will print a warning if more than `10` listeners are
@@ -196,7 +196,7 @@ sealed external interface EventEmitter {
      * Returns a reference to the `EventEmitter`, so that calls can be chained.
      * @since v0.3.5
      */
-    fun setMaxListeners(n: Number): EventEmitter
+    fun setMaxListeners(n: Number): IEventEmitter
 
     /**
      * Returns the current max listener value for the `EventEmitter` which is either
@@ -322,7 +322,7 @@ sealed external interface EventEmitter {
     fun prependListener(
         eventName: Any, /* string | symbol */
         listener: Function<Unit>,
-    ): EventEmitter
+    ): IEventEmitter
 
     /**
      * Adds a **one-time**`listener` function for the event named `eventName` to the _beginning_ of the listeners array. The next time `eventName` is triggered, this
@@ -342,7 +342,7 @@ sealed external interface EventEmitter {
     fun prependOnceListener(
         eventName: Any, /* string | symbol */
         listener: Function<Unit>,
-    ): EventEmitter
+    ): IEventEmitter
 
     /**
      * Returns an array listing the events for which the emitter has registered
