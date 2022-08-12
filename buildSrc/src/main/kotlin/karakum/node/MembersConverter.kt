@@ -23,9 +23,14 @@ private fun convertMember(
         .ifEmpty { null }
         ?.let { "$it\n */" }
 
-    val body = if (comment != null) {
+    var body = if (comment != null) {
         source.substringAfter("$comment\n")
     } else source
+
+    if (body.startsWith("// TODO: ")) {
+        comment = comment + "\n    " + body.substringBefore("\n")
+        body = body.substringAfter("\n")
+    }
 
     val content = if (body.startsWith("constructor(") || body.startsWith("new (")) {
         convertConstructor(body)
