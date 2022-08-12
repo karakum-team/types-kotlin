@@ -78,7 +78,7 @@ fun generateKotlinDeclarations(
             }
 
             val targetFile = targetDir.resolve("$name.kt")
-            if (!targetFile.exists()) {
+            if (!targetFile.exists() || /* TEMP */ name == "EventEmitter") {
                 targetFile.writeText(
                     fileContent(
                         annotations = annotations,

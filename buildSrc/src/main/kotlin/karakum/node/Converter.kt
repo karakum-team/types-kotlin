@@ -45,7 +45,7 @@ internal fun convertDefinitions(
             .substringBefore("\n}")
             .trimIndent()
 
-        if (globals.startsWith("var process: NodeJS.Process;"))
+        if (globals.startsWith("namespace NodeJS {\n") || globals.startsWith("var process: NodeJS.Process;"))
             globals = globals
                 .substringAfter("namespace NodeJS {\n")
                 .substringBefore("\n}")
