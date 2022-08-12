@@ -28,6 +28,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Date" to "kotlin.js.Date",
 
+    "unique symbol" to "Symbol",
     "string | symbol" to "String /* | Symbol */",
     "Array<string | symbol>" to "ReadonlyArray<String /* | Symbol */>",
 
@@ -36,6 +37,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "ReadonlySet<string>" to "JsSet<out String>",
 
     "Uint8Array | ReadonlyArray<number>" to "Uint8Array /* | ReadonlyArray<number> */",
+    "NodeJS.EventEmitter" to "node.events.IEventEmitter",
     "NodeJS.ArrayBufferView" to "ArrayBufferView",
     "NodeJS.Platform" to "node.process.Platform",
 

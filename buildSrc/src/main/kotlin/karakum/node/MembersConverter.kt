@@ -27,7 +27,7 @@ private fun convertMember(
         source.substringAfter("$comment\n")
     } else source
 
-    val content = if (body.startsWith("new (")) {
+    val content = if (body.startsWith("constructor(") || body.startsWith("new (")) {
         convertConstructor(body)
     } else if (isProperty(body)) {
         convertProperty(body)
@@ -50,6 +50,9 @@ private fun isProperty(
 private fun convertProperty(
     source: String,
 ): String {
+    if (source.startsWith("static "))
+        return "/* STATIC */\n" + convertProperty(source.removePrefix("static "))
+
     val modifier = if (source.startsWith("readonly ")) "val" else "var"
     val body = source.removePrefix("readonly ")
 
@@ -68,6 +71,7 @@ private fun convertConstructor(
     val parametersSource = source
         .substringAfter("(")
         .substringBeforeLast("): ")
+        .removeSuffix(")")
 
     val parameters = when {
         parametersSource.isNotEmpty()
@@ -92,6 +96,9 @@ private fun convertMethod(
 
     if (source.startsWith("(time?: ["))
         return "    /* $source */"
+
+    if (source.startsWith("static "))
+        return "/* STATIC */\n" + convertMethod(source.removePrefix("static "))
 
     val name = source.substringBefore("(")
         .substringBefore("<")

@@ -14,6 +14,7 @@ private val DEFAULT_IMPORTS = listOf(
     "PromiseResult" to "kotlinx.js.PromiseResult",
     "Record" to "kotlinx.js.Record",
     "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
+    "Symbol" to "kotlinx.js.Symbol",
     "Void" to "kotlinx.js.Void",
 
     "Uint8Array" to "org.khronos.webgl.Uint8Array",
