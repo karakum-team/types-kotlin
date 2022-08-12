@@ -175,8 +175,8 @@ private fun convertInterface(
         .replace("NodeJS.ArrayBufferView", "ArrayBufferView")
         .replace(" = Buffer", "")
         .replace("string | Buffer", "Any /* string | Buffer */")
+        .replace(": EventEmitter", if (classMode) ": node.events.EventEmitter" else ": node.events.IEventEmitter")
         // TEMP
-        .replace(": EventEmitter", "/* : EventEmitter */")
         .replace(": tty.ReadStream", "/* : tty.ReadStream */")
         .replace(": tty.WriteStream", "/* : tty.WriteStream */")
         .replace(": ReadWriteStream", "/* : ReadWriteStream */")
@@ -200,6 +200,9 @@ private fun convertInterface(
         "Buffer",
         "BufferConstructor",
         -> "class"
+
+        "IEventEmitter",
+        -> "interface"
 
         else -> if (classMode) "class" else "sealed interface"
     }
