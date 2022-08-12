@@ -269,8 +269,10 @@ external class EventEmitter {
     /**
      * Sets or gets the default captureRejection value for all emitters.
      */
-    var // TODO: These should be described using static getter/setter pairs:
-    static captureRejections: boolean
+    // TODO: These should be described using static getter/setter pairs:
+    /* STATIC */
+    var captureRejections: Boolean
+
     /* STATIC */
     var defaultMaxListeners: Number
 }
