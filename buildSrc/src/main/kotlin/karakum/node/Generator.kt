@@ -23,10 +23,12 @@ private val DEFAULT_IMPORTS = listOf(
     ".await()" to "kotlinx.coroutines.await",
 
     "Dict<" to "node.Dict",
+    "AbortSignal" to "node.AbortSignal",
 )
 
 private val MODULES = setOf(
     "buffer",
+    "events",
     "globals",
     "fs",
     "fs/promises",

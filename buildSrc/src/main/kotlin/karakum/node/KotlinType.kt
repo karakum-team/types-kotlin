@@ -130,6 +130,7 @@ internal fun kotlinType(
             .removePrefix("    ")
 
     return type
+        .replace("(...args: any[]) => void", "Function<Unit>")
         .replace("<string>", "<String>")
         .replace(": string", ": String")
         .replace("=> string", "-> String")
