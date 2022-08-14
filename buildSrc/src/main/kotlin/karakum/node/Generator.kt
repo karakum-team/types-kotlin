@@ -80,7 +80,7 @@ fun generateKotlinDeclarations(
 
                 "@JsModule(" in body -> ""
 
-                "external class " in body ||  "external abstract class " in body || "external val " in body || "external fun " in body
+                "external class " in body || "external abstract class " in body || "external val " in body || "external fun " in body
                 -> "@file:JsModule(\"${pkg.id}\")\n@file:JsNonModule"
 
                 suppresses.isNotEmpty()
@@ -113,6 +113,9 @@ private fun fileContent(
     val defaultImports = DEFAULT_IMPORTS
         .filter { it.first in body }
         .map { "import ${it.second}" }
+        // TEMP for `readFile`/`writeFile`
+        .plus("import node.buffer.BufferEncoding")
+        .distinct()
         .joinToString("\n")
 
     var result = sequenceOf(
