@@ -71,6 +71,27 @@ internal fun sealedUnionBody(
     """.trimIndent()
 }
 
+internal fun objectUnionBody(
+    name: String,
+    constants: List<UnionConstant>,
+): String {
+    val constantNames = constants
+        .joinToString("") {
+            sequenceOf(
+                it.comment,
+                "object ${it.kotlinName}\n",
+            ).filterNotNull()
+                .joinToString("\n")
+        }
+
+    return """
+        ${jsName(constants)}
+        external object $name {
+            $constantNames
+        }
+    """.trimIndent()
+}
+
 internal fun jsName(
     constants: List<UnionConstant>,
 ): String {

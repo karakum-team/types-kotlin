@@ -58,7 +58,11 @@ fun generateKotlinDeclarations(
             .also { it.mkdirs() }
 
         val source = definitionsDir.resolve("$module.d.ts").readText()
-        for ((name, body) in convertDefinitions(source, pkg)) {
+        var definitions = convertDefinitions(source, pkg)
+        if (pkg == Package("events"))
+            definitions = definitions + Event(definitionsDir)
+
+        for ((name, body) in definitions) {
             val suppresses = mutableListOf<Suppress>().apply {
                 if ("JsName(\"\"\"(" in body || "JsName(\"'" in body)
                     add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
