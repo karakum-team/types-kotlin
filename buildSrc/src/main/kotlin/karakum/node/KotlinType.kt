@@ -62,6 +62,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "UrlWithStringQuery" to "Url /* UrlWithStringQuery */",
 
+    "PathLike | FileHandle" to "PathLike /* | FileHandle */",
+
     // TEMP
     "Module" to "$DYNAMIC /* Module */",
     "ClientRequestArgs" to "$DYNAMIC /* ClientRequestArgs */",
@@ -100,8 +102,12 @@ internal fun kotlinType(
         return resultType
     }
 
-    if (" | " in type && !type.startsWith("Promise<"))
+    if (" | " in type && !type.startsWith("Promise<")) {
+        if ("| BufferEncoding" in type)
+            return "BufferEncoding /* $type */"
+
         return "Any /* $type */"
+    }
 
     if (type.endsWith("[]"))
         return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
