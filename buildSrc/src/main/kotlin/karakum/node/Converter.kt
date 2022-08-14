@@ -214,8 +214,13 @@ private fun convertInterface(
             .replace(";\n *", ";--\n *")
     } else ""
 
-    val body = convertMembers(bodySource)
+    var body = convertMembers(bodySource)
         .replace(";--\n *", ";\n *")
+
+    if ("EventEmitter" in declaration)
+        body = body
+            .replace("fun  on(event: String", "override fun on(event: String")
+            .replace("fun  once(event: String", "override fun once(event: String")
 
     val type = when (name) {
         "Buffer",
