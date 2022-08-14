@@ -16,6 +16,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "string" to STRING,
 
     "never" to "Nothing",
+    "unknown" to "Any?",
 
     "number" to "Number",
     "bigint" to "BigInt",
@@ -111,9 +112,12 @@ internal fun kotlinType(
     }
 
     if (type.startsWith("Promise<")) {
-        var parameter = kotlinType(type.removeSurrounding("Promise<", ">"), name)
-        if (parameter == UNIT)
-            parameter = "Void"
+        val typeParameter = type.removeSurrounding("Promise<", ">")
+        val parameter = when (typeParameter) {
+            "unknown" -> "*"
+            "void" -> "Void"
+            else -> kotlinType(typeParameter, name)
+        }
 
         return "Promise<$parameter>"
     }
