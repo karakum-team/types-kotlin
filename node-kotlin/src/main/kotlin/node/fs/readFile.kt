@@ -3,6 +3,7 @@
 package node.fs
 
 import kotlinx.coroutines.await
+import node.buffer.BufferEncoding
 
 suspend fun readFile(
     path: PathLike, /* | FileHandle */

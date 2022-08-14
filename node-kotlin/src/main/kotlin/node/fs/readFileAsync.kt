@@ -5,6 +5,7 @@
 
 package node.fs
 
+import node.buffer.BufferEncoding
 import kotlin.js.Promise
 
 /**
