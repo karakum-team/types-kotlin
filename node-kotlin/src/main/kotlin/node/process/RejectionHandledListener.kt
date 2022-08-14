@@ -4,4 +4,6 @@ package node.process
 
 import kotlin.js.Promise
 
-typealias RejectionHandledListener = (promise: Promise<*>) -> Unit
+typealias RejectionHandledListener = (
+    promise: Promise<*>,
+) -> Unit

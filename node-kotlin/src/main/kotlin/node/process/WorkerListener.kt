@@ -2,4 +2,6 @@
 
 package node.process
 
-typealias WorkerListener = (worker: Any /* Worker */) -> Unit
+typealias WorkerListener = (
+    worker: Any, /* Worker */
+) -> Unit

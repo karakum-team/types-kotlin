@@ -2,4 +2,7 @@
 
 package node.process
 
-typealias UncaughtExceptionListener = (error: Error, origin: UncaughtExceptionOrigin) -> Unit
+typealias UncaughtExceptionListener = (
+ error: Error,
+ origin: UncaughtExceptionOrigin,
+) -> Unit

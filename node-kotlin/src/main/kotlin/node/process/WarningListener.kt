@@ -2,4 +2,6 @@
 
 package node.process
 
-typealias WarningListener = (warning: Error) -> Unit
+typealias WarningListener = (
+    warning: Error,
+) -> Unit

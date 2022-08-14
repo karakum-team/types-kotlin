@@ -2,4 +2,6 @@
 
 package node.process
 
-typealias SignalsListener = (signal: Signals) -> Unit
+typealias SignalsListener = (
+    signal: Signals,
+) -> Unit

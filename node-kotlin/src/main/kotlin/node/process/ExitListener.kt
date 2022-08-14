@@ -2,4 +2,6 @@
 
 package node.process
 
-typealias ExitListener = (code: Int) -> Unit
+typealias ExitListener = (
+    code: Int,
+) -> Unit
