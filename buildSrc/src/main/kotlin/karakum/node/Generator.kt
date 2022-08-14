@@ -25,6 +25,8 @@ private val DEFAULT_IMPORTS = listOf(
 
     "Dict<" to "node.Dict",
     "AbortSignal" to "node.AbortSignal",
+
+    "$EVENT." to "node.events.$EVENT",
 )
 
 private val MODULES = setOf(

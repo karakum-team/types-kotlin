@@ -118,6 +118,9 @@ internal fun kotlinType(
         return "Promise<$parameter>"
     }
 
+    if (name == "event" && type.startsWith("'"))
+        return "$EVENT.${eventName(type.removeSurrounding("'"))}"
+
     // TODO: remove
     if ("IterableIterator" in type)
         return "$DYNAMIC /* $type */"

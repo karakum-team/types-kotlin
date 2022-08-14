@@ -212,8 +212,6 @@ private fun convertInterface(
             .replace("): this", "): $name")
             .replace("toJSON(): {\n    type: 'Buffer';\n    data: number[];\n};", "toJSON(): any;")
             .replace(";\n *", ";--\n *")
-            // WA for `process`
-            .substringBefore("\n/* EventEmitter */")
     } else ""
 
     val body = convertMembers(bodySource)
