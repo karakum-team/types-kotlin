@@ -6,4 +6,7 @@ plugins {
 
 dependencies {
     implementation(npmv("cesium"))
+
+    implementation(enforcedPlatform(kotlinwBom()))
+    implementation(kotlinw("js"))
 }
