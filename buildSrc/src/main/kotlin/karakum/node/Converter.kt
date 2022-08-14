@@ -217,7 +217,7 @@ private fun convertInterface(
     var body = convertMembers(bodySource)
         .replace(";--\n *", ";\n *")
 
-    if ("EventEmitter" in declaration)
+    if (name != "IEventEmitter" && "EventEmitter" in declaration)
         body = body
             .replace("fun  on(event: String", "override fun on(event: String")
             .replace("fun  once(event: String", "override fun once(event: String")
