@@ -25,7 +25,6 @@ internal fun generateKotlinDeclarations(
 
     parseDeclarations(definitionsFile)
         .asSequence()
-        .plus(Record)
         .plus(DefaultEvent)
         .plus(CameraOrientation)
         .sortedBy(Declaration::name)
