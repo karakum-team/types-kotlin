@@ -138,7 +138,22 @@ private fun convertType(
         .removePrefix(" ")
         .substringBefore(";")
 
-    return convertUnion(name, bodySource)
+    convertUnion(name, bodySource)?.let {
+        return it
+    }
+
+    if (!bodySource.startsWith("("))
+        return null
+
+    val body = bodySource
+        .replace("<unknown>", "<*>")
+        .replace(": unknown", ": Any")
+        .replace(" => void", " -> Unit")
+        .replace("code: number", "code: Int")
+        // TEMP
+        .replace("worker: Worker", "worker: Any /* Worker */")
+
+    return ConversionResult(name, "typealias $name = $body")
 }
 
 private fun convertInterface(
