@@ -1408,7 +1408,7 @@ sealed external interface Process : node.events.IEventEmitter {
         listener: WorkerListener,
     ): Process
 
-    fun on(
+    override fun on(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Process
@@ -1473,7 +1473,7 @@ sealed external interface Process : node.events.IEventEmitter {
         listener: WorkerListener,
     ): Process
 
-    fun once(
+    override fun once(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Process
