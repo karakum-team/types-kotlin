@@ -59,7 +59,11 @@ fun generateKotlinDeclarations(
             .resolve(pkg.path)
             .also { it.mkdirs() }
 
-        val source = definitionsDir.resolve("$module.d.ts").readText()
+        val source = definitionsDir
+            .resolve("$module.d.ts")
+            .readText()
+            .replace("(eventName: ", "(event: ")
+
         var definitions = convertDefinitions(source, pkg)
         if (pkg == Package("events"))
             definitions = definitions + Event(definitionsDir)
