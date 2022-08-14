@@ -8,48 +8,48 @@ package node.events
 
 // language=JavaScript
 @JsName(
-    """(/*union*/{Console__messageAdded: 'Console.messageAdded', Debugger__breakpointResolved: 'Debugger.breakpointResolved', Debugger__paused: 'Debugger.paused', Debugger__resumed: 'Debugger.resumed', Debugger__scriptFailedToParse: 'Debugger.scriptFailedToParse', Debugger__scriptParsed: 'Debugger.scriptParsed', HeapProfiler__addHeapSnapshotChunk: 'HeapProfiler.addHeapSnapshotChunk', HeapProfiler__heapStatsUpdate: 'HeapProfiler.heapStatsUpdate', HeapProfiler__lastSeenObjectId: 'HeapProfiler.lastSeenObjectId', HeapProfiler__reportHeapSnapshotProgress: 'HeapProfiler.reportHeapSnapshotProgress', HeapProfiler__resetProfiles: 'HeapProfiler.resetProfiles', NodeRuntime__waitingForDisconnect: 'NodeRuntime.waitingForDisconnect', NodeTracing__dataCollected: 'NodeTracing.dataCollected', NodeTracing__tracingComplete: 'NodeTracing.tracingComplete', NodeWorker__attachedToWorker: 'NodeWorker.attachedToWorker', NodeWorker__detachedFromWorker: 'NodeWorker.detachedFromWorker', NodeWorker__receivedMessageFromWorker: 'NodeWorker.receivedMessageFromWorker', OCSPRequest: 'OCSPRequest', OCSPResponse: 'OCSPResponse', Profiler__consoleProfileFinished: 'Profiler.consoleProfileFinished', Profiler__consoleProfileStarted: 'Profiler.consoleProfileStarted', Runtime__consoleAPICalled: 'Runtime.consoleAPICalled', Runtime__exceptionRevoked: 'Runtime.exceptionRevoked', Runtime__exceptionThrown: 'Runtime.exceptionThrown', Runtime__executionContextCreated: 'Runtime.executionContextCreated', Runtime__executionContextDestroyed: 'Runtime.executionContextDestroyed', Runtime__executionContextsCleared: 'Runtime.executionContextsCleared', Runtime__inspectRequested: 'Runtime.inspectRequested', SIGCONT: 'SIGCONT', SIGINT: 'SIGINT', SIGTSTP: 'SIGTSTP', abort: 'abort', aborted: 'aborted', altsvc: 'altsvc', beforeExit: 'beforeExit', change: 'change', checkContinue: 'checkContinue', checkExpectation: 'checkExpectation', clientError: 'clientError', close: 'close', connect: 'connect', connection: 'connection', continue: 'continue', data: 'data', disconnect: 'disconnect', drain: 'drain', end: 'end', error: 'error', exit: 'exit', finish: 'finish', fork: 'fork', frameError: 'frameError', goaway: 'goaway', headers: 'headers', history: 'history', information: 'information', inspectorNotification: 'inspectorNotification', keylog: 'keylog', line: 'line', listening: 'listening', localSettings: 'localSettings', lookup: 'lookup', message: 'message', messageerror: 'messageerror', multipleResolves: 'multipleResolves', newSession: 'newSession', online: 'online', open: 'open', origin: 'origin', pause: 'pause', ping: 'ping', pipe: 'pipe', push: 'push', readable: 'readable', ready: 'ready', rejectionHandled: 'rejectionHandled', remoteSettings: 'remoteSettings', request: 'request', reset: 'reset', resize: 'resize', response: 'response', resume: 'resume', resumeSession: 'resumeSession', secureConnect: 'secureConnect', secureConnection: 'secureConnection', session: 'session', sessionError: 'sessionError', setup: 'setup', socket: 'socket', spawn: 'spawn', stream: 'stream', streamClosed: 'streamClosed', timeout: 'timeout', tlsClientError: 'tlsClientError', trailers: 'trailers', uncaughtException: 'uncaughtException', uncaughtExceptionMonitor: 'uncaughtExceptionMonitor', unhandledRejection: 'unhandledRejection', unknownProtocol: 'unknownProtocol', unpipe: 'unpipe', upgrade: 'upgrade', wantTrailers: 'wantTrailers', warning: 'warning', worker: 'worker'}/*union*/)"""
+    """(/*union*/{Console__message_Added: 'Console.messageAdded', Debugger__breakpoint_Resolved: 'Debugger.breakpointResolved', Debugger__paused: 'Debugger.paused', Debugger__resumed: 'Debugger.resumed', Debugger__script_Failed_To_Parse: 'Debugger.scriptFailedToParse', Debugger__script_Parsed: 'Debugger.scriptParsed', Heap_Profiler__add_Heap_Snapshot_Chunk: 'HeapProfiler.addHeapSnapshotChunk', Heap_Profiler__heap_Stats_Update: 'HeapProfiler.heapStatsUpdate', Heap_Profiler__last_Seen_Object_Id: 'HeapProfiler.lastSeenObjectId', Heap_Profiler__report_Heap_Snapshot_Progress: 'HeapProfiler.reportHeapSnapshotProgress', Heap_Profiler__reset_Profiles: 'HeapProfiler.resetProfiles', Node_Runtime__waiting_For_Disconnect: 'NodeRuntime.waitingForDisconnect', Node_Tracing__data_Collected: 'NodeTracing.dataCollected', Node_Tracing__tracing_Complete: 'NodeTracing.tracingComplete', Node_Worker__attached_To_Worker: 'NodeWorker.attachedToWorker', Node_Worker__detached_From_Worker: 'NodeWorker.detachedFromWorker', Node_Worker__received_Message_From_Worker: 'NodeWorker.receivedMessageFromWorker', OCSP_Request: 'OCSPRequest', OCSP_Response: 'OCSPResponse', Profiler__console_Profile_Finished: 'Profiler.consoleProfileFinished', Profiler__console_Profile_Started: 'Profiler.consoleProfileStarted', Runtime__console_APICalled: 'Runtime.consoleAPICalled', Runtime__exception_Revoked: 'Runtime.exceptionRevoked', Runtime__exception_Thrown: 'Runtime.exceptionThrown', Runtime__execution_Context_Created: 'Runtime.executionContextCreated', Runtime__execution_Context_Destroyed: 'Runtime.executionContextDestroyed', Runtime__execution_Contexts_Cleared: 'Runtime.executionContextsCleared', Runtime__inspect_Requested: 'Runtime.inspectRequested', SIGCONT: 'SIGCONT', SIGINT: 'SIGINT', SIGTSTP: 'SIGTSTP', abort: 'abort', aborted: 'aborted', altsvc: 'altsvc', before_Exit: 'beforeExit', change: 'change', check_Continue: 'checkContinue', check_Expectation: 'checkExpectation', client_Error: 'clientError', close: 'close', connect: 'connect', connection: 'connection', continue: 'continue', data: 'data', disconnect: 'disconnect', drain: 'drain', end: 'end', error: 'error', exit: 'exit', finish: 'finish', fork: 'fork', frame_Error: 'frameError', goaway: 'goaway', headers: 'headers', history: 'history', information: 'information', inspector_Notification: 'inspectorNotification', keylog: 'keylog', line: 'line', listening: 'listening', local_Settings: 'localSettings', lookup: 'lookup', message: 'message', messageerror: 'messageerror', multiple_Resolves: 'multipleResolves', new_Session: 'newSession', online: 'online', open: 'open', origin: 'origin', pause: 'pause', ping: 'ping', pipe: 'pipe', push: 'push', readable: 'readable', ready: 'ready', rejection_Handled: 'rejectionHandled', remote_Settings: 'remoteSettings', request: 'request', reset: 'reset', resize: 'resize', response: 'response', resume: 'resume', resume_Session: 'resumeSession', secure_Connect: 'secureConnect', secure_Connection: 'secureConnection', session: 'session', session_Error: 'sessionError', setup: 'setup', socket: 'socket', spawn: 'spawn', stream: 'stream', stream_Closed: 'streamClosed', timeout: 'timeout', tls_Client_Error: 'tlsClientError', trailers: 'trailers', uncaught_Exception: 'uncaughtException', uncaught_Exception_Monitor: 'uncaughtExceptionMonitor', unhandled_Rejection: 'unhandledRejection', unknown_Protocol: 'unknownProtocol', unpipe: 'unpipe', upgrade: 'upgrade', want_Trailers: 'wantTrailers', warning: 'warning', worker: 'worker'}/*union*/)"""
 )
 external object Event {
-    object Console__messageAdded
-    object Debugger__breakpointResolved
+    object Console__message_Added
+    object Debugger__breakpoint_Resolved
     object Debugger__paused
     object Debugger__resumed
-    object Debugger__scriptFailedToParse
-    object Debugger__scriptParsed
-    object HeapProfiler__addHeapSnapshotChunk
-    object HeapProfiler__heapStatsUpdate
-    object HeapProfiler__lastSeenObjectId
-    object HeapProfiler__reportHeapSnapshotProgress
-    object HeapProfiler__resetProfiles
-    object NodeRuntime__waitingForDisconnect
-    object NodeTracing__dataCollected
-    object NodeTracing__tracingComplete
-    object NodeWorker__attachedToWorker
-    object NodeWorker__detachedFromWorker
-    object NodeWorker__receivedMessageFromWorker
-    object OCSPRequest
-    object OCSPResponse
-    object Profiler__consoleProfileFinished
-    object Profiler__consoleProfileStarted
-    object Runtime__consoleAPICalled
-    object Runtime__exceptionRevoked
-    object Runtime__exceptionThrown
-    object Runtime__executionContextCreated
-    object Runtime__executionContextDestroyed
-    object Runtime__executionContextsCleared
-    object Runtime__inspectRequested
+    object Debugger__script_Failed_To_Parse
+    object Debugger__script_Parsed
+    object Heap_Profiler__add_Heap_Snapshot_Chunk
+    object Heap_Profiler__heap_Stats_Update
+    object Heap_Profiler__last_Seen_Object_Id
+    object Heap_Profiler__report_Heap_Snapshot_Progress
+    object Heap_Profiler__reset_Profiles
+    object Node_Runtime__waiting_For_Disconnect
+    object Node_Tracing__data_Collected
+    object Node_Tracing__tracing_Complete
+    object Node_Worker__attached_To_Worker
+    object Node_Worker__detached_From_Worker
+    object Node_Worker__received_Message_From_Worker
+    object OCSP_Request
+    object OCSP_Response
+    object Profiler__console_Profile_Finished
+    object Profiler__console_Profile_Started
+    object Runtime__console_APICalled
+    object Runtime__exception_Revoked
+    object Runtime__exception_Thrown
+    object Runtime__execution_Context_Created
+    object Runtime__execution_Context_Destroyed
+    object Runtime__execution_Contexts_Cleared
+    object Runtime__inspect_Requested
     object SIGCONT
     object SIGINT
     object SIGTSTP
     object abort
     object aborted
     object altsvc
-    object beforeExit
+    object before_Exit
     object change
-    object checkContinue
-    object checkExpectation
-    object clientError
+    object check_Continue
+    object check_Expectation
+    object client_Error
     object close
     object connect
     object connection
@@ -62,21 +62,21 @@ external object Event {
     object exit
     object finish
     object fork
-    object frameError
+    object frame_Error
     object goaway
     object headers
     object history
     object information
-    object inspectorNotification
+    object inspector_Notification
     object keylog
     object line
     object listening
-    object localSettings
+    object local_Settings
     object lookup
     object message
     object messageerror
-    object multipleResolves
-    object newSession
+    object multiple_Resolves
+    object new_Session
     object online
     object open
     object origin
@@ -86,33 +86,33 @@ external object Event {
     object push
     object readable
     object ready
-    object rejectionHandled
-    object remoteSettings
+    object rejection_Handled
+    object remote_Settings
     object request
     object reset
     object resize
     object response
     object resume
-    object resumeSession
-    object secureConnect
-    object secureConnection
+    object resume_Session
+    object secure_Connect
+    object secure_Connection
     object session
-    object sessionError
+    object session_Error
     object setup
     object socket
     object spawn
     object stream
-    object streamClosed
+    object stream_Closed
     object timeout
-    object tlsClientError
+    object tls_Client_Error
     object trailers
-    object uncaughtException
-    object uncaughtExceptionMonitor
-    object unhandledRejection
-    object unknownProtocol
+    object uncaught_Exception
+    object uncaught_Exception_Monitor
+    object unhandled_Rejection
+    object unknown_Protocol
     object unpipe
     object upgrade
-    object wantTrailers
+    object want_Trailers
     object warning
     object worker
 
