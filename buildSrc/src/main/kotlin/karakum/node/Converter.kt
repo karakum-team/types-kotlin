@@ -164,7 +164,7 @@ private fun convertInterface(
         )
     }
 
-    val declaration = source
+    var declaration = source
         .removeSuffix("{}")
         .substringBefore(" {}\n")
         .substringBefore(" {\n")
@@ -180,6 +180,9 @@ private fun convertInterface(
         .replace(": tty.ReadStream", "/* : tty.ReadStream */")
         .replace(": tty.WriteStream", "/* : tty.WriteStream */")
         .replace(": ReadWriteStream", "/* : ReadWriteStream */")
+
+    if (name == "EventEmitter")
+        declaration += " : IEventEmitter"
 
     val bodySource = if (!source.substringBefore("\n").endsWith("{}")) {
         source.substringAfter(" {\n")
@@ -203,6 +206,9 @@ private fun convertInterface(
 
         "IEventEmitter",
         -> "interface"
+
+        "EventEmitter",
+        -> "abstract class"
 
         else -> if (classMode) "class" else "sealed interface"
     }
