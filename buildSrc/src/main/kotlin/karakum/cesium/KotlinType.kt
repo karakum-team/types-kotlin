@@ -55,7 +55,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "CameraEventType | any[] | undefined" to "CameraEventType?",
     "any[] | GeometryInstance" to "GeometryInstance",
-    "GeometryInstance[] | GeometryInstance" to "Array<out GeometryInstance>",
+    "GeometryInstance[] | GeometryInstance" to "ReadonlyArray<GeometryInstance>",
 
     "Promise<HTMLImageElement | HTMLCanvasElement> | undefined" to "$PROMISE<$HTML_ELEMENT>?",
     "Promise<ImageryTypes | CompressedTextureBuffer> | undefined" to "$PROMISE<Any /* ImageryTypes | CompressedTextureBuffer */>?",
@@ -69,8 +69,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "string | Resource" to "Resource",
     "Credit | string" to "Credit",
 
-    "string | string[]" to "Array<out String>",
-    "number[] | Cartesian3[]" to "Array<out Cartesian3 /* or number */>",
+    "string | string[]" to "ReadonlyArray<String>",
+    "number[] | Cartesian3[]" to "ReadonlyArray<Cartesian3 /* or number */>",
 
     "Event" to DefaultEvent.name,
     PACKABLE to "$PACKABLE<*>",
@@ -122,7 +122,7 @@ internal fun kotlinType(
         return kotlinType(type.removeSuffix(" | undefined"), name) + "?"
 
     if (type.endsWith("[]") && "|" !in type)
-        return "Array<out ${kotlinType(type.removeSuffix("[]"))}>"
+        return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"))}>"
 
     val promiseResult = type.removeSurrounding("Promise<", ">")
     if (promiseResult != type)
