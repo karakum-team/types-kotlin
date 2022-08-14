@@ -44,8 +44,12 @@ internal fun Event(
 
 internal fun eventName(
     name: String,
-): String =
-    name.replace(".", "__")
+): String {
+    if (name == "messageerror")
+        return eventName("message_error")
+
+    return name.replace(".", "__")
         .replace("OCSP", "OCSP_")
         .replace(CAMEL_REGEX, "$1_$2")
         .toUpperCase()
+}
