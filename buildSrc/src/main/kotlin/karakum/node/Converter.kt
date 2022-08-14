@@ -253,7 +253,6 @@ private fun convertFunctions(
         .map { it.substringBefore(";\ninterface ") }
         .map { it.substringBefore("\n/**") }
         .map { it.removeSuffix(";") }
-        .filter { "{" !in it }
         .flatMap { functionSource ->
             val comment = "/**\n" + source.substringBefore(functionSource)
                 .substringAfterLast("\n/**\n")
@@ -270,6 +269,10 @@ private fun convertFunction(
     syncOnly: Boolean,
 ): Sequence<ConversionResult> {
     val name = source.substringBefore("(")
+
+    if ("{" in source && !(name == "readFile" || name == "writeFile"))
+        return emptySequence()
+
     if (syncOnly && !(name.endsWith("Sync") || name.endsWith("Stream")))
         return emptySequence()
 
@@ -278,7 +281,8 @@ private fun convertFunction(
 
     val parameters = source.substringAfter("(")
         .substringBeforeLast(")")
-        .splitToSequence(", ")
+        .splitToSequence(", ", ",")
+        .map { it.trim() }
         .filter { it.isNotEmpty() }
         .map { convertParameter(it) }
         .toList()
@@ -323,9 +327,14 @@ private fun convertParameter(
         .substringBefore("?:")
         .substringBefore(":")
 
+    val typeSource = source
+        .substringAfter(":")
+        .removePrefix(" ")
+        .removePrefix("\n")
+
     return Parameter(
         name = name,
-        type = kotlinType(source.substringAfter(": "), name),
+        type = kotlinType(typeSource, name),
         optional = source.startsWith("$name?"),
     )
 }
