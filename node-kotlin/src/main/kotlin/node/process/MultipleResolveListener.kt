@@ -7,5 +7,5 @@ import kotlin.js.Promise
 typealias MultipleResolveListener = (
     type: MultipleResolveType,
     promise: Promise<*>,
-    value: Any,
+    value: Any?,
 ) -> Unit

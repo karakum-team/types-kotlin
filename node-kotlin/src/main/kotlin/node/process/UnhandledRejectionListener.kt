@@ -5,6 +5,6 @@ package node.process
 import kotlin.js.Promise
 
 typealias UnhandledRejectionListener = (
-    reason: Any,
+    reason: Any?,
     promise: Promise<*>,
 ) -> Unit

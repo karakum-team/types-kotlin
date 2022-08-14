@@ -3,6 +3,6 @@
 package node.process
 
 typealias MessageListener = (
-    message: Any,
-    sendHandle: Any,
+    message: Any?,
+    sendHandle: Any?,
 ) -> Unit
