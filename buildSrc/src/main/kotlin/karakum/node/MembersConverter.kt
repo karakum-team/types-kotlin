@@ -46,7 +46,7 @@ private fun convertMember(
     } else source
 
     if (body.startsWith("// TODO: ") || body.startsWith("/* EventEmitter */")) {
-        comment = comment + "\n    " + body.substringBefore("\n")
+        comment = (comment ?: "") + "\n    " + body.substringBefore("\n")
         body = body.substringAfter("\n")
     }
 
