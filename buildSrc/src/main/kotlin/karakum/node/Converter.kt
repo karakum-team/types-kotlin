@@ -145,13 +145,18 @@ private fun convertType(
     if (!bodySource.startsWith("("))
         return null
 
-    val body = bodySource
+    var body = bodySource
         .replace("<unknown>", "<*>")
         .replace(": unknown", ": Any")
         .replace(" => void", " -> Unit")
         .replace("code: number", "code: Int")
         // TEMP
         .replace("worker: Worker", "worker: Any /* Worker */")
+
+    if (!body.startsWith("()"))
+        body = body
+            .replaceFirst("(", "(\n")
+            .replace(",", ",\n")
 
     return ConversionResult(name, "typealias $name = $body")
 }
