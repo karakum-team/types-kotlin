@@ -96,15 +96,10 @@
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.2.tgz#b74129719fc8d11c01868010082d483b7545591a"
   integrity sha512-MqTGEo5bj5t157U6fA/BiDynNkn0YknVdh48CMPkTSpFTVmvao5UQmm7uEF6xBEo7qIMAlY/JSleYaE6VOdpaA==
 
-"@types/node@18.7.3":
+"@types/node@18.7.3", "@types/node@>=13.7.0":
   version "18.7.3"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.3.tgz#432c89796eab539b7a30b7b8801a727b585238a4"
   integrity sha512-LJgzOEwWuMTBxHzgBR/fhhBOWrvBjvO+zPteUgbbuQi80rYIZHrk1mNbRUqPZqSLP2H7Rwt1EFLL/tNLD1Xx/w==
-
-"@types/node@>=13.7.0":
-  version "18.6.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.6.5.tgz#06caea822caf9e59d5034b695186ee74154d2802"
-  integrity sha512-Xjt5ZGUa5WusGZJ4WJPbOT8QOqp6nDynVFRKcUt32bOgvXEoc6o085WNkYTMO7ifAj2isEfQQ2cseE+wT6jsRw==
 
 "@types/prop-types@*":
   version "15.7.5"
@@ -131,9 +126,9 @@
   integrity sha512-+F0Ozq+ksnKtjcMHujSgb4A1Vjt0b4wvvxP3/pTnXKsIrLo34EgHh2z3qJq3ntX4dbK6ytxpY1rzO/4Z8rVrHg==
 
 "@zip.js/zip.js@^2.3.12":
-  version "2.6.12"
-  resolved "https://registry.yarnpkg.com/@zip.js/zip.js/-/zip.js-2.6.12.tgz#724cd3b6db6f470f244a7e67666dfacb20b0b240"
-  integrity sha512-vfsZpQSv9ZxKzdIrO6RcwaBHqVI0gyqDJKLTGoZEvaC2PuWauepAesT/3jYc7VdNGjZO+Zu9zVOURQKj0EYnBQ==
+  version "2.6.14"
+  resolved "https://registry.yarnpkg.com/@zip.js/zip.js/-/zip.js-2.6.14.tgz#a002120d2dd42cdf0d1cf1e0b94749887db786f5"
+  integrity sha512-VGGSutYVSMQ7v7sgfRB9qzWhrsUXr+gyIrlI2VsRmP74eNivHjMHQcCwdgF/ZAmuCJypPumpa9ST04xjjVWeMQ==
 
 autolinker@^3.14.3:
   version "3.15.0"
