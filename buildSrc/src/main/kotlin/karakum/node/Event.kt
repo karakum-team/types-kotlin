@@ -4,6 +4,8 @@ import karakum.common.UnionConstant
 import karakum.common.objectUnionBody
 import java.io.File
 
+private val CAMEL_REGEX = Regex("""([a-z])([A-Z])""")
+
 internal const val EVENT: String = "Event"
 
 internal fun Event(
@@ -44,3 +46,5 @@ internal fun eventName(
     name: String,
 ): String =
     name.replace(".", "__")
+        .replace("OCSP", "OCSP_")
+        .replace(CAMEL_REGEX, "$1_$2")
