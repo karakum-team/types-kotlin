@@ -51,7 +51,7 @@ import kotlin.js.Promise
  */
 @JsName("readFile")
 external fun readFileAsync(
-    path: Any, /* PathLike | FileHandle */
+    path: PathLike, /* | FileHandle */
     options: Any? /*         | ({
               encoding?: null | undefined;
               flag?: OpenMode | undefined;
@@ -69,8 +69,8 @@ external fun readFileAsync(
  */
 @JsName("readFile")
 external fun readFileAsync(
-    path: Any, /* PathLike | FileHandle */
-    options: Any,
+    path: PathLike, /* | FileHandle */
+    options: BufferEncoding,
     /*         | ({
               encoding: BufferEncoding;
               flag?: OpenMode | undefined;

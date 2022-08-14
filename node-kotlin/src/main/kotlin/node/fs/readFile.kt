@@ -5,7 +5,7 @@ package node.fs
 import kotlinx.coroutines.await
 
 suspend fun readFile(
-    path: Any, /* PathLike | FileHandle */
+    path: PathLike, /* | FileHandle */
     options: Any?,
     /*         | ({
               encoding?: null | undefined;
@@ -20,8 +20,8 @@ suspend fun readFile(
 
 
 suspend fun readFile(
-    path: Any, /* PathLike | FileHandle */
-    options: Any,
+    path: PathLike, /* | FileHandle */
+    options: BufferEncoding,
     /*         | ({
               encoding: BufferEncoding;
               flag?: OpenMode | undefined;

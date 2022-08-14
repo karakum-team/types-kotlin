@@ -3,11 +3,12 @@
 package node.fs
 
 import kotlinx.coroutines.await
+import node.buffer.BufferEncoding
 
 suspend fun writeFile(
-    file: Any, /* PathLike | FileHandle */
+    file: PathLike, /* | FileHandle */
     data: Any, /* string | NodeJS.ArrayBufferView | Iterable<string | NodeJS.ArrayBufferView> | AsyncIterable<string | NodeJS.ArrayBufferView> | Stream */
-    options: Any?,
+    options: BufferEncoding?,
     /*         | (ObjectEncodingOptions & {
               mode?: Mode | undefined;
               flag?: OpenMode | undefined;

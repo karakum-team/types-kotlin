@@ -6,6 +6,7 @@
 package node.fs
 
 import kotlinx.js.Void
+import node.buffer.BufferEncoding
 import kotlin.js.Promise
 
 /**
@@ -60,9 +61,9 @@ import kotlin.js.Promise
  */
 @JsName("writeFile")
 external fun writeFileAsync(
-    file: Any, /* PathLike | FileHandle */
+    file: PathLike, /* | FileHandle */
     data: Any, /* string | NodeJS.ArrayBufferView | Iterable<string | NodeJS.ArrayBufferView> | AsyncIterable<string | NodeJS.ArrayBufferView> | Stream */
-    options: Any? /*         | (ObjectEncodingOptions & {
+    options: BufferEncoding? /*         | (ObjectEncodingOptions & {
               mode?: Mode | undefined;
               flag?: OpenMode | undefined;
           } & Abortable)
