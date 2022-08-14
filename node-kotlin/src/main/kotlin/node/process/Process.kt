@@ -1301,7 +1301,7 @@ sealed external interface Process : node.events.IEventEmitter {
 
     fun emit(
         event: Event.REJECTION_HANDLED,
-        promise: Promise<unknown>,
+        promise: Promise<*>,
     ): Boolean
 
     fun emit(
@@ -1316,8 +1316,8 @@ sealed external interface Process : node.events.IEventEmitter {
 
     fun emit(
         event: Event.UNHANDLED_REJECTION,
-        reason: unknown,
-        promise: Promise<unknown>,
+        reason: Any?,
+        promise: Promise<*>,
     ): Boolean
 
     fun emit(
@@ -1327,8 +1327,8 @@ sealed external interface Process : node.events.IEventEmitter {
 
     fun emit(
         event: Event.MESSAGE,
-        message: unknown,
-        sendHandle: unknown,
+        message: Any?,
+        sendHandle: Any?,
     ): Process
 
     fun emit(
@@ -1339,8 +1339,8 @@ sealed external interface Process : node.events.IEventEmitter {
     fun emit(
         event: Event.MULTIPLE_RESOLVES,
         type: MultipleResolveType,
-        promise: Promise<unknown>,
-        value: unknown,
+        promise: Promise<*>,
+        value: Any?,
     ): Process
 
     fun emit(
