@@ -147,7 +147,7 @@ private fun convertType(
 
     var body = bodySource
         .replace("<unknown>", "<*>")
-        .replace(": unknown", ": Any")
+        .replace(": unknown", ": Any?")
         .replace(" => void", " -> Unit")
         .replace("code: number", "code: Int")
         // TEMP
