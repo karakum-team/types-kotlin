@@ -2,6 +2,8 @@
 
 package node.stream
 
+import node.events.Abortable
+
 sealed external interface StreamOptions<T : Stream> : Abortable {
     var emitClose: Boolean?
     var highWaterMark: Number?

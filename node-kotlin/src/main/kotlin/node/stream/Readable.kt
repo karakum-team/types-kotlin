@@ -380,7 +380,7 @@ open external class Readable : Stream, node.ReadableStream {
      * @since v0.9.4
      * @param stream An "old style" readable stream
      */
-    fun wrap(stream: NodeJS.ReadableStream): Readable
+    fun wrap(stream: node.ReadableStream): Readable
     fun push(
         chunk: Any,
         encoding: node.buffer.BufferEncoding = definedExternally,
