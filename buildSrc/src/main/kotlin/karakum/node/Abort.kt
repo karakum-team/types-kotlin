@@ -20,6 +20,18 @@ external class AbortSignal : kotlinx.js.AbortSignal {
 }
 """.trimIndent()
 
+internal const val ABORTABLE = "Abortable"
+
+// language=kotlin
+private val ABORTABLE_BODY = """
+external interface Abortable {
+    /**
+     * When provided the corresponding `AbortController` can be used to cancel an asynchronous action.
+     */
+    var signal: AbortSignal?
+}
+""".trimIndent()
+
 internal fun abortClasses(): Sequence<ConversionResult> =
     sequenceOf(
         ConversionResult(
@@ -30,4 +42,10 @@ internal fun abortClasses(): Sequence<ConversionResult> =
             ABORT_SIGNAL,
             ABORT_SIGNAL_BODY,
         ),
+    )
+
+internal fun Abortable(): ConversionResult =
+    ConversionResult(
+        ABORTABLE,
+        ABORTABLE_BODY,
     )

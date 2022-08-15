@@ -94,7 +94,8 @@ internal fun convertDefinitions(
     return when (pkg) {
         Package("buffer") -> mergeBuffers(interfaces)
 
-        Package("events") -> interfaces + classes
+        Package("events") -> (interfaces + classes)
+            .plus(Abortable())
 
         Package("globals") -> interfaces
             .plus(abortClasses())
