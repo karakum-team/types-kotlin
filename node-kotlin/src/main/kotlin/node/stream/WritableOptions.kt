@@ -5,8 +5,9 @@ package node.stream
 sealed external interface WritableOptions : StreamOptions<Writable> {
     var decodeStrings: Boolean?
     var defaultEncoding: node.buffer.BufferEncoding?
+
+    /* this: Writable */
     val write: ((
-        this: Writable,
         chunk: Any,
         encoding: node.buffer.BufferEncoding,
         callback: (error: Error?) -> Unit,
@@ -25,8 +26,6 @@ sealed external interface WritableOptions : StreamOptions<Writable> {
     */
     // HIDDEN METHOD END
 
-    val final: ((
-        this: Writable,
-        callback: (error: Error?) -> Unit,
-    ) -> Unit)?
+    /* this: Writable */
+    val final: ((callback: (error: Error?) -> Unit) -> Unit)?
 }

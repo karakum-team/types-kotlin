@@ -8,12 +8,12 @@ sealed external interface StreamOptions<T : Stream> : Abortable {
     var emitClose: Boolean?
     var highWaterMark: Number?
     var objectMode: Boolean?
-    val construct: ((
-        this: T,
-        callback: (error: Error?) -> Unit,
-    ) -> Unit)?
+
+    /* this: T */
+    val construct: ((callback: (error: Error?) -> Unit) -> Unit)?
+
+    /* this: T */
     val destroy: ((
-        this: T,
         error: Error?,
         callback: (error: Error?) -> Unit,
     ) -> Unit)?

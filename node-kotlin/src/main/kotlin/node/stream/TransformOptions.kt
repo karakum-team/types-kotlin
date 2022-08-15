@@ -3,16 +3,14 @@
 package node.stream
 
 sealed external interface TransformOptions : DuplexOptions {
-    val construct: ((
-        this: Transform,
-        callback: (error: Error?) -> Unit,
-    ) -> Unit)?
-    val read: ((
-        this: Transform,
-        size: Number,
-    ) -> Unit)?
+    /* this: Transform */
+    val construct: ((callback: (error: Error?) -> Unit) -> Unit)?
+
+    /* this: Transform */
+    val read: ((size: Number) -> Unit)?
+
+    /* this: Transform */
     val write: ((
-        this: Transform,
         chunk: Any,
         encoding: node.buffer.BufferEncoding,
         callback: (error: Error?) -> Unit,
@@ -31,23 +29,22 @@ sealed external interface TransformOptions : DuplexOptions {
     */
     // HIDDEN METHOD END
 
-    val final: ((
-        this: Transform,
-        callback: (error: Error?) -> Unit,
-    ) -> Unit)?
+    /* this: Transform */
+    val final: ((callback: (error: Error?) -> Unit) -> Unit)?
+
+    /* this: Transform */
     val destroy: ((
-        this: Transform,
         error: Error?,
         callback: (error: Error?) -> Unit,
     ) -> Unit)?
+
+    /* this: Transform */
     val transform: ((
-        this: Transform,
         chunk: Any,
         encoding: node.buffer.BufferEncoding,
         callback: TransformCallback,
     ) -> Unit)?
-    val flush: ((
-        this: Transform,
-        callback: TransformCallback,
-    ) -> Unit)?
+
+    /* this: Transform */
+    val flush: ((callback: TransformCallback) -> Unit)?
 }

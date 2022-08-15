@@ -9,16 +9,15 @@ sealed external interface DuplexOptions : ReadableOptions, WritableOptions {
     var readableHighWaterMark: Number?
     var writableHighWaterMark: Number?
     var writableCorked: Number?
-    val construct: ((
-        this: Duplex,
-        callback: (error: Error?) -> Unit,
-    ) -> Unit)?
-    val read: ((
-        this: Duplex,
-        size: Number,
-    ) -> Unit)?
+
+    /* this: Duplex */
+    val construct: ((callback: (error: Error?) -> Unit) -> Unit)?
+
+    /* this: Duplex */
+    val read: ((size: Number) -> Unit)?
+
+    /* this: Duplex */
     val write: ((
-        this: Duplex,
         chunk: Any,
         encoding: node.buffer.BufferEncoding,
         callback: (error: Error?) -> Unit,
@@ -37,12 +36,11 @@ sealed external interface DuplexOptions : ReadableOptions, WritableOptions {
     */
     // HIDDEN METHOD END
 
-    val final: ((
-        this: Duplex,
-        callback: (error: Error?) -> Unit,
-    ) -> Unit)?
+    /* this: Duplex */
+    val final: ((callback: (error: Error?) -> Unit) -> Unit)?
+
+    /* this: Duplex */
     val destroy: ((
-        this: Duplex,
         error: Error?,
         callback: (error: Error?) -> Unit,
     ) -> Unit)?

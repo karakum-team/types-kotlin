@@ -283,7 +283,7 @@ open external class Readable : Stream, node.ReadableStream {
      * @since v0.9.4
      * @param destination Optional specific stream to unpipe
      */
-    fun unpipe(destination: NodeJS.WritableStream = definedExternally): Readable
+    fun unpipe(destination: node.WritableStream = definedExternally): Readable
 
     /**
      * Passing `chunk` as `null` signals the end of the stream (EOF) and behaves the
