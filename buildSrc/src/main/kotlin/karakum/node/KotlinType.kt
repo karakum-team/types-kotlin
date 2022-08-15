@@ -42,6 +42,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "NodeJS.ArrayBufferView" to "ArrayBufferView",
     "NodeJS.Platform" to "node.process.Platform",
     "NodeJS.ReadableStream" to "node.ReadableStream",
+    "NodeJS.WritableStream" to "node.WritableStream",
 
     "Blob" to "org.w3c.files.Blob",
 

@@ -52,7 +52,10 @@ private fun convertMember(
 
     body = body
         .replace("Pick<ReadableOptions, 'encoding' | 'highWaterMark' | 'objectMode' | 'signal'>", "ReadableOptions")
-        .replace("Pick<WritableOptions, 'decodeStrings' | 'highWaterMark' | 'objectMode' | 'signal'>", "WritableOptions")
+        .replace(
+            "Pick<WritableOptions, 'decodeStrings' | 'highWaterMark' | 'objectMode' | 'signal'>",
+            "WritableOptions"
+        )
 
     val content = when {
         body.startsWith("[Symbol.")
@@ -162,8 +165,22 @@ private fun convertMethod(
 
     val returnType = kotlinType(source.substringAfterLast("): "), name)
 
-    if (optional)
-        return "val $name: (($parameters) -> $returnType)?"
+    if (optional) {
+        val comment: String?
+        val params: String
+        if (parameters.startsWith("this: ")) {
+            comment = "/* " + parameters.substringBefore(",\n") + " */"
+            params = parameters.substringAfter(",\n")
+        } else {
+            comment = null
+            params = parameters
+        }
+
+        return listOfNotNull(
+            comment,
+            "val $name: (($params) -> $returnType)?"
+        ).joinToString("\n")
+    }
 
     val returnDeclaration = if (returnType != UNIT) {
         ": $returnType"
