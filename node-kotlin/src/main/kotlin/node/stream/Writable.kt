@@ -325,7 +325,7 @@ open external class Writable : Stream, node.WritableStream {
         listener: (src: Readable) -> Unit,
     ): Writable
 
-    fun addListener(
+    override fun addListener(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Writable
@@ -348,7 +348,7 @@ open external class Writable : Stream, node.WritableStream {
         src: Readable,
     ): Boolean
 
-    fun emit(
+    override fun emit(
         event: String, /* | Symbol */
         vararg args: ReadonlyArray<Any>,
     ): Boolean
@@ -383,7 +383,7 @@ open external class Writable : Stream, node.WritableStream {
         listener: (src: Readable) -> Unit,
     ): Writable
 
-    fun on(
+    override fun on(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Writable
@@ -418,7 +418,7 @@ open external class Writable : Stream, node.WritableStream {
         listener: (src: Readable) -> Unit,
     ): Writable
 
-    fun once(
+    override fun once(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Writable
@@ -453,7 +453,7 @@ open external class Writable : Stream, node.WritableStream {
         listener: (src: Readable) -> Unit,
     ): Writable
 
-    fun prependListener(
+    override fun prependListener(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Writable
@@ -488,7 +488,7 @@ open external class Writable : Stream, node.WritableStream {
         listener: (src: Readable) -> Unit,
     ): Writable
 
-    fun prependOnceListener(
+    override fun prependOnceListener(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Writable
@@ -523,7 +523,7 @@ open external class Writable : Stream, node.WritableStream {
         listener: (src: Readable) -> Unit,
     ): Writable
 
-    fun removeListener(
+    override fun removeListener(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Writable

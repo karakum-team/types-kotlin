@@ -450,7 +450,7 @@ open external class Readable : Stream, node.ReadableStream {
         listener: () -> Unit,
     ): Readable
 
-    fun addListener(
+    override fun addListener(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Readable
@@ -470,7 +470,7 @@ open external class Readable : Stream, node.ReadableStream {
     fun emit(event: Event.PAUSE): Boolean
     fun emit(event: Event.READABLE): Boolean
     fun emit(event: Event.RESUME): Boolean
-    fun emit(
+    override fun emit(
         event: String, /* | Symbol */
         vararg args: ReadonlyArray<Any>,
     ): Boolean
@@ -510,7 +510,7 @@ open external class Readable : Stream, node.ReadableStream {
         listener: () -> Unit,
     ): Readable
 
-    fun on(
+    override fun on(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Readable
@@ -550,7 +550,7 @@ open external class Readable : Stream, node.ReadableStream {
         listener: () -> Unit,
     ): Readable
 
-    fun once(
+    override fun once(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Readable
@@ -590,7 +590,7 @@ open external class Readable : Stream, node.ReadableStream {
         listener: () -> Unit,
     ): Readable
 
-    fun prependListener(
+    override fun prependListener(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Readable
@@ -630,7 +630,7 @@ open external class Readable : Stream, node.ReadableStream {
         listener: () -> Unit,
     ): Readable
 
-    fun prependOnceListener(
+    override fun prependOnceListener(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Readable
@@ -670,7 +670,7 @@ open external class Readable : Stream, node.ReadableStream {
         listener: () -> Unit,
     ): Readable
 
-    fun removeListener(
+    override fun removeListener(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Readable
