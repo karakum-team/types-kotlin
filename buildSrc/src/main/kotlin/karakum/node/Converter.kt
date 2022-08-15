@@ -259,10 +259,24 @@ private fun convertInterface(
     var body = convertMembers(bodySource)
         .replace(";--\n *", ";\n *")
 
-    if (name != "IEventEmitter" && "EventEmitter" in declaration)
-        body = body
-            .replace("fun  on(event: String", "override fun on(event: String")
-            .replace("fun  once(event: String", "override fun once(event: String")
+    if (name != "IEventEmitter"
+        && "EventEmitter" in declaration
+        || name == "Readable"
+        || name == "Writable"
+    ) {
+        sequenceOf(
+            "addListener",
+            "emit",
+            "on",
+            "once",
+            "prependListener",
+            "prependOnceListener",
+            "removeListener",
+        ).forEach {
+            body = body.replace("fun  $it(event: String", "override fun $it(event: String")
+        }
+    }
+
 
     val type = when (name) {
         "Buffer",
