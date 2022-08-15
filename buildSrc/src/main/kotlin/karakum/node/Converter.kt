@@ -58,6 +58,13 @@ internal fun convertDefinitions(
                 .trimIndent()
 
         mainContent += "\n\n$globals"
+    } else if ("\nnamespace internal {\n" in content) {
+        val internal = content
+            .substringAfter("\nnamespace internal {\n")
+            .substringBefore("\n}")
+            .trimIndent()
+
+        mainContent += "\n\n$internal"
     } else if ("\ndeclare namespace NodeJS {\n" in source) {
         val globals = source
             .substringAfter("\ndeclare namespace NodeJS {\n")
@@ -129,6 +136,8 @@ internal fun convertDefinitions(
         Package("querystring") -> interfaces
             .plus(convertFunctions(content))
 
+        Package("stream") -> interfaces + classes
+
         Package("stream/web") -> emptySequence<ConversionResult>()
             .plus(ConversionResult("ReadableStream", "external class ReadableStream"))
 
@@ -150,6 +159,11 @@ private fun convertType(
     source: String,
 ): ConversionResult? {
     val name = source.substringBefore(" =")
+        .substringBefore("<")
+
+    if (name.startsWith("Pipeline"))
+        return null
+
     val bodySource = source.substringAfter(" =")
         .removePrefix(" ")
         .substringBefore(";")
@@ -210,6 +224,9 @@ private fun convertInterface(
         .replace("<string>", "<String>")
         .replace("<bigint>", "<BigInt>")
         .replace("NodeJS.ArrayBufferView", "ArrayBufferView")
+        .replace("implements NodeJS.ReadableStream", ", node.ReadableStream")
+        .replace("implements NodeJS.WritableStream", ", node.WritableStream")
+        .replace("implements Writable", "/* , Writable */")
         .replace(" = Buffer", "")
         .replace("string | Buffer", "Any /* string | Buffer */")
         .replace(": EventEmitter", if (classMode) ": node.events.EventEmitter" else ": node.events.IEventEmitter")
@@ -250,6 +267,10 @@ private fun convertInterface(
 
         "EventEmitter",
         -> "abstract class"
+
+        "Readable",
+        "Writable",
+        -> "open class"
 
         else -> if (classMode) "class" else "sealed interface"
     }

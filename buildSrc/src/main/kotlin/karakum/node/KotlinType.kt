@@ -41,11 +41,15 @@ private val STANDARD_TYPE_MAP = mapOf(
     "NodeJS.EventEmitter" to "node.events.IEventEmitter",
     "NodeJS.ArrayBufferView" to "ArrayBufferView",
     "NodeJS.Platform" to "node.process.Platform",
+    "NodeJS.ReadableStream" to "node.ReadableStream",
 
     "Blob" to "org.w3c.files.Blob",
 
     "() => void" to "() -> Unit",
     "(err?: Error | null) => void" to "(err: Error?) -> Unit",
+    "(error: Error | null) => void" to "(error: Error?) -> Unit",
+    "(error?: Error | null) => void" to "(error: Error?) -> Unit",
+    "(error: Error | null | undefined) => void" to "(error: Error?) -> Unit",
 
     "Buffer" to "node.buffer.Buffer",
     "BufferEncoding" to "node.buffer.BufferEncoding",
@@ -58,6 +62,9 @@ private val STANDARD_TYPE_MAP = mapOf(
             "AsyncIterable<FileChangeInfo<Any /* string | Buffer */>>",
 
     "NodeJS.Dict<NetworkInterfaceInfo[]>" to "Dict<ReadonlyArray<NetworkInterfaceInfo>>",
+
+    "streamWeb.ReadableStream" to "node.stream.ReadableStream",
+    "streamWeb.WritableStream" to "node.stream.WritableStream",
 
     "-1 | 0 | 1" to "Int /* -1 | 0 | 1 */",
 
@@ -154,4 +161,5 @@ internal fun kotlinType(
         .replace(": string", ": String")
         .replace("=> string", "-> String")
         .replace("=> number", "-> Number")
+        .replace(": any", ": Any")
 }

@@ -50,6 +50,10 @@ private fun convertMember(
         body = body.substringAfter("\n")
     }
 
+    body = body
+        .replace("Pick<ReadableOptions, 'encoding' | 'highWaterMark' | 'objectMode' | 'signal'>", "ReadableOptions")
+        .replace("Pick<WritableOptions, 'decodeStrings' | 'highWaterMark' | 'objectMode' | 'signal'>", "WritableOptions")
+
     val content = when {
         body.startsWith("[Symbol.")
         -> "    /* $body */"
