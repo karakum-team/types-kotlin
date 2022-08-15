@@ -25,6 +25,7 @@ private val DEFAULT_IMPORTS = listOf(
 
     "Dict<" to "node.Dict",
     "AbortSignal" to "node.AbortSignal",
+    "Module" to "node.Module",
 
     "BufferEncoding" to "node.buffer.BufferEncoding",
     "$EVENT." to "node.events.$EVENT",

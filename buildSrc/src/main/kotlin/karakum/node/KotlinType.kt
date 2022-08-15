@@ -45,6 +45,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Blob" to "org.w3c.files.Blob",
 
     "() => void" to "() -> Unit",
+    "(err?: Error | null) => void" to "(err: Error?) -> Unit",
 
     "Buffer" to "node.buffer.Buffer",
     "BufferEncoding" to "node.buffer.BufferEncoding",
@@ -65,7 +66,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "PathLike | FileHandle" to "PathLike /* | FileHandle */",
 
     // TEMP
-    "Module" to "$DYNAMIC /* Module */",
+    "Require" to "$DYNAMIC /* Require */",
     "ClientRequestArgs" to "$DYNAMIC /* ClientRequestArgs */",
 )
 

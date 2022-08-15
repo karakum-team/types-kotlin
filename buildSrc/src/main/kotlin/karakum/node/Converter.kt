@@ -3,6 +3,12 @@ package karakum.node
 private val IGNORE_LIST = setOf(
     "Global",
 
+    "Dict",
+    "ReadOnlyDict",
+
+    "Require",
+    "RequireExtensions",
+
     "FSWatcher",
     "StatSyncFn",
     "StatWatcher",
@@ -25,7 +31,7 @@ internal fun convertDefinitions(
     pkg: Package,
 ): Sequence<ConversionResult> {
     val content = source
-        .substringAfter("declare module '${pkg.name}' {\n")
+        .substringAfter("declare module '${pkg.name}' {\n", "")
         .substringBefore("\n}")
         .trimIndent()
 
@@ -52,6 +58,13 @@ internal fun convertDefinitions(
                 .trimIndent()
 
         mainContent += "\n\n$globals"
+    } else if ("\ndeclare namespace NodeJS {\n" in source) {
+        val globals = source
+            .substringAfter("\ndeclare namespace NodeJS {\n")
+            .substringBefore("\n}")
+            .trimIndent()
+
+        mainContent += "\n\n$globals"
     }
 
     val interfaces = "\n$mainContent"
@@ -76,7 +89,8 @@ internal fun convertDefinitions(
 
         Package("events") -> interfaces + classes
 
-        Package("globals") -> abortClasses()
+        Package("globals") -> interfaces
+            .plus(abortClasses())
             .plus(ConversionResult("Dict", "typealias Dict<T> = Record<String, T>"))
             .plus(ConversionResult("ReadOnlyDict", "typealias ReadOnlyDict<T> = Record<String, out T>"))
 
@@ -187,6 +201,7 @@ private fun convertInterface(
     var declaration = source
         .removeSuffix("{}")
         .substringBefore(" {}\n")
+        .substringBefore(" { }\n")
         .substringBefore(" {\n")
         .replace(" extends ", " : ")
         .replace("<number>", "<Number>")
@@ -196,6 +211,7 @@ private fun convertInterface(
         .replace(" = Buffer", "")
         .replace("string | Buffer", "Any /* string | Buffer */")
         .replace(": EventEmitter", if (classMode) ": node.events.EventEmitter" else ": node.events.IEventEmitter")
+        .replace(": Error", "/* : Error */")
         // TEMP
         .replace(": tty.ReadStream", "/* : tty.ReadStream */")
         .replace(": tty.WriteStream", "/* : tty.WriteStream */")
@@ -204,7 +220,7 @@ private fun convertInterface(
     if (name == "EventEmitter")
         declaration += " : IEventEmitter"
 
-    val bodySource = if (!source.substringBefore("\n").endsWith("{}")) {
+    val bodySource = if (!source.substringBefore("\n").let { it.endsWith("{}") || it.endsWith("{ }") }) {
         source.substringAfter(" {\n")
             .let { if (it.startsWith("}")) "" else it }
             .substringBefore("\n}")

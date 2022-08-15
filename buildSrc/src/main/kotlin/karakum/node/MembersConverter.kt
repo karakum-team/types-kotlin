@@ -45,17 +45,22 @@ private fun convertMember(
         source.substringAfter("$comment\n")
     } else source
 
-    if (body.startsWith("// TODO: ") || body.startsWith("/* EventEmitter */")) {
+    if (body.startsWith("// TODO: ") || body.startsWith("/* EventEmitter */") || body.startsWith("/** @deprecated ")) {
         comment = (comment ?: "") + "\n    " + body.substringBefore("\n")
         body = body.substringAfter("\n")
     }
 
-    val content = if (body.startsWith("constructor(") || body.startsWith("new (")) {
-        convertConstructor(body)
-    } else if (isProperty(body)) {
-        convertProperty(body)
-    } else {
-        convertMethod(body)
+    val content = when {
+        body.startsWith("[Symbol.")
+        -> "    /* $body */"
+
+        body.startsWith("constructor(") || body.startsWith("new (")
+        -> convertConstructor(body)
+
+        isProperty(body)
+        -> convertProperty(body)
+
+        else -> convertMethod(body)
     }
 
     comment = comment?.replace("* /*\n", "* ---\n")
