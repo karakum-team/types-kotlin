@@ -1,11 +1,10 @@
 // Automatically generated - do not modify!
 
-@file:JsModule("node:stream")
-@file:JsNonModule
-
 package node.stream
 
-external class internal : node.events.EventEmitter {
+@JsModule("node:stream")
+@JsNonModule
+external class LegacyStream : node.events.EventEmitter {
 
     // HIDDEN METHOD START
     /*

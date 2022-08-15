@@ -5,6 +5,6 @@
 
 package node.stream
 
-external class Stream : internal {
+external class Stream : LegacyStream {
     constructor(opts: ReadableOptions = definedExternally)
 }
