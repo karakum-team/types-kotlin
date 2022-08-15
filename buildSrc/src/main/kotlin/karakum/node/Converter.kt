@@ -204,6 +204,10 @@ private fun convertInterface(
     if (!classMode && name == "EventEmitter")
         return convertInterface("I$source", classMode)
 
+    if (name == "internal")
+        return convertInterface(source.replaceFirst("internal ", "LegacyStream "), classMode)
+            .let { it.copy(body = rootModuleAnnotaion("stream") + "\n" + it.body) }
+
     if (" extends NodeJS.Dict<" in source) {
         val type = source
             .substringAfter(" extends NodeJS.Dict<")
@@ -228,6 +232,7 @@ private fun convertInterface(
         .replace("implements NodeJS.ReadableStream", ", node.ReadableStream")
         .replace("implements NodeJS.WritableStream", ", node.WritableStream")
         .replace("implements Writable", "/* , Writable */")
+        .replace(": internal", ": LegacyStream")
         .replace(" = Buffer", "")
         .replace("string | Buffer", "Any /* string | Buffer */")
         .replace(": EventEmitter", if (classMode) ": node.events.EventEmitter" else ": node.events.IEventEmitter")

@@ -6,9 +6,15 @@ internal fun rootVal(
 ): ConversionResult =
     ConversionResult(
         name = "$name.export",
-        body = """
-            @JsModule("node:$name")
-            @JsNonModule
-            external val $name: $type
-        """.trimIndent()
+        body = rootModuleAnnotaion(name) +
+                "\n" +
+                "external val $name: $type"
     )
+
+internal fun rootModuleAnnotaion(
+    name: String,
+): String =
+    """
+    @JsModule("node:$name")
+    @JsNonModule
+    """.trimIndent()
