@@ -73,6 +73,22 @@ fun generateKotlinDeclarations(
             Package("inspector") -> definitions = definitions + inspectorEvents(definitionsDir)
         }
 
+        definitions = definitions
+            .groupBy { it.name }
+            .map { (name, group) ->
+                if (group.size == 1) {
+                    group.single()
+                } else if (name == "IEventEmitter") {
+                    group.last()
+                } else {
+                    ConversionResult(
+                        name = name,
+                        body = group.joinToString("\n\n\n") { it.body },
+                    )
+                }
+            }
+            .asSequence()
+
         for ((name, body) in definitions) {
             val suppresses = mutableListOf<Suppress>().apply {
                 if ("JsName(\"\"\"(" in body || "JsName(\"'" in body)
@@ -93,18 +109,15 @@ fun generateKotlinDeclarations(
                 else -> ""
             }
 
-            val targetFile = targetDir.resolve("$name.kt")
-            if (!targetFile.exists() || /* TEMP */ name == "IEventEmitter") {
-                targetFile.writeText(
+            targetDir.resolve("$name.kt")
+                .also { check(!it.exists()) }
+                .writeText(
                     fileContent(
                         annotations = annotations,
                         body = body,
                         pkg = pkg,
                     )
                 )
-            } else {
-                targetFile.appendText("\n\n$body")
-            }
         }
     }
 }
@@ -117,9 +130,6 @@ private fun fileContent(
     val defaultImports = DEFAULT_IMPORTS
         .filter { it.first in body }
         .map { "import ${it.second}" }
-        // TEMP for `readFile`/`writeFile`
-        .plus("import node.buffer.BufferEncoding")
-        .distinct()
         .joinToString("\n")
 
     var result = sequenceOf(
