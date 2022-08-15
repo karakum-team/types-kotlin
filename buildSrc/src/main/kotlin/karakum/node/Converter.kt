@@ -141,6 +141,7 @@ internal fun convertDefinitions(
 
         Package("stream/web") -> emptySequence<ConversionResult>()
             .plus(ConversionResult("ReadableStream", "external class ReadableStream"))
+            .plus(ConversionResult("WritableStream", "external class WritableStream"))
 
         Package("url") -> interfaces
             .plus(convertFunctions(content))
