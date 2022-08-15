@@ -280,6 +280,18 @@ private fun convertInterface(
         }
     }
 
+    if (name == "DuplexOptions" || name == "TransformOptions") {
+        sequenceOf(
+            "construct",
+            "read",
+            "write",
+            "final",
+            "destroy",
+        ).forEach {
+            body = body.replace("val $it:", "override val $it:")
+        }
+    }
+
 
     val type = when (name) {
         "Buffer",
