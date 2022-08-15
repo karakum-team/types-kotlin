@@ -241,6 +241,9 @@ private fun convertInterface(
         .replace("string | Buffer", "Any /* string | Buffer */")
         .replace(": EventEmitter", if (classMode) ": node.events.EventEmitter" else ": node.events.IEventEmitter")
         .replace(": Error", "/* : Error */")
+        // TEMP???
+        .replace(": StreamOptions<Readable>", ": StreamOptions<Stream /* Readable */>")
+        .replace(": StreamOptions<Writable>", ": StreamOptions<Stream /* Writable */>")
         // TEMP
         .replace(": tty.ReadStream", "/* : tty.ReadStream */")
         .replace(": tty.WriteStream", "/* : tty.WriteStream */")
