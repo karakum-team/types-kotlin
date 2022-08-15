@@ -11,7 +11,30 @@ internal const val EVENT: String = "Event"
 internal fun Event(
     definitionsDir: File,
 ): ConversionResult {
-    val eventNames = definitionsDir
+    val eventNames = getEventNames(definitionsDir)
+        .filter { "." !in it }
+
+    return Event(EVENT, eventNames)
+}
+
+internal fun inspectorEvents(
+    definitionsDir: File,
+): Sequence<ConversionResult> =
+    getEventNames(definitionsDir)
+        .filter { "." in it }
+        .groupBy { it.substringBefore(".") }
+        .map { (groupName, eventNames) ->
+            Event(
+                name = groupName + "Event",
+                eventNames = eventNames,
+            )
+        }
+        .asSequence()
+
+private fun getEventNames(
+    definitionsDir: File,
+): List<String> =
+    definitionsDir
         .listFiles { file -> file.name.endsWith(".d.ts") }!!
         .asSequence()
         .flatMap { it.readLines() }
@@ -24,20 +47,24 @@ internal fun Event(
         .sorted()
         .toList()
 
+private fun Event(
+    name: String,
+    eventNames: List<String>,
+): ConversionResult {
     val body = objectUnionBody(
-        name = EVENT,
-        constants = eventNames.map { name ->
-            val eventName = eventName(name)
+        name = name,
+        constants = eventNames.map { value ->
+            val eventName = eventName(value.substringAfter("."))
             UnionConstant(
                 kotlinName = eventName,
                 jsName = eventName,
-                value = name,
+                value = value,
             )
         }
     )
 
     return ConversionResult(
-        name = EVENT,
+        name = name,
         body = body,
     )
 }
@@ -48,7 +75,7 @@ internal fun eventName(
     if (name == "messageerror")
         return eventName("message_error")
 
-    return name.replace(".", "__")
+    return name
         .replace("OCSP", "OCSP_")
         .replace(CAMEL_REGEX, "$1_$2")
         .toUpperCase()

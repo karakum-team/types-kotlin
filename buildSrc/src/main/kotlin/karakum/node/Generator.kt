@@ -37,6 +37,7 @@ private val MODULES = setOf(
     "globals",
     "fs",
     "fs/promises",
+    "inspector",
     "os",
     "path",
     "process",
@@ -67,8 +68,10 @@ fun generateKotlinDeclarations(
             .replace("(eventName: ", "(event: ")
 
         var definitions = convertDefinitions(source, pkg)
-        if (pkg == Package("events"))
-            definitions = definitions + Event(definitionsDir)
+        when (pkg) {
+            Package("events") -> definitions = definitions + Event(definitionsDir)
+            Package("inspector") -> definitions = definitions + inspectorEvents(definitionsDir)
+        }
 
         for ((name, body) in definitions) {
             val suppresses = mutableListOf<Suppress>().apply {

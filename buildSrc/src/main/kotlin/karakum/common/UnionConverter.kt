@@ -76,10 +76,10 @@ internal fun objectUnionBody(
     constants: List<UnionConstant>,
 ): String {
     val constantNames = constants
-        .joinToString("") {
+        .joinToString("\n") {
             sequenceOf(
                 it.comment,
-                "object ${it.kotlinName}\n",
+                "object ${it.kotlinName}",
             ).filterNotNull()
                 .joinToString("\n")
         }

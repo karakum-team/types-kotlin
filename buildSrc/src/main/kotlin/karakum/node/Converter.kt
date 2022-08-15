@@ -114,6 +114,8 @@ internal fun convertDefinitions(
         Package("fs/promises") -> interfaces
             .plus(convertFunctions(content))
 
+        Package("inspector") -> emptySequence()
+
         Package("os") -> interfaces
             .plus(convertFunctions(content))
             .plus(ConversionResult("NetworkInterfaceInfo", "typealias NetworkInterfaceInfo = NetworkInterfaceBase"))
