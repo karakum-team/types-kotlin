@@ -292,12 +292,13 @@ private fun convertInterface(
         "EventEmitter",
         -> "abstract class"
 
+        "LegacyStream",
+        "Stream",
         "Readable",
         "Writable",
         "Duplex",
         "Transform",
         "PassThrough",
-        "LegacyStream",
         -> "open class"
 
         else -> if (classMode) "class" else "sealed interface"
