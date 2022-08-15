@@ -294,6 +294,10 @@ private fun convertInterface(
 
         "Readable",
         "Writable",
+        "Duplex",
+        "Transform",
+        "PassThrough",
+        "LegacyStream",
         -> "open class"
 
         else -> if (classMode) "class" else "sealed interface"
