@@ -182,6 +182,9 @@ private fun convertType(
         .replace(": unknown", ": Any?")
         .replace(" => void", " -> Unit")
         .replace("code: number", "code: Int")
+        .replace("?: Error | null", ": Error?")
+        .replace("?: any", ": Any?")
+
         // TEMP
         .replace("worker: Worker", "worker: Any /* Worker */")
 
