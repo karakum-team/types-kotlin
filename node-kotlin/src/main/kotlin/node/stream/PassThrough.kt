@@ -5,4 +5,4 @@
 
 package node.stream
 
-external class PassThrough : Transform
+open external class PassThrough : Transform

@@ -5,7 +5,7 @@
 
 package node.stream
 
-external class Transform : Duplex {
+open external class Transform : Duplex {
     constructor(opts: TransformOptions = definedExternally)
 
     fun _transform(

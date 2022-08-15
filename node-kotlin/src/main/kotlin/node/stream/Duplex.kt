@@ -5,7 +5,7 @@
 
 package node.stream
 
-external class Duplex : Readable /* , Writable */ {
+open external class Duplex : Readable /* , Writable */ {
     val writable: Boolean
     val writableEnded: Boolean
     val writableFinished: Boolean

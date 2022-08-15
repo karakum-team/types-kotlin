@@ -4,7 +4,7 @@ package node.stream
 
 @JsModule("node:stream")
 @JsNonModule
-external class LegacyStream : node.events.EventEmitter {
+open external class LegacyStream : node.events.EventEmitter {
 
     // HIDDEN METHOD START
     /*
