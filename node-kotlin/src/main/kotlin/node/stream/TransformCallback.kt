@@ -3,5 +3,6 @@
 package node.stream
 
 typealias TransformCallback = (
-    error?: Error | null,
-data ?: any) -> Unit
+    error: Error?,
+    data: Any?,
+) -> Unit
