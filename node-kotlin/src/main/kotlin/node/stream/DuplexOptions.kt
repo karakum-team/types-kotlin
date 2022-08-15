@@ -11,13 +11,13 @@ sealed external interface DuplexOptions : ReadableOptions, WritableOptions {
     var writableCorked: Number?
 
     /* this: Duplex */
-    val construct: ((callback: (error: Error?) -> Unit) -> Unit)?
+    override val construct: ((callback: (error: Error?) -> Unit) -> Unit)?
 
     /* this: Duplex */
-    val read: ((size: Number) -> Unit)?
+    override val read: ((size: Number) -> Unit)?
 
     /* this: Duplex */
-    val write: ((
+    override val write: ((
         chunk: Any,
         encoding: node.buffer.BufferEncoding,
         callback: (error: Error?) -> Unit,
@@ -37,10 +37,10 @@ sealed external interface DuplexOptions : ReadableOptions, WritableOptions {
     // HIDDEN METHOD END
 
     /* this: Duplex */
-    val final: ((callback: (error: Error?) -> Unit) -> Unit)?
+    override val final: ((callback: (error: Error?) -> Unit) -> Unit)?
 
     /* this: Duplex */
-    val destroy: ((
+    override val destroy: ((
         error: Error?,
         callback: (error: Error?) -> Unit,
     ) -> Unit)?
