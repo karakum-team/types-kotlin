@@ -61,6 +61,16 @@ internal fun addOverrides(
             .replace("fun  _destroy(", "open fun _destroy(")
     }
 
+    if (name == "Readable") {
+        sequenceOf(
+            "size: Number",
+            "destination: node.WritableStream",
+            "encoding: node.buffer.BufferEncoding",
+        ).forEach {
+            result = result.replaceFirst("$it = definedExternally", it)
+        }
+    }
+
     if (name == "Writable") {
         result = result
             .replace("val writable:", "override /* val */ var writable:")
