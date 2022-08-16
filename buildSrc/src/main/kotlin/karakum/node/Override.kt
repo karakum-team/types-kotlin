@@ -54,6 +54,7 @@ internal fun addOverrides(
             .replace("fun  isPaused(", "override fun isPaused(")
             .replace("fun  unpipe(", "override fun unpipe(")
             .replace("fun  unshift(", "override fun unshift(")
+            .replace("fun  wrap(", "override fun wrap(")
 
             .replace("val closed:", "open val closed:")
             .replace("val errored:", "open val errored:")
