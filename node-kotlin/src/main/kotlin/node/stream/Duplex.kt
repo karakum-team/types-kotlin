@@ -57,25 +57,25 @@ open external class Duplex : Readable /* , Writable */ {
     fun write(
         chunk: Any,
         encoding: node.buffer.BufferEncoding = definedExternally,
-        cb: (error: Error?) -> Unit = definedExternally,
+        callback: (error: Error?) -> Unit = definedExternally,
     ): Boolean
 
     fun write(
         chunk: Any,
-        cb: (error: Error?) -> Unit = definedExternally,
+        callback: (error: Error?) -> Unit = definedExternally,
     ): Boolean
 
     fun setDefaultEncoding(encoding: node.buffer.BufferEncoding): Duplex
-    fun end(cb: () -> Unit = definedExternally): Duplex
+    fun end(callback: () -> Unit = definedExternally): Duplex
     fun end(
         chunk: Any,
-        cb: () -> Unit = definedExternally,
+        callback: () -> Unit = definedExternally,
     ): Duplex
 
     fun end(
         chunk: Any,
         encoding: node.buffer.BufferEncoding = definedExternally,
-        cb: () -> Unit = definedExternally,
+        callback: () -> Unit = definedExternally,
     ): Duplex
 
     fun cork()

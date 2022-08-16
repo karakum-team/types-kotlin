@@ -204,16 +204,16 @@ open external class Writable : Stream, node.WritableStream {
      * @param encoding The encoding if `chunk` is a string
      * @param callback Callback for when the stream is finished.
      */
-    override fun end(cb: () -> Unit): Writable
+    override fun end(callback: () -> Unit): Writable
     override fun end(
         chunk: Any,
-        cb: () -> Unit,
+        callback: () -> Unit,
     ): Writable
 
     override fun end(
         str: String,
         encoding: node.buffer.BufferEncoding,
-        cb: () -> Unit,
+        callback: () -> Unit,
     ): Writable
 
     /**
