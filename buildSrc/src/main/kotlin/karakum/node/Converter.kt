@@ -125,6 +125,14 @@ internal fun convertDefinitions(
 
         Package("inspector") -> emptySequence()
 
+        Package("net") -> (interfaces + classes)
+            .plus(
+                ConversionResult(
+                    "SocketConnectOpts",
+                    "typealias SocketConnectOpts = ConnectOpts /* TcpSocketConnectOpts | IpcSocketConnectOpts */"
+                )
+            )
+
         Package("os") -> interfaces
             .plus(convertFunctions(content))
             .plus(ConversionResult("NetworkInterfaceInfo", "typealias NetworkInterfaceInfo = NetworkInterfaceBase"))
@@ -241,6 +249,7 @@ private fun convertInterface(
         .replace("implements NodeJS.ReadableStream", ", node.ReadableStream")
         .replace("implements NodeJS.WritableStream", ", node.WritableStream")
         .replace("implements Writable", "/* , Writable */")
+        .replace(": stream.Duplex", ": node.stream.Duplex")
         .replace(": internal", ": LegacyStream")
         .replace(" = Buffer", "")
         .replace("string | Buffer", "Any /* string | Buffer */")

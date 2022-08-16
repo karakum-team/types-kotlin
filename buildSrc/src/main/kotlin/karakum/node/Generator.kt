@@ -28,6 +28,7 @@ private val DEFAULT_IMPORTS = listOf(
     "ErrnoException" to "node.ErrnoException",
     "Module" to "node.Module",
 
+    "Buffer" to "node.buffer.Buffer",
     "BufferEncoding" to "node.buffer.BufferEncoding",
     ABORTABLE to "node.events.$ABORTABLE",
     "$EVENT." to "node.events.$EVENT",

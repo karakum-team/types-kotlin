@@ -11,6 +11,7 @@ internal fun addOverrides(
         && "EventEmitter" in declaration
         || name == "Readable"
         || name == "Writable"
+        || name == "Socket"
     ) {
         sequenceOf(
             "addListener",
@@ -44,7 +45,7 @@ internal fun addOverrides(
             .replace("fun  _destroy(", "override fun _destroy(")
     }
 
-    if (name == "Readable") {
+    if (name == "Readable" || name == "Socket") {
         result = result
             .replace("var readable:", "override var readable:")
             .replace("fun  read(", "override fun read(")

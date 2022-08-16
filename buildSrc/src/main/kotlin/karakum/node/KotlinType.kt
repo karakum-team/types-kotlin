@@ -47,6 +47,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Blob" to "org.w3c.files.Blob",
 
     "() => void" to "() -> Unit",
+    "(err?: Error) => void" to "(err: Error?) -> Unit",
     "(err?: Error | null) => void" to "(err: Error?) -> Unit",
     "(error: Error | null) => void" to "(error: Error?) -> Unit",
     "(error?: Error | null) => void" to "(error: Error?) -> Unit",
@@ -159,8 +160,16 @@ internal fun kotlinType(
     return type
         .replace("(...args: any[]) => void", "Function<Unit>")
         .replace("<string>", "<String>")
+        .replace(": number", ": Number")
         .replace(": string", ": String")
+        .replace(": boolean", ": Boolean")
         .replace("=> string", "-> String")
         .replace("=> number", "-> Number")
+        .replace("=> void", "-> Unit")
+        .replace("=> string", "-> String")
         .replace(": any", ": Any")
+
+            // TEMP
+        .replace("number)", "Number)")
+        .replace("string)", "String)")
 }
