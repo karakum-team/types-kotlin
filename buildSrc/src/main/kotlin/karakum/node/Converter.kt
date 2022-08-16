@@ -262,39 +262,9 @@ private fun convertInterface(
             .replace(";\n *", ";--\n *")
     } else ""
 
-    var body = convertMembers(bodySource)
+    val body = convertMembers(bodySource)
         .replace(";--\n *", ";\n *")
-
-    if (name != "IEventEmitter"
-        && "EventEmitter" in declaration
-        || name == "Readable"
-        || name == "Writable"
-    ) {
-        sequenceOf(
-            "addListener",
-            "emit",
-            "on",
-            "once",
-            "prependListener",
-            "prependOnceListener",
-            "removeListener",
-        ).forEach {
-            body = body.replace("fun  $it(event: String", "override fun $it(event: String")
-        }
-    }
-
-    if (name == "DuplexOptions" || name == "TransformOptions") {
-        sequenceOf(
-            "construct",
-            "read",
-            "write",
-            "final",
-            "destroy",
-        ).forEach {
-            body = body.replace("val $it:", "override val $it:")
-        }
-    }
-
+        .let { addOverrides(name, declaration, it) }
 
     val type = when (name) {
         "Buffer",
