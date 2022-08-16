@@ -43,6 +43,9 @@ internal fun addOverrides(
             .replace("val closed:", "override val closed:")
             .replace("val errored:", "override val errored:")
             .replace("fun  _destroy(", "override fun _destroy(")
+
+            .replace("fun  end(", "open fun end(")
+            .replace("fun  write(", "open fun write(")
     }
 
     if (name == "Readable" || name == "Socket") {
@@ -72,13 +75,14 @@ internal fun addOverrides(
         }
     }
 
-    if (name == "Writable") {
+    if (name == "Writable" || name == "Socket") {
         result = result
             .replace("val writable:", "override /* val */ var writable:")
             .replace("fun  write(", "override fun write(")
             .replace("\nfun  end(", "\noverride fun end(")
 
             // TODO: fix typings
+            .replaceFirst("(str: Any /* ", "(chunk: Any /* ")
             .replaceFirst(" write(chunk: Any,\nencoding: ", " write(str: String,\nencoding: ")
             .replaceFirst(" end(chunk: Any,\nencoding: ", " end(str: String,\nencoding: ")
     }
@@ -88,6 +92,13 @@ internal fun addOverrides(
             "callback: () -> Unit",
             "callback: () -> Unit",
             "callback: () -> Unit",
+        ).forEach {
+            result = result.replaceFirst("$it = definedExternally", it)
+        }
+    }
+
+    if (name == "Writable" || name == "Socket") {
+        sequenceOf(
             "callback: (error: Error?) -> Unit",
             "callback: (error: Error?) -> Unit",
         ).forEach {
