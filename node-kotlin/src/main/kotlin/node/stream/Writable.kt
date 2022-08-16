@@ -100,7 +100,7 @@ open external class Writable : Stream, node.WritableStream {
     */
     // HIDDEN METHOD END
 
-    val _construct: ((callback: (error: Error?) -> Unit) -> Unit)?
+    var _construct: ((callback: (error: Error?) -> Unit) -> Unit)?
     fun _destroy(
         error: Error?,
         callback: (error: Error?) -> Unit,

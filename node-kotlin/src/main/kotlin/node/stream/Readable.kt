@@ -89,7 +89,7 @@ open external class Readable : Stream, node.ReadableStream {
 
     constructor(opts: ReadableOptions = definedExternally)
 
-    val _construct: ((callback: (error: Error?) -> Unit) -> Unit)?
+    var _construct: ((callback: (error: Error?) -> Unit) -> Unit)?
     fun _read(size: Number)
 
     /**

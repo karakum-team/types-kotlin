@@ -7,7 +7,7 @@ sealed external interface WritableOptions : StreamOptions<Stream /* Writable */>
     var defaultEncoding: node.buffer.BufferEncoding?
 
     /* this: Writable */
-    val write: ((
+    var write: ((
         chunk: Any,
         encoding: node.buffer.BufferEncoding,
         callback: (error: Error?) -> Unit,
@@ -27,5 +27,5 @@ sealed external interface WritableOptions : StreamOptions<Stream /* Writable */>
     // HIDDEN METHOD END
 
     /* this: Writable */
-    val final: ((callback: (error: Error?) -> Unit) -> Unit)?
+    var final: ((callback: (error: Error?) -> Unit) -> Unit)?
 }

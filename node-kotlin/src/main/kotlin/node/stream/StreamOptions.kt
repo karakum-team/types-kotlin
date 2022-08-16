@@ -10,10 +10,10 @@ sealed external interface StreamOptions<T : Stream> : Abortable {
     var objectMode: Boolean?
 
     /* this: T */
-    val construct: ((callback: (error: Error?) -> Unit) -> Unit)?
+    var construct: ((callback: (error: Error?) -> Unit) -> Unit)?
 
     /* this: T */
-    val destroy: ((
+    var destroy: ((
         error: Error?,
         callback: (error: Error?) -> Unit,
     ) -> Unit)?
