@@ -29,6 +29,8 @@ internal fun addOverrides(
     }
 
     if (name == "Socket") {
+        result = result.replace("val destroyed:", "override var /* val */ destroyed:")
+
         EMITTER_METHODS.forEach {
             result = result
                 .replace("fun  $it(event: Event.END", "override fun $it(event: Event.END")
@@ -59,6 +61,8 @@ internal fun addOverrides(
     }
 
     if (name == "Readable") {
+        result = result.replace("var destroyed:", "open var destroyed:")
+
         EMITTER_METHODS.forEach {
             result = result
                 .replace("fun  $it(event: Event.END", "open fun $it(event: Event.END")
