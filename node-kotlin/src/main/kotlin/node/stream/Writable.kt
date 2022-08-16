@@ -169,10 +169,10 @@ open external class Writable : Stream, node.WritableStream {
         callback: (error: Error?) -> Unit,
     ): Boolean
 
-    fun write(
-        chunk: Any,
+    override fun write(
+        str: String,
         encoding: node.buffer.BufferEncoding,
-        callback: (error: Error?) -> Unit = definedExternally,
+        callback: (error: Error?) -> Unit,
     ): Boolean
 
     /**
