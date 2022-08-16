@@ -75,15 +75,16 @@ internal fun addOverrides(
         result = result
             .replace("val writable:", "override /* val */ var writable:")
             .replace("fun  write(", "override fun write(")
-            .replaceFirst("\nfun  end(", "\noverride fun end(")
-            .replaceFirst("\nfun  end(", "\noverride fun end(")
+            .replace("\nfun  end(", "\noverride fun end(")
 
             // TODO: fix typings
             .replaceFirst(" write(chunk: Any,\nencoding: ", " write(str: String,\nencoding: ")
+            .replaceFirst(" end(chunk: Any,\nencoding: ", " end(str: String,\nencoding: ")
     }
 
     if (name == "Writable") {
         sequenceOf(
+            "cb: () -> Unit",
             "cb: () -> Unit",
             "cb: () -> Unit",
             "callback: (error: Error?) -> Unit",
