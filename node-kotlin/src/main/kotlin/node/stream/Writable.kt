@@ -166,7 +166,7 @@ open external class Writable : Stream, node.WritableStream {
      */
     override fun write(
         chunk: Any,
-        callback: (error: Error?) -> Unit = definedExternally,
+        callback: (error: Error?) -> Unit,
     ): Boolean
 
     fun write(
@@ -204,10 +204,10 @@ open external class Writable : Stream, node.WritableStream {
      * @param encoding The encoding if `chunk` is a string
      * @param callback Callback for when the stream is finished.
      */
-    override fun end(cb: () -> Unit = definedExternally): Writable
+    override fun end(cb: () -> Unit): Writable
     override fun end(
         chunk: Any,
-        cb: () -> Unit = definedExternally,
+        cb: () -> Unit,
     ): Writable
 
     fun end(
