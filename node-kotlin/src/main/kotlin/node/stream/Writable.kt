@@ -210,10 +210,10 @@ open external class Writable : Stream, node.WritableStream {
         cb: () -> Unit,
     ): Writable
 
-    fun end(
-        chunk: Any,
+    override fun end(
+        str: String,
         encoding: node.buffer.BufferEncoding,
-        cb: () -> Unit = definedExternally,
+        cb: () -> Unit,
     ): Writable
 
     /**
