@@ -22,6 +22,6 @@ external interface ReadableStream : node.events.IEventEmitter {
         encoding: node.buffer.BufferEncoding = definedExternally,
     )
 
-    fun wrap(oldStream: ReadableStream): ReadableStream
+    fun wrap(stream: ReadableStream): ReadableStream
     /* [Symbol.asyncIterator](): AsyncIterableIterator<string | Buffer> */
 }
