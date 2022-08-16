@@ -94,7 +94,7 @@ internal fun convertDefinitions(
     return when (pkg) {
         Package("buffer") -> mergeBuffers(interfaces)
 
-        Package("events") -> (interfaces + classes)
+        Package("events") -> mergeEventEmitters(interfaces + classes)
             .plus(Abortable())
 
         Package("globals") -> interfaces
@@ -305,8 +305,6 @@ private fun convertInterface(
         -> "interface"
 
         "EventEmitter",
-        -> "abstract class"
-
         "LegacyStream",
         "Stream",
         "Readable",

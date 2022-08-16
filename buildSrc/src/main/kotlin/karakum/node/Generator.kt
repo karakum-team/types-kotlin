@@ -78,16 +78,11 @@ fun generateKotlinDeclarations(
         definitions = definitions
             .groupBy { it.name }
             .map { (name, group) ->
-                if (group.size == 1) {
-                    group.single()
-                } else if (name == "IEventEmitter") {
-                    group.last()
-                } else {
-                    ConversionResult(
+                group.singleOrNull()
+                    ?: ConversionResult(
                         name = name,
                         body = group.joinToString("\n\n\n") { it.body },
                     )
-                }
             }
             .asSequence()
 
