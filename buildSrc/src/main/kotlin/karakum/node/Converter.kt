@@ -181,13 +181,17 @@ private fun convertType(
     var body = bodySource
         .replace("<unknown>", "<*>")
         .replace(": unknown", ": Any?")
-        .replace(" => void", " -> Unit")
         .replace("code: number", "code: Int")
+        .replace(": string", ": String")
+        .replace(": number", ": Number")
+        .replace(" => void", " -> Unit")
         .replace("?: Error | null", ": Error?")
         .replace("?: any", ": Any?")
+        .replace(": NodeJS.ErrnoException | null", ": ErrnoException?")
 
         // TEMP
         .replace("worker: Worker", "worker: Any /* Worker */")
+        .replace(": dns.LookupOneOptions", ": $DYNAMIC /* dns.LookupOneOptions */")
 
     if (!body.startsWith("()"))
         body = body

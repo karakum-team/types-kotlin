@@ -25,6 +25,7 @@ private val DEFAULT_IMPORTS = listOf(
 
     "Dict<" to "node.Dict",
     "AbortSignal" to "node.AbortSignal",
+    "ErrnoException" to "node.ErrnoException",
     "Module" to "node.Module",
 
     "BufferEncoding" to "node.buffer.BufferEncoding",
@@ -39,6 +40,7 @@ private val MODULES = setOf(
     "fs",
     "fs/promises",
     "inspector",
+    "net",
     "os",
     "path",
     "process",
