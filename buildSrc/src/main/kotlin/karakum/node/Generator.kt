@@ -75,6 +75,8 @@ fun generateKotlinDeclarations(
             .replace(", cb?:", ", callback?:")
             .replace("(cb:", "(callback:")
             .replace("(cb?:", "(callback?:")
+            .replace("(err?:", "(error?:")
+            .replace("(err:", "(error:")
             .replace(" wrap(oldStream:", " wrap(stream:")
             .replace(" write(buffer: Uint8Array | string", " write(chunk: Uint8Array | string")
             .replace(" end(data: string | Uint8Array", "end(chunk: string | Uint8Array")

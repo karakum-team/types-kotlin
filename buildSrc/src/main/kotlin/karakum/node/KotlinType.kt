@@ -47,8 +47,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Blob" to "org.w3c.files.Blob",
 
     "() => void" to "() -> Unit",
-    "(err?: Error) => void" to "(err: Error?) -> Unit",
-    "(err?: Error | null) => void" to "(err: Error?) -> Unit",
+    "(error?: Error) => void" to "(error: Error?) -> Unit",
     "(error: Error | null) => void" to "(error: Error?) -> Unit",
     "(error?: Error | null) => void" to "(error: Error?) -> Unit",
     "(error: Error | null | undefined) => void" to "(error: Error?) -> Unit",
