@@ -178,7 +178,7 @@ private fun convertMethod(
 
         return listOfNotNull(
             comment,
-            "val $name: (($params) -> $returnType)?"
+            "var $name: (($params) -> $returnType)?"
         ).joinToString("\n")
     }
 

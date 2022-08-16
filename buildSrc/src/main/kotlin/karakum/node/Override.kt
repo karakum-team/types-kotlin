@@ -33,7 +33,7 @@ internal fun addOverrides(
             "final",
             "destroy",
         ).forEach {
-            result = result.replace("val $it:", "override val $it:")
+            result = result.replace("var $it:", "override var $it:")
         }
     }
 
