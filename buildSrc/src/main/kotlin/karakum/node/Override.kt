@@ -79,5 +79,15 @@ internal fun addOverrides(
             .replaceFirst("\nfun  end(", "\noverride fun end(")
     }
 
+    if (name == "Writable") {
+        sequenceOf(
+            "cb: () -> Unit",
+            "cb: () -> Unit",
+            "callback: (error: Error?) -> Unit",
+        ).forEach {
+            result = result.replaceFirst("$it = definedExternally", it)
+        }
+    }
+
     return result
 }
