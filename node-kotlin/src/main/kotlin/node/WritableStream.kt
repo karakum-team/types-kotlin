@@ -5,7 +5,7 @@ package node
 external interface WritableStream : node.events.IEventEmitter {
     var writable: Boolean
     fun write(
-        buffer: Any, /* Uint8Array | string */
+        chunk: Any, /* Uint8Array | string */
         callback: (err: Error?) -> Unit = definedExternally,
     ): Boolean
 
@@ -17,7 +17,7 @@ external interface WritableStream : node.events.IEventEmitter {
 
     fun end(callback: () -> Unit = definedExternally): WritableStream
     fun end(
-        data: Any, /* string | Uint8Array */
+        chunk: Any, /* string | Uint8Array */
         callback: () -> Unit = definedExternally,
     ): WritableStream
 
