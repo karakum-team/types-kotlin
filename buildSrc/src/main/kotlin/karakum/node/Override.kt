@@ -124,5 +124,12 @@ internal fun addOverrides(
         }
     }
 
+    if (name == "Socket") {
+        result = result.replace(
+            "encoding: node.buffer.BufferEncoding = definedExternally",
+            "encoding: node.buffer.BufferEncoding",
+        )
+    }
+
     return result
 }
