@@ -27,15 +27,15 @@ external class Socket : node.stream.Duplex {
      * @since v0.1.90
      * @param [encoding='utf8'] Only used when data is `string`.
      */
-    fun write(
+    override fun write(
         chunk: Any, /* Uint8Array | string */
-        callback: (error: Error?) -> Unit = definedExternally,
+        callback: (error: Error?) -> Unit,
     ): Boolean
 
-    fun write(
-        str: Any, /* Uint8Array | string */
+    override fun write(
+        chunk: Any, /* Uint8Array | string */
         encoding: node.buffer.BufferEncoding = definedExternally,
-        callback: (error: Error?) -> Unit = definedExternally,
+        callback: (error: Error?) -> Unit,
     ): Boolean
 
     /**
@@ -293,13 +293,13 @@ external class Socket : node.stream.Duplex {
      * @param callback Optional callback for when the socket is finished.
      * @return The socket itself.
      */
-    fun end(callback: () -> Unit = definedExternally): Socket
-    fun end(
+    override fun end(callback: () -> Unit = definedExternally): Socket
+    override fun end(
         buffer: Any, /* Uint8Array | string */
         callback: () -> Unit = definedExternally,
     ): Socket
 
-    fun end(
+    override fun end(
         str: Any, /* Uint8Array | string */
         encoding: node.buffer.BufferEncoding = definedExternally,
         callback: () -> Unit = definedExternally,
