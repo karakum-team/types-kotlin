@@ -235,7 +235,7 @@ external class Socket : node.stream.Duplex {
     /**
      * See `writable.destroyed` for further details.
      */
-    val destroyed: Boolean
+    override var /* val */ destroyed: Boolean
 
     /**
      * The string representation of the local IP address the remote client is
