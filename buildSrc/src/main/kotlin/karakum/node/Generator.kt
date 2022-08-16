@@ -72,6 +72,8 @@ fun generateKotlinDeclarations(
             .replace(", cb?:", ", callback?:")
             .replace("(cb:", "(callback:")
             .replace("(cb?:", "(callback?:")
+            .replace(" write(buffer: Uint8Array | string", " write(chunk: Uint8Array | string")
+            .replace(" end(data: string | Uint8Array", "end(chunk: string | Uint8Array")
 
         var definitions = convertDefinitions(source, pkg)
         when (pkg) {
