@@ -1,5 +1,15 @@
 package karakum.node
 
+private val EMITTER_METHODS = listOf(
+    "addListener",
+    "emit",
+    "on",
+    "once",
+    "prependListener",
+    "prependOnceListener",
+    "removeListener",
+)
+
 internal fun addOverrides(
     name: String,
     declaration: String,
@@ -13,16 +23,16 @@ internal fun addOverrides(
         || name == "Writable"
         || name == "Socket"
     ) {
-        sequenceOf(
-            "addListener",
-            "emit",
-            "on",
-            "once",
-            "prependListener",
-            "prependOnceListener",
-            "removeListener",
-        ).forEach {
+        EMITTER_METHODS.forEach {
             result = result.replace("fun  $it(event: String", "override fun $it(event: String")
+        }
+    }
+
+    if (name == "Socket") {
+        EMITTER_METHODS.forEach {
+            result = result
+                .replace("fun  $it(event: Event.END", "override fun $it(event: Event.END")
+                .replace("fun  $it(event: Event.ERROR", "override fun $it(event: Event.ERROR")
         }
     }
 
@@ -46,6 +56,14 @@ internal fun addOverrides(
 
             .replace("fun  end(", "open fun end(")
             .replace("fun  write(", "open fun write(")
+    }
+
+    if (name == "Readable") {
+        EMITTER_METHODS.forEach {
+            result = result
+                .replace("fun  $it(event: Event.END", "open fun $it(event: Event.END")
+                .replace("fun  $it(event: Event.ERROR", "open fun $it(event: Event.ERROR")
+        }
     }
 
     if (name == "Readable" || name == "Socket") {
