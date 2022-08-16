@@ -34,7 +34,7 @@ external class Socket : node.stream.Duplex {
 
     override fun write(
         chunk: Any, /* Uint8Array | string */
-        encoding: node.buffer.BufferEncoding = definedExternally,
+        encoding: node.buffer.BufferEncoding,
         callback: (error: Error?) -> Unit,
     ): Boolean
 
@@ -83,7 +83,7 @@ external class Socket : node.stream.Duplex {
      * @since v0.1.90
      * @return The socket itself.
      */
-    override fun setEncoding(encoding: node.buffer.BufferEncoding = definedExternally): Socket
+    override fun setEncoding(encoding: node.buffer.BufferEncoding): Socket
 
     /**
      * Pauses the reading of data. That is, `'data'` events will not be emitted.
@@ -301,7 +301,7 @@ external class Socket : node.stream.Duplex {
 
     override fun end(
         str: Any, /* Uint8Array | string */
-        encoding: node.buffer.BufferEncoding = definedExternally,
+        encoding: node.buffer.BufferEncoding,
         callback: () -> Unit = definedExternally,
     ): Socket
 
