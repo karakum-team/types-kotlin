@@ -272,6 +272,8 @@ private fun convertInterface(
         -> "class"
 
         "IEventEmitter",
+        "ReadableStream",
+        "WritableStream",
         -> "interface"
 
         "EventEmitter",

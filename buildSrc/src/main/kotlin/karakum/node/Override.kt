@@ -37,5 +37,35 @@ internal fun addOverrides(
         }
     }
 
+    if (name == "Duplex") {
+        result = result
+            .replace("val closed:", "override val closed:")
+            .replace("val errored:", "override val errored:")
+            .replace("fun  _destroy(", "override fun _destroy(")
+    }
+
+    if (name == "Readable") {
+        result = result
+            .replace("var readable:", "override var readable:")
+            .replace("fun  read(", "override fun read(")
+            .replace("fun  setEncoding(", "override fun setEncoding(")
+            .replace("fun  pause(", "override fun pause(")
+            .replace("fun  resume(", "override fun resume(")
+            .replace("fun  isPaused(", "override fun isPaused(")
+            .replace("fun  unpipe(", "override fun unpipe(")
+            .replace("fun  unshift(", "override fun unshift(")
+
+            .replace("val closed:", "open val closed:")
+            .replace("val errored:", "open val errored:")
+            .replace("fun  _destroy(", "open fun _destroy(")
+    }
+
+    if (name == "Writable") {
+        result = result
+            .replace("val writable:", "override val writable:")
+            .replaceFirst("fun  write(", "override fun write(")
+            .replaceFirst("fun  end(", "override fun end(")
+    }
+
     return result
 }
