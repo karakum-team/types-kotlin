@@ -68,6 +68,10 @@ fun generateKotlinDeclarations(
             .resolve("$module.d.ts")
             .readText()
             .replace("(eventName: ", "(event: ")
+            .replace(", cb:", ", callback:")
+            .replace(", cb?:", ", callback?:")
+            .replace("(cb:", "(callback:")
+            .replace("(cb?:", "(callback?:")
 
         var definitions = convertDefinitions(source, pkg)
         when (pkg) {

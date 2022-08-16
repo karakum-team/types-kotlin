@@ -84,9 +84,9 @@ internal fun addOverrides(
 
     if (name == "Writable") {
         sequenceOf(
-            "cb: () -> Unit",
-            "cb: () -> Unit",
-            "cb: () -> Unit",
+            "callback: () -> Unit",
+            "callback: () -> Unit",
+            "callback: () -> Unit",
             "callback: (error: Error?) -> Unit",
             "callback: (error: Error?) -> Unit",
         ).forEach {
