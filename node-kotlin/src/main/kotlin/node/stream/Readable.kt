@@ -432,7 +432,7 @@ open external class Readable : Stream, node.ReadableStream {
 
     fun addListener(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Readable
 
     fun addListener(
@@ -492,7 +492,7 @@ open external class Readable : Stream, node.ReadableStream {
 
     fun on(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Readable
 
     fun on(
@@ -532,7 +532,7 @@ open external class Readable : Stream, node.ReadableStream {
 
     fun once(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Readable
 
     fun once(
@@ -572,7 +572,7 @@ open external class Readable : Stream, node.ReadableStream {
 
     fun prependListener(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Readable
 
     fun prependListener(
@@ -612,7 +612,7 @@ open external class Readable : Stream, node.ReadableStream {
 
     fun prependOnceListener(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Readable
 
     fun prependOnceListener(
@@ -652,7 +652,7 @@ open external class Readable : Stream, node.ReadableStream {
 
     fun removeListener(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Readable
 
     fun removeListener(

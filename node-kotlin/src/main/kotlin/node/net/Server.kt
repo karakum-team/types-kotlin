@@ -117,7 +117,7 @@ external class Server : node.events.EventEmitter {
      * @since v0.1.90
      * @param callback Called when the server is closed.
      */
-    fun close(callback: (err: Error?) -> Unit = definedExternally): Server
+    fun close(callback: (error: Error?) -> Unit = definedExternally): Server
 
     /**
      * Returns the bound `address`, the address `family` name, and `port` of the server
@@ -216,7 +216,7 @@ external class Server : node.events.EventEmitter {
 
     fun addListener(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Server
 
     fun addListener(
@@ -258,7 +258,7 @@ external class Server : node.events.EventEmitter {
 
     fun on(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Server
 
     fun on(
@@ -283,7 +283,7 @@ external class Server : node.events.EventEmitter {
 
     fun once(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Server
 
     fun once(
@@ -308,7 +308,7 @@ external class Server : node.events.EventEmitter {
 
     fun prependListener(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Server
 
     fun prependListener(
@@ -333,7 +333,7 @@ external class Server : node.events.EventEmitter {
 
     fun prependOnceListener(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Server
 
     fun prependOnceListener(

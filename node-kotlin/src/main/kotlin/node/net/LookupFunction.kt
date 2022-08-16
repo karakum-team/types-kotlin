@@ -5,11 +5,11 @@ package node.net
 import node.ErrnoException
 
 typealias LookupFunction = (
- hostname: String,
- options: dynamic, /* dns.LookupOneOptions */
- callback: (
-  err: ErrnoException?,
-  address: String,
-  family: Number,
- ) -> Unit,
+    hostname: String,
+    options: dynamic, /* dns.LookupOneOptions */
+    callback: (
+        error: ErrnoException?,
+        address: String,
+        family: Number,
+    ) -> Unit,
 ) -> Unit

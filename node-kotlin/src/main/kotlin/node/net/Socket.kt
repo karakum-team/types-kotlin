@@ -29,13 +29,13 @@ external class Socket : node.stream.Duplex {
      */
     fun write(
         chunk: Any, /* Uint8Array | string */
-        callback: (err: Error?) -> Unit = definedExternally,
+        callback: (error: Error?) -> Unit = definedExternally,
     ): Boolean
 
     fun write(
         str: Any, /* Uint8Array | string */
         encoding: node.buffer.BufferEncoding = definedExternally,
-        callback: (err: Error?) -> Unit = definedExternally,
+        callback: (error: Error?) -> Unit = definedExternally,
     ): Boolean
 
     /**
@@ -348,13 +348,13 @@ external class Socket : node.stream.Duplex {
 
     fun addListener(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Socket
 
     fun addListener(
         event: Event.LOOKUP,
         listener: (
-            err: Error,
+            error: Error,
             address: String,
             family: Any, /* string | number */
             host: String,
@@ -436,13 +436,13 @@ external class Socket : node.stream.Duplex {
 
     fun on(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Socket
 
     fun on(
         event: Event.LOOKUP,
         listener: (
-            err: Error,
+            error: Error,
             address: String,
             family: Any, /* string | number */
             host: String,
@@ -491,13 +491,13 @@ external class Socket : node.stream.Duplex {
 
     fun once(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Socket
 
     fun once(
         event: Event.LOOKUP,
         listener: (
-            err: Error,
+            error: Error,
             address: String,
             family: Any, /* string | number */
             host: String,
@@ -546,13 +546,13 @@ external class Socket : node.stream.Duplex {
 
     fun prependListener(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Socket
 
     fun prependListener(
         event: Event.LOOKUP,
         listener: (
-            err: Error,
+            error: Error,
             address: String,
             family: Any, /* string | number */
             host: String,
@@ -601,13 +601,13 @@ external class Socket : node.stream.Duplex {
 
     fun prependOnceListener(
         event: Event.ERROR,
-        listener: (err: Error) -> Unit,
+        listener: (error: Error) -> Unit,
     ): Socket
 
     fun prependOnceListener(
         event: Event.LOOKUP,
         listener: (
-            err: Error,
+            error: Error,
             address: String,
             family: Any, /* string | number */
             host: String,
