@@ -2,7 +2,7 @@
 
 package node
 
-sealed external interface WritableStream : node.events.IEventEmitter {
+external interface WritableStream : node.events.IEventEmitter {
     var writable: Boolean
     fun write(
         buffer: Any, /* Uint8Array | string */

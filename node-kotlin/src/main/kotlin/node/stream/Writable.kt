@@ -14,7 +14,7 @@ open external class Writable : Stream, node.WritableStream {
      * the stream has not been destroyed, errored or ended.
      * @since v11.4.0
      */
-    val writable: Boolean
+    override val writable: Boolean
 
     /**
      * Is `true` after `writable.end()` has been called. This property
@@ -164,7 +164,7 @@ open external class Writable : Stream, node.WritableStream {
      * @param callback Callback for when this chunk of data is flushed.
      * @return `false` if the stream wishes for the calling code to wait for the `'drain'` event to be emitted before continuing to write additional data; otherwise `true`.
      */
-    fun write(
+    override fun write(
         chunk: Any,
         callback: (error: Error?) -> Unit = definedExternally,
     ): Boolean
@@ -204,7 +204,7 @@ open external class Writable : Stream, node.WritableStream {
      * @param encoding The encoding if `chunk` is a string
      * @param callback Callback for when the stream is finished.
      */
-    fun end(cb: () -> Unit = definedExternally): Writable
+    override fun end(cb: () -> Unit = definedExternally): Writable
     fun end(
         chunk: Any,
         cb: () -> Unit = definedExternally,

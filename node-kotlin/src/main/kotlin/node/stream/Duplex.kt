@@ -14,8 +14,8 @@ open external class Duplex : Readable /* , Writable */ {
     val writableObjectMode: Boolean
     val writableCorked: Number
     val writableNeedDrain: Boolean
-    val closed: Boolean
-    val errored: Error?
+    override val closed: Boolean
+    override val errored: Error?
 
     /**
      * If `false` then the stream will automatically end the writable side when the
@@ -48,7 +48,7 @@ open external class Duplex : Readable /* , Writable */ {
     */
     // HIDDEN METHOD END
 
-    fun _destroy(
+    override fun _destroy(
         error: Error?,
         callback: (error: Error?) -> Unit,
     )

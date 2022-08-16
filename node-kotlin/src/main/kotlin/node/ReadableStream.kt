@@ -2,7 +2,7 @@
 
 package node
 
-sealed external interface ReadableStream : node.events.IEventEmitter {
+external interface ReadableStream : node.events.IEventEmitter {
     var readable: Boolean
     fun read(size: Number = definedExternally): Any /* string | Buffer */
     fun setEncoding(encoding: node.buffer.BufferEncoding): node.stream.ReadableStream

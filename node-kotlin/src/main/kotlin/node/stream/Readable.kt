@@ -21,7 +21,7 @@ open external class Readable : Stream, node.ReadableStream {
      * the stream has not been destroyed or emitted `'error'` or `'end'`.
      * @since v11.4.0
      */
-    var readable: Boolean
+    override var readable: Boolean
 
     /**
      * Returns whether `'data'` has been emitted.
@@ -79,13 +79,13 @@ open external class Readable : Stream, node.ReadableStream {
      * Is true after 'close' has been emitted.
      * @since v8.0.0
      */
-    val closed: Boolean
+    open val closed: Boolean
 
     /**
      * Returns error if the stream has been destroyed with an error.
      * @since v18.0.0
      */
-    val errored: Error?
+    open val errored: Error?
 
     constructor(opts: ReadableOptions = definedExternally)
 
@@ -168,7 +168,7 @@ open external class Readable : Stream, node.ReadableStream {
      * @since v0.9.4
      * @param size Optional argument to specify how much data to read.
      */
-    fun read(size: Number = definedExternally): Any
+    override fun read(size: Number = definedExternally): Any
 
     /**
      * The `readable.setEncoding()` method sets the character encoding for
@@ -194,7 +194,7 @@ open external class Readable : Stream, node.ReadableStream {
      * @since v0.9.4
      * @param encoding The encoding to use.
      */
-    fun setEncoding(encoding: node.buffer.BufferEncoding): Readable
+    override fun setEncoding(encoding: node.buffer.BufferEncoding): Readable
 
     /**
      * The `readable.pause()` method will cause a stream in flowing mode to stop
@@ -217,7 +217,7 @@ open external class Readable : Stream, node.ReadableStream {
      * The `readable.pause()` method has no effect if there is a `'readable'`event listener.
      * @since v0.9.4
      */
-    fun pause(): Readable
+    override fun pause(): Readable
 
     /**
      * The `readable.resume()` method causes an explicitly paused `Readable` stream to
@@ -237,7 +237,7 @@ open external class Readable : Stream, node.ReadableStream {
      * The `readable.resume()` method has no effect if there is a `'readable'`event listener.
      * @since v0.9.4
      */
-    fun resume(): Readable
+    override fun resume(): Readable
 
     /**
      * The `readable.isPaused()` method returns the current operating state of the`Readable`. This is used primarily by the mechanism that underlies the`readable.pipe()` method. In most
@@ -255,7 +255,7 @@ open external class Readable : Stream, node.ReadableStream {
      * ```
      * @since v0.11.14
      */
-    fun isPaused(): Boolean
+    override fun isPaused(): Boolean
 
     /**
      * The `readable.unpipe()` method detaches a `Writable` stream previously attached
@@ -283,7 +283,7 @@ open external class Readable : Stream, node.ReadableStream {
      * @since v0.9.4
      * @param destination Optional specific stream to unpipe
      */
-    fun unpipe(destination: node.WritableStream = definedExternally): Readable
+    override fun unpipe(destination: node.WritableStream = definedExternally): Readable
 
     /**
      * Passing `chunk` as `null` signals the end of the stream (EOF) and behaves the
@@ -350,7 +350,7 @@ open external class Readable : Stream, node.ReadableStream {
      * streams, `chunk` may be any JavaScript value.
      * @param encoding Encoding of string chunks. Must be a valid `Buffer` encoding, such as `'utf8'` or `'ascii'`.
      */
-    fun unshift(
+    override fun unshift(
         chunk: Any,
         encoding: node.buffer.BufferEncoding = definedExternally,
     )
@@ -386,7 +386,7 @@ open external class Readable : Stream, node.ReadableStream {
         encoding: node.buffer.BufferEncoding = definedExternally,
     ): Boolean
 
-    fun _destroy(
+    open fun _destroy(
         error: Error?,
         callback: (error: Error?) -> Unit,
     )
