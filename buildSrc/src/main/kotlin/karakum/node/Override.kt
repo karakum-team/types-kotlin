@@ -63,9 +63,10 @@ internal fun addOverrides(
 
     if (name == "Writable") {
         result = result
-            .replace("val writable:", "override val writable:")
+            .replace("val writable:", "override /* val */ var writable:")
             .replaceFirst("fun  write(", "override fun write(")
-            .replaceFirst("fun  end(", "override fun end(")
+            .replaceFirst("\nfun  end(", "\noverride fun end(")
+            .replaceFirst("\nfun  end(", "\noverride fun end(")
     }
 
     return result
