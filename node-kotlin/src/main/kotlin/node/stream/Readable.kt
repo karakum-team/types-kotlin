@@ -168,7 +168,7 @@ open external class Readable : Stream, node.ReadableStream {
      * @since v0.9.4
      * @param size Optional argument to specify how much data to read.
      */
-    override fun read(size: Number = definedExternally): Any
+    override fun read(size: Number): Any
 
     /**
      * The `readable.setEncoding()` method sets the character encoding for
@@ -283,7 +283,7 @@ open external class Readable : Stream, node.ReadableStream {
      * @since v0.9.4
      * @param destination Optional specific stream to unpipe
      */
-    override fun unpipe(destination: node.WritableStream = definedExternally): Readable
+    override fun unpipe(destination: node.WritableStream): Readable
 
     /**
      * Passing `chunk` as `null` signals the end of the stream (EOF) and behaves the
@@ -352,7 +352,7 @@ open external class Readable : Stream, node.ReadableStream {
      */
     override fun unshift(
         chunk: Any,
-        encoding: node.buffer.BufferEncoding = definedExternally,
+        encoding: node.buffer.BufferEncoding,
     )
 
     /**
