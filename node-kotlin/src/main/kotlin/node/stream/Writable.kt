@@ -14,7 +14,7 @@ open external class Writable : Stream, node.WritableStream {
      * the stream has not been destroyed, errored or ended.
      * @since v11.4.0
      */
-    override val writable: Boolean
+    override /* val */ var writable: Boolean
 
     /**
      * Is `true` after `writable.end()` has been called. This property
@@ -205,7 +205,7 @@ open external class Writable : Stream, node.WritableStream {
      * @param callback Callback for when the stream is finished.
      */
     override fun end(cb: () -> Unit = definedExternally): Writable
-    fun end(
+    override fun end(
         chunk: Any,
         cb: () -> Unit = definedExternally,
     ): Writable
