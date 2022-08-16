@@ -341,12 +341,12 @@ external class Socket : node.stream.Duplex {
         listener: () -> Unit,
     ): Socket
 
-    fun addListener(
+    override fun addListener(
         event: Event.END,
         listener: () -> Unit,
     ): Socket
 
-    fun addListener(
+    override fun addListener(
         event: Event.ERROR,
         listener: (error: Error) -> Unit,
     ): Socket
@@ -388,8 +388,8 @@ external class Socket : node.stream.Duplex {
     ): Boolean
 
     fun emit(event: Event.DRAIN): Boolean
-    fun emit(event: Event.END): Boolean
-    fun emit(
+    override fun emit(event: Event.END): Boolean
+    override fun emit(
         event: Event.ERROR,
         err: Error,
     ): Boolean
@@ -429,12 +429,12 @@ external class Socket : node.stream.Duplex {
         listener: () -> Unit,
     ): Socket
 
-    fun on(
+    override fun on(
         event: Event.END,
         listener: () -> Unit,
     ): Socket
 
-    fun on(
+    override fun on(
         event: Event.ERROR,
         listener: (error: Error) -> Unit,
     ): Socket
@@ -484,12 +484,12 @@ external class Socket : node.stream.Duplex {
         listener: () -> Unit,
     ): Socket
 
-    fun once(
+    override fun once(
         event: Event.END,
         listener: () -> Unit,
     ): Socket
 
-    fun once(
+    override fun once(
         event: Event.ERROR,
         listener: (error: Error) -> Unit,
     ): Socket
@@ -539,12 +539,12 @@ external class Socket : node.stream.Duplex {
         listener: () -> Unit,
     ): Socket
 
-    fun prependListener(
+    override fun prependListener(
         event: Event.END,
         listener: () -> Unit,
     ): Socket
 
-    fun prependListener(
+    override fun prependListener(
         event: Event.ERROR,
         listener: (error: Error) -> Unit,
     ): Socket
@@ -594,12 +594,12 @@ external class Socket : node.stream.Duplex {
         listener: () -> Unit,
     ): Socket
 
-    fun prependOnceListener(
+    override fun prependOnceListener(
         event: Event.END,
         listener: () -> Unit,
     ): Socket
 
-    fun prependOnceListener(
+    override fun prependOnceListener(
         event: Event.ERROR,
         listener: (error: Error) -> Unit,
     ): Socket
