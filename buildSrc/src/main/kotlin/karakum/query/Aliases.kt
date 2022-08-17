@@ -4,7 +4,7 @@ package karakum.query
 internal const val ALIASES = """
 // $GENERATOR_COMMENT    
 
-package react.query
+##pkg##
 
 typealias JsTimestamp = Double
 typealias JsDuration = Int

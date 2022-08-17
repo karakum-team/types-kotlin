@@ -4,14 +4,22 @@ plugins {
 
 tasks.named("generateDeclarations") {
     doLast {
-        val typesDir = rootProject.buildDir
-            .resolve("js/node_modules/react-query/types")
+        val tanstackDir = rootProject.buildDir
+            .resolve("js/node_modules/@tanstack")
+
+        val coreTypesDir = tanstackDir
+            .resolve("query-core/build/types/src")
+
+        val reactTypesDir = tanstackDir
+            .resolve("react-query/build/types/src")
+
         val sourceDir = projectDir.resolve("src/main/kotlin")
 
         delete(sourceDir)
 
         karakum.query.generateKotlinDeclarations(
-            typesDir = typesDir,
+            coreTypesDir = coreTypesDir,
+            reactTypesDir = reactTypesDir,
             sourceDir = sourceDir,
         )
     }

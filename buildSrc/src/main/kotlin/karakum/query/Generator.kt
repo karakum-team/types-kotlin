@@ -23,31 +23,36 @@ private val DEFAULT_IMPORTS = listOf(
     "Void" to "kotlinx.js.Void",
 )
 
-// language=Kotlin
-private const val PACKAGE = """package react.query"""
-
-private const val EXPERIMENTAL_SUFFIX = "-experimental"
+private const val CORE_PACKAGE = "package tanstack.query.core"
+private const val REACT_PACKAGE = "package tanstack.react.query"
 
 fun generateKotlinDeclarations(
-    typesDir: File,
+    coreTypesDir: File,
+    reactTypesDir: File,
     sourceDir: File,
 ) {
-    val targetDir = sourceDir.resolve("react/query")
+    val coreTargetDir = sourceDir.resolve("tanstack/core/query")
         .also { it.mkdirs() }
 
-    targetDir.resolve("aliases.kt")
-        .writeText(ALIASES)
+    val reactTargetDir = sourceDir.resolve("tanstack/react/query")
+        .also { it.mkdirs() }
 
-    generate(typesDir.resolve("core"), targetDir, ".core")
-    generate(typesDir.resolve("react"), targetDir)
+    coreTargetDir
+        .resolve("aliases.kt")
+        .writeText(ALIASES.replace("##pkg##", CORE_PACKAGE))
 
-    generateExperimental(typesDir, targetDir)
+    reactTargetDir
+        .resolve("aliases.kt")
+        .writeText(ALIASES.replace("##pkg##", REACT_PACKAGE))
+
+    generate(coreTypesDir, coreTargetDir, CORE_PACKAGE)
+    generate(reactTypesDir, reactTargetDir, REACT_PACKAGE)
 }
 
 private fun generate(
     definitionsDir: File,
     targetDir: File,
-    suffix: String = "",
+    pkg: String,
 ) {
     val index = definitionsDir.resolve("index.d.ts")
     val files = definitionsDir
@@ -59,7 +64,7 @@ private fun generate(
     val fileMap = files
         .asSequence()
         .map { file ->
-            val name = file.name.removeSuffix(".d.ts") + suffix + ".kt"
+            val name = file.name.removeSuffix(".d.ts") + ".kt"
             val declarations = toDeclarations(file)
             name to declarations
         }
@@ -68,7 +73,7 @@ private fun generate(
             val enums = declarations.filter { it is Type && it.enumMode }
 
             enums.asSequence()
-                .map { "${it.name}$suffix.kt" to listOf(it) }
+                .map { "${it.name}.kt" to listOf(it) }
                 .plus(name to (declarations - enums))
         }
         .toList()
@@ -81,31 +86,14 @@ private fun generate(
     )
 
     for ((name, declarations) in fileMap) {
-        generate(targetDir.resolve(name), declarations)
-    }
-}
-
-private fun generateExperimental(
-    typesDir: File,
-    targetDir: File,
-) {
-    val dirs = typesDir.listFiles { file ->
-        file.isDirectory && file.name.endsWith(EXPERIMENTAL_SUFFIX)
-    } ?: return
-
-    for (dir in dirs) {
-        val name = dir.name.removeSuffix(EXPERIMENTAL_SUFFIX)
-        if (name != "broadcastQueryClient") continue
-        generate(
-            file = targetDir.resolve("$name.kt"),
-            declarations = toDeclarations(dir.resolve("index.d.ts")),
-        )
+        generate(targetDir.resolve(name), declarations, pkg)
     }
 }
 
 private fun generate(
     file: File,
     declarations: List<Declaration>,
+    pkg: String,
 ) {
     val body = declarations.asSequence()
         .map { it.toCode() }
@@ -141,7 +129,7 @@ private fun generate(
         "// $GENERATOR_COMMENT",
         annotations,
         suppresses,
-        PACKAGE,
+        pkg,
         defaultImports,
         body,
     ).filter { it.isNotEmpty() }

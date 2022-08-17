@@ -4,8 +4,10 @@ plugins {
     `react-query-declarations`
 }
 
+val reactQueryVersion = property("react-query.version") as String
+
 dependencies {
-    implementation(npmv("react-query"))
+    implementation(npm("@tanstack/react-query", reactQueryVersion))
 
     implementation(enforcedPlatform(kotlinwBom()))
     implementation(kotlinw("browser"))
