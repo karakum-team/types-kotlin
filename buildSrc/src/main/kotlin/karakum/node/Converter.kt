@@ -278,7 +278,7 @@ private fun convertInterface(
         // TEMP
         .replace(": tty.ReadStream", "/* : tty.ReadStream */")
         .replace(": tty.WriteStream", "/* : tty.WriteStream */")
-        .replace(": ReadWriteStream", "/* : ReadWriteStream */")
+        .replace(": ReadWriteStream", ": node.ReadWriteStream")
 
     if (name == "EventEmitter")
         declaration += " : IEventEmitter"
@@ -305,6 +305,7 @@ private fun convertInterface(
         "IEventEmitter",
         "ReadableStream",
         "WritableStream",
+        "ReadWriteStream",
         -> "interface"
 
         "EventEmitter",
