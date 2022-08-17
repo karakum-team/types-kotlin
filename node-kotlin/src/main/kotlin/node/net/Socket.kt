@@ -295,12 +295,12 @@ external class Socket : node.stream.Duplex {
      */
     override fun end(callback: () -> Unit): Socket
     override fun end(
-        buffer: Any, /* Uint8Array | string */
+        chunk: Any, /* Uint8Array | string */
         callback: () -> Unit,
     ): Socket
 
     override fun end(
-        str: Any, /* Uint8Array | string */
+        chunk: Any, /* Uint8Array | string */
         encoding: node.buffer.BufferEncoding,
         callback: () -> Unit,
     ): Socket
