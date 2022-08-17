@@ -4,6 +4,7 @@ internal data class Package(
     val name: String,
 ) {
     private val root = name.substringBefore("/")
+        .removeSuffix("_threads") // for `worker_threds`
 
     val id: String = concat("node", ":", name)
     val pkg: String = "package " + concat("node", ".", root)

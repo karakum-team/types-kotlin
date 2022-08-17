@@ -172,6 +172,9 @@ internal fun convertDefinitions(
                 )
             )
 
+        Package("worker_threads") -> (interfaces + classes)
+            .plus(convertFunctions(content))
+
         else -> interfaces
     } + types
 }
@@ -192,6 +195,12 @@ private fun convertType(
     convertUnion(name, bodySource)?.let {
         return it
     }
+
+    if (name == "Serializable" || name == "TransferListItem")
+        return ConversionResult(
+            name = name,
+            body = "typealias $name = Any /* $bodySource */",
+        )
 
     if (bodySource == "-1 | 0 | 1")
         return ConversionResult(
@@ -424,8 +433,13 @@ private fun convertParameter(
         .removePrefix(" ")
         .removePrefix("\n")
 
+    val finalName = when (name) {
+        "object" -> "o"
+        else -> name
+    }
+
     return Parameter(
-        name = name,
+        name = finalName,
         type = kotlinType(typeSource, name),
         optional = source.startsWith("$name?"),
     )

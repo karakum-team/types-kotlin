@@ -78,6 +78,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     // TEMP
     "Require" to "$DYNAMIC /* Require */",
     "ClientRequestArgs" to "$DYNAMIC /* ClientRequestArgs */",
+    "Context" to "$DYNAMIC /* Context */",
+    "EventLoopUtilityFunction" to "Function<*> /* EventLoopUtilityFunction */",
 )
 
 private val TYPED = setOf(
@@ -169,6 +171,7 @@ internal fun kotlinType(
         .replace("=> void", "-> Unit")
         .replace("=> string", "-> String")
         .replace(": any", ": Any")
+        .replace(": unknown", ": Any?")
 
             // TEMP
         .replace("number)", "Number)")

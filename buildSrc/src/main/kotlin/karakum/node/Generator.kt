@@ -33,6 +33,9 @@ private val DEFAULT_IMPORTS = listOf(
     "BufferEncoding" to "node.buffer.BufferEncoding",
     ABORTABLE to "node.events.$ABORTABLE",
     "$EVENT." to "node.events.$EVENT",
+
+    "Readable" to "node.stream.Readable",
+    "Writable" to "node.stream.Writable",
 )
 
 private val MODULES = setOf(
@@ -51,6 +54,7 @@ private val MODULES = setOf(
     "stream/web",
     "tty",
     "url",
+    "worker_threads",
 )
 
 private val GLOBAL_TYPES = setOf(
