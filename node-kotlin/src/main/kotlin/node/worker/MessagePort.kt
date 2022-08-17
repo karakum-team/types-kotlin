@@ -274,7 +274,7 @@ external class MessagePort : node.events.EventEmitter {
         listener: (error: Error) -> Unit,
     ): MessagePort
 
-    fun off(
+    override fun off(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): MessagePort

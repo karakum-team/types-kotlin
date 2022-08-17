@@ -342,7 +342,7 @@ external class Worker : node.events.EventEmitter {
         listener: () -> Unit,
     ): Worker
 
-    fun off(
+    override fun off(
         event: String, /* | Symbol */
         listener: Function<Unit>,
     ): Worker
