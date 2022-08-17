@@ -104,7 +104,8 @@ internal fun addOverrides(
             .replace("\nfun  end(", "\noverride fun end(")
 
             // TODO: fix typings
-            .replaceFirst("(str: Any /* ", "(chunk: Any /* ")
+            .replace("(buffer: Any /* ", "(chunk: Any /* ")
+            .replace("(str: Any /* ", "(chunk: Any /* ")
             .replaceFirst(" write(chunk: Any,\nencoding: ", " write(str: String,\nencoding: ")
             .replaceFirst(" end(chunk: Any,\nencoding: ", " end(str: String,\nencoding: ")
     }
