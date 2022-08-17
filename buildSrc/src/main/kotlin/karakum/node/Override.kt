@@ -3,6 +3,7 @@ package karakum.node
 private val EMITTER_METHODS = listOf(
     "addListener",
     "emit",
+    "off",
     "on",
     "once",
     "prependListener",
