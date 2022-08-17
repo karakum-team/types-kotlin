@@ -309,7 +309,7 @@ private fun convertInterface(
 
     val body = convertMembers(bodySource)
         .replace(";--\n *", ";\n *")
-        .let { addOverrides(name, declaration, it) }
+        .let { addOverrides(name, declaration, it, classMode) }
 
     val type = when (name) {
         "Buffer",
@@ -323,25 +323,8 @@ private fun convertInterface(
         "ReadWriteStream",
         -> "interface"
 
-        "EventEmitter",
-        "LegacyStream",
-        "Stream",
-        "Readable",
-        "Writable",
-        "Duplex",
-        "Transform",
-        "PassThrough",
-        "OutgoingMessage",
-        "Server",
-        -> "open class"
-
         else -> if (classMode) {
-            when (name) {
-                "Socket",
-                -> "open class"
-
-                else -> "class"
-            }
+            if (name in OPEN_CLASSES) "open class" else "class"
         } else "sealed interface"
     }
 

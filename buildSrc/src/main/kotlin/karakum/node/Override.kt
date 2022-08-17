@@ -1,5 +1,17 @@
 package karakum.node
 
+internal val OPEN_CLASSES = setOf(
+    "EventEmitter",
+    "Server",
+    "Socket",
+    "Stream",
+    "LegacyStream",
+    "Duplex",
+    "Readable",
+    "Transform",
+    "Writable",
+)
+
 private val EMITTER_METHODS = listOf(
     "addListener",
     "emit",
@@ -15,6 +27,7 @@ internal fun addOverrides(
     name: String,
     declaration: String,
     body: String,
+    classMode: Boolean,
 ): String {
     var result = body
 
@@ -57,19 +70,6 @@ internal fun addOverrides(
             .replace("val closed:", "override val closed:")
             .replace("val errored:", "override val errored:")
             .replace("fun  _destroy(", "override fun _destroy(")
-
-            .replace("fun  end(", "open fun end(")
-            .replace("fun  write(", "open fun write(")
-    }
-
-    if (name == "Readable") {
-        result = result.replace("var destroyed:", "open var destroyed:")
-
-        EMITTER_METHODS.forEach {
-            result = result
-                .replace("fun  $it(event: Event.END", "open fun $it(event: Event.END")
-                .replace("fun  $it(event: Event.ERROR", "open fun $it(event: Event.ERROR")
-        }
     }
 
     if (name == "Readable" || name == "Socket") {
@@ -83,10 +83,6 @@ internal fun addOverrides(
             .replace("fun  unpipe(", "override fun unpipe(")
             .replace("fun  unshift(", "override fun unshift(")
             .replace("fun  wrap(", "override fun wrap(")
-
-            .replace("val closed:", "open val closed:")
-            .replace("val errored:", "open val errored:")
-            .replace("fun  _destroy(", "open fun _destroy(")
     }
 
     if (name == "Readable") {
@@ -144,6 +140,20 @@ internal fun addOverrides(
             override fun  unref(): RefCounted
             
         """ + result
+    }
+
+    if (classMode && name in OPEN_CLASSES) {
+        result = ("\n" + result)
+            .splitToSequence("companion object {")
+            .mapIndexed { index, data ->
+                if (index == 0) {
+                    data.replace("\nval ", "\nopen val ")
+                        .replace("\nvar ", "\nopen var ")
+                        .replace("\nfun ", "\nopen fun ")
+                } else data
+            }
+            .joinToString("companion object {")
+            .removePrefix("\n")
     }
 
     return result
