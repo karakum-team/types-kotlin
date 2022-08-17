@@ -109,14 +109,14 @@ internal fun addOverrides(
             .replaceFirst(" end(chunk: Any,\nencoding: ", " end(str: String,\nencoding: ")
     }
 
-    if (name == "Writable") {
-        sequenceOf(
-            "callback: () -> Unit",
-            "callback: () -> Unit",
-            "callback: () -> Unit",
-        ).forEach {
-            result = result.replaceFirst("$it = definedExternally", it)
-        }
+    if (name == "Writable" || name == "Socket") {
+        if (name == "Socket")
+            result = result.replaceFirst("callback: () -> Unit", "[callback: () -> Unit]")
+
+        result = result.replace("callback: () -> Unit = definedExternally", "callback: () -> Unit")
+
+        if (name == "Socket")
+            result = result.replaceFirst("[callback: () -> Unit]", "callback: () -> Unit")
     }
 
     if (name == "Writable" || name == "Socket") {
