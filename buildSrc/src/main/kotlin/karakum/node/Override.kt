@@ -137,5 +137,13 @@ internal fun addOverrides(
         )
     }
 
+    if (name == "BroadcastChannel") {
+        result = """
+            override fun  ref(): RefCounted
+            override fun  unref(): RefCounted
+            
+        """ + result
+    }
+
     return result
 }

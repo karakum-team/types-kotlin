@@ -25,6 +25,7 @@ private val DEFAULT_IMPORTS = listOf(
     ".await()" to "kotlinx.coroutines.await",
 
     "Dict<" to "node.Dict",
+    "RefCounted" to "node.RefCounted",
     "AbortSignal" to "node.AbortSignal",
     "ErrnoException" to "node.ErrnoException",
     "Module" to "node.Module",

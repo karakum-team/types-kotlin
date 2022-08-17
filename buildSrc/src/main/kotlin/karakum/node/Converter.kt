@@ -243,7 +243,7 @@ private fun convertInterface(
         .substringBefore("(")
         .substringBefore(":")
 
-    if (!classMode && name == "EventEmitter")
+    if (!classMode && (name == "EventEmitter" || name == "BroadcastChannel"))
         return convertInterface("I$source", classMode)
 
     if (name == "internal")
@@ -271,6 +271,7 @@ private fun convertInterface(
         .replace("<string>", "<String>")
         .replace("<bigint>", "<BigInt>")
         .replace("NodeJS.ArrayBufferView", "ArrayBufferView")
+        .replace("NodeJS.RefCount", "RefCount")
         .replace("implements NodeJS.ReadableStream", ", node.ReadableStream")
         .replace("implements NodeJS.WritableStream", ", node.WritableStream")
         .replace("implements Writable", "/* , Writable */")
@@ -289,8 +290,8 @@ private fun convertInterface(
         .replace(": tty.WriteStream", "/* : tty.WriteStream */")
         .replace(": ReadWriteStream", ": node.ReadWriteStream")
 
-    if (name == "EventEmitter")
-        declaration += " : IEventEmitter"
+    if (name == "EventEmitter" || name == "BroadcastChannel")
+        declaration += " : I$name"
 
     val bodySource = if (!source.substringBefore("\n").let { it.endsWith("{}") || it.endsWith("{ }") }) {
         source.substringAfter(" {\n")
@@ -312,6 +313,7 @@ private fun convertInterface(
         -> "class"
 
         "IEventEmitter",
+        "RefCounted",
         "ReadableStream",
         "WritableStream",
         "ReadWriteStream",
