@@ -103,7 +103,7 @@ internal fun kotlinType(
     if (" is " in type)
         return "Boolean /* $type */"
 
-    if (name == "port" && type.startsWith("string | number"))
+    if (name == "port" && (type.startsWith("string | number") || type.startsWith("number | string")))
         return STRING
 
     if (type.endsWith(" | undefined"))
