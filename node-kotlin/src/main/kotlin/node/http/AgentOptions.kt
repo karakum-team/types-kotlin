@@ -2,7 +2,7 @@
 
 package node.http
 
-sealed external interface AgentOptions : Partial<TcpSocketConnectOpts> {
+sealed external interface AgentOptions : node.net.TcpSocketConnectOpts /* Partial */ {
     /**
      * Keep sockets around in a pool to be used by other requests in the future. Default = false
      */
