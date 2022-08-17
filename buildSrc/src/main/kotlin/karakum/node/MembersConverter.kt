@@ -125,7 +125,7 @@ private fun convertConstructor(
 private fun convertMethod(
     source: String,
 ): String {
-    if ("{" in source) {
+    if ("{" in source && !source.startsWith("pipe<")) {
         return "\n// HIDDEN METHOD START\n/*\n$source\n*/\n// HIDDEN METHOD END\n".prependIndent("    ")
     }
 
@@ -145,6 +145,7 @@ private fun convertMethod(
         .let { if (it.isNotEmpty()) "<$it" else "" }
         .replace(" extends ", " : ")
         .replace("NodeJS.ArrayBufferView", "ArrayBufferView")
+        .replace("NodeJS.WritableStream", "node.WritableStream")
         .replace(" = Buffer", "")
 
     val parametersSource = source
@@ -155,7 +156,7 @@ private fun convertMethod(
     val parameters = when {
         parametersSource.isNotEmpty()
         -> parametersSource
-            .splitToSequence(", ")
+            .splitToSequence(",\n", ", ")
             .joinToString(",\n") {
                 convertParameter(it, optional)
             }
