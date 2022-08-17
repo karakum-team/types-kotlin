@@ -223,7 +223,6 @@ private fun convertType(
         .replace(": NodeJS.ErrnoException | null", ": ErrnoException?")
 
         // TEMP
-        .replace("worker: Worker", "worker: Any /* Worker */")
         .replace(": dns.LookupOneOptions", ": $DYNAMIC /* dns.LookupOneOptions */")
 
     if (!body.startsWith("()"))

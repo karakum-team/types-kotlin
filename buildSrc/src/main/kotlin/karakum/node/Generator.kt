@@ -37,6 +37,8 @@ private val DEFAULT_IMPORTS = listOf(
 
     "Readable" to "node.stream.Readable",
     "Writable" to "node.stream.Writable",
+
+    "Worker" to "node.worker.Worker",
 )
 
 private val MODULES = setOf(
