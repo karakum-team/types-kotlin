@@ -287,6 +287,7 @@ private fun convertInterface(
         .replace("string | Buffer", "Any /* string | Buffer */")
         .replace(": EventEmitter", if (classMode) ": node.events.EventEmitter" else ": node.events.IEventEmitter")
         .replace(": Error", "/* : Error */")
+        .replace("Partial<TcpSocketConnectOpts>", "node.net.TcpSocketConnectOpts /* Partial */")
         // TEMP???
         .replace(": StreamOptions<Readable>", ": StreamOptions<Stream /* Readable */>")
         .replace(": StreamOptions<Writable>", ": StreamOptions<Stream /* Writable */>")
@@ -322,6 +323,8 @@ private fun convertInterface(
         "ReadableStream",
         "WritableStream",
         "ReadWriteStream",
+
+        "TcpSocketConnectOpts",
         -> "interface"
 
         else -> if (classMode) {
