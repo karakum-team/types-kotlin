@@ -123,6 +123,9 @@ internal fun convertDefinitions(
         Package("fs/promises") -> interfaces
             .plus(convertFunctions(content))
 
+        Package("http") -> (interfaces + classes)
+            .plus(convertFunctions(content))
+
         Package("inspector") -> emptySequence()
 
         Package("net") -> (interfaces + classes)
@@ -276,6 +279,8 @@ private fun convertInterface(
         .replace("implements Writable", "/* , Writable */")
         .replace(": stream.Duplex", ": node.stream.Duplex")
         .replace(": net.Socket", ": node.net.Socket")
+        .replace(": stream.Writable", ": Writable")
+        .replace(": NetServer", ": node.net.Server")
         .replace(": internal", ": LegacyStream")
         .replace(" = Buffer", "")
         .replace("string | Buffer", "Any /* string | Buffer */")
@@ -326,6 +331,8 @@ private fun convertInterface(
         "Duplex",
         "Transform",
         "PassThrough",
+        "OutgoingMessage",
+        "Server",
         -> "open class"
 
         else -> if (classMode) {
@@ -354,6 +361,8 @@ private fun convertFunctions(
         .map { it.substringBefore(";\nexport ") }
         .map { it.substringBefore(";\ninterface ") }
         .map { it.substringBefore("\n/**") }
+        // WA for `http.get`
+        .map { it.substringBefore(";\nlet ") }
         .map { it.removeSuffix(";") }
         .flatMap { functionSource ->
             val comment = "/**\n" + source.substringBefore(functionSource)

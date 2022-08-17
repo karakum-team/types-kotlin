@@ -56,6 +56,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Buffer" to "node.buffer.Buffer",
     "BufferEncoding" to "node.buffer.BufferEncoding",
     "ReadableStream" to "node.stream.ReadableStream",
+    "stream.Duplex" to "Duplex",
     "symlink.Type" to "SymlinkType",
 
     "ObjectEncodingOptions | BufferEncoding" to "node.buffer.BufferEncoding /* ObjectEncodingOptions | BufferEncoding */",
@@ -64,6 +65,8 @@ private val STANDARD_TYPE_MAP = mapOf(
             "AsyncIterable<FileChangeInfo<Any /* string | Buffer */>>",
 
     "NodeJS.Dict<NetworkInterfaceInfo[]>" to "Dict<ReadonlyArray<NetworkInterfaceInfo>>",
+    "NodeJS.ReadOnlyDict<Socket[]>" to "ReadOnlyDict<ReadonlyArray<Socket>>",
+    "NodeJS.ReadOnlyDict<IncomingMessage[]>" to "ReadOnlyDict<ReadonlyArray<IncomingMessage>>",
 
     "streamWeb.ReadableStream" to "node.stream.ReadableStream",
     "streamWeb.WritableStream" to "node.stream.WritableStream",
@@ -170,10 +173,13 @@ internal fun kotlinType(
         .replace("=> number", "-> Number")
         .replace("=> void", "-> Unit")
         .replace("=> string", "-> String")
+        .replace("=> Socket", "-> Socket")
         .replace(": any", ": Any")
         .replace(": unknown", ": Any?")
 
-            // TEMP
+        // TEMP
         .replace("number)", "Number)")
         .replace("string)", "String)")
+        .replace(": stream.Readable)", ": Readable)")
+        .replace("stream.Duplex)", "Duplex)")
 }

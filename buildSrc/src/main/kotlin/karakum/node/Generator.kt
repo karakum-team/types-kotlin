@@ -25,6 +25,7 @@ private val DEFAULT_IMPORTS = listOf(
     ".await()" to "kotlinx.coroutines.await",
 
     "Dict<" to "node.Dict",
+    "ReadOnlyDict<" to "node.ReadOnlyDict",
     "RefCounted" to "node.RefCounted",
     "AbortSignal" to "node.AbortSignal",
     "ErrnoException" to "node.ErrnoException",
@@ -37,7 +38,9 @@ private val DEFAULT_IMPORTS = listOf(
 
     "Readable" to "node.stream.Readable",
     "Writable" to "node.stream.Writable",
+    "Duplex" to "node.stream.Duplex",
 
+    "Socket" to "node.net.Socket",
     "Worker" to "node.worker.Worker",
 )
 
@@ -47,6 +50,7 @@ private val MODULES = setOf(
     "globals",
     "fs",
     "fs/promises",
+    // "http",
     "inspector",
     "net",
     "os",
@@ -89,6 +93,8 @@ fun generateKotlinDeclarations(
             .replace(" wrap(oldStream:", " wrap(stream:")
             .replace(" write(buffer: Uint8Array | string", " write(chunk: Uint8Array | string")
             .replace(" end(data: string | Uint8Array", "end(chunk: string | Uint8Array")
+            // TEMP
+            .replace("headers: OutgoingHttpHeaders | ReadonlyArray<[string, string]>", "headers: OutgoingHttpHeaders")
 
         var definitions = convertDefinitions(source, pkg)
         when (pkg) {
@@ -146,6 +152,7 @@ private fun fileContent(
     pkg: Package,
 ): String {
     val defaultImports = DEFAULT_IMPORTS
+        .let { if (pkg.name != "process") it else it.filter { it.first != "Socket" } }
         .filter { it.first in body }
         .map { "import ${it.second}" }
         .joinToString("\n")
