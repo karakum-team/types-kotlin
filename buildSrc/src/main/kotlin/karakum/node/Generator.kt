@@ -40,6 +40,7 @@ private val DEFAULT_IMPORTS = listOf(
     "Writable" to "node.stream.Writable",
     "Duplex" to "node.stream.Duplex",
 
+    "LookupFunction" to "node.net.LookupFunction",
     "Socket" to "node.net.Socket",
     "Worker" to "node.worker.Worker",
 )
