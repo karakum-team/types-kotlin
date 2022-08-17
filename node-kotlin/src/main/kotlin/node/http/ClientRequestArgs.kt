@@ -12,7 +12,7 @@ sealed external interface ClientRequestArgs {
     var host: String?
     var hostname: String?
     var family: Number?
-    var port: Any?? /* number | string */
+    var port: String?
     var defaultPort: Any? /* number | string */
     var localAddress: String?
     var socketPath: String?
