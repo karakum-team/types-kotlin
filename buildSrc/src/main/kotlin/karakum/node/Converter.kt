@@ -126,10 +126,17 @@ internal fun convertDefinitions(
         Package("inspector") -> emptySequence()
 
         Package("net") -> (interfaces + classes)
+            .plus(convertFunctions(content))
             .plus(
                 ConversionResult(
                     "SocketConnectOpts",
                     "typealias SocketConnectOpts = ConnectOpts /* TcpSocketConnectOpts | IpcSocketConnectOpts */"
+                )
+            )
+            .plus(
+                ConversionResult(
+                    "NetConnectOpts",
+                    "typealias NetConnectOpts = SocketConstructorOpts /* TcpNetConnectOpts | IpcNetConnectOpts */"
                 )
             )
 
