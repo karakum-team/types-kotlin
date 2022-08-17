@@ -121,9 +121,9 @@ external class ClientRequest : OutgoingMessage {
      * @param timeout Milliseconds before a request times out.
      * @param callback Optional function to be called when a timeout occurs. Same as binding to the `'timeout'` event.
      */
-    fun setTimeout(
-        timeout: Number,
-        callback: () -> Unit = definedExternally,
+    override fun setTimeout(
+        msecs: Number,
+        callback: () -> Unit,
     ): ClientRequest
 
     /**
