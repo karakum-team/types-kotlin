@@ -279,6 +279,7 @@ private fun convertInterface(
         .replace("implements Writable", "/* , Writable */")
         .replace(": stream.Duplex", ": node.stream.Duplex")
         .replace(": net.Socket", ": node.net.Socket")
+        .replace(": stream.Readable", ": Readable")
         .replace(": stream.Writable", ": Writable")
         .replace(": NetServer", ": node.net.Server")
         .replace(": internal", ": LegacyStream")

@@ -10,6 +10,7 @@ internal val OPEN_CLASSES = setOf(
     "Readable",
     "Transform",
     "Writable",
+    "OutgoingMessage",
 )
 
 private val EMITTER_METHODS = listOf(
@@ -37,6 +38,8 @@ internal fun addOverrides(
         || name == "Writable"
         || name == "Socket"
         || name == "WriteStream"
+        || name == "ClientRequest"
+        || (name == "Server" && "node.net.Server" in declaration)
     ) {
         EMITTER_METHODS.forEach {
             result = result.replace("fun  $it(event: String", "override fun $it(event: String")
@@ -46,10 +49,50 @@ internal fun addOverrides(
     if (name == "Socket") {
         result = result.replace("val destroyed:", "override var /* val */ destroyed:")
 
-        EMITTER_METHODS.forEach {
-            result = result
-                .replace("fun  $it(event: Event.END", "override fun $it(event: Event.END")
-                .replace("fun  $it(event: Event.ERROR", "override fun $it(event: Event.ERROR")
+        EMITTER_METHODS.forEach { method ->
+            sequenceOf(
+                "Event.END",
+                "Event.ERROR",
+            ).forEach { event ->
+                result = result.replace(
+                    "fun  $method(event: $event",
+                    "override fun $method(event: $event",
+                )
+            }
+        }
+    }
+
+    if (name == "Server" && "node.net.Server" in declaration) {
+        EMITTER_METHODS.forEach { method ->
+            sequenceOf(
+                "Event.CLOSE",
+                "Event.CONNECTION",
+                "Event.ERROR",
+                "Event.LISTENING",
+            ).forEach { event ->
+                result = result.replace(
+                    "fun  $method(event: $event",
+                    "override fun $method(event: $event",
+                )
+            }
+        }
+    }
+
+    if (name == "ClientRequest") {
+        EMITTER_METHODS.forEach { method ->
+            sequenceOf(
+                "Event.CLOSE",
+                "Event.DRAIN",
+                "Event.ERROR",
+                "Event.FINISH",
+                "Event.PIPE",
+                "Event.UNPIPE",
+            ).forEach { event ->
+                result = result.replace(
+                    "fun  $method(event: $event",
+                    "override fun $method(event: $event",
+                )
+            }
         }
     }
 

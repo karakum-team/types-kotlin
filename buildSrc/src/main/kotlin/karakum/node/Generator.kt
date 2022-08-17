@@ -50,7 +50,7 @@ private val MODULES = setOf(
     "globals",
     "fs",
     "fs/promises",
-    // "http",
+    "http",
     "inspector",
     "net",
     "os",

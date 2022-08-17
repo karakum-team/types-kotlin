@@ -64,6 +64,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "AsyncIterable<FileChangeInfo<string>> | AsyncIterable<FileChangeInfo<Buffer>>" to
             "AsyncIterable<FileChangeInfo<Any /* string | Buffer */>>",
 
+    "NodeJS.Dict<string>" to "Dict<String>",
     "NodeJS.Dict<NetworkInterfaceInfo[]>" to "Dict<ReadonlyArray<NetworkInterfaceInfo>>",
     "NodeJS.ReadOnlyDict<Socket[]>" to "ReadOnlyDict<ReadonlyArray<Socket>>",
     "NodeJS.ReadOnlyDict<IncomingMessage[]>" to "ReadOnlyDict<ReadonlyArray<IncomingMessage>>",
@@ -77,6 +78,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "UrlWithStringQuery" to "Url /* UrlWithStringQuery */",
 
     "PathLike | FileHandle" to "PathLike /* | FileHandle */",
+
+    "typeof IncomingMessage" to "JsClass<IncomingMessage>",
+    "typeof ServerResponse" to "JsClass<ServerResponse>",
 
     // TEMP
     "Require" to "$DYNAMIC /* Require */",
