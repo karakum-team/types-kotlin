@@ -293,16 +293,16 @@ external class Socket : node.stream.Duplex {
      * @param callback Optional callback for when the socket is finished.
      * @return The socket itself.
      */
-    override fun end(callback: () -> Unit = definedExternally): Socket
+    override fun end(callback: () -> Unit): Socket
     override fun end(
         buffer: Any, /* Uint8Array | string */
-        callback: () -> Unit = definedExternally,
+        callback: () -> Unit,
     ): Socket
 
     override fun end(
         str: Any, /* Uint8Array | string */
         encoding: node.buffer.BufferEncoding,
-        callback: () -> Unit = definedExternally,
+        callback: () -> Unit,
     ): Socket
 
     /**
