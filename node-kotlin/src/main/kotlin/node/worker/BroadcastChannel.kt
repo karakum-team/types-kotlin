@@ -5,10 +5,13 @@
 
 package node.worker
 
-sealed external interface BroadcastChannel : NodeJS.RefCounted
+import node.RefCounted
 
+external class BroadcastChannel : IBroadcastChannel {
 
-external class BroadcastChannel {
+    override fun ref(): RefCounted
+    override fun unref(): RefCounted
+
     val name: String
 
     /**
