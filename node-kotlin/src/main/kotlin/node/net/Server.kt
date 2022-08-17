@@ -8,7 +8,7 @@ package node.net
 import kotlinx.js.ReadonlyArray
 import node.events.Event
 
-external class Server : node.events.EventEmitter {
+open external class Server : node.events.EventEmitter {
     constructor(connectionListener: (socket: Socket) -> Unit = definedExternally)
     constructor(
         options: ServerOpts = definedExternally,
