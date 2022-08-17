@@ -3,6 +3,7 @@
 package node.http
 
 import node.AbortSignal
+import node.net.LookupFunction
 import node.net.Socket
 
 sealed external interface ClientRequestArgs {
