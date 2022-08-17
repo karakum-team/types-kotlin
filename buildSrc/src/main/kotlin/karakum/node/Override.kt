@@ -22,6 +22,7 @@ internal fun addOverrides(
         || name == "Readable"
         || name == "Writable"
         || name == "Socket"
+        || name == "WriteStream"
     ) {
         EMITTER_METHODS.forEach {
             result = result.replace("fun  $it(event: String", "override fun $it(event: String")

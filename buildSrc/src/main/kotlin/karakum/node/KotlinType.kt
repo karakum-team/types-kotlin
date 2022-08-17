@@ -35,6 +35,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "boolean | Promise<boolean>" to "PromiseResult<Boolean>",
 
+    "[number, number]" to "JsPair<Int, Int>",
     "ReadonlySet<string>" to "JsSet<out String>",
 
     "Uint8Array | ReadonlyArray<number>" to "Uint8Array /* | ReadonlyArray<number> */",
@@ -66,6 +67,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "streamWeb.ReadableStream" to "node.stream.ReadableStream",
     "streamWeb.WritableStream" to "node.stream.WritableStream",
+    "net.SocketConstructorOpts" to "node.net.SocketConstructorOpts",
 
     "-1 | 0 | 1" to "Int /* -1 | 0 | 1 */",
 

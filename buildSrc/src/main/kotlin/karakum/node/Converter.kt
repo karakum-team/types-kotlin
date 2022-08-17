@@ -159,6 +159,9 @@ internal fun convertDefinitions(
             .plus(ConversionResult("ReadableStream", "external class ReadableStream"))
             .plus(ConversionResult("WritableStream", "external class WritableStream"))
 
+        Package("tty") -> (interfaces + classes)
+            .plus(convertFunctions(content))
+
         Package("url") -> interfaces
             .plus(convertFunctions(content))
             .plus(ConversionResult("URL.alias", "typealias URL = org.w3c.dom.url.URL"))
@@ -189,6 +192,12 @@ private fun convertType(
     convertUnion(name, bodySource)?.let {
         return it
     }
+
+    if (bodySource == "-1 | 0 | 1")
+        return ConversionResult(
+            name = name,
+            body = "typealias $name = Int /* $bodySource */",
+        )
 
     if (!bodySource.startsWith("("))
         return null
@@ -257,6 +266,7 @@ private fun convertInterface(
         .replace("implements NodeJS.WritableStream", ", node.WritableStream")
         .replace("implements Writable", "/* , Writable */")
         .replace(": stream.Duplex", ": node.stream.Duplex")
+        .replace(": net.Socket", ": node.net.Socket")
         .replace(": internal", ": LegacyStream")
         .replace(" = Buffer", "")
         .replace("string | Buffer", "Any /* string | Buffer */")
@@ -307,7 +317,14 @@ private fun convertInterface(
         "PassThrough",
         -> "open class"
 
-        else -> if (classMode) "class" else "sealed interface"
+        else -> if (classMode) {
+            when (name) {
+                "Socket",
+                -> "open class"
+
+                else -> "class"
+            }
+        } else "sealed interface"
     }
 
     return ConversionResult(

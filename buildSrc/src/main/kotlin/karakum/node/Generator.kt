@@ -10,6 +10,7 @@ private val DEFAULT_IMPORTS = listOf(
 
     "AsyncIterable" to "kotlinx.js.AsyncIterable",
     "BigInt" to "kotlinx.js.BigInt",
+    "JsPair" to "kotlinx.js.JsPair",
     "JsSet" to "kotlinx.js.JsSet",
     "PromiseResult" to "kotlinx.js.PromiseResult",
     "Record" to "kotlinx.js.Record",
@@ -48,6 +49,7 @@ private val MODULES = setOf(
     "querystring",
     "stream",
     "stream/web",
+    "tty",
     "url",
 )
 
