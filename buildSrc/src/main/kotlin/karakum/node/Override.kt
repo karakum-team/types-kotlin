@@ -128,6 +128,17 @@ internal fun addOverrides(
             .replace("fun  wrap(", "override fun wrap(")
     }
 
+    if (name == "ClientRequest")
+        result = result
+            .replace("fun  setTimeout(", "override fun setTimeout(")
+            .replace("setTimeout(timeout: ", "setTimeout(msecs: ")
+            .replace("callback: () -> Unit = definedExternally", "callback: () -> Unit")
+
+    if (name == "IncomingMessage")
+        result = result
+            .replace("fun  destroy(", "override fun destroy(")
+            .replace("destroy(error: Error = definedExternally)", "destroy(error: Error)")
+
     if (name == "Readable") {
         sequenceOf(
             "size: Number",
