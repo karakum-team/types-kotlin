@@ -235,6 +235,8 @@ fun kotlinFunctionType(type: String): String =
         .replace("TQueryFnData[]", "ReadonlyArray<TQueryFnData>")
         .replace("Query<unknown, unknown, unknown>", "Query<*, *, *, *>")
         .replace("Mutation<any, any, any>", "Mutation<*, *, *, *>")
+        .replace("Mutation<unknown, unknown, unknown>", "Mutation<*, *, *, *>")
+        .replace("Mutation<unknown, unknown, unknown, unknown>", "Mutation<*, *, *, *>")
         .replace(
             "RefetchOptions & RefetchQueryFilters<TPageData>?",
             "RefetchOptions? /* & RefetchQueryFilters<TPageData> */"
