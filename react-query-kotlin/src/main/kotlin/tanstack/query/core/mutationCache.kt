@@ -13,9 +13,9 @@ import kotlinx.js.ReadonlyArray
 import kotlin.js.Promise
 
 external interface MutationCacheConfig {
-    var onError: (error: Any, variables: Any, context: Any, mutation: Mutation<Any, Any, Any>) -> Unit
-    var onSuccess: (data: Any, variables: Any, context: Any, mutation: Mutation<Any, Any, Any>) -> Unit
-    var onMutate: (variables: Any, mutation: Mutation<Any, Any, Any, Any>) -> Unit
+    var onError: (error: Any, variables: Any, context: Any, mutation: Mutation<*, *, *, *>) -> Unit
+    var onSuccess: (data: Any, variables: Any, context: Any, mutation: Mutation<*, *, *, *>) -> Unit
+    var onMutate: (variables: Any, mutation: Mutation<*, *, *, *>) -> Unit
 }
 
 external interface NotifyEventMutationAdded {
