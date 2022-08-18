@@ -11,7 +11,6 @@
 package tanstack.react.query
 
 import kotlinx.js.ReadonlyArray
-import tanstack.query.core.*
 
 typealias UseQueryOptionsForUseQueries<TQueryFnData, TError, TData, TQueryKey> = Any
 
@@ -25,6 +24,4 @@ typealias QueriesOptions<T, Result, Depth> = Any
 
 typealias QueriesResults<T, Result, Depth> = Any
 
-external fun <T : ReadonlyArray<*>> useQueries( {
-    queries, context,
-}: dynamic ): dynamic
+external fun <T : ReadonlyArray<*>> useQueries(options: dynamic): dynamic
