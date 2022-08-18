@@ -31,13 +31,13 @@ external interface NotifyEventMutationRemoved {
 external interface NotifyEventMutationObserverAdded {
     var type: Type /* 'observerAdded' */
     var mutation: Mutation<*, *, *, *>
-    var observer: MutationObserver<*, *, *>
+    var observer: MutationObserver<*, *, *, *>
 }
 
 external interface NotifyEventMutationObserverRemoved {
     var type: Type /* 'observerRemoved' */
     var mutation: Mutation<*, *, *, *>
-    var observer: MutationObserver<*, *, *>
+    var observer: MutationObserver<*, *, *, *>
 }
 
 external interface NotifyEventMutationObserverOptionsUpdated {
