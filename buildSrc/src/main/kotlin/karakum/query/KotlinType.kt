@@ -123,6 +123,7 @@ internal fun kotlinType(
     if (type.startsWith("React."))
         return type.replace("React.", "react.")
             .replace(" | undefined>", "?>")
+            .replace("<boolean>", "<Boolean>")
 
     if (type.startsWith("Omit<"))
         return kotlinType(type.removePrefix("Omit<").substringBefore(", '"))
