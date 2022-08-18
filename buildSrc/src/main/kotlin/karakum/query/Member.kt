@@ -12,9 +12,14 @@ abstract class Member : Declaration() {
         source.startsWith("protected ")
     }
 
+    private val abstract: Boolean by lazy {
+        " abstract " in source
+    }
+
     protected val modifiers: String by lazy {
         mutableListOf<String>().apply {
             when {
+                abstract -> add("abstract")
                 overridden -> add("override")
                 open -> add("open")
             }

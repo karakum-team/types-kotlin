@@ -8,6 +8,8 @@ class Class(
 
     override val openByDefault: Boolean = true
 
+    private val abstract: Boolean = " abstract " in source.substringBefore("{")
+
     override fun toCode(): String {
         val extends = parentType?.let {
             (if (typeParameters.isNotEmpty()) "\n" else "") + ": $it"
@@ -17,7 +19,8 @@ class Class(
             .filterIsInstance<Constructor>()
             .firstOrNull()
 
-        return "open external class $name ${formatParameters(typeParameters)}" +
+        val modifier = if (abstract) "abstract" else "open"
+        return "$modifier external class $name ${formatParameters(typeParameters)}" +
                 (constructor?.toCode() ?: "") +
                 "$extends {\n$content\n}"
     }
