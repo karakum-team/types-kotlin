@@ -22,6 +22,7 @@ fun toDeclarations(
 
     var content = definitionFile.readText()
         .replace("{ context }", "options")
+        .replace("{ queries, context, }", "options")
         .replace("{ pageParam, ...options }", "options")
         .replace("{ refetchPage, ...options }", "options")
         .replace("{ refetchPage, ...options }", "options")
