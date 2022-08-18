@@ -26,6 +26,10 @@ fun toDeclarations(
         .replace("{ pageParam, ...options }", "options")
         .replace("{ refetchPage, ...options }", "options")
         .replace("{ refetchPage, ...options }", "options")
+        .replace(
+            "Omit<MutationObserverOptions<TData, TError, TVariables, TContext>, '_defaulted' | 'variables'>",
+            "MutationObserverOptions<TData, TError, TVariables, TContext>"
+        )
         // TEMP
         .replace(" & {\n        manual: boolean;\n    }", "")
 
