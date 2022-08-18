@@ -32,9 +32,7 @@ typealias DefinedUseQueryResult<TData, TError> = DefinedUseBaseQueryResult<TData
 typealias UseInfiniteQueryResult<TData, TError> = InfiniteQueryObserverResult<TData, TError>
 
 external interface UseMutationOptions<TData, TError, TVariables, TContext>
-    : ContextOptions, Omit<MutationObserverOptions<TData, TError, TVariables, TContext>, '_defaulted' | 'variables'> {
-
-}
+    : ContextOptions, MutationObserverOptions<TData, TError, TVariables, TContext>
 
 typealias UseMutateFunction<TData, TError, TVariables, TContext> = Function<Unit> /* (...args: Parameters<MutateFunction<TData, TError, TVariables, TContext>>) => void */
 
