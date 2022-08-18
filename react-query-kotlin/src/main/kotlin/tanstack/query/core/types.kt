@@ -366,7 +366,7 @@ external interface MutationObserverSuccessResult<TData, TError, TVariables, TCon
     override val status: MutationStatus /* 'success' */
 }
 
-sealed external interface MutationObserverResult<TData, TError, TVariables, TContext>
+external interface MutationObserverResult<TData, TError, TVariables, TContext>
     : MutationObserverBaseResult<TData, TError, TVariables, TContext>
 
 external interface QueryClientConfig {
