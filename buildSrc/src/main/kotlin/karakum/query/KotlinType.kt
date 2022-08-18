@@ -122,6 +122,7 @@ internal fun kotlinType(
 
     if (type.startsWith("React."))
         return type.replace("React.", "react.")
+            .replace(" | undefined>", "?>")
 
     if (type.startsWith("Omit<"))
         return kotlinType(type.removePrefix("Omit<").substringBefore(", '"))

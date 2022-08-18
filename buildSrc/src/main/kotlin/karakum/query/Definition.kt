@@ -21,8 +21,11 @@ fun toDeclarations(
     val fixAction = definitionFile.name == "mutation.d.ts"
 
     var content = definitionFile.readText()
+        .replace("{ context }", "options")
         .replace("{ pageParam, ...options }", "options")
         .replace("{ refetchPage, ...options }", "options")
+        .replace("{ refetchPage, ...options }", "options")
+        .replace("{ client, children, context, contextSharing, }", "props")
         // TEMP
         .replace(" & {\n        manual: boolean;\n    }", "")
 
