@@ -113,7 +113,7 @@ external interface RefetchOptions : ResultOptions {
 
 external interface InvalidateQueryFilters<TPageData>
     : QueryFilters, RefetchPageFilters<TPageData> {
-    var refetchType: QueryTypeFilter | 'none'
+    var refetchType: QueryTypeFilter /* | 'none' */
 }
 
 external interface RefetchQueryFilters<TPageData>
@@ -211,7 +211,7 @@ external interface QueryObserverSuccessResult<TData, TError>
 }
 
 sealed external interface DefinedQueryObserverResult<TData, TError>
-    : DefinedQueryObserverBaseResult<TData, TError>
+    : QueryObserverBaseResult<TData, TError>
 
 sealed external interface QueryObserverResult<TData, TError>
     : QueryObserverBaseResult<TData, TError>
