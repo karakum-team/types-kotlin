@@ -25,6 +25,10 @@ class Method(
             ": $returnType"
         } else ""
 
+        // TEMP
+        if (external && name == "useQuery" && returnType == DYNAMIC)
+            return ""
+
         val params = parameters.joinToString(",\n")
         val modifiers = (if (external) "external" else "") + modifiers
         return "$modifiers fun ${formatParameters(typeParameters)} ${safeName(name)}($params)$rt"
