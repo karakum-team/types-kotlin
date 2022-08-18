@@ -25,7 +25,6 @@ fun toDeclarations(
         .replace("{ pageParam, ...options }", "options")
         .replace("{ refetchPage, ...options }", "options")
         .replace("{ refetchPage, ...options }", "options")
-        .replace("{ client, children, context, contextSharing, }", "props")
         // TEMP
         .replace(" & {\n        manual: boolean;\n    }", "")
 
