@@ -36,6 +36,10 @@ fun toDeclarations(
     content = when (definitionFile.name) {
         "focusManager.d.ts" -> content.replace("SetupFn", "FocusManagerSetupFn")
         "onlineManager.d.ts" -> content.replace("SetupFn", "OnlineManagerSetupFn")
+
+        "useIsFetching.d.ts" -> content.replace(" Options", " UseIsFetchingOptions")
+        "useIsMutating.d.ts" -> content.replace(" Options", " UseIsMutatingOptions")
+
         else -> content
     }
 
