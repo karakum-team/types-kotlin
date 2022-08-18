@@ -9,7 +9,7 @@ package tanstack.react.query
 import tanstack.query.core.*
 
 external interface ContextOptions {
-    var context: react.Context<QueryClient | undefined>
+    var context: react.Context<QueryClient?>
 }
 
 external interface UseBaseQueryOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey : QueryKey>

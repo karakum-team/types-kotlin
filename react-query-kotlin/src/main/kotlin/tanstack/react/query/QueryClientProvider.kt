@@ -11,11 +11,9 @@ package tanstack.react.query
 
 import tanstack.query.core.*
 
-external val defaultContext: react.Context<QueryClient | undefined>
+external val defaultContext: react.Context<QueryClient?>
 
-external val useQueryClient: (
-
-{ context }: ContextOptions?) -> QueryClient
+external val useQueryClient: (options: ContextOptions?) -> QueryClient
 
 typealias QueryClientProviderPropsBase = Any
 
@@ -25,6 +23,4 @@ typealias QueryClientProviderPropsWithContextSharing = Any
 
 typealias QueryClientProviderProps = Union /* QueryClientProviderPropsWithContext | QueryClientProviderPropsWithContextSharing */
 
-external val QueryClientProvider: (
-
-{ client, children, context, contextSharing, }: QueryClientProviderProps) -> JSX.Element
+external val QueryClientProvider: (props: QueryClientProviderProps) -> JSX.Element
