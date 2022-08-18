@@ -1,6 +1,6 @@
 // Automatically generated - do not modify!
 
-@file:JsModule("react-query")
+@file:JsModule("@tanstack/query-core")
 @file:JsNonModule
 
 @file:Suppress(
