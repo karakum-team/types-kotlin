@@ -105,7 +105,10 @@ class Type(
 
         val declaration = "$name${formatParameters(typeParameters)}"
         if (name.endsWith("Result") && " | " in source) {
-            val parentDeclaration = declaration.replace("Result<", "BaseResult<")
+            val parentDeclaration = declaration
+                .removePrefix("Defined")
+                .replace("Result<", "BaseResult<")
+
             val modifiers = if (name == "MutationObserverResult") "" else "sealed"
             return "external $modifiers interface $declaration\n: $parentDeclaration"
         }

@@ -43,6 +43,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "RefetchOptions & RefetchQueryFilters<TPageData>" to "RefetchOptions /* & RefetchQueryFilters<TPageData> */",
 
     "QueriesResults<T>" to "QueriesResults<T,*,*>",
+    "QueryTypeFilter | 'none'" to "QueryTypeFilter /* | 'none' */",
 
     "InvalidateQueryFilters" to "InvalidateQueryFilters<*>",
     "RefetchQueryFilters" to "RefetchQueryFilters<*>",
