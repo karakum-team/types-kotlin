@@ -19,14 +19,17 @@ fun parseParameters(source: String): List<String> {
         }
 
         "suspense: boolean | undefined, _useErrorBoundary: boolean | ((err: TError) => boolean) | undefined, error: TError",
-        -> {
-            return params
+        -> return params
                 .replace(": boolean | ((", ": ((")
                 .replace(" => ", " -> ")
                 .replace(" boolean", " Boolean")
                 .replace(" | undefined, ", "?, ")
                 .split(", ")
-        }
+
+        "options?: QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey> | DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>",
+            -> return listOf(
+                "options: QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>? /* | DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey> */"
+            )
     }
 
     val parts = params.split(": ")

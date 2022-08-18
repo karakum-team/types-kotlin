@@ -31,7 +31,7 @@ fun generateKotlinDeclarations(
     reactTypesDir: File,
     sourceDir: File,
 ) {
-    val coreTargetDir = sourceDir.resolve("tanstack/core/query")
+    val coreTargetDir = sourceDir.resolve("tanstack/query/core")
         .also { it.mkdirs() }
 
     val reactTargetDir = sourceDir.resolve("tanstack/react/query")

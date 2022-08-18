@@ -98,7 +98,8 @@ internal fun kotlinType(
         return when (name) {
             "type" -> "Type /* $type */"
             "status" -> "QueryStatus /* $type */"
-            else -> TODO()
+            "_optimisticResults" -> "String /* $type */"
+            else -> TODO("Name - $name, Type - $type")
         }
     }
 
@@ -139,15 +140,15 @@ internal fun kotlinType(
 
                     t == "QueryObserverOptions<*, TError>"
                     -> t.replace(">", ", *, *, *>")
+
                     t == "QueryObserverOptions<*, *, *, *>"
                     -> t.replace(">", ", *>")
+
                     t.startsWith("QueryBehavior<T") && t.count { it == ',' } == 2
                     -> t.replace(Regex(">$"), ", *>")
 
                     t.startsWith("Query<") && t.count { it == ',' } == 2
                     -> t.replace(Regex("(>\\??)$"), ", *$1")
-                    t.startsWith("InfiniteQueryObserverOptions<")
-                    -> t.replace(">", ", *>")
 
                     else -> t
                 }
@@ -232,7 +233,10 @@ fun kotlinFunctionType(type: String): String =
         .replace("TQueryFnData[]", "ReadonlyArray<TQueryFnData>")
         .replace("Query<unknown, unknown, unknown>", "Query<*, *, *, *>")
         .replace("Mutation<any, any, any>", "Mutation<*, *, *, *>")
-        .replace("RefetchOptions & RefetchQueryFilters<TPageData>?", "RefetchOptions? /* & RefetchQueryFilters<TPageData> */")
+        .replace(
+            "RefetchOptions & RefetchQueryFilters<TPageData>?",
+            "RefetchOptions? /* & RefetchQueryFilters<TPageData> */"
+        )
         .replace("unknown", "Any")
 
 fun String.fixDefaultOptions(): String =

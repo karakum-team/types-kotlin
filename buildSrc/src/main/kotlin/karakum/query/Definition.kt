@@ -21,6 +21,11 @@ fun toDeclarations(
     val fixAction = definitionFile.name == "mutation.d.ts"
 
     var content = definitionFile.readText()
+        .replace("{ pageParam, ...options }", "options")
+        .replace("{ refetchPage, ...options }", "options")
+        // TEMP
+        .replace(" & {\n        manual: boolean;\n    }", "")
+
     content = when (definitionFile.name) {
         "focusManager.d.ts" -> content.replace("SetupFn", "FocusManagerSetupFn")
         "onlineManager.d.ts" -> content.replace("SetupFn", "OnlineManagerSetupFn")
