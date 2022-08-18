@@ -76,7 +76,7 @@ open external class Mutation<TData, TError, TVariables, TContext>(config: Mutati
     open fun setState(state: MutationState<TData, TError, TVariables, TContext>)
     open fun addObserver(observer: MutationObserver<*, *, *, *>)
     open fun removeObserver(observer: MutationObserver<*, *, *, *>)
-    protected open fun optionalRemove()
+    override fun optionalRemove()
     open fun `continue`(): Promise<TData>
     open fun execute(): Promise<TData>
 }
