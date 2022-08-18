@@ -9,6 +9,8 @@
 
 package tanstack.react.query
 
+import tanstack.query.core.*
+
 external val defaultContext: react.Context<QueryClient | undefined>
 
 external val useQueryClient: (

@@ -5,6 +5,9 @@
 
 package tanstack.react.query
 
+import tanstack.query.core.QueryFilters
+import tanstack.query.core.QueryKey
+
 external interface Options : ContextOptions
 
 external fun useIsFetching(

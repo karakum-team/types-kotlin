@@ -5,6 +5,9 @@
 
 package tanstack.react.query
 
+import tanstack.query.core.QueryFunction
+import tanstack.query.core.QueryKey
+
 external fun <TQueryFnData, TError, TData, TQueryKey : QueryKey> useQuery(options: UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>): dynamic
 
 external fun <TQueryFnData, TError, TData, TQueryKey : QueryKey> useQuery(options: UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>): dynamic

@@ -5,6 +5,8 @@
 
 package tanstack.react.query
 
+import tanstack.query.core.HydrateOptions
+
 external fun useHydrate(
     state: dynamic,
     options: dynamic = definedExternally,

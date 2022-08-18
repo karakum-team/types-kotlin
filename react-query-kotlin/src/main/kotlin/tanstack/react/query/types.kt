@@ -6,6 +6,8 @@
 
 package tanstack.react.query
 
+import tanstack.query.core.*
+
 external interface ContextOptions {
     var context: react.Context<QueryClient | undefined>
 }

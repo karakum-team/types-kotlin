@@ -5,6 +5,9 @@
 
 package tanstack.react.query
 
+import tanstack.query.core.MutationFunction
+import tanstack.query.core.MutationKey
+
 external fun <TData, TError, TVariables, TContext> useMutation(options: UseMutationOptions<TData, TError, TVariables, TContext>): UseMutationResult<TData, TError, TVariables, TContext>
 
 external fun <TData, TError, TVariables, TContext> useMutation(

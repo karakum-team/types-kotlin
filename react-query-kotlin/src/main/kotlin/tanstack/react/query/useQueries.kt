@@ -11,6 +11,7 @@
 package tanstack.react.query
 
 import kotlinx.js.ReadonlyArray
+import tanstack.query.core.*
 
 typealias UseQueryOptionsForUseQueries<TQueryFnData, TError, TData, TQueryKey> = Any
 

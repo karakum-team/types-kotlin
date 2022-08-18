@@ -5,6 +5,9 @@
 
 package tanstack.react.query
 
+import tanstack.query.core.MutationFilters
+import tanstack.query.core.MutationKey
+
 external interface Options : ContextOptions
 
 external fun useIsMutating(
