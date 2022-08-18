@@ -14,7 +14,7 @@ class TypeRegistry(
         parentName: String,
     ) {
         val parentMembers = when (type.name) {
-            "InfiniteQueryObserver" -> setOf("bindMethods")
+            "InfiniteQueryObserver" -> setOf("bindMethods", "getOptimisticResult")
             else -> membersMap[parentName] ?: return
         }
 
