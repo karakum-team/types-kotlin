@@ -41,10 +41,6 @@ fun generateKotlinDeclarations(
         .resolve("aliases.kt")
         .writeText(ALIASES.replace("##pkg##", CORE_PACKAGE))
 
-    reactTargetDir
-        .resolve("aliases.kt")
-        .writeText(ALIASES.replace("##pkg##", REACT_PACKAGE))
-
     generate(coreTypesDir, coreTargetDir, CORE_PACKAGE)
     generate(reactTypesDir, reactTargetDir, REACT_PACKAGE)
 }
@@ -120,9 +116,16 @@ private fun generate(
         } else ""
     }
 
+    var coreImport = if (pkg != CORE_PACKAGE) {
+        sequenceOf(
+            CORE_PACKAGE.replace("package ", "import ") + ".*"
+        )
+    } else emptySequence<String>()
+
     val defaultImports = DEFAULT_IMPORTS
         .filter { it.first in body }
         .map { "import ${it.second}" }
+        .plus(coreImport)
         .joinToString("\n")
 
     val text = sequenceOf(
