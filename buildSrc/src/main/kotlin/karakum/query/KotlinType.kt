@@ -32,6 +32,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Mutation<any, any>" to "Mutation<*, *, *, *>",
     "MutationState" to "MutationState<*, *, *, *>",
+    "MutationObserver<any, any, any>" to "MutationObserver<*, *, *, *>",
+    "MutationObserver<any, any, any, any>" to "MutationObserver<*, *, *, *>",
 
     "QueryState" to "QueryState<*, *>",
     "QueryOptions<any, any>" to "QueryOptions<*, *, *, *>",
