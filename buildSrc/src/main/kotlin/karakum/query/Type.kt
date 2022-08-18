@@ -85,6 +85,16 @@ class Type(
         if (name == "Override")
             return ""
 
+        if (name == "QueryClientProviderProps")
+            return """
+                external interface QueryClientProviderProps: react.PropsWithChildren {
+                    var client: QueryClient
+                }
+            """.trimIndent()
+
+        if (name.startsWith("QueryClientProviderProps"))
+            return ""
+
         if (originalBody.startsWith("'")) {
             val items = originalBody.splitToSequence(" | ")
                 .map { it.removePrefix("'") }
