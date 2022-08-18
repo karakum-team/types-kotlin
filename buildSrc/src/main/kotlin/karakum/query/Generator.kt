@@ -50,10 +50,13 @@ private fun generate(
     targetDir: File,
     pkg: String,
 ) {
-    val index = definitionsDir.resolve("index.d.ts")
     val files = definitionsDir
         .listFiles { file ->
-            file != index && file.name.endsWith(".d.ts")
+            val name = file.name
+                .takeIf { it.endsWith(".d.ts") }
+                ?.removeSuffix(".d.ts")
+
+            name != null && name != "index" && !name.endsWith(".native")
         }
         ?: return
 
