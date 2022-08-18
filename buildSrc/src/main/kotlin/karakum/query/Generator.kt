@@ -4,9 +4,6 @@ import java.io.File
 
 const val GENERATOR_COMMENT = "Automatically generated - do not modify!"
 
-// language=Kotlin
-private const val MODULE_DECLARATION = "@file:JsModule(\"react-query\")\n@file:JsNonModule"
-
 private enum class Suppress {
     UNUSED_TYPEALIAS_PARAMETER,
     NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE,
@@ -23,32 +20,34 @@ private val DEFAULT_IMPORTS = listOf(
     "Void" to "kotlinx.js.Void",
 )
 
-private const val CORE_PACKAGE = "package tanstack.query.core"
-private const val REACT_PACKAGE = "package tanstack.react.query"
-
 fun generateKotlinDeclarations(
     coreTypesDir: File,
     reactTypesDir: File,
     sourceDir: File,
 ) {
-    val coreTargetDir = sourceDir.resolve("tanstack/query/core")
+    val coreTargetDir = sourceDir.resolve(Package.CORE.path)
         .also { it.mkdirs() }
 
-    val reactTargetDir = sourceDir.resolve("tanstack/react/query")
+    val reactTargetDir = sourceDir.resolve(Package.REACT.path)
         .also { it.mkdirs() }
 
     coreTargetDir
         .resolve("aliases.kt")
-        .writeText(ALIASES.replace("##pkg##", CORE_PACKAGE))
+        .writeText(ALIASES.replace("##pkg##", Package.CORE.pkg))
 
-    generate(coreTypesDir, coreTargetDir, CORE_PACKAGE)
-    generate(reactTypesDir, reactTargetDir, REACT_PACKAGE)
+    generate(coreTypesDir, coreTargetDir, Package.CORE)
+    generate(reactTypesDir, reactTargetDir, Package.REACT)
 }
+
+private fun moduleDeclaration(
+    pkg: Package,
+): String =
+    "@file:JsModule(\"${pkg.module}\")\n@file:JsNonModule"
 
 private fun generate(
     definitionsDir: File,
     targetDir: File,
-    pkg: String,
+    pkg: Package,
 ) {
     val files = definitionsDir
         .listFiles { file ->
@@ -92,7 +91,7 @@ private fun generate(
 private fun generate(
     file: File,
     declarations: List<Declaration>,
-    pkg: String,
+    pkg: Package,
 ) {
     val body = declarations.asSequence()
         .map { it.toCode() }
@@ -101,7 +100,7 @@ private fun generate(
 
     val moduleRequired = "external class " in body || "external fun " in body || "external val " in body
     val annotations = if (moduleRequired) {
-        MODULE_DECLARATION
+        moduleDeclaration(pkg)
     } else ""
 
     val suppresses: String = run {
@@ -119,11 +118,9 @@ private fun generate(
         } else ""
     }
 
-    var coreImport = if (pkg != CORE_PACKAGE) {
-        sequenceOf(
-            CORE_PACKAGE.replace("package ", "import ") + ".*"
-        )
-    } else emptySequence<String>()
+    val coreImport = sequenceOf(Package.CORE)
+        .minus(pkg)
+        .map { it.starImport }
 
     val defaultImports = DEFAULT_IMPORTS
         .filter { it.first in body }
@@ -135,7 +132,7 @@ private fun generate(
         "// $GENERATOR_COMMENT",
         annotations,
         suppresses,
-        pkg,
+        pkg.pkg,
         defaultImports,
         body,
     ).filter { it.isNotEmpty() }
