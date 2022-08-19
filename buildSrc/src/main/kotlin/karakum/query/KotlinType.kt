@@ -27,6 +27,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "TError | null" to "TError?",
     "boolean | T | undefined" to "T?",
 
+    "TData | Promise<TData>" to "PromiseResult<TData>",
+    "() => unknown | Promise<unknown>" to "() -> Promise<*>?",
+
     "AbortController" to "org.w3c.fetch.AbortController",
     "AbortSignal" to "org.w3c.fetch.AbortSignal",
 

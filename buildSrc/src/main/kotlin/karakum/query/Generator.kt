@@ -15,6 +15,7 @@ private val DEFAULT_IMPORTS = listOf(
     "Promise" to "kotlin.js.Promise",
 
     "JsPair" to "kotlinx.js.JsPair",
+    "PromiseResult" to "kotlinx.js.PromiseResult",
     "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
     "Record" to "kotlinx.js.Record",
     "Void" to "kotlinx.js.Void",
