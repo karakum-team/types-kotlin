@@ -5,4 +5,4 @@
 
 package tanstack.react.query
 
-external val unstable_batchedUpdates: dynamic
+external val unstable_batchedUpdates: Any /* typeof ReactDOM.unstable_batchedUpdates */

@@ -8,14 +8,14 @@ package tanstack.react.query
 import tanstack.query.core.HydrateOptions
 
 external fun useHydrate(
-    state: dynamic,
-    options: dynamic = definedExternally,
+    state: Any?,
+    options: Any /* HydrateOptions & ContextOptions */ = definedExternally,
 )
 
 external interface HydrateProps : react.PropsWithChildren {
-    var state: dynamic
+    var state: Any?
     var options: HydrateOptions
     override var children: react.ReactNode?
 }
 
-external val Hydrate: dynamic
+external val Hydrate: react.FC<HydrateProps>

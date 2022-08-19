@@ -50,10 +50,10 @@ external interface QueryOptions<TQueryFnData, TError, TData, TQueryKey : QueryKe
     var queryHash: String
     var queryKey: TQueryKey
     var queryKeyHashFn: QueryKeyHashFunction<TQueryKey>
-    var initialData: dynamic
-    var initialDataUpdatedAt: dynamic
+    var initialData: Any /* TData | InitialDataFunction<TData> */
+    var initialDataUpdatedAt: Any /* number | (() => number | undefined) */
     var behavior: QueryBehavior<TQueryFnData, TError, TData, *>
-    var structuralSharing: dynamic
+    var structuralSharing: Any /* boolean | ((oldData: TData | undefined, newData: TData) => TData) */
     var getPreviousPageParam: GetPreviousPageParamFunction<TQueryFnData>
     var getNextPageParam: GetNextPageParamFunction<TQueryFnData>
     var _defaulted: Boolean
@@ -64,21 +64,21 @@ external interface QueryObserverOptions<TQueryFnData, TError, TData, TQueryData,
     : QueryOptions<TQueryFnData, TError, TQueryData, TQueryKey> {
     var enabled: Boolean
     var staleTime: JsDuration
-    var refetchInterval: dynamic
+    var refetchInterval: Any /* number | false | ((data: TData | undefined, query: Query<TQueryFnData, TError, TQueryData, TQueryKey>) => number | false) */
     var refetchIntervalInBackground: Boolean
-    var refetchOnWindowFocus: dynamic
-    var refetchOnReconnect: dynamic
-    var refetchOnMount: dynamic
+    var refetchOnWindowFocus: Any /* boolean | 'always' | ((query: Query<TQueryFnData, TError, TQueryData, TQueryKey>) => boolean | 'always') */
+    var refetchOnReconnect: Any /* boolean | 'always' | ((query: Query<TQueryFnData, TError, TQueryData, TQueryKey>) => boolean | 'always') */
+    var refetchOnMount: Any /* boolean | 'always' | ((query: Query<TQueryFnData, TError, TQueryData, TQueryKey>) => boolean | 'always') */
     var retryOnMount: Boolean
-    var notifyOnChangeProps: dynamic
+    var notifyOnChangeProps: Any /* Array<keyof InfiniteQueryObserverResult> | 'all' */
     var onSuccess: (data: TData) -> Unit
     var onError: (err: TError) -> Unit
     var onSettled: (data: TData?, error: TError?) -> Unit
-    var useErrorBoundary: dynamic
+    var useErrorBoundary: Any /* boolean | ((error: TError, query: Query<TQueryFnData, TError, TQueryData, TQueryKey>) => boolean) */
     var select: (data: TQueryData) -> TData
     var suspense: Boolean
     var keepPreviousData: Boolean
-    var placeholderData: dynamic
+    var placeholderData: Any /* TQueryData | PlaceholderDataFunction<TQueryData> */
     var _optimisticResults: String /* 'optimistic' | 'isRestoring' */
 }
 
@@ -288,9 +288,9 @@ external interface MutationOptions<TData, TError, TVariables, TContext> {
     var mutationKey: MutationKey
     var variables: TVariables
     var onMutate: (variables: TVariables) -> Promise<TContext?>?
-    var onSuccess: dynamic
-    var onError: dynamic
-    var onSettled: dynamic
+    var onSuccess: (data: TData, variables: TVariables, context: TContext?) -> Promise<*>?
+    var onError: (error: TError, variables: TVariables, context: TContext?) -> Promise<*>?
+    var onSettled: (data: TData?, error: TError?, variables: TVariables, context: TContext?) -> Promise<*>?
     var retry: RetryValue<TError>
     var retryDelay: RetryDelayValue<TError>
     var networkMode: NetworkMode
@@ -305,9 +305,9 @@ external interface MutationObserverOptions<TData, TError, TVariables, TContext>
 }
 
 external interface MutateOptions<TData, TError, TVariables, TContext> {
-    var onSuccess: dynamic
-    var onError: dynamic
-    var onSettled: dynamic
+    var onSuccess: (data: TData, variables: TVariables, context: TContext) -> Promise<*>?
+    var onError: (error: TError, variables: TVariables, context: TContext?) -> Promise<*>?
+    var onSettled: (data: TData?, error: TError?, variables: TVariables, context: TContext?) -> Promise<*>?
 }
 
 typealias MutateFunction<TData, TError, TVariables, TContext> = (variables: TVariables, options: MutateOptions<TData, TError, TVariables, TContext>?) -> Promise<TData>

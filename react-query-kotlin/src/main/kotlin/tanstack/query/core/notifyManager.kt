@@ -15,6 +15,6 @@ typealias NotifyFunction = (callback: () -> Unit) -> Unit
 
 typealias BatchNotifyFunction = (callback: () -> Unit) -> Unit
 
-external fun createNotifyManager(): dynamic
+external fun createNotifyManager(): dynamic /* { */
 
-external val notifyManager: dynamic
+external val notifyManager: dynamic /* { */

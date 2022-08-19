@@ -5,7 +5,9 @@
 
 package tanstack.react.query
 
+import kotlinx.js.ReadonlyArray
+
 external fun <T : Function<Boolean>> shouldThrowError(
     _useErrorBoundary: T?,
-    params: dynamic,
+    params: ReadonlyArray<*>, /* Parameters<T> */
 ): Boolean

@@ -27,7 +27,7 @@ open external class InfiniteQueryObserver<TQueryFnData, TError, TData, TQueryDat
         notifyOptions: NotifyOptions = definedExternally,
     )
 
-    override fun getOptimisticResult(options: dynamic): InfiniteQueryObserverResult<TData, TError>
+    override fun getOptimisticResult(options: DefaultedInfiniteQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>): InfiniteQueryObserverResult<TData, TError>
     open fun fetchNextPage(options: FetchNextPageOptions = definedExternally): Promise<InfiniteQueryObserverResult<TData, TError>>
     open fun fetchPreviousPage(options: FetchPreviousPageOptions = definedExternally): Promise<InfiniteQueryObserverResult<TData, TError>>
     protected open fun createResult(

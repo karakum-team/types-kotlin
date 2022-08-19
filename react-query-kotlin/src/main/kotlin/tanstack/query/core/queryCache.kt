@@ -84,7 +84,7 @@ open external class QueryCache(config: QueryCacheConfig = definedExternally) : S
 
     open fun findAll(filters: QueryFilters = definedExternally): ReadonlyArray<Query<*, *, *, *>>
     open fun findAll(
-        arg1: dynamic = definedExternally,
+        arg1: Any /* QueryKey | QueryFilters */ = definedExternally,
         arg2: QueryFilters = definedExternally,
     ): ReadonlyArray<Query<*, *, *, *>>
 

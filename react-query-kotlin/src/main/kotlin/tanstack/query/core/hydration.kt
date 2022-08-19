@@ -54,6 +54,6 @@ external fun dehydrate(
 
 external fun hydrate(
     client: QueryClient,
-    dehydratedState: dynamic,
+    dehydratedState: Any?,
     options: HydrateOptions = definedExternally,
 )

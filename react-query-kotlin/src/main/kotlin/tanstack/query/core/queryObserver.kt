@@ -41,12 +41,12 @@ open external class QueryObserver<TQueryFnData, TError, TData, TQueryData, TQuer
         notifyOptions: NotifyOptions = definedExternally,
     )
 
-    open fun getOptimisticResult(options: dynamic): QueryObserverResult<TData, TError>
+    open fun getOptimisticResult(options: DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>): QueryObserverResult<TData, TError>
     open fun getCurrentResult(): QueryObserverResult<TData, TError>
     open fun trackResult(result: QueryObserverResult<TData, TError>): QueryObserverResult<TData, TError>
     open fun getCurrentQuery(): Query<TQueryFnData, TError, TQueryData, TQueryKey>
     open fun remove()
-    open fun <TPageData> refetch(options: dynamic = definedExternally): Promise<QueryObserverResult<TData, TError>>
+    open fun <TPageData> refetch(options: Any /* RefetchOptions & RefetchPageFilters<TPageData> */ = definedExternally): Promise<QueryObserverResult<TData, TError>>
     open fun fetchOptimistic(options: QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>): Promise<QueryObserverResult<TData, TError>>
     protected open fun fetch(fetchOptions: ObserverFetchOptions): Promise<QueryObserverResult<TData, TError>>
     protected open fun createResult(

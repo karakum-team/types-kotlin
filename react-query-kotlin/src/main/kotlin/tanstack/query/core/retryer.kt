@@ -13,7 +13,7 @@ package tanstack.query.core
 import kotlin.js.Promise
 
 external interface RetryerConfig<TData, TError> {
-    var fn: () -> dynamic
+    var fn: () -> Any /* TData | Promise<TData> */
     var abort: () -> Unit
     var onError: (error: TError) -> Unit
     var onSuccess: (data: TData) -> Unit

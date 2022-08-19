@@ -36,13 +36,13 @@ open external class QueryClient(config: QueryClientConfig = definedExternally) {
         queryKey: QueryKey,
         updater: Updater<TData?, TData?>,
         options: SetDataOptions = definedExternally,
-    ): JsPair<QueryKey, dynamic>
+    ): JsPair<QueryKey, Any /* TData | undefined][ */>
 
     open fun <TData> setQueriesData(
         filters: QueryFilters,
         updater: Updater<TData?, TData?>,
         options: SetDataOptions = definedExternally,
-    ): JsPair<QueryKey, dynamic>
+    ): JsPair<QueryKey, Any /* TData | undefined][ */>
 
     open fun <TData, TError> getQueryState(
         queryKey: QueryKey,
@@ -165,7 +165,7 @@ open external class QueryClient(config: QueryClientConfig = definedExternally) {
     )
 
     open fun getMutationDefaults(mutationKey: MutationKey = definedExternally): MutationObserverOptions<*, *, *, *>?
-    open fun <TQueryFnData, TError, TData, TQueryData, TQueryKey : QueryKey> defaultQueryOptions(options: QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>? /* | DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey> */): dynamic
+    open fun <TQueryFnData, TError, TData, TQueryData, TQueryKey : QueryKey> defaultQueryOptions(options: QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>? /* | DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey> */): DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>
     open fun <T : MutationOptions<*, *, *, *>> defaultMutationOptions(options: T = definedExternally): T
     open fun clear()
 }

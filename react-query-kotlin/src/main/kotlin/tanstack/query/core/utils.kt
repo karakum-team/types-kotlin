@@ -44,7 +44,7 @@ external fun <TInput, TOutput> functionalUpdate(
     input: TInput,
 ): TOutput
 
-external fun isValidTimeout(value: dynamic): Boolean /* value is number */
+external fun isValidTimeout(value: Any?): Boolean /* value is number */
 
 external fun <T> difference(
     array1: ReadonlyArray<T>,
@@ -63,26 +63,26 @@ external fun timeUntilStale(
 ): Int
 
 external fun <TOptions : QueryOptions<*, *, *, TQueryKey>, TQueryKey : QueryKey> parseQueryArgs(
-    arg1: dynamic,
-    arg2: dynamic = definedExternally,
+    arg1: Any, /* TQueryKey | TOptions */
+    arg2: Any /* QueryFunction<any, TQueryKey> | TOptions */ = definedExternally,
     arg3: TOptions = definedExternally,
 ): TOptions
 
 external fun <TOptions : MutationOptions<*, *, *, *>> parseMutationArgs(
-    arg1: dynamic,
-    arg2: dynamic = definedExternally,
+    arg1: Any, /* MutationKey | MutationFunction<any, any> | TOptions */
+    arg2: Any /* MutationFunction<any, any> | TOptions */ = definedExternally,
     arg3: TOptions = definedExternally,
 ): TOptions
 
 external fun <TFilters : QueryFilters, TOptions> parseFilterArgs(
-    arg1: dynamic = definedExternally,
-    arg2: dynamic = definedExternally,
+    arg1: Any /* QueryKey | TFilters */ = definedExternally,
+    arg2: Any /* TFilters | TOptions */ = definedExternally,
     arg3: TOptions = definedExternally,
 ): JsPair<TFilters, TOptions?>
 
 external fun <TFilters : MutationFilters, TOptions> parseMutationFilterArgs(
-    arg1: dynamic = definedExternally,
-    arg2: dynamic = definedExternally,
+    arg1: Any /* QueryKey | TFilters */ = definedExternally,
+    arg2: Any /* TFilters | TOptions */ = definedExternally,
     arg3: TOptions = definedExternally,
 ): JsPair<TFilters, TOptions?>
 
@@ -114,7 +114,7 @@ external fun partialDeepEqual(
 ): Boolean
 
 external fun <T> replaceEqualDeep(
-    a: dynamic,
+    a: Any?,
     b: T,
 ): T
 
@@ -123,11 +123,11 @@ external fun <T> shallowEqualObjects(
     b: T,
 ): Boolean
 
-external fun isPlainArray(value: dynamic): Boolean
+external fun isPlainArray(value: Any?): Boolean
 
 external fun isPlainObject(o: Any): Boolean /* o is Object */
 
-external fun isQueryKey(value: dynamic): Boolean /* value is QueryKey */
+external fun isQueryKey(value: Any?): Boolean /* value is QueryKey */
 
 external fun isError(value: Any): Boolean /* value is Error */
 

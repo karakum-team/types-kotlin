@@ -38,7 +38,7 @@ external interface QueryState<TData, TError> {
 }
 
 external interface FetchContext<TQueryFnData, TError, TData, TQueryKey : QueryKey> {
-    var fetchFn: () -> dynamic
+    var fetchFn: () -> Any /* unknown | Promise<unknown> */
     var fetchOptions: FetchOptions
     var signal: org.w3c.fetch.AbortSignal
     var options: QueryOptions<TQueryFnData, TError, TData, *>

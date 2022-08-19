@@ -24,4 +24,4 @@ typealias QueriesOptions<T, Result, Depth> = Any
 
 typealias QueriesResults<T, Result, Depth> = Any
 
-external fun <T : ReadonlyArray<*>> useQueries(options: dynamic): dynamic
+external fun <T : ReadonlyArray<*>> useQueries(options: dynamic /* { */): QueriesResults<T, *, *>
