@@ -175,7 +175,9 @@ internal fun convertDefinitions(
                 )
             )
 
-        Package("worker_threads") -> (interfaces + classes)
+        Package("vm"),
+        Package("worker_threads"),
+        -> (interfaces + classes)
             .plus(convertFunctions(content))
 
         else -> interfaces

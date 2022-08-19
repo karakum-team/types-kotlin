@@ -91,8 +91,18 @@ private fun convertProperty(
     val modifier = if (source.startsWith("readonly ")) "val" else "var"
     val body = source.removePrefix("readonly ")
 
-    val name = body.substringBefore(": ").removeSuffix("?")
-    var type = kotlinType(body.substringAfter(": "), name)
+    val name = body.substringBefore(": ")
+        .substringBefore(":\n")
+        .removeSuffix("?")
+
+    val typeSource = body
+        .substringAfter(":")
+        .removePrefix(" ")
+        .removePrefix("\n")
+        .trimIndent()
+        .removePrefix("| ")
+
+    var type = kotlinType(typeSource, name)
 
     if (body.startsWith("$name?"))
         type = type.addOptionality()

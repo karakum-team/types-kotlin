@@ -8,6 +8,7 @@ internal const val STRING = "String"
 private val STANDARD_TYPE_MAP = mapOf(
     "any" to "Any",
     "object" to "Any",
+    "Object" to "Any",
     "{}" to "Any",
 
     "boolean" to "Boolean",
@@ -84,8 +85,6 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     // TEMP
     "Require" to "$DYNAMIC /* Require */",
-    "ClientRequestArgs" to "$DYNAMIC /* ClientRequestArgs */",
-    "Context" to "$DYNAMIC /* Context */",
     "EventLoopUtilityFunction" to "Function<*> /* EventLoopUtilityFunction */",
 )
 
@@ -122,7 +121,7 @@ internal fun kotlinType(
         return resultType
     }
 
-    if (" | " in type && !type.startsWith("Promise<")) {
+    if (" | " in type && !type.startsWith("{") && !type.startsWith("Promise<")) {
         if ("| BufferEncoding" in type)
             return "BufferEncoding /* $type */"
 
@@ -159,8 +158,9 @@ internal fun kotlinType(
         return "$STRING /* $type */"
 
     if (type.startsWith("{"))
-        return "$DYNAMIC /* $type */"
+        return "Any /* $type */"
             .prependIndent("    ")
+            .removePrefix("    ")
 
     if (" & " in type)
         return (type.substringBefore(" & ") + " /* " + type.substringAfter(" & ") + " */")

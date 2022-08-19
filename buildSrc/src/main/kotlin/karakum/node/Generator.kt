@@ -43,6 +43,9 @@ private val DEFAULT_IMPORTS = listOf(
     "LookupFunction" to "node.net.LookupFunction",
     "Socket" to "node.net.Socket",
     "Worker" to "node.worker.Worker",
+
+    "ClientRequestArgs" to "node.http.ClientRequestArgs",
+    "Context" to "node.vm.Context",
 )
 
 private val MODULES = setOf(
@@ -63,6 +66,7 @@ private val MODULES = setOf(
     "tty",
     "url",
     "worker_threads",
+    "vm",
 )
 
 private val GLOBAL_TYPES = setOf(
