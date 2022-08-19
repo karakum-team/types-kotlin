@@ -21,11 +21,14 @@ fun toDeclarations(
     val fixAction = definitionFile.name == "mutation.d.ts"
 
     var content = definitionFile.readText()
-        .replace("{ context }", "options")
         .replace("{ queries, context, }", "options")
         .replace("{ pageParam, ...options }", "options")
         .replace("{ refetchPage, ...options }", "options")
         .replace("{ refetchPage, ...options }", "options")
+        .replace(
+            "const useQueryClient: ({ context }?: ContextOptions) => QueryClient",
+            "function useQueryClient(options?: ContextOptions): QueryClient"
+        )
         .replace(
             "Omit<MutationObserverOptions<TData, TError, TVariables, TContext>, '_defaulted' | 'variables'>",
             "MutationObserverOptions<TData, TError, TVariables, TContext>"
