@@ -1,10 +1,10 @@
 package karakum.query
 
 // language=Kotlin
-internal const val ALIASES = """
+internal val ALIASES_BODY = """
 // $GENERATOR_COMMENT    
 
-##pkg##
+${Package.CORE.pkg}
 
 typealias JsTimestamp = Double
 typealias JsDuration = Int

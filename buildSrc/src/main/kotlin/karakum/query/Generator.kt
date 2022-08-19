@@ -33,7 +33,7 @@ fun generateKotlinDeclarations(
 
     coreTargetDir
         .resolve("aliases.kt")
-        .writeText(ALIASES.replace("##pkg##", Package.CORE.pkg))
+        .writeText(ALIASES_BODY)
 
     generate(coreTypesDir, coreTargetDir, Package.CORE)
     generate(reactTypesDir, reactTargetDir, Package.REACT)
