@@ -53,6 +53,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "RefetchQueryFilters<TPageData>" to "RefetchQueryFilters<TPageData>",
     "ResetQueryFilters<TPageData>" to "ResetQueryFilters<TPageData>",
 
+    "Parameters<T>" to "ReadonlyArray<*> /* Parameters<T> */",
+
     "((value: QueryErrorResetBoundaryValue) => React.ReactNode) | React.ReactNode" to
             "(value: QueryErrorResetBoundaryValue) -> react.ReactNode",
 
@@ -62,7 +64,7 @@ private val STANDARD_TYPE_MAP = mapOf(
             "react.FC<QueryErrorResetBoundaryProps>",
     "({ client, children, context, contextSharing, }: QueryClientProviderProps) => JSX.Element" to
             "react.FC<QueryClientProviderProps>",
-    "({ children, options, state }: HydrateProps) => React.ReactElement<any, string | ((props: any) => React.ReactElement<any, any> | null) | (new (props: any) => React.Component<any, any, any>)>" to
+    "({ children, options, state }: HydrateProps) => React.ReactElement<any, string | React.JSXElementConstructor<any>>" to
             "react.FC<HydrateProps>",
 )
 
@@ -84,6 +86,13 @@ internal fun kotlinType(
     type: String,
     name: String? = null,
 ): String {
+    if (type.startsWith("import(\"@tanstack/query-core\")."))
+        return kotlinType(type.removePrefix("import(\"@tanstack/query-core\")."), name)
+
+    // TEMP
+    if (type.startsWith("useQueries<T extends"))
+        return "QueriesResults<T, *, *>"
+
     if (STANDARD_TYPE_MAP.containsKey(type))
         return STANDARD_TYPE_MAP.getValue(type)
 
@@ -107,13 +116,15 @@ internal fun kotlinType(
     }
 
     if (type == "unknown") {
-        when (name) {
+        return when (name) {
             "pages",
-            -> return "Page"
+            -> "Page"
 
             "pageParam",
             "pageParams",
-            -> return "PageParam"
+            -> "PageParam"
+
+            else -> "Any?"
         }
     }
 
@@ -223,7 +234,20 @@ internal fun kotlinType(
         }
     }
 
-    return DYNAMIC
+    if (type.startsWith("("))
+        return type
+            .replace(" | undefined", "?")
+            .replace(" | null", "?")
+            .replace(") => Promise<unknown> | unknown", ") -> Promise<*>?")
+            .replace(" => ", " -> ")
+
+    if (" | " in type || " & " in type || type.startsWith("typeof "))
+        return "Any /* $type */"
+
+    if (type.startsWith("{"))
+        return "$DYNAMIC /* $type */"
+
+    return type
 }
 
 fun kotlinFunctionType(type: String): String =

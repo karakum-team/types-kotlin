@@ -26,7 +26,7 @@ class Method(
         } else ""
 
         // TEMP
-        if (external && name == "useQuery" && returnType == DYNAMIC)
+        if (external && name == "useQuery" && returnType.startsWith("Any /* useQuery<"))
             return ""
 
         val params = parameters.joinToString(",\n")
