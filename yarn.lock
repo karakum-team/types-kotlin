@@ -110,15 +110,10 @@
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.2.tgz#b74129719fc8d11c01868010082d483b7545591a"
   integrity sha512-MqTGEo5bj5t157U6fA/BiDynNkn0YknVdh48CMPkTSpFTVmvao5UQmm7uEF6xBEo7qIMAlY/JSleYaE6VOdpaA==
 
-"@types/node@18.7.6":
+"@types/node@18.7.6", "@types/node@>=13.7.0":
   version "18.7.6"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.6.tgz#31743bc5772b6ac223845e18c3fc26f042713c83"
   integrity sha512-EdxgKRXgYsNITy5mjjXjVE/CS8YENSdhiagGrLqjG0pvA2owgJ6i4l7wy/PFZGC0B1/H20lWKN7ONVDNYDZm7A==
-
-"@types/node@>=13.7.0":
-  version "18.7.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.3.tgz#432c89796eab539b7a30b7b8801a727b585238a4"
-  integrity sha512-LJgzOEwWuMTBxHzgBR/fhhBOWrvBjvO+zPteUgbbuQi80rYIZHrk1mNbRUqPZqSLP2H7Rwt1EFLL/tNLD1Xx/w==
 
 "@types/prop-types@*":
   version "15.7.5"
@@ -150,14 +145,14 @@
   integrity sha512-+F0Ozq+ksnKtjcMHujSgb4A1Vjt0b4wvvxP3/pTnXKsIrLo34EgHh2z3qJq3ntX4dbK6ytxpY1rzO/4Z8rVrHg==
 
 "@zip.js/zip.js@^2.3.12":
-  version "2.6.14"
-  resolved "https://registry.yarnpkg.com/@zip.js/zip.js/-/zip.js-2.6.14.tgz#a002120d2dd42cdf0d1cf1e0b94749887db786f5"
-  integrity sha512-VGGSutYVSMQ7v7sgfRB9qzWhrsUXr+gyIrlI2VsRmP74eNivHjMHQcCwdgF/ZAmuCJypPumpa9ST04xjjVWeMQ==
+  version "2.6.16"
+  resolved "https://registry.yarnpkg.com/@zip.js/zip.js/-/zip.js-2.6.16.tgz#1c549bb8f93341e9485842b9a1c18728553648c0"
+  integrity sha512-tZAdyGB1rlu3RQ/+2UJs+4F2pMSe7HUjUs3iim62OXKqIyjtMaeq5ddDsNwGcInrPIoXeKGgNxGKVwvBZpqkPw==
 
 autolinker@^3.14.3:
-  version "3.15.0"
-  resolved "https://registry.yarnpkg.com/autolinker/-/autolinker-3.15.0.tgz#03956088648f236642a5783612f9ca16adbbed38"
-  integrity sha512-N/5Dk5AZnqL9k6kkHdFIGLm/0/rRuSnJwqYYhLCJjU7ZtiaJwCBzNTvjzy1zzJADngv/wvtHYcrPHytPnASeFA==
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/autolinker/-/autolinker-3.16.0.tgz#6fad29b038ba99cbfbab79f78019fed4264df0c6"
+  integrity sha512-KY8yhlwvuQpA7exkkvHsmk0chdrtS0ZRO7XoPfs7w8N3kpiGPjYNDrQ0lIMx2GrKFZzGK/QSEd2Sx5SYtSNBKg==
   dependencies:
     tslib "^2.3.0"
 
