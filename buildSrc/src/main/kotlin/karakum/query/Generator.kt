@@ -31,9 +31,11 @@ fun generateKotlinDeclarations(
     val reactTargetDir = sourceDir.resolve(Package.REACT.path)
         .also { it.mkdirs() }
 
-    coreTargetDir
-        .resolve("aliases.kt")
+    coreTargetDir.resolve("aliases.kt")
         .writeText(ALIASES_BODY)
+
+    coreTargetDir.resolve("$QUERY_KEY.kt")
+        .writeText(QUERY_KEY_BODY)
 
     generate(coreTypesDir, coreTargetDir, Package.CORE)
     generate(reactTypesDir, reactTargetDir, Package.REACT)

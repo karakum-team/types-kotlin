@@ -6,8 +6,6 @@ private val SPECIAL_TYPES = setOf(
     "TOutput | DataUpdateFunction<TInput, TOutput>",
 )
 
-private const val QUERY_KEY = "QueryKey"
-
 class Type(
     override val source: String,
     fixAction: Boolean,
