@@ -9,7 +9,7 @@ import tanstack.query.core.QueryClient
 
 external val defaultContext: react.Context<QueryClient?>
 
-external val useQueryClient: (options: ContextOptions?) -> QueryClient
+external fun useQueryClient(options: ContextOptions = definedExternally): QueryClient
 
 external interface QueryClientProviderProps : react.PropsWithChildren {
     var client: QueryClient
