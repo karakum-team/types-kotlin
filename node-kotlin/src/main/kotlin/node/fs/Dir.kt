@@ -52,8 +52,8 @@ external class Dir /* : AsyncIterable<Dirent> */ {
     fun read(): Promise<Dirent?>
     fun read(
         callback: (
-            error: NodeJS.ErrnoException?,
-            dirEnt: Dirent,
+            error: ErrnoException?,
+            dirEnt: Dirent?,
         ) -> Unit,
     )
 
