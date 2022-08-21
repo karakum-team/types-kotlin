@@ -42,7 +42,7 @@ private val DEFAULT_IMPORTS = listOf(
 
     "LookupFunction" to "node.net.LookupFunction",
     "Socket" to "node.net.Socket",
-    "Worker" to "node.worker.Worker",
+    "Worker" to "node.workerThreads.Worker",
 
     "ClientRequestArgs" to "node.http.ClientRequestArgs",
     "Context" to "node.vm.Context",
