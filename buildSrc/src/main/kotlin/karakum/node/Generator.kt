@@ -43,6 +43,7 @@ private val DEFAULT_IMPORTS = listOf(
 
     "Signals" to "node.process.Signals",
     "ProcessEnv" to "node.process.ProcessEnv",
+    "BufferEncodingOption" to "node.fs.BufferEncodingOption",
     "ObjectEncodingOptions" to "node.fs.ObjectEncodingOptions",
 
     "LookupFunction" to "node.net.LookupFunction",

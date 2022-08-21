@@ -201,44 +201,26 @@ internal fun addOverrides(
             .replace("var signal:", "override var signal:")
     }
 
-    if (name == "ExecFileSyncOptionsWithBufferEncoding") {
-        result = result
-            .replace("var encoding:", "override var encoding:")
-    }
+    when (name) {
+        "ExecFileSyncOptionsWithBufferEncoding",
+        "ExecSyncOptionsWithBufferEncoding",
+        "SpawnSyncOptionsWithBufferEncoding",
+        -> result = result
+            .replace("var encoding: BufferEncodingOption?", "override var encoding: Any? /* BufferEncodingOption? */")
 
-    if (name == "ExecFileSyncOptionsWithStringEncoding") {
-        result = result
+        "ExecFileSyncOptionsWithStringEncoding",
+        "ExecSyncOptionsWithStringEncoding",
+        "SpawnSyncOptionsWithStringEncoding",
+        -> result = result
             .replace("var encoding: node.buffer.BufferEncoding", "override var encoding: Any? /* BufferEncoding */")
-    }
 
-    if (name == "ExecSyncOptionsWithBufferEncoding") {
-        result = result
-            .replace("var encoding: String?", "override var encoding: Any?")
-    }
-
-    if (name == "ExecSyncOptionsWithStringEncoding") {
-        result = result
-            .replace("var encoding: node.buffer.BufferEncoding", "override var encoding: Any? /* BufferEncoding */")
-    }
-
-    if (name == "SpawnOptionsWithStdioTuple") {
-        result = result
+        "SpawnOptionsWithStdioTuple",
+        -> result = result
             .replace("var stdio: ReadonlyArray<*>", "override var stdio: StdioOptions?")
-    }
 
-    if (name == "SpawnOptionsWithoutStdio") {
-        result = result
-            .replace("var stdio:", "override var stdio:")
-    }
-
-    if (name == "SpawnSyncOptionsWithBufferEncoding") {
-        result = result
-            .replace("var encoding: String?", "override var encoding: Any?")
-    }
-
-    if (name == "SpawnSyncOptionsWithStringEncoding") {
-        result = result
-            .replace("var encoding: node.buffer.BufferEncoding", "override var encoding: Any? /* BufferEncoding */")
+        "SpawnOptionsWithoutStdio",
+        -> result = result
+            .replace("var stdio: Any?", "override var stdio: StdioOptions?")
     }
 
     if (classMode && name in OPEN_CLASSES) {

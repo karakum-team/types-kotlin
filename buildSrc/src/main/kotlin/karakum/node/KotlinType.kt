@@ -59,6 +59,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "NodeJS.Signals | null) => void" to "Signals?) -> Unit",
     "string | Buffer) => void" to "Any /* string | Buffer */) -> Unit",
     "(ObjectEncodingOptions & ExecFileOptions)" to "ObjectEncodingOptions /* & ExecFileOptions */",
+    "'buffer' | null; // specify `null`." to "BufferEncodingOption? // specify `null`.",
+    "'buffer'" to "BufferEncodingOption",
 
     "Buffer" to "node.buffer.Buffer",
     "BufferEncoding" to "node.buffer.BufferEncoding",
