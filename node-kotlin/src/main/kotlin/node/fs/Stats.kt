@@ -5,4 +5,4 @@
 
 package node.fs
 
-external class Stats
+abstract external class Stats : IStats
