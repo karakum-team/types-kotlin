@@ -66,8 +66,9 @@ private val MODULES = setOf(
     "stream/web",
     "tty",
     "url",
-    "worker_threads",
+    "util",
     "vm",
+    "worker_threads",
 )
 
 private val GLOBAL_TYPES = setOf(

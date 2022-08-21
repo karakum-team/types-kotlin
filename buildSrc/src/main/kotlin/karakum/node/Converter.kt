@@ -172,6 +172,9 @@ internal fun convertDefinitions(
                 )
             )
 
+        Package("util") -> interfaces
+            .filter { it.name == "InspectOptions" }
+
         Package("async_hooks"),
         Package("http"),
         Package("vm"),
