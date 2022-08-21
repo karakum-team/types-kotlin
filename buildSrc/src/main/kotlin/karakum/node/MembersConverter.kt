@@ -51,6 +51,8 @@ private fun convertMember(
     }
 
     body = body
+        .replace("(this: This, ...args: any[]) => Result", "Function<Result> /* this: This */")
+        .replace("(...args: TArgs) => R", "Function<R> /* ...args: TArgs */")
         .replace("Pick<ReadableOptions, 'encoding' | 'highWaterMark' | 'objectMode' | 'signal'>", "ReadableOptions")
         .replace(
             "Pick<WritableOptions, 'decodeStrings' | 'highWaterMark' | 'objectMode' | 'signal'>",
@@ -154,6 +156,7 @@ private fun convertMethod(
         .substringAfter("<", "")
         .let { if (it.isNotEmpty()) "<$it" else "" }
         .replace(" extends ", " : ")
+        .replace("TArgs : any[]", "TArgs")
         .replace("NodeJS.ArrayBufferView", "ArrayBufferView")
         .replace("NodeJS.WritableStream", "node.WritableStream")
         .replace(" = Buffer", "")

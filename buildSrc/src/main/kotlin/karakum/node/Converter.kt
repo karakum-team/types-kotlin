@@ -123,9 +123,6 @@ internal fun convertDefinitions(
         Package("fs/promises") -> interfaces
             .plus(convertFunctions(content))
 
-        Package("http") -> (interfaces + classes)
-            .plus(convertFunctions(content))
-
         Package("inspector") -> emptySequence()
 
         Package("net") -> (interfaces + classes)
@@ -175,6 +172,8 @@ internal fun convertDefinitions(
                 )
             )
 
+        Package("async_hooks"),
+        Package("http"),
         Package("vm"),
         Package("worker_threads"),
         -> (interfaces + classes)
