@@ -56,7 +56,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "(error?: Error | null) => void" to "(error: Error?) -> Unit",
     "(error: Error | null | undefined) => void" to "(error: Error?) -> Unit",
 
-    "Dirent | null) => void" to "Dirent) -> Unit",
+    "Dirent | null) => void" to "Dirent?) -> Unit",
     "NodeJS.Signals | null) => void" to "Signals?) -> Unit",
     "string | Buffer) => void" to "Any /* string | Buffer */) -> Unit",
     "(ObjectEncodingOptions & ExecFileOptions)" to "ObjectEncodingOptions /* & ExecFileOptions */",
@@ -199,5 +199,6 @@ internal fun kotlinType(
         .replace("number)", "Number)")
         .replace("string)", "String)")
         .replace(": stream.Readable)", ": Readable)")
+        .replace(": NodeJS.ErrnoException", ": ErrnoException")
         .replace("stream.Duplex)", "Duplex)")
 }
