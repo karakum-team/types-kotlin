@@ -108,7 +108,7 @@ internal fun convertDefinitions(
             .plus(ConversionResult("Dict", "typealias Dict<T> = Record<String, T>"))
             .plus(ConversionResult("ReadOnlyDict", "typealias ReadOnlyDict<T> = Record<String, out T>"))
 
-        Package("fs") -> interfaces
+        Package("fs") -> (interfaces + classes)
             .plus(convertFunctions(content, syncOnly = true))
             .plus(SymlinkType())
             .plus(WatchEventType())
@@ -121,9 +121,6 @@ internal fun convertDefinitions(
             .plus(ConversionResult("Mode", "typealias Mode = Int"))
             .plus(ConversionResult("OpenMode", "typealias OpenMode = Int"))
             .plus(ConversionResult("ReadPosition", "typealias ReadPosition = Number"))
-            .plus(ConversionResult("Dir", "external class Dir"))
-            .plus(ConversionResult("ReadStream", "external class ReadStream"))
-            .plus(ConversionResult("WriteStream", "external class WriteStream"))
 
         Package("fs/promises") -> interfaces
             .plus(convertFunctions(content))
@@ -271,7 +268,7 @@ private fun convertInterface(
         .substringBefore("(")
         .substringBefore(":")
 
-    if (!classMode && (name == "EventEmitter" || name == "BroadcastChannel"))
+    if (!classMode && (name == "Stats" || name == "EventEmitter" || name == "BroadcastChannel"))
         return convertInterface("I$source", classMode)
 
     if (name == "internal")
@@ -303,6 +300,7 @@ private fun convertInterface(
         .replace("implements NodeJS.ReadableStream", ", node.ReadableStream")
         .replace("implements NodeJS.WritableStream", ", node.WritableStream")
         .replace("implements Writable", "/* , Writable */")
+        .replace("implements AsyncIterable<Dirent>", "/* : AsyncIterable<Dirent> */")
         .replace(": stream.Duplex", ": node.stream.Duplex")
         .replace(": net.Socket", ": node.net.Socket")
         .replace(": stream.Readable", ": Readable")

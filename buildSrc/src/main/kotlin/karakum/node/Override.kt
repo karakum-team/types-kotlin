@@ -37,6 +37,7 @@ internal fun addOverrides(
         || name == "Readable"
         || name == "Writable"
         || name == "Socket"
+        || name == "ReadStream"
         || name == "WriteStream"
         || name == "ClientRequest"
         || (name == "Server" && "node.net.Server" in declaration)
@@ -79,6 +80,42 @@ internal fun addOverrides(
     }
 
     if (name == "ClientRequest") {
+        EMITTER_METHODS.forEach { method ->
+            sequenceOf(
+                "Event.CLOSE",
+                "Event.DRAIN",
+                "Event.ERROR",
+                "Event.FINISH",
+                "Event.PIPE",
+                "Event.UNPIPE",
+            ).forEach { event ->
+                result = result.replace(
+                    "fun  $method(event: $event",
+                    "override fun $method(event: $event",
+                )
+            }
+        }
+    }
+
+    if (name == "ReadStream" && ": Readable" in declaration) {
+        EMITTER_METHODS.forEach { method ->
+            sequenceOf(
+                "Event.CLOSE",
+                "Event.END",
+                "Event.ERROR",
+                "Event.PAUSE",
+                "Event.READABLE",
+                "Event.RESUME",
+            ).forEach { event ->
+                result = result.replace(
+                    "fun  $method(event: $event",
+                    "override fun $method(event: $event",
+                )
+            }
+        }
+    }
+
+    if (name == "WriteStream" && ": Writable" in declaration) {
         EMITTER_METHODS.forEach { method ->
             sequenceOf(
                 "Event.CLOSE",
