@@ -45,8 +45,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "NodeJS.Platform" to "node.process.Platform",
     "NodeJS.ReadableStream" to "node.ReadableStream",
     "NodeJS.WritableStream" to "node.WritableStream",
-    "NodeJS.Signals" to "node.process.Signals",
-    "NodeJS.ProcessEnv" to "node.process.ProcessEnv",
+    "NodeJS.Signals" to "Signals",
+    "NodeJS.ProcessEnv" to "ProcessEnv",
 
     "Blob" to "org.w3c.files.Blob",
 
@@ -63,7 +63,6 @@ private val STANDARD_TYPE_MAP = mapOf(
     "'buffer' | null; // specify `null`." to "BufferEncodingOption? // specify `null`.",
     "'buffer'" to "BufferEncodingOption",
 
-    "Buffer" to "node.buffer.Buffer",
     "BufferEncoding" to "node.buffer.BufferEncoding",
     "ReadableStream" to "node.stream.ReadableStream",
     "stream.Readable" to "Readable",
@@ -153,7 +152,7 @@ internal fun kotlinType(
             .prependIndent("    ")
             .removePrefix("    ")
 
-    if (" | " in type && !type.startsWith("{") && !type.startsWith("Promise<")) {
+    if (" | " in type && !type.startsWith("{") && !type.startsWith("Promise<") && !type.startsWith("Any /* ")) {
         if ("| BufferEncoding" in type)
             return "BufferEncoding /* $type */"
 
@@ -206,9 +205,4 @@ internal fun kotlinType(
         .replace("=> Socket", "-> Socket")
         .replace(": any", ": Any")
         .replace(": unknown", ": Any?")
-
-        // TEMP
-        .replace("number)", "Number)")
-        .replace("string)", "String)")
-        .replace("stream.Duplex)", "Duplex)")
 }

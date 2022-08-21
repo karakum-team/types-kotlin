@@ -117,6 +117,7 @@ private fun convertConstructor(
 ): String {
     val parametersSource = source
         .substringAfter("(")
+        .replaceFunctionType()
         .substringBeforeLast("): ")
         .removeSuffix(")")
 
@@ -163,6 +164,7 @@ private fun convertMethod(
 
     val parametersSource = source
         .substringAfter("(")
+        .replaceFunctionType()
         .substringBeforeLast("): ")
 
     val optional = source.startsWith("$name?")

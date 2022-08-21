@@ -415,6 +415,7 @@ private fun convertFunction(
 
     val parameters = source
         .substringAfter("(")
+        .replaceFunctionType()
         .substringBeforeLast(")")
         .splitToSequence(", ", ",")
         .map { it.trim() }
