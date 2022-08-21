@@ -304,7 +304,7 @@ private fun convertInterface(
         .replace("implements NodeJS.ReadableStream", ", node.ReadableStream")
         .replace("implements NodeJS.WritableStream", ", node.WritableStream")
         .replace("implements Writable", "/* , Writable */")
-        .replace("implements AsyncIterable<Dirent>", "/* : AsyncIterable<Dirent> */")
+        .replace("implements AsyncIterable<Dirent>", ": AsyncIterable<Dirent>")
         .replace(": stream.Duplex", ": node.stream.Duplex")
         .replace(": net.Socket", ": node.net.Socket")
         .replace(": stream.Readable", ": Readable")
