@@ -323,7 +323,7 @@ private fun convertInterface(
         .replace(": tty.WriteStream", "/* : tty.WriteStream */")
         .replace(": ReadWriteStream", ": node.ReadWriteStream")
 
-    if (name == "EventEmitter" || name == "BroadcastChannel")
+    if (name == "Stats" || name == "EventEmitter" || name == "BroadcastChannel")
         declaration += " : I$name"
 
     val bodySource = if (!source.substringBefore("\n").let { it.endsWith("{}") || it.endsWith("{ }") }) {
@@ -355,7 +355,12 @@ private fun convertInterface(
         -> "interface"
 
         else -> if (classMode) {
-            if (name in OPEN_CLASSES) "open class" else "class"
+            when (name) {
+                // TEMP
+                "Stats" -> "abstract class"
+                in OPEN_CLASSES -> "open class"
+                else -> "class"
+            }
         } else "sealed interface"
     }
 
