@@ -6,7 +6,6 @@
 package node.asyncHooks
 
 /**
-/**
  * ```js
  * import { executionAsyncId } from 'async_hooks';
  *
@@ -36,5 +35,5 @@ package node.asyncHooks
  * See the section on `promise execution tracking`.
  * @since v8.1.0
  * @return The `asyncId` of the current execution context. Useful to track when something calls.
-*/
+ */
 external fun executionAsyncId(): Number
