@@ -130,10 +130,14 @@ internal fun kotlinType(
         return resultType
     }
 
-    if (type.startsWith("{"))
+    if (type.startsWith("{")) {
+        if ("end?: boolean | undefined;" in type && type.count { it == ';' } == 1)
+            return PIPE_OPTIONS
+
         return "Any /* $type */"
             .prependIndent("    ")
             .removePrefix("    ")
+    }
 
     if (type.startsWith("["))
         return "ReadonlyArray<*> /* $type */"

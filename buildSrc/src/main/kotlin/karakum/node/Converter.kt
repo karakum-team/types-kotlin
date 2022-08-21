@@ -109,6 +109,7 @@ internal fun convertDefinitions(
         Package("globals") -> interfaces
             .map { it.copy(body = it.body.replace("node.stream.", "")) }
             .plus(abortClasses())
+            .plus(PipeOptions())
             .plus(ConversionResult("Dict", "typealias Dict<T> = Record<String, T>"))
             .plus(ConversionResult("ReadOnlyDict", "typealias ReadOnlyDict<T> = Record<String, out T>"))
 

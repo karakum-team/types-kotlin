@@ -30,6 +30,7 @@ private val DEFAULT_IMPORTS = listOf(
     "AbortSignal" to "node.AbortSignal",
     "ErrnoException" to "node.ErrnoException",
     "Module" to "node.Module",
+    PIPE_OPTIONS to "node.$PIPE_OPTIONS",
 
     "Buffer" to "node.buffer.Buffer",
     "BufferEncoding" to "node.buffer.BufferEncoding",
