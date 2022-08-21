@@ -39,6 +39,11 @@ private val DEFAULT_IMPORTS = listOf(
     "Readable" to "node.stream.Readable",
     "Writable" to "node.stream.Writable",
     "Duplex" to "node.stream.Duplex",
+    "Pipe" to "node.stream.Pipe",
+
+    "Signals" to "node.process.Signals",
+    "ProcessEnv" to "node.process.ProcessEnv",
+    "ObjectEncodingOptions" to "node.fs.ObjectEncodingOptions",
 
     "LookupFunction" to "node.net.LookupFunction",
     "Socket" to "node.net.Socket",
@@ -51,6 +56,7 @@ private val DEFAULT_IMPORTS = listOf(
 private val MODULES = setOf(
     "async_hooks",
     "buffer",
+    "child_process",
     "events",
     "globals",
     "fs",

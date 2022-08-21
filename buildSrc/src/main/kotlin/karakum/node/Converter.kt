@@ -19,6 +19,11 @@ private val IGNORE_LIST = setOf(
 
     "URL",
     "URLSearchParams",
+
+    // TEMP
+    "ChildProcessByStdio",
+    "ChildProcessWithoutNullStreams",
+    "PromiseWithChild",
 )
 
 internal data class ConversionResult(
@@ -175,6 +180,12 @@ internal fun convertDefinitions(
         Package("util") -> interfaces
             .filter { it.name == "InspectOptions" }
 
+        Package("child_process") -> (interfaces + classes)
+            .plus(convertFunctions(content))
+            .filter { it.name != "spawn" }
+            .filter { it.name != "exec" }
+            .filter { it.name != "execFile" }
+
         Package("async_hooks"),
         Package("http"),
         Package("vm"),
@@ -203,10 +214,21 @@ private fun convertType(
         return it
     }
 
-    if (name == "Serializable" || name == "TransferListItem")
-        return ConversionResult(
+    when (name) {
+        "Serializable",
+        "TransferListItem",
+        "SendHandle",
+        "StdioOptions",
+        -> return ConversionResult(
             name = name,
             body = "typealias $name = Any /* $bodySource */",
+        )
+    }
+
+    if (bodySource == "ExecException & NodeJS.ErrnoException")
+        return ConversionResult(
+            name = name,
+            body = "typealias $name = Throwable /* $bodySource */",
         )
 
     if (bodySource == "-1 | 0 | 1")
@@ -285,6 +307,9 @@ private fun convertInterface(
         .replace(": net.Socket", ": node.net.Socket")
         .replace(": stream.Readable", ": Readable")
         .replace(": stream.Writable", ": Writable")
+        .replace("null | Readable", "Readable?")
+        .replace("null | Writable", "Writable?")
+        .replace("StdioNull | StdioPipe", "Any /* StdioNull | StdioPipe */")
         .replace(": NetServer", ": node.net.Server")
         .replace(": internal", ": LegacyStream")
         .replace(" = Buffer", "")

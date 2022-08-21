@@ -45,6 +45,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "NodeJS.Platform" to "node.process.Platform",
     "NodeJS.ReadableStream" to "node.ReadableStream",
     "NodeJS.WritableStream" to "node.WritableStream",
+    "NodeJS.Signals" to "node.process.Signals",
+    "NodeJS.ProcessEnv" to "node.process.ProcessEnv",
 
     "Blob" to "org.w3c.files.Blob",
 
@@ -53,6 +55,10 @@ private val STANDARD_TYPE_MAP = mapOf(
     "(error: Error | null) => void" to "(error: Error?) -> Unit",
     "(error?: Error | null) => void" to "(error: Error?) -> Unit",
     "(error: Error | null | undefined) => void" to "(error: Error?) -> Unit",
+
+    "NodeJS.Signals | null) => void" to "Signals?) -> Unit",
+    "string | Buffer) => void" to "Any /* string | Buffer */) -> Unit",
+    "(ObjectEncodingOptions & ExecFileOptions)" to "ObjectEncodingOptions /* & ExecFileOptions */",
 
     "Buffer" to "node.buffer.Buffer",
     "BufferEncoding" to "node.buffer.BufferEncoding",
@@ -121,6 +127,16 @@ internal fun kotlinType(
         return resultType
     }
 
+    if (type.startsWith("{"))
+        return "Any /* $type */"
+            .prependIndent("    ")
+            .removePrefix("    ")
+
+    if (type.startsWith("["))
+        return "ReadonlyArray<*> /* $type */"
+            .prependIndent("    ")
+            .removePrefix("    ")
+
     if (" | " in type && !type.startsWith("{") && !type.startsWith("Promise<")) {
         if ("| BufferEncoding" in type)
             return "BufferEncoding /* $type */"
@@ -156,11 +172,6 @@ internal fun kotlinType(
 
     if (type.startsWith("'"))
         return "$STRING /* $type */"
-
-    if (type.startsWith("{"))
-        return "Any /* $type */"
-            .prependIndent("    ")
-            .removePrefix("    ")
 
     if (" & " in type)
         return (type.substringBefore(" & ") + " /* " + type.substringAfter(" & ") + " */")
