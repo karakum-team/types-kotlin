@@ -156,7 +156,7 @@ private fun convertMethod(
         .substringAfter("<", "")
         .let { if (it.isNotEmpty()) "<$it" else "" }
         .replace(" extends ", " : ")
-        .replace("TArgs : any[]", "TArgs")
+        .replace("TArgs : any[]", "TArg : Any")
         .replace("NodeJS.ArrayBufferView", "ArrayBufferView")
         .replace("NodeJS.WritableStream", "node.WritableStream")
         .replace(" = Buffer", "")
@@ -218,7 +218,18 @@ private fun convertParameter(
         .substringBefore(": ")
         .removeSuffix("?")
 
-    val type = kotlinType(source.substringAfter(": "), name)
+    var typeSource = source.substringAfter(": ")
+    val varargMode = source.startsWith("...")
+    if (varargMode) {
+        typeSource = when  {
+            typeSource == "TArgs" -> "TArg"
+            typeSource.endsWith("[]") -> typeSource.removeSuffix("[]")
+            typeSource.startsWith("Array<") -> typeSource.removeSurrounding("Array<", ">")
+            else -> TODO("Invalid vararg '$typeSource'")
+        }
+    }
+
+    val type = kotlinType(typeSource, name)
     val declaration = if (source.startsWith("$name?:")) {
         if (lambdaMode) {
             type.addOptionality()
@@ -228,7 +239,7 @@ private fun convertParameter(
     } else type
 
     var result = "$name: $declaration"
-    if (source.startsWith("..."))
+    if (varargMode)
         result = "vararg $result"
 
     return result
