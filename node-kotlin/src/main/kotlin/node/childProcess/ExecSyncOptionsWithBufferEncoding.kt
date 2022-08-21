@@ -3,5 +3,5 @@
 package node.childProcess
 
 sealed external interface ExecSyncOptionsWithBufferEncoding : ExecSyncOptions {
-    override var encoding: Any? /* 'buffer' */
+    override var encoding: Any? /* BufferEncodingOption? */
 }

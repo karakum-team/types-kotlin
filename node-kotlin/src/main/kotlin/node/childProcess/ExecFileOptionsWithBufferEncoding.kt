@@ -2,6 +2,8 @@
 
 package node.childProcess
 
+import node.fs.BufferEncodingOption
+
 sealed external interface ExecFileOptionsWithBufferEncoding : ExecFileOptions {
-    var encoding: String? /* 'buffer' */
+    var encoding: BufferEncodingOption?
 }
