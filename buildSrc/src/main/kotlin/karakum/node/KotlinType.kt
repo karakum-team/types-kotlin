@@ -47,6 +47,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "NodeJS.WritableStream" to "node.WritableStream",
     "NodeJS.Signals" to "Signals",
     "NodeJS.ProcessEnv" to "ProcessEnv",
+    "NodeJS.ErrnoException" to "ErrnoException",
 
     "Blob" to "org.w3c.files.Blob",
 

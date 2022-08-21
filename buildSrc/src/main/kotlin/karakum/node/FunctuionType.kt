@@ -12,8 +12,13 @@ internal fun functuionType(type: String): String? {
             .split(", ", ",")
             .filter { it.isNotEmpty() }
             .map {
-                val paramName = it.substringBeforeLast(":").trim()
-                val paramType = it.substringAfterLast(":").trim()
+                var paramName = it.substringBeforeLast(":").trim()
+                var paramType = it.substringAfterLast(":").trim()
+
+                if (paramName.endsWith("?")) {
+                    paramName = paramName.removeSuffix("?")
+                    paramType = "$paramType | undefined"
+                }
 
                 "$paramName: ${kotlinType(paramType, paramName)}"
             }
