@@ -91,10 +91,14 @@ internal fun convertDefinitions(
         .map { convertInterface(it, true) }
         .filter { it.name !in IGNORE_LIST }
 
-    val types = "\n$mainContent"
-        .splitToSequence("\ntype ")
-        .drop(1)
-        .mapNotNull { convertType(it) }
+    val types = if (pkg != Package("util")) {
+        "\n$mainContent"
+            .splitToSequence("\ntype ", "\nexport type ")
+            .drop(1)
+            .mapNotNull { convertType(it) }
+            .filter { it.name != "BufferEncodingOption" }
+            .filter { it.name != "WatchListener" }
+    } else emptySequence()
 
     return when (pkg) {
         Package("buffer") -> mergeBuffers(interfaces)
@@ -111,7 +115,6 @@ internal fun convertDefinitions(
         Package("fs") -> (interfaces + classes)
             .plus(convertFunctions(content, syncOnly = true))
             .plus(SymlinkType())
-            .plus(WatchEventType())
             .plus(BufferEncodingOption())
             .plus(ConversionResult("PathLike", "typealias PathLike = String"))
             .plus(ConversionResult("PathOrFileDescriptor", "typealias PathOrFileDescriptor = PathLike"))
