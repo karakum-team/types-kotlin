@@ -353,7 +353,7 @@ private fun convertFunctions(
         .map { it.substringBefore(";\nlet ") }
         .map { it.removeSuffix(";") }
         .flatMap { functionSource ->
-            val comment = "/**\n" + source.substringBefore(functionSource)
+            val comment = "/**\n" + ("\n" + source.substringBefore(functionSource))
                 .substringAfterLast("\n/**\n")
                 .substringBeforeLast("\n */\n")
                 .let { it + "\n */" }
