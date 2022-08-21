@@ -66,6 +66,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Buffer" to "node.buffer.Buffer",
     "BufferEncoding" to "node.buffer.BufferEncoding",
     "ReadableStream" to "node.stream.ReadableStream",
+    "stream.Readable" to "Readable",
     "stream.Duplex" to "Duplex",
     "symlink.Type" to "SymlinkType",
 
@@ -92,6 +93,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "typeof IncomingMessage" to "JsClass<IncomingMessage>",
     "typeof ServerResponse" to "JsClass<ServerResponse>",
 
+    "(...args: any[]) => void" to "Function<Unit>",
+
     // TEMP
     "Require" to "$DYNAMIC /* Require */",
     "EventLoopUtilityFunction" to "Function<*> /* EventLoopUtilityFunction */",
@@ -106,7 +109,11 @@ internal fun kotlinType(
     name: String,
 ): String {
     STANDARD_TYPE_MAP[type]
-        ?.also { return it }
+        ?.let { return it }
+
+    type.removeSurrounding("(", ")")
+        .takeIf { it != type }
+        ?.let { return "(${kotlinType(it, name)})" }
 
     if (" is " in type)
         return "Boolean /* $type */"
@@ -130,10 +137,12 @@ internal fun kotlinType(
         return resultType
     }
 
+    functuionType(type)
+        ?.let { return it }
+
     if (type.startsWith("{")) {
         if ("end?: boolean | undefined;" in type && type.count { it == ';' } == 1)
             return PIPE_OPTIONS
-
         return "Any /* $type */"
             .prependIndent("    ")
             .removePrefix("    ")
@@ -186,7 +195,6 @@ internal fun kotlinType(
             .removePrefix("    ")
 
     return type
-        .replace("(...args: any[]) => void", "Function<Unit>")
         .replace("<string>", "<String>")
         .replace(": number", ": Number")
         .replace(": string", ": String")
@@ -202,7 +210,5 @@ internal fun kotlinType(
         // TEMP
         .replace("number)", "Number)")
         .replace("string)", "String)")
-        .replace(": stream.Readable)", ": Readable)")
-        .replace(": NodeJS.ErrnoException", ": ErrnoException")
         .replace("stream.Duplex)", "Duplex)")
 }

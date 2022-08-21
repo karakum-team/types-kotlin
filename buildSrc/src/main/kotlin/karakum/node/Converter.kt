@@ -413,7 +413,8 @@ private fun convertFunction(
     if ("parseQueryString: false" in source || "parseQueryString: true" in source)
         return emptySequence()
 
-    val parameters = source.substringAfter("(")
+    val parameters = source
+        .substringAfter("(")
         .substringBeforeLast(")")
         .splitToSequence(", ", ",")
         .map { it.trim() }
