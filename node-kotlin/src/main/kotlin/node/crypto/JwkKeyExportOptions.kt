@@ -5,8 +5,3 @@ package node.crypto
 sealed external interface JwkKeyExportOptions {
     var format: String /* 'jwk' */
 }
-
-
-sealed external interface JwkKeyExportOptions {
-    var format: String /* 'jwk' */
-}
