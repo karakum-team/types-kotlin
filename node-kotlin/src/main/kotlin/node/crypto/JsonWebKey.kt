@@ -16,5 +16,5 @@ sealed external interface JsonWebKey {
     var qi: String?
     var x: String?
     var y: String?
-    var [key: string]: Any?
+    // [key: string]: unknown
 }
