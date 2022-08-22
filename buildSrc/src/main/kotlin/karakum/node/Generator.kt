@@ -58,6 +58,7 @@ private val DEFAULT_IMPORTS = listOf(
 private val MODULES = setOf(
     "async_hooks",
     "buffer",
+    "crypto",
     "child_process",
     "events",
     "globals",

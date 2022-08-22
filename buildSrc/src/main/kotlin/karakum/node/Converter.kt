@@ -24,6 +24,8 @@ private val IGNORE_LIST = setOf(
     "ChildProcessByStdio",
     "ChildProcessWithoutNullStreams",
     "PromiseWithChild",
+
+    "DiffieHellmanGroupConstructor",
 )
 
 internal data class ConversionResult(
@@ -103,6 +105,12 @@ internal fun convertDefinitions(
     return when (pkg) {
         Package("buffer") -> mergeBuffers(interfaces)
 
+        Package("crypto") -> interfaces
+            // TEMP
+            .plus(ConversionResult("KeyObject", "external class KeyObject"))
+            .plus(ConversionResult("Cipher", "external interface Cipher"))
+            .plus(ConversionResult("Decipher", "external interface Decipher"))
+
         Package("events") -> mergeEventEmitters(interfaces + classes)
             .plus(Abortable())
 
@@ -162,6 +170,7 @@ internal fun convertDefinitions(
         Package("stream") -> interfaces + classes
 
         Package("stream/web") -> emptySequence<ConversionResult>()
+            // TEMP
             .plus(ConversionResult("ReadableStream", "external class ReadableStream"))
             .plus(ConversionResult("WritableStream", "external class WritableStream"))
 
@@ -220,6 +229,8 @@ private fun convertType(
         "TransferListItem",
         "SendHandle",
         "StdioOptions",
+        "LargeNumberLike",
+        "KeyLike",
         -> return ConversionResult(
             name = name,
             body = "typealias $name = Any /* $bodySource */",
@@ -306,6 +317,7 @@ private fun convertInterface(
         .replace("implements Writable", "/* , Writable */")
         .replace("implements AsyncIterable<Dirent>", ": AsyncIterable<Dirent>")
         .replace(": stream.Duplex", ": node.stream.Duplex")
+        .replace(": stream.TransformOptions", ": node.stream.TransformOptions")
         .replace(": net.Socket", ": node.net.Socket")
         .replace(": stream.Readable", ": Readable")
         .replace(": stream.Writable", ": Writable")
@@ -354,6 +366,7 @@ private fun convertInterface(
         "ReadableStream",
         "WritableStream",
         "ReadWriteStream",
+        "TransformOptions",
 
         "TcpSocketConnectOpts",
         -> "interface"
