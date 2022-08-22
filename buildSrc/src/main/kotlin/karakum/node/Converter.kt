@@ -503,13 +503,13 @@ private fun suspendFunctions(
     if (promiseResult == returnType)
         return null
 
-    val endIndex = parameters.lastIndex
+    val endIndex = parameters.lastIndex + 1
     val startIndex = parameters.indexOfFirst { it.optional }
         .takeIf { it != -1 }
         ?: endIndex
 
     var body = (startIndex..endIndex)
-        .map { parameters.subList(0, it + 1) }
+        .map { parameters.subList(0, it) }
         .map { it.map { it.copy(optional = false) } }
         .map { params -> suspendFunction(name, params, promiseResult) }
         .joinToString("\n\n")
@@ -522,15 +522,21 @@ private fun suspendFunction(
     parameters: List<Parameter>,
     returnType: String,
 ): String {
-    val declaration = "suspend fun $name(" +
-            parameters.joinToString(",\n", "\n", ",\n") +
-            ")"
+    val params = parameters
+        .takeIf { it.isNotEmpty() }
+        ?.joinToString(",\n", "\n", ",\n")
+        ?: ""
 
-    val call = "${name}Async(" +
-            parameters.joinToString(",\n", "\n", ",\n") {
-                "${it.name} = ${it.name}"
-            } +
-            ").await()"
+    val declaration = "suspend fun $name($params)"
+
+    val callParams = parameters
+        .takeIf { it.isNotEmpty() }
+        ?.joinToString(",\n", "\n", ",\n") {
+            "${it.name} = ${it.name}"
+        }
+        ?: ""
+
+    val call = "${name}Async($callParams).await()"
 
     return if (returnType != "Void") {
         "$declaration : $returnType =\n $call"
