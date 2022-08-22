@@ -3,5 +3,5 @@
 package node.crypto
 
 sealed external interface GeneratePrimeOptionsArrayBuffer : GeneratePrimeOptions {
-    var bigint: false?
+    override var bigint: Boolean? /* false */
 }

@@ -3,5 +3,5 @@
 package node.crypto
 
 sealed external interface GeneratePrimeOptionsBigInt : GeneratePrimeOptions {
-    var bigint: Boolean /* true */
+    override var bigint: Boolean? /* true */
 }
