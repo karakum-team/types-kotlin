@@ -420,6 +420,7 @@ private fun convertFunction(
     syncOnly: Boolean,
 ): Sequence<ConversionResult> {
     val name = source.substringBefore("(")
+        .substringBefore("<")
 
     if ("{" in source && !(name == "readFile" || name == "writeFile"))
         return emptySequence()
