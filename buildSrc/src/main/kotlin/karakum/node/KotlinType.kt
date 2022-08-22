@@ -33,6 +33,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "unique symbol" to "Symbol",
     "string | symbol" to "String /* | Symbol */",
     "Array<string | symbol>" to "ReadonlyArray<String /* | Symbol */>",
+    "NodeJS.TypedArray" to "ReadonlyArray<*> /* TypedArray */",
 
     "boolean | Promise<boolean>" to "PromiseResult<Boolean>",
 
