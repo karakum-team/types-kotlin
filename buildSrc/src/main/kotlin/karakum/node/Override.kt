@@ -258,6 +258,12 @@ internal fun addOverrides(
         "SpawnOptionsWithoutStdio",
         -> result = result
             .replace("var stdio: Any?", "override var stdio: StdioOptions?")
+
+        "GeneratePrimeOptionsArrayBuffer",
+        "GeneratePrimeOptionsBigInt",
+        -> result = result
+            .replace("var bigint: Boolean? ", "override var bigint: Boolean? ")
+            .replace("var bigint: Boolean ", "override var bigint: Boolean? ")
     }
 
     if (classMode && name in OPEN_CLASSES) {

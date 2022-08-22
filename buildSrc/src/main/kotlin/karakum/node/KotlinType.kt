@@ -12,6 +12,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "{}" to "Any",
 
     "boolean" to "Boolean",
+    "false" to "Boolean /* false */",
     "true" to "Boolean /* true */",
 
     "string" to STRING,
