@@ -90,6 +90,9 @@ private fun convertProperty(
     if (source.startsWith("static "))
         return STATIC_MARKER + convertProperty(source.removePrefix("static "))
 
+    if (source.startsWith("[key: string]:"))
+        return "    // $source"
+
     val modifier = if (source.startsWith("readonly ")) "val" else "var"
     val body = source.removePrefix("readonly ")
 
