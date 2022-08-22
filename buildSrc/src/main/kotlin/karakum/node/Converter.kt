@@ -107,6 +107,10 @@ internal fun convertDefinitions(
 
         Package("crypto") -> interfaces
             // TEMP
+            //  remove after - https://github.com/DefinitelyTyped/DefinitelyTyped/pull/61854
+            .let { it.toList().let { it - it.first { it.name == "JwkKeyExportOptions" } } }
+            .asSequence()
+            // TEMP
             .plus(ConversionResult("KeyObject", "external class KeyObject"))
             .plus(ConversionResult("Cipher", "external interface Cipher"))
             .plus(ConversionResult("Decipher", "external interface Decipher"))
