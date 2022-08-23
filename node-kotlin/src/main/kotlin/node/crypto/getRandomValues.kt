@@ -12,6 +12,6 @@ package node.crypto
  * @since v17.4.0
  * @returns Returns `typedArray`.
  */
-external fun getRandomValues(
+external fun <T : Any /* ArrayBufferView | ArrayBuffer */> getRandomValues(
     typedArray: T,
 ): T

@@ -5,6 +5,8 @@
 
 package node.crypto
 
+import org.khronos.webgl.ArrayBufferView
+
 /**
  * Synchronous version of {@link randomFill}.
  *
@@ -46,7 +48,7 @@ package node.crypto
  * @param [size=buffer.length - offset]
  * @return The object passed as `buffer` argument.
  */
-external fun randomFillSync(
+external fun <T : ArrayBufferView> randomFillSync(
     buffer: T,
     offset: Number = definedExternally,
     size: Number = definedExternally,

@@ -5,6 +5,8 @@
 
 package node.crypto
 
+import org.khronos.webgl.ArrayBufferView
+
 /**
  * This function is similar to {@link randomBytes} but requires the first
  * argument to be a `Buffer` that will be filled. It also
@@ -80,7 +82,7 @@ package node.crypto
  * @param [size=buffer.length - offset]
  * @param callback `function(err, buf) {}`.
  */
-external fun randomFill(
+external fun <T : ArrayBufferView> randomFill(
     buffer: T,
     callback: (
         error: Error?,
@@ -164,7 +166,7 @@ external fun randomFill(
  * @param [size=buffer.length - offset]
  * @param callback `function(err, buf) {}`.
  */
-external fun randomFill(
+external fun <T : ArrayBufferView> randomFill(
     buffer: T,
     offset: Number,
     callback: (
@@ -249,7 +251,7 @@ external fun randomFill(
  * @param [size=buffer.length - offset]
  * @param callback `function(err, buf) {}`.
  */
-external fun randomFill(
+external fun <T : ArrayBufferView> randomFill(
     buffer: T,
     offset: Number,
     size: Number,
