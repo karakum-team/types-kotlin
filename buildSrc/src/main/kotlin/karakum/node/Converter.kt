@@ -246,6 +246,8 @@ private fun convertType(
         "KeyLike",
         "BinaryLike",
         "CipherKey",
+        "Encoding",
+        "DiffieHellmanGroup",
         -> return ConversionResult(
             name = name,
             body = "typealias $name = Any /* $bodySource */",
