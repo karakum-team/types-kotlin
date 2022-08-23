@@ -9,8 +9,7 @@ import node.buffer.Buffer
 import node.stream.TransformOptions
 
 external class Hash : TransformOptions {
-    var private constructor(): private constructor()
-
+    /* private constructor() */
     /**
      * Creates a new `Hash` object that contains a deep copy of the internal state
      * of the current `Hash` object.

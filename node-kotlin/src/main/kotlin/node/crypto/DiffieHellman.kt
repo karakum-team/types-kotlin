@@ -10,8 +10,7 @@ import node.buffer.Buffer
 import org.khronos.webgl.ArrayBufferView
 
 external class DiffieHellman {
-    var private constructor(): private constructor()
-
+    /* private constructor() */
     /**
      * Generates private and public Diffie-Hellman key values, and returns
      * the public key in the specified `encoding`. This key should be

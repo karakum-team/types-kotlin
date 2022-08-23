@@ -9,8 +9,7 @@ import node.stream.Writable
 import org.khronos.webgl.ArrayBufferView
 
 external class Verify : Writable {
-    var private constructor(): private constructor()
-
+    /* private constructor() */
     /**
      * Updates the `Verify` content with the given `data`, the encoding of which
      * is given in `inputEncoding`.
