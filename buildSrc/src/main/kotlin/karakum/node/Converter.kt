@@ -110,6 +110,7 @@ internal fun convertDefinitions(
                 classes.filter {
                     it.name == "DiffieHellman"
                             || it.name == "Hash"
+                            || it.name == "Hmac"
                             || it.name == "Verify"
                             || it.name == "ECDH"
                 }
@@ -394,6 +395,7 @@ private fun convertInterface(
             when (name) {
                 "DiffieHellman",
                 "Hash",
+                "Hmac",
                 "Verify",
                 -> "sealed class"
 
@@ -464,7 +466,12 @@ private fun convertFunction(
         .map { convertParameter(it) }
         .toList()
 
-    val returnType = kotlinType(source.substringAfter("): "), name)
+    val returnType = kotlinType(
+        source
+            .substringAfter("): ")
+            .substringBefore(";\n//"),
+        name,
+    )
 
     // ignore fallbacks
     if ("/* string | Buffer */" in returnType)
