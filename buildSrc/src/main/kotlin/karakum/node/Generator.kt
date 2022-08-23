@@ -72,6 +72,7 @@ private val MODULES = setOf(
     "process",
     "querystring",
     "stream",
+    "stream/promises",
     "stream/web",
     "tty",
     "url",

@@ -169,6 +169,9 @@ internal fun convertDefinitions(
 
         Package("stream") -> interfaces + classes
 
+        Package("stream/promises") -> convertFunctions(content)
+            .filter { it.name.startsWith("finished") }
+
         Package("stream/web") -> emptySequence<ConversionResult>()
             // TEMP
             .plus(ConversionResult("ReadableStream", "external class ReadableStream"))
@@ -401,11 +404,14 @@ private fun convertFunctions(
         .map { it.substringBefore(";\nlet ") }
         .map { it.removeSuffix(";") }
         .flatMap { functionSource ->
-            val comment = "/**\n" + ("\n" + source.substringBefore(functionSource))
-                .substringAfterLast("\n/**\n")
-                .substringBeforeLast("\n */\n")
-                .let { it + "\n */" }
-                .replace("* /*\n", "* ---\n")
+            val commentSource = ("\n" + source.substringBefore(functionSource))
+                .substringAfterLast("\n/**\n", "")
+                .substringBeforeLast("\n */\n", "")
+
+            val comment = if (commentSource.isNotEmpty()) {
+                "/**\n$commentSource\n */"
+                    .replace("* /*\n", "* ---\n")
+            } else ""
 
             convertFunction(functionSource, comment, syncOnly)
         }
