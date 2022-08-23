@@ -246,7 +246,12 @@ private fun convertParameter(
         }
     } else type
 
-    var result = "$name: $declaration"
+    val finalName = when (name) {
+        "object" -> "o"
+        else -> name
+    }
+
+    var result = "$finalName: $declaration"
     if (varargMode)
         result = "vararg $result"
 
