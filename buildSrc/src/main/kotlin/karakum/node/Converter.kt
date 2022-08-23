@@ -389,6 +389,11 @@ private fun convertInterface(
 
         else -> if (classMode) {
             when (name) {
+                "DiffieHellman",
+                "Hash",
+                "Verify",
+                -> "sealed class"
+
                 // TEMP
                 "Stats" -> "abstract class"
                 in OPEN_CLASSES -> "open class"
