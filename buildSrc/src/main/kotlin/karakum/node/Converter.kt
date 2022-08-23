@@ -111,6 +111,7 @@ internal fun convertDefinitions(
                     it.name == "DiffieHellman"
                             || it.name == "Hash"
                             || it.name == "Verify"
+                            || it.name == "ECDH"
                 }
             )
             .plus(convertFunctions(content))
