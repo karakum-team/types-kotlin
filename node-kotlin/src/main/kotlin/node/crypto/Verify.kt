@@ -8,7 +8,7 @@ package node.crypto
 import node.stream.Writable
 import org.khronos.webgl.ArrayBufferView
 
-external class Verify : Writable {
+sealed external class Verify : Writable {
     /* private constructor() */
     /**
      * Updates the `Verify` content with the given `data`, the encoding of which

@@ -9,7 +9,7 @@ import kotlinx.js.Void
 import node.buffer.Buffer
 import org.khronos.webgl.ArrayBufferView
 
-external class DiffieHellman {
+sealed external class DiffieHellman {
     /* private constructor() */
     /**
      * Generates private and public Diffie-Hellman key values, and returns
