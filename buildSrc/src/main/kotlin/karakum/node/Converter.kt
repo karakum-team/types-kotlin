@@ -281,7 +281,7 @@ private fun convertInterface(
     source: String,
     classMode: Boolean,
 ): ConversionResult {
-    var name = source.substringBefore(" ")
+    val name = source.substringBefore(" ")
         .substringBefore("<")
         .substringBefore("(")
         .substringBefore(":")
