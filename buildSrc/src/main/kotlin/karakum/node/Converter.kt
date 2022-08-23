@@ -456,6 +456,12 @@ private fun convertFunction(
     if ("parseQueryString: false" in source || "parseQueryString: true" in source)
         return emptySequence()
 
+    val typeParameters = source
+        .substringBefore("(")
+        .removePrefix(name)
+        .replace("extends NodeJS.ArrayBufferView", ": ArrayBufferView")
+        .replace("extends webcrypto.BufferSource", ": Any /* ArrayBufferView | ArrayBuffer */")
+
     val parameters = source
         .substringAfter("(")
         .replaceFunctionType()
@@ -488,7 +494,7 @@ private fun convertFunction(
         ?.joinToString(",\n", "\n", ",\n")
         ?: ""
 
-    var body = "external fun $finalName(" +
+    var body = "external fun $typeParameters $finalName(" +
             params +
             ")$returnDeclaration"
 
