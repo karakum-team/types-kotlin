@@ -527,7 +527,7 @@ private fun suspendFunctions(
         .takeIf { it != -1 }
         ?: endIndex
 
-    var body = (startIndex..endIndex)
+    val body = (startIndex..endIndex)
         .map { parameters.subList(0, it) }
         .map { it.map { it.copy(optional = false) } }
         .map { params -> suspendFunction(name, params, promiseResult) }
