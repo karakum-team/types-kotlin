@@ -63,6 +63,9 @@ private fun convertMember(
         body.startsWith("[Symbol.")
         -> "    /* $body */"
 
+        body.startsWith("private constructor(")
+        -> "    /* $body */"
+
         body.startsWith("constructor(") || body.startsWith("new (")
         -> convertConstructor(body)
 
@@ -226,7 +229,7 @@ private fun convertParameter(
     var typeSource = source.substringAfter(": ")
     val varargMode = source.startsWith("...")
     if (varargMode) {
-        typeSource = when  {
+        typeSource = when {
             typeSource == "TArgs" -> "TArg"
             typeSource.endsWith("[]") -> typeSource.removeSuffix("[]")
             typeSource.startsWith("Array<") -> typeSource.removeSurrounding("Array<", ">")
