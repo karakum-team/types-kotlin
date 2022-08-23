@@ -41,6 +41,9 @@ private val DEFAULT_IMPORTS = listOf(
     "Writable" to "node.stream.Writable",
     "Duplex" to "node.stream.Duplex",
     "Pipe" to "node.stream.Pipe",
+    "Transform" to "node.stream.Transform",
+    "TransformOptions" to "node.stream.TransformOptions",
+    "WritableOptions" to "node.stream.WritableOptions",
 
     "Signals" to "node.process.Signals",
     "ProcessEnv" to "node.process.ProcessEnv",
@@ -150,7 +153,12 @@ fun generateKotlinDeclarations(
                 else -> ""
             }
 
-            targetDir.resolve("$name.kt")
+            val fileName = when (name) {
+                "verify" -> "$name.fun.kt"
+                else -> "$name.kt"
+            }
+
+            targetDir.resolve(fileName)
                 .also { check(!it.exists()) }
                 .writeText(
                     fileContent(

@@ -70,6 +70,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "ReadableStream" to "node.stream.ReadableStream",
     "stream.Readable" to "Readable",
     "stream.Duplex" to "Duplex",
+    "stream.TransformOptions" to "TransformOptions",
+    "stream.WritableOptions" to "WritableOptions",
     "symlink.Type" to "SymlinkType",
 
     "ObjectEncodingOptions | BufferEncoding" to "node.buffer.BufferEncoding /* ObjectEncodingOptions | BufferEncoding */",

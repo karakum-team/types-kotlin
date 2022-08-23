@@ -106,6 +106,16 @@ internal fun convertDefinitions(
         Package("buffer") -> mergeBuffers(interfaces)
 
         Package("crypto") -> interfaces
+            .plus(
+                classes.filter {
+                    it.name == "DiffieHellman"
+                            || it.name == "Hash"
+                            || it.name == "Verify"
+                }
+            )
+            .plus(convertFunctions(content))
+            .filter { it.name != "generateKeyPair" }
+            .filter { it.name != "generateKeyPairSync" }
             // TEMP
             .plus(ConversionResult("KeyObject", "external class KeyObject"))
             .plus(ConversionResult("Cipher", "external interface Cipher"))
@@ -234,6 +244,8 @@ private fun convertType(
         "StdioOptions",
         "LargeNumberLike",
         "KeyLike",
+        "BinaryLike",
+        "CipherKey",
         -> return ConversionResult(
             name = name,
             body = "typealias $name = Any /* $bodySource */",
@@ -319,8 +331,9 @@ private fun convertInterface(
         .replace("implements NodeJS.WritableStream", ", node.WritableStream")
         .replace("implements Writable", "/* , Writable */")
         .replace("implements AsyncIterable<Dirent>", ": AsyncIterable<Dirent>")
-        .replace(": stream.Duplex", ": node.stream.Duplex")
-        .replace(": stream.TransformOptions", ": node.stream.TransformOptions")
+        .replace(": stream.Duplex", ": Duplex")
+        .replace(": stream.TransformOptions", ": TransformOptions")
+        .replace(": stream.Transform", ": TransformOptions")
         .replace(": net.Socket", ": node.net.Socket")
         .replace(": stream.Readable", ": Readable")
         .replace(": stream.Writable", ": Writable")
