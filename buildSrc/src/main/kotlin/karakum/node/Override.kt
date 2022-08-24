@@ -239,6 +239,10 @@ internal fun addOverrides(
     }
 
     when (name) {
+        "AgentOptions",
+        -> result = result
+            .replace("var keepAlive:", "override var keepAlive:")
+
         "ExecFileSyncOptionsWithBufferEncoding",
         "ExecSyncOptionsWithBufferEncoding",
         "SpawnSyncOptionsWithBufferEncoding",
