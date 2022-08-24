@@ -337,7 +337,7 @@ private fun convertInterface(
         .replace("implements AsyncIterable<Dirent>", ": AsyncIterable<Dirent>")
         .replace(": stream.Duplex", ": Duplex")
         .replace(": stream.TransformOptions", ": TransformOptions")
-        .replace(": stream.Transform", ": TransformOptions")
+        .replace(": stream.Transform", ": Transform")
         .replace(": net.Socket", ": node.net.Socket")
         .replace(": stream.Readable", ": Readable")
         .replace(": stream.Writable", ": Writable")
