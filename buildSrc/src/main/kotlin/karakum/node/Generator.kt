@@ -10,6 +10,7 @@ private val DEFAULT_IMPORTS = listOf(
 
     "AsyncIterable" to "kotlinx.js.AsyncIterable",
     "BigInt" to "kotlinx.js.BigInt",
+    "JsIterable" to "kotlinx.js.JsIterable",
     "JsPair" to "kotlinx.js.JsPair",
     "JsSet" to "kotlinx.js.JsSet",
     "PromiseResult" to "kotlinx.js.PromiseResult",

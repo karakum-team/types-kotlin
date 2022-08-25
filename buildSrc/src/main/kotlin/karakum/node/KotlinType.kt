@@ -75,6 +75,10 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "ObjectEncodingOptions | BufferEncoding" to "node.buffer.BufferEncoding /* ObjectEncodingOptions | BufferEncoding */",
 
+    "IterableIterator<number>" to "JsIterable.Iterator<Int>",
+    "IterableIterator<[number, number]>" to "JsIterable.Iterator<JsPair<Int, Int>>",
+
+    "AsyncIterableIterator<any>" to "AsyncIterable.Iterator<*>",
     "AsyncIterable<FileChangeInfo<string>> | AsyncIterable<FileChangeInfo<Buffer>>" to
             "AsyncIterable<FileChangeInfo<Any /* string | Buffer */>>",
 
@@ -187,10 +191,6 @@ internal fun kotlinType(
 
     if (name == "event" && type.startsWith("'"))
         return "$EVENT.${eventName(type.removeSurrounding("'"))}"
-
-    // TODO: remove
-    if ("IterableIterator" in type)
-        return "$DYNAMIC /* $type */"
 
     if (type.startsWith("'"))
         return "$STRING /* $type */"
