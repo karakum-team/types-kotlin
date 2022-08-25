@@ -392,16 +392,13 @@ private fun convertInterface(
         -> "interface"
 
         else -> if (classMode) {
-            when (name) {
-                "DiffieHellman",
-                "Hash",
-                "Hmac",
-                "Verify",
+            when {
+                bodySource.startsWith("private constructor(")
                 -> "sealed class"
 
                 // TEMP
-                "Stats" -> "abstract class"
-                in OPEN_CLASSES -> "open class"
+                name == "Stats" -> "abstract class"
+                name in OPEN_CLASSES -> "open class"
                 else -> "class"
             }
         } else "sealed interface"
