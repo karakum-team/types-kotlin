@@ -73,13 +73,14 @@ internal fun sealedUnionBody(
 
 internal fun objectUnionBody(
     name: String,
+    type: String,
     constants: List<UnionConstant>,
 ): String {
     val constantNames = constants
         .joinToString("\n") {
             sequenceOf(
                 it.comment,
-                "object ${it.kotlinName}",
+                "object ${it.kotlinName} : $type",
             ).filterNotNull()
                 .joinToString("\n")
         }

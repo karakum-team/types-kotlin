@@ -36,6 +36,7 @@ private val DEFAULT_IMPORTS = listOf(
     "BufferEncoding" to "node.buffer.BufferEncoding",
     ABORTABLE to "node.events.$ABORTABLE",
     "$EVENT." to "node.events.$EVENT",
+    "$EVENT_TYPE" to "node.events.$EVENT_TYPE",
 
     "Readable" to "node.stream.Readable",
     "Writable" to "node.stream.Writable",
@@ -118,7 +119,7 @@ fun generateKotlinDeclarations(
 
         var definitions = convertDefinitions(source, pkg)
         when (pkg) {
-            Package("events") -> definitions = definitions + Event(definitionsDir)
+            Package("events") -> definitions = definitions + Event(definitionsDir) + EventType()
             Package("inspector") -> definitions = definitions + inspectorEvents(definitionsDir)
         }
 
@@ -137,6 +138,9 @@ fun generateKotlinDeclarations(
             val suppresses = mutableListOf<Suppress>().apply {
                 if ("JsName(\"\"\"(" in body || "JsName(\"'" in body)
                     add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+
+                if ("inline fun " in body)
+                    add(Suppress.NOTHING_TO_INLINE)
             }.toTypedArray()
 
             val annotations = when {

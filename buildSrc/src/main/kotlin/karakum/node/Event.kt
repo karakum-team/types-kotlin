@@ -7,6 +7,22 @@ import java.io.File
 private val CAMEL_REGEX = Regex("""([a-z])([A-Z])""")
 
 internal const val EVENT: String = "Event"
+internal const val EVENT_TYPE: String = "EventType"
+
+// language=kotlin
+private val EVENT_TYPE_BODY = """
+external interface $EVENT_TYPE
+
+inline fun $EVENT_TYPE(
+    value: String,
+): $EVENT_TYPE =
+    value.unsafeCast<$EVENT_TYPE>()
+
+inline fun $EVENT_TYPE(
+    value: Symbol,
+): $EVENT_TYPE =
+    value.unsafeCast<$EVENT_TYPE>()
+""".trimIndent()
 
 internal fun Event(
     definitionsDir: File,
@@ -16,6 +32,12 @@ internal fun Event(
 
     return Event(EVENT, eventNames)
 }
+
+internal fun EventType(): ConversionResult =
+    ConversionResult(
+        name = EVENT_TYPE,
+        body = EVENT_TYPE_BODY,
+    )
 
 internal fun inspectorEvents(
     definitionsDir: File,
@@ -53,6 +75,7 @@ private fun Event(
 ): ConversionResult {
     val body = objectUnionBody(
         name = name,
+        type = EVENT_TYPE,
         constants = eventNames.map { value ->
             val eventName = eventName(value.substringAfter("."))
             UnionConstant(
