@@ -32,7 +32,6 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Date" to "kotlin.js.Date",
 
     "unique symbol" to "Symbol",
-    "string | symbol" to "String /* | Symbol */",
     "Array<string | symbol>" to "ReadonlyArray<String /* | Symbol */>",
     "NodeJS.TypedArray" to "ReadonlyArray<*> /* TypedArray */",
 
@@ -112,6 +111,9 @@ internal fun kotlinType(
     type: String,
     name: String,
 ): String {
+    if (name == "event" && (type == "string" || type == "string | symbol"))
+        return EVENT_TYPE
+
     STANDARD_TYPE_MAP[type]
         ?.let { return it }
 

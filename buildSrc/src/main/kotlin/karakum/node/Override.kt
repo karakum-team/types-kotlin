@@ -43,7 +43,7 @@ internal fun addOverrides(
         || (name == "Server" && "node.net.Server" in declaration)
     ) {
         EMITTER_METHODS.forEach {
-            result = result.replace("fun  $it(event: String", "override fun $it(event: String")
+            result = result.replace("fun  $it(event: $EVENT_TYPE", "override fun $it(event: $EVENT_TYPE")
         }
     }
 

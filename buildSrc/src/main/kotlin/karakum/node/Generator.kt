@@ -105,6 +105,8 @@ fun generateKotlinDeclarations(
             .resolve("$module.d.ts")
             .readText()
             .replace("(eventName: ", "(event: ")
+            .replace(", eventName: ", ", event: ")
+            .replace(", name: string | symbol", ", event: string | symbol")
             .replace(", cb:", ", callback:")
             .replace(", cb?:", ", callback?:")
             .replace("(cb:", "(callback:")
