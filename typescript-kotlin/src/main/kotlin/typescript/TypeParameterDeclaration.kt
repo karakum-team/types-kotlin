@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface TypeParameterDeclaration : NamedDeclaration {
+sealed external interface TypeParameterDeclaration : NamedDeclaration, Union.TypeParameterDeclaration_ {
     override val kind: SyntaxKind.TypeParameter
     override val parent: Union.TypeParameterDeclaration_parent
     override val modifiers: NodeArray<Modifier>?
