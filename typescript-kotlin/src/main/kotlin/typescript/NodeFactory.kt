@@ -2256,13 +2256,4 @@ sealed external interface NodeFactory {
     ): Expression
 
 
-    fun createImportTypeNode(
-        argument: TypeNode,
-        assertions: ImportTypeAssertionContainer = definedExternally,
-        qualifier: EntityName = definedExternally,
-        typeArguments: ReadonlyArray<TypeNode> = definedExternally,
-        isTypeOf: Boolean = definedExternally,
-    ): ImportTypeNode
-
-
 }
