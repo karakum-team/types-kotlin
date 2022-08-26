@@ -44,12 +44,14 @@ internal fun fixOverrides(
         "IndexSignatureDeclaration",
         -> content
             .override("kind")
+            .override("modifiers")
             .override("parent")
             .override("type")
 
         "PropertySignature",
         -> content
             .override("kind")
+            .override("modifiers")
             .override("name")
             .override("questionToken")
 
@@ -107,6 +109,7 @@ internal fun fixOverrides(
         "ModuleDeclaration",
         -> content
             .override("kind")
+            .override("modifiers")
             .override("name")
             .override("parent")
 
