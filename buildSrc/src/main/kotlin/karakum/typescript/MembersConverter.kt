@@ -56,7 +56,7 @@ private fun convertMember(
     val body = source.substringAfterLast("\n")
         .replace("(...args: any[]) => void", "Function<$UNIT>")
 
-    if (comment != null && "* @deprecated" in comment && !body.startsWith("readonly modifiers?: "))
+    if (comment != null && "* @deprecated" in comment)
         return ""
 
     val content = if (isProperty(body)) {
