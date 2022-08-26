@@ -445,8 +445,6 @@ private fun convertInterface(
     val members = convertMembers(name, bodySource, typeConverter)
     var body = when {
         " extends " in source
-                || name == "FunctionTypeNode"
-                || name == "ShorthandPropertyAssignment"
         -> fixOverrides(name, members)
 
         else -> members
