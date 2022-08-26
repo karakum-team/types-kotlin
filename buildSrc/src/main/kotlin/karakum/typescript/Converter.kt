@@ -18,6 +18,7 @@ internal fun convertDefinitions(
 
     val result = definitionsFile.readText()
         .injectUnions()
+        .replace("/** @type {Id} /", "// @type {Id}")
         .splitToSequence("declare namespace ts {\n")
         .drop(1)
         .map { it.substringBefore("\n}\n") }
@@ -51,13 +52,16 @@ private fun List<ConversionResult>.merge(): ConversionResult {
     val body = if (name[0].isLowerCase()) {
         joinToString("\n\n") { it.body }
     } else {
-        check(size == 2)
-        val mainBody = first().body
-        val additionalBody = last().body
+        mapIndexed { index: Int, item: ConversionResult ->
+            var body = item.body
+            if (index != lastIndex)
+                body = body.substringBeforeLast("\n}")
 
-        mainBody.substringBeforeLast("\n}") +
-                "\n" +
-                additionalBody.substringAfter("{\n")
+            if (index != 0)
+                body = body.substringAfter("{\n")
+
+            body
+        }.joinToString("\n")
     }
 
     return ConversionResult(name, body)
