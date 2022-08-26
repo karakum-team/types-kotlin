@@ -2,15 +2,16 @@
 
 @file:Suppress(
     "NAME_CONTAINS_ILLEGAL_CHARS",
+    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package node.crypto
 
 // language=JavaScript
 @JsName("""(/*union*/{pem: 'pem', der: 'der'}/*union*/)""")
-external enum class KeyFormat {
-    pem,
-    der,
-
-    ;
+sealed external interface KeyFormat {
+    companion object {
+        val pem: KeyFormat
+        val der: KeyFormat
+    }
 }
