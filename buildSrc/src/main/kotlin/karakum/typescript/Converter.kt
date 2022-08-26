@@ -17,6 +17,7 @@ internal fun convertDefinitions(
     val typeConverter = GlobalTypeConverter()
 
     val result = definitionsFile.readText()
+        .addNodeFactoryWorkaround()
         .injectUnions()
         .replace("/** @type {Id} /", "// @type {Id}")
         .splitToSequence("declare namespace ts {\n")
