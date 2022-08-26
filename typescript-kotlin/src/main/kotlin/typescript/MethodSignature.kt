@@ -5,6 +5,6 @@ package typescript
 sealed external interface MethodSignature : SignatureDeclarationBase, TypeElement, Union.MethodSignature_ {
     override val kind: SyntaxKind.MethodSignature
     override val parent: ObjectTypeDeclaration
-    override val modifiers: NodeArray<Modifier>?
+    val modifiers: NodeArray<Modifier>?
     override val name: PropertyName
 }

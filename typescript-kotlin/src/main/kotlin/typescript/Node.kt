@@ -35,15 +35,5 @@ sealed external interface Node : ReadonlyTextRange {
         cbNodeArray: (nodes: NodeArray<Node>) -> T? = definedExternally,
     ): T?
 
-    /**
-     * @deprecated `modifiers` has been removed from `Node` and moved to the `Node` subtypes that support them.
-     * Use `ts.canHaveModifiers()` to test whether a `Node` can have modifiers.
-     * Use `ts.getModifiers()` to get the modifiers of a `Node`.
-     *
-     * For example:
-     * ```ts
-     * const modifiers = ts.canHaveModifiers(node) ? ts.getModifiers(node) : undefined;
-     * ```
-     */
-    val modifiers: NodeArray<ModifierLike>?
+
 }

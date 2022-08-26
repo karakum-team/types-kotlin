@@ -4,7 +4,7 @@ package typescript
 
 sealed external interface ClassDeclaration : ClassLikeDeclarationBase, DeclarationStatement, Union.ClassDeclaration_ {
     override val kind: SyntaxKind.ClassDeclaration
-    override val modifiers: NodeArray<ModifierLike>?
+    val modifiers: NodeArray<ModifierLike>?
 
     /** May be undefined in `export default class { ... }`. */
     override val name: Identifier?
