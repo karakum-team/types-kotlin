@@ -179,6 +179,13 @@ sealed external interface LanguageService {
     fun getRenameInfo(
         fileName: String,
         position: Int,
+        preferences: UserPreferences,
+    ): RenameInfo
+
+    /** @deprecated Use the signature with `UserPreferences` instead. */
+    fun getRenameInfo(
+        fileName: String,
+        position: Int,
         options: RenameInfoOptions = definedExternally,
     ): RenameInfo
 
