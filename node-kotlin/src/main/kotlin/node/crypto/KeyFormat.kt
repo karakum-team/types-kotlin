@@ -10,8 +10,6 @@ package node.crypto
 // language=JavaScript
 @JsName("""(/*union*/{pem: 'pem', der: 'der'}/*union*/)""")
 sealed external interface KeyFormat {
-    companion object {
-        val pem: KeyFormat
-        val der: KeyFormat
-    }
+    object pem : KeyFormat
+    object der : KeyFormat
 }

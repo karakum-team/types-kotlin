@@ -10,14 +10,12 @@ package node.crypto
 // language=JavaScript
 @JsName("""(/*union*/{rsa: 'rsa', rsaPss: 'rsa-pss', dsa: 'dsa', ec: 'ec', ed25519: 'ed25519', ed448: 'ed448', x25519: 'x25519', x448: 'x448'}/*union*/)""")
 sealed external interface KeyType {
-    companion object {
-        val rsa: KeyType
-        val rsaPss: KeyType
-        val dsa: KeyType
-        val ec: KeyType
-        val ed25519: KeyType
-        val ed448: KeyType
-        val x25519: KeyType
-        val x448: KeyType
-    }
+    object rsa : KeyType
+    object rsaPss : KeyType
+    object dsa : KeyType
+    object ec : KeyType
+    object ed25519 : KeyType
+    object ed448 : KeyType
+    object x25519 : KeyType
+    object x448 : KeyType
 }
