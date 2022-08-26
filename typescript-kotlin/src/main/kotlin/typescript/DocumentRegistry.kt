@@ -126,14 +126,6 @@ sealed external interface DocumentRegistry {
         impliedNodeFormat: NodeFormat,
     )
 
-    /**
-     * @deprecated pass scriptKind for and impliedNodeFormat correctness */
-    fun releaseDocumentWithKey(
-        path: Path,
-        key: DocumentRegistryBucketKey,
-        scriptKind: ScriptKind = definedExternally,
-    )
-
     fun releaseDocumentWithKey(
         path: Path,
         key: DocumentRegistryBucketKey,

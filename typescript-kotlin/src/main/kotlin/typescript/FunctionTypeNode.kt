@@ -6,5 +6,5 @@ sealed external interface FunctionTypeNode : FunctionOrConstructorTypeNodeBase, 
     override val kind: SyntaxKind.FunctionType
 
     /** @deprecated A function type cannot have modifiers */
-    override val modifiers: NodeArray<Modifier>?
+    val modifiers: NodeArray<Modifier>?
 }

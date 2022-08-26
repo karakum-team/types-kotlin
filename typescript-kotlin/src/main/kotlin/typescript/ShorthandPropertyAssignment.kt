@@ -11,11 +11,7 @@ sealed external interface ShorthandPropertyAssignment : ObjectLiteralElement, JS
     val objectAssignmentInitializer: Expression?
 
     /** @deprecated A shorthand property assignment cannot have modifiers */
-    override val modifiers: NodeArray<Modifier>?
+    val modifiers: NodeArray<Modifier>?
 
-    /** @deprecated A shorthand property assignment cannot have a question token */
-    val questionToken: QuestionToken?
 
-    /** @deprecated A shorthand property assignment cannot have an exclamation token */
-    val exclamationToken: ExclamationToken?
 }

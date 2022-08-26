@@ -8,9 +8,5 @@ sealed external interface PropertyAssignment : ObjectLiteralElement, JSDocContai
     override val name: PropertyName
     val initializer: Expression
 
-    /** @deprecated A property assignment cannot have a question token */
-    val questionToken: QuestionToken?
 
-    /** @deprecated A property assignment cannot have an exclamation token */
-    val exclamationToken: ExclamationToken?
 }

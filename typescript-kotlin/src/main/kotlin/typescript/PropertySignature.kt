@@ -9,6 +9,4 @@ sealed external interface PropertySignature : TypeElement, JSDocContainer, Union
     override val questionToken: QuestionToken?
     val type: TypeNode?
 
-    /** @deprecated A property signature cannot have an initializer */
-    val initializer: Expression?
 }
