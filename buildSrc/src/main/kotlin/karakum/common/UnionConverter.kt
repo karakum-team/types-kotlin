@@ -73,7 +73,7 @@ internal fun sealedUnionBody(
 
 internal fun objectUnionBody(
     name: String,
-    type: String,
+    type: String = name,
     constants: List<UnionConstant>,
 ): String {
     val constantNames = constants
@@ -85,9 +85,10 @@ internal fun objectUnionBody(
                 .joinToString("\n")
         }
 
+    val modifier = if (name == type) "sealed interface" else "object"
     return """
         ${jsName(constants)}
-        external object $name {
+        external $modifier $name {
             $constantNames
         }
     """.trimIndent()

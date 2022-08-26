@@ -1,7 +1,8 @@
 package karakum.node
 
-import karakum.common.sealedUnionBody
+import karakum.common.objectUnionBody
 import karakum.common.unionBody
+import karakum.common.unionConstant
 
 internal fun convertUnion(
     name: String,
@@ -28,7 +29,10 @@ internal fun convertUnion(
     val body = when (name) {
         "KeyFormat",
         "KeyType",
-        -> sealedUnionBody(name, values)
+        -> objectUnionBody(
+            name = name,
+            constants = values.map(::unionConstant),
+        )
 
         else -> unionBody(name, values)
     }
