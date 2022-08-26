@@ -4,5 +4,5 @@ package typescript
 
 sealed external interface ConstructorTypeNode : FunctionOrConstructorTypeNodeBase, Union.ConstructorTypeNode_ {
     override val kind: SyntaxKind.ConstructorType
-    val modifiers: NodeArray<Modifier>?
+    override val modifiers: NodeArray<Modifier>?
 }
