@@ -311,8 +311,11 @@ private fun convertType(
         "BreakOrContinueStatement",
         -> "Statement"
 
+        "ModifierLike",
+        -> "Node"
+
         "Modifier",
-        -> "Node" // "ModifierToken<*>"
+        -> "ModifierLike" // "ModifierToken<*>" ?
 
         "ParameterPropertyDeclaration",
         -> "ParameterDeclaration"

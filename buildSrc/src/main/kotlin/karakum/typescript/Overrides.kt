@@ -146,6 +146,7 @@ internal fun fixOverrides(
         else -> content
             .override("body")
             .override("kind")
+            .override("modifiers")
             .override("name")
             .override("parent")
             .override("symbol")
