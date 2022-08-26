@@ -1,5 +1,6 @@
 package karakum.node
 
+import karakum.common.sealedUnionBody
 import karakum.common.unionBody
 
 internal fun convertUnion(
@@ -24,6 +25,12 @@ internal fun convertUnion(
     name: String,
     values: List<String>,
 ): ConversionResult {
-    val body = unionBody(name, values)
+    val body = when (name) {
+        "KeyFormat",
+        "KeyType",
+        -> sealedUnionBody(name, values)
+
+        else -> unionBody(name, values)
+    }
     return ConversionResult(name, body)
 }
