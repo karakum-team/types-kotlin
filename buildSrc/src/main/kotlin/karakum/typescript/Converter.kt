@@ -314,9 +314,6 @@ private fun convertType(
         "ModifierLike",
         -> "Node"
 
-        "Modifier",
-        -> "ModifierLike" // "ModifierToken<*>" ?
-
         "ParameterPropertyDeclaration",
         -> "ParameterDeclaration"
 
