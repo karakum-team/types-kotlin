@@ -338,7 +338,7 @@ private fun convertType(
         -> "LeftHandSideExpression"
 
         "ConciseBody",
-        -> "Union.FunctionLikeDeclarationBase_body"
+        -> "Node"
 
         "ModuleName",
         -> "Union.DeclarationStatement_name"
