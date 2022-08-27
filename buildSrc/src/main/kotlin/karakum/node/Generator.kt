@@ -19,9 +19,9 @@ private val DEFAULT_IMPORTS = listOf(
     "Symbol" to "kotlinx.js.Symbol",
     "Void" to "kotlinx.js.Void",
 
-    "Uint8Array" to "org.khronos.webgl.Uint8Array",
-    "ArrayBuffer" to "org.khronos.webgl.ArrayBuffer",
-    "ArrayBufferView" to "org.khronos.webgl.ArrayBufferView",
+    "Uint8Array" to "kotlinx.js.Uint8Array",
+    "ArrayBuffer" to "kotlinx.js.ArrayBuffer",
+    "ArrayBufferView" to "kotlinx.js.ArrayBufferView",
 
     ".await()" to "kotlinx.coroutines.await",
 
