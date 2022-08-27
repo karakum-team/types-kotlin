@@ -110,15 +110,10 @@
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.2.tgz#b74129719fc8d11c01868010082d483b7545591a"
   integrity sha512-MqTGEo5bj5t157U6fA/BiDynNkn0YknVdh48CMPkTSpFTVmvao5UQmm7uEF6xBEo7qIMAlY/JSleYaE6VOdpaA==
 
-"@types/node@18.7.13":
+"@types/node@18.7.13", "@types/node@>=13.7.0":
   version "18.7.13"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.13.tgz#23e6c5168333480d454243378b69e861ab5c011a"
   integrity sha512-46yIhxSe5xEaJZXWdIBP7GU4HDTG8/eo0qd9atdiL+lFpA03y8KS+lkTN834TWJj5767GbWv4n/P6efyTFt1Dw==
-
-"@types/node@>=13.7.0":
-  version "18.7.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.6.tgz#31743bc5772b6ac223845e18c3fc26f042713c83"
-  integrity sha512-EdxgKRXgYsNITy5mjjXjVE/CS8YENSdhiagGrLqjG0pvA2owgJ6i4l7wy/PFZGC0B1/H20lWKN7ONVDNYDZm7A==
 
 "@types/prop-types@*":
   version "15.7.5"
@@ -150,9 +145,9 @@
   integrity sha512-+F0Ozq+ksnKtjcMHujSgb4A1Vjt0b4wvvxP3/pTnXKsIrLo34EgHh2z3qJq3ntX4dbK6ytxpY1rzO/4Z8rVrHg==
 
 "@zip.js/zip.js@^2.3.12":
-  version "2.6.16"
-  resolved "https://registry.yarnpkg.com/@zip.js/zip.js/-/zip.js-2.6.16.tgz#1c549bb8f93341e9485842b9a1c18728553648c0"
-  integrity sha512-tZAdyGB1rlu3RQ/+2UJs+4F2pMSe7HUjUs3iim62OXKqIyjtMaeq5ddDsNwGcInrPIoXeKGgNxGKVwvBZpqkPw==
+  version "2.6.18"
+  resolved "https://registry.yarnpkg.com/@zip.js/zip.js/-/zip.js-2.6.18.tgz#160521cbb1dde47c55789c4f9453bde3b5876853"
+  integrity sha512-KltaGn75SN6vRu+Us07kfwahd3fc110cwIf3Bd1FBDiwNmGmnGH52bwaMzZdBoPHtnKTziYOmcZ1N6JQKfUH6Q==
 
 autolinker@^3.14.3:
   version "3.16.0"
@@ -207,9 +202,9 @@ csstype@3.1.0, csstype@^3.0.2, csstype@^3.1.0:
   integrity sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==
 
 dompurify@^2.2.2:
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.3.10.tgz#901f7390ffe16a91a5a556b94043314cd4850385"
-  integrity sha512-o7Fg/AgC7p/XpKjf/+RC3Ok6k4St5F7Q6q6+Nnm3p2zGWioAY6dh0CbbuwOhH2UcSzKsdniE/YnE2/92JcsA+g==
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.4.0.tgz#c9c88390f024c2823332615c9e20a453cf3825dd"
+  integrity sha512-Be9tbQMZds4a3C6xTmz68NlMfeONA//4dOavl/1rNw50E+/QO0KVpbcU0PcaW0nsQxurXls9ZocqFxk8R2mWEA==
 
 dukat@0.5.8-rc.4:
   version "0.5.8-rc.4"
