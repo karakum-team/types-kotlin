@@ -39,7 +39,7 @@ fun generateKotlinDeclarations(
             .writeText(fileContent(annotations, body, "org.w3c.dom.events"))
     }
 
-    for ((name, body) in sequenceOf(Aliases())) {
+    for ((name, body) in webglDeclarations(definitionsFile)) {
         webglTargetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
             .writeText(fileContent("", body, "webgl"))
