@@ -5,7 +5,7 @@ import java.io.File
 internal fun webglDeclarations(
     definitionsFile: File,
 ): Sequence<ConversionResult> =
-    Regex("""interface (EXT|OES|WEBGL)_.+? \{[\s\S]+?\}""")
+    Regex("""interface ((EXT|OES|WEBGL)_.+?|WebGLVertexArrayObjectOES) \{[\s\S]+?\}""")
         .findAll(definitionsFile.readText())
         .map { it.value }
         .map { convertInterface(it) }
