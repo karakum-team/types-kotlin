@@ -5,7 +5,7 @@ import java.io.File
 internal fun webglDeclarations(
     definitionsFile: File,
 ): Sequence<ConversionResult> =
-    Regex("""interface EXT_.+? \{\n[\s\S]+?\}""")
+    Regex("""interface EXT_.+? \{[\s\S]+?\}""")
         .findAll(definitionsFile.readText())
         .map { it.value }
         .map { source ->
