@@ -49,4 +49,5 @@ private fun convertMember(
 
     return "fun " + source
         .replace(" | null", "?")
+        .removeSuffix(": void")
 }
