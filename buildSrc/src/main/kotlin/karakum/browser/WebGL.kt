@@ -47,7 +47,33 @@ private fun convertMember(
     if ("(" !in source)
         return source.replace("readonly ", "val ")
 
-    return "fun " + source
-        .replace(" | null", "?")
+    return convertFunction(source.replace(" | null", "?"))
+}
+
+private fun convertFunction(
+    source: String,
+): String {
+    val name = source.substringBefore("(")
+    val parameters = source
+        .substringAfter("(")
+        .substringBefore(")")
+        .splitToSequence(", ")
+        .filter { it.isNotEmpty() }
+        .map {
+            var (pname, ptype) = it.split(": ")
+            if (" | " in ptype)
+                ptype = "Any /* $ptype */"
+
+            "$pname: $ptype"
+        }
+        .toList()
+
+    val params = if (parameters.size > 1) {
+        parameters.joinToString(",\n", "\n", ",\n")
+    } else parameters.joinToString("\n")
+
+    val result = source.substringAfter(")")
         .removeSuffix(": void")
+
+    return "fun $name($params)$result"
 }
