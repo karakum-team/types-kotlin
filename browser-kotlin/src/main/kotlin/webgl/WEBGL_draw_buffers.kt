@@ -3,7 +3,7 @@
 package webgl
 
 sealed external interface WEBGL_draw_buffers {
-    fun drawBuffersWEBGL(buffers: GLenum[]): void
+    fun drawBuffersWEBGL(buffers: GLenum[])
     val COLOR_ATTACHMENT0_WEBGL: GLenum
     val COLOR_ATTACHMENT10_WEBGL: GLenum
     val COLOR_ATTACHMENT11_WEBGL: GLenum
