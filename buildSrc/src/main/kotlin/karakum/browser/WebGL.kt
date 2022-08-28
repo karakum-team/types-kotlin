@@ -35,7 +35,8 @@ private fun convertInterface(
         return null
 
     val declaration = source.substringBefore(" {\n")
-        .replace(" extends ", " : ")
+        .replace(" extends ", " :\n")
+        .replace(", ", ",\n")
 
     val memberSource = source
         .substringAfter(" {\n")
