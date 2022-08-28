@@ -216,13 +216,14 @@ sealed external interface WebGL2RenderingContextBase {
         program: WebGLProgram,
         uniformBlockIndex: GLuint,
         pname: GLenum,
-    ): any
+    ): Any
 
     fun getActiveUniforms(
         program: WebGLProgram,
-        uniformIndices: GLuint[],
-    pname: GLenum,
-    ): any
+        uniformIndices: ReadonlyArray<GLuint>,
+        pname: GLenum,
+    ): Any
+
     fun getBufferSubData(
         target: GLenum,
         srcByteOffset: GLintptr,
@@ -233,19 +234,19 @@ sealed external interface WebGL2RenderingContextBase {
 
     fun getFragDataLocation(
         program: WebGLProgram,
-        name: string,
+        name: String,
     ): GLint
 
     fun getIndexedParameter(
         target: GLenum,
         index: GLuint,
-    ): any
+    ): Any
 
     fun getInternalformatParameter(
         target: GLenum,
         internalformat: GLenum,
         pname: GLenum,
-    ): any
+    ): Any
 
     fun getQuery(
         target: GLenum,
@@ -255,17 +256,17 @@ sealed external interface WebGL2RenderingContextBase {
     fun getQueryParameter(
         query: WebGLQuery,
         pname: GLenum,
-    ): any
+    ): Any
 
     fun getSamplerParameter(
         sampler: WebGLSampler,
         pname: GLenum,
-    ): any
+    ): Any
 
     fun getSyncParameter(
         sync: WebGLSync,
         pname: GLenum,
-    ): any
+    ): Any
 
     fun getTransformFeedbackVarying(
         program: WebGLProgram,
@@ -274,12 +275,12 @@ sealed external interface WebGL2RenderingContextBase {
 
     fun getUniformBlockIndex(
         program: WebGLProgram,
-        uniformBlockName: string,
+        uniformBlockName: String,
     ): GLuint
 
     fun getUniformIndices(
         program: WebGLProgram,
-        uniformNames: string[],
+        uniformNames: ReadonlyArray<string>,
     ): GLuint[]?
     fun invalidateFramebuffer(
         target: GLenum,
@@ -438,9 +439,10 @@ sealed external interface WebGL2RenderingContextBase {
 
     fun transformFeedbackVaryings(
         program: WebGLProgram,
-        varyings: string[],
-    bufferMode: GLenum,
+        varyings: ReadonlyArray<string>,
+        bufferMode: GLenum,
     )
+
     fun uniform1ui(
         location: WebGLUniformLocation?,
         v0: GLuint,
