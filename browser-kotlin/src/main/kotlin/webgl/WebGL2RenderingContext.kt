@@ -2,7 +2,9 @@
 
 package webgl
 
-sealed external class WebGL2RenderingContext : WebGL2RenderingContextBase, WebGL2RenderingContextOverloads,
+sealed external class WebGL2RenderingContext :
+    WebGL2RenderingContextBase,
+    WebGL2RenderingContextOverloads,
     WebGLRenderingContextBase {
 
     companion object {
