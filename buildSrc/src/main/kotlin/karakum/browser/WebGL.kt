@@ -68,11 +68,14 @@ private fun convertFunction(
         .map {
             var (pname, ptype) = it.split(": ")
             ptype = when {
-                ptype == "GLenum[]"
-                -> "ReadonlyArray<GLenum>"
+                ptype == "string"
+                -> "String"
 
                 ptype.startsWith("Int32Array | ")
                 -> "Int32Array /* ${ptype.removePrefix("Int32Array")} */"
+
+                ptype.endsWith("[]")
+                -> "ReadonlyArray<${ptype.removeSuffix("[]")}>"
 
                 else -> ptype
             }
@@ -92,8 +95,9 @@ private fun convertFunction(
 
     val result = source.substringAfter(")")
         .removeSuffix(": void")
-        .replace("string[]", "ReadonlyArray<String>")
-        .replace("string", "String")
+        .replace(": string[]", ": ReadonlyArray<String>")
+        .replace(": string", ": String")
+        .replace(": any", ": Any")
 
     return "fun $name($params)$result"
 }
