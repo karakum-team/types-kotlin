@@ -74,8 +74,13 @@ private fun convertFunction(
                 ptype.startsWith("Int32Array | ")
                 -> "Int32Array /* ${ptype.removePrefix("Int32Array")} */"
 
-                ptype.endsWith("[]")
-                -> "ReadonlyArray<${ptype.removeSuffix("[]")}>"
+                ptype.endsWith("[]") -> {
+                    var atype = ptype.removeSuffix("[]")
+                    if (atype == "string")
+                        atype = "String"
+
+                    "ReadonlyArray<$atype>"
+                }
 
                 else -> ptype
             }
@@ -95,6 +100,7 @@ private fun convertFunction(
 
     val result = source.substringAfter(")")
         .removeSuffix(": void")
+        .replace(": GLuint[]", ": ReadonlyArray<GLuint>")
         .replace(": string[]", ": ReadonlyArray<String>")
         .replace(": string", ": String")
         .replace(": any", ": Any")
