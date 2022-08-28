@@ -5,21 +5,26 @@ import java.io.File
 internal fun webglDeclarations(
     definitionsFile: File,
 ): Sequence<ConversionResult> =
-    Regex("""interface ((EXT|OES|WEBGL)_.+?|WebGLVertexArrayObjectOES) \{[\s\S]+?\}""")
+    Regex("""interface ((EXT_|OES_|WEBGL_|WebGL).+?) \{[\s\S]+?\}""")
         .findAll(definitionsFile.readText())
         .map { it.value }
-        .map { convertInterface(it) }
+        .mapNotNull { convertInterface(it) }
         .plus(Aliases())
+        .plus(Lists())
         .plus(Numbers())
 
 private fun convertInterface(
     source: String,
-): ConversionResult {
+): ConversionResult? {
     val name = source
         .substringAfter(" ")
         .substringBefore(" ")
 
+    if (name in OLD_WEBGL_TYPES)
+        return null
+
     val declaration = source.substringBefore(" {\n")
+        .replace(" extends ", " : ")
 
     val memberSource = source
         .substringAfter(" {\n")
@@ -69,6 +74,11 @@ private fun convertFunction(
                 -> "Int32Array /* ${ptype.removePrefix("Int32Array")} */"
 
                 else -> ptype
+            }
+
+            if (pname.endsWith("?")) {
+                pname = pname.removeSuffix("?")
+                ptype += "?"
             }
 
             "$pname: $ptype"

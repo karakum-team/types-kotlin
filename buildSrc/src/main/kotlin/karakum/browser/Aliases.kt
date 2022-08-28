@@ -1,6 +1,6 @@
 package karakum.browser
 
-private val TYPES = listOf(
+internal val OLD_WEBGL_TYPES = listOf(
     "TexImageSource",
     "WebGLActiveInfo",
     "WebGLBuffer",
@@ -22,7 +22,7 @@ private val TYPES = listOf(
 internal fun Aliases(): ConversionResult =
     ConversionResult(
         name = "Aliases",
-        body = TYPES.joinToString("\n") { type ->
+        body = OLD_WEBGL_TYPES.joinToString("\n") { type ->
             "typealias $type = org.khronos.webgl.$type"
         },
     )

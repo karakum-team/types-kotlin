@@ -7,8 +7,11 @@ import karakum.common.fileSuppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = """
-import kotlinx.js.Int32Array    
+import kotlinx.js.ArrayBufferView
+import kotlinx.js.Float32Array
+import kotlinx.js.Int32Array
 import kotlinx.js.ReadonlyArray    
+import kotlinx.js.Uint32Array
 """.trimIndent()
 
 fun generateKotlinDeclarations(
