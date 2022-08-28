@@ -2,8 +2,10 @@
 
 package webgl
 
+import kotlinx.js.ReadonlyArray
+
 sealed external interface WEBGL_compressed_texture_astc {
-    fun getSupportedProfiles(): string[]
+    fun getSupportedProfiles(): ReadonlyArray<String>
     val COMPRESSED_RGBA_ASTC_10x10_KHR: GLenum
     val COMPRESSED_RGBA_ASTC_10x5_KHR: GLenum
     val COMPRESSED_RGBA_ASTC_10x6_KHR: GLenum

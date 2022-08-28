@@ -3,5 +3,5 @@
 package webgl
 
 sealed external interface WEBGL_debug_shaders {
-    fun getTranslatedShaderSource(shader: WebGLShader): string
+    fun getTranslatedShaderSource(shader: WebGLShader): String
 }
