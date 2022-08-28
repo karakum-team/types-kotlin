@@ -10,8 +10,12 @@ fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
 ) {
-    val targetDir = sourceDir
+    val eventsTargetDir = sourceDir
         .resolve("org/w3c/dom/events")
+        .also { it.mkdirs() }
+
+    val webglTargetDir = sourceDir
+        .resolve("webgl")
         .also { it.mkdirs() }
 
     for ((name, body) in eventDeclarations(definitionsFile)) {
@@ -30,20 +34,27 @@ fun generateKotlinDeclarations(
             fileSuppress(*suppresses)
         } else ""
 
-        targetDir.resolve("$name.kt")
+        eventsTargetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(fileContent(annotations, body))
+            .writeText(fileContent(annotations, body, "org.w3c.dom.events"))
+    }
+
+    for ((name, body) in sequenceOf(Aliases())) {
+        webglTargetDir.resolve("$name.kt")
+            .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
+            .writeText(fileContent("", body, "webgl"))
     }
 }
 
 private fun fileContent(
     annotations: String = "",
     body: String,
+    pkg: String,
 ): String {
     var result = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
-        "package org.w3c.dom.events",
+        "package $pkg",
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
