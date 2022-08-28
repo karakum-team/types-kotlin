@@ -5,42 +5,42 @@ package webgl
 sealed external interface WEBGL_multi_draw {
     fun multiDrawArraysInstancedWEBGL(
         mode: GLenum,
-        firstsList: Any, /* Int32Array | GLint[] */
+        firstsList: Int32Array, /*  | GLint[] */
         firstsOffset: GLuint,
-        countsList: Any, /* Int32Array | GLsizei[] */
+        countsList: Int32Array, /*  | GLsizei[] */
         countsOffset: GLuint,
-        instanceCountsList: Any, /* Int32Array | GLsizei[] */
+        instanceCountsList: Int32Array, /*  | GLsizei[] */
         instanceCountsOffset: GLuint,
         drawcount: GLsizei,
     )
 
     fun multiDrawArraysWEBGL(
         mode: GLenum,
-        firstsList: Any, /* Int32Array | GLint[] */
+        firstsList: Int32Array, /*  | GLint[] */
         firstsOffset: GLuint,
-        countsList: Any, /* Int32Array | GLsizei[] */
+        countsList: Int32Array, /*  | GLsizei[] */
         countsOffset: GLuint,
         drawcount: GLsizei,
     )
 
     fun multiDrawElementsInstancedWEBGL(
         mode: GLenum,
-        countsList: Any, /* Int32Array | GLint[] */
+        countsList: Int32Array, /*  | GLint[] */
         countsOffset: GLuint,
         type: GLenum,
-        offsetsList: Any, /* Int32Array | GLsizei[] */
+        offsetsList: Int32Array, /*  | GLsizei[] */
         offsetsOffset: GLuint,
-        instanceCountsList: Any, /* Int32Array | GLsizei[] */
+        instanceCountsList: Int32Array, /*  | GLsizei[] */
         instanceCountsOffset: GLuint,
         drawcount: GLsizei,
     )
 
     fun multiDrawElementsWEBGL(
         mode: GLenum,
-        countsList: Any, /* Int32Array | GLint[] */
+        countsList: Int32Array, /*  | GLint[] */
         countsOffset: GLuint,
         type: GLenum,
-        offsetsList: Any, /* Int32Array | GLsizei[] */
+        offsetsList: Int32Array, /*  | GLsizei[] */
         offsetsOffset: GLuint,
         drawcount: GLsizei,
     )
