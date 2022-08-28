@@ -6,6 +6,11 @@ import karakum.common.Suppress.*
 import karakum.common.fileSuppress
 import java.io.File
 
+private val DEFAULT_IMPORTS = """
+import kotlinx.js.Int32Array    
+import kotlinx.js.ReadonlyArray    
+""".trimIndent()
+
 fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
@@ -55,6 +60,7 @@ private fun fileContent(
         "// $GENERATOR_COMMENT",
         annotations,
         "package $pkg",
+        DEFAULT_IMPORTS,
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
