@@ -2,6 +2,8 @@
 
 package webgl
 
+import kotlinx.js.Int32Array
+
 sealed external interface WEBGL_multi_draw {
     fun multiDrawArraysInstancedWEBGL(
         mode: GLenum,
