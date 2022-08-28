@@ -280,8 +280,9 @@ sealed external interface WebGL2RenderingContextBase {
 
     fun getUniformIndices(
         program: WebGLProgram,
-        uniformNames: ReadonlyArray<string>,
-    ): GLuint[]?
+        uniformNames: ReadonlyArray<String>,
+    ): ReadonlyArray<GLuint>?
+
     fun invalidateFramebuffer(
         target: GLenum,
         attachments: ReadonlyArray<GLenum>,
@@ -439,7 +440,7 @@ sealed external interface WebGL2RenderingContextBase {
 
     fun transformFeedbackVaryings(
         program: WebGLProgram,
-        varyings: ReadonlyArray<string>,
+        varyings: ReadonlyArray<String>,
         bufferMode: GLenum,
     )
 
