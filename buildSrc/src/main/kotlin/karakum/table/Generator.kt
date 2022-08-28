@@ -12,7 +12,7 @@ private val DEFAULT_IMPORTS = listOf(
     "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
     "Symbol" to "kotlinx.js.Symbol",
     "Record" to "kotlinx.js.Record",
-    "JsPair" to "kotlinx.js.JsPair",
+    "JsTuple2" to "kotlinx.js.JsTuple2",
     "Void" to "kotlinx.js.Void",
 )
 

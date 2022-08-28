@@ -37,7 +37,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "boolean | Promise<boolean>" to "PromiseResult<Boolean>",
 
-    "[number, number]" to "JsPair<Int, Int>",
+    "[number, number]" to "JsTuple2<Int, Int>",
     "ReadonlySet<string>" to "JsSet<out String>",
 
     "Uint8Array | ReadonlyArray<number>" to "Uint8Array /* | ReadonlyArray<number> */",
@@ -76,7 +76,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "ObjectEncodingOptions | BufferEncoding" to "node.buffer.BufferEncoding /* ObjectEncodingOptions | BufferEncoding */",
 
     "IterableIterator<number>" to "JsIterable.Iterator<Int>",
-    "IterableIterator<[number, number]>" to "JsIterable.Iterator<JsPair<Int, Int>>",
+    "IterableIterator<[number, number]>" to "JsIterable.Iterator<JsTuple2<Int, Int>>",
 
     "AsyncIterableIterator<any>" to "AsyncIterable.Iterator<*>",
     "AsyncIterable<FileChangeInfo<string>> | AsyncIterable<FileChangeInfo<Buffer>>" to

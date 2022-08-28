@@ -74,7 +74,7 @@ private fun fileContent(
     annotations: String = "",
     body: String,
 ): String {
-    val defaultImports = sequenceOf("JsPair", "JsIterator", "ReadonlyArray")
+    val defaultImports = sequenceOf("JsTuple2", "JsIterator", "ReadonlyArray")
         .filter { "$it<" in body }
         .map { "import kotlinx.js.$it" }
         .joinToString("\n")

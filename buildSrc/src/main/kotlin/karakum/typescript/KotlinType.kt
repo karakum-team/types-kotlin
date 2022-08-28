@@ -66,7 +66,7 @@ internal fun kotlinType(
     if (type.startsWith("Iterator<")) {
         var typeParameter = type.removeSurrounding("Iterator<", ">")
         if (typeParameter.startsWith("["))
-            typeParameter = "JsPair<" + typeParameter.removeSurrounding("[", "]") + ">"
+            typeParameter = "JsTuple2<" + typeParameter.removeSurrounding("[", "]") + ">"
 
         return "JsIterator<$typeParameter>"
     }

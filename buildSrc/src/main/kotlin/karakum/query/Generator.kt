@@ -14,7 +14,7 @@ private enum class Suppress {
 private val DEFAULT_IMPORTS = listOf(
     "Promise" to "kotlin.js.Promise",
 
-    "JsPair" to "kotlinx.js.JsPair",
+    "JsTuple2" to "kotlinx.js.JsTuple2",
     "PromiseResult" to "kotlinx.js.PromiseResult",
     "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
     "Record" to "kotlinx.js.Record",

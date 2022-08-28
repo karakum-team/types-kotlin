@@ -23,7 +23,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "null" to "Nothing?",
 
     "string[]" to "ReadonlyArray<String>",
-    "[string, number][]" to "ReadonlyArray<JsPair<String, Int>>",
+    "[string, number][]" to "ReadonlyArray<JsTuple2<String, Int>>",
 
     "Record<string, boolean>" to "Record<String, Boolean>",
     "Record<string, any>" to "Record<String, Any>",
@@ -66,7 +66,7 @@ internal fun kotlinType(
         .replace(" -> any", " -> Any")
         .replace("<number>", "<Int>")
         .replace("<any>", "<*>")
-        .replace("undefined | [number, number]", "JsPair<Int, Int>?")
+        .replace("undefined | [number, number]", "JsTuple2<Int, Int>?")
         .replace("boolean | (", "(")
         .replace("{ align, smoothScroll }?: ScrollToOffsetOptions", "options: ScrollToOffsetOptions?")
         .replace("{ align, smoothScroll, ...rest }?: ScrollToIndexOptions", "options: ScrollToIndexOptions?")
