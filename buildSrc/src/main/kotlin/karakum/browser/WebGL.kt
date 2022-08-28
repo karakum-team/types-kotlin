@@ -10,6 +10,7 @@ internal fun webglDeclarations(
         .map { it.value }
         .mapNotNull { convertInterface(it) }
         .plus(Aliases())
+        .plus(BufferSource())
         .plus(Lists())
         .plus(Numbers())
 
