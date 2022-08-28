@@ -2,4 +2,4 @@
 
 package webgl
 
-sealed external interface EXT_float_blend
+sealed external interface EXT_frag_depth
