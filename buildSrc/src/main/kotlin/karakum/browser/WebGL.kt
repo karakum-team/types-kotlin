@@ -61,8 +61,8 @@ private fun convertFunction(
         .filter { it.isNotEmpty() }
         .map {
             var (pname, ptype) = it.split(": ")
-            if (" | " in ptype)
-                ptype = "Any /* $ptype */"
+            if (ptype.startsWith("Int32Array | "))
+                ptype = "Int32Array /* ${ptype.removePrefix("Int32Array")} */"
 
             "$pname: $ptype"
         }
