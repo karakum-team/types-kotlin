@@ -52,6 +52,9 @@ fun generateKotlinDeclarations(
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
+
+            if (name == "WebGLExtension")
+                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
         }.toTypedArray()
 
         val annotations = if (suppresses.isNotEmpty()) {

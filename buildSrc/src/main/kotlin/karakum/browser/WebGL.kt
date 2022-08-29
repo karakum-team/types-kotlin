@@ -1,6 +1,8 @@
 package karakum.browser
 
+import karakum.common.objectUnionBody
 import karakum.common.unionBody
+import karakum.common.unionConstant
 import java.io.File
 
 internal fun webglDeclarations(
@@ -12,13 +14,17 @@ internal fun webglDeclarations(
         .findAll(content)
         .map { it.value }
         .mapNotNull { convertInterface(it) }
+        .toList()
 
     val classes = Regex("""declare var WebGL.+?: \{[\s\S]+?\}""")
         .findAll(content)
         .map { it.value }
         .mapNotNull { convertCompanion(it) }
 
+    val extension = convertExtension(interfaces.first { it.name == "WebGLRenderingContextBase" }.body)
+
     return merge(interfaces + classes)
+        .plus(extension)
         .plus(Aliases())
         .plus(BufferSource())
         .plus(Lists())
@@ -69,6 +75,24 @@ private fun convertInterface(
     )
 }
 
+private fun convertExtension(
+    source: String,
+): ConversionResult {
+    val values = source.splitToSequence("\n")
+        .filter { "WebGLExtension." in it }
+        .map { it.substringAfter("WebGLExtension.") }
+        .map { it.substringBefore(")") }
+        .toList()
+
+    return ConversionResult(
+        name = "WebGLExtension",
+        body = objectUnionBody(
+            name = "WebGLExtension",
+            constants = values.map(::unionConstant),
+        ),
+    )
+}
+
 private fun convertCompanion(
     source: String,
 ): ConversionResult? {
@@ -104,9 +128,6 @@ private fun convertCompanion(
 private fun convertMember(
     source: String,
 ): String {
-    if ("extensionName: \"" in source)
-        return "    // $source"
-
     if ("(" !in source)
         return convertProperty(source)
 
@@ -145,6 +166,9 @@ private fun convertFunction(
         .map {
             var (pname, ptype) = it.split(": ")
             ptype = when {
+                pname == "extensionName" && ptype.startsWith("\"")
+                -> "WebGLExtension." + ptype.removeSurrounding("\"")
+
                 ptype == "string"
                 -> "String"
 
@@ -191,7 +215,7 @@ private fun convertFunction(
 }
 
 private fun merge(
-    source: Sequence<ConversionResult>,
+    source: List<ConversionResult>,
 ): Sequence<ConversionResult> =
     source.groupBy { it.name }
         .values
