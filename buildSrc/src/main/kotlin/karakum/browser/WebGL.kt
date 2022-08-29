@@ -7,7 +7,7 @@ internal fun webglDeclarations(
 ): Sequence<ConversionResult> {
     val content = definitionsFile.readText()
 
-    val interfaces = Regex("""interface ((EXT_|OES_|WEBGL_|WebGL).+?) \{[\s\S]+?\}""")
+    val interfaces = Regex("""interface ((ANGLE_|EXT_|KHR_|OES_|OVR_|WEBGL_|WebGL).+?) \{[\s\S]+?\}""")
         .findAll(content)
         .map { it.value }
         .mapNotNull { convertInterface(it) }
