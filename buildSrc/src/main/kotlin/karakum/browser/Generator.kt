@@ -48,9 +48,18 @@ fun generateKotlinDeclarations(
     }
 
     for ((name, body) in webglDeclarations(definitionsFile)) {
+        val suppresses = mutableSetOf<Suppress>().apply {
+            if ("JsName(\"\"\"(" in body)
+                add(NAME_CONTAINS_ILLEGAL_CHARS)
+        }.toTypedArray()
+
+        val annotations = if (suppresses.isNotEmpty()) {
+            fileSuppress(*suppresses)
+        } else ""
+
         webglTargetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(fileContent("", body, "webgl"))
+            .writeText(fileContent(annotations, body, "webgl"))
     }
 }
 
