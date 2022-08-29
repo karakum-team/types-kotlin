@@ -1,5 +1,6 @@
 package karakum.browser
 
+import karakum.common.unionBody
 import java.io.File
 
 internal fun webglDeclarations(
@@ -22,6 +23,16 @@ internal fun webglDeclarations(
         .plus(BufferSource())
         .plus(Lists())
         .plus(Numbers())
+        .plus(
+            // TEMP
+            ConversionResult(
+                name = "WebGLPowerPreference",
+                body = unionBody(
+                    name = "WebGLPowerPreference",
+                    values = listOf("default", "high-performance", "low-power"),
+                ),
+            )
+        )
 }
 
 private fun convertInterface(
@@ -104,7 +115,7 @@ private fun convertProperty(
 ): String {
     val modifier = if (source.startsWith("readonly ")) "val" else "var"
     var (name, type) = source.removePrefix("readonly ").split(": ")
-    type = when(type) {
+    type = when (type) {
         "string" -> "String"
         "boolean" -> "Boolean"
 
