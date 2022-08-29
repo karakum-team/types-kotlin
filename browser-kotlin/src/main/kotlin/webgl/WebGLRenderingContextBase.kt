@@ -191,36 +191,35 @@ sealed external interface WebGLRenderingContextBase {
 
     fun getContextAttributes(): WebGLContextAttributes?
     fun getError(): GLenum
-
-    // getExtension(extensionName: "EXT_blend_minmax"): EXT_blend_minmax | null
-    // getExtension(extensionName: "EXT_color_buffer_float"): EXT_color_buffer_float | null
-    // getExtension(extensionName: "EXT_color_buffer_half_float"): EXT_color_buffer_half_float | null
-    // getExtension(extensionName: "EXT_float_blend"): EXT_float_blend | null
-    // getExtension(extensionName: "EXT_texture_filter_anisotropic"): EXT_texture_filter_anisotropic | null
-    // getExtension(extensionName: "EXT_frag_depth"): EXT_frag_depth | null
-    // getExtension(extensionName: "EXT_shader_texture_lod"): EXT_shader_texture_lod | null
-    // getExtension(extensionName: "EXT_sRGB"): EXT_sRGB | null
-    // getExtension(extensionName: "KHR_parallel_shader_compile"): KHR_parallel_shader_compile | null
-    // getExtension(extensionName: "OES_vertex_array_object"): OES_vertex_array_object | null
-    // getExtension(extensionName: "OVR_multiview2"): OVR_multiview2 | null
-    // getExtension(extensionName: "WEBGL_color_buffer_float"): WEBGL_color_buffer_float | null
-    // getExtension(extensionName: "WEBGL_compressed_texture_astc"): WEBGL_compressed_texture_astc | null
-    // getExtension(extensionName: "WEBGL_compressed_texture_etc"): WEBGL_compressed_texture_etc | null
-    // getExtension(extensionName: "WEBGL_compressed_texture_etc1"): WEBGL_compressed_texture_etc1 | null
-    // getExtension(extensionName: "WEBGL_compressed_texture_s3tc_srgb"): WEBGL_compressed_texture_s3tc_srgb | null
-    // getExtension(extensionName: "WEBGL_debug_shaders"): WEBGL_debug_shaders | null
-    // getExtension(extensionName: "WEBGL_draw_buffers"): WEBGL_draw_buffers | null
-    // getExtension(extensionName: "WEBGL_lose_context"): WEBGL_lose_context | null
-    // getExtension(extensionName: "WEBGL_depth_texture"): WEBGL_depth_texture | null
-    // getExtension(extensionName: "WEBGL_debug_renderer_info"): WEBGL_debug_renderer_info | null
-    // getExtension(extensionName: "WEBGL_compressed_texture_s3tc"): WEBGL_compressed_texture_s3tc | null
-    // getExtension(extensionName: "OES_texture_half_float_linear"): OES_texture_half_float_linear | null
-    // getExtension(extensionName: "OES_texture_half_float"): OES_texture_half_float | null
-    // getExtension(extensionName: "OES_texture_float_linear"): OES_texture_float_linear | null
-    // getExtension(extensionName: "OES_texture_float"): OES_texture_float | null
-    // getExtension(extensionName: "OES_standard_derivatives"): OES_standard_derivatives | null
-    // getExtension(extensionName: "OES_element_index_uint"): OES_element_index_uint | null
-    // getExtension(extensionName: "ANGLE_instanced_arrays"): ANGLE_instanced_arrays | null
+    fun getExtension(extensionName: WebGLExtension.EXT_blend_minmax): EXT_blend_minmax?
+    fun getExtension(extensionName: WebGLExtension.EXT_color_buffer_float): EXT_color_buffer_float?
+    fun getExtension(extensionName: WebGLExtension.EXT_color_buffer_half_float): EXT_color_buffer_half_float?
+    fun getExtension(extensionName: WebGLExtension.EXT_float_blend): EXT_float_blend?
+    fun getExtension(extensionName: WebGLExtension.EXT_texture_filter_anisotropic): EXT_texture_filter_anisotropic?
+    fun getExtension(extensionName: WebGLExtension.EXT_frag_depth): EXT_frag_depth?
+    fun getExtension(extensionName: WebGLExtension.EXT_shader_texture_lod): EXT_shader_texture_lod?
+    fun getExtension(extensionName: WebGLExtension.EXT_sRGB): EXT_sRGB?
+    fun getExtension(extensionName: WebGLExtension.KHR_parallel_shader_compile): KHR_parallel_shader_compile?
+    fun getExtension(extensionName: WebGLExtension.OES_vertex_array_object): OES_vertex_array_object?
+    fun getExtension(extensionName: WebGLExtension.OVR_multiview2): OVR_multiview2?
+    fun getExtension(extensionName: WebGLExtension.WEBGL_color_buffer_float): WEBGL_color_buffer_float?
+    fun getExtension(extensionName: WebGLExtension.WEBGL_compressed_texture_astc): WEBGL_compressed_texture_astc?
+    fun getExtension(extensionName: WebGLExtension.WEBGL_compressed_texture_etc): WEBGL_compressed_texture_etc?
+    fun getExtension(extensionName: WebGLExtension.WEBGL_compressed_texture_etc1): WEBGL_compressed_texture_etc1?
+    fun getExtension(extensionName: WebGLExtension.WEBGL_compressed_texture_s3tc_srgb): WEBGL_compressed_texture_s3tc_srgb?
+    fun getExtension(extensionName: WebGLExtension.WEBGL_debug_shaders): WEBGL_debug_shaders?
+    fun getExtension(extensionName: WebGLExtension.WEBGL_draw_buffers): WEBGL_draw_buffers?
+    fun getExtension(extensionName: WebGLExtension.WEBGL_lose_context): WEBGL_lose_context?
+    fun getExtension(extensionName: WebGLExtension.WEBGL_depth_texture): WEBGL_depth_texture?
+    fun getExtension(extensionName: WebGLExtension.WEBGL_debug_renderer_info): WEBGL_debug_renderer_info?
+    fun getExtension(extensionName: WebGLExtension.WEBGL_compressed_texture_s3tc): WEBGL_compressed_texture_s3tc?
+    fun getExtension(extensionName: WebGLExtension.OES_texture_half_float_linear): OES_texture_half_float_linear?
+    fun getExtension(extensionName: WebGLExtension.OES_texture_half_float): OES_texture_half_float?
+    fun getExtension(extensionName: WebGLExtension.OES_texture_float_linear): OES_texture_float_linear?
+    fun getExtension(extensionName: WebGLExtension.OES_texture_float): OES_texture_float?
+    fun getExtension(extensionName: WebGLExtension.OES_standard_derivatives): OES_standard_derivatives?
+    fun getExtension(extensionName: WebGLExtension.OES_element_index_uint): OES_element_index_uint?
+    fun getExtension(extensionName: WebGLExtension.ANGLE_instanced_arrays): ANGLE_instanced_arrays?
     fun getExtension(name: String): Any
     fun getFramebufferAttachmentParameter(
         target: GLenum,
