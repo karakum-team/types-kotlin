@@ -94,9 +94,29 @@ private fun convertMember(
     source: String,
 ): String {
     if ("(" !in source)
-        return source.replace("readonly ", "val ")
+        return convertProperty(source)
 
     return convertFunction(source.replace(" | null", "?"))
+}
+
+private fun convertProperty(
+    source: String,
+): String {
+    val modifier = if (source.startsWith("readonly ")) "val" else "var"
+    var (name, type) = source.removePrefix("readonly ").split(": ")
+    type = when(type) {
+        "string" -> "String"
+        "boolean" -> "Boolean"
+
+        else -> type
+    }
+
+    if (name.endsWith("?")) {
+        name = name.removeSuffix("?")
+        type += "?"
+    }
+
+    return "$modifier $name: $type"
 }
 
 private fun convertFunction(

@@ -2,7 +2,6 @@ package karakum.browser
 
 internal val OLD_WEBGL_TYPES = listOf(
     "TexImageSource",
-    "WebGLContextAttributes",
     "WebGLContextEvent",
     "WebGLContextEventInit",
     "WebGLRenderingContextBase",
