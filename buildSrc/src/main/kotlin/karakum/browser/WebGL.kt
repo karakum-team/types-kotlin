@@ -104,6 +104,9 @@ private fun convertCompanion(
 private fun convertMember(
     source: String,
 ): String {
+    if ("extensionName: \"" in source)
+        return "    // $source"
+
     if ("(" !in source)
         return convertProperty(source)
 
@@ -145,6 +148,9 @@ private fun convertFunction(
                 ptype == "string"
                 -> "String"
 
+                ptype == "GLint | GLboolean"
+                -> "GLint /* | GLboolean */"
+
                 ptype.startsWith("Int32Array | ")
                 -> "Int32Array /* ${ptype.removePrefix("Int32Array")} */"
 
@@ -174,9 +180,11 @@ private fun convertFunction(
 
     val result = source.substringAfter(")")
         .removeSuffix(": void")
+        .replace(": WebGLShader[]", ": ReadonlyArray<WebGLShader>")
         .replace(": GLuint[]", ": ReadonlyArray<GLuint>")
         .replace(": string[]", ": ReadonlyArray<String>")
         .replace(": string", ": String")
+        .replace(": boolean", ": Boolean")
         .replace(": any", ": Any")
 
     return "fun $name($params)$result"

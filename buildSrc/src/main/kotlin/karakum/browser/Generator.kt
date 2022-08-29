@@ -12,6 +12,7 @@ import kotlinx.js.Float32Array
 import kotlinx.js.Int32Array
 import kotlinx.js.ReadonlyArray    
 import kotlinx.js.Uint32Array
+import org.w3c.dom.HTMLCanvasElement
 """.trimIndent()
 
 fun generateKotlinDeclarations(

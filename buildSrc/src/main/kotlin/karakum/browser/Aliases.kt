@@ -4,7 +4,6 @@ internal val OLD_WEBGL_TYPES = listOf(
     "TexImageSource",
     "WebGLContextEvent",
     "WebGLContextEventInit",
-    "WebGLRenderingContextBase",
 )
 
 internal fun Aliases(): ConversionResult =
