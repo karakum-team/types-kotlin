@@ -68,6 +68,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Resource | string" to "Resource",
     "string | Resource" to "Resource",
     "Credit | string" to "Credit",
+    "string | number" to "String",
 
     "string | string[]" to "ReadonlyArray<String>",
     "number[] | Cartesian3[]" to "ReadonlyArray<Cartesian3 /* or number */>",
