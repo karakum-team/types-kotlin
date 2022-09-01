@@ -135,8 +135,8 @@ external class Model(options: ConstructorOptions) {
         var showCreditsOnScreen: Boolean?
         var splitDirection: SplitDirection?
         var projectTo2D: Boolean?
-        var featureIdLabel: dynamic
-        var instanceFeatureIdLabel: dynamic
+        var featureIdLabel: String?
+        var instanceFeatureIdLabel: String?
         var pointCloudShading: Any?
         var classificationType: ClassificationType?
     }
@@ -636,8 +636,8 @@ external class Model(options: ConstructorOptions) {
             var showCreditsOnScreen: Boolean?
             var splitDirection: SplitDirection?
             var projectTo2D: Boolean?
-            var featureIdLabel: dynamic
-            var instanceFeatureIdLabel: dynamic
+            var featureIdLabel: String?
+            var instanceFeatureIdLabel: String?
             var pointCloudShading: Any?
             var classificationType: ClassificationType?
         }

@@ -198,8 +198,8 @@ external class Cesium3DTileset(options: ConstructorOptions) {
         var outlineColor: Color?
         var vectorClassificationOnly: Boolean?
         var vectorKeepDecodedPositions: Boolean?
-        var featureIdLabel: dynamic
-        var instanceFeatureIdLabel: dynamic
+        var featureIdLabel: String?
+        var instanceFeatureIdLabel: String?
         var showCreditsOnScreen: Boolean?
         var splitDirection: SplitDirection?
         var projectTo2D: Boolean?
