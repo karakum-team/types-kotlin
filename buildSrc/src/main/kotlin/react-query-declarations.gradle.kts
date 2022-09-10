@@ -8,10 +8,10 @@ tasks.named("generateDeclarations") {
             .resolve("js/node_modules/@tanstack")
 
         val coreTypesDir = tanstackDir
-            .resolve("query-core/build/types/packages/query-core/src")
+            .resolve("query-core/build/lib")
 
         val reactTypesDir = tanstackDir
-            .resolve("react-query/build/types/packages/react-query/src")
+            .resolve("react-query/build/lib")
 
         val sourceDir = projectDir.resolve("src/main/kotlin")
 

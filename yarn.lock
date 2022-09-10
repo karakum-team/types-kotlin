@@ -67,18 +67,17 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
-"@tanstack/query-core@4.2.3":
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.2.3.tgz#52d75430c9662cc85c160761c1421de483c7791f"
-  integrity sha512-zdt5lYWs1dZaA3IxJbCgtAfHZJScRZONpiLL7YkeOkrme5MfjQqTpjq7LYbzpyuwPOh2Jx68le0PLl57JFv5hQ==
+"@tanstack/query-core@4.3.1":
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.3.1.tgz#ce4d13b391a8bca2f7717baaff69f74ede6b8abd"
+  integrity sha512-NrtvJYVxgO2vdXyogchORW2wDh81nHjnH8n51OvaLFilC59DE8hyMzrHmKI4J0MKx8wZvROChVHHXpbBGstR8A==
 
-"@tanstack/react-query@4.2.3":
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-4.2.3.tgz#782fd0f84553ba6219f1137a12ea28ab8cd3a3f3"
-  integrity sha512-JLaMOxoJTkiAu7QpevRCt2uI/0vd3E8K/rSlCuRgWlcW5DeJDFpDS5kfzmLO5MOcD97fgsJRrDbxDORxR1FdJA==
+"@tanstack/react-query@4.3.1":
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-4.3.1.tgz#00f891aba81d47dac7a5b0bf39019deb5004fa30"
+  integrity sha512-rVtXi5yRbhK9EGrlrnIsLNSW+bNpu8OuTnSjf5SNau2L6N+0UXrL911rtkIgF908zPKwaOoAqW/dM7d+ICp+Dg==
   dependencies:
-    "@tanstack/query-core" "4.2.3"
-    "@types/use-sync-external-store" "^0.0.3"
+    "@tanstack/query-core" "4.3.1"
     use-sync-external-store "^1.2.0"
 
 "@tanstack/react-table@8.5.13":
@@ -143,11 +142,6 @@
   version "0.16.2"
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
-
-"@types/use-sync-external-store@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@types/use-sync-external-store/-/use-sync-external-store-0.0.3.tgz#b6725d5f4af24ace33b36fafd295136e75509f43"
-  integrity sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==
 
 "@types/webrtc@0.0.32", "@types/webrtc@^0.0.32":
   version "0.0.32"
