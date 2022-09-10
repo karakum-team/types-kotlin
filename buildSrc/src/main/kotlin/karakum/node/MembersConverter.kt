@@ -175,6 +175,14 @@ private fun convertMethod(
 
     val optional = source.startsWith("$name?")
     val parameters = when {
+        "listener: RequestListener<" in parametersSource
+        -> sequenceOf(
+            parametersSource.substringBefore(", "),
+            parametersSource.substringAfter(", "),
+        ).joinToString(",\n") {
+            convertParameter(it, optional)
+        }
+
         parametersSource.isNotEmpty()
         -> parametersSource
             .splitToSequence(",\n", ", ")

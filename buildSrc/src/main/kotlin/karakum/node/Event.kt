@@ -61,8 +61,9 @@ private fun getEventNames(
         .asSequence()
         .flatMap { it.readLines() }
         .map { it.trim() }
-        .filter { it.startsWith("on(") }
-        .map { it.removePrefix("on(event: ") }
+        .filter { it.startsWith("on(") || it.startsWith("event: ") }
+        .map { it.removePrefix("on(") }
+        .map { it.removePrefix("event: ") }
         .filter { it.startsWith("'") }
         .map { it.removePrefix("'").substringBefore("'") }
         .distinct()

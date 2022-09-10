@@ -335,6 +335,8 @@ private fun convertInterface(
         .replace("implements NodeJS.WritableStream", ", node.WritableStream")
         .replace("implements Writable", "/* , Writable */")
         .replace("implements AsyncIterable<Dirent>", ": AsyncIterable<Dirent>")
+        .replace("typeof IncomingMessage = typeof IncomingMessage", "IncomingMessage")
+        .replace("typeof ServerResponse = typeof ServerResponse", "ServerResponse<*>")
         .replace(": stream.Duplex", ": Duplex")
         .replace(": stream.TransformOptions", ": TransformOptions")
         .replace(": stream.Transform", ": Transform")
@@ -347,6 +349,7 @@ private fun convertInterface(
         .replace(": NetServer", ": node.net.Server")
         .replace(": internal", ": LegacyStream")
         .replace(" = Buffer", "")
+        .replace(" = IncomingMessage", "")
         .replace("string | Buffer", "Any /* string | Buffer */")
         .replace(": EventEmitter", if (classMode) ": node.events.EventEmitter" else ": node.events.IEventEmitter")
         .replace(": Error", "/* : Error */")
@@ -458,6 +461,8 @@ private fun convertFunction(
         .removePrefix(name)
         .replace("extends NodeJS.ArrayBufferView", ": ArrayBufferView")
         .replace("extends webcrypto.BufferSource", ": Any /* ArrayBufferView | ArrayBuffer */")
+        .replace("extends typeof IncomingMessage = typeof IncomingMessage", ": IncomingMessage")
+        .replace("extends typeof ServerResponse = typeof ServerResponse", ": ServerResponse<*>")
 
     val parameters = source
         .substringAfter("(")

@@ -10,6 +10,7 @@ internal val OPEN_CLASSES = setOf(
     "Readable",
     "Transform",
     "Writable",
+    "IncomingMessage",
     "OutgoingMessage",
 )
 
