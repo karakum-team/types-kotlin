@@ -127,6 +127,7 @@ internal fun convertDefinitions(
         Rules(),
         Selector(),
         Variable(),
+        VariableRecord(),
     )
 
     return types.asSequence()
@@ -478,11 +479,15 @@ private fun convertInterface(
             else -> ""
         }
 
-        val parentTypes = extends.replace("\n", "")
+        var parents = extends.replace("\n", "")
             .splitToSequence(",")
             .map { it.trim() }
             .filter { "Vendor" !in it && "Obsolete" !in it && "Svg" !in it }
-            .joinToString(", ")
+
+        if (name == "Properties")
+            parents += VARIABLE_RECORD
+
+        val parentTypes = parents.joinToString(", ")
 
         return ConversionResult(name, "$annotations external interface $declaration: $parentTypes")
     }
