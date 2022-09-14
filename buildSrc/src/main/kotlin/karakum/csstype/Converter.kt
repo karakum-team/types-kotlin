@@ -126,6 +126,7 @@ internal fun convertDefinitions(
         RuleBuilder(),
         Rules(),
         Selector(),
+        Variable(),
     )
 
     return types.asSequence()
