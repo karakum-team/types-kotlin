@@ -46,10 +46,17 @@ internal fun function(
     parameters: Parameters,
     delimiter: String = ",",
 ): String {
-    val typeParameters = if (returnType == "T") "<T: Any>" else ""
+    val typeParameters = when (returnType) {
+        "T", "T?" -> "<T: Any>"
+        else -> ""
+    }
+
+    var functionName = name.kebabToCamel()
+    if (functionName == "var")
+        functionName = "`$functionName`"
 
     return """
-    inline fun $typeParameters ${name.kebabToCamel()}(
+    inline fun $typeParameters $functionName(
         ${parameters.stringify()}
     ): $returnType =
         "$name(${parameters.joinToString(delimiter) { (n) -> "$$n" }})".unsafeCast<$returnType>()

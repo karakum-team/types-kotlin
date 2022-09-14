@@ -31,6 +31,21 @@ internal fun referenceFunctions(): ConversionResult {
                 "value" to "String",
             )
         ),
+        function(
+            name = "var",
+            returnType = "T?",
+            parameters = arrayOf(
+                "name" to "$VARIABLE<T>",
+            )
+        ),
+        function(
+            name = "var",
+            returnType = "T",
+            parameters = arrayOf(
+                "name" to "$VARIABLE<T>",
+                "fallback" to "T",
+            )
+        ),
     )
 
     return ConversionResult(
