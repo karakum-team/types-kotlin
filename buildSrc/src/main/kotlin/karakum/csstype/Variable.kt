@@ -4,12 +4,12 @@ internal const val VARIABLE = "Variable"
 
 // language=Kotlin
 private val BODY = """
-sealed external interface $VARIABLE
+sealed external interface $VARIABLE<T : Any>
 
-inline fun $VARIABLE(
+inline fun <T: Any> $VARIABLE(
     name: String,
-): $VARIABLE =
-    name.unsafeCast<$VARIABLE>()
+): $VARIABLE<T> =
+    name.unsafeCast<$VARIABLE<T>>()
 
 """.trimIndent()
 
