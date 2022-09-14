@@ -6,9 +6,9 @@
 
 package csstype
 
-sealed external interface Variable
+sealed external interface Variable<T : Any>
 
-inline fun Variable(
+inline fun <T : Any> Variable(
     name: String,
-): Variable =
-    name.unsafeCast<Variable>()
+): Variable<T> =
+    name.unsafeCast<Variable<T>>()
