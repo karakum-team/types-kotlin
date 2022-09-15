@@ -230,6 +230,21 @@ private fun convertType(
     val name = source.substringBefore(" =")
         .substringBefore("<")
 
+    if (name == "RequestListener") {
+        val body = source
+            .substringBefore(";")
+            .addClassPatch()
+            .replace(" extends ", " : ")
+            .replace("Request : IncomingMessage,", "Request /* : IncomingMessage */,")
+            .replace("Response : ServerResponse<*>,", "Response /* : ServerResponse<*> */,")
+            .replace(" => void", " -> $UNIT")
+
+        return ConversionResult(
+            name = name,
+            body = "typealias " + body
+        )
+    }
+
     if (name.startsWith("Pipeline"))
         return null
 

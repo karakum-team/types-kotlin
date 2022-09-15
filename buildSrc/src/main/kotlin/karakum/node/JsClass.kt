@@ -12,9 +12,11 @@ internal fun String.addClassPatch(): String {
             .replace(": Request ", ": JsClass<Request> ")
             .replace(": Request\n", ": JsClass<Request>\n")
             .replace(": Request,", ": JsClass<Request>,")
+            .replace(": Request)", ": JsClass<Request>)")
             .replace(": InstanceType<Request> ", ": Request ")
             .replace(": InstanceType<Request>\n", ": Request\n")
             .replace(": InstanceType<Request>,", ": Request,")
+            .replace(": InstanceType<Request>)", ": Request)")
 
 
     if (RESPONSE in result)
@@ -23,9 +25,11 @@ internal fun String.addClassPatch(): String {
             .replace(": Response ", ": JsClass<Response> ")
             .replace(": Response\n", ": JsClass<Response>\n")
             .replace(": Response,", ": JsClass<Response>,")
+            .replace(": Response)", ": JsClass<Response>)")
             .replace(": InstanceType<Response> ", ": Response ")
             .replace(": InstanceType<Response>\n", ": Response\n")
             .replace(": InstanceType<Response>,", ": Response,")
+            .replace(": InstanceType<Response>)", ": Response)")
 
     return result
 }
