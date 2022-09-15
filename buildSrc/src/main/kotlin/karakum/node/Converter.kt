@@ -84,12 +84,14 @@ internal fun convertDefinitions(
     val interfaces = "\n$mainContent"
         .splitToSequence("\nexport interface ", "\ninterface ")
         .drop(1)
+        .map { it.addClassPatch() }
         .map { convertInterface(it, false) }
         .filter { it.name !in IGNORE_LIST }
 
     val classes = "\n$mainContent"
         .splitToSequence("\nexport class ", "\nclass ")
         .drop(1)
+        .map { it.addClassPatch() }
         .map { convertInterface(it, true) }
         .filter { it.name !in IGNORE_LIST }
 
@@ -441,7 +443,7 @@ private fun convertFunctions(
                     .replace("* /*\n", "* ---\n")
             } else ""
 
-            convertFunction(functionSource, comment, syncOnly)
+            convertFunction(functionSource.addClassPatch(), comment, syncOnly)
         }
 
 private fun convertFunction(
