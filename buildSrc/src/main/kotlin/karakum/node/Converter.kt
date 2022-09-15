@@ -365,6 +365,9 @@ private fun convertInterface(
         .replace(": tty.WriteStream", "/* : tty.WriteStream */")
         .replace(": ReadWriteStream", ": node.ReadWriteStream")
 
+    if (declaration.endsWith(": OutgoingMessage"))
+        declaration += "<IncomingMessage>"
+
     if (name == "Stats" || name == "EventEmitter" || name == "BroadcastChannel")
         declaration += " : I$name"
 

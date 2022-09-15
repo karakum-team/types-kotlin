@@ -117,6 +117,7 @@ fun generateKotlinDeclarations(
             .replace(" wrap(oldStream:", " wrap(stream:")
             .replace(" write(buffer: Uint8Array | string", " write(chunk: Uint8Array | string")
             .replace(" end(data: string | Uint8Array", "end(chunk: string | Uint8Array")
+            .replace(" & { req: InstanceType<Request> }", "")
             // TEMP
             .replace("headers: OutgoingHttpHeaders | ReadonlyArray<[string, string]>", "headers: OutgoingHttpHeaders")
 

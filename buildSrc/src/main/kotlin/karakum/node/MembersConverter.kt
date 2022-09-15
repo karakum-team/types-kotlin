@@ -184,7 +184,8 @@ private fun convertMethod(
         }
 
         parametersSource.isNotEmpty()
-        -> parametersSource
+        -> parametersSource.trim()
+            .removeSuffix(",")
             .splitToSequence(",\n", ", ")
             .joinToString(",\n") {
                 convertParameter(it, optional)
@@ -227,7 +228,7 @@ private fun convertMethod(
     return result
         // TEMP hot fix for `18.7.16`
         // TODO: remove
-        .replace(" -> void,\n: ", " -> $UNIT")
+        .replace(" -> void", " -> $UNIT")
 }
 
 private fun convertParameter(
