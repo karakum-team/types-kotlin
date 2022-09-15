@@ -530,6 +530,10 @@ private fun convertFunction(
             params +
             ")$returnDeclaration"
 
+    // TODO: remove hot fix
+    if (" -> void " in body)
+        body = body.replace(" -> void ", " -> $UNIT ")
+
     if (name != finalName)
         body = "@JsName(\"$name\")\n$body"
 
