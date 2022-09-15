@@ -92,6 +92,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "net.SocketConstructorOpts" to "node.net.SocketConstructorOpts",
 
     "-1 | 0 | 1" to "Int /* -1 | 0 | 1 */",
+    "'\\\\' | '/'" to "String /* '\\\\' | '/' */",
+    "';' | ':'" to "String /* ';' | ':' */",
 
     "UrlWithStringQuery" to "Url /* UrlWithStringQuery */",
 
