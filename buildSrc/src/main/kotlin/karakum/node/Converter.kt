@@ -231,9 +231,12 @@ private fun convertType(
     if (name.startsWith("Pipeline"))
         return null
 
-    val bodySource = source.substringAfter(" =")
+    var bodySource = source.substringAfter(" =")
         .removePrefix(" ")
         .substringBefore(";")
+
+    if ("> = " in bodySource)
+        bodySource = bodySource.substringAfter("> = ")
 
     convertUnion(name, bodySource)?.let {
         return it

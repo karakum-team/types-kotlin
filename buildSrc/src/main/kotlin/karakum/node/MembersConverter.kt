@@ -225,6 +225,9 @@ private fun convertMethod(
             .replace(" => void", "-> Unit")
 
     return result
+        // TEMP hot fix for `18.7.16`
+        // TODO: remove
+        .replace(" -> void,\n: ", " -> $UNIT")
 }
 
 private fun convertParameter(
