@@ -131,6 +131,9 @@ internal fun kotlinType(
     if (name == "port" && (type.startsWith("string | number") || type.startsWith("number | string")))
         return STRING
 
+    if (type.endsWith("\n| undefined"))
+        return kotlinType(type.removeSuffix("\n| undefined"), name)
+
     if (type.endsWith(" | undefined"))
         return kotlinType(type.removeSuffix(" | undefined"), name)
 
