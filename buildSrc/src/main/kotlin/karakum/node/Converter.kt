@@ -491,8 +491,7 @@ private fun convertFunction(
         .substringBeforeLast(")")
 
     val parameters = when {
-        "requestListener?: " in parametersSource
-        -> {
+        "requestListener?: " in parametersSource -> {
             val (pname, ptype) = parametersSource.split("?: ")
             listOf(Parameter(pname, ptype, true))
         }
