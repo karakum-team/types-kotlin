@@ -212,9 +212,11 @@ private fun convertMethod(
         ).joinToString("\n")
     }
 
-    val returnDeclaration = if (returnType != UNIT) {
-        ": $returnType"
-    } else ""
+    val returnDeclaration = when (returnType) {
+        UNIT -> ""
+        "this" -> " /* : this */"
+        else -> ": $returnType"
+    }
 
     var result = "fun $typeParameters $name($parameters)$returnDeclaration"
     if (" => " in result)

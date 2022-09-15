@@ -370,7 +370,6 @@ private fun convertInterface(
             .let { if (it.startsWith("}")) "" else it }
             .substringBefore("\n}")
             .trimIndent()
-            .replace("): this", "): $name")
             .replace("toJSON(): {\n    type: 'Buffer';\n    data: number[];\n};", "toJSON(): any;")
             .replace(";\n *", ";--\n *")
     } else ""

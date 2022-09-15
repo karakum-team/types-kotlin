@@ -228,8 +228,8 @@ internal fun addOverrides(
 
     if (name == "BroadcastChannel") {
         result = """
-            override fun  ref(): RefCounted
-            override fun  unref(): RefCounted
+            override fun  ref() /* : this */
+            override fun  unref() /* : this */
             
         """ + result
     }
