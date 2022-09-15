@@ -128,6 +128,11 @@ private fun convertConstructor(
         .removeSuffix(")")
 
     val parameters = when {
+        "requestListener?: " in parametersSource
+        -> parametersSource
+            .replace(", requestListener?: ", ",\nrequestListener: ")
+            .replace("requestListener?: ", "requestListener: ") + " = definedExternally"
+
         parametersSource.isNotEmpty()
         -> parametersSource
             .splitToSequence(", ")
