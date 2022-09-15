@@ -234,7 +234,6 @@ private fun convertType(
         val body = source
             .substringBefore(";")
             .addClassPatch()
-            .replace(" extends ", " : ")
             .replace("Request : IncomingMessage,", "Request /* : IncomingMessage */,")
             .replace("Response : ServerResponse<*>,", "Response /* : ServerResponse<*> */,")
             .replace(" => void", " -> $UNIT")
@@ -486,15 +485,25 @@ private fun convertFunction(
         .replace("extends typeof IncomingMessage = typeof IncomingMessage", ": IncomingMessage")
         .replace("extends typeof ServerResponse = typeof ServerResponse", ": ServerResponse<*>")
 
-    val parameters = source
+    val parametersSource = source
         .substringAfter("(")
         .replaceFunctionType()
         .substringBeforeLast(")")
-        .splitToSequence(", ", ",")
-        .map { it.trim() }
-        .filter { it.isNotEmpty() }
-        .map { convertParameter(it) }
-        .toList()
+
+    val parameters = when {
+        "requestListener?: " in parametersSource
+        -> {
+            val (pname, ptype) = parametersSource.split("?: ")
+            listOf(Parameter(pname, ptype, true))
+        }
+
+        else -> parametersSource
+            .splitToSequence(", ", ",")
+            .map { it.trim() }
+            .filter { it.isNotEmpty() }
+            .map { convertParameter(it) }
+            .toList()
+    }
 
     val returnType = kotlinType(
         source

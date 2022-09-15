@@ -8,7 +8,7 @@ internal fun String.addClassPatch(): String {
 
     if (REQUEST in result)
         result = result
-            .replace(REQUEST, "Request extends IncomingMessage")
+            .replace(REQUEST, "Request : IncomingMessage")
             .replace(": Request ", ": JsClass<Request> ")
             .replace(": Request\n", ": JsClass<Request>\n")
             .replace(": Request,", ": JsClass<Request>,")
@@ -21,7 +21,7 @@ internal fun String.addClassPatch(): String {
 
     if (RESPONSE in result)
         result = result
-            .replace(RESPONSE, "Response extends ServerResponse<*>")
+            .replace(RESPONSE, "Response : ServerResponse<*>")
             .replace(": Response ", ": JsClass<Response> ")
             .replace(": Response\n", ": JsClass<Response>\n")
             .replace(": Response,", ": JsClass<Response>,")
