@@ -4,6 +4,8 @@
 
 # Types [Kotlin]
 
+Generator for [kotlin-wrappers](https://github.com/JetBrains/kotlin-wrappers)
+
 | Library                                                                                   | NPM version                                                                                                                | Version                                                                                                                                                                                                                |
 |-------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Cesium](https://github.com/CesiumGS/cesium)                                              | [![npm](https://img.shields.io/npm/v/cesium)](https://www.npmjs.com/package/cesium)                                        | [![Maven Central](https://img.shields.io/maven-central/v/org.jetbrains.kotlin-wrappers/kotlin-cesium)](https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers/kotlin-cesium)                                 |
