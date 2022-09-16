@@ -98,7 +98,7 @@ internal fun kotlinType(
             .replace("TerrainProvider.ErrorEvent", "* /* ErrorEvent */")
 
     if (type.startsWith("Record<"))
-        return type
+        return "Readonly$type"
 
     if (type == "number") {
         return if (isInteger(name)) "Int" else "Double"
