@@ -25,10 +25,10 @@ private val STANDARD_TYPE_MAP = mapOf(
     "string[]" to "ReadonlyArray<String>",
     "[string, number][]" to "ReadonlyArray<JsTuple2<String, Int>>",
 
-    "Record<string, boolean>" to "Record<String, Boolean>",
-    "Record<string, any>" to "Record<String, Any>",
-    "Record<string, Row<TData>>" to "Record<String, Row<TData>>",
-    "Record<string, FilterMeta>" to "Record<String, FilterMeta>",
+    "Record<string, boolean>" to "ReadonlyRecord<String, Boolean>",
+    "Record<string, any>" to "ReadonlyRecord<String, Any>",
+    "Record<string, Row<TData>>" to "ReadonlyRecord<String, Row<TData>>",
+    "Record<string, FilterMeta>" to "ReadonlyRecord<String, FilterMeta>",
 
     "Partial<TableState>" to "TableState /* Partial */",
     "Partial<PaginationState>" to "PaginationState /* Partial */",
@@ -112,7 +112,7 @@ internal fun kotlinType(
         .replace("number[]", "ReadonlyArray<Int>")
         .replace("undefined | [number, number]", "JsTuple2<Int, Int>?")
         .replace("boolean | (", "(")
-        .replace("Map<any, number>", "Record<Any, Int> /* JS Map */")
+        .replace("Map<any, number>", "JsMap<Any, Int>")
         .replace("SortDirection | false", "SortDirection?")
         .replace("false | SortDirection", "SortDirection?")
         .replace(": Partial<TableOptions<TData>>", ": TableOptions<TData> /* Partial */")

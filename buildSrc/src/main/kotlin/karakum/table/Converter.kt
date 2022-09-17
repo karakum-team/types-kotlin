@@ -113,8 +113,8 @@ private fun convertFunction(
             "headerFamily: String = definedExternally /* 'center' | 'left' | 'right' */"
         )
         .replace(": boolean | 'some' | 'all'", ": Any /* Boolean | 'some' | 'all' */")
-        .replace("Record<string, boolean>", "Record<String, Boolean>")
-        .replace("Map<any, number>", "Record<Any, Int> /* JS Map */")
+        .replace("Record<string, boolean>", "ReadonlyRecord<String, Boolean>")
+        .replace("Map<any, number>", "JsMap<Any, Int>")
         .replace(" => void", " -> Unit")
         .replace(" => ", " -> ")
         .replace(": string[]", ": ReadonlyArray<String>")
@@ -236,6 +236,7 @@ private fun convertTypealias(
                     "true" -> "Boolean /* $type */"
                     "'auto'" -> "String /* $type */"
                     else -> type
+                        .replace("Record<", "ReadonlyRecord<")
                         .replace("string", "String")
                         .replace("number", "Number")
                         .replace("symbol", "Symbol")
@@ -312,6 +313,7 @@ private fun convertTypealias(
 
     body = body
         .replace("(...args: any) -> any", "Function<Unit>")
+        .replace("Record<", "ReadonlyRecord<")
         .replace("string[]", "ReadonlyArray<String>")
         .replace("ColumnFilter[]", "ReadonlyArray<ColumnFilter>")
         .replace("ColumnSort[]", "ReadonlyArray<ColumnSort>")
