@@ -196,11 +196,11 @@ internal fun convertDefinitions(
 
         Package("url") -> interfaces
             .plus(convertFunctions(content))
-            .plus(ConversionResult("URL.alias", "typealias URL = org.w3c.dom.url.URL"))
+            .plus(ConversionResult("URL.alias", "typealias URL = kotlinx.js.URL"))
             .plus(
                 ConversionResult(
                     "URLSearchParams.alias",
-                    "typealias URLSearchParams = org.w3c.dom.url.URLSearchParams"
+                    "typealias URLSearchParams = kotlinx.js.URLSearchParams"
                 )
             )
 
