@@ -10,11 +10,14 @@ package csstype
 // language=JavaScript
 @JsName("""(/*union*/{bottom: 'bottom', center: 'center', left: 'left', right: 'right', top: 'top'}/*union*/)""")
 sealed external interface TransformOrigin {
+
+    interface OffsetKeyword : TransformOrigin
+
     companion object {
-        val bottom: TransformOrigin
-        val center: TransformOrigin
-        val left: TransformOrigin
-        val right: TransformOrigin
-        val top: TransformOrigin
+        val bottom: OffsetKeyword
+        val center: OffsetKeyword
+        val left: OffsetKeyword
+        val right: OffsetKeyword
+        val top: OffsetKeyword
     }
 }
