@@ -117,6 +117,9 @@ internal fun convertDefinitions(
         AngularColorStop(),
         LinearColorStop(),
 
+        BasicShape(),
+        GeometryBox(),
+
         PropertyName(contentMap)
     )
 
