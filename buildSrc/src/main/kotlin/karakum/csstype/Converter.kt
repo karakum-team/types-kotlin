@@ -120,6 +120,8 @@ internal fun convertDefinitions(
         BasicShape(),
         ShapeRadius(),
         GeometryBox(),
+        At(),
+        Round(),
 
         PropertyName(contentMap)
     )
