@@ -18,14 +18,14 @@ inline fun circle(
     r: ShapeRadius,
     c: GeometryPosition,
 ): BasicShape =
-    "circle($r $c)".unsafeCast<BasicShape>()
+    "circle($r at $c)".unsafeCast<BasicShape>()
 
 inline fun circle(
     r: ShapeRadius,
     cx: GeometryPosition,
     cy: GeometryPosition,
 ): BasicShape =
-    "circle($r $cx $cy)".unsafeCast<BasicShape>()
+    "circle($r at $cx $cy)".unsafeCast<BasicShape>()
 
 inline fun ellipse(): BasicShape =
     "ellipse()".unsafeCast<BasicShape>()
@@ -41,7 +41,7 @@ inline fun ellipse(
     ry: ShapeRadius,
     c: GeometryPosition,
 ): BasicShape =
-    "ellipse($rx $ry $c)".unsafeCast<BasicShape>()
+    "ellipse($rx $ry at $c)".unsafeCast<BasicShape>()
 
 inline fun ellipse(
     rx: ShapeRadius,
@@ -49,7 +49,7 @@ inline fun ellipse(
     cx: GeometryPosition,
     cy: GeometryPosition,
 ): BasicShape =
-    "ellipse($rx $ry $cx $cy)".unsafeCast<BasicShape>()
+    "ellipse($rx $ry at $cx $cy)".unsafeCast<BasicShape>()
 
 inline fun inset(
     vertical: Length,
