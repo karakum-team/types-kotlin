@@ -6,9 +6,7 @@
 
 package csstype
 
-inline fun circle(
-
-): BasicShape =
+inline fun circle(): BasicShape =
     "circle()".unsafeCast<BasicShape>()
 
 inline fun circle(
@@ -29,9 +27,7 @@ inline fun circle(
 ): BasicShape =
     "circle($r $cx $cy)".unsafeCast<BasicShape>()
 
-inline fun ellipse(
-
-): BasicShape =
+inline fun ellipse(): BasicShape =
     "ellipse()".unsafeCast<BasicShape>()
 
 inline fun ellipse(
