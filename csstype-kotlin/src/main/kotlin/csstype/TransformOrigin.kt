@@ -11,15 +11,12 @@ package csstype
 // language=JavaScript
 @JsName("""(/*union*/{bottom: 'bottom', center: 'center', left: 'left', right: 'right', top: 'top'}/*union*/)""")
 sealed external interface TransformOrigin {
-
-    interface OffsetKeyword : TransformOrigin
-
     companion object {
-        val bottom: OffsetKeyword
-        val center: OffsetKeyword
-        val left: OffsetKeyword
-        val right: OffsetKeyword
-        val top: OffsetKeyword
+        val bottom: TransformOrigin
+        val center: TransformOrigin
+        val left: TransformOrigin
+        val right: TransformOrigin
+        val top: TransformOrigin
     }
 }
 
@@ -30,14 +27,14 @@ inline fun TransformOrigin(
     "$xOffset $yOffset".unsafeCast<TransformOrigin>()
 
 inline fun TransformOrigin(
-    xOffsetKeyword: TransformOrigin.OffsetKeyword,
+    xOffsetKeyword: GeometryPosition,
     yOffset: Length,
 ): TransformOrigin =
     "$xOffsetKeyword $yOffset".unsafeCast<TransformOrigin>()
 
 inline fun TransformOrigin(
-    xOffsetKeyword: TransformOrigin.OffsetKeyword,
-    yOffsetKeyword: TransformOrigin.OffsetKeyword,
+    xOffsetKeyword: GeometryPosition,
+    yOffsetKeyword: GeometryPosition,
 ): TransformOrigin =
     "$xOffsetKeyword $yOffsetKeyword".unsafeCast<TransformOrigin>()
 
@@ -49,15 +46,15 @@ inline fun TransformOrigin(
     "$xOffset $yOffset $zOffset".unsafeCast<TransformOrigin>()
 
 inline fun TransformOrigin(
-    xOffsetKeyword: TransformOrigin.OffsetKeyword,
+    xOffsetKeyword: GeometryPosition,
     yOffset: Length,
     zOffset: Length,
 ): TransformOrigin =
     "$xOffsetKeyword $yOffset $zOffset".unsafeCast<TransformOrigin>()
 
 inline fun TransformOrigin(
-    xOffsetKeyword: TransformOrigin.OffsetKeyword,
-    yOffsetKeyword: TransformOrigin.OffsetKeyword,
+    xOffsetKeyword: GeometryPosition,
+    yOffsetKeyword: GeometryPosition,
     zOffset: Length,
 ): TransformOrigin =
     "$xOffsetKeyword $yOffsetKeyword $zOffset".unsafeCast<TransformOrigin>()
