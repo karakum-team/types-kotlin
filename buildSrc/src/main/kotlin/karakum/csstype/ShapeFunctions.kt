@@ -4,6 +4,7 @@ internal fun shapeFunctions(): ConversionResult {
     val declarations = circleFunctions()
         .plus(ellipseFunctions())
         .plus(insetFunctions())
+        .plus(pathFunctions())
 
     return ConversionResult(
         name = "Shape.functions",
@@ -76,3 +77,18 @@ private fun insetFunctions(): Sequence<String> {
             )
         }
 }
+
+private val D = "d" to STRING
+
+private fun pathFunctions(): Sequence<String> =
+    sequenceOf(
+        listOf(D),
+    ).map { it.toTypedArray() }
+        .map { parameters ->
+            function(
+                name = "path",
+                returnType = BASIC_SHAPE,
+                parameters = parameters,
+                delimiter = " ",
+            )
+        }
