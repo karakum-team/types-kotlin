@@ -370,7 +370,7 @@ private fun convertUnion(
             FLEX -> it.copy(body = it.body + "\n\n" + flexFactories())
             BOX_SHADOW -> it.copy(body = it.body + "\n\n" + boxShadowFactories())
             TEXT_SHADOW -> it.copy(body = it.body + "\n\n" + textShadowFactories())
-            TRANSFORM_ORIGIN -> it.copy(body = it.body.addTransformOriginFactories())
+            TRANSFORM_ORIGIN -> it.copy(body = it.body + "\n\n" + transformOriginFactories())
             TRANSITION -> it.copy(body = it.body + "\n\n" + transitionFactories())
             else -> it
         }
