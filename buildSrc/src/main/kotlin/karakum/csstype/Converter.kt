@@ -44,6 +44,7 @@ internal fun convertDefinitions(
     val noneContext = ParentContext(NONE)
     val lengthContext = ParentContext(LENGTH_PROPERTY)
     val timeContext = ParentContext(TIME_PROPERTY)
+    val geometryPositionContext = ParentContext(GEOMETRY_POSITION)
 
     types = sequenceOf(
         LengthTypeConsumer(),
@@ -85,6 +86,7 @@ internal fun convertDefinitions(
         IdentType(),
         AutoType(autoContext),
         NoneType(noneContext),
+        GeometryPosition(geometryPositionContext),
 
         Angle(),
         Length(),
