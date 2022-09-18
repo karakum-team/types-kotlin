@@ -6,11 +6,14 @@ internal val LAYOUT_CLASSES = setOf(
     "Padding",
 )
 
-private val PARAMETERS = listOf(
+internal val LAYOUT_PARAMETERS = listOf(
+    listOf("value"),
     listOf("vertical", "horizontal"),
     listOf("top", "horizontal", "bottom"),
     listOf("top", "right", "bottom", "left"),
 )
+
+private val PARAMETERS = LAYOUT_PARAMETERS.drop(1)
 
 internal fun layoutFactories(name: String): String {
     val parameterType = when (name) {

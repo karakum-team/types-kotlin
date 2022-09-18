@@ -122,6 +122,7 @@ internal fun convertDefinitions(
         GeometryBox(),
         At(),
         Round(),
+        shapeFunctions(),
 
         PropertyName(contentMap)
     )
