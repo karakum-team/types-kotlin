@@ -1,24 +1,12 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NAME_CONTAINS_ILLEGAL_CHARS",
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
     "NOTHING_TO_INLINE",
 )
 
 package csstype
 
-// language=JavaScript
-@JsName("""(/*union*/{bottom: 'bottom', center: 'center', left: 'left', right: 'right', top: 'top'}/*union*/)""")
-sealed external interface TransformOrigin {
-    companion object {
-        val bottom: TransformOrigin
-        val center: TransformOrigin
-        val left: TransformOrigin
-        val right: TransformOrigin
-        val top: TransformOrigin
-    }
-}
+sealed external interface TransformOrigin
 
 inline fun TransformOrigin(
     xOffset: Length,
