@@ -3,21 +3,30 @@ package karakum.csstype
 import karakum.common.unionBody
 
 internal const val GEOMETRY_POSITION = "GeometryPosition"
+internal val GEOMETRY_POSITION_VALUES = listOf(
+    "bottom",
+    "center",
+    "left",
+    "right",
+    "top",
+)
+
 private val GEOMETRY_POSITION_BODY = unionBody(
-    GEOMETRY_POSITION,
-    listOf(
-        "bottom",
-        "center",
-        "left",
-        "right",
-        "top",
-        )
+    name = GEOMETRY_POSITION,
+    values = GEOMETRY_POSITION_VALUES,
 )
 
 internal fun GeometryPosition(
     parentProvider: ParentProvider,
-): ConversionResult =
-    ConversionResult(
+): ConversionResult {
+    val parentTypes = parentProvider.parentTypes
+        .joinToString(",\n")
+
+    val body = GEOMETRY_POSITION_BODY
+        .replaceFirst(GEOMETRY_POSITION, GEOMETRY_POSITION + " :\n" + parentTypes)
+
+    return ConversionResult(
         name = GEOMETRY_POSITION,
-        body = GEOMETRY_POSITION_BODY,
+        body = body,
     )
+}

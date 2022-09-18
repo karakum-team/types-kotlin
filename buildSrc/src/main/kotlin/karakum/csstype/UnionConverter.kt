@@ -7,6 +7,7 @@ import karakum.common.unionBodyByConstants
 
 private const val AUTO_VALUE = "\"auto\""
 private const val NONE_VALUE = "\"none\""
+private val GEOMETRY_POSITION_ITEMS = GEOMETRY_POSITION_VALUES.map { "\"$it\"" }
 
 private val LENGTH_UNIONS = setOf(
     "MaskPosition",
@@ -112,6 +113,7 @@ internal fun tryToUnion(
         "Flex",
         "MaskBorder",
         -> items - "(number & {})"
+
         else -> items
     }
 
@@ -154,6 +156,11 @@ internal fun tryToUnion(
     if (NONE_VALUE in items) {
         comment += "// $NONE\n"
         items = items - NONE_VALUE
+    }
+
+    if (items == GEOMETRY_POSITION_ITEMS) {
+        comment += "// $GEOMETRY_POSITION\n"
+        items = emptyList()
     }
 
     if (items.isEmpty())

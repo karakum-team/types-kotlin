@@ -56,6 +56,7 @@ internal fun convertDefinitions(
         noneContext,
         lengthContext,
         timeContext,
+        geometryPositionContext,
         ColorConsumer(),
     ).fold(types) { t, context ->
         context.apply(t)
