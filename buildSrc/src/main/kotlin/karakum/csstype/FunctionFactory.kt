@@ -55,10 +55,12 @@ internal fun function(
     if (functionName == "var")
         functionName = "`$functionName`"
 
+    var params = parameters.stringify()
+    if (params.isNotEmpty())
+        params = "\n$params\n"
+
     return """
-    inline fun $typeParameters $functionName(
-        ${parameters.stringify()}
-    ): $returnType =
+    inline fun $typeParameters $functionName($params): $returnType =
         "$name(${parameters.joinToString(delimiter) { (n) -> "$$n" }})".unsafeCast<$returnType>()
     """.trimIndent()
 }
