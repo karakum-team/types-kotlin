@@ -59,10 +59,28 @@ internal fun function(
     if (params.isNotEmpty())
         params = "\n$params\n"
 
+    val cssParams = parameters
+        .flatMap { (n) -> sequenceOf(prefix(name, n), "$$n") }
+        .filterNotNull()
+        .joinToString(delimiter)
+
     return """
     inline fun $typeParameters $functionName($params): $returnType =
-        "$name(${parameters.joinToString(delimiter) { (n) -> "$$n" }})".unsafeCast<$returnType>()
+        "$name($cssParams)".unsafeCast<$returnType>()
     """.trimIndent()
+}
+
+private fun prefix(
+    name: String,
+    parameterName: String,
+): String? {
+    if (name == "circle" || name == "ellipse") {
+        if (parameterName == "c" || parameterName == "cx") {
+            return "at"
+        }
+    }
+
+    return null
 }
 
 private fun Parameters.stringify(): String =
