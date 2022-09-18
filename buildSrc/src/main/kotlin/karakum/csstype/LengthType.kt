@@ -47,6 +47,7 @@ internal class LengthTypeConsumer : ParentConsumer {
             AUTO_LENGTH,
             GRID_LENGTH,
             LENGTH_PROPERTY,
+            SHAPE_RADIUS,
         ).plus(simpleLengthItems.map { it.name })
             .sorted()
 

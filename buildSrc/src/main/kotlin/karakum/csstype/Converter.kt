@@ -118,6 +118,7 @@ internal fun convertDefinitions(
         LinearColorStop(),
 
         BasicShape(),
+        ShapeRadius(),
         GeometryBox(),
 
         PropertyName(contentMap)
