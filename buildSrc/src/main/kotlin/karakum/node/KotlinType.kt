@@ -183,7 +183,7 @@ internal fun kotlinType(
             return "$typedType<${kotlinType(type.removeSurrounding("$typedType<", ">"), name)}>"
     }
 
-    if (type.startsWith("Promise<")) {
+    if (type.startsWith("Promise<") && type.endsWith(">")) {
         val typeParameter = type.removeSurrounding("Promise<", ">")
         val parameter = when (typeParameter) {
             "unknown" -> "*"
@@ -194,8 +194,13 @@ internal fun kotlinType(
         return "Promise<$parameter>"
     }
 
-    if (name == "event" && type.startsWith("'"))
-        return "$EVENT.${eventName(type.removeSurrounding("'"))}"
+    if (name == "event" && type.startsWith("'")) {
+        val originalEventName = type.removeSurrounding("'")
+        if (originalEventName.startsWith("test:"))
+            return "TestEvent.${eventName(originalEventName.removePrefix("test:"))}"
+
+        return "$EVENT.${eventName(originalEventName)}"
+    }
 
     if (type.startsWith("'"))
         return "$STRING /* $type */"

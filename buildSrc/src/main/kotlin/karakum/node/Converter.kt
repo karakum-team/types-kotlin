@@ -37,8 +37,13 @@ internal fun convertDefinitions(
     source: String,
     pkg: Package,
 ): Sequence<ConversionResult> {
+    val moduleName = when (pkg) {
+        Package("test") -> pkg.id
+        else -> pkg.name
+    }
+
     val content = source
-        .substringAfter("declare module '${pkg.name}' {\n", "")
+        .substringAfter("declare module '$moduleName' {\n", "")
         .substringBefore("\n}")
         .trimIndent()
 
