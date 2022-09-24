@@ -305,6 +305,7 @@ private fun convertType(
         .replace(": string", ": String")
         .replace(": number", ": Number")
         .replace(" => void", " -> Unit")
+        .replace(" => any", " -> Any?")
         .replace("?: Error | null", ": Error?")
         .replace("?: any", ": Any?")
         .replace(": NodeJS.ErrnoException | null", ": ErrnoException?")
