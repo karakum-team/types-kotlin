@@ -125,6 +125,7 @@ fun generateKotlinDeclarations(
         when (pkg) {
             Package("events") -> definitions = definitions + Event(definitionsDir) + EventType()
             Package("inspector") -> definitions = definitions + inspectorEvents(definitionsDir)
+            Package("test") -> definitions = definitions + testEvent(definitionsDir)
         }
 
         definitions = definitions

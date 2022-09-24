@@ -29,6 +29,7 @@ internal fun Event(
 ): ConversionResult {
     val eventNames = getEventNames(definitionsDir)
         .filter { "." !in it }
+        .filter { !it.startsWith("test:") }
 
     return Event(EVENT, eventNames)
 }
@@ -52,6 +53,15 @@ internal fun inspectorEvents(
             )
         }
         .asSequence()
+
+internal fun testEvent(
+    definitionsDir: File,
+): ConversionResult =
+    Event(
+        name = "TestEvent",
+        eventNames = getEventNames(definitionsDir)
+            .filter { it.startsWith("test:") }
+    )
 
 private fun getEventNames(
     definitionsDir: File,
@@ -78,7 +88,7 @@ private fun Event(
         name = name,
         type = EVENT_TYPE,
         constants = eventNames.map { value ->
-            val eventName = eventName(value.substringAfter("."))
+            val eventName = eventName(value.substringAfter(".").substringAfter(":"))
             UnionConstant(
                 kotlinName = eventName,
                 jsName = eventName,
