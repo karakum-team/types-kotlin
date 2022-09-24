@@ -175,8 +175,13 @@ internal fun kotlinType(
         return "Any /* $type */"
     }
 
-    if (type.endsWith("[]"))
-        return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
+    if (type.endsWith("[]")) {
+        val typeSource = type
+            .removePrefix("readonly ")
+            .removeSuffix("[]")
+
+        return "ReadonlyArray<${kotlinType(typeSource, name)}>"
+    }
 
     for (typedType in TYPED) {
         if (type.startsWith("$typedType<"))
