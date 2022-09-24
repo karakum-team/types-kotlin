@@ -358,6 +358,7 @@ private fun convertInterface(
         .replace("<bigint>", "<BigInt>")
         .replace("NodeJS.ArrayBufferView", "ArrayBufferView")
         .replace("NodeJS.RefCount", "RefCount")
+        .replace(": NodeJS.ReadableStream", ": node.ReadableStream")
         .replace("implements NodeJS.ReadableStream", ", node.ReadableStream")
         .replace("implements NodeJS.WritableStream", ", node.WritableStream")
         .replace("implements Writable", "/* , Writable */")

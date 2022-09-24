@@ -41,6 +41,7 @@ internal fun addOverrides(
         || name == "ReadStream"
         || name == "WriteStream"
         || name == "ClientRequest"
+        || name == "TapStream"
         || (name == "Server" && "node.net.Server" in declaration)
     ) {
         EMITTER_METHODS.forEach {
