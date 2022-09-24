@@ -5,11 +5,11 @@ import karakum.common.snakeToCamel
 internal data class Package(
     val name: String,
 ) {
-    private val root = name.substringBefore("/")
+    private val root = name.removeSuffix("/promises")
         .snakeToCamel()
 
     val id: String = concat("node", ":", name)
-    val pkg: String = "package " + concat("node", ".", root)
+    val pkg: String = "package " + concat("node", ".", root.replace("/", "."))
 
     val path: String = concat("node", "/", root)
 }

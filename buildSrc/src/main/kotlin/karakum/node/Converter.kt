@@ -129,7 +129,7 @@ internal fun convertDefinitions(
             .plus(Abortable())
 
         Package("globals") -> interfaces
-            .map { it.copy(body = it.body.replace("node.stream.", "")) }
+            .map { it.copy(body = it.body.replace("node.stream.web.", "")) }
             .plus(abortClasses())
             .plus(PipeOptions())
             .plus(ConversionResult("Dict", "typealias Dict<T> = Record<String, T>"))
