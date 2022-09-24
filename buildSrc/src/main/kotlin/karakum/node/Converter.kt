@@ -191,6 +191,9 @@ internal fun convertDefinitions(
             .plus(ConversionResult("ReadableStream", "external class ReadableStream"))
             .plus(ConversionResult("WritableStream", "external class WritableStream"))
 
+        Package("test") -> interfaces
+            .plus(convertFunctions(content))
+
         Package("tty") -> (interfaces + classes)
             .plus(convertFunctions(content))
 

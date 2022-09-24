@@ -79,6 +79,7 @@ private val MODULES = setOf(
     "stream",
     "stream/promises",
     "stream/web",
+    "test",
     "tty",
     "url",
     "util",
