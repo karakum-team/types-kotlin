@@ -466,7 +466,11 @@ private fun convertFunctions(
                     .replace("* /*\n", "* ---\n")
             } else ""
 
-            convertFunction(functionSource.addClassPatch(), comment, syncOnly)
+            convertFunction(
+                source = functionSource.addClassPatch(),
+                comment = comment,
+                syncOnly = syncOnly,
+            )
         }
 
 private fun convertFunction(
