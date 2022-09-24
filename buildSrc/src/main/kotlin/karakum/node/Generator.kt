@@ -192,6 +192,16 @@ fun generateKotlinDeclarations(
                 )
         }
     }
+
+    sourceDir.resolve("node/test/test.kt").apply {
+        writeText(
+            readText()
+                .splitToSequence("\nsuspend ")
+                .map { it.trim() }
+                .distinct()
+                .joinToString("\n\nsuspend ")
+        )
+    }
 }
 
 private fun fileContent(
