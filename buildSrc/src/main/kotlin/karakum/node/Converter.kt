@@ -520,7 +520,8 @@ private fun convertFunction(
     val returnType = kotlinType(
         source
             .substringAfter("): ")
-            .substringBefore(";\n//"),
+            .substringBefore(";\n//")
+            .removeSuffix(";\n"),
         name,
     )
 
