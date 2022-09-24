@@ -103,6 +103,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "typeof ServerResponse" to "JsClass<ServerResponse>",
 
     "(...args: any[]) => void" to "Function<Unit>",
+    "typeof test" to "Function<Promise<Void>> /* typeof test */",
 
     // TEMP
     "Require" to "$DYNAMIC /* Require */",
