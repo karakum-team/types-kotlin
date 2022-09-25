@@ -63,6 +63,9 @@ private fun convertMember(
         body.startsWith("[Symbol.")
         -> "    /* $body */"
 
+        body.startsWith("readonly [Symbol.")
+        -> "    /* $body */"
+
         body.startsWith("private constructor(")
         -> "    /* $body */"
 
@@ -90,6 +93,9 @@ private fun isProperty(
 private fun convertProperty(
     source: String,
 ): String {
+    if (source.startsWith("/** "))
+        return source.substringBefore("\n") + "\n" + convertProperty(source.substringAfter("\n"))
+
     if (source.startsWith("static "))
         return STATIC_MARKER + convertProperty(source.removePrefix("static "))
 
