@@ -66,7 +66,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "'buffer'" to "BufferEncodingOption",
 
     "BufferEncoding" to "node.buffer.BufferEncoding",
-    "ReadableStream" to "node.stream.web.ReadableStream",
+    "ReadableStream" to "node.stream.web.ReadableStream<*>",
     "stream.Readable" to "Readable",
     "stream.Duplex" to "Duplex",
     "stream.TransformOptions" to "TransformOptions",
@@ -87,8 +87,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "NodeJS.ReadOnlyDict<Socket[]>" to "ReadOnlyDict<ReadonlyArray<Socket>>",
     "NodeJS.ReadOnlyDict<IncomingMessage[]>" to "ReadOnlyDict<ReadonlyArray<IncomingMessage>>",
 
-    "streamWeb.ReadableStream" to "node.stream.web.ReadableStream",
-    "streamWeb.WritableStream" to "node.stream.web.WritableStream",
+    "streamWeb.ReadableStream" to "node.stream.web.ReadableStream<*>",
+    "streamWeb.WritableStream" to "node.stream.web.WritableStream<*>",
     "net.SocketConstructorOpts" to "node.net.SocketConstructorOpts",
 
     "-1 | 0 | 1" to "Int /* -1 | 0 | 1 */",

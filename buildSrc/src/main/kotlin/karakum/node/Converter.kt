@@ -134,7 +134,13 @@ internal fun convertDefinitions(
             .plus(Abortable())
 
         Package("globals") -> interfaces
-            .map { it.copy(body = it.body.replace("node.stream.web.", "")) }
+            .map {
+                val newBody = it.body
+                    .replace("node.stream.web.", "")
+                    .replace("ReadableStream<*>", "ReadableStream")
+
+                it.copy(body = newBody)
+            }
             .plus(abortClasses())
             .plus(PipeOptions())
             .plus(ConversionResult("Dict", "typealias Dict<T> = Record<String, T>"))
