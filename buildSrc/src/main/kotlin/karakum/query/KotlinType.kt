@@ -69,6 +69,9 @@ private val STANDARD_TYPE_MAP = mapOf(
             "react.FC<QueryClientProviderProps>",
     "({ children, options, state }: HydrateProps) => React.ReactElement<any, string | React.JSXElementConstructor<any>>" to
             "react.FC<HydrateProps>",
+
+    "import(\"./query\").Query<unknown, unknown, unknown, import(\"./types\").QueryKey>" to
+            "Query<*, *, *, QueryKey>",
 )
 
 private val SAFE_PREFIXES = setOf(

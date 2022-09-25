@@ -58,7 +58,11 @@ private fun generate(
                 .takeIf { it.endsWith(".d.ts") }
                 ?.removeSuffix(".d.ts")
 
-            name != null && name != "index" && !name.endsWith(".native")
+            name != null
+                    && name != "index"
+                    && !name.endsWith(".native")
+                    // TEMP
+                    && name != "errorBoundaryUtils"
         }
         ?: return
 
