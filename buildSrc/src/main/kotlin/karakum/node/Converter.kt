@@ -324,6 +324,10 @@ private fun convertType(
         .replace("?: Error | null", ": Error?")
         .replace("?: any", ": Any?")
         .replace(": NodeJS.ErrnoException | null", ": ErrnoException?")
+        .replace(": void | Promise<void>", "-> Promise<Void>?")
+        .replace(": void | PromiseLike<void>", "-> Promise<Void>?")
+        .replace(": any", "-> Any?")
+        .replace("?: T): Number", ": T?) -> Number")
 
         // TEMP
         .replace(": dns.LookupOneOptions", ": $DYNAMIC /* dns.LookupOneOptions */")
@@ -333,7 +337,9 @@ private fun convertType(
             .replaceFirst("(", "(\n")
             .replace(",", ",\n")
 
-    return ConversionResult(name, "typealias $name = $body")
+    val declaration = source.substringBefore(" = ")
+
+    return ConversionResult(name, "typealias $declaration = $body")
 }
 
 private fun convertInterface(
@@ -344,6 +350,14 @@ private fun convertInterface(
         .substringBefore("<")
         .substringBefore("(")
         .substringBefore(":")
+
+    if (source.count { it == '\n' } == 2 && " {\n    (" in source) {
+        val typeSource = source
+            .substringBefore("\n}")
+            .replace(" {\n    ", " = ")
+
+        return convertType(typeSource)!!
+    }
 
     if (!classMode && (name == "Stats" || name == "EventEmitter" || name == "BroadcastChannel"))
         return convertInterface("I$source", classMode)
