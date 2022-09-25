@@ -12,6 +12,6 @@ sealed external interface TextDecoderStream {
     /** Returns `true` if ignore BOM flag is set, and `false` otherwise. */
     val ignoreBOM: Boolean
     val readable: ReadableStream<String>
-    val writable: WritableStream<BufferSource>
+    val writable: WritableStream<Any /* BufferSource */>
     /* readonly [Symbol.toStringTag]: string */
 }
