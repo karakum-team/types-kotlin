@@ -103,7 +103,7 @@ fun generateKotlinDeclarations(
             .resolve(pkg.path)
             .also { it.mkdirs() }
 
-        var source = definitionsDir
+        val source = definitionsDir
             .resolve("$module.d.ts")
             .readText()
             .replace("(eventName: ", "(event: ")
@@ -121,11 +121,6 @@ fun generateKotlinDeclarations(
             .replace(" & { req: InstanceType<Request> }", "")
             // TEMP
             .replace("headers: OutgoingHttpHeaders | ReadonlyArray<[string, string]>", "headers: OutgoingHttpHeaders")
-
-        // TEMP
-        if (module == "test") {
-            source = source.replace("    /*\n     * ", "    /**\n     * ")
-        }
 
         var definitions = convertDefinitions(source, pkg)
         when (pkg) {
