@@ -6,6 +6,6 @@ import kotlinx.js.Void
 import kotlin.js.Promise
 
 typealias UnderlyingSinkWriteCallback<W> = (
- chunk: W,
- controller: WritableStreamDefaultController,
+    chunk: W,
+    controller: WritableStreamDefaultController,
 ) -> Promise<Void>?
