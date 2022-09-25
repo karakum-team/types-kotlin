@@ -60,7 +60,7 @@ external interface QueryOptions<TQueryFnData, TError, TData, TQueryKey : QueryKe
     var meta: QueryMeta
 }
 
-typealias UseErrorBoundary<TQueryFnData, TError, TQueryData, TQueryKey> = Union /* boolean | ((error: TError, query: Query<TQueryFnData, TError, TQueryData, TQueryKey>) => boolean) */
+typealias UseErrorBoundary<TQueryFnData, TError, TQueryData, TQueryKey> = (error: TError, query: Query<TQueryFnData, TError, TQueryData, TQueryKey>) -> Boolean
 
 external interface QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey : QueryKey>
     : QueryOptions<TQueryFnData, TError, TQueryData, TQueryKey> {
