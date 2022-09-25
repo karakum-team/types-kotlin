@@ -355,6 +355,7 @@ private fun convertInterface(
         val typeSource = source
             .substringBefore("\n}")
             .replace(" {\n    ", " = ")
+            .replace(" = any>", ">")
 
         return convertType(typeSource)!!
     }
