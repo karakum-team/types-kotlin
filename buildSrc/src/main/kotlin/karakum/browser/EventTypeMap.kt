@@ -33,9 +33,9 @@ internal val EVENT_TYPE_MAP = mapOf(
     "MediaStreamTrackEvent" to "org.w3c.dom.mediacapture.MediaStreamTrackEvent",
     // OfflineAudioCompletionEvent
     // RTCDTMFToneChangeEvent
-    // RTCDataChannelEvent
-    // RTCPeerConnectionIceEvent
-    // RTCTrackEvent
+    "RTCDataChannelEvent" to "webrtc.RTCDataChannelEvent",
+    "RTCPeerConnectionIceEvent" to "webrtc.RTCPeerConnectionIceEvent",
+    "RTCTrackEvent" to "webrtc.RTCTrackEvent",
     // AudioProcessingEvent
     // SpeechSynthesisEvent
     // SpeechSynthesisErrorEvent

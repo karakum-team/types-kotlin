@@ -62,6 +62,9 @@ private fun convertInterface(
         source = bodySource,
     )
 
+    if (declaration.endsWith(" : org.w3c.dom.events.Event"))
+        body += "\ncompanion object"
+
     val type = when {
         name == "RTCError"
         -> "class"
