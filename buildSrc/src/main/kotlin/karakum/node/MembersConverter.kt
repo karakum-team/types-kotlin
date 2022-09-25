@@ -188,6 +188,14 @@ private fun convertMethod(
             convertParameter(it, optional)
         }
 
+        parametersSource == "transform: ReadableWritablePair<T, R>, options?: StreamPipeOptions"
+        -> sequenceOf(
+            parametersSource.substringBeforeLast(", "),
+            parametersSource.substringAfterLast(", "),
+        ).joinToString(",\n") {
+            convertParameter(it, optional)
+        }
+
         parametersSource.isNotEmpty()
         -> parametersSource.trim()
             .removeSuffix(",")
