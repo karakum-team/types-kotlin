@@ -108,6 +108,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     // TEMP
     "Require" to "$DYNAMIC /* Require */",
     "EventLoopUtilityFunction" to "Function<*> /* EventLoopUtilityFunction */",
+    "ReadableStreamDefaultReadResult<R>" to "Any /* ReadableStreamDefaultReadResult<R> */",
 )
 
 private val TYPED = setOf(
