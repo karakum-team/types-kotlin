@@ -61,6 +61,7 @@ private fun generate(
             name != null
                     && name != "index"
                     && !name.endsWith(".native")
+                    && name != "useSyncExternalStore"
                     // TEMP
                     && name != "errorBoundaryUtils"
         }
