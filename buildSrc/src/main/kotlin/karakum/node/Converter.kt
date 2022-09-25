@@ -191,10 +191,7 @@ internal fun convertDefinitions(
         Package("stream/promises") -> convertFunctions(content)
             .filter { it.name.startsWith("finished") }
 
-        Package("stream/web") -> emptySequence<ConversionResult>()
-            // TEMP
-            .plus(ConversionResult("ReadableStream", "external class ReadableStream"))
-            .plus(ConversionResult("WritableStream", "external class WritableStream"))
+        Package("stream/web") -> interfaces
 
         Package("test") -> interfaces
             .plus(convertFunctions(content))
@@ -377,6 +374,7 @@ private fun convertInterface(
         .replace("StdioNull | StdioPipe", "Any /* StdioNull | StdioPipe */")
         .replace(": NetServer", ": node.net.Server")
         .replace(": internal", ": LegacyStream")
+        .replace(" = any", "")
         .replace(" = Buffer", "")
         .replace(" = IncomingMessage", "")
         .replace("string | Buffer", "Any /* string | Buffer */")
