@@ -2,6 +2,6 @@
 
 package webrtc
 
-sealed external interface RTCDataChannelEvent {
+external class RTCDataChannelEvent : org.w3c.dom.events.Event {
     val channel: RTCDataChannel
 }
