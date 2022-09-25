@@ -39,6 +39,9 @@ private fun convertInterface(
         .replace(" extends Event", " : org.w3c.dom.events.Event")
         .replace(" extends ", " : ")
 
+    if (name.endsWith("Event") && !declaration.endsWith(" : org.w3c.dom.events.Event"))
+        declaration += " : org.w3c.dom.events.Event"
+
     val bodySource = source.substringAfter(" {\n")
         .let { if (it.startsWith("}")) "" else it }
         .substringBefore("\n}")
@@ -73,10 +76,12 @@ private fun convertInterface(
     }
 
     if (name == "RTCPeerConnection") {
-        declaration = declaration.replace(" : ", """(
+        declaration = declaration.replace(
+            " : ", """(
             configuration: RTCConfiguration = definedExternally,
             options: Any = definedExternally,
-        ) : """.trimIndent())
+        ) : """.trimIndent()
+        )
 
 
         // language=Kotlin
