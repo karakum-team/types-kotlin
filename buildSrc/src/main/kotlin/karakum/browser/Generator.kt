@@ -23,6 +23,10 @@ fun generateKotlinDeclarations(
         .resolve("org/w3c/dom/events")
         .also { it.mkdirs() }
 
+    val webrtcTargetDir = sourceDir
+        .resolve("webrtc")
+        .also { it.mkdirs() }
+
     val webglTargetDir = sourceDir
         .resolve("webgl")
         .also { it.mkdirs() }
@@ -43,9 +47,20 @@ fun generateKotlinDeclarations(
             fileSuppress(*suppresses)
         } else ""
 
-        eventsTargetDir.resolve("$name.kt")
+        val pkg = if (name.startsWith("RTC")) "webrtc" else "org.w3c.dom.events"
+        val targetDir = when (pkg) {
+            "webrtc" -> webrtcTargetDir
+            else -> eventsTargetDir
+        }
+
+        val finalBody = when (pkg) {
+            "webrtc" -> "import org.w3c.dom.events.EventType\n$body"
+            else -> body
+        }
+
+        targetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(fileContent(annotations, body, "org.w3c.dom.events"))
+            .writeText(fileContent(annotations, finalBody, pkg))
     }
 
     for ((name, body) in webglDeclarations(definitionsFile)) {
