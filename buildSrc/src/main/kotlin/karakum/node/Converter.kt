@@ -26,6 +26,9 @@ private val IGNORE_LIST = setOf(
     "PromiseWithChild",
 
     "DiffieHellmanGroupConstructor",
+
+    "ByteLengthQueuingStrategy",
+    "CountQueuingStrategy",
 )
 
 internal data class ConversionResult(
