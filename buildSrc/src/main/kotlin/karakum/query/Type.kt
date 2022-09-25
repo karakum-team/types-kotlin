@@ -50,6 +50,10 @@ class Type(
 
             name == QUERY_KEY -> body
 
+            name == "UseErrorBoundary" -> body
+                .removeSurrounding("boolean | (", ")")
+                .replace(" => boolean", " -> Boolean")
+
             "|" in body -> "Union /* $body */"
 
             name.endsWith("Result") -> body
