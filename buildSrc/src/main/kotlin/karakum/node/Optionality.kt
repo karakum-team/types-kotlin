@@ -4,7 +4,7 @@ internal fun String.addOptionality(): String {
     if (startsWith("("))
         return "($this)?"
 
-    if (this == DYNAMIC || this.startsWith("$DYNAMIC ") || this == "Nothing?")
+    if (this == DYNAMIC || this.startsWith("$DYNAMIC ") || this == "Void")
         return this
 
     if (endsWith("?") || "? /*" in this)
