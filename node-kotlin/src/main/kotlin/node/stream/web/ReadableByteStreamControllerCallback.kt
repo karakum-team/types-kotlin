@@ -2,6 +2,9 @@
 
 package node.stream.web
 
-sealed external interface ReadableByteStreamControllerCallback {
-    fun  /* native */ invoke(controller: ReadableByteStreamController): Any /* void | PromiseLike<void> */
-}
+import kotlinx.js.Void
+import kotlin.js.Promise
+
+typealias ReadableByteStreamControllerCallback = (
+    controller: ReadableByteStreamController,
+) -> Promise<Void>?

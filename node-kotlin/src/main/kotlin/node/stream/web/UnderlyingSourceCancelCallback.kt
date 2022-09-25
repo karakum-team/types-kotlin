@@ -2,6 +2,9 @@
 
 package node.stream.web
 
-sealed external interface UnderlyingSourceCancelCallback {
-    fun  /* native */ invoke(reason: Any = definedExternally): Any /* void | PromiseLike<void> */
-}
+import kotlinx.js.Void
+import kotlin.js.Promise
+
+typealias UnderlyingSourceCancelCallback = (
+    reason: Any?,
+) -> Promise<Void>?

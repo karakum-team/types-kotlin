@@ -2,6 +2,9 @@
 
 package node.stream.web
 
-sealed external interface TransformerFlushCallback<O> {
-    fun  /* native */ invoke(controller: TransformStreamDefaultController<O>): Any /* void | PromiseLike<void> */
-}
+import kotlinx.js.Void
+import kotlin.js.Promise
+
+typealias TransformerFlushCallback<O> = (
+    controller: TransformStreamDefaultController<O>,
+) -> Promise<Void>?

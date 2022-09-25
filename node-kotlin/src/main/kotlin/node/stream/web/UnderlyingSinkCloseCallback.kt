@@ -2,6 +2,7 @@
 
 package node.stream.web
 
-sealed external interface UnderlyingSinkCloseCallback {
-    fun  /* native */ invoke(): Any /* void | PromiseLike<void> */
-}
+import kotlinx.js.Void
+import kotlin.js.Promise
+
+typealias UnderlyingSinkCloseCallback = () -> Promise<Void>?
