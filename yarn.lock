@@ -143,7 +143,12 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
-"@types/webrtc@0.0.32", "@types/webrtc@^0.0.32":
+"@types/webrtc@0.0.33":
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/@types/webrtc/-/webrtc-0.0.33.tgz#8d5c64320741c9b0bd1cdd2890f12d9e6b5ae210"
+  integrity sha512-xjN6BelzkY3lzXjIjXGqJVDS6XDleEsvp1bVIyNccXCcMoTH3wvUXFew4/qflwJdNqjmq98Zc5VcALV+XBKBvg==
+
+"@types/webrtc@^0.0.32":
   version "0.0.32"
   resolved "https://registry.yarnpkg.com/@types/webrtc/-/webrtc-0.0.32.tgz#b2d55194202879ad241640e291382419a19250d9"
   integrity sha512-+F0Ozq+ksnKtjcMHujSgb4A1Vjt0b4wvvxP3/pTnXKsIrLo34EgHh2z3qJq3ntX4dbK6ytxpY1rzO/4Z8rVrHg==
