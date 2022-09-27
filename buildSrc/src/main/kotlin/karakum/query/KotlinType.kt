@@ -197,7 +197,7 @@ internal fun kotlinType(
         return if (baseType != DYNAMIC) baseType + "?" else baseType
     }
 
-    if (type.endsWith("[]") && "|" !in type)
+    if (type.endsWith("[]"))
         return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
 
     if (type.startsWith("[") && type.endsWith("]")) {
