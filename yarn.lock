@@ -67,17 +67,17 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
-"@tanstack/query-core@4.6.1":
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.6.1.tgz#5361b37af4374bd57dd8acd5699e8deb6ab050ef"
-  integrity sha512-r5PXj0EG3z/5Rhb4gttPo/EOqfGhx4wSWJncI8WA4rwe2E2stpeZKnEEsQU7rEqReVCOYseswTYn+lwRF2Ap3Q==
+"@tanstack/query-core@4.7.1":
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.7.1.tgz#e732da7d0a4f31b4caa806099fc599617753d451"
+  integrity sha512-BzFI4KdiklxfUUgNiO6E4XsSwaX5NscuIhP7aqWbS8Hqik1KohfvO+SXpftSZHOyzm0+XpycRsip/QEs3Hx3AA==
 
-"@tanstack/react-query@4.6.1":
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-4.6.1.tgz#877ab7603858292696d72f734458f83b2ab9c4be"
-  integrity sha512-fDLIqLq4KLv0PmLHOGXp2ppJdydF/8YoYQrePTODK3RsiZDQVPLLAojz7M3v7GK5VionIb4KgiK3qBoAiN3Y4A==
+"@tanstack/react-query@4.7.1":
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-4.7.1.tgz#ff7d58e113b735c231138f9b9be828e1730923c4"
+  integrity sha512-/3PBXuvdlvUbSv5eqgkda4VAN14t+rpDop9LnZmEmIMW8ARrbW7Rt6PYTya33JGaeo6XoztRzEH8TaY5S+neNQ==
   dependencies:
-    "@tanstack/query-core" "4.6.1"
+    "@tanstack/query-core" "4.7.1"
     use-sync-external-store "^1.2.0"
 
 "@tanstack/react-table@8.5.13":
@@ -114,15 +114,10 @@
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.2.tgz#b74129719fc8d11c01868010082d483b7545591a"
   integrity sha512-MqTGEo5bj5t157U6fA/BiDynNkn0YknVdh48CMPkTSpFTVmvao5UQmm7uEF6xBEo7qIMAlY/JSleYaE6VOdpaA==
 
-"@types/node@18.7.23":
+"@types/node@18.7.23", "@types/node@>=13.7.0":
   version "18.7.23"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.23.tgz#75c580983846181ebe5f4abc40fe9dfb2d65665f"
   integrity sha512-DWNcCHolDq0ZKGizjx2DZjR/PqsYwAcYUJmfMWqtVU2MBMG5Mo+xFZrhGId5r/O5HOuMPyQEcM6KUBp5lBZZBg==
-
-"@types/node@>=13.7.0":
-  version "18.7.19"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.19.tgz#ad83aa9b7af470fab7e0f562be87e97dc8ffe08e"
-  integrity sha512-Sq1itGUKUX1ap7GgZlrzdBydjbsJL/NSQt/4wkAxUJ7/OS5c2WkoN6WSpWc2Yc5wtKMZOUA0VCs/j2XJadN3HA==
 
 "@types/prop-types@*":
   version "15.7.5"
@@ -143,15 +138,10 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
-"@types/webrtc@0.0.33":
+"@types/webrtc@0.0.33", "@types/webrtc@^0.0.33":
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/@types/webrtc/-/webrtc-0.0.33.tgz#8d5c64320741c9b0bd1cdd2890f12d9e6b5ae210"
   integrity sha512-xjN6BelzkY3lzXjIjXGqJVDS6XDleEsvp1bVIyNccXCcMoTH3wvUXFew4/qflwJdNqjmq98Zc5VcALV+XBKBvg==
-
-"@types/webrtc@^0.0.32":
-  version "0.0.32"
-  resolved "https://registry.yarnpkg.com/@types/webrtc/-/webrtc-0.0.32.tgz#b2d55194202879ad241640e291382419a19250d9"
-  integrity sha512-+F0Ozq+ksnKtjcMHujSgb4A1Vjt0b4wvvxP3/pTnXKsIrLo34EgHh2z3qJq3ntX4dbK6ytxpY1rzO/4Z8rVrHg==
 
 "@zip.js/zip.js@2.4.x":
   version "2.4.26"
