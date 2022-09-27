@@ -26,7 +26,6 @@ internal fun webglDeclarations(
     return merge(interfaces + classes)
         .plus(extension)
         .plus(Aliases())
-        .plus(BufferSource())
         .plus(Lists())
         .plus(Numbers())
         .plus(

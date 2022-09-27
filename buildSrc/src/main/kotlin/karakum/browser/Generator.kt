@@ -8,6 +8,7 @@ import java.io.File
 
 private val DEFAULT_IMPORTS = """
 import kotlinx.js.ArrayBufferView
+import kotlinx.js.BufferSource
 import kotlinx.js.Float32Array
 import kotlinx.js.Int32Array
 import kotlinx.js.ReadonlyArray    

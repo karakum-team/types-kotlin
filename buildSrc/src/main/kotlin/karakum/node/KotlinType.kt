@@ -229,6 +229,4 @@ internal fun kotlinType(
         .replace("=> Socket", "-> Socket")
         .replace(": any", ": Any")
         .replace(": unknown", ": Any?")
-        // TEMP
-        .replace("<BufferSource>", "<Any /* BufferSource */>")
 }
