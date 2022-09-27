@@ -6,7 +6,6 @@
 package tanstack.query.core
 
 import kotlinx.js.JsTuple2
-import kotlinx.js.ReadonlyArray
 import kotlin.js.Promise
 
 open external class QueryClient(config: QueryClientConfig = definedExternally) {
@@ -19,35 +18,35 @@ open external class QueryClient(config: QueryClientConfig = definedExternally) {
     ): Int
 
     open fun isMutating(filters: MutationFilters = definedExternally): Int
-    open fun <TData> getQueryData(
+    open fun <TQueryFnData> getQueryData(
         queryKey: QueryKey,
         filters: QueryFilters = definedExternally,
-    ): TData?
+    ): TQueryFnData?
 
-    open fun <TData> getQueriesData(queryKey: QueryKey): ReadonlyArray<JsTuple2<QueryKey, TData>>
-    open fun <TData> getQueriesData(filters: QueryFilters): ReadonlyArray<JsTuple2<QueryKey, TData>>
-    open fun <TData> setQueryData(
+    open fun <TQueryFnData> getQueriesData(queryKey: QueryKey): JsTuple2<QueryKey, Any /* TQueryFnData | undefined][ */>
+    open fun <TQueryFnData> getQueriesData(filters: QueryFilters): JsTuple2<QueryKey, Any /* TQueryFnData | undefined][ */>
+    open fun <TQueryFnData> setQueryData(
         queryKey: QueryKey,
-        updater: Updater<TData?, TData?>,
+        updater: Updater<TQueryFnData?, TQueryFnData?>,
         options: SetDataOptions = definedExternally,
-    ): TData?
+    ): TQueryFnData?
 
-    open fun <TData> setQueriesData(
+    open fun <TQueryFnData> setQueriesData(
         queryKey: QueryKey,
-        updater: Updater<TData?, TData?>,
+        updater: Updater<TQueryFnData?, TQueryFnData?>,
         options: SetDataOptions = definedExternally,
-    ): JsTuple2<QueryKey, Any /* TData | undefined][ */>
+    ): JsTuple2<QueryKey, Any /* TQueryFnData | undefined][ */>
 
-    open fun <TData> setQueriesData(
+    open fun <TQueryFnData> setQueriesData(
         filters: QueryFilters,
-        updater: Updater<TData?, TData?>,
+        updater: Updater<TQueryFnData?, TQueryFnData?>,
         options: SetDataOptions = definedExternally,
-    ): JsTuple2<QueryKey, Any /* TData | undefined][ */>
+    ): JsTuple2<QueryKey, Any /* TQueryFnData | undefined][ */>
 
-    open fun <TData, TError> getQueryState(
+    open fun <TQueryFnData, TError> getQueryState(
         queryKey: QueryKey,
         filters: QueryFilters = definedExternally,
-    ): QueryState<TData, TError>?
+    ): QueryState<TQueryFnData, TError>?
 
     open fun removeQueries(filters: QueryFilters = definedExternally)
     open fun removeQueries(
