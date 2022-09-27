@@ -33,6 +33,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "ArrayBufferView" to "kotlinx.js.ArrayBufferView",
 
     "Blob" to "org.w3c.files.Blob",
+    "DOMHighResTimeStamp" to "kotlinx.js.HighResTimeStamp",
 
     "() => void" to "() -> Unit",
     "(report: RTCStatsReport) => void" to "(report: RTCStatsReport) -> Unit",
@@ -76,4 +77,13 @@ internal fun kotlinType(
     }
 
     return type
+        .replace("(this: RTCDTMFSender, ", "(")
+        .replace("(this: RTCDataChannel, ", "(")
+        .replace("(this: RTCDtlsTransport, ", "(")
+        .replace("(this: RTCIceTransport, ", "(")
+        .replace("(this: RTCPeerConnection, ", "(")
+        .replace("(this: RTCSctpTransport, ", "(")
+        .replace("(ev: Event) => any", "(event: Event) -> Unit")
+        .replace("(ev: ", "(event: ")
+        .replace("Event) => any", "Event) -> Unit")
 }

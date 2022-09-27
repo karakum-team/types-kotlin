@@ -2,6 +2,10 @@ package karakum.webrtc
 
 import karakum.common.unionBody
 
+private val ADDITIONAL_TYPE = setOf(
+    "BinaryType",
+)
+
 internal data class ConversionResult(
     val name: String,
     val body: String,
@@ -13,12 +17,14 @@ internal fun convertDefinitions(
     val interfaces = source
         .splitToSequence("\ninterface ")
         .drop(1)
+        .filter { it.startsWith("RTC") }
         .map { convertInterface(it) }
-        .filter { it.name != "Window" }
+        .filter { !it.name.endsWith("EventMap") }
 
     val types = source
         .splitToSequence("\ntype ")
         .drop(1)
+        .filter { it.startsWith("RTC") || it.substringBefore(" ") in ADDITIONAL_TYPE }
         .map { it.substringBefore(";\n") }
         .map { convertType(it) }
 
@@ -86,14 +92,16 @@ private fun convertInterface(
         ) : """.trimIndent()
         )
 
-
+        body += "\n\n"
         // language=Kotlin
         body += """
         companion object {
             val defaultIceServers: ReadonlyArray<RTCIceServer>
 
             // Extension: https://www.w3.org/TR/webrtc/#sec.cert-mgmt
-            fun generateCertificate(keygenAlgorithm: String): kotlin.js.Promise<RTCCertificate>;
+            fun generateCertificate(
+                keygenAlgorithm: String /* AlgorithmIdentifier */,
+            ): kotlin.js.Promise<RTCCertificate>;
         }
         """.trimIndent()
 
@@ -108,39 +116,19 @@ private fun convertInterface(
 private fun convertType(
     source: String,
 ): ConversionResult {
-    if (" | '" in source) {
-        val (name, body) = source
-            .split(" =")
+    require(" = \"" in source)
 
-        val values = body.removePrefix(" ")
-            .splitToSequence(" | ", "\n    | ")
-            .filter { it.isNotEmpty() }
-            .map { it.removeSurrounding("'") }
-            .toList()
-
-        return ConversionResult(
-            name = name,
-            body = unionBody(name, values),
-        )
-    }
-
-    val (declaration, bodySource) = source
+    val (name, body) = source
+        .substringBefore(";")
         .split(" = ")
 
-    val name = declaration.substringBefore("<")
-    val body = "typealias " +
-            declaration.replace("<E extends Event>", "<E>") +
-            " = " +
-            bodySource
-                .replace("this: RTCDataChannel, ", "")
-                .replace("this: RTCDtlsTransport, ", "")
-                .replace("this: RTCIceTransport, ", "")
-                .replace("this: RTCPeerConnection, ", "")
-                .replace("ev: Event)", "ev: org.w3c.dom.events.Event)")
-                .replace(") => any) | null", ") -> Nothing?)?")
+    val values = body
+        .splitToSequence(" | ")
+        .map { it.removeSurrounding("\"") }
+        .toList()
 
     return ConversionResult(
         name = name,
-        body = body,
+        body = unionBody(name, values),
     )
 }

@@ -33,7 +33,7 @@ internal fun convertMembers(
 private fun convertMember(
     source: String,
 ): String {
-    if (source.startsWith("//"))
+    if (source.startsWith("//") || source.startsWith("/** "))
         return "    $source"
 
     val union = UNIONS.firstOrNull { it in source }

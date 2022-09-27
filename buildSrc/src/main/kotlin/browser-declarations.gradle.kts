@@ -12,16 +12,13 @@ tasks.named("generateDeclarations") {
             .resolve("js/node_modules/typescript")
             .resolve("lib/lib.dom.d.ts")
 
-        val webrtcDefinitionsFile = rootProject.buildDir
-            .resolve("js/node_modules/@types/webrtc")
-
         karakum.browser.generateKotlinDeclarations(
             definitionsFile = definitionsFile,
             sourceDir = sourceDir,
         )
 
         karakum.webrtc.generateKotlinDeclarations(
-            definitionsDir = webrtcDefinitionsFile,
+            definitionsFile = definitionsFile,
             sourceDir = sourceDir,
         )
     }

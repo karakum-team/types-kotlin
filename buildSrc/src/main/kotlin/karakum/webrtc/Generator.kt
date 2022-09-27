@@ -5,23 +5,23 @@ import karakum.common.Suppress
 import karakum.common.fileSuppress
 import java.io.File
 
-private val DEFAULT_IMPORTS = "import kotlinx.js.ReadonlyArray"
+private val DEFAULT_IMPORTS = """
+import kotlinx.js.ReadonlyArray 
+import org.w3c.dom.events.Event 
+import org.w3c.dom.MessageEvent 
+""".trimIndent()
 
 fun generateKotlinDeclarations(
-    definitionsDir: File,
+    definitionsFile: File,
     sourceDir: File,
 ) {
     val targetDir = sourceDir
         .resolve("webrtc")
         .also { it.mkdirs() }
 
-    sequenceOf(definitionsDir.resolve("RTCPeerConnection.d.ts").readText())
-        .plus(RTC_ERROR_DETAIL_TYPE)
-        .plus(RTC_ICE_CANDIDATE)
-        .plus(RTC_SESSION_DESCRIPTION)
-        .plus(RTC_PEER_CONNECTION)
-        .flatMap { convertDefinitions(it) }
-        .plus(unions())
+    convertDefinitions(definitionsFile.readText())
+        .plus(ConversionResult("VoidFunction", "typealias VoidFunction = () -> Unit"))
+        .plus(ConversionResult("EpochTimeStamp", "typealias EpochTimeStamp = Double"))
         .forEach { (name, body) ->
             val suppresses = mutableListOf<Suppress>().apply {
                 if ("JsName(\"\"\"(" in body)
@@ -45,15 +45,11 @@ private fun fileContent(
     annotations: String = "",
     body: String,
 ): String {
-    val defaultImports = if ("ReadonlyArray" in body) {
-        DEFAULT_IMPORTS
-    } else ""
-
     var result = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
         "package webrtc",
-        defaultImports,
+        DEFAULT_IMPORTS,
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
