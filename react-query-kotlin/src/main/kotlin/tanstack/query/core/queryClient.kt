@@ -6,6 +6,7 @@
 package tanstack.query.core
 
 import kotlinx.js.JsTuple2
+import kotlinx.js.ReadonlyArray
 import kotlin.js.Promise
 
 open external class QueryClient(config: QueryClientConfig = definedExternally) {
@@ -23,8 +24,8 @@ open external class QueryClient(config: QueryClientConfig = definedExternally) {
         filters: QueryFilters = definedExternally,
     ): TQueryFnData?
 
-    open fun <TQueryFnData> getQueriesData(queryKey: QueryKey): JsTuple2<QueryKey, Any /* TQueryFnData | undefined][ */>
-    open fun <TQueryFnData> getQueriesData(filters: QueryFilters): JsTuple2<QueryKey, Any /* TQueryFnData | undefined][ */>
+    open fun <TQueryFnData> getQueriesData(queryKey: QueryKey): ReadonlyArray<JsTuple2<QueryKey, TQueryFnData?>>
+    open fun <TQueryFnData> getQueriesData(filters: QueryFilters): ReadonlyArray<JsTuple2<QueryKey, TQueryFnData?>>
     open fun <TQueryFnData> setQueryData(
         queryKey: QueryKey,
         updater: Updater<TQueryFnData?, TQueryFnData?>,
@@ -35,13 +36,13 @@ open external class QueryClient(config: QueryClientConfig = definedExternally) {
         queryKey: QueryKey,
         updater: Updater<TQueryFnData?, TQueryFnData?>,
         options: SetDataOptions = definedExternally,
-    ): JsTuple2<QueryKey, Any /* TQueryFnData | undefined][ */>
+    ): ReadonlyArray<JsTuple2<QueryKey, TQueryFnData?>>
 
     open fun <TQueryFnData> setQueriesData(
         filters: QueryFilters,
         updater: Updater<TQueryFnData?, TQueryFnData?>,
         options: SetDataOptions = definedExternally,
-    ): JsTuple2<QueryKey, Any /* TQueryFnData | undefined][ */>
+    ): ReadonlyArray<JsTuple2<QueryKey, TQueryFnData?>>
 
     open fun <TQueryFnData, TError> getQueryState(
         queryKey: QueryKey,
