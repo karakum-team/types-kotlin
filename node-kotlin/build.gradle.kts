@@ -1,7 +1,7 @@
 plugins {
     id("io.github.turansky.kfc.library")
     id("io.github.turansky.seskar")
-    id("team.karakum.converter")
+    // id("team.karakum.converter")
     `node-declarations`
 }
 

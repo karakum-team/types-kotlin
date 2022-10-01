@@ -19,7 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-includeBuild("karakum")
+// includeBuild("karakum")
 
 include("browser-kotlin")
 include("cesium-kotlin")
