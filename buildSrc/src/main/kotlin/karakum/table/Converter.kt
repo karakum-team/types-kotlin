@@ -245,9 +245,11 @@ private fun convertTypealias(
                 }
             }
             .joinToString("\n\n") { type ->
+                val modifier = if (type.startsWith("(") || type.startsWith("AggregationFn<")) "noinline" else ""
+
                 """
                 inline fun $typeParameters $name(
-                    source: $type,
+                    $modifier source: $type,
                 ): $factoryType =
                     source.unsafeCast<$factoryType>()
                 """.trimIndent()
