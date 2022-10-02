@@ -41,12 +41,12 @@ private fun convertInterface(
 
     var declaration = source.substringBefore(" {\n")
         .replace(" extends DOMException", " /* : DOMException */")
-        .replace(" extends EventInit", " : org.w3c.dom.EventInit")
-        .replace(" extends Event", " : org.w3c.dom.events.Event")
+        .replace(" extends EventInit", " : web.events.EventInit")
+        .replace(" extends Event", " : web.events.Event")
         .replace(" extends ", " : ")
 
-    if (name.endsWith("Event") && !declaration.endsWith(" : org.w3c.dom.events.Event"))
-        declaration += " : org.w3c.dom.events.Event"
+    if (name.endsWith("Event") && !declaration.endsWith(" : web.events.Event"))
+        declaration += " : web.events.Event"
 
     val bodySource = source.substringAfter(" {\n")
         .let { if (it.startsWith("}")) "" else it }
@@ -68,17 +68,17 @@ private fun convertInterface(
         source = bodySource,
     )
 
-    if (declaration.endsWith(" : org.w3c.dom.events.Event"))
+    if (declaration.endsWith(" : web.events.Event"))
         body += "\ncompanion object"
 
     val type = when {
         name == "RTCError"
         -> "class"
 
-        declaration.endsWith(" : org.w3c.dom.events.Event")
+        declaration.endsWith(" : web.events.Event")
         -> "class"
 
-        declaration.endsWith(" : org.w3c.dom.events.EventTarget")
+        declaration.endsWith(" : web.events.EventTarget")
         -> "class"
 
         else -> "sealed interface"

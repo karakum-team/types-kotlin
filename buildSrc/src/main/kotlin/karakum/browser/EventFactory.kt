@@ -16,7 +16,7 @@ internal fun event(
     val imports = properties
         .map { it.type }
         .mapNotNull(IMPORT_MAP::get)
-        .plus("org.w3c.dom.EventInit")
+        .plus("web.events.EventInit")
         .joinToString("\n") {
             "import $it"
         }

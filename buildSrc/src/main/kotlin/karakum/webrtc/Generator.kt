@@ -7,7 +7,7 @@ import java.io.File
 
 private val DEFAULT_IMPORTS = """
 import kotlinx.js.ReadonlyArray 
-import org.w3c.dom.events.Event 
+import web.events.Event 
 import org.w3c.dom.MessageEvent 
 """.trimIndent()
 
