@@ -31,7 +31,7 @@ internal fun convertInterface(
         .replace(" extends ", " : ")
         .replace(
             "Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, \"href\">",
-            "react.dom.html.AnchorHTMLAttributes<org.w3c.dom.HTMLAnchorElement>",
+            "react.dom.html.AnchorHTMLAttributes<dom.html.HTMLAnchorElement>",
         )
         .replace(
             "Omit<LinkProps, \"className\" | \"style\" | \"children\">",

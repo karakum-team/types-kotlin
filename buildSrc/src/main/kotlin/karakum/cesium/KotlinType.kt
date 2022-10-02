@@ -2,7 +2,7 @@ package karakum.cesium
 
 internal const val JS_FUNCTION = "Function"
 
-private const val HTML_ELEMENT = "org.w3c.dom.HTMLElement"
+private const val HTML_ELEMENT = "dom.html.HTMLElement"
 private const val PROMISE = "kotlin.js.Promise"
 
 private val CLASS_REGEX = Regex("""[\w\d]+""")
@@ -33,19 +33,19 @@ private val STANDARD_TYPE_MAP = mapOf(
     JS_FUNCTION to "Function<*>",
     "Date" to "kotlin.js.Date",
 
-    "Element" to "org.w3c.dom.Element",
-    "HTMLElement" to "org.w3c.dom.HTMLElement",
-    "HTMLImageElement" to "org.w3c.dom.HTMLImageElement",
-    "HTMLCanvasElement" to "org.w3c.dom.HTMLCanvasElement",
-    "HTMLVideoElement" to "org.w3c.dom.HTMLVideoElement",
-    "HTMLIFrameElement" to "org.w3c.dom.HTMLIFrameElement",
+    "Element" to "dom.Element",
+    "HTMLElement" to "dom.html.HTMLElement",
+    "HTMLImageElement" to "dom.html.HTMLImageElement",
+    "HTMLCanvasElement" to "dom.html.HTMLCanvasElement",
+    "HTMLVideoElement" to "dom.html.HTMLVideoElement",
+    "HTMLIFrameElement" to "dom.html.HTMLIFrameElement",
 
-    "Document" to "org.w3c.dom.Document",
+    "Document" to "dom.Document",
     "XMLDocument" to "org.w3c.dom.XMLDocument",
 
     "ImageData" to "org.w3c.dom.ImageData",
 
-    "Blob" to "org.w3c.files.Blob",
+    "Blob" to "buffer.Blob",
 
     "ArrayBuffer" to "kotlinx.js.ArrayBuffer",
     "Uint8Array" to "kotlinx.js.Uint8Array",

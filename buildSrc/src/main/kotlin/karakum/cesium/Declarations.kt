@@ -165,7 +165,7 @@ private fun readDeclarations(
 
 private fun record(valueType: String): String {
     val value = when (valueType) {
-        "Blob" -> "org.w3c.files.Blob"
+        "Blob" -> "buffer.Blob"
         else -> valueType
     }
 

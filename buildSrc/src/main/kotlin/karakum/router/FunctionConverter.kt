@@ -52,7 +52,7 @@ internal fun convertFunction(
         source
             .substringBefore(">(", "")
             .substringAfter("<")
-            .replace("E extends Element = HTMLAnchorElement", "E: org.w3c.dom.Element")
+            .replace("E extends Element = HTMLAnchorElement", "E: dom.Element")
             .takeIf { it.isNotEmpty() }
             ?.let { "<$it>" }
             ?: ""

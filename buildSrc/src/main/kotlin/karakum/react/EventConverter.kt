@@ -1,6 +1,7 @@
 package karakum.react
 
 import karakum.browser.EVENT_TYPE_MAP
+
 internal fun convertNativeEvents(
     source: String,
 ): ConversionResult {
@@ -42,7 +43,7 @@ internal fun convertEventHandlers(
 }
 
 private const val DEFAULT_EVENT_IMPORTS = """
-import org.w3c.dom.Element
+import dom.Element
 import web.events.Event
 import web.events.EventTarget
 import react.dom.AbstractView

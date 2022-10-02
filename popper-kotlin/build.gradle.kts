@@ -10,5 +10,5 @@ dependencies {
     implementation(npm("@popperjs/core", popperVersion))
 
     implementation(enforcedPlatform(kotlinwBom()))
-    implementation(kotlinw("js"))
+    implementation(kotlinw("browser"))
 }
