@@ -7,8 +7,8 @@
 package dom.events
 
 import kotlinx.js.HighResTimeStamp
-import org.w3c.dom.EventInit
 import web.events.Event
+import web.events.EventInit
 
 external interface AnimationEventInit : EventInit {
     var animationName: String?

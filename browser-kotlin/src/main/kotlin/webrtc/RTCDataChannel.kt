@@ -3,9 +3,9 @@
 package webrtc
 
 import org.w3c.dom.MessageEvent
-import org.w3c.dom.events.Event
+import web.events.Event
 
-external class RTCDataChannel : org.w3c.dom.events.EventTarget {
+external class RTCDataChannel : web.events.EventTarget {
     var binaryType: BinaryType
     val bufferedAmount: Number
     var bufferedAmountLowThreshold: Number

@@ -2,9 +2,9 @@
 
 package webrtc
 
-import org.w3c.dom.events.Event
+import web.events.Event
 
-external class RTCIceTransport : org.w3c.dom.events.EventTarget {
+external class RTCIceTransport : web.events.EventTarget {
     val gatheringState: RTCIceGathererState
     var ongatheringstatechange: ((event: Event) -> Unit)?
     var onstatechange: ((event: Event) -> Unit)?
