@@ -2,7 +2,7 @@
 
 package dom.events
 
-import org.w3c.dom.events.EventType
+import web.events.EventType
 
 inline val AnimationEvent.Companion.ANIMATION_CANCEL: EventType<AnimationEvent>
     get() = EventType("animationcancel")

@@ -2,7 +2,7 @@
 
 package dom.events
 
-import org.w3c.dom.events.EventType
+import web.events.EventType
 
 inline val TransitionEvent.Companion.TRANSITION_CANCEL: EventType<TransitionEvent>
     get() = EventType("transitioncancel")
