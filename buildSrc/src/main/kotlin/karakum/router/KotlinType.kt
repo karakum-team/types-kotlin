@@ -24,7 +24,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Date" to "kotlin.js.Date",
 
     "Window" to "org.w3c.dom.Window",
-    "URLSearchParams" to "kotlinx.js.URLSearchParams",
+    "URLSearchParams" to "web.url.URLSearchParams",
 
     "React.ReactNode" to "react.ReactNode",
     "React.ReactElement" to "react.ReactElement<*>",
@@ -76,7 +76,7 @@ internal fun kotlinType(
     }
 
     if (name == "defaultInit" && type == "URLSearchParamsInit")
-        return "kotlinx.js.URLSearchParams"
+        return "web.url.URLSearchParams"
 
     if (name == "state") {
         when (type) {

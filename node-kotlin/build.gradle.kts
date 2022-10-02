@@ -12,6 +12,7 @@ dependencies {
 
     implementation(enforcedPlatform(kotlinwBom()))
     implementation(kotlinw("js"))
+    implementation(kotlinw("web"))
 
     implementation(kotlinxCoroutines("core"))
 }

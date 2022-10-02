@@ -4,7 +4,7 @@ internal const val ABORT_CONTROLLER = "AbortController"
 
 // language=kotlin
 private val ABORT_CONTROLLER_BODY = """
-external class AbortController : kotlinx.js.AbortController {
+external class AbortController : web.AbortController {
     override val signal: AbortSignal
     override fun abort()
 }
@@ -14,7 +14,7 @@ internal const val ABORT_SIGNAL = "AbortSignal"
 
 // language=kotlin
 private val ABORT_SIGNAL_BODY = """
-external class AbortSignal : kotlinx.js.AbortSignal {
+external class AbortSignal : web.AbortSignal {
     override val aborted: Boolean
     override var onabort: Function<Unit>?
 }

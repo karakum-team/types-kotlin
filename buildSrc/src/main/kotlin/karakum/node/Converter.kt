@@ -210,11 +210,11 @@ internal fun convertDefinitions(
 
         Package("url") -> interfaces
             .plus(convertFunctions(content))
-            .plus(ConversionResult("URL.alias", "typealias URL = kotlinx.js.URL"))
+            .plus(ConversionResult("URL.alias", "typealias URL = web.url.URL"))
             .plus(
                 ConversionResult(
                     "URLSearchParams.alias",
-                    "typealias URLSearchParams = kotlinx.js.URLSearchParams"
+                    "typealias URLSearchParams = web.url.URLSearchParams"
                 )
             )
 

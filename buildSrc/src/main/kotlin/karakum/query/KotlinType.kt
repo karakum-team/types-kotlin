@@ -30,8 +30,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "TData | Promise<TData>" to "PromiseResult<TData>",
     "() => unknown | Promise<unknown>" to "() -> Promise<*>?",
 
-    "AbortController" to "org.w3c.fetch.AbortController",
-    "AbortSignal" to "org.w3c.fetch.AbortSignal",
+    "AbortController" to "web.AbortController",
+    "AbortSignal" to "web.AbortSignal",
 
     "Mutation<any, any>" to "Mutation<*, *, *, *>",
     "MutationState" to "MutationState<*, *, *, *>",

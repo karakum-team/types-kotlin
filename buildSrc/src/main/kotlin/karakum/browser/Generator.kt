@@ -20,14 +20,6 @@ fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
 ) {
-    val eventsTargetDir = sourceDir
-        .resolve("org/w3c/dom/events")
-        .also { it.mkdirs() }
-
-    val webrtcTargetDir = sourceDir
-        .resolve("webrtc")
-        .also { it.mkdirs() }
-
     val webglTargetDir = sourceDir
         .resolve("webgl")
         .also { it.mkdirs() }
@@ -48,16 +40,24 @@ fun generateKotlinDeclarations(
             fileSuppress(*suppresses)
         } else ""
 
-        val pkg = if (name.startsWith("RTC")) "webrtc" else "org.w3c.dom.events"
-        val targetDir = when (pkg) {
-            "webrtc" -> webrtcTargetDir
-            else -> eventsTargetDir
+        val pkg = when {
+            name.startsWith("AnimationEvent") -> "dom.events"
+            name.startsWith("TransitionEvent") -> "dom.events"
+            name.startsWith("RTC") -> "webrtc"
+            else -> "org.w3c.dom.events"
         }
+        val targetDir = sourceDir
+            .resolve(pkg.replace(".", "/"))
+            .also { it.mkdirs() }
 
-        val finalBody = when (pkg) {
-            "webrtc" -> "import org.w3c.dom.events.EventType\n$body"
-            else -> body
-        }
+        val finalBody = when (name) {
+            "AnimationEvent",
+            "TransitionEvent",
+            -> "import org.w3c.dom.events.Event\n"
+
+            else -> ""
+        } + "import org.w3c.dom.events.EventType\n" +
+                body
 
         targetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }

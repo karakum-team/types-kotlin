@@ -10,6 +10,6 @@ dependencies {
     implementation(npm("@tanstack/react-query", reactQueryVersion))
 
     implementation(enforcedPlatform(kotlinwBom()))
-    implementation(kotlinw("browser"))
+    implementation(kotlinw("web"))
     implementation(kotlinw("react-core"))
 }
