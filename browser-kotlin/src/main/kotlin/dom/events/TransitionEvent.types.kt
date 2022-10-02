@@ -1,6 +1,8 @@
 // Automatically generated - do not modify!
 
-package org.w3c.dom.events
+package dom.events
+
+import org.w3c.dom.events.EventType
 
 inline val TransitionEvent.Companion.TRANSITION_CANCEL: EventType<TransitionEvent>
     get() = EventType("transitioncancel")

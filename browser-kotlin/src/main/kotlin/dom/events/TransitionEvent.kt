@@ -4,23 +4,24 @@
     "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
-package org.w3c.dom.events
+package dom.events
 
 import kotlinx.js.HighResTimeStamp
 import org.w3c.dom.EventInit
+import org.w3c.dom.events.Event
 
-external interface AnimationEventInit : EventInit {
-    var animationName: String?
+external interface TransitionEventInit : EventInit {
     var elapsedTime: HighResTimeStamp?
+    var propertyName: String?
     var pseudoElement: String?
 }
 
-external class AnimationEvent(
+external class TransitionEvent(
     type: String,
-    init: AnimationEventInit = definedExternally,
+    init: TransitionEventInit = definedExternally,
 ) : Event {
-    val animationName: String
     val elapsedTime: HighResTimeStamp
+    val propertyName: String
     val pseudoElement: String
 
     companion object
