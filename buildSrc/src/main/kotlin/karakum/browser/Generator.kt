@@ -53,10 +53,10 @@ fun generateKotlinDeclarations(
         val finalBody = when (name) {
             "AnimationEvent",
             "TransitionEvent",
-            -> "import org.w3c.dom.events.Event\n"
+            -> "import web.events.Event\n"
 
             else -> ""
-        } + "import org.w3c.dom.events.EventType\n" +
+        } + "import web.events.EventType\n" +
                 body
 
         targetDir.resolve("$name.kt")

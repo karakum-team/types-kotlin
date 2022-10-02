@@ -2,6 +2,8 @@ package karakum.browser
 
 import java.io.File
 
+internal const val EVENT_TYPE = "EventType"
+
 private data class EventData(
     val name: String,
     val type: String,
@@ -58,7 +60,6 @@ internal fun eventDeclarations(
                 body = body,
             )
         }
-        .plus(EventType())
         .plus(AnimationEvent())
         .plus(TransitionEvent())
 
