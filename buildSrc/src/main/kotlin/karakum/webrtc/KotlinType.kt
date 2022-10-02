@@ -24,7 +24,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Date" to "kotlin.js.Date",
 
     "Event" to "web.events.Event",
-    "MessageEvent" to "org.w3c.dom.MessageEvent",
+    "MessageEvent" to "web.events.MessageEvent",
 
     "MediaStream" to "org.w3c.dom.mediacapture.MediaStream",
     "MediaStreamTrack" to "org.w3c.dom.mediacapture.MediaStreamTrack",
