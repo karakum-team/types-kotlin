@@ -2,9 +2,7 @@
 
 package react.dom.svg
 
-import org.w3c.css.masking.SVGClipPathElement
-import org.w3c.css.masking.SVGMaskElement
-import org.w3c.dom.svg.*
+import dom.svg.*
 import react.IntrinsicType
 
 object ReactSVG {

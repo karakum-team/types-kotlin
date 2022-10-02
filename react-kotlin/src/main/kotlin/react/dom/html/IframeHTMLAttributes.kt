@@ -2,7 +2,8 @@
 
 package react.dom.html
 
-import org.w3c.dom.Element
+import dom.Element
+import react.dom.events.*
 
 external interface IframeHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var allow: String?
