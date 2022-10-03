@@ -6,8 +6,9 @@
 package cesium
 
 /**
- * A Label draws viewport-aligned text positioned in the 3D scene.  This constructor
- * should not be used directly, instead create labels by calling [LabelCollection.add].
+ * <div class="notice">
+ * Create labels by calling [LabelCollection.add]. Do not call the constructor directly.
+ * </div>
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Label.html">Online Documentation</a>
  */
 external class Label {

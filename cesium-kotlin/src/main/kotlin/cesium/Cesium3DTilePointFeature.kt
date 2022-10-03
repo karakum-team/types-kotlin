@@ -249,15 +249,6 @@ external class Cesium3DTilePointFeature {
     fun hasProperty(name: String): Boolean
 
     /**
-     * Returns an array of property names for the feature. This includes properties from this feature's
-     * class and inherited classes when using a batch table hierarchy.
-     * @param [results] An array into which to store the results.
-     * @return The names of the feature's properties.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Cesium3DTilePointFeature.html#getPropertyNames">Online Documentation</a>
-     */
-    fun getPropertyNames(results: ReadonlyArray<String>? = definedExternally): ReadonlyArray<String>
-
-    /**
      * Returns an array of property IDs for the feature. This includes properties from this feature's
      * class and inherited classes when using a batch table hierarchy.
      * @param [results] An array into which to store the results.

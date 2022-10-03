@@ -10,9 +10,12 @@
 package cesium
 
 /**
+ * <div class="notice">
+ * A billboard is created and its initial
+ * properties are set by calling [BillboardCollection.add]. Do not call the constructor directly.
+ * </div>
  * A viewport-aligned image positioned in the 3D scene, that is created
- * and rendered using a [BillboardCollection].  A billboard is created and its initial
- * properties are set by calling [BillboardCollection.add].
+ * and rendered using a [BillboardCollection].
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Billboard.html">Online Documentation</a>
  */
 external class Billboard {

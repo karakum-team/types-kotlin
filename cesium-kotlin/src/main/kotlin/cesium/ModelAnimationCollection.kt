@@ -8,7 +8,11 @@ package cesium
 import kotlinx.js.ReadonlyArray
 
 /**
- * A collection of active model animations. Access this using [Model.activeAnimations].
+ * <div class="notice">
+ * Access a model's animations [Model.activeAnimations]. Do not call the constructor directly
+ * </div>
+ *
+ * A collection of active model animations.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelAnimationCollection.html">Online Documentation</a>
  */
 external class ModelAnimationCollection {

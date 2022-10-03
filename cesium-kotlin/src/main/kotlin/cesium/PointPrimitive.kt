@@ -6,9 +6,11 @@
 package cesium
 
 /**
+ * <div class="notice">
+ * A point is created and its initial properties are set by calling [PointPrimitiveCollection.add]. Do not call the constructor directly.
+ * </div>
  * A graphical point positioned in the 3D scene, that is created
- * and rendered using a [PointPrimitiveCollection].  A point is created and its initial
- * properties are set by calling [PointPrimitiveCollection.add].
+ * and rendered using a [PointPrimitiveCollection].
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/PointPrimitive.html">Online Documentation</a>
  */
 external class PointPrimitive {

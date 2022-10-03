@@ -107,14 +107,6 @@ external class ModelFeature(options: ConstructorOptions) {
     fun getPropertyInherited(name: String): Any
 
     /**
-     * Returns an array of property names for the feature.
-     * @param [results] An array into which to store the results.
-     * @return The names of the feature's properties.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelFeature.html#getPropertyNames">Online Documentation</a>
-     */
-    fun getPropertyNames(results: ReadonlyArray<String>? = definedExternally): ReadonlyArray<String>
-
-    /**
      * Returns an array of property IDs for the feature.
      * @param [results] An array into which to store the results.
      * @return The IDs of the feature's properties.
