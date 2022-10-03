@@ -41,9 +41,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "HTMLIFrameElement" to "dom.html.HTMLIFrameElement",
 
     "Document" to "dom.Document",
-    "XMLDocument" to "org.w3c.dom.XMLDocument",
+    "XMLDocument" to "dom.xml.XMLDocument",
 
-    "ImageData" to "org.w3c.dom.ImageData",
+    "ImageData" to "canvas.ImageData",
 
     "Blob" to "buffer.Blob",
 
