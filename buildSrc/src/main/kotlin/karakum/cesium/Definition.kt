@@ -42,6 +42,8 @@ internal data class Definition(
 
     val sealed: Boolean
         get() = "Do not call the constructor directly" in doc
+                || "Do not construct this directly" in doc
+
     val defaultName: String
         get() = body
             .substringBefore(" ")

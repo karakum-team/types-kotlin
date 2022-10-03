@@ -42,6 +42,8 @@ internal class Constructor(
             return ""
 
         val type = parent.name
+        if (type == "ModelFeature")
+            return ""
 
         if (hiddenOptions) {
             if (parameters.size != 1)
