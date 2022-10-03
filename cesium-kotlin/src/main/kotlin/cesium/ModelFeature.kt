@@ -30,7 +30,7 @@ import kotlinx.js.ReadonlyArray
  * ```
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelFeature.html">Online Documentation</a>
  */
-external class ModelFeature(options: ConstructorOptions) {
+sealed external class ModelFeature(options: ConstructorOptions) {
     /**
      * @property [model] The model the feature belongs to.
      * @property [featureId] The unique integral identifier for this feature.
@@ -137,12 +137,4 @@ external class ModelFeature(options: ConstructorOptions) {
         name: String,
         value: Any,
     ): Boolean
-}
-
-inline fun ModelFeature(
-    block: ModelFeature.ConstructorOptions.() -> Unit,
-): ModelFeature {
-    val options: ModelFeature.ConstructorOptions = js("({})")
-    block(options)
-    return ModelFeature(options)
 }

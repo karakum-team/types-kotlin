@@ -36,7 +36,7 @@ import kotlinx.js.ReadonlyArray
  * ```
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Cesium3DTilePointFeature.html">Online Documentation</a>
  */
-external class Cesium3DTilePointFeature {
+sealed external class Cesium3DTilePointFeature {
     /**
      * Gets or sets if the feature will be shown. This is set for all features
      * when a style's show is evaluated.
