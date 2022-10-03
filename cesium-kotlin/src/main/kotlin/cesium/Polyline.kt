@@ -15,7 +15,7 @@ import kotlinx.js.ReadonlyArray
  * A renderable polyline.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Polyline.html">Online Documentation</a>
  */
-external class Polyline {
+sealed external class Polyline {
     /**
      * Determines if this polyline will be shown.  Use this to hide or show a polyline, instead
      * of removing it and re-adding it to the collection.

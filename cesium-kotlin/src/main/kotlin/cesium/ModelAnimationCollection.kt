@@ -15,7 +15,7 @@ import kotlinx.js.ReadonlyArray
  * A collection of active model animations.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelAnimationCollection.html">Online Documentation</a>
  */
-external class ModelAnimationCollection {
+sealed external class ModelAnimationCollection {
     /**
      * The event fired when an animation is added to the collection.  This can be used, for
      * example, to keep a UI in sync.

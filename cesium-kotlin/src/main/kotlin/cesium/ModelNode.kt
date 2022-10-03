@@ -21,7 +21,7 @@ package cesium
  * ```
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelNode.html">Online Documentation</a>
  */
-external class ModelNode {
+sealed external class ModelNode {
     /**
      * The value of the `name` property of this node.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelNode.html#name">Online Documentation</a>

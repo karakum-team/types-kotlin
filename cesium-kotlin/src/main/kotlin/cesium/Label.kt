@@ -11,7 +11,7 @@ package cesium
  * </div>
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Label.html">Online Documentation</a>
  */
-external class Label {
+sealed external class Label {
     /**
      * Determines if this label will be shown.  Use this to hide or show a label, instead
      * of removing it and re-adding it to the collection.

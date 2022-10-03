@@ -13,7 +13,7 @@ package cesium
  * and rendered using a [PointPrimitiveCollection].
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/PointPrimitive.html">Online Documentation</a>
  */
-external class PointPrimitive {
+sealed external class PointPrimitive {
     /**
      * Determines if this point will be shown.  Use this to hide or show a point, instead
      * of removing it and re-adding it to the collection.

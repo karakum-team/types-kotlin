@@ -21,7 +21,7 @@ package cesium
  * animations for the same glTF animation, each with a different start time.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelAnimation.html">Online Documentation</a>
  */
-external class ModelAnimation {
+sealed external class ModelAnimation {
     /**
      * When `true`, the animation is removed after it stops playing.
      * This is slightly more efficient that not removing it, but if, for example,

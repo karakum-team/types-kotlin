@@ -18,7 +18,7 @@ package cesium
  * and rendered using a [BillboardCollection].
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Billboard.html">Online Documentation</a>
  */
-external class Billboard {
+sealed external class Billboard {
     /**
      * Determines if this billboard will be shown.  Use this to hide or show a billboard, instead
      * of removing it and re-adding it to the collection.
