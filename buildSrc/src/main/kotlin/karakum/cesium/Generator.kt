@@ -4,6 +4,19 @@ import karakum.common.Suppress
 import karakum.common.suppress
 import java.io.File
 
+/*
+BillboardCollection
+CumulusCloud
+Label
+Model
+ModelAnimation
+ModelAnimationCollection
+ModelNode
+PointPrimitive
+Polyline
+ShadowMap
+ */
+
 private var nonModularMode: Boolean = false
 
 val LAZY_MODE: Boolean

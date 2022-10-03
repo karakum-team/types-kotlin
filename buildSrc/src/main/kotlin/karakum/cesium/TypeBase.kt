@@ -18,6 +18,10 @@ internal abstract class TypeBase(
         source.abstract || name == "TilingScheme"
     }
 
+    private val sealed: Boolean by lazy {
+        source.sealed
+    }
+
     override val members by lazy {
         members(source.body, source.optionsKdocBody())
             .onEach { it.parent = this }
@@ -169,6 +173,7 @@ internal abstract class TypeBase(
         } else ""
 
         val modifiers = (if (top) "external " else "") +
+                (if (sealed) "sealed " else "") +
                 (if (abstract) "abstract " else "")
 
         val hideParams = constructor != null && !constructor.hasParameters
