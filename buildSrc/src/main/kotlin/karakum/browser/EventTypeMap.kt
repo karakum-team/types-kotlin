@@ -3,7 +3,7 @@ package karakum.browser
 internal val EVENT_TYPE_MAP = mapOf(
     "Event" to "org.w3c.dom.events.Event",
 
-    "AnimationEvent" to "dom.events.AnimationEvent",
+    "AnimationEvent" to "animation.AnimationEvent",
     "ClipboardEvent" to "org.w3c.dom.clipboard.ClipboardEvent",
     "CompositionEvent" to "org.w3c.dom.events.CompositionEvent",
     "DragEvent" to "org.w3c.dom.DragEvent",
