@@ -351,6 +351,13 @@ private fun convertInterface(
         .substringBefore("(")
         .substringBefore(":")
 
+    if (name == "_DOMEventTarget") {
+        return ConversionResult(
+            name = name,
+            body = "typealias $name = web.events.EventTarget",
+        )
+    }
+
     if (source.count { it == '\n' } == 2 && " {\n    (" in source) {
         val typeSource = source
             .substringBefore("\n}")
