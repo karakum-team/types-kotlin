@@ -5,7 +5,9 @@ import karakum.common.snakeToCamel
 internal data class Package(
     val name: String,
 ) {
-    private val root = name.removeSuffix("/promises")
+    private val root = name
+        .removeSuffix("/promises")
+        .replace("stream/web", "web/stream")
         .snakeToCamel()
 
     val id: String = concat("node", ":", name)
@@ -19,8 +21,13 @@ private fun concat(
     delimiter: String,
     suffix: String,
 ): String =
-    if (suffix != "globals") {
-        "$base$delimiter$suffix"
-    } else {
-        base
+    when (suffix) {
+        "globals",
+        -> base
+
+        "web/stream",
+        "web.stream",
+        -> suffix
+
+        else -> "$base$delimiter$suffix"
     }

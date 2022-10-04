@@ -139,7 +139,7 @@ internal fun convertDefinitions(
         Package("globals") -> interfaces
             .map {
                 val newBody = it.body
-                    .replace("node.stream.web.", "")
+                    .replace("web.stream.", "")
                     .replace("ReadableStream<*>", "ReadableStream")
 
                 it.copy(body = newBody)
