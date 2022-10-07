@@ -91,6 +91,7 @@ internal fun eventDeclarations(
 ): List<ConversionResult> =
     eventTypes(definitionsFile)
         .plus(eventAliases())
+        .plus(eventPlaceholders())
         .plus(AnimationEvent())
         .plus(TransitionEvent())
 
@@ -119,6 +120,26 @@ private fun eventAliases(): List<ConversionResult> =
             pkg = info.pkg,
         )
     }
+
+private fun eventPlaceholders(): List<ConversionResult> =
+    EVENT_DATA
+        .filter { it.missed }
+        .mapNotNull { info ->
+            val name = info.name
+            val body = """
+            import web.events.Event    
+                
+            sealed external class $name : Event {
+                companion object
+            }            
+            """.trimIndent()
+
+            ConversionResult(
+                name = name,
+                body = body,
+                pkg = info.pkg,
+            )
+        }
 
 private fun eventTypes(
     definitionsFile: File,
