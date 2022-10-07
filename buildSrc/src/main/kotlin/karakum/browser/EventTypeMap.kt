@@ -57,6 +57,9 @@ private val EVENT_DATA = listOf(
     EventInfo("browser.events.StorageEvent", "org.w3c.dom.StorageEvent"),
 )
 
+internal val EVENT_INFO_MAP = EVENT_DATA
+    .associate { it.name to it }
+
 internal val EVENT_TYPE_MAP = EVENT_DATA
     .asSequence()
     .filter { !it.missed }

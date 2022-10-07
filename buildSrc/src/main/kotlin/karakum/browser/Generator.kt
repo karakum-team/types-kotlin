@@ -40,16 +40,10 @@ fun generateKotlinDeclarations(
             fileSuppress(*suppresses)
         } else ""
 
-        val pkg = when {
-            name.startsWith("AnimationEvent")
-                    || name.startsWith("TransitionEvent")
-            -> EVENT_TYPE_MAP.getValue(name.substringBefore("."))
-                .substringBeforeLast(".")
+        val pkg = EVENT_INFO_MAP.getValue(name.substringBefore("."))
+            .fqn
+            .substringBeforeLast(".")
 
-            name.startsWith("RTC") -> "webrtc"
-
-            else -> "org.w3c.dom.events"
-        }
         val targetDir = sourceDir
             .resolve(pkg.replace(".", "/"))
             .also { it.mkdirs() }
