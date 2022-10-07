@@ -3,9 +3,10 @@
 package webrtc
 
 import kotlinx.js.ReadonlyArray
+import media.stream.MediaStreamTrack
 
 sealed external interface RTCRtpReceiver {
-    val track: org.w3c.dom.mediacapture.MediaStreamTrack
+    val track: MediaStreamTrack
     val transport: RTCDtlsTransport?
     fun getContributingSources(): ReadonlyArray<RTCRtpContributingSource>
     fun getParameters(): RTCRtpReceiveParameters
