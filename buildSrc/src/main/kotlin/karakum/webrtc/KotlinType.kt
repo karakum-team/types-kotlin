@@ -14,20 +14,10 @@ private val STANDARD_TYPE_MAP = mapOf(
     "string" to STRING,
 
     "never" to "Nothing",
-
     "number" to "Number",
-
     "void" to UNIT,
-    "null" to "Nothing?",
-    "undefined" to "Nothing?",
 
     "Date" to "kotlin.js.Date",
-
-    "Event" to "web.events.Event",
-    "MessageEvent" to "web.events.MessageEvent",
-
-    "MediaStream" to "org.w3c.dom.mediacapture.MediaStream",
-    "MediaStreamTrack" to "org.w3c.dom.mediacapture.MediaStreamTrack",
 
     "ArrayBuffer" to "kotlinx.js.ArrayBuffer",
     "ArrayBufferView" to "kotlinx.js.ArrayBufferView",

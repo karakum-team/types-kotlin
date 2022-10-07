@@ -6,11 +6,18 @@ import karakum.common.fileSuppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = """
-import kotlinx.js.ReadonlyArray 
+import kotlinx.js.ReadonlyArray
+import media.stream.MediaStream
+import media.stream.MediaStreamTrack
 import web.events.Event 
 import web.events.MessageEvent
 import websocket.BinaryType
 """.trimIndent()
+
+private val ALIAS_MAP = mapOf(
+    "media.stream.MediaStream" to "org.w3c.dom.mediacapture.MediaStream",
+    "media.stream.MediaStreamTrack" to "org.w3c.dom.mediacapture.MediaStreamTrack",
+)
 
 fun generateKotlinDeclarations(
     definitionsFile: File,
@@ -45,6 +52,21 @@ fun generateKotlinDeclarations(
                 .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
                 .writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
         }
+
+    for ((type, alias) in ALIAS_MAP) {
+        val name = type.substringAfterLast(".")
+        val pkg = type.substringBeforeLast(".")
+
+        val body = "typealias $name = $alias"
+
+        val targetDir = sourceDir
+            .resolve(pkg.replace(".", "/"))
+            .also { it.mkdirs() }
+
+        targetDir.resolve("$name.kt")
+            .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
+            .writeText(fileContent(body = body, pkg = pkg))
+    }
 }
 
 private fun fileContent(
