@@ -34,6 +34,7 @@ private val PACKAGE_MAP = mapOf(
     "PictureInPictureWindow" to "browser.events",
     "RTCDataChannel" to "webrtc",
     "RTCDtlsTransport" to "webrtc",
+    "RTCIceTransport" to "webrtc",
     "RTCPeerConnection" to "webrtc",
     "RTCSctpTransport" to "webrtc",
     "RemotePlayback" to "",
@@ -67,7 +68,7 @@ private val ADDITIONAL_EVENTS = listOf(
     EventData(
         name = "webkitfullscreenchange",
         type = "Event",
-        pkg = "Element", // ???
+        pkg = "dom.events", // ???
     ),
 )
 
@@ -95,16 +96,18 @@ internal fun eventDeclarations(
         .distinct()
         .groupBy { it.typeName }
         .filter { it.key !in EXCLUDED }
-        .map { (typeName, items) ->
-            eventTypes(typeName, items)
-        }
+        .map { it.value }
+        .flatMap { it.groupBy { it.pkg }.values }
+        .map { items -> eventTypes(items) }
         .plus(AnimationEvent())
         .plus(TransitionEvent())
 
 private fun eventTypes(
-    typeName: String,
     items: List<EventData>,
 ): ConversionResult {
+    val firstItem = items.first()
+    val typeName = firstItem.typeName
+
     val imports = if (EVENT_TYPE_MAP.containsKey(typeName)) {
         "import " + EVENT_TYPE_MAP.getValue(typeName)
     } else {
@@ -126,9 +129,13 @@ private fun eventTypes(
         .plus(members)
         .joinToString("\n\n")
 
+    val pkg = firstItem.pkg
+        .takeIf { it.isNotEmpty() }
+
     return ConversionResult(
         name = "$typeName.types",
         body = body,
+        pkg = pkg,
     )
 }
 
