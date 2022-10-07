@@ -19,6 +19,9 @@ private val DEFAULT_IMPORTS = listOf(
     "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
     "Record" to "kotlinx.js.Record",
     "Void" to "kotlinx.js.Void",
+
+    "AbortController" to "web.abort.AbortController",
+    "AbortSignal" to "web.abort.AbortSignal",
 )
 
 fun generateKotlinDeclarations(
