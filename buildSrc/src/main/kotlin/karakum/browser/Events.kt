@@ -167,16 +167,18 @@ private fun eventTypes(
         "import org.w3c.dom.events.Event as $typeName"
     }
 
-    val members = items.map { (name, type) ->
-        val memberName = EVENT_CORRECTION_MAP
-            .getOrDefault(name, name)
-            .toUpperCase()
+    val members = items
+        .sortedBy { it.name }
+        .map { (name, type) ->
+            val memberName = EVENT_CORRECTION_MAP
+                .getOrDefault(name, name)
+                .toUpperCase()
 
-        """
-                    inline val $typeName.Companion.$memberName : $EVENT_TYPE<$type>
-                        get() = $EVENT_TYPE("$name")                        
-                """.trimIndent()
-    }
+            """
+            inline val $typeName.Companion.$memberName : $EVENT_TYPE<$type>
+                get() = $EVENT_TYPE("$name")                        
+            """.trimIndent()
+        }
 
     val body = sequenceOf(imports)
         .plus(members)
