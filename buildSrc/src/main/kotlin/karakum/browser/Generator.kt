@@ -24,7 +24,7 @@ fun generateKotlinDeclarations(
         .resolve("webgl")
         .also { it.mkdirs() }
 
-    for ((name, body) in eventDeclarations(definitionsFile)) {
+    for ((name, body, optPkg) in eventDeclarations(definitionsFile)) {
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
@@ -40,7 +40,7 @@ fun generateKotlinDeclarations(
             fileSuppress(*suppresses)
         } else ""
 
-        val pkg = EVENT_INFO_MAP.getValue(name.substringBefore("."))
+        val pkg = optPkg ?: EVENT_INFO_MAP.getValue(name.substringBefore("."))
             .fqn
             .substringBeforeLast(".")
 

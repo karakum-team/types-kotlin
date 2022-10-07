@@ -96,34 +96,41 @@ internal fun eventDeclarations(
         .groupBy { it.typeName }
         .filter { it.key !in EXCLUDED }
         .map { (typeName, items) ->
-            val imports = if (EVENT_TYPE_MAP.containsKey(typeName)) {
-                "import " + EVENT_TYPE_MAP.getValue(typeName)
-            } else {
-                "import org.w3c.dom.events.Event as $typeName"
-            }
-
-            val members = items.map { (name, type) ->
-                val memberName = EVENT_CORRECTION_MAP
-                    .getOrDefault(name, name)
-                    .toUpperCase()
-
-                """
-                    inline val $typeName.Companion.$memberName : $EVENT_TYPE<$type>
-                        get() = $EVENT_TYPE("$name")                        
-                """.trimIndent()
-            }
-
-            val body = sequenceOf(imports)
-                .plus(members)
-                .joinToString("\n\n")
-
-            ConversionResult(
-                name = "$typeName.types",
-                body = body,
-            )
+            eventTypes(typeName, items)
         }
         .plus(AnimationEvent())
         .plus(TransitionEvent())
+
+private fun eventTypes(
+    typeName: String,
+    items: List<EventData>,
+): ConversionResult {
+    val imports = if (EVENT_TYPE_MAP.containsKey(typeName)) {
+        "import " + EVENT_TYPE_MAP.getValue(typeName)
+    } else {
+        "import org.w3c.dom.events.Event as $typeName"
+    }
+
+    val members = items.map { (name, type) ->
+        val memberName = EVENT_CORRECTION_MAP
+            .getOrDefault(name, name)
+            .toUpperCase()
+
+        """
+                    inline val $typeName.Companion.$memberName : $EVENT_TYPE<$type>
+                        get() = $EVENT_TYPE("$name")                        
+                """.trimIndent()
+    }
+
+    val body = sequenceOf(imports)
+        .plus(members)
+        .joinToString("\n\n")
+
+    return ConversionResult(
+        name = "$typeName.types",
+        body = body,
+    )
+}
 
 private fun parseEvents(
     source: String,
