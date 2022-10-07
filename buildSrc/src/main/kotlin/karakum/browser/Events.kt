@@ -5,7 +5,6 @@ import java.io.File
 internal const val EVENT_TYPE = "EventType"
 
 private val PACKAGE_MAP = mapOf(
-    "AbortSignal" to "browser.events", // Common event?
     "Animation" to "animation",
     "AudioScheduledSourceNode" to "",
     "AudioWorkletNode" to "",
@@ -154,6 +153,7 @@ private fun parseEventData(
     mapId: String,
 ): EventData? {
     if (!source.endsWith(";")) return null
+    if (mapId == "AbortSignal") return null
 
     val (name, type) = source
         .removeSurrounding("    \"", ";")
