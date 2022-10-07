@@ -29,7 +29,7 @@ private val DEFAULT_IMPORTS = listOf(
     "Dict<" to "node.Dict",
     "ReadOnlyDict<" to "node.ReadOnlyDict",
     "RefCounted" to "node.RefCounted",
-    "AbortSignal" to "node.AbortSignal",
+    "AbortSignal" to "web.abort.AbortSignal",
     "ErrnoException" to "node.ErrnoException",
     "Module" to "node.Module",
     PIPE_OPTIONS to "node.$PIPE_OPTIONS",

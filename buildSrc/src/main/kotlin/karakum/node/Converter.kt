@@ -144,7 +144,6 @@ internal fun convertDefinitions(
 
                 it.copy(body = newBody)
             }
-            .plus(abortClasses())
             .plus(PipeOptions())
             .plus(ConversionResult("Dict", "typealias Dict<T> = Record<String, T>"))
             .plus(ConversionResult("ReadOnlyDict", "typealias ReadOnlyDict<T> = Record<String, out T>"))
