@@ -89,6 +89,13 @@ private val EXCLUDED = setOf(
 internal fun eventDeclarations(
     definitionsFile: File,
 ): List<ConversionResult> =
+    eventTypes(definitionsFile)
+        .plus(AnimationEvent())
+        .plus(TransitionEvent())
+
+private fun eventTypes(
+    definitionsFile: File,
+): List<ConversionResult> =
     Regex("""interface .+?EventMap \{\n    "[\s\S]+?\n\}""")
         .findAll(definitionsFile.readText())
         .flatMap { parseEvents(it.value) }
@@ -99,8 +106,6 @@ internal fun eventDeclarations(
         .map { it.value }
         .flatMap { it.groupBy { it.pkg }.values }
         .map { items -> eventTypes(items) }
-        .plus(AnimationEvent())
-        .plus(TransitionEvent())
 
 private fun eventTypes(
     items: List<EventData>,
