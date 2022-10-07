@@ -8,17 +8,14 @@ import java.io.File
 private val DEFAULT_IMPORTS = """
 import kotlinx.js.ReadonlyArray 
 import web.events.Event 
-import web.events.MessageEvent 
+import web.events.MessageEvent
+import websocket.BinaryType
 """.trimIndent()
 
 fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
 ) {
-    val targetDir = sourceDir
-        .resolve("webrtc")
-        .also { it.mkdirs() }
-
     convertDefinitions(definitionsFile.readText())
         .plus(ConversionResult("VoidFunction", "typealias VoidFunction = () -> Unit"))
         .plus(ConversionResult("EpochTimeStamp", "typealias EpochTimeStamp = Double"))
@@ -35,20 +32,30 @@ fun generateKotlinDeclarations(
                 else -> ""
             }
 
+            val pkg = when (name) {
+                "BinaryType" -> "websocket"
+                else -> "webrtc"
+            }
+
+            val targetDir = sourceDir
+                .resolve(pkg)
+                .also { it.mkdirs() }
+
             targetDir.resolve("$name.kt")
                 .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-                .writeText(fileContent(annotations = annotations, body = body))
+                .writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
         }
 }
 
 private fun fileContent(
     annotations: String = "",
     body: String,
+    pkg: String,
 ): String {
     var result = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
-        "package webrtc",
+        "package $pkg",
         DEFAULT_IMPORTS,
         body,
     ).filter { it.isNotEmpty() }
