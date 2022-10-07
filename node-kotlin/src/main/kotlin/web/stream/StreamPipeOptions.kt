@@ -2,7 +2,7 @@
 
 package web.stream
 
-import node.AbortSignal
+import web.abort.AbortSignal
 
 sealed external interface StreamPipeOptions {
     var preventAbort: Boolean?
