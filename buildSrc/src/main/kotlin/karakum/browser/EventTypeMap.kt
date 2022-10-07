@@ -1,56 +1,66 @@
 package karakum.browser
 
-internal val EVENT_TYPE_MAP = mapOf(
-    "Event" to "org.w3c.dom.events.Event",
+internal class EventInfo(
+    val fqn: String,
+    val alias: String? = null,
+) {
+    val name: String = fqn.substringAfterLast(".")
+}
 
-    "AnimationEvent" to "animation.AnimationEvent",
-    "ClipboardEvent" to "org.w3c.dom.clipboard.ClipboardEvent",
-    "CompositionEvent" to "org.w3c.dom.events.CompositionEvent",
-    "DragEvent" to "org.w3c.dom.DragEvent",
-    "FocusEvent" to "org.w3c.dom.events.FocusEvent",
-    "KeyboardEvent" to "org.w3c.dom.events.KeyboardEvent",
-    "MouseEvent" to "org.w3c.dom.events.MouseEvent",
-    "TouchEvent" to "org.w3c.dom.TouchEvent",
-    "PointerEvent" to "org.w3c.dom.pointerevents.PointerEvent",
-    "TransitionEvent" to "dom.events.TransitionEvent",
-    "UIEvent" to "org.w3c.dom.events.UIEvent",
-    "WheelEvent" to "org.w3c.dom.events.WheelEvent",
+private val EVENT_DATA = listOf(
+    EventInfo("org.w3c.dom.events.Event"),
 
-    "ErrorEvent" to "org.w3c.dom.ErrorEvent",
+    EventInfo("animation.AnimationEvent"),
+    EventInfo("browser.clipboard.ClipboardEvent", "org.w3c.dom.clipboard.ClipboardEvent"),
+    EventInfo("dom.events.CompositionEvent", "org.w3c.dom.events.CompositionEvent"),
+    EventInfo("dom.events.DragEvent", "org.w3c.dom.DragEvent"),
+    EventInfo("dom.events.FocusEvent", "org.w3c.dom.events.FocusEvent"),
+    EventInfo("dom.events.KeyboardEvent", "org.w3c.dom.events.KeyboardEvent"),
+    EventInfo("dom.events.MouseEvent", "org.w3c.dom.events.MouseEvent"),
+    EventInfo("dom.events.TouchEvent", "org.w3c.dom.TouchEvent"),
+    EventInfo("dom.events.PointerEvent", "org.w3c.dom.pointerevents.PointerEvent"),
+    EventInfo("dom.events.TransitionEvent", "dom.events.TransitionEvent"),
+    EventInfo("dom.events.UIEvent", "org.w3c.dom.events.UIEvent"),
+    EventInfo("dom.events.WheelEvent", "org.w3c.dom.events.WheelEvent"),
+
+    EventInfo("errors.ErrorEvent", "org.w3c.dom.ErrorEvent"),
     // AnimationPlaybackEvent
-    "MessageEvent" to "web.events.MessageEvent",
-    "ProgressEvent" to "org.w3c.xhr.ProgressEvent",
-    "InputEvent" to "org.w3c.dom.events.InputEvent",
+    EventInfo("web.events.MessageEvent"),
+    EventInfo("xhr.ProgressEvent", "org.w3c.xhr.ProgressEvent"),
+    EventInfo("dom.events.InputEvent", "org.w3c.dom.events.InputEvent"),
     // FormDataEvent
     // SecurityPolicyViolationEvent
     // SubmitEvent
-    "MediaEncryptedEvent" to "org.w3c.dom.encryptedmedia.MediaEncryptedEvent",
+    EventInfo("media.MediaEncryptedEvent", "org.w3c.dom.encryptedmedia.MediaEncryptedEvent"),
     // IDBVersionChangeEvent
-    "MediaKeyMessageEvent" to "org.w3c.dom.encryptedmedia.MediaKeyMessageEvent",
-    "MediaQueryListEvent" to "org.w3c.dom.MediaQueryListEvent",
+    EventInfo("media.key.MediaKeyMessageEvent", "org.w3c.dom.encryptedmedia.MediaKeyMessageEvent"),
+    EventInfo("cssom.MediaQueryListEvent", "org.w3c.dom.MediaQueryListEvent"),
     // BlobEvent
     // MediaRecorderErrorEvent
-    "MediaStreamTrackEvent" to "org.w3c.dom.mediacapture.MediaStreamTrackEvent",
+    EventInfo("media.stream.MediaStreamTrackEvent", "org.w3c.dom.mediacapture.MediaStreamTrackEvent"),
     // OfflineAudioCompletionEvent
-    "RTCDTMFToneChangeEvent" to "webrtc.RTCDTMFToneChangeEvent",
-    "RTCDataChannelEvent" to "webrtc.RTCDataChannelEvent",
-    "RTCPeerConnectionIceEvent" to "webrtc.RTCPeerConnectionIceEvent",
-    "RTCTrackEvent" to "webrtc.RTCTrackEvent",
+    EventInfo("webrtc.RTCDTMFToneChangeEvent"),
+    EventInfo("webrtc.RTCDataChannelEvent"),
+    EventInfo("webrtc.RTCPeerConnectionIceEvent"),
+    EventInfo("webrtc.RTCTrackEvent"),
     // AudioProcessingEvent
     // SpeechSynthesisEvent
     // SpeechSynthesisErrorEvent
-    "TrackEvent" to "org.w3c.dom.TrackEvent",
-    "CloseEvent" to "org.w3c.dom.CloseEvent",
+    EventInfo("media.TrackEvent", "org.w3c.dom.TrackEvent"),
+    EventInfo("websocket.CloseEvent", "org.w3c.dom.CloseEvent"),
     // DeviceMotionEvent
     // DeviceOrientationEvent
     // GamepadEvent
-    "BeforeUnloadEvent" to "org.w3c.dom.BeforeUnloadEvent",
-    "HashChangeEvent" to "org.w3c.dom.HashChangeEvent",
-    "PageTransitionEvent" to "org.w3c.dom.PageTransitionEvent",
-    "PopStateEvent" to "org.w3c.dom.PopStateEvent",
-    "PromiseRejectionEvent" to "org.w3c.dom.PromiseRejectionEvent",
-    "StorageEvent" to "org.w3c.dom.StorageEvent",
+    EventInfo("browser.events.BeforeUnloadEvent", "org.w3c.dom.BeforeUnloadEvent"),
+    EventInfo("browser.events.HashChangeEvent", "org.w3c.dom.HashChangeEvent"),
+    EventInfo("browser.events.PageTransitionEvent", "org.w3c.dom.PageTransitionEvent"),
+    EventInfo("browser.events.PopStateEvent", "org.w3c.dom.PopStateEvent"),
+    EventInfo("browser.events.PromiseRejectionEvent", "org.w3c.dom.PromiseRejectionEvent"),
+    EventInfo("browser.events.StorageEvent", "org.w3c.dom.StorageEvent"),
 )
+
+internal val EVENT_TYPE_MAP = EVENT_DATA
+    .associate { it.name to (it.alias ?: it.fqn) }
 
 internal val EVENT_CORRECTION_MAP = mapOf(
     "DOMContentLoaded" to "dom_content_loaded",
