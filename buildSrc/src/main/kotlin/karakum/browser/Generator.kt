@@ -62,7 +62,7 @@ fun generateKotlinDeclarations(
             .writeText(fileContent(annotations, finalBody, pkg))
     }
 
-    for ((name, body, pkg) in (htmlAliases() + svgAliases())) {
+    for ((name, body, pkg) in (domAliases() + htmlAliases() + svgAliases())) {
         pkg!!
 
         val targetDir = sourceDir
