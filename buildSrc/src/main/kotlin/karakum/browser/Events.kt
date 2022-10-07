@@ -90,8 +90,35 @@ internal fun eventDeclarations(
     definitionsFile: File,
 ): List<ConversionResult> =
     eventTypes(definitionsFile)
+        .plus(eventAliases())
         .plus(AnimationEvent())
         .plus(TransitionEvent())
+
+private fun eventAliases(): List<ConversionResult> =
+    EVENT_DATA.mapNotNull { info ->
+        val alias = info.alias
+            ?: return@mapNotNull null
+
+        val name = info.name
+        val initBody = when (name) {
+            "TouchEvent", // TEMP
+            "BeforeUnloadEvent",
+            -> null
+
+            else -> "typealias ${name}Init = ${alias}Init"
+        }
+
+        val body = listOfNotNull(
+            initBody,
+            "typealias $name = $alias"
+        ).joinToString("\n")
+
+        ConversionResult(
+            name = name,
+            body = body,
+            pkg = info.pkg,
+        )
+    }
 
 private fun eventTypes(
     definitionsFile: File,

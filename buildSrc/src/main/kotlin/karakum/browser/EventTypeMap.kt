@@ -6,9 +6,10 @@ internal class EventInfo(
     val missed: Boolean = false,
 ) {
     val name: String = fqn.substringAfterLast(".")
+    val pkg: String = fqn.substringBeforeLast(".")
 }
 
-private val EVENT_DATA = listOf(
+internal val EVENT_DATA = listOf(
     EventInfo("org.w3c.dom.events.Event"),
 
     EventInfo("animation.AnimationEvent"),
@@ -20,7 +21,7 @@ private val EVENT_DATA = listOf(
     EventInfo("dom.events.MouseEvent", "org.w3c.dom.events.MouseEvent"),
     EventInfo("dom.events.TouchEvent", "org.w3c.dom.TouchEvent"),
     EventInfo("dom.events.PointerEvent", "org.w3c.dom.pointerevents.PointerEvent"),
-    EventInfo("dom.events.TransitionEvent", "dom.events.TransitionEvent"),
+    EventInfo("dom.events.TransitionEvent"),
     EventInfo("dom.events.UIEvent", "org.w3c.dom.events.UIEvent"),
     EventInfo("dom.events.WheelEvent", "org.w3c.dom.events.WheelEvent"),
 
