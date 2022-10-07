@@ -43,7 +43,6 @@ private val EVENT_DATA = listOf(
     EventInfo("webrtc.RTCDataChannelEvent"),
     EventInfo("webrtc.RTCPeerConnectionIceEvent"),
     EventInfo("webrtc.RTCTrackEvent"),
-    // AudioProcessingEvent
     // SpeechSynthesisEvent
     // SpeechSynthesisErrorEvent
     EventInfo("media.TrackEvent", "org.w3c.dom.TrackEvent"),
