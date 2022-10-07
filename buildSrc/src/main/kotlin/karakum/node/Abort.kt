@@ -1,9 +1,7 @@
 package karakum.node
 
 internal const val ABORT_CONTROLLER = "AbortController"
-
 internal const val ABORT_SIGNAL = "AbortSignal"
-
 internal const val ABORTABLE = "Abortable"
 
 // language=kotlin
