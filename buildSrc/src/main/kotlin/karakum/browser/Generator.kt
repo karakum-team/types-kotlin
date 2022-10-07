@@ -62,6 +62,18 @@ fun generateKotlinDeclarations(
             .writeText(fileContent(annotations, finalBody, pkg))
     }
 
+    for ((name, body, pkg) in htmlAliases()) {
+        pkg!!
+
+        val targetDir = sourceDir
+            .resolve(pkg.replace(".", "/"))
+            .also { it.mkdirs() }
+
+        targetDir.resolve("$name.kt")
+            .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
+            .writeText(fileContent(body = body, pkg = pkg))
+    }
+
     for ((name, body) in webglDeclarations(definitionsFile)) {
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body)
