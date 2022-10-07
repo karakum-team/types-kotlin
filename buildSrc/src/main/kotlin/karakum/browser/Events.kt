@@ -5,6 +5,7 @@ import java.io.File
 internal const val EVENT_TYPE = "EventType"
 
 private val PACKAGE_MAP = mapOf(
+    "AbortSignal" to "web.abort",
     "Animation" to "animation",
     "AudioScheduledSourceNode" to "",
     "AudioWorkletNode" to "",
@@ -28,7 +29,7 @@ private val PACKAGE_MAP = mapOf(
     "MediaStreamTrack" to "",
     "Notification" to "",
     "PaymentRequest" to "",
-    "Performance" to "",
+    "Performance" to "performance",
     "PermissionStatus" to "",
     "PictureInPictureWindow" to "browser.events",
     "RTCDataChannel" to "webrtc",
@@ -154,6 +155,7 @@ private fun parseEventData(
 ): EventData? {
     if (!source.endsWith(";")) return null
     if (mapId == "AbortSignal") return null
+    if (mapId == "Performance") return null
 
     val (name, type) = source
         .removeSurrounding("    \"", ";")
