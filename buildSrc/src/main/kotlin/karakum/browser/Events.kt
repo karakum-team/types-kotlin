@@ -7,12 +7,17 @@ internal const val EVENT_TYPE = "EventType"
 private data class EventData(
     val name: String,
     val type: String,
+    val mapId: String,
 ) {
     val typeName: String = type.substringBefore("<")
 }
 
 private val ADDITIONAL_EVENTS = listOf(
-    EventData("webkitfullscreenchange", "Event"),
+    EventData(
+        name = "webkitfullscreenchange",
+        type = "Event",
+        mapId = "Element", // ???
+    ),
 )
 
 private val EXCLUDED = setOf(
@@ -34,8 +39,7 @@ internal fun eventDeclarations(
 ): List<ConversionResult> =
     Regex("""interface .+?EventMap \{\n    "[\s\S]+?\n\}""")
         .findAll(definitionsFile.readText())
-        .flatMap { it.value.splitToSequence("\n") }
-        .mapNotNull { parseEventData(it) }
+        .flatMap { parseEvents(it.value) }
         .plus(ADDITIONAL_EVENTS)
         .distinct()
         .groupBy { it.typeName }
@@ -70,8 +74,19 @@ internal fun eventDeclarations(
         .plus(AnimationEvent())
         .plus(TransitionEvent())
 
+private fun parseEvents(
+    source: String,
+): Sequence<EventData> {
+    val mapId = source.substringBefore("EventMap")
+        .substringAfterLast(" ")
+
+    return source.splitToSequence("\n")
+        .mapNotNull { parseEventData(it, mapId) }
+}
+
 private fun parseEventData(
     source: String,
+    mapId: String,
 ): EventData? {
     if (!source.endsWith(";")) return null
 
@@ -79,5 +94,11 @@ private fun parseEventData(
         .removeSurrounding("    \"", ";")
         .split("\": ", "<")
 
-    return EventData(name, type)
+    val finalMapId = if (type == "Event") mapId else ""
+
+    return EventData(
+        name = name,
+        type = type,
+        mapId = finalMapId,
+    )
 }
