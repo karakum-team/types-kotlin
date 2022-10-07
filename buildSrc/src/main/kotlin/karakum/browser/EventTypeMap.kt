@@ -62,8 +62,6 @@ internal val EVENT_INFO_MAP = EVENT_DATA
     .associate { it.name to it }
 
 internal val EVENT_TYPE_MAP = EVENT_DATA
-    .asSequence()
-    .filter { !it.missed }
     .associate { it.name to (it.alias ?: it.fqn) }
 
 internal val EVENT_CORRECTION_MAP = mapOf(
