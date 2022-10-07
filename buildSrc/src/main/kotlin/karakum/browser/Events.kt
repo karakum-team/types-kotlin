@@ -4,10 +4,61 @@ import java.io.File
 
 internal const val EVENT_TYPE = "EventType"
 
+private val PACKAGE_MAP = mapOf(
+    "AbortSignal" to "browser.events", // Common event?
+    "Animation" to "animation",
+    "AudioScheduledSourceNode" to "",
+    "AudioWorkletNode" to "",
+    "BaseAudioContext" to "",
+    "Document" to "dom.events",
+    "Element" to "dom.events",
+    "EventSource" to "",
+    "FontFaceSet" to "dom.events",
+    "GlobalEventHandlers" to "dom.events",
+    "HTMLMediaElement" to "dom.events",
+    "HTMLVideoElement" to "dom.events",
+    "HTMLVideoElement" to "dom.events",
+    "IDBDatabase" to "idb",
+    "IDBOpenDBRequest" to "idb",
+    "IDBRequest" to "idb",
+    "IDBTransaction" to "idb",
+    "MediaDevices" to "",
+    "MediaKeySession" to "",
+    "MediaRecorder" to "",
+    "MediaSource" to "",
+    "MediaStreamTrack" to "",
+    "Notification" to "",
+    "PaymentRequest" to "",
+    "Performance" to "",
+    "PermissionStatus" to "",
+    "PictureInPictureWindow" to "browser.events",
+    "RTCDataChannel" to "webrtc",
+    "RTCDtlsTransport" to "webrtc",
+    "RTCPeerConnection" to "webrtc",
+    "RTCSctpTransport" to "webrtc",
+    "RemotePlayback" to "",
+    "ScreenOrientation" to "browser.events",
+    "ServiceWorker" to "worker",
+    "ServiceWorkerContainer" to "worker",
+    "ServiceWorkerRegistration" to "worker",
+    "ShadowRoot" to "dom.events",
+    "SourceBuffer" to "",
+    "SourceBufferList" to "",
+    "SpeechSynthesis" to "",
+    "TextTrack" to "",
+    "TextTrackCue" to "",
+    "TextTrackList" to "",
+    "VisualViewport" to "",
+    "WebSocket" to "websocket",
+    "Window" to "browser.events",
+    "WindowEventHandlers" to "browser.events",
+    "XMLHttpRequest" to "xhr",
+)
+
 private data class EventData(
     val name: String,
     val type: String,
-    val mapId: String,
+    val pkg: String,
 ) {
     val typeName: String = type.substringBefore("<")
 }
@@ -16,7 +67,7 @@ private val ADDITIONAL_EVENTS = listOf(
     EventData(
         name = "webkitfullscreenchange",
         type = "Event",
-        mapId = "Element", // ???
+        pkg = "Element", // ???
     ),
 )
 
@@ -94,11 +145,14 @@ private fun parseEventData(
         .removeSurrounding("    \"", ";")
         .split("\": ", "<")
 
-    val finalMapId = if (type == "Event") mapId else ""
+    val pkg = if (type == "Event") {
+        PACKAGE_MAP.getValue(mapId)
+            .ifEmpty { "org.w3c.dom.events" }
+    } else ""
 
     return EventData(
         name = name,
         type = type,
-        mapId = finalMapId,
+        pkg = pkg,
     )
 }
