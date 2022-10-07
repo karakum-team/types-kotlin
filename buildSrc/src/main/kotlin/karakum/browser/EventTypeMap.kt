@@ -3,6 +3,7 @@ package karakum.browser
 internal class EventInfo(
     val fqn: String,
     val alias: String? = null,
+    val missed: Boolean = false,
 ) {
     val name: String = fqn.substringAfterLast(".")
 }
@@ -24,19 +25,17 @@ private val EVENT_DATA = listOf(
     EventInfo("dom.events.WheelEvent", "org.w3c.dom.events.WheelEvent"),
 
     EventInfo("errors.ErrorEvent", "org.w3c.dom.ErrorEvent"),
-    // AnimationPlaybackEvent
+    EventInfo("animation.AnimationPlaybackEvent", missed = true),
     EventInfo("web.events.MessageEvent"),
     EventInfo("xhr.ProgressEvent", "org.w3c.xhr.ProgressEvent"),
     EventInfo("dom.events.InputEvent", "org.w3c.dom.events.InputEvent"),
-    // FormDataEvent
-    // SecurityPolicyViolationEvent
-    // SubmitEvent
+    EventInfo("dom.events.FormDataEvent", missed = true),
+    EventInfo("dom.events.SubmitEvent", missed = true),
     EventInfo("media.MediaEncryptedEvent", "org.w3c.dom.encryptedmedia.MediaEncryptedEvent"),
-    // IDBVersionChangeEvent
+    EventInfo("idb.IDBVersionChangeEvent", missed = true),
     EventInfo("media.key.MediaKeyMessageEvent", "org.w3c.dom.encryptedmedia.MediaKeyMessageEvent"),
     EventInfo("cssom.MediaQueryListEvent", "org.w3c.dom.MediaQueryListEvent"),
-    // BlobEvent
-    // MediaRecorderErrorEvent
+    EventInfo("media.recorder.BlobEvent", missed = true),
     EventInfo("media.stream.MediaStreamTrackEvent", "org.w3c.dom.mediacapture.MediaStreamTrackEvent"),
     // OfflineAudioCompletionEvent
     EventInfo("webrtc.RTCDTMFToneChangeEvent"),
@@ -47,9 +46,9 @@ private val EVENT_DATA = listOf(
     // SpeechSynthesisErrorEvent
     EventInfo("media.TrackEvent", "org.w3c.dom.TrackEvent"),
     EventInfo("websocket.CloseEvent", "org.w3c.dom.CloseEvent"),
-    // DeviceMotionEvent
-    // DeviceOrientationEvent
-    // GamepadEvent
+    EventInfo("browser.events.DeviceMotionEvent", missed = true),
+    EventInfo("browser.events.DeviceOrientationEvent", missed = true),
+    EventInfo("gamepad.GamepadEvent", missed = true),
     EventInfo("browser.events.BeforeUnloadEvent", "org.w3c.dom.BeforeUnloadEvent"),
     EventInfo("browser.events.HashChangeEvent", "org.w3c.dom.HashChangeEvent"),
     EventInfo("browser.events.PageTransitionEvent", "org.w3c.dom.PageTransitionEvent"),
@@ -59,6 +58,8 @@ private val EVENT_DATA = listOf(
 )
 
 internal val EVENT_TYPE_MAP = EVENT_DATA
+    .asSequence()
+    .filter { !it.missed }
     .associate { it.name to (it.alias ?: it.fqn) }
 
 internal val EVENT_CORRECTION_MAP = mapOf(

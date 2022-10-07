@@ -16,10 +16,14 @@ private val ADDITIONAL_EVENTS = listOf(
 )
 
 private val EXCLUDED = setOf(
-    "AudioProcessingEvent",
     "MessageEvent",
 
+    // deprecated
+    "AudioProcessingEvent",
     "MediaRecorderErrorEvent",
+    "SecurityPolicyViolationEvent",
+
+    // to use
     "OfflineAudioCompletionEvent",
     "SpeechSynthesisErrorEvent",
     "SpeechSynthesisEvent",
