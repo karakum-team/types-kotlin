@@ -7,9 +7,9 @@ internal const val EVENT_TYPE = "EventType"
 private val PACKAGE_MAP = mapOf(
     "AbortSignal" to "web.abort",
     "Animation" to "animation",
-    "AudioScheduledSourceNode" to "audio",
-    "AudioWorkletNode" to "audio",
-    "BaseAudioContext" to "audio",
+    "AudioScheduledSourceNode" to "webaudio",
+    "AudioWorkletNode" to "webaudio",
+    "BaseAudioContext" to "webaudio",
     "Document" to "dom.events",
     "Element" to "dom.events",
     "EventSource" to "sse",
