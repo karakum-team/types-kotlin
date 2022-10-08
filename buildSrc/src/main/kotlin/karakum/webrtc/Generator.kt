@@ -11,7 +11,7 @@ import media.stream.MediaStream
 import media.stream.MediaStreamTrack
 import web.events.Event 
 import web.events.MessageEvent
-import websocket.BinaryType
+import websockets.BinaryType
 """.trimIndent()
 
 private val ALIAS_MAP = mapOf(
@@ -40,7 +40,7 @@ fun generateKotlinDeclarations(
             }
 
             val pkg = when (name) {
-                "BinaryType" -> "websocket"
+                "BinaryType" -> "websockets"
                 else -> "webrtc"
             }
 

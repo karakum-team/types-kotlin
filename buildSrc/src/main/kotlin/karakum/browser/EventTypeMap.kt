@@ -12,8 +12,8 @@ internal class EventInfo(
 internal val EVENT_DATA = listOf(
     EventInfo("org.w3c.dom.events.Event"),
 
-    EventInfo("animation.AnimationEvent"),
-    EventInfo("browser.clipboard.ClipboardEvent", "org.w3c.dom.clipboard.ClipboardEvent"),
+    EventInfo("webanimations.AnimationEvent"),
+    EventInfo("clipboard.ClipboardEvent", "org.w3c.dom.clipboard.ClipboardEvent"),
     EventInfo("dom.events.CompositionEvent", "org.w3c.dom.events.CompositionEvent"),
     EventInfo("dom.events.DragEvent", "org.w3c.dom.DragEvent"),
     EventInfo("dom.events.FocusEvent", "org.w3c.dom.events.FocusEvent"),
@@ -46,7 +46,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("webspeech.SpeechSynthesisEvent", missed = true),
     EventInfo("webspeech.SpeechSynthesisErrorEvent", missed = true),
     EventInfo("media.TrackEvent", "org.w3c.dom.TrackEvent"),
-    EventInfo("websocket.CloseEvent", "org.w3c.dom.CloseEvent"),
+    EventInfo("websockets.CloseEvent", "org.w3c.dom.CloseEvent"),
     EventInfo("browser.events.DeviceMotionEvent", missed = true),
     EventInfo("browser.events.DeviceOrientationEvent", missed = true),
     EventInfo("gamepad.GamepadEvent", missed = true),
