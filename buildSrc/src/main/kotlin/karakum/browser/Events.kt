@@ -79,11 +79,6 @@ private val EXCLUDED = setOf(
     "AudioProcessingEvent",
     "MediaRecorderErrorEvent",
     "SecurityPolicyViolationEvent",
-
-    // to use
-    "OfflineAudioCompletionEvent",
-    "SpeechSynthesisErrorEvent",
-    "SpeechSynthesisEvent",
 )
 
 internal fun eventDeclarations(
@@ -161,11 +156,7 @@ private fun eventTypes(
     val firstItem = items.first()
     val typeName = firstItem.typeName
 
-    val imports = if (EVENT_TYPE_MAP.containsKey(typeName)) {
-        "import " + EVENT_TYPE_MAP.getValue(typeName)
-    } else {
-        "import org.w3c.dom.events.Event as $typeName"
-    }
+    val imports = "import " + EVENT_TYPE_MAP.getValue(typeName)
 
     val members = items
         .sortedBy { it.name }

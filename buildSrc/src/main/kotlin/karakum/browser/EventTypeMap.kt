@@ -38,13 +38,13 @@ internal val EVENT_DATA = listOf(
     EventInfo("cssom.MediaQueryListEvent", "org.w3c.dom.MediaQueryListEvent"),
     EventInfo("media.capture.BlobEvent", missed = true),
     EventInfo("media.stream.MediaStreamTrackEvent", "org.w3c.dom.mediacapture.MediaStreamTrackEvent"),
-    // OfflineAudioCompletionEvent
+    EventInfo("webaudio.OfflineAudioCompletionEvent", missed = true),
     EventInfo("webrtc.RTCDTMFToneChangeEvent"),
     EventInfo("webrtc.RTCDataChannelEvent"),
     EventInfo("webrtc.RTCPeerConnectionIceEvent"),
     EventInfo("webrtc.RTCTrackEvent"),
-    // SpeechSynthesisEvent
-    // SpeechSynthesisErrorEvent
+    EventInfo("webspeech.SpeechSynthesisEvent", missed = true),
+    EventInfo("webspeech.SpeechSynthesisErrorEvent", missed = true),
     EventInfo("media.TrackEvent", "org.w3c.dom.TrackEvent"),
     EventInfo("websocket.CloseEvent", "org.w3c.dom.CloseEvent"),
     EventInfo("browser.events.DeviceMotionEvent", missed = true),
