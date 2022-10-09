@@ -37,10 +37,7 @@ internal fun htmlAliases(): List<ConversionResult> =
     }.plus(
         ConversionResult(
             name = "TextTrack",
-            body = """
-                // TODO: move to `webvtt` package
-                sealed class TextTrack
-            """.trimIndent(),
-            pkg = "dom.html",
+            body = "sealed class TextTrack",
+            pkg = "webvtt",
         )
     )

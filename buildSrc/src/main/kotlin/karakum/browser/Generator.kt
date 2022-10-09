@@ -21,6 +21,7 @@ import dom.DOMTokenList
 import dom.NodeListOf
 import dom.css.LinkStyle
 import dom.html.HTMLCanvasElement
+import webvtt.TextTrack
 """.trimIndent()
 
 fun generateKotlinDeclarations(
