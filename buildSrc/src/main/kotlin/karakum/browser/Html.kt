@@ -30,6 +30,7 @@ private fun convertInterface(
 
     when {
         name in HTML_ALIAS_CLASSES -> return null
+        name == "HTMLOrSVGElement" -> return null
         name.endsWith("NameMap") -> return null
         name.endsWith("EventMap") -> return null
         "Collection" in name -> return null
