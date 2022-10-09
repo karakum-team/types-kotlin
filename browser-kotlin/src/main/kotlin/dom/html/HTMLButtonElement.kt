@@ -2,6 +2,8 @@
 
 package dom.html
 
+import dom.NodeListOf
+
 sealed external class HTMLButtonElement :
     HTMLElement {
     var disabled: Boolean

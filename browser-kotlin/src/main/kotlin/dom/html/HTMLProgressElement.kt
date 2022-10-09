@@ -2,6 +2,8 @@
 
 package dom.html
 
+import dom.NodeListOf
+
 sealed external class HTMLProgressElement :
     HTMLElement {
     val labels: NodeListOf<HTMLLabelElement>

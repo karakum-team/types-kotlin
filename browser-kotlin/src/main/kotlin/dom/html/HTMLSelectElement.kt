@@ -2,6 +2,8 @@
 
 package dom.html
 
+import dom.NodeListOf
+
 sealed external class HTMLSelectElement :
     HTMLElement {
     var autocomplete: String
@@ -22,8 +24,8 @@ sealed external class HTMLSelectElement :
     var value: String
     val willValidate: Boolean
     fun add(
-        element: HTMLOptionElement | HTMLOptGroupElement,
-    before: HTMLElement | number??,
+        element: HTMLElement /* HTMLOptionElement | HTMLOptGroupElement */,
+        before: HTMLElement | number??,
     )
     fun checkValidity(): Boolean
     fun item(index: Number): HTMLOptionElement?

@@ -2,6 +2,8 @@
 
 package dom.html
 
+import dom.NodeListOf
+
 sealed external class HTMLMeterElement :
     HTMLElement {
     var high: Number

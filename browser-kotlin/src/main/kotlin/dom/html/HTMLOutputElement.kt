@@ -3,6 +3,7 @@
 package dom.html
 
 import dom.DOMTokenList
+import dom.NodeListOf
 
 sealed external class HTMLOutputElement :
     HTMLElement {
