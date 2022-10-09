@@ -2,6 +2,8 @@
 
 package dom.html
 
+import dom.DOMTokenList
+
 sealed external class HTMLAreaElement :
     HTMLElement,
     HTMLHyperlinkElementUtils {

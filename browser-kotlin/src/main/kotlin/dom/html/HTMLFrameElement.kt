@@ -2,6 +2,8 @@
 
 package dom.html
 
+import dom.Document
+
 sealed external class HTMLFrameElement :
     HTMLElement {
     val contentDocument: Document?

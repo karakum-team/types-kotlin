@@ -2,6 +2,8 @@
 
 package dom.html
 
+import kotlin.js.Promise
+
 sealed external class HTMLImageElement :
     HTMLElement {
     var align: String

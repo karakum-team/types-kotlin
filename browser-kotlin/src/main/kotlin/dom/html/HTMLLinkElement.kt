@@ -2,6 +2,8 @@
 
 package dom.html
 
+import dom.DOMTokenList
+
 sealed external class HTMLLinkElement :
     HTMLElement,
     LinkStyle {
