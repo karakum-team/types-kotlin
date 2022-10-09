@@ -167,7 +167,7 @@ private fun convertFunction(
 
             if (pname.endsWith("?")) {
                 pname = pname.removeSuffix("?")
-                ptype += "?"
+                ptype += " = definedExternally"
             }
 
             "$pname: $ptype"
