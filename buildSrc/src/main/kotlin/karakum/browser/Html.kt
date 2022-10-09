@@ -94,7 +94,7 @@ private fun convertMember(
     if ("(" !in source)
         return convertProperty(source)
 
-    return convertFunction(source.replace(" | null", "?"))
+    return convertFunction(source)
 }
 
 private fun convertProperty(
@@ -138,32 +138,7 @@ private fun convertFunction(
         .filter { it.isNotEmpty() }
         .map {
             var (pname, ptype) = it.split(": ")
-            ptype = when {
-                ptype.startsWith("\"")
-                -> "String /* $ptype */"
-
-                ptype == "string"
-                -> "String"
-
-                ptype == "number"
-                -> "Number"
-
-                ptype == "HTMLOptionElement | HTMLOptGroupElement"
-                -> "HTMLElement /* HTMLOptionElement | HTMLOptGroupElement */"
-
-                ptype == "HTMLElement | number?"
-                -> "Any? /* HTMLElement | number | null */"
-
-                ptype.endsWith("[]") -> {
-                    var atype = ptype.removeSuffix("[]")
-                    if (atype == "string")
-                        atype = "String"
-
-                    "ReadonlyArray<$atype>"
-                }
-
-                else -> ptype
-            }
+            ptype = getParameterType(ptype)
 
             if (pname.endsWith("?")) {
                 pname = pname.removeSuffix("?")
@@ -187,6 +162,41 @@ private fun convertFunction(
         .replace(": boolean", ": Boolean")
         .replace(": any", ": Any")
         .replace("<void>", "<Void>")
+        .replace(" | null", "?")
 
     return "fun $name($params)$result"
+}
+
+private fun getParameterType(
+    source: String,
+): String {
+    if (source.endsWith(" | null"))
+        return getParameterType(source.removeSuffix(" | null")) + "?"
+
+    return when {
+        source.startsWith("\"")
+        -> "String /* $source */"
+
+        source == "string"
+        -> "String"
+
+        source == "number"
+        -> "Number"
+
+        source == "HTMLOptionElement | HTMLOptGroupElement"
+        -> "HTMLElement /* HTMLOptionElement | HTMLOptGroupElement */"
+
+        source == "HTMLElement | number"
+        -> "Any? /* HTMLElement | number */"
+
+        source.endsWith("[]") -> {
+            var atype = source.removeSuffix("[]")
+            if (atype == "string")
+                atype = "String"
+
+            "ReadonlyArray<$atype>"
+        }
+
+        else -> source
+    }
 }
