@@ -2,4 +2,8 @@
 
 package dom.html
 
-typealias HTMLOptGroupElement = org.w3c.dom.HTMLOptGroupElement
+sealed external class HTMLOptGroupElement :
+    HTMLElement {
+    var disabled: Boolean
+    var label: String
+}

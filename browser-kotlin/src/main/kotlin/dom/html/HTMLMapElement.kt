@@ -2,4 +2,8 @@
 
 package dom.html
 
-typealias HTMLMapElement = org.w3c.dom.HTMLMapElement
+sealed external class HTMLMapElement :
+    HTMLElement {
+    val areas: HTMLCollection
+    var name: String
+}

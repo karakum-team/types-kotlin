@@ -2,4 +2,11 @@
 
 package dom.html
 
-typealias HTMLDialogElement = org.w3c.dom.HTMLDialogElement
+sealed external class HTMLDialogElement :
+    HTMLElement {
+    var open: Boolean
+    var returnValue: String
+    fun close(returnValue: String?)
+    fun show()
+    fun showModal()
+}

@@ -2,4 +2,7 @@
 
 package dom.html
 
-typealias HTMLTemplateElement = org.w3c.dom.HTMLTemplateElement
+sealed external class HTMLTemplateElement :
+    HTMLElement {
+    val content: DocumentFragment
+}

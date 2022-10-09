@@ -2,4 +2,13 @@
 
 package dom.html
 
-typealias HTMLBodyElement = org.w3c.dom.HTMLBodyElement
+sealed external class HTMLBodyElement :
+    HTMLElement,
+    WindowEventHandlers {
+    var aLink: String
+    var background: String
+    var bgColor: String
+    var link: String
+    var text: String
+    var vLink: String
+}

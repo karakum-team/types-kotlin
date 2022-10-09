@@ -2,4 +2,7 @@
 
 package dom.html
 
-typealias HTMLDivElement = org.w3c.dom.HTMLDivElement
+sealed external class HTMLDivElement :
+    HTMLElement {
+    var align: String
+}

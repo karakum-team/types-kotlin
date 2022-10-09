@@ -2,4 +2,13 @@
 
 package dom.html
 
-typealias HTMLEmbedElement = org.w3c.dom.HTMLEmbedElement
+sealed external class HTMLEmbedElement :
+    HTMLElement {
+    var align: String
+    var height: String
+    var name: String
+    var src: String
+    var type: String
+    var width: String
+    fun getSVGDocument(): Document?
+}

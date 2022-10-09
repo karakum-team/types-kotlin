@@ -2,5 +2,5 @@
 
 package dom.html
 
-sealed external class HTMLHeadElement :
+sealed external class HTMLUnknownElement :
     HTMLElement

@@ -2,4 +2,7 @@
 
 package dom.html
 
-typealias HTMLDListElement = org.w3c.dom.HTMLDListElement
+sealed external class HTMLDListElement :
+    HTMLElement {
+    var compact: Boolean
+}

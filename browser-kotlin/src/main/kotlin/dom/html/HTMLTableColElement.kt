@@ -2,4 +2,12 @@
 
 package dom.html
 
-typealias HTMLTableColElement = org.w3c.dom.HTMLTableColElement
+sealed external class HTMLTableColElement :
+    HTMLElement {
+    var align: String
+    var ch: String
+    var chOff: String
+    var span: Number
+    var vAlign: String
+    var width: String
+}

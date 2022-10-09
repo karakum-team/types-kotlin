@@ -2,5 +2,4 @@
 
 package dom.html
 
-sealed external class HTMLHeadElement :
-    HTMLElement
+typealias HTMLCollectionOf<T> = HTMLCollection

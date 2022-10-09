@@ -2,4 +2,7 @@
 
 package dom.html
 
-typealias HTMLHeadingElement = org.w3c.dom.HTMLHeadingElement
+sealed external class HTMLHeadingElement :
+    HTMLElement {
+    var align: String
+}

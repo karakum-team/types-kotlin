@@ -2,4 +2,13 @@
 
 package dom.html
 
-typealias HTMLSourceElement = org.w3c.dom.HTMLSourceElement
+sealed external class HTMLSourceElement :
+    HTMLElement {
+    var height: Number
+    var media: String
+    var sizes: String
+    var src: String
+    var srcset: String
+    var type: String
+    var width: Number
+}

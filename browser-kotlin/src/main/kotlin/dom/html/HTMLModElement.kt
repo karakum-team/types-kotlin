@@ -2,4 +2,8 @@
 
 package dom.html
 
-typealias HTMLModElement = org.w3c.dom.HTMLModElement
+sealed external class HTMLModElement :
+    HTMLElement {
+    var cite: String
+    var dateTime: String
+}

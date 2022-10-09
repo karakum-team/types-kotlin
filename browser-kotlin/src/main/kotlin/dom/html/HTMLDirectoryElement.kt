@@ -2,7 +2,7 @@
 
 package dom.html
 
-sealed external class HTMLDetailsElement :
+sealed external class HTMLDirectoryElement :
     HTMLElement {
-    var open: Boolean
+    var compact: Boolean
 }

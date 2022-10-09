@@ -2,4 +2,8 @@
 
 package dom.html
 
-typealias HTMLLegendElement = org.w3c.dom.HTMLLegendElement
+sealed external class HTMLLegendElement :
+    HTMLElement {
+    var align: String
+    val form: HTMLFormElement?
+}

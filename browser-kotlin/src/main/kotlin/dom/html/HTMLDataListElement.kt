@@ -2,4 +2,7 @@
 
 package dom.html
 
-typealias HTMLDataListElement = org.w3c.dom.HTMLDataListElement
+sealed external class HTMLDataListElement :
+    HTMLElement {
+    val options: HTMLCollectionOf<HTMLOptionElement>
+}

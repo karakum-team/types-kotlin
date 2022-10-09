@@ -2,4 +2,10 @@
 
 package dom.html
 
-typealias HTMLStyleElement = org.w3c.dom.HTMLStyleElement
+sealed external class HTMLStyleElement :
+    HTMLElement,
+    LinkStyle {
+    var disabled: Boolean
+    var media: String
+    var type: String
+}

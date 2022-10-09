@@ -2,4 +2,7 @@
 
 package dom.html
 
-typealias HTMLTitleElement = org.w3c.dom.HTMLTitleElement
+sealed external class HTMLTitleElement :
+    HTMLElement {
+    var text: String
+}

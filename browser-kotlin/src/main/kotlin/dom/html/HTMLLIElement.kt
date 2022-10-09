@@ -2,4 +2,8 @@
 
 package dom.html
 
-typealias HTMLLIElement = org.w3c.dom.HTMLLIElement
+sealed external class HTMLLIElement :
+    HTMLElement {
+    var type: String
+    var value: Number
+}

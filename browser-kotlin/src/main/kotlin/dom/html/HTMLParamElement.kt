@@ -2,4 +2,10 @@
 
 package dom.html
 
-typealias HTMLParamElement = org.w3c.dom.HTMLParamElement
+sealed external class HTMLParamElement :
+    HTMLElement {
+    var name: String
+    var type: String
+    var value: String
+    var valueType: String
+}

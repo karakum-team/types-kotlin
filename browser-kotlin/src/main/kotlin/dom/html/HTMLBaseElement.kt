@@ -2,4 +2,8 @@
 
 package dom.html
 
-typealias HTMLBaseElement = org.w3c.dom.HTMLBaseElement
+sealed external class HTMLBaseElement :
+    HTMLElement {
+    var href: String
+    var target: String
+}

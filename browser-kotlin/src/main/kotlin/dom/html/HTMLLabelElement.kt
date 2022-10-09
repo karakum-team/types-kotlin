@@ -2,4 +2,9 @@
 
 package dom.html
 
-typealias HTMLLabelElement = org.w3c.dom.HTMLLabelElement
+sealed external class HTMLLabelElement :
+    HTMLElement {
+    val control: HTMLElement?
+    val form: HTMLFormElement?
+    var htmlFor: String
+}

@@ -2,4 +2,10 @@
 
 package dom.html
 
-typealias HTMLOListElement = org.w3c.dom.HTMLOListElement
+sealed external class HTMLOListElement :
+    HTMLElement {
+    var compact: Boolean
+    var reversed: Boolean
+    var start: Number
+    var type: String
+}

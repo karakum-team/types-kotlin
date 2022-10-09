@@ -2,4 +2,10 @@
 
 package dom.html
 
-typealias HTMLProgressElement = org.w3c.dom.HTMLProgressElement
+sealed external class HTMLProgressElement :
+    HTMLElement {
+    val labels: NodeListOf<HTMLLabelElement>
+    var max: Number
+    val position: Number
+    var value: Number
+}

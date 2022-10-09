@@ -2,11 +2,9 @@
 
 package dom.html
 
-sealed external class HTMLHRElement :
+sealed external class HTMLFontElement :
     HTMLElement {
-    var align: String
     var color: String
-    var noShade: Boolean
+    var face: String
     var size: String
-    var width: String
 }

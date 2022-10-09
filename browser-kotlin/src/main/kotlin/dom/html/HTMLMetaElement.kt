@@ -2,4 +2,11 @@
 
 package dom.html
 
-typealias HTMLMetaElement = org.w3c.dom.HTMLMetaElement
+sealed external class HTMLMetaElement :
+    HTMLElement {
+    var content: String
+    var httpEquiv: String
+    var media: String
+    var name: String
+    var scheme: String
+}
