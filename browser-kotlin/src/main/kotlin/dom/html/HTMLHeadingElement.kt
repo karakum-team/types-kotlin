@@ -3,6 +3,4 @@
 package dom.html
 
 sealed external class HTMLHeadingElement :
-    HTMLElement {
-    var align: String
-}
+    HTMLElement

@@ -8,5 +8,4 @@ sealed external class HTMLMetaElement :
     var httpEquiv: String
     var media: String
     var name: String
-    var scheme: String
 }

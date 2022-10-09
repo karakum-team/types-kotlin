@@ -10,7 +10,6 @@ sealed external class HTMLAreaElement :
     var alt: String
     var coords: String
     var download: String
-    var noHref: Boolean
     var ping: String
     var referrerPolicy: String
     var rel: String

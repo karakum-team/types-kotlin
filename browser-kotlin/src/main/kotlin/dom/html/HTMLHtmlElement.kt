@@ -3,6 +3,4 @@
 package dom.html
 
 sealed external class HTMLHtmlElement :
-    HTMLElement {
-    var version: String
-}
+    HTMLElement

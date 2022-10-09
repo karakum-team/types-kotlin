@@ -3,6 +3,4 @@
 package dom.html
 
 sealed external class HTMLDListElement :
-    HTMLElement {
-    var compact: Boolean
-}
+    HTMLElement

@@ -9,7 +9,6 @@ sealed external class HTMLLinkElement :
     HTMLElement,
     LinkStyle {
     var `as`: String
-    var charset: String
     var crossOrigin: String?
     var disabled: Boolean
     var href: String
@@ -21,8 +20,6 @@ sealed external class HTMLLinkElement :
     var referrerPolicy: String
     var rel: String
     val relList: DOMTokenList
-    var rev: String
     val sizes: DOMTokenList
-    var target: String
     var type: String
 }

@@ -9,5 +9,4 @@ sealed external class HTMLStyleElement :
     LinkStyle {
     var disabled: Boolean
     var media: String
-    var type: String
 }

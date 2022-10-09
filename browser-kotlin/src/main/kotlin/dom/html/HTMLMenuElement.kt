@@ -3,6 +3,4 @@
 package dom.html
 
 sealed external class HTMLMenuElement :
-    HTMLElement {
-    var compact: Boolean
-}
+    HTMLElement

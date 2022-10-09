@@ -3,6 +3,4 @@
 package dom.html
 
 sealed external class HTMLPreElement :
-    HTMLElement {
-    var width: Number
-}
+    HTMLElement

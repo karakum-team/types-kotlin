@@ -3,6 +3,4 @@
 package dom.html
 
 sealed external class HTMLBRElement :
-    HTMLElement {
-    var clear: String
-}
+    HTMLElement
