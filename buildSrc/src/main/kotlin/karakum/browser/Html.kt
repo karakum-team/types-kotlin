@@ -84,8 +84,15 @@ private fun convertInterface(
 private fun convertMember(
     source: String,
 ): String? {
-    if ("\n" in source)
+    if ("\n" in source) {
+        val comment = source.substringBeforeLast("\n")
+            .replace(";--\n", ";\n") // RESTORE
+
+        if ("@deprecated" in comment)
+            return null
+
         return convertMember(source.substringAfterLast("\n"))
+    }
 
     when {
         source.startsWith("addEventListener<") -> return null
