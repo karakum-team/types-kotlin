@@ -181,8 +181,13 @@ private fun convertFunction(
 private fun getParameterType(
     source: String,
 ): String {
-    if (source.endsWith(" | null"))
-        return getParameterType(source.removeSuffix(" | null")) + "?"
+    if (source.endsWith(" | null")) {
+        var type = getParameterType(source.removeSuffix(" | null"))
+        if ("? /* " !in type)
+            type += "?"
+
+        return type
+    }
 
     return when {
         source.startsWith("\"")
