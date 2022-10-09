@@ -4,6 +4,7 @@ private val CLASSES = listOf(
     "Node",
     "Element",
     "Document",
+    "DocumentFragment",
 
     "DOMPointInit",
     "DOMRectInit",
