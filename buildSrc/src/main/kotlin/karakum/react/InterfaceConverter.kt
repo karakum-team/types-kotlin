@@ -200,9 +200,6 @@ private fun convertSvgType(
         .substringAfter(": React.SVGProps<")
         .substringBefore(">")
 
-    if (elementType.startsWith("SVGFE") || elementType == "SVGFilterElement")
-        elementType = "SVGElement /* $elementType */"
-
     val type = "IntrinsicType<SVGAttributes<$elementType>>"
 
     return """
