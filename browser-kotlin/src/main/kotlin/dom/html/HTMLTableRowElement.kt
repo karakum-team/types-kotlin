@@ -13,5 +13,5 @@ sealed external class HTMLTableRowElement :
     val sectionRowIndex: Number
     var vAlign: String
     fun deleteCell(index: Number)
-    fun insertCell(index: Number?): HTMLTableCellElement
+    fun insertCell(index: Number = definedExternally): HTMLTableCellElement
 }

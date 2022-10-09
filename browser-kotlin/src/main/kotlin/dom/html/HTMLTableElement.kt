@@ -26,5 +26,5 @@ sealed external class HTMLTableElement :
     fun deleteRow(index: Number)
     fun deleteTFoot()
     fun deleteTHead()
-    fun insertRow(index: Number?): HTMLTableRowElement
+    fun insertRow(index: Number = definedExternally): HTMLTableRowElement
 }

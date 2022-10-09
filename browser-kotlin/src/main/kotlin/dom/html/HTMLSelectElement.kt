@@ -25,7 +25,7 @@ sealed external class HTMLSelectElement :
     val willValidate: Boolean
     fun add(
         element: HTMLElement, /* HTMLOptionElement | HTMLOptGroupElement */
-        before: Any? /* HTMLElement | number | null */?,
+        before: Any? /* HTMLElement | number | null */ = definedExternally,
     )
 
     fun checkValidity(): Boolean

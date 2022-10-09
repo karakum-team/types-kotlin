@@ -17,7 +17,7 @@ sealed external class HTMLFormElement :
     var target: String
     fun checkValidity(): Boolean
     fun reportValidity(): Boolean
-    fun requestSubmit(submitter: HTMLElement??)
+    fun requestSubmit(submitter: HTMLElement? = definedExternally)
     fun reset()
     fun submit()
     // [index: number]: Element

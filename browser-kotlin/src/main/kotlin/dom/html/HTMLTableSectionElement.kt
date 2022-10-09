@@ -10,5 +10,5 @@ sealed external class HTMLTableSectionElement :
     val rows: HTMLCollectionOf<HTMLTableRowElement>
     var vAlign: String
     fun deleteRow(index: Number)
-    fun insertRow(index: Number?): HTMLTableRowElement
+    fun insertRow(index: Number = definedExternally): HTMLTableRowElement
 }
