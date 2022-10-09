@@ -3,6 +3,7 @@
 package dom.html
 
 import dom.DOMTokenList
+import dom.css.LinkStyle
 
 sealed external class HTMLLinkElement :
     HTMLElement,

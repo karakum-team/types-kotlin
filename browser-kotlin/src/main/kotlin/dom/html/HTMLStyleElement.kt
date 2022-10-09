@@ -2,6 +2,8 @@
 
 package dom.html
 
+import dom.css.LinkStyle
+
 sealed external class HTMLStyleElement :
     HTMLElement,
     LinkStyle {
