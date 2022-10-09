@@ -9,6 +9,9 @@ private val DEPRECATED = setOf(
     "HTMLFrameElement",
     "HTMLFrameSetElement",
     "HTMLMarqueeElement",
+
+    "HTMLTableHeaderCellElement",
+    "HTMLTableDataCellElement",
 )
 
 internal fun htmlDeclarations(
