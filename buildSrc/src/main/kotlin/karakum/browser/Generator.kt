@@ -18,6 +18,7 @@ import dom.Document
 import dom.DocumentFragment
 import dom.DOMTokenList
 import dom.NodeListOf
+import dom.css.LinkStyle
 import dom.html.HTMLCanvasElement
 """.trimIndent()
 
@@ -68,6 +69,7 @@ fun generateKotlinDeclarations(
     }
 
     val aliases = domAliases()
+        .plus(cssAliases())
         .plus(htmlAliases())
         .plus(svgAliases())
         .plus(canvasAliases())
