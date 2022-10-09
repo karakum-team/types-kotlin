@@ -24,7 +24,7 @@ internal val HTML_ALIAS_CLASSES = listOf(
 
 internal fun htmlAliases(): List<ConversionResult> =
     HTML_ALIAS_CLASSES.map { name ->
-        val alias = when(name) {
+        val alias = when (name) {
             "WindowProxy" -> "org.w3c.dom.Window"
             else -> "org.w3c.dom.$name"
         }
@@ -34,4 +34,13 @@ internal fun htmlAliases(): List<ConversionResult> =
             body = "typealias $name = $alias",
             pkg = "dom.html",
         )
-    }
+    }.plus(
+        ConversionResult(
+            name = "TextTrack",
+            body = """
+                // TODO: move to `webvtt` package
+                sealed class TextTrack
+            """.trimIndent(),
+            pkg = "dom.html",
+        )
+    )

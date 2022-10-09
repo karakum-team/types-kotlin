@@ -14,6 +14,7 @@ import kotlinx.js.Float32Array
 import kotlinx.js.Int32Array
 import kotlinx.js.ReadonlyArray    
 import kotlinx.js.Uint32Array
+import kotlinx.js.Void
 import dom.Document
 import dom.DocumentFragment
 import dom.DOMTokenList

@@ -81,6 +81,7 @@ private fun convertMember(
         source.startsWith("addEventListener(") -> return null
         source.startsWith("removeEventListener<") -> return null
         source.startsWith("removeEventListener(") -> return null
+        source.startsWith("remove()") -> return null
         source.startsWith("toString()") -> return null
     }
 
@@ -120,6 +121,9 @@ private fun convertProperty(
         type += "?"
     }
 
+    if (name == "as")
+        name = "`$name`"
+
     return "$modifier $name: $type"
 }
 
@@ -147,7 +151,7 @@ private fun convertFunction(
                 ptype == "HTMLOptionElement | HTMLOptGroupElement"
                 -> "HTMLElement /* HTMLOptionElement | HTMLOptGroupElement */"
 
-                ptype == "HTMLElement | number | null"
+                ptype == "HTMLElement | number?"
                 -> "Any? /* HTMLElement | number | null */"
 
                 ptype.endsWith("[]") -> {
@@ -182,6 +186,7 @@ private fun convertFunction(
         .replace(": string", ": String")
         .replace(": boolean", ": Boolean")
         .replace(": any", ": Any")
+        .replace("<void>", "<Void>")
 
     return "fun $name($params)$result"
 }
