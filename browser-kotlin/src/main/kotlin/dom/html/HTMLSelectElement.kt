@@ -24,13 +24,13 @@ sealed external class HTMLSelectElement :
     var value: String
     val willValidate: Boolean
     fun add(
-        element: HTMLElement /* HTMLOptionElement | HTMLOptGroupElement */,
-        before: HTMLElement | number??,
+        element: HTMLElement, /* HTMLOptionElement | HTMLOptGroupElement */
+        before: Any? /* HTMLElement | number | null */?,
     )
+
     fun checkValidity(): Boolean
     fun item(index: Number): HTMLOptionElement?
     fun namedItem(name: String): HTMLOptionElement?
-    fun remove()
     fun remove(index: Number)
     fun reportValidity(): Boolean
     fun setCustomValidity(error: String)

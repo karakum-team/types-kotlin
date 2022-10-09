@@ -8,7 +8,7 @@ import dom.css.LinkStyle
 sealed external class HTMLLinkElement :
     HTMLElement,
     LinkStyle {
-    var as: String
+    var `as`: String
     var charset: String
     var crossOrigin: String?
     var disabled: Boolean

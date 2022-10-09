@@ -2,6 +2,7 @@
 
 package dom.html
 
+import kotlinx.js.Void
 import kotlin.js.Promise
 
 sealed external class HTMLImageElement :
@@ -31,5 +32,5 @@ sealed external class HTMLImageElement :
     var width: Number
     val x: Number
     val y: Number
-    fun decode(): Promise<void>
+    fun decode(): Promise<Void>
 }
