@@ -3,6 +3,14 @@ package karakum.browser
 import karakum.common.unionBody
 import java.io.File
 
+private val DEPRECATED = setOf(
+    "HTMLDirectoryElement",
+    "HTMLFontElement",
+    "HTMLFrameElement",
+    "HTMLFrameSetElement",
+    "HTMLMarqueeElement",
+)
+
 internal fun htmlDeclarations(
     definitionsFile: File,
 ): Sequence<ConversionResult> {
@@ -41,6 +49,7 @@ private fun convertInterface(
 
     when {
         name in HTML_ALIAS_CLASSES -> return null
+        name in DEPRECATED -> return null
         name == "HTMLOrSVGElement" -> return null
         name.endsWith("NameMap") -> return null
         name.endsWith("EventMap") -> return null
