@@ -156,7 +156,8 @@ private fun eventTypes(
     val firstItem = items.first()
     val typeName = firstItem.typeName
 
-    val imports = "import " + EVENT_TYPE_MAP.getValue(typeName)
+    val info = EVENT_INFO_MAP.getValue(typeName)
+    val imports = "import " + (info.alias ?: info.fqn)
 
     val members = items
         .sortedBy { it.name }

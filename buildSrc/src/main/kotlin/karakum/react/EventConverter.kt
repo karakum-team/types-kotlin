@@ -1,6 +1,6 @@
 package karakum.react
 
-import karakum.browser.EVENT_TYPE_MAP
+import karakum.browser.EVENT_INFO_MAP
 
 internal fun convertNativeEvents(
     source: String,
@@ -13,7 +13,7 @@ internal fun convertNativeEvents(
 
             val alias = line.substringAfter(" = ")
                 .removeSuffix(";")
-                .let { EVENT_TYPE_MAP.getValue(it) }
+                .let { EVENT_INFO_MAP.getValue(it).fqn }
 
             "typealias $name = $alias"
         }

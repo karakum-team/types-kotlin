@@ -61,9 +61,6 @@ internal val EVENT_DATA = listOf(
 internal val EVENT_INFO_MAP = EVENT_DATA
     .associate { it.name to it }
 
-internal val EVENT_TYPE_MAP = EVENT_DATA
-    .associate { it.name to (it.alias ?: it.fqn) }
-
 internal val EVENT_CORRECTION_MAP = mapOf(
     "DOMContentLoaded" to "dom_content_loaded",
     "addsourcebuffer" to "add_source_buffer",
