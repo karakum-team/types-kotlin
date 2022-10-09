@@ -110,7 +110,9 @@ private fun convertProperty(
         "boolean" -> "Boolean"
         "number" -> "Number"
 
-        else -> type
+        else -> if (type.startsWith("\"")) {
+            "String /* $type */"
+        } else type
     }
 
     if (name.endsWith("?") || optional) {
