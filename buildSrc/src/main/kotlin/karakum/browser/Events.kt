@@ -6,10 +6,10 @@ internal const val EVENT_TYPE = "EventType"
 
 private val PACKAGE_MAP = mapOf(
     "AbortSignal" to "web.abort",
-    "Animation" to "webanimations",
-    "AudioScheduledSourceNode" to "webaudio",
-    "AudioWorkletNode" to "webaudio",
-    "BaseAudioContext" to "webaudio",
+    "Animation" to "web.animations",
+    "AudioScheduledSourceNode" to "web.audio",
+    "AudioWorkletNode" to "web.audio",
+    "BaseAudioContext" to "web.audio",
     "Document" to "dom.events",
     "Element" to "dom.events",
     "EventSource" to "sse",
@@ -45,7 +45,7 @@ private val PACKAGE_MAP = mapOf(
     "ShadowRoot" to "dom.events",
     "SourceBuffer" to "media.source",
     "SourceBufferList" to "media.source",
-    "SpeechSynthesis" to "webspeech",
+    "SpeechSynthesis" to "web.speech",
     "TextTrack" to "webvtt",
     "TextTrackCue" to "webvtt",
     "TextTrackList" to "webvtt",
