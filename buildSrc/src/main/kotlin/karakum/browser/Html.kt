@@ -141,11 +141,11 @@ private fun convertFunction(
                 ptype == "number"
                 -> "Number"
 
-                ptype == "GLint | GLboolean"
-                -> "GLint /* | GLboolean */"
+                ptype == "HTMLOptionElement | HTMLOptGroupElement"
+                -> "HTMLElement /* HTMLOptionElement | HTMLOptGroupElement */"
 
-                ptype.startsWith("Int32Array | ")
-                -> "Int32Array /* ${ptype.removePrefix("Int32Array")} */"
+                ptype == "HTMLElement | number | null"
+                -> "Any? /* HTMLElement | number | null */"
 
                 ptype.endsWith("[]") -> {
                     var atype = ptype.removeSuffix("[]")

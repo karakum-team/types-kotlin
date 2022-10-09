@@ -6,6 +6,8 @@ private val CLASSES = listOf(
     "Document",
     "DocumentFragment",
 
+    "NodeList",
+
     "DOMPointInit",
     "DOMRectInit",
     "DOMRectList",
@@ -39,3 +41,10 @@ internal fun domAliases(): List<ConversionResult> =
             pkg = "dom",
         )
     }
+        .plus(
+            ConversionResult(
+                name = "NodeListOf",
+                body = "typealias NodeListOf<T> = NodeList",
+                pkg = "dom",
+            )
+        )

@@ -17,6 +17,7 @@ import kotlinx.js.Uint32Array
 import dom.Document
 import dom.DocumentFragment
 import dom.DOMTokenList
+import dom.NodeListOf
 import dom.html.HTMLCanvasElement
 """.trimIndent()
 
