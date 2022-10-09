@@ -9,6 +9,9 @@ internal val HTML_ALIAS_CLASSES = listOf(
 
     "Image",
 
+    "WindowProxy",
+    "WindowEventHandlers",
+
     // TEMP
 
     "HTMLCanvasElement",
@@ -21,9 +24,14 @@ internal val HTML_ALIAS_CLASSES = listOf(
 
 internal fun htmlAliases(): List<ConversionResult> =
     HTML_ALIAS_CLASSES.map { name ->
+        val alias = when(name) {
+            "WindowProxy" -> "org.w3c.dom.Window"
+            else -> "org.w3c.dom.$name"
+        }
+
         ConversionResult(
             name = name,
-            body = "typealias $name = org.w3c.dom.$name",
+            body = "typealias $name = $alias",
             pkg = "dom.html",
         )
     }
