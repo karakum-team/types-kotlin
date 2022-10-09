@@ -8,19 +8,9 @@ private val CLASSES = listOf(
 
     "NodeList",
 
-    "DOMPointInit",
-    "DOMRectInit",
-    "DOMRectList",
     "DOMStringMap",
     "DOMImplementation",
     "DOMTokenList",
-    "DOMPointReadOnly",
-    "DOMPoint",
-    "DOMRect",
-    "DOMRectReadOnly",
-    "DOMQuad",
-    "DOMMatrixReadOnly",
-    "DOMMatrix",
     "DOMParser",
 
     "ScrollBehavior",
@@ -28,17 +18,36 @@ private val CLASSES = listOf(
     "ScrollToOptions",
 )
 
+private val GEOMETRY_CLASSES = listOf(
+    "DOMPointReadOnly",
+    "DOMPoint",
+    "DOMPointInit",
+
+    "DOMRectReadOnly",
+    "DOMRect",
+    "DOMRectInit",
+    "DOMRectList",
+
+    "DOMMatrixReadOnly",
+    "DOMMatrix",
+
+    "DOMQuad",
+)
+
+
 internal fun domAliases(): List<ConversionResult> =
-    CLASSES.map { name ->
-        val pkg = when (name) {
+    (CLASSES + GEOMETRY_CLASSES).map { name ->
+        val aliasPkg = when (name) {
             "DOMParser" -> "org.w3c.dom.parsing"
             else -> "org.w3c.dom"
         }
 
+        val pkg = if (name in GEOMETRY_CLASSES) "dom.geometry" else "dom"
+
         ConversionResult(
             name = name,
-            body = "typealias $name = $pkg.$name",
-            pkg = "dom",
+            body = "typealias $name = $aliasPkg.$name",
+            pkg = pkg,
         )
     }
         .plus(
