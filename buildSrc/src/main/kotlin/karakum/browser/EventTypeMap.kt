@@ -13,6 +13,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("org.w3c.dom.events.Event"),
 
     EventInfo("webanimations.AnimationEvent"),
+    EventInfo("webanimations.AnimationPlaybackEvent", missed = true),
     EventInfo("clipboard.ClipboardEvent", "org.w3c.dom.clipboard.ClipboardEvent"),
     EventInfo("dom.events.CompositionEvent", "org.w3c.dom.events.CompositionEvent"),
     EventInfo("dom.events.DragEvent", "org.w3c.dom.DragEvent"),
@@ -26,7 +27,6 @@ internal val EVENT_DATA = listOf(
     EventInfo("dom.events.WheelEvent", "org.w3c.dom.events.WheelEvent"),
 
     EventInfo("errors.ErrorEvent", "org.w3c.dom.ErrorEvent"),
-    EventInfo("animation.AnimationPlaybackEvent", missed = true),
     EventInfo("web.events.MessageEvent"),
     EventInfo("xhr.ProgressEvent", "org.w3c.xhr.ProgressEvent"),
     EventInfo("dom.events.InputEvent", "org.w3c.dom.events.InputEvent"),
