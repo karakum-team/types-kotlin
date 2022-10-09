@@ -91,7 +91,10 @@ private fun convertMember(
         if ("@deprecated" in comment)
             return null
 
-        return convertMember(source.substringAfterLast("\n"))
+        val member = convertMember(source.substringAfterLast("\n"))
+            ?: return null
+
+        return comment + "\n" + member
     }
 
     when {
