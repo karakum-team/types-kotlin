@@ -20,7 +20,7 @@ sealed external class HTMLTextAreaElement :
     var readOnly: Boolean
     var required: Boolean
     var rows: Number
-    var selectionDirection: "forward" | "backward" | "none"
+    var selectionDirection: String /* "forward" | "backward" | "none" */
     var selectionEnd: Number
     var selectionStart: Number
     val textLength: Number

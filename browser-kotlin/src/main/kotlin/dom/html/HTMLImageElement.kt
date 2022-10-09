@@ -12,11 +12,11 @@ sealed external class HTMLImageElement :
     val complete: Boolean
     var crossOrigin: String?
     val currentSrc: String
-    var decoding: "async" | "sync" | "auto"
+    var decoding: String /* "async" | "sync" | "auto" */
     var height: Number
     var hspace: Number
     var isMap: Boolean
-    var loading: "eager" | "lazy"
+    var loading: String /* "eager" | "lazy" */
     var longDesc: String
     var lowsrc: String
     var name: String
