@@ -1,5 +1,6 @@
 package karakum.browser
 
+import karakum.common.unionBody
 import java.io.File
 
 internal fun htmlDeclarations(
@@ -8,10 +9,20 @@ internal fun htmlDeclarations(
     val content = definitionsFile.readText()
         .replace(";\n     *", ";--\n     *")
 
-    return Regex("""interface (HTML.+?|ValidityState) \{[\s\S]+?\}""")
+    val interfaces = Regex("""interface (HTML.+?|ValidityState) \{[\s\S]+?\}""")
         .findAll(content)
         .map { it.value }
         .mapNotNull { convertInterface(it) }
+
+    val types = content
+        .splitToSequence("\ntype ")
+        .drop(1)
+        .filter { it.startsWith("SelectionMode = ") }
+        .map { it.substringBefore(";\n") }
+        .map { convertType(it) }
+
+    return interfaces
+        .plus(types)
         .plus(
             ConversionResult(
                 name = "HTMLCollectionOf",
@@ -199,4 +210,25 @@ private fun getParameterType(
 
         else -> source
     }
+}
+
+private fun convertType(
+    source: String,
+): ConversionResult {
+    require(" = \"" in source)
+
+    val (name, body) = source
+        .substringBefore(";")
+        .split(" = ")
+
+    val values = body
+        .splitToSequence(" | ")
+        .map { it.removeSurrounding("\"") }
+        .toList()
+
+    return ConversionResult(
+        name = name,
+        body = unionBody(name, values),
+        pkg = "dom.html"
+    )
 }
