@@ -7,7 +7,7 @@ internal data class Package(
 ) {
     private val root = name
         .removeSuffix("/promises")
-        .replace("stream/web", "web/stream")
+        .replace("stream/web", "web/streams")
         .snakeToCamel()
 
     val id: String = concat("node", ":", name)
@@ -25,8 +25,8 @@ private fun concat(
         "globals",
         -> base
 
-        "web/stream",
-        "web.stream",
+        "web/streams",
+        "web.streams",
         -> suffix
 
         else -> "$base$delimiter$suffix"
