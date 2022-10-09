@@ -43,8 +43,8 @@ sealed external class HTMLTextAreaElement :
     )
 
     fun setSelectionRange(
-        start: number?,
-        end: number?,
+        start: Number?,
+        end: Number?,
         direction: String /* "forward" | "backward" | "none" */ = definedExternally,
     )
 }
