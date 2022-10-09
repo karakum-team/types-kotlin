@@ -19,6 +19,8 @@ internal enum class Suppress {
     CANNOT_CHECK_FOR_ERASED,
     ERROR_IN_CONTRACT_DESCRIPTION,
 
+    UNUSED_TYPEALIAS_PARAMETER,
+
     // TODO: remove after unions
     USELESS_IS_CHECK,
 

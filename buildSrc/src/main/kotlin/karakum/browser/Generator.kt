@@ -83,8 +83,8 @@ fun generateKotlinDeclarations(
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
 
-            if (name == "WebGLExtension")
-                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
+            if (name == "NodeListOf" || name == "HTMLCollectionOf")
+                add(UNUSED_TYPEALIAS_PARAMETER)
         }.toTypedArray()
 
         val annotations = if (suppresses.isNotEmpty()) {
