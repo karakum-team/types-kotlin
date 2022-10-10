@@ -75,6 +75,7 @@ fun generateKotlinDeclarations(
         .plus(htmlAliases())
         .plus(svgAliases())
         .plus(canvasAliases())
+        .plus(fileAliases())
         .plus(htmlDeclarations(definitionsFile))
 
     for ((name, body, pkg) in aliases) {
