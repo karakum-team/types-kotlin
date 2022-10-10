@@ -7,6 +7,7 @@ import karakum.common.fileSuppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = """
+import kotlin.js.Date
 import kotlin.js.Promise
 import kotlinx.js.ArrayBufferView
 import kotlinx.js.BufferSource
@@ -21,6 +22,7 @@ import dom.DOMTokenList
 import dom.NodeListOf
 import dom.css.LinkStyle
 import dom.html.HTMLCanvasElement
+import web.file.FileList
 import webvtt.TextTrack
 """.trimIndent()
 
