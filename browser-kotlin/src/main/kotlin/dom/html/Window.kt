@@ -2,4 +2,4 @@
 
 package dom.html
 
-typealias WindowProxy = Window
+typealias Window = org.w3c.dom.Window
