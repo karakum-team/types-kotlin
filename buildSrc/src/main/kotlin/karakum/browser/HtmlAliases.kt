@@ -9,6 +9,7 @@ internal val HTML_ALIAS_CLASSES = listOf(
 
     "Image",
 
+    "Window",
     "WindowProxy",
     "WindowEventHandlers",
 
@@ -25,7 +26,7 @@ internal val HTML_ALIAS_CLASSES = listOf(
 internal fun htmlAliases(): List<ConversionResult> =
     HTML_ALIAS_CLASSES.map { name ->
         val alias = when (name) {
-            "WindowProxy" -> "org.w3c.dom.Window"
+            "WindowProxy" -> "Window"
             else -> "org.w3c.dom.$name"
         }
 
