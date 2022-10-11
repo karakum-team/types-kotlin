@@ -47,15 +47,15 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.speech.SpeechSynthesisErrorEvent", missed = true),
     EventInfo("media.TrackEvent", "org.w3c.dom.TrackEvent"),
     EventInfo("websockets.CloseEvent", "org.w3c.dom.CloseEvent"),
-    EventInfo("browser.events.DeviceMotionEvent", missed = true),
-    EventInfo("browser.events.DeviceOrientationEvent", missed = true),
+    EventInfo("web.device.DeviceMotionEvent", missed = true),
+    EventInfo("web.device.DeviceOrientationEvent", missed = true),
     EventInfo("web.gamepad.GamepadEvent", missed = true),
     EventInfo("browser.events.BeforeUnloadEvent", "org.w3c.dom.BeforeUnloadEvent"),
-    EventInfo("browser.events.HashChangeEvent", "org.w3c.dom.HashChangeEvent"),
-    EventInfo("browser.events.PageTransitionEvent", "org.w3c.dom.PageTransitionEvent"),
-    EventInfo("browser.events.PopStateEvent", "org.w3c.dom.PopStateEvent"),
+    EventInfo("web.history.HashChangeEvent", "org.w3c.dom.HashChangeEvent"),
+    EventInfo("web.history.PageTransitionEvent", "org.w3c.dom.PageTransitionEvent"),
+    EventInfo("web.history.PopStateEvent", "org.w3c.dom.PopStateEvent"),
     EventInfo("browser.events.PromiseRejectionEvent", "org.w3c.dom.PromiseRejectionEvent"),
-    EventInfo("browser.events.StorageEvent", "org.w3c.dom.StorageEvent"),
+    EventInfo("web.storage.StorageEvent", "org.w3c.dom.StorageEvent"),
 )
 
 internal val EVENT_INFO_MAP = EVENT_DATA
