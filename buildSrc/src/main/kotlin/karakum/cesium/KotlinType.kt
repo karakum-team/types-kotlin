@@ -14,7 +14,6 @@ private val WHITE_LIST = setOf(
     "createElevationBandMaterialEntry",
     "exportKmlModelCallback",
     "mergeSortComparator",
-    "requestAnimationFrameCallback",
 
     "GeoJsonDataSource.describe"
 )

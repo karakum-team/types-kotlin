@@ -73,6 +73,12 @@ internal fun parseDeclarations(
     }
 
     declarations.removeAll {
+        it.name == "cancelAnimationFrame"
+                || it.name == "requestAnimationFrame"
+                || it.name == "requestAnimationFrameCallback"
+    }
+
+    declarations.removeAll {
         it is Interface && classMap.containsKey(it.name)
     }
 
