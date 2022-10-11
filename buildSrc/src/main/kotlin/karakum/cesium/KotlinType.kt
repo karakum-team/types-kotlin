@@ -45,7 +45,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "ImageData" to "canvas.ImageData",
 
-    "Blob" to "buffer.Blob",
+    "Blob" to "web.buffer.Blob",
 
     "ArrayBuffer" to "kotlinx.js.ArrayBuffer",
     "Uint8Array" to "kotlinx.js.Uint8Array",

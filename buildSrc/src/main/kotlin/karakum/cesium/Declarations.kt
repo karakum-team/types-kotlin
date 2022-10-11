@@ -165,7 +165,7 @@ private fun readDeclarations(
 
 private fun record(valueType: String): String {
     val value = when (valueType) {
-        "Blob" -> "buffer.Blob"
+        "Blob" -> "web.buffer.Blob"
         else -> valueType
     }
 

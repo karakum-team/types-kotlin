@@ -50,7 +50,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "NodeJS.ProcessEnv" to "ProcessEnv",
     "NodeJS.ErrnoException" to "ErrnoException",
 
-    "Blob" to "buffer.Blob",
+    "Blob" to "web.buffer.Blob",
 
     "() => void" to "() -> Unit",
     "(error?: Error) => void" to "(error: Error?) -> Unit",

@@ -22,7 +22,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "ArrayBuffer" to "kotlinx.js.ArrayBuffer",
     "ArrayBufferView" to "kotlinx.js.ArrayBufferView",
 
-    "Blob" to "buffer.Blob",
+    "Blob" to "web.buffer.Blob",
     "DOMHighResTimeStamp" to "kotlinx.js.HighResTimeStamp",
 
     "() => void" to "() -> Unit",
