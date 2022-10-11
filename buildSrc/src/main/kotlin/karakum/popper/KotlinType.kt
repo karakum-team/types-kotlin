@@ -28,7 +28,7 @@ private val STANDARD_TYPE_MAP = mapOf(
             "(SetAction<OptionsGeneric<*>>) -> Promise<State>",
 
     "Element" to "dom.Element",
-    "() => ClientRect | DOMRect" to "() -> dom.DOMRect",
+    "() => ClientRect | DOMRect" to "() -> dom.geometry.DOMRect",
 
     "Partial<Options>" to "Options",
 
