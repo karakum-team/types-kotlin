@@ -53,6 +53,14 @@ private val STANDARD_TYPE_MAP = mapOf(
     "RefetchQueryFilters<TPageData>" to "RefetchQueryFilters<TPageData>",
     "ResetQueryFilters<TPageData>" to "ResetQueryFilters<TPageData>",
 
+    "typeof QueryObserver" to "JsClass<QueryObserver<*, *, *, *, *>>",
+    "TData | InitialDataFunction<TData>" to "InitialDataFunction<TData> /* | TData */",
+    "TQueryData | PlaceholderDataFunction<TQueryData>" to "PlaceholderDataFunction<TQueryData> /* | TQueryData */",
+    "boolean | ((oldData: TData | undefined, newData: TData) => TData)" to
+            "(oldData: TData?, newData: TData) -> TData /* | boolean */",
+    "boolean | 'always' | ((query: Query<TQueryFnData, TError, TQueryData, TQueryKey>) => boolean | 'always')" to
+            "(query: Query<TQueryFnData, TError, TQueryData, TQueryKey>) -> Boolean /* | boolean | 'always' */",
+
     "Parameters<T>" to "ReadonlyArray<*> /* Parameters<T> */",
 
     "((value: QueryErrorResetBoundaryValue) => React.ReactNode) | React.ReactNode" to
