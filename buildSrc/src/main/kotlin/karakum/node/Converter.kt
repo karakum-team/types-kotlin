@@ -17,6 +17,9 @@ private val IGNORE_LIST = setOf(
     "UrlWithParsedQuery",
     "UrlWithStringQuery",
 
+    "Blob",
+    "BlobOptions",
+
     "URL",
     "URLSearchParams",
 
