@@ -33,6 +33,7 @@ fun toDeclarations(
             "Omit<MutationObserverOptions<TData, TError, TVariables, TContext>, '_defaulted' | 'variables'>",
             "MutationObserverOptions<TData, TError, TVariables, TContext>"
         )
+        .replace("\n    isDataEqual?: (oldData: TData | undefined, newData: TData) => boolean;\n", "\n")
         // TEMP
         .replace(" & {\n        manual: boolean;\n    }", "")
 
