@@ -14,9 +14,17 @@ class Interface(
             (if (typeParameters.isNotEmpty()) "\n" else "") + ": ${it.replace("BaseResult<", "Result<")}"
         } ?: ""
 
-        if (name == "HydrateOptions") {
-            check(source == HYDRATE_OPTIONS_SOURCE)
-            return HYDRATE_OPTIONS_CODE
+        when (name) {
+            "QueryMeta",
+            "MutationMeta",
+            -> {
+                return "external interface $name : Record<String, Any>"
+            }
+
+            "HydrateOptions" -> {
+                check(source == HYDRATE_OPTIONS_SOURCE)
+                return HYDRATE_OPTIONS_CODE
+            }
         }
 
         val body = if (name.startsWith("MutationObserver")) {
