@@ -65,6 +65,7 @@ private fun generate(
                     && name != "index"
                     && !name.endsWith(".native")
                     && name != "useSyncExternalStore"
+                    && name != "reactBatchedUpdates"
                     // TEMP
                     && name != "errorBoundaryUtils"
         }
