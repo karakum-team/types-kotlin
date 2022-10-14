@@ -249,7 +249,10 @@ internal fun kotlinType(
         return type
             .replace(" | undefined", "?")
             .replace(" | null", "?")
+            .replace("Mutation<unknown, unknown, unknown>", "Mutation<*, *, *, *>")
+            .replace("Mutation<unknown, unknown, unknown, unknown>", "Mutation<*, *, *, *>")
             .replace(") => Promise<unknown> | unknown", ") -> Promise<*>?")
+            .replace("unknown", "Any?")
             .replace(" => ", " -> ")
 
     if (" | " in type || " & " in type || type.startsWith("typeof "))
