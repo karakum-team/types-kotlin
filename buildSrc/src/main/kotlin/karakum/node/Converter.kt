@@ -493,6 +493,7 @@ private fun convertFunctions(
         .map { it.substringBefore("\n/**") }
         // WA for `http.get`
         .map { it.substringBefore(";\nlet ") }
+        .map { it.substringBefore(";\n\nlet ") }
         .map { it.removeSuffix(";") }
         .flatMap { functionSource ->
             val commentSource = ("\n" + source.substringBefore(functionSource))
