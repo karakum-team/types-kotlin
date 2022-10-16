@@ -39,6 +39,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "[number, number]" to "JsTuple2<Int, Int>",
     "ReadonlySet<string>" to "JsSet<out String>",
+    "Record<string, string | string[]>" to "Record<String, Any /* string | string[] */>",
 
     "Uint8Array | ReadonlyArray<number>" to "Uint8Array /* | ReadonlyArray<number> */",
     "NodeJS.EventEmitter" to "node.events.IEventEmitter",
@@ -109,6 +110,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Require" to "$DYNAMIC /* Require */",
     "EventLoopUtilityFunction" to "Function<*> /* EventLoopUtilityFunction */",
     "ReadableStreamDefaultReadResult<R>" to "Any /* ReadableStreamDefaultReadResult<R> */",
+    "ReadlineInterface" to "$DYNAMIC /* ReadlineInterface */",
 )
 
 private val TYPED = setOf(

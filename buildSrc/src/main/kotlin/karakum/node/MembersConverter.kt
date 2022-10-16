@@ -202,6 +202,14 @@ private fun convertMethod(
             convertParameter(it, optional)
         }
 
+        "hints: Record<string, string | string[]>" in parametersSource
+        -> sequenceOf(
+            parametersSource.substringBeforeLast(", "),
+            parametersSource.substringAfterLast(", "),
+        ).joinToString(",\n") {
+            convertParameter(it, optional)
+        }
+
         parametersSource.isNotEmpty()
         -> parametersSource.trim()
             .removeSuffix(",")
