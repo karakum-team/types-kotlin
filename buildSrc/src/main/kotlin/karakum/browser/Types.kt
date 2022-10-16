@@ -7,6 +7,13 @@ private val PKG_MAP = mapOf(
     "ResizeObserverBoxOptions" to "dom.observers",
     "CanPlayTypeResult" to "dom.html",
     "SelectionMode" to "dom.html",
+    "TouchType" to "dom.events",
+
+    "MediaDecodingType" to "media.capabilities",
+    "MediaEncodingType" to "media.capabilities",
+    "TransferFunction" to "media.capabilities",
+
+    "RecordingState" to "media.capture",
 
     "AppendMode" to "media.source",
     "ReadyState" to "media.source",
@@ -15,11 +22,11 @@ private val PKG_MAP = mapOf(
 
     "ScrollRestoration" to "web.history",
 
+    "SpeechSynthesisErrorCode" to "web.speech",
+
     "BinaryType" to "websockets",
 
-    "AlignSetting" to "webvtt",
     "AutoKeyword" to "webvtt",
-    "ScrollSetting" to "webvtt",
 )
 
 internal fun browserTypes(
@@ -46,23 +53,44 @@ private fun convertType(
 
     val pkg = when {
         PKG_MAP.containsKey(name) -> PKG_MAP.getValue(name)
+
+        name.endsWith("Setting") -> "webvtt"
+
+        name.startsWith("Document") -> "dom"
+        name.startsWith("Scroll") -> "dom"
+
         name.startsWith("Animation") -> "web.animations"
         name.startsWith("Audio") -> "web.audio"
         name.startsWith("Channel") -> "web.audio"
         name.startsWith("Canvas") -> "canvas"
         name.startsWith("Gamepad") -> "web.gamepad"
         name.startsWith("IDB") -> "web.idb"
-        name.startsWith("Orientation") -> "web.screen"
+
+        name.startsWith("Lock") -> "web.locks"
+
+        name.startsWith("MediaDevice") -> "media.devices"
+        name.startsWith("MediaKey") -> "media.key"
+        name.startsWith("MediaSession") -> "media.session"
+        name.startsWith("MediaStream") -> "media.streams"
+
         name.startsWith("Notification") -> "web.notifications"
+        name.startsWith("Orientation") -> "web.screen"
         name.startsWith("Payment") -> "web.payment"
         name.startsWith("Permission") -> "web.permissions"
+
         name.startsWith("Referrer") -> "web.http"
         name.startsWith("Request") -> "web.http"
         name.startsWith("Response") -> "web.http"
+
         name.startsWith("RTC") -> "webrtc"
-        name.startsWith("Scroll") -> "dom"
+        name.startsWith("ServiceWorker") -> "serviceworkers"
         name.startsWith("TextTrack") -> "webvtt"
-        else -> return null
+        name.startsWith("Worker") -> "web.workers"
+
+        else -> {
+            println(name)
+            return null
+        }
     }
 
     val parentPkg = when {
@@ -80,6 +108,7 @@ private fun convertType(
         -> "org.w3c.fetch"
 
         name.startsWith("Canvas") ||
+        name == "DocumentReadyState" ||
                 name == "CanPlayTypeResult" ||
                 name.startsWith("Scroll")
         -> "org.w3c.dom"
