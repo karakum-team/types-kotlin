@@ -8,9 +8,17 @@ private val PKG_MAP = mapOf(
     "CanPlayTypeResult" to "dom.html",
     "SelectionMode" to "dom.html",
 
+    "AppendMode" to "media.source",
+    "ReadyState" to "media.source",
+
+    "AutomationRate" to "web.audio",
+
     "ScrollRestoration" to "web.history",
 
     "BinaryType" to "websockets",
+
+    "AlignSetting" to "webvtt",
+    "AutoKeyword" to "webvtt",
     "ScrollSetting" to "webvtt",
 )
 
@@ -38,6 +46,9 @@ private fun convertType(
 
     val pkg = when {
         PKG_MAP.containsKey(name) -> PKG_MAP.getValue(name)
+        name.startsWith("Animation") -> "web.animations"
+        name.startsWith("Audio") -> "web.audio"
+        name.startsWith("Channel") -> "web.audio"
         name.startsWith("Canvas") -> "canvas"
         name.startsWith("Gamepad") -> "web.gamepad"
         name.startsWith("IDB") -> "web.idb"
