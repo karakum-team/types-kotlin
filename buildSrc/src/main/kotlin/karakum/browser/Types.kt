@@ -53,6 +53,7 @@ private fun convertType(
         name.startsWith("Gamepad") -> "web.gamepad"
         name.startsWith("IDB") -> "web.idb"
         name.startsWith("Orientation") -> "web.screen"
+        name.startsWith("Notification") -> "web.notifications"
         name.startsWith("Payment") -> "web.payment"
         name.startsWith("Permission") -> "web.permissions"
         name.startsWith("RTC") -> "webrtc"
