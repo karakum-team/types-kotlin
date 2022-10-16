@@ -27,7 +27,7 @@ internal fun webglDeclarations(
         .plus(extension)
         .plus(Aliases())
         .plus(Lists())
-        .plus(Numbers())
+        .plus(GLNumbers())
         .plus(
             // TEMP
             ConversionResult(

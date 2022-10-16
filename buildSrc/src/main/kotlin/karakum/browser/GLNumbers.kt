@@ -15,7 +15,7 @@ private val TYPES = listOf(
     "GLuint64",
 )
 
-internal fun Numbers(): ConversionResult =
+internal fun GLNumbers(): ConversionResult =
     ConversionResult(
         name = "Numbers",
         body = TYPES.joinToString("\n") { type ->
