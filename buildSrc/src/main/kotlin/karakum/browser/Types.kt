@@ -63,7 +63,7 @@ private fun convertType(
 
     var body = unionBody(name, values)
     if (parentPkg != null) {
-        body = body.replaceFirst("class $name", "class $name :\n$parentPkg.$name")
+        body = body.replaceFirst("class $name", "class $name :\n/* legacy adapter */ $parentPkg.$name")
     }
 
     return ConversionResult(
