@@ -4,8 +4,9 @@ import karakum.common.unionBody
 import java.io.File
 
 private val PKG_MAP = mapOf(
-    "BinaryType" to "websockets",
     "SelectionMode" to "dom.html",
+
+    "BinaryType" to "websockets",
 )
 
 internal fun browserTypes(
@@ -31,8 +32,14 @@ private fun convertType(
         .split(" = ")
 
     val pkg = when {
-        name.startsWith("RTC") -> "webrtc"
         name.startsWith("Canvas") -> "canvas"
+        name.startsWith("Gamepad") -> "web.gamepad"
+        name.startsWith("IDB") -> "web.idb"
+        name.startsWith("Orientation") -> "web.screen"
+        name.startsWith("Payment") -> "web.payment"
+        name.startsWith("Permission") -> "web.permissions"
+        name.startsWith("RTC") -> "webrtc"
+        name.startsWith("TextTrack") -> "webvtt"
         else -> PKG_MAP[name] ?: return null
     }
 
