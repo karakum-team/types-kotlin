@@ -58,6 +58,7 @@ private fun convertType(
         name.startsWith("Permission") -> "web.permissions"
         name.startsWith("Referrer") -> "web.http"
         name.startsWith("Request") -> "web.http"
+        name.startsWith("Response") -> "web.http"
         name.startsWith("RTC") -> "webrtc"
         name.startsWith("Scroll") -> "dom"
         name.startsWith("TextTrack") -> "webvtt"
@@ -74,7 +75,8 @@ private fun convertType(
         name == "ScrollSetting"
         -> null
 
-        name.startsWith("Request")
+        name.startsWith("Request") ||
+                name.startsWith("Response")
         -> "org.w3c.fetch"
 
         name.startsWith("Canvas") ||
