@@ -1,7 +1,5 @@
 package karakum.webrtc
 
-import karakum.common.unionBody
-
 private val ADDITIONAL_TYPE = setOf(
     "BinaryType",
 )
@@ -13,23 +11,13 @@ internal data class ConversionResult(
 
 internal fun convertDefinitions(
     source: String,
-): Sequence<ConversionResult> {
-    val interfaces = source
+): Sequence<ConversionResult> =
+    source
         .splitToSequence("\ninterface ")
         .drop(1)
         .filter { it.startsWith("RTC") }
         .map { convertInterface(it) }
         .filter { !it.name.endsWith("EventMap") }
-
-    val types = source
-        .splitToSequence("\ntype ")
-        .drop(1)
-        .filter { it.startsWith("RTC") || it.substringBefore(" ") in ADDITIONAL_TYPE }
-        .map { it.substringBefore(";\n") }
-        .map { convertType(it) }
-
-    return interfaces + types
-}
 
 private fun convertInterface(
     source: String,
@@ -110,25 +98,5 @@ private fun convertInterface(
     return ConversionResult(
         name = name,
         body = "external $type $declaration {\n$body\n}",
-    )
-}
-
-private fun convertType(
-    source: String,
-): ConversionResult {
-    require(" = \"" in source)
-
-    val (name, body) = source
-        .substringBefore(";")
-        .split(" = ")
-
-    val values = body
-        .splitToSequence(" | ")
-        .map { it.removeSurrounding("\"") }
-        .toList()
-
-    return ConversionResult(
-        name = name,
-        body = unionBody(name, values),
     )
 }

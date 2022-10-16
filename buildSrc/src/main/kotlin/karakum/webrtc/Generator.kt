@@ -39,10 +39,7 @@ fun generateKotlinDeclarations(
                 else -> ""
             }
 
-            val pkg = when (name) {
-                "BinaryType" -> "websockets"
-                else -> "webrtc"
-            }
+            val pkg = "webrtc"
 
             val targetDir = sourceDir
                 .resolve(pkg)

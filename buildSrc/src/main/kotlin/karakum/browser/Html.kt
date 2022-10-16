@@ -25,15 +25,7 @@ internal fun htmlDeclarations(
         .map { it.value }
         .mapNotNull { convertInterface(it) }
 
-    val types = content
-        .splitToSequence("\ntype ")
-        .drop(1)
-        .filter { it.startsWith("SelectionMode = ") }
-        .map { it.substringBefore(";\n") }
-        .map { convertType(it) }
-
     return interfaces
-        .plus(types)
         .plus(
             ConversionResult(
                 name = "HTMLCollectionOf",
