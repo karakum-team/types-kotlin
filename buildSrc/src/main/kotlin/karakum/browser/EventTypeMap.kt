@@ -50,11 +50,11 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.device.DeviceMotionEvent", missed = true),
     EventInfo("web.device.DeviceOrientationEvent", missed = true),
     EventInfo("web.gamepad.GamepadEvent", missed = true),
-    EventInfo("browser.events.BeforeUnloadEvent", "org.w3c.dom.BeforeUnloadEvent"),
+    EventInfo("dom.events.BeforeUnloadEvent", "org.w3c.dom.BeforeUnloadEvent"),
     EventInfo("web.history.HashChangeEvent", "org.w3c.dom.HashChangeEvent"),
     EventInfo("web.history.PageTransitionEvent", "org.w3c.dom.PageTransitionEvent"),
     EventInfo("web.history.PopStateEvent", "org.w3c.dom.PopStateEvent"),
-    EventInfo("browser.events.PromiseRejectionEvent", "org.w3c.dom.PromiseRejectionEvent"),
+    EventInfo("dom.events.PromiseRejectionEvent", "org.w3c.dom.PromiseRejectionEvent"),
     EventInfo("web.storage.StorageEvent", "org.w3c.dom.StorageEvent"),
 )
 
