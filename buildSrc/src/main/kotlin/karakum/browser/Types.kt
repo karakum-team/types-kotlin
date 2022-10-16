@@ -23,26 +23,45 @@ internal fun browserTypes(
 private fun convertType(
     source: String,
 ): ConversionResult? {
-    val (name, body) = source
+    if (" = \"" !in source)
+        return null
+
+    val (name, bodySource) = source
         .substringBefore(";")
         .split(" = ")
 
-    if (!body.startsWith("\""))
-        return null
-
     val pkg = when {
         name.startsWith("RTC") -> "webrtc"
+        name.startsWith("Canvas") -> "canvas"
         else -> PKG_MAP[name] ?: return null
     }
 
-    val values = body
+    val parentPkg = when {
+        name == "CanvasFontKerning" ||
+                name == "CanvasFontStretch" ||
+                name == "CanvasFontVariantCaps" ||
+                name == "CanvasTextRendering"
+        -> null
+
+        name.startsWith("Canvas")
+        -> "org.w3c.dom"
+
+        else -> null
+    }
+
+    val values = bodySource
         .splitToSequence(" | ")
         .map { it.removeSurrounding("\"") }
         .toList()
 
+    var body = unionBody(name, values)
+    if (parentPkg != null) {
+        body = body.replaceFirst("class $name", "class $name :\n$parentPkg.$name")
+    }
+
     return ConversionResult(
         name = name,
-        body = unionBody(name, values),
+        body = body,
         pkg = pkg
     )
 }

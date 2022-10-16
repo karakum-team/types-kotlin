@@ -2,10 +2,8 @@ package karakum.browser
 
 private val CLASSES = listOf(
     "CanvasCompositing",
-    "CanvasDirection",
     "CanvasDrawImage",
     "CanvasDrawPath",
-    "CanvasFillRule",
     "CanvasFillStrokeStyles",
     "CanvasFilters",
     "CanvasGradient",
@@ -13,8 +11,6 @@ private val CLASSES = listOf(
     "CanvasImageData",
     "CanvasImageSmoothing",
     "CanvasImageSource",
-    "CanvasLineCap",
-    "CanvasLineJoin",
     "CanvasPath",
     "CanvasPathDrawingStyles",
     "CanvasPattern",
@@ -24,8 +20,6 @@ private val CLASSES = listOf(
     "CanvasShadowStyles",
     "CanvasState",
     "CanvasText",
-    "CanvasTextAlign",
-    "CanvasTextBaseline",
     "CanvasTextDrawingStyles",
     "CanvasTransform",
     "CanvasUserInterface",
