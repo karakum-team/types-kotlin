@@ -4,6 +4,8 @@ import karakum.common.unionBody
 import java.io.File
 
 private val PKG_MAP = mapOf(
+    "ResizeObserverBoxOptions" to "dom.observers",
+    "CanPlayTypeResult" to "dom.html",
     "SelectionMode" to "dom.html",
 
     "ScrollRestoration" to "web.history",
@@ -55,13 +57,12 @@ private fun convertType(
                 name == "CanvasTextRendering"
         -> null
 
-        name.startsWith("Canvas")
-        -> "org.w3c.dom"
-
         name == "ScrollSetting"
         -> null
 
-        name.startsWith("Scroll")
+        name.startsWith("Canvas") ||
+                name == "CanPlayTypeResult" ||
+                name.startsWith("Scroll")
         -> "org.w3c.dom"
 
         else -> null
