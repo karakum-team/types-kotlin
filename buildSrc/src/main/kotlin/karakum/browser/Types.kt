@@ -6,7 +6,10 @@ import java.io.File
 private val PKG_MAP = mapOf(
     "SelectionMode" to "dom.html",
 
+    "ScrollRestoration" to "web.history",
+
     "BinaryType" to "websockets",
+    "ScrollSetting" to "webvtt",
 )
 
 internal fun browserTypes(
@@ -32,6 +35,7 @@ private fun convertType(
         .split(" = ")
 
     val pkg = when {
+        PKG_MAP.containsKey(name) -> PKG_MAP.getValue(name)
         name.startsWith("Canvas") -> "canvas"
         name.startsWith("Gamepad") -> "web.gamepad"
         name.startsWith("IDB") -> "web.idb"
@@ -39,8 +43,9 @@ private fun convertType(
         name.startsWith("Payment") -> "web.payment"
         name.startsWith("Permission") -> "web.permissions"
         name.startsWith("RTC") -> "webrtc"
+        name.startsWith("Scroll") -> "dom"
         name.startsWith("TextTrack") -> "webvtt"
-        else -> PKG_MAP[name] ?: return null
+        else -> return null
     }
 
     val parentPkg = when {
@@ -51,6 +56,12 @@ private fun convertType(
         -> null
 
         name.startsWith("Canvas")
+        -> "org.w3c.dom"
+
+        name == "ScrollSetting"
+        -> null
+
+        name.startsWith("Scroll")
         -> "org.w3c.dom"
 
         else -> null

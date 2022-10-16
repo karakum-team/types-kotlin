@@ -13,9 +13,9 @@ private val CLASSES = listOf(
     "DOMTokenList",
     "DOMParser",
 
-    "ScrollBehavior",
     "ScrollOptions",
     "ScrollToOptions",
+    "ScrollIntoViewOptions",
 )
 
 private val GEOMETRY_CLASSES = listOf(
