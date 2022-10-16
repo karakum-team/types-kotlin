@@ -140,7 +140,10 @@ private fun convertProperty(
     type = when (type) {
         "string" -> "String"
         "boolean" -> "Boolean"
-        "number" -> "Number"
+        "number" -> when (name) {
+            "valueAsNumber" -> "Double"
+            else -> "Number"
+        }
 
         else -> if (type.startsWith("\"")) {
             "String /* $type */"
