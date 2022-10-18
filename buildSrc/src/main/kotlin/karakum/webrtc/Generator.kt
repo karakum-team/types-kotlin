@@ -10,7 +10,7 @@ import kotlinx.js.ReadonlyArray
 import media.stream.MediaStream
 import media.stream.MediaStreamTrack
 import web.events.Event 
-import web.events.MessageEvent
+import web.messaging.MessageEvent
 import websockets.BinaryType
 """.trimIndent()
 
