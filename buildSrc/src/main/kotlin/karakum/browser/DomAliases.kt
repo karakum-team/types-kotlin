@@ -11,7 +11,6 @@ private val CLASSES = listOf(
     "DOMStringMap",
     "DOMImplementation",
     "DOMTokenList",
-    "DOMParser",
 
     "ScrollOptions",
     "ScrollToOptions",
@@ -34,15 +33,22 @@ private val GEOMETRY_CLASSES = listOf(
     "DOMQuad",
 )
 
+private val PARSING_CLASSES = listOf(
+    "DOMParser",
+)
 
 internal fun domAliases(): List<ConversionResult> =
-    (CLASSES + GEOMETRY_CLASSES).map { name ->
+    (CLASSES + GEOMETRY_CLASSES + PARSING_CLASSES).map { name ->
         val aliasPkg = when (name) {
-            "DOMParser" -> "org.w3c.dom.parsing"
+            in PARSING_CLASSES -> "org.w3c.dom.parsing"
             else -> "org.w3c.dom"
         }
 
-        val pkg = if (name in GEOMETRY_CLASSES) "dom.geometry" else "dom"
+        val pkg = when (name) {
+            in GEOMETRY_CLASSES -> "dom.geometry"
+            in PARSING_CLASSES -> "dom.parsing"
+            else -> "dom"
+        }
 
         ConversionResult(
             name = name,
