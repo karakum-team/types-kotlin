@@ -89,6 +89,9 @@ private fun convertType(
         name.startsWith("TextTrack") -> "webvtt"
         name.startsWith("Worker") -> "web.workers"
 
+        name.startsWith("WebGL") -> "webgl"
+        name.startsWith("XMLHttp") -> "web.xhr"
+
         else -> {
             println(name)
             return null
@@ -110,10 +113,13 @@ private fun convertType(
         -> "org.w3c.fetch"
 
         name.startsWith("Canvas") ||
-        name == "DocumentReadyState" ||
+                name == "DocumentReadyState" ||
                 name == "CanPlayTypeResult" ||
                 name.startsWith("Scroll")
         -> "org.w3c.dom"
+
+        name.startsWith("XMLHttp")
+        -> "org.w3c.xhr"
 
         else -> null
     }

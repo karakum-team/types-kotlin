@@ -28,16 +28,6 @@ internal fun webglDeclarations(
         .plus(Aliases())
         .plus(Lists())
         .plus(GLNumbers())
-        .plus(
-            // TEMP
-            ConversionResult(
-                name = "WebGLPowerPreference",
-                body = unionBody(
-                    name = "WebGLPowerPreference",
-                    values = listOf("default", "high-performance", "low-power"),
-                ),
-            )
-        )
 }
 
 private fun convertInterface(
