@@ -4,10 +4,12 @@ import karakum.common.unionBody
 import java.io.File
 
 private val PKG_MAP = mapOf(
+    "MutationRecordType" to "dom.observers",
     "ResizeObserverBoxOptions" to "dom.observers",
     "CanPlayTypeResult" to "dom.html",
     "SelectionMode" to "dom.html",
     "TouchType" to "dom.events",
+    // "DOMParserSupportedType" to "dom.parsing",
 
     "MediaDecodingType" to "media.capabilities",
     "MediaEncodingType" to "media.capabilities",
