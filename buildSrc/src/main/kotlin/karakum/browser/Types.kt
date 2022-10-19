@@ -17,6 +17,8 @@ private val PKG_MAP = mapOf(
     "ResizeObserverBoxOptions" to "dom.observers",
     "CanPlayTypeResult" to "dom.html",
     "SelectionMode" to "dom.html",
+    "ShadowRootMode" to "dom.html",
+    "SlotAssignmentMode" to "dom.html",
     "TouchType" to "dom.events",
     // "DOMParserSupportedType" to "dom.parsing",
 
@@ -60,8 +62,9 @@ private val PKG_MAP = mapOf(
     "VideoColorPrimaries" to "web.codecs",
     "VideoTransferCharacteristics" to "web.codecs",
 
-
     "ScrollRestoration" to "web.history",
+
+    "PushEncryptionKeyName" to "web.push",
 
     "SpeechSynthesisErrorCode" to "web.speech",
 
