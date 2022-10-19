@@ -20,6 +20,8 @@ private val PKG_MAP = mapOf(
     "TouchType" to "dom.events",
     // "DOMParserSupportedType" to "dom.parsing",
 
+    "ColorGamut" to "media.capabilities",
+    "HdrMetadataType" to "media.capabilities",
     "MediaDecodingType" to "media.capabilities",
     "MediaEncodingType" to "media.capabilities",
     "TransferFunction" to "media.capabilities",
@@ -28,6 +30,15 @@ private val PKG_MAP = mapOf(
 
     "AppendMode" to "media.source",
     "ReadyState" to "media.source",
+
+    "AttestationConveyancePreference" to "web.authentication",
+    "AuthenticatorAttachment" to "web.authentication",
+    "AuthenticatorTransport" to "web.authentication",
+    "PublicKeyCredentialType" to "web.authentication",
+    "ResidentKeyRequirement" to "web.authentication",
+    "UserVerificationRequirement" to "web.authentication",
+
+    "FillMode" to "web.animations",
 
     "AutomationRate" to "web.audio",
 
@@ -41,6 +52,9 @@ private val PKG_MAP = mapOf(
 )
 
 private val EXCLUDED_TYPES = setOf(
+    // buffer
+    "EndingType",
+
     // webcrypto
     "KeyFormat",
     "KeyType",
