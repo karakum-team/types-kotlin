@@ -32,6 +32,8 @@ private val PKG_MAP = mapOf(
     "EndOfStreamError" to "media.source",
     "ReadyState" to "media.source",
 
+    "RemotePlaybackState" to "remoteplayback",
+
     "AttestationConveyancePreference" to "web.authentication",
     "AuthenticatorAttachment" to "web.authentication",
     "AuthenticatorTransport" to "web.authentication",
@@ -43,12 +45,21 @@ private val PKG_MAP = mapOf(
     "CompositeOperationOrAuto" to "web.animations",
     "FillMode" to "web.animations",
     "IterationCompositeOperation" to "web.animations",
+    "PlaybackDirection" to "web.animations",
 
     "AutomationRate" to "web.audio",
+    "BiquadFilterType" to "web.audio",
     "DistanceModelType" to "web.audio",
     "OscillatorType" to "web.audio",
     // "OverSampleType" to "web.audio",
     "PanningModelType" to "web.audio",
+
+    "PresentationStyle" to "web.clipboard",
+
+    "VideoMatrixCoefficients" to "web.codecs",
+    "VideoColorPrimaries" to "web.codecs",
+    "VideoTransferCharacteristics" to "web.codecs",
+
 
     "ScrollRestoration" to "web.history",
 
@@ -72,7 +83,9 @@ private val EXCLUDED_TYPES = setOf(
     "NavigationTimingType",
 
     // not used?
+    "ClientTypes",
     "DisplayCaptureSurfaceType",
+    "VideoFacingModeEnum",
 )
 
 internal fun browserTypes(
