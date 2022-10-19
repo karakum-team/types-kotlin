@@ -7,6 +7,7 @@ import java.io.File
 
 private val DEFAULT_IMPORTS = """
 import kotlinx.js.ReadonlyArray
+import kotlinx.js.EpochTimeStamp
 import media.stream.MediaStream
 import media.stream.MediaStreamTrack
 import web.events.Event 
@@ -25,7 +26,6 @@ fun generateKotlinDeclarations(
 ) {
     convertDefinitions(definitionsFile.readText())
         .plus(ConversionResult("VoidFunction", "typealias VoidFunction = () -> Unit"))
-        .plus(ConversionResult("EpochTimeStamp", "typealias EpochTimeStamp = Double"))
         .forEach { (name, body) ->
             val suppresses = mutableListOf<Suppress>().apply {
                 if ("JsName(\"\"\"(" in body)
