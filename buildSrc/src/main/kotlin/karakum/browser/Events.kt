@@ -12,7 +12,7 @@ private val PACKAGE_MAP = mapOf(
     "BaseAudioContext" to "web.audio",
     "Document" to "dom.events",
     "Element" to "dom.events",
-    "EventSource" to "sse",
+    "EventSource" to "web.sse",
     "FontFaceSet" to "dom.events",
     "GlobalEventHandlers" to "dom.events",
     "HTMLMediaElement" to "dom.events",
@@ -53,7 +53,7 @@ private val PACKAGE_MAP = mapOf(
     "WebSocket" to "websockets",
     "Window" to "dom.events",
     "WindowEventHandlers" to "dom.events",
-    "XMLHttpRequest" to "xhr",
+    "XMLHttpRequest" to "web.xhr",
 )
 
 private data class EventData(

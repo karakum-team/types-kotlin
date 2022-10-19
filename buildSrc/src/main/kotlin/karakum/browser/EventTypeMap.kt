@@ -28,7 +28,7 @@ internal val EVENT_DATA = listOf(
 
     EventInfo("web.errors.ErrorEvent", "org.w3c.dom.ErrorEvent"),
     EventInfo("web.messaging.MessageEvent"),
-    EventInfo("xhr.ProgressEvent", "org.w3c.xhr.ProgressEvent"),
+    EventInfo("web.events.ProgressEvent", "org.w3c.xhr.ProgressEvent"),
     EventInfo("dom.events.InputEvent", "org.w3c.dom.events.InputEvent"),
     EventInfo("dom.events.FormDataEvent", missed = true),
     EventInfo("dom.events.SubmitEvent", missed = true),
