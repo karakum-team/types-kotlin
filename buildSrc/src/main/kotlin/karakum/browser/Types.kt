@@ -20,7 +20,7 @@ private val PKG_MAP = mapOf(
     "ShadowRootMode" to "dom.html",
     "SlotAssignmentMode" to "dom.html",
     "TouchType" to "dom.events",
-    // "DOMParserSupportedType" to "dom.parsing",
+    "DOMParserSupportedType" to "dom.parsing",
 
     "ColorGamut" to "media.capabilities",
     "HdrMetadataType" to "media.capabilities",
