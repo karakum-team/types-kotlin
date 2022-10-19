@@ -4,6 +4,15 @@ import karakum.common.unionBody
 import java.io.File
 
 private val PKG_MAP = mapOf(
+    "ColorSpaceConversion" to "canvas",
+    "GlobalCompositeOperation" to "canvas",
+    "ImageOrientation" to "canvas",
+    "ImageSmoothingQuality" to "canvas",
+    "PredefinedColorSpace" to "canvas",
+    "PremultiplyAlpha" to "canvas",
+    "ResizeQuality" to "canvas",
+
+    "InsertPosition" to "dom",
     "MutationRecordType" to "dom.observers",
     "ResizeObserverBoxOptions" to "dom.observers",
     "CanPlayTypeResult" to "dom.html",
@@ -31,6 +40,16 @@ private val PKG_MAP = mapOf(
     "AutoKeyword" to "webvtt",
 )
 
+private val EXCLUDED_TYPES = setOf(
+    // webcrypto
+    "KeyFormat",
+    "KeyType",
+    "KeyUsage",
+
+    // deprecated?
+    "NavigationTimingType",
+)
+
 internal fun browserTypes(
     definitionsFile: File,
 ): Sequence<ConversionResult> {
@@ -54,20 +73,27 @@ private fun convertType(
         .split(" = ")
 
     val pkg = when {
+        name in EXCLUDED_TYPES -> return null
+
         PKG_MAP.containsKey(name) -> PKG_MAP.getValue(name)
 
         name.endsWith("Setting") -> "webvtt"
 
         name.startsWith("Document") -> "dom"
+        name.startsWith("Fullscreen") -> "dom"
         name.startsWith("Scroll") -> "dom"
+        name.startsWith("FontFace") -> "dom.css"
 
         name.startsWith("Animation") -> "web.animations"
         name.startsWith("Audio") -> "web.audio"
         name.startsWith("Channel") -> "web.audio"
+
         name.startsWith("Canvas") -> "canvas"
+
         name.startsWith("Gamepad") -> "web.gamepad"
         name.startsWith("IDB") -> "web.idb"
 
+        name.startsWith("FileSystem") -> "web.filesystem"
         name.startsWith("Lock") -> "web.locks"
 
         name.startsWith("MediaDevice") -> "media.devices"
