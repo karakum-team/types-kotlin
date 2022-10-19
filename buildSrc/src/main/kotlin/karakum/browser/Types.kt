@@ -53,7 +53,7 @@ private val PKG_MAP = mapOf(
     "BiquadFilterType" to "web.audio",
     "DistanceModelType" to "web.audio",
     "OscillatorType" to "web.audio",
-    // "OverSampleType" to "web.audio",
+    "OverSampleType" to "web.audio",
     "PanningModelType" to "web.audio",
 
     "PresentationStyle" to "web.clipboard",

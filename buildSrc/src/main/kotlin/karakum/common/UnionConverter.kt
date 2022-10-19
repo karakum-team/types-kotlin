@@ -139,6 +139,9 @@ internal fun unionConstant(value: String): UnionConstant {
         "" -> "none"
         "1" -> "D"
 
+        "2x" -> "x2"
+        "4x" -> "x4"
+
         "name" -> "htmlName"
 
         else -> name.kebabToCamel()
