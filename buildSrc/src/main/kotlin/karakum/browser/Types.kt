@@ -68,6 +68,9 @@ private val PKG_MAP = mapOf(
 
     "SpeechSynthesisErrorCode" to "web.speech",
 
+    "CredentialMediationRequirement" to "web.credentials",
+    "SecurityPolicyViolationEventDisposition" to "web.csp",
+
     "BinaryType" to "websockets",
 
     "AutoKeyword" to "webvtt",
@@ -123,7 +126,7 @@ private fun convertType(
         name.startsWith("Document") -> "dom"
         name.startsWith("Fullscreen") -> "dom"
         name.startsWith("Scroll") -> "dom"
-        name.startsWith("FontFace") -> "dom.css"
+        name.startsWith("FontFace") -> "cssom.fonts"
 
         name.startsWith("Animation") -> "web.animations"
         name.startsWith("Audio") -> "web.audio"
@@ -159,10 +162,7 @@ private fun convertType(
         name.startsWith("WebGL") -> "webgl"
         name.startsWith("XMLHttp") -> "web.xhr"
 
-        else -> {
-            println(name)
-            return null
-        }
+        else -> TODO("Unable to find package for `$name` union")
     }
 
     val parentPkg = when {
