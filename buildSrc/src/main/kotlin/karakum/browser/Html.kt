@@ -76,7 +76,13 @@ private fun convertInterface(
             .joinToString("\n")
     } else ""
 
-    val body = "sealed external $declaration {\n$members\n}"
+    val modifier = if (
+        type == "class" &&
+        name.startsWith("HTML") &&
+        name.endsWith("Element")
+    ) "abstract" else "sealed"
+
+    val body = "$modifier external $declaration {\n$members\n}"
 
     return ConversionResult(
         name = name,
