@@ -62,7 +62,6 @@ private val DOUBLE_NAMES = setOf(
     "step",
 
     "elapsedTime",
-    "timeStamp",
 
     "pressure",
     "tangentialPressure",
@@ -227,6 +226,8 @@ internal fun numberType(
     name: String,
 ): String =
     when {
+        name == "timeStamp" -> "kotlinx.js.HighResTimeStamp"
+
         name in INT_NAMES -> INT
         name in DOUBLE_NAMES -> DOUBLE
         name in STRING_NAMES -> STRING
