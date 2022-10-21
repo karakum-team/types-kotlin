@@ -27,11 +27,6 @@ fun generateKotlinDeclarations(
     sourceDir: File,
 ) {
     for ((name, body, pkg) in convertDefinitions(definitionsFile)) {
-        val annotations = when (name) {
-            "AriaAttributes" -> fileSuppress(EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE, DECLARATION_CANT_BE_INLINED)
-            else -> ""
-        }
-
         val finalPkg = when {
             name.startsWith("Aria") -> Package.ARIA
             name in DOM_TYPES -> Package.DOM
@@ -52,18 +47,16 @@ fun generateKotlinDeclarations(
             .also { it.mkdirs() }
 
         targetDir.resolve("${name}.kt")
-            .writeText(fileContent(finalPkg, annotations, content))
+            .writeText(fileContent(finalPkg, content))
     }
 }
 
 private fun fileContent(
     pkg: Package,
-    annotations: String,
     body: String,
 ): String {
     return sequenceOf(
         "// $GENERATOR_COMMENT",
-        annotations,
         pkg.pkg,
         body,
     ).filter { it.isNotEmpty() }
