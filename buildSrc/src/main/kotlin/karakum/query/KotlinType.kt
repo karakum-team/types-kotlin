@@ -110,7 +110,7 @@ internal fun kotlinType(
     if (type == "number")
         return when {
             name == null -> "Int"
-            name.endsWith("At") -> "JsTimestamp"
+            name.endsWith("At") -> "EpochTimeStamp"
             name.endsWith("Time") -> "JsDuration"
             name == "timeout" -> "JsDuration"
 

@@ -6,7 +6,6 @@ internal val ALIASES_BODY = """
 
 ${Package.CORE.pkg}
 
-typealias JsTimestamp = Double
 typealias JsDuration = Int
 
 typealias Union = Any
