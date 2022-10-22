@@ -136,7 +136,6 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     "mouseover" to "mouse_over",
     "mouseup" to "mouse_up",
     "negotiationneeded" to "negotiation_needed",
-    "orientationchange" to "orientation_change",
     "pagehide" to "page_hide",
     "pageshow" to "page_show",
     "paymentmethodchange" to "payment_method_change",

@@ -142,6 +142,7 @@ private fun eventTypes(
     Regex("""interface .+?EventMap \{\n    "[\s\S]+?\n\}""")
         .findAll(definitionsFile.readText())
         .flatMap { parseEvents(it.value) }
+        .filter { it.name != "orientationchange" }
         .plus(ADDITIONAL_EVENTS)
         .distinct()
         .groupBy { it.typeName }
