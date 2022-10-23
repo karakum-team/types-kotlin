@@ -76,4 +76,5 @@ internal fun kotlinType(
         .replace("(ev: Event) => any", "(event: Event) -> Unit")
         .replace("(ev: ", "(event: ")
         .replace("Event) => any", "Event) -> Unit")
+        .replace("MessageEvent", "MessageEvent<*>")
 }
