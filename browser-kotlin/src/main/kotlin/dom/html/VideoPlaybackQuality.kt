@@ -6,6 +6,6 @@ import kotlinx.js.HighResTimeStamp
 
 sealed external class VideoPlaybackQuality {
     val creationTime: HighResTimeStamp
-    val droppedVideoFrames: Number
-    val totalVideoFrames: Number
+    val droppedVideoFrames: Int
+    val totalVideoFrames: Int
 }
