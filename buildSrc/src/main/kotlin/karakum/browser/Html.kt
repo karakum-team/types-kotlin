@@ -20,10 +20,11 @@ internal fun htmlDeclarations(
     val content = definitionsFile.readText()
         .replace(";\n     *", ";--\n     *")
 
-    val interfaces = Regex("""interface (HTML.+?|ValidityState) \{[\s\S]+?\}""")
-        .findAll(content)
-        .map { it.value }
-        .mapNotNull { convertInterface(it) }
+    val interfaces =
+        Regex("""interface (HTML.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoPlaybackQuality) \{[\s\S]+?\}""")
+            .findAll(content)
+            .map { it.value }
+            .mapNotNull { convertInterface(it) }
 
     return interfaces
         .plus(
@@ -52,6 +53,7 @@ private fun convertInterface(
     }
 
     val type = when (name) {
+        "AssignedNodesOptions",
         "HTMLOrSVGElement",
         "HTMLHyperlinkElementUtils",
         -> "interface"
@@ -147,6 +149,7 @@ private fun convertProperty(
         "string" -> "String"
         "boolean" -> "Boolean"
         "number" -> numberType(name)
+        "DOMHighResTimeStamp" -> "HighResTimeStamp"
 
         else -> if (type.startsWith("\"")) {
             "String /* $type */"

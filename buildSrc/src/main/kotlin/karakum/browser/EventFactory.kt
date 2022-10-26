@@ -5,21 +5,11 @@ internal data class EventProperty(
     val type: String,
 )
 
-private val IMPORT_MAP = mapOf(
-    "HighResTimeStamp" to "kotlinx.js.HighResTimeStamp",
-)
-
 internal fun event(
     name: String,
     vararg properties: EventProperty,
 ): ConversionResult {
-    val imports = properties
-        .map { it.type }
-        .mapNotNull(IMPORT_MAP::get)
-        .plus("web.events.EventInit")
-        .joinToString("\n") {
-            "import $it"
-        }
+    val imports = "import web.events.EventInit"
 
     val initName = "${name}Init"
     val initProperties = properties.joinToString("\n") { (name, type) ->

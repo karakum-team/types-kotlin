@@ -12,6 +12,7 @@ import kotlin.js.Promise
 import kotlinx.js.ArrayBufferView
 import kotlinx.js.BufferSource
 import kotlinx.js.Float32Array
+import kotlinx.js.HighResTimeStamp
 import kotlinx.js.Int32Array
 import kotlinx.js.ReadonlyArray    
 import kotlinx.js.Uint32Array
@@ -22,6 +23,7 @@ import dom.DOMTokenList
 import dom.NodeListOf
 import dom.css.LinkStyle
 import dom.html.HTMLCanvasElement
+import web.events.EventTarget
 import web.file.FileList
 import webvtt.TextTrack
 """.trimIndent()
