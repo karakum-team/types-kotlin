@@ -3,7 +3,6 @@
 package react.dom.html
 
 import dom.Element
-import react.dom.events.*
 
 external interface IframeHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var allow: String?
@@ -11,9 +10,6 @@ external interface IframeHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var allowTransparency: Boolean?
     var height: Double?
     var loading: IframeLoading?
-
-    @Deprecated("Will be removed soon!")
-    var marginWidth: Double?
     var name: String?
     var referrerPolicy: ReferrerPolicy?
     var sandbox: String?
