@@ -21,9 +21,6 @@ private val INT_NAMES = setOf(
     "span",
     "start",
     "textLength",
-
-    "droppedVideoFrames",
-    "totalVideoFrames",
 )
 
 private val DOUBLE_NAMES = setOf(
@@ -44,9 +41,11 @@ private val DOUBLE_NAMES = setOf(
 fun numberType(
     propertyName: String,
 ): String =
-    when (propertyName) {
-        in INT_NAMES -> "Int"
-        in DOUBLE_NAMES -> "Double"
+    when {
+        propertyName.endsWith("Frames") -> "Int"
+
+        propertyName in INT_NAMES -> "Int"
+        propertyName in DOUBLE_NAMES -> "Double"
         else -> {
             // TODO("No numberability configuration for property '$propertyName'")
             "Number"
