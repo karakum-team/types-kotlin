@@ -25,12 +25,17 @@ import dom.Node
 import dom.NodeListOf
 import dom.css.LinkStyle
 import dom.html.HTMLCanvasElement
+import media.MediaError
+import media.key.MediaKeys
+import media.source.TimeRanges
 import media.stream.MediaStream
 import web.buffer.Blob
 import web.events.EventTarget
 import web.file.FileList
 import web.http.ReferrerPolicy
 import webvtt.TextTrack
+import webvtt.TextTrackKind
+import webvtt.TextTrackList
 """.trimIndent()
 
 fun generateKotlinDeclarations(
@@ -85,6 +90,7 @@ fun generateKotlinDeclarations(
 
     val aliases = domAliases()
         .plus(cssAliases())
+        .plus(mediaAliases())
         .plus(htmlAliases())
         .plus(svgAliases())
         .plus(canvasAliases())

@@ -9,13 +9,11 @@ internal val HTML_ALIAS_CLASSES = listOf(
 
     "Image",
 
+    "MediaProvider",
+
     "Window",
     "WindowProxy",
     "WindowEventHandlers",
-
-    // TEMP
-
-    "HTMLMediaElement",
 )
 
 internal fun htmlAliases(): List<ConversionResult> =
@@ -33,7 +31,14 @@ internal fun htmlAliases(): List<ConversionResult> =
     }.plus(
         ConversionResult(
             name = "TextTrack",
-            body = "sealed class TextTrack",
+            body = "typealias TextTrack = org.w3c.dom.TextTrack",
             pkg = "webvtt",
         )
     )
+        .plus(
+            ConversionResult(
+                name = "TextTrackList",
+                body = "typealias TextTrackList = org.w3c.dom.TextTrackList",
+                pkg = "webvtt",
+            )
+        )
