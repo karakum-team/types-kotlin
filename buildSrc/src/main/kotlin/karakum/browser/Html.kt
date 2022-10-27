@@ -1,8 +1,8 @@
 package karakum.browser
 
 import karakum.common.UnionConstant
+import karakum.common.objectUnionBody
 import karakum.common.unionBody
-import karakum.common.unionBodyByConstants
 
 internal const val VIDEO_FRAME_REQUEST_ID = "VideoFrameRequestId"
 internal const val CANVAS_CONTEXT_ID = "CanvasContextId"
@@ -52,7 +52,7 @@ internal fun htmlDeclarations(
 private fun prepareContent(
     source: String,
 ): Pair<String, ConversionResult> {
-    val ids = Regex("""getContext\(contextId: "(.?+)", """)
+    val ids = Regex("""getContext\(contextId\: "([\w\d]+)"\, """)
         .findAll(source)
         .map { it.groupValues[1] }
         .toList()
@@ -60,7 +60,7 @@ private fun prepareContent(
     fun kotlinName(id: String): String =
         if (id == "2d") "canvas" else id
 
-    val contextIdBody = unionBodyByConstants(
+    val contextIdBody = objectUnionBody(
         name = CANVAS_CONTEXT_ID,
         constants = ids.map { id ->
             val name = kotlinName(id)
@@ -69,7 +69,7 @@ private fun prepareContent(
                 kotlinName = name,
                 jsName = name,
                 value = id,
-                comment = if (id != name) "`$id`" else null
+                comment = if (id != name) "// `$id`" else null
             )
         }
     )

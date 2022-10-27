@@ -34,6 +34,7 @@ private val DOUBLE_NAMES = setOf(
     "min",
     "optimum",
     "position",
+    "quality",
     "value",
     "valueAsNumber",
     "width",

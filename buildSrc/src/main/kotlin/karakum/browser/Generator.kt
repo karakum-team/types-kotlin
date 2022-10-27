@@ -99,6 +99,9 @@ fun generateKotlinDeclarations(
 
             if (name == "NodeListOf" || name == "HTMLCollectionOf")
                 add(UNUSED_TYPEALIAS_PARAMETER)
+
+            if (name == "CanvasContextId")
+                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
         }.toTypedArray()
 
         val annotations = if (suppresses.isNotEmpty()) {
