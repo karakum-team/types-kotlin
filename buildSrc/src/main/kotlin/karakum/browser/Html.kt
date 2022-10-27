@@ -26,7 +26,7 @@ internal fun htmlDeclarations(
     )
 
     val interfaces =
-        Regex("""interface (HTML.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality) \{[\s\S]+?\}""")
+        Regex("""interface (HTML.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?) \{[\s\S]+?\}""")
             .findAll(content)
             .map { it.value }
             .mapNotNull { convertInterface(it) }
@@ -143,10 +143,16 @@ private fun convertInterface(
 
     val body = "$modifier external $declaration {\n$members\n}"
 
+    val pkg = when (name) {
+        "RemotePlayback" -> "remoteplayback"
+
+        else -> "dom.html"
+    }
+
     return ConversionResult(
         name = name,
         body = body,
-        pkg = "dom.html",
+        pkg = pkg,
     )
 }
 
@@ -261,6 +267,7 @@ private fun convertFunction(
 
     val result = (": " + source.substringAfter("): "))
         .removeSuffix(": void")
+        .replace(": Promise<number>", ": Promise<Number>")
         .replace(": WebGLShader[]", ": ReadonlyArray<WebGLShader>")
         .replace(": GLuint[]", ": ReadonlyArray<GLuint>")
         .replace(": string[]", ": ReadonlyArray<String>")
