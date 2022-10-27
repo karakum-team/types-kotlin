@@ -10,7 +10,7 @@ sealed external interface VideoFrameMetadata {
     var height: Double
     var mediaTime: Number
     var presentationTime: HighResTimeStamp
-    var presentedFrames: Number
+    var presentedFrames: Int
     var processingDuration: Number?
     var receiveTime: HighResTimeStamp?
     var rtpTimestamp: Number?
