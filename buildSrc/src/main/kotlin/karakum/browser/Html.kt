@@ -21,7 +21,7 @@ internal fun htmlDeclarations(
         .replace(";\n     *", ";--\n     *")
 
     val interfaces =
-        Regex("""interface (HTML.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoPlaybackQuality) \{[\s\S]+?\}""")
+        Regex("""interface (HTML.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality) \{[\s\S]+?\}""")
             .findAll(content)
             .map { it.value }
             .mapNotNull { convertInterface(it) }
@@ -56,6 +56,7 @@ private fun convertInterface(
         "AssignedNodesOptions",
         "HTMLOrSVGElement",
         "HTMLHyperlinkElementUtils",
+        "VideoFrameMetadata",
         -> "interface"
 
         else -> "class"
