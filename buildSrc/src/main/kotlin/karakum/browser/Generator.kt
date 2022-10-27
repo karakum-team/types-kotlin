@@ -27,6 +27,7 @@ import media.stream.MediaStream
 import web.buffer.Blob
 import web.events.EventTarget
 import web.file.FileList
+import web.http.ReferrerPolicy
 import webvtt.TextTrack
 """.trimIndent()
 
