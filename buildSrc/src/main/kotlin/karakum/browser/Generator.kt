@@ -20,6 +20,8 @@ import kotlinx.js.Void
 import dom.Document
 import dom.DocumentFragment
 import dom.DOMTokenList
+import dom.Element
+import dom.Node
 import dom.NodeListOf
 import dom.css.LinkStyle
 import dom.html.HTMLCanvasElement

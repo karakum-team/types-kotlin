@@ -16,7 +16,6 @@ internal val HTML_ALIAS_CLASSES = listOf(
     // TEMP
 
     "HTMLMediaElement",
-    "HTMLSlotElement",
 )
 
 internal fun htmlAliases(): List<ConversionResult> =

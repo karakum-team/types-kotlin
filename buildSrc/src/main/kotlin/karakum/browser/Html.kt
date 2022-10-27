@@ -228,33 +228,44 @@ private fun convertFunction(
     source: String,
 ): String {
     val name = source.substringBefore("(")
-    val parameters = source
+    val parametersSource = source
         .substringAfter("(")
-        .substringBefore(")")
-        .splitToSequence(", ")
-        .filter { it.isNotEmpty() }
-        .map {
-            var (pname, ptype) = it.split(": ")
-            ptype = getParameterType(ptype)
+        .substringBefore("):")
 
-            if (pname.endsWith("?")) {
-                pname = pname.removeSuffix("?")
-                ptype += " = definedExternally"
+    val parameters = when (parametersSource) {
+        "...nodes: (Element | Text)[]",
+        -> listOf(
+            "vararg nodes: Element /* | Text */",
+        )
+
+        else -> parametersSource
+            .splitToSequence(", ")
+            .filter { it.isNotEmpty() }
+            .map {
+                var (pname, ptype) = it.split(": ")
+                ptype = getParameterType(ptype)
+
+                if (pname.endsWith("?")) {
+                    pname = pname.removeSuffix("?")
+                    ptype += " = definedExternally"
+                }
+
+                "$pname: $ptype"
             }
-
-            "$pname: $ptype"
-        }
-        .toList()
+            .toList()
+    }
 
     val params = if (parameters.size > 1) {
         parameters.joinToString(",\n", "\n", ",\n")
     } else parameters.joinToString("\n")
 
-    val result = source.substringAfter(")")
+    val result = (": " + source.substringAfter("): "))
         .removeSuffix(": void")
         .replace(": WebGLShader[]", ": ReadonlyArray<WebGLShader>")
         .replace(": GLuint[]", ": ReadonlyArray<GLuint>")
         .replace(": string[]", ": ReadonlyArray<String>")
+        .replace(": Element[]", ": ReadonlyArray<Element>")
+        .replace(": Node[]", ": ReadonlyArray<Node>")
         .replace(": string", ": String")
         .replace(": boolean", ": Boolean")
         .replace(": any", ": Any")
