@@ -24,6 +24,9 @@ private val CLASSES = listOf(
     "CanvasTransform",
     "CanvasUserInterface",
 
+    "ImageBitmapRenderingContext",
+    "ImageBitmapRenderingContextSettings",
+
     "ImageData",
     "Path2D",
 )

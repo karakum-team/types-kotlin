@@ -23,6 +23,7 @@ import dom.DOMTokenList
 import dom.NodeListOf
 import dom.css.LinkStyle
 import dom.html.HTMLCanvasElement
+import web.buffer.Blob
 import web.events.EventTarget
 import web.file.FileList
 import webvtt.TextTrack

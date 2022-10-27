@@ -20,6 +20,7 @@ private fun convertFunctionType(
         .substringBefore(" ")
 
     val pkg = when {
+        name == "BlobCallback" -> "dom.html"
         name == "VideoFrameRequestCallback" -> "dom.html"
 
         name == "RemotePlaybackAvailabilityCallback" -> "remoteplayback"
@@ -36,6 +37,7 @@ private fun convertFunctionType(
         .replace(": DOMException", ": Throwable /* DOMException */")
         .replace(": DOMHighResTimeStamp", ": HighResTimeStamp")
         .replace("): void", ") -> Unit")
+        .replace(" | null", "?")
 
     if ("()" !in bodySource)
         bodySource = bodySource
