@@ -1,5 +1,6 @@
 package karakum.react
 
+// language=typescript
 private const val NEW = """
     interface FocusEvent<Target = Element, RelatedTarget = Element> extends SyntheticEvent<Target, NativeFocusEvent> {
         relatedTarget: (EventTarget & RelatedTarget) | null;
@@ -7,6 +8,7 @@ private const val NEW = """
     }
 """
 
+// language=typescript
 private const val OLD = """
     interface FocusEvent<T = Element> extends SyntheticEvent<T, NativeFocusEvent> {
         relatedTarget: EventTarget | null;
