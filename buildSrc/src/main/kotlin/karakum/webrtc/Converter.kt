@@ -12,12 +12,12 @@ internal fun convertDefinitions(
         .splitToSequence("\ninterface ")
         .drop(1)
         .filter { it.startsWith("RTC") }
-        .map { convertInterface(it) }
+        .mapNotNull { convertInterface(it) }
         .filter { !it.name.endsWith("EventMap") }
 
 private fun convertInterface(
     source: String,
-): ConversionResult {
+): ConversionResult? {
     val name = source.substringBefore(" ")
         .substringBefore("<")
         .substringBefore("(")
@@ -38,14 +38,7 @@ private fun convertInterface(
         .trimIndent()
 
     if (bodySource.startsWith("("))
-        return ConversionResult(
-            name = name,
-            body = "typealias $name = " +
-                    bodySource
-                        .removeSuffix(";")
-                        .replace(": DOMException", ": Throwable")
-                        .replace("): void", ") -> Unit")
-        )
+        return null
 
     var body = convertMembers(
         name = name,
