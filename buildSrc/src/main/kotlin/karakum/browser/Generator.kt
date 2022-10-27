@@ -33,7 +33,9 @@ fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
 ) {
-    val content = definitionsFile.readText()
+    val content = definitionsFile
+        .readText()
+        .applyPatches()
 
     val webglTargetDir = sourceDir
         .resolve("webgl")

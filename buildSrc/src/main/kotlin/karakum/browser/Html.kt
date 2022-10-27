@@ -1,7 +1,8 @@
 package karakum.browser
 
 import karakum.common.unionBody
-import java.io.File
+
+internal const val VIDEO_FRAME_REQUEST_ID = "VideoFrameRequestId"
 
 private val DEPRECATED = setOf(
     "HTMLDirectoryElement",
@@ -18,14 +19,6 @@ internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
     val content = source
-        .replace(
-            "cancelVideoFrameCallback(handle: number): void;",
-            "cancelVideoFrameCallback(requestId: VideoFrameRequestId): void;"
-        )
-        .replace(
-            "requestVideoFrameCallback(callback: VideoFrameRequestCallback): number;",
-            "requestVideoFrameCallback(callback: VideoFrameRequestCallback): VideoFrameRequestId;"
-        )
         .replace(";\n     *", ";--\n     *")
 
     val interfaces =
@@ -37,8 +30,8 @@ internal fun htmlDeclarations(
     return interfaces
         .plus(
             ConversionResult(
-                name = "VideoFrameRequestId",
-                body = "sealed external interface VideoFrameRequestId",
+                name = VIDEO_FRAME_REQUEST_ID,
+                body = "sealed external interface $VIDEO_FRAME_REQUEST_ID",
                 pkg = "dom.html",
             )
         )
