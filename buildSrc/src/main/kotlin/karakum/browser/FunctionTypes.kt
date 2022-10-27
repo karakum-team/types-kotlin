@@ -31,6 +31,8 @@ private fun convertFunctionType(
         .replace(": DOMException", ": Throwable")
         .replace(": DOMHighResTimeStamp", ": HighResTimeStamp")
         .replace("): void", ") -> Unit")
+        .replaceFirst("(", "(\n")
+        .replace(", ", ",\n")
 
     var body = "typealias $name = $bodySource"
 
