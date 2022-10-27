@@ -20,16 +20,19 @@ private fun convertFunctionType(
         .substringBefore(" ")
 
     val pkg = when {
+        name == "VideoFrameRequestCallback" -> "dom.html"
+
+        name == "RemotePlaybackAvailabilityCallback" -> "remoteplayback"
+
         name.startsWith("RTC") -> "webrtc"
         name == "VoidFunction" -> "webrtc"
-
-        name == "VideoFrameRequestCallback" -> "dom.html"
 
         else -> return null
     }
 
     var bodySource = source.substringAfter("\n    ")
         .substringBefore(";")
+        .replace(": boolean", ": Boolean")
         .replace(": DOMException", ": Throwable /* DOMException */")
         .replace(": DOMHighResTimeStamp", ": HighResTimeStamp")
         .replace("): void", ") -> Unit")
