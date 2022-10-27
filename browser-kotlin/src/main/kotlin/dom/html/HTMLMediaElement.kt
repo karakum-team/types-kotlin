@@ -6,6 +6,7 @@ import kotlinx.js.Void
 import media.MediaError
 import media.key.MediaKeys
 import media.source.TimeRanges
+import remoteplayback.RemotePlayback
 import webvtt.TextTrack
 import webvtt.TextTrackKind
 import webvtt.TextTrackList
