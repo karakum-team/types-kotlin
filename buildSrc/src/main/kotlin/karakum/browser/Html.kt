@@ -18,6 +18,14 @@ internal fun htmlDeclarations(
     definitionsFile: File,
 ): Sequence<ConversionResult> {
     val content = definitionsFile.readText()
+        .replace(
+            "cancelVideoFrameCallback(handle: number): void;",
+            "cancelVideoFrameCallback(requestId: VideoFrameRequestId): void;"
+        )
+        .replace(
+            "requestVideoFrameCallback(callback: VideoFrameRequestCallback): number;",
+            "requestVideoFrameCallback(callback: VideoFrameRequestCallback): VideoFrameRequestId;"
+        )
         .replace(";\n     *", ";--\n     *")
 
     val interfaces =
@@ -27,6 +35,13 @@ internal fun htmlDeclarations(
             .mapNotNull { convertInterface(it) }
 
     return interfaces
+        .plus(
+            ConversionResult(
+                name = "VideoFrameRequestId",
+                body = "sealed external interface VideoFrameRequestId",
+                pkg = "dom.html",
+            )
+        )
         .plus(
             ConversionResult(
                 name = "HTMLCollectionOf",

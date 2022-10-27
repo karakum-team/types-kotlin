@@ -21,6 +21,9 @@ private val INT_NAMES = setOf(
     "span",
     "start",
     "textLength",
+
+    "videoHeight",
+    "videoWidth",
 )
 
 private val DOUBLE_NAMES = setOf(

@@ -19,7 +19,6 @@ internal val HTML_ALIAS_CLASSES = listOf(
     "HTMLIFrameElement",
     "HTMLMediaElement",
     "HTMLSlotElement",
-    "HTMLVideoElement",
 )
 
 internal fun htmlAliases(): List<ConversionResult> =
