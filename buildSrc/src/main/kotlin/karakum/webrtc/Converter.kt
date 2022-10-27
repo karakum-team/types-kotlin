@@ -1,9 +1,5 @@
 package karakum.webrtc
 
-private val ADDITIONAL_TYPE = setOf(
-    "BinaryType",
-)
-
 internal data class ConversionResult(
     val name: String,
     val body: String,
