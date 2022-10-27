@@ -21,18 +21,23 @@ private fun convertFunctionType(
 
     val pkg = when {
         name.startsWith("RTC") -> "webrtc"
+        name == "VoidFunction" -> "webrtc"
+
         name == "VideoFrameRequestCallback" -> "dom.html"
 
         else -> return null
     }
 
-    val bodySource = source.substringAfter("\n    ")
+    var bodySource = source.substringAfter("\n    ")
         .substringBefore(";")
-        .replace(": DOMException", ": Throwable")
+        .replace(": DOMException", ": Throwable /* DOMException */")
         .replace(": DOMHighResTimeStamp", ": HighResTimeStamp")
         .replace("): void", ") -> Unit")
-        .replaceFirst("(", "(\n")
-        .replace(", ", ",\n")
+
+    if ("()" !in bodySource)
+        bodySource = bodySource
+            .replaceFirst("(", "(\n")
+            .replace(", ", ",\n")
 
     var body = "typealias $name = $bodySource"
 

@@ -24,31 +24,29 @@ fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
 ) {
-    convertDefinitions(definitionsFile.readText())
-        .plus(ConversionResult("VoidFunction", "typealias VoidFunction = () -> Unit"))
-        .forEach { (name, body) ->
-            val suppresses = mutableListOf<Suppress>().apply {
-                if ("JsName(\"\"\"(" in body)
-                    add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
-            }.toTypedArray()
+    for ((name, body) in convertDefinitions(definitionsFile.readText())) {
+        val suppresses = mutableListOf<Suppress>().apply {
+            if ("JsName(\"\"\"(" in body)
+                add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+        }.toTypedArray()
 
-            val annotations = when {
-                suppresses.isNotEmpty() ->
-                    fileSuppress(*suppresses)
+        val annotations = when {
+            suppresses.isNotEmpty() ->
+                fileSuppress(*suppresses)
 
-                else -> ""
-            }
-
-            val pkg = "webrtc"
-
-            val targetDir = sourceDir
-                .resolve(pkg)
-                .also { it.mkdirs() }
-
-            targetDir.resolve("$name.kt")
-                .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-                .writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
+            else -> ""
         }
+
+        val pkg = "webrtc"
+
+        val targetDir = sourceDir
+            .resolve(pkg)
+            .also { it.mkdirs() }
+
+        targetDir.resolve("$name.kt")
+            .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
+            .writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
+    }
 
     for ((type, alias) in ALIAS_MAP) {
         val name = type.substringAfterLast(".")
