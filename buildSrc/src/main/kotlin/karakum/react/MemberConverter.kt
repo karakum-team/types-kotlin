@@ -44,10 +44,7 @@ private fun convertMember(
         if (!source.startsWith("/*") && !source.startsWith("//"))
             return convertMember(source.replace("\n", ""), final, typeConverter)
 
-        var comment = source.substringBeforeLast("\n")
-        if (comment == "/** @deprecated */")
-            comment = """@Deprecated("Will be removed soon!")"""
-
+        val comment = source.substringBeforeLast("\n")
         return comment + "\n" + convertMember(source.substringAfterLast("\n"), final, typeConverter)
     }
 
