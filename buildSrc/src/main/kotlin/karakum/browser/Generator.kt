@@ -23,6 +23,7 @@ import dom.DOMTokenList
 import dom.NodeListOf
 import dom.css.LinkStyle
 import dom.html.HTMLCanvasElement
+import media.stream.MediaStream
 import web.buffer.Blob
 import web.events.EventTarget
 import web.file.FileList
@@ -76,7 +77,7 @@ fun generateKotlinDeclarations(
 
         targetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(fileContent(annotations, finalBody, pkg))
+            .writeText(fileContent(annotations, "", finalBody, pkg))
     }
 
     val aliases = domAliases()
@@ -104,13 +105,29 @@ fun generateKotlinDeclarations(
             fileSuppress(*suppresses)
         } else ""
 
+        val imports = when (name) {
+            "HTMLCanvasElement" -> """
+            import canvas.*    
+            import webgl.*    
+            """.trimIndent()
+
+            else -> ""
+        }
+
         val targetDir = sourceDir
             .resolve(pkg.replace(".", "/"))
             .also { it.mkdirs() }
 
         targetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
+            .writeText(
+                fileContent(
+                    annotations = annotations,
+                    imports = imports,
+                    body = body,
+                    pkg = pkg,
+                )
+            )
     }
 
     for ((name, body) in webglDeclarations(content)) {
@@ -128,12 +145,13 @@ fun generateKotlinDeclarations(
 
         webglTargetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(fileContent(annotations, body, "webgl"))
+            .writeText(fileContent(annotations, "", body, "webgl"))
     }
 }
 
 private fun fileContent(
     annotations: String = "",
+    imports: String = "",
     body: String,
     pkg: String,
 ): String {
@@ -142,6 +160,7 @@ private fun fileContent(
         annotations,
         "package $pkg",
         DEFAULT_IMPORTS,
+        imports,
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")

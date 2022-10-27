@@ -15,7 +15,6 @@ internal val HTML_ALIAS_CLASSES = listOf(
 
     // TEMP
 
-    "HTMLCanvasElement",
     "HTMLIFrameElement",
     "HTMLMediaElement",
     "HTMLSlotElement",

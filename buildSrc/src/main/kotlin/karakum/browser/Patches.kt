@@ -2,6 +2,8 @@ package karakum.browser
 
 internal fun String.applyPatches(): String =
     patchVideoFrameCallback()
+        .replace("\n    getContext(contextId: string, options?: any): RenderingContext | null;", "")
+        .replace("quality?: any", "quality?: number")
 
 internal fun String.patchVideoFrameCallback(): String =
     replace(

@@ -1,8 +1,11 @@
 package karakum.browser
 
+import karakum.common.UnionConstant
 import karakum.common.unionBody
+import karakum.common.unionBodyByConstants
 
 internal const val VIDEO_FRAME_REQUEST_ID = "VideoFrameRequestId"
+internal const val CANVAS_CONTEXT_ID = "CanvasContextId"
 
 private val DEPRECATED = setOf(
     "HTMLDirectoryElement",
@@ -18,8 +21,9 @@ private val DEPRECATED = setOf(
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
-    val content = source
-        .replace(";\n     *", ";--\n     *")
+    val (content, additionalType) = prepareContent(
+        source.replace(";\n     *", ";--\n     *")
+    )
 
     val interfaces =
         Regex("""interface (HTML.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality) \{[\s\S]+?\}""")
@@ -28,6 +32,7 @@ internal fun htmlDeclarations(
             .mapNotNull { convertInterface(it) }
 
     return interfaces
+        .plus(additionalType)
         .plus(
             ConversionResult(
                 name = VIDEO_FRAME_REQUEST_ID,
@@ -42,6 +47,49 @@ internal fun htmlDeclarations(
                 pkg = "dom.html",
             )
         )
+}
+
+private fun prepareContent(
+    source: String,
+): Pair<String, ConversionResult> {
+    val ids = Regex("""getContext\(contextId: "(.?+)", """)
+        .findAll(source)
+        .map { it.groupValues[1] }
+        .toList()
+
+    fun kotlinName(id: String): String =
+        if (id == "2d") "canvas" else id
+
+    val contextIdBody = unionBodyByConstants(
+        name = CANVAS_CONTEXT_ID,
+        constants = ids.map { id ->
+            val name = kotlinName(id)
+
+            UnionConstant(
+                kotlinName = name,
+                jsName = name,
+                value = id,
+                comment = if (id != name) "`$id`" else null
+            )
+        }
+    )
+
+    val contextId = ConversionResult(
+        CANVAS_CONTEXT_ID,
+        contextIdBody,
+        "dom.html",
+    )
+
+    val content = ids.fold(source) { acc, id ->
+        val name = kotlinName(id)
+
+        acc.replace(
+            """getContext(contextId: "$id"""",
+            """getContext(contextId: $CANVAS_CONTEXT_ID.$name""",
+        )
+    }
+
+    return content to contextId
 }
 
 private fun convertInterface(
