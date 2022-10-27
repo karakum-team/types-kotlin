@@ -6,10 +6,8 @@ import karakum.common.unionConstant
 import java.io.File
 
 internal fun webglDeclarations(
-    definitionsFile: File,
+    content: String,
 ): Sequence<ConversionResult> {
-    val content = definitionsFile.readText()
-
     val interfaces = Regex("""interface ((ANGLE_|EXT_|KHR_|OES_|OVR_|WEBGL_|WebGL).+?) \{[\s\S]+?\}""")
         .findAll(content)
         .map { it.value }

@@ -95,16 +95,13 @@ private val EXCLUDED_TYPES = setOf(
 )
 
 internal fun browserTypes(
-    definitionsFile: File,
-): Sequence<ConversionResult> {
-    val content = definitionsFile.readText()
-
-    return content
+    content: String,
+): Sequence<ConversionResult> =
+    content
         .splitToSequence("\ntype ")
         .drop(1)
         .map { it.substringBefore(";\n") }
         .mapNotNull { convertType(it) }
-}
 
 private fun convertType(
     source: String,

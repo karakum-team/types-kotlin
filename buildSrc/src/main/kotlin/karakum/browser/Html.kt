@@ -15,9 +15,9 @@ private val DEPRECATED = setOf(
 )
 
 internal fun htmlDeclarations(
-    definitionsFile: File,
+    source: String,
 ): Sequence<ConversionResult> {
-    val content = definitionsFile.readText()
+    val content = source
         .replace(
             "cancelVideoFrameCallback(handle: number): void;",
             "cancelVideoFrameCallback(requestId: VideoFrameRequestId): void;"

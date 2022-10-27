@@ -33,11 +33,13 @@ fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
 ) {
+    val content = definitionsFile.readText()
+
     val webglTargetDir = sourceDir
         .resolve("webgl")
         .also { it.mkdirs() }
 
-    for ((name, body, optPkg) in eventDeclarations(definitionsFile)) {
+    for ((name, body, optPkg) in eventDeclarations(content)) {
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
@@ -81,9 +83,9 @@ fun generateKotlinDeclarations(
         .plus(svgAliases())
         .plus(canvasAliases())
         .plus(fileAliases())
-        .plus(htmlDeclarations(definitionsFile))
-        .plus(browserTypes(definitionsFile))
-        .plus(browserFunctionTypes(definitionsFile))
+        .plus(htmlDeclarations(content))
+        .plus(browserTypes(content))
+        .plus(browserFunctionTypes(content))
 
     for ((name, body, pkg) in aliases) {
         pkg!!
@@ -109,7 +111,7 @@ fun generateKotlinDeclarations(
             .writeText(fileContent(annotations = annotations, body = body, pkg = pkg))
     }
 
-    for ((name, body) in webglDeclarations(definitionsFile)) {
+    for ((name, body) in webglDeclarations(content)) {
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)

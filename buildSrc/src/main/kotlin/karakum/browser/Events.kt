@@ -82,9 +82,9 @@ private val EXCLUDED = setOf(
 )
 
 internal fun eventDeclarations(
-    definitionsFile: File,
+    content: String,
 ): List<ConversionResult> =
-    eventTypes(definitionsFile)
+    eventTypes(content)
         .plus(eventAliases())
         .plus(eventPlaceholders())
         .plus(AnimationEvent())
@@ -137,10 +137,10 @@ private fun eventPlaceholders(): List<ConversionResult> =
         }
 
 private fun eventTypes(
-    definitionsFile: File,
+    content: String,
 ): List<ConversionResult> =
     Regex("""interface .+?EventMap \{\n    "[\s\S]+?\n\}""")
-        .findAll(definitionsFile.readText())
+        .findAll(content)
         .flatMap { parseEvents(it.value) }
         .filter { it.name != "orientationchange" }
         .plus(ADDITIONAL_EVENTS)

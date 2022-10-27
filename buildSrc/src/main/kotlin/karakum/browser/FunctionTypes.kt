@@ -1,17 +1,12 @@
 package karakum.browser
 
-import java.io.File
-
 internal fun browserFunctionTypes(
-    definitionsFile: File,
-): Sequence<ConversionResult> {
-    val content = definitionsFile.readText()
-
-    return Regex("""interface .+? \{\n    \([\s\S]+?\}""")
+    content: String,
+): Sequence<ConversionResult> =
+    Regex("""interface .+? \{\n    \([\s\S]+?\}""")
         .findAll(content)
         .map { it.value }
         .mapNotNull { convertFunctionType(it) }
-}
 
 private fun convertFunctionType(
     source: String,
