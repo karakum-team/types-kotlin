@@ -32,6 +32,7 @@ fun generateKotlinDeclarations(
             name in DOM_TYPES -> Package.DOM
             "SVG" in name -> Package.SVG
             name == "PointerType" -> Package.EVENTS
+            name == "ModifierKey" -> Package.EVENTS
             else -> pkg
         }
 

@@ -48,7 +48,7 @@ internal fun convertDefinitions(
 private fun convertUnions(
     content: String,
 ): Sequence<ConversionResult> =
-    content.splitToSequence("\ntype ")
+    content.splitToSequence("\ntype ", "\nexport type ")
         .drop(1)
         .map { it.substringBefore(";") }
         .mapNotNull {

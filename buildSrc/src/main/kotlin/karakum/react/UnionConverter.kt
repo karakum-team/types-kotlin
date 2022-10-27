@@ -11,16 +11,22 @@ internal fun convertUnion(
     if ("<" in name)
         return null
 
-    if (" | '" !in source)
+    val values = if (source.startsWith(" \"")) {
+        source.trim()
+            .splitToSequence(" | ")
+            .map { it.removeSurrounding("\"") }
+            .toList()
+    } else if (" | '" in source) {
+        source.removePrefix("\n")
+            .trimIndent()
+            .splitToSequence("\n")
+            .map { it.removePrefix("| ") }
+            .filter { it != "(string & {})" }
+            .map { it.removeSurrounding("'") }
+            .toList()
+    } else {
         return null
-
-    val values = source.removePrefix("\n")
-        .trimIndent()
-        .splitToSequence("\n")
-        .map { it.removePrefix("| ") }
-        .filter { it != "(string & {})" }
-        .map { it.removeSurrounding("'") }
-        .toList()
+    }
 
     return convertUnion(name, values)
 }
