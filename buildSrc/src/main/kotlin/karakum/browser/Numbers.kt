@@ -31,6 +31,8 @@ private val INT_NAMES = setOf(
 
     "videoHeight",
     "videoWidth",
+
+    "numberOfItems",
 )
 
 private val DOUBLE_NAMES = setOf(
@@ -71,6 +73,10 @@ private val DOUBLE_NAMES = setOf(
     "duration",
     "playbackRate",
     "volume",
+
+    "angle",
+    "currentScale",
+    "valueInSpecifiedUnits",
 )
 
 internal class TypeProvider(
@@ -94,6 +100,9 @@ internal class TypeProvider(
         }
 
         return when {
+            parentType == "SVGAnimatedInteger" -> "Int"
+            parentType == "SVGAnimatedNumber" -> "Double"
+
             propertyName.endsWith("Frames") -> "Int"
 
             propertyName in INT_NAMES -> "Int"
