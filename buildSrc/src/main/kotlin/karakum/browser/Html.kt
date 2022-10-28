@@ -30,7 +30,7 @@ internal fun htmlDeclarations(
     }
 
     val interfaces =
-        Regex("""interface (HTML.+?|SVG.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?) \{[\s\S]+?\}""")
+        Regex("""interface (HTML.+?|SVG.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
             .findAll(content)
             .map { it.value }
             .mapNotNull { convertInterface(it, getType) }
@@ -148,6 +148,7 @@ private fun convertInterface(
 
     val pkg = when {
         name == "RemotePlayback" -> "remoteplayback"
+        name == "DOMMatrix2DInit" -> "dom.geometry"
         name.startsWith("SVG") -> "dom.svg"
 
         else -> "dom.html"

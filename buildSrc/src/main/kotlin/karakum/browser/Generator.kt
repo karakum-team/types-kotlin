@@ -26,6 +26,7 @@ import dom.NodeListOf
 import dom.css.LinkStyle
 import dom.css.ElementCSSInlineStyle
 import dom.geometry.DOMMatrix
+import dom.geometry.DOMMatrix2DInit
 import dom.geometry.DOMPoint
 import dom.geometry.DOMPointInit
 import dom.geometry.DOMPointReadOnly
