@@ -20,6 +20,8 @@ private fun convertFunctionType(
 
         name == "RemotePlaybackAvailabilityCallback" -> "remoteplayback"
 
+        name == "LockGrantedCallback" -> "web.locks"
+
         name.startsWith("RTC") -> "webrtc"
         name == "VoidFunction" -> "webrtc"
 

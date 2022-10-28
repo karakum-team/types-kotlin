@@ -4,6 +4,8 @@ internal fun String.applyPatches(): String =
     patchVideoFrameCallback()
         .replace("\n    getContext(contextId: string, options?: any): RenderingContext | null;", "")
         .replace("quality?: any", "quality?: number")
+        .replace("LockGrantedCallback): Promise<any>", "LockGrantedCallback): Promise<void>")
+        .replace("(lock: Lock | null): any", "(lock: Lock | null): void")
 
 internal fun String.patchVideoFrameCallback(): String =
     replace(

@@ -30,7 +30,7 @@ internal fun htmlDeclarations(
     }
 
     val interfaces =
-        Regex("""interface (HTML.+?|SVG.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
+        Regex("""interface (HTML.+?|SVG.+?|Lock|Lock.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
             .findAll(content)
             .map { it.value }
             .mapNotNull { convertInterface(it, getType) }
@@ -108,6 +108,7 @@ private fun convertInterface(
         name in HTML_ALIAS_CLASSES -> return null
         name in DEPRECATED -> return null
         name == "HTMLOrSVGElement" -> return null
+        name == "LockGrantedCallback" -> return null
         name.endsWith("NameMap") -> return null
         name.endsWith("EventMap") -> return null
         "Collection" in name -> return null
@@ -151,6 +152,7 @@ private fun convertInterface(
         name == "RemotePlayback" -> "remoteplayback"
         name == "DOMMatrix2DInit" -> "dom.geometry"
         name.startsWith("SVG") -> "dom.svg"
+        name.startsWith("Lock") -> "web.locks"
 
         else -> "dom.html"
     }
@@ -221,6 +223,7 @@ private fun convertProperty(
         "boolean" -> "Boolean"
         "number" -> typeProvider.numberType(name.removeSuffix("?"))
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
+        "LockInfo[]" -> "ReadonlyArray<LockInfo>"
 
         else -> if (type.startsWith("\"")) {
             "String /* $type */"

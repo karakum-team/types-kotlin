@@ -38,6 +38,7 @@ import media.key.MediaKeys
 import media.source.TimeRanges
 import media.stream.MediaStream
 import remoteplayback.RemotePlayback
+import web.abort.AbortSignal
 import web.buffer.Blob
 import web.events.EventTarget
 import web.file.FileList
