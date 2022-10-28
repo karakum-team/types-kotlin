@@ -24,6 +24,13 @@ import dom.Element
 import dom.Node
 import dom.NodeListOf
 import dom.css.LinkStyle
+import dom.css.ElementCSSInlineStyle
+import dom.geometry.DOMMatrix
+import dom.geometry.DOMPoint
+import dom.geometry.DOMPointInit
+import dom.geometry.DOMPointReadOnly
+import dom.geometry.DOMRect
+import dom.geometry.DOMRectReadOnly
 import dom.html.HTMLCanvasElement
 import media.MediaError
 import media.key.MediaKeys
@@ -93,7 +100,6 @@ fun generateKotlinDeclarations(
         .plus(cssAliases())
         .plus(mediaAliases())
         .plus(htmlAliases())
-        .plus(svgAliases())
         .plus(canvasAliases())
         .plus(fileAliases())
         .plus(htmlDeclarations(content))

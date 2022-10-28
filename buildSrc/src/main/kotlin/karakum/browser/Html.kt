@@ -25,11 +25,15 @@ internal fun htmlDeclarations(
         source.replace(";\n     *", ";--\n     *")
     )
 
+    val getType = { name: String ->
+        if ("\ndeclare var $name" in source) "class" else "interface"
+    }
+
     val interfaces =
-        Regex("""interface (HTML.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?) \{[\s\S]+?\}""")
+        Regex("""interface (HTML.+?|SVG.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?) \{[\s\S]+?\}""")
             .findAll(content)
             .map { it.value }
-            .mapNotNull { convertInterface(it) }
+            .mapNotNull { convertInterface(it, getType) }
 
     return interfaces
         .plus(additionalType)
@@ -94,6 +98,7 @@ private fun prepareContent(
 
 private fun convertInterface(
     source: String,
+    getType: (String) -> String,
 ): ConversionResult? {
     val name = source
         .substringAfter(" ")
@@ -108,16 +113,14 @@ private fun convertInterface(
         "Collection" in name -> return null
     }
 
-    val type = when (name) {
-        "AssignedNodesOptions",
-        "HTMLOrSVGElement",
-        "HTMLHyperlinkElementUtils",
-        "VideoFrameMetadata",
-        -> "interface"
+    val type = getType(name)
 
-        else -> "class"
-    }
     val declaration = source.substringBefore(" {\n")
+        .replace(", DocumentAndElementEventHandlers", "")
+        .replace(", GlobalEventHandlers", "")
+        // check
+        .replace(", HTMLOrSVGElement", "")
+        .replace(", WindowEventHandlers", "")
         .replace("interface ", "$type ")
         .replace(" extends ", " :\n")
         .replace(", ", ",\n")
@@ -143,8 +146,9 @@ private fun convertInterface(
 
     val body = "$modifier external $declaration {\n$members\n}"
 
-    val pkg = when (name) {
-        "RemotePlayback" -> "remoteplayback"
+    val pkg = when {
+        name == "RemotePlayback" -> "remoteplayback"
+        name.startsWith("SVG") -> "dom.svg"
 
         else -> "dom.html"
     }
@@ -267,12 +271,17 @@ private fun convertFunction(
 
     val result = (": " + source.substringAfter("): "))
         .removeSuffix(": void")
+        .replace(
+            "SVGCircleElement | SVGEllipseElement | SVGImageElement | SVGLineElement | SVGPathElement | SVGPolygonElement | SVGPolylineElement | SVGRectElement | SVGTextElement | SVGUseElement",
+            "SVGElement /* SVGCircleElement | SVGEllipseElement | SVGImageElement | SVGLineElement | SVGPathElement | SVGPolygonElement | SVGPolylineElement | SVGRectElement | SVGTextElement | SVGUseElement */"
+        )
         .replace(": Promise<number>", ": Promise<Number>")
         .replace(": WebGLShader[]", ": ReadonlyArray<WebGLShader>")
         .replace(": GLuint[]", ": ReadonlyArray<GLuint>")
         .replace(": string[]", ": ReadonlyArray<String>")
         .replace(": Element[]", ": ReadonlyArray<Element>")
         .replace(": Node[]", ": ReadonlyArray<Node>")
+        .replace(": number", ": Number")
         .replace(": string", ": String")
         .replace(": boolean", ": Boolean")
         .replace(": any", ": Any")
