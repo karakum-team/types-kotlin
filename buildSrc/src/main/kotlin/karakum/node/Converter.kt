@@ -276,8 +276,7 @@ private fun convertConst(
     }
 
     val memberType = when (type) {
-        // TODO: use "object"
-        "Symbol" -> "val" // "object"
+        "Symbol" -> "object"
         else -> "val"
     }
 
