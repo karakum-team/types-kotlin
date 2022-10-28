@@ -115,6 +115,11 @@ internal fun convertDefinitions(
             .filter { it.name != "WatchListener" }
     } else emptySequence()
 
+    val constants = "\n$mainContent"
+        .splitToSequence("\nconst ", "\nexport const ")
+        .drop(1)
+        .mapNotNull { convertConst(it) }
+
     return when (pkg) {
         Package("buffer") -> mergeBuffers(interfaces)
 
@@ -237,7 +242,53 @@ internal fun convertDefinitions(
             .plus(convertFunctions(content))
 
         else -> interfaces
-    } + types
+    } + types + constants
+}
+
+private fun convertConst(
+    source: String,
+): ConversionResult? {
+    val name = source.substringBefore(": ")
+
+    var sourceType = source
+        .substringAfter(": ")
+        .substringBefore(";")
+
+    when {
+        sourceType.startsWith("{") -> return null
+        sourceType.startsWith("typeof ") -> return null
+        sourceType.startsWith("webcrypto.") -> return null
+        sourceType == "StatSyncFn" -> return null
+        sourceType == "DiffieHellmanGroupConstructor" -> return null
+        sourceType == "any" -> return null
+    }
+
+    val type = when (sourceType) {
+        "string[]" -> "ReadonlyArray<String>"
+        "null | MessagePort" -> "MessagePort?"
+        "unique symbol" -> "Symbol"
+
+        "boolean" -> "Boolean"
+        "number" -> "Number"
+        "string" -> "String"
+
+        else -> sourceType
+    }
+
+    val memberType = when (type) {
+        // TODO: use "object"
+        "Symbol" -> "val" // "object"
+        else -> "val"
+    }
+
+    val finalName = if (name != name.toUpperCase()) {
+        "$name.const"
+    } else name
+
+    return ConversionResult(
+        name = finalName,
+        body = "external $memberType $name: $type",
+    )
 }
 
 private fun convertType(
