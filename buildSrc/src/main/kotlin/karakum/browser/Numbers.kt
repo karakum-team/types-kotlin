@@ -42,16 +42,29 @@ private val DOUBLE_NAMES = setOf(
     "y",
 )
 
-fun numberType(
-    propertyName: String,
-): String =
-    when {
-        propertyName.endsWith("Frames") -> "Int"
+internal class TypeProvider(
+    private val parentType: String,
+) {
+    fun numberType(
+        propertyName: String,
+    ): String {
+        if (parentType == "HTMLCanvasElement") {
+            when (propertyName) {
+                "width",
+                "height",
+                -> return "Int"
+            }
+        }
 
-        propertyName in INT_NAMES -> "Int"
-        propertyName in DOUBLE_NAMES -> "Double"
-        else -> {
-            // TODO("No numberability configuration for property '$propertyName'")
-            "Number"
+        return when {
+            propertyName.endsWith("Frames") -> "Int"
+
+            propertyName in INT_NAMES -> "Int"
+            propertyName in DOUBLE_NAMES -> "Double"
+            else -> {
+                // TODO("No numberability configuration for property '$propertyName'")
+                "Number"
+            }
         }
     }
+}

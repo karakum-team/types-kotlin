@@ -131,10 +131,11 @@ private fun convertInterface(
         .removeSuffix(";\n")
         .trimIndent()
 
+    val typeProvider = TypeProvider(name)
     val members = if (memberSource.isNotEmpty()) {
         memberSource
             .splitToSequence(";\n")
-            .mapNotNull { convertMember(it) }
+            .mapNotNull { convertMember(it, typeProvider) }
             .joinToString("\n")
     } else ""
 
@@ -163,6 +164,7 @@ private fun convertInterface(
 
 private fun convertMember(
     source: String,
+    typeProvider: TypeProvider,
 ): String? {
     if ("\n" in source) {
         val comment = source.substringBeforeLast("\n")
@@ -171,7 +173,7 @@ private fun convertMember(
         if ("@deprecated" in comment)
             return null
 
-        val member = convertMember(source.substringAfterLast("\n"))
+        val member = convertMember(source.substringAfterLast("\n"), typeProvider)
             ?: return null
 
         return comment + "\n" + member
@@ -199,13 +201,14 @@ private fun convertMember(
         return "    // $source"
 
     if ("(" !in source)
-        return convertProperty(source)
+        return convertProperty(source, typeProvider)
 
     return convertFunction(source)
 }
 
 private fun convertProperty(
     source: String,
+    typeProvider: TypeProvider,
 ): String {
     val modifier = if (source.startsWith("readonly ")) "val" else "var"
     var (name, type) = source.removePrefix("readonly ").split(": ")
@@ -216,7 +219,7 @@ private fun convertProperty(
     type = when (type) {
         "string" -> "String"
         "boolean" -> "Boolean"
-        "number" -> numberType(name)
+        "number" -> typeProvider.numberType(name)
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
 
         else -> if (type.startsWith("\"")) {
