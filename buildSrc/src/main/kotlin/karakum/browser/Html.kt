@@ -219,7 +219,7 @@ private fun convertProperty(
     type = when (type) {
         "string" -> "String"
         "boolean" -> "Boolean"
-        "number" -> typeProvider.numberType(name)
+        "number" -> typeProvider.numberType(name.removeSuffix("?"))
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
 
         else -> if (type.startsWith("\"")) {
