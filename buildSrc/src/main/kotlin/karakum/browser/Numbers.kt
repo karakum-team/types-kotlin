@@ -61,6 +61,16 @@ private val DOUBLE_NAMES = setOf(
     "width",
     "x",
     "y",
+
+    // Media elements
+    "mediaTime",
+    "processingDuration",
+    "rtpTimestamp",
+    "currentTime",
+    "defaultPlaybackRate",
+    "duration",
+    "playbackRate",
+    "volume",
 )
 
 internal class TypeProvider(
