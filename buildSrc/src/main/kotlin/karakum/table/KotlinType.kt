@@ -41,6 +41,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "<TTValue = TValue>() => TTValue" to "() -> TValue",
     "<TTValue = TValue>() => TTValue | null" to "() -> TValue?",
     "<TValue>(columnId: string) => TValue" to "(columnId: String) -> Any? /* TValue */",
+    "<TValue>(columnId: string) => TValue[]" to "(columnId: String) -> ReadonlyArray<Any? /* TValue */>",
 
     "TData[]" to "ReadonlyArray<TData>",
     "Column<TData, unknown>[]" to "ReadonlyArray<Column<TData, *>>",
@@ -110,6 +111,7 @@ internal fun kotlinType(
         .replace("<number>", "<Int>")
         .replace("<any>", "<*>")
         .replace("number[]", "ReadonlyArray<Int>")
+        .replace("unknown[]", "ReadonlyArray<Any?>")
         .replace("undefined | [number, number]", "JsTuple2<Int, Int>?")
         .replace("boolean | (", "(")
         .replace("Map<any, number>", "JsMap<Any, Int>")
