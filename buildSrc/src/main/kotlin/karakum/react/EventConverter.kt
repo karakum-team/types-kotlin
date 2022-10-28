@@ -44,9 +44,9 @@ internal fun convertEventHandlers(
 
 private const val DEFAULT_EVENT_IMPORTS = """
 import dom.Element
+import dom.html.Window
 import web.events.Event
 import web.events.EventTarget
-import react.dom.AbstractView
 """
 
 internal fun convertEventInterface(

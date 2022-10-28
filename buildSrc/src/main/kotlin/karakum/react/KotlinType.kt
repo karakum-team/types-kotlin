@@ -22,6 +22,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Document" to "dom.Document",
     "DataTransfer" to "dom.events.DataTransfer",
+    "AbstractView" to "Window",
 
     "Key" to "react.Key",
     "CSSProperties" to "react.CSSProperties",

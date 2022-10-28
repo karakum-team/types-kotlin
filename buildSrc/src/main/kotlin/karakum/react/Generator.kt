@@ -12,10 +12,8 @@ import react.dom.aria.AriaRole
 """.trimIndent()
 
 private val DOM_TYPES = setOf(
-    "AbstractView",
     "DOMAttributes",
     "DangerouslySetInnerHTML",
-    "StyleMedia",
 )
 
 private val DOM_IMPORTS = """
