@@ -5,7 +5,7 @@ import karakum.common.objectUnionBody
 import karakum.common.unionBody
 
 internal const val VIDEO_FRAME_REQUEST_ID = "VideoFrameRequestId"
-internal const val CANVAS_CONTEXT_ID = "CanvasContextId"
+internal const val RENDERING_CONTEXT_ID = "RenderingContextId"
 
 private val DEPRECATED = setOf(
     "HTMLDirectoryElement",
@@ -65,7 +65,7 @@ private fun prepareContent(
         if (id == "2d") "canvas" else id
 
     val contextIdBody = objectUnionBody(
-        name = CANVAS_CONTEXT_ID,
+        name = RENDERING_CONTEXT_ID,
         constants = ids.map { id ->
             val name = kotlinName(id)
 
@@ -79,7 +79,7 @@ private fun prepareContent(
     )
 
     val contextId = ConversionResult(
-        CANVAS_CONTEXT_ID,
+        RENDERING_CONTEXT_ID,
         contextIdBody,
         "dom.html",
     )
@@ -89,7 +89,7 @@ private fun prepareContent(
 
         acc.replace(
             """getContext(contextId: "$id"""",
-            """getContext(contextId: $CANVAS_CONTEXT_ID.$name""",
+            """getContext(contextId: $RENDERING_CONTEXT_ID.$name""",
         )
     }
 

@@ -117,7 +117,7 @@ fun generateKotlinDeclarations(
             if (name == "NodeListOf" || name == "HTMLCollectionOf")
                 add(UNUSED_TYPEALIAS_PARAMETER)
 
-            if (name == "CanvasContextId")
+            if (name == RENDERING_CONTEXT_ID)
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
         }.toTypedArray()
 
