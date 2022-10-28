@@ -3,6 +3,7 @@
 package dom.svg
 
 import dom.geometry.DOMMatrix
+import dom.geometry.DOMMatrix2DInit
 
 sealed external class SVGTransform {
     val angle: Number

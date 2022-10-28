@@ -2,6 +2,8 @@
 
 package dom.svg
 
+import dom.geometry.DOMMatrix2DInit
+
 sealed external class SVGTransformList {
     val length: Int
     val numberOfItems: Number
