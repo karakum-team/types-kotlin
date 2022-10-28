@@ -1,5 +1,12 @@
 package karakum.browser
 
+private val FLAG_NAMES = setOf(
+    "networkState",
+    "readyState",
+    "unitType",
+    "type",
+)
+
 private val INT_NAMES = setOf(
     "cellIndex",
     "colSpan",
@@ -63,8 +70,10 @@ internal class TypeProvider(
         propertyName: String,
     ): String {
         // flags
-        if (propertyName == propertyName.toUpperCase())
-            return "Short"
+        if (propertyName == propertyName.toUpperCase()
+            || parentType == "SVGAnimatedEnumeration"
+            || propertyName in FLAG_NAMES
+        ) return "Short"
 
         if (parentType == "HTMLCanvasElement") {
             when (propertyName) {
