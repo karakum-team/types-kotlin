@@ -5,6 +5,9 @@ private val FLAG_NAMES = setOf(
     "readyState",
     "unitType",
     "type",
+
+    "align",
+    "meetOrSlice",
 )
 
 private val INT_NAMES = setOf(
