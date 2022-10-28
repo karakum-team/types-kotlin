@@ -48,6 +48,10 @@ internal class TypeProvider(
     fun numberType(
         propertyName: String,
     ): String {
+        // flags
+        if (propertyName == propertyName.toUpperCase())
+            return "Short"
+
         if (parentType == "HTMLCanvasElement") {
             when (propertyName) {
                 "width",
@@ -62,6 +66,8 @@ internal class TypeProvider(
             propertyName in INT_NAMES -> "Int"
             propertyName in DOUBLE_NAMES -> "Double"
             else -> {
+                println("$parentType.$propertyName")
+
                 // TODO("No numberability configuration for property '$propertyName'")
                 "Number"
             }
