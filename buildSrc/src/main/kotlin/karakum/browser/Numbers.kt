@@ -27,6 +27,20 @@ private val INT_NAMES = setOf(
 )
 
 private val DOUBLE_NAMES = setOf(
+    // DOMMatrix2DInit
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "m11",
+    "m12",
+    "m21",
+    "m22",
+    "m41",
+    "m42",
+
     "height",
     "high",
     "low",
