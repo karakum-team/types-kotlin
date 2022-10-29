@@ -14,6 +14,7 @@ private val INT_NAMES = setOf(
     "cellIndex",
     "colSpan",
     "cols",
+    "hardwareConcurrency",
     "index",
     "length",
     "maxLength",
@@ -103,6 +104,9 @@ internal class TypeProvider(
         }
 
         return when {
+            propertyName == "quota" || propertyName == "usage"
+            -> "Double /* Int64 */"
+
             parentType == "SVGAnimatedInteger" -> "Int"
             parentType == "SVGAnimatedNumber" -> "Double"
 

@@ -43,6 +43,7 @@ import web.buffer.Blob
 import web.events.EventTarget
 import web.file.File
 import web.file.FileList
+import web.filesystem.FileSystemDirectoryHandle
 import web.http.ReferrerPolicy
 import web.locks.LockManager
 import web.url.URL

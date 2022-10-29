@@ -39,7 +39,7 @@ internal fun htmlDeclarations(
     }
 
     val interfaces =
-        Regex("""interface (HTML.+?|SVG.+?|Storage|FileSystem|FileSystem.+?|Lock|Lock.+?|Navigator.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
+        Regex("""interface (HTML.+?|SVG.+?|Storage|StorageEstimate|StorageManager|FileSystem|FileSystem.+?|Lock|Lock.+?|Navigator.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
             .findAll(content)
             .map { it.value }
             .mapNotNull { convertInterface(it, getType) }
