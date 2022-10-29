@@ -6,6 +6,8 @@ internal fun String.applyPatches(): String =
         .replace("quality?: any", "quality?: number")
         .replace("LockGrantedCallback): Promise<any>", "LockGrantedCallback): Promise<void>")
         .replace("(lock: Lock | null): any", "(lock: Lock | null): void")
+        .replace("""readonly kind: "file";""", """/* val kind: "file" */""")
+        .replace("""readonly kind: "directory";""", """/* val kind: "directory" */""")
 
 internal fun String.patchVideoFrameCallback(): String =
     replace(
