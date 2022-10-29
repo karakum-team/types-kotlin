@@ -22,6 +22,7 @@ private fun convertFunctionType(
 
         name == "ErrorCallback" -> "web.filesystem"
         name == "FileCallback" -> "web.filesystem"
+        name.startsWith("FileSystem") -> "web.filesystem"
 
         name == "LockGrantedCallback" -> "web.locks"
 
@@ -36,6 +37,7 @@ private fun convertFunctionType(
         .replace(": boolean", ": Boolean")
         .replace(": DOMException", ": Throwable /* DOMException */")
         .replace(": DOMHighResTimeStamp", ": HighResTimeStamp")
+        .replace(": FileSystemEntry[]", ": ReadonlyArray<FileSystemEntry>")
         .replace("): void", ") -> Unit")
         .replace(" | null", "?")
 

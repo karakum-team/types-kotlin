@@ -39,7 +39,7 @@ internal fun htmlDeclarations(
     }
 
     val interfaces =
-        Regex("""interface (HTML.+?|SVG.+?|Lock|Lock.+?|Navigator.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
+        Regex("""interface (HTML.+?|SVG.+?|FileSystem|FileSystem.+?|Lock|Lock.+?|Navigator.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
             .findAll(content)
             .map { it.value }
             .mapNotNull { convertInterface(it, getType) }
@@ -163,6 +163,7 @@ private fun convertInterface(
         name == "RemotePlayback" -> "remoteplayback"
         name == "DOMMatrix2DInit" -> "dom.geometry"
         name.startsWith("SVG") -> "dom.svg"
+        name.startsWith("FileSystem") -> "web.filesystem"
         name.startsWith("Lock") -> "web.locks"
         name.startsWith("Navigator") -> "web.navigator"
 
@@ -299,11 +300,13 @@ private fun convertFunction(
         .replace(": WebGLShader[]", ": ReadonlyArray<WebGLShader>")
         .replace(": GLuint[]", ": ReadonlyArray<GLuint>")
         .replace(": string[]", ": ReadonlyArray<String>")
+        .replace("<string[]", "<ReadonlyArray<String>")
         .replace(": Element[]", ": ReadonlyArray<Element>")
         .replace(": Node[]", ": ReadonlyArray<Node>")
         .replace(": number", ": Number")
         .replace(": string", ": String")
         .replace(": boolean", ": Boolean")
+        .replace("<boolean>", "<Boolean>")
         .replace(": any", ": Any")
         .replace("<void>", "<Void>")
         .replace(" | null", "?")
