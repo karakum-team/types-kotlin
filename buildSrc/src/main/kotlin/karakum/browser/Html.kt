@@ -38,7 +38,7 @@ internal fun htmlDeclarations(
     }
 
     val interfaces =
-        Regex("""interface (HTML.+?|SVG.+?|Storage|StorageEstimate|StorageManager|FileSystem|FileSystem.+?|Lock|Lock.+?|Navigator.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
+        Regex("""interface (HTML.+?|SVG.+?|Storage|StorageEstimate|StorageManager|Gamepad|Gamepad.+?|FileSystem|FileSystem.+?|Lock|Lock.+?|Navigator.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
             .findAll(content)
             .map { it.value }
             .mapNotNull { convertInterface(it, getType) }
@@ -117,6 +117,8 @@ private fun convertInterface(
         name in DEPRECATED -> return null
         name in IGNORED -> return null
         name.endsWith("NameMap") -> return null
+        name.endsWith("Event") -> return null
+        name.endsWith("EventInit") -> return null
         name.endsWith("EventMap") -> return null
         "Collection" in name -> return null
     }
@@ -163,6 +165,7 @@ private fun convertInterface(
         name == "DOMMatrix2DInit" -> "dom.geometry"
         name.startsWith("SVG") -> "dom.svg"
         name.startsWith("FileSystem") -> "web.filesystem"
+        name.startsWith("Gamepad") -> "web.gamepad"
         name.startsWith("Lock") -> "web.locks"
         name.startsWith("Navigator") -> "web.navigator"
         name.startsWith("Storage") -> "web.storage"
@@ -237,6 +240,7 @@ private fun convertProperty(
         "number" -> typeProvider.numberType(name.removeSuffix("?"))
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"
+        "ReadonlyArray<number>" -> "ReadonlyArray<Double>"
         "LockInfo[]" -> "ReadonlyArray<LockInfo>"
 
         else -> if (type.startsWith("\"")) {
