@@ -7,6 +7,6 @@ import kotlin.js.Promise
 
 sealed external class FileSystemFileHandle :
     FileSystemHandle {
-    val kind: String /* "file" */
+    /* val kind: "file" */
     fun getFile(): Promise<File>
 }

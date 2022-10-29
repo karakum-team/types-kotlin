@@ -8,7 +8,7 @@ import kotlin.js.Promise
 
 sealed external class FileSystemDirectoryHandle :
     FileSystemHandle {
-    val kind: String /* "directory" */
+    /* val kind: "directory" */
     fun getDirectoryHandle(
         name: String,
         options: FileSystemGetDirectoryOptions = definedExternally,
