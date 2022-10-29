@@ -18,6 +18,16 @@ private val DEPRECATED = setOf(
     "HTMLTableDataCellElement",
 )
 
+private val IGNORED = setOf(
+    "HTMLOrSVGElement",
+    "LockGrantedCallback",
+
+    // TEMP
+    "Navigator",
+    "NavigatorStorage",
+)
+
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -30,7 +40,7 @@ internal fun htmlDeclarations(
     }
 
     val interfaces =
-        Regex("""interface (HTML.+?|SVG.+?|Lock|Lock.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
+        Regex("""interface (HTML.+?|SVG.+?|Lock|Lock.+?|Navigator.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
             .findAll(content)
             .map { it.value }
             .mapNotNull { convertInterface(it, getType) }
@@ -107,8 +117,7 @@ private fun convertInterface(
     when {
         name in HTML_ALIAS_CLASSES -> return null
         name in DEPRECATED -> return null
-        name == "HTMLOrSVGElement" -> return null
-        name == "LockGrantedCallback" -> return null
+        name in IGNORED -> return null
         name.endsWith("NameMap") -> return null
         name.endsWith("EventMap") -> return null
         "Collection" in name -> return null
@@ -223,6 +232,7 @@ private fun convertProperty(
         "boolean" -> "Boolean"
         "number" -> typeProvider.numberType(name.removeSuffix("?"))
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
+        "ReadonlyArray<string>" -> "ReadonlyArray<String>"
         "LockInfo[]" -> "ReadonlyArray<LockInfo>"
 
         else -> if (type.startsWith("\"")) {
@@ -315,6 +325,9 @@ private fun getParameterType(
 
         source == "string"
         -> "String"
+
+        source == "string | URL"
+        -> "URL /* | string */"
 
         source == "number"
         -> "Number"

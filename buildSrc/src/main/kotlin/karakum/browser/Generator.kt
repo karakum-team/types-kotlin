@@ -43,6 +43,8 @@ import web.buffer.Blob
 import web.events.EventTarget
 import web.file.FileList
 import web.http.ReferrerPolicy
+import web.locks.LockManager
+import web.url.URL
 import webvtt.TextTrack
 import webvtt.TextTrackKind
 import webvtt.TextTrackList
