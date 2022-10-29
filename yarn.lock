@@ -80,12 +80,12 @@
     "@tanstack/query-core" "4.13.0"
     use-sync-external-store "^1.2.0"
 
-"@tanstack/react-table@8.5.18":
-  version "8.5.18"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-table/-/react-table-8.5.18.tgz#c022516a7d0d00c5eafc6f2bb7a5b197d001e07c"
-  integrity sha512-4YGK7cMOi4kTmLxbJkqzBx1Fd8AIcF/uILdh3tgYUbX+HwV6BcA2tzQAnkk8E4dlznOkbxTDZODUfCFbkRvvNw==
+"@tanstack/react-table@8.5.19":
+  version "8.5.19"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-table/-/react-table-8.5.19.tgz#aa53258b6286c1d5e728918e8408a420caffc1c6"
+  integrity sha512-yAXr2pf1LjfVPrxcIx5ud6abifA8AQw/tNxNgHjwMwscTxBPW5Yqgbx2cs6hgqxNCxYqn1Rgeo7JedlZZJhycQ==
   dependencies:
-    "@tanstack/table-core" "8.5.18"
+    "@tanstack/table-core" "8.5.19"
 
 "@tanstack/react-virtual@3.0.0-beta.18":
   version "3.0.0-beta.18"
@@ -94,10 +94,10 @@
   dependencies:
     "@tanstack/virtual-core" "3.0.0-beta.18"
 
-"@tanstack/table-core@8.5.18":
-  version "8.5.18"
-  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.5.18.tgz#506918eb3bfcded67dd14a1347c1d91df7e379b4"
-  integrity sha512-gOLQtWm7f1CNdOE/pTapANq7n1juEHQIk4czR1yZklNPlh+Pd4lW521GnrS9aULL62yN1KUTmJvKEr+hqcvOuw==
+"@tanstack/table-core@8.5.19":
+  version "8.5.19"
+  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.5.19.tgz#99843e2dd3e65042af184bc152bd4a9b749402f6"
+  integrity sha512-VvOHxkjGbelk1tRHNTCKMDHCfj7XCUkPiq6P1ARvznBWiP4oH6ucukFx/41otjRJqF7TxuJr8CIlBxz+ui9FOQ==
 
 "@tanstack/virtual-core@3.0.0-beta.18":
   version "3.0.0-beta.18"
