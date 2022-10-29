@@ -23,7 +23,6 @@ private val IGNORED = setOf(
 
     // TEMP
     "Navigator",
-    "NavigatorStorage",
 )
 
 
