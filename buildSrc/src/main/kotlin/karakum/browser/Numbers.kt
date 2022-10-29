@@ -37,6 +37,8 @@ private val INT_NAMES = setOf(
     "videoWidth",
 
     "numberOfItems",
+
+    "maxTouchPoints",
 )
 
 private val DOUBLE_NAMES = setOf(
