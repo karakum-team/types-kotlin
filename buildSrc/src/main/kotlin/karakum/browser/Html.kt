@@ -20,7 +20,6 @@ private val DEPRECATED = setOf(
 
 private val IGNORED = setOf(
     "HTMLOrSVGElement",
-    "LockGrantedCallback",
 
     // TEMP
     "Navigator",
@@ -140,6 +139,9 @@ private fun convertInterface(
         .removeSuffix("}")
         .removeSuffix(";\n")
         .trimIndent()
+
+    if (memberSource.startsWith("("))
+        return null
 
     val typeProvider = TypeProvider(name)
     val members = if (memberSource.isNotEmpty()) {
