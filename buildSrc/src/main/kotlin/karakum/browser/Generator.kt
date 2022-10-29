@@ -41,6 +41,7 @@ import remoteplayback.RemotePlayback
 import web.abort.AbortSignal
 import web.buffer.Blob
 import web.events.EventTarget
+import web.file.File
 import web.file.FileList
 import web.http.ReferrerPolicy
 import web.locks.LockManager

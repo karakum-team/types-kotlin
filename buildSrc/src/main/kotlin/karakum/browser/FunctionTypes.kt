@@ -20,6 +20,9 @@ private fun convertFunctionType(
 
         name == "RemotePlaybackAvailabilityCallback" -> "remoteplayback"
 
+        name == "ErrorCallback" -> "web.filesystem"
+        name == "FileCallback" -> "web.filesystem"
+
         name == "LockGrantedCallback" -> "web.locks"
 
         name.startsWith("RTC") -> "webrtc"
