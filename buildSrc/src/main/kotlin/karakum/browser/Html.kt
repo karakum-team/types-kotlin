@@ -162,6 +162,7 @@ private fun convertInterface(
         name == "DOMMatrix2DInit" -> "dom.geometry"
         name.startsWith("SVG") -> "dom.svg"
         name.startsWith("Lock") -> "web.locks"
+        name.startsWith("Navigator") -> "web.navigator"
 
         else -> "dom.html"
     }
