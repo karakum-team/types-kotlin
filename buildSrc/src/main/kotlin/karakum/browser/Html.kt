@@ -38,7 +38,7 @@ internal fun htmlDeclarations(
     }
 
     val interfaces =
-        Regex("""interface (HTML.+?|SVG.+?|Storage|StorageEstimate|StorageManager|Gamepad|Gamepad.+?|FileSystem|FileSystem.+?|Lock|Lock.+?|Navigator.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
+        Regex("""interface (HTML.+?|SVG.+?|Storage|StorageEstimate|StorageManager|Permission.+?|Gamepad|Gamepad.+?|FileSystem|FileSystem.+?|Lock|Lock.+?|Navigator.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
             .findAll(content)
             .map { it.value }
             .mapNotNull { convertInterface(it, getType) }
@@ -168,6 +168,7 @@ private fun convertInterface(
         name.startsWith("Gamepad") -> "web.gamepad"
         name.startsWith("Lock") -> "web.locks"
         name.startsWith("Navigator") -> "web.navigator"
+        name.startsWith("Permission") -> "web.permissions"
         name.startsWith("Storage") -> "web.storage"
 
         else -> "dom.html"
