@@ -38,7 +38,7 @@ internal fun htmlDeclarations(
     }
 
     val interfaces =
-        Regex("""interface (HTML.+?|SVG.+?|Storage|StorageEstimate|StorageManager|Permission.+?|Gamepad|Gamepad.+?|FileSystem|FileSystem.+?|Lock|Lock.+?|Navigator.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
+        Regex("""interface (HTML.+?|SVG.+?|ShareData|Storage|StorageEstimate|StorageManager|Permission.+?|Gamepad|Gamepad.+?|FileSystem|FileSystem.+?|Lock|Lock.+?|Navigator.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
             .findAll(content)
             .map { it.value }
             .mapNotNull { convertInterface(it, getType) }
@@ -169,6 +169,7 @@ private fun convertInterface(
         name.startsWith("Lock") -> "web.locks"
         name.startsWith("Navigator") -> "web.navigator"
         name.startsWith("Permission") -> "web.permissions"
+        name == "ShareData" -> "web.share"
         name.startsWith("Storage") -> "web.storage"
 
         else -> "dom.html"
@@ -243,6 +244,7 @@ private fun convertProperty(
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"
         "ReadonlyArray<number>" -> "ReadonlyArray<Double>"
         "LockInfo[]" -> "ReadonlyArray<LockInfo>"
+        "File[]" -> "ReadonlyArray<File>"
 
         else -> if (type.startsWith("\"")) {
             "String /* $type */"
