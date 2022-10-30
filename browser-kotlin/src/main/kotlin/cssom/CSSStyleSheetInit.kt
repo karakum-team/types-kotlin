@@ -5,5 +5,5 @@ package cssom
 sealed external interface CSSStyleSheetInit {
     var baseURL: String?
     var disabled: Boolean?
-    var media: MediaList | string?
+    var media: Any /* MediaList | string */?
 }
