@@ -47,6 +47,8 @@ import web.file.FileList
 import web.filesystem.FileSystemDirectoryHandle
 import web.http.ReferrerPolicy
 import web.locks.LockManager
+import web.permissions.Permissions
+import web.share.ShareData
 import web.storage.StorageManager
 import web.url.URL
 import webvtt.TextTrack
