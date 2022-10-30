@@ -30,9 +30,6 @@ private val ANIMATION_TYPES = setOf(
 
 private val IGNORED = setOf(
     "HTMLOrSVGElement",
-
-    // TEMP
-    "Navigator",
 )
 
 
