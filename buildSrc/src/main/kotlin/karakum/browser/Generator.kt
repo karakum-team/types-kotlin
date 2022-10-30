@@ -140,6 +140,14 @@ fun generateKotlinDeclarations(
             import webgl.*    
             """.trimIndent()
 
+            "Navigator" ->"""
+            import media.devices.MediaDevices
+            import media.key.MediaKeySystemAccess
+            import media.key.MediaKeySystemConfiguration
+            import serviceworkers.ServiceWorkerContainer
+            import web.clipboard.Clipboard       
+            """.trimIndent()
+
             else -> ""
         }
 
