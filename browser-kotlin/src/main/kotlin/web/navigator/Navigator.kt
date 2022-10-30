@@ -4,6 +4,11 @@ package web.navigator
 
 import kotlinx.js.ReadonlyArray
 import kotlinx.js.Void
+import media.devices.MediaDevices
+import media.key.MediaKeySystemAccess
+import media.key.MediaKeySystemConfiguration
+import serviceworkers.ServiceWorkerContainer
+import web.clipboard.Clipboard
 import web.permissions.Permissions
 import web.share.ShareData
 import web.url.URL
