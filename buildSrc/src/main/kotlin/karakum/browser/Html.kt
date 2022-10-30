@@ -280,6 +280,8 @@ private fun convertProperty(
         "ReadonlyArray<number>" -> "ReadonlyArray<Double>"
         "LockInfo[]" -> "ReadonlyArray<LockInfo>"
         "File[]" -> "ReadonlyArray<File>"
+        "MediaList | string" -> "Any /* MediaList | string */"
+        "Element | ProcessingInstruction" -> "Any /* Element | ProcessingInstruction */"
 
         else -> if (type.startsWith("\"")) {
             "String /* $type */"
