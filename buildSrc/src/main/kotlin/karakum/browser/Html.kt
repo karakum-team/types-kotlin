@@ -58,6 +58,7 @@ internal fun htmlDeclarations(
         "StyleSheet",
         "StyleSheetList",
         "MediaList",
+        "MediaQueryList .+?",
 
         "ShareData",
         "Storage",
@@ -225,6 +226,7 @@ private fun convertInterface(
         name.startsWith("CSS") -> "cssom"
         name.startsWith("StyleSheet") -> "cssom"
         name == "MediaList" -> "cssom"
+        name == "MediaQueryList" -> "cssom"
 
         name in ANIMATION_TYPES -> "web.animations"
 
