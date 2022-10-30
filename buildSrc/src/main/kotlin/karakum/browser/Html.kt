@@ -307,6 +307,13 @@ private fun convertProperty(
         "number | string",
         -> typeProvider.numberType(name.removeSuffix("?"))
 
+        // TEMP
+        "CredentialsContainer",
+        "Geolocation",
+        "MediaCapabilities",
+        "MediaSession",
+        -> "dynamic /* $type */"
+
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"
         "ReadonlyArray<number>" -> "ReadonlyArray<Double>"
