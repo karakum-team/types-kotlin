@@ -30,15 +30,15 @@ sealed external class Navigator :
     val clipboard: Clipboard
 
     /** Available only in secure contexts. */
-    val credentials: CredentialsContainer
+    val credentials: dynamic /* CredentialsContainer */
     val doNotTrack: String?
-    val geolocation: Geolocation
+    val geolocation: dynamic /* Geolocation */
     val maxTouchPoints: Int
-    val mediaCapabilities: MediaCapabilities
+    val mediaCapabilities: dynamic /* MediaCapabilities */
 
     /** Available only in secure contexts. */
     val mediaDevices: MediaDevices
-    val mediaSession: MediaSession
+    val mediaSession: dynamic /* MediaSession */
     val permissions: Permissions
 
     /** Available only in secure contexts. */
