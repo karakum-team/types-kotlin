@@ -37,8 +37,38 @@ internal fun htmlDeclarations(
         if ("\ndeclare var $name" in source) "class" else "interface"
     }
 
+    val patterns = sequenceOf(
+        "HTML.+?",
+        "SVG.+?",
+
+        "CSS.+?",
+        "StyleSheet",
+        "StyleSheetList",
+        "MediaList",
+
+        "ShareData",
+        "Storage",
+        "StorageEstimate",
+        "StorageManager",
+        "Permission.+?",
+        "Gamepad",
+        "Gamepad.+?",
+        "FileSystem",
+        "FileSystem.+?",
+        "Lock",
+        "Lock.+?",
+        "Navigator.+?",
+        "PictureInPictureWindow.+?",
+        "ValidityState",
+        "AssignedNodesOptions",
+        "VideoFrameMetadata",
+        "VideoPlaybackQuality",
+        "RemotePlayback .+?",
+        "DOMMatrix2DInit",
+    ).joinToString("|")
+
     val interfaces =
-        Regex("""interface (HTML.+?|SVG.+?|ShareData|Storage|StorageEstimate|StorageManager|Permission.+?|Gamepad|Gamepad.+?|FileSystem|FileSystem.+?|Lock|Lock.+?|Navigator.+?|PictureInPictureWindow.+?|ValidityState|AssignedNodesOptions|VideoFrameMetadata|VideoPlaybackQuality|RemotePlayback .+?|DOMMatrix2DInit) \{[\s\S]+?\}""")
+        Regex("""interface ($patterns) \{[\s\S]+?\}""")
             .findAll(content)
             .map { it.value }
             .mapNotNull { convertInterface(it, getType) }
@@ -164,6 +194,11 @@ private fun convertInterface(
         name == "RemotePlayback" -> "remoteplayback"
         name == "DOMMatrix2DInit" -> "dom.geometry"
         name.startsWith("SVG") -> "dom.svg"
+
+        name.startsWith("CSS") -> "cssom"
+        name.startsWith("StyleSheet") -> "cssom"
+        name == "MediaList" -> "cssom"
+
         name.startsWith("FileSystem") -> "web.filesystem"
         name.startsWith("Gamepad") -> "web.gamepad"
         name.startsWith("Lock") -> "web.locks"
