@@ -415,6 +415,12 @@ private fun getParameterType(
         source == "number"
         -> "Number"
 
+        source == "BodyInit"
+        -> "Any /* BodyInit */"
+
+        source == "VibratePattern"
+        -> "ReadonlyArray<Int> /* VibratePattern */"
+
         source == "HTMLOptionElement | HTMLOptGroupElement"
         -> "HTMLElement /* HTMLOptionElement | HTMLOptGroupElement */"
 
