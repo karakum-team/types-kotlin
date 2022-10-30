@@ -56,10 +56,10 @@ sealed external class Navigator :
 
     fun sendBeacon(
         url: URL, /* | string */
-        data: BodyInit? = definedExternally,
+        data: Any /* BodyInit */? = definedExternally,
     ): Boolean
 
     /** Available only in secure contexts. */
     fun share(data: ShareData = definedExternally): Promise<Void>
-    fun vibrate(pattern: VibratePattern): Boolean
+    fun vibrate(pattern: ReadonlyArray<Int> /* VibratePattern */): Boolean
 }
