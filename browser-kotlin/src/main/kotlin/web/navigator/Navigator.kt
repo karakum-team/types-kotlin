@@ -9,6 +9,7 @@ import media.key.MediaKeySystemAccess
 import media.key.MediaKeySystemConfiguration
 import serviceworkers.ServiceWorkerContainer
 import web.clipboard.Clipboard
+import web.gamepad.Gamepad
 import web.permissions.Permissions
 import web.share.ShareData
 import web.url.URL
@@ -45,7 +46,8 @@ sealed external class Navigator :
 
     /** Available only in secure contexts. */
     fun canShare(data: ShareData = definedExternally): Boolean
-    fun getGamepads(): (Gamepad?)[]
+    fun getGamepads(): ReadonlyArray<Gamepad?>
+
     /** Available only in secure contexts. */
     fun requestMediaKeySystemAccess(
         keySystem: String,
