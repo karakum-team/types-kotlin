@@ -18,6 +18,16 @@ private val DEPRECATED = setOf(
     "HTMLTableDataCellElement",
 )
 
+private val ANIMATION_TYPES = setOf(
+    "Animation",
+    "AnimationEffect",
+    "AnimationTimeline",
+
+    "ComputedEffectTiming",
+    "EffectTiming",
+    "OptionalEffectTiming",
+)
+
 private val IGNORED = setOf(
     "HTMLOrSVGElement",
 
@@ -40,6 +50,9 @@ internal fun htmlDeclarations(
     val patterns = sequenceOf(
         "HTML.+?",
         "SVG.+?",
+
+        "Animation .+?",
+        "ComputedEffectTiming .+?",
 
         "CSS.+?",
         "StyleSheet",
@@ -65,7 +78,8 @@ internal fun htmlDeclarations(
         "VideoPlaybackQuality",
         "RemotePlayback .+?",
         "DOMMatrix2DInit",
-    ).joinToString("|")
+    ).plus(ANIMATION_TYPES)
+        .joinToString("|")
 
     val interfaces =
         Regex("""interface ($patterns) \{[\s\S]+?\}""")
@@ -87,6 +101,13 @@ internal fun htmlDeclarations(
                 name = "HTMLCollectionOf",
                 body = "typealias HTMLCollectionOf<T> = HTMLCollection",
                 pkg = "dom.html",
+            )
+        )
+        .plus(
+            ConversionResult(
+                name = "CSSNumberish",
+                body = "typealias CSSNumberish = Double",
+                pkg = "web.animations",
             )
         )
 }
@@ -182,11 +203,17 @@ private fun convertInterface(
             .joinToString("\n")
     } else ""
 
-    val modifier = if (
+    val modifier = when {
+        name == "Animation"
+        -> "open"
+
         type == "class" &&
-        name.startsWith("HTML") &&
-        name.endsWith("Element")
-    ) "abstract" else "sealed"
+                name.startsWith("HTML") &&
+                name.endsWith("Element")
+        -> "abstract"
+
+        else -> "sealed"
+    }
 
     val body = "$modifier external $declaration {\n$members\n}"
 
@@ -198,6 +225,8 @@ private fun convertInterface(
         name.startsWith("CSS") -> "cssom"
         name.startsWith("StyleSheet") -> "cssom"
         name == "MediaList" -> "cssom"
+
+        name in ANIMATION_TYPES -> "web.animations"
 
         name.startsWith("FileSystem") -> "web.filesystem"
         name.startsWith("Gamepad") -> "web.gamepad"
@@ -274,7 +303,11 @@ private fun convertProperty(
     type = when (type) {
         "string" -> "String"
         "boolean" -> "Boolean"
-        "number" -> typeProvider.numberType(name.removeSuffix("?"))
+
+        "number",
+        "number | string",
+        -> typeProvider.numberType(name.removeSuffix("?"))
+
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"
         "ReadonlyArray<number>" -> "ReadonlyArray<Double>"

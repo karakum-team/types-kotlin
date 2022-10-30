@@ -83,6 +83,15 @@ private val DOUBLE_NAMES = setOf(
     "angle",
     "currentScale",
     "valueInSpecifiedUnits",
+
+    // animation
+    "currentIteration",
+    "delay",
+    "duration",
+    "endDelay",
+    "iterationStart",
+    "iterations",
+    "progress",
 )
 
 internal class TypeProvider(
