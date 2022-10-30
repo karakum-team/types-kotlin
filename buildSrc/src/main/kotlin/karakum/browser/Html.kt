@@ -57,6 +57,8 @@ internal fun htmlDeclarations(
         "MediaList",
         "MediaQueryList .+?",
 
+        "ClipboardItemOptions",
+
         "History",
         "Location",
 
@@ -229,6 +231,8 @@ private fun convertInterface(
         name == "MediaQueryList" -> "cssom"
 
         name in ANIMATION_TYPES -> "web.animations"
+
+        name.startsWith("Clipboard") -> "web.clipboard"
 
         name == "History" -> "web.history"
         name == "Location" -> "web.location"
