@@ -2,6 +2,8 @@
 
 package cssom
 
+import web.animations.Animation
+
 sealed external class CSSTransition :
     Animation {
     val transitionProperty: String
