@@ -57,6 +57,7 @@ internal fun htmlDeclarations(
         "MediaList",
         "MediaQueryList .+?",
 
+        "History",
         "Location",
 
         "ShareData",
@@ -229,6 +230,7 @@ private fun convertInterface(
 
         name in ANIMATION_TYPES -> "web.animations"
 
+        name == "History" -> "web.history"
         name == "Location" -> "web.location"
 
         name.startsWith("FileSystem") -> "web.filesystem"
@@ -304,6 +306,7 @@ private fun convertProperty(
     type = type.removeSuffix(" | null")
 
     type = when (type) {
+        "any" -> "Any?"
         "string" -> "String"
         "boolean" -> "Boolean"
 
@@ -416,6 +419,9 @@ private fun getParameterType(
     return when {
         source.startsWith("\"")
         -> "String /* $source */"
+
+        source == "any"
+        -> "Any?"
 
         source == "string"
         -> "String"
