@@ -379,6 +379,7 @@ private fun convertFunction(
         .replace("<string[]", "<ReadonlyArray<String>")
         .replace(": Element[]", ": ReadonlyArray<Element>")
         .replace(": Node[]", ": ReadonlyArray<Node>")
+        .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")
         .replace(": number", ": Number")
         .replace(": string", ": String")
         .replace(": boolean", ": Boolean")

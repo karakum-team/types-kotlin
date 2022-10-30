@@ -146,6 +146,7 @@ fun generateKotlinDeclarations(
             import media.key.MediaKeySystemConfiguration
             import serviceworkers.ServiceWorkerContainer
             import web.clipboard.Clipboard       
+            import web.gamepad.Gamepad       
             """.trimIndent()
 
             else -> ""
