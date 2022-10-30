@@ -19,6 +19,7 @@ import kotlinx.js.Uint32Array
 import kotlinx.js.Void
 import dom.Document
 import dom.DocumentFragment
+import dom.DOMStringList
 import dom.DOMTokenList
 import dom.Element
 import dom.Node

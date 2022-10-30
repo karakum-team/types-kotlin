@@ -57,6 +57,8 @@ internal fun htmlDeclarations(
         "MediaList",
         "MediaQueryList .+?",
 
+        "Location",
+
         "ShareData",
         "Storage",
         "StorageEstimate",
@@ -226,6 +228,8 @@ private fun convertInterface(
         name == "MediaQueryList" -> "cssom"
 
         name in ANIMATION_TYPES -> "web.animations"
+
+        name == "Location" -> "web.location"
 
         name.startsWith("FileSystem") -> "web.filesystem"
         name.startsWith("Gamepad") -> "web.gamepad"

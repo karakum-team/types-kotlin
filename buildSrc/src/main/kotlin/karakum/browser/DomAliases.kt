@@ -8,6 +8,7 @@ private val CLASSES = listOf(
 
     "NodeList",
 
+    "DOMStringList",
     "DOMStringMap",
     "DOMImplementation",
     "DOMTokenList",
@@ -44,6 +45,11 @@ internal fun domAliases(): List<ConversionResult> =
             else -> "org.w3c.dom"
         }
 
+        val alias = when (name) {
+            "DOMStringList" -> "ReadonlyArray<String>"
+            else -> "$aliasPkg.$name"
+        }
+
         val pkg = when (name) {
             in GEOMETRY_CLASSES -> "dom.geometry"
             in PARSING_CLASSES -> "dom.parsing"
@@ -52,7 +58,7 @@ internal fun domAliases(): List<ConversionResult> =
 
         ConversionResult(
             name = name,
-            body = "typealias $name = $aliasPkg.$name",
+            body = "typealias $name = $alias",
             pkg = pkg,
         )
     }
