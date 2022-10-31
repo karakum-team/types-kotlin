@@ -9,6 +9,7 @@ private val PKG_MAP = mapOf(
     "location" to "web.location",
     "navigator" to "web.navigator",
     "screen" to "web.screen",
+    "speechSynthesis" to "web.speech",
     "localStorage" to "web.storage",
     "sessionStorage" to "web.storage",
 )
