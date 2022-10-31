@@ -63,6 +63,9 @@ internal fun htmlDeclarations(
         "History",
         "Location",
 
+        "Screen",
+        "ScreenOrientation .+?",
+
         "ShareData",
         "Storage",
         "StorageEstimate",
@@ -244,6 +247,7 @@ private fun convertInterface(
         name.startsWith("Lock") -> "web.locks"
         name.startsWith("Navigator") -> "web.navigator"
         name.startsWith("Permission") -> "web.permissions"
+        name.startsWith("Screen") -> "web.screen"
         name == "ShareData" -> "web.share"
         name.startsWith("Storage") -> "web.storage"
 

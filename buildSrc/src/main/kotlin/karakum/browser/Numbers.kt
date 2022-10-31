@@ -118,6 +118,8 @@ internal class TypeProvider(
             propertyName == "quota" || propertyName == "usage"
             -> "Double /* Int64 */"
 
+            parentType == "Screen" -> "Int"
+
             parentType == "SVGAnimatedInteger" -> "Int"
             parentType == "SVGAnimatedNumber" -> "Double"
 
