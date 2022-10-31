@@ -6,6 +6,7 @@ import karakum.common.unionBody
 
 internal const val VIDEO_FRAME_REQUEST_ID = "VideoFrameRequestId"
 internal const val RENDERING_CONTEXT_ID = "RenderingContextId"
+internal const val GEOLOCATION_WATCH_ID = "GeolocationWatchId"
 
 private val DEPRECATED = setOf(
     "HTMLDirectoryElement",
@@ -109,6 +110,13 @@ internal fun htmlDeclarations(
                 name = VIDEO_FRAME_REQUEST_ID,
                 body = "sealed external interface $VIDEO_FRAME_REQUEST_ID",
                 pkg = "dom.html",
+            )
+        )
+        .plus(
+            ConversionResult(
+                name = GEOLOCATION_WATCH_ID,
+                body = "sealed external interface $GEOLOCATION_WATCH_ID",
+                pkg = "web.geolocation",
             )
         )
         .plus(

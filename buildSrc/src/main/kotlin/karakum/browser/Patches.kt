@@ -8,6 +8,8 @@ internal fun String.applyPatches(): String =
         .replace("(lock: Lock | null): any", "(lock: Lock | null): void")
         .replace("""readonly kind: "file";""", """/* val kind: "file" */""")
         .replace("""readonly kind: "directory";""", """/* val kind: "directory" */""")
+        .replace("clearWatch(watchId: number)", "clearWatch(watchId: $GEOLOCATION_WATCH_ID)")
+        .replace(": PositionOptions): number;", ": PositionOptions): $GEOLOCATION_WATCH_ID;")
 
 internal fun String.patchVideoFrameCallback(): String =
     replace(
