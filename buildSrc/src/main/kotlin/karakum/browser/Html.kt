@@ -92,6 +92,7 @@ internal fun htmlDeclarations(
 
     return interfaces
         .plus(additionalType)
+        .plus(clipboardDeclarations())
         .plus(
             ConversionResult(
                 name = VIDEO_FRAME_REQUEST_ID,
