@@ -138,6 +138,11 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
+"@webref/idl@3.20.1":
+  version "3.20.1"
+  resolved "https://registry.yarnpkg.com/@webref/idl/-/idl-3.20.1.tgz#7a732b6ff1b5f7447dfd83de4f3ddc26da44658a"
+  integrity sha512-Z17szC9l8jClj0Jv/kn+wh98akeUsyzk/o6vB8sIpl3Wqm/OBRscE0pnXmuVe5+kf9TI1yUkifjiBe1jtdN49A==
+
 "@zip.js/zip.js@2.4.x":
   version "2.4.26"
   resolved "https://registry.yarnpkg.com/@zip.js/zip.js/-/zip.js-2.4.26.tgz#b79bb2055dc6e185890ee01cdb710caba505d5b2"

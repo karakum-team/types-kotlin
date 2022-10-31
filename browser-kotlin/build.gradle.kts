@@ -6,6 +6,7 @@ plugins {
 
 dependencies {
     implementation(npmv("typescript"))
+    implementation(npmv("@webref/idl"))
 
     implementation(enforcedPlatform(kotlinwBom()))
     implementation(kotlinw("js"))
