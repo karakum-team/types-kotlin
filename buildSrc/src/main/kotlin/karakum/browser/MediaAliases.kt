@@ -11,7 +11,6 @@ private val ALIAS_MAP = listOf(
 
     "TimeRanges" to "media.source",
 
-    "Clipboard" to "web.clipboard",
     "ServiceWorkerContainer" to "serviceworkers",
 )
 
@@ -25,9 +24,6 @@ internal fun mediaAliases(): List<ConversionResult> =
             "MediaKeySystemAccess",
             "MediaKeySystemConfiguration",
             -> "org.w3c.dom.encryptedmedia.$name"
-
-            "Clipboard",
-            -> "org.w3c.dom.clipboard.$name"
 
             "ServiceWorkerContainer",
             -> "org.w3c.workers.$name"

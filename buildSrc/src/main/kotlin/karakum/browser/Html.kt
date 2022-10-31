@@ -57,6 +57,7 @@ internal fun htmlDeclarations(
         "MediaList",
         "MediaQueryList .+?",
 
+        "Clipboard .+?",
         "ClipboardItemOptions",
 
         "History",
@@ -401,6 +402,7 @@ private fun convertFunction(
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")
         .replace(": number", ": Number")
         .replace(": string", ": String")
+        .replace("<string>", "<String>")
         .replace(": boolean", ": Boolean")
         .replace("<boolean>", "<Boolean>")
         .replace(": any", ": Any")
