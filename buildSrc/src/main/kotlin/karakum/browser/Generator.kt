@@ -35,6 +35,7 @@ import dom.geometry.DOMPointReadOnly
 import dom.geometry.DOMRect
 import dom.geometry.DOMRectReadOnly
 import dom.html.HTMLCanvasElement
+import dom.html.Window
 import media.MediaError
 import media.key.MediaKeys
 import media.source.TimeRanges
@@ -115,6 +116,7 @@ fun generateKotlinDeclarations(
         .plus(canvasAliases())
         .plus(fileAliases())
         .plus(htmlDeclarations(content))
+        .plus(browserConstants(content))
         .plus(browserTypes(content))
         .plus(browserFunctionTypes(content))
 
