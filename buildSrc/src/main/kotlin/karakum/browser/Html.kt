@@ -69,6 +69,10 @@ internal fun htmlDeclarations(
         "SpeechReco.+?",
         "SpeechSynt.+?",
 
+        "Geolocation",
+        "Geolocation.+?",
+        "PositionOptions",
+
         "ShareData",
         "Storage",
         "StorageEstimate",
@@ -250,6 +254,10 @@ private fun convertInterface(
 
         name.startsWith("FileSystem") -> "web.filesystem"
         name.startsWith("Gamepad") -> "web.gamepad"
+
+        name.startsWith("Geolocation") -> "web.geolocation"
+        name.startsWith("Position") -> "web.geolocation"
+
         name.startsWith("Lock") -> "web.locks"
         name.startsWith("Navigator") -> "web.navigator"
         name.startsWith("Permission") -> "web.permissions"

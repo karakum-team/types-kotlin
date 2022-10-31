@@ -8,6 +8,9 @@ private val FLAG_NAMES = setOf(
 
     "align",
     "meetOrSlice",
+
+    // geolocation
+    "code",
 )
 
 private val INT_NAMES = setOf(
@@ -122,6 +125,9 @@ internal class TypeProvider(
         return when {
             propertyName == "quota" || propertyName == "usage"
             -> "Double /* Int64 */"
+
+            parentType == "GeolocationCoordinates" -> "Double"
+            parentType == "PositionOptions" -> "Double"
 
             parentType == "Screen" -> "Int"
 

@@ -24,6 +24,8 @@ private fun convertFunctionType(
         name == "FileCallback" -> "web.filesystem"
         name.startsWith("FileSystem") -> "web.filesystem"
 
+        name.startsWith("Position") -> "web.geolocation"
+
         name == "LockGrantedCallback" -> "web.locks"
 
         name.startsWith("RTC") -> "webrtc"
