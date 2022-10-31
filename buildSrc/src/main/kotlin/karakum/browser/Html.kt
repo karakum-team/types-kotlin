@@ -66,6 +66,7 @@ internal fun htmlDeclarations(
         "Screen",
         "ScreenOrientation .+?",
 
+        "SpeechReco.+?",
         "SpeechSynt.+?",
 
         "ShareData",
@@ -254,8 +255,7 @@ private fun convertInterface(
         name.startsWith("Permission") -> "web.permissions"
         name.startsWith("Screen") -> "web.screen"
 
-        name.startsWith("SpeechRecognition") -> "web.speech"
-        name.startsWith("SpeechSynthesis") -> "web.speech"
+        name.startsWith("Speech") -> "web.speech"
 
         name == "ShareData" -> "web.share"
         name.startsWith("Storage") -> "web.storage"

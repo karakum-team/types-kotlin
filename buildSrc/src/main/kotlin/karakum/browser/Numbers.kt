@@ -95,7 +95,8 @@ private val DOUBLE_NAMES = setOf(
 
     // speech
     "pitch",
-    "rate"
+    "rate",
+    "confidence",
 )
 
 internal class TypeProvider(
