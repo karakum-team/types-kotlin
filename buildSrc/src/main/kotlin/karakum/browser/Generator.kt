@@ -145,12 +145,17 @@ fun generateKotlinDeclarations(
         } else ""
 
         val imports = when (name) {
+            "Document" -> """
+            import dom.html.*    
+            import dom.svg.SVGElement    
+            """.trimIndent()
+
             "HTMLCanvasElement" -> """
             import canvas.*    
             import webgl.*    
             """.trimIndent()
 
-            "Navigator" ->"""
+            "Navigator" -> """
             import media.devices.MediaDevices
             import media.key.MediaKeySystemAccess
             import media.key.MediaKeySystemConfiguration

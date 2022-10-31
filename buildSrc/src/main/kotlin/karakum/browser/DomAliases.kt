@@ -3,7 +3,6 @@ package karakum.browser
 private val CLASSES = listOf(
     "Node",
     "Element",
-    "Document",
     "DocumentFragment",
 
     "NodeList",
@@ -16,6 +15,22 @@ private val CLASSES = listOf(
     "ScrollOptions",
     "ScrollToOptions",
     "ScrollIntoViewOptions",
+
+    "Attr",
+    "CDATASection",
+    "Comment",
+    "ElementCreationOptions",
+    "DocumentOrShadowRoot",
+    "NonElementParentNode",
+    "ParentNode",
+    "HTMLOrSVGScriptElement", // check
+    "DocumentType",
+    "NodeFilter",
+    "TreeWalker",
+    "Text",
+    "ProcessingInstruction",
+    "Range",
+    "NodeIterator",
 )
 
 private val GEOMETRY_CLASSES = listOf(

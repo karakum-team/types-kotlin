@@ -49,6 +49,8 @@ internal fun htmlDeclarations(
         "HTML.+?",
         "SVG.+?",
 
+        "Document .+?",
+
         "Animation .+?",
         "ComputedEffectTiming .+?",
 
@@ -205,6 +207,10 @@ private fun convertInterface(
         // check
         .replace(", HTMLOrSVGElement", "")
         .replace(", WindowEventHandlers", "")
+        // TEMP
+        .replace(", FontFaceSource", "")
+        .replace(", XPathEvaluatorBase", "")
+
         .replace("interface ", "$type ")
         .replace(" extends ", " :\n")
         .replace(", ", ",\n")
@@ -232,6 +238,9 @@ private fun convertInterface(
 
         name == "Animation"
         -> "open"
+
+        name == "Document"
+        -> "abstract"
 
         type == "class" &&
                 name.startsWith("HTML") &&
@@ -306,10 +315,18 @@ private fun convertMember(
     }
 
     when {
+        source.startsWith("createElement<") -> return null
+        source.startsWith("createElementNS") && ("namespaceURI:" in source) -> return null
+        source.startsWith("getElementsByTagName<") -> return null
+        source.startsWith("getElementsByTagNameNS(namespaceURI: \"") -> return null
+        source.startsWith("get location(") -> return null
+        source.startsWith("set location(") -> return null
+
         source.startsWith("addEventListener<") -> return null
         source.startsWith("addEventListener(") -> return null
         source.startsWith("removeEventListener<") -> return null
         source.startsWith("removeEventListener(") -> return null
+        source.startsWith("createEvent(") -> return null
         source.startsWith("remove()") -> return null
         source.startsWith("toString()") -> return null
     }
@@ -320,10 +337,20 @@ private fun convertMember(
     if (source.startsWith("["))
         return "    // $source"
 
-    if ("(" !in source)
-        return convertProperty(source, typeProvider)
+    // TEMP
+    if (source.startsWith("importNode<") || source.startsWith("adoptNode<"))
+        return "    // $source"
 
-    return convertFunction(source)
+    if ("(" in source) {
+        val isFun = if (": " in source) {
+            source.indexOf(": ") > source.indexOf("(")
+        } else true
+
+        if (isFun)
+            return convertFunction(source)
+    }
+
+    return convertProperty(source, typeProvider)
 }
 
 private fun convertProperty(
@@ -337,6 +364,8 @@ private fun convertProperty(
     type = type.removeSuffix(" | null")
 
     type = when (type) {
+        "null" -> "Void"
+
         "any" -> "Any?"
         "string" -> "String"
         "boolean" -> "Boolean"
@@ -349,6 +378,8 @@ private fun convertProperty(
         "CredentialsContainer",
         "MediaCapabilities",
         "MediaSession",
+
+        "DocumentTimeline",
         -> "dynamic /* $type */"
 
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
@@ -358,6 +389,10 @@ private fun convertProperty(
         "File[]" -> "ReadonlyArray<File>"
         "MediaList | string" -> "Any /* MediaList | string */"
         "Element | ProcessingInstruction" -> "Any /* Element | ProcessingInstruction */"
+        "(WindowProxy & typeof globalThis)" -> "WindowProxy"
+
+        "HTMLCollectionOf<HTMLAnchorElement | HTMLAreaElement>",
+        -> "HTMLCollectionOf<HTMLElement /* HTMLAnchorElement | HTMLAreaElement */>"
 
         else -> if (type.startsWith("\"")) {
             "String /* $type */"
@@ -387,6 +422,11 @@ private fun convertFunction(
         "...nodes: (Element | Text)[]",
         -> listOf(
             "vararg nodes: Element /* | Text */",
+        )
+
+        "...text: string[]",
+        -> listOf(
+            "vararg text: String",
         )
 
         else -> parametersSource
@@ -430,6 +470,7 @@ private fun convertFunction(
         .replace("<string>", "<String>")
         .replace(": boolean", ": Boolean")
         .replace("<boolean>", "<Boolean>")
+        .replace(": Selection", ": Any /* Selection */")
         .replace(": any", ": Any")
         .replace("<void>", "<Void>")
         .replace(" | null", "?")
@@ -469,6 +510,9 @@ private fun getParameterType(
 
         source == "VibratePattern"
         -> "ReadonlyArray<Int> /* VibratePattern */"
+
+        source == "string | ElementCreationOptions"
+        -> "ElementCreationOptions /* | String */"
 
         source == "HTMLOptionElement | HTMLOptGroupElement"
         -> "HTMLElement /* HTMLOptionElement | HTMLOptGroupElement */"
