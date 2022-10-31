@@ -205,7 +205,7 @@ object HTML {
         get() = HtmlTagName("noscript")
 
     inline val `object`: HtmlTagName<HTMLObjectElement>
-        get() = HtmlTagName("`object`")
+        get() = HtmlTagName("object")
 
     inline val ol: HtmlTagName<HTMLOListElement>
         get() = HtmlTagName("ol")
@@ -328,7 +328,7 @@ object HTML {
         get() = HtmlTagName("ul")
 
     inline val `var`: HtmlTagName<HTMLElement>
-        get() = HtmlTagName("`var`")
+        get() = HtmlTagName("var")
 
     inline val video: HtmlTagName<HTMLVideoElement>
         get() = HtmlTagName("video")
