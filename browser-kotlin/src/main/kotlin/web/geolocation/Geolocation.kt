@@ -3,7 +3,7 @@
 package web.geolocation
 
 sealed external class Geolocation {
-    fun clearWatch(watchId: Number)
+    fun clearWatch(watchId: GeolocationWatchId)
     fun getCurrentPosition(
         successCallback: PositionCallback,
         errorCallback: PositionErrorCallback? = definedExternally,
@@ -14,5 +14,5 @@ sealed external class Geolocation {
         successCallback: PositionCallback,
         errorCallback: PositionErrorCallback? = definedExternally,
         options: PositionOptions = definedExternally,
-    ): Number
+    ): GeolocationWatchId
 }
