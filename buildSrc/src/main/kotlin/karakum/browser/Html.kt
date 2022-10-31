@@ -301,8 +301,6 @@ private fun convertMember(
     when (true) {
         (source.startsWith("on") && "(this:" in source),
         source.startsWith("["),
-        ("webkitEntries" in source),
-        ("webkitdirectory" in source),
         -> return "    // $source"
     }
 
