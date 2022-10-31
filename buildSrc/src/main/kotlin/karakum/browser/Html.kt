@@ -339,7 +339,6 @@ private fun convertProperty(
 
         // TEMP
         "CredentialsContainer",
-        "Geolocation",
         "MediaCapabilities",
         "MediaSession",
         -> "dynamic /* $type */"

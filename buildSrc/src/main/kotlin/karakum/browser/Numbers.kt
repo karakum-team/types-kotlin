@@ -127,7 +127,7 @@ internal class TypeProvider(
             -> "Double /* Int64 */"
 
             parentType == "GeolocationCoordinates" -> "Double"
-            parentType == "PositionOptions" -> "Double"
+            parentType == "PositionOptions" -> "Double /* Int64 */"
 
             parentType == "Screen" -> "Int"
 
