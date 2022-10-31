@@ -121,6 +121,7 @@ fun generateKotlinDeclarations(
         .plus(browserConstants(content))
         .plus(browserTypes(content))
         .plus(browserFunctionTypes(content))
+        .plus(tagNames(content))
 
     for ((name, body, pkg) in aliases) {
         pkg!!
@@ -134,6 +135,9 @@ fun generateKotlinDeclarations(
 
             if (name == RENDERING_CONTEXT_ID)
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
+
+            if ("inline fun " in body)
+                add(NOTHING_TO_INLINE)
         }.toTypedArray()
 
         val annotations = if (suppresses.isNotEmpty()) {
