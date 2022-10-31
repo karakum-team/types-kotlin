@@ -1,7 +1,7 @@
 package karakum.browser
 
 // language=kotlin
-private const val CLIPBOARD_ITEM_BODY = """
+private val CLIPBOARD_ITEM_BODY = """
 external class ClipboardItem(
     items: Record<String, Any /* String | Blob | PromiseLike<String | Blob> */>,
     options: ClipboardItemOptions = definedExternally,
@@ -9,7 +9,7 @@ external class ClipboardItem(
     val types: ReadonlyArray<String>
     fun getType(type: String): Promise<Blob>
 }
-"""
+""".trimIndent()
 
 internal fun clipboardDeclarations(): Sequence<ConversionResult> =
     sequenceOf(
