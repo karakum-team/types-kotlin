@@ -66,6 +66,8 @@ internal fun htmlDeclarations(
         "Screen",
         "ScreenOrientation .+?",
 
+        "SpeechSynt.+?",
+
         "ShareData",
         "Storage",
         "StorageEstimate",
@@ -212,6 +214,9 @@ private fun convertInterface(
     } else ""
 
     val modifier = when {
+        name == "SpeechSynthesisUtterance"
+        -> ""
+
         name == "Animation"
         -> "open"
 
@@ -248,8 +253,14 @@ private fun convertInterface(
         name.startsWith("Navigator") -> "web.navigator"
         name.startsWith("Permission") -> "web.permissions"
         name.startsWith("Screen") -> "web.screen"
+
+        name.startsWith("SpeechRecognition") -> "web.speech"
+        name.startsWith("SpeechSynthesis") -> "web.speech"
+
         name == "ShareData" -> "web.share"
         name.startsWith("Storage") -> "web.storage"
+
+        name == "Document" -> "dom"
 
         else -> "dom.html"
     }
@@ -404,6 +415,7 @@ private fun convertFunction(
         .replace(": Element[]", ": ReadonlyArray<Element>")
         .replace(": Node[]", ": ReadonlyArray<Node>")
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")
+        .replace(": SpeechSynthesisVoice[]", ": ReadonlyArray<SpeechSynthesisVoice>")
         .replace(": number", ": Number")
         .replace(": string", ": String")
         .replace("<string>", "<String>")

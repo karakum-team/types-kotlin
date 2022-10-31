@@ -92,6 +92,10 @@ private val DOUBLE_NAMES = setOf(
     "iterationStart",
     "iterations",
     "progress",
+
+    // speech
+    "pitch",
+    "rate"
 )
 
 internal class TypeProvider(
