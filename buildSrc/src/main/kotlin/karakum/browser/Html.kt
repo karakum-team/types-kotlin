@@ -298,12 +298,8 @@ private fun convertMember(
         source.startsWith("toString()") -> return null
     }
 
-    when (true) {
-        (source.startsWith("on") && "(this:" in source),
-        source.startsWith("["),
-        -> return "    // $source"
-    }
-
+    if ((source.startsWith("on") && "(this:" in source))
+        return null
 
     if (source.startsWith("["))
         return "    // $source"
