@@ -1,5 +1,7 @@
 package karakum.browser
 
+import org.gradle.configurationcache.extensions.capitalized
+
 internal const val HTML_TAG_NAME = "HtmlTagName"
 internal const val SVG_TAG_NAME = "SvgTagName"
 
@@ -19,6 +21,8 @@ internal fun tagNames(
     source: String,
 ): Sequence<ConversionResult> {
     return sequenceOf(
+        tagDictionary("HTML", source),
+        tagDictionary("SVG", source),
         ConversionResult(
             name = HTML_TAG_NAME,
             body = tagNameBody(HTML_TAG_NAME, "HTMLElement"),
@@ -29,5 +33,44 @@ internal fun tagNames(
             body = tagNameBody(SVG_TAG_NAME, "SVGElement"),
             pkg = "dom.svg",
         ),
+    )
+}
+
+private fun tagDictionary(
+    name: String,
+    source: String,
+): ConversionResult {
+    val elementType = name + "Element"
+    val groupTagName = name.toLowerCase().capitalized() + "TagName"
+
+    val members = source
+        .substringAfter("interface ${elementType}TagNameMap {\n")
+        .substringBefore("\n}")
+        .trimIndent()
+        .splitToSequence("\n")
+        .joinToString("\n\n") { line ->
+            var (tagName, tagType) = line
+                .removePrefix("\"")
+                .removeSuffix(";")
+                .split("\": ")
+
+            when (tagName) {
+                "object",
+                "var",
+                -> tagName = "`$tagName`"
+            }
+
+            """
+            inline val $tagName: $groupTagName<$tagType>
+                get() = $groupTagName("$tagName")
+            """.trimIndent()
+        }
+
+    val body = "object $name {\n$members\n}"
+
+    return ConversionResult(
+        name = name,
+        body = body,
+        pkg = "dom.${name.toLowerCase()}",
     )
 }
