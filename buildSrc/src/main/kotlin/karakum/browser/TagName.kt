@@ -54,14 +54,16 @@ private fun tagDictionary(
                 .removeSuffix(";")
                 .split("\": ")
 
-            when (tagName) {
+            val propertyName = when (tagName) {
                 "object",
                 "var",
-                -> tagName = "`$tagName`"
+                -> "`$tagName`"
+
+                else -> tagName
             }
 
             """
-            inline val $tagName: $groupTagName<$tagType>
+            inline val $propertyName: $groupTagName<$tagType>
                 get() = $groupTagName("$tagName")
             """.trimIndent()
         }
