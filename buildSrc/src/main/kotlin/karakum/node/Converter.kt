@@ -275,18 +275,13 @@ private fun convertConst(
         else -> sourceType
     }
 
-    val memberType = when (type) {
-        "Symbol" -> "object"
-        else -> "val"
-    }
-
     val finalName = if (name != name.toUpperCase()) {
         "$name.const"
     } else name
 
     return ConversionResult(
         name = finalName,
-        body = "external $memberType $name: $type",
+        body = "external val $name: $type",
     )
 }
 
