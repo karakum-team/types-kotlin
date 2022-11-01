@@ -36,6 +36,7 @@ import dom.geometry.DOMPointReadOnly
 import dom.geometry.DOMRect
 import dom.geometry.DOMRectReadOnly
 import dom.html.HTMLCanvasElement
+import dom.html.HTMLElement
 import dom.html.Window
 import media.MediaError
 import media.key.MediaKeys
@@ -145,9 +146,13 @@ fun generateKotlinDeclarations(
         } else ""
 
         val imports = when (name) {
-            "Document" -> """
+            "Document",
+            "DocumentOrShadowRoot",
+            -> """
+            import cssom.CSSStyleSheet    
+            import cssom.StyleSheetList    
             import cssom.fonts.FontFaceSource    
-            import dom.html.*    
+            import dom.html.*        
             import dom.svg.SVGElement    
             import dom.xpath.XPathEvaluatorBase    
             """.trimIndent()

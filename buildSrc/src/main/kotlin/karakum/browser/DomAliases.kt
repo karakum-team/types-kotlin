@@ -3,7 +3,6 @@ package karakum.browser
 private val CLASSES = listOf(
     "Node",
     "Element",
-    "DocumentFragment",
 
     "NodeList",
 
@@ -20,7 +19,6 @@ private val CLASSES = listOf(
     "CDATASection",
     "Comment",
     "ElementCreationOptions",
-    "DocumentOrShadowRoot",
     "NonElementParentNode",
     "ParentNode",
     "HTMLOrSVGScriptElement", // check

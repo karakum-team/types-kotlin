@@ -50,6 +50,8 @@ internal fun htmlDeclarations(
         "SVG.+?",
 
         "Document .+?",
+        "DocumentFragment .+?",
+        "DocumentOrShadowRoot",
         "XPath.+?",
 
         "Animation .+?",
@@ -240,7 +242,7 @@ private fun convertInterface(
             .mapNotNull { convertMember(it, typeProvider) }
             .joinToString("\n")
 
-        if (name == "Document") {
+        if (name == "Document" || name == "DocumentFragment") {
             result = result
                 .replace("val ownerDocument:", "override val ownerDocument:")
                 .replace("fun getElementById(", "override fun getElementById(")
@@ -305,7 +307,7 @@ private fun convertInterface(
         name == "ShareData" -> "web.share"
         name.startsWith("Storage") -> "web.storage"
 
-        name == "Document" -> "dom"
+        name.startsWith("Document") -> "dom"
         name.startsWith("XPath") -> "dom.xpath"
 
         else -> "dom.html"
@@ -408,6 +410,7 @@ private fun convertProperty(
         "ReadonlyArray<number>" -> "ReadonlyArray<Double>"
         "LockInfo[]" -> "ReadonlyArray<LockInfo>"
         "File[]" -> "ReadonlyArray<File>"
+        "CSSStyleSheet[]" -> "ReadonlyArray<CSSStyleSheet>"
         "MediaList | string" -> "Any /* MediaList | string */"
         "Element | ProcessingInstruction" -> "Any /* Element | ProcessingInstruction */"
         "(WindowProxy & typeof globalThis)" -> "WindowProxy"
@@ -490,6 +493,7 @@ private fun convertFunction(
         .replace("<string[]", "<ReadonlyArray<String>")
         .replace(": Element[]", ": ReadonlyArray<Element>")
         .replace(": Node[]", ": ReadonlyArray<Node>")
+        .replace(": Animation[]", ": ReadonlyArray<Animation>")
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")
         .replace(": SpeechSynthesisVoice[]", ": ReadonlyArray<SpeechSynthesisVoice>")
         .replace(": number", ": Number")
