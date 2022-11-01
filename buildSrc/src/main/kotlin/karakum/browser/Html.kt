@@ -215,7 +215,7 @@ private fun convertInterface(
         .replace(" extends ", " :\n")
         .replace(", ", ",\n")
 
-    val memberSource = source
+    var memberSource = source
         .substringAfter(" {\n")
         .removeSuffix("}")
         .removeSuffix(";\n")
@@ -226,10 +226,18 @@ private fun convertInterface(
 
     val typeProvider = TypeProvider(name)
     val members = if (memberSource.isNotEmpty()) {
-        memberSource
+        var result = memberSource
             .splitToSequence(";\n")
             .mapNotNull { convertMember(it, typeProvider) }
             .joinToString("\n")
+
+        if (name == "Document") {
+            result = result
+                .replace("val ownerDocument:", "override val ownerDocument:")
+                .replace("fun getElementById(", "override fun getElementById(")
+        }
+
+        result
     } else ""
 
     val modifier = when {
