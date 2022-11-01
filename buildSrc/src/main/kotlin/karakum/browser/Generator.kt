@@ -149,6 +149,7 @@ fun generateKotlinDeclarations(
             import cssom.fonts.FontFaceSource    
             import dom.html.*    
             import dom.svg.SVGElement    
+            import dom.xpath.XPathEvaluatorBase    
             """.trimIndent()
 
             "HTMLCanvasElement" -> """

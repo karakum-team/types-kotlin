@@ -50,6 +50,7 @@ internal fun htmlDeclarations(
         "SVG.+?",
 
         "Document .+?",
+        "XPath.+?",
 
         "Animation .+?",
         "ComputedEffectTiming .+?",
@@ -139,6 +140,13 @@ internal fun htmlDeclarations(
                 pkg = "web.animations",
             )
         )
+        .plus(
+            ConversionResult(
+                name = "XPathNSResolver",
+                body = "typealias XPathNSResolver = (prefix: String?) -> String?",
+                pkg = "dom.xpath",
+            )
+        )
 }
 
 private fun prepareContent(
@@ -211,8 +219,6 @@ private fun convertInterface(
         // check
         .replace(", HTMLOrSVGElement", "")
         .replace(", WindowEventHandlers", "")
-        // TEMP
-        .replace(", XPathEvaluatorBase", "")
 
         .replace("interface ", "$type ")
         .replace(" extends ", " :\n")
@@ -245,7 +251,8 @@ private fun convertInterface(
 
     val modifier = when {
         name == "SpeechSynthesisUtterance" ||
-                name == "FontFaceSource"
+                name == "FontFaceSource" ||
+                name == "XPathEvaluatorBase"
         -> ""
 
         name == "Animation"
@@ -299,6 +306,7 @@ private fun convertInterface(
         name.startsWith("Storage") -> "web.storage"
 
         name == "Document" -> "dom"
+        name.startsWith("XPath") -> "dom.xpath"
 
         else -> "dom.html"
     }

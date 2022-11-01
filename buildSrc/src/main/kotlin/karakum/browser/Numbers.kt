@@ -3,6 +3,7 @@ package karakum.browser
 private val FLAG_NAMES = setOf(
     "networkState",
     "readyState",
+    "resultType",
     "unitType",
     "type",
 
@@ -20,6 +21,7 @@ private val INT_NAMES = setOf(
     "hardwareConcurrency",
     "index",
     "length",
+    "snapshotLength",
     "maxLength",
     "minLength",
     "naturalHeight",
@@ -69,6 +71,7 @@ private val DOUBLE_NAMES = setOf(
     "quality",
     "value",
     "valueAsNumber",
+    "numberValue",
     "width",
     "x",
     "y",
