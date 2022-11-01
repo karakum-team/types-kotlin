@@ -10,6 +10,10 @@ internal fun String.applyPatches(): String =
         .replace("""readonly kind: "directory";""", """/* val kind: "directory" */""")
         .replace("clearWatch(watchId: number)", "clearWatch(watchId: $GEOLOCATION_WATCH_ID)")
         .replace(": PositionOptions): number;", ": PositionOptions): $GEOLOCATION_WATCH_ID;")
+        .replace(
+            "forEach(callbackfn: (value: FontFace, key: FontFace, parent: FontFaceSet) => void, thisArg?: any): void;",
+            "forEach(action: (item: FontFace) => void): void;"
+        )
 
 internal fun String.patchVideoFrameCallback(): String =
     replace(

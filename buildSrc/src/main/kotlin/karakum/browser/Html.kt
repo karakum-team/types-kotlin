@@ -60,6 +60,10 @@ internal fun htmlDeclarations(
         "MediaList",
         "MediaQueryList .+?",
 
+        "FontFace",
+        "FontFaceSet .+?",
+        "FontFaceSource",
+
         "Clipboard .+?",
         "ClipboardItemOptions",
 
@@ -269,6 +273,7 @@ private fun convertInterface(
         name.startsWith("StyleSheet") -> "cssom"
         name == "MediaList" -> "cssom"
         name == "MediaQueryList" -> "cssom"
+        name.startsWith("FontFace") -> "cssom.fonts"
 
         name in ANIMATION_TYPES -> "web.animations"
 
@@ -437,6 +442,11 @@ private fun convertFunction(
             "vararg text: String",
         )
 
+        "action: (item: FontFace) => void",
+        -> listOf(
+            "action: (item: FontFace) -> Unit",
+        )
+
         else -> parametersSource
             .splitToSequence(", ")
             .filter { it.isNotEmpty() }
@@ -465,6 +475,7 @@ private fun convertFunction(
             "SVGElement /* SVGCircleElement | SVGEllipseElement | SVGImageElement | SVGLineElement | SVGPathElement | SVGPolygonElement | SVGPolylineElement | SVGRectElement | SVGTextElement | SVGUseElement */"
         )
         .replace(": Promise<number>", ": Promise<Number>")
+        .replace(": Promise<FontFace[]>", ": Promise<ReadonlyArray<FontFace>>")
         .replace(": WebGLShader[]", ": ReadonlyArray<WebGLShader>")
         .replace(": GLuint[]", ": ReadonlyArray<GLuint>")
         .replace(": string[]", ": ReadonlyArray<String>")
