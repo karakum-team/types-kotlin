@@ -160,10 +160,10 @@ bitmap-sdf@^1.0.3:
   resolved "https://registry.yarnpkg.com/bitmap-sdf/-/bitmap-sdf-1.0.4.tgz#e87b8b1d84ee846567cfbb29d60eedd34bca5b6f"
   integrity sha512-1G3U4n5JE6RAiALMxu0p1XmeZkTeCwGKykzsLTCqVzfSDaN6S7fKnkIkfejogz+iwqBWc0UYAIKnKHNN7pSfDg==
 
-cesium@1.98.1:
-  version "1.98.1"
-  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.98.1.tgz#683cf96574f7c850decf9920500b9cd9d7c3784f"
-  integrity sha512-qMtsZaTftsniWu+gJRThkxHuR8T/y59VMUB0zu5tUpTRWk/cYI5+0zbohMBUWV3JNdb9MiCqlYcIqLwMfN1h4w==
+cesium@1.99.0:
+  version "1.99.0"
+  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.99.0.tgz#5d978749834bc0c539219fe97d20735d2e67ff06"
+  integrity sha512-bVN7Bskd9PVhQe9Ak9DEr7wEckbCJc0UPq58MKWGWAkQfiYob8odh6luqY5Yz26trr3tWwni1xWjsCe94y37jw==
   dependencies:
     "@tweenjs/tween.js" "^18.6.4"
     "@zip.js/zip.js" "2.4.x"
