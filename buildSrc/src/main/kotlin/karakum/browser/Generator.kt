@@ -146,6 +146,7 @@ fun generateKotlinDeclarations(
 
         val imports = when (name) {
             "Document" -> """
+            import cssom.fonts.FontFaceSource    
             import dom.html.*    
             import dom.svg.SVGElement    
             """.trimIndent()

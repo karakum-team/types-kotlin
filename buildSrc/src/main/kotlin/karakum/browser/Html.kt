@@ -212,7 +212,6 @@ private fun convertInterface(
         .replace(", HTMLOrSVGElement", "")
         .replace(", WindowEventHandlers", "")
         // TEMP
-        .replace(", FontFaceSource", "")
         .replace(", XPathEvaluatorBase", "")
 
         .replace("interface ", "$type ")
@@ -245,7 +244,8 @@ private fun convertInterface(
     } else ""
 
     val modifier = when {
-        name == "SpeechSynthesisUtterance"
+        name == "SpeechSynthesisUtterance" ||
+                name == "FontFaceSource"
         -> ""
 
         name == "Animation"
