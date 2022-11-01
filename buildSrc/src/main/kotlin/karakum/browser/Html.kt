@@ -246,6 +246,8 @@ private fun convertInterface(
             result = result
                 .replace("val ownerDocument:", "override val ownerDocument:")
                 .replace("fun getElementById(", "override fun getElementById(")
+                    // TEMP: WA for old `Node`
+                .replace("override val ownerDocument: Document", "    // TEMP: WA for old `Node`\n    // override val ownerDocument: Document")
         }
 
         result
