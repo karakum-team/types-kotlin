@@ -8,6 +8,7 @@ sealed external class DocumentFragment :
     Node,
     NonElementParentNode,
     ParentNode {
-    override val ownerDocument: Document
+    // TEMP: WA for old `Node`
+    // override val ownerDocument: Document
     override fun getElementById(elementId: String): HTMLElement?
 }
