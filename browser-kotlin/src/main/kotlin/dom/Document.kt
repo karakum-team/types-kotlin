@@ -88,7 +88,7 @@ abstract external class Document :
 
     /** Retrieves a collection of all a objects that specify the href property and all area objects in the document. */
     val links: HTMLCollectionOf<HTMLElement /* HTMLAnchorElement | HTMLAreaElement */>
-    val ownerDocument: Void
+    override val ownerDocument: Void
     val pictureInPictureEnabled: Boolean
 
     /** Return an HTMLCollection of the embed elements in the Document. */
@@ -197,7 +197,7 @@ abstract external class Document :
      * Returns a reference to the first object with the specified value of the ID attribute.
      * @param elementId String that specifies the ID value.
      */
-    fun getElementById(elementId: String): HTMLElement?
+    override fun getElementById(elementId: String): HTMLElement?
 
     /** Returns a HTMLCollection of the elements in the object on which the method was invoked (a document or an element) that have all the classes given by classNames. The classNames argument is interpreted as a space-separated list of classes. */
     fun getElementsByClassName(classNames: String): HTMLCollectionOf<Element>
