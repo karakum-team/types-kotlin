@@ -60,6 +60,8 @@ private val STANDARD_TYPE_MAP = mapOf(
             "(oldData: TData?, newData: TData) -> TData /* | boolean */",
     "boolean | 'always' | ((query: Query<TQueryFnData, TError, TQueryData, TQueryKey>) => boolean | 'always')" to
             "(query: Query<TQueryFnData, TError, TQueryData, TQueryKey>) -> Boolean /* | boolean | 'always' */",
+    "number | false | ((data: TData | undefined, query: Query<TQueryFnData, TError, TQueryData, TQueryKey>) => number | false)" to
+            "(data: TData?, query: Query<TQueryFnData, TError, TQueryData, TQueryKey>) -> JsDuration /* | number | false */",
 
     "Parameters<T>" to "ReadonlyArray<*> /* Parameters<T> */",
 
