@@ -26,6 +26,7 @@ import dom.DOMTokenList
 import dom.Element
 import dom.Node
 import dom.NodeListOf
+import dom.ScrollToOptions
 import dom.css.LinkStyle
 import dom.css.ElementCSSInlineStyle
 import dom.geometry.DOMMatrix
@@ -53,6 +54,8 @@ import web.filesystem.FileSystemDirectoryHandle
 import web.filesystem.FileSystemEntry
 import web.http.ReferrerPolicy
 import web.locks.LockManager
+import web.messaging.Transferable
+import web.messaging.StructuredSerializeOptions
 import web.permissions.Permissions
 import web.share.ShareData
 import web.storage.StorageManager

@@ -54,6 +54,9 @@ internal fun htmlDeclarations(
         "DocumentOrShadowRoot",
         "XPath.+?",
 
+        "Window .+?",
+        "WindowPostMessageOptions .+?",
+
         "Animation .+?",
         "ComputedEffectTiming .+?",
 
@@ -216,6 +219,12 @@ private fun convertInterface(
     val type = getType(name)
 
     val declaration = source.substringBefore(" {\n")
+        .replace(
+            ", AnimationFrameProvider, GlobalEventHandlers, WindowEventHandlers" +
+                    ", WindowLocalStorage, WindowOrWorkerGlobalScope, WindowSessionStorage",
+            ""
+        )
+        .replace(", DocumentAndElementEventHandlers", "")
         .replace(", DocumentAndElementEventHandlers", "")
         .replace(", GlobalEventHandlers", "")
         // check
@@ -246,8 +255,11 @@ private fun convertInterface(
             result = result
                 .replace("val ownerDocument:", "override val ownerDocument:")
                 .replace("fun getElementById(", "override fun getElementById(")
-                    // TEMP: WA for old `Node`
-                .replace("override val ownerDocument: Document", "    // TEMP: WA for old `Node`\n    // override val ownerDocument: Document")
+                // TEMP: WA for old `Node`
+                .replace(
+                    "override val ownerDocument: Document",
+                    "    // TEMP: WA for old `Node`\n    // override val ownerDocument: Document"
+                )
         }
 
         result
@@ -372,7 +384,7 @@ private fun convertMember(
         } else true
 
         if (isFun)
-            return convertFunction(source)
+            return convertFunction(source, typeProvider)
     }
 
     return convertProperty(source, typeProvider)
@@ -381,12 +393,16 @@ private fun convertMember(
 private fun convertProperty(
     source: String,
     typeProvider: TypeProvider,
-): String {
+): String? {
     val modifier = if (source.startsWith("readonly ")) "val" else "var"
     var (name, type) = source.removePrefix("readonly ").split(": ")
 
     val optional = type.endsWith(" | null")
     type = type.removeSuffix(" | null")
+
+    val safeName = name.removeSuffix("?")
+    if (!typeProvider.accepted(safeName))
+        return null
 
     type = when (type) {
         "null" -> "Void"
@@ -397,7 +413,7 @@ private fun convertProperty(
 
         "number",
         "number | string",
-        -> typeProvider.numberType(name.removeSuffix("?"))
+        -> typeProvider.numberType(safeName)
 
         // TEMP
         "CredentialsContainer",
@@ -426,7 +442,7 @@ private fun convertProperty(
     }
 
     if (name.endsWith("?") || optional) {
-        name = name.removeSuffix("?")
+        name = safeName
         type += "?"
     }
 
@@ -438,8 +454,12 @@ private fun convertProperty(
 
 private fun convertFunction(
     source: String,
-): String {
+    typeProvider: TypeProvider,
+): String? {
     val name = source.substringBefore("(")
+    if (!typeProvider.accepted(name))
+        return null
+
     val parametersSource = source
         .substringAfter("(")
         .substringBefore("):")

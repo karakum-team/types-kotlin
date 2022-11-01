@@ -44,6 +44,16 @@ private val INT_NAMES = setOf(
     "numberOfItems",
 
     "maxTouchPoints",
+
+    // window
+    "innerWidth",
+    "innerHeight",
+    "screenLeft",
+    "screenTop",
+    "screenX",
+    "screenY",
+    "outerWidth",
+    "outerHeight",
 )
 
 private val DOUBLE_NAMES = setOf(
@@ -103,6 +113,42 @@ private val DOUBLE_NAMES = setOf(
     "pitch",
     "rate",
     "confidence",
+
+    // window
+    "scrollX",
+    "scrollY",
+    "pageXOffset",
+    "pageYOffset",
+)
+
+private val WINDOW_EXCLUDED = setOf(
+    // properties
+    "customElements",
+    "document",
+    "devicePixelRatio",
+    "history",
+    "locationbar",
+    "menubar",
+    "navigator",
+    "personalbar",
+    "screen",
+    "scrollbars",
+    "self",
+    "speechSynthesis",
+    "statusbar",
+    "toolbar",
+    "visualViewport",
+    "window",
+
+    // methods
+    "alert",
+    "cancelIdleCallback",
+    "confirm",
+    "getComputedStyle",
+    "getSelection",
+    "matchMedia",
+    "prompt",
+    "requestIdleCallback",
 )
 
 internal class TypeProvider(
@@ -148,5 +194,14 @@ internal class TypeProvider(
                 "Number"
             }
         }
+    }
+
+    fun accepted(
+        name: String,
+    ): Boolean {
+        if (parentType == "Window")
+            return name !in WINDOW_EXCLUDED
+
+        return true
     }
 }

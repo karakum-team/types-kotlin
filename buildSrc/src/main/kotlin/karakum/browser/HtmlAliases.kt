@@ -11,9 +11,7 @@ internal val HTML_ALIAS_CLASSES = listOf(
 
     "MediaProvider",
 
-    "Window",
     "WindowProxy",
-    "WindowEventHandlers",
 )
 
 internal fun htmlAliases(): List<ConversionResult> =
