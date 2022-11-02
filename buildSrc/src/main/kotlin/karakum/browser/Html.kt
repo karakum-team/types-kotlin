@@ -29,6 +29,21 @@ private val ANIMATION_TYPES = setOf(
     "OptionalEffectTiming",
 )
 
+private val DOM_TYPES = setOf(
+    "Attr",
+    "CDATASection",
+    "Comment",
+    "ElementCreationOptions",
+    "NonElementParentNode",
+    "ChildNode",
+    "DocumentType",
+    "NodeFilter",
+    "TreeWalker",
+    "AbstractRange",
+    "Range",
+    "NodeIterator",
+)
+
 private val IGNORED = setOf(
     "HTMLOrSVGElement",
 )
@@ -49,7 +64,13 @@ internal fun htmlDeclarations(
         "HTML.+?",
         "SVG.+?",
 
+        "Attr .+?",
+        "CDATASection .+?",
+        "Comment .+?",
+        "Range .+?",
+
         "Document .+?",
+        "DocumentType .+?",
         "DocumentFragment .+?",
         "DocumentOrShadowRoot",
         "XPath.+?",
@@ -106,6 +127,7 @@ internal fun htmlDeclarations(
         "RemotePlayback .+?",
         "DOMMatrix2DInit",
     ).plus(ANIMATION_TYPES)
+        .plus(DOM_TYPES)
         .joinToString("|")
 
     val interfaces =
@@ -251,7 +273,7 @@ private fun convertInterface(
             .mapNotNull { convertMember(it, typeProvider) }
             .joinToString("\n")
 
-        if (name == "Document" || name == "DocumentFragment") {
+        if (name == "Document" || name == "DocumentFragment" || name == "Attr") {
             result = result
                 .replace("val ownerDocument:", "override val ownerDocument:")
                 .replace("fun getElementById(", "override fun getElementById(")
@@ -322,6 +344,8 @@ private fun convertInterface(
         name.startsWith("Storage") -> "web.storage"
 
         name.startsWith("Document") -> "dom"
+        name in DOM_TYPES -> "dom"
+
         name.startsWith("XPath") -> "dom.xpath"
 
         else -> "dom.html"

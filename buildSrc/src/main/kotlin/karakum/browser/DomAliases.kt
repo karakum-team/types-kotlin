@@ -15,20 +15,13 @@ private val CLASSES = listOf(
     "ScrollToOptions",
     "ScrollIntoViewOptions",
 
-    "Attr",
-    "CDATASection",
-    "Comment",
-    "ElementCreationOptions",
-    "NonElementParentNode",
-    "ParentNode",
     "HTMLOrSVGScriptElement", // check
-    "DocumentType",
-    "NodeFilter",
-    "TreeWalker",
-    "Text",
     "ProcessingInstruction",
-    "Range",
-    "NodeIterator",
+    "ChildNode",
+    "ParentNode",
+    "Text",
+    "NodeFilter",
+    "CharacterData",
 )
 
 private val GEOMETRY_CLASSES = listOf(
