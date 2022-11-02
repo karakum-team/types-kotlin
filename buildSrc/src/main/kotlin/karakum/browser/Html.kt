@@ -273,7 +273,7 @@ private fun convertInterface(
             .mapNotNull { convertMember(it, typeProvider) }
             .joinToString("\n")
 
-        if (name == "Document" || name == "DocumentFragment" || name == "Attr") {
+        if (name == "Document" || name == "DocumentFragment" || name == "DocumentType" || name == "Attr") {
             result = result
                 .replace("val ownerDocument:", "override val ownerDocument:")
                 .replace("fun getElementById(", "override fun getElementById(")
@@ -470,8 +470,12 @@ private fun convertProperty(
         type += "?"
     }
 
-    if (name == "as")
-        name = "`$name`"
+    name = when (name) {
+        "is", "as",
+        -> "`$name`"
+
+        else -> name
+    }
 
     return "$modifier $name: $type"
 }
@@ -581,6 +585,9 @@ private fun getParameterType(
 
         source == "number"
         -> "Number"
+
+        source == "boolean"
+        -> "Boolean"
 
         source == "BodyInit"
         -> "Any /* BodyInit */"

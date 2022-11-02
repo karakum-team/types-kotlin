@@ -54,6 +54,9 @@ private val INT_NAMES = setOf(
     "screenY",
     "outerWidth",
     "outerHeight",
+
+    "endOffset",
+    "startOffset",
 )
 
 private val DOUBLE_NAMES = setOf(
