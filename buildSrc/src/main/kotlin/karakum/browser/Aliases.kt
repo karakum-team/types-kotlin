@@ -1,9 +1,12 @@
 package karakum.browser
 
-internal val OLD_WEBGL_TYPES = listOf(
-    "TexImageSource",
+internal val CONVERTED_WEBGL_TYPES = listOf(
     "WebGLContextEvent",
     "WebGLContextEventInit",
+)
+
+private val OLD_WEBGL_TYPES = listOf(
+    "TexImageSource",
 )
 
 internal fun Aliases(): ConversionResult =

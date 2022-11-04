@@ -35,7 +35,7 @@ private fun convertInterface(
         .substringAfter(" ")
         .substringBefore(" ")
 
-    if (name in OLD_WEBGL_TYPES)
+    if (name in CONVERTED_WEBGL_TYPES)
         return null
 
     val declaration = source.substringBefore(" {\n")
@@ -87,7 +87,7 @@ private fun convertCompanion(
         .removePrefix("declare var ")
         .substringBefore(": ")
 
-    if (name in OLD_WEBGL_TYPES)
+    if (name in CONVERTED_WEBGL_TYPES)
         return null
 
     val memberSource = source

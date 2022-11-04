@@ -43,6 +43,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("webrtc.RTCDataChannelEvent"),
     EventInfo("webrtc.RTCPeerConnectionIceEvent"),
     EventInfo("webrtc.RTCTrackEvent"),
+    EventInfo("webgl.WebGLContextEvent", missed = true),
     EventInfo("web.speech.SpeechSynthesisEvent", missed = true),
     EventInfo("web.speech.SpeechSynthesisErrorEvent", missed = true),
     EventInfo("media.TrackEvent", "org.w3c.dom.TrackEvent"),
