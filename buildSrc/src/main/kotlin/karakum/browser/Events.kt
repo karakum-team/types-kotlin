@@ -183,8 +183,8 @@ private fun event(
                 } else p.replace(": string", ": String")
             }
             .map {
-                if ("InitDict: " in it) {
-                    "init: " + it.substringAfter("InitDict: ")
+                if ("InitDict: " in it || "Init: " in it) {
+                    "init: " + it.substringAfter(": ")
                 } else it
             }
             .joinToString(",\n", "(\n", "\n)")
