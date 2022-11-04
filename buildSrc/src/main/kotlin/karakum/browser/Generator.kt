@@ -45,6 +45,7 @@ import media.MediaError
 import media.key.MediaKeys
 import media.source.TimeRanges
 import media.stream.MediaStream
+import media.stream.MediaStreamTrack
 import remoteplayback.RemotePlayback
 import web.abort.AbortSignal
 import web.animations.Animation

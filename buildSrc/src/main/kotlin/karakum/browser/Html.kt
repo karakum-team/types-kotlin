@@ -464,6 +464,7 @@ private fun convertProperty(
         "LockInfo[]" -> "ReadonlyArray<LockInfo>"
         "File[]" -> "ReadonlyArray<File>"
         "CSSStyleSheet[]" -> "ReadonlyArray<CSSStyleSheet>"
+        "MediaStream[]" -> "ReadonlyArray<MediaStream>"
         "MediaList | string" -> "Any /* MediaList | string */"
         "Element | ProcessingInstruction" -> "Any /* Element | ProcessingInstruction */"
         "(WindowProxy & typeof globalThis)" -> "WindowProxy"

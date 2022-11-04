@@ -14,6 +14,8 @@ internal fun convertDefinitions(
         .filter { it.startsWith("RTC") }
         .mapNotNull { convertInterface(it) }
         .filter { !it.name.endsWith("EventMap") }
+        .filter { !it.name.endsWith("Event") }
+        .filter { !it.name.endsWith("EventInit") }
 
 private fun convertInterface(
     source: String,
