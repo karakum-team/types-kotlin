@@ -6,7 +6,7 @@ import web.events.Event
 import web.events.EventInit
 
 external interface CloseEventInit : EventInit {
-    var code: Short?
+    var code: Int?
     var reason: String?
     var wasClean: Boolean?
 }
@@ -16,7 +16,7 @@ open external class CloseEvent(
     init: CloseEventInit = definedExternally,
 ) : Event {
     /** Returns the WebSocket connection close code provided by the server. */
-    val code: Short
+    val code: Int
 
     /** Returns the WebSocket connection close reason provided by the server. */
     val reason: String
