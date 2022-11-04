@@ -27,8 +27,10 @@ import dom.DOMStringList
 import dom.DOMTokenList
 import dom.Element
 import dom.Node
+import dom.NodeList
 import dom.NodeListOf
 import dom.ScrollToOptions
+import dom.aria.ARIAMixin
 import dom.css.LinkStyle
 import dom.css.ElementCSSInlineStyle
 import dom.events.DataTransfer

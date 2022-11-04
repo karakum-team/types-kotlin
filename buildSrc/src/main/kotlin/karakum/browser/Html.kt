@@ -57,12 +57,18 @@ internal fun htmlDeclarations(
     )
 
     val getType = { name: String ->
-        if ("\ndeclare var $name" in source) "class" else "interface"
+        if ("\ndeclare var $name" in source && name != "ElementInternals") "class" else "interface"
     }
 
     val patterns = sequenceOf(
         "HTML.+?",
         "SVG.+?",
+
+        "ARIAMixin",
+
+        "ElementContentEditable",
+        "ElementInternals .+?",
+        "ValidityStateFlags",
 
         "Attr .+?",
         "CDATASection .+?",
@@ -297,7 +303,8 @@ private fun convertInterface(
     val modifier = when {
         name == "SpeechSynthesisUtterance" ||
                 name == "FontFaceSource" ||
-                name == "XPathEvaluatorBase"
+                name == "XPathEvaluatorBase" ||
+                name == "ARIAMixin"
         -> ""
 
         name == "Animation"
@@ -351,6 +358,8 @@ private fun convertInterface(
 
         name == "ShareData" -> "web.share"
         name.startsWith("Storage") -> "web.storage"
+
+        name == "ARIAMixin" -> "dom.aria"
 
         name == "EventModifierInit" -> "dom.events"
 
@@ -460,8 +469,10 @@ private fun convertProperty(
 
         // TEMP
         "AudioBuffer",
+        "ShadowRoot",
         -> "Any /* $type */"
 
+        // TEMP
         "StaticRange[]",
         -> "ReadonlyArray<Any /* StaticRange */>"
 
@@ -598,6 +609,9 @@ private fun getParameterType(
     }
 
     return when {
+        source == "File | string | FormData"
+        -> "Any /* File | String | FormData */"
+
         source.startsWith("\"")
         -> "String /* $source */"
 

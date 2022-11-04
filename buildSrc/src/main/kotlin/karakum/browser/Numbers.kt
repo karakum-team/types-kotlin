@@ -92,6 +92,12 @@ private val INT_NAMES = setOf(
     // error
     "colno",
     "lineno",
+
+    // HTMLElement
+    "offsetWidth",
+    "offsetHeight",
+    "offsetTop",
+    "offsetLeft",
 )
 
 private val DOUBLE_NAMES = setOf(
