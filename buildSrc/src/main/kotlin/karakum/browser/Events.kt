@@ -172,7 +172,7 @@ private fun event(
 
     val constructorSource = eventClassBody
         .removePrefix("new(")
-        .removeSuffix("): $name")
+        .substringBefore("): $name")
 
     val eventConstructor = if (constructorSource.isNotEmpty()) {
         constructorSource
@@ -190,12 +190,24 @@ private fun event(
             .joinToString(",\n", "(\n", "\n)")
     } else ""
 
+    val companionSource = eventClassBody
+        .substringAfter("\n", "")
+
+    val companion = if (companionSource.isNotEmpty()) {
+        val members = companionSource
+            .splitToSequence(";\n")
+            .mapNotNull { convertMember(it, typeProvider) }
+            .joinToString("\n")
+
+        "companion object {\n$members\n}"
+    } else "companion object"
+
     val modifier = if (eventConstructor.isNotEmpty()) "open" else "sealed"
     val eventBody = """    
     $modifier external class $name $eventConstructor : $eventParent {
         $eventMembers
     
-        companion object
+        $companion
     }            
     """.trimIndent()
 

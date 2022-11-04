@@ -9,6 +9,13 @@ private val FLAG_NAMES = setOf(
 
     "align",
     "meetOrSlice",
+
+    // mouse event
+    "button",
+    "buttons",
+
+    "location",
+    "deltaMode",
 )
 
 private val LONG_NAMES = setOf(
@@ -59,6 +66,16 @@ private val INT_NAMES = setOf(
     "screenY",
     "outerWidth",
     "outerHeight",
+
+    "clientX",
+    "clientY",
+
+    "tiltX",
+    "tiltY",
+
+    "detail",
+    "twist",
+    "pointerId",
 
     "endOffset",
     "startOffset",
@@ -149,6 +166,20 @@ private val DOUBLE_NAMES = setOf(
     "alpha",
     "beta",
     "gamma",
+
+    "pageX",
+    "pageY",
+    "offsetX",
+    "offsetY",
+    "movementX",
+    "movementY",
+
+    "deltaX",
+    "deltaY",
+    "deltaZ",
+
+    "pressure",
+    "tangentialPressure",
 )
 
 private val WINDOW_EXCLUDED = setOf(
