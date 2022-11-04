@@ -133,12 +133,12 @@ private fun event(
     pkg: String,
 ): ConversionResult {
     val body = """
-            import web.events.Event    
-                
-            sealed external class $name : Event {
-                companion object
-            }            
-            """.trimIndent()
+     import web.events.Event    
+         
+     sealed external class $name : Event {
+         companion object
+     }            
+     """.trimIndent()
 
     return ConversionResult(
         name = name,
