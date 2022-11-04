@@ -3,12 +3,14 @@
 package dom.html
 
 import dom.Element
+import dom.HTMLOrSVGElement
 import dom.css.ElementCSSInlineStyle
 
 abstract external class HTMLElement :
     Element,
     ElementCSSInlineStyle,
-    ElementContentEditable {
+    ElementContentEditable,
+    HTMLOrSVGElement {
     var accessKey: String
     val accessKeyLabel: String
     var autocapitalize: String
