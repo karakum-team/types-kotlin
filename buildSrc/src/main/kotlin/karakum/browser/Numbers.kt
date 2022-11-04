@@ -191,10 +191,10 @@ internal class TypeProvider(
 
         return when {
             propertyName == "quota" || propertyName == "usage"
-            -> "Double /* Int64 */"
+            -> "JsLong"
 
             parentType == "GeolocationCoordinates" -> "Double"
-            parentType == "PositionOptions" -> "Double /* Int64 */"
+            parentType == "PositionOptions" -> "JsLong"
 
             parentType == "Screen" -> "Int"
 
