@@ -132,13 +132,40 @@ private fun event(
     name: String,
     pkg: String,
 ): ConversionResult {
-    val body = """
-     import web.events.Event    
-         
+    val initName = "${name}Init"
+    val initSource = source
+        .substringAfter("\ninterface $initName extends ", "")
+        .substringBefore(";\n}\n")
+
+    val initBody = if (initSource.isNotEmpty()) {
+        val parent = initSource.substringBefore(" {\n")
+        val typeProvider = TypeProvider(initName)
+
+        val members = initSource.substringAfter(" {\n")
+            .trimIndent()
+            .splitToSequence(";\n")
+            .mapNotNull { convertMember(it, typeProvider) }
+            .joinToString("\n")
+
+        "external interface $initName : $parent {\n$members\n}"
+    } else ""
+
+    val eventBody = """    
      sealed external class $name : Event {
          companion object
      }            
      """.trimIndent()
+
+    val body = sequenceOf(
+        """
+        import web.events.Event
+        import web.events.EventInit
+        """.trimIndent(),
+        initBody,
+        eventBody,
+    ).filter { it.isNotEmpty() }
+        .joinToString("\n\n")
+
 
     return ConversionResult(
         name = name,

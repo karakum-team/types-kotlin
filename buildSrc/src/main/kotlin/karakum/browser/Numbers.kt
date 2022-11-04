@@ -57,6 +57,12 @@ private val INT_NAMES = setOf(
 
     "endOffset",
     "startOffset",
+
+    "newVersion",
+    "oldVersion",
+
+    "charIndex",
+    "charLength",
 )
 
 private val DOUBLE_NAMES = setOf(
@@ -88,6 +94,7 @@ private val DOUBLE_NAMES = setOf(
     "width",
     "x",
     "y",
+    "z",
 
     // Media elements
     "mediaTime",
@@ -122,6 +129,14 @@ private val DOUBLE_NAMES = setOf(
     "scrollY",
     "pageXOffset",
     "pageYOffset",
+
+    // event
+    "elapsedTime",
+    "interval",
+
+    "alpha",
+    "beta",
+    "gamma",
 )
 
 private val WINDOW_EXCLUDED = setOf(

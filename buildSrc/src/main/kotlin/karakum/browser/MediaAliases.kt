@@ -12,6 +12,8 @@ private val ALIAS_MAP = listOf(
     "TimeRanges" to "media.source",
 
     "ServiceWorkerContainer" to "serviceworkers",
+
+    "FormData" to "dom.events",
 )
 
 internal fun mediaAliases(): List<ConversionResult> =
@@ -27,6 +29,9 @@ internal fun mediaAliases(): List<ConversionResult> =
 
             "ServiceWorkerContainer",
             -> "org.w3c.workers.$name"
+
+            "FormData",
+            -> "org.w3c.xhr.$name"
 
             else -> "org.w3c.dom.$name"
         }

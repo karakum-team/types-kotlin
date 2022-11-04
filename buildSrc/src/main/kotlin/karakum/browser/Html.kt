@@ -107,6 +107,10 @@ internal fun htmlDeclarations(
         "Geolocation.+?",
         "PositionOptions",
 
+        "DeviceMotionEventAccelerationInit",
+        "DeviceMotionEventAccelerationInit",
+        "DeviceMotionEventRotationRateInit",
+
         "ShareData",
         "Storage",
         "StorageEstimate",
@@ -327,6 +331,8 @@ private fun convertInterface(
         name == "History" -> "web.history"
         name == "Location" -> "web.location"
 
+        name.startsWith("DeviceMotion") -> "web.device"
+
         name.startsWith("FileSystem") -> "web.filesystem"
         name.startsWith("Gamepad") -> "web.gamepad"
 
@@ -358,7 +364,7 @@ private fun convertInterface(
     )
 }
 
-private fun convertMember(
+internal fun convertMember(
     source: String,
     typeProvider: TypeProvider,
 ): String? {
@@ -446,6 +452,10 @@ private fun convertProperty(
 
         "DocumentTimeline",
         -> "dynamic /* $type */"
+
+        // TEMP
+        "AudioBuffer"
+        -> "Any /* $type */"
 
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"
