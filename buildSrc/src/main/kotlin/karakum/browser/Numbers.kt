@@ -14,6 +14,14 @@ private val FLAG_NAMES = setOf(
     "code",
 )
 
+private val LONG_NAMES = setOf(
+    "quota",
+    "usage",
+
+    "newVersion",
+    "oldVersion",
+)
+
 private val INT_NAMES = setOf(
     "cellIndex",
     "colSpan",
@@ -57,9 +65,6 @@ private val INT_NAMES = setOf(
 
     "endOffset",
     "startOffset",
-
-    "newVersion",
-    "oldVersion",
 
     "charIndex",
     "charLength",
@@ -190,9 +195,6 @@ internal class TypeProvider(
         }
 
         return when {
-            propertyName == "quota" || propertyName == "usage"
-            -> "JsLong"
-
             parentType == "GeolocationCoordinates" -> "Double"
             parentType == "PositionOptions" -> "JsLong"
 
@@ -203,6 +205,7 @@ internal class TypeProvider(
 
             propertyName.endsWith("Frames") -> "Int"
 
+            propertyName in LONG_NAMES -> "JsLong"
             propertyName in INT_NAMES -> "Int"
             propertyName in DOUBLE_NAMES -> "Double"
             else -> {
