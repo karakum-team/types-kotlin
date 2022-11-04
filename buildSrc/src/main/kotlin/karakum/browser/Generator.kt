@@ -25,8 +25,10 @@ import dom.Document
 import dom.DocumentFragment
 import dom.DOMStringList
 import dom.DOMTokenList
+import dom.DocumentOrShadowRoot
 import dom.Element
 import dom.HTMLOrSVGElement
+import dom.InnerHTML
 import dom.Node
 import dom.NodeList
 import dom.NodeListOf

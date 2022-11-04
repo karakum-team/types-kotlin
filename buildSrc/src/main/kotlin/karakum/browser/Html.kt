@@ -46,6 +46,7 @@ private val DOM_TYPES = setOf(
     "Slottable",
     "Text",
     "NodeIterator",
+    "InnerHTML",
 
     // special
     "HTMLOrSVGElement",
@@ -66,6 +67,8 @@ internal fun htmlDeclarations(
     val patterns = sequenceOf(
         "HTML.+?",
         "SVG.+?",
+
+        "ShadowRoot .+?",
 
         "ARIAMixin",
 
@@ -289,7 +292,8 @@ private fun convertInterface(
             .joinToString("\n")
 
         if (name == "Document" || name == "DocumentFragment" || name == "DocumentType"
-            || name == "Attr" || name == "CharacterData") {
+            || name == "Attr" || name == "CharacterData"
+        ) {
             result = result
                 .replace("val ownerDocument:", "override val ownerDocument:")
                 .replace("fun getElementById(", "override fun getElementById(")
@@ -308,13 +312,16 @@ private fun convertInterface(
                 name == "FontFaceSource" ||
                 name == "XPathEvaluatorBase" ||
                 name == "ARIAMixin" ||
-                name == "HTMLOrSVGElement"
+                name == "HTMLOrSVGElement" ||
+                name == "InnerHTML" ||
+                name == "DocumentOrShadowRoot"
         -> ""
 
         name == "Animation"
         -> "open"
 
-        name == "Document"
+        name == "Document" ||
+                name == "DocumentFragment"
         -> "abstract"
 
         type == "class" &&
@@ -473,7 +480,6 @@ private fun convertProperty(
 
         // TEMP
         "AudioBuffer",
-        "ShadowRoot",
         -> "Any /* $type */"
 
         // TEMP
