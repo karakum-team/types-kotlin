@@ -85,7 +85,7 @@ fun generateKotlinDeclarations(
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
 
-            if ("companion object" in body)
+            if ("companion object" in body && !name.endsWith("Event"))
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
             if ("inline fun " in body)
