@@ -107,8 +107,9 @@ internal fun htmlDeclarations(
         "Geolocation.+?",
         "PositionOptions",
 
+        "DeviceMotionEventAcceleration",
         "DeviceMotionEventAccelerationInit",
-        "DeviceMotionEventAccelerationInit",
+        "DeviceMotionEventRotationRate",
         "DeviceMotionEventRotationRateInit",
 
         "ShareData",

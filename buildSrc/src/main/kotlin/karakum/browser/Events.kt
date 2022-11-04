@@ -150,8 +150,23 @@ private fun event(
         "external interface $initName : $parent {\n$members\n}"
     } else ""
 
+    val eventSource = source
+        .substringAfter("\ninterface $name extends ")
+        .substringBefore(";\n}\n")
+
+    val eventParent = eventSource.substringBefore(" {\n")
+    val typeProvider = TypeProvider(name)
+
+    val eventMembers = eventSource.substringAfter(" {\n")
+        .trimIndent()
+        .splitToSequence(";\n")
+        .mapNotNull { convertMember(it, typeProvider) }
+        .joinToString("\n")
+
     val eventBody = """    
-     sealed external class $name : Event {
+     sealed external class $name : $eventParent {
+         $eventMembers
+     
          companion object
      }            
      """.trimIndent()
