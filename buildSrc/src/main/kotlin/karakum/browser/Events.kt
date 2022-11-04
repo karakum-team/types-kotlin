@@ -1,7 +1,5 @@
 package karakum.browser
 
-import java.io.File
-
 internal const val EVENT_TYPE = "EventType"
 
 private val PACKAGE_MAP = mapOf(
@@ -86,7 +84,7 @@ internal fun eventDeclarations(
 ): List<ConversionResult> =
     eventTypes(content)
         .plus(eventAliases())
-        .plus(eventPlaceholders())
+        .plus(eventPlaceholders(content))
         .plus(AnimationEvent())
         .plus(TransitionEvent())
 
@@ -116,12 +114,25 @@ private fun eventAliases(): List<ConversionResult> =
         )
     }
 
-private fun eventPlaceholders(): List<ConversionResult> =
+private fun eventPlaceholders(
+    source: String,
+): List<ConversionResult> =
     EVENT_DATA
         .filter { it.missed }
         .mapNotNull { info ->
-            val name = info.name
-            val body = """
+            event(
+                source = source,
+                name = info.name,
+                pkg = info.pkg,
+            )
+        }
+
+private fun event(
+    source: String,
+    name: String,
+    pkg: String,
+): ConversionResult {
+    val body = """
             import web.events.Event    
                 
             sealed external class $name : Event {
@@ -129,12 +140,12 @@ private fun eventPlaceholders(): List<ConversionResult> =
             }            
             """.trimIndent()
 
-            ConversionResult(
-                name = name,
-                body = body,
-                pkg = info.pkg,
-            )
-        }
+    return ConversionResult(
+        name = name,
+        body = body,
+        pkg = pkg,
+    )
+}
 
 private fun eventTypes(
     content: String,
