@@ -91,6 +91,8 @@ internal fun htmlDeclarations(
         "FontFaceSet .+?",
         "FontFaceSource",
 
+        "EventModifierInit .+?",
+
         "Clipboard .+?",
         "ClipboardItemOptions",
 
@@ -350,6 +352,8 @@ private fun convertInterface(
         name == "ShareData" -> "web.share"
         name.startsWith("Storage") -> "web.storage"
 
+        name == "EventModifierInit" -> "dom.events"
+
         name.startsWith("Document") -> "dom"
         name in DOM_TYPES -> "dom"
 
@@ -458,6 +462,9 @@ private fun convertProperty(
         "AudioBuffer",
         -> "Any /* $type */"
 
+        "StaticRange[]",
+        -> "ReadonlyArray<Any /* StaticRange */>"
+
         "Promise<any>" -> "Promise<*>"
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"
@@ -466,6 +473,8 @@ private fun convertProperty(
         "File[]" -> "ReadonlyArray<File>"
         "CSSStyleSheet[]" -> "ReadonlyArray<CSSStyleSheet>"
         "MediaStream[]" -> "ReadonlyArray<MediaStream>"
+        "Touch[]" -> "ReadonlyArray<Touch>"
+        "PointerEvent[]" -> "ReadonlyArray<PointerEvent>"
         "MediaList | string" -> "Any /* MediaList | string */"
         "Element | ProcessingInstruction" -> "Any /* Element | ProcessingInstruction */"
         "(WindowProxy & typeof globalThis)" -> "WindowProxy"
@@ -559,6 +568,8 @@ private fun convertFunction(
         .replace("<string[]", "<ReadonlyArray<String>")
         .replace(": Element[]", ": ReadonlyArray<Element>")
         .replace(": Node[]", ": ReadonlyArray<Node>")
+        .replace(": PointerEvent[]", ": ReadonlyArray<PointerEvent>")
+        .replace(": StaticRange[]", ": ReadonlyArray<Any /* StaticRange */>")
         .replace(": Animation[]", ": ReadonlyArray<Animation>")
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")
         .replace(": SpeechSynthesisVoice[]", ": ReadonlyArray<SpeechSynthesisVoice>")

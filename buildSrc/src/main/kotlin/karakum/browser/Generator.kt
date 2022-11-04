@@ -31,6 +31,7 @@ import dom.NodeListOf
 import dom.ScrollToOptions
 import dom.css.LinkStyle
 import dom.css.ElementCSSInlineStyle
+import dom.events.DataTransfer
 import dom.geometry.DOMMatrix
 import dom.geometry.DOMMatrix2DInit
 import dom.geometry.DOMPoint
