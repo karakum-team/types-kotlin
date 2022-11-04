@@ -14,6 +14,10 @@ internal fun String.applyPatches(): String =
             "forEach(callbackfn: (value: FontFace, key: FontFace, parent: FontFaceSet) => void, thisArg?: any): void;",
             "forEach(action: (item: FontFace) => void): void;"
         )
+        .replace(
+            "arg?: boolean | ScrollIntoViewOptions",
+            "options?: ScrollIntoViewOptions",
+        )
 
 internal fun String.patchVideoFrameCallback(): String =
     replace(

@@ -101,6 +101,15 @@ private val INT_NAMES = setOf(
     "offsetHeight",
     "offsetTop",
     "offsetLeft",
+
+    // Element
+    "clientHeight",
+    "clientLeft",
+    "clientTop",
+    "clientWidth",
+
+    "scrollHeight",
+    "scrollWidth",
 )
 
 private val DOUBLE_NAMES = setOf(
@@ -189,6 +198,10 @@ private val DOUBLE_NAMES = setOf(
 
     "pressure",
     "tangentialPressure",
+
+    // Element
+    "scrollLeft",
+    "scrollTop"
 )
 
 private val WINDOW_EXCLUDED = setOf(

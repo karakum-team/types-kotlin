@@ -51,6 +51,9 @@ private val DOM_TYPES = setOf(
     // special
     "HTMLOrSVGElement",
     "FocusOptions",
+
+    "Element",
+    "FullscreenOptions",
 )
 
 internal fun htmlDeclarations(
@@ -69,6 +72,7 @@ internal fun htmlDeclarations(
         "SVG.+?",
 
         "ShadowRoot .+?",
+        "ShadowRootInit",
 
         "ARIAMixin",
 
@@ -76,6 +80,7 @@ internal fun htmlDeclarations(
         "ElementInternals .+?",
         "ValidityStateFlags",
 
+        "Element .+?",
         "Attr .+?",
         "CDATASection .+?",
         "Comment .+?",
@@ -274,6 +279,7 @@ private fun convertInterface(
         .replace("interface ", "$type ")
         .replace(" extends ", " :\n")
         .replace(", ", ",\n")
+        .replace("\nAnimatable,", "\n/* Animatable, */")
 
     var memberSource = source
         .substringAfter(" {\n")
@@ -292,7 +298,7 @@ private fun convertInterface(
             .joinToString("\n")
 
         if (name == "Document" || name == "DocumentFragment" || name == "DocumentType"
-            || name == "Attr" || name == "CharacterData"
+            || name == "Attr" || name == "CharacterData" || name == "Element"
         ) {
             result = result
                 .replace("val ownerDocument:", "override val ownerDocument:")
@@ -320,7 +326,8 @@ private fun convertInterface(
         name == "Animation"
         -> "open"
 
-        name == "Document" ||
+        name == "Element" ||
+                name == "Document" ||
                 name == "DocumentFragment"
         -> "abstract"
 
@@ -407,6 +414,9 @@ internal fun convertMember(
     }
 
     when {
+        // TODO: fix later
+        source.startsWith("closest<") -> return null
+
         source.startsWith("createElement<") -> return null
         source.startsWith("createElementNS") && ("namespaceURI:" in source) -> return null
         source.startsWith("getElementsByTagName<") -> return null
