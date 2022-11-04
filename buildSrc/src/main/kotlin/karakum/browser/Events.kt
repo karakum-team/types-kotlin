@@ -134,20 +134,23 @@ private fun event(
 ): ConversionResult {
     val initName = "${name}Init"
     val initSource = source
-        .substringAfter("\ninterface $initName extends ", "")
+        .substringAfter("\ninterface $initName ", "")
         .substringBefore(";\n}\n")
 
     val initBody = if (initSource.isNotEmpty()) {
-        val parent = initSource.substringBefore(" {\n")
+        val parentDeclaration = initSource
+            .substringBefore("{\n")
+            .replace("extends ", ": ")
+
         val typeProvider = TypeProvider(initName)
 
-        val members = initSource.substringAfter(" {\n")
+        val members = initSource.substringAfter("{\n")
             .trimIndent()
             .splitToSequence(";\n")
             .mapNotNull { convertMember(it, typeProvider) }
             .joinToString("\n")
 
-        "external interface $initName : $parent {\n$members\n}"
+        "external interface $initName $parentDeclaration {\n$members\n}"
     } else ""
 
     val eventSource = source
