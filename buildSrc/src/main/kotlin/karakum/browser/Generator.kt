@@ -45,6 +45,7 @@ import dom.geometry.DOMRectReadOnly
 import dom.geometry.DOMRectList
 import dom.html.HTMLCanvasElement
 import dom.html.HTMLElement
+import dom.html.HTMLSlotElement
 import dom.html.Window
 import media.MediaError
 import media.key.MediaKeys

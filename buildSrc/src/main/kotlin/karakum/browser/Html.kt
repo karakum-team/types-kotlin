@@ -32,8 +32,10 @@ private val ANIMATION_TYPES = setOf(
 private val DOM_TYPES = setOf(
     "Attr",
     "CDATASection",
+    "CharacterData",
     "Comment",
     "ElementCreationOptions",
+    "NonDocumentTypeChildNode",
     "NonElementParentNode",
     "ChildNode",
     "DocumentType",
@@ -41,6 +43,8 @@ private val DOM_TYPES = setOf(
     "TreeWalker",
     "AbstractRange",
     "Range",
+    "Slottable",
+    "Text",
     "NodeIterator",
 
     // special
@@ -73,6 +77,8 @@ internal fun htmlDeclarations(
         "CDATASection .+?",
         "Comment .+?",
         "Range .+?",
+        "CharacterData .+?",
+        "Text .+?",
 
         "Document .+?",
         "DocumentType .+?",
@@ -282,7 +288,8 @@ private fun convertInterface(
             .mapNotNull { convertMember(it, typeProvider) }
             .joinToString("\n")
 
-        if (name == "Document" || name == "DocumentFragment" || name == "DocumentType" || name == "Attr") {
+        if (name == "Document" || name == "DocumentFragment" || name == "DocumentType"
+            || name == "Attr" || name == "CharacterData") {
             result = result
                 .replace("val ownerDocument:", "override val ownerDocument:")
                 .replace("fun getElementById(", "override fun getElementById(")

@@ -19,9 +19,7 @@ private val CLASSES = listOf(
     "ProcessingInstruction",
     "ChildNode",
     "ParentNode",
-    "Text",
     "NodeFilter",
-    "CharacterData",
 )
 
 private val GEOMETRY_CLASSES = listOf(
