@@ -9,9 +9,6 @@ private val FLAG_NAMES = setOf(
 
     "align",
     "meetOrSlice",
-
-    // geolocation
-    "code",
 )
 
 private val LONG_NAMES = setOf(
@@ -68,6 +65,8 @@ private val INT_NAMES = setOf(
 
     "charIndex",
     "charLength",
+
+    "code",
 
     // RTC
     "errorCode",
@@ -203,6 +202,7 @@ internal class TypeProvider(
         }
 
         return when {
+            parentType == "GeolocationPositionError" -> "Short"
             parentType == "GeolocationCoordinates" -> "Double"
             parentType == "PositionOptions" -> "JsLong"
 
