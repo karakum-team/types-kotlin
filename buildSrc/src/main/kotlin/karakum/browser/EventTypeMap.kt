@@ -12,7 +12,7 @@ internal class EventInfo(
 internal val EVENT_DATA = listOf(
     EventInfo("org.w3c.dom.events.Event"),
 
-    EventInfo("web.animations.AnimationEvent"),
+    EventInfo("web.animations.AnimationEvent", missed = true),
     EventInfo("web.animations.AnimationPlaybackEvent", missed = true),
     EventInfo("web.clipboard.ClipboardEvent", "org.w3c.dom.clipboard.ClipboardEvent"),
     EventInfo("dom.events.CompositionEvent", "org.w3c.dom.events.CompositionEvent"),
@@ -22,7 +22,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("dom.events.MouseEvent", "org.w3c.dom.events.MouseEvent"),
     EventInfo("dom.events.TouchEvent", "org.w3c.dom.TouchEvent"),
     EventInfo("dom.events.PointerEvent", "org.w3c.dom.pointerevents.PointerEvent"),
-    EventInfo("dom.events.TransitionEvent"),
+    EventInfo("dom.events.TransitionEvent", missed = true),
     EventInfo("dom.events.UIEvent", "org.w3c.dom.events.UIEvent"),
     EventInfo("dom.events.WheelEvent", "org.w3c.dom.events.WheelEvent"),
 

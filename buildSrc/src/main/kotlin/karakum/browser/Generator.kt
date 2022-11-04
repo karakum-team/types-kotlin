@@ -103,14 +103,7 @@ fun generateKotlinDeclarations(
             .resolve(pkg.replace(".", "/"))
             .also { it.mkdirs() }
 
-        val finalBody = when (name) {
-            "AnimationEvent",
-            "TransitionEvent",
-            -> "import web.events.Event\n"
-
-            else -> ""
-        } + "import web.events.EventType\n" +
-                body
+        val finalBody = "import web.events.EventType\n$body"
 
         targetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }

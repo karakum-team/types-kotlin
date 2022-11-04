@@ -85,8 +85,6 @@ internal fun eventDeclarations(
     eventTypes(content)
         .plus(eventAliases())
         .plus(eventPlaceholders(content))
-        .plus(AnimationEvent())
-        .plus(TransitionEvent())
 
 private fun eventAliases(): List<ConversionResult> =
     EVENT_DATA.mapNotNull { info ->
@@ -184,7 +182,11 @@ private fun event(
                     p.replace("?: ", ": ") + " = definedExternally"
                 } else p.replace(": string", ": String")
             }
-            .map { it.replace("eventInitDict: ", "init: ") }
+            .map {
+                if ("InitDict: " in it) {
+                    "init: " + it.substringAfter("InitDict: ")
+                } else it
+            }
             .joinToString(",\n", "(\n", "\n)")
     } else ""
 
