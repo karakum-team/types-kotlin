@@ -15,7 +15,7 @@ external interface WebGLContextEventInit : EventInit {
 
 open external class WebGLContextEvent(
     type: String,
-    eventInit: WebGLContextEventInit = definedExternally,
+    init: WebGLContextEventInit = definedExternally,
 ) : Event {
     val statusMessage: String
 
