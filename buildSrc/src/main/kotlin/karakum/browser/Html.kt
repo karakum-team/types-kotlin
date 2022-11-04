@@ -455,9 +455,10 @@ private fun convertProperty(
         -> "dynamic /* $type */"
 
         // TEMP
-        "AudioBuffer"
+        "AudioBuffer",
         -> "Any /* $type */"
 
+        "Promise<any>" -> "Promise<*>"
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"
         "ReadonlyArray<number>" -> "ReadonlyArray<Double>"
@@ -479,7 +480,10 @@ private fun convertProperty(
 
     if (name.endsWith("?") || optional) {
         name = safeName
-        type += "?"
+
+        if (!type.endsWith("?")) {
+            type += "?"
+        }
     }
 
     name = when (name) {

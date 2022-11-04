@@ -12,10 +12,6 @@ private val FLAG_NAMES = setOf(
 
     // geolocation
     "code",
-
-    // RTC
-    "errorCode",
-    "port",
 )
 
 private val LONG_NAMES = setOf(
@@ -72,6 +68,14 @@ private val INT_NAMES = setOf(
 
     "charIndex",
     "charLength",
+
+    // RTC
+    "errorCode",
+    "port",
+
+    // error
+    "colno",
+    "lineno",
 )
 
 private val DOUBLE_NAMES = setOf(
