@@ -93,6 +93,9 @@ private val INT_NAMES = setOf(
     "colno",
     "lineno",
 
+    // Element
+    "tabIndex",
+
     // HTMLElement
     "offsetWidth",
     "offsetHeight",

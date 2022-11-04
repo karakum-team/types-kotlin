@@ -42,12 +42,11 @@ private val DOM_TYPES = setOf(
     "AbstractRange",
     "Range",
     "NodeIterator",
-)
 
-private val IGNORED = setOf(
+    // special
     "HTMLOrSVGElement",
+    "FocusOptions",
 )
-
 
 internal fun htmlDeclarations(
     source: String,
@@ -243,7 +242,6 @@ private fun convertInterface(
     when {
         name in HTML_ALIAS_CLASSES -> return null
         name in DEPRECATED -> return null
-        name in IGNORED -> return null
         name.endsWith("NameMap") -> return null
         name.endsWith("Event") -> return null
         name.endsWith("EventInit") -> return null
@@ -262,8 +260,6 @@ private fun convertInterface(
         .replace(", DocumentAndElementEventHandlers", "")
         .replace(", DocumentAndElementEventHandlers", "")
         .replace(", GlobalEventHandlers", "")
-        // check
-        .replace(", HTMLOrSVGElement", "")
         .replace(", WindowEventHandlers", "")
 
         .replace("interface ", "$type ")
@@ -304,7 +300,8 @@ private fun convertInterface(
         name == "SpeechSynthesisUtterance" ||
                 name == "FontFaceSource" ||
                 name == "XPathEvaluatorBase" ||
-                name == "ARIAMixin"
+                name == "ARIAMixin" ||
+                name == "HTMLOrSVGElement"
         -> ""
 
         name == "Animation"

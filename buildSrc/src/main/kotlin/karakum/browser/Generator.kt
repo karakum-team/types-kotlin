@@ -26,6 +26,7 @@ import dom.DocumentFragment
 import dom.DOMStringList
 import dom.DOMTokenList
 import dom.Element
+import dom.HTMLOrSVGElement
 import dom.Node
 import dom.NodeList
 import dom.NodeListOf
