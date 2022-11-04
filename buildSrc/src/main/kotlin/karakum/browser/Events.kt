@@ -179,11 +179,13 @@ private fun event(
     val eventConstructor = if (constructorSource.isNotEmpty()) {
         constructorSource
             .split(", ")
-            .joinToString(",\n", "(\n", "\n)") { p ->
+            .map { p ->
                 if ("?: " in p) {
                     p.replace("?: ", ": ") + " = definedExternally"
                 } else p.replace(": string", ": String")
             }
+            .map { it.replace("eventInitDict: ", "init: ") }
+            .joinToString(",\n", "(\n", "\n)")
     } else ""
 
     val modifier = if (eventConstructor.isNotEmpty()) "open" else "sealed"
