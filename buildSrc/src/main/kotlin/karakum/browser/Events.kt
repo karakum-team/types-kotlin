@@ -163,13 +163,34 @@ private fun event(
         .mapNotNull { convertMember(it, typeProvider) }
         .joinToString("\n")
 
+    val eventClassBody = source
+        .substringAfter("\ndeclare var $name: {\n")
+        .substringBefore(";\n};")
+        .trimIndent()
+        .removePrefix("prototype: $name;\n")
+
+    val constructorSource = eventClassBody
+        .removePrefix("new(")
+        .removeSuffix("): $name")
+
+    val eventConstructor = if (constructorSource.isNotEmpty()) {
+        constructorSource
+            .split(", ")
+            .joinToString(",\n", "(\n", "\n)") { p ->
+                if ("?: " in p) {
+                    p.replace("?: ", ": ") + " = definedExternally"
+                } else p.replace(": string", ": String")
+            }
+    } else ""
+
+    val modifier = if (eventConstructor.isNotEmpty()) "open" else "sealed"
     val eventBody = """    
-     sealed external class $name : $eventParent {
-         $eventMembers
-     
-         companion object
-     }            
-     """.trimIndent()
+    $modifier external class $name $eventConstructor : $eventParent {
+        $eventMembers
+    
+        companion object
+    }            
+    """.trimIndent()
 
     val body = sequenceOf(
         """
