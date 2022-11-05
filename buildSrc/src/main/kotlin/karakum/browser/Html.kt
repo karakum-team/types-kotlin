@@ -54,6 +54,9 @@ private val DOM_TYPES = setOf(
 
     "Element",
     "FullscreenOptions",
+
+    "DocumentAndElementEventHandlers",
+    "GlobalEventHandlers",
 )
 
 internal fun htmlDeclarations(
@@ -73,6 +76,7 @@ internal fun htmlDeclarations(
 
         "ShadowRoot .+?",
         "ShadowRootInit",
+        "WindowEventHandlers",
 
         "ARIAMixin",
 
@@ -266,15 +270,8 @@ private fun convertInterface(
     val type = getType(name)
 
     val declaration = source.substringBefore(" {\n")
-        .replace(
-            ", AnimationFrameProvider, GlobalEventHandlers, WindowEventHandlers" +
-                    ", WindowLocalStorage, WindowOrWorkerGlobalScope, WindowSessionStorage",
-            ""
-        )
-        .replace(", DocumentAndElementEventHandlers", "")
-        .replace(", DocumentAndElementEventHandlers", "")
-        .replace(", GlobalEventHandlers", "")
-        .replace(", WindowEventHandlers", "")
+        .replace(", AnimationFrameProvider", "")
+        .replace(", WindowLocalStorage, WindowOrWorkerGlobalScope, WindowSessionStorage", "")
 
         .replace("interface ", "$type ")
         .replace(" extends ", " :\n")
@@ -320,7 +317,8 @@ private fun convertInterface(
                 name == "ARIAMixin" ||
                 name == "HTMLOrSVGElement" ||
                 name == "InnerHTML" ||
-                name == "DocumentOrShadowRoot"
+                name == "DocumentOrShadowRoot" ||
+                name.endsWith("Handlers")
         -> ""
 
         name == "Animation"
@@ -479,6 +477,9 @@ private fun convertProperty(
         "number",
         "number | string",
         -> typeProvider.numberType(safeName)
+
+        "OnErrorEventHandler",
+        -> "Any? /* $type */"
 
         // TEMP
         "CredentialsContainer",

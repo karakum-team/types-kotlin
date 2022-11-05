@@ -33,6 +33,9 @@ import dom.Node
 import dom.NodeList
 import dom.NodeListOf
 import dom.ScrollToOptions
+import dom.DocumentAndElementEventHandlers
+import dom.GlobalEventHandlers
+import dom.html.WindowEventHandlers
 import dom.aria.ARIAMixin
 import dom.css.LinkStyle
 import dom.css.ElementCSSInlineStyle
