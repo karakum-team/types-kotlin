@@ -3,6 +3,9 @@
 package dom
 
 import dom.events.*
+import web.animations.AnimationEvent
+import web.events.Event
+import web.events.ProgressEvent
 
 external interface GlobalEventHandlers {
     /**
@@ -287,10 +290,10 @@ external interface GlobalEventHandlers {
      */
     var ontimeupdate: ((event: Event) -> Unit)?
     var ontoggle: ((event: Event) -> Unit)?
-    var ontouchcancel: ((event: TouchEvent) -> Unit)? | undefined
-    var ontouchend: ((event: TouchEvent) -> Unit)? | undefined
-    var ontouchmove: ((event: TouchEvent) -> Unit)? | undefined
-    var ontouchstart: ((event: TouchEvent) -> Unit)? | undefined
+    var ontouchcancel: ((event: TouchEvent) -> Unit)?
+    var ontouchend: ((event: TouchEvent) -> Unit)?
+    var ontouchmove: ((event: TouchEvent) -> Unit)?
+    var ontouchstart: ((event: TouchEvent) -> Unit)?
     var ontransitioncancel: ((event: TransitionEvent) -> Unit)?
     var ontransitionend: ((event: TransitionEvent) -> Unit)?
     var ontransitionrun: ((event: TransitionEvent) -> Unit)?

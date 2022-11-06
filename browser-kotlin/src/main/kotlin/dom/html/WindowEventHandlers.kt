@@ -2,7 +2,15 @@
 
 package dom.html
 
+import dom.events.BeforeUnloadEvent
+import dom.events.PromiseRejectionEvent
 import web.events.Event
+import web.gamepad.GamepadEvent
+import web.history.HashChangeEvent
+import web.history.PageTransitionEvent
+import web.history.PopStateEvent
+import web.messaging.MessageEvent
+import web.storage.StorageEvent
 
 external interface WindowEventHandlers {
     var onafterprint: ((event: Event) -> Unit)?

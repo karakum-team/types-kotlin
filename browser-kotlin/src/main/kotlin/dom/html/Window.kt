@@ -6,6 +6,8 @@ import dom.Element
 import dom.GlobalEventHandlers
 import dom.ScrollToOptions
 import kotlinx.js.ReadonlyArray
+import web.device.DeviceMotionEvent
+import web.device.DeviceOrientationEvent
 import web.events.EventTarget
 import web.messaging.Transferable
 import web.url.URL
