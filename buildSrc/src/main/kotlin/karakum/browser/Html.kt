@@ -433,6 +433,7 @@ internal fun convertMember(
 
     if ((source.startsWith("on") && "(this: " in source))
         return "var " + source.replace(Regex("""\(this\: \w+?\, """), "(")
+            .removeSuffix(" | undefined")
             .replace("Event) => any) | null", "Event) -> Unit)?")
             .replace("(ev: ", "(event: ")
             .replace("?: (", ": (")

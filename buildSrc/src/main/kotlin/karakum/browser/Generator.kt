@@ -191,8 +191,25 @@ fun generateKotlinDeclarations(
             import web.clipboard.ClipboardEvent
             """.trimIndent()
 
-            "GlobalEventHandlers" -> """
-            import dom.events.*        
+            "Window",
+            -> """
+            import web.device.DeviceMotionEvent    
+            import web.device.DeviceOrientationEvent    
+            """.trimIndent()
+
+            "GlobalEventHandlers",
+            "WindowEventHandlers",
+            -> """
+            import dom.events.*
+            import web.animations.AnimationEvent
+            import web.events.Event
+            import web.events.ProgressEvent
+            import web.gamepad.GamepadEvent
+            import web.history.HashChangeEvent
+            import web.history.PageTransitionEvent
+            import web.history.PopStateEvent
+            import web.messaging.MessageEvent
+            import web.storage.StorageEvent
             """.trimIndent()
 
             else -> if (!name.endsWith(".types")) {
