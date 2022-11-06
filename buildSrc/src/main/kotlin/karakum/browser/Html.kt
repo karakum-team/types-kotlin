@@ -431,8 +431,11 @@ internal fun convertMember(
         source.startsWith("toString()") -> return null
     }
 
-    if ((source.startsWith("on") && "(this:" in source))
-        return null
+    if ((source.startsWith("on") && "(this: " in source))
+        return "var " + source.replace(Regex("""\(this\: \w+?\, """), "(")
+            .replace("Event) => any) | null", "Event) -> Unit)?")
+            .replace("(ev: ", "(event: ")
+            .replace("?: (", ": (")
 
     if (source.startsWith("["))
         return "    // $source"

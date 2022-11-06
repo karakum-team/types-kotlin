@@ -167,7 +167,8 @@ fun generateKotlinDeclarations(
             import cssom.fonts.FontFaceSource    
             import dom.html.*        
             import dom.svg.SVGElement    
-            import dom.xpath.XPathEvaluatorBase    
+            import dom.xpath.XPathEvaluatorBase
+            import web.events.Event
             """.trimIndent()
 
             "HTMLCanvasElement" -> """
@@ -185,7 +186,18 @@ fun generateKotlinDeclarations(
             import web.gamepad.Gamepad       
             """.trimIndent()
 
-            else -> ""
+            "DocumentAndElementEventHandlers",
+            -> """
+            import web.clipboard.ClipboardEvent
+            """.trimIndent()
+
+            "GlobalEventHandlers" -> """
+            import dom.events.*        
+            """.trimIndent()
+
+            else -> if (!name.endsWith(".types")) {
+                "import web.events.Event"
+            } else ""
         }
 
         val targetDir = sourceDir
