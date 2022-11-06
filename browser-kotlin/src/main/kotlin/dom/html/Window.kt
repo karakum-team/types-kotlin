@@ -22,6 +22,12 @@ sealed external class Window :
     val innerWidth: Int
     val length: Int
     var name: String
+
+    /** Available only in secure contexts. */
+    var ondevicemotion: ((event: DeviceMotionEvent) -> Unit)?
+
+    /** Available only in secure contexts. */
+    var ondeviceorientation: ((event: DeviceOrientationEvent) -> Unit)?
     var opener: Any?
     val outerHeight: Int
     val outerWidth: Int
