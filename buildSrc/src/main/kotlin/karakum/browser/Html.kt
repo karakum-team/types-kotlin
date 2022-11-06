@@ -435,6 +435,7 @@ internal fun convertMember(
         return "var " + source.replace(Regex("""\(this\: \w+?\, """), "(")
             .removeSuffix(" | undefined")
             .replace("Event) => any) | null", "Event) -> Unit)?")
+            .replace(": MessageEvent)", ": MessageEvent<*>)")
             .replace("(ev: ", "(event: ")
             .replace("?: (", ": (")
 
