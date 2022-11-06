@@ -59,6 +59,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.history.PopStateEvent", missed = true),
     EventInfo("dom.events.PromiseRejectionEvent", missed = true),
     EventInfo("web.storage.StorageEvent", missed = true),
+    EventInfo("web.csp.SecurityPolicyViolationEvent", missed = true),
 )
 
 internal val EVENT_INFO_MAP = EVENT_DATA

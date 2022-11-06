@@ -110,6 +110,10 @@ private val INT_NAMES = setOf(
 
     "scrollHeight",
     "scrollWidth",
+
+    "columnNumber",
+    "lineNumber",
+    "statusCode",
 )
 
 private val DOUBLE_NAMES = setOf(

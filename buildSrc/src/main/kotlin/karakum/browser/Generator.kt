@@ -197,11 +197,18 @@ fun generateKotlinDeclarations(
             import web.device.DeviceOrientationEvent    
             """.trimIndent()
 
+            "HTMLMediaElement",
+            -> """
+            import media.MediaEncryptedEvent    
+            import web.events.Event    
+            """.trimIndent()
+
             "GlobalEventHandlers",
             "WindowEventHandlers",
             -> """
             import dom.events.*
             import web.animations.AnimationEvent
+            import web.csp.SecurityPolicyViolationEvent
             import web.events.Event
             import web.events.ProgressEvent
             import web.gamepad.GamepadEvent
