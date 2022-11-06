@@ -4,6 +4,7 @@ package dom
 
 import dom.events.*
 import web.animations.AnimationEvent
+import web.csp.SecurityPolicyViolationEvent
 import web.events.Event
 import web.events.ProgressEvent
 
