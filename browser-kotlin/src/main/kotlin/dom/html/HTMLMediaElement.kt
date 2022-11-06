@@ -3,6 +3,7 @@
 package dom.html
 
 import kotlinx.js.Void
+import media.MediaEncryptedEvent
 import media.MediaError
 import media.key.MediaKeys
 import media.source.TimeRanges

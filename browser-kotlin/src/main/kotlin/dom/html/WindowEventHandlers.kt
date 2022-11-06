@@ -20,8 +20,8 @@ external interface WindowEventHandlers {
     var ongamepaddisconnected: ((event: GamepadEvent) -> Unit)?
     var onhashchange: ((event: HashChangeEvent) -> Unit)?
     var onlanguagechange: ((event: Event) -> Unit)?
-    var onmessage: ((event: MessageEvent) -> Unit)?
-    var onmessageerror: ((event: MessageEvent) -> Unit)?
+    var onmessage: ((event: MessageEvent<*>) -> Unit)?
+    var onmessageerror: ((event: MessageEvent<*>) -> Unit)?
     var onoffline: ((event: Event) -> Unit)?
     var ononline: ((event: Event) -> Unit)?
     var onpagehide: ((event: PageTransitionEvent) -> Unit)?
