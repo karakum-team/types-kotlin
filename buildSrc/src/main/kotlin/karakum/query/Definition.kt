@@ -34,6 +34,8 @@ fun toDeclarations(
             "MutationObserverOptions<TData, TError, TVariables, TContext>"
         )
         .replace("\n    isDataEqual?: (oldData: TData | undefined, newData: TData) => boolean;\n", "\n")
+        // TODO: check
+        .replace("    get meta(): ", "    meta: ")
         // TEMP
         .replace(" & {\n        manual: boolean;\n    }", "")
 
