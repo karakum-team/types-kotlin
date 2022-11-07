@@ -431,14 +431,23 @@ internal fun convertMember(
         source.startsWith("toString()") -> return null
     }
 
-    if ((source.startsWith("on") && "(this: " in source))
-        return "var " + source.replace(Regex("""\(this\: \w+?\, """), "(")
-            .removeSuffix(" | undefined")
-            .replace("Event) => any) | null", "Event) -> Unit)?")
-            .replace(": MessageEvent)", ": MessageEvent<*>)")
-            .replace(": ProgressEvent)", ": ProgressEvent<*>)")
-            .replace("(ev: ", "(event: ")
-            .replace("?: (", ": (")
+    if ((source.startsWith("on") && "(this: " in source)) {
+        val handlerName = source.substringBefore(": ")
+            .removeSuffix("?")
+
+        var eventType = source
+            .substringAfter(": ")
+            .substringAfter("ev: ")
+            .substringBefore(")")
+
+        when (eventType) {
+            "MessageEvent",
+            "ProgressEvent",
+            -> eventType += "<*>"
+        }
+
+        return "var $handlerName: EventHandler<$eventType>?"
+    }
 
     if (source.startsWith("["))
         return "    // $source"
@@ -485,7 +494,7 @@ private fun convertProperty(
         -> typeProvider.numberType(safeName)
 
         "OnErrorEventHandler",
-        -> "Any? /* $type */"
+        -> "Function<Unit>? /* $type */"
 
         // TEMP
         "CredentialsContainer",
