@@ -24,6 +24,10 @@ private val LONG_NAMES = setOf(
 
     "newVersion",
     "oldVersion",
+
+    // ProgressEvent
+    "loaded",
+    "total",
 )
 
 private val INT_NAMES = setOf(

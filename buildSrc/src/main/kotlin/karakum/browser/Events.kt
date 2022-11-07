@@ -83,40 +83,13 @@ internal fun eventDeclarations(
     content: String,
 ): List<ConversionResult> =
     eventTypes(content)
-        .plus(eventAliases())
         .plus(eventPlaceholders(content))
-
-private fun eventAliases(): List<ConversionResult> =
-    EVENT_DATA.mapNotNull { info ->
-        val alias = info.alias
-            ?: return@mapNotNull null
-
-        val name = info.name
-        val initBody = when (name) {
-            "TouchEvent", // TEMP
-            "BeforeUnloadEvent",
-            -> null
-
-            else -> "typealias ${name}Init = ${alias}Init"
-        }
-
-        val body = listOfNotNull(
-            initBody,
-            "typealias $name = $alias"
-        ).joinToString("\n")
-
-        ConversionResult(
-            name = name,
-            body = body,
-            pkg = info.pkg,
-        )
-    }
 
 private fun eventPlaceholders(
     source: String,
 ): List<ConversionResult> =
     EVENT_DATA
-        .filter { it.missed }
+        .filter { !it.existed }
         .mapNotNull { info ->
             event(
                 source = source,
@@ -152,6 +125,8 @@ private fun event(
     } else ""
 
     val eventSource = source
+        // ProgressEvent
+        .replace("<T extends EventTarget = EventTarget>", "")
         .substringAfter("\ninterface $name extends ")
         .substringBefore(";\n}\n")
 
@@ -163,6 +138,8 @@ private fun event(
         .splitToSequence(";\n")
         .mapNotNull { convertMember(it, typeProvider) }
         .joinToString("\n")
+        // ProgressEvent
+        .replace("val target: T?", "override val target: T?")
 
     val eventClassBody = source
         .substringAfter("\ndeclare var $name: {\n")
@@ -203,8 +180,12 @@ private fun event(
     } else "companion object"
 
     val modifier = if (eventConstructor.isNotEmpty()) "open" else "sealed"
+    val typeParameters = if (name == "ProgressEvent") {
+        "<T : EventTarget>"
+    } else ""
+
     val eventBody = """    
-    $modifier external class $name $eventConstructor : $eventParent {
+    $modifier external class $name$typeParameters $eventConstructor : $eventParent {
         $eventMembers
     
         $companion
@@ -251,7 +232,7 @@ private fun eventTypes(
     val typeName = firstItem.typeName
 
     val info = EVENT_INFO_MAP.getValue(typeName)
-    val imports = "import " + (info.alias ?: info.fqn)
+    val imports = "import ${info.fqn}"
 
     val members = items
         .sortedBy { it.name }
@@ -260,8 +241,10 @@ private fun eventTypes(
                 .getOrDefault(name, name)
                 .toUpperCase()
 
+            val finalType = if (type == "ProgressEvent") "$type<*>" else type
+
             """
-            inline val $typeName.Companion.$memberName : $EVENT_TYPE<$type>
+            inline val $typeName.Companion.$memberName : $EVENT_TYPE<$finalType>
                 get() = $EVENT_TYPE("$name")                        
             """.trimIndent()
         }
@@ -304,7 +287,6 @@ private fun parseEventData(
 
     val pkg = if (type == "Event") {
         PACKAGE_MAP.getValue(mapId)
-            .ifEmpty { "org.w3c.dom.events" }
     } else ""
 
     return EventData(

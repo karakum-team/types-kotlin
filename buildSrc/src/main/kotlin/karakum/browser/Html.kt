@@ -436,6 +436,7 @@ internal fun convertMember(
             .removeSuffix(" | undefined")
             .replace("Event) => any) | null", "Event) -> Unit)?")
             .replace(": MessageEvent)", ": MessageEvent<*>)")
+            .replace(": ProgressEvent)", ": ProgressEvent<*>)")
             .replace("(ev: ", "(event: ")
             .replace("?: (", ": (")
 
