@@ -11,6 +11,7 @@ import dom.html.ShadowRootInit
 import kotlinx.js.ReadonlyArray
 import kotlinx.js.Void
 import web.events.Event
+import web.events.EventHandler
 import kotlin.js.Promise
 
 abstract external class Element :
@@ -42,8 +43,8 @@ abstract external class Element :
 
     /** Returns the namespace. */
     val namespaceURI: String?
-    var onfullscreenchange: ((event: Event) -> Unit)?
-    var onfullscreenerror: ((event: Event) -> Unit)?
+    var onfullscreenchange: EventHandler<Event>?
+    var onfullscreenerror: EventHandler<Event>?
     var outerHTML: String
 
     // TEMP: WA for old `Node`
