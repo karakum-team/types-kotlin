@@ -9,6 +9,7 @@ import java.io.File
 private val DEFAULT_IMPORTS = """
 import kotlin.js.Date
 import kotlin.js.Promise
+import kotlinx.js.ArrayLike
 import kotlinx.js.EpochTimeStamp
 import kotlinx.js.ArrayBuffer
 import kotlinx.js.ArrayBufferView

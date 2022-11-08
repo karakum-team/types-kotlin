@@ -244,6 +244,7 @@ private val WINDOW_EXCLUDED = setOf(
 
 internal class TypeProvider(
     private val parentType: String,
+    private val arrayType: String? = null,
 ) {
     fun numberType(
         propertyName: String,
@@ -286,9 +287,15 @@ internal class TypeProvider(
         }
     }
 
+    fun isArrayLike(): Boolean =
+        arrayType != null
+
     fun accepted(
         name: String,
     ): Boolean {
+        if (name == "length" && isArrayLike())
+            return false
+
         if (parentType == "Window")
             return name !in WINDOW_EXCLUDED
 

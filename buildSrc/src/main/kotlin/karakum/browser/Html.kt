@@ -269,7 +269,7 @@ private fun convertInterface(
 
     val type = getType(name)
 
-    val declaration = source.substringBefore(" {\n")
+    var declaration = source.substringBefore(" {\n")
         .replace(", AnimationFrameProvider", "")
         .replace(", WindowLocalStorage, WindowOrWorkerGlobalScope, WindowSessionStorage", "")
 
@@ -287,7 +287,25 @@ private fun convertInterface(
     if (memberSource.startsWith("("))
         return null
 
-    val typeProvider = TypeProvider(name)
+    val arrayType = if ("readonly length: number;" in memberSource) {
+        val result = Regex("""\[index\: number\]\: (\w+)""")
+            .find(memberSource)
+
+        if (result != null) {
+            when (val t = result.groupValues[1]) {
+                "string" -> "String"
+                else -> t
+            }
+        } else null
+    } else null
+
+    if (arrayType != null) {
+        declaration += if (":" in declaration) "," else ":"
+        declaration += "\nArrayLike<$arrayType>"
+    }
+
+    val typeProvider = TypeProvider(name, arrayType)
+
     val members = if (memberSource.isNotEmpty()) {
         var result = memberSource
             .splitToSequence(";\n")
@@ -448,6 +466,9 @@ internal fun convertMember(
 
         return "var $handlerName: EventHandler<$eventType>?"
     }
+
+    if (source.startsWith("[index: number]:") && typeProvider.isArrayLike())
+        return null
 
     if (source.startsWith("["))
         return "    // $source"
