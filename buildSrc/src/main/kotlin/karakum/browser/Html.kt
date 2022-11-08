@@ -59,6 +59,11 @@ private val DOM_TYPES = setOf(
     "GlobalEventHandlers",
 )
 
+internal val DOM_CSS_TYPES = listOf(
+    "ElementCSSInlineStyle",
+    "LinkStyle",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -158,6 +163,7 @@ internal fun htmlDeclarations(
         "DOMMatrix2DInit",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
+        .plus(DOM_CSS_TYPES)
         .joinToString("|")
 
     val interfaces =
@@ -329,7 +335,8 @@ private fun convertInterface(
     } else ""
 
     val modifier = when {
-        name == "SpeechSynthesisUtterance" ||
+        name in DOM_CSS_TYPES ||
+                name == "SpeechSynthesisUtterance" ||
                 name == "FontFaceSource" ||
                 name == "XPathEvaluatorBase" ||
                 name == "ARIAMixin" ||
@@ -399,6 +406,7 @@ private fun convertInterface(
 
         name.startsWith("Document") -> "dom"
         name in DOM_TYPES -> "dom"
+        name in DOM_CSS_TYPES -> "dom.css"
 
         name.startsWith("XPath") -> "dom.xpath"
 

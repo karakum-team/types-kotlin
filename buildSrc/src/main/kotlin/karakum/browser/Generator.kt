@@ -22,6 +22,8 @@ import kotlinx.js.ReadonlyArray
 import kotlinx.js.Uint32Array
 import kotlinx.js.JsLong
 import kotlinx.js.Void
+import cssom.CSSStyleDeclaration
+import cssom.CSSStyleSheet
 import dom.Document
 import dom.DocumentFragment
 import dom.DOMStringList
@@ -128,7 +130,6 @@ fun generateKotlinDeclarations(
     }
 
     val aliases = domAliases()
-        .plus(cssAliases())
         .plus(mediaAliases())
         .plus(htmlAliases())
         .plus(canvasAliases())
@@ -164,7 +165,6 @@ fun generateKotlinDeclarations(
             "Document",
             "DocumentOrShadowRoot",
             -> """
-            import cssom.CSSStyleSheet    
             import cssom.StyleSheetList    
             import cssom.fonts.FontFaceSource    
             import dom.html.*        
