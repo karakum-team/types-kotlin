@@ -299,7 +299,7 @@ private fun convertInterface(
         } else null
     } else null
 
-    if (arrayType != null) {
+    if (arrayType != null && name != "Window") {
         declaration += if (":" in declaration) "," else ":"
         declaration += "\nArrayLike<$arrayType>"
     }
@@ -502,6 +502,10 @@ private fun convertProperty(
     val safeName = name.removeSuffix("?")
     if (!typeProvider.accepted(safeName))
         return null
+
+    // Window
+    if (safeName == "frames" && type == "WindowProxy")
+        type = "ArrayLike<Window>"
 
     type = when (type) {
         "null" -> "Void"
