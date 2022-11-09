@@ -17,8 +17,6 @@ private val CLASSES = listOf(
 
     "HTMLOrSVGScriptElement", // check
     "ProcessingInstruction",
-    "ChildNode",
-    "ParentNode",
     "NodeFilter",
 )
 

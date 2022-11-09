@@ -52,6 +52,8 @@ private val DOM_TYPES = setOf(
     "HTMLOrSVGElement",
     "FocusOptions",
 
+    "ChildNode",
+    "ParentNode",
     "Element",
     "FullscreenOptions",
 
@@ -89,6 +91,8 @@ internal fun htmlDeclarations(
         "ElementInternals .+?",
         "ValidityStateFlags",
 
+        "ChildNode .+?",
+        "ParentNode .+?",
         "Element .+?",
         "Attr .+?",
         "CDATASection .+?",
@@ -278,11 +282,20 @@ private fun convertInterface(
     var declaration = source.substringBefore(" {\n")
         .replace(", AnimationFrameProvider", "")
         .replace(", WindowLocalStorage, WindowOrWorkerGlobalScope, WindowSessionStorage", "")
-
         .replace("interface ", "$type ")
-        .replace(" extends ", " :\n")
-        .replace(", ", ",\n")
-        .replace("\nAnimatable,", "\n/* Animatable, */")
+
+    declaration = when (name) {
+        "ChildNode",
+        "ParentNode",
+        -> declaration.replace("extends Node", "/* : Node */")
+
+        else -> {
+            declaration
+                .replace(" extends ", " :\n")
+                .replace(", ", ",\n")
+                .replace("\nAnimatable,", "\n/* Animatable, */")
+        }
+    }
 
     var memberSource = source
         .substringAfter(" {\n")
@@ -601,6 +614,11 @@ private fun convertFunction(
         "...nodes: (Element | Text)[]",
         -> listOf(
             "vararg nodes: Element /* | Text */",
+        )
+
+        "...nodes: (Node | string)[]",
+        -> listOf(
+            "vararg nodes: Any /* Node | string */",
         )
 
         "...text: string[]",

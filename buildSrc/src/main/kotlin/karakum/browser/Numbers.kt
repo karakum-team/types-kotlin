@@ -58,6 +58,7 @@ private val INT_NAMES = setOf(
     "videoWidth",
 
     "numberOfItems",
+    "childElementCount",
 
     "maxTouchPoints",
 
