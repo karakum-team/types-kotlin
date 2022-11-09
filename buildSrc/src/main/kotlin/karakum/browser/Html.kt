@@ -562,6 +562,10 @@ private fun convertProperty(
         "OnErrorEventHandler",
         -> "Function<Unit>? /* $type */"
 
+        "ChildNode" -> "Node /* ChildNode */"
+        "ParentNode" -> "Node /* ParentNode */"
+        "NodeListOf<ChildNode>" -> "NodeListOf<Node /* ChildNode */>"
+
         // TEMP
         "CredentialsContainer",
         "MediaCapabilities",
