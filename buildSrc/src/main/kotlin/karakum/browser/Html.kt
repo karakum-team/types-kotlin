@@ -331,10 +331,14 @@ private fun convertInterface(
             .mapNotNull { convertMember(it, typeProvider) }
             .joinToString("\n")
 
-        if (name == "Document" || name == "DocumentFragment" || name == "DocumentType"
-            || name == "Attr" || name == "CharacterData" || name == "Element"
-        ) {
-            result = result
+        result = when (name) {
+            "Document",
+            "DocumentFragment",
+            "DocumentType",
+            "Attr",
+            "CharacterData",
+            "Element",
+            -> result
                 .replace("val ownerDocument:", "override val ownerDocument:")
                 .replace("fun getElementById(", "override fun getElementById(")
                 // TEMP: WA for old `Node`
@@ -342,6 +346,12 @@ private fun convertInterface(
                     "override val ownerDocument: Document",
                     "    // TEMP: WA for old `Node`\n    // override val ownerDocument: Document"
                 )
+
+            "HTMLSelectElement",
+            -> result
+                .replace("fun remove()", "override fun remove()")
+
+            else -> result
         }
 
         result
@@ -466,7 +476,6 @@ internal fun convertMember(
         source.startsWith("removeEventListener<") -> return null
         source.startsWith("removeEventListener(") -> return null
         source.startsWith("createEvent(") -> return null
-        source.startsWith("remove()") -> return null
         source.startsWith("toString()") -> return null
     }
 
