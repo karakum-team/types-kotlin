@@ -2,6 +2,12 @@
 
 package dom
 
+import dom.html.HTMLCollection
+import dom.html.HTMLElement
+import dom.html.HtmlTagName
+import dom.svg.SVGElement
+import dom.svg.SvgTagName
+
 sealed external interface ParentNode /* : Node */ {
     val childElementCount: Int
 
@@ -29,13 +35,15 @@ sealed external interface ParentNode /* : Node */ {
     fun prepend(vararg nodes: Any /* Node | string */)
 
     /** Returns the first element that is a descendant of node that matches selectors. */
-    fun <K extends querySelector keyof HTMLElementTagNameMap>(selectors: K): HTMLElementTagNameMap[K]?
-    fun <K extends querySelector keyof SVGElementTagNameMap>(selectors: K): SVGElementTagNameMap[K]?
-    fun <E extends querySelector Element = Element>(selectors: String): E?
+    fun <T : HTMLElement> querySelector(selectors: HtmlTagName<T>): T?
+    fun <T : SVGElement> querySelector(selectors: SvgTagName<T>): T?
+    fun querySelector(selectors: String): Element?
+
     /** Returns all element descendants of node that match selectors. */
-    fun <K extends querySelectorAll keyof HTMLElementTagNameMap>(selectors: K): NodeListOf<HTMLElementTagNameMap[K]>
-    fun <K extends querySelectorAll keyof SVGElementTagNameMap>(selectors: K): NodeListOf<SVGElementTagNameMap[K]>
-    fun <E extends querySelectorAll Element = Element>(selectors: String): NodeListOf<E>
+    fun <T : HTMLElement> querySelectorAll(selectors: HtmlTagName<T>): NodeListOf<T>
+    fun <T : SVGElement> querySelectorAll(selectors: SvgTagName<T>): NodeListOf<T>
+    fun querySelectorAll(selectors: String): NodeListOf<Element>
+
     /**
      * Replace all children of node with nodes, while replacing strings in nodes with equivalent Text nodes.
      *
