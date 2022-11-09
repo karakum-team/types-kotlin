@@ -17,6 +17,9 @@ sealed external interface ChildNode /* : Node */ {
      */
     fun before(vararg nodes: Any /* Node | string */)
 
+    /** Removes node. */
+    fun remove()
+
     /**
      * Replaces node with nodes, while replacing strings in nodes with equivalent Text nodes.
      *
