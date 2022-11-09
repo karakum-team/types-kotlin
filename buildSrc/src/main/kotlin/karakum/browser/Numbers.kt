@@ -3,6 +3,8 @@ package karakum.browser
 private val FLAG_NAMES = setOf(
     "networkState",
     "readyState",
+
+    "nodeType",
     "resultType",
     "unitType",
     "type",

@@ -16,6 +16,10 @@ internal fun String.applyPatches(): String =
             "forEach(action: (item: FontFace) => void): void;"
         )
         .replace(
+            "forEach(callbackfn: (value: Node, key: number, parent: NodeList) => void, thisArg?: any): void;",
+            "forEach(action: (item: Node) => void): void;"
+        )
+        .replace(
             "arg?: boolean | ScrollIntoViewOptions",
             "options?: ScrollIntoViewOptions",
         )

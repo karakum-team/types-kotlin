@@ -1,11 +1,6 @@
 package karakum.browser
 
 private val CLASSES = listOf(
-    "NamedNodeMap",
-
-    "Node",
-    "NodeList",
-
     "DOMStringList",
     "DOMStringMap",
     "DOMImplementation",

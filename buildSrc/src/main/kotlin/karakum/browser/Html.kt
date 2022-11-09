@@ -54,6 +54,11 @@ private val DOM_TYPES = setOf(
     "HTMLOrSVGElement",
     "FocusOptions",
 
+    "Node",
+    "NodeList",
+    "NamedNodeMap",
+    "GetRootNodeOptions",
+
     "ChildNode",
     "ParentNode",
     "Element",
@@ -94,6 +99,7 @@ internal fun htmlDeclarations(
         "ElementInternals .+?",
         "ValidityStateFlags",
 
+        "Node .+?",
         "ChildNode .+?",
         "ParentNode .+?",
         "Element .+?",
@@ -338,6 +344,10 @@ private fun convertInterface(
             .joinToString("\n")
 
         result = when (name) {
+            "Node",
+            -> result
+                .replace("val ownerDocument:", "open val ownerDocument:")
+
             "Document",
             "DocumentFragment",
             "DocumentType",
@@ -347,11 +357,6 @@ private fun convertInterface(
             -> result
                 .replace("val ownerDocument:", "override val ownerDocument:")
                 .replace("fun getElementById(", "override fun getElementById(")
-                // TEMP: WA for old `Node`
-                .replace(
-                    "override val ownerDocument: Document",
-                    "    // TEMP: WA for old `Node`\n    // override val ownerDocument: Document"
-                )
 
             "HTMLSelectElement",
             -> result
@@ -649,6 +654,11 @@ private fun convertFunction(
         "action: (item: FontFace) => void",
         -> listOf(
             "action: (item: FontFace) -> Unit",
+        )
+
+        "action: (item: Node) => void",
+        -> listOf(
+            "action: (item: Node) -> Unit",
         )
 
         else -> parametersSource
