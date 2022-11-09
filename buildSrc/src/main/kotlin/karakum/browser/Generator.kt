@@ -53,11 +53,15 @@ import dom.geometry.DOMRectReadOnly
 import dom.geometry.DOMRectList
 import dom.html.HTMLCanvasElement
 import dom.html.HTMLCollectionOf
+import dom.html.HTMLCollection
 import dom.html.HTMLElement
 import dom.html.HTMLSlotElement
+import dom.html.HtmlTagName
 import dom.html.ShadowRoot
 import dom.html.ShadowRootInit
 import dom.html.Window
+import dom.svg.SVGElement
+import dom.svg.SvgTagName
 import media.MediaError
 import media.key.MediaKeys
 import media.source.TimeRanges
@@ -168,7 +172,6 @@ fun generateKotlinDeclarations(
             import cssom.StyleSheetList    
             import cssom.fonts.FontFaceSource    
             import dom.html.*        
-            import dom.svg.SVGElement    
             import dom.xpath.XPathEvaluatorBase
             import web.events.Event
             """.trimIndent()

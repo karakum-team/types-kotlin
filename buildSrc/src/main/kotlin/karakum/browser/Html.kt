@@ -494,10 +494,6 @@ internal fun convertMember(
     if (source.startsWith("["))
         return "    // $source"
 
-    // TEMP
-    if (source.startsWith("importNode<") || source.startsWith("adoptNode<"))
-        return "    // $source"
-
     if ("(" in source) {
         val isFun = if (": " in source) {
             source.indexOf(": ") > source.indexOf("(")
@@ -602,7 +598,12 @@ private fun convertFunction(
     source: String,
     typeProvider: TypeProvider,
 ): String? {
-    val name = source.substringBefore("(")
+    val nameSource = source.substringBefore("(")
+    val name = nameSource.substringBefore("<")
+    val typeParameters = nameSource
+        .removePrefix(name)
+        .replace(" extends ", " : ")
+
     if (!typeProvider.accepted(name))
         return null
 
@@ -681,7 +682,7 @@ private fun convertFunction(
         .replace("<void>", "<Void>")
         .replace(" | null", "?")
 
-    return "fun $name($params)$result"
+    return "fun $typeParameters$name($params)$result"
 }
 
 private fun getParameterType(
