@@ -1,10 +1,6 @@
 package karakum.browser
 
 internal val HTML_ALIAS_CLASSES = listOf(
-    "HTMLCollection",
-    "HTMLFormControlsCollection",
-    "HTMLOptionsCollection",
-
     "Image",
 
     "MediaProvider",

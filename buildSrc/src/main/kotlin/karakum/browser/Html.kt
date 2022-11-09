@@ -17,6 +17,8 @@ private val DEPRECATED = setOf(
 
     "HTMLTableHeaderCellElement",
     "HTMLTableDataCellElement",
+
+    "HTMLAllCollection",
 )
 
 private val ANIMATION_TYPES = setOf(
@@ -80,6 +82,7 @@ internal fun htmlDeclarations(
     val patterns = sequenceOf(
         "HTML.+?",
         "SVG.+?",
+        "HTMLCollection .+?",
 
         "ShadowRoot .+?",
         "ShadowRootInit",
@@ -266,6 +269,7 @@ private fun convertInterface(
     val name = source
         .substringAfter(" ")
         .substringBefore(" ")
+        .substringBefore("<")
 
     when {
         name in HTML_ALIAS_CLASSES -> return null
@@ -274,7 +278,9 @@ private fun convertInterface(
         name.endsWith("Event") -> return null
         name.endsWith("EventInit") -> return null
         name.endsWith("EventMap") -> return null
-        "Collection" in name -> return null
+
+        // TEMP
+        name == "HTMLCollectionOf" -> return null
     }
 
     val type = getType(name)
@@ -350,6 +356,10 @@ private fun convertInterface(
             "HTMLSelectElement",
             -> result
                 .replace("fun remove()", "override fun remove()")
+
+            "HTMLOptionsCollection",
+            -> result
+                .replace("var length: Int", "override var length: Int")
 
             else -> result
         }
@@ -668,6 +678,7 @@ private fun convertFunction(
             "SVGCircleElement | SVGEllipseElement | SVGImageElement | SVGLineElement | SVGPathElement | SVGPolygonElement | SVGPolylineElement | SVGRectElement | SVGTextElement | SVGUseElement",
             "SVGElement /* SVGCircleElement | SVGEllipseElement | SVGImageElement | SVGLineElement | SVGPathElement | SVGPolygonElement | SVGPolylineElement | SVGRectElement | SVGTextElement | SVGUseElement */"
         )
+        .replace(": RadioNodeList | Element | null", ": Any? /* RadioNodeList | Element */")
         .replace(": Promise<number>", ": Promise<Number>")
         .replace(": Promise<FontFace[]>", ": Promise<ReadonlyArray<FontFace>>")
         .replace(": WebGLShader[]", ": ReadonlyArray<WebGLShader>")
