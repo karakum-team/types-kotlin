@@ -169,17 +169,11 @@ private fun convertType(
                 name == "CanvasTextRendering"
         -> null
 
-        name == "ScrollSetting"
-        -> null
-
         name.startsWith("Request") ||
                 name.startsWith("Response")
         -> "org.w3c.fetch"
 
-        name.startsWith("Canvas") ||
-                name == "DocumentReadyState" ||
-                name == "CanPlayTypeResult" ||
-                name.startsWith("Scroll")
+        name.startsWith("Canvas")
         -> "org.w3c.dom"
 
         name.startsWith("XMLHttp")
