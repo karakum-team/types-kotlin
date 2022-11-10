@@ -1,7 +1,6 @@
 package karakum.browser
 
 private val CLASSES = listOf(
-    "DOMStringList",
     "DOMStringMap",
     "DOMImplementation",
     "DOMTokenList",

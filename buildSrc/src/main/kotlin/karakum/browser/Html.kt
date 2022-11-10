@@ -32,6 +32,8 @@ private val ANIMATION_TYPES = setOf(
 )
 
 private val DOM_TYPES = setOf(
+    "DOMStringList",
+
     "Attr",
     "CDATASection",
     "CharacterData",
