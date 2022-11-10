@@ -64,6 +64,10 @@ private val DOM_TYPES = setOf(
     "Element",
     "FullscreenOptions",
 
+    "ScrollOptions",
+    "ScrollToOptions",
+    "ScrollIntoViewOptions",
+
     "DocumentAndElementEventHandlers",
     "GlobalEventHandlers",
 )
@@ -115,6 +119,9 @@ internal fun htmlDeclarations(
         "DocumentFragment .+?",
         "DocumentOrShadowRoot",
         "XPath.+?",
+
+        "ScrollToOptions .+?",
+        "ScrollIntoViewOptions .+?",
 
         "Window .+?",
         "WindowPostMessageOptions .+?",

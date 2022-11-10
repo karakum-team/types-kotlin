@@ -6,10 +6,6 @@ private val CLASSES = listOf(
     "DOMImplementation",
     "DOMTokenList",
 
-    "ScrollOptions",
-    "ScrollToOptions",
-    "ScrollIntoViewOptions",
-
     "HTMLOrSVGScriptElement", // check
     "ProcessingInstruction",
     "NodeFilter",

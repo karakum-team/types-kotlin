@@ -212,7 +212,11 @@ private val DOUBLE_NAMES = setOf(
 
     // Element
     "scrollLeft",
-    "scrollTop"
+    "scrollTop",
+
+    // Scroll
+    "left",
+    "top",
 )
 
 private val WINDOW_EXCLUDED = setOf(
