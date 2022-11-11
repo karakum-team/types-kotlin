@@ -679,7 +679,7 @@ private fun convertFunction(
             .filter { it.isNotEmpty() }
             .map {
                 var (pname, ptype) = it.split(": ")
-                ptype = getParameterType(ptype)
+                ptype = getParameterType(pname.removeSuffix("?"), ptype)
 
                 if (pname.endsWith("?")) {
                     pname = pname.removeSuffix("?")
@@ -729,10 +729,11 @@ private fun convertFunction(
 }
 
 private fun getParameterType(
+    name: String,
     source: String,
 ): String {
     if (source.endsWith(" | null")) {
-        var type = getParameterType(source.removeSuffix(" | null"))
+        var type = getParameterType(name, source.removeSuffix(" | null"))
         if ("? /* " !in type)
             type += "?"
 
@@ -756,7 +757,7 @@ private fun getParameterType(
         -> "URL /* | string */"
 
         source == "number"
-        -> "Number"
+        -> if (name == "index") "Int" else "Number"
 
         source == "boolean"
         -> "Boolean"
