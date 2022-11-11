@@ -125,6 +125,8 @@ internal fun htmlDeclarations(
         "ScrollToOptions .+?",
         "ScrollIntoViewOptions .+?",
 
+        "Selection",
+
         "Window .+?",
         "WindowPostMessageOptions .+?",
 
@@ -448,6 +450,7 @@ private fun convertInterface(
         name.startsWith("Storage") -> "web.storage"
 
         name == "ARIAMixin" -> "dom.aria"
+        name == "Selection" -> "dom.selection"
 
         name == "EventModifierInit" -> "dom.events"
 
@@ -720,7 +723,6 @@ private fun convertFunction(
         .replace("<string>", "<String>")
         .replace(": boolean", ": Boolean")
         .replace("<boolean>", "<Boolean>")
-        .replace(": Selection", ": Any /* Selection */")
         .replace(": any", ": Any")
         .replace("<void>", "<Void>")
         .replace(" | null", "?")

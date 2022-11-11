@@ -35,6 +35,7 @@ import dom.InnerHTML
 import dom.Node
 import dom.NodeList
 import dom.NodeListOf
+import dom.Range
 import dom.ScrollToOptions
 import dom.DocumentAndElementEventHandlers
 import dom.GlobalEventHandlers
@@ -60,6 +61,7 @@ import dom.html.HtmlTagName
 import dom.html.ShadowRoot
 import dom.html.ShadowRootInit
 import dom.html.Window
+import dom.selection.Selection
 import dom.svg.SVGElement
 import dom.svg.SvgTagName
 import media.MediaError

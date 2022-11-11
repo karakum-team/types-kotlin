@@ -121,6 +121,11 @@ private val INT_NAMES = setOf(
     "columnNumber",
     "lineNumber",
     "statusCode",
+
+    // Selection
+    "anchorOffset",
+    "focusOffset",
+    "rangeCount",
 )
 
 private val DOUBLE_NAMES = setOf(
@@ -243,7 +248,6 @@ private val WINDOW_EXCLUDED = setOf(
     "cancelIdleCallback",
     "confirm",
     "getComputedStyle",
-    "getSelection",
     "matchMedia",
     "prompt",
     "requestIdleCallback",
