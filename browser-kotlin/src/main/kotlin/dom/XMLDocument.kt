@@ -2,4 +2,5 @@
 
 package dom
 
-typealias NodeFilter = (node: Node) -> Short
+sealed external class XMLDocument :
+    Document
