@@ -85,6 +85,11 @@ internal val DOM_CSS_TYPES = listOf(
     "LinkStyle",
 )
 
+private val DOM_PARSING_TYPES = listOf(
+    "DOMParser",
+    "XMLSerializer",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -199,6 +204,7 @@ internal fun htmlDeclarations(
         "DOMMatrix2DInit",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
+        .plus(DOM_PARSING_TYPES)
         .plus(DOM_CSS_TYPES)
         .joinToString("|")
 
@@ -416,6 +422,7 @@ private fun convertInterface(
 
     val modifier = when {
         name in DOM_CSS_TYPES ||
+                name in DOM_PARSING_TYPES ||
                 name == "SpeechSynthesisUtterance" ||
                 name == "FontFaceSource" ||
                 name == "XPathEvaluatorBase" ||
@@ -447,6 +454,7 @@ private fun convertInterface(
     val pkg = when {
         name == "RemotePlayback" -> "remoteplayback"
         name == "DOMMatrix2DInit" -> "dom.geometry"
+        name in DOM_PARSING_TYPES -> "dom.parsing"
         name.startsWith("SVG") -> "dom.svg"
 
         name.startsWith("CSS") -> "cssom"
