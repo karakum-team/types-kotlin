@@ -60,9 +60,12 @@ private val DOM_TYPES = setOf(
     "FocusOptions",
 
     "Node",
+    "NodeFilter",
     "NodeList",
     "NamedNodeMap",
     "GetRootNodeOptions",
+    "XMLDocument",
+    "DOMImplementation",
 
     "ChildNode",
     "ParentNode",
@@ -123,6 +126,7 @@ internal fun htmlDeclarations(
         "DocumentType .+?",
         "DocumentFragment .+?",
         "DocumentOrShadowRoot",
+        "XMLDocument .+?",
         "XPath.+?",
 
         "ScrollToOptions .+?",
@@ -207,6 +211,13 @@ internal fun htmlDeclarations(
     return interfaces
         .plus(additionalType)
         .plus(clipboardDeclarations())
+        .plus(
+            ConversionResult(
+                name = "NodeFilter",
+                body = "typealias NodeFilter = (node: Node) -> Short",
+                pkg = "dom",
+            )
+        )
         .plus(
             ConversionResult(
                 name = VIDEO_FRAME_REQUEST_ID,
@@ -394,8 +405,8 @@ private fun convertInterface(
 
             "CanvasPathDrawingStyles",
             -> result
-                    .replace("Number[]", "ReadonlyArray<Double>")
-                    .replace("<number>", "<Double>")
+                .replace("Number[]", "ReadonlyArray<Double>")
+                .replace("<number>", "<Double>")
 
             else -> result
         }

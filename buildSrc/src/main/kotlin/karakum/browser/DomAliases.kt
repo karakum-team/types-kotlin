@@ -2,12 +2,10 @@ package karakum.browser
 
 private val CLASSES = listOf(
     "DOMStringMap",
-    "DOMImplementation",
     "DOMTokenList",
 
     "HTMLOrSVGScriptElement", // check
     "ProcessingInstruction",
-    "NodeFilter",
 )
 
 private val GEOMETRY_CLASSES = listOf(
