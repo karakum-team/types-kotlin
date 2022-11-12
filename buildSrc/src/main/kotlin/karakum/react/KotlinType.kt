@@ -21,7 +21,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Date" to "kotlin.js.Date",
 
     "Document" to "dom.Document",
-    "DataTransfer" to "dom.events.DataTransfer",
+    "DataTransfer" to "dom.data.DataTransfer",
     "AbstractView" to "Window",
 
     "Key" to "react.Key",

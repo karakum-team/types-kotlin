@@ -43,7 +43,7 @@ import dom.html.WindowEventHandlers
 import dom.aria.ARIAMixin
 import dom.css.LinkStyle
 import dom.css.ElementCSSInlineStyle
-import dom.events.DataTransfer
+import dom.data.DataTransfer
 import dom.geometry.DOMMatrix
 import dom.geometry.DOMMatrix2DInit
 import dom.geometry.DOMPoint
