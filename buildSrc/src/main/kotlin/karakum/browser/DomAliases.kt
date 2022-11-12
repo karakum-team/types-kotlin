@@ -24,14 +24,8 @@ private val GEOMETRY_CLASSES = listOf(
     "DOMQuad",
 )
 
-private val DATA_TYPES = listOf(
-    "DataTransfer",
-    "DataTransferItem",
-    "DataTransferItemList",
-)
-
 internal fun domAliases(): List<ConversionResult> =
-    (CLASSES + GEOMETRY_CLASSES + DATA_TYPES).map { name ->
+    (CLASSES + GEOMETRY_CLASSES).map { name ->
         val aliasPkg = "org.w3c.dom"
 
         val alias = when (name) {
@@ -41,7 +35,6 @@ internal fun domAliases(): List<ConversionResult> =
 
         val pkg = when (name) {
             in GEOMETRY_CLASSES -> "dom.geometry"
-            in DATA_TYPES -> "dom.data"
             else -> "dom"
         }
 

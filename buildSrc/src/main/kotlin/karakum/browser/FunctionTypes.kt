@@ -15,6 +15,8 @@ private fun convertFunctionType(
         .substringBefore(" ")
 
     val pkg = when {
+        name == "FunctionStringCallback" -> "dom.data"
+
         name == "BlobCallback" -> "dom.html"
         name == "VideoFrameRequestCallback" -> "dom.html"
 
@@ -37,6 +39,7 @@ private fun convertFunctionType(
     var bodySource = source.substringAfter("\n    ")
         .substringBefore(";")
         .replace(": boolean", ": Boolean")
+        .replace(": string", ": String")
         .replace(": DOMException", ": Throwable /* DOMException */")
         .replace(": DOMHighResTimeStamp", ": HighResTimeStamp")
         .replace(": FileSystemEntry[]", ": ReadonlyArray<FileSystemEntry>")

@@ -84,6 +84,12 @@ internal val DOM_CSS_TYPES = listOf(
     "LinkStyle",
 )
 
+private val DOM_DATA_TYPES = listOf(
+    "DataTransfer",
+    "DataTransferItem",
+    "DataTransferItemList",
+)
+
 private val DOM_PARSING_TYPES = listOf(
     "DOMParser",
     "XMLSerializer",
@@ -207,8 +213,9 @@ internal fun htmlDeclarations(
         "DOMMatrix2DInit",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
-        .plus(DOM_PARSING_TYPES)
         .plus(DOM_CSS_TYPES)
+        .plus(DOM_DATA_TYPES)
+        .plus(DOM_PARSING_TYPES)
         .joinToString("|")
 
     val interfaces =
@@ -426,6 +433,7 @@ private fun convertInterface(
     val modifier = when {
         name in DOM_CSS_TYPES ||
                 name in DOM_PARSING_TYPES ||
+                name == "DataTransfer" ||
                 name == "SpeechSynthesisUtterance" ||
                 name == "FontFaceSource" ||
                 name == "XPathEvaluatorBase" ||
@@ -505,6 +513,7 @@ private fun convertInterface(
         name.startsWith("Document") -> "dom"
         name in DOM_TYPES -> "dom"
         name in DOM_CSS_TYPES -> "dom.css"
+        name in DOM_DATA_TYPES -> "dom.data"
         name == "XMLDocument" -> "dom.xml"
 
         name.startsWith("XPath") -> "dom.xpath"
