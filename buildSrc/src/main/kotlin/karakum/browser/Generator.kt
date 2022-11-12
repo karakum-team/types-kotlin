@@ -213,6 +213,7 @@ fun generateKotlinDeclarations(
 
             "GlobalEventHandlers",
             "WindowEventHandlers",
+            "FileReader",
             -> """
             import dom.events.*
             import web.animations.AnimationEvent

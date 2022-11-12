@@ -95,6 +95,11 @@ private val DOM_PARSING_TYPES = listOf(
     "XMLSerializer",
 )
 
+private val FILE_TYPES = listOf(
+    "FileList",
+    "FileReader",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -159,6 +164,8 @@ internal fun htmlDeclarations(
         "Animation .+?",
         "ComputedEffectTiming .+?",
 
+        "FileReader .+?",
+
         "CSS.+?",
         "StyleSheet",
         "StyleSheetList",
@@ -216,6 +223,7 @@ internal fun htmlDeclarations(
         .plus(DOM_CSS_TYPES)
         .plus(DOM_DATA_TYPES)
         .plus(DOM_PARSING_TYPES)
+        .plus(FILE_TYPES)
         .joinToString("|")
 
     val interfaces =
@@ -434,6 +442,7 @@ private fun convertInterface(
         name in DOM_CSS_TYPES ||
                 name in DOM_PARSING_TYPES ||
                 name == "DataTransfer" ||
+                name == "FileReader" ||
                 name == "SpeechSynthesisUtterance" ||
                 name == "FontFaceSource" ||
                 name == "XPathEvaluatorBase" ||
@@ -481,6 +490,7 @@ private fun convertInterface(
         name == "TextMetrics" -> "canvas"
 
         name in ANIMATION_TYPES -> "web.animations"
+        name in FILE_TYPES -> "web.file"
 
         name.startsWith("Clipboard") -> "web.clipboard"
 
@@ -652,6 +662,10 @@ private fun convertProperty(
         "StaticRange[]",
         -> "ReadonlyArray<Any /* StaticRange */>"
 
+        // TODO: check
+        "DOMException",
+        -> "Throwable /* DOMException */"
+
         "Promise<any>" -> "Promise<*>"
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"
@@ -665,6 +679,7 @@ private fun convertProperty(
         "MediaList | string" -> "Any /* MediaList | string */"
         "Element | ProcessingInstruction" -> "Any /* Element | ProcessingInstruction */"
         "string | CanvasGradient | CanvasPattern" -> "Any /* string | CanvasGradient | CanvasPattern */"
+        "string | ArrayBuffer" -> "Any /* string | ArrayBuffer */"
         "(WindowProxy & typeof globalThis)" -> "WindowProxy"
 
         "HTMLCollectionOf<HTMLAnchorElement | HTMLAreaElement>",

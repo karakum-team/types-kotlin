@@ -2,8 +2,6 @@ package karakum.browser
 
 private val CLASSES = listOf(
     "File",
-    "FileList",
-    "FileReader",
 )
 
 internal fun fileAliases(): List<ConversionResult> =
