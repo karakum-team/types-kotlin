@@ -95,6 +95,16 @@ private val DOM_PARSING_TYPES = listOf(
     "XMLSerializer",
 )
 
+private val CANVAS_TYPES = listOf(
+    "ImageBitmap",
+    "ImageBitmapOptions",
+    "ImageBitmapRenderingContext",
+    "ImageBitmapRenderingContextSettings",
+
+    "ImageDataSettings",
+    "TextMetrics",
+)
+
 private val FILE_TYPES = listOf(
     "FileList",
     "FileReader",
@@ -155,8 +165,6 @@ internal fun htmlDeclarations(
 
         "Canvas.+?",
         "CanvasRenderingContext2D .+?",
-        "ImageDataSettings",
-        "TextMetrics",
 
         "Window .+?",
         "WindowPostMessageOptions .+?",
@@ -223,6 +231,7 @@ internal fun htmlDeclarations(
         .plus(DOM_CSS_TYPES)
         .plus(DOM_DATA_TYPES)
         .plus(DOM_PARSING_TYPES)
+        .plus(CANVAS_TYPES)
         .plus(FILE_TYPES)
         .joinToString("|")
 
@@ -486,8 +495,7 @@ private fun convertInterface(
         name.startsWith("FontFace") -> "cssom.fonts"
 
         name.startsWith("Canvas") -> "canvas"
-        name == "ImageDataSettings" -> "canvas"
-        name == "TextMetrics" -> "canvas"
+        name in CANVAS_TYPES -> "canvas"
 
         name in ANIMATION_TYPES -> "web.animations"
         name in FILE_TYPES -> "web.file"

@@ -1,9 +1,6 @@
 package karakum.browser
 
 private val CLASSES = listOf(
-    "ImageBitmapRenderingContext",
-    "ImageBitmapRenderingContextSettings",
-
     "ImageData",
     "Path2D",
 )

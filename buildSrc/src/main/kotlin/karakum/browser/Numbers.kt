@@ -128,6 +128,10 @@ private val INT_NAMES = setOf(
     "anchorOffset",
     "focusOffset",
     "rangeCount",
+
+    // ImageBitmapOptions
+    "resizeWidth",
+    "resizeHeight",
 )
 
 private val DOUBLE_NAMES = setOf(
@@ -268,7 +272,7 @@ internal class TypeProvider(
             || propertyName in FLAG_NAMES
         ) return "Short"
 
-        if (parentType == "HTMLCanvasElement") {
+        if (parentType == "HTMLCanvasElement" || parentType == "ImageBitmap") {
             when (propertyName) {
                 "width",
                 "height",
