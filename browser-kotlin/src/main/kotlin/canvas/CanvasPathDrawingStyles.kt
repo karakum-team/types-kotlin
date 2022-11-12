@@ -10,6 +10,6 @@ sealed external interface CanvasPathDrawingStyles {
     var lineJoin: CanvasLineJoin
     var lineWidth: Double
     var miterLimit: Double
-    fun getLineDash(): Number[]
-    fun setLineDash(segments: ReadonlyArray<number>)
+    fun getLineDash(): ReadonlyArray<Double>
+    fun setLineDash(segments: ReadonlyArray<Double>)
 }
