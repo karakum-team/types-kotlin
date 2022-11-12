@@ -392,6 +392,11 @@ private fun convertInterface(
             -> result
                 .replace("var length: Int", "override var length: Int")
 
+            "CanvasPathDrawingStyles",
+            -> result
+                    .replace("Number[]", "ReadonlyArray<Double>")
+                    .replace("<number>", "<Double>")
+
             else -> result
         }
 
