@@ -68,6 +68,7 @@ private fun generate(
                     && name != "useSyncExternalStore"
                     && name != "reactBatchedUpdates"
                     // TEMP
+                    && name != "suspense"
                     && name != "errorBoundaryUtils"
         }
         ?: return

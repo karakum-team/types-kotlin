@@ -77,7 +77,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "({ children, options, state }: HydrateProps) => React.ReactElement<any, string | React.JSXElementConstructor<any>>" to
             "react.FC<HydrateProps>",
 
-    "import(\"./query\").Query<unknown, unknown, unknown, import(\"./types\").QueryKey>" to
+    "import(\"./query\").Query<unknown, unknown, unknown, QueryKey>" to
             "Query<*, *, *, QueryKey>",
 )
 
@@ -99,6 +99,9 @@ internal fun kotlinType(
     type: String,
     name: String? = null,
 ): String {
+    if ("""import("./types").""" in type)
+        return kotlinType(type.replace("""import("./types").""", ""), name)
+
     if (type.startsWith("import(\"@tanstack/query-core\")."))
         return kotlinType(type.removePrefix("import(\"@tanstack/query-core\")."), name)
 
