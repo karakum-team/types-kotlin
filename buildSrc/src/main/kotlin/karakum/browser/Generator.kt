@@ -64,6 +64,7 @@ import dom.html.Window
 import dom.selection.Selection
 import dom.svg.SVGElement
 import dom.svg.SvgTagName
+import dom.xml.XMLDocument
 import media.MediaError
 import media.key.MediaKeys
 import media.source.TimeRanges

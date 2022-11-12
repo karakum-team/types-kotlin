@@ -64,7 +64,6 @@ private val DOM_TYPES = setOf(
     "NodeList",
     "NamedNodeMap",
     "GetRootNodeOptions",
-    "XMLDocument",
     "DOMImplementation",
 
     "ChildNode",
@@ -506,6 +505,7 @@ private fun convertInterface(
         name.startsWith("Document") -> "dom"
         name in DOM_TYPES -> "dom"
         name in DOM_CSS_TYPES -> "dom.css"
+        name == "XMLDocument" -> "dom.xml"
 
         name.startsWith("XPath") -> "dom.xpath"
 
