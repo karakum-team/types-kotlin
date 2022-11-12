@@ -289,6 +289,10 @@ internal class TypeProvider(
             propertyName in LONG_NAMES -> "JsLong"
             propertyName in INT_NAMES -> "Int"
             propertyName in DOUBLE_NAMES -> "Double"
+
+            parentType == "TextMetrics" -> "Double"
+            parentType.startsWith("Canvas") -> "Double"
+
             else -> {
                 println("$parentType.$propertyName")
 

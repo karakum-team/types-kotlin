@@ -19,6 +19,9 @@ private val DEPRECATED = setOf(
     "HTMLTableDataCellElement",
 
     "HTMLAllCollection",
+
+    // TEMP
+    "CanvasCaptureMediaStreamTrack",
 )
 
 private val ANIMATION_TYPES = setOf(
@@ -127,6 +130,11 @@ internal fun htmlDeclarations(
 
         "Selection",
 
+        "Canvas.+?",
+        "CanvasRenderingContext2D .+?",
+        "ImageDataSettings",
+        "TextMetrics",
+
         "Window .+?",
         "WindowPostMessageOptions .+?",
 
@@ -211,6 +219,13 @@ internal fun htmlDeclarations(
                 name = GEOLOCATION_WATCH_ID,
                 body = "sealed external interface $GEOLOCATION_WATCH_ID",
                 pkg = "web.geolocation",
+            )
+        )
+        .plus(
+            ConversionResult(
+                name = "CanvasImageSource",
+                body = "typealias CanvasImageSource = Any /* HTMLOrSVGImageElement | HTMLVideoElement | HTMLCanvasElement | ImageBitmap */",
+                pkg = "canvas",
             )
         )
         .plus(
@@ -424,6 +439,10 @@ private fun convertInterface(
         name == "MediaQueryList" -> "cssom"
         name.startsWith("FontFace") -> "cssom.fonts"
 
+        name.startsWith("Canvas") -> "canvas"
+        name == "ImageDataSettings" -> "canvas"
+        name == "TextMetrics" -> "canvas"
+
         name in ANIMATION_TYPES -> "web.animations"
 
         name.startsWith("Clipboard") -> "web.clipboard"
@@ -606,6 +625,7 @@ private fun convertProperty(
         "PointerEvent[]" -> "ReadonlyArray<PointerEvent>"
         "MediaList | string" -> "Any /* MediaList | string */"
         "Element | ProcessingInstruction" -> "Any /* Element | ProcessingInstruction */"
+        "string | CanvasGradient | CanvasPattern" -> "Any /* string | CanvasGradient | CanvasPattern */"
         "(WindowProxy & typeof globalThis)" -> "WindowProxy"
 
         "HTMLCollectionOf<HTMLAnchorElement | HTMLAreaElement>",

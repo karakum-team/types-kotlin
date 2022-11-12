@@ -1,29 +1,6 @@
 package karakum.browser
 
 private val CLASSES = listOf(
-    "CanvasCompositing",
-    "CanvasDrawImage",
-    "CanvasDrawPath",
-    "CanvasFillStrokeStyles",
-    "CanvasFilters",
-    "CanvasGradient",
-    "CanvasHitRegion",
-    "CanvasImageData",
-    "CanvasImageSmoothing",
-    "CanvasImageSource",
-    "CanvasPath",
-    "CanvasPathDrawingStyles",
-    "CanvasPattern",
-    "CanvasRect",
-    "CanvasRenderingContext2D",
-    "CanvasRenderingContext2DSettings",
-    "CanvasShadowStyles",
-    "CanvasState",
-    "CanvasText",
-    "CanvasTextDrawingStyles",
-    "CanvasTransform",
-    "CanvasUserInterface",
-
     "ImageBitmapRenderingContext",
     "ImageBitmapRenderingContextSettings",
 
