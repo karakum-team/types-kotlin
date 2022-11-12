@@ -139,6 +139,10 @@ internal fun htmlDeclarations(
 
         "Selection",
 
+        "Touch",
+        "TouchInit",
+        "TouchList",
+
         "Canvas.+?",
         "CanvasRenderingContext2D .+?",
         "ImageDataSettings",
@@ -453,6 +457,8 @@ private fun convertInterface(
 
     val pkg = when {
         name == "RemotePlayback" -> "remoteplayback"
+
+        name.startsWith("Touch") -> "dom.events"
         name == "DOMMatrix2DInit" -> "dom.geometry"
         name in DOM_PARSING_TYPES -> "dom.parsing"
         name.startsWith("SVG") -> "dom.svg"

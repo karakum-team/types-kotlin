@@ -28,9 +28,6 @@ private val EVENT_TYPES = listOf(
     "DataTransfer",
     "DataTransferItem",
     "DataTransferItemList",
-
-    "Touch",
-    "TouchList",
 )
 
 internal fun domAliases(): List<ConversionResult> =

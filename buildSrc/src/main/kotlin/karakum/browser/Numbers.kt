@@ -30,6 +30,8 @@ private val LONG_NAMES = setOf(
     // ProgressEvent
     "loaded",
     "total",
+
+    "whatToShow",
 )
 
 private val INT_NAMES = setOf(
@@ -275,6 +277,8 @@ internal class TypeProvider(
         }
 
         return when {
+            parentType.startsWith("Touch") -> "Double"
+
             parentType == "GeolocationPositionError" -> "Short"
             parentType == "GeolocationCoordinates" -> "Double"
             parentType == "PositionOptions" -> "JsLong"
