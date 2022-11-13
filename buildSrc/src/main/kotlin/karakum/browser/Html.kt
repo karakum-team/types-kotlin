@@ -416,9 +416,14 @@ private fun convertInterface(
     val additionalConstructors: String
     if (staticSource != null) {
         val constructors = getConstructors(name, staticSource)
-        mainConstructor = constructors.firstOrNull()
-            ?.removePrefix("constructor")
-            ?: ""
+        val firstConstructor = constructors.firstOrNull()
+        mainConstructor = if (firstConstructor != null) {
+            var result = firstConstructor.removePrefix("constructor")
+            if ("\n" !in result && result != "()") {
+                result = "(\n" + result.removeSurrounding("(", ")") + "\n)"
+            }
+            result
+        } else ""
 
         additionalConstructors = constructors
             .drop(1)
