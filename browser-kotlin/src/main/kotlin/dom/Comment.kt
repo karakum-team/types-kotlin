@@ -3,4 +3,6 @@
 package dom
 
 sealed external class Comment :
-    CharacterData
+    CharacterData {
+    constructor(data: String = definedExternally)
+}

@@ -5,6 +5,8 @@ package dom.events
 import web.events.EventTarget
 
 sealed external class Touch {
+    constructor(touchInitDict: TouchInit)
+
     val clientX: Double
     val clientY: Double
     val force: Double

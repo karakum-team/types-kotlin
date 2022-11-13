@@ -6,6 +6,8 @@ import kotlin.js.Promise
 
 sealed external class CSSStyleSheet :
     StyleSheet {
+    constructor(options: CSSStyleSheetInit = definedExternally)
+
     val cssRules: CSSRuleList
     val ownerRule: CSSRule?
     fun deleteRule(index: Int)

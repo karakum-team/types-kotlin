@@ -10,6 +10,8 @@ import kotlin.js.Promise
 
 sealed external class FontFaceSet :
     EventTarget {
+    constructor(initialFaces: ReadonlyArray<FontFace>)
+
     var onloading: EventHandler<Event>?
     var onloadingdone: EventHandler<Event>?
     var onloadingerror: EventHandler<Event>?

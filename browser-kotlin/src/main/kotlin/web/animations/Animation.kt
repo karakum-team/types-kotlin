@@ -9,6 +9,11 @@ import kotlin.js.Promise
 
 open external class Animation :
     EventTarget {
+    constructor(
+        effect: AnimationEffect? = definedExternally,
+        timeline: AnimationTimeline? = definedExternally,
+    )
+
     var currentTime: CSSNumberish?
     var effect: AnimationEffect?
     val finished: Promise<Animation>

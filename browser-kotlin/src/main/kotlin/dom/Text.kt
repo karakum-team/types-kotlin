@@ -5,6 +5,8 @@ package dom
 sealed external class Text :
     CharacterData,
     Slottable {
+    constructor(data: String = definedExternally)
+
     /** Returns the combined data of all direct Text node siblings. */
     val wholeText: String
 

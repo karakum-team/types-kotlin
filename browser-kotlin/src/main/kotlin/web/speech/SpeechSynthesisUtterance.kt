@@ -7,6 +7,8 @@ import web.events.EventTarget
 
 external class SpeechSynthesisUtterance :
     EventTarget {
+    constructor(text: String = definedExternally)
+
     var lang: String
     var onboundary: EventHandler<SpeechSynthesisEvent>?
     var onend: EventHandler<SpeechSynthesisEvent>?
