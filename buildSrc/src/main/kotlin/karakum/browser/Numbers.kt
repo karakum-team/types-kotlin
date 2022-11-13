@@ -281,6 +281,7 @@ internal class TypeProvider(
         }
 
         return when {
+            parentType in DOM_GEOMETRY_TYPES -> "Double"
             parentType.startsWith("Touch") -> "Double"
 
             parentType == "GeolocationPositionError" -> "Short"

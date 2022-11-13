@@ -15,6 +15,7 @@ import kotlinx.js.ArrayBuffer
 import kotlinx.js.ArrayBufferView
 import kotlinx.js.BufferSource
 import kotlinx.js.Float32Array
+import kotlinx.js.Float64Array
 import kotlinx.js.HighResTimeStamp
 import kotlinx.js.Int32Array
 import kotlinx.js.Record    

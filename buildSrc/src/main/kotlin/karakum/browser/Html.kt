@@ -90,6 +90,24 @@ private val DOM_DATA_TYPES = listOf(
     "DataTransferItemList",
 )
 
+internal val DOM_GEOMETRY_TYPES = listOf(
+    "DOMPointReadOnly",
+    "DOMPoint",
+    "DOMPointInit",
+
+    "DOMRectReadOnly",
+    "DOMRect",
+    "DOMRectInit",
+    "DOMRectList",
+
+    "DOMMatrixReadOnly",
+    "DOMMatrix",
+    "DOMMatrixInit",
+    "DOMMatrix2DInit",
+
+    "DOMQuad",
+)
+
 private val DOM_PARSING_TYPES = listOf(
     "DOMParser",
     "XMLSerializer",
@@ -156,6 +174,11 @@ internal fun htmlDeclarations(
         "DocumentOrShadowRoot",
         "XMLDocument .+?",
         "XPath.+?",
+
+        "DOMMatrix .+?",
+        "DOMMatrixInit .+?",
+        "DOMPoint .+?",
+        "DOMRect .+?",
 
         "ScrollToOptions .+?",
         "ScrollIntoViewOptions .+?",
@@ -234,6 +257,7 @@ internal fun htmlDeclarations(
         .plus(DOM_TYPES)
         .plus(DOM_CSS_TYPES)
         .plus(DOM_DATA_TYPES)
+        .plus(DOM_GEOMETRY_TYPES)
         .plus(DOM_PARSING_TYPES)
         .plus(CANVAS_TYPES)
         .plus(FILE_TYPES)
@@ -484,7 +508,10 @@ private fun convertInterface(
         .joinToString("\n\n")
 
     val modifier = when {
-        name == "Animation"
+        name == "Animation" ||
+                name == "DOMMatrixReadOnly" ||
+                name == "DOMPointReadOnly" ||
+                name == "DOMRectReadOnly"
         -> "open"
 
         // TEMP WA
@@ -525,7 +552,6 @@ private fun convertInterface(
         name == "RemotePlayback" -> "remoteplayback"
 
         name.startsWith("Touch") -> "dom.events"
-        name == "DOMMatrix2DInit" -> "dom.geometry"
         name in DOM_PARSING_TYPES -> "dom.parsing"
         name.startsWith("SVG") -> "dom.svg"
 
@@ -573,6 +599,7 @@ private fun convertInterface(
         name in DOM_TYPES -> "dom"
         name in DOM_CSS_TYPES -> "dom.css"
         name in DOM_DATA_TYPES -> "dom.data"
+        name in DOM_GEOMETRY_TYPES -> "dom.geometry"
         name == "XMLDocument" -> "dom.xml"
 
         name.startsWith("XPath") -> "dom.xpath"
@@ -916,6 +943,9 @@ private fun getParameterType(
     }
 
     return when {
+        source == "string | number[]"
+        -> return "ReadonlyArray<Double> /* | String */"
+
         source == "File | string | FormData"
         -> "Any /* File | String | FormData */"
 
