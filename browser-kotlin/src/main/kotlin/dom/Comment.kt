@@ -2,4 +2,6 @@
 
 package dom
 
-sealed external class Comment(data: String = definedExternally) : CharacterData
+sealed external class Comment(
+    data: String = definedExternally,
+) : CharacterData
