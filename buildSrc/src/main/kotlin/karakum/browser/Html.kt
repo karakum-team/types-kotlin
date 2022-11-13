@@ -474,6 +474,18 @@ private fun convertInterface(
             -> result
                 .replace("val ownerDocument:", "open val ownerDocument:")
 
+            "DOMMatrixReadOnly",
+            "DOMPointReadOnly",
+            "DOMRectReadOnly",
+            -> result
+                .replace("val ", "open val ")
+
+            "DOMMatrix",
+            "DOMPoint",
+            "DOMRect",
+            -> result
+                .replace("var ", "override var ")
+
             "Document",
             "DocumentFragment",
             "DocumentType",
