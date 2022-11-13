@@ -5,7 +5,7 @@ package dom.events
 import web.events.EventTarget
 
 external class Touch(
-    touchInitDict: TouchInit,
+    init: TouchInit,
 ) {
     val clientX: Double
     val clientY: Double
