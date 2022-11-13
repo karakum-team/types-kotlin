@@ -412,10 +412,27 @@ private fun convertInterface(
 
     val typeProvider = TypeProvider(name, arrayType)
 
-    val constructors = if (staticSource != null) {
-        getConstructors(name, staticSource)
+    val mainConstructor: String
+    val additionalConstructors: String
+    if (staticSource != null) {
+        val constructors = getConstructors(name, staticSource)
+        mainConstructor = constructors.firstOrNull()
+            ?.removePrefix("constructor")
+            ?: ""
+
+        additionalConstructors = constructors
+            .drop(1)
             .joinToString("\n")
-    } else null
+    } else {
+        mainConstructor = ""
+        additionalConstructors = ""
+    }
+
+    if (mainConstructor.isNotEmpty()) {
+        declaration = if (":\n" in declaration) {
+            declaration.replaceFirst(":\n", "$mainConstructor:")
+        } else declaration + mainConstructor
+    }
 
     var members = if (memberSource.isNotEmpty()) {
         var result = memberSource
@@ -457,28 +474,32 @@ private fun convertInterface(
         result
     } else ""
 
-    members = sequenceOf(constructors, members)
-        .filterNotNull()
+    members = sequenceOf(additionalConstructors, members)
         .filter { it.isNotEmpty() }
         .joinToString("\n\n")
 
     val modifier = when {
+        name == "Animation"
+        -> "open"
+
+        // TEMP WA
+        name == "Text" ||
+                name == "Comment"
+        -> "sealed"
+
         name in DOM_CSS_TYPES ||
                 name in DOM_PARSING_TYPES ||
                 name == "DataTransfer" ||
                 name == "FileReader" ||
-                name == "SpeechSynthesisUtterance" ||
                 name == "FontFaceSource" ||
                 name == "XPathEvaluatorBase" ||
                 name == "ARIAMixin" ||
                 name == "HTMLOrSVGElement" ||
                 name == "InnerHTML" ||
                 name == "DocumentOrShadowRoot" ||
-                name.endsWith("Handlers")
+                name.endsWith("Handlers") ||
+                mainConstructor.isNotEmpty()
         -> ""
-
-        name == "Animation"
-        -> "open"
 
         name == "Element" ||
                 name == "Document" ||
