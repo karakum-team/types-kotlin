@@ -8,13 +8,13 @@ open external class DOMRectReadOnly(
     width: Number = definedExternally,
     height: Number = definedExternally,
 ) {
-    val bottom: Double
-    val height: Double
-    val left: Double
-    val right: Double
-    val top: Double
-    val width: Double
-    val x: Double
-    val y: Double
+    open val bottom: Double
+    open val height: Double
+    open val left: Double
+    open val right: Double
+    open val top: Double
+    open val width: Double
+    open val x: Double
+    open val y: Double
     fun toJSON(): Any
 }

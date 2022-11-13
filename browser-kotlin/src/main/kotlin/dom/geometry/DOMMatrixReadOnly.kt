@@ -9,30 +9,30 @@ import kotlinx.js.ReadonlyArray
 open external class DOMMatrixReadOnly(
     init: ReadonlyArray<Double> /* | String */ = definedExternally,
 ) {
-    val a: Double
-    val b: Double
-    val c: Double
-    val d: Double
-    val e: Double
-    val f: Double
-    val is2D: Boolean
-    val isIdentity: Boolean
-    val m11: Double
-    val m12: Double
-    val m13: Double
-    val m14: Double
-    val m21: Double
-    val m22: Double
-    val m23: Double
-    val m24: Double
-    val m31: Double
-    val m32: Double
-    val m33: Double
-    val m34: Double
-    val m41: Double
-    val m42: Double
-    val m43: Double
-    val m44: Double
+    open val a: Double
+    open val b: Double
+    open val c: Double
+    open val d: Double
+    open val e: Double
+    open val f: Double
+    open val is2D: Boolean
+    open val isIdentity: Boolean
+    open val m11: Double
+    open val m12: Double
+    open val m13: Double
+    open val m14: Double
+    open val m21: Double
+    open val m22: Double
+    open val m23: Double
+    open val m24: Double
+    open val m31: Double
+    open val m32: Double
+    open val m33: Double
+    open val m34: Double
+    open val m41: Double
+    open val m42: Double
+    open val m43: Double
+    open val m44: Double
     fun flipX(): DOMMatrix
     fun flipY(): DOMMatrix
     fun inverse(): DOMMatrix

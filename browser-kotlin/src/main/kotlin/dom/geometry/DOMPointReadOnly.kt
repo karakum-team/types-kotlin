@@ -8,10 +8,10 @@ open external class DOMPointReadOnly(
     z: Number = definedExternally,
     w: Number = definedExternally,
 ) {
-    val w: Double
-    val x: Double
-    val y: Double
-    val z: Double
+    open val w: Double
+    open val x: Double
+    open val y: Double
+    open val z: Double
     fun matrixTransform(matrix: DOMMatrixInit = definedExternally): DOMPoint
     fun toJSON(): Any
 }

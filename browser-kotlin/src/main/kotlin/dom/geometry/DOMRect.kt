@@ -8,8 +8,8 @@ external class DOMRect(
     width: Number = definedExternally,
     height: Number = definedExternally,
 ) : DOMRectReadOnly {
-    var height: Double
-    var width: Double
-    var x: Double
-    var y: Double
+    override var height: Double
+    override var width: Double
+    override var x: Double
+    override var y: Double
 }

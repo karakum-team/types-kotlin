@@ -7,28 +7,28 @@ import kotlinx.js.ReadonlyArray
 external class DOMMatrix(
     init: ReadonlyArray<Double> /* | String */ = definedExternally,
 ) : DOMMatrixReadOnly {
-    var a: Double
-    var b: Double
-    var c: Double
-    var d: Double
-    var e: Double
-    var f: Double
-    var m11: Double
-    var m12: Double
-    var m13: Double
-    var m14: Double
-    var m21: Double
-    var m22: Double
-    var m23: Double
-    var m24: Double
-    var m31: Double
-    var m32: Double
-    var m33: Double
-    var m34: Double
-    var m41: Double
-    var m42: Double
-    var m43: Double
-    var m44: Double
+    override var a: Double
+    override var b: Double
+    override var c: Double
+    override var d: Double
+    override var e: Double
+    override var f: Double
+    override var m11: Double
+    override var m12: Double
+    override var m13: Double
+    override var m14: Double
+    override var m21: Double
+    override var m22: Double
+    override var m23: Double
+    override var m24: Double
+    override var m31: Double
+    override var m32: Double
+    override var m33: Double
+    override var m34: Double
+    override var m41: Double
+    override var m42: Double
+    override var m43: Double
+    override var m44: Double
     fun invertSelf(): DOMMatrix
     fun multiplySelf(other: DOMMatrixInit = definedExternally): DOMMatrix
     fun preMultiplySelf(other: DOMMatrixInit = definedExternally): DOMMatrix

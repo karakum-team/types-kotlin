@@ -8,8 +8,8 @@ external class DOMPoint(
     z: Number = definedExternally,
     w: Number = definedExternally,
 ) : DOMPointReadOnly {
-    var w: Double
-    var x: Double
-    var y: Double
-    var z: Double
+    override var w: Double
+    override var x: Double
+    override var y: Double
+    override var z: Double
 }
