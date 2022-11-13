@@ -2,11 +2,8 @@
 
 package dom
 
-sealed external class Text :
-    CharacterData,
+sealed external class Text(data: String = definedExternally) : CharacterData,
     Slottable {
-    constructor(data: String = definedExternally)
-
     /** Returns the combined data of all direct Text node siblings. */
     val wholeText: String
 

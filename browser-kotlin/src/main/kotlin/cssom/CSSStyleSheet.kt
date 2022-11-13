@@ -4,10 +4,7 @@ package cssom
 
 import kotlin.js.Promise
 
-sealed external class CSSStyleSheet :
-    StyleSheet {
-    constructor(options: CSSStyleSheetInit = definedExternally)
-
+external class CSSStyleSheet(options: CSSStyleSheetInit = definedExternally) : StyleSheet {
     val cssRules: CSSRuleList
     val ownerRule: CSSRule?
     fun deleteRule(index: Int)

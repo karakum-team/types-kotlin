@@ -4,13 +4,11 @@ package cssom.fonts
 
 import kotlin.js.Promise
 
-sealed external class FontFace {
-    constructor(
-        family: String,
-        source: String, /* | BinaryData */
-        descriptors: FontFaceDescriptors = definedExternally,
-    )
-
+external class FontFace(
+    family: String,
+    source: String, /* | BinaryData */
+    descriptors: FontFaceDescriptors = definedExternally,
+) {
     var ascentOverride: String
     var descentOverride: String
     var display: String

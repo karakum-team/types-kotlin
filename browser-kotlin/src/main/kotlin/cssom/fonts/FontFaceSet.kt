@@ -8,10 +8,7 @@ import web.events.EventHandler
 import web.events.EventTarget
 import kotlin.js.Promise
 
-sealed external class FontFaceSet :
-    EventTarget {
-    constructor(initialFaces: ReadonlyArray<FontFace>)
-
+external class FontFaceSet(initialFaces: ReadonlyArray<FontFace>) : EventTarget {
     var onloading: EventHandler<Event>?
     var onloadingdone: EventHandler<Event>?
     var onloadingerror: EventHandler<Event>?
