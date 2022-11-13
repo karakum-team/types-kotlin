@@ -117,8 +117,11 @@ internal fun htmlDeclarations(
         source.replace(";\n     *", ";--\n     *")
     )
 
-    val getType = { name: String ->
-        if ("\ndeclare var $name" in source && name != "ElementInternals") "class" else "interface"
+    val getStaticSource = { name: String ->
+        when (name) {
+            "ElementInternals" -> null
+            else -> getStaticSource(name, source)
+        }
     }
 
     val patterns = sequenceOf(
@@ -181,6 +184,7 @@ internal fun htmlDeclarations(
         "MediaQueryList .+?",
 
         "FontFace",
+        "FontFaceDescriptors",
         "FontFaceSet .+?",
         "FontFaceSource",
 
@@ -239,7 +243,7 @@ internal fun htmlDeclarations(
         Regex("""interface ($patterns) \{[\s\S]+?\}""")
             .findAll(content)
             .map { it.value }
-            .mapNotNull { convertInterface(it, getType) }
+            .mapNotNull { convertInterface(it, getStaticSource) }
 
     return interfaces
         .plus(additionalType)
@@ -340,7 +344,7 @@ private fun prepareContent(
 
 private fun convertInterface(
     source: String,
-    getType: (String) -> String,
+    getStaticSource: (String) -> String?,
 ): ConversionResult? {
     val name = source
         .substringAfter(" ")
@@ -359,7 +363,8 @@ private fun convertInterface(
         name == "HTMLCollectionOf" -> return null
     }
 
-    val type = getType(name)
+    val staticSource = getStaticSource(name)
+    val type = if (staticSource != null) "class" else "interface"
 
     var declaration = source.substringBefore(" {\n")
         .replace(", AnimationFrameProvider", "")
@@ -407,7 +412,12 @@ private fun convertInterface(
 
     val typeProvider = TypeProvider(name, arrayType)
 
-    val members = if (memberSource.isNotEmpty()) {
+    val constructors = if (staticSource != null) {
+        getConstructors(name, staticSource)
+            .joinToString("\n")
+    } else null
+
+    var members = if (memberSource.isNotEmpty()) {
         var result = memberSource
             .splitToSequence(";\n")
             .mapNotNull { convertMember(it, typeProvider) }
@@ -446,6 +456,11 @@ private fun convertInterface(
 
         result
     } else ""
+
+    members = sequenceOf(constructors, members)
+        .filterNotNull()
+        .filter { it.isNotEmpty() }
+        .joinToString("\n\n")
 
     val modifier = when {
         name in DOM_CSS_TYPES ||
@@ -544,6 +559,47 @@ private fun convertInterface(
         body = body,
         pkg = pkg,
     )
+}
+
+private fun getStaticSource(
+    name: String,
+    source: String,
+): String? =
+    source
+        .substringAfter("\ndeclare var $name: {\n", "")
+        .substringBefore(";\n};")
+        .trimIndent()
+        .removePrefix("prototype: $name;\n")
+        .takeIf { it.isNotEmpty() }
+
+private fun getConstructors(
+    name: String,
+    source: String,
+): List<String> {
+    val constructorSources = source
+        .split(";\n")
+        .filter { it.startsWith("new(") }
+        .map { it.removePrefix("new(") }
+        .map { it.substringBefore("): $name") }
+
+    if (constructorSources.isEmpty())
+        return emptyList()
+
+    if (constructorSources.singleOrNull() == "")
+        return emptyList()
+
+    return constructorSources
+        .map { convertConstructor(it) }
+}
+
+private fun convertConstructor(
+    parametersSource: String,
+): String {
+    if (parametersSource == "")
+        return ""
+
+    val parameters = convertFunctionParameters(parametersSource)
+    return "constructor($parameters)"
 }
 
 internal fun convertMember(
@@ -733,52 +789,7 @@ private fun convertFunction(
         .substringAfter("(")
         .substringBefore("):")
 
-    val parameters = when (parametersSource) {
-        "...nodes: (Element | Text)[]",
-        -> listOf(
-            "vararg nodes: Element /* | Text */",
-        )
-
-        "...nodes: (Node | string)[]",
-        -> listOf(
-            "vararg nodes: Any /* Node | string */",
-        )
-
-        "...text: string[]",
-        -> listOf(
-            "vararg text: String",
-        )
-
-        "action: (item: FontFace) => void",
-        -> listOf(
-            "action: (item: FontFace) -> Unit",
-        )
-
-        "action: (item: Node) => void",
-        -> listOf(
-            "action: (item: Node) -> Unit",
-        )
-
-        else -> parametersSource
-            .splitToSequence(", ")
-            .filter { it.isNotEmpty() }
-            .map {
-                var (pname, ptype) = it.split(": ")
-                ptype = getParameterType(pname.removeSuffix("?"), ptype)
-
-                if (pname.endsWith("?")) {
-                    pname = pname.removeSuffix("?")
-                    ptype += " = definedExternally"
-                }
-
-                "$pname: $ptype"
-            }
-            .toList()
-    }
-
-    val params = if (parameters.size > 1) {
-        parameters.joinToString(",\n", "\n", ",\n")
-    } else parameters.joinToString("\n")
+    val parameters = convertFunctionParameters(parametersSource)
 
     val result = (": " + source.substringAfter("): "))
         .removeSuffix(": void")
@@ -809,7 +820,58 @@ private fun convertFunction(
         .replace("<void>", "<Void>")
         .replace(" | null", "?")
 
-    return "fun $typeParameters$name($params)$result"
+    return "fun $typeParameters$name($parameters)$result"
+}
+
+private fun convertFunctionParameters(
+    source: String,
+): String {
+    val parameters = when (source) {
+        "...nodes: (Element | Text)[]",
+        -> listOf(
+            "vararg nodes: Element /* | Text */",
+        )
+
+        "...nodes: (Node | string)[]",
+        -> listOf(
+            "vararg nodes: Any /* Node | string */",
+        )
+
+        "...text: string[]",
+        -> listOf(
+            "vararg text: String",
+        )
+
+        "action: (item: FontFace) => void",
+        -> listOf(
+            "action: (item: FontFace) -> Unit",
+        )
+
+        "action: (item: Node) => void",
+        -> listOf(
+            "action: (item: Node) -> Unit",
+        )
+
+        else -> source
+            .splitToSequence(", ")
+            .filter { it.isNotEmpty() }
+            .map {
+                var (pname, ptype) = it.split(": ")
+                ptype = getParameterType(pname.removeSuffix("?"), ptype)
+
+                if (pname.endsWith("?")) {
+                    pname = pname.removeSuffix("?")
+                    ptype += " = definedExternally"
+                }
+
+                "$pname: $ptype"
+            }
+            .toList()
+    }
+
+    return if (parameters.size > 1) {
+        parameters.joinToString(",\n", "\n", ",\n")
+    } else parameters.joinToString("\n")
 }
 
 private fun getParameterType(
@@ -860,6 +922,9 @@ private fun getParameterType(
 
         source == "HTMLElement | number"
         -> "Any? /* HTMLElement | number */"
+
+        source == "string | BinaryData"
+        -> "String /* | BinaryData */"
 
         source.endsWith("[]") -> {
             var atype = source.removeSuffix("[]")
