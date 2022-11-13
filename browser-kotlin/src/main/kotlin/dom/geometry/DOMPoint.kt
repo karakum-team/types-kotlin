@@ -2,4 +2,14 @@
 
 package dom.geometry
 
-typealias DOMPoint = org.w3c.dom.DOMPoint
+external class DOMPoint(
+    x: Number = definedExternally,
+    y: Number = definedExternally,
+    z: Number = definedExternally,
+    w: Number = definedExternally,
+) : DOMPointReadOnly {
+    var w: Double
+    var x: Double
+    var y: Double
+    var z: Double
+}
