@@ -890,6 +890,9 @@ private fun convertFunctionParameters(
                     ptype += " = definedExternally"
                 }
 
+                if (pname == "touchInitDict")
+                    pname = "init"
+
                 "$pname: $ptype"
             }
             .toList()
