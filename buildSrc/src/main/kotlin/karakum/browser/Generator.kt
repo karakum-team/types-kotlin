@@ -229,6 +229,12 @@ fun generateKotlinDeclarations(
             import web.storage.StorageEvent
             """.trimIndent()
 
+            "EventSource",
+            -> """
+            import web.events.Event
+            import web.messaging.MessageEvent
+            """.trimIndent()
+
             else -> if (!name.endsWith(".types")) {
                 "import web.events.Event"
             } else ""

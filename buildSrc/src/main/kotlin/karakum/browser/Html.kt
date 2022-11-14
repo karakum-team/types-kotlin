@@ -235,6 +235,10 @@ internal fun htmlDeclarations(
         "DeviceMotionEventRotationRateInit",
 
         "ShareData",
+
+        "EventSourceInit",
+        "EventSource .+?",
+
         "Storage",
         "StorageEstimate",
         "StorageManager",
@@ -601,6 +605,7 @@ private fun convertInterface(
 
         name == "ShareData" -> "web.share"
         name.startsWith("Storage") -> "web.storage"
+        name.startsWith("EventSource") -> "web.sse"
 
         name == "ARIAMixin" -> "dom.aria"
         name == "Selection" -> "dom.selection"
@@ -929,8 +934,13 @@ private fun convertFunctionParameters(
                     ptype += " = definedExternally"
                 }
 
-                if (pname == "touchInitDict")
-                    pname = "init"
+                pname = when (pname) {
+                    "eventSourceInitDict",
+                    "touchInitDict",
+                    -> "init"
+
+                    else -> pname
+                }
 
                 "$pname: $ptype"
             }
