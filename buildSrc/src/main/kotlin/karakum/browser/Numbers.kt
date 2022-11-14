@@ -285,6 +285,8 @@ internal class TypeProvider(
         }
 
         return when {
+            propertyName == "lastModified" -> "EpochTimeStamp"
+
             parentType in DOM_GEOMETRY_TYPES -> "Double"
             parentType.startsWith("Touch") -> "Double"
 

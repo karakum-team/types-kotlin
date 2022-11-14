@@ -75,6 +75,7 @@ import remoteplayback.RemotePlayback
 import web.abort.AbortSignal
 import web.animations.Animation
 import web.buffer.Blob
+import web.buffer.BlobPropertyBag
 import web.events.EventHandler
 import web.events.EventTarget
 import web.file.File
@@ -141,7 +142,6 @@ fun generateKotlinDeclarations(
         .plus(mediaAliases())
         .plus(htmlAliases())
         .plus(canvasAliases())
-        .plus(fileAliases())
         .plus(htmlDeclarations(content))
         .plus(browserConstants(content))
         .plus(browserTypes(content))

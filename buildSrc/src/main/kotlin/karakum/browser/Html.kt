@@ -123,11 +123,6 @@ private val CANVAS_TYPES = listOf(
     "TextMetrics",
 )
 
-private val FILE_TYPES = listOf(
-    "FileList",
-    "FileReader",
-)
-
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -247,8 +242,13 @@ internal fun htmlDeclarations(
         "Permission.+?",
         "Gamepad",
         "Gamepad.+?",
+
+        "File",
+        "File.+?",
+
         "FileSystem",
         "FileSystem.+?",
+
         "Lock",
         "Lock.+?",
         "Navigator.+?",
@@ -266,7 +266,6 @@ internal fun htmlDeclarations(
         .plus(DOM_GEOMETRY_TYPES)
         .plus(DOM_PARSING_TYPES)
         .plus(CANVAS_TYPES)
-        .plus(FILE_TYPES)
         .joinToString("|")
 
     val interfaces =
@@ -592,7 +591,6 @@ private fun convertInterface(
         name in CANVAS_TYPES -> "canvas"
 
         name in ANIMATION_TYPES -> "web.animations"
-        name in FILE_TYPES -> "web.file"
 
         name.startsWith("Clipboard") -> "web.clipboard"
 
@@ -602,6 +600,7 @@ private fun convertInterface(
         name.startsWith("DeviceMotion") -> "web.device"
 
         name.startsWith("FileSystem") -> "web.filesystem"
+        name.startsWith("File") -> "web.file"
         name.startsWith("Gamepad") -> "web.gamepad"
 
         name.startsWith("Geolocation") -> "web.geolocation"
