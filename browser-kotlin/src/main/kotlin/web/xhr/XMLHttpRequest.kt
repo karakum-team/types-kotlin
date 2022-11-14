@@ -7,7 +7,7 @@ import web.events.Event
 import web.events.EventHandler
 import web.url.URL
 
-sealed external class XMLHttpRequest :
+external class XMLHttpRequest :
     XMLHttpRequestEventTarget {
     var onreadystatechange: EventHandler<Event>?
 

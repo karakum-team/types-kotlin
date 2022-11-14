@@ -2,5 +2,5 @@
 
 package web.xhr
 
-sealed external class XMLHttpRequestUpload :
+external class XMLHttpRequestUpload :
     XMLHttpRequestEventTarget
