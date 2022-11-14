@@ -230,8 +230,10 @@ fun generateKotlinDeclarations(
             """.trimIndent()
 
             "EventSource",
+            "XMLHttpRequestEventTarget",
             -> """
             import web.events.Event
+            import web.events.ProgressEvent
             import web.messaging.MessageEvent
             """.trimIndent()
 

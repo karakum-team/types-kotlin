@@ -132,7 +132,11 @@ private val INT_NAMES = setOf(
     // ImageBitmapOptions
     "resizeWidth",
     "resizeHeight",
-)
+
+    // XMLHttpRequest
+    "status",
+    "timeout",
+    )
 
 private val DOUBLE_NAMES = setOf(
     // DOMMatrix2DInit

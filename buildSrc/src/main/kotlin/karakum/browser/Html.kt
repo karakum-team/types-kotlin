@@ -239,6 +239,8 @@ internal fun htmlDeclarations(
         "EventSourceInit",
         "EventSource .+?",
 
+        "XMLHttp.+?",
+
         "Storage",
         "StorageEstimate",
         "StorageManager",
@@ -323,6 +325,13 @@ internal fun htmlDeclarations(
                 name = "XPathNSResolver",
                 body = "typealias XPathNSResolver = (prefix: String?) -> String?",
                 pkg = "dom.xpath",
+            )
+        )
+        .plus(
+            ConversionResult(
+                name = "XMLHttpRequestBodyInit",
+                body = "typealias XMLHttpRequestBodyInit = Any /* Blob | BufferSource | FormData | URLSearchParams | string */",
+                pkg = "web.xhr",
             )
         )
 }
@@ -605,7 +614,9 @@ private fun convertInterface(
 
         name == "ShareData" -> "web.share"
         name.startsWith("Storage") -> "web.storage"
+
         name.startsWith("EventSource") -> "web.sse"
+        name.startsWith("XMLHttp") -> "web.xhr"
 
         name == "ARIAMixin" -> "dom.aria"
         name == "Selection" -> "dom.selection"
@@ -1006,6 +1017,9 @@ private fun getParameterType(
 
         source == "string | BinaryData"
         -> "String /* | BinaryData */"
+
+        source == "Document | XMLHttpRequestBodyInit"
+        -> "XMLHttpRequestBodyInit /* Document */"
 
         source.endsWith("[]") -> {
             var atype = source.removeSuffix("[]")
