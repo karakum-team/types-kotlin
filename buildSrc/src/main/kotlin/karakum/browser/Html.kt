@@ -44,6 +44,7 @@ private val DOM_TYPES = setOf(
     "ElementCreationOptions",
     "NonDocumentTypeChildNode",
     "NonElementParentNode",
+    "ProcessingInstruction",
     "ChildNode",
     "DocumentType",
     "NodeFilter",
@@ -162,6 +163,7 @@ internal fun htmlDeclarations(
         "Range .+?",
         "CharacterData .+?",
         "Text .+?",
+        "ProcessingInstruction .+?",
 
         "Document .+?",
         "DocumentType .+?",
@@ -504,6 +506,7 @@ private fun convertInterface(
             "Attr",
             "CharacterData",
             "Element",
+            "ProcessingInstruction",
             -> result
                 .replace("val ownerDocument:", "override val ownerDocument:")
                 .replace("fun getElementById(", "override fun getElementById(")

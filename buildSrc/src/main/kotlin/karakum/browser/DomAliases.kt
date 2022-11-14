@@ -5,7 +5,6 @@ private val CLASSES = listOf(
     "DOMTokenList",
 
     "HTMLOrSVGScriptElement", // check
-    "ProcessingInstruction",
 )
 
 internal fun domAliases(): List<ConversionResult> =
