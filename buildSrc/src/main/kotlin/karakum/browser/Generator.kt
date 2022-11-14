@@ -83,6 +83,7 @@ import web.file.File
 import web.file.FileList
 import web.filesystem.FileSystemDirectoryHandle
 import web.filesystem.FileSystemEntry
+import web.http.BodyInit
 import web.http.ReferrerPolicy
 import web.locks.LockManager
 import web.messaging.Transferable

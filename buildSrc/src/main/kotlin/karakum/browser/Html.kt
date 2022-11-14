@@ -1004,9 +1004,6 @@ private fun getParameterType(
         source == "boolean"
         -> "Boolean"
 
-        source == "BodyInit"
-        -> "Any /* BodyInit */"
-
         source == "VibratePattern"
         -> "ReadonlyArray<Int> /* VibratePattern */"
 
