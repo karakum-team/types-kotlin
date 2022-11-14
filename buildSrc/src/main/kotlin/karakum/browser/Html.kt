@@ -554,6 +554,8 @@ private fun convertInterface(
                 name == "HTMLOrSVGElement" ||
                 name == "InnerHTML" ||
                 name == "DocumentOrShadowRoot" ||
+                name == "XMLHttpRequest" ||
+                name == "XMLHttpRequestUpload" ||
                 name.endsWith("Handlers") ||
                 mainConstructor.isNotEmpty()
         -> ""

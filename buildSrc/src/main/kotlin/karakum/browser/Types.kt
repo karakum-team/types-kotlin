@@ -1,7 +1,6 @@
 package karakum.browser
 
 import karakum.common.unionBody
-import java.io.File
 
 private val PKG_MAP = mapOf(
     "ColorSpaceConversion" to "canvas",
@@ -166,9 +165,6 @@ private fun convertType(
         name.startsWith("Request") ||
                 name.startsWith("Response")
         -> "org.w3c.fetch"
-
-        name.startsWith("XMLHttp")
-        -> "org.w3c.xhr"
 
         else -> null
     }
