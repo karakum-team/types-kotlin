@@ -153,6 +153,7 @@ fun generateKotlinDeclarations(
         .plus(browserTypes(content))
         .plus(browserFunctionTypes(content))
         .plus(tagNames(content))
+        .plus(intlDeclarations(definitionsDir))
 
     for ((name, body, pkg) in aliases) {
         pkg!!
