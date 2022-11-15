@@ -99,9 +99,12 @@ import webvtt.TextTrackList
 """.trimIndent()
 
 fun generateKotlinDeclarations(
-    definitionsFile: File,
+    definitionsDir: File,
     sourceDir: File,
 ) {
+    val definitionsFile = definitionsDir
+        .resolve("lib.dom.d.ts")
+
     val content = definitionsFile
         .readText()
         .applyPatches()
@@ -278,6 +281,11 @@ fun generateKotlinDeclarations(
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
             .writeText(fileContent(annotations, "", body, "webgl"))
     }
+
+    karakum.webrtc.generateKotlinDeclarations(
+        definitionsFile = definitionsFile,
+        sourceDir = sourceDir,
+    )
 }
 
 private fun fileContent(
