@@ -84,6 +84,7 @@ private val EXCLUDED_TYPES = setOf(
     "KeyFormat",
     "KeyType",
     "KeyUsage",
+    "NamedCurve",
 
     // webstreams
     "ReadableStreamType",
@@ -117,12 +118,26 @@ private fun convertType(
     source: String,
     getPkg: (name: String) -> String?,
 ): ConversionResult? {
-    if (" = \"" !in source)
+    if (" = " !in source)
         return null
 
     val (name, bodySource) = source
         .substringBefore(";")
         .split(" = ")
+
+    if (bodySource == "string") {
+        val pkg = getPkg(name)
+            ?: return null
+
+        return ConversionResult(
+            name = name,
+            body = "typealias $name = String",
+            pkg = pkg
+        )
+    }
+
+    if (!bodySource.startsWith("\""))
+        return null
 
     val pkg = getPkg(name)
         ?: return null
