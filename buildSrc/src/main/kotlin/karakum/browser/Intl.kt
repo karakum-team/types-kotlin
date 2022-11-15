@@ -15,6 +15,10 @@ internal fun intlDeclarations(
                 .trimIndent()
                 .replace("=\n    | ", " ")
                 .replace("\n    | ", " | ")
+                .replace("type ES2018NumberFormatPartType = ", "type NumberFormatPartType = ")
+                .replace(";\ntype ES2020NumberFormatPartType = ", " | ")
+                .replace("\ntype NumberFormatPartTypes = ES2018NumberFormatPartType | ES2020NumberFormatPartType;", "")
+
         }
         .joinToString("\n")
 
