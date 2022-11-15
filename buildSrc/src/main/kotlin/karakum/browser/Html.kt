@@ -1043,24 +1043,3 @@ private fun getParameterType(
         else -> source
     }
 }
-
-private fun convertType(
-    source: String,
-): ConversionResult {
-    require(" = \"" in source)
-
-    val (name, body) = source
-        .substringBefore(";")
-        .split(" = ")
-
-    val values = body
-        .splitToSequence(" | ")
-        .map { it.removeSurrounding("\"") }
-        .toList()
-
-    return ConversionResult(
-        name = name,
-        body = unionBody(name, values),
-        pkg = "dom.html"
-    )
-}
