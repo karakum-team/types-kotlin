@@ -194,4 +194,8 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     "webkitanimationstart" to "webkit_animation_start",
     "webkitfullscreenchange" to "webkit_fullscreen_change",
     "webkittransitionend" to "webkit_transition_end",
+
+    // OffscreenCanvas
+    "contextlost" to "context_lost",
+    "contextrestored" to "context_restored",
 )

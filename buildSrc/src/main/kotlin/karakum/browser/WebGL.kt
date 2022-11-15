@@ -1,9 +1,7 @@
 package karakum.browser
 
 import karakum.common.objectUnionBody
-import karakum.common.unionBody
 import karakum.common.unionConstant
-import java.io.File
 
 internal fun webglDeclarations(
     content: String,
@@ -129,6 +127,7 @@ private fun convertProperty(
     type = when (type) {
         "string" -> "String"
         "boolean" -> "Boolean"
+        "HTMLCanvasElement | OffscreenCanvas" -> "Any /* $type */"
 
         else -> type
     }

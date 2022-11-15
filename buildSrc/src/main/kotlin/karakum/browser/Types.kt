@@ -7,6 +7,7 @@ private val PKG_MAP = mapOf(
     "GlobalCompositeOperation" to "canvas",
     "ImageOrientation" to "canvas",
     "ImageSmoothingQuality" to "canvas",
+    "OffscreenRenderingContextId" to "canvas",
     "PredefinedColorSpace" to "canvas",
     "PremultiplyAlpha" to "canvas",
     "ResizeQuality" to "canvas",
@@ -83,6 +84,10 @@ private val EXCLUDED_TYPES = setOf(
     "KeyFormat",
     "KeyType",
     "KeyUsage",
+
+    // webstreams
+    "ReadableStreamType",
+    "ReadableStreamReaderMode",
 
     // deprecated?
     "NavigationTimingType",

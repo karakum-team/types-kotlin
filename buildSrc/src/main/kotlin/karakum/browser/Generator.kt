@@ -23,6 +23,7 @@ import kotlinx.js.ReadonlyArray
 import kotlinx.js.Uint32Array
 import kotlinx.js.JsLong
 import kotlinx.js.Void
+import canvas.OffscreenCanvas
 import cssom.CSSStyleDeclaration
 import cssom.CSSStyleSheet
 import dom.Document

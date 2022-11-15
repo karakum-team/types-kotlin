@@ -47,6 +47,9 @@ private fun convertInterface(
         source = bodySource,
     )
 
+    if (name == "RTCInboundRtpStreamStats")
+        body = body.replaceFirst("var kind: String", "override var kind: String")
+
     if (declaration.endsWith(" : web.events.Event"))
         body += "\ncompanion object"
 

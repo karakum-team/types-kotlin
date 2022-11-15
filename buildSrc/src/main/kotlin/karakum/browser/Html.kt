@@ -122,6 +122,9 @@ private val CANVAS_TYPES = listOf(
 
     "ImageDataSettings",
     "TextMetrics",
+
+    "OffscreenCanvas",
+    "OffscreenCanvasRenderingContext2D",
 )
 
 internal fun htmlDeclarations(
@@ -188,6 +191,8 @@ internal fun htmlDeclarations(
 
         "Canvas.+?",
         "CanvasRenderingContext2D .+?",
+        "OffscreenCanvas .+?",
+        "OffscreenCanvasRenderingContext2D .+?",
 
         "Window .+?",
         "WindowPostMessageOptions .+?",
@@ -257,7 +262,7 @@ internal fun htmlDeclarations(
         "PictureInPictureWindow.+?",
         "ValidityState",
         "AssignedNodesOptions",
-        "VideoFrameMetadata",
+        "VideoFrameCallbackMetadata",
         "VideoPlaybackQuality",
         "RemotePlayback .+?",
         "DOMMatrix2DInit",
@@ -829,6 +834,7 @@ private fun convertProperty(
         "Element | ProcessingInstruction" -> "Any /* Element | ProcessingInstruction */"
         "string | CanvasGradient | CanvasPattern" -> "Any /* string | CanvasGradient | CanvasPattern */"
         "string | ArrayBuffer" -> "Any /* string | ArrayBuffer */"
+        "HTMLCanvasElement | OffscreenCanvas" -> "Any /* HTMLCanvasElement | OffscreenCanvas */"
         "(WindowProxy & typeof globalThis)" -> "WindowProxy"
 
         "HTMLCollectionOf<HTMLAnchorElement | HTMLAreaElement>",
@@ -882,6 +888,7 @@ private fun convertFunction(
             "SVGCircleElement | SVGEllipseElement | SVGImageElement | SVGLineElement | SVGPathElement | SVGPolygonElement | SVGPolylineElement | SVGRectElement | SVGTextElement | SVGUseElement",
             "SVGElement /* SVGCircleElement | SVGEllipseElement | SVGImageElement | SVGLineElement | SVGPathElement | SVGPolygonElement | SVGPolylineElement | SVGRectElement | SVGTextElement | SVGUseElement */"
         )
+        .replace(": OffscreenRenderingContext", ": Any /* OffscreenRenderingContext */")
         .replace(": RadioNodeList | Element | null", ": Any? /* RadioNodeList | Element */")
         .replace(": Promise<number>", ": Promise<Number>")
         .replace(": Promise<FontFace[]>", ": Promise<ReadonlyArray<FontFace>>")
@@ -982,6 +989,9 @@ private fun getParameterType(
     return when {
         source == "string | number[]"
         -> return "ReadonlyArray<Double> /* | String */"
+
+        source == "number | DOMPointInit | (number | DOMPointInit)[]"
+        -> "Any /* $source */"
 
         source == "File | string | FormData"
         -> "Any /* File | String | FormData */"
