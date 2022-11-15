@@ -13,8 +13,15 @@ internal fun intlDeclarations(
                 .substringAfter("\ndeclare namespace Intl {\n")
                 .substringBefore("\n}")
                 .trimIndent()
+                .replace("=\n    | ", " ")
+                .replace("\n    | ", " | ")
         }
         .joinToString("\n")
 
-    return emptySequence()
+    val types = convertTypes(
+        content = content,
+        getPkg = { "web.intl" },
+    )
+
+    return types
 }

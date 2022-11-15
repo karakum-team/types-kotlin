@@ -101,14 +101,21 @@ private val EXCLUDED_TYPES = setOf(
 internal fun browserTypes(
     content: String,
 ): Sequence<ConversionResult> =
+    convertTypes(content, ::getTypePkg)
+
+internal fun convertTypes(
+    content: String,
+    getPkg: (name: String) -> String?,
+): Sequence<ConversionResult> =
     content
         .splitToSequence("\ntype ")
         .drop(1)
         .map { it.substringBefore(";\n") }
-        .mapNotNull { convertType(it) }
+        .mapNotNull { convertType(it, getPkg) }
 
 private fun convertType(
     source: String,
+    getPkg: (name: String) -> String?,
 ): ConversionResult? {
     if (" = \"" !in source)
         return null
@@ -117,8 +124,39 @@ private fun convertType(
         .substringBefore(";")
         .split(" = ")
 
-    val pkg = when {
-        name in EXCLUDED_TYPES -> return null
+    val pkg = getPkg(name)
+        ?: return null
+
+    val parentPkg = when {
+        name.startsWith("Request") ||
+                name.startsWith("Response")
+        -> "org.w3c.fetch"
+
+        else -> null
+    }
+
+    val values = bodySource
+        .splitToSequence(" | ")
+        .map { it.removeSurrounding("\"") }
+        .toList()
+
+    var body = unionBody(name, values)
+    if (parentPkg != null) {
+        body = body.replaceFirst("class $name", "class $name :\n/* legacy adapter */ $parentPkg.$name")
+    }
+
+    return ConversionResult(
+        name = name,
+        body = body,
+        pkg = pkg
+    )
+}
+
+private fun getTypePkg(
+    name: String,
+): String? =
+    when {
+        name in EXCLUDED_TYPES -> null
 
         PKG_MAP.containsKey(name) -> PKG_MAP.getValue(name)
 
@@ -165,28 +203,3 @@ private fun convertType(
 
         else -> TODO("Unable to find package for `$name` union")
     }
-
-    val parentPkg = when {
-        name.startsWith("Request") ||
-                name.startsWith("Response")
-        -> "org.w3c.fetch"
-
-        else -> null
-    }
-
-    val values = bodySource
-        .splitToSequence(" | ")
-        .map { it.removeSurrounding("\"") }
-        .toList()
-
-    var body = unionBody(name, values)
-    if (parentPkg != null) {
-        body = body.replaceFirst("class $name", "class $name :\n/* legacy adapter */ $parentPkg.$name")
-    }
-
-    return ConversionResult(
-        name = name,
-        body = body,
-        pkg = pkg
-    )
-}
