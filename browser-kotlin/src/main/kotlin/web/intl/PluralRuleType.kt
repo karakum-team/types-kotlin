@@ -7,10 +7,10 @@
 package web.intl
 
 // language=JavaScript
-@JsName("""(/*union*/{cardinal: 'cardinal', ordinal: 'ordinal'}/*union*/)""")
+@JsName("""(/*union*/{cardinal: 'cardinal', ordinal_: 'ordinal'}/*union*/)""")
 external enum class PluralRuleType {
     cardinal,
-    ordinal,
+    ordinal_,
 
     ;
 }
