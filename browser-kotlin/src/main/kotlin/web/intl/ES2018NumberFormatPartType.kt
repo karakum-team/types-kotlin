@@ -7,7 +7,7 @@
 package web.intl
 
 // language=JavaScript
-@JsName("""(/*union*/{literal: 'literal', nan: 'nan', infinity: 'infinity', percent: 'percent', integer: 'integer', group: 'group', decimal: 'decimal', fraction: 'fraction', plusSign: 'plusSign', minusSign: 'minusSign', percentSign: 'percentSign', currency: 'currency', code: 'code', symbol: 'symbol', htmlName: 'name'}/*union*/)""")
+@JsName("""(/*union*/{literal: 'literal', nan: 'nan', infinity: 'infinity', percent: 'percent', integer: 'integer', group: 'group', decimal: 'decimal', fraction: 'fraction', plusSign: 'plusSign', minusSign: 'minusSign', percentSign: 'percentSign', currency: 'currency', code: 'code', symbol: 'symbol', name_: 'name'}/*union*/)""")
 external enum class ES2018NumberFormatPartType {
     literal,
     nan,
@@ -23,7 +23,7 @@ external enum class ES2018NumberFormatPartType {
     currency,
     code,
     symbol,
-    htmlName,
+    name_,
 
     ;
 }
