@@ -146,6 +146,7 @@ internal fun unionConstant(value: String): UnionConstant {
         "2d" -> "canvas"
 
         "name" -> "htmlName"
+        "ordinal" -> "ordinal_" // TODO: check name
 
         else -> name.kebabToCamel()
     }
