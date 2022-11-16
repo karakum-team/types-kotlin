@@ -385,7 +385,7 @@ private fun prepareContent(
     return content to contextId
 }
 
-private fun convertInterface(
+internal fun convertInterface(
     source: String,
     getStaticSource: (String) -> String?,
 ): ConversionResult? {
@@ -769,6 +769,8 @@ private fun convertProperty(
     typeProvider: TypeProvider,
 ): String? {
     val modifier = if (source.startsWith("readonly ")) "val" else "var"
+
+    println(source)
     var (name, type) = source.removePrefix("readonly ").split(": ")
 
     val optional = type.endsWith(" | null")
