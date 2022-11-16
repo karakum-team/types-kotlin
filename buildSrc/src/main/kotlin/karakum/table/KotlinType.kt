@@ -60,6 +60,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => Header<TData, unknown>[]" to "() -> ReadonlyArray<Header<TData, *>>",
     "() => HeaderGroup<TData>[]" to "() -> ReadonlyArray<HeaderGroup<TData>>",
     "() => Row<TData>[]" to "() -> ReadonlyArray<Row<TData>>",
+    "(string & {}) | keyof TData" to "String /* keyof TData */",
 
     "false | -1 | 1" to "Int /* false | -1 | 1 */",
     "false | string" to "String /* false | string */",

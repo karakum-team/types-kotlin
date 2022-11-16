@@ -49,6 +49,7 @@ internal fun convertDefinitions(
     definitionFile.readText()
         .substringBefore("\n\nexport {")
         .replace("\ninterface ", "\ndeclare interface ")
+        .replace("\ntype ", "\ndeclare type ")
         .splitToSequence("\ndeclare ")
         .drop(1)
         .map { it.removeSuffix(";") }
