@@ -2,4 +2,4 @@
 
 package tanstack.table.core
 
-external interface InitialTableState : Partial<CompleteInitialTableState>
+external interface InitialTableState : CompleteInitialTableState
