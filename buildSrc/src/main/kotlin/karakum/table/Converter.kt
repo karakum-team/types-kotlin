@@ -148,7 +148,7 @@ private fun convertFunction(
 private fun convertType(
     source: String,
 ): ConversionResult =
-    if (" = {\n" in source && !source.startsWith("AccessorKeyColumnDef")) {
+    if (" = {\n" in source) {
         convertInterface(source)
     } else {
         convertTypealias(source)
@@ -209,7 +209,7 @@ private fun convertTypealias(
         return ConversionResult(name, "external interface $declaration : $parent {\n$interfaceBody\n}")
     }
 
-    if (" | " in body && name != "AccessorKeyColumnDef") {
+    if (" | " in body) {
         when (name) {
             "ColumnDef",
             "ColumnIdentifiers",
@@ -299,6 +299,7 @@ private fun convertTypealias(
             else -> body
                 .removeSurrounding("Partial<", ">")
                 .splitToSequence(" & ")
+                .map { it.removeSurrounding("Partial<", ">") }
                 .joinToString(",\n") { parentType ->
                     when (parentType) {
                         "GroupingOptions",
