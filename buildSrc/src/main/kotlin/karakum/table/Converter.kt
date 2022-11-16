@@ -354,12 +354,30 @@ private fun convertInterface(
         .substringBefore(" ")
 
     when (name) {
+        "TableOptions",
+        -> declaration = declaration.replace(
+            "PartialKeys<TableOptionsResolved<TData>, 'state' | 'onStateChange' | 'renderFallbackValue'>",
+            "TableOptionsResolved<TData>",
+        )
+
         "GroupingOptions",
-        -> declaration.replaceFirst(name, "$name<TData : RowData>")
+        -> declaration = declaration
+            .replaceFirst(name, "$name<TData : RowData>")
+            .replaceFirst("GroupingOptionsBase,", "GroupingOptionsBase<TData>,")
 
         "GroupingOptionsBase",
         "PaginationOptions",
+        "SortingOptionsBase",
         -> declaration += "<TData : RowData>"
+
+        "SortingOptions",
+        -> declaration = declaration
+            .replace("SortingOptionsBase,", "SortingOptionsBase<TData>,")
+
+        "FeatureOptions",
+        -> declaration = declaration
+            .replace("GroupingOptions,", "GroupingOptions<TData>,")
+            .replace("PaginationOptions,", "PaginationOptions<TData>,")
 
         "HeaderContext",
         -> declaration = declaration.replace("<TData,", "<TData : RowData,")
