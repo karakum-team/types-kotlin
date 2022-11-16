@@ -173,6 +173,13 @@ private fun convertTypealias(
         .substringAfter(" = ")
         .replace(" => ", " -> ")
 
+    when (name) {
+        "ResolvedAggregationFns",
+        "ResolvedFilterFns",
+        "ResolvedSortingFns",
+        -> return ConversionResult(name, "external interface $name {\n/*\n$body\n*/\n}")
+    }
+
     if (body == "{}")
         return ConversionResult(name, "external interface $declaration")
 
