@@ -20,6 +20,8 @@ internal fun intlDeclarations(
                 .replace("\ntype NumberFormatPartTypes = ES2018NumberFormatPartType | ES2020NumberFormatPartType;", "")
                 .replace("NumberFormatPartTypes", "NumberFormatPartType")
                 .replace("\n\n", "\n")
+                // WA for `DateTimeFormatPartTypesRegistry`
+                .replace("\n }\n", "\n}\n")
 
         }
         .joinToString("\n")

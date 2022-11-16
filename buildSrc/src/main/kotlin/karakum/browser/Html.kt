@@ -799,6 +799,9 @@ private fun convertProperty(
         "number | string",
         -> typeProvider.numberType(safeName)
 
+        "1 | 2 | 3",
+        -> "Int /* $source */"
+
         "OnErrorEventHandler",
         -> "Function<Unit>? /* $type */"
 
@@ -836,6 +839,7 @@ private fun convertProperty(
         "MediaStream[]" -> "ReadonlyArray<MediaStream>"
         "Touch[]" -> "ReadonlyArray<Touch>"
         "PointerEvent[]" -> "ReadonlyArray<PointerEvent>"
+        "LDMLPluralRule[]" -> "ReadonlyArray<LDMLPluralRule>"
         "MediaList | string" -> "Any /* MediaList | string */"
         "Element | ProcessingInstruction" -> "Any /* Element | ProcessingInstruction */"
         "string | CanvasGradient | CanvasPattern" -> "Any /* string | CanvasGradient | CanvasPattern */"
@@ -909,6 +913,13 @@ private fun convertFunction(
         .replace(": Animation[]", ": ReadonlyArray<Animation>")
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")
         .replace(": SpeechSynthesisVoice[]", ": ReadonlyArray<SpeechSynthesisVoice>")
+        .replace(": RelativeTimeFormatPart[]", ": ReadonlyArray<RelativeTimeFormatPart>")
+        .replace(": DateTimeRangeFormatPart[]", ": ReadonlyArray<DateTimeRangeFormatPart>")
+        .replace(": NumberFormatPart[]", ": ReadonlyArray<NumberFormatPart>")
+        .replace(
+            """: { type: "element" | "literal", value: string; }[]""",
+            ": ReadonlyArray<dynamic /* { type; value; } */>",
+        )
         .replace(": number", ": Number")
         .replace(": string", ": String")
         .replace("<string>", "<String>")
@@ -917,6 +928,7 @@ private fun convertFunction(
         .replace(": any", ": Any")
         .replace("<void>", "<Void>")
         .replace(" | null", "?")
+        .replace(" | undefined", "?")
 
     return "fun $typeParameters$name($parameters)$result"
 }
@@ -994,7 +1006,10 @@ private fun getParameterType(
 
     return when {
         source == "string | number[]"
-        -> return "ReadonlyArray<Double> /* | String */"
+        -> "ReadonlyArray<Double> /* | String */"
+
+        source == "number | bigint"
+        -> "Number /* | BigInt */"
 
         source == "number | DOMPointInit | (number | DOMPointInit)[]"
         -> "Any /* $source */"
@@ -1007,6 +1022,9 @@ private fun getParameterType(
 
         source == "DateTimeFormatPartTypes"
         -> "String /* $source */"
+
+        source == "Iterable<string>"
+        -> "JsIterable<String>"
 
         source.startsWith("\"")
         -> "String /* $source */"
