@@ -342,10 +342,15 @@ private fun convertInterface(
         .removeSuffix(" =")
         .replace(" extends ", " : ")
 
-    val name = declaration.substringBefore("<")
+    val name = declaration
+        .substringBefore("<")
+        .substringBefore(" ")
 
     when (name) {
         "GroupingOptions",
+        -> declaration.replaceFirst(name, "$name<TData : RowData>")
+
+        "GroupingOptionsBase",
         "PaginationOptions",
         -> declaration += "<TData : RowData>"
 
