@@ -18,6 +18,7 @@ internal fun intlDeclarations(
                 .replace("type ES2018NumberFormatPartType = ", "type NumberFormatPartType = ")
                 .replace(";\ntype ES2020NumberFormatPartType = ", " | ")
                 .replace("\ntype NumberFormatPartTypes = ES2018NumberFormatPartType | ES2020NumberFormatPartType;", "")
+                .replace("NumberFormatPartTypes", "NumberFormatPartType")
                 .replace("\n\n", "\n")
 
         }
@@ -31,9 +32,9 @@ internal fun intlDeclarations(
     val interfaces = Regex("""interface .+? \{[\s\S]+?\n\}""")
         .findAll(content)
         .map { it.value }
-        .mapNotNull { convertInterface(it, { null }) }
+        .mapNotNull { convertInterface(it, { null }, "web.intl") }
         // TEMP
         .distinctBy { it.name }
 
-    return types // + interfaces
+    return types + interfaces
 }

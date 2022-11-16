@@ -2,7 +2,6 @@ package karakum.browser
 
 import karakum.common.UnionConstant
 import karakum.common.objectUnionBody
-import karakum.common.unionBody
 
 internal const val VIDEO_FRAME_REQUEST_ID = "VideoFrameRequestId"
 internal const val RENDERING_CONTEXT_ID = "RenderingContextId"
@@ -388,6 +387,7 @@ private fun prepareContent(
 internal fun convertInterface(
     source: String,
     getStaticSource: (String) -> String?,
+    predefinedPkg: String? = null,
 ): ConversionResult? {
     val name = source
         .substringAfter(" ")
@@ -583,6 +583,8 @@ internal fun convertInterface(
     val body = "$modifier external $declaration {\n$members\n}"
 
     val pkg = when {
+        predefinedPkg != null -> predefinedPkg
+
         name == "RemotePlayback" -> "remoteplayback"
 
         name.startsWith("Touch") -> "dom.events"
@@ -773,8 +775,10 @@ private fun convertProperty(
     println(source)
     var (name, type) = source.removePrefix("readonly ").split(": ")
 
-    val optional = type.endsWith(" | null")
-    type = type.removeSuffix(" | null")
+    val optional = type.endsWith(" | null") || type.endsWith(" | undefined")
+    type = type
+        .removeSuffix(" | null")
+        .removeSuffix(" | undefined")
 
     val safeName = name.removeSuffix("?")
     if (!typeProvider.accepted(safeName))
@@ -998,6 +1002,12 @@ private fun getParameterType(
         source == "File | string | FormData"
         -> "Any /* File | String | FormData */"
 
+        source == "Date | number | bigint"
+        -> "Any /* $source */"
+
+        source == "DateTimeFormatPartTypes"
+        -> "String /* $source */"
+
         source.startsWith("\"")
         -> "String /* $source */"
 
@@ -1006,9 +1016,6 @@ private fun getParameterType(
 
         source == "string"
         -> "String"
-
-        source == "string | URL"
-        -> "URL /* | string */"
 
         source == "number"
         -> if (name == "index") "Int" else "Number"
