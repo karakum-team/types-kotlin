@@ -29,6 +29,7 @@ sealed external interface TypeChecker {
     ): IndexInfo?
 
     fun getIndexInfosOfType(type: Type): ReadonlyArray<IndexInfo>
+    var getIndexInfosOfIndexSymbol: ReadonlyArray<(indexSymbol: Symbol) => IndexInfo>
     fun getSignaturesOfType(
         type: Type,
         kind: SignatureKind,
