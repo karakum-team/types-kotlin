@@ -171,6 +171,9 @@ fun generateKotlinDeclarations(
 
             if ("inline fun " in body)
                 add(NOTHING_TO_INLINE)
+
+            if (name == "Locale")
+                add(VIRTUAL_MEMBER_HIDDEN)
         }.toTypedArray()
 
         val annotations = if (suppresses.isNotEmpty()) {

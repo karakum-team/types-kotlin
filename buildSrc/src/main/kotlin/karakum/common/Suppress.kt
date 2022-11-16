@@ -21,6 +21,8 @@ internal enum class Suppress {
 
     UNUSED_TYPEALIAS_PARAMETER,
 
+    VIRTUAL_MEMBER_HIDDEN,
+
     // TODO: remove after unions
     USELESS_IS_CHECK,
 

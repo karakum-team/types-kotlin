@@ -825,6 +825,10 @@ private fun convertProperty(
         "StaticRange[]",
         -> "ReadonlyArray<Any /* StaticRange */>"
 
+        // TEMP
+        "DateTimeFormatPartTypes"
+        -> "String /* $type */"
+
         // TODO: check
         "DOMException",
         -> "Throwable /* DOMException */"
@@ -913,7 +917,7 @@ private fun convertFunction(
         .replace(": Animation[]", ": ReadonlyArray<Animation>")
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")
         .replace(": SpeechSynthesisVoice[]", ": ReadonlyArray<SpeechSynthesisVoice>")
-        .replace(": RelativeTimeFormatPart[]", ": ReadonlyArray<RelativeTimeFormatPart>")
+        .replace(": RelativeTimeFormatPart[]", ": ReadonlyArray<dynamic /* RelativeTimeFormatPart */>")
         .replace(": DateTimeRangeFormatPart[]", ": ReadonlyArray<DateTimeRangeFormatPart>")
         .replace(": NumberFormatPart[]", ": ReadonlyArray<NumberFormatPart>")
         .replace(
