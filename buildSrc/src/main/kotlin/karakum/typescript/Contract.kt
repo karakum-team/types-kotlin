@@ -14,7 +14,9 @@ internal fun addContractSupport(
     if (type.isEmpty() || " | " in type)
         return sequenceOf(result)
 
-    val originalBody = "import typescript.*\n\n" +
+    val originalBody = "import typescript.Node\n" +
+            "import typescript.BindingName\n" +
+            "\n" +
             body.replace("external fun ", "internal external fun ")
 
     val original = ConversionResult(

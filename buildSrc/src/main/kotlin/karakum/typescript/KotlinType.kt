@@ -44,6 +44,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "(sourceFile: SourceFile) => boolean" to "(sourceFile: SourceFile) -> Boolean",
     "AffectedFileResult<readonly Diagnostic[]>" to "AffectedFileResult<ReadonlyArray<Diagnostic>>",
+    "(indexSymbol: Symbol) => IndexInfo[]" to "(indexSymbol: Symbol) -> ReadonlyArray<IndexInfo>",
 
     "typeof visitNodes" to "$DYNAMIC /* typeof visitNodes */",
 
