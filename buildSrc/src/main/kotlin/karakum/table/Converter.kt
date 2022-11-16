@@ -277,9 +277,6 @@ private fun convertTypealias(
                 .removePrefix("{\n")
                 .let { convertMembers(it) }
 
-            if (name == "AccessorKeyColumnDef")
-                members = members.replace("var id: String?", "    /* var id: String? */")
-
             val parentTypes = mutableListOf("ColumnDefBase<TData, TValue>")
             if ("ColumnIdentifiers<TData, TValue>" in body)
                 parentTypes.add("ColumnIdentifiers<TData, TValue>")
@@ -381,9 +378,19 @@ private fun convertInterface(
 
         "HeaderContext",
         -> declaration = declaration.replace("<TData,", "<TData : RowData,")
+
+        "InitialTableState",
+        -> declaration = declaration.replace(
+            "Partial<CompleteInitialTableState>",
+            "CompleteInitialTableState"
+        )
     }
 
-    val body = "{\n" + convertMembers(source.substringAfter(" {")) + "\n}\n"
+    var members = convertMembers(source.substringAfter(" {"))
+    if (name == "AccessorKeyColumnDefBase")
+        members = members.replace("var id: String?", "    /* var id: String? */")
+
+    val body = "{\n" + members + "\n}\n"
     return ConversionResult(name, "external interface $declaration$body")
 }
 
