@@ -48,7 +48,7 @@ sealed external interface RelativeTimeFormat {
     fun formatToParts(
         value: Number,
         unit: RelativeTimeFormatUnit,
-    ): ReadonlyArray<RelativeTimeFormatPart>
+    ): ReadonlyArray<dynamic /* RelativeTimeFormatPart */>
 
     /**
      * Provides access to the locale and options computed during initialization of this `Intl.RelativeTimeFormat` object.

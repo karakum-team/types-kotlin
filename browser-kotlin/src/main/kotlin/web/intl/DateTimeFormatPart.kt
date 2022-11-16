@@ -3,6 +3,6 @@
 package web.intl
 
 sealed external interface DateTimeFormatPart {
-    var type: DateTimeFormatPartTypes
+    var type: String /* DateTimeFormatPartTypes */
     var value: String
 }
