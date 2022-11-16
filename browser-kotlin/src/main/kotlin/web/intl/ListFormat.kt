@@ -2,6 +2,9 @@
 
 package web.intl
 
+import kotlinx.js.JsIterable
+import kotlinx.js.ReadonlyArray
+
 sealed external interface ListFormat {
     /**
      * Returns a string with a language-specific representation of the list.
@@ -14,7 +17,7 @@ sealed external interface ListFormat {
      *
      * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/format).
      */
-    fun format(list: Iterable<string>): String
+    fun format(list: JsIterable<String>): String
 
     /**
      * Returns an Array of objects representing the different components that can be used to format a list of values in a locale-aware fashion.
@@ -27,7 +30,5 @@ sealed external interface ListFormat {
      *
      * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/formatToParts).
      */
-    fun formatToParts(list: Iterable<string>): {
-        type: "element" | "literal", value: String
-    }[]
+    fun formatToParts(list: JsIterable<String>): ReadonlyArray<dynamic /* { type; value; } */>
 }

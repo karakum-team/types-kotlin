@@ -2,6 +2,8 @@
 
 package web.intl
 
+import kotlinx.js.ReadonlyArray
+
 sealed external interface RelativeTimeFormat {
     /**
      * Formats a value and a unit according to the locale
@@ -46,7 +48,8 @@ sealed external interface RelativeTimeFormat {
     fun formatToParts(
         value: Number,
         unit: RelativeTimeFormatUnit,
-    ): RelativeTimeFormatPart[]
+    ): ReadonlyArray<RelativeTimeFormatPart>
+
     /**
      * Provides access to the locale and options computed during initialization of this `Intl.RelativeTimeFormat` object.
      *

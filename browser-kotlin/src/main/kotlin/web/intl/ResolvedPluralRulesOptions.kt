@@ -2,9 +2,11 @@
 
 package web.intl
 
+import kotlinx.js.ReadonlyArray
+
 sealed external interface ResolvedPluralRulesOptions {
     var locale: String
-    var pluralCategories: LDMLPluralRule[]
+    var pluralCategories: ReadonlyArray<LDMLPluralRule>
     var type: PluralRuleType
     var minimumIntegerDigits: Number
     var minimumFractionDigits: Number
