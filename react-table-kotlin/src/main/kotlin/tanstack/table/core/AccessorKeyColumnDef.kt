@@ -4,4 +4,4 @@ package tanstack.table.core
 
 external interface AccessorKeyColumnDef<TData : RowData, TValue> :
     AccessorKeyColumnDefBase<TData, TValue>,
-    Partial<ColumnIdentifiers<TData, TValue>>
+    ColumnIdentifiers<TData, TValue>
