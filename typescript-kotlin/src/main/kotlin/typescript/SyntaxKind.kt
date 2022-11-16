@@ -145,7 +145,7 @@ sealed external interface SyntaxKind {
     object StaticKeyword : SyntaxKind, Union.SyntaxKind_StaticKeyword
     object YieldKeyword : SyntaxKind, Union.SyntaxKind_YieldKeyword
     object AbstractKeyword : SyntaxKind, Union.SyntaxKind_AbstractKeyword
-    object AccessorKeyword : SyntaxKind
+    object AccessorKeyword : SyntaxKind, Union.SyntaxKind_AccessorKeyword
     object AsKeyword : SyntaxKind, Union.SyntaxKind_AsKeyword
     object AssertsKeyword : SyntaxKind, Union.SyntaxKind_AssertsKeyword
     object AssertKeyword : SyntaxKind, Union.SyntaxKind_AssertKeyword
@@ -168,7 +168,7 @@ sealed external interface SyntaxKind {
     object RequireKeyword : SyntaxKind, Union.SyntaxKind_RequireKeyword
     object NumberKeyword : SyntaxKind, Union.SyntaxKind_NumberKeyword
     object ObjectKeyword : SyntaxKind, Union.SyntaxKind_ObjectKeyword
-    object SatisfiesKeyword : SyntaxKind
+    object SatisfiesKeyword : SyntaxKind, Union.SyntaxKind_SatisfiesKeyword
     object SetKeyword : SyntaxKind, Union.SyntaxKind_SetKeyword
     object StringKeyword : SyntaxKind, Union.SyntaxKind_StringKeyword
     object SymbolKeyword : SyntaxKind, Union.SyntaxKind_SymbolKeyword
