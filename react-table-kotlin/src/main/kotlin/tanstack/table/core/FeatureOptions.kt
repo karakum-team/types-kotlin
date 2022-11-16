@@ -3,5 +3,5 @@
 package tanstack.table.core
 
 external interface FeatureOptions<TData : RowData> : VisibilityOptions, ColumnOrderOptions, ColumnPinningOptions,
-    FiltersOptions<TData>, SortingOptions<TData>, GroupingOptions, ExpandedOptions<TData>, ColumnSizingOptions,
-    PaginationOptions, RowSelectionOptions<TData>
+    FiltersOptions<TData>, SortingOptions<TData>, GroupingOptions<TData>, ExpandedOptions<TData>, ColumnSizingOptions,
+    PaginationOptions<TData>, RowSelectionOptions<TData>
