@@ -5,27 +5,7 @@ import java.io.File
 internal fun intlDeclarations(
     definitionsDir: File,
 ): Sequence<ConversionResult> {
-    val content = definitionsDir.listFiles()!!
-        .filter { it.name.endsWith(".intl.d.ts") }
-        .sortedBy { it.name }
-        .map {
-            it.readText()
-                .replace("\r\n", "\n")
-                .substringAfter("\ndeclare namespace Intl {\n")
-                .substringBefore("\n}")
-                .trimIndent()
-                .replace("=\n    | ", "= ")
-                .replace("\n    | ", " | ")
-                .replace("type ES2018NumberFormatPartType = ", "type NumberFormatPartType = ")
-                .replace(";\ntype ES2020NumberFormatPartType = ", " | ")
-                .replace("\ntype NumberFormatPartTypes = ES2018NumberFormatPartType | ES2020NumberFormatPartType;", "")
-                .replace("NumberFormatPartTypes", "NumberFormatPartType")
-                .replace("\n\n", "\n")
-                // WA for `DateTimeFormatPartTypesRegistry`
-                .replace("\n }\n", "\n}\n")
-
-        }
-        .joinToString("\n")
+    val content = intlContent(definitionsDir)
 
     val types = convertTypes(
         content = content,
@@ -58,4 +38,32 @@ internal fun intlDeclarations(
         .mapNotNull { convertInterface(it, { null }, "web.intl") }
 
     return types + interfaces
+}
+
+private fun intlContent(
+    definitionsDir: File,
+): String {
+    var content = definitionsDir.listFiles()!!
+        .filter { it.name.endsWith(".intl.d.ts") }
+        .sortedBy { it.name }
+        .map {
+            it.readText()
+                .replace("\r\n", "\n")
+                .substringAfter("\ndeclare namespace Intl {\n")
+                .substringBefore("\n}")
+                .trimIndent()
+                .replace("=\n    | ", "= ")
+                .replace("\n    | ", " | ")
+                .replace("type ES2018NumberFormatPartType = ", "type NumberFormatPartType = ")
+                .replace(";\ntype ES2020NumberFormatPartType = ", " | ")
+                .replace("\ntype NumberFormatPartTypes = ES2018NumberFormatPartType | ES2020NumberFormatPartType;", "")
+                .replace("NumberFormatPartTypes", "NumberFormatPartType")
+                .replace("\n\n", "\n")
+                // WA for `DateTimeFormatPartTypesRegistry`
+                .replace("\n }\n", "\n}\n")
+
+        }
+        .joinToString("\n")
+
+    return content
 }
