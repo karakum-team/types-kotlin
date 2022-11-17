@@ -4,9 +4,11 @@
     "VIRTUAL_MEMBER_HIDDEN",
 )
 
+@file:JsQualifier("Intl")
+
 package web.intl
 
-sealed external interface Locale :
+sealed external class Locale :
     LocaleOptions {
     /** A string containing the language, and the script and region if available. */
     var baseName: String

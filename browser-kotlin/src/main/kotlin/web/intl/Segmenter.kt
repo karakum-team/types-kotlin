@@ -1,8 +1,10 @@
 // Automatically generated - do not modify!
 
+@file:JsQualifier("Intl")
+
 package web.intl
 
-sealed external interface Segmenter {
+sealed external class Segmenter {
     /**
      * Returns `Segments` object containing the segments of the input string, using the segmenter's locale and granularity.
      *
