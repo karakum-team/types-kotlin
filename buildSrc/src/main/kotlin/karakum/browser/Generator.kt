@@ -176,9 +176,14 @@ fun generateKotlinDeclarations(
                 add(VIRTUAL_MEMBER_HIDDEN)
         }.toTypedArray()
 
-        val annotations = if (suppresses.isNotEmpty()) {
-            fileSuppress(*suppresses)
-        } else ""
+        val annotations = sequenceOf(
+            if (suppresses.isNotEmpty()) {
+                fileSuppress(*suppresses)
+            } else "",
+            if (pkg == "web.intl" && "external class" in body) """@file:JsQualifier("Intl")""" else "",
+        ).filter { it.isNotEmpty() }
+            .joinToString("\n\n")
+
 
         val imports = when (name) {
             "Document",
