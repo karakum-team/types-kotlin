@@ -339,6 +339,21 @@ internal fun htmlDeclarations(
                 pkg = "web.xhr",
             )
         )
+        .plus(
+            DOM_GEOMETRY_TYPES
+                .filter { it.endsWith("ReadOnly") }
+                .map { type ->
+                    val initType = type.removeSuffix("ReadOnly") + "Init"
+                    ConversionResult(
+                        name = "$type.ext",
+                        body = """
+                        inline fun $type.asInit(): $initType =    
+                            unsafeCast<$initType>()                                                 
+                        """.trimIndent(),
+                        pkg = "dom.geometry",
+                    )
+                }
+        )
 }
 
 private fun prepareContent(
