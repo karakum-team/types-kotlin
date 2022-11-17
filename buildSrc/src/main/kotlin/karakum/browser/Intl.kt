@@ -42,8 +42,8 @@ internal fun intlDeclarations(
 
 private fun intlContent(
     definitionsDir: File,
-): String {
-    var content = definitionsDir.listFiles()!!
+): String =
+    definitionsDir.listFiles()!!
         .filter { it.name.endsWith(".intl.d.ts") }
         .sortedBy { it.name }
         .map {
@@ -64,22 +64,3 @@ private fun intlContent(
 
         }
         .joinToString("\n")
-
-    val typeMap = content
-        .splitToSequence("\ntype ")
-        .drop(1)
-        .map { it.substringBefore(";") }
-        .filter { " = \"" in it }
-        .associate {
-            val (name, value) = it.split(" = ")
-            name to value
-        }
-
-    for ((name, value) in typeMap) {
-        content = content
-            .replace(": $value;", ": $name;")
-            .replace(": $value | undefined;", ": $name | undefined;")
-    }
-
-    return content
-}
