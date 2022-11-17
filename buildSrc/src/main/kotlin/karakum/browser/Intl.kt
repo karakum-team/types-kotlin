@@ -52,7 +52,6 @@ internal fun intlDeclarations(
                     .prependIndent("    ")
 
                 "$declaration {\n$body\n}"
-                    .also { println(it) }
             }
         }
         .mapNotNull { convertInterface(it, { null }, "web.intl") }

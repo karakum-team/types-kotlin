@@ -299,6 +299,7 @@ internal class TypeProvider(
             parentType == "SVGAnimatedInteger" -> "Int"
             parentType == "SVGAnimatedNumber" -> "Double"
 
+            propertyName.endsWith("Digits") -> "Int"
             propertyName.endsWith("Frames") -> "Int"
 
             propertyName in LONG_NAMES -> "JsLong"
