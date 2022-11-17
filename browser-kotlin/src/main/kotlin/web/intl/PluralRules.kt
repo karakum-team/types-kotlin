@@ -4,7 +4,17 @@
 
 package web.intl
 
-sealed external class PluralRules {
+import kotlinx.js.ReadonlyArray
+
+external class PluralRules(
+    locales: String = definedExternally,
+    options: PluralRulesOptions = definedExternally,
+) {
+    constructor(
+        locales: ReadonlyArray<String>,
+        options: PluralRulesOptions = definedExternally,
+    )
+
     fun resolvedOptions(): ResolvedPluralRulesOptions
     fun select(n: Number): LDMLPluralRule
 }
