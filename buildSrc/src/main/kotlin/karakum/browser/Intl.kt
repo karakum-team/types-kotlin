@@ -58,6 +58,8 @@ private fun intlContent(
                 .substringAfter("\ndeclare namespace Intl {\n")
                 .substringBefore("\n}")
                 .trimIndent()
+                .splitUnion("string | string[]")
+                .splitUnion("BCP47LanguageTag | Locale")
                 .replace("new (", "new(")
                 .replace("=\n    | ", "= ")
                 .replace("\n    | ", " | ")

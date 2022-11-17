@@ -3,7 +3,7 @@ package karakum.browser
 internal fun String.applyPatches(): String =
     patchVideoFrameCallback()
         .patchQuerySelectors()
-        .patchStringOrUrl()
+        .splitUnion("string | URL")
         .replace("\n    getContext(contextId: string, options?: any): RenderingContext | null;", "")
         .replace("quality?: any", "quality?: number")
         .replace("LockGrantedCallback): Promise<any>", "LockGrantedCallback): Promise<void>")
@@ -62,22 +62,27 @@ private fun String.patchQuerySelectors(): String =
             "querySelectorAll(selectors: string): NodeListOf<Element>;"
         )
 
-private fun String.patchStringOrUrl(): String =
-    this.splitToSequence("\n")
+internal fun String.splitUnion(
+    union: String,
+): String {
+    val (first, second) = union.split(" | ")
+
+    return splitToSequence("\n")
         .flatMap { line ->
-            if ("?: string | URL" in line) {
+            if ("?: $union" in line) {
                 sequenceOf(
-                    line.replace("?: string | URL", "?: string"),
-                    line.replace("?: string | URL", ": URL"),
+                    line.replace("?: $union", "?: $first"),
+                    line.replace("?: $union", ": $second"),
                 )
             } else sequenceOf(line)
         }
         .flatMap { line ->
-            if (": string | URL" in line) {
+            if (": $union" in line) {
                 sequenceOf(
-                    line.replace(": string | URL", ": string"),
-                    line.replace(": string | URL", ": URL"),
+                    line.replace(": $union", ": $first"),
+                    line.replace(": $union", ": $second"),
                 )
             } else sequenceOf(line)
         }
         .joinToString("\n")
+}
