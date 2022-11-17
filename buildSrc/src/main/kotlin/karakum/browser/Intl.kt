@@ -58,6 +58,7 @@ private fun intlContent(
                 .substringAfter("\ndeclare namespace Intl {\n")
                 .substringBefore("\n}")
                 .trimIndent()
+                .replace("new (", "new(")
                 .replace("=\n    | ", "= ")
                 .replace("\n    | ", " | ")
                 .replace("type ES2018NumberFormatPartType = ", "type NumberFormatPartType = ")
