@@ -35,7 +35,13 @@ internal fun intlDeclarations(
                 "$declaration {\n$body\n}"
             }
         }
-        .mapNotNull { convertInterface(it, { null }, "web.intl") }
+        .mapNotNull {
+            convertInterface(
+                source = it,
+                getStaticSource = { getStaticSource(it, content) },
+                predefinedPkg = "web.intl",
+            )
+        }
 
     return types + interfaces
 }

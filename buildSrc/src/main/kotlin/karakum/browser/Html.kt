@@ -653,16 +653,22 @@ internal fun convertInterface(
     )
 }
 
-private fun getStaticSource(
+internal fun getStaticSource(
     name: String,
     source: String,
-): String? =
-    source
-        .substringAfter("\ndeclare var $name: {\n", "")
+): String? {
+    val contentSource = sequenceOf("declare var", "const")
+        .map { source.substringAfter("\n$it $name: {\n", "") }
+        .filter { it.isNotEmpty() }
+        .singleOrNull()
+        ?: return null
+
+    return contentSource
         .substringBefore(";\n};")
         .trimIndent()
         .removePrefix("prototype: $name;\n")
         .takeIf { it.isNotEmpty() }
+}
 
 private fun getConstructors(
     name: String,
@@ -825,7 +831,7 @@ private fun convertProperty(
         -> "ReadonlyArray<Any /* StaticRange */>"
 
         // TEMP
-        "DateTimeFormatPartTypes"
+        "DateTimeFormatPartTypes",
         -> "String /* $type */"
 
         // TODO: check
