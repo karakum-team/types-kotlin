@@ -318,6 +318,9 @@ internal class TypeProvider(
         }
     }
 
+    fun isDefined(): Boolean =
+        parentType == "LocaleOptions"
+
     fun isArrayLike(): Boolean =
         arrayType != null
 

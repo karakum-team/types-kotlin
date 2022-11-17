@@ -773,6 +773,11 @@ internal fun convertMember(
     return convertProperty(source, typeProvider)
 }
 
+private val PROPERTY_DE = """
+get() = definedExternally
+set(value) = definedExternally
+""".trimIndent()
+
 private fun convertProperty(
     source: String,
     typeProvider: TypeProvider,
@@ -880,7 +885,11 @@ private fun convertProperty(
         else -> name
     }
 
-    return "$modifier $name: $type"
+    return sequenceOf(
+        "$modifier $name: $type",
+        PROPERTY_DE.takeIf { typeProvider.isDefined() },
+    ).filterNotNull()
+        .joinToString("\n")
 }
 
 private fun convertFunction(
