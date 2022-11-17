@@ -676,6 +676,7 @@ private fun getConstructors(
 ): List<String> {
     val constructorSources = source
         .split(";\n")
+        .map { it.substringAfterLast("\n") }
         .filter { it.startsWith("new(") }
         .map { it.removePrefix("new(") }
         .map { it.substringBefore("): $name") }

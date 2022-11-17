@@ -43,7 +43,14 @@ internal fun intlDeclarations(
             )
         }
 
-    return types + interfaces
+    return (types + interfaces)
+        .plus(
+            ConversionResult(
+                name = "LocalesArgument",
+                body = "typealias LocalesArgument = Any",
+                pkg = "web.intl",
+            )
+        )
 }
 
 private fun intlContent(
@@ -60,6 +67,7 @@ private fun intlContent(
                 .trimIndent()
                 .splitUnion("string | string[]")
                 .splitUnion("BCP47LanguageTag | Locale")
+                .splitUnion("BCP47LanguageTag | BCP47LanguageTag[]")
                 .replace("new (", "new(")
                 .replace("=\n    | ", "= ")
                 .replace("\n    | ", " | ")
