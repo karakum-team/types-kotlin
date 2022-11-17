@@ -772,7 +772,6 @@ private fun convertProperty(
 ): String? {
     val modifier = if (source.startsWith("readonly ")) "val" else "var"
 
-    println(source)
     var (name, type) = source.removePrefix("readonly ").split(": ")
 
     val optional = type.endsWith(" | null") || type.endsWith(" | undefined")
