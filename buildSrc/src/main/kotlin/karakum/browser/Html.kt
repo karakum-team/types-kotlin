@@ -919,6 +919,8 @@ private fun convertFunction(
         .replace(": RelativeTimeFormatPart[]", ": ReadonlyArray<dynamic /* RelativeTimeFormatPart */>")
         .replace(": DateTimeRangeFormatPart[]", ": ReadonlyArray<DateTimeRangeFormatPart>")
         .replace(": NumberFormatPart[]", ": ReadonlyArray<NumberFormatPart>")
+        .replace(": DateTimeFormatPart[]", ": ReadonlyArray<DateTimeFormatPart>")
+        .replace(": NumberRangeFormatPart[]", ": ReadonlyArray<NumberRangeFormatPart>")
         .replace(
             """: { type: "element" | "literal", value: string; }[]""",
             ": ReadonlyArray<dynamic /* { type; value; } */>",
@@ -1020,7 +1022,8 @@ private fun getParameterType(
         source == "File | string | FormData"
         -> "Any /* File | String | FormData */"
 
-        source == "Date | number | bigint"
+        source == "Date | number | bigint" ||
+                source == "Date | number"
         -> "Any /* $source */"
 
         source == "DateTimeFormatPartTypes"

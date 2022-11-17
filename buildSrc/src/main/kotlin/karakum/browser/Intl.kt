@@ -34,9 +34,28 @@ internal fun intlDeclarations(
     val interfaces = Regex("""interface .+? \{[\s\S]+?\n\}""")
         .findAll(content)
         .map { it.value }
+        .groupBy { it.substringBefore(" {\n") }
+        .map { (declaration, sourceParts) ->
+            sourceParts.singleOrNull() ?: run {
+                val body = sourceParts
+                    .asSequence()
+                    .map {
+                        it.replace(": any\n", ": any;\n")
+                            .substringAfter(" {\n")
+                            .substringBefore("\n}")
+                            .trimIndent()
+                    }
+                    .joinToString("\n")
+                    .splitToSequence("\n")
+                    .distinct()
+                    .joinToString("\n")
+                    .prependIndent("    ")
+
+                "$declaration {\n$body\n}"
+                    .also { println(it) }
+            }
+        }
         .mapNotNull { convertInterface(it, { null }, "web.intl") }
-        // TEMP
-        .distinctBy { it.name }
 
     return types + interfaces
 }
