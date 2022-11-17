@@ -7,6 +7,7 @@ internal fun intlDeclarations(
 ): Sequence<ConversionResult> {
     val content = definitionsDir.listFiles()!!
         .filter { it.name.endsWith(".intl.d.ts") }
+        .sortedBy { it.name }
         .map {
             it.readText()
                 .replace("\r\n", "\n")
