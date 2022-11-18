@@ -8,7 +8,8 @@ import web.buffer.Blob
 import web.streams.ReadableStream
 import kotlin.js.Promise
 
-sealed external interface Body {
+@JsName("Object")
+sealed external class /* interface */ Body {
     val body: ReadableStream<Uint8Array>?
     val bodyUsed: Boolean
     fun arrayBuffer(): Promise<ArrayBuffer>

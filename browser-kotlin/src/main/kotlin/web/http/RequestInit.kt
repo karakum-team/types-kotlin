@@ -43,5 +43,5 @@ sealed external interface RequestInit {
     var signal: AbortSignal?
 
     /** Can only be null. Used to disassociate request from any Window. */
-    var window: Void?
+    var window: Void
 }
