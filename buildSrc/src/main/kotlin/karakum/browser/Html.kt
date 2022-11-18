@@ -435,6 +435,9 @@ internal fun convertInterface(
         "ParentNode",
         -> declaration.replace("extends Node", "/* : Node */")
 
+        "Body",
+        -> declaration.replace("interface", "class /* interface */")
+
         else -> {
             declaration
                 .replace(" extends ", " :\n")
@@ -596,7 +599,10 @@ internal fun convertInterface(
         else -> "sealed"
     }
 
-    val body = "$modifier external $declaration {\n$members\n}"
+    var body = "$modifier external $declaration {\n$members\n}"
+
+    if (name == "Body")
+        body = """@JsName("Object")""" + "\n" + body
 
     val pkg = when {
         predefinedPkg != null -> predefinedPkg
@@ -890,7 +896,7 @@ private fun convertProperty(
     if (name.endsWith("?") || optional) {
         name = safeName
 
-        if (!type.endsWith("?")) {
+        if (!type.endsWith("?") && type != "Void") {
             type += "?"
         }
     }
