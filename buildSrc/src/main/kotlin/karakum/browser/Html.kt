@@ -1023,9 +1023,12 @@ private fun convertFunctionParameters(
         "action: (item: Node) => void",
         "action: (item: string) => void",
         "action: (item: FormDataEntryValue) => void",
-        "action: (item: Any?) => void",
+        "action: (item: MediaKeyStatus) => void",
+        "action: (item: any) => void",
         -> listOf(
-            source.replace(": string", ": String")
+            source
+                .replace(": string", ": String")
+                .replace(": any", ": Any?")
                 .replace(" => void", " -> Unit"),
         )
 
