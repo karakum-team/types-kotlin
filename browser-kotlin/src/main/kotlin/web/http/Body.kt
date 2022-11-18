@@ -3,7 +3,9 @@
 package web.http
 
 import kotlinx.js.ArrayBuffer
+import kotlinx.js.Uint8Array
 import web.buffer.Blob
+import web.streams.ReadableStream
 import kotlin.js.Promise
 
 sealed external interface Body {
@@ -12,6 +14,6 @@ sealed external interface Body {
     fun arrayBuffer(): Promise<ArrayBuffer>
     fun blob(): Promise<Blob>
     fun formData(): Promise<FormData>
-    fun json(): Promise<any>
+    fun json(): Promise<*>
     fun text(): Promise<String>
 }
