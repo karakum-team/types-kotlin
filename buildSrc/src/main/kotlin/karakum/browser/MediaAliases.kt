@@ -13,7 +13,7 @@ private val ALIAS_MAP = listOf(
 
     "ServiceWorkerContainer" to "serviceworkers",
 
-    "FormData" to "dom.events",
+    "FormData" to "web.http",
 )
 
 internal fun mediaAliases(): List<ConversionResult> =

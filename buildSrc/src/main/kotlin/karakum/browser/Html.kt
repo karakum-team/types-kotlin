@@ -936,6 +936,7 @@ private fun convertFunction(
         )
         .replace(": OffscreenRenderingContext", ": Any /* OffscreenRenderingContext */")
         .replace(": RadioNodeList | Element | null", ": Any? /* RadioNodeList | Element */")
+        .replace(": Promise<any>", ": Promise<*>")
         .replace(": Promise<number>", ": Promise<Number>")
         .replace(": Promise<FontFace[]>", ": Promise<ReadonlyArray<FontFace>>")
         .replace(": WebGLShader[]", ": ReadonlyArray<WebGLShader>")

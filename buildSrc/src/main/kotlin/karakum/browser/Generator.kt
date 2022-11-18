@@ -21,6 +21,7 @@ import kotlinx.js.HighResTimeStamp
 import kotlinx.js.Int32Array
 import kotlinx.js.Record    
 import kotlinx.js.ReadonlyArray    
+import kotlinx.js.Uint8Array
 import kotlinx.js.Uint32Array
 import kotlinx.js.JsLong
 import kotlinx.js.Void
@@ -86,6 +87,7 @@ import web.file.FileList
 import web.filesystem.FileSystemDirectoryHandle
 import web.filesystem.FileSystemEntry
 import web.http.BodyInit
+import web.http.FormData
 import web.http.ReferrerPolicy
 import web.locks.LockManager
 import web.messaging.Transferable
@@ -93,6 +95,7 @@ import web.messaging.StructuredSerializeOptions
 import web.permissions.Permissions
 import web.share.ShareData
 import web.storage.StorageManager
+import web.streams.ReadableStream
 import web.url.URL
 import webvtt.TextTrack
 import webvtt.TextTrackKind
