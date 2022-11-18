@@ -126,6 +126,17 @@ private val CANVAS_TYPES = listOf(
     "OffscreenCanvasRenderingContext2D",
 )
 
+private val HTTP_TYPES = listOf(
+    "Body",
+    "Request",
+    "RequestInit",
+    "Response",
+    "ResponseInit",
+
+    "Headers",
+    "HeadersInit",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -201,6 +212,9 @@ internal fun htmlDeclarations(
 
         "FileReader .+?",
 
+        "Request .+?",
+        "Response .+?",
+
         "CSS.+?",
         "StyleSheet",
         "StyleSheetList",
@@ -272,6 +286,7 @@ internal fun htmlDeclarations(
         .plus(DOM_GEOMETRY_TYPES)
         .plus(DOM_PARSING_TYPES)
         .plus(CANVAS_TYPES)
+        .plus(HTTP_TYPES)
         .joinToString("|")
 
     val interfaces =
@@ -306,13 +321,6 @@ internal fun htmlDeclarations(
         )
         .plus(
             ConversionResult(
-                name = "CanvasImageSource",
-                body = "typealias CanvasImageSource = Any /* HTMLOrSVGImageElement | HTMLVideoElement | HTMLCanvasElement | ImageBitmap */",
-                pkg = "canvas",
-            )
-        )
-        .plus(
-            ConversionResult(
                 name = "HTMLCollectionOf",
                 body = "typealias HTMLCollectionOf<T> = HTMLCollection",
                 pkg = "dom.html",
@@ -330,13 +338,6 @@ internal fun htmlDeclarations(
                 name = "XPathNSResolver",
                 body = "typealias XPathNSResolver = (prefix: String?) -> String?",
                 pkg = "dom.xpath",
-            )
-        )
-        .plus(
-            ConversionResult(
-                name = "XMLHttpRequestBodyInit",
-                body = "typealias XMLHttpRequestBodyInit = Any /* Blob | BufferSource | FormData | URLSearchParams | string */",
-                pkg = "web.xhr",
             )
         )
         .plus(
@@ -408,6 +409,10 @@ internal fun convertInterface(
         .substringAfter(" ")
         .substringBefore(" ")
         .substringBefore("<")
+
+    // TEMP WA
+    if (name in HTTP_TYPES)
+        return null
 
     when {
         name in HTML_ALIAS_CLASSES -> return null
@@ -642,6 +647,7 @@ internal fun convertInterface(
         name.startsWith("Storage") -> "web.storage"
 
         name.startsWith("EventSource") -> "web.sse"
+        name in HTTP_TYPES -> "web.http"
         name.startsWith("XMLHttp") -> "web.xhr"
 
         name == "ARIAMixin" -> "dom.aria"

@@ -136,8 +136,32 @@ private fun convertType(
         )
     }
 
-    if (!bodySource.startsWith("\""))
-        return null
+    if (!bodySource.startsWith("\"")) {
+        val pkg = when (name) {
+            "CanvasImageSource" -> "canvas"
+            "ImageBitmapSource" -> "canvas"
+
+            "MediaProvider" -> "dom.html"
+            "WindowProxy" -> "dom.html"
+
+            "IDBValidKey" -> "web.idb"
+
+            "BodyInit" -> "web.http"
+            "HeadersInit" -> "web.http"
+
+            "XMLHttpRequestBodyInit" -> "web.xhr"
+
+            else -> return null
+        }
+
+        val body = if (" | " in bodySource) "Any /* $bodySource */" else bodySource
+
+        return ConversionResult(
+            name = name,
+            body = "typealias $name = $body",
+            pkg = pkg
+        )
+    }
 
     val pkg = getPkg(name)
         ?: return null

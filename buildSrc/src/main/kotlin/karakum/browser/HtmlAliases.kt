@@ -2,18 +2,11 @@ package karakum.browser
 
 internal val HTML_ALIAS_CLASSES = listOf(
     "Image",
-
-    "MediaProvider",
-
-    "WindowProxy",
 )
 
 internal fun htmlAliases(): List<ConversionResult> =
     HTML_ALIAS_CLASSES.map { name ->
-        val alias = when (name) {
-            "WindowProxy" -> "Window"
-            else -> "org.w3c.dom.$name"
-        }
+        val alias = "org.w3c.dom.$name"
 
         ConversionResult(
             name = name,
