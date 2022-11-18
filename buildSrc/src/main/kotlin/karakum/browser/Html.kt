@@ -865,10 +865,6 @@ private fun convertProperty(
         "DateTimeFormatPartTypes",
         -> "String /* $type */"
 
-        // TODO: check
-        "DOMException",
-        -> "Throwable /* DOMException */"
-
         "Promise<any>" -> "Promise<*>"
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"

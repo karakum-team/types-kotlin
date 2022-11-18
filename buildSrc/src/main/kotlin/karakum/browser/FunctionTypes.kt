@@ -40,7 +40,6 @@ private fun convertFunctionType(
         .substringBefore(";")
         .replace(": boolean", ": Boolean")
         .replace(": string", ": String")
-        .replace(": DOMException", ": Throwable /* DOMException */")
         .replace(": DOMHighResTimeStamp", ": HighResTimeStamp")
         .replace(": FileSystemEntry[]", ": ReadonlyArray<FileSystemEntry>")
         .replace("): void", ") -> Unit")

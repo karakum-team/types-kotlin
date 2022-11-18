@@ -82,6 +82,7 @@ import web.buffer.BlobPart
 import web.buffer.BlobPropertyBag
 import web.events.EventHandler
 import web.events.EventTarget
+import web.errors.DOMException
 import web.file.File
 import web.file.FileList
 import web.filesystem.FileSystemDirectoryHandle
