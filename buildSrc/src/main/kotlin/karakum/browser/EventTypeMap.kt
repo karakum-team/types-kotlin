@@ -47,7 +47,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("webgl.WebGLContextEvent"),
     EventInfo("web.speech.SpeechSynthesisEvent"),
     EventInfo("web.speech.SpeechSynthesisErrorEvent"),
-    EventInfo("media.TrackEvent"),
+    EventInfo("webvtt.TrackEvent"),
     EventInfo("websockets.CloseEvent"),
     EventInfo("web.device.DeviceMotionEvent"),
     EventInfo("web.device.DeviceOrientationEvent"),

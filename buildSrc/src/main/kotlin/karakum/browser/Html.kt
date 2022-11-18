@@ -285,6 +285,7 @@ internal fun htmlDeclarations(
         "RTC.+?",
 
         "MediaKey.+?",
+        "TextTrack.+?",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(DOM_CSS_TYPES)
@@ -677,6 +678,7 @@ internal fun convertInterface(
 
         name.startsWith("RTC") -> "webrtc"
         name.startsWith("MediaKey") -> "media.key"
+        name.startsWith("TextTrack") -> "webvtt"
 
         else -> "dom.html"
     }

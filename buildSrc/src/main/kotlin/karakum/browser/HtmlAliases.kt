@@ -13,17 +13,4 @@ internal fun htmlAliases(): List<ConversionResult> =
             body = "typealias $name = $alias",
             pkg = "dom.html",
         )
-    }.plus(
-        ConversionResult(
-            name = "TextTrack",
-            body = "typealias TextTrack = org.w3c.dom.TextTrack",
-            pkg = "webvtt",
-        )
-    )
-        .plus(
-            ConversionResult(
-                name = "TextTrackList",
-                body = "typealias TextTrackList = org.w3c.dom.TextTrackList",
-                pkg = "webvtt",
-            )
-        )
+    }

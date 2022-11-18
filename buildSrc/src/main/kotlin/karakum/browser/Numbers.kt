@@ -136,7 +136,7 @@ private val INT_NAMES = setOf(
     // XMLHttpRequest
     "status",
     "timeout",
-    )
+)
 
 private val DOUBLE_NAMES = setOf(
     // DOMMatrix2DInit
@@ -232,6 +232,10 @@ private val DOUBLE_NAMES = setOf(
     // Scroll
     "left",
     "top",
+
+    // TextTrackCue
+    "endTime",
+    "startTime",
 )
 
 private val WINDOW_EXCLUDED = setOf(
@@ -286,6 +290,7 @@ internal class TypeProvider(
 
         return when {
             propertyName == "lastModified" -> "EpochTimeStamp"
+            propertyName == "expiration" -> "EpochTimeStamp"
 
             parentType in DOM_GEOMETRY_TYPES -> "Double"
             parentType.startsWith("Touch") -> "Double"
