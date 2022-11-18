@@ -23,6 +23,7 @@ import kotlinx.js.Record
 import kotlinx.js.ReadonlyArray    
 import kotlinx.js.Uint8Array
 import kotlinx.js.Uint32Array
+import kotlinx.js.Uint8ClampedArray
 import kotlinx.js.JsLong
 import kotlinx.js.Void
 import canvas.OffscreenCanvas
@@ -153,7 +154,6 @@ fun generateKotlinDeclarations(
     val aliases = domAliases()
         .plus(mediaAliases())
         .plus(htmlAliases())
-        .plus(canvasAliases())
         .plus(htmlDeclarations(content))
         .plus(browserConstants(content))
         .plus(browserTypes(content))

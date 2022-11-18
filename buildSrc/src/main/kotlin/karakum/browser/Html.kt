@@ -114,12 +114,15 @@ private val DOM_PARSING_TYPES = listOf(
 )
 
 private val CANVAS_TYPES = listOf(
+    "ImageData",
+    "ImageDataSettings",
+
     "ImageBitmap",
     "ImageBitmapOptions",
     "ImageBitmapRenderingContext",
     "ImageBitmapRenderingContextSettings",
 
-    "ImageDataSettings",
+    "Path2D",
     "TextMetrics",
 
     "OffscreenCanvas",
@@ -205,6 +208,7 @@ internal fun htmlDeclarations(
         "CanvasRenderingContext2D .+?",
         "OffscreenCanvas .+?",
         "OffscreenCanvasRenderingContext2D .+?",
+        "Path2D .+?",
 
         "Window .+?",
         "WindowPostMessageOptions .+?",
@@ -443,6 +447,7 @@ internal fun convertInterface(
         -> declaration.replace("extends Node", "/* : Node */")
 
         "Body",
+        "CanvasPath",
         -> declaration.replace("interface", "class /* interface */")
 
         else -> {
@@ -611,8 +616,11 @@ internal fun convertInterface(
 
     var body = "$modifier external $declaration {\n$members\n}"
 
-    if (name == "Body")
-        body = """@JsName("Object")""" + "\n" + body
+    when (name) {
+        "Body",
+        "CanvasPath",
+        -> body = """@JsName("Object")""" + "\n" + body
+    }
 
     val pkg = when {
         predefinedPkg != null -> predefinedPkg

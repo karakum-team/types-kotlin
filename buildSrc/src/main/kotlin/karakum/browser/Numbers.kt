@@ -280,7 +280,7 @@ internal class TypeProvider(
             || propertyName in FLAG_NAMES
         ) return "Short"
 
-        if (parentType == "HTMLCanvasElement" || parentType == "ImageBitmap") {
+        if (parentType == "HTMLCanvasElement" || parentType == "ImageBitmap" || parentType == "ImageData") {
             when (propertyName) {
                 "width",
                 "height",

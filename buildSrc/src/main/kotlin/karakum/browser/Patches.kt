@@ -8,6 +8,7 @@ internal fun String.applyPatches(): String =
         .splitUnion("RequestInfo | URL")
         .splitUnion("RequestInfo", "Request | string")
         .splitUnion("MediaStreamTrack | string")
+        .splitUnion("Path2D | string")
         .replace("\n    getContext(contextId: string, options?: any): RenderingContext | null;", "")
         .replace("quality?: any", "quality?: number")
         .replace("LockGrantedCallback): Promise<any>", "LockGrantedCallback): Promise<void>")
