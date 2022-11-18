@@ -209,7 +209,7 @@ private fun getTypePkg(
         name.startsWith("MediaDevice") -> "media.devices"
         name.startsWith("MediaKey") -> "media.key"
         name.startsWith("MediaSession") -> "media.session"
-        name.startsWith("MediaStream") -> "media.streams"
+        name.startsWith("MediaStream") -> "media.stream"
 
         name.startsWith("Notification") -> "web.notifications"
         name.startsWith("Orientation") -> "web.screen"

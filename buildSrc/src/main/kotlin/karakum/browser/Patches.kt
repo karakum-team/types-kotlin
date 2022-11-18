@@ -17,24 +17,8 @@ internal fun String.applyPatches(): String =
         .replace("clearWatch(watchId: number)", "clearWatch(watchId: $GEOLOCATION_WATCH_ID)")
         .replace(": PositionOptions): number;", ": PositionOptions): $GEOLOCATION_WATCH_ID;")
         .replace(
-            "forEach(callbackfn: (value: FontFace, key: FontFace, parent: FontFaceSet) => void, thisArg?: any): void;",
-            "forEach(action: (item: FontFace) => void): void;"
-        )
-        .replace(
-            "forEach(callbackfn: (value: Node, key: number, parent: NodeList) => void, thisArg?: any): void;",
-            "forEach(action: (item: Node) => void): void;"
-        )
-        .replace(
-            "forEach(callbackfn: (value: string, key: string, parent: Headers) => void, thisArg?: any): void;",
-            "forEach(action: (item: string) => void): void;"
-        )
-        .replace(
-            "forEach(callbackfn: (value: FormDataEntryValue, key: string, parent: FormData) => void, thisArg?: any): void;",
-            "forEach(action: (item: FormDataEntryValue) => void): void;"
-        )
-        .replace(
-            "forEach(callbackfn: (value: any, key: string, parent: RTCStatsReport) => void, thisArg?: any): void;",
-            "forEach(action: (item: Any?) => void): void;",
+            Regex("""forEach\(callbackfn\: \(value\: (\w+), .+?, thisArg\?\: any\)\: void\;"""),
+            "forEach(action: (item: $1) => void): void;"
         )
         .replace(
             "arg?: boolean | ScrollIntoViewOptions",

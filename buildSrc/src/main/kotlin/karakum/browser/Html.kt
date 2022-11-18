@@ -283,6 +283,8 @@ internal fun htmlDeclarations(
         "DOMMatrix2DInit",
 
         "RTC.+?",
+
+        "MediaKey.+?",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(DOM_CSS_TYPES)
@@ -674,6 +676,7 @@ internal fun convertInterface(
         name.startsWith("XPath") -> "dom.xpath"
 
         name.startsWith("RTC") -> "webrtc"
+        name.startsWith("MediaKey") -> "media.key"
 
         else -> "dom.html"
     }
@@ -896,7 +899,12 @@ private fun convertProperty(
         else -> when {
             (type.endsWith("[]") && " " !in type)
             -> {
-                val arrayType = type.removeSuffix("[]")
+                var arrayType = type.removeSuffix("[]")
+                arrayType = when (arrayType) {
+                    "string" -> "String"
+                    else -> arrayType
+                }
+
                 "ReadonlyArray<$arrayType>"
             }
 

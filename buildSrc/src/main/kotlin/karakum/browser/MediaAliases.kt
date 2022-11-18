@@ -7,10 +7,6 @@ private val ALIAS_MAP = listOf(
     "MediaStream" to "media.stream",
     "MediaStreamTrack" to "media.stream",
 
-    "MediaKeys" to "media.key",
-    "MediaKeySystemAccess" to "media.key",
-    "MediaKeySystemConfiguration" to "media.key",
-
     "TimeRanges" to "media.source",
 
     "ServiceWorkerContainer" to "serviceworkers",
