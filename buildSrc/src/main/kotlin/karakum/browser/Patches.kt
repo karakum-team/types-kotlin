@@ -4,6 +4,8 @@ internal fun String.applyPatches(): String =
     patchVideoFrameCallback()
         .patchQuerySelectors()
         .splitUnion("string | URL")
+        .splitUnion("RequestInfo | URL")
+        .splitUnion("RequestInfo", "Request | string")
         .replace("\n    getContext(contextId: string, options?: any): RenderingContext | null;", "")
         .replace("quality?: any", "quality?: number")
         .replace("LockGrantedCallback): Promise<any>", "LockGrantedCallback): Promise<void>")
@@ -19,6 +21,10 @@ internal fun String.applyPatches(): String =
         .replace(
             "forEach(callbackfn: (value: Node, key: number, parent: NodeList) => void, thisArg?: any): void;",
             "forEach(action: (item: Node) => void): void;"
+        )
+        .replace(
+            "forEach(callbackfn: (value: string, key: string, parent: Headers) => void, thisArg?: any): void;",
+            "forEach(action: (item: string) => void): void;"
         )
         .replace(
             "arg?: boolean | ScrollIntoViewOptions",
@@ -64,8 +70,9 @@ private fun String.patchQuerySelectors(): String =
 
 internal fun String.splitUnion(
     union: String,
+    unionBody: String? = null,
 ): String {
-    val (first, second) = union.split(" | ")
+    val (first, second) = (unionBody ?: union).split(" | ")
 
     return splitToSequence("\n")
         .flatMap { line ->

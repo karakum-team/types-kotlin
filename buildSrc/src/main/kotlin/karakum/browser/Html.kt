@@ -410,10 +410,6 @@ internal fun convertInterface(
         .substringBefore(" ")
         .substringBefore("<")
 
-    // TEMP WA
-    if (name in HTTP_TYPES)
-        return null
-
     when {
         name in HTML_ALIAS_CLASSES -> return null
         name in DEPRECATED -> return null
@@ -995,13 +991,11 @@ private fun convertFunctionParameters(
         )
 
         "action: (item: FontFace) => void",
-        -> listOf(
-            "action: (item: FontFace) -> Unit",
-        )
-
         "action: (item: Node) => void",
+        "action: (item: string) => void",
         -> listOf(
-            "action: (item: Node) -> Unit",
+            source.replace(": string", ": String")
+                .replace(" => void", " -> Unit"),
         )
 
         else -> source
