@@ -26,7 +26,6 @@ private fun convertInterface(
         .substringBefore(":")
 
     var declaration = source.substringBefore(" {\n")
-        .replace(" extends DOMException", " /* : DOMException */")
         .replace(" extends EventInit", " : web.events.EventInit")
         .replace(" extends Event", " : web.events.Event")
         .replace(" extends ", " : ")
