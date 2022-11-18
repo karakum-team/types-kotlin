@@ -27,6 +27,7 @@ internal fun convertMembers(
         .splitToSequence("\n")
         .filter { it.isNotEmpty() }
         .map { convertMember(it) }
+        .filter { it.isNotEmpty() }
         .joinToString("\n")
 }
 
@@ -86,7 +87,7 @@ internal fun convertMethod(
         .ifEmpty { "/* native */ invoke" }
 
     if (name == "addEventListener" || name == "removeEventListener")
-        return "    // $source"
+        return ""
 
     val typeParameters = source.substringBefore("(")
         .substringAfter("<", "")
