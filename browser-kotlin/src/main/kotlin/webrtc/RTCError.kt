@@ -2,7 +2,12 @@
 
 package webrtc
 
-external class RTCError /* : DOMException */ {
+import web.errors.DOMException
+
+external class RTCError(
+    init: RTCErrorInit,
+    message: String = definedExternally,
+) : DOMException {
     val errorDetail: RTCErrorDetailType
     val receivedAlert: Number?
     val sctpCauseCode: Number?
