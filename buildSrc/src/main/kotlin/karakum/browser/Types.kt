@@ -148,6 +148,7 @@ private fun convertType(
 
             "BodyInit" -> "web.http"
             "HeadersInit" -> "web.http"
+            "FormDataEntryValue" -> "web.http"
 
             "XMLHttpRequestBodyInit" -> "web.xhr"
 

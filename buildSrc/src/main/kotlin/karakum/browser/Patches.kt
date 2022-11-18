@@ -4,6 +4,7 @@ internal fun String.applyPatches(): String =
     patchVideoFrameCallback()
         .patchQuerySelectors()
         .splitUnion("string | URL")
+        .splitUnion("string | Blob")
         .splitUnion("RequestInfo | URL")
         .splitUnion("RequestInfo", "Request | string")
         .replace("\n    getContext(contextId: string, options?: any): RenderingContext | null;", "")
@@ -25,6 +26,10 @@ internal fun String.applyPatches(): String =
         .replace(
             "forEach(callbackfn: (value: string, key: string, parent: Headers) => void, thisArg?: any): void;",
             "forEach(action: (item: string) => void): void;"
+        )
+        .replace(
+            "forEach(callbackfn: (value: FormDataEntryValue, key: string, parent: FormData) => void, thisArg?: any): void;",
+            "forEach(action: (item: FormDataEntryValue) => void): void;"
         )
         .replace(
             "arg?: boolean | ScrollIntoViewOptions",

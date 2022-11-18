@@ -135,6 +135,8 @@ private val HTTP_TYPES = listOf(
 
     "Headers",
     "HeadersInit",
+
+    "FormData",
 )
 
 internal fun htmlDeclarations(
@@ -961,6 +963,7 @@ private fun convertFunction(
         .replace(": NumberFormatPart[]", ": ReadonlyArray<NumberFormatPart>")
         .replace(": DateTimeFormatPart[]", ": ReadonlyArray<DateTimeFormatPart>")
         .replace(": NumberRangeFormatPart[]", ": ReadonlyArray<NumberRangeFormatPart>")
+        .replace(": FormDataEntryValue[]", ": ReadonlyArray<FormDataEntryValue>")
         .replace(
             """: { type: "element" | "literal", value: string; }[]""",
             ": ReadonlyArray<dynamic /* { type; value; } */>",
@@ -1000,6 +1003,7 @@ private fun convertFunctionParameters(
         "action: (item: FontFace) => void",
         "action: (item: Node) => void",
         "action: (item: string) => void",
+        "action: (item: FormDataEntryValue) => void",
         -> listOf(
             source.replace(": string", ": String")
                 .replace(" => void", " -> Unit"),
@@ -1046,6 +1050,10 @@ private fun getParameterType(
 
         return type
     }
+
+    // FormData
+    if (name == "form" && source == "HTMLFormElement")
+        return "EventTarget /* $source */"
 
     return when {
         source == "string | number[]"
