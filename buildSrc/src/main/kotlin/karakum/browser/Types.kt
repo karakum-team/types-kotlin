@@ -166,27 +166,14 @@ private fun convertType(
     val pkg = getPkg(name)
         ?: return null
 
-    val parentPkg = when {
-        name.startsWith("Request") ||
-                name.startsWith("Response")
-        -> "org.w3c.fetch"
-
-        else -> null
-    }
-
     val values = bodySource
         .splitToSequence(" | ")
         .map { it.removeSurrounding("\"") }
         .toList()
 
-    var body = unionBody(name, values)
-    if (parentPkg != null) {
-        body = body.replaceFirst("class $name", "class $name :\n/* legacy adapter */ $parentPkg.$name")
-    }
-
     return ConversionResult(
         name = name,
-        body = body,
+        body = unionBody(name, values),
         pkg = pkg
     )
 }
