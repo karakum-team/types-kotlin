@@ -7,6 +7,7 @@ internal fun String.applyPatches(): String =
         .splitUnion("string | Blob")
         .splitUnion("RequestInfo | URL")
         .splitUnion("RequestInfo", "Request | string")
+        .splitUnion("MediaStreamTrack | string")
         .replace("\n    getContext(contextId: string, options?: any): RenderingContext | null;", "")
         .replace("quality?: any", "quality?: number")
         .replace("LockGrantedCallback): Promise<any>", "LockGrantedCallback): Promise<void>")
@@ -30,6 +31,10 @@ internal fun String.applyPatches(): String =
         .replace(
             "forEach(callbackfn: (value: FormDataEntryValue, key: string, parent: FormData) => void, thisArg?: any): void;",
             "forEach(action: (item: FormDataEntryValue) => void): void;"
+        )
+        .replace(
+            "forEach(callbackfn: (value: any, key: string, parent: RTCStatsReport) => void, thisArg?: any): void;",
+            "forEach(action: (item: Any?) => void): void;",
         )
         .replace(
             "arg?: boolean | ScrollIntoViewOptions",

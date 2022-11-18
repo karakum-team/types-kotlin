@@ -98,6 +98,7 @@ import web.share.ShareData
 import web.storage.StorageManager
 import web.streams.ReadableStream
 import web.url.URL
+import websockets.BinaryType
 import webvtt.TextTrack
 import webvtt.TextTrackKind
 import webvtt.TextTrackList
@@ -251,6 +252,7 @@ fun generateKotlinDeclarations(
 
             "EventSource",
             "XMLHttpRequestEventTarget",
+            "RTCDataChannel",
             -> """
             import web.events.Event
             import web.events.ProgressEvent
@@ -295,11 +297,6 @@ fun generateKotlinDeclarations(
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
             .writeText(fileContent(annotations, "", body, "webgl"))
     }
-
-    karakum.webrtc.generateKotlinDeclarations(
-        definitionsFile = definitionsFile,
-        sourceDir = sourceDir,
-    )
 }
 
 private fun fileContent(

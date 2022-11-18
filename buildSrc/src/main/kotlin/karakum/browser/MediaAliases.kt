@@ -4,6 +4,8 @@ private val ALIAS_MAP = listOf(
     "MediaError" to "media",
 
     "MediaDevices" to "media.devices",
+    "MediaStream" to "media.stream",
+    "MediaStreamTrack" to "media.stream",
 
     "MediaKeys" to "media.key",
     "MediaKeySystemAccess" to "media.key",
@@ -18,6 +20,8 @@ internal fun mediaAliases(): List<ConversionResult> =
     ALIAS_MAP.map { (name, pkg) ->
         val alias = when (name) {
             "MediaDevices",
+            "MediaStream",
+            "MediaStreamTrack",
             -> "org.w3c.dom.mediacapture.$name"
 
             "MediaKeys",

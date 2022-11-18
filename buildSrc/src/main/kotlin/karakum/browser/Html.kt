@@ -281,6 +281,8 @@ internal fun htmlDeclarations(
         "VideoPlaybackQuality",
         "RemotePlayback .+?",
         "DOMMatrix2DInit",
+
+        "RTC.+?",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(DOM_CSS_TYPES)
@@ -550,6 +552,9 @@ internal fun convertInterface(
                 .replace("Number[]", "ReadonlyArray<Double>")
                 .replace("<number>", "<Double>")
 
+            "RTCInboundRtpStreamStats",
+            -> result.replace("var kind:", "override var kind:")
+
             else -> result
         }
 
@@ -667,6 +672,8 @@ internal fun convertInterface(
         name == "XMLDocument" -> "dom.xml"
 
         name.startsWith("XPath") -> "dom.xpath"
+
+        name.startsWith("RTC") -> "webrtc"
 
         else -> "dom.html"
     }
@@ -835,6 +842,13 @@ private fun convertProperty(
         "number | string",
         -> typeProvider.numberType(safeName)
 
+        // RTC
+        "number[]",
+        -> "ReadonlyArray<Number>"
+
+        "string | string[]",
+        -> "Any /* $source */"
+
         "1 | 2 | 3",
         -> "Int /* $source */"
 
@@ -869,13 +883,6 @@ private fun convertProperty(
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"
         "ReadonlyArray<number>" -> "ReadonlyArray<Double>"
-        "LockInfo[]" -> "ReadonlyArray<LockInfo>"
-        "File[]" -> "ReadonlyArray<File>"
-        "CSSStyleSheet[]" -> "ReadonlyArray<CSSStyleSheet>"
-        "MediaStream[]" -> "ReadonlyArray<MediaStream>"
-        "Touch[]" -> "ReadonlyArray<Touch>"
-        "PointerEvent[]" -> "ReadonlyArray<PointerEvent>"
-        "LDMLPluralRule[]" -> "ReadonlyArray<LDMLPluralRule>"
         "MediaList | string" -> "Any /* MediaList | string */"
         "Element | ProcessingInstruction" -> "Any /* Element | ProcessingInstruction */"
         "string | CanvasGradient | CanvasPattern" -> "Any /* string | CanvasGradient | CanvasPattern */"
@@ -886,9 +893,18 @@ private fun convertProperty(
         "HTMLCollectionOf<HTMLAnchorElement | HTMLAreaElement>",
         -> "HTMLCollectionOf<HTMLElement /* HTMLAnchorElement | HTMLAreaElement */>"
 
-        else -> if (type.startsWith("\"")) {
-            "String /* $type */"
-        } else type
+        else -> when {
+            (type.endsWith("[]") && " " !in type)
+            -> {
+                val arrayType = type.removeSuffix("[]")
+                "ReadonlyArray<$arrayType>"
+            }
+
+            type.startsWith("\"")
+            -> "String /* $type */"
+
+            else -> type
+        }
     }
 
     if (name.endsWith("?") || optional) {
@@ -943,23 +959,11 @@ private fun convertFunction(
         .replace(": Promise<any>", ": Promise<*>")
         .replace(": Promise<number>", ": Promise<Number>")
         .replace(": Promise<FontFace[]>", ": Promise<ReadonlyArray<FontFace>>")
-        .replace(": WebGLShader[]", ": ReadonlyArray<WebGLShader>")
-        .replace(": GLuint[]", ": ReadonlyArray<GLuint>")
-        .replace(": string[]", ": ReadonlyArray<String>")
         .replace("<string[]", "<ReadonlyArray<String>")
-        .replace(": Element[]", ": ReadonlyArray<Element>")
-        .replace(": Node[]", ": ReadonlyArray<Node>")
-        .replace(": PointerEvent[]", ": ReadonlyArray<PointerEvent>")
         .replace(": StaticRange[]", ": ReadonlyArray<Any /* StaticRange */>")
-        .replace(": Animation[]", ": ReadonlyArray<Animation>")
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")
-        .replace(": SpeechSynthesisVoice[]", ": ReadonlyArray<SpeechSynthesisVoice>")
         .replace(": RelativeTimeFormatPart[]", ": ReadonlyArray<dynamic /* RelativeTimeFormatPart */>")
-        .replace(": DateTimeRangeFormatPart[]", ": ReadonlyArray<DateTimeRangeFormatPart>")
-        .replace(": NumberFormatPart[]", ": ReadonlyArray<NumberFormatPart>")
-        .replace(": DateTimeFormatPart[]", ": ReadonlyArray<DateTimeFormatPart>")
-        .replace(": NumberRangeFormatPart[]", ": ReadonlyArray<NumberRangeFormatPart>")
-        .replace(": FormDataEntryValue[]", ": ReadonlyArray<FormDataEntryValue>")
+        .replace(Regex("""\: (\w+?)\[\]"""), ": ReadonlyArray<$1>")
         .replace(
             """: { type: "element" | "literal", value: string; }[]""",
             ": ReadonlyArray<dynamic /* { type; value; } */>",
@@ -996,10 +1000,22 @@ private fun convertFunctionParameters(
             "vararg text: String",
         )
 
+        "...streams: MediaStream[]",
+        -> listOf(
+            "vararg streams: MediaStream",
+        )
+
+        "track: MediaStreamTrack, ...streams: MediaStream[]",
+        -> listOf(
+            "track: MediaStreamTrack",
+            "vararg streams: MediaStream",
+        )
+
         "action: (item: FontFace) => void",
         "action: (item: Node) => void",
         "action: (item: string) => void",
         "action: (item: FormDataEntryValue) => void",
+        "action: (item: Any?) => void",
         -> listOf(
             source.replace(": string", ": String")
                 .replace(" => void", " -> Unit"),
@@ -1017,9 +1033,8 @@ private fun convertFunctionParameters(
                     ptype += " = definedExternally"
                 }
 
-                pname = when (pname) {
-                    "eventSourceInitDict",
-                    "touchInitDict",
+                pname = when {
+                    pname.endsWith("InitDict")
                     -> "init"
 
                     else -> pname

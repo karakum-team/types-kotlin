@@ -309,6 +309,9 @@ internal class TypeProvider(
             parentType == "TextMetrics" -> "Double"
             parentType.startsWith("Canvas") -> "Double"
 
+            // TEMP
+            parentType.startsWith("RTC") -> "Number"
+
             else -> {
                 println("$parentType.$propertyName")
 
