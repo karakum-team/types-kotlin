@@ -213,6 +213,8 @@ internal fun htmlDeclarations(
         "DOMRect .+?",
 
         "IntersectionObserve?.+",
+        "MutationObserve?.+",
+        "MutationRecord",
         "ResizeObserve?.+",
 
         "ScrollToOptions .+?",
@@ -738,6 +740,8 @@ internal fun convertInterface(
         name.startsWith("Audio") -> "web.audio"
 
         name.startsWith("IntersectionObserver") -> "dom.observers"
+        name.startsWith("MutationObserver") -> "dom.observers"
+        name == "MutationRecord" -> "dom.observers"
         name.startsWith("ResizeObserver") -> "dom.observers"
 
         else -> "dom.html"
@@ -1117,7 +1121,8 @@ private fun convertFunctionParameters(
                 }
 
                 pname = when {
-                    pname.endsWith("InitDict")
+                    pname.endsWith("InitDict") ||
+                            pname.endsWith("EntryInit")
                     -> "init"
 
                     else -> pname

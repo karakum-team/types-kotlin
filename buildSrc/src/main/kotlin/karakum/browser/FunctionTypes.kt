@@ -18,6 +18,7 @@ private fun convertFunctionType(
         name == "FunctionStringCallback" -> "dom.data"
 
         name.startsWith("IntersectionObserver") -> "dom.observers"
+        name == "MutationCallback" -> "dom.observers"
         name.startsWith("ResizeObserver") -> "dom.observers"
 
         name == "BlobCallback" -> "dom.html"
@@ -48,6 +49,7 @@ private fun convertFunctionType(
         .replace(": DOMHighResTimeStamp", ": HighResTimeStamp")
         .replace(": FileSystemEntry[]", ": ReadonlyArray<FileSystemEntry>")
         .replace(": IntersectionObserverEntry[]", ": ReadonlyArray<IntersectionObserverEntry>")
+        .replace(": MutationRecord[]", ": ReadonlyArray<MutationRecord>")
         .replace(": ResizeObserverEntry[]", ": ReadonlyArray<ResizeObserverEntry>")
         .replace("): void", ") -> Unit")
         .replace(" | null", "?")
