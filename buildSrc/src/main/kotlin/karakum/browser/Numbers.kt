@@ -244,6 +244,10 @@ private val DOUBLE_NAMES = setOf(
     // MediaTrackSettings
     "aspectRatio",
     "frameRate",
+
+    // MediaSessionActionDetails
+    "seekOffset",
+    "seekTime",
 )
 
 private val WINDOW_EXCLUDED = setOf(
