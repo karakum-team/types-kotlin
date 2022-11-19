@@ -3,6 +3,11 @@ package karakum.browser
 import karakum.common.objectUnionBody
 import karakum.common.unionConstant
 
+private val CONVERTED_WEBGL_TYPES = listOf(
+    "WebGLContextEvent",
+    "WebGLContextEventInit",
+)
+
 internal fun webglDeclarations(
     content: String,
 ): Sequence<ConversionResult> {
@@ -21,7 +26,6 @@ internal fun webglDeclarations(
 
     return merge(interfaces + classes)
         .plus(extension)
-        .plus(Aliases())
         .plus(Lists())
         .plus(GLNumbers())
 }

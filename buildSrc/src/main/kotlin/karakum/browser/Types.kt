@@ -155,6 +155,8 @@ private fun convertType(
 
             "XMLHttpRequestBodyInit" -> "web.xhr"
 
+            "TexImageSource" -> "webgl"
+
             else -> return null
         }
 
