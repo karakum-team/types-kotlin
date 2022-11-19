@@ -141,6 +141,9 @@ private fun convertType(
             "CanvasImageSource" -> "canvas"
             "ImageBitmapSource" -> "canvas"
 
+            "HTMLOrSVGImageElement" -> "dom"
+            "HTMLOrSVGScriptElement" -> "dom"
+
             "MediaProvider" -> "dom.html"
             "WindowProxy" -> "dom.html"
 

@@ -3,8 +3,6 @@ package karakum.browser
 private val CLASSES = listOf(
     "DOMStringMap",
     "DOMTokenList",
-
-    "HTMLOrSVGScriptElement", // check
 )
 
 internal fun domAliases(): List<ConversionResult> =
