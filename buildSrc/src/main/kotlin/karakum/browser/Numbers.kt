@@ -136,6 +136,10 @@ private val INT_NAMES = setOf(
     // XMLHttpRequest
     "status",
     "timeout",
+
+    // MediaTrackSettings
+    "sampleRate",
+    "sampleSize",
 )
 
 private val DOUBLE_NAMES = setOf(
@@ -236,6 +240,10 @@ private val DOUBLE_NAMES = setOf(
     // TextTrackCue
     "endTime",
     "startTime",
+
+    // MediaTrackSettings
+    "aspectRatio",
+    "frameRate",
 )
 
 private val WINDOW_EXCLUDED = setOf(
@@ -291,6 +299,9 @@ internal class TypeProvider(
         return when {
             propertyName == "lastModified" -> "EpochTimeStamp"
             propertyName == "expiration" -> "EpochTimeStamp"
+
+            parentType.endsWith("DoubleRange") -> "Double"
+            parentType.endsWith("ULongRange") -> "Int"
 
             parentType in DOM_GEOMETRY_TYPES -> "Double"
             parentType.startsWith("Touch") -> "Double"

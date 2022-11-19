@@ -144,6 +144,11 @@ private val HTTP_TYPES = listOf(
     "FormData",
 )
 
+private val MEDIA_STREAM_TYPES = listOf(
+    "DoubleRange",
+    "ULongRange",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -292,6 +297,10 @@ internal fun htmlDeclarations(
 
         "MediaKey.+?",
         "TextTrack.+?",
+
+        "MediaStream.+?",
+        "MediaTrack.+?",
+        "Constrain.+?",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(DOM_CSS_TYPES)
@@ -300,6 +309,7 @@ internal fun htmlDeclarations(
         .plus(DOM_PARSING_TYPES)
         .plus(CANVAS_TYPES)
         .plus(HTTP_TYPES)
+        .plus(MEDIA_STREAM_TYPES)
         .joinToString("|")
 
     val interfaces =
@@ -430,6 +440,9 @@ internal fun convertInterface(
         name.endsWith("Event") -> return null
         name.endsWith("EventInit") -> return null
         name.endsWith("EventMap") -> return null
+
+        // TEMP
+        name.startsWith("MediaStreamAudio") -> return null
 
         // TEMP
         name == "HTMLCollectionOf" -> return null
@@ -695,6 +708,13 @@ internal fun convertInterface(
         name.startsWith("MediaKey") -> "media.key"
         name.startsWith("TextTrack") -> "webvtt"
 
+        name.startsWith("MediaStream") -> "media.stream"
+        name.startsWith("MediaTrack") -> "media.stream"
+        name.startsWith("Constrain") -> "media.stream"
+        name in MEDIA_STREAM_TYPES -> "media.stream"
+
+        name.startsWith("Audio") -> "web.audio"
+
         else -> "dom.html"
     }
 
@@ -867,10 +887,10 @@ private fun convertProperty(
         -> "ReadonlyArray<Number>"
 
         "string | string[]",
-        -> "Any /* $source */"
+        -> "Any /* $type */"
 
         "1 | 2 | 3",
-        -> "Int /* $source */"
+        -> "Int /* $type */"
 
         "OnErrorEventHandler",
         -> "Function<Unit>? /* $type */"
@@ -899,6 +919,10 @@ private fun convertProperty(
         "DateTimeFormatPartTypes",
         -> "String /* $type */"
 
+        // MediaStreamConstraints
+        "boolean | MediaTrackConstraints",
+        -> "MediaTrackConstraints /* | Boolean */"
+
         "Promise<any>" -> "Promise<*>"
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"
@@ -919,6 +943,7 @@ private fun convertProperty(
                 var arrayType = type.removeSuffix("[]")
                 arrayType = when (arrayType) {
                     "string" -> "String"
+                    "boolean" -> "Boolean"
                     else -> arrayType
                 }
 

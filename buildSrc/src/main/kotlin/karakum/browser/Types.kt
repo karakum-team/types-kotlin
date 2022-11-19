@@ -157,7 +157,9 @@ private fun convertType(
 
             "TexImageSource" -> "webgl"
 
-            else -> return null
+            else -> if (name.startsWith("Constrain")) {
+                "media.stream"
+            } else return null
         }
 
         val body = if (" | " in bodySource) "Any /* $bodySource */" else bodySource
