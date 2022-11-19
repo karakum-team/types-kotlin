@@ -6,9 +6,7 @@ import kotlinx.js.ReadonlyArray
 import web.events.EventHandler
 import web.events.EventTarget
 
-external class MediaStream(
-
-) : EventTarget {
+external class MediaStream() : EventTarget {
     constructor(stream: MediaStream)
     constructor(tracks: ReadonlyArray<MediaStreamTrack>)
 
