@@ -524,10 +524,16 @@ internal fun convertInterface(
         val firstConstructor = constructors.firstOrNull()
         mainConstructor = if (firstConstructor != null) {
             var result = firstConstructor.removePrefix("constructor")
-            if ("\n" !in result && result != "()") {
-                result = "(\n" + result.removeSurrounding("(", ")") + "\n)"
+            when {
+                result.isEmpty()
+                -> "()"
+
+                "\n" !in result
+                -> "(\n" + result.removeSurrounding("(", ")") + "\n)"
+
+                else -> result
             }
-            result
+
         } else ""
 
         additionalConstructors = constructors
