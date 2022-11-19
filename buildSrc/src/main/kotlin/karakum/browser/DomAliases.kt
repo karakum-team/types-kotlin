@@ -6,24 +6,10 @@ private val CLASSES = listOf(
 )
 
 internal fun domAliases(): List<ConversionResult> =
-    CLASSES.map { name ->
-        val aliasPkg = "org.w3c.dom"
-
-        val alias = when (name) {
-            "DOMStringList" -> "ReadonlyArray<String>"
-            else -> "$aliasPkg.$name"
-        }
-
+    listOf(
         ConversionResult(
-            name = name,
-            body = "typealias $name = $alias",
+            name = "NodeListOf",
+            body = "typealias NodeListOf<T> = NodeList",
             pkg = "dom",
         )
-    }
-        .plus(
-            ConversionResult(
-                name = "NodeListOf",
-                body = "typealias NodeListOf<T> = NodeList",
-                pkg = "dom",
-            )
-        )
+    )

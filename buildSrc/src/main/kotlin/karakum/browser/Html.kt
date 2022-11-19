@@ -35,6 +35,8 @@ private val ANIMATION_TYPES = setOf(
 
 private val DOM_TYPES = setOf(
     "DOMStringList",
+    "DOMStringMap",
+    "DOMTokenList",
 
     "Attr",
     "CDATASection",
@@ -466,6 +468,11 @@ internal fun convertInterface(
 
     if (memberSource.startsWith("("))
         return null
+
+    if (memberSource == "[name: string]: string | undefined") {
+        declaration += " : Record<String, String>"
+        memberSource = ""
+    }
 
     val arrayType = if ("readonly length: number;" in memberSource) {
         val result = Regex("""\[index\: number\]\: (\w+)""")
@@ -1014,13 +1021,13 @@ private fun convertFunctionParameters(
         )
 
         "...text: string[]",
-        -> listOf(
-            "vararg text: String",
-        )
-
+        "...tokens: string[]",
         "...streams: MediaStream[]",
         -> listOf(
-            "vararg streams: MediaStream",
+            source
+                .replace("...", "vararg ")
+                .removeSuffix("[]")
+                .replace(": string", ": String")
         )
 
         "track: MediaStreamTrack, ...streams: MediaStream[]",
