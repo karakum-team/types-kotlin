@@ -17,6 +17,9 @@ private fun convertFunctionType(
     val pkg = when {
         name == "FunctionStringCallback" -> "dom.data"
 
+        name.startsWith("IntersectionObserver") -> "dom.observers"
+        name.startsWith("ResizeObserver") -> "dom.observers"
+
         name == "BlobCallback" -> "dom.html"
         name == "VideoFrameRequestCallback" -> "dom.html"
 
@@ -44,6 +47,8 @@ private fun convertFunctionType(
         .replace(": string", ": String")
         .replace(": DOMHighResTimeStamp", ": HighResTimeStamp")
         .replace(": FileSystemEntry[]", ": ReadonlyArray<FileSystemEntry>")
+        .replace(": IntersectionObserverEntry[]", ": ReadonlyArray<IntersectionObserverEntry>")
+        .replace(": ResizeObserverEntry[]", ": ReadonlyArray<ResizeObserverEntry>")
         .replace("): void", ") -> Unit")
         .replace(" | null", "?")
 

@@ -248,6 +248,11 @@ private val DOUBLE_NAMES = setOf(
     // MediaSessionActionDetails
     "seekOffset",
     "seekTime",
+
+    // observers
+    "intersectionRatio",
+    "blockSize",
+    "inlineSize",
 )
 
 private val WINDOW_EXCLUDED = setOf(

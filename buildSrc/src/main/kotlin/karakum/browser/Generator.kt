@@ -55,6 +55,7 @@ import dom.geometry.DOMPoint
 import dom.geometry.DOMPointInit
 import dom.geometry.DOMPointReadOnly
 import dom.geometry.DOMRect
+import dom.geometry.DOMRectInit
 import dom.geometry.DOMRectReadOnly
 import dom.geometry.DOMRectList
 import dom.html.HTMLCanvasElement

@@ -212,6 +212,9 @@ internal fun htmlDeclarations(
         "DOMPoint .+?",
         "DOMRect .+?",
 
+        "IntersectionObserve?.+",
+        "ResizeObserve?.+",
+
         "ScrollToOptions .+?",
         "ScrollIntoViewOptions .+?",
 
@@ -734,6 +737,9 @@ internal fun convertInterface(
 
         name.startsWith("Audio") -> "web.audio"
 
+        name.startsWith("IntersectionObserver") -> "dom.observers"
+        name.startsWith("ResizeObserver") -> "dom.observers"
+
         else -> "dom.html"
     }
 
@@ -905,6 +911,10 @@ private fun convertProperty(
         "number[]",
         -> "ReadonlyArray<Number>"
 
+        // IntersectionObserverInit
+        "number | number[]",
+        -> "ReadonlyArray<Double>"
+
         "string | string[]",
         -> "Any /* $type */"
 
@@ -917,6 +927,7 @@ private fun convertProperty(
         "ChildNode" -> "Node /* ChildNode */"
         "ParentNode" -> "Node /* ParentNode */"
         "NodeListOf<ChildNode>" -> "NodeListOf<Node /* ChildNode */>"
+        "Element | Document" -> "Element /* | Document */"
 
         // TEMP
         "CredentialsContainer",
