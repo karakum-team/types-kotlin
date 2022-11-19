@@ -1,7 +1,7 @@
 package karakum.browser
 
 private val ALIAS_MAP = listOf(
-    "MediaError" to "media",
+    "MediaError" to "dom.html",
 
     "MediaDevices" to "media.devices",
 

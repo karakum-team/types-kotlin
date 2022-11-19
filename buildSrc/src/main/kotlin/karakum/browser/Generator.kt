@@ -70,7 +70,6 @@ import dom.selection.Selection
 import dom.svg.SVGElement
 import dom.svg.SvgTagName
 import dom.xml.XMLDocument
-import media.MediaError
 import media.key.MediaKeys
 import media.source.TimeRanges
 import media.stream.MediaStream
@@ -229,7 +228,7 @@ fun generateKotlinDeclarations(
 
             "HTMLMediaElement",
             -> """
-            import media.MediaEncryptedEvent    
+            import dom.events.MediaEncryptedEvent    
             import web.events.Event    
             """.trimIndent()
 

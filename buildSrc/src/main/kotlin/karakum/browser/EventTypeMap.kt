@@ -31,7 +31,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("dom.events.InputEvent"),
     EventInfo("dom.events.FormDataEvent"),
     EventInfo("dom.events.SubmitEvent"),
-    EventInfo("media.MediaEncryptedEvent"),
+    EventInfo("dom.events.MediaEncryptedEvent"),
     EventInfo("web.idb.IDBVersionChangeEvent"),
     EventInfo("media.key.MediaKeyMessageEvent"),
     EventInfo("cssom.MediaQueryListEvent"),
