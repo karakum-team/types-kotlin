@@ -149,6 +149,16 @@ private val MEDIA_STREAM_TYPES = listOf(
     "ULongRange",
 )
 
+private val MEDIA_SESSION_TYPES = listOf(
+    "MediaSession",
+    "MediaSessionAction",
+    "MediaSessionActionDetails",
+    "MediaMetadata",
+    "MediaMetadataInit",
+    "MediaImage",
+    "MediaPositionState",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -310,6 +320,7 @@ internal fun htmlDeclarations(
         .plus(CANVAS_TYPES)
         .plus(HTTP_TYPES)
         .plus(MEDIA_STREAM_TYPES)
+        .plus(MEDIA_SESSION_TYPES)
         .joinToString("|")
 
     val interfaces =
@@ -712,6 +723,8 @@ internal fun convertInterface(
         name.startsWith("MediaTrack") -> "media.stream"
         name.startsWith("Constrain") -> "media.stream"
         name in MEDIA_STREAM_TYPES -> "media.stream"
+
+        name in MEDIA_SESSION_TYPES -> "media.session"
 
         name.startsWith("Audio") -> "web.audio"
 
