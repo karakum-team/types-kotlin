@@ -3,8 +3,6 @@ package karakum.browser
 private val ALIAS_MAP = listOf(
     "MediaError" to "dom.html",
 
-    "MediaDevices" to "media.devices",
-
     "TimeRanges" to "media.source",
 
     "ServiceWorkerContainer" to "serviceworkers",

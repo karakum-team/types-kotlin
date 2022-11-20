@@ -316,6 +316,9 @@ internal fun htmlDeclarations(
         "MediaStream.+?",
         "MediaTrack.+?",
         "Constrain.+?",
+
+        "MediaDevice.+?",
+        "DisplayMediaStreamOptions",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(DOM_CSS_TYPES)
@@ -730,6 +733,9 @@ internal fun convertInterface(
         name.startsWith("MediaKey") -> "media.key"
         name.startsWith("TextTrack") -> "webvtt"
 
+        name.startsWith("MediaDevice") -> "media.devices"
+        name == "DisplayMediaStreamOptions" -> "media.devices"
+
         name.startsWith("MediaStream") -> "media.stream"
         name.startsWith("MediaTrack") -> "media.stream"
         name.startsWith("Constrain") -> "media.stream"
@@ -1043,6 +1049,7 @@ private fun convertFunction(
         .replace(": Promise<any>", ": Promise<*>")
         .replace(": Promise<number>", ": Promise<Number>")
         .replace(": Promise<FontFace[]>", ": Promise<ReadonlyArray<FontFace>>")
+        .replace(": Promise<MediaDeviceInfo[]>", ": Promise<MediaDeviceInfo>")
         .replace("<string[]", "<ReadonlyArray<String>")
         .replace(": StaticRange[]", ": ReadonlyArray<Any /* StaticRange */>")
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")

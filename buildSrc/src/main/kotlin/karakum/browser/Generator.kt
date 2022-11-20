@@ -74,7 +74,10 @@ import dom.xml.XMLDocument
 import media.key.MediaKeys
 import media.source.TimeRanges
 import media.stream.MediaStream
+import media.stream.MediaStreamConstraints
 import media.stream.MediaStreamTrack
+import media.stream.MediaTrackConstraints
+import media.stream.MediaTrackSupportedConstraints
 import remoteplayback.RemotePlayback
 import web.abort.AbortSignal
 import web.animations.Animation
