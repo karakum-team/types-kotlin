@@ -168,6 +168,12 @@ private val MEDIA_CAPABILITIES_TYPES = listOf(
     "MediaDecodingConfiguration",
 )
 
+private val MEDIA_SOURCE_TYPES = listOf(
+    "MediaSource",
+    "SourceBuffer",
+    "SourceBufferList",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -343,6 +349,7 @@ internal fun htmlDeclarations(
         .plus(MEDIA_CAPABILITIES_TYPES)
         .plus(MEDIA_STREAM_TYPES)
         .plus(MEDIA_SESSION_TYPES)
+        .plus(MEDIA_SOURCE_TYPES.map { "$it .+?" })
         .joinToString("|")
 
     val interfaces =
@@ -759,6 +766,8 @@ internal fun convertInterface(
         name in MEDIA_STREAM_TYPES -> "media.stream"
 
         name in MEDIA_SESSION_TYPES -> "media.session"
+
+        name in MEDIA_SOURCE_TYPES -> "media.source"
 
         name.startsWith("Audio") -> "web.audio"
 
