@@ -260,6 +260,11 @@ private val DOUBLE_NAMES = setOf(
 
     // VideoConfiguration
     "framerate",
+
+    // SourceBuffer
+    "appendWindowEnd",
+    "appendWindowStart",
+    "timestampOffset",
 )
 
 private val WINDOW_EXCLUDED = setOf(

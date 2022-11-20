@@ -172,6 +172,7 @@ private val MEDIA_SOURCE_TYPES = listOf(
     "MediaSource",
     "SourceBuffer",
     "SourceBufferList",
+    "TimeRanges",
 )
 
 internal fun htmlDeclarations(
@@ -349,7 +350,7 @@ internal fun htmlDeclarations(
         .plus(MEDIA_CAPABILITIES_TYPES)
         .plus(MEDIA_STREAM_TYPES)
         .plus(MEDIA_SESSION_TYPES)
-        .plus(MEDIA_SOURCE_TYPES.map { "$it .+?" })
+        .plus(MEDIA_SOURCE_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .joinToString("|")
 
     val interfaces =
