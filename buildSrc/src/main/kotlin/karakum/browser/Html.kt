@@ -159,6 +159,15 @@ private val MEDIA_SESSION_TYPES = listOf(
     "MediaPositionState",
 )
 
+private val MEDIA_CAPABILITIES_TYPES = listOf(
+    "AudioConfiguration",
+    "VideoConfiguration",
+
+    "MediaConfiguration",
+    "MediaEncodingConfiguration",
+    "MediaDecodingConfiguration",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -319,6 +328,10 @@ internal fun htmlDeclarations(
 
         "MediaDevice.+?",
         "DisplayMediaStreamOptions",
+
+        "MediaCapabilitie.+?",
+        "MediaEncodingConfiguration .+?",
+        "MediaDecodingConfiguration .+?",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(DOM_CSS_TYPES)
@@ -327,6 +340,7 @@ internal fun htmlDeclarations(
         .plus(DOM_PARSING_TYPES)
         .plus(CANVAS_TYPES)
         .plus(HTTP_TYPES)
+        .plus(MEDIA_CAPABILITIES_TYPES)
         .plus(MEDIA_STREAM_TYPES)
         .plus(MEDIA_SESSION_TYPES)
         .joinToString("|")
@@ -733,6 +747,9 @@ internal fun convertInterface(
         name.startsWith("MediaKey") -> "media.key"
         name.startsWith("TextTrack") -> "webvtt"
 
+        name.startsWith("MediaCapabilities") -> "media.capabilities"
+        name in MEDIA_CAPABILITIES_TYPES -> "media.capabilities"
+
         name.startsWith("MediaDevice") -> "media.devices"
         name == "DisplayMediaStreamOptions" -> "media.devices"
 
@@ -941,9 +958,6 @@ private fun convertProperty(
 
         // TEMP
         "CredentialsContainer",
-        "MediaCapabilities",
-        "MediaSession",
-
         "DocumentTimeline",
         -> "dynamic /* $type */"
 

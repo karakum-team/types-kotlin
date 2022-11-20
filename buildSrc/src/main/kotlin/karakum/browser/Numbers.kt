@@ -140,6 +140,10 @@ private val INT_NAMES = setOf(
     // MediaTrackSettings
     "sampleRate",
     "sampleSize",
+
+    // AudioConfiguration
+    "bitrate",
+    "samplerate",
 )
 
 private val DOUBLE_NAMES = setOf(
@@ -253,6 +257,9 @@ private val DOUBLE_NAMES = setOf(
     "intersectionRatio",
     "blockSize",
     "inlineSize",
+
+    // VideoConfiguration
+    "framerate",
 )
 
 private val WINDOW_EXCLUDED = setOf(

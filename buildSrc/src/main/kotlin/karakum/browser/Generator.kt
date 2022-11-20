@@ -71,6 +71,8 @@ import dom.selection.Selection
 import dom.svg.SVGElement
 import dom.svg.SvgTagName
 import dom.xml.XMLDocument
+import media.capabilities.MediaCapabilities
+import media.session.MediaSession
 import media.key.MediaKeys
 import media.source.TimeRanges
 import media.stream.MediaStream
