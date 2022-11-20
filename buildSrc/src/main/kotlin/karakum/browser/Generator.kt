@@ -75,11 +75,11 @@ import media.capabilities.MediaCapabilities
 import media.session.MediaSession
 import media.key.MediaKeys
 import media.source.TimeRanges
-import media.stream.MediaStream
-import media.stream.MediaStreamConstraints
-import media.stream.MediaStreamTrack
-import media.stream.MediaTrackConstraints
-import media.stream.MediaTrackSupportedConstraints
+import media.streams.MediaStream
+import media.streams.MediaStreamConstraints
+import media.streams.MediaStreamTrack
+import media.streams.MediaTrackConstraints
+import media.streams.MediaTrackSupportedConstraints
 import remoteplayback.RemotePlayback
 import web.abort.AbortSignal
 import web.animations.Animation

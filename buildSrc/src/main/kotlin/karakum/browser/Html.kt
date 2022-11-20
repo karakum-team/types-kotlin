@@ -761,10 +761,10 @@ internal fun convertInterface(
         name.startsWith("MediaDevice") -> "media.devices"
         name == "DisplayMediaStreamOptions" -> "media.devices"
 
-        name.startsWith("MediaStream") -> "media.stream"
-        name.startsWith("MediaTrack") -> "media.stream"
-        name.startsWith("Constrain") -> "media.stream"
-        name in MEDIA_STREAM_TYPES -> "media.stream"
+        name.startsWith("MediaStream") -> "media.streams"
+        name.startsWith("MediaTrack") -> "media.streams"
+        name.startsWith("Constrain") -> "media.streams"
+        name in MEDIA_STREAM_TYPES -> "media.streams"
 
         name in MEDIA_SESSION_TYPES -> "media.session"
 

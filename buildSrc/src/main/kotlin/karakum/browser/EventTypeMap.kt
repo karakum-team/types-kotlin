@@ -36,7 +36,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("media.key.MediaKeyMessageEvent"),
     EventInfo("cssom.MediaQueryListEvent"),
     EventInfo("media.capture.BlobEvent"),
-    EventInfo("media.stream.MediaStreamTrackEvent"),
+    EventInfo("media.streams.MediaStreamTrackEvent"),
     EventInfo("web.audio.OfflineAudioCompletionEvent"),
     EventInfo("webrtc.RTCDTMFToneChangeEvent"),
     EventInfo("webrtc.RTCDataChannelEvent"),
