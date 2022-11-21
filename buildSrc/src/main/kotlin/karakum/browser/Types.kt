@@ -28,7 +28,7 @@ private val PKG_MAP = mapOf(
     "MediaEncodingType" to "media.capabilities",
     "TransferFunction" to "media.capabilities",
 
-    "RecordingState" to "media.capture",
+    "RecordingState" to "media.recorder",
 
     "AppendMode" to "media.source",
     "EndOfStreamError" to "media.source",

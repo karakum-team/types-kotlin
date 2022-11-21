@@ -35,7 +35,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.idb.IDBVersionChangeEvent"),
     EventInfo("media.key.MediaKeyMessageEvent"),
     EventInfo("cssom.MediaQueryListEvent"),
-    EventInfo("media.capture.BlobEvent"),
+    EventInfo("media.recorder.BlobEvent"),
     EventInfo("media.streams.MediaStreamTrackEvent"),
     EventInfo("web.audio.OfflineAudioCompletionEvent"),
     EventInfo("webrtc.RTCDTMFToneChangeEvent"),
