@@ -273,7 +273,7 @@ internal fun htmlDeclarations(
         "EventModifierInit .+?",
 
         "Clipboard .+?",
-        "ClipboardItemOptions",
+        "Clipboard.+?",
 
         "History",
         "Location",
@@ -361,7 +361,6 @@ internal fun htmlDeclarations(
 
     return interfaces
         .plus(additionalType)
-        .plus(clipboardDeclarations())
         .plus(
             ConversionResult(
                 name = "NodeFilter",
@@ -1123,6 +1122,12 @@ private fun convertFunctionParameters(
         -> listOf(
             "track: MediaStreamTrack",
             "vararg streams: MediaStream",
+        )
+
+        "items: Record<string, string | Blob | PromiseLike<string | Blob>>, options?: ClipboardItemOptions",
+        -> listOf(
+            "items: Record<String, Any /* String | Blob | PromiseLike<String | Blob> */>",
+            "options: ClipboardItemOptions = definedExternally",
         )
 
         "action: (item: FontFace) => void",

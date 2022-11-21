@@ -13,7 +13,6 @@ internal fun htmlFactories(
         .map { name ->
             val (parametersSource, parentType) = source.substringAfter("\ndeclare var $name: {\n    new(")
                 .substringBefore(";\n")
-                .also { println(it) }
                 .split("): ")
 
             val parameters = parametersSource

@@ -147,6 +147,8 @@ private fun convertType(
             "MediaProvider" -> "dom.html"
             "WindowProxy" -> "dom.html"
 
+            "ClipboardItems" -> "web.clipboard"
+
             "IDBValidKey" -> "web.idb"
 
             "BodyInit" -> "web.http"
@@ -162,7 +164,15 @@ private fun convertType(
             } else return null
         }
 
-        val body = if (" | " in bodySource) "Any /* $bodySource */" else bodySource
+        val body = when {
+            bodySource == "ClipboardItem[]"
+            -> "ReadonlyArray<ClipboardItem>"
+
+            " | " in bodySource
+            -> "Any /* $bodySource */"
+
+            else -> bodySource
+        }
 
         return ConversionResult(
             name = name,
