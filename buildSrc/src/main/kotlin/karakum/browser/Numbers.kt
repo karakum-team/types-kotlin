@@ -336,11 +336,15 @@ internal class TypeProvider(
             parentType == "GeolocationCoordinates" -> "Double"
             parentType == "PositionOptions" -> "JsLong"
 
+            parentType == "PannerOptions" -> "Double"
+
             parentType == "Screen" -> "Int"
 
             parentType == "SVGAnimatedInteger" -> "Int"
             parentType == "SVGAnimatedNumber" -> "Double"
 
+            propertyName.startsWith("numberOf") -> "Int"
+            propertyName.endsWith("Count") -> "Int"
             propertyName.endsWith("Digits") -> "Int"
             propertyName.endsWith("Frames") -> "Int"
 

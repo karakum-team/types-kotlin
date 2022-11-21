@@ -175,6 +175,72 @@ private val MEDIA_SOURCE_TYPES = listOf(
     "TimeRanges",
 )
 
+private val WEB_AUDIO_TYPES = listOf(
+    "AudioTimestamp",
+
+    "AudioContext",
+    "AudioContextOptions",
+
+    "AnalyserOptions",
+    "AudioBufferOptions",
+    "AudioBufferSourceOptions",
+    "AudioNodeOptions",
+    "AudioWorkletNodeOptions",
+    "AudioParamMap",
+    "MediaElementAudioSourceOptions",
+    "OfflineAudioContextOptions",
+    "OscillatorOptions",
+    "PannerOptions",
+    "PeriodicWaveOptions",
+    "StereoPannerOptions",
+    "WaveShaperOptions",
+    "PeriodicWaveConstraints",
+    "DecodeSuccessCallback",
+    "DecodeErrorCallback",
+    "BiquadFilterOptions",
+    "ChannelMergerOptions",
+    "ChannelSplitterOptions",
+    "ConstantSourceOptions",
+    "ConvolverOptions",
+    "DelayOptions",
+    "DynamicsCompressorOptions",
+    "GainOptions",
+    "IIRFilterOptions",
+
+    "AnalyserNode",
+    "AudioBuffer",
+    "AudioBufferSourceNode",
+    "AudioDestinationNode",
+    "AudioListener",
+    "AudioNode",
+    "AudioParam",
+    "AudioScheduledSourceNode",
+    "AudioWorklet",
+    "AudioWorkletGlobalScope",
+    "AudioWorkletNode",
+    "AudioWorkletProcessor",
+    "BaseAudioContext",
+    "BiquadFilterNode",
+    "ChannelMergerNode",
+    "ChannelSplitterNode",
+    "ConstantSourceNode",
+    "ConvolverNode",
+    "DelayNode",
+    "DynamicsCompressorNode",
+    "GainNode",
+    "IIRFilterNode",
+    "MediaElementAudioSourceNode",
+    "MediaStreamAudioDestinationNode",
+    "MediaStreamAudioSourceNode",
+    "MediaStreamAudioSourceOptions",
+    "OfflineAudioContext",
+    "OscillatorNode",
+    "PannerNode",
+    "PeriodicWave",
+    "StereoPannerNode",
+    "WaveShaperNode",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -353,6 +419,7 @@ internal fun htmlDeclarations(
         .plus(MEDIA_STREAM_TYPES)
         .plus(MEDIA_SESSION_TYPES)
         .plus(MEDIA_SOURCE_TYPES.flatMap { sequenceOf(it, "$it .+?") })
+        .plus(WEB_AUDIO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .joinToString("|")
 
     val interfaces =
@@ -483,9 +550,6 @@ internal fun convertInterface(
         name.endsWith("EventMap") -> return null
 
         // TEMP
-        name.startsWith("MediaStreamAudio") -> return null
-
-        // TEMP
         name == "HTMLCollectionOf" -> return null
     }
 
@@ -501,6 +565,10 @@ internal fun convertInterface(
         "ChildNode",
         "ParentNode",
         -> declaration.replace("extends Node", "/* : Node */")
+
+        // TEMP
+        "AudioWorklet",
+        -> declaration.replace("extends Worklet", "/* : Worklet */")
 
         "Body",
         "CanvasPath",
@@ -751,6 +819,8 @@ internal fun convertInterface(
 
         name.startsWith("XPath") -> "dom.xpath"
 
+        name in WEB_AUDIO_TYPES -> "web.audio"
+
         name.startsWith("RTC") -> "webrtc"
         name.startsWith("MediaKey") -> "media.key"
         name.startsWith("TextTrack") -> "webvtt"
@@ -770,8 +840,6 @@ internal fun convertInterface(
         name in MEDIA_SESSION_TYPES -> "media.session"
 
         name in MEDIA_SOURCE_TYPES -> "media.source"
-
-        name.startsWith("Audio") -> "web.audio"
 
         name.startsWith("IntersectionObserver") -> "dom.observers"
         name.startsWith("MutationObserver") -> "dom.observers"
@@ -967,14 +1035,17 @@ private fun convertProperty(
         "NodeListOf<ChildNode>" -> "NodeListOf<Node /* ChildNode */>"
         "Element | Document" -> "Element /* | Document */"
 
+        // Audio
+        "number[] | Float32Array",
+        -> "ReadonlyArray<Double> /* | Float32Array */"
+
+        "Record<string, number>",
+        -> "Record<String, Double>"
+
         // TEMP
         "CredentialsContainer",
         "DocumentTimeline",
         -> "dynamic /* $type */"
-
-        // TEMP
-        "AudioBuffer",
-        -> "Any /* $type */"
 
         // TEMP
         "StaticRange[]",
@@ -983,6 +1054,9 @@ private fun convertProperty(
         // TEMP
         "DateTimeFormatPartTypes",
         -> "String /* $type */"
+
+        "AudioContextLatencyCategory | number"
+        -> "Any /* $type */"
 
         // MediaStreamConstraints
         "boolean | MediaTrackConstraints",
@@ -1133,6 +1207,7 @@ private fun convertFunctionParameters(
             "options: ClipboardItemOptions = definedExternally",
         )
 
+        "action: (item: AudioParam) => void",
         "action: (item: FontFace) => void",
         "action: (item: Node) => void",
         "action: (item: string) => void",
@@ -1162,6 +1237,9 @@ private fun convertFunctionParameters(
                     pname.endsWith("InitDict") ||
                             pname.endsWith("EntryInit")
                     -> "init"
+
+                    pname == "when"
+                    -> "`$pname`"
 
                     else -> pname
                 }
@@ -1195,6 +1273,9 @@ private fun getParameterType(
     return when {
         source == "string | number[]"
         -> "ReadonlyArray<Double> /* | String */"
+
+        source == "number[] | Float32Array"
+        -> "ReadonlyArray<Double> /* | Float32Array */"
 
         source == "number | bigint"
         -> "Number /* | BigInt */"
@@ -1252,6 +1333,9 @@ private fun getParameterType(
             var atype = source.removeSuffix("[]")
             if (atype == "string")
                 atype = "String"
+
+            if (atype == "number")
+                atype = "Double"
 
             "ReadonlyArray<$atype>"
         }

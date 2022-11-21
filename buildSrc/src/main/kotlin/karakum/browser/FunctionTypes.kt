@@ -28,6 +28,9 @@ private fun convertFunctionType(
 
         name == "RemotePlaybackAvailabilityCallback" -> "remoteplayback"
 
+        name == "DecodeSuccessCallback" -> "web.audio"
+        name == "DecodeErrorCallback" -> "web.audio"
+
         name == "ErrorCallback" -> "web.filesystem"
         name == "FileCallback" -> "web.filesystem"
         name.startsWith("FileSystem") -> "web.filesystem"

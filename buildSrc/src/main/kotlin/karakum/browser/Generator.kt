@@ -62,6 +62,7 @@ import dom.html.HTMLCanvasElement
 import dom.html.HTMLCollectionOf
 import dom.html.HTMLCollection
 import dom.html.HTMLElement
+import dom.html.HTMLMediaElement
 import dom.html.HTMLSlotElement
 import dom.html.HtmlTagName
 import dom.html.ShadowRoot
@@ -83,6 +84,7 @@ import media.streams.MediaTrackSupportedConstraints
 import remoteplayback.RemotePlayback
 import web.abort.AbortSignal
 import web.animations.Animation
+import web.audio.AudioBuffer
 import web.buffer.Blob
 import web.buffer.BlobPart
 import web.buffer.BlobPropertyBag
@@ -97,6 +99,7 @@ import web.http.BodyInit
 import web.http.FormData
 import web.http.ReferrerPolicy
 import web.locks.LockManager
+import web.messaging.MessagePort
 import web.messaging.Transferable
 import web.messaging.StructuredSerializeOptions
 import web.permissions.Permissions
