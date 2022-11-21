@@ -339,6 +339,8 @@ internal fun htmlDeclarations(
         "MediaCapabilitie.+?",
         "MediaEncodingConfiguration .+?",
         "MediaDecodingConfiguration .+?",
+
+        "MediaRecorder.+?",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(DOM_CSS_TYPES)
@@ -758,6 +760,7 @@ internal fun convertInterface(
 
         name.startsWith("MediaDevice") -> "media.devices"
         name == "DisplayMediaStreamOptions" -> "media.devices"
+        name.startsWith("MediaRecorder") -> "media.recorder"
 
         name.startsWith("MediaStream") -> "media.streams"
         name.startsWith("MediaTrack") -> "media.streams"

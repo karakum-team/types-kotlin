@@ -144,6 +144,11 @@ private val INT_NAMES = setOf(
     // AudioConfiguration
     "bitrate",
     "samplerate",
+
+    // MediaRecorderOptions
+    "audioBitsPerSecond",
+    "bitsPerSecond",
+    "videoBitsPerSecond",
 )
 
 private val DOUBLE_NAMES = setOf(
