@@ -184,6 +184,10 @@ fun generateKotlinDeclarations(
 
             if (name == "Locale")
                 add(VIRTUAL_MEMBER_HIDDEN)
+
+            // TEMP Remove HTML classes fix
+            if (name in HTML_FACTORIES)
+                add(ABSTRACT_CLASS_MEMBER_NOT_IMPLEMENTED)
         }.toTypedArray()
 
         val annotations = sequenceOf(

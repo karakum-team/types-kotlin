@@ -26,6 +26,8 @@ internal enum class Suppress {
     // TODO: remove after unions
     USELESS_IS_CHECK,
 
+    ABSTRACT_CLASS_MEMBER_NOT_IMPLEMENTED,
+
     ;
 }
 
