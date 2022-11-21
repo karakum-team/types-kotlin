@@ -475,7 +475,6 @@ internal fun convertInterface(
         .substringBefore("<")
 
     when {
-        name in HTML_ALIAS_CLASSES -> return null
         name in DEPRECATED -> return null
         name.endsWith("NameMap") -> return null
         name.endsWith("Event") -> return null
