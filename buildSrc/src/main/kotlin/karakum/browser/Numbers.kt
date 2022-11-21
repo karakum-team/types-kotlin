@@ -149,6 +149,10 @@ private val INT_NAMES = setOf(
     "audioBitsPerSecond",
     "bitsPerSecond",
     "videoBitsPerSecond",
+
+    // Audio
+    "fftSize",
+    "offset",
 )
 
 private val DOUBLE_NAMES = setOf(
@@ -270,6 +274,37 @@ private val DOUBLE_NAMES = setOf(
     "appendWindowEnd",
     "appendWindowStart",
     "timestampOffset",
+
+    // Audio
+    "attack",
+    "baseLatency",
+    "coneInnerAngle",
+    "coneOuterAngle",
+    "coneOuterGain",
+    "contextTime",
+    "defaultValue",
+    "delayTime",
+    "detune",
+    "frequency",
+    "gain",
+    "knee",
+    "loopEnd",
+    "loopStart",
+    "maxDecibels",
+    "maxDelayTime",
+    "maxDistance",
+    "maxValue",
+    "minDecibels",
+    "minValue",
+    "outputLatency",
+    "pan",
+    "ratio",
+    "reduction",
+    "refDistance",
+    "release",
+    "rolloffFactor",
+    "smoothingTimeConstant",
+    "threshold",
 )
 
 private val WINDOW_EXCLUDED = setOf(
