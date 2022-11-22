@@ -241,6 +241,13 @@ private val WEB_AUDIO_TYPES = listOf(
     "WaveShaperNode",
 )
 
+private val WORKERS_TYPES = listOf(
+    "AbstractWorker",
+    "SharedWorker",
+    "Worker",
+    "WorkerOptions",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -423,6 +430,7 @@ internal fun htmlDeclarations(
         .plus(MEDIA_SESSION_TYPES)
         .plus(MEDIA_SOURCE_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WEB_AUDIO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
+        .plus(WORKERS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .joinToString("|")
 
     val interfaces =
@@ -572,6 +580,9 @@ internal fun convertInterface(
         "Body",
         "CanvasPath",
         -> declaration.replace("interface", "class /* interface */")
+
+        "AbstractWorker",
+        -> declaration + ": IEventTarget"
 
         else -> {
             declaration
@@ -842,6 +853,7 @@ internal fun convertInterface(
         name in MEDIA_SOURCE_TYPES -> "media.source"
 
         name.startsWith("Worklet") -> "web.worklets"
+        name in WORKERS_TYPES -> "web.workers"
 
         name.startsWith("IntersectionObserver") -> "dom.observers"
         name.startsWith("MutationObserver") -> "dom.observers"
@@ -957,7 +969,11 @@ internal fun convertMember(
             -> eventType += "<*>"
         }
 
-        return "var $handlerName: EventHandler<$eventType>?"
+        return sequenceOf(
+            "var $handlerName: EventHandler<$eventType>?",
+            PROPERTY_DE.takeIf { typeProvider.isDefined() },
+        ).filterNotNull()
+            .joinToString("\n")
     }
 
     if (source.startsWith("[index: number]:") && typeProvider.isArrayLike())
@@ -1281,6 +1297,9 @@ private fun getParameterType(
 
         source == "number | bigint"
         -> "Number /* | BigInt */"
+
+        source == "string | WorkerOptions"
+        -> "WorkerOptions /* | String */"
 
         source == "number | DOMPointInit | (number | DOMPointInit)[]"
         -> "Any /* $source */"

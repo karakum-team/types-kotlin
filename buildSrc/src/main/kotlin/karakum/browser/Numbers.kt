@@ -403,7 +403,7 @@ internal class TypeProvider(
     }
 
     fun isDefined(): Boolean =
-        parentType == "LocaleOptions"
+        parentType == "LocaleOptions" || parentType == "AbstractWorker"
 
     fun isArrayLike(): Boolean =
         arrayType != null

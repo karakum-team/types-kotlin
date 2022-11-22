@@ -272,6 +272,14 @@ fun generateKotlinDeclarations(
             import web.messaging.MessageEvent
             """.trimIndent()
 
+            "AbstractWorker",
+            "Worker",
+            -> """
+            import web.events.IEventTarget
+            import web.errors.ErrorEvent
+            import web.messaging.MessageEvent
+            """.trimIndent()
+
             else -> if (!name.endsWith(".types")) {
                 "import web.events.Event"
             } else ""
