@@ -417,6 +417,10 @@ internal class TypeProvider(
         if (parentType == "Window")
             return name !in WINDOW_EXCLUDED
 
+        if (parentType == "WorkerGlobalScope")
+            return name != "self"
+
+
         return true
     }
 }

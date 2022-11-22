@@ -730,7 +730,8 @@ internal fun convertInterface(
         name == "Animation" ||
                 name == "DOMMatrixReadOnly" ||
                 name == "DOMPointReadOnly" ||
-                name == "DOMRectReadOnly"
+                name == "DOMRectReadOnly" ||
+                name == "Worker"
         -> "open"
 
         // TEMP WA
@@ -968,6 +969,8 @@ internal fun convertMember(
         source.startsWith("removeEventListener(") -> return null
         source.startsWith("createEvent(") -> return null
         source.startsWith("toString()") -> return null
+
+        source.startsWith("importScripts(") -> return null
     }
 
     if ((source.startsWith("on") && "(this: " in source)) {

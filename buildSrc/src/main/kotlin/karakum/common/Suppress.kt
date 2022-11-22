@@ -27,6 +27,7 @@ internal enum class Suppress {
     USELESS_IS_CHECK,
 
     ABSTRACT_CLASS_MEMBER_NOT_IMPLEMENTED,
+    SEALED_INHERITOR_IN_DIFFERENT_PACKAGE,
 
     ;
 }

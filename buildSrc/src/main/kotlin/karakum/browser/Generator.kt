@@ -174,6 +174,7 @@ fun generateKotlinDeclarations(
         .plus(browserFunctionTypes(content))
         .plus(tagNames(content))
         .plus(intlDeclarations(definitionsDir))
+        .plus(webWorkersDeclarations(definitionsDir))
 
     for ((name, body, pkg) in aliases) {
         pkg!!
@@ -197,6 +198,9 @@ fun generateKotlinDeclarations(
             // TEMP Remove HTML classes fix
             if (name in HTML_FACTORIES)
                 add(ABSTRACT_CLASS_MEMBER_NOT_IMPLEMENTED)
+
+            if (name == "WorkerNavigator")
+                add(SEALED_INHERITOR_IN_DIFFERENT_PACKAGE)
         }.toTypedArray()
 
         val annotations = sequenceOf(
@@ -283,6 +287,22 @@ fun generateKotlinDeclarations(
             -> """
             import web.events.IEventTarget
             import web.errors.ErrorEvent
+            import web.messaging.MessageEvent
+            """.trimIndent()
+
+            "DedicatedWorkerGlobalScope",
+            "WorkerGlobalScope",
+            -> """
+            import cssom.fonts.FontFaceSource    
+            import dom.events.PromiseRejectionEvent
+            import web.errors.ErrorEvent
+            import web.events.Event
+            import web.messaging.MessageEvent
+            """.trimIndent()
+
+            "WorkerNavigator",
+            -> """
+            import web.navigator.*
             import web.messaging.MessageEvent
             """.trimIndent()
 
