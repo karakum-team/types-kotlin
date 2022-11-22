@@ -2,30 +2,13 @@ package karakum.browser
 
 private val ALIAS_MAP = listOf(
     "MediaError" to "dom.html",
-
-    "ServiceWorkerContainer" to "serviceworkers",
 )
 
 internal fun mediaAliases(): List<ConversionResult> =
     ALIAS_MAP.map { (name, pkg) ->
-        val alias = when (name) {
-            "MediaDevices",
-            -> "org.w3c.dom.mediacapture.$name"
-
-            "MediaKeys",
-            "MediaKeySystemAccess",
-            "MediaKeySystemConfiguration",
-            -> "org.w3c.dom.encryptedmedia.$name"
-
-            "ServiceWorkerContainer",
-            -> "org.w3c.workers.$name"
-
-            else -> "org.w3c.dom.$name"
-        }
-
         ConversionResult(
             name = name,
-            body = "typealias $name = $alias",
+            body = "typealias $name = org.w3c.dom.$name",
             pkg = pkg,
         )
     }

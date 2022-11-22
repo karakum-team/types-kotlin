@@ -102,11 +102,15 @@ import web.locks.LockManager
 import web.messaging.MessagePort
 import web.messaging.Transferable
 import web.messaging.StructuredSerializeOptions
+import web.notifications.Notification
+import web.notifications.NotificationOptions
 import web.permissions.Permissions
 import web.share.ShareData
 import web.storage.StorageManager
 import web.streams.ReadableStream
 import web.url.URL
+import web.workers.AbstractWorker
+import web.workers.WorkerType
 import web.worklets.Worklet
 import websockets.BinaryType
 import webvtt.TextTrack
@@ -266,6 +270,7 @@ fun generateKotlinDeclarations(
             "EventSource",
             "XMLHttpRequestEventTarget",
             "RTCDataChannel",
+            "ServiceWorkerContainer",
             -> """
             import web.events.Event
             import web.events.ProgressEvent

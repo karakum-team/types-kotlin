@@ -417,6 +417,14 @@ internal fun htmlDeclarations(
 
         "Worklet",
         "WorkletOptions",
+
+        "Notification.+?",
+
+        "ServiceWorker.+?",
+        "GetNotificationOptions",
+        "NavigationPreloadManager",
+        "NavigationPreloadState",
+        "RegistrationOptions",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(DOM_CSS_TYPES)
@@ -742,6 +750,7 @@ internal fun convertInterface(
                 name == "DocumentOrShadowRoot" ||
                 name == "XMLHttpRequest" ||
                 name == "XMLHttpRequestUpload" ||
+                name == "AbstractWorker" ||
                 name.endsWith("Handlers") ||
                 mainConstructor.isNotEmpty()
         -> ""
@@ -854,6 +863,13 @@ internal fun convertInterface(
 
         name.startsWith("Worklet") -> "web.worklets"
         name in WORKERS_TYPES -> "web.workers"
+
+        name.startsWith("Notification") -> "web.notifications"
+        name.startsWith("ServiceWorker") -> "serviceworkers"
+        name == "GetNotificationOptions" -> "serviceworkers"
+        name == "NavigationPreloadState" -> "serviceworkers"
+        name == "NavigationPreloadManager" -> "serviceworkers"
+        name == "RegistrationOptions" -> "serviceworkers"
 
         name.startsWith("IntersectionObserver") -> "dom.observers"
         name.startsWith("MutationObserver") -> "dom.observers"
@@ -1061,6 +1077,10 @@ private fun convertProperty(
         -> "Record<String, Double>"
 
         // TEMP
+        "PushManager",
+        -> "Any /* $type */"
+
+        // TEMP
         "CredentialsContainer",
         "DocumentTimeline",
         -> "dynamic /* $type */"
@@ -1075,6 +1095,9 @@ private fun convertProperty(
 
         "AudioContextLatencyCategory | number",
         -> "Any /* $type */"
+
+        "VibratePattern",
+        -> "ReadonlyArray<Int> /* VibratePattern */"
 
         // MediaStreamConstraints
         "boolean | MediaTrackConstraints",
@@ -1166,7 +1189,8 @@ private fun convertFunction(
         .replace(": Promise<any>", ": Promise<*>")
         .replace(": Promise<number>", ": Promise<Number>")
         .replace(": Promise<FontFace[]>", ": Promise<ReadonlyArray<FontFace>>")
-        .replace(": Promise<MediaDeviceInfo[]>", ": Promise<MediaDeviceInfo>")
+        .replace(": Promise<MediaDeviceInfo[]>", ": Promise<ReadonlyArray<MediaDeviceInfo>>")
+        .replace(": Promise<Notification[]>", ": Promise<ReadonlyArray<Notification>>")
         .replace("<string[]", "<ReadonlyArray<String>")
         .replace(": StaticRange[]", ": ReadonlyArray<Any /* StaticRange */>")
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")
