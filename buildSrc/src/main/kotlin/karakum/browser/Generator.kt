@@ -109,6 +109,7 @@ import web.share.ShareData
 import web.storage.StorageManager
 import web.streams.ReadableStream
 import web.url.URL
+import web.vibration.VibratePattern
 import web.workers.AbstractWorker
 import web.workers.WorkerType
 import web.worklets.Worklet

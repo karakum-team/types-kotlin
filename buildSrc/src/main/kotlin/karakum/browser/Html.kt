@@ -1096,9 +1096,6 @@ private fun convertProperty(
         "AudioContextLatencyCategory | number",
         -> "Any /* $type */"
 
-        "VibratePattern",
-        -> "ReadonlyArray<Int> /* VibratePattern */"
-
         // MediaStreamConstraints
         "boolean | MediaTrackConstraints",
         -> "MediaTrackConstraints /* | Boolean */"
@@ -1355,9 +1352,6 @@ private fun getParameterType(
 
         source == "boolean"
         -> "Boolean"
-
-        source == "VibratePattern"
-        -> "ReadonlyArray<Int> /* VibratePattern */"
 
         source == "string | ElementCreationOptions"
         -> "ElementCreationOptions /* | String */"

@@ -147,6 +147,8 @@ private fun convertType(
             "MediaProvider" -> "dom.html"
             "WindowProxy" -> "dom.html"
 
+            "VibratePattern" -> "web.vibration"
+
             "ClipboardItems" -> "web.clipboard"
 
             "IDBValidKey" -> "web.idb"
@@ -167,6 +169,9 @@ private fun convertType(
         val body = when {
             bodySource == "ClipboardItem[]"
             -> "ReadonlyArray<ClipboardItem>"
+
+            name == "VibratePattern" && bodySource == "number | number[]"
+            -> "ReadonlyArray<Int> /* | Int */"
 
             " | " in bodySource
             -> "Any /* $bodySource */"
