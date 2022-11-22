@@ -407,6 +407,9 @@ internal fun htmlDeclarations(
         "MediaDecodingConfiguration .+?",
 
         "MediaRecorder.+?",
+
+        "Worklet",
+        "WorkletOptions",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(DOM_CSS_TYPES)
@@ -565,10 +568,6 @@ internal fun convertInterface(
         "ChildNode",
         "ParentNode",
         -> declaration.replace("extends Node", "/* : Node */")
-
-        // TEMP
-        "AudioWorklet",
-        -> declaration.replace("extends Worklet", "/* : Worklet */")
 
         "Body",
         "CanvasPath",
@@ -738,7 +737,8 @@ internal fun convertInterface(
 
         name == "Element" ||
                 name == "Document" ||
-                name == "DocumentFragment"
+                name == "DocumentFragment" ||
+                name == "Worklet"
         -> "abstract"
 
         type == "class" &&
@@ -840,6 +840,8 @@ internal fun convertInterface(
         name in MEDIA_SESSION_TYPES -> "media.session"
 
         name in MEDIA_SOURCE_TYPES -> "media.source"
+
+        name.startsWith("Worklet") -> "web.worklets"
 
         name.startsWith("IntersectionObserver") -> "dom.observers"
         name.startsWith("MutationObserver") -> "dom.observers"
@@ -1055,7 +1057,7 @@ private fun convertProperty(
         "DateTimeFormatPartTypes",
         -> "String /* $type */"
 
-        "AudioContextLatencyCategory | number"
+        "AudioContextLatencyCategory | number",
         -> "Any /* $type */"
 
         // MediaStreamConstraints

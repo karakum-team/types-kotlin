@@ -97,6 +97,7 @@ import web.filesystem.FileSystemEntry
 import web.http.BodyInit
 import web.http.FormData
 import web.http.ReferrerPolicy
+import web.http.RequestCredentials
 import web.locks.LockManager
 import web.messaging.MessagePort
 import web.messaging.Transferable
@@ -106,6 +107,7 @@ import web.share.ShareData
 import web.storage.StorageManager
 import web.streams.ReadableStream
 import web.url.URL
+import web.worklets.Worklet
 import websockets.BinaryType
 import webvtt.TextTrack
 import webvtt.TextTrackKind
