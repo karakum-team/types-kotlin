@@ -267,6 +267,7 @@ internal fun htmlDeclarations(
         "HTML.+?",
         "SVG.+?",
         "HTMLCollection .+?",
+        "MediaError",
 
         "ShadowRoot .+?",
         "ShadowRootInit",
