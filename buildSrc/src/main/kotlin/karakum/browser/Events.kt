@@ -185,13 +185,16 @@ private fun event(
         "<T : EventTarget>"
     } else ""
 
-    val eventBody = """    
+    var eventBody = """  
     $modifier external class $name$typeParameters $eventConstructor : $eventParent {
         $eventMembers
     
         $companion
     }            
     """.trimIndent()
+
+    if (name == "TouchEvent")
+        eventBody = "@JsName(\"globalThis.$name\")\n$eventBody"
 
     val body = sequenceOf(
         """

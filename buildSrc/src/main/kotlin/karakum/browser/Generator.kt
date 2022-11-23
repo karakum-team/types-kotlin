@@ -136,7 +136,7 @@ fun generateKotlinDeclarations(
 
     for ((name, body, optPkg) in eventDeclarations(content)) {
         val suppresses = mutableSetOf<Suppress>().apply {
-            if ("JsName(\"\"\"(" in body)
+            if ("JsName(\"\"\"(" in body || name == "TouchEvent")
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
 
             if ("companion object" in body && !name.endsWith("Event"))

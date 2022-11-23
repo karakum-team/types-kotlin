@@ -367,6 +367,7 @@ internal class TypeProvider(
             parentType in DOM_GEOMETRY_TYPES -> "Double"
             parentType.startsWith("Touch") -> "Double"
 
+            parentType == "MediaError" -> "Short"
             parentType == "GeolocationPositionError" -> "Short"
             parentType == "GeolocationCoordinates" -> "Double"
             parentType == "PositionOptions" -> "JsLong"
