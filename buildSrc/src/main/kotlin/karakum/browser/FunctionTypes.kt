@@ -39,6 +39,8 @@ private fun convertFunctionType(
 
         name == "LockGrantedCallback" -> "web.locks"
 
+        name == "NotificationPermissionCallback" -> "web.notifications"
+
         name.startsWith("RTC") -> "webrtc"
         name == "VoidFunction" -> "webrtc"
 

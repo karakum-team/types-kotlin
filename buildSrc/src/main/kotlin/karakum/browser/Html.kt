@@ -108,6 +108,7 @@ internal val DOM_GEOMETRY_TYPES = listOf(
     "DOMMatrix2DInit",
 
     "DOMQuad",
+    "DOMQuadInit",
 )
 
 private val DOM_PARSING_TYPES = listOf(
@@ -770,7 +771,17 @@ internal fun convertInterface(
         else -> "sealed"
     }
 
-    var body = "$modifier external $declaration {\n$members\n}"
+    val companion = if (staticSource != null && predefinedPkg != "web.intl") {
+        getCompanion(name, staticSource)
+    } else ""
+
+    var body = sequenceOf(
+        "$modifier external $declaration {",
+        members,
+        companion,
+        "}",
+    ).filter { it.isNotEmpty() }
+        .joinToString("\n")
 
     when (name) {
         "Body",
@@ -923,6 +934,25 @@ private fun getConstructors(
 
     return constructorSources
         .map { convertConstructor(it) }
+}
+
+private fun getCompanion(
+    name: String,
+    source: String,
+): String {
+    val content = source
+        .substringAfterLast("\nnew(")
+        .substringAfter(";\n", "")
+        .takeIf { it.isNotEmpty() }
+        ?: return ""
+
+    val typeProvider = TypeProvider(name)
+    val members = content
+        .splitToSequence(";\n")
+        .mapNotNull { convertMember(it, typeProvider) }
+        .joinToString("\n")
+
+    return "companion object {\n$members\n}"
 }
 
 private fun convertConstructor(
@@ -1337,6 +1367,10 @@ private fun getParameterType(
 
         source == "DateTimeFormatPartTypes"
         -> "String /* $source */"
+
+        // TEMP
+        source == "AlgorithmIdentifier"
+        -> "Any /* $source */"
 
         source == "Iterable<string>"
         -> "JsIterable<String>"
