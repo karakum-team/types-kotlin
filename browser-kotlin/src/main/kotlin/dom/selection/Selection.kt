@@ -54,6 +54,4 @@ sealed external class Selection {
         node: Node?,
         offset: Number = definedExternally,
     )
-
-    companion object
 }
