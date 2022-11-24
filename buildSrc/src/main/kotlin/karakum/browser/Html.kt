@@ -961,14 +961,14 @@ private fun getCompanion(
     val content = source
         .substringAfterLast("\nnew(")
         .substringAfter(";\n", "")
-        .takeIf { it.isNotEmpty() }
-        ?: return ""
+        .ifEmpty { return "" }
 
     val typeProvider = TypeProvider(name)
     val members = content
         .splitToSequence(";\n")
         .mapNotNull { convertMember(it, typeProvider) }
         .joinToString("\n")
+        .ifEmpty { return "" }
 
     return "companion object {\n$members\n}"
 }
