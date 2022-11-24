@@ -38,15 +38,25 @@ private fun String.patchVideoFrameCallback(): String =
         )
 
 private fun String.patchCollections(): String {
-    val body = Regex("""interface NodeList [\s\S]+?\}""")
-        .find(this)!!
-        .value
+    var result = this
 
-    val newBody = body
-        .replaceFirst("NodeList", "NodeList<T extends Node>")
-        .replace(": Node", ": T")
+    sequenceOf(
+        "NodeList" to "Node",
+        "HTMLCollectionBase" to "Element",
+        "HTMLCollection" to "Element",
+    ).forEach { (type, bound) ->
+        val body = Regex("""interface $type [\s\S]+?\}""")
+            .find(this)!!
+            .value
 
-    return replace(body, newBody)
+        val newBody = body
+            .replaceFirst(type, "$type<T extends $bound>")
+            .replace(": $bound", ": T")
+
+        result = result.replace(body, newBody)
+    }
+
+    return result
 }
 
 private fun String.patchQuerySelectors(): String =

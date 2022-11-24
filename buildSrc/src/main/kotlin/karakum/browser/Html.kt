@@ -476,7 +476,7 @@ internal fun htmlDeclarations(
         .plus(
             ConversionResult(
                 name = "HTMLCollectionOf",
-                body = "typealias HTMLCollectionOf<T> = HTMLCollection",
+                body = "typealias HTMLCollectionOf<T> = HTMLCollection<T>",
                 pkg = "dom.html",
             )
         )
@@ -554,6 +554,12 @@ private fun prepareContent(
     return content to contextId
 }
 
+private val COLLECTIONS_WITH_BOUNDS = setOf(
+    "NodeList",
+    "HTMLCollectionBase",
+    "HTMLCollection",
+)
+
 internal fun convertInterface(
     source: String,
     getStaticSource: (String) -> String?,
@@ -595,8 +601,15 @@ internal fun convertInterface(
         "AbstractWorker",
         -> declaration + ": IEventTarget"
 
-        "NodeList",
-        -> declaration.replace(" extends ", " : ")
+        in COLLECTIONS_WITH_BOUNDS,
+        -> declaration
+            .replaceFirst(" extends HTMLCollectionBase", " :\nHTMLCollectionBase<T>")
+            .replaceFirst(" extends ", " : ")
+            .replace(" extends ", " :\n")
+
+        "HTMLFormControlsCollection",
+        -> declaration
+            .replaceFirst(" extends HTMLCollectionBase", " :\nHTMLCollectionBase<Element>")
 
         else -> {
             declaration
@@ -633,7 +646,7 @@ internal fun convertInterface(
     } else null
 
     if (arrayType != null && name != "Window") {
-        declaration += if (":" in declaration && name != "NodeList") "," else ":"
+        declaration += if (":" in declaration && name !in COLLECTIONS_WITH_BOUNDS) "," else ":"
         declaration += "\nArrayLike<$arrayType>"
     }
 
@@ -1100,7 +1113,8 @@ private fun convertProperty(
         -> "Int /* $type */"
 
         "NodeList",
-        -> "NodeList<*>"
+        "HTMLCollection",
+        -> "$type<*>"
 
         "OnErrorEventHandler",
         -> "Function<Unit>? /* $type */"

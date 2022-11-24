@@ -182,9 +182,6 @@ fun generateKotlinDeclarations(
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
 
-            if (name == "HTMLCollectionOf")
-                add(UNUSED_TYPEALIAS_PARAMETER)
-
             if (name == RENDERING_CONTEXT_ID)
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
