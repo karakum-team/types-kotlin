@@ -21,6 +21,7 @@ internal fun String.applyPatches(): String =
             Regex("""forEach\(callbackfn\: \(value\: (\w+), .+?, thisArg\?\: any\)\: void\;"""),
             "forEach(action: (item: $1) => void): void;"
         )
+        .patchCollections()
         .replace(
             "arg?: boolean | ScrollIntoViewOptions",
             "options?: ScrollIntoViewOptions",
@@ -35,6 +36,18 @@ private fun String.patchVideoFrameCallback(): String =
             "requestVideoFrameCallback(callback: VideoFrameRequestCallback): number;",
             "requestVideoFrameCallback(callback: VideoFrameRequestCallback): $VIDEO_FRAME_REQUEST_ID;"
         )
+
+private fun String.patchCollections(): String {
+    val body = Regex("""interface NodeList [\s\S]+?\}""")
+        .find(this)!!
+        .value
+
+    val newBody = body
+        .replaceFirst("NodeList", "NodeList<T extends Node>")
+        .replace(": Node", ": T")
+
+    return replace(body, newBody)
+}
 
 private fun String.patchQuerySelectors(): String =
     this

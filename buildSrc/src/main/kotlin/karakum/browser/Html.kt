@@ -280,6 +280,7 @@ internal fun htmlDeclarations(
         "ValidityStateFlags",
 
         "Node .+?",
+        "NodeList<.+?",
         "ChildNode .+?",
         "ParentNode .+?",
         "Element .+?",
@@ -594,6 +595,9 @@ internal fun convertInterface(
         "AbstractWorker",
         -> declaration + ": IEventTarget"
 
+        "NodeList",
+        -> declaration.replace(" extends ", " : ")
+
         else -> {
             declaration
                 .replace(" extends ", " :\n")
@@ -629,7 +633,7 @@ internal fun convertInterface(
     } else null
 
     if (arrayType != null && name != "Window") {
-        declaration += if (":" in declaration) "," else ":"
+        declaration += if (":" in declaration && name != "NodeList") "," else ":"
         declaration += "\nArrayLike<$arrayType>"
     }
 
@@ -1095,6 +1099,9 @@ private fun convertProperty(
         "1 | 2 | 3",
         -> "Int /* $type */"
 
+        "NodeList",
+        -> "NodeList<*>"
+
         "OnErrorEventHandler",
         -> "Function<Unit>? /* $type */"
 
@@ -1282,7 +1289,7 @@ private fun convertFunctionParameters(
 
         "action: (item: AudioParam) => void",
         "action: (item: FontFace) => void",
-        "action: (item: Node) => void",
+        "action: (item: T) => void",
         "action: (item: string) => void",
         "action: (item: FormDataEntryValue) => void",
         "action: (item: MediaKeyStatus) => void",
