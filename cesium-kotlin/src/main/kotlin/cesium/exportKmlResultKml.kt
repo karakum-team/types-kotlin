@@ -3,6 +3,7 @@
 package cesium
 
 import js.core.ReadonlyRecord
+import web.buffer.Blob
 
 /**
  * @property [kml] The generated KML.
@@ -10,5 +11,5 @@ import js.core.ReadonlyRecord
  */
 external interface exportKmlResultKml {
     var kml: String
-    var externalFiles: ReadonlyRecord<String, web.buffer.Blob>
+    var externalFiles: ReadonlyRecord<String, Blob>
 }
