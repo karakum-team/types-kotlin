@@ -32,26 +32,6 @@ private val STANDARD_TYPE_MAP = mapOf(
     JS_FUNCTION to "Function<*>",
     "Date" to "kotlin.js.Date",
 
-    "Element" to "dom.Element",
-    "HTMLElement" to "dom.html.HTMLElement",
-    "HTMLImageElement" to "dom.html.HTMLImageElement",
-    "HTMLCanvasElement" to "dom.html.HTMLCanvasElement",
-    "HTMLVideoElement" to "dom.html.HTMLVideoElement",
-    "HTMLIFrameElement" to "dom.html.HTMLIFrameElement",
-
-    "Document" to "dom.Document",
-    "XMLDocument" to "dom.xml.XMLDocument",
-
-    "ImageData" to "canvas.ImageData",
-
-    "Blob" to "web.buffer.Blob",
-
-    "ArrayBuffer" to "js.buffer.ArrayBuffer",
-    "Uint8Array" to "js.typedarrays.Uint8Array",
-    "Uint16Array" to "js.typedarrays.Uint16Array",
-    "Float32Array" to "js.typedarrays.Float32Array",
-    "Float64Array" to "js.typedarrays.Float64Array",
-
     "CameraEventType | any[] | undefined" to "CameraEventType?",
     "any[] | GeometryInstance" to "GeometryInstance",
     "GeometryInstance[] | GeometryInstance" to "ReadonlyArray<GeometryInstance>",
