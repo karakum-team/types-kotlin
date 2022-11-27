@@ -9,7 +9,8 @@
 
 package cesium
 
-import kotlinx.js.ReadonlyArray
+import dom.html.HTMLCanvasElement
+import js.core.ReadonlyArray
 
 /**
  * An [ImageryProvider] that draws a wireframe grid on every tile with controllable background and glow.
@@ -218,7 +219,7 @@ external class GridImageryProvider(options: ConstructorOptions) {
         y: Double,
         level: Int,
         request: Request? = definedExternally,
-    ): kotlin.js.Promise<dom.html.HTMLCanvasElement>
+    ): kotlin.js.Promise<HTMLCanvasElement>
 
     /**
      * Picking features is not currently supported by this imagery provider, so this function simply returns

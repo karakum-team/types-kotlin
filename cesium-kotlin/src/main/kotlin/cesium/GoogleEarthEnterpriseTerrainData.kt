@@ -9,7 +9,8 @@
 
 package cesium
 
-import kotlinx.js.ReadonlyArray
+import js.buffer.ArrayBuffer
+import js.core.ReadonlyArray
 
 /**
  * Terrain data for a single tile from a Google Earth Enterprise server.
@@ -39,7 +40,7 @@ external class GoogleEarthEnterpriseTerrainData(options: ConstructorOptions) : T
      * @property [credits] Array of credits for this tile.
      */
     interface ConstructorOptions {
-        var buffer: kotlinx.js.ArrayBuffer
+        var buffer: ArrayBuffer
         var negativeAltitudeExponentBias: Int
         var negativeElevationThreshold: Double
         var childTileMask: Int?

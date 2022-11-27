@@ -9,7 +9,8 @@
 
 package cesium
 
-import kotlinx.js.ReadonlyArray
+import dom.Element
+import js.core.ReadonlyArray
 
 /**
  * A widget for finding addresses and landmarks, and flying the camera to them.  Geocoding is
@@ -29,7 +30,7 @@ external class Geocoder(options: ConstructorOptions) {
      *   Default value - [GeocoderViewModel.flyToDestination]
      */
     interface ConstructorOptions {
-        var container: dom.Element
+        var container: Element
         var scene: Scene
         var geocoderServices: ReadonlyArray<GeocoderService>?
         var autoComplete: Boolean?
@@ -41,13 +42,13 @@ external class Geocoder(options: ConstructorOptions) {
      * Gets the parent container.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Geocoder.html#container">Online Documentation</a>
      */
-    var container: dom.Element
+    var container: Element
 
     /**
      * Gets the parent container.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Geocoder.html#searchSuggestionsContainer">Online Documentation</a>
      */
-    var searchSuggestionsContainer: dom.Element
+    var searchSuggestionsContainer: Element
 
     /**
      * Gets the view model.

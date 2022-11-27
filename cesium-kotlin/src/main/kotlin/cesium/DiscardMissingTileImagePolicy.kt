@@ -9,7 +9,8 @@
 
 package cesium
 
-import kotlinx.js.ReadonlyArray
+import dom.html.HTMLImageElement
+import js.core.ReadonlyArray
 
 /**
  * A policy for discarding tile images that match a known image containing a
@@ -45,7 +46,7 @@ external class DiscardMissingTileImagePolicy(options: ConstructorOptions) : Tile
      * @return True if the image should be discarded; otherwise, false.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/DiscardMissingTileImagePolicy.html#shouldDiscardImage">Online Documentation</a>
      */
-    override fun shouldDiscardImage(image: dom.html.HTMLImageElement): Boolean
+    override fun shouldDiscardImage(image: HTMLImageElement): Boolean
 }
 
 inline fun DiscardMissingTileImagePolicy(

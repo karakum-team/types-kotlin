@@ -5,7 +5,8 @@
 
 package cesium
 
-import kotlinx.js.ReadonlyArray
+import js.core.ReadonlyArray
+import js.typedarrays.Float64Array
 
 /**
  * A feature of a [Cesium3DTileset].
@@ -59,7 +60,7 @@ sealed external class Cesium3DTileFeature {
      * or the feature is not a polyline in a vector tile.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Cesium3DTileFeature.html#polylinePositions">Online Documentation</a>
      */
-    var polylinePositions: kotlinx.js.Float64Array
+    var polylinePositions: Float64Array
 
     /**
      * Gets the tileset containing the feature.

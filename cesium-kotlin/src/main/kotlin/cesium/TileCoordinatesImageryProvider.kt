@@ -9,7 +9,8 @@
 
 package cesium
 
-import kotlinx.js.ReadonlyArray
+import dom.html.HTMLCanvasElement
+import js.core.ReadonlyArray
 
 /**
  * An [ImageryProvider] that draws a box around every rendered tile in the tiling scheme, and draws
@@ -207,7 +208,7 @@ external class TileCoordinatesImageryProvider(options: ConstructorOptions? = def
         y: Double,
         level: Int,
         request: Request? = definedExternally,
-    ): kotlin.js.Promise<dom.html.HTMLCanvasElement>
+    ): kotlin.js.Promise<HTMLCanvasElement>
 
     /**
      * Picking features is not currently supported by this imagery provider, so this function simply returns

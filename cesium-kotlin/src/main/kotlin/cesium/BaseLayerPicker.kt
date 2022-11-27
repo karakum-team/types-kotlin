@@ -10,7 +10,8 @@
 
 package cesium
 
-import kotlinx.js.ReadonlyArray
+import dom.Element
+import js.core.ReadonlyArray
 
 /**
  * The BaseLayerPicker is a single button widget that displays a panel of available imagery and
@@ -77,7 +78,7 @@ import kotlinx.js.ReadonlyArray
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/BaseLayerPicker.html">Online Documentation</a>
  */
 external class BaseLayerPicker(
-    var container: dom.Element,
+    var container: Element,
     options: ConstructorOptions,
 ) {
     /**
@@ -118,7 +119,7 @@ external class BaseLayerPicker(
 }
 
 inline fun BaseLayerPicker(
-    container: dom.Element,
+    container: Element,
     block: BaseLayerPicker.ConstructorOptions.() -> Unit,
 ): BaseLayerPicker {
     val options: BaseLayerPicker.ConstructorOptions = js("({})")

@@ -2,7 +2,7 @@
 
 package cesium
 
-import kotlinx.js.ReadonlyRecord
+import js.core.ReadonlyRecord
 
 /**
  * @property [kml] The generated KML.
