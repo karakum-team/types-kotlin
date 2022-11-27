@@ -4,7 +4,7 @@ internal const val RULES = "Rules"
 
 // language=Kotlin
 private val BODY = """
-import kotlinx.js.Record
+import js.core.Record
 
 typealias $RULES = Record<$SELECTOR, Any>
 """.trimIndent()

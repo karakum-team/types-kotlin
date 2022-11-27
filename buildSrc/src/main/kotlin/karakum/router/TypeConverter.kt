@@ -8,13 +8,13 @@ internal fun convertType(
         .removeSuffix(";")
 
     val alias = when {
-        name == "Params" -> "kotlinx.js.Record<String, String>"
-        name == "URLSearchParamsInit" -> "kotlinx.js.Record<String, String> // $body"
+        name == "Params" -> "js.core.Record<String, String>"
+        name == "URLSearchParamsInit" -> "js.core.Record<String, String> // $body"
 
         body == "string" -> "String"
         body == "unknown" -> "Any?"
         body == "object | null" -> "Any?"
-        body == "[string, string]" -> "kotlinx.js.JsTuple2<String, String>"
+        body == "[string, string]" -> "js.core.JsTuple2<String, String>"
 
         body.startsWith("Pick<History, ") -> "history.History"
         body.startsWith("Partial<") -> "Any // $body"

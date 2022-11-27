@@ -4,7 +4,7 @@ internal const val SEARCH_PARAMS_INSTANCE = "SearchParamsInstance"
 
 // language=Kotlin
 private val BODY = """
-import kotlinx.js.jso
+import js.core.jso
 import web.url.URLSearchParams
 import react.router.NavigateOptions
 import kotlin.reflect.KProperty

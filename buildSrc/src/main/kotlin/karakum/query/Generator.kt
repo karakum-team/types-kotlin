@@ -14,12 +14,12 @@ private enum class Suppress {
 private val DEFAULT_IMPORTS = listOf(
     "Promise" to "kotlin.js.Promise",
 
-    "EpochTimeStamp" to "kotlinx.js.EpochTimeStamp",
-    "JsTuple2" to "kotlinx.js.JsTuple2",
-    "PromiseResult" to "kotlinx.js.PromiseResult",
-    "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
-    "Record" to "kotlinx.js.Record",
-    "Void" to "kotlinx.js.Void",
+    "EpochTimeStamp" to "js.core.EpochTimeStamp",
+    "JsTuple2" to "js.core.JsTuple2",
+    "PromiseResult" to "js.promise.PromiseResult",
+    "ReadonlyArray" to "js.core.ReadonlyArray",
+    "Record" to "js.core.Record",
+    "Void" to "js.core.Void",
 
     "AbortController" to "web.abort.AbortController",
     "AbortSignal" to "web.abort.AbortSignal",

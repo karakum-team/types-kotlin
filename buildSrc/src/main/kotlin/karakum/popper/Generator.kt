@@ -9,9 +9,9 @@ import java.io.FileFilter
 private val DEFAULT_IMPORTS = listOf(
     "Promise" to "kotlin.js.Promise",
 
-    "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
-    "Record" to "kotlinx.js.Record",
-    "Void" to "kotlinx.js.Void",
+    "ReadonlyArray" to "js.core.ReadonlyArray",
+    "Record" to "js.core.Record",
+    "Void" to "js.core.Void",
 )
 
 fun generateKotlinDeclarations(

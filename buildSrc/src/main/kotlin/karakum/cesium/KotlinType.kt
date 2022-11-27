@@ -46,11 +46,11 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Blob" to "web.buffer.Blob",
 
-    "ArrayBuffer" to "kotlinx.js.ArrayBuffer",
-    "Uint8Array" to "kotlinx.js.Uint8Array",
-    "Uint16Array" to "kotlinx.js.Uint16Array",
-    "Float32Array" to "kotlinx.js.Float32Array",
-    "Float64Array" to "kotlinx.js.Float64Array",
+    "ArrayBuffer" to "js.buffer.ArrayBuffer",
+    "Uint8Array" to "js.typedarrays.Uint8Array",
+    "Uint16Array" to "js.typedarrays.Uint16Array",
+    "Float32Array" to "js.typedarrays.Float32Array",
+    "Float64Array" to "js.typedarrays.Float64Array",
 
     "CameraEventType | any[] | undefined" to "CameraEventType?",
     "any[] | GeometryInstance" to "GeometryInstance",

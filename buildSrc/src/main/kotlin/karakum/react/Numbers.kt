@@ -226,7 +226,7 @@ internal fun numberType(
     name: String,
 ): String =
     when {
-        name == "timeStamp" -> "kotlinx.js.HighResTimeStamp"
+        name == "timeStamp" -> "js.core.HighResTimeStamp"
 
         name in INT_NAMES -> INT
         name in DOUBLE_NAMES -> DOUBLE

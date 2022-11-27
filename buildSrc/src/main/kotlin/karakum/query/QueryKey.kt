@@ -13,7 +13,7 @@ ${fileSuppress(Suppress.NOTHING_TO_INLINE)}
 
 ${Package.CORE.pkg}
 
-import kotlinx.js.ReadonlyArray
+import js.core.ReadonlyArray
 
 inline fun <T : QueryKey> QueryKey(
     vararg keys: Comparable<*>,

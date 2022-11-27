@@ -4,8 +4,8 @@ internal const val RULE_BUILDER = "RuleBuilder"
 
 // language=Kotlin
 private val BODY = """
-import kotlinx.js.jso
-import kotlinx.js.set
+import js.core.jso
+import js.core.set
     
 interface $RULE_BUILDER<T : Any> : $RULES {
     inline fun fontFace(

@@ -7,10 +7,10 @@ private val DEFAULT_IMPORTS = listOf(
     "Promise" to "kotlin.js.Promise",
     "RegExp" to "kotlin.js.RegExp",
 
-    "ReadonlyArray" to "kotlinx.js.ReadonlyArray",
-    "Record" to "kotlinx.js.Record",
-    "JsTuple2" to "kotlinx.js.JsTuple2",
-    "Void" to "kotlinx.js.Void",
+    "ReadonlyArray" to "js.core.ReadonlyArray",
+    "Record" to "js.core.Record",
+    "JsTuple2" to "js.core.JsTuple2",
+    "Void" to "js.core.Void",
 )
 
 fun generateKotlinDeclarations(

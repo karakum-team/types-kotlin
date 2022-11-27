@@ -29,10 +29,10 @@ private val STANDARD_TYPE_MAP = mapOf(
     "React.ReactNode" to "react.ReactNode",
     "React.ReactElement" to "react.ReactElement<*>",
 
-    "string[]" to "kotlinx.js.ReadonlyArray<String>",
-    "InitialEntry[]" to "kotlinx.js.ReadonlyArray<history.InitialEntry>",
-    "RouteObject[]" to "kotlinx.js.ReadonlyArray<RouteObject>",
-    "RouteMatch[]" to "kotlinx.js.ReadonlyArray<RouteMatch>",
+    "string[]" to "js.core.ReadonlyArray<String>",
+    "InitialEntry[]" to "js.core.ReadonlyArray<history.InitialEntry>",
+    "RouteObject[]" to "js.core.ReadonlyArray<RouteObject>",
+    "RouteMatch[]" to "js.core.ReadonlyArray<RouteMatch>",
 
     "To" to "history.To",
     "Path" to "history.Path",

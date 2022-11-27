@@ -76,7 +76,7 @@ private fun fileContent(
 ): String {
     val defaultImports = sequenceOf("JsTuple2", "JsIterator", "ReadonlyArray")
         .filter { "$it<" in body }
-        .map { "import kotlinx.js.$it" }
+        .map { "import js.core.$it" }
         .joinToString("\n")
 
     var result = sequenceOf(
