@@ -9,7 +9,7 @@ internal fun intlDeclarations(
 
     val types = convertTypes(
         content = content,
-        getPkg = { "web.intl" },
+        getPkg = { "js.intl" },
     )
 
     val interfaces = Regex("""interface .+? \{[\s\S]+?\n\}""")
@@ -39,7 +39,7 @@ internal fun intlDeclarations(
             convertInterface(
                 source = it,
                 getStaticSource = { getStaticSource(it, content) },
-                predefinedPkg = "web.intl",
+                predefinedPkg = "js.intl",
             )
         }
 
@@ -48,7 +48,7 @@ internal fun intlDeclarations(
             ConversionResult(
                 name = "LocalesArgument",
                 body = "typealias LocalesArgument = Any",
-                pkg = "web.intl",
+                pkg = "js.intl",
             )
         )
 }

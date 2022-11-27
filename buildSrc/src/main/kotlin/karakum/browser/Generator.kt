@@ -203,7 +203,7 @@ fun generateKotlinDeclarations(
             if (suppresses.isNotEmpty()) {
                 fileSuppress(*suppresses)
             } else "",
-            if (pkg == "web.intl" && "external class" in body) """@file:JsQualifier("Intl")""" else "",
+            if (pkg == "js.intl" && "external class" in body) """@file:JsQualifier("Intl")""" else "",
         ).filter { it.isNotEmpty() }
             .joinToString("\n\n")
 

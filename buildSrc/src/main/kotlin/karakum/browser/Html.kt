@@ -789,7 +789,7 @@ internal fun convertInterface(
         else -> "sealed"
     }
 
-    val companion = if (staticSource != null && predefinedPkg != "web.intl") {
+    val companion = if (staticSource != null && predefinedPkg != "js.intl") {
         getCompanion(name, staticSource)
     } else ""
 
