@@ -20,16 +20,21 @@ fun parseParameters(source: String): List<String> {
 
         "suspense: boolean | undefined, _useErrorBoundary: boolean | ((err: TError) => boolean) | undefined, error: TError",
         -> return params
-                .replace(": boolean | ((", ": ((")
-                .replace(" => ", " -> ")
-                .replace(" boolean", " Boolean")
-                .replace(" | undefined, ", "?, ")
-                .split(", ")
+            .replace(": boolean | ((", ": ((")
+            .replace(" => ", " -> ")
+            .replace(" boolean", " Boolean")
+            .replace(" | undefined, ", "?, ")
+            .split(", ")
 
         "options?: QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey> | DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>",
-            -> return listOf(
-                "options: QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>? /* | DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey> */"
-            )
+        -> return listOf(
+            "options: QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>? /* | DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey> */"
+        )
+
+        "options: WithRequired<FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'queryKey'>",
+        -> return listOf(
+            "options: FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey> /* required 'queryKey' */",
+        )
     }
 
     val parts = params.split(": ")
