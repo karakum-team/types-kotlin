@@ -170,12 +170,7 @@ private fun readDeclarations(
         .toList()
 
 private fun record(valueType: String): String {
-    val value = when (valueType) {
-        "Blob" -> "web.buffer.Blob"
-        else -> valueType
-    }
-
-    return "Record<String,$value>"
+    return "Record<String, $valueType>"
 }
 
 private fun String.applyTypeAliasCorrection(): String =
