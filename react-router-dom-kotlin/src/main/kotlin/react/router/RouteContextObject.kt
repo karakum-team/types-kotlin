@@ -4,5 +4,5 @@ package react.router
 
 external interface RouteContextObject {
     var outlet: react.ReactElement<*>?
-    var matches: kotlinx.js.ReadonlyArray<RouteMatch>
+    var matches: js.core.ReadonlyArray<RouteMatch>
 }

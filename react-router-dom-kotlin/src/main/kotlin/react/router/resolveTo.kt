@@ -7,6 +7,6 @@ package react.router
 
 external fun resolveTo(
     toArg: history.To,
-    routePathnames: kotlinx.js.ReadonlyArray<String>,
+    routePathnames: js.core.ReadonlyArray<String>,
     locationPathname: String,
 ): history.Path

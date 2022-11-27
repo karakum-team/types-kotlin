@@ -14,6 +14,6 @@ package react.router
  * @see https://reactrouter.com/docs/en/v6/api#useroutes
  */
 external fun useRoutes(
-    routes: kotlinx.js.ReadonlyArray<RouteObject>,
+    routes: js.core.ReadonlyArray<RouteObject>,
     locationArg: history.Location = definedExternally,
 ): react.ReactElement<*>?

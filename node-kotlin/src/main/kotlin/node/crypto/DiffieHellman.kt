@@ -5,8 +5,8 @@
 
 package node.crypto
 
-import kotlinx.js.ArrayBufferView
-import kotlinx.js.Void
+import js.buffer.ArrayBufferView
+import js.core.Void
 import node.buffer.Buffer
 
 sealed external class DiffieHellman {

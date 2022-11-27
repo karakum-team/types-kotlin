@@ -2,9 +2,9 @@
 
 package node.fs
 
-import kotlinx.js.ArrayBufferView
-import kotlinx.js.ReadonlyArray
-import kotlinx.js.Void
+import js.buffer.ArrayBufferView
+import js.core.ReadonlyArray
+import js.core.Void
 import node.buffer.BufferEncoding
 import kotlin.js.Promise
 

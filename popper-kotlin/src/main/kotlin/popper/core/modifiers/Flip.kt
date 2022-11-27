@@ -6,7 +6,7 @@
 
 package popper.core.modifiers
 
-import kotlinx.js.ReadonlyArray
+import js.core.ReadonlyArray
 
 external interface FlipOptions {
     var mainAxis: Boolean

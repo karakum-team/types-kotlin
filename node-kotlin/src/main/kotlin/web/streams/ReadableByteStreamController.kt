@@ -2,8 +2,8 @@
 
 package web.streams
 
-import kotlinx.js.ArrayBufferView
-import kotlinx.js.Void
+import js.buffer.ArrayBufferView
+import js.core.Void
 
 sealed external interface ReadableByteStreamController {
     val byobRequest: Void

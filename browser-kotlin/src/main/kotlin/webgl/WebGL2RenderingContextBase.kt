@@ -2,8 +2,8 @@
 
 package webgl
 
-import kotlinx.js.ArrayBufferView
-import kotlinx.js.ReadonlyArray
+import js.buffer.ArrayBufferView
+import js.core.ReadonlyArray
 
 sealed external interface WebGL2RenderingContextBase {
     fun beginQuery(

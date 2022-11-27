@@ -2,8 +2,8 @@
 
 package web.audio
 
-import kotlinx.js.ArrayBuffer
-import kotlinx.js.ReadonlyArray
+import js.buffer.ArrayBuffer
+import js.core.ReadonlyArray
 import web.events.Event
 import web.events.EventHandler
 import web.events.EventTarget

@@ -2,4 +2,4 @@
 
 package react.router.dom
 
-typealias URLSearchParamsInit = kotlinx.js.Record<String, String> // string | ParamKeyValuePair[] | Record<string, string | string[]> | URLSearchParams
+typealias URLSearchParamsInit = js.core.Record<String, String> // string | ParamKeyValuePair[] | Record<string, string | string[]> | URLSearchParams

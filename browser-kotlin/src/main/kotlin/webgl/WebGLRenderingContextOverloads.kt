@@ -2,8 +2,8 @@
 
 package webgl
 
-import kotlinx.js.ArrayBufferView
-import kotlinx.js.BufferSource
+import js.buffer.ArrayBufferView
+import js.buffer.BufferSource
 
 sealed external interface WebGLRenderingContextOverloads {
     fun bufferData(

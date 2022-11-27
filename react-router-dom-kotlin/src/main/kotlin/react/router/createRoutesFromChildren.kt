@@ -14,4 +14,4 @@ package react.router
  */
 external fun createRoutesFromChildren(
     children: react.ReactNode,
-): kotlinx.js.ReadonlyArray<RouteObject>
+): js.core.ReadonlyArray<RouteObject>

@@ -11,7 +11,7 @@ package react.router
  * @see https://reactrouter.com/docs/en/v6/api#matchroutes
  */
 external fun matchRoutes(
-    routes: kotlinx.js.ReadonlyArray<RouteObject>,
+    routes: js.core.ReadonlyArray<RouteObject>,
     locationArg: history.Location,
     basename: String = definedExternally,
-): kotlinx.js.ReadonlyArray<RouteMatch>?
+): js.core.ReadonlyArray<RouteMatch>?

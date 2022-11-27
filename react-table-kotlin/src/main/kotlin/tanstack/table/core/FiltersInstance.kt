@@ -2,8 +2,8 @@
 
 package tanstack.table.core
 
-import kotlinx.js.JsMap
-import kotlinx.js.JsTuple2
+import js.collections.JsMap
+import js.core.JsTuple2
 
 external interface FiltersInstance<TData : RowData> {
     var setColumnFilters: (updater: Updater<ColumnFiltersState>) -> Unit

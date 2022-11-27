@@ -5,4 +5,4 @@ package react.router
 /**
  * The parameters that were parsed from the URL path.
  */
-typealias Params = kotlinx.js.Record<String, String>
+typealias Params = js.core.Record<String, String>

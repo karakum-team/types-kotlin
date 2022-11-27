@@ -16,6 +16,6 @@ external interface BaseSyntheticEvent<out E : Any, out C : Any, out T : Any> {
     fun stopPropagation()
     fun isPropagationStopped(): Boolean
     fun persist()
-    val timeStamp: kotlinx.js.HighResTimeStamp
+    val timeStamp: js.core.HighResTimeStamp
     val type: String
 }
