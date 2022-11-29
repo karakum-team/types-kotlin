@@ -9,6 +9,7 @@ internal fun String.applyPatches(): String =
         .splitUnion("RequestInfo", "Request | string")
         .splitUnion("MediaStreamTrack | string")
         .splitUnion("Path2D | string")
+        .patchDomGeometry()
         .replace("\n    getContext(contextId: string, options?: any): RenderingContext | null;", "")
         .replace("quality?: any", "quality?: number")
         .replace("LockGrantedCallback): Promise<any>", "LockGrantedCallback): Promise<void>")
@@ -26,6 +27,18 @@ internal fun String.applyPatches(): String =
             "arg?: boolean | ScrollIntoViewOptions",
             "options?: ScrollIntoViewOptions",
         )
+
+private val DOM_GEOMETRY_ALIASES = listOf(
+    "DOMPointInit" to "DOMPointReadOnly",
+    "DOMRectInit" to "DOMRectReadOnly",
+    "DOMMatrixInit" to "DOMMatrixReadOnly",
+    "DOMMatrix2DInit" to "DOMMatrixReadOnly",
+)
+
+private fun String.patchDomGeometry(): String =
+    DOM_GEOMETRY_ALIASES.fold(this) { acc, (initType, aliasType) ->
+        acc.splitUnionSafety(initType, "$initType | $aliasType /* $initType */")
+    }
 
 private fun String.patchVideoFrameCallback(): String =
     replace(
@@ -85,6 +98,25 @@ private fun String.patchQuerySelectors(): String =
             "querySelectorAll<E extends Element = Element>(selectors: string): NodeListOf<E>;",
             "querySelectorAll(selectors: string): NodeListOf<Element>;"
         )
+
+// TODO: remove after `splitUnion` fix
+private fun String.splitUnionSafety(
+    union: String,
+    unionBody: String,
+): String {
+    val (first, second) = unionBody.split(" | ")
+
+    return splitToSequence("\n")
+        .flatMap { line ->
+            if (": $union" in line && "(" in line && line.indexOf(":") > line.indexOf("(")) {
+                sequenceOf(
+                    line.replace("?: $union", "?: $first"),
+                    line.replace("?: $union", ": $second"),
+                )
+            } else sequenceOf(line)
+        }
+        .joinToString("\n")
+}
 
 internal fun String.splitUnion(
     union: String,

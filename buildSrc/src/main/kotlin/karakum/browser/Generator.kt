@@ -50,6 +50,7 @@ import dom.css.LinkStyle
 import dom.css.ElementCSSInlineStyle
 import dom.data.DataTransfer
 import dom.geometry.DOMMatrix
+import dom.geometry.DOMMatrixReadOnly
 import dom.geometry.DOMMatrix2DInit
 import dom.geometry.DOMPoint
 import dom.geometry.DOMPointInit
