@@ -375,6 +375,7 @@ internal class TypeProvider(
             parentType == "PannerOptions" -> "Double"
 
             parentType == "Screen" -> "Int"
+            parentType == "TextEncoderEncodeIntoResult" -> "Int"
 
             parentType == "SVGAnimatedInteger" -> "Int"
             parentType == "SVGAnimatedNumber" -> "Double"
