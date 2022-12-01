@@ -9,6 +9,38 @@
   dependencies:
     regenerator-runtime "^0.13.10"
 
+"@cesium/engine@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@cesium/engine/-/engine-1.0.0.tgz#70de79f0c3f35f2ffea73303c3cf984305f8b5b8"
+  integrity sha512-efbS9qzYxb6azQ2sz7FVJ8k1ae0qdDYBsv6qe3SC6vgB81x5kXqhqEbExyIbx22Z9NRbIV+iopP9M9rU+VwSCQ==
+  dependencies:
+    "@tweenjs/tween.js" "^18.6.4"
+    "@zip.js/zip.js" "2.4.x"
+    autolinker "^3.14.3"
+    bitmap-sdf "^1.0.3"
+    dompurify "^2.2.2"
+    earcut "^2.2.4"
+    grapheme-splitter "^1.0.4"
+    jsep "^0.3.1"
+    kdbush "^3.0.0"
+    ktx-parse "^0.4.5"
+    lerc "^2.0.0"
+    mersenne-twister "^1.1.0"
+    meshoptimizer "^0.18.1"
+    pako "^2.0.4"
+    protobufjs "^7.1.0"
+    rbush "^3.0.1"
+    topojson-client "^3.1.0"
+    urijs "^1.19.7"
+
+"@cesium/widgets@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@cesium/widgets/-/widgets-1.0.0.tgz#da3daaf094d5da4d80faf8dc0e7e7e50491238b1"
+  integrity sha512-tT/euGktMuOmKwiJvnWwh/9syTAs3sARXIVrOu9JyUAUx6aN12tZzwA9XSsDCRixL+IUtIFjDv6fq4+bvbDetA==
+  dependencies:
+    "@cesium/engine" "1.0.0"
+    nosleep.js "^0.12.0"
+
 "@popperjs/core@2.11.6":
   version "2.11.6"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
@@ -160,30 +192,13 @@ bitmap-sdf@^1.0.3:
   resolved "https://registry.yarnpkg.com/bitmap-sdf/-/bitmap-sdf-1.0.4.tgz#e87b8b1d84ee846567cfbb29d60eedd34bca5b6f"
   integrity sha512-1G3U4n5JE6RAiALMxu0p1XmeZkTeCwGKykzsLTCqVzfSDaN6S7fKnkIkfejogz+iwqBWc0UYAIKnKHNN7pSfDg==
 
-cesium@1.99.0:
-  version "1.99.0"
-  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.99.0.tgz#5d978749834bc0c539219fe97d20735d2e67ff06"
-  integrity sha512-bVN7Bskd9PVhQe9Ak9DEr7wEckbCJc0UPq58MKWGWAkQfiYob8odh6luqY5Yz26trr3tWwni1xWjsCe94y37jw==
+cesium@1.100.0:
+  version "1.100.0"
+  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.100.0.tgz#a2a5daf8849a03613b5252034d92ef82ff496e5c"
+  integrity sha512-f9pBg6DBY4LoRzpOLPhtmUAi0V7FJVrI/fXYLFri3xtK/aEwwmY/+slH82sOXx7Ynt3PRVCsM/4L/Xe/x5Asvg==
   dependencies:
-    "@tweenjs/tween.js" "^18.6.4"
-    "@zip.js/zip.js" "2.4.x"
-    autolinker "^3.14.3"
-    bitmap-sdf "^1.0.3"
-    dompurify "^2.2.2"
-    earcut "^2.2.4"
-    grapheme-splitter "^1.0.4"
-    jsep "^0.3.1"
-    kdbush "^3.0.0"
-    ktx-parse "^0.4.5"
-    lerc "^2.0.0"
-    mersenne-twister "^1.1.0"
-    meshoptimizer "^0.18.1"
-    nosleep.js "^0.12.0"
-    pako "^2.0.4"
-    protobufjs "^7.1.0"
-    rbush "^3.0.1"
-    topojson-client "^3.1.0"
-    urijs "^1.19.7"
+    "@cesium/engine" "1.0.0"
+    "@cesium/widgets" "1.0.0"
 
 commander@2:
   version "2.20.3"
