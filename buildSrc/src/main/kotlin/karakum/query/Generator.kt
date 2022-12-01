@@ -134,7 +134,27 @@ private fun generate(
 
     val coreImport = sequenceOf(Package.CORE)
         .minus(pkg)
-        .map { it.starImport }
+        .map {
+            """
+            import tanstack.query.core.InfiniteQueryObserverOptions
+            import tanstack.query.core.InfiniteQueryObserverResult
+            import tanstack.query.core.DefinedQueryObserverResult
+            import tanstack.query.core.HydrateOptions
+            import tanstack.query.core.QueryClient
+            import tanstack.query.core.QueryFunction
+            import tanstack.query.core.QueryKey
+            import tanstack.query.core.QueryObserver
+            import tanstack.query.core.QueryObserverOptions
+            import tanstack.query.core.QueryObserverResult
+            import tanstack.query.core.MutationObserverOptions
+            import tanstack.query.core.MutationFilters
+            import tanstack.query.core.MutationFunction
+            import tanstack.query.core.MutationKey
+            import tanstack.query.core.MutateFunction
+            import tanstack.query.core.MutationObserverResult
+            import tanstack.query.core.QueryFilters
+            """.trimIndent()
+        }
 
     val defaultImports = DEFAULT_IMPORTS
         .filter { it.first in body }
