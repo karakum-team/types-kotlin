@@ -259,7 +259,7 @@ internal fun htmlDeclarations(
     val getStaticSource = { name: String ->
         when (name) {
             "ElementInternals" -> null
-            else -> getStaticSource(name, source)
+            else -> getStaticSource(name, content)
         }
     }
 
@@ -428,6 +428,10 @@ internal fun htmlDeclarations(
         "NavigationPreloadManager",
         "NavigationPreloadState",
         "RegistrationOptions",
+
+        "TextEncode.+?",
+        "TextDecode.+?",
+        "GenericTransformStream",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(DOM_CSS_TYPES)
@@ -445,7 +449,7 @@ internal fun htmlDeclarations(
         .joinToString("|")
 
     val interfaces =
-        Regex("""interface ($patterns) \{[\s\S]+?\}""")
+        Regex("""interface ($patterns) \{[\s\S]*?\n\}""")
             .findAll(content)
             .map { it.value }
             .mapNotNull { convertInterface(it, getStaticSource) }
@@ -735,6 +739,12 @@ internal fun convertInterface(
             "RTCInboundRtpStreamStats",
             -> result.replace("var kind:", "override var kind:")
 
+            "TextDecoderStream",
+            "TextEncoderStream",
+            -> result
+                .replace("val readable:", "override val readable:")
+                .replace("val writable:", "override val writable:")
+
             else -> result
         }
 
@@ -905,6 +915,10 @@ internal fun convertInterface(
         name.startsWith("MutationObserver") -> "dom.observers"
         name == "MutationRecord" -> "dom.observers"
         name.startsWith("ResizeObserver") -> "dom.observers"
+
+        name.startsWith("TextEncode") -> "web.encoding"
+        name.startsWith("TextDecode") -> "web.encoding"
+        name == "GenericTransformStream" -> "web.encoding"
 
         else -> "dom.html"
     }
@@ -1154,6 +1168,11 @@ private fun convertProperty(
         // MediaStreamConstraints
         "boolean | MediaTrackConstraints",
         -> "MediaTrackConstraints /* | Boolean */"
+
+            "ReadableStream" -> "ReadableStream<*>"
+            "ReadableStream<string>" -> "ReadableStream<String>"
+            "WritableStream" -> "WritableStream<*>"
+            "WritableStream<string>" -> "WritableStream<String>"
 
         "Promise<any>" -> "Promise<*>"
         "DOMHighResTimeStamp" -> "HighResTimeStamp"

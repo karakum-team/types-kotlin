@@ -109,6 +109,7 @@ import web.permissions.Permissions
 import web.share.ShareData
 import web.storage.StorageManager
 import web.streams.ReadableStream
+import web.streams.WritableStream
 import web.url.URL
 import web.vibration.VibratePattern
 import web.workers.AbstractWorker
@@ -193,7 +194,7 @@ fun generateKotlinDeclarations(
                 add(VIRTUAL_MEMBER_HIDDEN)
 
             // TEMP Remove HTML classes fix
-            if (name in HTML_FACTORIES)
+            if (name in HTML_FACTORIES || name == "TextDecoder" || name == "TextDecoderStream")
                 add(ABSTRACT_CLASS_MEMBER_NOT_IMPLEMENTED)
 
             if (name == "WorkerNavigator")
