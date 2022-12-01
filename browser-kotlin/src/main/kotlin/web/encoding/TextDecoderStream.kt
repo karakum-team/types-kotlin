@@ -1,7 +1,7 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "ABSTRACT_CLASS_MEMBER_NOT_IMPLEMENTED",
+    "ABSTRACT_MEMBER_NOT_IMPLEMENTED",
 )
 
 package web.encoding
