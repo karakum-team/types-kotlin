@@ -26,6 +26,24 @@ sealed external class SubtleCrypto {
         data: BufferSource,
     ): Promise<ArrayBuffer>
 
+    fun decrypt(
+        algorithm: AesCtrParams,
+        key: CryptoKey,
+        data: BufferSource,
+    ): Promise<ArrayBuffer>
+
+    fun decrypt(
+        algorithm: AesCbcParams,
+        key: CryptoKey,
+        data: BufferSource,
+    ): Promise<ArrayBuffer>
+
+    fun decrypt(
+        algorithm: AesGcmParams,
+        key: CryptoKey,
+        data: BufferSource,
+    ): Promise<ArrayBuffer>
+
     fun deriveBits(
         algorithm: Algorithm,
         baseKey: CryptoKey,
@@ -40,6 +58,18 @@ sealed external class SubtleCrypto {
 
     fun deriveBits(
         algorithm: EcdhKeyDeriveParams,
+        baseKey: CryptoKey,
+        length: Number,
+    ): Promise<ArrayBuffer>
+
+    fun deriveBits(
+        algorithm: HkdfParams,
+        baseKey: CryptoKey,
+        length: Number,
+    ): Promise<ArrayBuffer>
+
+    fun deriveBits(
+        algorithm: Pbkdf2Params,
         baseKey: CryptoKey,
         length: Number,
     ): Promise<ArrayBuffer>
@@ -77,6 +107,38 @@ sealed external class SubtleCrypto {
     ): Promise<CryptoKey>
 
     fun deriveKey(
+        algorithm: HkdfParams,
+        baseKey: CryptoKey,
+        derivedKeyType: Algorithm,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: HkdfParams,
+        baseKey: CryptoKey,
+        derivedKeyType: String,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: Pbkdf2Params,
+        baseKey: CryptoKey,
+        derivedKeyType: Algorithm,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: Pbkdf2Params,
+        baseKey: CryptoKey,
+        derivedKeyType: String,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
         algorithm: Algorithm,
         baseKey: CryptoKey,
         derivedKeyType: AesDerivedKeyParams,
@@ -96,6 +158,142 @@ sealed external class SubtleCrypto {
         algorithm: EcdhKeyDeriveParams,
         baseKey: CryptoKey,
         derivedKeyType: AesDerivedKeyParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: HkdfParams,
+        baseKey: CryptoKey,
+        derivedKeyType: AesDerivedKeyParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: Pbkdf2Params,
+        baseKey: CryptoKey,
+        derivedKeyType: AesDerivedKeyParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: Algorithm,
+        baseKey: CryptoKey,
+        derivedKeyType: HmacImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: String,
+        baseKey: CryptoKey,
+        derivedKeyType: HmacImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: EcdhKeyDeriveParams,
+        baseKey: CryptoKey,
+        derivedKeyType: HmacImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: HkdfParams,
+        baseKey: CryptoKey,
+        derivedKeyType: HmacImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: Pbkdf2Params,
+        baseKey: CryptoKey,
+        derivedKeyType: HmacImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: Algorithm,
+        baseKey: CryptoKey,
+        derivedKeyType: HkdfParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: String,
+        baseKey: CryptoKey,
+        derivedKeyType: HkdfParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: EcdhKeyDeriveParams,
+        baseKey: CryptoKey,
+        derivedKeyType: HkdfParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: HkdfParams,
+        baseKey: CryptoKey,
+        derivedKeyType: HkdfParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: Pbkdf2Params,
+        baseKey: CryptoKey,
+        derivedKeyType: HkdfParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: Algorithm,
+        baseKey: CryptoKey,
+        derivedKeyType: Pbkdf2Params,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: String,
+        baseKey: CryptoKey,
+        derivedKeyType: Pbkdf2Params,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: EcdhKeyDeriveParams,
+        baseKey: CryptoKey,
+        derivedKeyType: Pbkdf2Params,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: HkdfParams,
+        baseKey: CryptoKey,
+        derivedKeyType: Pbkdf2Params,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun deriveKey(
+        algorithm: Pbkdf2Params,
+        baseKey: CryptoKey,
+        derivedKeyType: Pbkdf2Params,
         extractable: Boolean,
         keyUsages: ReadonlyArray<KeyUsage>,
     ): Promise<CryptoKey>
@@ -124,6 +322,24 @@ sealed external class SubtleCrypto {
 
     fun encrypt(
         algorithm: RsaOaepParams,
+        key: CryptoKey,
+        data: BufferSource,
+    ): Promise<ArrayBuffer>
+
+    fun encrypt(
+        algorithm: AesCtrParams,
+        key: CryptoKey,
+        data: BufferSource,
+    ): Promise<ArrayBuffer>
+
+    fun encrypt(
+        algorithm: AesCbcParams,
+        key: CryptoKey,
+        data: BufferSource,
+    ): Promise<ArrayBuffer>
+
+    fun encrypt(
+        algorithm: AesGcmParams,
         key: CryptoKey,
         data: BufferSource,
     ): Promise<ArrayBuffer>
@@ -163,6 +379,12 @@ sealed external class SubtleCrypto {
     ): Promise<CryptoKey>
 
     fun generateKey(
+        algorithm: Pbkdf2Params,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun generateKey(
         algorithm: Algorithm,
         extractable: Boolean,
         keyUsages: ReadonlyArray<KeyUsage>,
@@ -199,6 +421,30 @@ sealed external class SubtleCrypto {
     ): Promise<CryptoKey>
 
     fun importKey(
+        format: KeyFormat.jwk,
+        keyData: JsonWebKey,
+        algorithm: EcKeyImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun importKey(
+        format: KeyFormat.jwk,
+        keyData: JsonWebKey,
+        algorithm: HmacImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun importKey(
+        format: KeyFormat.jwk,
+        keyData: JsonWebKey,
+        algorithm: AesKeyAlgorithm,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun importKey(
         format: KeyFormat,
         keyData: BufferSource,
         algorithm: Algorithm,
@@ -222,6 +468,30 @@ sealed external class SubtleCrypto {
         keyUsages: ReadonlyArray<KeyUsage>,
     ): Promise<CryptoKey>
 
+    fun importKey(
+        format: KeyFormat,
+        keyData: BufferSource,
+        algorithm: EcKeyImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun importKey(
+        format: KeyFormat,
+        keyData: BufferSource,
+        algorithm: HmacImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun importKey(
+        format: KeyFormat,
+        keyData: BufferSource,
+        algorithm: AesKeyAlgorithm,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
     fun sign(
         algorithm: Algorithm,
         key: CryptoKey,
@@ -236,6 +506,12 @@ sealed external class SubtleCrypto {
 
     fun sign(
         algorithm: RsaPssParams,
+        key: CryptoKey,
+        data: BufferSource,
+    ): Promise<ArrayBuffer>
+
+    fun sign(
+        algorithm: EcdsaParams,
         key: CryptoKey,
         data: BufferSource,
     ): Promise<ArrayBuffer>
@@ -284,6 +560,66 @@ sealed external class SubtleCrypto {
         format: KeyFormat,
         wrappedKey: BufferSource,
         unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesCtrParams,
+        unwrappedKeyAlgorithm: Algorithm,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesCtrParams,
+        unwrappedKeyAlgorithm: String,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesCbcParams,
+        unwrappedKeyAlgorithm: Algorithm,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesCbcParams,
+        unwrappedKeyAlgorithm: String,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesGcmParams,
+        unwrappedKeyAlgorithm: Algorithm,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesGcmParams,
+        unwrappedKeyAlgorithm: String,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
         unwrapAlgorithm: Algorithm,
         unwrappedKeyAlgorithm: RsaHashedImportParams,
         extractable: Boolean,
@@ -310,6 +646,216 @@ sealed external class SubtleCrypto {
         keyUsages: ReadonlyArray<KeyUsage>,
     ): Promise<CryptoKey>
 
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesCtrParams,
+        unwrappedKeyAlgorithm: RsaHashedImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesCbcParams,
+        unwrappedKeyAlgorithm: RsaHashedImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesGcmParams,
+        unwrappedKeyAlgorithm: RsaHashedImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: Algorithm,
+        unwrappedKeyAlgorithm: EcKeyImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: String,
+        unwrappedKeyAlgorithm: EcKeyImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: RsaOaepParams,
+        unwrappedKeyAlgorithm: EcKeyImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesCtrParams,
+        unwrappedKeyAlgorithm: EcKeyImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesCbcParams,
+        unwrappedKeyAlgorithm: EcKeyImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesGcmParams,
+        unwrappedKeyAlgorithm: EcKeyImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: Algorithm,
+        unwrappedKeyAlgorithm: HmacImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: String,
+        unwrappedKeyAlgorithm: HmacImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: RsaOaepParams,
+        unwrappedKeyAlgorithm: HmacImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesCtrParams,
+        unwrappedKeyAlgorithm: HmacImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesCbcParams,
+        unwrappedKeyAlgorithm: HmacImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesGcmParams,
+        unwrappedKeyAlgorithm: HmacImportParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: Algorithm,
+        unwrappedKeyAlgorithm: AesKeyAlgorithm,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: String,
+        unwrappedKeyAlgorithm: AesKeyAlgorithm,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: RsaOaepParams,
+        unwrappedKeyAlgorithm: AesKeyAlgorithm,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesCtrParams,
+        unwrappedKeyAlgorithm: AesKeyAlgorithm,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesCbcParams,
+        unwrappedKeyAlgorithm: AesKeyAlgorithm,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
+    fun unwrapKey(
+        format: KeyFormat,
+        wrappedKey: BufferSource,
+        unwrappingKey: CryptoKey,
+        unwrapAlgorithm: AesGcmParams,
+        unwrappedKeyAlgorithm: AesKeyAlgorithm,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
     fun verify(
         algorithm: Algorithm,
         key: CryptoKey,
@@ -326,6 +872,13 @@ sealed external class SubtleCrypto {
 
     fun verify(
         algorithm: RsaPssParams,
+        key: CryptoKey,
+        signature: BufferSource,
+        data: BufferSource,
+    ): Promise<Boolean>
+
+    fun verify(
+        algorithm: EcdsaParams,
         key: CryptoKey,
         signature: BufferSource,
         data: BufferSource,
@@ -350,5 +903,26 @@ sealed external class SubtleCrypto {
         key: CryptoKey,
         wrappingKey: CryptoKey,
         wrapAlgorithm: RsaOaepParams,
+    ): Promise<ArrayBuffer>
+
+    fun wrapKey(
+        format: KeyFormat,
+        key: CryptoKey,
+        wrappingKey: CryptoKey,
+        wrapAlgorithm: AesCtrParams,
+    ): Promise<ArrayBuffer>
+
+    fun wrapKey(
+        format: KeyFormat,
+        key: CryptoKey,
+        wrappingKey: CryptoKey,
+        wrapAlgorithm: AesCbcParams,
+    ): Promise<ArrayBuffer>
+
+    fun wrapKey(
+        format: KeyFormat,
+        key: CryptoKey,
+        wrappingKey: CryptoKey,
+        wrapAlgorithm: AesGcmParams,
     ): Promise<ArrayBuffer>
 }
