@@ -132,23 +132,21 @@ internal fun String.splitUnion(
     union: String,
     unionBody: String? = null,
 ): String {
-    val (first, second) = (unionBody ?: union).split(" | ")
+    val parts = (unionBody ?: union).split(" | ")
 
     return splitToSequence("\n")
         .flatMap { line ->
             if ("?: $union" in line) {
-                sequenceOf(
-                    line.replace("?: $union", "?: $first"),
-                    line.replace("?: $union", ": $second"),
-                )
+                parts.asSequence().mapIndexed { index, part ->
+                    line.replace("?: $union", if (index == 0) "?: $part" else ": $part")
+                }
             } else sequenceOf(line)
         }
         .flatMap { line ->
             if (": $union" in line) {
-                sequenceOf(
-                    line.replace(": $union", ": $first"),
-                    line.replace(": $union", ": $second"),
-                )
+                parts.asSequence().map { part ->
+                    line.replace(": $union", ": $part")
+                }
             } else sequenceOf(line)
         }
         .joinToString("\n")
