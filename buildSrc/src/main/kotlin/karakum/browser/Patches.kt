@@ -9,6 +9,12 @@ internal fun String.applyPatches(): String =
         .splitUnion("RequestInfo", "Request | string")
         .splitUnion("MediaStreamTrack | string")
         .splitUnion("Path2D | string")
+        .splitUnion("AlgorithmIdentifier | AesDerivedKeyParams | HmacImportParams | HkdfParams | Pbkdf2Params")
+        .splitUnion("AlgorithmIdentifier | EcdhKeyDeriveParams | HkdfParams | Pbkdf2Params")
+        .splitUnion("AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm")
+        .splitUnion("AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams")
+        .splitUnion("AlgorithmIdentifier | RsaPssParams | EcdsaParams")
+        .splitUnion("AlgorithmIdentifier", "Algorithm | string")
         .patchDomGeometry()
         .replace("\n    getContext(contextId: string, options?: any): RenderingContext | null;", "")
         .replace("quality?: any", "quality?: number")
@@ -27,6 +33,8 @@ internal fun String.applyPatches(): String =
             "arg?: boolean | ScrollIntoViewOptions",
             "options?: ScrollIntoViewOptions",
         )
+        .replace(""": "jwk"""", ": KeyFormat.jwk")
+        .replace(""": Exclude<KeyFormat, "jwk">""", ": KeyFormat")
 
 private val DOM_GEOMETRY_ALIASES = listOf(
     "DOMPointInit" to "DOMPointReadOnly",

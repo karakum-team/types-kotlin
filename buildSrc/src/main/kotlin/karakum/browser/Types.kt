@@ -1,6 +1,8 @@
 package karakum.browser
 
+import karakum.common.objectUnionBody
 import karakum.common.unionBody
+import karakum.common.unionConstant
 
 private val PKG_MAP = mapOf(
     "ColorSpaceConversion" to "canvas",
@@ -74,17 +76,16 @@ private val PKG_MAP = mapOf(
     "BinaryType" to "websockets",
 
     "AutoKeyword" to "webvtt",
+
+    "KeyFormat" to "web.crypto",
+    "KeyType" to "web.crypto",
+    "KeyUsage" to "web.crypto",
+    "NamedCurve" to "web.crypto",
 )
 
 private val EXCLUDED_TYPES = setOf(
     // buffer
     "EndingType",
-
-    // webcrypto
-    "KeyFormat",
-    "KeyType",
-    "KeyUsage",
-    "NamedCurve",
 
     // webstreams
     "ReadableStreamType",
@@ -161,6 +162,9 @@ private fun convertType(
 
             "TexImageSource" -> "webgl"
 
+            "BigInteger" -> "web.crypto"
+            "HashAlgorithmIdentifier" -> "web.crypto"
+
             else -> if (name.startsWith("Constrain")) {
                 "media.streams"
             } else return null
@@ -173,7 +177,7 @@ private fun convertType(
             name == "VibratePattern" && bodySource == "number | number[]"
             -> "ReadonlyArray<Int> /* | Int */"
 
-            " | " in bodySource
+            " | " in bodySource || bodySource == "AlgorithmIdentifier"
             -> "Any /* $bodySource */"
 
             else -> bodySource
@@ -194,9 +198,19 @@ private fun convertType(
         .map { it.removeSurrounding("\"") }
         .toList()
 
+    val body = when (name) {
+        "KeyFormat",
+        -> objectUnionBody(
+            name = name,
+            constants = values.map(::unionConstant),
+        )
+
+        else -> unionBody(name, values)
+    }
+
     return ConversionResult(
         name = name,
-        body = unionBody(name, values),
+        body = body,
         pkg = pkg
     )
 }

@@ -88,6 +88,7 @@ import web.animations.Animation
 import web.buffer.Blob
 import web.buffer.BlobPart
 import web.buffer.BlobPropertyBag
+import web.crypto.Algorithm
 import web.events.EventHandler
 import web.events.EventTarget
 import web.errors.DOMException
@@ -184,7 +185,7 @@ fun generateKotlinDeclarations(
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
 
-            if (name == RENDERING_CONTEXT_ID)
+            if (name == RENDERING_CONTEXT_ID || name == "KeyFormat")
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
             if ("inline fun " in body)

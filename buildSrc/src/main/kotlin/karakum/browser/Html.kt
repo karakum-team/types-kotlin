@@ -249,6 +249,46 @@ private val WORKERS_TYPES = listOf(
     "WorkerOptions",
 )
 
+private val WEB_CRYPTO_TYPES = listOf(
+    "Algorithm",
+    "KeyAlgorithm",
+
+    "Crypto",
+    "CryptoKey",
+    "CryptoKeyPair",
+    "SubtleCrypto",
+
+    "JsonWebKey",
+
+    "AesCbcParams",
+    "AesCtrParams",
+    "AesDerivedKeyParams",
+    "AesGcmParams",
+    "AesKeyAlgorithm",
+    "AesKeyGenParams",
+    "Algorithm",
+    "EcKeyAlgorithm",
+    "EcKeyGenParams",
+    "EcKeyImportParams",
+    "EcdhKeyDeriveParams",
+    "EcdsaParams",
+    "HkdfParams",
+    "HmacImportParams",
+    "HmacKeyAlgorithm",
+    "HmacKeyGenParams",
+    "KeyAlgorithm",
+    "Pbkdf2Params",
+    "RsaHashedImportParams",
+    "RsaHashedKeyAlgorithm",
+    "RsaKeyAlgorithm",
+    "RsaKeyGenParams",
+    "RsaOaepParams",
+    "RsaPssParams",
+
+    "RsaOtherPrimesInfo",
+    "RsaHashedKeyGenParams",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -446,6 +486,7 @@ internal fun htmlDeclarations(
         .plus(MEDIA_SOURCE_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WEB_AUDIO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WORKERS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
+        .plus(WEB_CRYPTO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .joinToString("|")
 
     val interfaces =
@@ -920,6 +961,8 @@ internal fun convertInterface(
         name.startsWith("TextDecode") -> "web.encoding"
         name == "GenericTransformStream" -> "web.encoding"
 
+        name in WEB_CRYPTO_TYPES -> "web.crypto"
+
         else -> "dom.html"
     }
 
@@ -1169,10 +1212,10 @@ private fun convertProperty(
         "boolean | MediaTrackConstraints",
         -> "MediaTrackConstraints /* | Boolean */"
 
-            "ReadableStream" -> "ReadableStream<*>"
-            "ReadableStream<string>" -> "ReadableStream<String>"
-            "WritableStream" -> "WritableStream<*>"
-            "WritableStream<string>" -> "WritableStream<String>"
+        "ReadableStream" -> "ReadableStream<*>"
+        "ReadableStream<string>" -> "ReadableStream<String>"
+        "WritableStream" -> "WritableStream<*>"
+        "WritableStream<string>" -> "WritableStream<String>"
 
         "Promise<any>" -> "Promise<*>"
         "DOMHighResTimeStamp" -> "HighResTimeStamp"
@@ -1239,6 +1282,7 @@ private fun convertFunction(
     val typeParameters = nameSource
         .removePrefix(name)
         .replace(" extends ", " : ")
+        .replace(" | null", "?")
 
     if (!typeProvider.accepted(name))
         return null
@@ -1262,6 +1306,7 @@ private fun convertFunction(
         .replace(": Promise<FontFace[]>", ": Promise<ReadonlyArray<FontFace>>")
         .replace(": Promise<MediaDeviceInfo[]>", ": Promise<ReadonlyArray<MediaDeviceInfo>>")
         .replace(": Promise<Notification[]>", ": Promise<ReadonlyArray<Notification>>")
+        .replace(": Promise<CryptoKeyPair | CryptoKey>", ": Promise<Any /* CryptoKeyPair | CryptoKey */>")
         .replace("<string[]", "<ReadonlyArray<String>")
         .replace(": StaticRange[]", ": ReadonlyArray<Any /* StaticRange */>")
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")

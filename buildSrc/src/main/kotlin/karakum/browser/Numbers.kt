@@ -153,6 +153,11 @@ private val INT_NAMES = setOf(
     // Audio
     "fftSize",
     "offset",
+
+    // Crypto
+    "tagLength",
+    "modulusLength",
+    "saltLength",
 )
 
 private val DOUBLE_NAMES = setOf(
