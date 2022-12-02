@@ -139,15 +139,29 @@ sealed external class SubtleCrypto {
     ): Promise<ArrayBuffer>
 
     fun generateKey(
-        algorithm: RsaHashedKeyGenParams | EcKeyGenParams,
-    extractable: Boolean,
-    keyUsages: ReadonlyArray<KeyUsage>,
+        algorithm: RsaHashedKeyGenParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
     ): Promise<CryptoKeyPair>
+
     fun generateKey(
-        algorithm: AesKeyGenParams | HmacKeyGenParams | Pbkdf2Params,
-    extractable: Boolean,
-    keyUsages: ReadonlyArray<KeyUsage>,
+        algorithm: EcKeyGenParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKeyPair>
+
+    fun generateKey(
+        algorithm: AesKeyGenParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
     ): Promise<CryptoKey>
+
+    fun generateKey(
+        algorithm: HmacKeyGenParams,
+        extractable: Boolean,
+        keyUsages: ReadonlyArray<KeyUsage>,
+    ): Promise<CryptoKey>
+
     fun generateKey(
         algorithm: Algorithm,
         extractable: Boolean,
