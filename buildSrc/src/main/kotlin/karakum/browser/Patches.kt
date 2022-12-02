@@ -15,6 +15,8 @@ internal fun String.applyPatches(): String =
         .splitUnion("AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams")
         .splitUnion("AlgorithmIdentifier | RsaPssParams | EcdsaParams")
         .splitUnion("AlgorithmIdentifier", "Algorithm | string")
+        .splitUnion("RsaHashedKeyGenParams | EcKeyGenParams")
+        .splitUnion("AesKeyGenParams | HmacKeyGenParams | Pbkdf2Params")
         .patchDomGeometry()
         .replace("\n    getContext(contextId: string, options?: any): RenderingContext | null;", "")
         .replace("quality?: any", "quality?: number")
