@@ -28,7 +28,7 @@ internal fun String.applyPatches(): String =
         .replace("clearWatch(watchId: number)", "clearWatch(watchId: $GEOLOCATION_WATCH_ID)")
         .replace(": PositionOptions): number;", ": PositionOptions): $GEOLOCATION_WATCH_ID;")
         .replace(
-            Regex("""forEach\(callbackfn\: \(value\: (\w+), .+?, thisArg\?\: any\)\: void\;"""),
+            Regex("""forEach\(callbackfn: \(value: (\w+), .+?, thisArg\?: any\): void;"""),
             "forEach(action: (item: $1) => void): void;"
         )
         .patchCollections()
