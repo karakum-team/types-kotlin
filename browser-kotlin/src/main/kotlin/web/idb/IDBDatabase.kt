@@ -3,6 +3,7 @@
 package web.idb
 
 import dom.DOMStringList
+import js.core.JsLong
 import js.core.ReadonlyArray
 import web.events.Event
 import web.events.EventHandler
@@ -21,7 +22,7 @@ sealed external class IDBDatabase :
     var onversionchange: EventHandler<IDBVersionChangeEvent>?
 
     /** Returns the version of the database. */
-    val version: Number
+    val version: JsLong
 
     /** Closes the connection once all running transactions have finished. */
     fun close()

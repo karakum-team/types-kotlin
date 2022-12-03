@@ -4,6 +4,7 @@ package web.idb
 
 import dom.DOMStringList
 import js.core.ReadonlyArray
+import js.core.Void
 
 sealed external class IDBObjectStore {
     /** Returns true if the store has a key generator, and false otherwise. */
@@ -40,14 +41,16 @@ sealed external class IDBObjectStore {
      *
      * If successful, request's result will be undefined.
      */
-    fun clear(): IDBRequest<undefined>
+    fun clear(): IDBRequest<Void>
 
     /**
      * Retrieves the number of records matching the given key or key range in query.
      *
      * If successful, request's result will be the count.
      */
-    fun count(query: IDBValidKey | IDBKeyRange = definedExternally): IDBRequest<number>
+    fun count(query: IDBValidKey = definedExternally): IDBRequest<Int>
+    fun count(query: IDBKeyRange): IDBRequest<Int>
+
     /**
      * Creates a new index in store with the given name, keyPath and options and returns a new IDBIndex. If the keyPath and options define constraints that cannot be satisfied with the data already in store the upgrade transaction will abort with a "ConstraintError" DOMException.
      *
@@ -63,7 +66,9 @@ sealed external class IDBObjectStore {
      *
      * If successful, request's result will be undefined.
      */
-    fun delete(query: IDBValidKey | IDBKeyRange): IDBRequest<undefined>
+    fun delete(query: IDBValidKey): IDBRequest<Void>
+    fun delete(query: IDBKeyRange): IDBRequest<Void>
+
     /**
      * Deletes the index in store with the given name.
      *
@@ -76,31 +81,46 @@ sealed external class IDBObjectStore {
      *
      * If successful, request's result will be the value, or undefined if there was no matching record.
      */
-    fun get(query: IDBValidKey | IDBKeyRange): IDBRequest<any>
+    fun get(query: IDBValidKey): IDBRequest<*>
+    fun get(query: IDBKeyRange): IDBRequest<*>
+
     /**
      * Retrieves the values of the records matching the given key or key range in query (up to count if given).
      *
      * If successful, request's result will be an Array of the values.
      */
     fun getAll(
-        query: IDBValidKey | IDBKeyRange? = definedExternally,
-    count: Number = definedExternally,
-    ): IDBRequest<any[]>
+        query: IDBValidKey? = definedExternally,
+        count: Number = definedExternally,
+    ): IDBRequest<ReadonlyArray<*>>
+
+    fun getAll(
+        query: IDBKeyRange?,
+        count: Number = definedExternally,
+    ): IDBRequest<ReadonlyArray<*>>
+
     /**
      * Retrieves the keys of records matching the given key or key range in query (up to count if given).
      *
      * If successful, request's result will be an Array of the keys.
      */
     fun getAllKeys(
-        query: IDBValidKey | IDBKeyRange? = definedExternally,
-    count: Number = definedExternally,
-    ): IDBRequest<IDBValidKey[]>
+        query: IDBValidKey? = definedExternally,
+        count: Number = definedExternally,
+    ): IDBRequest<ReadonlyArray<IDBValidKey>>
+
+    fun getAllKeys(
+        query: IDBKeyRange?,
+        count: Number = definedExternally,
+    ): IDBRequest<ReadonlyArray<IDBValidKey>>
+
     /**
      * Retrieves the key of the first record matching the given key or key range in query.
      *
      * If successful, request's result will be the key, or undefined if there was no matching record.
      */
-    fun getKey(query: IDBValidKey | IDBKeyRange): IDBRequest<IDBValidKey?>
+    fun getKey(query: IDBValidKey): IDBRequest<IDBValidKey?>
+    fun getKey(query: IDBKeyRange): IDBRequest<IDBValidKey?>
     fun index(name: String): IDBIndex
 
     /**
@@ -109,18 +129,30 @@ sealed external class IDBObjectStore {
      * If successful, request's result will be an IDBCursorWithValue pointing at the first matching record, or null if there were no matching records.
      */
     fun openCursor(
-        query: IDBValidKey | IDBKeyRange? = definedExternally,
-    direction: IDBCursorDirection = definedExternally,
+        query: IDBValidKey? = definedExternally,
+        direction: IDBCursorDirection = definedExternally,
     ): IDBRequest<IDBCursorWithValue?>
+
+    fun openCursor(
+        query: IDBKeyRange?,
+        direction: IDBCursorDirection = definedExternally,
+    ): IDBRequest<IDBCursorWithValue?>
+
     /**
      * Opens a cursor with key only flag set over the records matching query, ordered by direction. If query is null, all records in store are matched.
      *
      * If successful, request's result will be an IDBCursor pointing at the first matching record, or null if there were no matching records.
      */
     fun openKeyCursor(
-        query: IDBValidKey | IDBKeyRange? = definedExternally,
-    direction: IDBCursorDirection = definedExternally,
+        query: IDBValidKey? = definedExternally,
+        direction: IDBCursorDirection = definedExternally,
     ): IDBRequest<IDBCursor?>
+
+    fun openKeyCursor(
+        query: IDBKeyRange?,
+        direction: IDBCursorDirection = definedExternally,
+    ): IDBRequest<IDBCursor?>
+
     /**
      * Adds or updates a record in store with the given value and key.
      *

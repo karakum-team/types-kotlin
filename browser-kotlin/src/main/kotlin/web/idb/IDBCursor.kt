@@ -2,6 +2,8 @@
 
 package web.idb
 
+import js.core.Void
+
 sealed external class IDBCursor {
     /** Returns the direction ("next", "nextunique", "prev" or "prevunique") of the cursor. */
     val direction: IDBCursorDirection
@@ -11,10 +13,10 @@ sealed external class IDBCursor {
 
     /** Returns the effective key of the cursor. Throws a "InvalidStateError" DOMException if the cursor is advancing or is finished. */
     val primaryKey: IDBValidKey
-    val request: IDBRequest
+    val request: IDBRequest<*>
 
     /** Returns the IDBObjectStore or IDBIndex the cursor was opened from. */
-    val source: IDBObjectStore | IDBIndex
+    val source: Any /* IDBObjectStore | IDBIndex */
 
     /** Advances the cursor through the next count records in range. */
     fun advance(count: Number)
@@ -33,7 +35,7 @@ sealed external class IDBCursor {
      *
      * If successful, request's result will be undefined.
      */
-    fun delete(): IDBRequest<undefined>
+    fun delete(): IDBRequest<Void>
 
     /**
      * Updated the record pointed at by the cursor with a new value.
