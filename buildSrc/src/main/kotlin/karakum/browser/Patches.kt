@@ -4,6 +4,7 @@ internal fun String.applyPatches(): String =
     patchVideoFrameCallback()
         .patchQuerySelectors()
         .splitUnion("string | string[]")
+        .splitUnion("string | number[]")
         .splitUnion("number[] | Float32Array")
         .splitUnion("string | WorkerOptions")
         .splitUnion("string | ElementCreationOptions")

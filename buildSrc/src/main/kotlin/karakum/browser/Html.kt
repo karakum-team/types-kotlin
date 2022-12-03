@@ -1455,9 +1455,6 @@ private fun getParameterType(
         return "EventTarget /* $source */"
 
     return when {
-        source == "string | number[]"
-        -> "ReadonlyArray<Double> /* | String */"
-
         source == "number | DOMPointInit | (number | DOMPointInit)[]"
         -> "Any /* $source */"
 
