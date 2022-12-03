@@ -1455,31 +1455,14 @@ private fun getParameterType(
         return "EventTarget /* $source */"
 
     return when {
-        // TEMP: resolve as unions
-        source == "string | string[]"
-        -> "Any /* $source */"
-
         source == "string | number[]"
         -> "ReadonlyArray<Double> /* | String */"
-
-        source == "number[] | Float32Array"
-        -> "ReadonlyArray<Double> /* | Float32Array */"
-
-        source == "number | bigint"
-        -> "Number /* | BigInt */"
-
-        source == "string | WorkerOptions"
-        -> "WorkerOptions /* | String */"
 
         source == "number | DOMPointInit | (number | DOMPointInit)[]"
         -> "Any /* $source */"
 
         source == "File | string | FormData"
         -> "Any /* File | String | FormData */"
-
-        source == "Date | number | bigint" ||
-                source == "Date | number"
-        -> "Any /* $source */"
 
         source == "DateTimeFormatPartTypes"
         -> "String /* $source */"
@@ -1500,26 +1483,14 @@ private fun getParameterType(
         source == "string"
         -> "String"
 
+        source == "bigint"
+        -> "BigInt"
+
         source == "number"
         -> if (name == "index") "Int" else "Number"
 
         source == "boolean"
         -> "Boolean"
-
-        source == "string | ElementCreationOptions"
-        -> "ElementCreationOptions /* | String */"
-
-        source == "HTMLOptionElement | HTMLOptGroupElement"
-        -> "HTMLElement /* HTMLOptionElement | HTMLOptGroupElement */"
-
-        source == "HTMLElement | number"
-        -> "Any? /* HTMLElement | number */"
-
-        source == "string | BinaryData"
-        -> "String /* | BinaryData */"
-
-        source == "Document | XMLHttpRequestBodyInit"
-        -> "XMLHttpRequestBodyInit /* Document */"
 
         source.endsWith("[]") -> {
             var atype = source.removeSuffix("[]")

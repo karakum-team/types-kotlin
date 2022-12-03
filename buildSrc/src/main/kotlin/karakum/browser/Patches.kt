@@ -3,6 +3,15 @@ package karakum.browser
 internal fun String.applyPatches(): String =
     patchVideoFrameCallback()
         .patchQuerySelectors()
+        .splitUnion("string | string[]")
+        .splitUnion("number[] | Float32Array")
+        .splitUnion("string | WorkerOptions")
+        .splitUnion("string | ElementCreationOptions")
+        .splitUnion("HTMLOptionElement | HTMLOptGroupElement")
+        .splitUnion("HTMLElement | number")
+        // TODO: inline instead
+        .splitUnion("string | BinaryData", "string | ArrayBuffer | ArrayBufferView")
+        .splitUnion("Document | XMLHttpRequestBodyInit")
         .splitUnion("string | URL")
         .splitUnion("string | Blob")
         .splitUnion("RequestInfo | URL")

@@ -10,6 +10,7 @@ private val DEFAULT_IMPORTS = """
 import kotlin.js.Date
 import kotlin.js.Promise
 import js.core.ArrayLike
+import js.core.BigInt
 import js.core.JsIterable
 import js.core.EpochTimeStamp
 import js.buffer.ArrayBuffer

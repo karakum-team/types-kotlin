@@ -42,4 +42,4 @@ private fun webWorkersContent(
     definitionsDir.resolve("lib.webworker.d.ts")
         .readText()
         .replace(", WindowOrWorkerGlobalScope", "")
-// .splitUnion("string | string[]")
+        .splitUnion("string | string[]")
