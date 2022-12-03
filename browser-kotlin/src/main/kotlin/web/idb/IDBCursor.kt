@@ -22,7 +22,7 @@ sealed external class IDBCursor {
     fun advance(count: Number)
 
     /** Advances the cursor to the next record in range. */
-    fun continue(key: IDBValidKey = definedExternally)
+    fun `continue`(key: IDBValidKey = definedExternally)
 
     /** Advances the cursor to the next record in range matching or after key and primaryKey. Throws an "InvalidAccessError" DOMException if the source is not an index. */
     fun continuePrimaryKey(

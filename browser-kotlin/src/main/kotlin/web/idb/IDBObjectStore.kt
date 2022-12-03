@@ -58,9 +58,10 @@ sealed external class IDBObjectStore {
      */
     fun createIndex(
         name: String,
-        keyPath: ReadonlyArray<string | string>,
-    options: IDBIndexParameters = definedExternally,
+        keyPath: Any, /* string | string[] */
+        options: IDBIndexParameters = definedExternally,
     ): IDBIndex
+
     /**
      * Deletes records in store with the given key or in the given key range in query.
      *

@@ -2,6 +2,7 @@
 
 package web.idb
 
+import js.core.ReadonlyArray
 import kotlin.js.Promise
 
 sealed external class IDBFactory {
@@ -15,7 +16,8 @@ sealed external class IDBFactory {
         second: Any?,
     ): Number
 
-    fun databases(): Promise<IDBDatabaseInfo[]>
+    fun databases(): Promise<ReadonlyArray<IDBDatabaseInfo>>
+
     /** Attempts to delete the named database. If the database already exists and there are open connections that don't close in response to a versionchange event, the request will be blocked until all they close. If the request is successful request's result will be null. */
     fun deleteDatabase(name: String): IDBOpenDBRequest
 
