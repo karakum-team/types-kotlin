@@ -115,16 +115,16 @@ private fun String.splitUnionSafety(
     union: String,
     unionBody: String,
 ): String {
-    val (first, second) = unionBody.split(" | ")
+    val parts = unionBody.split(" | ")
 
     return splitToSequence("\n")
         .flatMap { line ->
-            if (": $union" in line && "(" in line && line.indexOf(":") > line.indexOf("(")) {
-                sequenceOf(
-                    line.replace("?: $union", "?: $first"),
-                    line.replace("?: $union", ": $second"),
-                )
-            } else sequenceOf(line)
+            splitUnionLine(
+                line = line,
+                union = union,
+                parts = parts,
+                optional = true,
+            )
         }
         .joinToString("\n")
 }
@@ -137,18 +137,41 @@ internal fun String.splitUnion(
 
     return splitToSequence("\n")
         .flatMap { line ->
-            if ("?: $union" in line) {
-                parts.asSequence().mapIndexed { index, part ->
-                    line.replace("?: $union", if (index == 0) "?: $part" else ": $part")
-                }
-            } else sequenceOf(line)
+            splitUnionLine(
+                line = line,
+                union = union,
+                parts = parts,
+                optional = true,
+            )
         }
         .flatMap { line ->
-            if (": $union" in line) {
-                parts.asSequence().map { part ->
-                    line.replace(": $union", ": $part")
-                }
-            } else sequenceOf(line)
+            splitUnionLine(
+                line = line,
+                union = union,
+                parts = parts,
+                optional = false,
+            )
         }
         .joinToString("\n")
+}
+
+private fun splitUnionLine(
+    line: String,
+    union: String,
+    parts: List<String>,
+    optional: Boolean,
+): Sequence<String> {
+    if ("(" !in line || (line.indexOf(":") < line.indexOf("(")))
+        return sequenceOf(line)
+
+    val optionality = if (optional) "?" else ""
+    val declaration = "$optionality: $union"
+
+    if (declaration !in line)
+        return sequenceOf(line)
+
+    return parts.asSequence()
+        .mapIndexed { index, part ->
+            line.replace(declaration, if (index == 0) "$optionality: $part" else ": $part")
+        }
 }
