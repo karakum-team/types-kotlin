@@ -24,6 +24,7 @@ private val LONG_NAMES = setOf(
     "quota",
     "usage",
 
+    "version",
     "newVersion",
     "oldVersion",
 

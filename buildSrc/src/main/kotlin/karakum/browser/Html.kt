@@ -634,6 +634,7 @@ internal fun convertInterface(
     var declaration = source.substringBefore(" {\n")
         .replace(", AnimationFrameProvider", "")
         .replace(", WindowLocalStorage, WindowOrWorkerGlobalScope, WindowSessionStorage", "")
+        .replace(" = any>", ">")
         .replace("interface ", "$type ")
 
     declaration = when (name) {
@@ -1170,6 +1171,14 @@ private fun convertProperty(
         "string | string[]",
         -> "Any /* $type */"
 
+        "IDBObjectStore | IDBIndex",
+        "IDBObjectStore | IDBIndex | IDBCursor",
+        -> "Any /* $type */"
+
+        "IDBRequest",
+        "IDBRequest<any>",
+        -> "IDBRequest<*>"
+
         "1 | 2 | 3",
         -> "Int /* $type */"
 
@@ -1320,6 +1329,12 @@ private fun convertFunction(
             """: { type: "element" | "literal", value: string; }[]""",
             ": ReadonlyArray<dynamic /* { type; value; } */>",
         )
+        .replace(": IDBRequest<undefined>", ": IDBRequest<Void>")
+        .replace(": IDBRequest<any>", ": IDBRequest<*>")
+        .replace(": IDBRequest<number>", ": IDBRequest<Int>")
+        .replace(": IDBRequest<string>", ": IDBRequest<String>")
+        .replace(": IDBRequest<IDBValidKey[]>", ": IDBRequest<ReadonlyArray<IDBValidKey>>")
+        .replace(": IDBRequest<any[]>", ": IDBRequest<ReadonlyArray<*>>")
         .replace(": number", ": Number")
         .replace(": string", ": String")
         .replace("<string>", "<String>")
