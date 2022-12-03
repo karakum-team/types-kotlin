@@ -472,6 +472,8 @@ internal fun htmlDeclarations(
         "TextEncode.+?",
         "TextDecode.+?",
         "GenericTransformStream",
+
+        "IDB.+?",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(DOM_CSS_TYPES)
@@ -962,6 +964,8 @@ internal fun convertInterface(
         name == "GenericTransformStream" -> "web.encoding"
 
         name in WEB_CRYPTO_TYPES -> "web.crypto"
+
+        name.startsWith("IDB") -> "web.idb"
 
         else -> "dom.html"
     }
