@@ -69,7 +69,7 @@ private fun String.patchCollections(): String {
         "HTMLCollectionBase" to "Element",
         "HTMLCollection" to "Element",
     ).forEach { (type, bound) ->
-        val body = Regex("""interface $type [\s\S]+?\}""")
+        val body = Regex("""interface $type [\s\S]+?}""")
             .find(this)!!
             .value
 
