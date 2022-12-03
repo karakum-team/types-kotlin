@@ -1319,6 +1319,8 @@ private fun convertFunction(
         .replace(": Promise<FontFace[]>", ": Promise<ReadonlyArray<FontFace>>")
         .replace(": Promise<MediaDeviceInfo[]>", ": Promise<ReadonlyArray<MediaDeviceInfo>>")
         .replace(": Promise<Notification[]>", ": Promise<ReadonlyArray<Notification>>")
+        .replace(": Promise<IDBDatabaseInfo[]>", ": Promise<ReadonlyArray<IDBDatabaseInfo>>")
+        .replace(": Promise<CryptoKeyPair | CryptoKey>", ": Promise<Any /* CryptoKeyPair | CryptoKey */>")
         .replace(": Promise<CryptoKeyPair | CryptoKey>", ": Promise<Any /* CryptoKeyPair | CryptoKey */>")
         .replace("<string[]", "<ReadonlyArray<String>")
         .replace(": StaticRange[]", ": ReadonlyArray<Any /* StaticRange */>")
@@ -1345,7 +1347,12 @@ private fun convertFunction(
         .replace(" | null", "?")
         .replace(" | undefined", "?")
 
-    return "fun $typeParameters$name($parameters)$result"
+    val safeName = when (name) {
+        "continue" -> "`$name`"
+        else -> name
+    }
+
+    return "fun $typeParameters$safeName($parameters)$result"
 }
 
 private fun convertFunctionParameters(
@@ -1448,6 +1455,10 @@ private fun getParameterType(
         return "EventTarget /* $source */"
 
     return when {
+        // TEMP: resolve as unions
+        source == "string | string[]"
+        -> "Any /* $source */"
+
         source == "string | number[]"
         -> "ReadonlyArray<Double> /* | String */"
 
