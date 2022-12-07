@@ -17,10 +17,11 @@ internal fun convertDefinitions(
     definitionFile: File,
 ): Sequence<ConversionResult> =
     definitionFile.readText()
-        .substringBefore("\n\nexport {")
+        .substringAfter(";")
         .replace("export declare ", "declare ")
         .replace("export interface ", "declare interface ")
         .replace("\ninterface ", "\ndeclare interface ")
+        .replace("\ntype ", "\ndeclare type ")
         .splitToSequence("\ndeclare ")
         .drop(1)
         .map { it.removeSuffix(";") }
