@@ -58,9 +58,12 @@ private fun convertConst(
     val name = source.substringBefore(":")
     val type = if (": {" in source) "object" else "val"
 
-    val body = source.replace(": {", " {")
+    var body = source.replace(": {", " {")
         .replace("\n    ", "\n    val ")
         .replace("Virtualizer<any, any>", "Virtualizer<*, *>")
+        .replace("Virtualizer<T, any>", "Virtualizer<*, *>")
+        .replace("Virtualizer<any, TItemElement>", "Virtualizer<*, Element>")
+        .replace(": TItemElement", ": Element")
         .replace("number[]", "ReadonlyArray<Int>")
         .replace("<any>", "<*>")
         .replace("number", "Int")
@@ -69,6 +72,9 @@ private fun convertConst(
         .replace(" => void", " -> Unit")
         .replace(" => ", " -> ")
         .replace(" | undefined", "?")
+
+    if (">(" in body)
+        body = body.substringBefore("<") + body.substringAfter(">")
 
     val content = "external $type $body"
     return ConversionResult(name, content)
