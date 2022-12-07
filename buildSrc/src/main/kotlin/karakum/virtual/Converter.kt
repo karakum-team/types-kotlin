@@ -34,8 +34,8 @@ internal fun convertDefinitions(
                 .replace("\n", "\n    "),
             ITEM_RANGE,
         )
-        .replace("{ align, behavior }?", "options") // TODO: optional?
-        .replace("{ align, ...rest }?", "options") // TODO: optional?
+        .replace("{ align, behavior }?: ScrollToOffsetOptions", "options: ScrollToOffsetOptions?")
+        .replace("{ align, ...rest }?: ScrollToIndexOptions", "options: ScrollToIndexOptions?")
         .splitToSequence("\ndeclare ")
         .drop(1)
         .map { it.removeSuffix(";") }
