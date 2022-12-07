@@ -22,10 +22,12 @@ internal fun convertDefinitions(
         .replace("export interface ", "declare interface ")
         .replace("\ninterface ", "\ndeclare interface ")
         .replace("\ntype ", "\ndeclare type ")
+        .replace("{ adjustments, behavior, sync, }: $SCROLL_OPTIONS_BODY", "options: $SCROLL_OPTIONS")
         .splitToSequence("\ndeclare ")
         .drop(1)
         .map { it.removeSuffix(";") }
         .map { convertDefinition(it) }
+        .plus(convertInterface("$SCROLL_OPTIONS $SCROLL_OPTIONS_BODY"))
         .filter { it.name !in EXCLUDED }
 
 private fun convertDefinition(
