@@ -22,8 +22,8 @@ external class Virtualizer<TScrollElement : Any /* Element | Window */, TItemEle
     var indexFromElement: (node: TItemElement) -> Int
     var measureElement: (node: TItemElement?) -> Unit
     var getVirtualItems: () -> ReadonlyArray<VirtualItem>
-    var scrollToOffset: (toOffset: Int, options: ScrollToOffsetOptions) -> Unit
-    var scrollToIndex: (index: Int, options: ScrollToIndexOptions) -> Unit
+    var scrollToOffset: (toOffset: Int, options: ScrollToOffsetOptions?) -> Unit
+    var scrollToIndex: (index: Int, options: ScrollToIndexOptions?) -> Unit
     var getTotalSize: () -> Int
     var measure: () -> Unit
 }
