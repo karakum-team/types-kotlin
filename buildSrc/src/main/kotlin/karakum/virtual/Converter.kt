@@ -29,11 +29,19 @@ internal fun convertDefinitions(
                 .replace(" | undefined", ""),
             SCROLL_OPTIONS,
         )
+        .replace(
+            ITEM_RANGE_BODY
+                .replace("\n", "\n    "),
+            ITEM_RANGE,
+        )
+        .replace("{ align, behavior }?", "options") // TODO: optional?
+        .replace("{ align, ...rest }?", "options") // TODO: optional?
         .splitToSequence("\ndeclare ")
         .drop(1)
         .map { it.removeSuffix(";") }
         .map { convertDefinition(it) }
         .plus(convertInterface("$SCROLL_OPTIONS $SCROLL_OPTIONS_BODY"))
+        .plus(convertInterface("$ITEM_RANGE $ITEM_RANGE_BODY"))
         .filter { it.name !in EXCLUDED }
 
 private fun convertDefinition(

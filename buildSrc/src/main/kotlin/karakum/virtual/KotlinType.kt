@@ -23,6 +23,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "null" to "Nothing?",
 
     "string[]" to "ReadonlyArray<String>",
+    "VirtualItem[]" to "ReadonlyArray<VirtualItem>",
     "[string, number][]" to "ReadonlyArray<JsTuple2<String, Int>>",
 
     "Record<string, boolean>" to "Record<String, Boolean>",
@@ -31,6 +32,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => boolean" to "() -> Boolean",
     "() => number" to "() -> Int",
     "() => number[]" to "() -> ReadonlyArray<Int>",
+    "() => VirtualItem[]" to "() -> ReadonlyArray<VirtualItem>",
 )
 
 internal fun kotlinType(
