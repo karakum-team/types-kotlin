@@ -23,6 +23,12 @@ internal fun convertDefinitions(
         .replace("\ninterface ", "\ndeclare interface ")
         .replace("\ntype ", "\ndeclare type ")
         .replace("{ adjustments, behavior, sync, }: $SCROLL_OPTIONS_BODY", "options: $SCROLL_OPTIONS")
+        .replace(
+            SCROLL_OPTIONS_BODY
+                .replace("\n", "\n    ")
+                .replace(" | undefined", ""),
+            SCROLL_OPTIONS,
+        )
         .splitToSequence("\ndeclare ")
         .drop(1)
         .map { it.removeSuffix(";") }
@@ -155,6 +161,7 @@ private fun convertInterface(
 ): ConversionResult {
     val declaration = source.substringBefore(" {")
         .replace(" extends ", " : ")
+        .replace(" : Element | Window", " : Any /* Element | Window */")
         .replace(" = unknown", "")
     val name = declaration.substringBefore("<")
 
