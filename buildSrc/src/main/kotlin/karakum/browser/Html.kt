@@ -313,6 +313,10 @@ internal fun htmlDeclarations(
         "ShadowRootInit",
         "WindowEventHandlers",
 
+        "CustomElementRegistry",
+        "CustomElementConstructor",
+        "ElementDefinitionOptions",
+
         "ARIAMixin",
 
         "ElementContentEditable",
@@ -680,6 +684,13 @@ internal fun convertInterface(
         declaration += " : Record<String, String>"
         memberSource = ""
     }
+
+    if (memberSource == "new (...params: any[]): HTMLElement")
+        return ConversionResult(
+            name = name,
+            body = "typealias $name = JsClass<HTMLElement>",
+            pkg = "dom.html",
+        )
 
     val arrayType = if ("readonly length: number;" in memberSource) {
         val result = Regex("""\[index\: number\]\: (\w+)""")
