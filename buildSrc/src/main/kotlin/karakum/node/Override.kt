@@ -33,6 +33,12 @@ internal fun addOverrides(
 ): String {
     var result = body
 
+    if (name == "Buffer") {
+        result = result
+            .replace("fun  reverse()", "override fun  reverse()")
+            .replace(" /* : this */", ": $name")
+    }
+
     if (name != "IEventEmitter"
         && "EventEmitter" in declaration
         || name == "Readable"
