@@ -127,6 +127,8 @@ fun generateKotlinDeclarations(
     definitionsDir: File,
     sourceDir: File,
 ) {
+    IterableRegistry.fill(definitionsDir)
+
     val definitionsFile = definitionsDir
         .resolve("lib.dom.d.ts")
 
