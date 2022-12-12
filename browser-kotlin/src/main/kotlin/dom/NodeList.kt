@@ -7,7 +7,7 @@ import js.core.JsIterable
 
 sealed external class NodeList<T : Node> :
     ArrayLike<T>,
-    JsIterable<Node> {
+    JsIterable<T> {
     /** Returns the node with index index from the collection. The nodes are sorted in tree order. */
     fun item(index: Int): T?
 

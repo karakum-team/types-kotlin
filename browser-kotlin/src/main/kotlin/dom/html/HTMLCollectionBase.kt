@@ -8,7 +8,7 @@ import js.core.JsIterable
 
 sealed external interface HTMLCollectionBase<T : Element> :
     ArrayLike<T>,
-    JsIterable<Element> {
+    JsIterable<T> {
     /** Retrieves an object from various collections. */
     fun item(index: Int): T?
 }
