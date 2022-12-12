@@ -10,7 +10,7 @@ object IterableRegistry {
     fun fill(
         definitionsDir: File,
     ) {
-        val map = definitionsDir
+        map = definitionsDir
             .listFiles { file -> file.name.endsWith(".d.ts") }!!
             .asSequence()
             .map { it.readText() }
@@ -18,5 +18,15 @@ object IterableRegistry {
             .flatMap { ITERATOR_REGEX.findAll(it) }
             .map { it.groupValues }
             .associate { it[1] to it[2] }
+    }
+
+    fun typeParameter(type: String): String? {
+        val result = map[type]
+            ?: return null
+
+        return when(result) {
+            "string" -> "String"
+            else -> result
+        }
     }
 }

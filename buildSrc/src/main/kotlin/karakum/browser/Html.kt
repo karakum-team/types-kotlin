@@ -709,6 +709,12 @@ internal fun convertInterface(
         declaration += "\nArrayLike<$arrayType>"
     }
 
+    val iterableTypeParameter = IterableRegistry.typeParameter(name)
+    if (iterableTypeParameter != null) {
+        declaration += if (":" in declaration) "," else ":"
+        declaration += "\nJsIterable<$iterableTypeParameter>"
+    }
+
     val typeProvider = TypeProvider(name, arrayType)
 
     val mainConstructor: String
