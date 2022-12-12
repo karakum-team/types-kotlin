@@ -711,8 +711,10 @@ internal fun convertInterface(
 
     val iterableTypeParameter = IterableRegistry.typeParameter(name)
     if (iterableTypeParameter != null) {
+        val typeParameter = arrayType ?: iterableTypeParameter
+
         declaration += if (":" in declaration) "," else ":"
-        declaration += "\nJsIterable<$iterableTypeParameter>"
+        declaration += "\nJsIterable<$typeParameter>"
     }
 
     val typeProvider = TypeProvider(name, arrayType)
