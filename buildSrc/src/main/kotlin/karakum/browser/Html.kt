@@ -1085,6 +1085,16 @@ internal fun convertMember(
         return comment + "\n" + member
     }
 
+    when (source) {
+        "createElement<K extends keyof HTMLElementTagNameMap>(tagName: K, options?: ElementCreationOptions): HTMLElementTagNameMap[K]"
+        -> return """
+        fun <T: HTMLElement> createElement(
+            tagName: HtmlTagName<T>,
+            options: ElementCreationOptions = definedExternally,
+        ): T    
+        """.trimIndent()
+    }
+
     when {
         // TODO: fix later
         source.startsWith("closest<") -> return null
