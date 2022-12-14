@@ -282,6 +282,7 @@ fun generateKotlinDeclarations(
             "XMLHttpRequestEventTarget",
             "RTCDataChannel",
             "ServiceWorkerContainer",
+            "BroadcastChannel",
             -> """
             import web.events.Event
             import web.events.ProgressEvent

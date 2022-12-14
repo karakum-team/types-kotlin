@@ -420,6 +420,8 @@ internal fun htmlDeclarations(
 
         "XMLHttp.+?",
 
+        "BroadcastChannel .+?",
+
         "Storage",
         "StorageEstimate",
         "StorageManager",
@@ -986,6 +988,8 @@ internal fun convertInterface(
         name in WEB_CRYPTO_TYPES -> "web.crypto"
 
         name.startsWith("IDB") -> "web.idb"
+
+        name == "BroadcastChannel" -> "web.broadcast"
 
         else -> "dom.html"
     }
