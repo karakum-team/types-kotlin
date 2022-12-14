@@ -6,6 +6,7 @@ private val PKG_MAP = mapOf(
 
     "customElements" to "dom.html",
 
+    "caches" to "web.cache",
     "devicePixelRatio" to "web.device",
     "history" to "web.history",
     "location" to "web.location",

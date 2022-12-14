@@ -289,6 +289,14 @@ private val WEB_CRYPTO_TYPES = listOf(
     "RsaHashedKeyGenParams",
 )
 
+private val QUERY_TYPES = listOf(
+    "Cache",
+    "CacheStorage",
+
+    "CacheQueryOptions",
+    "MultiCacheQueryOptions",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -495,6 +503,7 @@ internal fun htmlDeclarations(
         .plus(WEB_AUDIO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WORKERS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WEB_CRYPTO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
+        .plus(QUERY_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .joinToString("|")
 
     val interfaces =
@@ -990,6 +999,8 @@ internal fun convertInterface(
         name.startsWith("IDB") -> "web.idb"
 
         name == "BroadcastChannel" -> "web.broadcast"
+
+        name in QUERY_TYPES -> "web.cache"
 
         else -> "dom.html"
     }

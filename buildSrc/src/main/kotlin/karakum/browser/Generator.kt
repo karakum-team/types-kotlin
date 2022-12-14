@@ -100,7 +100,9 @@ import web.filesystem.FileSystemEntry
 import web.http.BodyInit
 import web.http.FormData
 import web.http.ReferrerPolicy
+import web.http.Request
 import web.http.RequestCredentials
+import web.http.Response
 import web.locks.LockManager
 import web.messaging.MessagePort
 import web.messaging.Transferable
