@@ -1086,13 +1086,22 @@ internal fun convertMember(
     }
 
     when (source) {
-        "createElement<K extends keyof HTMLElementTagNameMap>(tagName: K, options?: ElementCreationOptions): HTMLElementTagNameMap[K]"
+        "createElement<K extends keyof HTMLElementTagNameMap>(tagName: K, options?: ElementCreationOptions): HTMLElementTagNameMap[K]",
         -> return """
         fun <T: HTMLElement> createElement(
             tagName: HtmlTagName<T>,
             options: ElementCreationOptions = definedExternally,
         ): T    
         """.trimIndent()
+
+        "closest<K extends keyof HTMLElementTagNameMap>(selector: K): HTMLElementTagNameMap[K] | null",
+        -> return "fun <T: HTMLElement> closest(selector: HtmlTagName<T>): T?"
+
+        "closest<K extends keyof SVGElementTagNameMap>(selector: K): SVGElementTagNameMap[K] | null",
+        -> return "fun <T: SVGElement> closest(selector: SvgTagName<T>): T?"
+
+        "closest<E extends Element = Element>(selectors: string): E | null",
+        -> return "fun closest(selector: String): Element?"
     }
 
     when {
