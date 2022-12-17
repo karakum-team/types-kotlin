@@ -35,6 +35,7 @@ import dom.DocumentFragment
 import dom.DOMStringList
 import dom.DOMTokenList
 import dom.DocumentOrShadowRoot
+import dom.DocumentVisibilityState
 import dom.Element
 import dom.HTMLOrSVGElement
 import dom.InnerHTML

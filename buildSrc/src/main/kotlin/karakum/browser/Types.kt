@@ -37,6 +37,7 @@ private val PKG_MAP = mapOf(
     "ReadyState" to "media.source",
 
     "RemotePlaybackState" to "remoteplayback",
+    "ClientTypes" to "serviceworkers",
 
     "AttestationConveyancePreference" to "web.authentication",
     "AuthenticatorAttachment" to "web.authentication",
@@ -94,8 +95,6 @@ private val EXCLUDED_TYPES = setOf(
     // deprecated?
     "NavigationTimingType",
 
-    // not used?
-    "ClientTypes",
     "DisplayCaptureSurfaceType",
     "VideoFacingModeEnum",
 )

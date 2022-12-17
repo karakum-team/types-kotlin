@@ -9,6 +9,13 @@ private val WORKER_TYPES = listOf(
     "WorkerNavigator",
 )
 
+private val SERVICE_WORKER_TYPES = listOf(
+    "Client",
+    "Clients",
+    "ClientQueryOptions",
+    "WindowClient",
+)
+
 internal fun webWorkersDeclarations(
     definitionsDir: File,
 ): Sequence<ConversionResult> {
@@ -18,18 +25,21 @@ internal fun webWorkersDeclarations(
         .findAll(content)
         .asSequence()
         .map { it.value }
-        .filter {
+        .mapNotNull {
             val name = it
                 .substringAfter(" ")
                 .substringBefore(" ")
 
-            name in WORKER_TYPES
-        }
-        .mapNotNull {
+            val predefinedPkg = when (name) {
+                in WORKER_TYPES -> "web.workers"
+                in SERVICE_WORKER_TYPES -> "serviceworkers"
+                else -> return@mapNotNull null
+            }
+
             convertInterface(
                 source = it,
                 getStaticSource = { getStaticSource(it, content) },
-                predefinedPkg = "web.workers",
+                predefinedPkg = predefinedPkg,
             )
         }
 
@@ -42,4 +52,9 @@ private fun webWorkersContent(
     definitionsDir.resolve("lib.webworker.d.ts")
         .readText()
         .replace(", WindowOrWorkerGlobalScope", "")
+        .replace(
+            """ReadonlyArray<T["type"] extends "window" ? WindowClient : Client>""",
+            "ReadonlyArray<Client /* | WindowClient */>"
+        )
         .splitUnion("string | string[]")
+        .splitUnion("string | URL")
