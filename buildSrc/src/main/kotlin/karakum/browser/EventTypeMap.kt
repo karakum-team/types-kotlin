@@ -68,7 +68,7 @@ internal val WORKER_EVENT_DATA = listOf(
     EventInfo("serviceworkers.NotificationEvent"),
 )
 
-internal val EVENT_INFO_MAP = EVENT_DATA
+internal val EVENT_INFO_MAP = (EVENT_DATA + WORKER_EVENT_DATA)
     .associate { it.name to it }
 
 internal val EVENT_CORRECTION_MAP = mapOf(
@@ -205,4 +205,8 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     // OffscreenCanvas
     "contextlost" to "context_lost",
     "contextrestored" to "context_restored",
+
+    // Notifications
+    "notificationclick" to "notification_click",
+    "notificationclose" to "notification_close",
 )

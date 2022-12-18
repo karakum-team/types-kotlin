@@ -53,6 +53,9 @@ private val PACKAGE_MAP = mapOf(
     "Window" to "dom.events",
     "WindowEventHandlers" to "dom.events",
     "XMLHttpRequest" to "web.xhr",
+
+    "ServiceWorkerGlobalScope" to "serviceworkers",
+    "WorkerGlobalScope" to "web.workers",
 )
 
 private data class EventData(
@@ -78,12 +81,16 @@ private val EXCLUDED = setOf(
     "AudioProcessingEvent",
     "MediaRecorderErrorEvent",
     "SecurityPolicyViolationEvent",
+
+    // TODO: check
+    "PushEvent",
 )
 
 internal fun eventDeclarations(
     content: String,
+    webworkerContent: String,
 ): List<ConversionResult> =
-    eventTypes(content)
+    eventTypes(content + "\n\n" + webworkerContent)
         .plus(eventPlaceholders(content, EVENT_DATA))
 
 internal fun workerEventDeclarations(
@@ -232,6 +239,7 @@ private fun eventTypes(
         .findAll(content)
         .flatMap { parseEvents(it.value) }
         .filter { it.name != "orientationchange" }
+        .filter { it.name != "pushsubscriptionchange" }
         .plus(ADDITIONAL_EVENTS)
         .distinct()
         .groupBy { it.typeName }

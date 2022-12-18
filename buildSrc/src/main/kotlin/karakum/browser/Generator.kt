@@ -143,7 +143,7 @@ fun generateKotlinDeclarations(
         .resolve("webgl")
         .also { it.mkdirs() }
 
-    for ((name, body, optPkg) in eventDeclarations(content)) {
+    for ((name, body, optPkg) in eventDeclarations(content, webWorkersContent(definitionsDir))) {
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body || name == "TouchEvent")
                 add(NAME_CONTAINS_ILLEGAL_CHARS)

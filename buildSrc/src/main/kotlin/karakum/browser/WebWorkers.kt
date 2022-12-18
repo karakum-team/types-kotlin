@@ -57,7 +57,7 @@ internal fun webWorkersDeclarations(
     return interfaces + types + events
 }
 
-private fun webWorkersContent(
+internal fun webWorkersContent(
     definitionsDir: File,
 ): String =
     definitionsDir.resolve("lib.webworker.d.ts")
