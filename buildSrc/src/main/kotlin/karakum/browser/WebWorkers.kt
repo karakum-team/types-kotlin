@@ -52,7 +52,9 @@ internal fun webWorkersDeclarations(
         getPkg = PKG_MAP::get,
     ).filter { it.name in PKG_MAP.keys }
 
-    return interfaces + types
+    val events = workerEventDeclarations(content)
+
+    return interfaces + types + events
 }
 
 private fun webWorkersContent(
@@ -67,3 +69,4 @@ private fun webWorkersContent(
         )
         .splitUnion("string | string[]")
         .splitUnion("string | URL")
+        .splitUnion("Response | PromiseLike<Response>")

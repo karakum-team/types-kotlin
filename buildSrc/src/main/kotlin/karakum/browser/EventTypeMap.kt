@@ -61,6 +61,13 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.csp.SecurityPolicyViolationEvent"),
 )
 
+internal val WORKER_EVENT_DATA = listOf(
+    EventInfo("serviceworkers.ExtendableEvent"),
+    EventInfo("serviceworkers.ExtendableMessageEvent"),
+    EventInfo("serviceworkers.FetchEvent"),
+    EventInfo("serviceworkers.NotificationEvent"),
+)
+
 internal val EVENT_INFO_MAP = EVENT_DATA
     .associate { it.name to it }
 

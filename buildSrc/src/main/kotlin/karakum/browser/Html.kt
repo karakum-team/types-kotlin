@@ -1239,6 +1239,9 @@ private fun convertProperty(
         "HTMLCollection",
         -> "$type<*>"
 
+        "Client | ServiceWorker | MessagePort",
+        -> "Any /* $type */"
+
         "OnErrorEventHandler",
         -> "Function<Unit>? /* $type */"
 

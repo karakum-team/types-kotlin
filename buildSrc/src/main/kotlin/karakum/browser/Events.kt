@@ -84,12 +84,18 @@ internal fun eventDeclarations(
     content: String,
 ): List<ConversionResult> =
     eventTypes(content)
-        .plus(eventPlaceholders(content))
+        .plus(eventPlaceholders(content, EVENT_DATA))
+
+internal fun workerEventDeclarations(
+    content: String,
+): List<ConversionResult> =
+    eventPlaceholders(content, WORKER_EVENT_DATA)
 
 private fun eventPlaceholders(
     source: String,
+    data: List<EventInfo>,
 ): List<ConversionResult> =
-    EVENT_DATA
+    data
         .filter { !it.existed }
         .mapNotNull { info ->
             event(
@@ -105,9 +111,12 @@ private fun event(
     pkg: String,
 ): ConversionResult {
     val initName = "${name}Init"
-    val initSource = source
+    var initSource = source
         .substringAfter("\ninterface $initName ", "")
         .substringBefore(";\n}\n")
+
+    if ("{\n}" in initSource)
+        initSource = initSource.substringBefore("}")
 
     val initBody = if (initSource.isNotEmpty()) {
         val parentDeclaration = initSource
@@ -116,11 +125,16 @@ private fun event(
 
         val typeProvider = TypeProvider(initName)
 
-        val members = initSource.substringAfter("{\n")
+        val membersSource = initSource
+            .substringAfter("{\n")
             .trimIndent()
-            .splitToSequence(";\n")
-            .mapNotNull { convertMember(it, typeProvider) }
-            .joinToString("\n")
+
+        val members = if (membersSource.isNotEmpty()) {
+            membersSource
+                .splitToSequence(";\n")
+                .mapNotNull { convertMember(it, typeProvider) }
+                .joinToString("\n")
+        } else ""
 
         "external interface $initName $parentDeclaration {\n$members\n}"
     } else ""
@@ -197,10 +211,7 @@ private fun event(
         eventBody = "@JsName(\"globalThis.$name\")\n$eventBody"
 
     val body = sequenceOf(
-        """
-        import web.events.Event
-        import web.events.EventInit
-        """.trimIndent(),
+        "import web.events.*",
         initBody,
         eventBody,
     ).filter { it.isNotEmpty() }
