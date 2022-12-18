@@ -2,14 +2,14 @@
 
 package serviceworkers
 
-import web.events.*
+import js.core.Void
 import web.http.Request
 import web.http.Response
 import kotlin.js.Promise
 
 external interface FetchEventInit : ExtendableEventInit {
     var clientId: String?
-    var handled: Promise<undefined>?
+    var handled: Promise<Void>?
     var preloadResponse: Promise<*>?
     var replacesClientId: String?
     var request: Request
@@ -21,12 +21,12 @@ open external class FetchEvent(
     init: FetchEventInit,
 ) : ExtendableEvent {
     val clientId: String
-    val handled: Promise<undefined>
+    val handled: Promise<Void>
     val preloadResponse: Promise<*>
     val request: Request
     val resultingClientId: String
     fun respondWith(r: Response)
-    fun respondWith(r: PromiseLike<Response>)
+    fun respondWith(r: Promise<Response>)
 
     companion object
 }
