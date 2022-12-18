@@ -16,6 +16,10 @@ private val SERVICE_WORKER_TYPES = listOf(
     "WindowClient",
 )
 
+private val PKG_MAP = mapOf(
+    "FrameType" to "serviceworkers",
+)
+
 internal fun webWorkersDeclarations(
     definitionsDir: File,
 ): Sequence<ConversionResult> {
@@ -43,7 +47,12 @@ internal fun webWorkersDeclarations(
             )
         }
 
-    return interfaces
+    val types = convertTypes(
+        content = content,
+        getPkg = PKG_MAP::get,
+    ).filter { it.name in PKG_MAP.keys }
+
+    return interfaces + types
 }
 
 private fun webWorkersContent(
