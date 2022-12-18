@@ -69,4 +69,4 @@ private fun webWorkersContent(
         )
         .splitUnion("string | string[]")
         .splitUnion("string | URL")
-        .splitUnion("Response | PromiseLike<Response>")
+        .splitUnion("Response | PromiseLike<Response>", "Response | Promise<Response>")

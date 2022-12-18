@@ -1224,6 +1224,9 @@ private fun convertProperty(
         "string | string[]",
         -> "Any /* $type */"
 
+        "Promise<undefined>",
+        -> "Promise<Void>"
+
         "IDBObjectStore | IDBIndex",
         "IDBObjectStore | IDBIndex | IDBCursor",
         -> "Any /* $type */"
@@ -1544,6 +1547,9 @@ private fun getParameterType(
 
         source == "boolean"
         -> "Boolean"
+
+        source == "Promise<any>"
+        -> "Promise<*>"
 
         source.endsWith("[]") -> {
             var atype = source.removeSuffix("[]")
