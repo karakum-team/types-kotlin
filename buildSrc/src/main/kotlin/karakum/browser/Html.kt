@@ -464,6 +464,7 @@ internal fun htmlDeclarations(
         "Constrain.+?",
 
         "MediaDevice.+?",
+        "InputDeviceInfo .+?",
         "DisplayMediaStreamOptions",
 
         "MediaCapabilitie.+?",
@@ -963,6 +964,7 @@ internal fun convertInterface(
         name in MEDIA_CAPABILITIES_TYPES -> "media.capabilities"
 
         name.startsWith("MediaDevice") -> "media.devices"
+        name == "InputDeviceInfo" -> "media.devices"
         name == "DisplayMediaStreamOptions" -> "media.devices"
         name.startsWith("MediaRecorder") -> "media.recorder"
 
