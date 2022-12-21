@@ -7,9 +7,37 @@ internal val LENGTH_UNITS = listOf(
     LengthUnits("ex"),
     LengthUnits("rem"),
 
+    LengthUnits("cqw"),
+    LengthUnits("cqh"),
+    LengthUnits("cqi"),
+    LengthUnits("cqb"),
+    LengthUnits("cqmin"),
+    LengthUnits("cqmax"),
+
+    LengthUnits("dvw"),
+    LengthUnits("dvh"),
+    LengthUnits("dvi"),
+    LengthUnits("dvb"),
+    LengthUnits("dvmin"),
+    LengthUnits("dvmax"),
+
+    LengthUnits("lvw"),
+    LengthUnits("lvh"),
+    LengthUnits("lvi"),
+    LengthUnits("lvb"),
+    LengthUnits("lvmin"),
+    LengthUnits("lvmax"),
+
+    LengthUnits("svw"),
+    LengthUnits("svh"),
+    LengthUnits("svi"),
+    LengthUnits("svb"),
+    LengthUnits("svmin"),
+    LengthUnits("svmax"),
+
     // Viewport-percentage lengths
-    LengthUnits("vh"),
     LengthUnits("vw"),
+    LengthUnits("vh"),
     LengthUnits("vmin"),
     LengthUnits("vmax"),
 
