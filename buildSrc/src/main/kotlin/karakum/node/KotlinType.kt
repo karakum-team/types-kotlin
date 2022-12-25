@@ -106,11 +106,16 @@ private val STANDARD_TYPE_MAP = mapOf(
     "(...args: any[]) => void" to "Function<Unit>",
     "typeof test" to "Function<Promise<Void>> /* typeof test */",
 
+    "LookupOptions['hints']" to "Int /* LookupOptions['hints'] */",
+
     // TEMP
     "Require" to "$DYNAMIC /* Require */",
     "EventLoopUtilityFunction" to "Function<*> /* EventLoopUtilityFunction */",
     "ReadableStreamDefaultReadResult<R>" to "Any /* ReadableStreamDefaultReadResult<R> */",
     "ReadlineInterface" to "$DYNAMIC /* ReadlineInterface */",
+
+    "typeof afterEach" to "(fn: HookFn,\noptions: HookOptions,\n) -> Unit /* typeof afterEach */",
+    "typeof beforeEach" to "(fn: HookFn,\noptions: HookOptions,\n) -> Unit /* typeof beforeEach */",
 )
 
 private val TYPED = setOf(
