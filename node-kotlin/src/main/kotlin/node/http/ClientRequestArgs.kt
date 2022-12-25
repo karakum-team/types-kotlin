@@ -2,6 +2,7 @@
 
 package node.http
 
+import js.core.ReadonlyArray
 import node.net.LookupFunction
 import node.net.Socket
 import web.abort.AbortSignal
@@ -36,5 +37,5 @@ sealed external interface ClientRequestArgs {
     var signal: AbortSignal?
     var socketPath: String?
     var timeout: Number?
-    var uniqueHeaders: Any? /* Array<string | string[]> */
+    var uniqueHeaders: ReadonlyArray<Any /* string | string[] */>?
 }

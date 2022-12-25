@@ -2,6 +2,8 @@
 
 package node.http
 
+import js.core.ReadonlyArray
+
 sealed external interface ServerOptions<
         Request : IncomingMessage,
         Response : ServerResponse<*>,
@@ -82,5 +84,5 @@ sealed external interface ServerOptions<
      * A list of response headers that should be sent only once.
      * If the header's value is an array, the items will be joined using `; `.
      */
-    var uniqueHeaders: Any? /* Array<string | string[]> */
+    var uniqueHeaders: ReadonlyArray<Any /* string | string[] */>?
 }
