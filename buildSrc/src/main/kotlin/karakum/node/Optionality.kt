@@ -10,7 +10,7 @@ internal fun String.addOptionality(): String {
     if (endsWith("?") || "? /*" in this)
         return this
 
-    return if (" /*" in this) {
+    return if (" /*" in this && !endsWith(">")) {
         replace(" /*", "? /*")
     } else "$this?"
 }

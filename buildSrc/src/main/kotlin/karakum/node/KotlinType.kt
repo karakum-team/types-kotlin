@@ -107,6 +107,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "typeof test" to "Function<Promise<Void>> /* typeof test */",
 
     "LookupOptions['hints']" to "Int /* LookupOptions['hints'] */",
+    "Array<string | string[]>" to "ReadonlyArray<Any /* string | string[] */>",
 
     // TEMP
     "Require" to "$DYNAMIC /* Require */",
