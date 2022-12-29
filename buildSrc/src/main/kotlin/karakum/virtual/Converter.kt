@@ -35,12 +35,19 @@ internal fun convertDefinitions(
             ITEM_RANGE,
         )
         .replace("{ align, behavior }?: ScrollToOffsetOptions", "options: ScrollToOffsetOptions?")
-        .replace("{ align, ...rest }?: ScrollToIndexOptions", "options: ScrollToIndexOptions?")
+        .replace("{ align, behavior }?: ScrollToIndexOptions", "options: ScrollToIndexOptions?")
+        .replace(
+            "options?: {\n" +
+                    "        behavior: ScrollBehavior;\n" +
+                    "    }",
+            "options: $SCROLL_BY_OPTIONS?",
+        )
         .splitToSequence("\ndeclare ")
         .drop(1)
         .map { it.removeSuffix(";") }
         .map { convertDefinition(it) }
         .plus(convertInterface("$SCROLL_OPTIONS $SCROLL_OPTIONS_BODY"))
+        .plus(convertInterface("$SCROLL_BY_OPTIONS $SCROLL_BY_OPTIONS_BODY"))
         .plus(convertInterface("$ITEM_RANGE $ITEM_RANGE_BODY"))
         .filter { it.name !in EXCLUDED }
 
