@@ -570,7 +570,7 @@ internal fun htmlDeclarations(
                         inline fun $type.asInit(): $initType =    
                             unsafeCast<$initType>()                                                 
                         """.trimIndent(),
-                        pkg = "dom.geometry",
+                        pkg = "web.geometry",
                     )
                 }
         )
@@ -949,9 +949,9 @@ internal fun convertInterface(
 
         name.startsWith("Document") -> "dom"
         name in DOM_TYPES -> "dom"
-        name in DOM_CSS_TYPES -> "dom.css"
-        name in DOM_DATA_TYPES -> "dom.data"
-        name in DOM_GEOMETRY_TYPES -> "dom.geometry"
+        name in DOM_CSS_TYPES -> "web.dom.css"
+        name in DOM_DATA_TYPES -> "web.data"
+        name in DOM_GEOMETRY_TYPES -> "web.geometry"
         name == "XMLDocument" -> "web.xml"
 
         name.startsWith("XPath") -> "web.xpath"
@@ -989,10 +989,10 @@ internal fun convertInterface(
         name == "NavigationPreloadManager" -> "web.serviceworker"
         name == "RegistrationOptions" -> "web.serviceworker"
 
-        name.startsWith("IntersectionObserver") -> "dom.observers"
-        name.startsWith("MutationObserver") -> "dom.observers"
-        name == "MutationRecord" -> "dom.observers"
-        name.startsWith("ResizeObserver") -> "dom.observers"
+        name.startsWith("IntersectionObserver") -> "web.dom.observers"
+        name.startsWith("MutationObserver") -> "web.dom.observers"
+        name == "MutationRecord" -> "web.dom.observers"
+        name.startsWith("ResizeObserver") -> "web.dom.observers"
 
         name.startsWith("TextEncode") -> "web.encoding"
         name.startsWith("TextDecode") -> "web.encoding"

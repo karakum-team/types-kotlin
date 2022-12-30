@@ -1,8 +1,8 @@
 package karakum.browser
 
 private val PKG_MAP = mapOf(
-    "window" to "browser",
-    "document" to "browser",
+    "window" to "web.window",
+    "document" to "web.dom",
 
     "customElements" to "web.html",
 

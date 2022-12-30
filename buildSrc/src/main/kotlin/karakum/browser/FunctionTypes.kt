@@ -15,11 +15,11 @@ private fun convertFunctionType(
         .substringBefore(" ")
 
     val pkg = when {
-        name == "FunctionStringCallback" -> "dom.data"
+        name == "FunctionStringCallback" -> "web.data"
 
-        name.startsWith("IntersectionObserver") -> "dom.observers"
-        name == "MutationCallback" -> "dom.observers"
-        name.startsWith("ResizeObserver") -> "dom.observers"
+        name.startsWith("IntersectionObserver") -> "web.dom.observers"
+        name == "MutationCallback" -> "web.dom.observers"
+        name.startsWith("ResizeObserver") -> "web.dom.observers"
 
         name == "BlobCallback" -> "web.html"
         name == "VideoFrameRequestCallback" -> "web.html"

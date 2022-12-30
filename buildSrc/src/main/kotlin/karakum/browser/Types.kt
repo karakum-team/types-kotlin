@@ -15,8 +15,8 @@ private val PKG_MAP = mapOf(
     "ResizeQuality" to "web.canvas",
 
     "InsertPosition" to "dom",
-    "MutationRecordType" to "dom.observers",
-    "ResizeObserverBoxOptions" to "dom.observers",
+    "MutationRecordType" to "web.dom.observers",
+    "ResizeObserverBoxOptions" to "web.dom.observers",
     "CanPlayTypeResult" to "web.html",
     "SelectionMode" to "web.html",
     "ShadowRootMode" to "web.html",
