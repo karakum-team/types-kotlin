@@ -91,6 +91,8 @@ import web.buffer.Blob
 import web.buffer.BlobPart
 import web.buffer.BlobPropertyBag
 import web.crypto.Algorithm
+import web.events.Event
+import web.events.EventInit
 import web.events.EventType
 import web.events.EventHandler
 import web.events.EventTarget
@@ -234,7 +236,6 @@ fun generateKotlinDeclarations(
             import cssom.fonts.FontFaceSource    
             import dom.html.*        
             import dom.xpath.XPathEvaluatorBase
-            import web.events.Event
             """.trimIndent()
 
             "HTMLCanvasElement" -> """
@@ -266,7 +267,6 @@ fun generateKotlinDeclarations(
             "HTMLMediaElement",
             -> """
             import dom.events.MediaEncryptedEvent    
-            import web.events.Event    
             """.trimIndent()
 
             "GlobalEventHandlers",
@@ -276,7 +276,6 @@ fun generateKotlinDeclarations(
             import dom.events.*
             import web.animations.AnimationEvent
             import web.csp.SecurityPolicyViolationEvent
-            import web.events.Event
             import web.events.ProgressEvent
             import web.gamepad.GamepadEvent
             import web.history.HashChangeEvent
@@ -292,7 +291,6 @@ fun generateKotlinDeclarations(
             "ServiceWorkerContainer",
             "BroadcastChannel",
             -> """
-            import web.events.Event
             import web.events.ProgressEvent
             import web.messaging.MessageEvent
             """.trimIndent()
@@ -311,7 +309,6 @@ fun generateKotlinDeclarations(
             import cssom.fonts.FontFaceSource    
             import dom.events.PromiseRejectionEvent
             import web.errors.ErrorEvent
-            import web.events.Event
             import web.messaging.MessageEvent
             """.trimIndent()
 
@@ -321,9 +318,7 @@ fun generateKotlinDeclarations(
             import web.messaging.MessageEvent
             """.trimIndent()
 
-            else -> if (!name.endsWith(".types")) {
-                "import web.events.Event"
-            } else ""
+            else -> ""
         }
 
         val targetDir = sourceDir

@@ -223,7 +223,6 @@ private fun event(
         eventBody = "@JsName(\"globalThis.$name\")\n$eventBody"
 
     val body = sequenceOf(
-        "import web.events.*",
         initBody,
         eventBody,
     ).filter { it.isNotEmpty() }
@@ -260,7 +259,7 @@ private fun eventTypes(
     val typeName = firstItem.typeName
 
     val info = EVENT_INFO_MAP.getValue(typeName)
-    val imports = "import ${info.fqn}"
+    val imports = if (info.name != "Event") "import ${info.fqn}" else ""
 
     val members = items
         .sortedBy { it.name }
@@ -278,6 +277,7 @@ private fun eventTypes(
         }
 
     val body = sequenceOf(imports)
+        .filter { it.isNotEmpty() }
         .plus(members)
         .joinToString("\n\n")
 
