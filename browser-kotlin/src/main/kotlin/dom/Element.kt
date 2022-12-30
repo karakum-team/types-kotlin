@@ -2,16 +2,16 @@
 
 package dom
 
-import dom.aria.ARIAMixin
 import dom.geometry.DOMRect
 import dom.geometry.DOMRectList
-import dom.html.*
-import dom.svg.SVGElement
-import dom.svg.SvgTagName
 import js.core.ReadonlyArray
 import js.core.Void
+import web.aria.ARIAMixin
 import web.events.Event
 import web.events.EventHandler
+import web.html.*
+import web.svg.SVGElement
+import web.svg.SvgTagName
 import kotlin.js.Promise
 
 abstract external class Element :

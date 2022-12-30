@@ -2,6 +2,6 @@
 
 package browser
 
-import dom.html.Window
+import web.html.Window
 
 external val window: Window

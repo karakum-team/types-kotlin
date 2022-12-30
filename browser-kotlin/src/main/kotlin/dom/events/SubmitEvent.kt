@@ -6,10 +6,10 @@
 
 package dom.events
 
-import dom.html.HTMLElement
 import web.events.Event
 import web.events.EventInit
 import web.events.EventType
+import web.html.HTMLElement
 
 external interface SubmitEventInit : EventInit {
     var submitter: HTMLElement?

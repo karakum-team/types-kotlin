@@ -2,9 +2,9 @@
 
 package web.audio
 
-import dom.html.HTMLMediaElement
 import js.core.Void
 import media.streams.MediaStream
+import web.html.HTMLMediaElement
 import kotlin.js.Promise
 
 external class AudioContext(
