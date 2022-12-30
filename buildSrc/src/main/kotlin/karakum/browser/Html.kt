@@ -903,14 +903,14 @@ internal fun convertInterface(
         name in DOM_PARSING_TYPES -> "dom.parsing"
         name.startsWith("SVG") -> "dom.svg"
 
-        name.startsWith("CSS") -> "cssom"
-        name.startsWith("StyleSheet") -> "cssom"
-        name == "MediaList" -> "cssom"
-        name == "MediaQueryList" -> "cssom"
-        name.startsWith("FontFace") -> "cssom.fonts"
+        name.startsWith("CSS") -> "web.cssom"
+        name.startsWith("StyleSheet") -> "web.cssom"
+        name == "MediaList" -> "web.cssom"
+        name == "MediaQueryList" -> "web.cssom"
+        name.startsWith("FontFace") -> "web.fonts"
 
-        name.startsWith("Canvas") -> "canvas"
-        name in CANVAS_TYPES -> "canvas"
+        name.startsWith("Canvas") -> "web.canvas"
+        name in CANVAS_TYPES -> "web.canvas"
 
         name in ANIMATION_TYPES -> "web.animations"
 

@@ -27,9 +27,9 @@ import js.typedarrays.Uint32Array
 import js.typedarrays.Uint8ClampedArray
 import js.core.JsLong
 import js.core.Void
-import canvas.OffscreenCanvas
-import cssom.CSSStyleDeclaration
-import cssom.CSSStyleSheet
+import web.canvas.OffscreenCanvas
+import web.cssom.CSSStyleDeclaration
+import web.cssom.CSSStyleSheet
 import dom.Document
 import dom.DocumentFragment
 import dom.DOMStringList
@@ -234,14 +234,14 @@ fun generateKotlinDeclarations(
             "Document",
             "DocumentOrShadowRoot",
             -> """
-            import cssom.StyleSheetList    
-            import cssom.fonts.FontFaceSource    
+            import web.cssom.StyleSheetList    
+            import web.fonts.FontFaceSource    
             import dom.html.*        
             import dom.xpath.XPathEvaluatorBase
             """.trimIndent()
 
             "HTMLCanvasElement" -> """
-            import canvas.*    
+            import web.canvas.*    
             import webgl.*    
             """.trimIndent()
 
@@ -308,7 +308,7 @@ fun generateKotlinDeclarations(
             "DedicatedWorkerGlobalScope",
             "WorkerGlobalScope",
             -> """
-            import cssom.fonts.FontFaceSource    
+            import web.fonts.FontFaceSource    
             import dom.events.PromiseRejectionEvent
             import web.errors.ErrorEvent
             import web.messaging.MessageEvent

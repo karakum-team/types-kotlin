@@ -26,7 +26,7 @@ private val PACKAGE_MAP = mapOf(
     "MediaSource" to "media.source",
     "MediaStreamTrack" to "media.streams",
     "Notification" to "web.notifications",
-    "OffscreenCanvas" to "canvas",
+    "OffscreenCanvas" to "web.canvas",
     "PaymentRequest" to "web.payment",
     "Performance" to "web.performance",
     "PermissionStatus" to "web.permissions",

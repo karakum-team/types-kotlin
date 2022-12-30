@@ -5,14 +5,14 @@ import karakum.common.unionBody
 import karakum.common.unionConstant
 
 private val PKG_MAP = mapOf(
-    "ColorSpaceConversion" to "canvas",
-    "GlobalCompositeOperation" to "canvas",
-    "ImageOrientation" to "canvas",
-    "ImageSmoothingQuality" to "canvas",
-    "OffscreenRenderingContextId" to "canvas",
-    "PredefinedColorSpace" to "canvas",
-    "PremultiplyAlpha" to "canvas",
-    "ResizeQuality" to "canvas",
+    "ColorSpaceConversion" to "web.canvas",
+    "GlobalCompositeOperation" to "web.canvas",
+    "ImageOrientation" to "web.canvas",
+    "ImageSmoothingQuality" to "web.canvas",
+    "OffscreenRenderingContextId" to "web.canvas",
+    "PredefinedColorSpace" to "web.canvas",
+    "PremultiplyAlpha" to "web.canvas",
+    "ResizeQuality" to "web.canvas",
 
     "InsertPosition" to "dom",
     "MutationRecordType" to "dom.observers",
@@ -138,8 +138,8 @@ private fun convertType(
 
     if (!bodySource.startsWith("\"")) {
         val pkg = when (name) {
-            "CanvasImageSource" -> "canvas"
-            "ImageBitmapSource" -> "canvas"
+            "CanvasImageSource" -> "web.canvas"
+            "ImageBitmapSource" -> "web.canvas"
 
             "HTMLOrSVGImageElement" -> "dom"
             "HTMLOrSVGScriptElement" -> "dom"
@@ -227,13 +227,13 @@ private fun getTypePkg(
         name.startsWith("Document") -> "dom"
         name.startsWith("Fullscreen") -> "dom"
         name.startsWith("Scroll") -> "dom"
-        name.startsWith("FontFace") -> "cssom.fonts"
+        name.startsWith("FontFace") -> "web.fonts"
 
         name.startsWith("Animation") -> "web.animations"
         name.startsWith("Audio") -> "web.audio"
         name.startsWith("Channel") -> "web.audio"
 
-        name.startsWith("Canvas") -> "canvas"
+        name.startsWith("Canvas") -> "web.canvas"
 
         name.startsWith("Gamepad") -> "web.gamepad"
         name.startsWith("IDB") -> "web.idb"
