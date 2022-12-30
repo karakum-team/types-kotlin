@@ -84,7 +84,7 @@ import media.streams.MediaStreamConstraints
 import media.streams.MediaStreamTrack
 import media.streams.MediaTrackConstraints
 import media.streams.MediaTrackSupportedConstraints
-import remoteplayback.RemotePlayback
+import web.remoteplayback.RemotePlayback
 import web.abort.AbortSignal
 import web.animations.Animation
 import web.buffer.Blob
@@ -241,7 +241,7 @@ fun generateKotlinDeclarations(
             import media.devices.MediaDevices
             import media.key.MediaKeySystemAccess
             import media.key.MediaKeySystemConfiguration
-            import serviceworkers.ServiceWorkerContainer
+            import web.serviceworker.ServiceWorkerContainer
             import web.clipboard.Clipboard       
             import web.geolocation.Geolocation       
             import web.gamepad.Gamepad       

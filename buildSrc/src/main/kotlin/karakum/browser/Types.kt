@@ -36,8 +36,8 @@ private val PKG_MAP = mapOf(
     "EndOfStreamError" to "media.source",
     "ReadyState" to "media.source",
 
-    "RemotePlaybackState" to "remoteplayback",
-    "ClientTypes" to "serviceworkers",
+    "RemotePlaybackState" to "web.remoteplayback",
+    "ClientTypes" to "web.serviceworker",
 
     "AttestationConveyancePreference" to "web.authentication",
     "AuthenticatorAttachment" to "web.authentication",
@@ -256,7 +256,7 @@ private fun getTypePkg(
         name.startsWith("Response") -> "web.http"
 
         name.startsWith("RTC") -> "webrtc"
-        name.startsWith("ServiceWorker") -> "serviceworkers"
+        name.startsWith("ServiceWorker") -> "web.serviceworker"
         name.startsWith("TextTrack") -> "webvtt"
         name.startsWith("Worker") -> "web.workers"
 

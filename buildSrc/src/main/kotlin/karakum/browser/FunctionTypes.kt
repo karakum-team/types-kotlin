@@ -26,7 +26,7 @@ private fun convertFunctionType(
 
         name == "MediaSessionActionHandler" -> "media.session"
 
-        name == "RemotePlaybackAvailabilityCallback" -> "remoteplayback"
+        name == "RemotePlaybackAvailabilityCallback" -> "web.remoteplayback"
 
         name == "DecodeSuccessCallback" -> "web.audio"
         name == "DecodeErrorCallback" -> "web.audio"

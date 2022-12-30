@@ -895,7 +895,7 @@ internal fun convertInterface(
     val pkg = when {
         predefinedPkg != null -> predefinedPkg
 
-        name == "RemotePlayback" -> "remoteplayback"
+        name == "RemotePlayback" -> "web.remoteplayback"
 
         name.startsWith("Touch") -> "dom.events"
         name in DOM_PARSING_TYPES -> "dom.parsing"
@@ -981,11 +981,11 @@ internal fun convertInterface(
         name in WORKERS_TYPES -> "web.workers"
 
         name.startsWith("Notification") -> "web.notifications"
-        name.startsWith("ServiceWorker") -> "serviceworkers"
-        name == "GetNotificationOptions" -> "serviceworkers"
-        name == "NavigationPreloadState" -> "serviceworkers"
-        name == "NavigationPreloadManager" -> "serviceworkers"
-        name == "RegistrationOptions" -> "serviceworkers"
+        name.startsWith("ServiceWorker") -> "web.serviceworker"
+        name == "GetNotificationOptions" -> "web.serviceworker"
+        name == "NavigationPreloadState" -> "web.serviceworker"
+        name == "NavigationPreloadManager" -> "web.serviceworker"
+        name == "RegistrationOptions" -> "web.serviceworker"
 
         name.startsWith("IntersectionObserver") -> "dom.observers"
         name.startsWith("MutationObserver") -> "dom.observers"

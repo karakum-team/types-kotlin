@@ -36,11 +36,11 @@ private val PACKAGE_MAP = mapOf(
     "RTCIceTransport" to "webrtc",
     "RTCPeerConnection" to "webrtc",
     "RTCSctpTransport" to "webrtc",
-    "RemotePlayback" to "remoteplayback",
+    "RemotePlayback" to "web.remoteplayback",
     "ScreenOrientation" to "web.screen",
-    "ServiceWorker" to "serviceworkers",
-    "ServiceWorkerContainer" to "serviceworkers",
-    "ServiceWorkerRegistration" to "serviceworkers",
+    "ServiceWorker" to "web.serviceworker",
+    "ServiceWorkerContainer" to "web.serviceworker",
+    "ServiceWorkerRegistration" to "web.serviceworker",
     "ShadowRoot" to "dom.events",
     "SourceBuffer" to "media.source",
     "SourceBufferList" to "media.source",
@@ -54,7 +54,7 @@ private val PACKAGE_MAP = mapOf(
     "WindowEventHandlers" to "dom.events",
     "XMLHttpRequest" to "web.xhr",
 
-    "ServiceWorkerGlobalScope" to "serviceworkers",
+    "ServiceWorkerGlobalScope" to "web.serviceworker",
     "WorkerGlobalScope" to "web.workers",
 )
 

@@ -62,10 +62,10 @@ internal val EVENT_DATA = listOf(
 )
 
 internal val WORKER_EVENT_DATA = listOf(
-    EventInfo("serviceworkers.ExtendableEvent"),
-    EventInfo("serviceworkers.ExtendableMessageEvent"),
-    EventInfo("serviceworkers.FetchEvent"),
-    EventInfo("serviceworkers.NotificationEvent"),
+    EventInfo("web.serviceworker.ExtendableEvent"),
+    EventInfo("web.serviceworker.ExtendableMessageEvent"),
+    EventInfo("web.serviceworker.FetchEvent"),
+    EventInfo("web.serviceworker.NotificationEvent"),
 )
 
 internal val EVENT_INFO_MAP = (EVENT_DATA + WORKER_EVENT_DATA)

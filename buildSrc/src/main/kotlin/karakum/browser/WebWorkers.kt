@@ -17,7 +17,7 @@ private val SERVICE_WORKER_TYPES = listOf(
 )
 
 private val PKG_MAP = mapOf(
-    "FrameType" to "serviceworkers",
+    "FrameType" to "web.serviceworker",
 )
 
 internal fun webWorkersDeclarations(
@@ -36,7 +36,7 @@ internal fun webWorkersDeclarations(
 
             val predefinedPkg = when (name) {
                 in WORKER_TYPES -> "web.workers"
-                in SERVICE_WORKER_TYPES -> "serviceworkers"
+                in SERVICE_WORKER_TYPES -> "web.serviceworker"
                 else -> return@mapNotNull null
             }
 
