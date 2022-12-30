@@ -91,6 +91,7 @@ import web.buffer.Blob
 import web.buffer.BlobPart
 import web.buffer.BlobPropertyBag
 import web.crypto.Algorithm
+import web.events.EventType
 import web.events.EventHandler
 import web.events.EventTarget
 import web.errors.DOMException
@@ -145,6 +146,9 @@ fun generateKotlinDeclarations(
 
     for ((name, body, optPkg) in eventDeclarations(content, webWorkersContent(definitionsDir))) {
         val suppresses = mutableSetOf<Suppress>().apply {
+            if ("override val type: EventType<" in body)
+                add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
+
             if ("JsName(\"\"\"(" in body || name == "TouchEvent")
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
 
@@ -167,11 +171,9 @@ fun generateKotlinDeclarations(
             .resolve(pkg.replace(".", "/"))
             .also { it.mkdirs() }
 
-        val finalBody = "import web.events.EventType\n$body"
-
         targetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(fileContent(annotations, "", finalBody, pkg))
+            .writeText(fileContent(annotations, "", body, pkg))
     }
 
     val aliases = domAliases()
@@ -188,6 +190,9 @@ fun generateKotlinDeclarations(
         pkg!!
 
         val suppresses = mutableSetOf<Suppress>().apply {
+            if ("override val type: EventType<" in body)
+                add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
+
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
 

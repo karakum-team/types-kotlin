@@ -179,7 +179,12 @@ private fun event(
             .map { p ->
                 if ("?: " in p) {
                     p.replace("?: ", ": ") + " = definedExternally"
-                } else p.replace(": string", ": String")
+                } else {
+                    val typeParameter = if (name == "ProgressEvent") "<T>" else ""
+
+                    p.replace("type: string", "override val type: EventType<$name$typeParameter>")
+                        .replace(": string", ": String")
+                }
             }
             .map {
                 if ("InitDict: " in it || "Init: " in it) {
