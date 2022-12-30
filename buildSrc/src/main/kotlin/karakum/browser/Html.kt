@@ -1136,6 +1136,9 @@ internal fun convertMember(
         source.startsWith("toString()") -> return null
 
         source.startsWith("importScripts(") -> return null
+
+        // deprecated
+        source.startsWith("initStorageEvent(") -> return null
     }
 
     if ((source.startsWith("on") && "(this: " in source)) {
