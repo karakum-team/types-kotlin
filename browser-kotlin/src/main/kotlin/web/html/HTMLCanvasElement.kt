@@ -2,8 +2,8 @@
 
 package web.html
 
-import media.streams.MediaStream
 import web.canvas.*
+import web.media.streams.MediaStream
 import webgl.WebGL2RenderingContext
 import webgl.WebGLContextAttributes
 import webgl.WebGLRenderingContext
