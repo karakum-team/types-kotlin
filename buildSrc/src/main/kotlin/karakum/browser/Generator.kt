@@ -75,15 +75,15 @@ import web.selection.Selection
 import web.svg.SVGElement
 import web.svg.SvgTagName
 import web.xml.XMLDocument
-import media.capabilities.MediaCapabilities
-import media.session.MediaSession
-import media.key.MediaKeys
-import media.source.TimeRanges
-import media.streams.MediaStream
-import media.streams.MediaStreamConstraints
-import media.streams.MediaStreamTrack
-import media.streams.MediaTrackConstraints
-import media.streams.MediaTrackSupportedConstraints
+import web.media.capabilities.MediaCapabilities
+import web.media.session.MediaSession
+import web.media.key.MediaKeys
+import web.media.source.TimeRanges
+import web.media.streams.MediaStream
+import web.media.streams.MediaStreamConstraints
+import web.media.streams.MediaStreamTrack
+import web.media.streams.MediaTrackConstraints
+import web.media.streams.MediaTrackSupportedConstraints
 import web.remoteplayback.RemotePlayback
 import web.abort.AbortSignal
 import web.animations.Animation
@@ -246,9 +246,9 @@ fun generateKotlinDeclarations(
             """.trimIndent()
 
             "Navigator" -> """
-            import media.devices.MediaDevices
-            import media.key.MediaKeySystemAccess
-            import media.key.MediaKeySystemConfiguration
+            import web.media.devices.MediaDevices
+            import web.media.key.MediaKeySystemAccess
+            import web.media.key.MediaKeySystemConfiguration
             import web.serviceworker.ServiceWorkerContainer
             import web.clipboard.Clipboard       
             import web.geolocation.Geolocation       

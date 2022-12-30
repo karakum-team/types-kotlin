@@ -24,7 +24,7 @@ private fun convertFunctionType(
         name == "BlobCallback" -> "web.html"
         name == "VideoFrameRequestCallback" -> "web.html"
 
-        name == "MediaSessionActionHandler" -> "media.session"
+        name == "MediaSessionActionHandler" -> "web.media.session"
 
         name == "RemotePlaybackAvailabilityCallback" -> "web.remoteplayback"
 

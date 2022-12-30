@@ -959,25 +959,25 @@ internal fun convertInterface(
         name in WEB_AUDIO_TYPES -> "web.audio"
 
         name.startsWith("RTC") -> "webrtc"
-        name.startsWith("MediaKey") -> "media.key"
+        name.startsWith("MediaKey") -> "web.media.key"
         name.startsWith("TextTrack") -> "webvtt"
 
-        name.startsWith("MediaCapabilities") -> "media.capabilities"
-        name in MEDIA_CAPABILITIES_TYPES -> "media.capabilities"
+        name.startsWith("MediaCapabilities") -> "web.media.capabilities"
+        name in MEDIA_CAPABILITIES_TYPES -> "web.media.capabilities"
 
-        name.startsWith("MediaDevice") -> "media.devices"
-        name == "InputDeviceInfo" -> "media.devices"
-        name == "DisplayMediaStreamOptions" -> "media.devices"
-        name.startsWith("MediaRecorder") -> "media.recorder"
+        name.startsWith("MediaDevice") -> "web.media.devices"
+        name == "InputDeviceInfo" -> "web.media.devices"
+        name == "DisplayMediaStreamOptions" -> "web.media.devices"
+        name.startsWith("MediaRecorder") -> "web.media.recorder"
 
-        name.startsWith("MediaStream") -> "media.streams"
-        name.startsWith("MediaTrack") -> "media.streams"
-        name.startsWith("Constrain") -> "media.streams"
-        name in MEDIA_STREAM_TYPES -> "media.streams"
+        name.startsWith("MediaStream") -> "web.media.streams"
+        name.startsWith("MediaTrack") -> "web.media.streams"
+        name.startsWith("Constrain") -> "web.media.streams"
+        name in MEDIA_STREAM_TYPES -> "web.media.streams"
 
-        name in MEDIA_SESSION_TYPES -> "media.session"
+        name in MEDIA_SESSION_TYPES -> "web.media.session"
 
-        name in MEDIA_SOURCE_TYPES -> "media.source"
+        name in MEDIA_SOURCE_TYPES -> "web.media.source"
 
         name.startsWith("Worklet") -> "web.worklets"
         name in WORKERS_TYPES -> "web.workers"

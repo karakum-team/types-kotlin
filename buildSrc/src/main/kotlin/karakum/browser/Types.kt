@@ -24,17 +24,17 @@ private val PKG_MAP = mapOf(
     "TouchType" to "dom.events",
     "DOMParserSupportedType" to "web.parsing",
 
-    "ColorGamut" to "media.capabilities",
-    "HdrMetadataType" to "media.capabilities",
-    "MediaDecodingType" to "media.capabilities",
-    "MediaEncodingType" to "media.capabilities",
-    "TransferFunction" to "media.capabilities",
+    "ColorGamut" to "web.media.capabilities",
+    "HdrMetadataType" to "web.media.capabilities",
+    "MediaDecodingType" to "web.media.capabilities",
+    "MediaEncodingType" to "web.media.capabilities",
+    "TransferFunction" to "web.media.capabilities",
 
-    "RecordingState" to "media.recorder",
+    "RecordingState" to "web.media.recorder",
 
-    "AppendMode" to "media.source",
-    "EndOfStreamError" to "media.source",
-    "ReadyState" to "media.source",
+    "AppendMode" to "web.media.source",
+    "EndOfStreamError" to "web.media.source",
+    "ReadyState" to "web.media.source",
 
     "RemotePlaybackState" to "web.remoteplayback",
     "ClientTypes" to "web.serviceworker",
@@ -165,7 +165,7 @@ private fun convertType(
             "HashAlgorithmIdentifier" -> "web.crypto"
 
             else -> if (name.startsWith("Constrain")) {
-                "media.streams"
+                "web.media.streams"
             } else return null
         }
 
@@ -241,10 +241,10 @@ private fun getTypePkg(
         name.startsWith("FileSystem") -> "web.filesystem"
         name.startsWith("Lock") -> "web.locks"
 
-        name.startsWith("MediaDevice") -> "media.devices"
-        name.startsWith("MediaKey") -> "media.key"
-        name.startsWith("MediaSession") -> "media.session"
-        name.startsWith("MediaStream") -> "media.streams"
+        name.startsWith("MediaDevice") -> "web.media.devices"
+        name.startsWith("MediaKey") -> "web.media.key"
+        name.startsWith("MediaSession") -> "web.media.session"
+        name.startsWith("MediaStream") -> "web.media.streams"
 
         name.startsWith("Notification") -> "web.notifications"
         name.startsWith("Orientation") -> "web.screen"
