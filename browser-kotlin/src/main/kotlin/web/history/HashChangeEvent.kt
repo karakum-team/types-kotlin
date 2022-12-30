@@ -1,9 +1,14 @@
 // Automatically generated - do not modify!
 
+@file:Suppress(
+    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+)
+
 package web.history
 
 import web.events.Event
 import web.events.EventInit
+import web.events.EventType
 
 external interface HashChangeEventInit : EventInit {
     var newURL: String?
@@ -11,7 +16,7 @@ external interface HashChangeEventInit : EventInit {
 }
 
 open external class HashChangeEvent(
-    type: String,
+    override val type: EventType<HashChangeEvent>,
     init: HashChangeEventInit = definedExternally,
 ) : Event {
     /** Returns the URL of the session history entry that is now current. */

@@ -1,9 +1,14 @@
 // Automatically generated - do not modify!
 
+@file:Suppress(
+    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+)
+
 package web.device
 
 import web.events.Event
 import web.events.EventInit
+import web.events.EventType
 
 external interface DeviceMotionEventInit : EventInit {
     var acceleration: DeviceMotionEventAccelerationInit?
@@ -13,7 +18,7 @@ external interface DeviceMotionEventInit : EventInit {
 }
 
 open external class DeviceMotionEvent(
-    type: String,
+    override val type: EventType<DeviceMotionEvent>,
     init: DeviceMotionEventInit = definedExternally,
 ) : Event {
     val acceleration: DeviceMotionEventAcceleration?

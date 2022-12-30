@@ -1,8 +1,13 @@
 // Automatically generated - do not modify!
 
+@file:Suppress(
+    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+)
+
 package web.serviceworker
 
 import js.core.Void
+import web.events.EventType
 import web.http.Request
 import web.http.Response
 import kotlin.js.Promise
@@ -17,7 +22,7 @@ external interface FetchEventInit : ExtendableEventInit {
 }
 
 open external class FetchEvent(
-    type: String,
+    override val type: EventType<FetchEvent>,
     init: FetchEventInit,
 ) : ExtendableEvent {
     val clientId: String

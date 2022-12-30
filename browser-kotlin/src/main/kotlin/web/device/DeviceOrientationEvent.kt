@@ -1,9 +1,14 @@
 // Automatically generated - do not modify!
 
+@file:Suppress(
+    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+)
+
 package web.device
 
 import web.events.Event
 import web.events.EventInit
+import web.events.EventType
 
 external interface DeviceOrientationEventInit : EventInit {
     var absolute: Boolean?
@@ -13,7 +18,7 @@ external interface DeviceOrientationEventInit : EventInit {
 }
 
 open external class DeviceOrientationEvent(
-    type: String,
+    override val type: EventType<DeviceOrientationEvent>,
     init: DeviceOrientationEventInit = definedExternally,
 ) : Event {
     val absolute: Boolean

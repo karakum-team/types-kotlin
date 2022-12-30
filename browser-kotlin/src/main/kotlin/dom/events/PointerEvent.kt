@@ -1,8 +1,13 @@
 // Automatically generated - do not modify!
 
+@file:Suppress(
+    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+)
+
 package dom.events
 
 import js.core.ReadonlyArray
+import web.events.EventType
 
 external interface PointerEventInit : MouseEventInit {
     var coalescedEvents: ReadonlyArray<PointerEvent>?
@@ -20,7 +25,7 @@ external interface PointerEventInit : MouseEventInit {
 }
 
 open external class PointerEvent(
-    type: String,
+    override val type: EventType<PointerEvent>,
     init: PointerEventInit = definedExternally,
 ) : MouseEvent {
     val height: Double

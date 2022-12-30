@@ -1,8 +1,13 @@
 // Automatically generated - do not modify!
 
+@file:Suppress(
+    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+)
+
 package web.serviceworker
 
 import js.core.ReadonlyArray
+import web.events.EventType
 import web.messaging.MessagePort
 
 external interface ExtendableMessageEventInit : ExtendableEventInit {
@@ -14,7 +19,7 @@ external interface ExtendableMessageEventInit : ExtendableEventInit {
 }
 
 open external class ExtendableMessageEvent(
-    type: String,
+    override val type: EventType<ExtendableMessageEvent>,
     init: ExtendableMessageEventInit = definedExternally,
 ) : ExtendableEvent {
     val data: Any?

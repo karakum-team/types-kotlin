@@ -1,6 +1,12 @@
 // Automatically generated - do not modify!
 
+@file:Suppress(
+    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+)
+
 package dom.events
+
+import web.events.EventType
 
 external interface KeyboardEventInit : EventModifierInit {
     var code: String?
@@ -11,7 +17,7 @@ external interface KeyboardEventInit : EventModifierInit {
 }
 
 open external class KeyboardEvent(
-    type: String,
+    override val type: EventType<KeyboardEvent>,
     init: KeyboardEventInit = definedExternally,
 ) : UIEvent {
     val altKey: Boolean

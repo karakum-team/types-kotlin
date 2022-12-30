@@ -1,13 +1,19 @@
 // Automatically generated - do not modify!
 
+@file:Suppress(
+    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+)
+
 package dom.events
+
+import web.events.EventType
 
 external interface CompositionEventInit : UIEventInit {
     var data: String?
 }
 
 open external class CompositionEvent(
-    type: String,
+    override val type: EventType<CompositionEvent>,
     init: CompositionEventInit = definedExternally,
 ) : UIEvent {
     val data: String

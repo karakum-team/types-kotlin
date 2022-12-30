@@ -1,12 +1,14 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
+    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
     "NAME_CONTAINS_ILLEGAL_CHARS",
 )
 
 package dom.events
 
 import js.core.ReadonlyArray
+import web.events.EventType
 
 external interface TouchEventInit : EventModifierInit {
     var changedTouches: ReadonlyArray<Touch>?
@@ -16,7 +18,7 @@ external interface TouchEventInit : EventModifierInit {
 
 @JsName("globalThis.TouchEvent")
 open external class TouchEvent(
-    type: String,
+    override val type: EventType<TouchEvent>,
     init: TouchEventInit = definedExternally,
 ) : UIEvent {
     val altKey: Boolean

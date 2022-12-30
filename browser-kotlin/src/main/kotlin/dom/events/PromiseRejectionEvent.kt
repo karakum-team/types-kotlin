@@ -1,9 +1,14 @@
 // Automatically generated - do not modify!
 
+@file:Suppress(
+    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+)
+
 package dom.events
 
 import web.events.Event
 import web.events.EventInit
+import web.events.EventType
 import kotlin.js.Promise
 
 external interface PromiseRejectionEventInit : EventInit {
@@ -12,7 +17,7 @@ external interface PromiseRejectionEventInit : EventInit {
 }
 
 open external class PromiseRejectionEvent(
-    type: String,
+    override val type: EventType<PromiseRejectionEvent>,
     init: PromiseRejectionEventInit,
 ) : Event {
     val promise: Promise<*>
