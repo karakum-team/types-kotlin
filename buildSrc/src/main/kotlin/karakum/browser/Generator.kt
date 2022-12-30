@@ -46,8 +46,8 @@ import dom.Range
 import dom.ScrollToOptions
 import dom.DocumentAndElementEventHandlers
 import dom.GlobalEventHandlers
-import dom.html.WindowEventHandlers
-import dom.aria.ARIAMixin
+import web.html.WindowEventHandlers
+import web.aria.ARIAMixin
 import dom.css.LinkStyle
 import dom.css.ElementCSSInlineStyle
 import dom.data.DataTransfer
@@ -61,20 +61,20 @@ import dom.geometry.DOMRect
 import dom.geometry.DOMRectInit
 import dom.geometry.DOMRectReadOnly
 import dom.geometry.DOMRectList
-import dom.html.HTMLCanvasElement
-import dom.html.HTMLCollectionOf
-import dom.html.HTMLCollection
-import dom.html.HTMLElement
-import dom.html.HTMLMediaElement
-import dom.html.HTMLSlotElement
-import dom.html.HtmlTagName
-import dom.html.ShadowRoot
-import dom.html.ShadowRootInit
-import dom.html.Window
-import dom.selection.Selection
-import dom.svg.SVGElement
-import dom.svg.SvgTagName
-import dom.xml.XMLDocument
+import web.html.HTMLCanvasElement
+import web.html.HTMLCollectionOf
+import web.html.HTMLCollection
+import web.html.HTMLElement
+import web.html.HTMLMediaElement
+import web.html.HTMLSlotElement
+import web.html.HtmlTagName
+import web.html.ShadowRoot
+import web.html.ShadowRootInit
+import web.html.Window
+import web.selection.Selection
+import web.svg.SVGElement
+import web.svg.SvgTagName
+import web.xml.XMLDocument
 import media.capabilities.MediaCapabilities
 import media.session.MediaSession
 import media.key.MediaKeys
@@ -236,8 +236,8 @@ fun generateKotlinDeclarations(
             -> """
             import web.cssom.StyleSheetList    
             import web.fonts.FontFaceSource    
-            import dom.html.*        
-            import dom.xpath.XPathEvaluatorBase
+            import web.html.*        
+            import web.xpath.XPathEvaluatorBase
             """.trimIndent()
 
             "HTMLCanvasElement" -> """

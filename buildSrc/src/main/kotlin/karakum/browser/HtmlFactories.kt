@@ -24,6 +24,6 @@ internal fun htmlFactories(
             ConversionResult(
                 name = name,
                 body = "external class $name(\n$parameters\n) : $parentType",
-                pkg = "dom.html",
+                pkg = "web.html",
             )
         }

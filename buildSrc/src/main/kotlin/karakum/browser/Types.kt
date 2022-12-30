@@ -17,12 +17,12 @@ private val PKG_MAP = mapOf(
     "InsertPosition" to "dom",
     "MutationRecordType" to "dom.observers",
     "ResizeObserverBoxOptions" to "dom.observers",
-    "CanPlayTypeResult" to "dom.html",
-    "SelectionMode" to "dom.html",
-    "ShadowRootMode" to "dom.html",
-    "SlotAssignmentMode" to "dom.html",
+    "CanPlayTypeResult" to "web.html",
+    "SelectionMode" to "web.html",
+    "ShadowRootMode" to "web.html",
+    "SlotAssignmentMode" to "web.html",
     "TouchType" to "dom.events",
-    "DOMParserSupportedType" to "dom.parsing",
+    "DOMParserSupportedType" to "web.parsing",
 
     "ColorGamut" to "media.capabilities",
     "HdrMetadataType" to "media.capabilities",
@@ -144,8 +144,8 @@ private fun convertType(
             "HTMLOrSVGImageElement" -> "dom"
             "HTMLOrSVGScriptElement" -> "dom"
 
-            "MediaProvider" -> "dom.html"
-            "WindowProxy" -> "dom.html"
+            "MediaProvider" -> "web.html"
+            "WindowProxy" -> "web.html"
 
             "VibratePattern" -> "web.vibration"
 

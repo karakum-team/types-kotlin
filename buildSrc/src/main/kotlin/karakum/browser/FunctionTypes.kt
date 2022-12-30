@@ -21,8 +21,8 @@ private fun convertFunctionType(
         name == "MutationCallback" -> "dom.observers"
         name.startsWith("ResizeObserver") -> "dom.observers"
 
-        name == "BlobCallback" -> "dom.html"
-        name == "VideoFrameRequestCallback" -> "dom.html"
+        name == "BlobCallback" -> "web.html"
+        name == "VideoFrameRequestCallback" -> "web.html"
 
         name == "MediaSessionActionHandler" -> "media.session"
 

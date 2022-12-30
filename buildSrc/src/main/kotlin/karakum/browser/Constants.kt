@@ -4,7 +4,7 @@ private val PKG_MAP = mapOf(
     "window" to "browser",
     "document" to "browser",
 
-    "customElements" to "dom.html",
+    "customElements" to "web.html",
 
     "caches" to "web.cache",
     "devicePixelRatio" to "web.device",

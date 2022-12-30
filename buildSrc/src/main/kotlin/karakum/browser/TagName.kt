@@ -26,12 +26,12 @@ internal fun tagNames(
         ConversionResult(
             name = HTML_TAG_NAME,
             body = tagNameBody(HTML_TAG_NAME, "HTMLElement"),
-            pkg = "dom.html",
+            pkg = "web.html",
         ),
         ConversionResult(
             name = SVG_TAG_NAME,
             body = tagNameBody(SVG_TAG_NAME, "SVGElement"),
-            pkg = "dom.svg",
+            pkg = "web.svg",
         ),
     )
 }
@@ -73,6 +73,6 @@ private fun tagDictionary(
     return ConversionResult(
         name = name,
         body = body,
-        pkg = "dom.${name.toLowerCase()}",
+        pkg = "web.${name.toLowerCase()}",
     )
 }

@@ -528,7 +528,7 @@ internal fun htmlDeclarations(
             ConversionResult(
                 name = VIDEO_FRAME_REQUEST_ID,
                 body = "sealed external interface $VIDEO_FRAME_REQUEST_ID",
-                pkg = "dom.html",
+                pkg = "web.html",
             )
         )
         .plus(
@@ -542,7 +542,7 @@ internal fun htmlDeclarations(
             ConversionResult(
                 name = "HTMLCollectionOf",
                 body = "typealias HTMLCollectionOf<T> = HTMLCollection<T>",
-                pkg = "dom.html",
+                pkg = "web.html",
             )
         )
         .plus(
@@ -556,7 +556,7 @@ internal fun htmlDeclarations(
             ConversionResult(
                 name = "XPathNSResolver",
                 body = "typealias XPathNSResolver = (prefix: String?) -> String?",
-                pkg = "dom.xpath",
+                pkg = "web.xpath",
             )
         )
         .plus(
@@ -604,7 +604,7 @@ private fun prepareContent(
     val contextId = ConversionResult(
         RENDERING_CONTEXT_ID,
         contextIdBody,
-        "dom.html",
+        "web.html",
     )
 
     val content = ids.fold(source) { acc, id ->
@@ -703,7 +703,7 @@ internal fun convertInterface(
         return ConversionResult(
             name = name,
             body = "typealias $name = JsClass<HTMLElement>",
-            pkg = "dom.html",
+            pkg = "web.html",
         )
 
     val arrayType = if ("readonly length: number;" in memberSource) {
@@ -900,8 +900,8 @@ internal fun convertInterface(
         name == "RemotePlayback" -> "web.remoteplayback"
 
         name.startsWith("Touch") -> "dom.events"
-        name in DOM_PARSING_TYPES -> "dom.parsing"
-        name.startsWith("SVG") -> "dom.svg"
+        name in DOM_PARSING_TYPES -> "web.parsing"
+        name.startsWith("SVG") -> "web.svg"
 
         name.startsWith("CSS") -> "web.cssom"
         name.startsWith("StyleSheet") -> "web.cssom"
@@ -942,8 +942,8 @@ internal fun convertInterface(
         name in HTTP_TYPES -> "web.http"
         name.startsWith("XMLHttp") -> "web.xhr"
 
-        name == "ARIAMixin" -> "dom.aria"
-        name == "Selection" -> "dom.selection"
+        name == "ARIAMixin" -> "web.aria"
+        name == "Selection" -> "web.selection"
 
         name == "EventModifierInit" -> "dom.events"
 
@@ -952,9 +952,9 @@ internal fun convertInterface(
         name in DOM_CSS_TYPES -> "dom.css"
         name in DOM_DATA_TYPES -> "dom.data"
         name in DOM_GEOMETRY_TYPES -> "dom.geometry"
-        name == "XMLDocument" -> "dom.xml"
+        name == "XMLDocument" -> "web.xml"
 
-        name.startsWith("XPath") -> "dom.xpath"
+        name.startsWith("XPath") -> "web.xpath"
 
         name in WEB_AUDIO_TYPES -> "web.audio"
 
@@ -1007,7 +1007,7 @@ internal fun convertInterface(
 
         name in QUERY_TYPES -> "web.cache"
 
-        else -> "dom.html"
+        else -> "web.html"
     }
 
     return ConversionResult(
