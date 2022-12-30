@@ -489,6 +489,8 @@ internal fun htmlDeclarations(
         "GenericTransformStream",
 
         "IDB.+?",
+
+        "Push.+?",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(DOM_CSS_TYPES)
@@ -999,6 +1001,7 @@ internal fun convertInterface(
         name in WEB_CRYPTO_TYPES -> "web.crypto"
 
         name.startsWith("IDB") -> "web.idb"
+        name.startsWith("Push") -> "web.push"
 
         name == "BroadcastChannel" -> "web.broadcast"
 
@@ -1265,9 +1268,11 @@ private fun convertProperty(
         "Record<string, number>",
         -> "Record<String, Double>"
 
-        // TEMP
-        "PushManager",
-        -> "Any /* $type */"
+        "Record<string, string>",
+        -> "Record<String, String>"
+
+        "BufferSource | string",
+        -> "BufferSource /* | String */"
 
         // TEMP
         "CredentialsContainer",
