@@ -2,7 +2,7 @@
 
 package dom
 
-import dom.css.LinkStyle
+import web.dom.css.LinkStyle
 
 sealed external class ProcessingInstruction :
     CharacterData,

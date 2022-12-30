@@ -2,10 +2,10 @@
 
 package web.svg
 
-import dom.geometry.DOMPoint
-import dom.geometry.DOMPointInit
-import dom.geometry.DOMPointReadOnly
-import dom.geometry.DOMRect
+import web.geometry.DOMPoint
+import web.geometry.DOMPointInit
+import web.geometry.DOMPointReadOnly
+import web.geometry.DOMRect
 
 sealed external class SVGTextContentElement :
     SVGGraphicsElement {

@@ -6,7 +6,7 @@ import dom.DocumentAndElementEventHandlers
 import dom.Element
 import dom.GlobalEventHandlers
 import dom.HTMLOrSVGElement
-import dom.css.ElementCSSInlineStyle
+import web.dom.css.ElementCSSInlineStyle
 
 sealed external class SVGElement :
     Element,

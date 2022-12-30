@@ -4,7 +4,7 @@ package web.svg
 
 import dom.Element
 import dom.NodeListOf
-import dom.geometry.*
+import web.geometry.*
 import web.html.WindowEventHandlers
 
 sealed external class SVGSVGElement :

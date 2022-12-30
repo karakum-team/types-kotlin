@@ -2,8 +2,8 @@
 
 package web.svg
 
-import dom.geometry.DOMMatrix
-import dom.geometry.DOMRect
+import web.geometry.DOMMatrix
+import web.geometry.DOMRect
 
 sealed external class SVGGraphicsElement :
     SVGElement,

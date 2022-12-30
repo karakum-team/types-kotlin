@@ -2,13 +2,13 @@
 
 package dom
 
-import dom.geometry.DOMRect
-import dom.geometry.DOMRectList
 import js.core.ReadonlyArray
 import js.core.Void
 import web.aria.ARIAMixin
 import web.events.Event
 import web.events.EventHandler
+import web.geometry.DOMRect
+import web.geometry.DOMRectList
 import web.html.*
 import web.svg.SVGElement
 import web.svg.SvgTagName
