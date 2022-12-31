@@ -2,4 +2,4 @@
 
 package web.window
 
-external val window: Window
+typealias WindowProxy = Window

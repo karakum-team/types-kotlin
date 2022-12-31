@@ -2,7 +2,6 @@
 
 package web.html
 
-import dom.events.MediaEncryptedEvent
 import js.core.Void
 import web.events.Event
 import web.events.EventHandler
