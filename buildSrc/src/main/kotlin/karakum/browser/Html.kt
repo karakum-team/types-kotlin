@@ -899,7 +899,7 @@ internal fun convertInterface(
 
         name == "RemotePlayback" -> "web.remoteplayback"
 
-        name.startsWith("Touch") -> "dom.events"
+        name.startsWith("Touch") -> "web.uievents"
         name in DOM_PARSING_TYPES -> "web.parsing"
         name.startsWith("SVG") -> "web.svg"
 
@@ -945,7 +945,7 @@ internal fun convertInterface(
         name == "ARIAMixin" -> "web.aria"
         name == "Selection" -> "web.selection"
 
-        name == "EventModifierInit" -> "dom.events"
+        name == "EventModifierInit" -> "web.uievents"
 
         name.startsWith("Document") -> "dom"
         name in DOM_TYPES -> "dom"
@@ -1002,6 +1002,7 @@ internal fun convertInterface(
 
         name.startsWith("IDB") -> "web.idb"
         name.startsWith("Push") -> "web.push"
+        name.startsWith("Window") -> "web.window"
 
         name == "BroadcastChannel" -> "web.broadcast"
 

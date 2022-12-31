@@ -46,7 +46,7 @@ import dom.Range
 import dom.ScrollToOptions
 import dom.DocumentAndElementEventHandlers
 import dom.GlobalEventHandlers
-import web.html.WindowEventHandlers
+import web.window.WindowEventHandlers
 import web.aria.ARIAMixin
 import web.dom.css.LinkStyle
 import web.dom.css.ElementCSSInlineStyle
@@ -70,7 +70,8 @@ import web.html.HTMLSlotElement
 import web.html.HtmlTagName
 import web.html.ShadowRoot
 import web.html.ShadowRootInit
-import web.html.Window
+import web.window.Window
+import web.window.WindowProxy
 import web.selection.Selection
 import web.svg.SVGElement
 import web.svg.SvgTagName
@@ -266,16 +267,14 @@ fun generateKotlinDeclarations(
             import web.device.DeviceOrientationEvent    
             """.trimIndent()
 
-            "HTMLMediaElement",
-            -> """
-            import dom.events.MediaEncryptedEvent    
-            """.trimIndent()
-
             "GlobalEventHandlers",
             "WindowEventHandlers",
             "FileReader",
             -> """
-            import dom.events.*
+            import web.cssom.TransitionEvent
+            import web.html.FormDataEvent
+            import web.html.SubmitEvent
+            import web.uievents.*
             import web.animations.AnimationEvent
             import web.csp.SecurityPolicyViolationEvent
             import web.events.ProgressEvent
@@ -309,7 +308,7 @@ fun generateKotlinDeclarations(
             "WorkerGlobalScope",
             -> """
             import web.fonts.FontFaceSource    
-            import dom.events.PromiseRejectionEvent
+            import web.window.PromiseRejectionEvent
             import web.errors.ErrorEvent
             import web.messaging.MessageEvent
             """.trimIndent()

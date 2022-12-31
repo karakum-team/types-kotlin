@@ -21,7 +21,7 @@ private val PKG_MAP = mapOf(
     "SelectionMode" to "web.html",
     "ShadowRootMode" to "web.html",
     "SlotAssignmentMode" to "web.html",
-    "TouchType" to "dom.events",
+    "TouchType" to "web.uievents",
     "DOMParserSupportedType" to "web.parsing",
 
     "ColorGamut" to "web.media.capabilities",
@@ -145,7 +145,7 @@ private fun convertType(
             "HTMLOrSVGScriptElement" -> "dom"
 
             "MediaProvider" -> "web.html"
-            "WindowProxy" -> "web.html"
+            "WindowProxy" -> "web.window"
 
             "VibratePattern" -> "web.vibration"
 
