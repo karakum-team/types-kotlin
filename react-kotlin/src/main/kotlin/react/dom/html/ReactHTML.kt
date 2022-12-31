@@ -2,8 +2,8 @@
 
 package react.dom.html
 
-import dom.html.*
 import react.IntrinsicType
+import web.html.*
 
 object ReactHTML {
     inline val a: IntrinsicType<AnchorHTMLAttributes<HTMLAnchorElement>>
@@ -59,6 +59,9 @@ object ReactHTML {
 
     inline val caption: IntrinsicType<HTMLAttributes<HTMLElement>>
         get() = IntrinsicType("caption")
+
+    inline val center: IntrinsicType<HTMLAttributes<HTMLElement>>
+        get() = IntrinsicType("center")
 
     inline val cite: IntrinsicType<HTMLAttributes<HTMLElement>>
         get() = IntrinsicType("cite")

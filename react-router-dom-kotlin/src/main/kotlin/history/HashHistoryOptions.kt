@@ -3,5 +3,5 @@
 package history
 
 external interface HashHistoryOptions {
-    var window: dom.html.Window?
+    var window: web.window.Window?
 }

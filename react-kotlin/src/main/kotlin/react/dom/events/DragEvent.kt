@@ -2,8 +2,8 @@
 
 package react.dom.events
 
-import dom.Element
+import web.dom.Element
 
 external interface DragEvent<out T : Element> : MouseEvent<T, NativeDragEvent> {
-    val dataTransfer: dom.data.DataTransfer
+    val dataTransfer: web.data.DataTransfer
 }
