@@ -14,7 +14,7 @@ private val PKG_MAP = mapOf(
     "PremultiplyAlpha" to "web.canvas",
     "ResizeQuality" to "web.canvas",
 
-    "InsertPosition" to "dom",
+    "InsertPosition" to "web.dom",
     "MutationRecordType" to "web.dom.observers",
     "ResizeObserverBoxOptions" to "web.dom.observers",
     "CanPlayTypeResult" to "web.html",
@@ -141,8 +141,8 @@ private fun convertType(
             "CanvasImageSource" -> "web.canvas"
             "ImageBitmapSource" -> "web.canvas"
 
-            "HTMLOrSVGImageElement" -> "dom"
-            "HTMLOrSVGScriptElement" -> "dom"
+            "HTMLOrSVGImageElement" -> "web.dom"
+            "HTMLOrSVGScriptElement" -> "web.dom"
 
             "MediaProvider" -> "web.html"
             "WindowProxy" -> "web.window"
@@ -224,8 +224,8 @@ private fun getTypePkg(
 
         name.endsWith("Setting") -> "webvtt"
 
-        name.startsWith("Document") -> "dom"
-        name.startsWith("Fullscreen") -> "dom"
+        name.startsWith("Document") -> "web.dom"
+        name.startsWith("Fullscreen") -> "web.dom"
         name.startsWith("Scroll") -> "web.scroll"
         name.startsWith("FontFace") -> "web.fonts"
 

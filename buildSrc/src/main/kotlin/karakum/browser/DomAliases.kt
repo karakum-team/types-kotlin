@@ -5,6 +5,6 @@ internal fun domAliases(): List<ConversionResult> =
         ConversionResult(
             name = "NodeListOf",
             body = "typealias NodeListOf<T> = NodeList<T>",
-            pkg = "dom",
+            pkg = "web.dom",
         )
     )

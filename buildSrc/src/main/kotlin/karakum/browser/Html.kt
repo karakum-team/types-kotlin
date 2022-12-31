@@ -524,7 +524,7 @@ internal fun htmlDeclarations(
             ConversionResult(
                 name = "NodeFilter",
                 body = "typealias NodeFilter = (node: Node) -> Short",
-                pkg = "dom",
+                pkg = "web.dom",
             )
         )
         .plus(
@@ -950,8 +950,8 @@ internal fun convertInterface(
 
         name == "EventModifierInit" -> "web.uievents"
 
-        name.startsWith("Document") -> "dom"
-        name in DOM_TYPES -> "dom"
+        name.startsWith("Document") -> "web.dom"
+        name in DOM_TYPES -> "web.dom"
         name in DOM_CSS_TYPES -> "web.dom.css"
         name in DOM_DATA_TYPES -> "web.data"
         name in DOM_GEOMETRY_TYPES -> "web.geometry"
