@@ -1,6 +1,6 @@
 // Automatically generated - do not modify!
 
-package web.parsing
+package web.dom.parsing
 
 import web.dom.Document
 

@@ -8,7 +8,7 @@ sealed external interface VideoFrameCallbackMetadata {
     var captureTime: HighResTimeStamp?
     var expectedDisplayTime: HighResTimeStamp
     var height: Double
-    var mediaTime: Number
+    var mediaTime: Double
     var presentationTime: HighResTimeStamp
     var presentedFrames: Int
     var processingDuration: Double?

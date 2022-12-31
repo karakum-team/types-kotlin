@@ -4,7 +4,7 @@
     "NAME_CONTAINS_ILLEGAL_CHARS",
 )
 
-package web.parsing
+package web.dom.parsing
 
 // language=JavaScript
 @JsName("""(/*union*/{applicationXhtmlXml: 'application/xhtml+xml', applicationXml: 'application/xml', imageSvgXml: 'image/svg+xml', textHtml: 'text/html', textXml: 'text/xml'}/*union*/)""")
