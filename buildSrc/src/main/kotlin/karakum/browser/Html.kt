@@ -73,12 +73,14 @@ private val DOM_TYPES = setOf(
     "Element",
     "FullscreenOptions",
 
+    "DocumentAndElementEventHandlers",
+    "GlobalEventHandlers",
+)
+
+private val SCROLL_TYPES = setOf(
     "ScrollOptions",
     "ScrollToOptions",
     "ScrollIntoViewOptions",
-
-    "DocumentAndElementEventHandlers",
-    "GlobalEventHandlers",
 )
 
 internal val DOM_CSS_TYPES = listOf(
@@ -493,6 +495,7 @@ internal fun htmlDeclarations(
         "Push.+?",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
+        .plus(SCROLL_TYPES)
         .plus(DOM_CSS_TYPES)
         .plus(DOM_DATA_TYPES)
         .plus(DOM_GEOMETRY_TYPES)
@@ -1003,6 +1006,7 @@ internal fun convertInterface(
         name.startsWith("IDB") -> "web.idb"
         name.startsWith("Push") -> "web.push"
         name.startsWith("Window") -> "web.window"
+        name in SCROLL_TYPES -> "web.scroll"
 
         name == "BroadcastChannel" -> "web.broadcast"
 

@@ -226,7 +226,7 @@ private fun getTypePkg(
 
         name.startsWith("Document") -> "dom"
         name.startsWith("Fullscreen") -> "dom"
-        name.startsWith("Scroll") -> "dom"
+        name.startsWith("Scroll") -> "web.scroll"
         name.startsWith("FontFace") -> "web.fonts"
 
         name.startsWith("Animation") -> "web.animations"

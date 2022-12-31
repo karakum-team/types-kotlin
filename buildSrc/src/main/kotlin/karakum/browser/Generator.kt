@@ -43,7 +43,8 @@ import dom.Node
 import dom.NodeList
 import dom.NodeListOf
 import dom.Range
-import dom.ScrollToOptions
+import web.scroll.ScrollIntoViewOptions
+import web.scroll.ScrollToOptions
 import dom.DocumentAndElementEventHandlers
 import dom.GlobalEventHandlers
 import web.window.WindowEventHandlers
