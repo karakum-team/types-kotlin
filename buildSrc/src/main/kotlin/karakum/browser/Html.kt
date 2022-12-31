@@ -903,7 +903,7 @@ internal fun convertInterface(
         name == "RemotePlayback" -> "web.remoteplayback"
 
         name.startsWith("Touch") -> "web.uievents"
-        name in DOM_PARSING_TYPES -> "web.parsing"
+        name in DOM_PARSING_TYPES -> "web.dom.parsing"
         name.startsWith("SVG") -> "web.svg"
 
         name.startsWith("CSS") -> "web.cssom"

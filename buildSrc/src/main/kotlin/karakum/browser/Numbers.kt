@@ -193,7 +193,7 @@ private val DOUBLE_NAMES = setOf(
     "z",
 
     // Media elements
-    "web.mediaTime",
+    "mediaTime",
     "processingDuration",
     "rtpTimestamp",
     "currentTime",
