@@ -2,6 +2,4 @@
 
 package web.dom
 
-import dom.Document
-
 external val document: Document

@@ -2,7 +2,7 @@
 
 package web.html
 
-import dom.DOMTokenList
+import web.dom.DOMTokenList
 import web.dom.css.LinkStyle
 
 abstract external class HTMLLinkElement :

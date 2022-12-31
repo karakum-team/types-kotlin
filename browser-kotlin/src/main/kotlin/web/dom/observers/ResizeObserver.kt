@@ -2,7 +2,7 @@
 
 package web.dom.observers
 
-import dom.Element
+import web.dom.Element
 
 external class ResizeObserver(
     callback: ResizeObserverCallback,

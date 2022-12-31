@@ -2,7 +2,7 @@
 
 package web.parsing
 
-import dom.Document
+import web.dom.Document
 
 external class DOMParser {
     /**

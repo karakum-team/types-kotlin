@@ -2,8 +2,8 @@
 
 package web.dom.observers
 
-import dom.Element
 import js.core.HighResTimeStamp
+import web.dom.Element
 import web.geometry.DOMRectReadOnly
 
 external class IntersectionObserverEntry(

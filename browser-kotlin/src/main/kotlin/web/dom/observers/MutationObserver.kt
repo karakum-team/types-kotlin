@@ -2,8 +2,8 @@
 
 package web.dom.observers
 
-import dom.Node
 import js.core.ReadonlyArray
+import web.dom.Node
 
 external class MutationObserver(
     callback: MutationCallback,

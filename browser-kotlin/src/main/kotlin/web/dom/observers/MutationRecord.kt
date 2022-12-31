@@ -2,8 +2,8 @@
 
 package web.dom.observers
 
-import dom.Node
-import dom.NodeList
+import web.dom.Node
+import web.dom.NodeList
 
 sealed external class MutationRecord {
     /** Return the nodes added and removed respectively. */

@@ -2,8 +2,8 @@
 
 package web.dom.observers
 
-import dom.Element
 import js.core.ReadonlyArray
+import web.dom.Element
 
 external class IntersectionObserver(
     callback: IntersectionObserverCallback,
