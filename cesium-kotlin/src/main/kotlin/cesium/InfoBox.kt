@@ -9,8 +9,8 @@
 
 package cesium
 
-import dom.Element
-import dom.html.HTMLIFrameElement
+import web.dom.Element
+import web.html.HTMLIFrameElement
 
 /**
  * A widget for displaying information or a description.

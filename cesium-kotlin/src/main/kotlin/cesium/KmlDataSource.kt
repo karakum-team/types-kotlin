@@ -9,11 +9,11 @@
 
 package cesium
 
-import dom.Document
-import dom.Element
-import dom.html.HTMLCanvasElement
 import js.core.ReadonlyArray
 import web.buffer.Blob
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
 
 /**
  * A [DataSource] which processes Keyhole Markup Language 2.2 (KML).
