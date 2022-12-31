@@ -1,6 +1,6 @@
 // Automatically generated - do not modify!
 
-package dom
+package web.scroll
 
 sealed external interface ScrollIntoViewOptions :
     ScrollOptions {
