@@ -20,15 +20,15 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Date" to "kotlin.js.Date",
 
-    "Document" to "dom.Document",
-    "DataTransfer" to "dom.data.DataTransfer",
+    "Document" to "web.dom.Document",
+    "DataTransfer" to "web.data.DataTransfer",
     "AbstractView" to "Window",
 
     "Key" to "react.Key",
     "CSSProperties" to "react.CSSProperties",
 
     // TODO: use React interface instead
-    "TouchList" to "dom.events.TouchList",
+    "TouchList" to "web.uievents.TouchList",
 
     // TODO: check
     "Booleanish" to "Boolean",

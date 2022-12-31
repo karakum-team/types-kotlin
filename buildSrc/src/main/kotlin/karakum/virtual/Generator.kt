@@ -12,7 +12,7 @@ private val DEFAULT_IMPORTS = listOf(
     "JsTuple2" to "js.core.JsTuple2",
     "Void" to "js.core.Void",
 
-    "Element" to "dom.Element",
+    "Element" to "web.dom.Element",
 )
 
 fun generateKotlinDeclarations(

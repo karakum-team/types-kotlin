@@ -19,7 +19,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "void" to UNIT,
     "null" to "Nothing?",
 
-    "HTMLElement | string | null" to "dom.html.HTMLElement?",
+    "HTMLElement | string | null" to "web.html.HTMLElement?",
     "boolean | RoundOffsets" to "Boolean /* boolean | RoundOffsets */",
 
     "() => void" to "() -> Unit",
@@ -27,8 +27,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "(setOptionsAction: SetAction<Partial<OptionsGeneric<any>>>) => Promise<Partial<State>>" to
             "(SetAction<OptionsGeneric<*>>) -> Promise<State>",
 
-    "Element" to "dom.Element",
-    "() => ClientRect | DOMRect" to "() -> dom.geometry.DOMRect",
+    "Element" to "web.dom.Element",
+    "() => ClientRect | DOMRect" to "() -> web.geometry.DOMRect",
 
     "Partial<Options>" to "Options",
 

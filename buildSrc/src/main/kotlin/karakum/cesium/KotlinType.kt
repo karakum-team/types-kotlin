@@ -2,7 +2,7 @@ package karakum.cesium
 
 internal const val JS_FUNCTION = "Function"
 
-private const val HTML_ELEMENT = "dom.html.HTMLElement"
+private const val HTML_ELEMENT = "web.html.HTMLElement"
 private const val PROMISE = "kotlin.js.Promise"
 
 private val CLASS_REGEX = Regex("""[\w\d]+""")

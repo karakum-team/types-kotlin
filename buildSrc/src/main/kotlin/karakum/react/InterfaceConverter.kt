@@ -1,8 +1,8 @@
 package karakum.react
 
 private val TYPE_CONTAINER_IMPORTS = """
-import dom.html.*    
-import dom.svg.*    
+import web.html.*    
+import web.svg.*    
 import react.IntrinsicType    
 """.trimIndent()
 
@@ -120,7 +120,7 @@ private fun convertAttributesInterface(
         "external interface $name\n\n" +
                 members.replace("var ", "var $name.")
     } else {
-        var result = "import dom.Element\n" +
+        var result = "import web.dom.Element\n" +
                 "import react.dom.events.*\n\n" +
                 "external interface $declaration {\n" +
                 members +

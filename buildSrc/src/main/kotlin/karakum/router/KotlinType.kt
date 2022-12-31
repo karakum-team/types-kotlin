@@ -23,7 +23,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Date" to "kotlin.js.Date",
 
-    "Window" to "dom.html.Window",
+    "Window" to "web.window.Window",
     "URLSearchParams" to "web.url.URLSearchParams",
 
     "React.ReactNode" to "react.ReactNode",

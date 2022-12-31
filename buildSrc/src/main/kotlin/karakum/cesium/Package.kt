@@ -3,15 +3,15 @@ package karakum.cesium
 internal val DEFAULT_PACKAGE: String = """
 package cesium
 
-import canvas.ImageData
-import dom.Document
-import dom.Element
-import dom.html.HTMLCanvasElement
-import dom.html.HTMLElement
-import dom.html.HTMLIFrameElement
-import dom.html.HTMLImageElement
-import dom.html.HTMLVideoElement
-import dom.xml.XMLDocument
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
 import js.buffer.ArrayBuffer
 import js.core.ReadonlyArray
 import js.core.ReadonlyRecord

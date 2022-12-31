@@ -43,8 +43,8 @@ internal fun convertEventHandlers(
 }
 
 private const val DEFAULT_EVENT_IMPORTS = """
-import dom.Element
-import dom.html.Window
+import web.dom.Element
+import web.window.Window
 import web.events.Event
 import web.events.EventTarget
 """
