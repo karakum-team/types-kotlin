@@ -379,6 +379,7 @@ internal fun htmlDeclarations(
         "Path2D .+?",
 
         "Window .+?",
+        "VisualViewport .+?",
         "WindowPostMessageOptions .+?",
 
         "Animation .+?",
@@ -1008,6 +1009,7 @@ internal fun convertInterface(
 
         name.startsWith("Window") -> "web.window"
         name == "PictureInPictureWindow" -> "web.window"
+        name == "VisualViewport" -> "web.viewport"
 
         name in SCROLL_TYPES -> "web.scroll"
 

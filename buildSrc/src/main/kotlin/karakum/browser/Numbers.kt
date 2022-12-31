@@ -311,6 +311,11 @@ private val DOUBLE_NAMES = setOf(
     "rolloffFactor",
     "smoothingTimeConstant",
     "threshold",
+
+    // VisualViewport
+    "pageLeft",
+    "pageTop",
+    "scale",
 )
 
 private val WINDOW_EXCLUDED = setOf(

@@ -2,6 +2,8 @@ package karakum.browser
 
 private val PKG_MAP = mapOf(
     "window" to "web.window",
+    "visualViewport" to "web.viewport",
+
     "document" to "web.dom",
 
     "customElements" to "web.html",
@@ -41,6 +43,7 @@ private fun convertConstant(
 
     val type = when (typeSource) {
         "number" -> "Double"
+        "VisualViewport | null" -> typeSource.substringBefore(" ")
         else -> typeSource
     }
 
