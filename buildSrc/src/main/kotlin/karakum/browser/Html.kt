@@ -1005,7 +1005,10 @@ internal fun convertInterface(
 
         name.startsWith("IDB") -> "web.idb"
         name.startsWith("Push") -> "web.push"
+
         name.startsWith("Window") -> "web.window"
+        name == "PictureInPictureWindow" -> "web.window"
+
         name in SCROLL_TYPES -> "web.scroll"
 
         name == "BroadcastChannel" -> "web.broadcast"
