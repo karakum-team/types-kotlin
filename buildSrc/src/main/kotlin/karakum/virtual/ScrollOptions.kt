@@ -6,7 +6,6 @@ internal const val SCROLL_OPTIONS = "ScrollOptions"
 internal const val SCROLL_OPTIONS_BODY = """{
     adjustments?: number | undefined;
     behavior?: ScrollBehavior | undefined;
-    sync: boolean;
 }"""
 
 internal const val SCROLL_BY_OPTIONS = "ScrollByOptions"

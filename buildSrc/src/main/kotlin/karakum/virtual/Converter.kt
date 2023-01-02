@@ -22,7 +22,7 @@ internal fun convertDefinitions(
         .replace("export interface ", "declare interface ")
         .replace("\ninterface ", "\ndeclare interface ")
         .replace("\ntype ", "\ndeclare type ")
-        .replace("{ adjustments, behavior, sync, }: $SCROLL_OPTIONS_BODY", "options: $SCROLL_OPTIONS")
+        .replace("{ adjustments, behavior, }: $SCROLL_OPTIONS_BODY", "options: $SCROLL_OPTIONS")
         .replace(
             SCROLL_OPTIONS_BODY
                 .replace("\n", "\n    ")
