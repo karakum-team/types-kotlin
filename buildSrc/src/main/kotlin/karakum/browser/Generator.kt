@@ -62,6 +62,7 @@ import web.geometry.DOMRect
 import web.geometry.DOMRectInit
 import web.geometry.DOMRectReadOnly
 import web.geometry.DOMRectList
+import web.fullscreen.FullscreenOptions
 import web.html.HTMLCanvasElement
 import web.html.HTMLCollectionOf
 import web.html.HTMLCollection

@@ -71,7 +71,6 @@ private val DOM_TYPES = setOf(
     "ChildNode",
     "ParentNode",
     "Element",
-    "FullscreenOptions",
 
     "DocumentAndElementEventHandlers",
     "GlobalEventHandlers",
@@ -81,6 +80,10 @@ private val SCROLL_TYPES = setOf(
     "ScrollOptions",
     "ScrollToOptions",
     "ScrollIntoViewOptions",
+)
+
+private val FULLSCREEN_TYPES = setOf(
+    "FullscreenOptions",
 )
 
 internal val DOM_CSS_TYPES = listOf(
@@ -497,6 +500,7 @@ internal fun htmlDeclarations(
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(SCROLL_TYPES)
+        .plus(FULLSCREEN_TYPES)
         .plus(DOM_CSS_TYPES)
         .plus(DOM_DATA_TYPES)
         .plus(DOM_GEOMETRY_TYPES)
@@ -1012,6 +1016,7 @@ internal fun convertInterface(
         name == "VisualViewport" -> "web.viewport"
 
         name in SCROLL_TYPES -> "web.scroll"
+        name in FULLSCREEN_TYPES -> "web.fullscreen"
 
         name == "BroadcastChannel" -> "web.broadcast"
 
