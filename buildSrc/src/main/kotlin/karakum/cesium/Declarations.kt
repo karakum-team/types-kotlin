@@ -157,8 +157,10 @@ private fun readDeclarations(
         .flatMap { parseTopDefinition(it) }
         // TODO: support
         .filter { !it.body.startsWith("export var ") }
+        .filter { !it.body.startsWith("var ") }
         // TODO: support
         .filter { !it.body.startsWith("export const ") || it.body.startsWith("export const enum ") }
+        .filter { !it.body.startsWith("const ") || it.body.startsWith("const enum ") }
         .map { source ->
             val body = source.body
             val prefix = FACTORY_MAP.keys
