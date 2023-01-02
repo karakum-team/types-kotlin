@@ -10,7 +10,7 @@ private val MULTI_TYPES = listOf(
     "Resource | string",
 
     "Entity | Entity[] | EntityCollection | DataSource | ImageryLayer | Cesium3DTileset | TimeDynamicPointCloud" +
-            " | Promise<Entity | Entity[] | EntityCollection | DataSource | ImageryLayer | Cesium3DTileset | TimeDynamicPointCloud>",
+            " | Promise<Entity | Entity[] | EntityCollection | DataSource | ImageryLayer | Cesium3DTileset | TimeDynamicPointCloud | VoxelPrimitive>",
 
     "HTMLImageElement | HTMLCanvasElement | string | Resource | Billboard.CreateImageCallback",
     "PostProcessStage | PostProcessStageComposite",
