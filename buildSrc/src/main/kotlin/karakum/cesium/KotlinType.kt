@@ -2,8 +2,8 @@ package karakum.cesium
 
 internal const val JS_FUNCTION = "Function"
 
-private const val HTML_ELEMENT = "web.html.HTMLElement"
-private const val PROMISE = "kotlin.js.Promise"
+private const val HTML_ELEMENT = "HTMLElement"
+private const val PROMISE = "Promise"
 
 private val CLASS_REGEX = Regex("""[\w\d]+""")
 private const val CALL_DELIMITER = "."
@@ -27,7 +27,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "string" to "String",
 
     "void" to "Unit",
-    "undefined" to "Nothing?",
+    "undefined" to "Void",
 
     JS_FUNCTION to "Function<*>",
     "Date" to "kotlin.js.Date",
@@ -38,7 +38,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Promise<HTMLImageElement | HTMLCanvasElement> | undefined" to "$PROMISE<$HTML_ELEMENT>?",
     "Promise<ImageryTypes | CompressedTextureBuffer> | undefined" to "$PROMISE<Any /* ImageryTypes | CompressedTextureBuffer */>?",
-    "undefined | Promise<void>" to "$PROMISE<Nothing?>?",
+    "undefined | Promise<void>" to "$PROMISE<Void>?",
     "Cartesian2 | Cartesian3" to "Cartesian3",
 
     "Entity | Entity.ConstructorOptions" to "Entity",
