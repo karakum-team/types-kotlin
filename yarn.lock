@@ -119,22 +119,22 @@
   dependencies:
     "@tanstack/table-core" "8.6.0"
 
-"@tanstack/react-virtual@3.0.0-beta.33":
-  version "3.0.0-beta.33"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-virtual/-/react-virtual-3.0.0-beta.33.tgz#6f9dc64c44c75993b9941fef6a886c46364e7d83"
-  integrity sha512-CuZtODxMSp3Ywe4PTpcR7zOFT0ZtJSRTZZiqxZPpmEJ7ollD+WUryM2qtODtDuCfZ7tqj6CJb58K8QFHVq5IBA==
+"@tanstack/react-virtual@3.0.0-beta.34":
+  version "3.0.0-beta.34"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-virtual/-/react-virtual-3.0.0-beta.34.tgz#a2a327e02643622f742cec8ffa644c64ccbf5411"
+  integrity sha512-EQdy+jSObZzeuDSbFBxLbnRnvooth+4CBs5gh3FAhaaH3X99Km42pOWwXgPpu6mZCstxlopoFc4BY957i4uG5Q==
   dependencies:
-    "@tanstack/virtual-core" "3.0.0-beta.33"
+    "@tanstack/virtual-core" "3.0.0-beta.34"
 
 "@tanstack/table-core@8.6.0":
   version "8.6.0"
   resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.6.0.tgz#1b12c07bd3283ba98a4ca7c872b8ac91918001e5"
   integrity sha512-MHqITGrrGnPNWWgnFuRqIzl+/pHjzv54JTpb0UFymFTH79/bLC33mO3dKs7lx55dI43dTzhWz+e88vnJgXF7+w==
 
-"@tanstack/virtual-core@3.0.0-beta.33":
-  version "3.0.0-beta.33"
-  resolved "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.0.0-beta.33.tgz#e54c1fa9819ba56f8d82deaca0dd437a1ec91908"
-  integrity sha512-LV9biN5JDNxGT5MvqICiabmEZ3E1g/FgtpgwyIbrL6F6H5BDgATiirkdPnbDEMsmhL/j0NKQglzjM2dC2g+/Yg==
+"@tanstack/virtual-core@3.0.0-beta.34":
+  version "3.0.0-beta.34"
+  resolved "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.0.0-beta.34.tgz#4880c5331edd24161fd9b75fd92ec7b915eaed8d"
+  integrity sha512-9whWuShYSwpJV6kPufEGuNXXJfdkqspD55GMjqE1wPJ8g2iHk0HQdPlb5kGgt/2IDYrxAV/mMFWQM1lMj7cKkg==
 
 "@tweenjs/tween.js@^18.6.4":
   version "18.6.4"
