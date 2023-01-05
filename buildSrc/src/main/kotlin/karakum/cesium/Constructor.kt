@@ -63,17 +63,19 @@ internal class Constructor(
         val optionsType = "$type.$CONSTRUCTOR_OPTIONS"
         val params = parameters.dropLast(1)
             .joinToString("") { it.toCode() + ",\n" }
-        val args = parameters.joinToString(", ") { it.name }
+        val args = parameters.joinToString(", ") {
+            var result = it.name
+            if (result == "options")
+                result += " = jso(block)"
+            result
+        }
 
         // language=Kotlin
         return """
             inline fun $type(
-                $params block: $optionsType.() -> Unit
-            ): $type {
-                val options: $optionsType = js("({})")
-                block(options) 
-                return $type($args)
-            }
+                $params block: $optionsType.() -> Unit,
+            ): $type =
+                $type($args)
         """.trimIndent()
     }
 
