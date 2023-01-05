@@ -10,6 +10,7 @@
 package cesium
 
 import js.core.ReadonlyArray
+import js.core.jso
 import kotlin.js.Promise
 
 /**
@@ -297,9 +298,9 @@ external class UrlTemplateImageryProvider(options: ConstructorOptions) {
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/UrlTemplateImageryProvider.html#getTileCredits">Online Documentation</a>
      */
     fun getTileCredits(
-        x: Double,
-        y: Double,
-        level: Int,
+     x: Double,
+     y: Double,
+     level: Int,
     ): ReadonlyArray<Credit>
 
     /**
@@ -314,10 +315,10 @@ external class UrlTemplateImageryProvider(options: ConstructorOptions) {
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/UrlTemplateImageryProvider.html#requestImage">Online Documentation</a>
      */
     fun requestImage(
-        x: Double,
-        y: Double,
-        level: Int,
-        request: Request? = definedExternally,
+     x: Double,
+     y: Double,
+     level: Int,
+     request: Request? = definedExternally,
     ): Promise<ImageryTypes>?
 
     /**
@@ -335,11 +336,11 @@ external class UrlTemplateImageryProvider(options: ConstructorOptions) {
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/UrlTemplateImageryProvider.html#pickFeatures">Online Documentation</a>
      */
     fun pickFeatures(
-        x: Double,
-        y: Double,
-        level: Int,
-        longitude: Double,
-        latitude: Double,
+     x: Double,
+     y: Double,
+     level: Int,
+     longitude: Double,
+     latitude: Double,
     ): Promise<ReadonlyArray<ImageryLayerFeatureInfo>>?
 
     /**
@@ -453,9 +454,6 @@ external class UrlTemplateImageryProvider(options: ConstructorOptions) {
 }
 
 inline fun UrlTemplateImageryProvider(
-    block: UrlTemplateImageryProvider.ConstructorOptions.() -> Unit,
-): UrlTemplateImageryProvider {
-    val options: UrlTemplateImageryProvider.ConstructorOptions = js("({})")
-    block(options)
-    return UrlTemplateImageryProvider(options)
-}
+ block: UrlTemplateImageryProvider.ConstructorOptions.() -> Unit,
+): UrlTemplateImageryProvider =
+ UrlTemplateImageryProvider(options = jso(block))
