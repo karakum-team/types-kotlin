@@ -1,6 +1,8 @@
 package karakum.browser
 
 private val PKG_MAP = mapOf(
+    "performance" to "web.performance",
+
     "window" to "web.window",
     "visualViewport" to "web.viewport",
 

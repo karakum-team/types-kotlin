@@ -19,6 +19,7 @@ internal fun String.applyPatches(): String =
         .splitUnion("RequestInfo", "Request | string")
         .splitUnion("MediaStreamTrack | string")
         .splitUnion("Path2D | string")
+        .splitUnion("string | PerformanceMeasureOptions")
         .splitUnion("AlgorithmIdentifier | AesDerivedKeyParams | HmacImportParams | HkdfParams | Pbkdf2Params")
         .splitUnion("AlgorithmIdentifier | EcdhKeyDeriveParams | HkdfParams | Pbkdf2Params")
         .splitUnion("AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm")

@@ -497,6 +497,8 @@ internal fun htmlDeclarations(
         "IDB.+?",
 
         "Push.+?",
+
+        "Performance.+?",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(SCROLL_TYPES)
@@ -649,6 +651,9 @@ internal fun convertInterface(
         name.endsWith("Event") -> return null
         name.endsWith("EventInit") -> return null
         name.endsWith("EventMap") -> return null
+
+        // TEMP
+        name.startsWith("PerformanceObserver") -> return null
 
         // TEMP
         name == "HTMLCollectionOf" -> return null
@@ -1011,6 +1016,8 @@ internal fun convertInterface(
         name.startsWith("IDB") -> "web.idb"
         name.startsWith("Push") -> "web.push"
 
+        name.startsWith("Performance") -> "web.performance"
+
         name.startsWith("Window") -> "web.window"
         name == "PictureInPictureWindow" -> "web.window"
         name == "VisualViewport" -> "web.viewport"
@@ -1235,6 +1242,9 @@ private fun convertProperty(
         "number",
         "number | string",
         -> typeProvider.numberType(safeName)
+
+        "string | DOMHighResTimeStamp",
+        -> "HighResTimeStamp /* | String */"
 
         // RTC
         "number[]",
