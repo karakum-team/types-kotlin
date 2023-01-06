@@ -530,14 +530,7 @@ internal fun htmlDeclarations(
         .plus(
             ConversionResult(
                 name = "EventCounts",
-                body = "sealed external class EventCounts : ReadonlyMap<String, Int>",
-                pkg = "web.performance",
-            )
-        )
-        .plus(
-            ConversionResult(
-                name = "PerformanceEntryList",
-                body = "typealias PerformanceEntryList = ReadonlyArray<PerformanceEntry>",
+                body = "sealed external class EventCounts : ReadonlyMap<EventType<*>, Int>",
                 pkg = "web.performance",
             )
         )
@@ -849,7 +842,7 @@ internal fun convertInterface(
                 .replace("val readable:", "override val readable:")
                 .replace("val writable:", "override val writable:")
 
-            "PerformanceEntry"
+            "PerformanceEntry",
             -> result
                 .replace("fun toJSON()", "open fun toJSON()")
 
@@ -857,6 +850,7 @@ internal fun convertInterface(
             "PerformanceNavigationTiming",
             "PerformanceResourceTiming",
             -> result
+                .replace("val target: Node?", "val target: EventTarget /* Node */?")
                 .replace("fun toJSON()", "override fun toJSON()")
 
             else -> result

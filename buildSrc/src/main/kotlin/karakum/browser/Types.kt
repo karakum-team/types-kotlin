@@ -137,6 +137,8 @@ private fun convertType(
 
     if (!bodySource.startsWith("\"")) {
         val pkg = when (name) {
+            "PerformanceEntryList" -> "web.performance"
+
             "CanvasImageSource" -> "web.canvas"
             "ImageBitmapSource" -> "web.canvas"
 
@@ -171,6 +173,9 @@ private fun convertType(
         val body = when {
             bodySource == "ClipboardItem[]"
             -> "ReadonlyArray<ClipboardItem>"
+
+            bodySource == "PerformanceEntry[]"
+            -> "ReadonlyArray<PerformanceEntry>"
 
             name == "VibratePattern" && bodySource == "number | number[]"
             -> "ReadonlyArray<Int> /* | Int */"
