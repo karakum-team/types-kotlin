@@ -39,7 +39,7 @@ sealed external class Performance :
         endMark: String = definedExternally,
     ): PerformanceMeasure
 
-    fun now(): DOMHighResTimeStamp
+    fun now(): HighResTimeStamp
     fun setResourceTimingBufferSize(maxSize: Number)
     fun toJSON(): Any
 }

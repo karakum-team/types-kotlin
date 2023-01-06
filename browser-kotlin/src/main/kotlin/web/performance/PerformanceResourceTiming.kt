@@ -9,10 +9,10 @@ sealed external class PerformanceResourceTiming :
     PerformanceEntry {
     val connectEnd: HighResTimeStamp
     val connectStart: HighResTimeStamp
-    val decodedBodySize: Number
+    val decodedBodySize: Int
     val domainLookupEnd: HighResTimeStamp
     val domainLookupStart: HighResTimeStamp
-    val encodedBodySize: Number
+    val encodedBodySize: Int
     val fetchStart: HighResTimeStamp
     val initiatorType: String
     val nextHopProtocol: String
@@ -23,7 +23,7 @@ sealed external class PerformanceResourceTiming :
     val responseStart: HighResTimeStamp
     val secureConnectionStart: HighResTimeStamp
     val serverTiming: ReadonlyArray<PerformanceServerTiming>
-    val transferSize: Number
+    val transferSize: Int
     val workerStart: HighResTimeStamp
     fun toJSON(): Any
 }
