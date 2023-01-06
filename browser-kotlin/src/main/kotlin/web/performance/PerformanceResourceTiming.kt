@@ -25,5 +25,5 @@ sealed external class PerformanceResourceTiming :
     val serverTiming: ReadonlyArray<PerformanceServerTiming>
     val transferSize: Int
     val workerStart: HighResTimeStamp
-    fun toJSON(): Any
+    override fun toJSON(): Any
 }

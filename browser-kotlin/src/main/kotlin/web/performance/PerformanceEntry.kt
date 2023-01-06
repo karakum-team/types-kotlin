@@ -9,5 +9,5 @@ sealed external class PerformanceEntry {
     val entryType: String
     val name: String
     val startTime: HighResTimeStamp
-    fun toJSON(): Any
+    open fun toJSON(): Any
 }

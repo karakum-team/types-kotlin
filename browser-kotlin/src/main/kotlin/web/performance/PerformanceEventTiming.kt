@@ -11,5 +11,5 @@ sealed external class PerformanceEventTiming :
     val processingEnd: HighResTimeStamp
     val processingStart: HighResTimeStamp
     val target: Node?
-    fun toJSON(): Any
+    override fun toJSON(): Any
 }

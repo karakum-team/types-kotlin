@@ -16,5 +16,5 @@ sealed external class PerformanceNavigationTiming :
     val type: NavigationTimingType
     val unloadEventEnd: HighResTimeStamp
     val unloadEventStart: HighResTimeStamp
-    fun toJSON(): Any
+    override fun toJSON(): Any
 }
