@@ -536,6 +536,13 @@ internal fun htmlDeclarations(
         )
         .plus(
             ConversionResult(
+                name = "PerformanceEntryList",
+                body = "typealias PerformanceEntryList = ReadonlyArray<PerformanceEntry>",
+                pkg = "web.performance",
+            )
+        )
+        .plus(
+            ConversionResult(
                 name = "NodeFilter",
                 body = "typealias NodeFilter = (node: Node) -> Short",
                 pkg = "web.dom",
