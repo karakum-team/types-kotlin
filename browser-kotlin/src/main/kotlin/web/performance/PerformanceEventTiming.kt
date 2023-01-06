@@ -3,13 +3,13 @@
 package web.performance
 
 import js.core.HighResTimeStamp
-import web.dom.Node
+import web.events.EventTarget
 
 sealed external class PerformanceEventTiming :
     PerformanceEntry {
     val cancelable: Boolean
     val processingEnd: HighResTimeStamp
     val processingStart: HighResTimeStamp
-    val target: Node?
+    val target: EventTarget /* Node */?
     override fun toJSON(): Any
 }
