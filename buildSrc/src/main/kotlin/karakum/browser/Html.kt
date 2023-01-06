@@ -660,9 +660,6 @@ internal fun convertInterface(
         name.endsWith("EventMap") -> return null
 
         // TEMP
-        name.startsWith("PerformanceObserver") -> return null
-
-        // TEMP
         name == "HTMLCollectionOf" -> return null
     }
 

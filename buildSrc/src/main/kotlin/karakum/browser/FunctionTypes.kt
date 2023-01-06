@@ -15,6 +15,8 @@ private fun convertFunctionType(
         .substringBefore(" ")
 
     val pkg = when {
+        name == "PerformanceObserverCallback" -> "web.performance"
+
         name == "FunctionStringCallback" -> "web.data"
 
         name.startsWith("IntersectionObserver") -> "web.dom.observers"
