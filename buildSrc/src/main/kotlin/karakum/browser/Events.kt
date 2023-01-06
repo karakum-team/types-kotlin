@@ -307,7 +307,6 @@ private fun parseEventData(
 ): EventData? {
     if (!source.endsWith(";")) return null
     if (mapId == "AbortSignal") return null
-    if (mapId == "Performance") return null
 
     val (name, type) = source
         .removeSurrounding("    \"", ";")
