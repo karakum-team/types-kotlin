@@ -842,6 +842,16 @@ internal fun convertInterface(
                 .replace("val readable:", "override val readable:")
                 .replace("val writable:", "override val writable:")
 
+            "PerformanceEntry"
+            -> result
+                .replace("fun toJSON()", "open fun toJSON()")
+
+            "PerformanceEventTiming",
+            "PerformanceNavigationTiming",
+            "PerformanceResourceTiming",
+            -> result
+                .replace("fun toJSON()", "override fun toJSON()")
+
             else -> result
         }
 
