@@ -5,6 +5,8 @@ import karakum.common.unionBody
 import karakum.common.unionConstant
 
 private val PKG_MAP = mapOf(
+    "NavigationTimingType" to "web.performance",
+
     "ColorSpaceConversion" to "web.canvas",
     "GlobalCompositeOperation" to "web.canvas",
     "ImageOrientation" to "web.canvas",
@@ -91,9 +93,6 @@ private val EXCLUDED_TYPES = setOf(
     // webstreams
     "ReadableStreamType",
     "ReadableStreamReaderMode",
-
-    // deprecated?
-    "NavigationTimingType",
 
     "DisplayCaptureSurfaceType",
     "VideoFacingModeEnum",

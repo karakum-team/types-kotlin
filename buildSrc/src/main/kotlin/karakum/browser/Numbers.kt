@@ -159,6 +159,11 @@ private val INT_NAMES = setOf(
     "tagLength",
     "modulusLength",
     "saltLength",
+
+    // PerformanceResourceTiming
+    "decodedBodySize",
+    "encodedBodySize",
+    "transferSize",
 )
 
 private val DOUBLE_NAMES = setOf(

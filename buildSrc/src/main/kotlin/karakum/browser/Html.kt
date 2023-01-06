@@ -529,6 +529,13 @@ internal fun htmlDeclarations(
         .plus(additionalType)
         .plus(
             ConversionResult(
+                name = "EventCounts",
+                body = "sealed external class EventCounts : ReadonlyMap<String, Int>",
+                pkg = "web.performance",
+            )
+        )
+        .plus(
+            ConversionResult(
                 name = "NodeFilter",
                 body = "typealias NodeFilter = (node: Node) -> Short",
                 pkg = "web.dom",
@@ -1406,6 +1413,7 @@ private fun convertFunction(
             "SVGCircleElement | SVGEllipseElement | SVGImageElement | SVGLineElement | SVGPathElement | SVGPolygonElement | SVGPolylineElement | SVGRectElement | SVGTextElement | SVGUseElement",
             "SVGElement /* SVGCircleElement | SVGEllipseElement | SVGImageElement | SVGLineElement | SVGPathElement | SVGPolygonElement | SVGPolylineElement | SVGRectElement | SVGTextElement | SVGUseElement */"
         )
+        .replace(": DOMHighResTimeStamp", ": HighResTimeStamp")
         .replace(": OffscreenRenderingContext", ": Any /* OffscreenRenderingContext */")
         .replace(": RadioNodeList | Element | null", ": Any? /* RadioNodeList | Element */")
         .replace(": Promise<any>", ": Promise<*>")
