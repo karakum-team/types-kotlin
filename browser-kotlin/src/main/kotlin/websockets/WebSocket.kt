@@ -42,7 +42,7 @@ external class WebSocket(
      *
      * If the WebSocket connection is closed, this attribute's value will only increase with each call to the send() method. (The number does not reset to zero once the connection closes.)
      */
-    val bufferedAmount: Number
+    val bufferedAmount: Int
 
     /** Returns the extensions selected by the server, if any. */
     val extensions: String
@@ -62,7 +62,7 @@ external class WebSocket(
 
     /** Closes the WebSocket connection, optionally using code as the the WebSocket connection close code and reason as the the WebSocket connection close reason. */
     fun close(
-        code: Number = definedExternally,
+        code: Short = definedExternally,
         reason: String = definedExternally,
     )
 
