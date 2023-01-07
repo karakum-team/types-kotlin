@@ -1597,7 +1597,11 @@ private fun getParameterType(
         -> "BigInt"
 
         source == "number"
-        -> if (name == "index") "Int" else "Number"
+        -> when (name) {
+            "code" -> "Short"
+            "index" -> "Int"
+            else -> "Number"
+        }
 
         source == "boolean"
         -> "Boolean"

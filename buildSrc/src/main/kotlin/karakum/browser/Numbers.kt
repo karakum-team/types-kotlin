@@ -164,6 +164,9 @@ private val INT_NAMES = setOf(
     "decodedBodySize",
     "encodedBodySize",
     "transferSize",
+
+    // WebSocket
+    "bufferedAmount",
 )
 
 private val DOUBLE_NAMES = setOf(
