@@ -302,6 +302,7 @@ fun generateKotlinDeclarations(
 
             "AbstractWorker",
             "Worker",
+            "WebSocket",
             -> """
             import web.events.IEventTarget
             import web.errors.ErrorEvent

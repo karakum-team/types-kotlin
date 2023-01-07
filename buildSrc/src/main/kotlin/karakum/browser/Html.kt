@@ -499,6 +499,8 @@ internal fun htmlDeclarations(
         "Push.+?",
 
         "Performance.+?",
+
+        "WebSocket.+?",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(SCROLL_TYPES)
@@ -1041,6 +1043,7 @@ internal fun convertInterface(
         name in FULLSCREEN_TYPES -> "web.fullscreen"
 
         name == "BroadcastChannel" -> "web.broadcast"
+        name == "WebSocket" -> "websockets"
 
         name in QUERY_TYPES -> "web.cache"
 
