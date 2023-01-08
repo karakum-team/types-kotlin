@@ -2,6 +2,7 @@
 
 package websockets
 
+import js.buffer.ArrayBufferLike
 import js.buffer.ArrayBufferView
 import js.core.ReadonlyArray
 import web.buffer.Blob
