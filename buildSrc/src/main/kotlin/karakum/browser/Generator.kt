@@ -14,6 +14,7 @@ import js.core.BigInt
 import js.core.JsIterable
 import js.core.EpochTimeStamp
 import js.buffer.ArrayBuffer
+import js.buffer.ArrayBufferLike
 import js.buffer.ArrayBufferView
 import js.buffer.BufferSource
 import js.typedarrays.Float32Array
