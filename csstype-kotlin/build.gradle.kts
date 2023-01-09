@@ -1,5 +1,6 @@
 plugins {
     kfc("library")
+    kfc("wrappers")
     seskar()
     `csstype-declarations`
 }
@@ -7,6 +8,5 @@ plugins {
 dependencies {
     implementation(npmv("csstype"))
 
-    implementation(enforcedPlatform(kotlinwBom()))
-    implementation(kotlinw("js"))
+    implementation(wrappers("js"))
 }

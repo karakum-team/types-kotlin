@@ -1,5 +1,6 @@
 plugins {
     kfc("library")
+    kfc("wrappers")
     seskar()
     `typescript-declarations`
 }
@@ -13,6 +14,5 @@ kotlin {
 dependencies {
     implementation(npmv("typescript"))
 
-    implementation(enforcedPlatform(kotlinwBom()))
-    implementation(kotlinw("js"))
+    implementation(wrappers("js"))
 }

@@ -1,5 +1,6 @@
 plugins {
     kfc("library")
+    kfc("wrappers")
     seskar()
     `cesium-declarations`
 }
@@ -7,6 +8,5 @@ plugins {
 dependencies {
     implementation(npmv("cesium"))
 
-    implementation(enforcedPlatform(kotlinwBom()))
-    implementation(kotlinw("browser"))
+    implementation(wrappers("browser"))
 }
