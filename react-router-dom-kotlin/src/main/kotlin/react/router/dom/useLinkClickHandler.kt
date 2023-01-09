@@ -11,7 +11,7 @@ package react.router.dom
  * use in our exported `<Link>`.
  */
 external interface ClickHandlerOptions {
-    var target: react.dom.html.AnchorTarget?
+    var target: web.window.WindowTarget?
     var replace: Boolean?
     var state: history.LocationState?
 }
