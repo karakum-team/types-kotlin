@@ -46,7 +46,7 @@ fun generateKotlinDeclarations(
 
         val annotations = when {
             "external val " in body || "external fun " in body || "external class " in body || "external object " in body
-            -> "@file:JsModule(\"typescript\")\n@file:JsNonModule"
+            -> """@file:JsModule("typescript")"""
 
             suppresses.isNotEmpty() ->
                 fileSuppress(*suppresses)

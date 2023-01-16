@@ -165,7 +165,7 @@ fun generateKotlinDeclarations(
                         || "external val " in body
                         || "external fun " in body
                         || name == "SHARE_ENV"
-                -> "@file:JsModule(\"${pkg.id}\")\n@file:JsNonModule"
+                -> """@file:JsModule("${pkg.id}")"""
 
                 suppresses.isNotEmpty()
                 -> fileSuppress(*suppresses)
