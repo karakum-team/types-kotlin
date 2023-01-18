@@ -6,9 +6,9 @@
 
 package web.keyboard
 
-sealed external interface ModifierKeyCode
+sealed external interface KeyCode
 
-inline fun ModifierKeyCode(
+inline fun KeyCode(
     code: String,
-): ModifierKeyCode =
-    code.unsafeCast<ModifierKeyCode>()
+): KeyCode =
+    code.unsafeCast<KeyCode>()
