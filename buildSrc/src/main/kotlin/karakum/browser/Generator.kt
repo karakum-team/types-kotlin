@@ -74,6 +74,7 @@ import web.html.HTMLSlotElement
 import web.html.HtmlTagName
 import web.html.ShadowRoot
 import web.html.ShadowRootInit
+import web.keyboard.KeyCode
 import web.keyboard.ModifierKeyCode
 import web.window.PictureInPictureWindow
 import web.window.Window

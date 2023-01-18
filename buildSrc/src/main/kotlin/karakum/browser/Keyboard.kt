@@ -1,7 +1,6 @@
 package karakum.browser
 
-import karakum.common.unionBody
-
+internal const val KEY = "Key"
 internal const val KEY_CODE = "KeyCode"
 
 private val KEY_CODES = listOf(
@@ -307,6 +306,7 @@ private val KEY_CODES = listOf(
     "Unidentified",
 )
 
+internal const val MODIFIER_KEY = "ModifierKey"
 internal const val MODIFIER_KEY_CODE = "ModifierKeyCode"
 
 private val MODIFIER_KEY_CODES = listOf(
@@ -324,16 +324,64 @@ private val MODIFIER_KEY_CODES = listOf(
     "SymbolLock",
 )
 
-internal fun keyboardTypes(): Sequence<ConversionResult> =
-    sequenceOf(
+internal fun keyboardTypes(): Sequence<ConversionResult> {
+    /*
+    val keyCodes = (('A'..'F') + ('0'..'9'))
+        .map { it.toString() }
+        .plus(KEY_CODES)
+    */
+
+    return sequenceOf(
+        keyboardTypes(
+            type = KEY,
+            codeType = KEY_CODE,
+            values = KEY_CODES,
+        ),
+        keyboardTypes(
+            type = MODIFIER_KEY,
+            codeType = MODIFIER_KEY_CODE,
+            values = MODIFIER_KEY_CODES,
+        )
+    ).flatMap { it }
+}
+
+private fun keyboardTypes(
+    type: String,
+    codeType: String,
+    values: List<String>,
+): Sequence<ConversionResult> {
+    val items = values.joinToString("\n\n") {code ->
+        """
+        inline val $code: $codeType
+            get() = $codeType("$code")
+        """.trimIndent()
+    }
+
+    val typeBody = """
+    object $type {
+        $items
+    }
+    """.trimIndent()
+
+    val codeTypeBody = """
+    sealed external interface $codeType
+            
+    inline fun $codeType(
+        code: String,
+    ): $codeType =
+        code.unsafeCast<$codeType>()            
+    """.trimIndent()
+
+    return sequenceOf(
         ConversionResult(
-            name = KEY_CODE,
-            body = unionBody(KEY_CODE, KEY_CODES),
+            name = type,
+            body = typeBody,
             pkg = "web.keyboard",
         ),
         ConversionResult(
-            name = MODIFIER_KEY_CODE,
-            body = unionBody(MODIFIER_KEY_CODE, MODIFIER_KEY_CODES),
+            name = codeType,
+            body = codeTypeBody,
             pkg = "web.keyboard",
         ),
     )
+}
