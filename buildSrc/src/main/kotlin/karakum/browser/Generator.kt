@@ -74,6 +74,7 @@ import web.html.HTMLSlotElement
 import web.html.HtmlTagName
 import web.html.ShadowRoot
 import web.html.ShadowRootInit
+import web.keyboard.ModifierKey
 import web.window.PictureInPictureWindow
 import web.window.Window
 import web.window.WindowProxy
@@ -193,6 +194,7 @@ fun generateKotlinDeclarations(
         .plus(browserConstants(content))
         .plus(browserTypes(content))
         .plus(browserFunctionTypes(content))
+        .plus(keyboardTypes())
         .plus(windowTypes())
         .plus(tagNames(content))
         .plus(intlDeclarations(definitionsDir))

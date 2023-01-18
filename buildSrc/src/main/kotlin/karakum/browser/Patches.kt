@@ -50,6 +50,10 @@ internal fun String.applyPatches(): String =
         )
         .replace(""": "jwk"""", ": KeyFormat.jwk")
         .replace(""": Exclude<KeyFormat, "jwk">""", ": KeyFormat")
+        .replace(
+            "getModifierState(keyArg: string): boolean",
+            "getModifierState(keyArg: $MODIFIER_KEY): boolean",
+        )
 
 private val DOM_GEOMETRY_ALIASES = listOf(
     "DOMPointInit" to "DOMPointReadOnly",
