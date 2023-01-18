@@ -11,7 +11,7 @@ import web.keyboard.KeyCode
 import web.keyboard.ModifierKeyCode
 
 external interface KeyboardEventInit : EventModifierInit {
-    var code: String?
+    var code: KeyCode?
     var isComposing: Boolean?
     var key: String?
     var location: Short?
