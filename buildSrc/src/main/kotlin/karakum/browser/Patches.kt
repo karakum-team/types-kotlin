@@ -52,7 +52,7 @@ internal fun String.applyPatches(): String =
         .replace(""": Exclude<KeyFormat, "jwk">""", ": KeyFormat")
         .replace(
             "getModifierState(keyArg: string): boolean",
-            "getModifierState(keyArg: $MODIFIER_KEY): boolean",
+            "getModifierState(keyArg: $MODIFIER_KEY_CODE): boolean",
         )
 
 private val DOM_GEOMETRY_ALIASES = listOf(
