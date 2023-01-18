@@ -59,6 +59,10 @@ internal fun String.applyPatches(): String =
             "readonly code: string",
             "readonly code: KeyCode",
         )
+        .replace(
+            "code?: string",
+            "code?: KeyCode",
+        )
 
 private val DOM_GEOMETRY_ALIASES = listOf(
     "DOMPointInit" to "DOMPointReadOnly",
