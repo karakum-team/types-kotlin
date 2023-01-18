@@ -54,6 +54,11 @@ internal fun String.applyPatches(): String =
             "getModifierState(keyArg: string): boolean",
             "getModifierState(keyArg: $MODIFIER_KEY_CODE): boolean",
         )
+        // TODO: apply for `KeyboardEvent` only
+        .replace(
+            "readonly code: string",
+            "readonly code: KeyCode",
+        )
 
 private val DOM_GEOMETRY_ALIASES = listOf(
     "DOMPointInit" to "DOMPointReadOnly",
