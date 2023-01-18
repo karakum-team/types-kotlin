@@ -25,7 +25,7 @@ sealed external class Window :
     val frames: ArrayLike<Window>
     val innerHeight: Int
     val innerWidth: Int
-    var name: String
+    var name: WindowName
 
     /** Available only in secure contexts. */
     var ondevicemotion: EventHandler<DeviceMotionEvent>?
@@ -69,13 +69,13 @@ sealed external class Window :
 
     fun open(
         url: String = definedExternally,
-        target: String = definedExternally,
+        target: WindowTarget = definedExternally,
         features: String = definedExternally,
     ): WindowProxy?
 
     fun open(
         url: URL,
-        target: String = definedExternally,
+        target: WindowTarget = definedExternally,
         features: String = definedExternally,
     ): WindowProxy?
 
