@@ -665,6 +665,22 @@ internal fun convertInterface(
         name == "HTMLCollectionOf" -> return null
     }
 
+    if (("target: string" in source || "target?: string" in source) && (name.startsWith("HTML") || name == "Window")) {
+        var newSource = source
+            .replace("target: string", "target: WindowTarget")
+            .replace("target?: string", "target?: WindowTarget")
+
+        if (name == "Window") {
+            newSource = newSource.replace("name: string", "name: WindowName")
+        }
+
+        return convertInterface(
+            source = newSource,
+            getStaticSource = getStaticSource,
+            predefinedPkg = predefinedPkg,
+        )
+    }
+
     val staticSource = getStaticSource(name)
     val type = if (staticSource != null) "class" else "interface"
 

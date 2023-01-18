@@ -77,6 +77,7 @@ import web.html.ShadowRootInit
 import web.window.PictureInPictureWindow
 import web.window.Window
 import web.window.WindowProxy
+import web.window.WindowTarget
 import web.selection.Selection
 import web.svg.SVGElement
 import web.svg.SvgTagName
@@ -192,6 +193,7 @@ fun generateKotlinDeclarations(
         .plus(browserConstants(content))
         .plus(browserTypes(content))
         .plus(browserFunctionTypes(content))
+        .plus(windowTypes())
         .plus(tagNames(content))
         .plus(intlDeclarations(definitionsDir))
         .plus(webWorkersDeclarations(definitionsDir))
@@ -206,8 +208,12 @@ fun generateKotlinDeclarations(
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
 
-            if (name == RENDERING_CONTEXT_ID || name == "KeyFormat")
-                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
+            when (name) {
+                RENDERING_CONTEXT_ID,
+                "KeyFormat",
+                "WindowTarget",
+                -> add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
+            }
 
             if ("inline fun " in body)
                 add(NOTHING_TO_INLINE)
