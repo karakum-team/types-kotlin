@@ -63,6 +63,10 @@ internal fun String.applyPatches(): String =
             "code?: string",
             "code?: KeyCode",
         )
+        .replace(
+            "referrerPolicy: string",
+            "referrerPolicy: ReferrerPolicy",
+        )
 
 private val DOM_GEOMETRY_ALIASES = listOf(
     "DOMPointInit" to "DOMPointReadOnly",
