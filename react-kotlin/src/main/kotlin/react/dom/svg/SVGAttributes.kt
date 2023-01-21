@@ -6,6 +6,7 @@ import react.dom.DOMAttributes
 import react.dom.aria.AriaAttributes
 import react.dom.aria.AriaRole
 import web.dom.Element
+import web.html.CrossOrigin
 
 external interface SVGAttributes<T : Element> :
     AriaAttributes,
