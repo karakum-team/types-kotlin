@@ -32,6 +32,11 @@ internal class SimpleTypeConverter(
     ): String {
         val name = unionName(propertyName)
 
+        when {
+            propertyName == "crossOrigin" && type == """"anonymous" | "use-credentials" | """""
+            -> return propertyName.capitalize()
+        }
+
         val sourceType = if (name == "Capture") {
             type.replace("boolean", """"false" | "true"""")
         } else type
