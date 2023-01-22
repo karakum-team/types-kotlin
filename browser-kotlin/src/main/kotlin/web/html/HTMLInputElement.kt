@@ -41,7 +41,7 @@ abstract external class HTMLInputElement :
     var formAction: String
 
     /** Used to override the encoding (formEnctype attribute) specified on the form element. */
-    var formEnctype: InputType
+    var formEnctype: String
 
     /** Overrides the submit method attribute previously specified on a form element. */
     var formMethod: String

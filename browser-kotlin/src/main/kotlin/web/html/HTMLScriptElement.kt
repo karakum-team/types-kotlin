@@ -7,7 +7,7 @@ import web.http.ReferrerPolicy
 abstract external class HTMLScriptElement :
     HTMLElement {
     var async: Boolean
-    var crossOrigin: String?
+    var crossOrigin: CrossOrigin?
 
     /** Sets or retrieves the status of the script. */
     var defer: Boolean
