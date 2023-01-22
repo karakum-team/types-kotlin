@@ -5,6 +5,18 @@ import karakum.common.unionBody
 internal fun htmlUnions(): Sequence<ConversionResult> =
     sequenceOf(
         ConversionResult(
+            name = "CrossOrigin",
+            body = unionBody(
+                name = "CrossOrigin",
+                values = listOf(
+                    "anonymous",
+                    "use-credentials",
+                    "",
+                )
+            ),
+            pkg = "web.html",
+        ),
+        ConversionResult(
             name = "EnterKeyHint",
             body = unionBody(
                 name = "EnterKeyHint",

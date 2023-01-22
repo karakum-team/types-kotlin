@@ -87,6 +87,10 @@ internal fun String.applyPatches(): String =
             """: "forward" | "backward" | "none"""",
             """: SelectionDirection""",
         )
+        .replace(
+            "crossOrigin: string",
+            "crossOrigin: CrossOrigin",
+        )
 
 private val DOM_GEOMETRY_ALIASES = listOf(
     "DOMPointInit" to "DOMPointReadOnly",

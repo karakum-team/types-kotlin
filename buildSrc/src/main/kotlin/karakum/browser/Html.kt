@@ -681,9 +681,9 @@ internal fun convertInterface(
         )
     }
 
-    if (name == "HTMLInputElement" && "type: string;" in source) {
+    if (name == "HTMLInputElement" && " type: string;" in source) {
         var newSource = source
-            .replace("type: string;", "type: InputType;")
+            .replace(" type: string;", " type: InputType;")
 
         return convertInterface(
             source = newSource,
