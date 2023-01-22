@@ -21,6 +21,18 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
             pkg = "web.html",
         ),
         ConversionResult(
+            name = "ImageDecoding",
+            body = unionBody(
+                name = "ImageDecoding",
+                values = listOf(
+                    "async",
+                    "sync",
+                    "auto",
+                )
+            ),
+            pkg = "web.html",
+        ),
+        ConversionResult(
             name = "InputMode",
             body = unionBody(
                 name = "InputMode",
