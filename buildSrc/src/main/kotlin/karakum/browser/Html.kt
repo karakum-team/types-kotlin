@@ -681,6 +681,17 @@ internal fun convertInterface(
         )
     }
 
+    if (name == "HTMLInputElement" && "type: string;" in source) {
+        var newSource = source
+            .replace("type: string;", "type: InputType;")
+
+        return convertInterface(
+            source = newSource,
+            getStaticSource = getStaticSource,
+            predefinedPkg = predefinedPkg,
+        )
+    }
+
     val staticSource = getStaticSource(name)
     val type = if (staticSource != null) "class" else "interface"
 

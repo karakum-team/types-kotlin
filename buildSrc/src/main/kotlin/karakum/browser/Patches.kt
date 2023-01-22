@@ -67,6 +67,22 @@ internal fun String.applyPatches(): String =
             "referrerPolicy: string",
             "referrerPolicy: ReferrerPolicy",
         )
+        .replace(
+            """decoding: "async" | "sync" | "auto";""",
+            """decoding: ImageDecoding;""",
+        )
+        .replace(
+            """loading: "eager" | "lazy";""",
+            """loading: Loading;""",
+        )
+        .replace(
+            """enterKeyHint: string;""",
+            """enterKeyHint: EnterKeyHint;""",
+        )
+        .replace(
+            """inputMode: string;""",
+            """inputMode: InputMode;""",
+        )
 
 private val DOM_GEOMETRY_ALIASES = listOf(
     "DOMPointInit" to "DOMPointReadOnly",
