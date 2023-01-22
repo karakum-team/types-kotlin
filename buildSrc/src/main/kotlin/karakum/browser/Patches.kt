@@ -83,6 +83,10 @@ internal fun String.applyPatches(): String =
             """inputMode: string;""",
             """inputMode: InputMode;""",
         )
+        .replace(
+            """: "forward" | "backward" | "none"""",
+            """: SelectionDirection""",
+        )
 
 private val DOM_GEOMETRY_ALIASES = listOf(
     "DOMPointInit" to "DOMPointReadOnly",

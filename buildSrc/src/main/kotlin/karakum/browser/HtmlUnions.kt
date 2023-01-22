@@ -90,5 +90,17 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
                 )
             ),
             pkg = "web.html",
-        )
+        ),
+        ConversionResult(
+            name = "SelectionDirection",
+            body = unionBody(
+                name = "SelectionDirection",
+                values = listOf(
+                    "forward",
+                    "backward",
+                    "none",
+                )
+            ),
+            pkg = "web.html",
+        ),
     )
