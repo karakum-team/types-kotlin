@@ -6,6 +6,7 @@ plugins {
 }
 
 dependencies {
+    implementation(npmv("@types/web"))
     implementation(npmv("typescript"))
     implementation(npmv("@webref/idl"))
 

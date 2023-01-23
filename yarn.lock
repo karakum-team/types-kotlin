@@ -165,6 +165,11 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
+"@types/web@0.0.89":
+  version "0.0.89"
+  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.89.tgz#c6e88317202dc748c698f8a096ba649dccc844f7"
+  integrity sha512-GmYzEKEi5I2aUVcGMcNDMLOZ3N5f6Vmaly9rr7ZL9b8zxc8KFZU5h2Wqzxgx6/ztj9+Eq2t4jDeWGW18N5UeOQ==
+
 "@webref/idl@3.22.6":
   version "3.22.6"
   resolved "https://registry.yarnpkg.com/@webref/idl/-/idl-3.22.6.tgz#c66b62f2a5ba23f0baa9c6b861bd97af24ba8ff9"
