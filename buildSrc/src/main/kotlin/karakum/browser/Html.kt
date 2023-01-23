@@ -71,6 +71,7 @@ private val DOM_TYPES = setOf(
     "ChildNode",
     "ParentNode",
     "Element",
+    "CheckVisibilityOptions",
 
     "DocumentAndElementEventHandlers",
     "GlobalEventHandlers",
@@ -124,6 +125,7 @@ private val DOM_PARSING_TYPES = listOf(
 private val CANVAS_TYPES = listOf(
     "ImageData",
     "ImageDataSettings",
+    "ImageEncodeOptions",
 
     "ImageBitmap",
     "ImageBitmapOptions",
@@ -501,6 +503,7 @@ internal fun htmlDeclarations(
         "Performance.+?",
 
         "WebSocket.+?",
+        "MIDI.+?",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(SCROLL_TYPES)
@@ -601,6 +604,7 @@ private fun prepareContent(
     val ids = Regex("""getContext\(contextId\: "([\w\d]+)"\, """)
         .findAll(source)
         .map { it.groupValues[1] }
+        .distinct()
         .toList()
 
     fun kotlinName(id: String): String =
@@ -1074,6 +1078,8 @@ internal fun convertInterface(
 
         name in QUERY_TYPES -> "web.cache"
 
+        name.startsWith("MIDI") -> "web.midi"
+
         else -> "web.html"
     }
 
@@ -1194,8 +1200,8 @@ internal fun convertMember(
     }
 
     when {
-        // TODO: fix later
-        source.startsWith("closest<") -> return null
+        // TODO: fix
+        "extends keyof MathMLElementTagNameMap" in source -> return null
 
         source.startsWith("createElement<") -> return null
         source.startsWith("createElementNS") && ("namespaceURI:" in source) -> return null
@@ -1389,7 +1395,13 @@ private fun convertProperty(
         "HTMLCollectionOf<HTMLAnchorElement | HTMLAreaElement>",
         -> "HTMLCollectionOf<HTMLElement /* HTMLAnchorElement | HTMLAreaElement */>"
 
+        "typeof FileReader.EMPTY | typeof FileReader.LOADING | typeof FileReader.DONE",
+        -> "Short"
+
         else -> when {
+            type.startsWith("0x") -> "Short"
+            type.toIntOrNull() != null -> "Short"
+
             (type.endsWith("[]") && " " !in type)
             -> {
                 var arrayType = type.removeSuffix("[]")
@@ -1477,6 +1489,10 @@ private fun convertFunction(
             """: { type: "element" | "literal", value: string; }[]""",
             ": ReadonlyArray<dynamic /* { type; value; } */>",
         )
+        .replace(
+            ": `\${string}-\${string}-\${string}-\${string}-\${string}`",
+            ": String"
+        )
         .replace(": IDBRequest<undefined>", ": IDBRequest<Void>")
         .replace(": IDBRequest<any>", ": IDBRequest<*>")
         .replace(": IDBRequest<number>", ": IDBRequest<Int>")
@@ -1543,6 +1559,8 @@ private fun convertFunctionParameters(
         "action: (item: string) => void",
         "action: (item: FormDataEntryValue) => void",
         "action: (item: MediaKeyStatus) => void",
+        "action: (item: MIDIInput) => void",
+        "action: (item: MIDIOutput) => void",
         "action: (item: any) => void",
         -> listOf(
             source
@@ -1641,6 +1659,9 @@ private fun getParameterType(
 
         source == "Promise<any>"
         -> "Promise<*>"
+
+        source == "DOMHighResTimeStamp"
+        -> "HighResTimeStamp"
 
         source.endsWith("[]") -> {
             var atype = source.removeSuffix("[]")

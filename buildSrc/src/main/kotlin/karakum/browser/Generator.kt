@@ -258,6 +258,12 @@ fun generateKotlinDeclarations(
             import webgl.*    
             """.trimIndent()
 
+            "OffscreenCanvas" -> """
+            import web.html.RenderingContextId  
+            import webgl.WebGLRenderingContext
+            import webgl.WebGL2RenderingContext
+            """.trimIndent()
+
             "Navigator" -> """
             import web.media.devices.MediaDevices
             import web.media.key.MediaKeySystemAccess
@@ -265,12 +271,9 @@ fun generateKotlinDeclarations(
             import web.serviceworker.ServiceWorkerContainer
             import web.clipboard.Clipboard       
             import web.geolocation.Geolocation       
-            import web.gamepad.Gamepad       
-            """.trimIndent()
-
-            "DocumentAndElementEventHandlers",
-            -> """
-            import web.clipboard.ClipboardEvent
+            import web.gamepad.Gamepad
+            import web.midi.MIDIOptions
+            import web.midi.MIDIAccess
             """.trimIndent()
 
             "Window",
@@ -288,6 +291,7 @@ fun generateKotlinDeclarations(
             import web.html.SubmitEvent
             import web.uievents.*
             import web.animations.AnimationEvent
+            import web.clipboard.ClipboardEvent
             import web.csp.SecurityPolicyViolationEvent
             import web.events.ProgressEvent
             import web.gamepad.GamepadEvent

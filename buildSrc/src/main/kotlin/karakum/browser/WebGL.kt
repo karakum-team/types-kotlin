@@ -104,7 +104,9 @@ private fun convertCompanion(
 
     val body = if (memberSource.isNotEmpty()) {
         "companion object {\n" +
-                memberSource.replace("readonly ", "val ") +
+                memberSource.replace("readonly ", "val ")
+                    .replace(Regex(""": 0x\S+"""), ": GLenum")
+                    .replace(Regex(""": \-?\d"""), ": GLenum") +
                 "\n}"
     } else ""
 
@@ -128,10 +130,13 @@ private fun convertProperty(
 ): String {
     val modifier = if (source.startsWith("readonly ")) "val" else "var"
     var (name, type) = source.removePrefix("readonly ").split(": ")
-    type = when (type) {
-        "string" -> "String"
-        "boolean" -> "Boolean"
-        "HTMLCanvasElement | OffscreenCanvas" -> "Any /* $type */"
+    type = when {
+        type == "string" -> "String"
+        type == "boolean" -> "Boolean"
+        type == "HTMLCanvasElement | OffscreenCanvas" -> "Any /* $type */"
+
+        type.startsWith("0x") -> "GLenum"
+        type.toIntOrNull() != null -> "GLenum"
 
         else -> type
     }
