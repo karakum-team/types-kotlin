@@ -231,6 +231,8 @@ private fun getTypePkg(
         name.startsWith("Document") -> "web.dom"
         name.startsWith("Fullscreen") -> "web.fullscreen"
         name.startsWith("Scroll") -> "web.scroll"
+
+        name == "FontDisplay" -> "web.fonts"
         name.startsWith("FontFace") -> "web.fonts"
 
         name.startsWith("Animation") -> "web.animations"
@@ -241,6 +243,8 @@ private fun getTypePkg(
 
         name.startsWith("Gamepad") -> "web.gamepad"
         name.startsWith("IDB") -> "web.idb"
+
+        name.startsWith("MIDI") -> "web.midi"
 
         name.startsWith("FileSystem") -> "web.filesystem"
         name.startsWith("Lock") -> "web.locks"

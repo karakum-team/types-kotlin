@@ -47,7 +47,6 @@ import web.dom.NodeListOf
 import web.dom.Range
 import web.scroll.ScrollIntoViewOptions
 import web.scroll.ScrollToOptions
-import web.dom.DocumentAndElementEventHandlers
 import web.dom.GlobalEventHandlers
 import web.window.WindowEventHandlers
 import web.aria.ARIAMixin
