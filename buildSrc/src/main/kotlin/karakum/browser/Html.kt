@@ -321,6 +321,7 @@ internal fun htmlDeclarations(
     val patterns = sequenceOf(
         "HTML.+?",
         "SVG.+?",
+        "MathML.+?",
         "HTMLCollection .+?",
         "MediaError",
 
@@ -963,6 +964,7 @@ internal fun convertInterface(
         name.startsWith("Touch") -> "web.uievents"
         name in DOM_PARSING_TYPES -> "web.dom.parsing"
         name.startsWith("SVG") -> "web.svg"
+        name.startsWith("MathML") -> "web.mathml"
 
         name.startsWith("CSS") -> "web.cssom"
         name.startsWith("StyleSheet") -> "web.cssom"

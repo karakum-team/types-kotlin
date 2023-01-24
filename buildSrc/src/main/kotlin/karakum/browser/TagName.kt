@@ -4,6 +4,7 @@ import org.gradle.configurationcache.extensions.capitalized
 
 internal const val HTML_TAG_NAME = "HtmlTagName"
 internal const val SVG_TAG_NAME = "SvgTagName"
+internal const val MATHML_TAG_NAME = "MathMLTagName"
 
 private fun tagNameBody(
     tagType: String,
@@ -21,8 +22,9 @@ internal fun tagNames(
     source: String,
 ): Sequence<ConversionResult> {
     return sequenceOf(
-        tagDictionary("HTML", source),
-        tagDictionary("SVG", source),
+        tagDictionary("HTML", source, HTML_TAG_NAME),
+        tagDictionary("SVG", source, SVG_TAG_NAME),
+        tagDictionary("MathML", source, MATHML_TAG_NAME),
         ConversionResult(
             name = HTML_TAG_NAME,
             body = tagNameBody(HTML_TAG_NAME, "HTMLElement"),
@@ -33,15 +35,20 @@ internal fun tagNames(
             body = tagNameBody(SVG_TAG_NAME, "SVGElement"),
             pkg = "web.svg",
         ),
+        ConversionResult(
+            name = MATHML_TAG_NAME,
+            body = tagNameBody(MATHML_TAG_NAME, "MathMLElement"),
+            pkg = "web.mathml",
+        ),
     )
 }
 
 private fun tagDictionary(
     name: String,
     source: String,
+    groupTagName: String,
 ): ConversionResult {
     val elementType = name + "Element"
-    val groupTagName = name.toLowerCase().capitalized() + "TagName"
 
     val members = source
         .substringAfter("interface ${elementType}TagNameMap {\n")
@@ -59,7 +66,7 @@ private fun tagDictionary(
                 "var",
                 -> "`$tagName`"
 
-                else -> tagName
+                else -> tagName.replace("-x", "X")
             }
 
             """
