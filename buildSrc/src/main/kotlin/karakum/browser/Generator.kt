@@ -260,8 +260,7 @@ fun generateKotlinDeclarations(
             import webgl.*    
             """.trimIndent()
 
-            "OffscreenCanvas" -> """
-            import web.html.RenderingContextId  
+            "OffscreenCanvas" -> """  
             import webgl.WebGLRenderingContext
             import webgl.WebGL2RenderingContext
             """.trimIndent()

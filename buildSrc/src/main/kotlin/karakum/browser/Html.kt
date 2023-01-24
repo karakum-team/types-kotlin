@@ -628,7 +628,7 @@ private fun prepareContent(
     val contextId = ConversionResult(
         RENDERING_CONTEXT_ID,
         contextIdBody,
-        "web.html",
+        "web.canvas",
     )
 
     val content = ids.fold(source) { acc, id ->
