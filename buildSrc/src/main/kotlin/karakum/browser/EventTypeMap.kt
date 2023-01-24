@@ -45,6 +45,8 @@ internal val EVENT_DATA = listOf(
     EventInfo("webrtc.RTCErrorEvent"),
     EventInfo("webrtc.RTCPeerConnectionIceErrorEvent"),
     EventInfo("webgl.WebGLContextEvent"),
+    EventInfo("web.midi.MIDIConnectionEvent"),
+    EventInfo("web.midi.MIDIMessageEvent"),
     EventInfo("web.speech.SpeechSynthesisEvent"),
     EventInfo("web.speech.SpeechSynthesisErrorEvent"),
     EventInfo("webvtt.TrackEvent"),
