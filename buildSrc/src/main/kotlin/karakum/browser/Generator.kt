@@ -82,6 +82,8 @@ import web.window.WindowTarget
 import web.selection.Selection
 import web.svg.SVGElement
 import web.svg.SvgTagName
+import web.mathml.MathMLElement
+import web.mathml.MathMLTagName
 import web.xml.XMLDocument
 import web.media.capabilities.MediaCapabilities
 import web.media.session.MediaSession

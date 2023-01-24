@@ -147,6 +147,10 @@ private fun String.patchQuerySelectors(): String =
             "querySelector<T extends SVGElement>(selectors: SvgTagName<T>): T | null;"
         )
         .replace(
+            "querySelector<K extends keyof MathMLElementTagNameMap>(selectors: K): MathMLElementTagNameMap[K] | null;",
+            "querySelector<T extends MathMLElement>(selectors: MathMLTagName<T>): T | null;"
+        )
+        .replace(
             "querySelector<E extends Element = Element>(selectors: string): E | null;",
             "querySelector(selectors: string): Element | null;"
         )
@@ -157,6 +161,10 @@ private fun String.patchQuerySelectors(): String =
         .replace(
             "querySelectorAll<K extends keyof SVGElementTagNameMap>(selectors: K): NodeListOf<SVGElementTagNameMap[K]>;",
             "querySelectorAll<T extends SVGElement>(selectors: SvgTagName<T>): NodeListOf<T>;"
+        )
+        .replace(
+            "querySelectorAll<K extends keyof MathMLElementTagNameMap>(selectors: K): NodeListOf<MathMLElementTagNameMap[K]>;",
+            "querySelectorAll<T extends MathMLElement>(selectors: MathMLTagName<T>): NodeListOf<T>;"
         )
         .replace(
             "querySelectorAll<E extends Element = Element>(selectors: string): NodeListOf<E>;",

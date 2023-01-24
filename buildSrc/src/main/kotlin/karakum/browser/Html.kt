@@ -1191,6 +1191,9 @@ internal fun convertMember(
         "closest<K extends keyof SVGElementTagNameMap>(selector: K): SVGElementTagNameMap[K] | null",
         -> return "fun <T: SVGElement> closest(selector: SvgTagName<T>): T?"
 
+        "closest<K extends keyof MathMLElementTagNameMap>(selector: K): MathMLElementTagNameMap[K] | null",
+        -> return "fun <T: MathMLElement> closest(selector: MathMLTagName<T>): T?"
+
         "closest<E extends Element = Element>(selectors: string): E | null",
         -> return "fun closest(selector: String): Element?"
 
@@ -1199,12 +1202,12 @@ internal fun convertMember(
 
         "getElementsByTagName<K extends keyof SVGElementTagNameMap>(qualifiedName: K): HTMLCollectionOf<SVGElementTagNameMap[K]>",
         -> return "fun <T: SVGElement> getElementsByTagName(qualifiedName: SvgTagName<T>): HTMLCollectionOf<T>"
+
+        "getElementsByTagName<K extends keyof MathMLElementTagNameMap>(qualifiedName: K): HTMLCollectionOf<MathMLElementTagNameMap[K]>",
+        -> return "fun <T: MathMLElement> getElementsByTagName(qualifiedName: MathMLTagName<T>): HTMLCollectionOf<T>"
     }
 
     when {
-        // TODO: fix
-        "extends keyof MathMLElementTagNameMap" in source -> return null
-
         source.startsWith("createElement<") -> return null
         source.startsWith("createElementNS") && ("namespaceURI:" in source) -> return null
         source.startsWith("getElementsByTagName<") -> return null
