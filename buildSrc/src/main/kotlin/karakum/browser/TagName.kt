@@ -1,10 +1,11 @@
 package karakum.browser
 
-import org.gradle.configurationcache.extensions.capitalized
-
 internal const val HTML_TAG_NAME = "HtmlTagName"
 internal const val SVG_TAG_NAME = "SvgTagName"
 internal const val MATHML_TAG_NAME = "MathMLTagName"
+
+internal const val SVG_NAMESPACE = "http://www.w3.org/2000/svg"
+internal const val MATHML_NAMESPACE = "http://www.w3.org/1998/Math/MathML"
 
 private fun tagNameBody(
     tagType: String,
@@ -23,8 +24,8 @@ internal fun tagNames(
 ): Sequence<ConversionResult> {
     return sequenceOf(
         tagDictionary("HTML", source, HTML_TAG_NAME),
-        tagDictionary("SVG", source, SVG_TAG_NAME),
-        tagDictionary("MathML", source, MATHML_TAG_NAME),
+        tagDictionary("SVG", source, SVG_TAG_NAME, SVG_NAMESPACE),
+        tagDictionary("MathML", source, MATHML_TAG_NAME, MATHML_NAMESPACE),
         ConversionResult(
             name = HTML_TAG_NAME,
             body = tagNameBody(HTML_TAG_NAME, "HTMLElement"),
@@ -47,15 +48,16 @@ private fun tagDictionary(
     name: String,
     source: String,
     groupTagName: String,
+    namespace: String? = null,
 ): ConversionResult {
     val elementType = name + "Element"
 
-    val members = source
+    var memberItems = source
         .substringAfter("interface ${elementType}TagNameMap {\n")
         .substringBefore("\n}")
         .trimIndent()
         .splitToSequence("\n")
-        .joinToString("\n\n") { line ->
+        .map { line ->
             var (tagName, tagType) = line
                 .removePrefix("\"")
                 .removeSuffix(";")
@@ -74,6 +76,18 @@ private fun tagDictionary(
                 get() = $groupTagName("$tagName")
             """.trimIndent()
         }
+        .toList()
+
+    if (namespace != null) {
+        memberItems = listOf(
+            """
+            inline val NAMESPACE: ElementNamespace
+                get() = "$namespace".unsafeCast<ElementNamespace>()
+            """.trimIndent()
+        ) + memberItems
+    }
+
+    val members = memberItems.joinToString("\n\n")
 
     val body = "object $name {\n$members\n}"
 

@@ -542,6 +542,13 @@ internal fun htmlDeclarations(
         )
         .plus(
             ConversionResult(
+                name = "ElementNamespace",
+                body = "external interface ElementNamespace",
+                pkg = "web.dom",
+            )
+        )
+        .plus(
+            ConversionResult(
                 name = "NodeFilter",
                 body = "typealias NodeFilter = (node: Node) -> Short",
                 pkg = "web.dom",

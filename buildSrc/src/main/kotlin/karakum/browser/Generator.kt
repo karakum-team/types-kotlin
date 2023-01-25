@@ -39,6 +39,7 @@ import web.dom.DOMTokenList
 import web.dom.DocumentOrShadowRoot
 import web.dom.DocumentVisibilityState
 import web.dom.Element
+import web.dom.ElementNamespace
 import web.dom.HTMLOrSVGElement
 import web.dom.InnerHTML
 import web.dom.Node
