@@ -81,8 +81,10 @@ import web.window.Window
 import web.window.WindowProxy
 import web.window.WindowTarget
 import web.selection.Selection
+import web.svg.SVG_NAMESPACE
 import web.svg.SVGElement
 import web.svg.SvgTagName
+import web.mathml.MATHML_NAMESPACE
 import web.mathml.MathMLElement
 import web.mathml.MathMLTagName
 import web.xml.XMLDocument
@@ -209,7 +211,7 @@ fun generateKotlinDeclarations(
             if ("override val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
 
-            if ("JsName(\"\"\"(" in body)
+            if ("JsName(\"\"\"(" in body || "JsName(\"'" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
 
             when (name) {

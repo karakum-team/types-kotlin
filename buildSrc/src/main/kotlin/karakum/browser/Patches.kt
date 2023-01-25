@@ -170,6 +170,14 @@ private fun String.patchQuerySelectors(): String =
             "querySelectorAll<E extends Element = Element>(selectors: string): NodeListOf<E>;",
             "querySelectorAll(selectors: string): NodeListOf<Element>;"
         )
+        .replace(
+            "\"$SVG_NAMESPACE\"",
+            "SVG_NAMESPACE"
+        )
+        .replace(
+            "\"$MATHML_NAMESPACE\"",
+            "MATHML_NAMESPACE"
+        )
 
 // TODO: remove after `splitUnion` fix
 private fun String.splitUnionSafety(

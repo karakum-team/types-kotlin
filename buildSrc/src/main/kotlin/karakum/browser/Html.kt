@@ -1192,6 +1192,22 @@ internal fun convertMember(
         ): T    
         """.trimIndent()
 
+        "createElementNS(namespaceURI: SVG_NAMESPACE, qualifiedName: string): SVGElement",
+        -> return """
+        fun <T : SVGElement> createElementNS(
+            namespaceURI: SVG_NAMESPACE,
+            qualifiedName: SvgTagName<T>,
+        ): T        
+        """.trimIndent()
+
+        "createElementNS(namespaceURI: MATHML_NAMESPACE, qualifiedName: string): MathMLElement",
+        -> return """
+        fun <T : MathMLElement> createElementNS(
+            namespaceURI: MATHML_NAMESPACE,
+            qualifiedName: MathMLTagName<T>,
+        ): T    
+        """.trimIndent()
+
         "closest<K extends keyof HTMLElementTagNameMap>(selector: K): HTMLElementTagNameMap[K] | null",
         -> return "fun <T: HTMLElement> closest(selector: HtmlTagName<T>): T?"
 
@@ -1212,6 +1228,22 @@ internal fun convertMember(
 
         "getElementsByTagName<K extends keyof MathMLElementTagNameMap>(qualifiedName: K): HTMLCollectionOf<MathMLElementTagNameMap[K]>",
         -> return "fun <T: MathMLElement> getElementsByTagName(qualifiedName: MathMLTagName<T>): HTMLCollectionOf<T>"
+
+        "getElementsByTagNameNS(namespaceURI: SVG_NAMESPACE, localName: string): HTMLCollectionOf<SVGElement>",
+        -> return """
+        fun <T : SVGElement> getElementsByTagNameNS(
+            namespaceURI: SVG_NAMESPACE,
+            localName: SvgTagName<T>,
+        ): HTMLCollectionOf<T>
+        """.trimIndent()
+
+        "getElementsByTagNameNS(namespaceURI: MATHML_NAMESPACE, localName: string): HTMLCollectionOf<MathMLElement>",
+        -> return """
+        fun <T : MathMLElement> getElementsByTagNameNS(
+            namespaceURI: MATHML_NAMESPACE,
+            localName: MathMLTagName<T>,
+        ): HTMLCollectionOf<T>
+        """.trimIndent()
     }
 
     when {

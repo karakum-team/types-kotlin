@@ -52,12 +52,12 @@ private fun tagDictionary(
 ): ConversionResult {
     val elementType = name + "Element"
 
-    var memberItems = source
+    val members = source
         .substringAfter("interface ${elementType}TagNameMap {\n")
         .substringBefore("\n}")
         .trimIndent()
         .splitToSequence("\n")
-        .map { line ->
+        .joinToString("\n\n") { line ->
             var (tagName, tagType) = line
                 .removePrefix("\"")
                 .removeSuffix(";")
@@ -76,20 +76,19 @@ private fun tagDictionary(
                 get() = $groupTagName("$tagName")
             """.trimIndent()
         }
-        .toList()
 
-    if (namespace != null) {
-        memberItems = listOf(
-            """
-            inline val NAMESPACE: ElementNamespace
-                get() = "$namespace".unsafeCast<ElementNamespace>()
-            """.trimIndent()
-        ) + memberItems
-    }
+    val namespaceBody = if (namespace != null) {
+        """
+        @JsName("'$namespace'")
+        external object ${name.toUpperCase()}_NAMESPACE: ElementNamespace
+        """.trimIndent()
+    } else null
 
-    val members = memberItems.joinToString("\n\n")
-
-    val body = "object $name {\n$members\n}"
+    val body = sequenceOf(
+        namespaceBody,
+        "object $name {\n$members\n}",
+    ).filterNotNull()
+        .joinToString("\n\n")
 
     return ConversionResult(
         name = name,
