@@ -146,12 +146,12 @@ import webvtt.TextTrackList
 
 fun generateKotlinDeclarations(
     definitionsDir: File,
-    definitionsFile: File,
+    webDefinitionsFile: File,
     sourceDir: File,
 ) {
     IterableRegistry.fill(definitionsDir)
 
-    val content = definitionsFile
+    val content = webDefinitionsFile
         .readText()
         .applyPatches()
 
