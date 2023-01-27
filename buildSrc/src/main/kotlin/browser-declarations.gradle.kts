@@ -16,9 +16,14 @@ tasks.named("generateDeclarations") {
             .resolve("js/node_modules/@types/web")
             .resolve("index.d.ts")
 
+        val serviceworkerDefinitionsFile = rootProject.buildDir
+            .resolve("js/node_modules/@types/serviceworker")
+            .resolve("index.d.ts")
+
         karakum.browser.generateKotlinDeclarations(
             definitionsDir = definitionsDir,
             webDefinitionsFile = webDefinitionsFile,
+            serviceworkerDefinitionsFile = serviceworkerDefinitionsFile,
             sourceDir = sourceDir,
         )
     }

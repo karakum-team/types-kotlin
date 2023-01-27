@@ -147,6 +147,7 @@ import webvtt.TextTrackList
 fun generateKotlinDeclarations(
     definitionsDir: File,
     webDefinitionsFile: File,
+    serviceworkerDefinitionsFile: File,
     sourceDir: File,
 ) {
     IterableRegistry.fill(definitionsDir)
@@ -159,7 +160,7 @@ fun generateKotlinDeclarations(
         .resolve("webgl")
         .also { it.mkdirs() }
 
-    for ((name, body, optPkg) in eventDeclarations(content, webWorkersContent(definitionsDir))) {
+    for ((name, body, optPkg) in eventDeclarations(content, webWorkersContent(serviceworkerDefinitionsFile))) {
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("override val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
@@ -202,7 +203,7 @@ fun generateKotlinDeclarations(
         .plus(windowTypes())
         .plus(tagNames(content))
         .plus(intlDeclarations(definitionsDir))
-        .plus(webWorkersDeclarations(definitionsDir))
+        .plus(webWorkersDeclarations(serviceworkerDefinitionsFile))
 
     for ((name, body, pkg) in aliases) {
         pkg!!

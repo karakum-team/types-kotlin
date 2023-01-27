@@ -21,9 +21,9 @@ private val PKG_MAP = mapOf(
 )
 
 internal fun webWorkersDeclarations(
-    definitionsDir: File,
+    definitionsFile: File,
 ): Sequence<ConversionResult> {
-    val content = webWorkersContent(definitionsDir)
+    val content = webWorkersContent(definitionsFile)
 
     val interfaces = Regex("""interface .+? \{[\s\S]+?\n\}""")
         .findAll(content)
@@ -58,9 +58,9 @@ internal fun webWorkersDeclarations(
 }
 
 internal fun webWorkersContent(
-    definitionsDir: File,
+    definitionsFile: File,
 ): String =
-    definitionsDir.resolve("lib.webworker.d.ts")
+    definitionsFile
         .readText()
         .replace(", WindowOrWorkerGlobalScope", "")
         .replace(
