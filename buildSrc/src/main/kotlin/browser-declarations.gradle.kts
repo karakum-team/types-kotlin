@@ -17,8 +17,8 @@ tasks.named("generateDeclarations") {
             .resolve("index.d.ts")
 
         val serviceworkerDefinitionsFile = rootProject.buildDir
-            .resolve("js/node_modules/@types/serviceworker")
-            .resolve("index.d.ts")
+            .resolve("js/node_modules/typescript")
+            .resolve("lib/lib.webworker.d.ts")
 
         karakum.browser.generateKotlinDeclarations(
             definitionsDir = definitionsDir,
