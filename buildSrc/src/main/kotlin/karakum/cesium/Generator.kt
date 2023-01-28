@@ -11,7 +11,7 @@ val LAZY_MODE: Boolean
 
 private const val GENERATOR_COMMENT = "Automatically generated - do not modify!"
 
-private const val MODULE_ANNOTATION: String = "@file:JsModule(\"cesium\")\n@file:JsNonModule"
+private const val MODULE_ANNOTATION: String = """@file:JsModule("cesium")"""
 
 internal fun generateKotlinDeclarations(
     definitionsFile: File,
