@@ -1,5 +1,6 @@
 package karakum.cesium
 
+import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
 import karakum.common.suppress
 import java.io.File
@@ -8,8 +9,6 @@ private var nonModularMode: Boolean = false
 
 val LAZY_MODE: Boolean
     get() = nonModularMode
-
-private const val GENERATOR_COMMENT = "Automatically generated - do not modify!"
 
 private const val MODULE_ANNOTATION: String = """@file:JsModule("cesium")"""
 

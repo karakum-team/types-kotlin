@@ -1,8 +1,7 @@
 package karakum.query
 
+import karakum.common.GENERATOR_COMMENT
 import java.io.File
-
-const val GENERATOR_COMMENT = "Automatically generated - do not modify!"
 
 private enum class Suppress {
     UNUSED_TYPEALIAS_PARAMETER,

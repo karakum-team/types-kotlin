@@ -1,5 +1,7 @@
 package karakum.query
 
+import karakum.common.GENERATOR_COMMENT
+
 // language=Kotlin
 internal val ALIASES_BODY = """
 // $GENERATOR_COMMENT    
