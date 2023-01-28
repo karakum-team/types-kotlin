@@ -22,8 +22,9 @@ import js.typedarrays.Float64Array
 import js.core.HighResTimeStamp
 import js.typedarrays.Int32Array
 import js.collections.ReadonlyMap
-import js.core.Record    
+import js.core.Record
 import js.core.ReadonlyArray    
+import js.core.ReadonlyRecord    
 import js.typedarrays.Uint8Array
 import js.typedarrays.Uint32Array
 import js.typedarrays.Uint8ClampedArray

@@ -1392,10 +1392,10 @@ private fun convertProperty(
         -> "ReadonlyArray<Double> /* | Float32Array */"
 
         "Record<string, number>",
-        -> "Record<String, Double>"
+        -> "ReadonlyRecord<String, Double>"
 
         "Record<string, string>",
-        -> "Record<String, String>"
+        -> "ReadonlyRecord<String, String>"
 
         "BufferSource | string",
         -> "BufferSource /* | String */"
@@ -1593,7 +1593,7 @@ private fun convertFunctionParameters(
 
         "items: Record<string, string | Blob | PromiseLike<string | Blob>>, options?: ClipboardItemOptions",
         -> listOf(
-            "items: Record<String, Any /* String | Blob | PromiseLike<String | Blob> */>",
+            "items: ReadonlyRecord<String, Any /* String | Blob | PromiseLike<String | Blob> */>",
             "options: ClipboardItemOptions = definedExternally",
         )
 
