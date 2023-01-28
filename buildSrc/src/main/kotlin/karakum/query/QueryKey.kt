@@ -1,5 +1,6 @@
 package karakum.query
 
+import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
 import karakum.common.fileSuppress
 
