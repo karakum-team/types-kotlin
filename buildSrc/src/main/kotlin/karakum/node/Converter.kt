@@ -154,7 +154,7 @@ internal fun convertDefinitions(
             }
             .plus(PipeOptions())
             .plus(ConversionResult("Dict", "typealias Dict<T> = Record<String, T>"))
-            .plus(ConversionResult("ReadOnlyDict", "typealias ReadOnlyDict<T> = Record<String, out T>"))
+            .plus(ConversionResult("ReadOnlyDict", "typealias ReadOnlyDict<T> = ReadonlyRecord<String, T>"))
 
         Package("fs") -> (interfaces + classes)
             .plus(convertFunctions(content, syncOnly = true))

@@ -17,6 +17,7 @@ private val DEFAULT_IMPORTS = listOf(
     "PromiseResult" to "js.promise.PromiseResult",
     "Record" to "js.core.Record",
     "ReadonlyArray" to "js.core.ReadonlyArray",
+    "ReadonlyRecord" to "js.core.ReadonlyRecord",
     "Symbol" to "js.core.Symbol",
     "Void" to "js.core.Void",
 
