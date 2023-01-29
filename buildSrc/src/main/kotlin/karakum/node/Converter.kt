@@ -602,7 +602,7 @@ private fun convertFunction(
             }
     }
 
-    if ("{" in source && !(name == "readFile" || name == "writeFile" || name == "readdir"))
+    if ("{" in source && !(name == "readFile" || name == "readFileSync" || name == "writeFile" || name == "readdir"))
         return emptySequence()
 
     if (syncOnly && !(name.endsWith("Sync") || name.endsWith("Stream")))
