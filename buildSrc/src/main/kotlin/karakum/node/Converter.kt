@@ -164,7 +164,18 @@ internal fun convertDefinitions(
             .plus(ConversionResult("PathOrFileDescriptor", "typealias PathOrFileDescriptor = PathLike"))
             .plus(ConversionResult("TimeLike", "typealias TimeLike = kotlin.js.Date"))
             .plus(ConversionResult("EncodingOption", "typealias EncodingOption = ObjectEncodingOptions?"))
-            .plus(ConversionResult("WriteFileOptions", "typealias WriteFileOptions = node.buffer.BufferEncoding?"))
+            .plus(
+                ConversionResult(
+                    "WriteFileOptions",
+                    // language=kotlin
+                    """
+                sealed external interface WriteFileOptions:
+                    ObjectEncodingOptions,
+                    FlagAndOpenMode,
+                    Abortable
+                """.trimIndent()
+                )
+            )
             .plus(ConversionResult("Mode", "typealias Mode = Int"))
             .plus(ConversionResult("OpenMode", "typealias OpenMode = Int"))
             .plus(ConversionResult("ReadPosition", "typealias ReadPosition = Number"))
@@ -560,6 +571,14 @@ private fun convertFunctions(
             )
         }
 
+private val WRITE_OPTIONS = """
+        | (ObjectEncodingOptions & {
+              mode?: Mode | undefined;
+              flag?: OpenMode | undefined;
+          } & Abortable)
+        | BufferEncoding
+        | null"""
+
 private fun convertFunction(
     source: String,
     comment: String,
@@ -567,6 +586,21 @@ private fun convertFunction(
 ): Sequence<ConversionResult> {
     val name = source.substringBefore("(")
         .substringBefore("<")
+
+    if (WRITE_OPTIONS in source) {
+        return sequenceOf("WriteFileOptions", "BufferEncoding")
+            .flatMapIndexed { index, replacement ->
+                var newSource = source.replace(WRITE_OPTIONS, " $replacement")
+                if (index == 1)
+                    newSource = newSource.replace("options?:", "options:")
+
+                convertFunction(
+                    source = newSource,
+                    comment = if (index == 0) comment else "",
+                    syncOnly = syncOnly,
+                )
+            }
+    }
 
     if ("{" in source && !(name == "readFile" || name == "writeFile"))
         return emptySequence()
