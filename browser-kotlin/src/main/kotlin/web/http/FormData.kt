@@ -28,13 +28,23 @@ external class FormData(
     fun set(
         name: String,
         value: String,
-        fileName: String = definedExternally,
     )
 
     fun set(
         name: String,
         value: Blob,
-        fileName: String = definedExternally,
+    )
+
+    fun set(
+        name: String,
+        value: String,
+        fileName: String,
+    )
+
+    fun set(
+        name: String,
+        value: Blob,
+        fileName: String,
     )
 
     fun forEach(action: (item: FormDataEntryValue) -> Unit)
