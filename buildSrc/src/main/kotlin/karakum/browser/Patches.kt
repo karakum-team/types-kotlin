@@ -3,6 +3,11 @@ package karakum.browser
 internal fun String.applyPatches(): String =
     patchVideoFrameCallback()
         .patchQuerySelectors()
+        .replace(
+            "\n    set(name: string, value: string | Blob, fileName?: string): void;\n",
+            "\n    set(name: string, value: string | Blob): void;" +
+            "\n    set(name: string, value: string | Blob, fileName: string): void;\n",
+            )
         .splitUnion("string | string[]")
         .splitUnion("string | number[]")
         .splitUnion("number[] | Float32Array")
