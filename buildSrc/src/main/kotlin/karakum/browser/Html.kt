@@ -1558,7 +1558,19 @@ private fun convertFunction(
         else -> name
     }
 
-    return "fun $typeParameters$safeName($parameters)$result"
+    val parameterCount = if (parameters.isNotEmpty()) {
+        parameters.count { it == ',' } + 1
+    } else 0
+
+    val isOperator = when (name) {
+        "get" -> parameterCount == 1 && result.isNotEmpty()
+        "set" -> parameterCount == 2 && result.isEmpty()
+        else -> false
+    }
+
+    val modifier = if (isOperator) "operator" else ""
+
+    return "$modifier fun $typeParameters$safeName($parameters)$result"
 }
 
 private fun convertFunctionParameters(
