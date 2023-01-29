@@ -602,7 +602,7 @@ private fun convertFunction(
             }
     }
 
-    if ("{" in source && !(name == "readFile" || name == "writeFile"))
+    if ("{" in source && !(name == "readFile" || name == "writeFile" || name == "readdir"))
         return emptySequence()
 
     if (syncOnly && !(name.endsWith("Sync") || name.endsWith("Stream")))
@@ -647,7 +647,7 @@ private fun convertFunction(
     )
 
     // ignore fallbacks
-    if ("/* string | Buffer */" in returnType)
+    if ("/* string | Buffer */" in returnType || "/* string[] | Buffer[] */" in returnType)
         return emptySequence()
 
     val returnDeclaration = when (returnType) {

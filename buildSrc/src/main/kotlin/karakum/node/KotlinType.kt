@@ -179,10 +179,15 @@ internal fun kotlinType(
             .removePrefix("    ")
 
     if (" | " in type && !type.startsWith("{") && !type.startsWith("Promise<") && !type.startsWith("Any /* ")) {
-        if ("| BufferEncoding" in type)
-            return "BufferEncoding /* $type */"
+        return when {
+            "| BufferEncoding" in type
+            -> "BufferEncoding /* $type */"
 
-        return "Any /* $type */"
+            "  | 'buffer'" in type
+            -> "BufferEncodingOption /* $type */"
+
+            else -> "Any /* $type */"
+        }
     }
 
     if (type.endsWith("[]")) {
