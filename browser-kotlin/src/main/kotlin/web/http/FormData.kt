@@ -25,12 +25,12 @@ external class FormData(
     operator fun get(name: String): FormDataEntryValue?
     fun getAll(name: String): ReadonlyArray<FormDataEntryValue>
     fun has(name: String): Boolean
-    fun set(
+    operator fun set(
         name: String,
         value: String,
     )
 
-    fun set(
+    operator fun set(
         name: String,
         value: Blob,
     )
