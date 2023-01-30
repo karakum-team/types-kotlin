@@ -176,7 +176,7 @@ private fun convertInterface(
 ): ConversionResult {
     val declaration = source.substringBefore(" {")
         .replace(" extends ", " : ")
-        .replace(" : Element | Window", " : Any /* Element | Window */")
+        .replace(" : Element | Window", " : EventTarget /* Element | Window */")
         .replace(" = unknown", "")
     val name = declaration.substringBefore("<")
 

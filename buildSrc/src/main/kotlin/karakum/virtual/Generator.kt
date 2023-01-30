@@ -13,6 +13,7 @@ private val DEFAULT_IMPORTS = listOf(
     "Void" to "js.core.Void",
 
     "Element" to "web.dom.Element",
+    "EventTarget" to "web.events.EventTarget",
 )
 
 fun generateKotlinDeclarations(
