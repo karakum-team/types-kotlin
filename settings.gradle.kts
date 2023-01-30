@@ -20,6 +20,7 @@ dependencyResolutionManagement {
     }
 }
 
+include("actions-kotlin")
 include("browser-kotlin")
 include("cesium-kotlin")
 include("cesium-kotlin-nm")
