@@ -14,6 +14,7 @@ private val DEFAULT_IMPORTS = listOf(
 
     "Element" to "web.dom.Element",
     "EventTarget" to "web.events.EventTarget",
+    "ScrollBehavior" to "web.scroll.ScrollBehavior",
 )
 
 fun generateKotlinDeclarations(

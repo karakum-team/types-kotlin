@@ -11,6 +11,9 @@ private val EXCLUDED = setOf(
     "memo",
     "NoInfer",
     "PartialKeys",
+
+    // browser type used instead
+    "ScrollBehavior",
 )
 
 internal fun convertDefinitions(
