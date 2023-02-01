@@ -33,8 +33,15 @@ private fun convertItem(
         .substringBefore("(")
         .substringBefore(":")
 
+    var body = source
+    if (body.startsWith("function ") && "():" !in body)
+        body = body
+            .replaceFirst("(", "(\n")
+            .replace(", ", ",\n")
+            .replaceFirst("):", ",\n):")
+
     return ConversionResult(
         name = name,
-        body = source,
+        body = body,
     )
 }
