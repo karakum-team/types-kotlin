@@ -17,7 +17,7 @@ private fun cleanup(
     content: String,
 ): String =
     content.splitToSequence("\n")
-        .filter { line ->
-            !(line.startsWith("import ") && " from '." in line)
-        }
+        .filter { line -> !line.startsWith("/// ") }
+        .filter { line -> !line.startsWith("import ") }
         .joinToString("\n")
+        .trim()
