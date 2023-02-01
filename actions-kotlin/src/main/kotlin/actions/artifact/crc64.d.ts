@@ -8,7 +8,6 @@
  * This implementation uses a pregenerated table based on 0x9A6C9329AC4BC9B5 as the polynomial, the same polynomial that
  * is used for Azure Storage: https://github.com/Azure/azure-storage-net/blob/cbe605f9faa01bfc3003d75fc5a16b2eaccfe102/Lib/Common/Core/Util/Crc64.cs#L27
  */
-/// <reference types="node" />
 export declare type CRC64DigestEncoding = 'hex' | 'base64' | 'buffer';
 
 declare class CRC64 {

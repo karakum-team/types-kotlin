@@ -1,7 +1,3 @@
-/// <reference types="node" />
-import * as http from 'http';
-import * as https from 'https';
-
 export interface HttpClient {
     options(requestUrl: string, additionalHeaders?: http.OutgoingHttpHeaders): Promise<HttpClientResponse>;
 

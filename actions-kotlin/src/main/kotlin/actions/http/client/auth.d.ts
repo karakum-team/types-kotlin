@@ -1,6 +1,3 @@
-/// <reference types="node" />
-import * as http from 'http';
-
 export declare class BasicCredentialHandler implements ifm.RequestHandler {
     username: string;
     password: string;

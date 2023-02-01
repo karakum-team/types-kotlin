@@ -1,5 +1,3 @@
-import {HttpClientResponse} from '@actions/http-client';
-
 export declare function isSuccessStatusCode(statusCode?: number): boolean;
 
 export declare function isServerErrorStatusCode(statusCode?: number): boolean;

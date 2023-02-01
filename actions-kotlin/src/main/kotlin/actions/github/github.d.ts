@@ -1,5 +1,3 @@
-import {OctokitOptions, OctokitPlugin} from '@octokit/core/dist-types/types';
-
 export declare const context: Context.Context;
 
 /**

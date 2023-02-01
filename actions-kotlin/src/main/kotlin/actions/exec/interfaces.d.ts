@@ -1,6 +1,3 @@
-/// <reference types="node" />
-import * as stream from 'stream';
-
 /**
  * Interface for exec options
  */

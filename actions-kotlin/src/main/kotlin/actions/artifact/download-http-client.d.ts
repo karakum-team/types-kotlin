@@ -1,7 +1,3 @@
-/// <reference types="node" />
-import * as fs from 'fs';
-import {HttpClientResponse} from '@actions/http-client';
-
 export declare class DownloadHttpClient {
     private downloadHttpManager;
     private statusReporter;

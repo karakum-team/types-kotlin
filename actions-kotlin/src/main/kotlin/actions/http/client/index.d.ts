@@ -1,6 +1,3 @@
-/// <reference types="node" />
-import * as http from 'http';
-
 export declare enum HttpCodes {
     OK = 200,
     MultipleChoices = 300,

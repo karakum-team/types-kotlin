@@ -1,5 +1,3 @@
-import {HttpClient} from '@actions/http-client';
-
 /**
  * Used for managing http clients during either upload or download
  */

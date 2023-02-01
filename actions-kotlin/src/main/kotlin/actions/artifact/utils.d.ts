@@ -1,7 +1,3 @@
-/// <reference types="node" />
-import {IncomingHttpHeaders, OutgoingHttpHeaders} from 'http';
-import {HttpClient, HttpClientResponse} from '@actions/http-client';
-
 /**
  * Returns a retry time in milliseconds that exponentially gets larger
  * depending on the amount of retries that have been attempted

@@ -1,6 +1,3 @@
-/// <reference types="node" />
-import * as fs from 'fs';
-
 export declare function createTempDirectory(): Promise<string>;
 
 export declare function getArchiveFileSizeInBytes(filePath: string): number;

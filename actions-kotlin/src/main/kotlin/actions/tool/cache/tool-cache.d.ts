@@ -1,6 +1,3 @@
-/// <reference types="node" />
-import {OutgoingHttpHeaders} from 'http';
-
 export declare class HTTPError extends Error {
     readonly httpStatusCode: number | undefined;
 

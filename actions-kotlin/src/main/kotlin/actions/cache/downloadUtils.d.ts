@@ -1,5 +1,3 @@
-import {TransferProgressEvent} from '@azure/ms-rest-js';
-
 /**
  * Class for tracking the download state and displaying stats.
  */

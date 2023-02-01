@@ -1,4 +1,3 @@
-/// <reference types="node" />
 /**
  * Creates a Gzip compressed file of an original file at the provided temporary filepath location
  * @param {string} originalFilePath filepath of whatever will be compressed. The original file will be unmodified
