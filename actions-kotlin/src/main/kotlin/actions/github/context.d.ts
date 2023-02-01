@@ -1,5 +1,3 @@
-import {WebhookPayload} from './interfaces';
-
 export declare class Context {
     /**
      * Webhook payload object that triggered the workflow

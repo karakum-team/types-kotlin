@@ -1,5 +1,3 @@
-import {ExecListeners, ExecOptions, ExecOutput} from './interfaces';
-
 export {ExecOptions, ExecOutput, ExecListeners};
 
 /**

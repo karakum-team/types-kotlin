@@ -1,5 +1,4 @@
 /// <reference types="node" />
-import * as mm from './manifest';
 import {OutgoingHttpHeaders} from 'http';
 
 export declare class HTTPError extends Error {

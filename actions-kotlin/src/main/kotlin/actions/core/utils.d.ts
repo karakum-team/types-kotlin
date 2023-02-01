@@ -1,6 +1,3 @@
-import {AnnotationProperties} from './core';
-import {CommandProperties} from './command';
-
 /**
  * Sanitizes an input into a string so it can be passed into issueCommand safely
  * @param input input to sanitize into a string

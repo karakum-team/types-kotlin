@@ -1,6 +1,5 @@
 /// <reference types="node" />
 import * as http from 'http';
-import * as ifm from './interfaces';
 
 export declare enum HttpCodes {
     OK = 200,

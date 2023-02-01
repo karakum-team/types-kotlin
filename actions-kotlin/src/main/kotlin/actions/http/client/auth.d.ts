@@ -1,7 +1,5 @@
 /// <reference types="node" />
 import * as http from 'http';
-import * as ifm from './interfaces';
-import {HttpClientResponse} from './index';
 
 export declare class BasicCredentialHandler implements ifm.RequestHandler {
     username: string;

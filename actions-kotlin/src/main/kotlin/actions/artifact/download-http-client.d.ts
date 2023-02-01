@@ -1,8 +1,6 @@
 /// <reference types="node" />
 import * as fs from 'fs';
-import {ListArtifactsResponse, QueryArtifactResponse} from './contracts';
 import {HttpClientResponse} from '@actions/http-client';
-import {DownloadItem} from './download-specification';
 
 export declare class DownloadHttpClient {
     private downloadHttpManager;

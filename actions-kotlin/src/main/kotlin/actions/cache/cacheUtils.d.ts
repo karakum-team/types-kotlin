@@ -1,6 +1,5 @@
 /// <reference types="node" />
 import * as fs from 'fs';
-import {CompressionMethod} from './constants';
 
 export declare function createTempDirectory(): Promise<string>;
 

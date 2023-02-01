@@ -1,6 +1,3 @@
-import {MatchKind} from './internal-match-kind';
-import {Pattern} from './internal-pattern';
-
 /**
  * Given an array of patterns, returns an array of paths to search.
  * Duplicates and paths under other included paths are filtered out.

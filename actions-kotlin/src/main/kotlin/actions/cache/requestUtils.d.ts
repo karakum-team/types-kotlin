@@ -1,5 +1,4 @@
 import {HttpClientResponse} from '@actions/http-client';
-import {ITypedResponseWithError} from './contracts';
 
 export declare function isSuccessStatusCode(statusCode?: number): boolean;
 

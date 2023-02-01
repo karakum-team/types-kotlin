@@ -1,4 +1,3 @@
-import * as Context from './context';
 import {Octokit} from '@octokit/core';
 import {OctokitOptions} from '@octokit/core/dist-types/types';
 

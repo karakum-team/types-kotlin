@@ -1,5 +1,3 @@
-import {ContainerEntry} from './contracts';
-
 export interface DownloadSpecification {
     rootDownloadLocation: string;
     directoryStructure: string[];

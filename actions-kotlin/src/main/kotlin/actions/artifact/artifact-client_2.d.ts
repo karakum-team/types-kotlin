@@ -1,8 +1,3 @@
-import {UploadResponse} from './upload-response';
-import {UploadOptions} from './upload-options';
-import {DownloadOptions} from './download-options';
-import {DownloadResponse} from './download-response';
-
 export interface ArtifactClient {
     /**
      * Uploads an artifact

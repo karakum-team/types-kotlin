@@ -1,7 +1,3 @@
-import {CompressionMethod} from './constants';
-import {ArtifactCacheEntry, InternalCacheOptions, ITypedResponseWithError, ReserveCacheResponse} from './contracts';
-import {DownloadOptions, UploadOptions} from '../options';
-
 export declare function getCacheVersion(paths: string[], compressionMethod?: CompressionMethod, enableCrossOsArchive?: boolean): string;
 
 export declare function getCacheEntry(keys: string[], paths: string[], options?: InternalCacheOptions): Promise<ArtifactCacheEntry | null>;

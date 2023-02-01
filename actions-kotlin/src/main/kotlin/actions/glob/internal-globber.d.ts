@@ -1,5 +1,3 @@
-import {GlobOptions} from './internal-glob-options';
-
 export {GlobOptions};
 
 /**

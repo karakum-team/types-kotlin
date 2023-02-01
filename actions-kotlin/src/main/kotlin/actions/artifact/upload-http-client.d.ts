@@ -1,7 +1,3 @@
-import {ArtifactResponse, UploadResults} from './contracts';
-import {UploadSpecification} from './upload-specification';
-import {UploadOptions} from './upload-options';
-
 export declare class UploadHttpClient {
     private uploadHttpManager;
     private statusReporter;

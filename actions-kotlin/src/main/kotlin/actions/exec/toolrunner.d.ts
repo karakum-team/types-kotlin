@@ -1,6 +1,5 @@
 /// <reference types="node" />
 import * as events from 'events';
-import * as im from './interfaces';
 
 export declare class ToolRunner extends events.EventEmitter {
     constructor(toolPath: string, args?: string[], options?: im.ExecOptions);

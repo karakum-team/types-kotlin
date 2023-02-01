@@ -1,5 +1,3 @@
-import {DownloadOptions, UploadOptions} from './options';
-
 export declare class ValidationError extends Error {
     constructor(message: string);
 }
