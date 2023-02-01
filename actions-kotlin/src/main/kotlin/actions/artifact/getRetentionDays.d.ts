@@ -1,0 +1,1 @@
+function getRetentionDays(): string | undefined;

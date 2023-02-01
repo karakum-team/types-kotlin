@@ -1,0 +1,1 @@
+type IToolRelease = mm.IToolRelease;

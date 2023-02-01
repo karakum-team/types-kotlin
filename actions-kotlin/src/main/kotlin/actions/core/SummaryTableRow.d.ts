@@ -1,0 +1,1 @@
+type SummaryTableRow = (SummaryTableCell | string)[];

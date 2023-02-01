@@ -1,0 +1,1 @@
+const DefaultRetryAttempts = 2;

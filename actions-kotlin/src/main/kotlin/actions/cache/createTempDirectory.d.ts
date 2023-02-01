@@ -1,0 +1,1 @@
+function createTempDirectory(): Promise<string>;

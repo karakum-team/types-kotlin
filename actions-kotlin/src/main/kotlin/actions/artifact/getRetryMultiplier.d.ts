@@ -1,0 +1,1 @@
+function getRetryMultiplier(): number;

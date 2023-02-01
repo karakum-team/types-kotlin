@@ -1,0 +1,1 @@
+function endGroup(): void;

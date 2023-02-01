@@ -1,9 +1,3 @@
-export declare const context: Context.Context;
-
-/**
- * Returns a hydrated octokit ready to use for GitHub Actions
- *
- * @param     token    the repo PAT or GITHUB_TOKEN
- * @param     options  other options to set
- */
-export declare function getOctokit(token: string, options?: OctokitOptions, ...additionalPlugins: OctokitPlugin[]): InstanceType<typeof GitHub>;
+const GitHub: typeof Octokit & import("@octokit/core/dist-types/types").Constructor<import("@octokit/plugin-rest-endpoint-methods/dist-types/types").Api & {
+    paginate: import("@octokit/plugin-paginate-rest").PaginateInterface;
+}>;

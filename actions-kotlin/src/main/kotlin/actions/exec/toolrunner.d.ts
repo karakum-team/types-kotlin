@@ -1,4 +1,4 @@
-export declare class ToolRunner extends events.EventEmitter {
+class ToolRunner extends events.EventEmitter {
     constructor(toolPath: string, args?: string[], options?: im.ExecOptions);
 
     private toolPath;
@@ -27,11 +27,3 @@ export declare class ToolRunner extends events.EventEmitter {
      */
     exec(): Promise<number>;
 }
-
-/**
- * Convert an arg string to an array of args. Handles escaping
- *
- * @param    argString   string of arguments
- * @returns  string[]    array of arguments
- */
-export declare function argStringToArray(argString: string): string[];

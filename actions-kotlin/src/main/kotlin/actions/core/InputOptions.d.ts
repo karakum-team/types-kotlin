@@ -1,0 +1,6 @@
+interface InputOptions {
+    /** Optional. Whether the input is required. If required and not present, will throw. Defaults to false */
+    required?: boolean;
+    /** Optional. Whether leading/trailing whitespace will be trimmed for the input. Defaults to true */
+    trimWhitespace?: boolean;
+}
