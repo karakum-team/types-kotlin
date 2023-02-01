@@ -1,1 +1,3 @@
-function digestForStream(stream: NodeJS.ReadableStream): Promise<StreamDigest>;
+function digestForStream(
+    stream: NodeJS.ReadableStream,
+): Promise<StreamDigest>;

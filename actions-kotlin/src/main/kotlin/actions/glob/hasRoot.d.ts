@@ -1,1 +1,3 @@
-function hasRoot(itemPath: string): boolean;
+function hasRoot(
+    itemPath: string,
+): boolean;

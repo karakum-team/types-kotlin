@@ -1,1 +1,4 @@
-function assertDefined<T>(name: string, value?: T): T;
+function assertDefined<T>(
+    name: string,
+    value?: T,
+): T;

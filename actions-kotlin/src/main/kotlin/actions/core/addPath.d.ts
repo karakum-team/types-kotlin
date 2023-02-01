@@ -1,1 +1,3 @@
-function addPath(inputPath: string): void;
+function addPath(
+    inputPath: string,
+): void;

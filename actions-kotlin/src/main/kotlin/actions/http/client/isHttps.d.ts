@@ -1,1 +1,3 @@
-function isHttps(requestUrl: string): boolean;
+function isHttps(
+    requestUrl: string,
+): boolean;

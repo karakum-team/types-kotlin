@@ -1,1 +1,3 @@
-function safeTrimTrailingSeparator(p: string): string;
+function safeTrimTrailingSeparator(
+    p: string,
+): string;

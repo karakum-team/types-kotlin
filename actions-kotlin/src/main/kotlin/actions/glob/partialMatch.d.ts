@@ -1,1 +1,4 @@
-function partialMatch(patterns: Pattern[], itemPath: string): boolean;
+function partialMatch(
+    patterns: Pattern[],
+    itemPath: string,
+): boolean;

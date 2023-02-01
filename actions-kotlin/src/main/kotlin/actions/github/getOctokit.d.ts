@@ -1,1 +1,5 @@
-function getOctokit(token: string, options?: OctokitOptions, ...additionalPlugins: OctokitPlugin[]): InstanceType<typeof GitHub>;
+function getOctokit(
+    token: string,
+    options?: OctokitOptions,
+    ...additionalPlugins: OctokitPlugin[],
+): InstanceType<typeof GitHub>;

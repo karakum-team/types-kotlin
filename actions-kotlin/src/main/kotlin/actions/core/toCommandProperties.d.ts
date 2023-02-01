@@ -1,1 +1,3 @@
-function toCommandProperties(annotationProperties: AnnotationProperties): CommandProperties;
+function toCommandProperties(
+    annotationProperties: AnnotationProperties,
+): CommandProperties;

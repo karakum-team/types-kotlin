@@ -1,1 +1,3 @@
-function getIDToken(aud?: string): Promise<string>;
+function getIDToken(
+    aud?: string,
+): Promise<string>;

@@ -1,1 +1,5 @@
-function saveCache(cacheId: number, archivePath: string, options?: UploadOptions): Promise<void>;
+function saveCache(
+    cacheId: number,
+    archivePath: string,
+    options?: UploadOptions,
+): Promise<void>;

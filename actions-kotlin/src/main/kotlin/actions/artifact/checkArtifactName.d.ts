@@ -1,1 +1,3 @@
-function checkArtifactName(name: string): void;
+function checkArtifactName(
+    name: string,
+): void;

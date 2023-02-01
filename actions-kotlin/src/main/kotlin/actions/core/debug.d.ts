@@ -1,1 +1,3 @@
-function debug(message: string): void;
+function debug(
+    message: string,
+): void;

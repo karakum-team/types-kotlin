@@ -1,1 +1,3 @@
-function getUploadOptions(copy?: UploadOptions): UploadOptions;
+function getUploadOptions(
+    copy?: UploadOptions,
+): UploadOptions;

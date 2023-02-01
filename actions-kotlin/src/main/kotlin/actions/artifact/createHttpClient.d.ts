@@ -1,1 +1,3 @@
-function createHttpClient(userAgent: string): HttpClient;
+function createHttpClient(
+    userAgent: string,
+): HttpClient;

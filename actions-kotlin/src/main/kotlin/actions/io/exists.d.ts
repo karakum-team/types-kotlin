@@ -1,1 +1,3 @@
-function exists(fsPath: string): Promise<boolean>;
+function exists(
+    fsPath: string,
+): Promise<boolean>;

@@ -1,1 +1,3 @@
-function startGroup(name: string): void;
+function startGroup(
+    name: string,
+): void;

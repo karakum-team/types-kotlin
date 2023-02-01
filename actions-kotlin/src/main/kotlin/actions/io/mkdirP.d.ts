@@ -1,1 +1,3 @@
-function mkdirP(fsPath: string): Promise<void>;
+function mkdirP(
+    fsPath: string,
+): Promise<void>;

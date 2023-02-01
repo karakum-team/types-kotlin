@@ -1,1 +1,3 @@
-function getProxyUrl(reqUrl: URL): URL | undefined;
+function getProxyUrl(
+    reqUrl: URL,
+): URL | undefined;

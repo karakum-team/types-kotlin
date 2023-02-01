@@ -1,1 +1,3 @@
-function rmFile(filePath: string): Promise<void>;
+function rmFile(
+    filePath: string,
+): Promise<void>;

@@ -1,1 +1,3 @@
-function getState(name: string): string;
+function getState(
+    name: string,
+): string;

@@ -1,1 +1,4 @@
-function extractTar(archivePath: string, compressionMethod: CompressionMethod): Promise<void>;
+function extractTar(
+    archivePath: string,
+    compressionMethod: CompressionMethod,
+): Promise<void>;

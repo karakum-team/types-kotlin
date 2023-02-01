@@ -1,1 +1,4 @@
-function createGZipFileOnDisk(originalFilePath: string, tempFilePath: string): Promise<number>;
+function createGZipFileOnDisk(
+    originalFilePath: string,
+    tempFilePath: string,
+): Promise<number>;

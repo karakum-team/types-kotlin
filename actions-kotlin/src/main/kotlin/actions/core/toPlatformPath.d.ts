@@ -1,1 +1,3 @@
-function toPlatformPath(pth: string): string;
+function toPlatformPath(
+    pth: string,
+): string;

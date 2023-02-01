@@ -1,1 +1,3 @@
-function dirname(p: string): string;
+function dirname(
+    p: string,
+): string;

@@ -1,1 +1,3 @@
-function getArchiveFileSizeInBytes(filePath: string): number;
+function getArchiveFileSizeInBytes(
+    filePath: string,
+): number;

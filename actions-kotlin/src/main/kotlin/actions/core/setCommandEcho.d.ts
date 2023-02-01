@@ -1,1 +1,3 @@
-function setCommandEcho(enabled: boolean): void;
+function setCommandEcho(
+    enabled: boolean,
+): void;

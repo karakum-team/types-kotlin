@@ -1,1 +1,3 @@
-function hasAbsoluteRoot(itemPath: string): boolean;
+function hasAbsoluteRoot(
+    itemPath: string,
+): boolean;

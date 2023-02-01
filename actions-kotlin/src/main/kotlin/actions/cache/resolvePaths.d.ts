@@ -1,1 +1,3 @@
-function resolvePaths(patterns: string[]): Promise<string[]>;
+function resolvePaths(
+    patterns: string[],
+): Promise<string[]>;

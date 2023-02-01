@@ -1,1 +1,3 @@
-function sleep(milliseconds: number): Promise<void>;
+function sleep(
+    milliseconds: number,
+): Promise<void>;

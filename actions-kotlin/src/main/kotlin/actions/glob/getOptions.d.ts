@@ -1,1 +1,3 @@
-function getOptions(copy?: GlobOptions): GlobOptions;
+function getOptions(
+    copy?: GlobOptions,
+): GlobOptions;

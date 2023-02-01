@@ -1,1 +1,4 @@
-function prepareKeyValueMessage(key: string, value: any): string;
+function prepareKeyValueMessage(
+    key: string,
+    value: any,
+): string;

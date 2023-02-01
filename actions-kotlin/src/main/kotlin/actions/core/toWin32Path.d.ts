@@ -1,1 +1,3 @@
-function toWin32Path(pth: string): string;
+function toWin32Path(
+    pth: string,
+): string;

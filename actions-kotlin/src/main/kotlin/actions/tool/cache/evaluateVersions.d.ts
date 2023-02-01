@@ -1,1 +1,4 @@
-function evaluateVersions(versions: string[], versionSpec: string): string;
+function evaluateVersions(
+    versions: string[],
+    versionSpec: string,
+): string;

@@ -1,1 +1,3 @@
-function tryGetRetryAfterValueTimeInMilliseconds(headers: IncomingHttpHeaders): number | undefined;
+function tryGetRetryAfterValueTimeInMilliseconds(
+    headers: IncomingHttpHeaders,
+): number | undefined;

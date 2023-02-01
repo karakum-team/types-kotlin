@@ -1,1 +1,4 @@
-function exportVariable(name: string, val: any): void;
+function exportVariable(
+    name: string,
+    val: any,
+): void;

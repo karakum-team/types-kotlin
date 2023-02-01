@@ -1,1 +1,4 @@
-function create(patterns: string, options?: GlobOptions): Promise<Globber>;
+function create(
+    patterns: string,
+    options?: GlobOptions,
+): Promise<Globber>;

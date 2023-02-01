@@ -1,1 +1,4 @@
-function setOutput(name: string, value: any): void;
+function setOutput(
+    name: string,
+    value: any,
+): void;

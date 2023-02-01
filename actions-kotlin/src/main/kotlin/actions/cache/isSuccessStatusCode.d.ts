@@ -1,1 +1,3 @@
-function isSuccessStatusCode(statusCode?: number): boolean;
+function isSuccessStatusCode(
+    statusCode?: number,
+): boolean;

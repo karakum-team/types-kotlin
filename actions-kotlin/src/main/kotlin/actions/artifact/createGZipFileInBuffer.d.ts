@@ -1,1 +1,3 @@
-function createGZipFileInBuffer(originalFilePath: string): Promise<Buffer>;
+function createGZipFileInBuffer(
+    originalFilePath: string,
+): Promise<Buffer>;

@@ -1,1 +1,4 @@
-function getInput(name: string, options?: InputOptions): string;
+function getInput(
+    name: string,
+    options?: InputOptions,
+): string;

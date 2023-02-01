@@ -1,1 +1,3 @@
-function isForbiddenStatusCode(statusCode?: number): boolean;
+function isForbiddenStatusCode(
+    statusCode?: number,
+): boolean;

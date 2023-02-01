@@ -1,1 +1,3 @@
-function setSecret(secret: string): void;
+function setSecret(
+    secret: string,
+): void;

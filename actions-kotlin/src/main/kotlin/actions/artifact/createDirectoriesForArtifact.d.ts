@@ -1,1 +1,3 @@
-function createDirectoriesForArtifact(directories: string[]): Promise<void>;
+function createDirectoriesForArtifact(
+    directories: string[],
+): Promise<void>;

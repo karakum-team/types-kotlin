@@ -1,1 +1,4 @@
-function issueFileCommand(command: string, message: any): void;
+function issueFileCommand(
+    command: string,
+    message: any,
+): void;

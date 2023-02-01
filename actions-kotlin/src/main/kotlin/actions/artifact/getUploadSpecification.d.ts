@@ -1,1 +1,5 @@
-function getUploadSpecification(artifactName: string, rootDirectory: string, artifactFiles: string[]): UploadSpecification[];
+function getUploadSpecification(
+    artifactName: string,
+    rootDirectory: string,
+    artifactFiles: string[],
+): UploadSpecification[];

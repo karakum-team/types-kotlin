@@ -1,1 +1,6 @@
-function cacheDir(sourceDir: string, tool: string, version: string, arch?: string): Promise<string>;
+function cacheDir(
+    sourceDir: string,
+    tool: string,
+    version: string,
+    arch?: string,
+): Promise<string>;

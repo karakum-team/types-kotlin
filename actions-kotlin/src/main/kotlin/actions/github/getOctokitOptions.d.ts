@@ -1,1 +1,4 @@
-function getOctokitOptions(token: string, options?: OctokitOptions): OctokitOptions;
+function getOctokitOptions(
+    token: string,
+    options?: OctokitOptions,
+): OctokitOptions;

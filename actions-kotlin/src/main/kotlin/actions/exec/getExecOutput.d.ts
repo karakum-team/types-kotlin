@@ -1,1 +1,5 @@
-function getExecOutput(commandLine: string, args?: string[], options?: ExecOptions): Promise<ExecOutput>;
+function getExecOutput(
+    commandLine: string,
+    args?: string[],
+    options?: ExecOptions,
+): Promise<ExecOutput>;

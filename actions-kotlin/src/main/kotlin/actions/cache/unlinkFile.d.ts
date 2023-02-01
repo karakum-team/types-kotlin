@@ -1,1 +1,3 @@
-function unlinkFile(filePath: fs.PathLike): Promise<void>;
+function unlinkFile(
+    filePath: fs.PathLike,
+): Promise<void>;

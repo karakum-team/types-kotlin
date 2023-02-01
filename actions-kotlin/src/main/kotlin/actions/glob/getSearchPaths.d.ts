@@ -1,1 +1,3 @@
-function getSearchPaths(patterns: Pattern[]): string[];
+function getSearchPaths(
+    patterns: Pattern[],
+): string[];

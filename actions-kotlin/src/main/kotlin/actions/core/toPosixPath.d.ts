@@ -1,1 +1,3 @@
-function toPosixPath(pth: string): string;
+function toPosixPath(
+    pth: string,
+): string;

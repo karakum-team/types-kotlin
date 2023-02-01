@@ -1,1 +1,3 @@
-function checkBypass(reqUrl: URL): boolean;
+function checkBypass(
+    reqUrl: URL,
+): boolean;

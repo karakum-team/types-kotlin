@@ -1,1 +1,5 @@
-function issueCommand(command: string, properties: CommandProperties, message: any): void;
+function issueCommand(
+    command: string,
+    properties: CommandProperties,
+    message: any,
+): void;

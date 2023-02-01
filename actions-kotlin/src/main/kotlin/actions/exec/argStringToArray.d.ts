@@ -1,1 +1,3 @@
-function argStringToArray(argString: string): string[];
+function argStringToArray(
+    argString: string,
+): string[];

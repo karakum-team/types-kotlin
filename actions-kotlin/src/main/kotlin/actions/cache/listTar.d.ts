@@ -1,1 +1,4 @@
-function listTar(archivePath: string, compressionMethod: CompressionMethod): Promise<void>;
+function listTar(
+    archivePath: string,
+    compressionMethod: CompressionMethod,
+): Promise<void>;

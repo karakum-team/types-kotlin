@@ -1,1 +1,4 @@
-function issue(name: string, message?: string): void;
+function issue(
+    name: string,
+    message?: string,
+): void;

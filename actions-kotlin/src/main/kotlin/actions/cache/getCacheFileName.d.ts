@@ -1,1 +1,3 @@
-function getCacheFileName(compressionMethod: CompressionMethod): string;
+function getCacheFileName(
+    compressionMethod: CompressionMethod,
+): string;

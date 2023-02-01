@@ -1,1 +1,3 @@
-function info(message: string): void;
+function info(
+    message: string,
+): void;

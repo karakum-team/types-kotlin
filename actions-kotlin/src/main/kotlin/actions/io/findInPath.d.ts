@@ -1,1 +1,3 @@
-function findInPath(tool: string): Promise<string[]>;
+function findInPath(
+    tool: string,
+): Promise<string[]>;

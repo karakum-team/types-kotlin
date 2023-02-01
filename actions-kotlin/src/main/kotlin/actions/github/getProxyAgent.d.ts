@@ -1,1 +1,3 @@
-function getProxyAgent(destinationUrl: string): http.Agent;
+function getProxyAgent(
+    destinationUrl: string,
+): http.Agent;

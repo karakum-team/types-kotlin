@@ -1,1 +1,3 @@
-function parseEnvNumber(key: string): number | undefined;
+function parseEnvNumber(
+    key: string,
+): number | undefined;

@@ -1,1 +1,3 @@
-function isExplicitVersion(versionSpec: string): boolean;
+function isExplicitVersion(
+    versionSpec: string,
+): boolean;

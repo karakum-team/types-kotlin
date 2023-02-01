@@ -1,1 +1,3 @@
-function normalizeSeparators(p: string): string;
+function normalizeSeparators(
+    p: string,
+): string;

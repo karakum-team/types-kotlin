@@ -1,1 +1,4 @@
-function downloadCacheHttpClient(archiveLocation: string, archivePath: string): Promise<void>;
+function downloadCacheHttpClient(
+    archiveLocation: string,
+    archivePath: string,
+): Promise<void>;

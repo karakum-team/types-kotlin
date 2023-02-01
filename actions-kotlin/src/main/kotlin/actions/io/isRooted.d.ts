@@ -1,1 +1,3 @@
-function isRooted(p: string): boolean;
+function isRooted(
+    p: string,
+): boolean;

@@ -1,1 +1,3 @@
-function isRetryableStatusCode(statusCode: number | undefined): boolean;
+function isRetryableStatusCode(
+    statusCode: number | undefined,
+): boolean;

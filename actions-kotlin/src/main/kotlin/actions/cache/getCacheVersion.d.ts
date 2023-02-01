@@ -1,1 +1,5 @@
-function getCacheVersion(paths: string[], compressionMethod?: CompressionMethod, enableCrossOsArchive?: boolean): string;
+function getCacheVersion(
+    paths: string[],
+    compressionMethod?: CompressionMethod,
+    enableCrossOsArchive?: boolean,
+): string;

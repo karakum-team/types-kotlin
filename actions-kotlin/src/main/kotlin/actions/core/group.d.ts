@@ -1,1 +1,4 @@
-function group<T>(name: string, fn: () => Promise<T>): Promise<T>;
+function group<T>(
+    name: string,
+    fn: () => Promise<T>,
+): Promise<T>;

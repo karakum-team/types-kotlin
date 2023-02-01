@@ -1,1 +1,4 @@
-function ensureAbsoluteRoot(root: string, itemPath: string): string;
+function ensureAbsoluteRoot(
+    root: string,
+    itemPath: string,
+): string;

@@ -1,1 +1,3 @@
-function displayHttpDiagnostics(response: HttpClientResponse): void;
+function displayHttpDiagnostics(
+    response: HttpClientResponse,
+): void;

@@ -1,1 +1,4 @@
-function error(message: string | Error, properties?: AnnotationProperties): void;
+function error(
+    message: string | Error,
+    properties?: AnnotationProperties,
+): void;

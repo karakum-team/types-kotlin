@@ -1,1 +1,4 @@
-function getBooleanInput(name: string, options?: InputOptions): boolean;
+function getBooleanInput(
+    name: string,
+    options?: InputOptions,
+): boolean;

@@ -1,1 +1,3 @@
-function isThrottledStatusCode(statusCode?: number): boolean;
+function isThrottledStatusCode(
+    statusCode?: number,
+): boolean;

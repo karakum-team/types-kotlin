@@ -1,1 +1,3 @@
-function getProxyUrl(serverUrl: string): string;
+function getProxyUrl(
+    serverUrl: string,
+): string;

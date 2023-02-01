@@ -1,1 +1,3 @@
-function checkArtifactFilePath(path: string): void;
+function checkArtifactFilePath(
+    path: string,
+): void;

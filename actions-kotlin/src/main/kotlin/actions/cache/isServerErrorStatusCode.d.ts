@@ -1,1 +1,3 @@
-function isServerErrorStatusCode(statusCode?: number): boolean;
+function isServerErrorStatusCode(
+    statusCode?: number,
+): boolean;

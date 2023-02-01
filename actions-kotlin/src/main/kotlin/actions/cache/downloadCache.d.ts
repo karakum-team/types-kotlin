@@ -1,1 +1,5 @@
-function downloadCache(archiveLocation: string, archivePath: string, options?: DownloadOptions): Promise<void>;
+function downloadCache(
+    archiveLocation: string,
+    archivePath: string,
+    options?: DownloadOptions,
+): Promise<void>;

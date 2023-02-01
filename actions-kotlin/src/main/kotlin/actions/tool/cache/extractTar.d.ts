@@ -1,1 +1,5 @@
-function extractTar(file: string, dest?: string, flags?: string | string[]): Promise<string>;
+function extractTar(
+    file: string,
+    dest?: string,
+    flags?: string | string[],
+): Promise<string>;

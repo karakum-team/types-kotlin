@@ -1,1 +1,3 @@
-function getDownloadOptions(copy?: DownloadOptions): DownloadOptions;
+function getDownloadOptions(
+    copy?: DownloadOptions,
+): DownloadOptions;

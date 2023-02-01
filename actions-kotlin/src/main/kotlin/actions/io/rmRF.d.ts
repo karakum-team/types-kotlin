@@ -1,1 +1,3 @@
-function rmRF(inputPath: string): Promise<void>;
+function rmRF(
+    inputPath: string,
+): Promise<void>;

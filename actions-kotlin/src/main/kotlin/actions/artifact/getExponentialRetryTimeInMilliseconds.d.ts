@@ -1,1 +1,3 @@
-function getExponentialRetryTimeInMilliseconds(retryCount: number): number;
+function getExponentialRetryTimeInMilliseconds(
+    retryCount: number,
+): number;

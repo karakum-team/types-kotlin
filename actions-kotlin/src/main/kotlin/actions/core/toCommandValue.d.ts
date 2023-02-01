@@ -1,1 +1,3 @@
-function toCommandValue(input: any): string;
+function toCommandValue(
+    input: any,
+): string;
