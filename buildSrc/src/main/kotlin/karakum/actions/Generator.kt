@@ -32,11 +32,12 @@ private fun generate(
         .also { it.mkdirs() }
 
     for (file in files) {
-        for ((name, body) in convert(file.readText(), file.name.removeSuffix(".d.ts"))) {
+        for ((name, body) in convert(file.readText())) {
             var f = dir.resolve(name + ".d.ts")
-            // TEMP
-            if (f.exists()) {
-                f = dir.resolve(name + "_2.d.ts")
+
+            var index = 2
+            while (f.exists()) {
+                f = dir.resolve(name + "_${index++}.d.ts")
             }
 
             check(!f.exists()) {

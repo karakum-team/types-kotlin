@@ -2,15 +2,13 @@ package karakum.actions
 
 internal fun convert(
     content: String,
-    // TEMP
-    fileName: String,
 ): Sequence<ConversionResult> {
-    return sequenceOf(
-        ConversionResult(
-            name = fileName,
-            body = cleanup(content),
-        )
-    )
+    val body = cleanup(content)
+
+    return ("\n" + body).splitToSequence("\nexport declare ", "\nexport ", "\n declare")
+        .drop(1)
+        .map { it.substringBefore("\n/**") }
+        .mapNotNull { convertItem(it) }
 }
 
 private fun cleanup(
@@ -21,3 +19,21 @@ private fun cleanup(
         .filter { line -> !line.startsWith("import ") }
         .joinToString("\n")
         .trim()
+
+private fun convertItem(
+    source: String,
+): ConversionResult? {
+    if (source.startsWith("{"))
+        return null
+
+    val name = source.substringAfter(" ")
+        .substringBefore("<")
+        .substringBefore(" ")
+        .substringBefore("(")
+        .substringBefore(":")
+
+    return ConversionResult(
+        name = name,
+        body = source,
+    )
+}
