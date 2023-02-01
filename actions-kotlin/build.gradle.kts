@@ -2,7 +2,7 @@ plugins {
     kfc("library")
     kfc("wrappers")
     seskar()
-    // `actions-declarations`
+    `actions-declarations`
 }
 
 dependencies {
