@@ -19,6 +19,13 @@ internal class Method(
     private val parameters = source.parseFunctionParameters()
     private val returnType = source.parseFunctionReturnType(name)
 
+    private val isOperator: Boolean =
+        when (name) {
+            "get" -> parameters.size == 1 && returnType != null
+            "set" -> parameters.size == 2 && returnType == null
+            else -> false
+        }
+
     override fun toCode(): String {
         if (name == "toString" && parameters.isEmpty())
             return ""
@@ -33,7 +40,8 @@ internal class Method(
 
         val modifiers = (if (hasParent) "" else "external ") +
                 (if (abstract) "abstract " else "") +
-                (if (overridden) "override " else "")
+                (if (overridden) "override " else "") +
+                (if (isOperator) "operator " else "")
 
         val link = if (hasParent) {
             DocLink(parent, this)
