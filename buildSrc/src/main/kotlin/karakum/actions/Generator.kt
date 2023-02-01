@@ -2,13 +2,6 @@ package karakum.actions
 
 import java.io.File
 
-private class Library(
-    val name: String,
-) {
-    val moduleId: String = "@actions/$name"
-    val path: String = "actions/" + name.replace("-", "/")
-}
-
 fun generateKotlinDeclarations(
     definitionsDir: File,
     sourceDir: File,
