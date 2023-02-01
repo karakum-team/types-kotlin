@@ -10,7 +10,6 @@ tasks.named("generateDeclarations") {
 
         val definitionsDir = rootProject.buildDir
             .resolve("js/node_modules/@actions")
-            .resolve("lib")
 
         karakum.actions.generateKotlinDeclarations(
             definitionsDir = definitionsDir,
