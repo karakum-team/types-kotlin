@@ -32,10 +32,18 @@ private fun generate(
         .also { it.mkdirs() }
 
     for (file in files) {
-        val name = file.name
-        val content = file.readText()
+        for ((name, body) in convert(file.readText(), file.name.removeSuffix(".d.ts"))) {
+            var f = dir.resolve(name + ".d.ts")
+            // TEMP
+            if (f.exists()) {
+                f = dir.resolve(name + "_2.d.ts")
+            }
 
-        dir.resolve(name)
-            .writeText(content)
+            check(!f.exists()) {
+                "File $f already exists!"
+            }
+
+            f.writeText(body)
+        }
     }
 }
