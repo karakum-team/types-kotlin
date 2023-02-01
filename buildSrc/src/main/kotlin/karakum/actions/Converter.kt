@@ -17,6 +17,7 @@ private fun cleanup(
     content.splitToSequence("\n")
         .filter { line -> !line.startsWith("/// ") }
         .filter { line -> !line.startsWith("import ") }
+        .filter { line -> !line.startsWith("    private _") }
         .joinToString("\n")
         .trim()
 
