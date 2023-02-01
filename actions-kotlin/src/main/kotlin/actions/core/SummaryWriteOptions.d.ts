@@ -7,9 +7,6 @@ interface SummaryWriteOptions {
 }
 
 declare class Summary {
-    private _buffer;
-    private _filePath?;
-
     constructor();
 
     /**

@@ -1,8 +1,6 @@
 type CRC64DigestEncoding = 'hex' | 'base64' | 'buffer';
 
 declare class CRC64 {
-    private _crc;
-
     constructor();
 
     update(data: Buffer | string): void;

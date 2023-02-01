@@ -2,17 +2,6 @@ class HttpClient {
     userAgent: string | undefined;
     handlers: ifm.RequestHandler[];
     requestOptions: ifm.RequestOptions | undefined;
-    private _ignoreSslError;
-    private _socketTimeout;
-    private _allowRedirects;
-    private _allowRedirectDowngrade;
-    private _maxRedirects;
-    private _allowRetries;
-    private _maxRetries;
-    private _agent;
-    private _proxyAgent;
-    private _keepAlive;
-    private _disposed;
 
     constructor(userAgent?: string, handlers?: ifm.RequestHandler[], requestOptions?: ifm.RequestOptions);
 
@@ -77,11 +66,4 @@ class HttpClient {
      * @param serverUrl  The server URL where the request will be sent. For example, https://api.github.com
      */
     getAgent(serverUrl: string): http.Agent;
-
-    private _prepareRequest;
-    private _mergeHeaders;
-    private _getExistingOrDefaultHeader;
-    private _getAgent;
-    private _performExponentialBackoff;
-    private _processResponse;
 }
