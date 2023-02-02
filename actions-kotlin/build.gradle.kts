@@ -10,7 +10,7 @@ dependencies {
     implementation(npmv("@actions/cache"))
     implementation(npmv("@actions/core"))
     implementation(npmv("@actions/exec"))
-    implementation(npmv("@actions/github"))
+    // implementation(npmv("@actions/github"))
     implementation(npmv("@actions/glob"))
     implementation(npmv("@actions/http-client"))
     implementation(npmv("@actions/io"))
