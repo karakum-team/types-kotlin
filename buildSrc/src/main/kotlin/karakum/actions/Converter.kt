@@ -27,6 +27,9 @@ private fun convertItem(
     if (source.startsWith("{"))
         return null
 
+    if (source.startsWith("default "))
+        return null
+
     val name = source.substringAfter(" ")
         .substringBefore("<")
         .substringBefore(" ")
