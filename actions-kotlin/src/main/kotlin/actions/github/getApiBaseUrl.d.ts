@@ -1,1 +1,0 @@
-function getApiBaseUrl(): string;
