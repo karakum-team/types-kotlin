@@ -53,7 +53,7 @@ private fun generate(
     }
 
     for ((name, body) in results) {
-        val kotlinMode = "external interface " in body || "typealias" in body
+        val kotlinMode = "external interface " in body || "external fun " in body || "typealias" in body
         val ext = if (kotlinMode) "kt" else "d.ts"
 
         val finalBody = if (kotlinMode) "package ${library.pkg}\n\n$DEFAULT_IMPORTS\n\n$body" else body

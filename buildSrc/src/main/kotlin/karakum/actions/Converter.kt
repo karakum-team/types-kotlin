@@ -31,10 +31,16 @@ private fun convertItem(
         return null
 
     val type = source.substringBefore(" ")
-    if (type == "interface") {
-        return convertInterface(
-            source = source.substringAfter(" ")
-        )
+    when (type) {
+        "interface" ->
+            return convertInterface(
+                source = source.substringAfter(" ")
+            )
+
+        "function" ->
+            return convertFunction(
+                source = source.substringAfter(" ")
+            )
     }
 
     val name = source.substringAfter(" ")
@@ -93,6 +99,19 @@ private fun convertInterface(
     return ConversionResult(
         name = name,
         body = body,
+    )
+}
+
+private fun convertFunction(
+    source: String,
+): ConversionResult {
+    val name = source
+        .substringBefore("(")
+        .substringBefore("<")
+
+    return ConversionResult(
+        name = name,
+        body = "external " + convertMember(source.substringBefore(";\n").removeSuffix(";"))
     )
 }
 

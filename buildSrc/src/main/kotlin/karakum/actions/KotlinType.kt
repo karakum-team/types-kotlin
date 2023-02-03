@@ -37,6 +37,8 @@ internal fun kotlinType(
     return type
         .replace(": string)", ": String)")
         .replace(") => void", ") -> Unit")
+        .replace(") => ", ") -> ")
+        .replace(" | undefined", "?")
         .replace(" | null", "?")
 
 }
