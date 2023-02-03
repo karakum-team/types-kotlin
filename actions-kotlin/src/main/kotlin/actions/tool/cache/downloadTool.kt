@@ -1,5 +1,6 @@
 package actions.tool.cache
 
+import node.http.OutgoingHttpHeaders
 import kotlin.js.Promise
 
 external fun downloadTool(

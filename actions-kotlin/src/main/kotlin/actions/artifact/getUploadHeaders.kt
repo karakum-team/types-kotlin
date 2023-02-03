@@ -1,5 +1,7 @@
 package actions.artifact
 
+import node.http.OutgoingHttpHeaders
+
 external fun getUploadHeaders(
     contentType: String,
     isKeepAlive: Boolean = definedExternally,
