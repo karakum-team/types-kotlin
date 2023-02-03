@@ -1,1 +1,0 @@
-function getGnuTarPathOnWindows(): Promise<string>;

@@ -1,1 +1,0 @@
-function getRuntimeToken(): string;

@@ -1,9 +1,0 @@
-function getUploadHeaders(
-    contentType: string,
-    isKeepAlive?: boolean,
-    isGzip?: boolean,
-    uncompressedLength?: number,
-    contentLength?: number,
-    contentRange?: string,
-    digest?: StreamDigest,
-): OutgoingHttpHeaders;

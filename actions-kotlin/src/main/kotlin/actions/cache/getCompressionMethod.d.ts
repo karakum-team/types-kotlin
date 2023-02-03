@@ -1,1 +1,0 @@
-function getCompressionMethod(): Promise<CompressionMethod>;

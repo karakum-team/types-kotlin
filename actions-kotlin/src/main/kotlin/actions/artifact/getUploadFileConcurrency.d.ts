@@ -1,1 +1,0 @@
-function getUploadFileConcurrency(): number;
