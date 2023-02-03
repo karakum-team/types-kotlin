@@ -1,6 +1,7 @@
 package karakum.actions
 
 private val STANDARD_TYPE_MAP = mapOf(
+    "any" to "Any?",
     "boolean" to "Boolean",
     "string" to "String",
     "number" to "Number",
