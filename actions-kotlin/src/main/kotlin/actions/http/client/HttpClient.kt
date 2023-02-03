@@ -1,5 +1,6 @@
 package actions.http.client
 
+import js.errors.JsError
 import kotlin.js.Promise
 
 external interface HttpClient {
@@ -46,14 +47,36 @@ external interface HttpClient {
     fun request(
         verb: String,
         requestUrl: String,
-        data: node.string | NodeJS.ReadableStream,
-    headers: node.http.OutgoingHttpHeaders): Promise<HttpClientResponse>
+        data: String,
+        headers: node.http.OutgoingHttpHeaders,
+    ): Promise<HttpClientResponse>
+
+    fun request(
+        verb: String,
+        requestUrl: String,
+        data: node.ReadableStream,
+        headers: node.http.OutgoingHttpHeaders,
+    ): Promise<HttpClientResponse>
+
     fun requestRaw(
         info: RequestInfo,
-        data: node.string | NodeJS.ReadableStream): Promise<HttpClientResponse>
+        data: String,
+    ): Promise<HttpClientResponse>
+
+    fun requestRaw(
+        info: RequestInfo,
+        data: node.ReadableStream,
+    ): Promise<HttpClientResponse>
+
     fun requestRawWithCallback(
         info: RequestInfo,
-        data: node.string | NodeJS.ReadableStream,
-    onResult: (err?: Error,
-    res: HttpClientResponse) -> Unit = definedExternally)
+        data: String,
+        onResult: (err: JsError?, res: HttpClientResponse?) -> Unit,
+    )
+
+    fun requestRawWithCallback(
+        info: RequestInfo,
+        data: node.ReadableStream,
+        onResult: (err: JsError?, res: HttpClientResponse?) -> Unit,
+    )
 }

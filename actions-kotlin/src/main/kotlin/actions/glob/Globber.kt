@@ -19,11 +19,12 @@ external interface Globber {
      *
      * Order of the results is not guaranteed.
      */
-    fun glob(): Promise<string[]>
+    fun glob(): Promise<ReadonlyArray<String>>
+
     /**
      * Returns files and directories matching the glob patterns.
      *
      * Order of the results is not guaranteed.
      */
-    fun globGenerator(): AsyncGenerator<string, void>
+    fun globGenerator(): Any /* AsyncGenerator<string, void> */
 }

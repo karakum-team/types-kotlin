@@ -37,5 +37,5 @@ external interface ArtifactClient {
      * Downloads all artifacts associated with a run. Because there are multiple artifacts being downloaded, a folder will be created for each one in the specified or default directory
      * @param path optional path that denotes where the artifacts will be downloaded to
      */
-    fun downloadAllArtifacts(path: String = definedExternally): Promise<DownloadResponse[]>
+    fun downloadAllArtifacts(path: String = definedExternally): Promise<ReadonlyArray<DownloadResponse>>
 }
