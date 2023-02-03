@@ -10,6 +10,8 @@ import js.core.Void
 import js.errors.JsError
 import node.buffer.Buffer
 import web.url.URL
+
+import actions.http.client.HttpClientResponse
 """.trimIndent()
 
 fun generateKotlinDeclarations(

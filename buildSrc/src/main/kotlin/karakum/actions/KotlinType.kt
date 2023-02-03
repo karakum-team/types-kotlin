@@ -14,7 +14,9 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Promise<void>" to "Promise<Void>",
 
-    "AsyncGenerator<string, void>" to "Any /* AsyncGenerator<string, void> */"
+    "AsyncGenerator<string, void>" to "Any /* AsyncGenerator<string, void> */",
+
+    "Map<number,string>" to "Map<Int, String>",
 )
 
 internal fun kotlinType(

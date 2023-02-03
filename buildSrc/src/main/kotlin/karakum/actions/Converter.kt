@@ -109,7 +109,12 @@ private fun convertFunction(
         .substringBefore("(")
         .substringBefore("<")
 
-    val bodies = convertMember(source.substringBefore(";\n").removeSuffix(";"))
+    val bodies = convertMember(
+        source
+            .substringBefore(";\n")
+            .removeSuffix(";")
+            .replace(": Map<number, string>", ": Map<number,string>"),
+        )
     val body = ("\n" + bodies)
         .replace("\nfun ", "\nexternal fun ")
         .removePrefix("\n")
