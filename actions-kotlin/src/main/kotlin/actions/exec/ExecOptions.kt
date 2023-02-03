@@ -1,3 +1,5 @@
+// Automatically generated - do not modify!
+
 package actions.exec
 
 import js.core.Record

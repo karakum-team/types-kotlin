@@ -1,3 +1,5 @@
+// Automatically generated - do not modify!
+
 package actions.io
 
 external interface MoveOptions {

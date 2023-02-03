@@ -1,3 +1,5 @@
+// Automatically generated - do not modify!
+
 package actions.tool.cache
 
 import node.http.OutgoingHttpHeaders

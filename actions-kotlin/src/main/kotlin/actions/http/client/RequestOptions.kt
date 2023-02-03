@@ -1,3 +1,5 @@
+// Automatically generated - do not modify!
+
 package actions.http.client
 
 external interface RequestOptions {
