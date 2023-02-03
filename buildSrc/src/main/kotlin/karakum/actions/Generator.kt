@@ -74,6 +74,11 @@ private fun generate(
             }.toTypedArray()
 
             val annotations = when {
+                "external class " in body
+                        || "external val " in body
+                        || "external fun " in body
+                -> """@file:JsModule("${library.moduleId}")"""
+
                 suppresses.isNotEmpty()
                 -> fileSuppress(*suppresses)
 
