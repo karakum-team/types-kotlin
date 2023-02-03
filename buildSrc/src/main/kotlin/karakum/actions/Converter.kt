@@ -86,12 +86,12 @@ private fun convertEnum(
                 constSource.substringBeforeLast("\n")
             } else null
 
-            val (constName, valueSource) = constSource.substringAfterLast("\n").split(" = ")
-            val value = valueSource.removeSurrounding("\"")
+            val (constName, value) = constSource.substringAfterLast("\n").split(" = ")
             UnionConstant(
                 kotlinName = constName,
                 jsName = constName,
                 value = value,
+                originalValue = true,
                 comment = comment,
             )
         }
