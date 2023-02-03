@@ -9,6 +9,8 @@ import js.core.ReadonlyArray
 import js.core.Void
 import js.errors.JsError
 import node.buffer.Buffer
+import node.http.IncomingHttpHeaders
+import node.http.OutgoingHttpHeaders
 import web.url.URL
 
 import actions.http.client.HttpClientResponse
