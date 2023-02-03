@@ -120,12 +120,20 @@ private fun convertProperty(
         "string[]" -> "ReadonlyArray<String>"
         "Record<string, string>" -> "Record<String, String>"
 
-        else -> if ("." in typeSource) {
-            "node.$typeSource"
-        } else {
-            typeSource
-                .replace(": string)", ": String)")
-                .replace(") => void", ") -> Unit")
+        "typeof http | typeof https" -> "Any /* $typeSource */"
+
+        else -> when {
+            "." in typeSource -> "node.$typeSource"
+            typeSource.endsWith("[]") -> {
+                "ReadonlyArray<${typeSource.removeSuffix("[]")}>"
+            }
+
+            else -> {
+                typeSource
+                    .replace(": string)", ": String)")
+                    .replace(") => void", ") -> Unit")
+                    .replace(" | null", "?")
+            }
         }
     }
 
