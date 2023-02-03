@@ -226,7 +226,13 @@ private fun convertMethod(
         }
     }
 
-    val declaration = source.substringBefore("(")
+    var declaration = source.substringBefore("(")
+    if ("<" in declaration) {
+        val name = declaration.substringBefore("<")
+        val typeParameters = declaration.substringAfter(name)
+
+        declaration = "$typeParameters $name"
+    }
 
     val parametersSource = source
         .substringAfter("(")
