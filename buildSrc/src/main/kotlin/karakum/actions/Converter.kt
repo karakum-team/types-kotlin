@@ -3,6 +3,12 @@ package karakum.actions
 import karakum.common.UnionConstant
 import karakum.common.unionBodyByConstants
 
+private val EXCLUDED_NAMES = setOf(
+    "getCacheEntry",
+    "reserveCache",
+    "retryTypedResponse",
+)
+
 internal fun convert(
     content: String,
 ): Sequence<ConversionResult> {
@@ -12,6 +18,7 @@ internal fun convert(
         .drop(1)
         .map { it.substringBefore("\n/**") }
         .mapNotNull { convertItem(it) }
+        .filter { it.name !in EXCLUDED_NAMES }
 }
 
 private fun cleanup(
@@ -258,7 +265,10 @@ private fun convertParameter(
     val nameSource = source.substringBefore(": ")
     val typeSource = source.substringAfter(": ")
 
-    val name = nameSource.removeSuffix("?")
+    var name = nameSource.removeSuffix("?")
+    if (name == "val")
+        name = "value"
+
     var type = kotlinType(typeSource)
 
     if (nameSource.endsWith("?")) {
