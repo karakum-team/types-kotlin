@@ -1,5 +1,6 @@
 package actions.cache
 
+import actions.http.client.HttpClientResponse
 import kotlin.js.Promise
 
 external fun retryHttpClientResponse(

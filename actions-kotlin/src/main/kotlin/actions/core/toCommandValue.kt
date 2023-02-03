@@ -1,3 +1,3 @@
 package actions.core
 
-external fun toCommandValue(input: any): String
+external fun toCommandValue(input: Any?): String

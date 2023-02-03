@@ -1,10 +1,11 @@
 package actions.artifact
 
+import actions.http.client.HttpClientResponse
 import kotlin.js.Promise
 
 external fun retryHttpClientRequest(
     name: String,
     method: () -> Promise<HttpClientResponse>,
-    customErrorMessages: Map<number = definedExternally,
-    string>: string>,
-maxAttempts: Number = definedExternally): Promise<HttpClientResponse>
+    customErrorMessages: Map<Int, String> = definedExternally,
+    maxAttempts: Number = definedExternally,
+): Promise<HttpClientResponse>

@@ -1,10 +1,8 @@
 class ToolRunner extends events.EventEmitter {
     constructor(toolPath: string, args?: string[], options?: im.ExecOptions);
-
     private toolPath;
     private args;
     private options;
-
     /**
      * Exec a tool.
      * Output will be streamed to the live console.
