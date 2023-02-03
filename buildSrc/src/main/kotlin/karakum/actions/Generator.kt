@@ -1,5 +1,6 @@
 package karakum.actions
 
+import karakum.common.GENERATOR_COMMENT
 import java.io.File
 
 private val DEFAULT_IMPORTS = """
@@ -61,7 +62,12 @@ private fun generate(
         val kotlinMode = "external interface " in body || "external fun " in body || "typealias" in body
         val ext = if (kotlinMode) "kt" else "d.ts"
 
-        val finalBody = if (kotlinMode) "package ${library.pkg}\n\n$DEFAULT_IMPORTS\n\n$body" else body
+        val finalBody = if (kotlinMode) {
+            fileContent(
+                body = body,
+                pkg = library.pkg,
+            )
+        } else body
 
         var f = dir.resolve(name + ".$ext")
 
@@ -76,4 +82,24 @@ private fun generate(
 
         f.writeText(finalBody)
     }
+}
+
+private fun fileContent(
+    annotations: String = "",
+    body: String,
+    pkg: String,
+): String {
+    var result = sequenceOf(
+        "// $GENERATOR_COMMENT",
+        annotations,
+        "package $pkg",
+        DEFAULT_IMPORTS,
+        body,
+    ).filter { it.isNotEmpty() }
+        .joinToString("\n\n")
+
+    if (!result.endsWith("\n"))
+        result += "\n"
+
+    return result
 }
