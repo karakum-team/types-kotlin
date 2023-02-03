@@ -8,4 +8,4 @@ external fun cacheFile(
     tool: String,
     version: String,
     arch: String = definedExternally,
-): Promise<string>
+): Promise<String>

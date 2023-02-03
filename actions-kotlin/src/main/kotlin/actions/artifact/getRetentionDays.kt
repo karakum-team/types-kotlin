@@ -1,3 +1,3 @@
 package actions.artifact
 
-external fun getRetentionDays(): string?
+external fun getRetentionDays(): String?

@@ -1,5 +1,6 @@
 package actions.tool.cache
 
+import js.core.ReadonlyArray
 import kotlin.js.Promise
 
 external fun getManifestFromRepo(
@@ -7,4 +8,4 @@ external fun getManifestFromRepo(
     repo: String,
     auth: String = definedExternally,
     branch: String = definedExternally,
-): Promise<IToolRelease[]>
+): Promise<ReadonlyArray<IToolRelease>>

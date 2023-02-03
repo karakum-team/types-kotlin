@@ -7,4 +7,4 @@ external fun downloadTool(
     dest: String = definedExternally,
     auth: String = definedExternally,
     headers: OutgoingHttpHeaders = definedExternally,
-): Promise<string>
+): Promise<String>

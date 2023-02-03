@@ -1,5 +1,6 @@
 package actions.io
 
+import js.core.Void
 import kotlin.js.Promise
 
-external fun rmRF(inputPath: String): Promise<void>
+external fun rmRF(inputPath: String): Promise<Void>

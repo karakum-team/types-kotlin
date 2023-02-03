@@ -6,4 +6,4 @@ import kotlin.js.Promise
 external fun tryGetExecutablePath(
     filePath: String,
     extensions: ReadonlyArray<String>,
-): Promise<string>
+): Promise<String>

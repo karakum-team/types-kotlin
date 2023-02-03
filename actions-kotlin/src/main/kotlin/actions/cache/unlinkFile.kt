@@ -1,5 +1,6 @@
 package actions.cache
 
+import js.core.Void
 import kotlin.js.Promise
 
-external fun unlinkFile(filePath: node.fs.PathLike): Promise<void>
+external fun unlinkFile(filePath: node.fs.PathLike): Promise<Void>

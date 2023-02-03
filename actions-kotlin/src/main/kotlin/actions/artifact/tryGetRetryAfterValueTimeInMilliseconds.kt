@@ -1,3 +1,3 @@
 package actions.artifact
 
-external fun tryGetRetryAfterValueTimeInMilliseconds(headers: IncomingHttpHeaders): number?
+external fun tryGetRetryAfterValueTimeInMilliseconds(headers: IncomingHttpHeaders): Number?

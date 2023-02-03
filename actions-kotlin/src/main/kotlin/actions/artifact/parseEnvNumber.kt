@@ -1,3 +1,3 @@
 package actions.artifact
 
-external fun parseEnvNumber(key: String): number?
+external fun parseEnvNumber(key: String): Number?

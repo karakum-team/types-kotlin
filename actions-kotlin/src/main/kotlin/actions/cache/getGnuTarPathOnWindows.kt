@@ -2,4 +2,4 @@ package actions.cache
 
 import kotlin.js.Promise
 
-external fun getGnuTarPathOnWindows(): Promise<string>
+external fun getGnuTarPathOnWindows(): Promise<String>

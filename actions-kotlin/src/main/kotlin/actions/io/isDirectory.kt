@@ -5,4 +5,4 @@ import kotlin.js.Promise
 external fun isDirectory(
     fsPath: String,
     useStat: Boolean = definedExternally,
-): Promise<boolean>
+): Promise<Boolean>

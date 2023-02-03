@@ -8,4 +8,4 @@ external fun saveCache(
     key: String,
     options: UploadOptions = definedExternally,
     enableCrossOsArchive: Boolean = definedExternally,
-): Promise<number>
+): Promise<Number>

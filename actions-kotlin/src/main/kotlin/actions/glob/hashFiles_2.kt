@@ -7,4 +7,4 @@ external fun hashFiles(
     currentWorkspace: String = definedExternally,
     options: HashFileOptions = definedExternally,
     verbose: Boolean = definedExternally,
-): Promise<string>
+): Promise<String>

@@ -2,4 +2,4 @@ package actions.artifact
 
 import kotlin.js.Promise
 
-external fun getFileSize(filePath: String): Promise<number>
+external fun getFileSize(filePath: String): Promise<Number>

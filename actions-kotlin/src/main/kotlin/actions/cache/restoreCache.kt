@@ -9,4 +9,4 @@ external fun restoreCache(
     restoreKeys: ReadonlyArray<String> = definedExternally,
     options: DownloadOptions = definedExternally,
     enableCrossOsArchive: Boolean = definedExternally,
-): Promise<string?>
+): Promise<String?>

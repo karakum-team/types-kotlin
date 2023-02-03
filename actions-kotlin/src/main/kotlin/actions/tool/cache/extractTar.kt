@@ -5,4 +5,4 @@ import js.core.ReadonlyArray
 external fun extractTar(
     file: String,
     dest: String = definedExternally,
-    flags: ReadonlyArray<string | string> = definedExternally): Promise<string>
+    flags: ReadonlyArray<string | string> = definedExternally): Promise<String>

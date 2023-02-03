@@ -2,4 +2,4 @@ package actions.cache
 
 import kotlin.js.Promise
 
-external fun createTempDirectory(): Promise<string>
+external fun createTempDirectory(): Promise<String>

@@ -12,8 +12,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "NodeJS.ReadableStream" to "node.ReadableStream",
 
-    "Promise<string[]>" to "Promise<ReadonlyArray<String>>",
-    "Promise<DownloadResponse[]>" to "Promise<ReadonlyArray<DownloadResponse>>",
+    "Promise<void>" to "Promise<Void>",
 
     "AsyncGenerator<string, void>" to "Any /* AsyncGenerator<string, void> */"
 )
@@ -27,6 +26,14 @@ internal fun kotlinType(
 
     if (type.endsWith(" | null"))
         return kotlinType(type.removeSuffix(" | null")) + "?"
+
+    if (type.endsWith(" | undefined"))
+        return kotlinType(type.removeSuffix(" | undefined")) + "?"
+
+    if (type.startsWith("Promise<") && type.endsWith(">")) {
+        val resultType = kotlinType(type.removeSurrounding("Promise<", ">"))
+        return "Promise<$resultType>"
+    }
 
     if ("." in type)
         return "node.$type"

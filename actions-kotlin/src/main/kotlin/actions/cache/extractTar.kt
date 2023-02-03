@@ -1,8 +1,9 @@
 package actions.cache
 
+import js.core.Void
 import kotlin.js.Promise
 
 external fun extractTar(
     archivePath: String,
     compressionMethod: CompressionMethod,
-): Promise<void>
+): Promise<Void>

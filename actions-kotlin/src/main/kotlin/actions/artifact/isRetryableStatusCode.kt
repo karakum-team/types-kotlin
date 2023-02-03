@@ -1,3 +1,3 @@
 package actions.artifact
 
-external fun isRetryableStatusCode(statusCode: number?): Boolean
+external fun isRetryableStatusCode(statusCode: Number?): Boolean

@@ -7,4 +7,4 @@ external fun exec(
     commandLine: String,
     args: ReadonlyArray<String> = definedExternally,
     options: ExecOptions = definedExternally,
-): Promise<number>
+): Promise<Number>
