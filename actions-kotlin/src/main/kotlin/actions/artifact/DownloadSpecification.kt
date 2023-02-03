@@ -6,5 +6,5 @@ external interface DownloadSpecification {
     var rootDownloadLocation: String
     var directoryStructure: ReadonlyArray<String>
     var emptyFilesToCreate: ReadonlyArray<String>
-    var filesToDownload: DownloadItem[]
+    var filesToDownload: ReadonlyArray<DownloadItem>
 }

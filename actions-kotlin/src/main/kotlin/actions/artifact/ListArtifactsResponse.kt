@@ -1,6 +1,8 @@
 package actions.artifact
 
+import js.core.ReadonlyArray
+
 external interface ListArtifactsResponse {
     var count: Number
-    var value: ArtifactResponse[]
+    var value: ReadonlyArray<ArtifactResponse>
 }

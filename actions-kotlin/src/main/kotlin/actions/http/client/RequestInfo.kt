@@ -5,5 +5,5 @@ import web.url.URL
 external interface RequestInfo {
     var options: node.http.RequestOptions
     var parsedUrl: URL
-    var httpModule: typeof http | typeof https
+    var httpModule: Any /* typeof http | typeof https */
 }
