@@ -112,30 +112,7 @@ private fun convertProperty(
     val typeSource = source.substringAfter(": ")
 
     val name = nameSource.removeSuffix("?")
-    var type = when (typeSource) {
-        "boolean" -> "Boolean"
-        "string" -> "String"
-        "number" -> "Number"
-
-        "string[]" -> "ReadonlyArray<String>"
-        "Record<string, string>" -> "Record<String, String>"
-
-        "typeof http | typeof https" -> "Any /* $typeSource */"
-
-        else -> when {
-            "." in typeSource -> "node.$typeSource"
-            typeSource.endsWith("[]") -> {
-                "ReadonlyArray<${typeSource.removeSuffix("[]")}>"
-            }
-
-            else -> {
-                typeSource
-                    .replace(": string)", ": String)")
-                    .replace(") => void", ") -> Unit")
-                    .replace(" | null", "?")
-            }
-        }
-    }
+    var type = kotlinType(typeSource)
 
     if (nameSource.endsWith("?")) {
         if (type.startsWith("("))
