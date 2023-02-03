@@ -1,6 +1,8 @@
 package karakum.actions
 
 import karakum.common.GENERATOR_COMMENT
+import karakum.common.Suppress
+import karakum.common.fileSuppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = """
@@ -59,11 +61,27 @@ private fun generate(
     }
 
     for ((name, body) in results) {
-        val kotlinMode = "external interface " in body || "external fun " in body || "typealias" in body
+        val kotlinMode = "external interface " in body
+                || "external enum " in body
+                || "external fun " in body
+                || "typealias" in body
         val ext = if (kotlinMode) "kt" else "d.ts"
 
         val finalBody = if (kotlinMode) {
+            val suppresses = mutableListOf<Suppress>().apply {
+                if ("JsName(\"\"\"(" in body)
+                    add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+            }.toTypedArray()
+
+            val annotations = when {
+                suppresses.isNotEmpty()
+                -> fileSuppress(*suppresses)
+
+                else -> ""
+            }
+
             fileContent(
+                annotations = annotations,
                 body = body,
                 pkg = library.pkg,
             )

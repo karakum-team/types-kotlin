@@ -1,5 +1,8 @@
 package karakum.actions
 
+import karakum.common.UnionConstant
+import karakum.common.unionBodyByConstants
+
 internal fun convert(
     content: String,
 ): Sequence<ConversionResult> {
@@ -41,6 +44,11 @@ private fun convertItem(
             return convertFunction(
                 source = source.substringAfter(" ")
             )
+
+        "enum" ->
+            return convertEnum(
+                source = source.substringAfter(" ")
+            )
     }
 
     val name = source.substringAfter(" ")
@@ -55,6 +63,44 @@ private fun convertItem(
             .replaceFirst("(", "(\n")
             .replace(", ", ",\n")
             .replaceFirst("):", ",\n):")
+
+    return ConversionResult(
+        name = name,
+        body = body,
+    )
+}
+
+private fun convertEnum(
+    source: String,
+): ConversionResult {
+    val name = source.substringBefore(" ")
+
+    val memberSource = source.substringAfter(" {\n")
+        .substringBefore("\n}")
+        .trimIndent()
+
+    var constants = memberSource
+        .splitToSequence(",\n")
+        .map { constSource ->
+            val comment = if ("\n" in constSource) {
+                constSource.substringBeforeLast("\n")
+            } else null
+
+            val (constName, valueSource) = constSource.substringAfterLast("\n").split(" = ")
+            val value = valueSource.removeSurrounding("\"")
+            UnionConstant(
+                kotlinName = constName,
+                jsName = constName,
+                value = value,
+                comment = comment,
+            )
+        }
+        .toList()
+
+    val body = unionBodyByConstants(
+        name = name,
+        constants = constants,
+    )
 
     return ConversionResult(
         name = name,
@@ -114,7 +160,7 @@ private fun convertFunction(
             .substringBefore(";\n")
             .removeSuffix(";")
             .replace(": Map<number, string>", ": Map<number,string>"),
-        )
+    )
     val body = ("\n" + bodies)
         .replace("\nfun ", "\nexternal fun ")
         .removePrefix("\n")
