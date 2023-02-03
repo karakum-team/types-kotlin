@@ -127,5 +127,42 @@ private fun convertProperty(
 private fun convertMethod(
     source: String,
 ): String {
-    return "// $source"
+    val declaration = source.substringBefore("(")
+
+    val parametersSource = source
+        .substringAfter("(")
+        .substringBeforeLast("): ")
+
+    val parameters = if (parametersSource.isNotEmpty()) {
+        val params = parametersSource.split(", ")
+            .map { convertParameter(it) }
+
+        if (params.size > 1) {
+            params.joinToString(",\n")
+        } else params.joinToString(", ")
+    } else ""
+
+    val returnType = kotlinType(source.substringAfter("): "))
+    val returns = when (returnType) {
+        "void" -> ""
+        else -> ": $returnType"
+    }
+
+    return "fun $declaration($parameters)$returns"
+}
+
+private fun convertParameter(
+    source: String,
+): String {
+    val nameSource = source.substringBefore(": ")
+    val typeSource = source.substringAfter(": ")
+
+    val name = nameSource.removeSuffix("?")
+    var type = kotlinType(typeSource)
+
+    if (nameSource.endsWith("?")) {
+        type += " = definedExternally"
+    }
+
+    return "$name: $type"
 }

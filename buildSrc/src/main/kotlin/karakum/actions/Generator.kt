@@ -3,6 +3,7 @@ package karakum.actions
 import java.io.File
 
 private val DEFAULT_IMPORTS = """
+import kotlin.js.Promise
 import js.core.Record
 import js.core.ReadonlyArray
 import node.buffer.Buffer
@@ -38,25 +39,35 @@ private fun generate(
     val dir = sourceDir.resolve(library.path)
         .also { it.mkdirs() }
 
-    for (file in files) {
-        for ((name, body) in convert(file.readText())) {
-            val kotlinMode = "external interface " in body || "typealias" in body
-            val ext = if (kotlinMode) "kt" else "d.ts"
+    var results = files.asSequence()
+        .flatMap { convert(it.readText()) }
+        .toList()
 
-            val finalBody = if (kotlinMode) "package ${library.pkg}\n\n$DEFAULT_IMPORTS\n\n$body" else body
+    if (library.name == "http-client") {
+        results +=
+            ConversionResult(
+                name = "HttpClientResponse",
+                body = "// TEMP\nexternal interface HttpClientResponse",
+            )
+    }
 
-            var f = dir.resolve(name + ".$ext")
+    for ((name, body) in results) {
+        val kotlinMode = "external interface " in body || "typealias" in body
+        val ext = if (kotlinMode) "kt" else "d.ts"
 
-            var index = 2
-            while (f.exists()) {
-                f = dir.resolve(name + "_${index++}.$ext")
-            }
+        val finalBody = if (kotlinMode) "package ${library.pkg}\n\n$DEFAULT_IMPORTS\n\n$body" else body
 
-            check(!f.exists()) {
-                "File $f already exists!"
-            }
+        var f = dir.resolve(name + ".$ext")
 
-            f.writeText(finalBody)
+        var index = 2
+        while (f.exists()) {
+            f = dir.resolve(name + "_${index++}.$ext")
         }
+
+        check(!f.exists()) {
+            "File $f already exists!"
+        }
+
+        f.writeText(finalBody)
     }
 }

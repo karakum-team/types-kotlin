@@ -10,7 +10,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "typeof http | typeof https" to "Any /* typeof http | typeof https */",
 
-    )
+    "NodeJS.ReadableStream" to "node.ReadableStream",
+)
 
 internal fun kotlinType(
     type: String,
