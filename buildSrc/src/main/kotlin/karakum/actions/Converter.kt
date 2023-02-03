@@ -64,11 +64,19 @@ private fun convertInterface(
 
     val declaration = source.substringBefore(" {\n")
 
-    var members = source.substringAfter(" {\n")
+    val memberSource = source.substringAfter(" {\n")
         .substringBefore("\n}")
         .replace("/**`", "/ **`")
         .replace("/*`", "/ *`")
         .trimIndent()
+
+    if (memberSource == "[key: string]: any;")
+        return ConversionResult(
+            name = name,
+            body = "typealias $name = Record<String, Any>"
+        )
+
+    var members = memberSource
         .replace("env?: {\n    [key: string]: string;\n};", "env?: Record<string, string>;")
         .splitToSequence("\n")
         .joinToString("\n") { line ->
@@ -100,7 +108,35 @@ private fun convertMember(
 private fun convertProperty(
     source: String,
 ): String {
-    return "// $source"
+    val nameSource = source.substringBefore(": ")
+    val typeSource = source.substringAfter(": ")
+
+    val name = nameSource.removeSuffix("?")
+    var type = when (typeSource) {
+        "boolean" -> "Boolean"
+        "string" -> "String"
+        "number" -> "Number"
+
+        "string[]" -> "ReadonlyArray<String>"
+        "Record<string, string>" -> "Record<String, String>"
+
+        else -> if ("." in typeSource) {
+            "node.$typeSource"
+        } else {
+            typeSource
+                .replace(": string)", ": String)")
+                .replace(") => void", ") -> Unit")
+        }
+    }
+
+    if (nameSource.endsWith("?")) {
+        if (type.startsWith("("))
+            type = "($type)"
+
+        type += "?"
+    }
+
+    return "var $name: $type"
 }
 
 private fun convertMethod(

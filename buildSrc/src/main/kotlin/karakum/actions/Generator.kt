@@ -2,6 +2,13 @@ package karakum.actions
 
 import java.io.File
 
+private val DEFAULT_IMPORTS = """
+import js.core.Record
+import js.core.ReadonlyArray
+import node.buffer.Buffer
+import web.url.URL
+""".trimIndent()
+
 fun generateKotlinDeclarations(
     definitionsDir: File,
     sourceDir: File,
@@ -33,10 +40,10 @@ private fun generate(
 
     for (file in files) {
         for ((name, body) in convert(file.readText())) {
-            val kotlinMode = "external interface " in body
+            val kotlinMode = "external interface " in body || "typealias" in body
             val ext = if (kotlinMode) "kt" else "d.ts"
 
-            val finalBody = if (kotlinMode) "package ${library.pkg}\n\n$body" else body
+            val finalBody = if (kotlinMode) "package ${library.pkg}\n\n$DEFAULT_IMPORTS\n\n$body" else body
 
             var f = dir.resolve(name + ".$ext")
 
