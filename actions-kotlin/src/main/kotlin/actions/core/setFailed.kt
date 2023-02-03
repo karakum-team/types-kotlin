@@ -1,3 +1,5 @@
 package actions.core
 
-external fun setFailed(message: string | Error)
+external fun setFailed(message: String)
+
+external fun setFailed(message: Error)
