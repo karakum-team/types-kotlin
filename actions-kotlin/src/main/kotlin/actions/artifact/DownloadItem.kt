@@ -1,6 +1,6 @@
 package actions.artifact
 
 external interface DownloadItem {
-    // sourceLocation: string
-    // targetPath: string
+    var sourceLocation: String
+    var targetPath: String
 }

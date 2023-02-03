@@ -4,26 +4,31 @@ external interface AnnotationProperties {
     /**
      * A title for the annotation.
      */
-    // title?: string
+    var title: String?
+
     /**
      * The path of the file for which the annotation should be created.
      */
-    // file?: string
+    var file: String?
+
     /**
      * The start line for the annotation.
      */
-    // startLine?: number
+    var startLine: Number?
+
     /**
      * The end line for the annotation. Defaults to `startLine` when `startLine` is provided.
      */
-    // endLine?: number
+    var endLine: Number?
+
     /**
      * The start column for the annotation. Cannot be sent when `startLine` and `endLine` are different values.
      */
-    // startColumn?: number
+    var startColumn: Number?
+
     /**
      * The start column for the annotation. Cannot be sent when `startLine` and `endLine` are different values.
      * Defaults to `startColumn` when `startColumn` is provided.
      */
-    // endColumn?: number
+    var endColumn: Number?
 }

@@ -6,11 +6,12 @@ external interface UploadOptions {
      *
      * @default 4
      */
-    // uploadConcurrency?: number
+    var uploadConcurrency: Number?
+
     /**
      * Maximum chunk size in bytes for cache upload
      *
      * @default 32MB
      */
-    // uploadChunkSize?: number
+    var uploadChunkSize: Number?
 }

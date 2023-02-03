@@ -1,7 +1,7 @@
 package actions.artifact
 
 external interface CreateArtifactParameters {
-    // Type: string
-    // Name: string
-    // RetentionDays?: number
+    var Type: String
+    var Name: String
+    var RetentionDays: Number?
 }

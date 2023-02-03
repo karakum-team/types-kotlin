@@ -5,10 +5,11 @@ external interface SummaryImageOptions {
      * The width of the image in pixels. Must be an integer without a unit.
      * (optional)
      */
-    // width?: string
+    var width: String?
+
     /**
      * The height of the image in pixels. Must be an integer without a unit.
      * (optional)
      */
-    // height?: string
+    var height: String?
 }

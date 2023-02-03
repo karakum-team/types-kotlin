@@ -1,9 +1,9 @@
 package actions.tool.cache
 
 external interface IToolReleaseFile {
-    // filename: string
-    // platform: string
-    // platform_version?: string
-    // arch: string
-    // download_url: string
+    var filename: String
+    var platform: String
+    var platform_version: String?
+    var arch: String
+    var download_url: String
 }

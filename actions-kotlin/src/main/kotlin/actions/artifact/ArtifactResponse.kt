@@ -1,11 +1,11 @@
 package actions.artifact
 
 external interface ArtifactResponse {
-    // containerId: string
-    // size: number
-    // signedContent: string
-    // fileContainerResourceUrl: string
-    // type: string
-    // name: string
-    // url: string
+    var containerId: String
+    var size: Number
+    var signedContent: String
+    var fileContainerResourceUrl: String
+    var type: String
+    var name: String
+    var url: String
 }

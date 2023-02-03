@@ -1,11 +1,11 @@
 package actions.artifact
 
 external interface PatchArtifactSizeSuccessResponse {
-    // containerId: number
-    // size: number
-    // signedContent: string
-    // type: string
-    // name: string
-    // url: string
-    // uploadUrl: string
+    var containerId: Number
+    var size: Number
+    var signedContent: String
+    var type: String
+    var name: String
+    var url: String
+    var uploadUrl: String
 }

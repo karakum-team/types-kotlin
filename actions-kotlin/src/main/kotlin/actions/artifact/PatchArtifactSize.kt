@@ -1,5 +1,5 @@
 package actions.artifact
 
 external interface PatchArtifactSize {
-    // Size: number
+    var Size: Number
 }

@@ -1,26 +1,39 @@
 package actions.exec
 
+import js.core.Record
+import node.buffer.Buffer
+
 external interface ExecOptions {
     /** optional working directory.  defaults to current */
-    // cwd?: string
+    var cwd: String?
+
     /** optional envvar dictionary.  defaults to current process's env */
-    // env?: Record<string, string>
+    var env: Record<String, String>?
+
     /** optional.  defaults to false */
-    // silent?: boolean
+    var silent: Boolean?
+
     /** optional out stream to use. Defaults to process.stdout */
-    // outStream?: stream.Writable
+    var outStream: node.stream.Writable?
+
     /** optional err stream to use. Defaults to process.stderr */
-    // errStream?: stream.Writable
+    var errStream: node.stream.Writable?
+
     /** optional. whether to skip quoting/escaping arguments if needed.  defaults to false. */
-    // windowsVerbatimArguments?: boolean
+    var windowsVerbatimArguments: Boolean?
+
     /** optional.  whether to fail if output to stderr.  defaults to false */
-    // failOnStdErr?: boolean
+    var failOnStdErr: Boolean?
+
     /** optional.  defaults to failing on non zero.  ignore will not fail leaving it up to the caller */
-    // ignoreReturnCode?: boolean
+    var ignoreReturnCode: Boolean?
+
     /** optional. How long in ms to wait for STDIO streams to close after the exit event of the process before terminating. defaults to 10000 */
-    // delay?: number
+    var delay: Number?
+
     /** optional. input to write to the process on STDIN. */
-    // input?: Buffer
+    var input: Buffer?
+
     /** optional. Listeners for output. Callback functions that will be called on these events */
-    // listeners?: ExecListeners
+    var listeners: ExecListeners?
 }

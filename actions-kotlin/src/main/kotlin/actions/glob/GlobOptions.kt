@@ -7,7 +7,8 @@ external interface GlobOptions {
      *
      * @default true
      */
-    // followSymbolicLinks?: boolean
+    var followSymbolicLinks: Boolean?
+
     /**
      * Indicates whether directories that match a glob pattern, should implicitly
      * cause all descendant paths to be matched.
@@ -17,19 +18,21 @@ external interface GlobOptions {
      *
      * @default true
      */
-    // implicitDescendants?: boolean
+    var implicitDescendants: Boolean?
+
     /**
      * Indicates whether matching directories should be included in the
      * result set.
      *
      * @default true
      */
-    // matchDirectories?: boolean
+    var matchDirectories: Boolean?
+
     /**
      * Indicates whether broken symbolic should be ignored and omitted from the
      * result set. Otherwise an error will be thrown.
      *
      * @default true
      */
-    // omitBrokenSymbolicLinks?: boolean
+    var omitBrokenSymbolicLinks: Boolean?
 }

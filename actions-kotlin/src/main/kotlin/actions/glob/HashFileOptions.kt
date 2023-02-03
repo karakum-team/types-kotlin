@@ -7,5 +7,5 @@ external interface HashFileOptions {
      *
      * @default true
      */
-    // followSymbolicLinks?: boolean
+    var followSymbolicLinks: Boolean?
 }

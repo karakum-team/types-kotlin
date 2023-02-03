@@ -2,9 +2,11 @@ package actions.exec
 
 external interface ExecOutput {
     /**The exit code of the process */
-    // exitCode: number
+    var exitCode: Number
+
     /**The entire stdout of the process as a string */
-    // stdout: string
+    var stdout: String
+
     /**The entire stderr of the process as a string */
-    // stderr: string
+    var stderr: String
 }

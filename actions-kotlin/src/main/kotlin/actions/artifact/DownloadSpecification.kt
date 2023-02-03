@@ -1,8 +1,10 @@
 package actions.artifact
 
+import js.core.ReadonlyArray
+
 external interface DownloadSpecification {
-    // rootDownloadLocation: string
-    // directoryStructure: string[]
-    // emptyFilesToCreate: string[]
-    // filesToDownload: DownloadItem[]
+    var rootDownloadLocation: String
+    var directoryStructure: ReadonlyArray<String>
+    var emptyFilesToCreate: ReadonlyArray<String>
+    var filesToDownload: DownloadItem[]
 }

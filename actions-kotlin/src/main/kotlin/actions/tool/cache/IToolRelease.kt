@@ -1,8 +1,8 @@
 package actions.tool.cache
 
 external interface IToolRelease {
-    // version: string
-    // stable: boolean
-    // release_url: string
-    // files: IToolReleaseFile[]
+    var version: String
+    var stable: Boolean
+    var release_url: String
+    var files: IToolReleaseFile[]
 }

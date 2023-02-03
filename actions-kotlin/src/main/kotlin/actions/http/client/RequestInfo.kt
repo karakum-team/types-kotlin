@@ -1,7 +1,9 @@
 package actions.http.client
 
+import web.url.URL
+
 external interface RequestInfo {
-    // options: http.RequestOptions
-    // parsedUrl: URL
-    // httpModule: typeof http | typeof https
+    var options: node.http.RequestOptions
+    var parsedUrl: URL
+    var httpModule: typeof http | typeof https
 }

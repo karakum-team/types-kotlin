@@ -1,6 +1,6 @@
 package actions.artifact
 
 external interface ListArtifactsResponse {
-    // count: number
-    // value: ArtifactResponse[]
+    var count: Number
+    var value: ArtifactResponse[]
 }

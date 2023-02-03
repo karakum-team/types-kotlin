@@ -1,15 +1,15 @@
 package actions.http.client
 
 external interface RequestOptions {
-    // headers?: http.OutgoingHttpHeaders
-    // socketTimeout?: number
-    // ignoreSslError?: boolean
-    // allowRedirects?: boolean
-    // allowRedirectDowngrade?: boolean
-    // maxRedirects?: number
-    // maxSockets?: number
-    // keepAlive?: boolean
-    // deserializeDates?: boolean
-    // allowRetries?: boolean
-    // maxRetries?: number
+    var headers: node.http.OutgoingHttpHeaders?
+    var socketTimeout: Number?
+    var ignoreSslError: Boolean?
+    var allowRedirects: Boolean?
+    var allowRedirectDowngrade: Boolean?
+    var maxRedirects: Number?
+    var maxSockets: Number?
+    var keepAlive: Boolean?
+    var deserializeDates: Boolean?
+    var allowRetries: Boolean?
+    var maxRetries: Number?
 }

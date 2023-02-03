@@ -1,5 +1,5 @@
 package actions.core
 
-external interface CommandProperties {
-    // [key: string]: any
-}
+import js.core.Record
+
+typealias CommandProperties = Record<String, Any>

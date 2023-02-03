@@ -2,7 +2,8 @@ package actions.core
 
 external interface InputOptions {
     /** Optional. Whether the input is required. If required and not present, will throw. Defaults to false */
-    // required?: boolean
+    var required: Boolean?
+
     /** Optional. Whether leading/trailing whitespace will be trimmed for the input. Defaults to true */
-    // trimWhitespace?: boolean
+    var trimWhitespace: Boolean?
 }

@@ -1,14 +1,20 @@
 package actions.exec
 
+import node.buffer.Buffer
+
 external interface ExecListeners {
     /** A call back for each buffer of stdout */
-    // stdout?: (data: Buffer) => void
+    var stdout: ((data: Buffer) -> Unit)?
+
     /** A call back for each buffer of stderr */
-    // stderr?: (data: Buffer) => void
+    var stderr: ((data: Buffer) -> Unit)?
+
     /** A call back for each line of stdout */
-    // stdline?: (data: string) => void
+    var stdline: ((data: String) -> Unit)?
+
     /** A call back for each line of stderr */
-    // errline?: (data: string) => void
+    var errline: ((data: String) -> Unit)?
+
     /** A call back for each debug log */
-    // debug?: (data: string) => void
+    var debug: ((data: String) -> Unit)?
 }

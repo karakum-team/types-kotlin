@@ -1,21 +1,26 @@
 package actions.artifact
 
+import js.core.ReadonlyArray
+
 external interface UploadResponse {
     /**
      * The name of the artifact that was uploaded
      */
-    // artifactName: string
+    var artifactName: String
+
     /**
      * A list of all items that are meant to be uploaded as part of the artifact
      */
-    // artifactItems: string[]
+    var artifactItems: ReadonlyArray<String>
+
     /**
      * Total size of the artifact in bytes that was uploaded
      */
-    // size: number
+    var size: Number
+
     /**
      * A list of items that were not uploaded as part of the artifact (includes queued items that were not uploaded if
      * continueOnError is set to false). This is a subset of artifactItems.
      */
-    // failedItems: string[]
+    var failedItems: ReadonlyArray<String>
 }

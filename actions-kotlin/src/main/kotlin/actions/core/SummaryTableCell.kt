@@ -4,20 +4,23 @@ external interface SummaryTableCell {
     /**
      * Cell content
      */
-    // data: string
+    var data: String
+
     /**
      * Render cell as header
      * (optional) default: false
      */
-    // header?: boolean
+    var header: Boolean?
+
     /**
      * Number of columns the cell extends
      * (optional) default: '1'
      */
-    // colspan?: string
+    var colspan: String?
+
     /**
      * Number of rows the cell extends
      * (optional) default: '1'
      */
-    // rowspan?: string
+    var rowspan: String?
 }
