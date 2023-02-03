@@ -33,18 +33,23 @@ private fun generate(
 
     for (file in files) {
         for ((name, body) in convert(file.readText())) {
-            var f = dir.resolve(name + ".d.ts")
+            val kotlinMode = "external interface " in body
+            val ext = if (kotlinMode) "kt" else "d.ts"
+
+            val finalBody = if (kotlinMode) "package ${library.pkg}\n\n$body" else body
+
+            var f = dir.resolve(name + ".$ext")
 
             var index = 2
             while (f.exists()) {
-                f = dir.resolve(name + "_${index++}.d.ts")
+                f = dir.resolve(name + "_${index++}.$ext")
             }
 
             check(!f.exists()) {
                 "File $f already exists!"
             }
 
-            f.writeText(body)
+            f.writeText(finalBody)
         }
     }
 }

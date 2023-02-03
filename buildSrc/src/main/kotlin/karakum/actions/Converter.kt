@@ -30,6 +30,13 @@ private fun convertItem(
     if (source.startsWith("default "))
         return null
 
+    val type = source.substringBefore(" ")
+    if (type == "interface") {
+        return convertInterface(
+            source = source.substringAfter(" ")
+        )
+    }
+
     val name = source.substringAfter(" ")
         .substringBefore("<")
         .substringBefore(" ")
@@ -47,4 +54,57 @@ private fun convertItem(
         name = name,
         body = body,
     )
+}
+
+private fun convertInterface(
+    source: String,
+): ConversionResult {
+    val name = source.substringBefore(" ")
+        .substringBefore("<")
+
+    val declaration = source.substringBefore(" {\n")
+
+    var members = source.substringAfter(" {\n")
+        .substringBefore("\n}")
+        .replace("/**`", "/ **`")
+        .replace("/*`", "/ *`")
+        .trimIndent()
+        .replace("env?: {\n    [key: string]: string;\n};", "env?: Record<string, string>;")
+        .splitToSequence("\n")
+        .joinToString("\n") { line ->
+            if (line.endsWith(";")) {
+                convertMember(line.removeSuffix(";"))
+            } else {
+                line
+            }
+        }
+        .prependIndent("    ")
+
+    val body = "external interface $declaration {\n$members\n}"
+
+    return ConversionResult(
+        name = name,
+        body = body,
+    )
+}
+
+private fun convertMember(
+    source: String,
+): String =
+    if ("(" in source.substringBefore(":")) {
+        convertMethod(source)
+    } else {
+        convertProperty(source)
+    }
+
+private fun convertProperty(
+    source: String,
+): String {
+    return "// $source"
+}
+
+private fun convertMethod(
+    source: String,
+): String {
+    return "// $source"
 }
