@@ -109,9 +109,14 @@ private fun convertFunction(
         .substringBefore("(")
         .substringBefore("<")
 
+    val bodies = convertMember(source.substringBefore(";\n").removeSuffix(";"))
+    val body = ("\n" + bodies)
+        .replace("\nfun ", "\nexternal fun ")
+        .removePrefix("\n")
+
     return ConversionResult(
         name = name,
-        body = "external " + convertMember(source.substringBefore(";\n").removeSuffix(";"))
+        body = body,
     )
 }
 
@@ -147,12 +152,20 @@ private fun convertMethod(
     source: String,
 ): String {
     // TODO: move to patches
-    if (": string | NodeJS.ReadableStream" in source) {
-        return sequenceOf(
-            source.replace(": string | NodeJS.ReadableStream", ": string"),
-            source.replace(": string | NodeJS.ReadableStream", ": NodeJS.ReadableStream"),
-        ).map { convertMethod(it) }
-            .joinToString("\n\n")
+    sequenceOf(
+        "string | NodeJS.ReadableStream",
+        "string | Error",
+        "string | string[]",
+    ).forEach { unionType ->
+        if (": $unionType" in source) {
+            val (t1, t2) = unionType.split(" | ")
+
+            return sequenceOf(
+                source.replace(": $unionType", ": $t1"),
+                source.replace(": $unionType", ": $t2"),
+            ).map { convertMethod(it) }
+                .joinToString("\n\n")
+        }
     }
 
     val declaration = source.substringBefore("(")
