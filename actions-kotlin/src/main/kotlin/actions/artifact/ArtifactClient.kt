@@ -1,5 +1,8 @@
 package actions.artifact
 
+import js.core.ReadonlyArray
+import kotlin.js.Promise
+
 external interface ArtifactClient {
     /**
      * Uploads an artifact
@@ -10,7 +13,13 @@ external interface ArtifactClient {
      * @param options extra options for customizing the upload behavior
      * @returns single UploadInfo object
      */
-    // uploadArtifact(name: string, files: string[], rootDirectory: string, options?: UploadOptions): Promise<UploadResponse>
+    fun uploadArtifact(
+        name: String,
+        files: ReadonlyArray<String>,
+        rootDirectory: String,
+        options: UploadOptions = definedExternally,
+    ): Promise<UploadResponse>
+
     /**
      * Downloads a single artifact associated with a run
      *
@@ -18,10 +27,15 @@ external interface ArtifactClient {
      * @param path optional path that denotes where the artifact will be downloaded to
      * @param options extra options that allow for the customization of the download behavior
      */
-    // downloadArtifact(name: string, path?: string, options?: DownloadOptions): Promise<DownloadResponse>
+    fun downloadArtifact(
+        name: String,
+        path: String = definedExternally,
+        options: DownloadOptions = definedExternally,
+    ): Promise<DownloadResponse>
+
     /**
      * Downloads all artifacts associated with a run. Because there are multiple artifacts being downloaded, a folder will be created for each one in the specified or default directory
      * @param path optional path that denotes where the artifacts will be downloaded to
      */
-    // downloadAllArtifacts(path?: string): Promise<DownloadResponse[]>
+    fun downloadAllArtifacts(path: String = definedExternally): Promise<DownloadResponse[]>
 }

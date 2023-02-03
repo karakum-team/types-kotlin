@@ -1,14 +1,59 @@
 package actions.http.client
 
+import kotlin.js.Promise
+
 external interface HttpClient {
-    // options(requestUrl: string, additionalHeaders?: http.OutgoingHttpHeaders): Promise<HttpClientResponse>
-    // get(requestUrl: string, additionalHeaders?: http.OutgoingHttpHeaders): Promise<HttpClientResponse>
-    // del(requestUrl: string, additionalHeaders?: http.OutgoingHttpHeaders): Promise<HttpClientResponse>
-    // post(requestUrl: string, data: string, additionalHeaders?: http.OutgoingHttpHeaders): Promise<HttpClientResponse>
-    // patch(requestUrl: string, data: string, additionalHeaders?: http.OutgoingHttpHeaders): Promise<HttpClientResponse>
-    // put(requestUrl: string, data: string, additionalHeaders?: http.OutgoingHttpHeaders): Promise<HttpClientResponse>
-    // sendStream(verb: string, requestUrl: string, stream: NodeJS.ReadableStream, additionalHeaders?: http.OutgoingHttpHeaders): Promise<HttpClientResponse>
-    // request(verb: string, requestUrl: string, data: string | NodeJS.ReadableStream, headers: http.OutgoingHttpHeaders): Promise<HttpClientResponse>
-    // requestRaw(info: RequestInfo, data: string | NodeJS.ReadableStream): Promise<HttpClientResponse>
-    // requestRawWithCallback(info: RequestInfo, data: string | NodeJS.ReadableStream, onResult: (err?: Error, res?: HttpClientResponse) => void): void
+    fun options(
+        requestUrl: String,
+        additionalHeaders: node.http.OutgoingHttpHeaders = definedExternally,
+    ): Promise<HttpClientResponse>
+
+    fun get(
+        requestUrl: String,
+        additionalHeaders: node.http.OutgoingHttpHeaders = definedExternally,
+    ): Promise<HttpClientResponse>
+
+    fun del(
+        requestUrl: String,
+        additionalHeaders: node.http.OutgoingHttpHeaders = definedExternally,
+    ): Promise<HttpClientResponse>
+
+    fun post(
+        requestUrl: String,
+        data: String,
+        additionalHeaders: node.http.OutgoingHttpHeaders = definedExternally,
+    ): Promise<HttpClientResponse>
+
+    fun patch(
+        requestUrl: String,
+        data: String,
+        additionalHeaders: node.http.OutgoingHttpHeaders = definedExternally,
+    ): Promise<HttpClientResponse>
+
+    fun put(
+        requestUrl: String,
+        data: String,
+        additionalHeaders: node.http.OutgoingHttpHeaders = definedExternally,
+    ): Promise<HttpClientResponse>
+
+    fun sendStream(
+        verb: String,
+        requestUrl: String,
+        stream: node.ReadableStream,
+        additionalHeaders: node.http.OutgoingHttpHeaders = definedExternally,
+    ): Promise<HttpClientResponse>
+
+    fun request(
+        verb: String,
+        requestUrl: String,
+        data: node.string | NodeJS.ReadableStream,
+    headers: node.http.OutgoingHttpHeaders): Promise<HttpClientResponse>
+    fun requestRaw(
+        info: RequestInfo,
+        data: node.string | NodeJS.ReadableStream): Promise<HttpClientResponse>
+    fun requestRawWithCallback(
+        info: RequestInfo,
+        data: node.string | NodeJS.ReadableStream,
+    onResult: (err?: Error,
+    res: HttpClientResponse) -> Unit = definedExternally)
 }

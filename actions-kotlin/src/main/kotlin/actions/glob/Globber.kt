@@ -1,5 +1,8 @@
 package actions.glob
 
+import js.core.ReadonlyArray
+import kotlin.js.Promise
+
 external interface Globber {
     /**
      * Returns the search path preceding the first glob segment, from each pattern.
@@ -9,17 +12,18 @@ external interface Globber {
      *
      * Example 2: The patterns `/foo/ *` and `/foo/bar/ *` returns `/foo`.
      */
-    // getSearchPaths(): string[]
+    fun getSearchPaths(): ReadonlyArray<String>
+
     /**
      * Returns files and directories matching the glob patterns.
      *
      * Order of the results is not guaranteed.
      */
-    // glob(): Promise<string[]>
+    fun glob(): Promise<string[]>
     /**
      * Returns files and directories matching the glob patterns.
      *
      * Order of the results is not guaranteed.
      */
-    // globGenerator(): AsyncGenerator<string, void>
+    fun globGenerator(): AsyncGenerator<string, void>
 }
