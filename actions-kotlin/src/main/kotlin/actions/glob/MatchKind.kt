@@ -7,7 +7,7 @@
 package actions.glob
 
 // language=JavaScript
-@JsName("""(/*union*/{None: '0', Directory: '1', File: '2', All: '3'}/*union*/)""")
+@JsName("""(/*union*/{None: 0, Directory: 1, File: 2, All: 3}/*union*/)""")
 external enum class MatchKind {
     /** Not matched */
     None,

@@ -7,7 +7,7 @@
 package actions.core
 
 // language=JavaScript
-@JsName("""(/*union*/{Success: '0', Failure: '1'}/*union*/)""")
+@JsName("""(/*union*/{Success: 0, Failure: 1}/*union*/)""")
 external enum class ExitCode {
     /**
      * A code indicating that the action was successful
