@@ -127,6 +127,15 @@ private fun convertProperty(
 private fun convertMethod(
     source: String,
 ): String {
+    // TODO: move to patches
+    if (": string | NodeJS.ReadableStream" in source) {
+        return sequenceOf(
+            source.replace(": string | NodeJS.ReadableStream", ": string"),
+            source.replace(": string | NodeJS.ReadableStream", ": NodeJS.ReadableStream"),
+        ).map { convertMethod(it) }
+            .joinToString("\n\n")
+    }
+
     val declaration = source.substringBefore("(")
 
     val parametersSource = source
@@ -134,8 +143,17 @@ private fun convertMethod(
         .substringBeforeLast("): ")
 
     val parameters = if (parametersSource.isNotEmpty()) {
-        val params = parametersSource.split(", ")
-            .map { convertParameter(it) }
+        val params = if ("onResult: (err?: Error, res?: HttpClientResponse) => void" in parametersSource) {
+            parametersSource
+                .substringBefore(", onResult: ")
+                .split(", ")
+                .map { convertParameter(it) }
+                .plus("onResult: (err: JsError?, res: HttpClientResponse?) -> Unit")
+        } else {
+            parametersSource
+                .split(", ")
+                .map { convertParameter(it) }
+        }
 
         if (params.size > 1) {
             params.joinToString(",\n")

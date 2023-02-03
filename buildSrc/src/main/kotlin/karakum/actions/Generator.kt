@@ -6,6 +6,7 @@ private val DEFAULT_IMPORTS = """
 import kotlin.js.Promise
 import js.core.Record
 import js.core.ReadonlyArray
+import js.errors.JsError
 import node.buffer.Buffer
 import web.url.URL
 """.trimIndent()

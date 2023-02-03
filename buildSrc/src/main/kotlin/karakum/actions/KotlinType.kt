@@ -11,6 +11,11 @@ private val STANDARD_TYPE_MAP = mapOf(
     "typeof http | typeof https" to "Any /* typeof http | typeof https */",
 
     "NodeJS.ReadableStream" to "node.ReadableStream",
+
+    "Promise<string[]>" to "Promise<ReadonlyArray<String>>",
+    "Promise<DownloadResponse[]>" to "Promise<ReadonlyArray<DownloadResponse>>",
+
+    "AsyncGenerator<string, void>" to "Any /* AsyncGenerator<string, void> */"
 )
 
 internal fun kotlinType(
@@ -19,6 +24,9 @@ internal fun kotlinType(
     STANDARD_TYPE_MAP[type]?.also {
         return it
     }
+
+    if (type.endsWith(" | null"))
+        return kotlinType(type.removeSuffix(" | null")) + "?"
 
     if ("." in type)
         return "node.$type"
