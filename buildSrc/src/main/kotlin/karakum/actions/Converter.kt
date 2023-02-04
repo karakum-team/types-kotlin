@@ -205,10 +205,16 @@ private fun convertClass(
         .joinToString("\n")
 
     val companionBody = if (staticMembers.isNotEmpty()) {
-        "\n\ncompanion object {\n$staticMembers\n}"
+        "companion object {\n$staticMembers\n}"
     } else ""
 
-    var body = "external class $declaration {\n$members$companionBody\n}"
+    val content = sequenceOf(
+        members,
+        companionBody,
+    ).filter { it.isNotEmpty() }
+        .joinToString("\n")
+
+    var body = "external class $declaration {\n$content\n}"
 
     body = when (name) {
         "DefaultGlobber" ->
