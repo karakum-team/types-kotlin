@@ -13,12 +13,13 @@ sealed external class DefaultGlobber : Globber {
     override fun glob(): Promise<ReadonlyArray<String>>
     override fun globGenerator(): Any /* AsyncGenerator<string, void> */
 
-    /**
-     * Constructs a DefaultGlobber
-     */
-    /* static */
-    fun create(
-        patterns: String,
-        options: GlobOptions = definedExternally,
-    ): Promise<DefaultGlobber>
+    companion object {
+        /**
+         * Constructs a DefaultGlobber
+         */
+        fun create(
+            patterns: String,
+            options: GlobOptions = definedExternally,
+        ): Promise<DefaultGlobber>
+    }
 }

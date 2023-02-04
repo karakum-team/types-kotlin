@@ -15,6 +15,7 @@ external class CRC64 {
     fun update(data: String)
     fun digest(encoding: CRC64DigestEncoding = definedExternally): Any /* String | Buffer */
 
-    /* static */
-    fun flip64Bits(n: BigInt): BigInt
+    companion object {
+        fun flip64Bits(n: BigInt): BigInt
+    }
 }

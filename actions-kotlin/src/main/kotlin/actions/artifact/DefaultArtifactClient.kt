@@ -9,12 +9,6 @@ import kotlin.js.Promise
 
 sealed external class DefaultArtifactClient : ArtifactClient {
     /**
-     * Constructs a DefaultArtifactClient
-     */
-    /* static */
-    fun create(): DefaultArtifactClient
-
-    /**
      * Uploads an artifact
      */
     fun uploadArtifact(
@@ -31,4 +25,11 @@ sealed external class DefaultArtifactClient : ArtifactClient {
     ): Promise<DownloadResponse>
 
     fun downloadAllArtifacts(path: String? = definedExternally): Promise<ReadonlyArray<DownloadResponse>>
+
+    companion object {
+        /**
+         * Constructs a DefaultArtifactClient
+         */
+        fun create(): DefaultArtifactClient
+    }
 }

@@ -55,9 +55,10 @@ external class Pattern {
      */
     fun partialMatch(itemPath: String): Boolean
 
-    /**
-     * Escapes glob patterns within a path
-     */
-    /* static */
-    fun globEscape(s: String): String
+    companion object {
+        /**
+         * Escapes glob patterns within a path
+         */
+        fun globEscape(s: String): String
+    }
 }

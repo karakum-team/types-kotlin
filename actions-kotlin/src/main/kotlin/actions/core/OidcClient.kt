@@ -7,6 +7,9 @@ package actions.core
 import kotlin.js.Promise
 
 external class OidcClient {
-    /* static */
-    fun getIDToken(audience: String = definedExternally): Promise<String>
+
+
+    companion object {
+        fun getIDToken(audience: String = definedExternally): Promise<String>
+    }
 }
