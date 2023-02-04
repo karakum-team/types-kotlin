@@ -9,6 +9,7 @@ import java.io.File
 private val DEFAULT_IMPORTS = """
 import kotlin.js.Promise
 import js.core.BigInt
+import js.core.JsLong
 import js.core.Record
 import js.core.ReadonlyArray
 import js.core.Void
@@ -51,11 +52,14 @@ private fun generate(
     val dir = sourceDir.resolve(library.path)
         .also { it.mkdirs() }
 
-    val results = files.asSequence()
+    var results = files.asSequence()
         .flatMap { convert(it.readText()) }
         .toList()
         .mergeDuplicated()
         .removeDuplicatedInterfaces()
+
+    if (library.name == "cache")
+        results += TransferProgressEvent()
 
     for ((name, body) in results) {
         val suppresses = mutableListOf<Suppress>().apply {
