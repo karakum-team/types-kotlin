@@ -9,6 +9,7 @@ import kotlin.js.Promise
 
 external class Summary {
     constructor()
+
     /**
      * Writes text in the buffer to the summary buffer file and empties buffer. Will append by default.
      *
@@ -17,24 +18,28 @@ external class Summary {
      * @returns {Promise<Summary>} summary instance
      */
     fun write(options: SummaryWriteOptions = definedExternally): Promise<Summary>
+
     /**
      * Clears the summary buffer and wipes the summary file
      *
      * @returns {Summary} summary instance
      */
     fun clear(): Promise<Summary>
+
     /**
      * Returns the current summary buffer as a string
      *
      * @returns {string} string of summary buffer
      */
     fun stringify(): String
+
     /**
      * If the summary buffer is empty
      *
      * @returns {boolen} true if the buffer is empty
      */
     fun isEmptyBuffer(): Boolean
+
     /**
      * Resets the summary buffer without writing to summary file
      *

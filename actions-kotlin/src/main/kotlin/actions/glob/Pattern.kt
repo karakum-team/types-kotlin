@@ -58,5 +58,6 @@ external class Pattern {
     /**
      * Escapes glob patterns within a path
      */
-    fun /* static */ globEscape(s: String): String
+    /* static */
+    fun globEscape(s: String): String
 }

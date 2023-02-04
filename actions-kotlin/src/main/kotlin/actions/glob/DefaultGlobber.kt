@@ -16,7 +16,8 @@ sealed external class DefaultGlobber : Globber {
     /**
      * Constructs a DefaultGlobber
      */
-    fun /* static */ create(
+    /* static */
+    fun create(
         patterns: String,
         options: GlobOptions = definedExternally,
     ): Promise<DefaultGlobber>

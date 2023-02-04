@@ -11,7 +11,8 @@ sealed external class DefaultArtifactClient : ArtifactClient {
     /**
      * Constructs a DefaultArtifactClient
      */
-    fun /* static */ create(): DefaultArtifactClient
+    /* static */
+    fun create(): DefaultArtifactClient
 
     /**
      * Uploads an artifact
