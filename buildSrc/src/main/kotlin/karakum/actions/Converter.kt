@@ -14,7 +14,7 @@ internal fun convert(
 ): Sequence<ConversionResult> {
     val body = cleanup(content)
 
-    return ("\n" + body).splitToSequence("\nexport declare ", "\nexport ", "\n declare")
+    return ("\n" + body).splitToSequence("\nexport declare ", "\nexport ", "\ndeclare ")
         .drop(1)
         .map { it.substringBefore("\n/**") }
         // TODO: check
