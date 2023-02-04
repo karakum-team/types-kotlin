@@ -13,7 +13,7 @@ external class RetryHelper {
     // constructor(maxAttempts: number, minSeconds: number, maxSeconds: number)
     fun <T> execute(
         action: () -> Promise<T>,
-        isRetryable: (e: Error) -> boolean = definedExternally,
+        isRetryable: (e: Error) -> Boolean = definedExternally,
     ): Promise<T>
     // private getSleepAmount
     // private sleep
