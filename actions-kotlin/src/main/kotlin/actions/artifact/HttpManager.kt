@@ -7,7 +7,11 @@ package actions.artifact
 import actions.http.client.HttpClient
 
 external class HttpManager {
-    // constructor(clientCount: number, userAgent: string)
+    constructor(
+        clientCount: Number,
+        userAgent: String,
+    )
+
     fun getClient(index: Number): HttpClient
     fun disposeAndReplaceClient(index: Number)
     fun disposeAndReplaceAllClients()

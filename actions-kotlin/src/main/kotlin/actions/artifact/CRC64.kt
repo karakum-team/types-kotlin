@@ -8,7 +8,8 @@ import js.core.BigInt
 import node.buffer.Buffer
 
 external class CRC64 {
-    // constructor()
+    constructor()
+
     fun update(data: Buffer)
 
     fun update(data: String)

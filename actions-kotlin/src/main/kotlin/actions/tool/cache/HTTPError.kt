@@ -8,5 +8,6 @@ import js.errors.JsError
 
 external class HTTPError : JsError {
     val httpStatusCode: Number?
-    // constructor(httpStatusCode: number | undefined)
+
+    constructor(httpStatusCode: Number?)
 }

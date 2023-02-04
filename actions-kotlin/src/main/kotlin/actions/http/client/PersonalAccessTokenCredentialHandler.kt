@@ -13,7 +13,8 @@ import kotlin.js.Promise
 external class PersonalAccessTokenCredentialHandler : RequestHandler {
     var token: String
 
-    // constructor(token: string)
+    constructor(token: String)
+
     override fun prepareRequest(options: node.http.RequestOptions)
     fun canHandleAuthentication(): Boolean
     fun handleAuthentication(): Promise<HttpClientResponse>

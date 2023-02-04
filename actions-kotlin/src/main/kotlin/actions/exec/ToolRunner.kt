@@ -4,10 +4,16 @@
 
 package actions.exec
 
+import js.core.ReadonlyArray
 import kotlin.js.Promise
 
 external class ToolRunner : node.events.EventEmitter {
-    // constructor(toolPath: string, args?: string[], options?: im.ExecOptions)
+    constructor(
+        toolPath: String,
+        args: ReadonlyArray<String> = definedExternally,
+        options: ExecOptions = definedExternally,
+    )
+
     /**
      * Exec a tool.
      * Output will be streamed to the live console.

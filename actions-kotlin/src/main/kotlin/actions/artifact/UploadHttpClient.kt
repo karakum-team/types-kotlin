@@ -9,7 +9,8 @@ import js.core.Void
 import kotlin.js.Promise
 
 external class UploadHttpClient {
-    // constructor()
+    constructor()
+
     /**
      * Creates a file container for the new artifact in the remote blob storage/file service
      * @param {string} artifactName Name of the artifact being created

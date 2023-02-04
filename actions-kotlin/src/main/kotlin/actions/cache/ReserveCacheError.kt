@@ -7,5 +7,5 @@ package actions.cache
 import js.errors.JsError
 
 external class ReserveCacheError : JsError {
-    // constructor(message: string)
+    constructor(message: String)
 }

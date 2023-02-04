@@ -13,7 +13,12 @@ external class HttpClient {
     var handlers: ReadonlyArray<RequestHandler>
     var requestOptions: RequestOptions?
 
-    // constructor(userAgent?: string, handlers?: RequestHandler[], requestOptions?: RequestOptions)
+    constructor(
+        userAgent: String = definedExternally,
+        handlers: ReadonlyArray<RequestHandler> = definedExternally,
+        requestOptions: RequestOptions = definedExternally,
+    )
+
     fun options(
         requestUrl: String,
         additionalHeaders: node.http.OutgoingHttpHeaders = definedExternally,

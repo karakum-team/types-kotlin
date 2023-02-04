@@ -7,7 +7,8 @@ package actions.http.client
 import kotlin.js.Promise
 
 external class HttpClientResponse {
-    // constructor(message: http.IncomingMessage)
+    constructor(message: node.http.IncomingMessage)
+
     var message: node.http.IncomingMessage
     fun readBody(): Promise<String>
 }

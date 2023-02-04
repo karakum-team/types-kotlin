@@ -10,7 +10,8 @@ import js.core.Void
 import kotlin.js.Promise
 
 external class DownloadHttpClient {
-    // constructor()
+    constructor()
+
     /**
      * Gets a list of all artifacts that are in a specific container
      */

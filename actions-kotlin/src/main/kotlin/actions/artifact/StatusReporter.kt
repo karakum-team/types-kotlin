@@ -5,7 +5,8 @@
 package actions.artifact
 
 external class StatusReporter {
-    // constructor(displayFrequencyInMilliseconds: number)
+    constructor(displayFrequencyInMilliseconds: Number)
+
     fun setTotalNumberOfFilesToProcess(fileTotal: Number)
     fun start()
     fun updateLargeFileStatus(

@@ -7,7 +7,11 @@ package actions.http.client
 import js.errors.JsError
 
 external class HttpClientError : JsError {
-    // constructor(message: string, statusCode: number)
+    constructor(
+        message: String,
+        statusCode: Number,
+    )
+
     var statusCode: Number
     var result: Any?
 }

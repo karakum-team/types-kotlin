@@ -5,6 +5,7 @@
 package actions.glob
 
 import js.core.ReadonlyArray
+import js.core.Void
 
 external class Pattern {
     /**
@@ -28,9 +29,22 @@ external class Pattern {
      * Indicates the pattern should only match directories, not regular files.
      */
     val trailingSeparator: Boolean
-    // constructor(pattern: string)
-    // constructor(pattern: string, isImplicitPattern: boolean, segments: undefined, homedir: string)
-    // constructor(negate: boolean, isImplicitPattern: boolean, segments: string[], homedir?: string)
+
+    constructor(pattern: String)
+    constructor(
+        pattern: String,
+        isImplicitPattern: Boolean,
+        segments: Void,
+        homedir: String,
+    )
+
+    constructor(
+        negate: Boolean,
+        isImplicitPattern: Boolean,
+        segments: ReadonlyArray<String>,
+        homedir: String = definedExternally,
+    )
+
     /**
      * Matches the pattern against the specified path
      */

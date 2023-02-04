@@ -8,11 +8,15 @@ import js.core.ReadonlyArray
 
 external class Path {
     var segments: ReadonlyArray<String>
+
     /**
      * Constructs a Path
      * @param itemPath Path or array of segments
      */
-    // constructor(itemPath: string | string[])
+    constructor(itemPath: String)
+
+    constructor(itemPath: ReadonlyArray<String>)
+
     /**
      * Converts the path to it's string representation
      */
