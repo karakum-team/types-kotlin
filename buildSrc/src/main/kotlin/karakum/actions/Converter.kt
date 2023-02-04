@@ -1,6 +1,7 @@
 package karakum.actions
 
 import karakum.common.UnionConstant
+import karakum.common.unionBody
 import karakum.common.unionBodyByConstants
 
 private val EXCLUDED_NAMES = setOf(
@@ -56,6 +57,11 @@ private fun convertItem(
 
         "enum" ->
             return convertEnum(
+                source = source.substringAfter(" ")
+            )
+
+        "type" ->
+            return convertType(
                 source = source.substringAfter(" ")
             )
 
@@ -178,6 +184,40 @@ private fun convertFunction(
     val body = ("\n" + bodies)
         .replace("\nfun ", "\nexternal fun ")
         .removePrefix("\n")
+
+    return ConversionResult(
+        name = name,
+        body = body,
+    )
+}
+
+private fun convertType(
+    source: String,
+): ConversionResult? {
+    val (name, bodySource) = source
+        .removeSuffix(";")
+        .split(" = ")
+
+    when (name) {
+        "IToolRelease",
+        "IToolReleaseFile",
+        -> return null
+    }
+
+    val body = when {
+        "' | '" in bodySource -> {
+            val values = bodySource
+                .split(" | ")
+                .map { it.removeSurrounding("'") }
+
+            unionBody(name, values)
+        }
+
+        bodySource == "(SummaryTableCell | string)[]"
+        -> "typealias $name = ReadonlyArray<Any /* SummaryTableCell | String */>"
+
+        else -> TODO("Unable to convert body source: '$bodySource'")
+    }
 
     return ConversionResult(
         name = name,
