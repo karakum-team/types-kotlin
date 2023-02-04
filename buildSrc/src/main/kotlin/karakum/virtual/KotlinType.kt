@@ -32,8 +32,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => boolean" to "() -> Boolean",
     "() => number" to "() -> Int",
     "() => number[]" to "() -> ReadonlyArray<Int>",
-    "(fArgs_0?: boolean | undefined) => $ITEM_RANGE" to "(flush: Boolean?) -> $ITEM_RANGE",
-    "(...fArgs: readonly any[]) => VirtualItem[]" to "() -> ReadonlyArray<VirtualItem>",
+    "() => $ITEM_RANGE" to "() -> $ITEM_RANGE",
+    "() => VirtualItem[]" to "() -> ReadonlyArray<VirtualItem>",
 )
 
 internal fun kotlinType(
