@@ -1,1 +1,0 @@
-const GnuTarPathOnWindows: string;

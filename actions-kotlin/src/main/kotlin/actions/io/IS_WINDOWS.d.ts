@@ -1,1 +1,0 @@
-const IS_WINDOWS: boolean;

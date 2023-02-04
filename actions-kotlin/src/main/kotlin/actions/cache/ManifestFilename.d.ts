@@ -1,1 +1,0 @@
-const ManifestFilename = "manifest.txt";

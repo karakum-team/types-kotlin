@@ -1,1 +1,0 @@
-const SocketTimeout = 5000;

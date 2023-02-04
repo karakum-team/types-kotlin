@@ -1,1 +1,0 @@
-const DefaultRetryAttempts = 2;
