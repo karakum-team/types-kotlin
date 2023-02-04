@@ -48,54 +48,43 @@ private fun generate(
     val dir = sourceDir.resolve(library.path)
         .also { it.mkdirs() }
 
-    var results = files.asSequence()
+    val results = files.asSequence()
         .flatMap { convert(it.readText()) }
         .toList()
         .mergeDuplicated()
-
-    if (library.name == "http-client") {
-        results +=
-            ConversionResult(
-                name = "HttpClientResponse",
-                body = "// TEMP\nexternal interface HttpClientResponse",
-            )
-    }
+        .removeDuplicatedInterfaces()
 
     for ((name, body) in results) {
-        val kotlinMode = "external interface " in body
-                || "external enum " in body
-                || "external val " in body
-                || "external fun " in body
-                || "typealias" in body
-                || "const val " in body
-        val ext = if (kotlinMode) "kt" else "d.ts"
+        val suppresses = mutableListOf<Suppress>().apply {
+            if ("JsName(\"\"\"(" in body)
+                add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+        }.toTypedArray()
 
-        val finalBody = if (kotlinMode) {
-            val suppresses = mutableListOf<Suppress>().apply {
-                if ("JsName(\"\"\"(" in body)
-                    add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
-            }.toTypedArray()
+        val annotations = when {
+            "external class " in body
+                    || "external val " in body
+                    || "external fun " in body
+            -> """@file:JsModule("${library.moduleId}")"""
 
-            val annotations = when {
-                "external class " in body
-                        || "external val " in body
-                        || "external fun " in body
-                -> """@file:JsModule("${library.moduleId}")"""
+            suppresses.isNotEmpty()
+            -> fileSuppress(*suppresses)
 
-                suppresses.isNotEmpty()
-                -> fileSuppress(*suppresses)
+            else -> ""
+        }
 
-                else -> ""
-            }
+        val finalBody = fileContent(
+            annotations = annotations,
+            body = body,
+            pkg = library.pkg,
+        )
 
-            fileContent(
-                annotations = annotations,
-                body = body,
-                pkg = library.pkg,
-            )
-        } else body
+        val fileName = if ("external val " in body) {
+            "$name.val.kt"
+        } else {
+            "$name.kt"
+        }
 
-        var f = dir.resolve(name + ".$ext")
+        var f = dir.resolve(fileName)
         check(!f.exists()) {
             "File $f already exists!"
         }

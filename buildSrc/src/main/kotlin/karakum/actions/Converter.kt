@@ -50,6 +50,11 @@ private fun convertItem(
                 source = source.substringAfter(" ")
             )
 
+        "class" ->
+            return convertClass(
+                source = source.substringAfter(" ")
+            )
+
         "function" ->
             return convertFunction(
                 source = source.substringAfter(" ")
@@ -168,6 +173,41 @@ private fun convertInterface(
     )
 }
 
+private fun convertClass(
+    source: String,
+): ConversionResult {
+    val name = source.substringBefore(" ")
+        .substringBefore("<")
+
+    val declaration = source.substringBefore(" {\n")
+
+    val memberSource = source.substringAfter(" {\n")
+        .substringBefore("\n}")
+        .replace("/**`", "/ **`")
+        .replace("/*`", "/ *`")
+        .trimIndent()
+
+    var members = memberSource
+        // .replace("env?: {\n    [key: string]: string;\n};", "env?: Record<string, string>;")
+        .splitToSequence("\n")
+        .joinToString("\n") { line ->
+            if (line.endsWith(";")) {
+                convertMember(line.removeSuffix(";"))
+            } else {
+                line
+            }
+        }
+        .prependIndent("    ")
+
+    val body = "external class $declaration {\n$members\n}"
+
+    return ConversionResult(
+        name = name,
+        body = body,
+    )
+}
+
+
 private fun convertFunction(
     source: String,
 ): ConversionResult {
@@ -256,10 +296,14 @@ private fun convertConst(
 private fun convertMember(
     source: String,
 ): String =
-    if ("(" in source.substringBefore(":")) {
-        convertMethod(source)
-    } else {
-        convertProperty(source)
+    when {
+        source.startsWith("constructor(")
+        -> convertConstructor(source)
+
+        "(" in source.substringBefore(":")
+        -> convertMethod(source)
+
+        else -> convertProperty(source)
     }
 
 private fun convertProperty(
@@ -279,6 +323,12 @@ private fun convertProperty(
     }
 
     return "var $name: $type"
+}
+
+private fun convertConstructor(
+    source: String,
+): String {
+    return "// $source"
 }
 
 private fun convertMethod(
