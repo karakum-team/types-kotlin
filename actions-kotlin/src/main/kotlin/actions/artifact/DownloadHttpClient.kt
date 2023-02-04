@@ -10,8 +10,6 @@ import js.core.Void
 import kotlin.js.Promise
 
 external class DownloadHttpClient {
-    // private downloadHttpManager
-    // private statusReporter
     // constructor()
     /**
      * Gets a list of all artifacts that are in a specific container
@@ -33,13 +31,7 @@ external class DownloadHttpClient {
      * @param downloadItems information about what items to download and where to save them
      */
     fun downloadSingleArtifact(downloadItems: ReadonlyArray<DownloadItem>): Promise<Void>
-    /**
-     * Downloads an individual file
-     * @param httpClientIndex the index of the http client that is used to make all of the calls
-     * @param artifactLocation origin location where a file will be downloaded from
-     * @param downloadPath destination location for the file being downloaded
-     */
-    // private downloadIndividualFile
+
     /**
      * Pipes the response from downloading an individual file to the appropriate destination stream while decoding gzip content if necessary
      * @param response the http response received when downloading a file

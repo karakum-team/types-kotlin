@@ -5,11 +5,6 @@
 package actions.artifact
 
 external class StatusReporter {
-    // private totalNumberOfFilesToProcess
-    // private processedCount
-    // private displayFrequencyInMilliseconds
-    // private largeFiles
-    // private totalFileStatus
     // constructor(displayFrequencyInMilliseconds: number)
     fun setTotalNumberOfFilesToProcess(fileTotal: Number)
     fun start()
@@ -22,5 +17,4 @@ external class StatusReporter {
 
     fun stop()
     fun incrementProcessedCount()
-    // private formatPercentage
 }

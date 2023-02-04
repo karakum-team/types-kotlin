@@ -13,7 +13,5 @@ external class CRC64 {
 
     fun update(data: String)
     fun digest(encoding: CRC64DigestEncoding = definedExternally): Any /* String | Buffer */
-
-    // private toBuffer
     fun /* static */ flip64Bits(n: BigInt): BigInt
 }

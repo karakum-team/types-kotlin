@@ -10,23 +10,6 @@ import kotlin.js.Promise
 external class Summary {
     // constructor()
     /**
-     * Finds the summary file path from the environment, rejects if env var is not found or file does not exist
-     * Also checks r/w permissions.
-     *
-     * @returns step summary file path
-     */
-    // private filePath
-    /**
-     * Wraps content in an HTML tag, adding any HTML attributes
-     *
-     * @param {string} tag HTML tag to wrap
-     * @param {string | null} content content within the tag
-     * @param {[attribute: string]: string} attrs key-value list of HTML attributes to add
-     *
-     * @returns {string} content wrapped in HTML element
-     */
-    // private wrap
-    /**
      * Writes text in the buffer to the summary buffer file and empties buffer. Will append by default.
      *
      * @param {SummaryWriteOptions} [options] (optional) options for write operation

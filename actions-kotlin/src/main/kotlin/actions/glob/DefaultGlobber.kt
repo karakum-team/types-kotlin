@@ -8,9 +8,6 @@ import js.core.ReadonlyArray
 import kotlin.js.Promise
 
 external class DefaultGlobber : Globber {
-    // private readonly options
-    // private readonly patterns
-    // private readonly searchPaths
     // private constructor()
     override fun getSearchPaths(): ReadonlyArray<String>
     override fun glob(): Promise<ReadonlyArray<String>>
@@ -23,5 +20,4 @@ external class DefaultGlobber : Globber {
         patterns: String,
         options: GlobOptions = definedExternally,
     ): Promise<DefaultGlobber>
-    // private static stat
 }
