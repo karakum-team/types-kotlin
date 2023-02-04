@@ -217,11 +217,11 @@ private fun convertClass(
     var body = "external class $declaration {\n$content\n}"
 
     body = when (name) {
-        "DefaultGlobber" ->
-            body
-                .replace("fun getSearchPaths(", "override fun getSearchPaths(")
-                .replace("fun glob(", "override fun glob(")
-                .replace("fun globGenerator(", "override fun globGenerator(")
+        "DefaultGlobber",
+        -> body
+            .replace("fun getSearchPaths(", "override fun getSearchPaths(")
+            .replace("fun glob(", "override fun glob(")
+            .replace("fun globGenerator(", "override fun globGenerator(")
 
         in CREDENTIAL_HANDLERS,
         -> body
