@@ -5,6 +5,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "boolean" to "Boolean",
     "string" to "String",
     "number" to "Number",
+    "bigint" to "BigInt",
 
     "string[]" to "ReadonlyArray<String>",
     "Record<string, string>" to "Record<String, String>",
@@ -18,6 +19,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "AsyncGenerator<string, void>" to "Any /* AsyncGenerator<string, void> */",
 
     "Map<number,string>" to "Map<Int, String>",
+
+    "string | Buffer" to "Any /* String | Buffer */"
 )
 
 internal fun kotlinType(
@@ -48,6 +51,7 @@ internal fun kotlinType(
         .replace(": string)", ": String)")
         .replace(") => void", ") -> Unit")
         .replace(") => number", ") -> Number")
+        .replace(") => boolean", ") -> Boolean")
         .replace(") => ", ") -> ")
         .replace(" | undefined", "?")
         .replace(" | null", "?")

@@ -349,6 +349,7 @@ private fun convertMethod(
         "string | NodeJS.ReadableStream",
         "string | Error",
         "string | string[]",
+        "Buffer | string",
     ).forEach { unionType ->
         if (": $unionType" in source) {
             val (t1, t2) = unionType.split(" | ")

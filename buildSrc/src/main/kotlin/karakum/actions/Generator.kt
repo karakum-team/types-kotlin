@@ -7,6 +7,7 @@ import java.io.File
 
 private val DEFAULT_IMPORTS = """
 import kotlin.js.Promise
+import js.core.BigInt
 import js.core.Record
 import js.core.ReadonlyArray
 import js.core.Void
