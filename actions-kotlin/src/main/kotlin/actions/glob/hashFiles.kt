@@ -11,3 +11,10 @@ external fun hashFiles(
     currentWorkspace: String,
     verbose: Boolean = definedExternally,
 ): Promise<String>
+
+external fun hashFiles(
+    patterns: String,
+    currentWorkspace: String = definedExternally,
+    options: HashFileOptions = definedExternally,
+    verbose: Boolean = definedExternally,
+): Promise<String>
