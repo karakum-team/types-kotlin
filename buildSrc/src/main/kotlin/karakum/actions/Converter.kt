@@ -182,6 +182,7 @@ private fun convertClass(
         .substringBefore("<")
 
     val declaration = source.substringBefore(" {\n")
+        .replace(" extends Error", " : JsError")
         .replace(" extends ", " : ")
         .replace(" implements ", " : ")
 
@@ -349,6 +350,7 @@ private fun convertMethod(
         "string | NodeJS.ReadableStream",
         "string | Error",
         "string | string[]",
+        "number | string",
         "Buffer | string",
     ).forEach { unionType ->
         if (": $unionType" in source) {

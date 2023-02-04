@@ -20,7 +20,9 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Map<number,string>" to "Map<Int, String>",
 
-    "string | Buffer" to "Any /* String | Buffer */"
+    "string | Buffer" to "Any /* String | Buffer */",
+
+    "ReturnType<typeof setTimeout>" to "web.timers.Timeout",
 )
 
 internal fun kotlinType(
