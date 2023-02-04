@@ -397,27 +397,10 @@ private fun convertMethod(
     if (declaration.startsWith("static "))
         declaration = declaration.replaceFirst("static ", "/* static */ ")
 
-    val parametersSource = source
-        .substringAfter("(")
-        .substringBeforeLast("): ")
-
-    val parameters = if (parametersSource.isNotEmpty()) {
-        val params = if ("onResult: (err?: Error, res?: HttpClientResponse) => void" in parametersSource) {
-            parametersSource
-                .substringBefore(", onResult: ")
-                .split(", ")
-                .map { convertParameter(it) }
-                .plus("onResult: (err: JsError?, res: HttpClientResponse?) -> Unit")
-        } else {
-            parametersSource
-                .split(", ")
-                .map { convertParameter(it) }
-        }
-
-        if (params.size > 1) {
-            params.joinToString(",\n")
-        } else params.joinToString(", ")
-    } else ""
+    val parameters = convertParameters(
+        source.substringAfter("(")
+            .substringBeforeLast("): ")
+    )
 
     val returnType = kotlinType(source.substringAfter("): "))
     val returns = when (returnType) {
@@ -426,6 +409,27 @@ private fun convertMethod(
     }
 
     return "fun $declaration($parameters)$returns"
+}
+
+private fun convertParameters(
+    source: String,
+): String {
+    if (source.isEmpty())
+        return ""
+
+    val params = if ("onResult: (err?: Error, res?: HttpClientResponse) => void" in source) {
+        source
+            .substringBefore(", onResult: ")
+            .split(", ")
+            .map { convertParameter(it) }
+            .plus("onResult: (err: JsError?, res: HttpClientResponse?) -> Unit")
+    } else {
+        source
+            .split(", ")
+            .map { convertParameter(it) }
+    }
+
+    return params.joinToString(",\n")
 }
 
 private fun convertParameter(
