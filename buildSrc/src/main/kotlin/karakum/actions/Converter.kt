@@ -191,13 +191,24 @@ private fun convertClass(
         .replace("/*`", "/ *`")
         .trimIndent()
 
-    var members = memberSource
-        .splitToSequence(";\n")
+    var allMembers = memberSource
+        .split(";\n")
         .mapNotNull { convertMember(it) }
-        .joinToString("\n")
-        .prependIndent("    ")
 
-    var body = "external class $declaration {\n$members\n}"
+    var members = allMembers
+        .filter { STATIC_MARKER !in it }
+        .joinToString("\n")
+
+    var staticMembers = allMembers
+        .filter { STATIC_MARKER in it }
+        .map { it.replace(STATIC_MARKER, "") }
+        .joinToString("\n")
+
+    val companionBody = if (staticMembers.isNotEmpty()) {
+        "\n\ncompanion object {\n$staticMembers\n}"
+    } else ""
+
+    var body = "external class $declaration {\n$members$companionBody\n}"
 
     body = when (name) {
         "DefaultGlobber" ->
@@ -325,7 +336,7 @@ private fun convertMember(
 
     return when {
         source == "private constructor()"
-        -> "// $source"
+        -> "    // $source"
 
         source.startsWith("private ")
         -> null
