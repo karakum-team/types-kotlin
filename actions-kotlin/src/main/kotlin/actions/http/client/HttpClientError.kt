@@ -9,5 +9,5 @@ import js.errors.JsError
 external class HttpClientError : JsError {
     // constructor(message: string, statusCode: number)
     var statusCode: Number
-    var result: Any??
+    var result: Any?
 }
