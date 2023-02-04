@@ -165,7 +165,7 @@ private fun convertInterface(
         .joinToString("\n")
         .prependIndent("    ")
 
-    val body = "external interface $declaration {\n$members\n}"
+    val body = "sealed external interface $declaration {\n$members\n}"
 
     return ConversionResult(
         name = name,
