@@ -208,13 +208,15 @@ private fun convertClass(
         -> body
             .replace("fun prepareRequest(", "override fun prepareRequest(")
 
-        "DefaultArtifactClient",
-        -> "sealed $body"
-
         else -> body
             .replace("fun toString(", "override fun toString(")
     }
 
+    when (name) {
+        "DefaultArtifactClient",
+        "DefaultGlobber",
+        -> body = "sealed $body"
+    }
 
     return ConversionResult(
         name = name,
