@@ -4,6 +4,8 @@
 
 package actions.cache
 
-external class ReserveCacheError : Error {
+import js.errors.JsError
+
+external class ReserveCacheError : JsError {
     // constructor(message: string)
 }

@@ -4,6 +4,8 @@
 
 package actions.cache
 
-external class ValidationError : Error {
+import js.errors.JsError
+
+external class ValidationError : JsError {
     // constructor(message: string)
 }

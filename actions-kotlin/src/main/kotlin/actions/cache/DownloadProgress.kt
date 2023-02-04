@@ -12,7 +12,7 @@ external class DownloadProgress {
     var receivedBytes: Number
     var startTime: Number
     var displayedComplete: Boolean
-    var timeoutHandle: ReturnType<typeof setTimeout>?
+    var timeoutHandle: web.timers.Timeout?
     // constructor(contentLength: number)
     /**
      * Progress to the next segment. Only call this method when the previous segment

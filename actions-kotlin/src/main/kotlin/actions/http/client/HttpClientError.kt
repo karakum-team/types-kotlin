@@ -4,7 +4,9 @@
 
 package actions.http.client
 
-external class HttpClientError : Error {
+import js.errors.JsError
+
+external class HttpClientError : JsError {
     // constructor(message: string, statusCode: number)
     var statusCode: Number
     var result: Any??

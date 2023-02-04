@@ -4,7 +4,9 @@
 
 package actions.tool.cache
 
-external class HTTPError : Error {
+import js.errors.JsError
+
+external class HTTPError : JsError {
     val httpStatusCode: Number?
     // constructor(httpStatusCode: number | undefined)
 }
