@@ -4,7 +4,7 @@ package actions.http.client
 
 import kotlin.js.Promise
 
-external interface RequestHandler {
+sealed external interface RequestHandler {
     fun prepareRequest(options: node.http.RequestOptions)
     fun canHandleAuthentication(response: HttpClientResponse): Boolean
     fun handleAuthentication(

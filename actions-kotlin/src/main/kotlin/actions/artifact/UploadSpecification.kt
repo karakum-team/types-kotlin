@@ -2,7 +2,7 @@
 
 package actions.artifact
 
-external interface UploadSpecification {
+sealed external interface UploadSpecification {
     var absoluteFilePath: String
     var uploadFilePath: String
 }

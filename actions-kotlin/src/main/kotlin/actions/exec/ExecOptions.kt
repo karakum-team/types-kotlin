@@ -5,7 +5,7 @@ package actions.exec
 import js.core.Record
 import node.buffer.Buffer
 
-external interface ExecOptions {
+sealed external interface ExecOptions {
     /** optional working directory.  defaults to current */
     var cwd: String?
 

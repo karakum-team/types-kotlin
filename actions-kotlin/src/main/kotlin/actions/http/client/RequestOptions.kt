@@ -2,7 +2,7 @@
 
 package actions.http.client
 
-external interface RequestOptions {
+sealed external interface RequestOptions {
     var headers: node.http.OutgoingHttpHeaders?
     var socketTimeout: Number?
     var ignoreSslError: Boolean?

@@ -4,7 +4,7 @@ package actions.artifact
 
 import js.core.ReadonlyArray
 
-external interface UploadResults {
+sealed external interface UploadResults {
     /**
      * The size in bytes of data that was transferred during the upload process to the actions backend service. This takes into account possible
      * gzip compression to reduce the amount of data that needs to be transferred

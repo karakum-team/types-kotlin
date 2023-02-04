@@ -2,7 +2,7 @@
 
 package actions.core
 
-external interface SummaryImageOptions {
+sealed external interface SummaryImageOptions {
     /**
      * The width of the image in pixels. Must be an integer without a unit.
      * (optional)

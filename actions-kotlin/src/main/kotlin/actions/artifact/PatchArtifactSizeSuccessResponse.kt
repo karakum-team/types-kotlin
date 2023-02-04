@@ -2,7 +2,7 @@
 
 package actions.artifact
 
-external interface PatchArtifactSizeSuccessResponse {
+sealed external interface PatchArtifactSizeSuccessResponse {
     var containerId: Number
     var size: Number
     var signedContent: String

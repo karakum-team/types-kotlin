@@ -2,7 +2,7 @@
 
 package actions.artifact
 
-external interface ContainerEntry {
+sealed external interface ContainerEntry {
     var containerId: Number
     var scopeIdentifier: String
     var path: String

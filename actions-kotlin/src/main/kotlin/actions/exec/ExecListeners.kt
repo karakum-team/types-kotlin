@@ -4,7 +4,7 @@ package actions.exec
 
 import node.buffer.Buffer
 
-external interface ExecListeners {
+sealed external interface ExecListeners {
     /** A call back for each buffer of stdout */
     var stdout: ((data: Buffer) -> Unit)?
 

@@ -2,7 +2,7 @@
 
 package actions.io
 
-external interface CopyOptions {
+sealed external interface CopyOptions {
     /** Optional. Whether to recursively copy all subdirectories. Defaults to false */
     var recursive: Boolean?
 

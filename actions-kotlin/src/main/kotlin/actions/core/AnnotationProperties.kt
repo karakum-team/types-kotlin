@@ -2,7 +2,7 @@
 
 package actions.core
 
-external interface AnnotationProperties {
+sealed external interface AnnotationProperties {
     /**
      * A title for the annotation.
      */

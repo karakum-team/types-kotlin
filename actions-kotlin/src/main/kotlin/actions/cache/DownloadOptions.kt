@@ -2,7 +2,7 @@
 
 package actions.cache
 
-external interface DownloadOptions {
+sealed external interface DownloadOptions {
     /**
      * Indicates whether to use the Azure Blob SDK to download caches
      * that are stored on Azure Blob Storage to improve reliability and

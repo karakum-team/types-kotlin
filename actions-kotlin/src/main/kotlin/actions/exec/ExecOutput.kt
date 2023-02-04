@@ -2,7 +2,7 @@
 
 package actions.exec
 
-external interface ExecOutput {
+sealed external interface ExecOutput {
     /**The exit code of the process */
     var exitCode: Number
 

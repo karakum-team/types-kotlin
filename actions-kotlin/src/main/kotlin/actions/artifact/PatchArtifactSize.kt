@@ -2,6 +2,6 @@
 
 package actions.artifact
 
-external interface PatchArtifactSize {
+sealed external interface PatchArtifactSize {
     var Size: Number
 }

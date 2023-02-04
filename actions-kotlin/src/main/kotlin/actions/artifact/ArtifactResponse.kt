@@ -2,7 +2,7 @@
 
 package actions.artifact
 
-external interface ArtifactResponse {
+sealed external interface ArtifactResponse {
     var containerId: String
     var size: Number
     var signedContent: String

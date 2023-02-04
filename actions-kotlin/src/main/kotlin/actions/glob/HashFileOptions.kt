@@ -2,7 +2,7 @@
 
 package actions.glob
 
-external interface HashFileOptions {
+sealed external interface HashFileOptions {
     /**
      * Indicates whether to follow symbolic links. Generally should set to false
      * when deleting files.

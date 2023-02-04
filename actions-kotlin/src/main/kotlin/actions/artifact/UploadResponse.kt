@@ -4,7 +4,7 @@ package actions.artifact
 
 import js.core.ReadonlyArray
 
-external interface UploadResponse {
+sealed external interface UploadResponse {
     /**
      * The name of the artifact that was uploaded
      */

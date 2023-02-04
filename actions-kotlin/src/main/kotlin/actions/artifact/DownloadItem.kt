@@ -2,7 +2,7 @@
 
 package actions.artifact
 
-external interface DownloadItem {
+sealed external interface DownloadItem {
     var sourceLocation: String
     var targetPath: String
 }

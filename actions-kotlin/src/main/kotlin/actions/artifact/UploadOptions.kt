@@ -2,7 +2,7 @@
 
 package actions.artifact
 
-external interface UploadOptions {
+sealed external interface UploadOptions {
     /**
      * Indicates if the artifact upload should continue if file or chunk fails to upload from any error.
      * If there is a error during upload, a partial artifact will always be associated and available for

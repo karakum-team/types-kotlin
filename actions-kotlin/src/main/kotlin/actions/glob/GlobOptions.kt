@@ -2,7 +2,7 @@
 
 package actions.glob
 
-external interface GlobOptions {
+sealed external interface GlobOptions {
     /**
      * Indicates whether to follow symbolic links. Generally should set to false
      * when deleting files.

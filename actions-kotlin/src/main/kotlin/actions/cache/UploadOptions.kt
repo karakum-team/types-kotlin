@@ -2,7 +2,7 @@
 
 package actions.cache
 
-external interface UploadOptions {
+sealed external interface UploadOptions {
     /**
      * Number of parallel cache upload
      *

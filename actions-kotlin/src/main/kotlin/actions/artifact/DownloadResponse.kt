@@ -2,7 +2,7 @@
 
 package actions.artifact
 
-external interface DownloadResponse {
+sealed external interface DownloadResponse {
     /**
      * The name of the artifact that was downloaded
      */

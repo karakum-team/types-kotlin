@@ -5,7 +5,7 @@ package actions.artifact
 import js.core.ReadonlyArray
 import kotlin.js.Promise
 
-external interface ArtifactClient {
+sealed external interface ArtifactClient {
     /**
      * Uploads an artifact
      *

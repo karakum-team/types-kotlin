@@ -2,7 +2,7 @@
 
 package actions.core
 
-external interface SummaryTableCell {
+sealed external interface SummaryTableCell {
     /**
      * Cell content
      */

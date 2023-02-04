@@ -2,7 +2,7 @@
 
 package actions.core
 
-external interface SummaryWriteOptions {
+sealed external interface SummaryWriteOptions {
     /**
      * Replace all existing content in summary file with buffer contents
      * (optional) default: false

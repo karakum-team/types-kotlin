@@ -2,7 +2,7 @@
 
 package actions.core
 
-external interface InputOptions {
+sealed external interface InputOptions {
     /** Optional. Whether the input is required. If required and not present, will throw. Defaults to false */
     var required: Boolean?
 

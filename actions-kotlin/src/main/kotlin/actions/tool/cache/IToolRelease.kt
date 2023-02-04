@@ -4,7 +4,7 @@ package actions.tool.cache
 
 import js.core.ReadonlyArray
 
-external interface IToolRelease {
+sealed external interface IToolRelease {
     var version: String
     var stable: Boolean
     var release_url: String

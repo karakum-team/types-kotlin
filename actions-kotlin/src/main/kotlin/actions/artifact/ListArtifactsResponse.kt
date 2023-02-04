@@ -4,7 +4,7 @@ package actions.artifact
 
 import js.core.ReadonlyArray
 
-external interface ListArtifactsResponse {
+sealed external interface ListArtifactsResponse {
     var count: Number
     var value: ReadonlyArray<ArtifactResponse>
 }
