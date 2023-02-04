@@ -4,6 +4,8 @@
 
 package actions.artifact
 
+import actions.http.client.HttpClient
+
 external class HttpManager {
     // private clients
     // private userAgent

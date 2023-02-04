@@ -4,4 +4,6 @@
 
 package actions.artifact
 
+import actions.http.client.HttpClient
+
 external fun createHttpClient(userAgent: String): HttpClient

@@ -6,7 +6,7 @@ package actions.exec
 
 import kotlin.js.Promise
 
-external class ToolRunner : events.EventEmitter {
+external class ToolRunner : node.events.EventEmitter {
     // constructor(toolPath: string, args?: string[], options?: im.ExecOptions)
     // private toolPath
     // private args
