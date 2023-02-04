@@ -17,6 +17,8 @@ internal fun convert(
     return ("\n" + body).splitToSequence("\nexport declare ", "\nexport ", "\n declare")
         .drop(1)
         .map { it.substringBefore("\n/**") }
+        // TODO: check
+        .filter { !it.startsWith("const chmod") }
         .mapNotNull { convertItem(it) }
         .filter { it.name !in EXCLUDED_NAMES }
 }
@@ -54,6 +56,11 @@ private fun convertItem(
 
         "enum" ->
             return convertEnum(
+                source = source.substringAfter(" ")
+            )
+
+        "const" ->
+            return convertConst(
                 source = source.substringAfter(" ")
             )
     }
@@ -171,6 +178,34 @@ private fun convertFunction(
     val body = ("\n" + bodies)
         .replace("\nfun ", "\nexternal fun ")
         .removePrefix("\n")
+
+    return ConversionResult(
+        name = name,
+        body = body,
+    )
+}
+
+private fun convertConst(
+    source: String,
+): ConversionResult {
+    val name = source
+        .substringBefore(":")
+        .substringBefore(" = ")
+
+    val body = if (" = " in source) {
+        val value = source
+            .substringAfter(" = ")
+            .removeSuffix(";")
+
+        "const val $name = $value"
+    } else {
+        val type = kotlinType(
+            source.substringAfter(": ")
+                .removeSuffix(";")
+        )
+
+        "external val $name: $type"
+    }
 
     return ConversionResult(
         name = name,

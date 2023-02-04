@@ -64,8 +64,10 @@ private fun generate(
     for ((name, body) in results) {
         val kotlinMode = "external interface " in body
                 || "external enum " in body
+                || "external val " in body
                 || "external fun " in body
                 || "typealias" in body
+                || "const val " in body
         val ext = if (kotlinMode) "kt" else "d.ts"
 
         val finalBody = if (kotlinMode) {
