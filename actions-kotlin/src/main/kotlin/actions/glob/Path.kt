@@ -16,5 +16,5 @@ external class Path {
     /**
      * Converts the path to it's string representation
      */
-    // toString(): string
+    override fun toString(): String
 }
