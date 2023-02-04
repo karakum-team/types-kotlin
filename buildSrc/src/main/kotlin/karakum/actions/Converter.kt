@@ -321,8 +321,11 @@ private fun convertMember(
         source.startsWith("toString()")
         -> "// $source"
 
-        source.startsWith("private ")
+        source == "private constructor()"
         -> "// $source"
+
+        source.startsWith("private ")
+        -> null
 
         source.startsWith("constructor(")
         -> convertConstructor(source)
