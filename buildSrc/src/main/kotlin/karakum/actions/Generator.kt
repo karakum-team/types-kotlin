@@ -96,12 +96,6 @@ private fun generate(
         } else body
 
         var f = dir.resolve(name + ".$ext")
-
-        var index = 2
-        while (f.exists()) {
-            f = dir.resolve(name + "_${index++}.$ext")
-        }
-
         check(!f.exists()) {
             "File $f already exists!"
         }
