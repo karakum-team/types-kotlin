@@ -144,12 +144,12 @@ private fun convertInterface(
     val declaration = source.substringBefore(" {\n")
 
     val memberSource = source.substringAfter(" {\n")
-        .substringBefore("\n}")
+        .substringBefore(";\n}")
         .replace("/**`", "/ **`")
         .replace("/*`", "/ *`")
         .trimIndent()
 
-    if (memberSource == "[key: string]: any;")
+    if (memberSource == "[key: string]: any")
         return ConversionResult(
             name = name,
             body = "typealias $name = Record<String, Any>"
@@ -157,14 +157,8 @@ private fun convertInterface(
 
     var members = memberSource
         .replace("env?: {\n    [key: string]: string;\n};", "env?: Record<string, string>;")
-        .splitToSequence("\n")
-        .map { line ->
-            if (line.endsWith(";")) {
-                convertMember(line.removeSuffix(";"))
-            } else {
-                line
-            }
-        }
+        .splitToSequence(";\n")
+        .mapNotNull { convertMember(it) }
         .joinToString("\n")
         .prependIndent("    ")
 
@@ -189,21 +183,14 @@ private fun convertClass(
         .replace(" implements ", " : ")
 
     val memberSource = source.substringAfter(" {\n")
-        .substringBefore("\n}")
+        .substringBefore(";\n}")
         .replace("/**`", "/ **`")
         .replace("/*`", "/ *`")
         .trimIndent()
 
     var members = memberSource
-        // .replace("env?: {\n    [key: string]: string;\n};", "env?: Record<string, string>;")
-        .splitToSequence("\n")
-        .mapNotNull { line ->
-            if (line.endsWith(";")) {
-                convertMember(line.removeSuffix(";"))
-            } else {
-                line
-            }
-        }
+        .splitToSequence(";\n")
+        .mapNotNull { convertMember(it) }
         .joinToString("\n")
         .prependIndent("    ")
 
@@ -321,8 +308,16 @@ private fun convertConst(
 
 private fun convertMember(
     source: String,
-): String =
-    when {
+): String? {
+    if ("\n" in source) {
+        val member = convertMember(source.substringAfterLast("\n"))
+            ?: return null
+
+        val comment = source.substringBeforeLast("\n")
+        return "$comment\n$member"
+    }
+
+    return when {
         source.startsWith("toString()")
         -> "// $source"
 
@@ -337,6 +332,7 @@ private fun convertMember(
 
         else -> convertProperty(source)
     }
+}
 
 private fun convertProperty(
     source: String,
