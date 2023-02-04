@@ -7,7 +7,7 @@ package actions.artifact
 import js.core.ReadonlyArray
 import kotlin.js.Promise
 
-external class DefaultArtifactClient : ArtifactClient {
+sealed external class DefaultArtifactClient : ArtifactClient {
     /**
      * Constructs a DefaultArtifactClient
      */
