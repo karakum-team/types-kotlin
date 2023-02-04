@@ -205,7 +205,24 @@ private fun convertClass(
         }
         .prependIndent("    ")
 
-    val body = "external class $declaration {\n$members\n}"
+    var body = "external class $declaration {\n$members\n}"
+
+    body = when (name) {
+        "DefaultGlobber" ->
+            body
+                .replace("fun getSearchPaths(", "override fun getSearchPaths(")
+                .replace("fun glob(", "override fun glob(")
+                .replace("fun globGenerator(", "override fun globGenerator(")
+
+        "BasicCredentialHandler",
+        "BearerCredentialHandler",
+        "PersonalAccessTokenCredentialHandler",
+        -> body
+            .replace("fun prepareRequest(", "override fun prepareRequest(")
+
+        else -> body
+    }
+
 
     return ConversionResult(
         name = name,
