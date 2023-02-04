@@ -158,13 +158,14 @@ private fun convertInterface(
     var members = memberSource
         .replace("env?: {\n    [key: string]: string;\n};", "env?: Record<string, string>;")
         .splitToSequence("\n")
-        .joinToString("\n") { line ->
+        .map { line ->
             if (line.endsWith(";")) {
                 convertMember(line.removeSuffix(";"))
             } else {
                 line
             }
         }
+        .joinToString("\n")
         .prependIndent("    ")
 
     val body = "external interface $declaration {\n$members\n}"
@@ -196,13 +197,14 @@ private fun convertClass(
     var members = memberSource
         // .replace("env?: {\n    [key: string]: string;\n};", "env?: Record<string, string>;")
         .splitToSequence("\n")
-        .joinToString("\n") { line ->
+        .mapNotNull { line ->
             if (line.endsWith(";")) {
                 convertMember(line.removeSuffix(";"))
             } else {
                 line
             }
         }
+        .joinToString("\n")
         .prependIndent("    ")
 
     var body = "external class $declaration {\n$members\n}"
@@ -244,7 +246,7 @@ private fun convertFunction(
             .substringBefore(";\n")
             .removeSuffix(";")
             .replace(": Map<number, string>", ": Map<number,string>"),
-    )
+    )!!
     val body = ("\n" + bodies)
         .replace("\nfun ", "\nexternal fun ")
         .removePrefix("\n")
