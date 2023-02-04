@@ -32,6 +32,8 @@ private fun cleanup(
         .filter { line -> !line.startsWith("import ") }
         .filter { line -> !line.startsWith("    private _") }
         .joinToString("\n")
+        .replace(" ifm.", " ")
+        .replace("<ifm.", "<")
         .trim()
 
 private fun convertItem(
@@ -180,6 +182,8 @@ private fun convertClass(
         .substringBefore("<")
 
     val declaration = source.substringBefore(" {\n")
+        .replace(" extends ", " : ")
+        .replace(" implements ", " : ")
 
     val memberSource = source.substringAfter(" {\n")
         .substringBefore("\n}")
@@ -297,6 +301,9 @@ private fun convertMember(
     source: String,
 ): String =
     when {
+        source.startsWith("private ")
+        -> "// $source"
+
         source.startsWith("constructor(")
         -> convertConstructor(source)
 
@@ -309,8 +316,10 @@ private fun convertMember(
 private fun convertProperty(
     source: String,
 ): String {
-    val nameSource = source.substringBefore(": ")
-    val typeSource = source.substringAfter(": ")
+    val cleanSource = source.removePrefix("readonly ")
+    val readonly = cleanSource != source
+    val nameSource = cleanSource.substringBefore(": ")
+    val typeSource = cleanSource.substringAfter(": ")
 
     val name = nameSource.removeSuffix("?")
     var type = kotlinType(typeSource)
@@ -322,7 +331,8 @@ private fun convertProperty(
         type += "?"
     }
 
-    return "var $name: $type"
+    val modifier = if (readonly) "val" else "var"
+    return "$modifier $name: $type"
 }
 
 private fun convertConstructor(
@@ -358,6 +368,9 @@ private fun convertMethod(
 
         declaration = "$typeParameters $name"
     }
+
+    if (declaration.startsWith("static "))
+        declaration = declaration.replaceFirst("static ", "/* static */ ")
 
     val parametersSource = source
         .substringAfter("(")
