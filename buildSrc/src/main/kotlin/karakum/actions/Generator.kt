@@ -2,6 +2,7 @@ package karakum.actions
 
 import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
+import karakum.common.Suppress.*
 import karakum.common.fileSuppress
 import java.io.File
 
@@ -59,19 +60,27 @@ private fun generate(
     for ((name, body) in results) {
         val suppresses = mutableListOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body)
-                add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+                add(NAME_CONTAINS_ILLEGAL_CHARS)
+
+            if (name in CREDENTIAL_HANDLERS)
+                add(ABSTRACT_MEMBER_NOT_IMPLEMENTED)
         }.toTypedArray()
 
-        val annotations = when {
+        var annotations = when {
             "external class " in body
                     || "external val " in body
                     || "external fun " in body
             -> """@file:JsModule("${library.moduleId}")"""
 
-            suppresses.isNotEmpty()
-            -> fileSuppress(*suppresses)
-
             else -> ""
+        }
+
+        if (suppresses.isNotEmpty()) {
+            annotations = sequenceOf(
+                annotations,
+                fileSuppress(*suppresses)
+            ).filter { it.isNotEmpty() }
+                .joinToString("\n\n")
         }
 
         val finalBody = fileContent(

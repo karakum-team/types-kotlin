@@ -214,9 +214,7 @@ private fun convertClass(
                 .replace("fun glob(", "override fun glob(")
                 .replace("fun globGenerator(", "override fun globGenerator(")
 
-        "BasicCredentialHandler",
-        "BearerCredentialHandler",
-        "PersonalAccessTokenCredentialHandler",
+        in CREDENTIAL_HANDLERS,
         -> body
             .replace("fun prepareRequest(", "override fun prepareRequest(")
 
