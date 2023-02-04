@@ -211,6 +211,7 @@ private fun convertClass(
         -> "sealed $body"
 
         else -> body
+            .replace("fun toString(", "override fun toString(")
     }
 
 
@@ -318,9 +319,6 @@ private fun convertMember(
     }
 
     return when {
-        source.startsWith("toString()")
-        -> "// $source"
-
         source == "private constructor()"
         -> "// $source"
 
