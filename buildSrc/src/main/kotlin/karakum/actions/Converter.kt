@@ -182,6 +182,7 @@ private fun convertClass(
         .substringBefore("<")
 
     val declaration = source.substringBefore(" {\n")
+        .replace(" extends events.EventEmitter", " : node.events.EventEmitter")
         .replace(" extends Error", " : JsError")
         .replace(" extends ", " : ")
         .replace(" implements ", " : ")
@@ -302,6 +303,9 @@ private fun convertMember(
     source: String,
 ): String =
     when {
+        source.startsWith("toString()")
+        -> "// $source"
+
         source.startsWith("private ")
         -> "// $source"
 
