@@ -218,6 +218,9 @@ private fun convertClass(
         -> body
             .replace("fun prepareRequest(", "override fun prepareRequest(")
 
+        "DefaultArtifactClient",
+        -> "sealed $body"
+
         else -> body
     }
 
