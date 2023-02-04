@@ -2,6 +2,10 @@
 
 @file:JsModule("@actions/http-client")
 
+@file:Suppress(
+    "ABSTRACT_MEMBER_NOT_IMPLEMENTED",
+)
+
 package actions.http.client
 
 import kotlin.js.Promise
