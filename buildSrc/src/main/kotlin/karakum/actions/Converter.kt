@@ -351,7 +351,8 @@ private fun convertProperty(
         if (type.startsWith("("))
             type = "($type)"
 
-        type += "?"
+        if (!type.endsWith("?"))
+            type += "?"
     }
 
     val modifier = if (readonly) "val" else "var"
