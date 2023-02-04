@@ -1,15 +1,26 @@
-class UploadHttpClient {
-    private uploadHttpManager;
-    private statusReporter;
+// Automatically generated - do not modify!
 
-    constructor();
+@file:JsModule("@actions/artifact")
 
+package actions.artifact
+
+import js.core.ReadonlyArray
+import js.core.Void
+import kotlin.js.Promise
+
+external class UploadHttpClient {
+    // private uploadHttpManager
+    // private statusReporter
+    // constructor()
     /**
      * Creates a file container for the new artifact in the remote blob storage/file service
      * @param {string} artifactName Name of the artifact being created
      * @returns The response from the Artifact Service if the file container was successfully created
      */
-    createArtifactInFileContainer(artifactName: string, options?: UploadOptions | undefined): Promise<ArtifactResponse>;
+    fun createArtifactInFileContainer(
+        artifactName: String,
+        options: UploadOptions? = definedExternally,
+    ): Promise<ArtifactResponse>
 
     /**
      * Concurrently upload all of the files in chunks
@@ -17,8 +28,11 @@ class UploadHttpClient {
      * @param {SearchResult[]} filesToUpload A list of information about the files being uploaded
      * @returns The size of all the files uploaded in bytes
      */
-    uploadArtifactToFileContainer(uploadUrl: string, filesToUpload: UploadSpecification[], options?: UploadOptions): Promise<UploadResults>;
-
+    fun uploadArtifactToFileContainer(
+        uploadUrl: String,
+        filesToUpload: ReadonlyArray<UploadSpecification>,
+        options: UploadOptions = definedExternally,
+    ): Promise<UploadResults>
     /**
      * Asynchronously uploads a file. The file is compressed and uploaded using GZip if it is determined to save space.
      * If the upload file is bigger than the max chunk size it will be uploaded via multiple calls
@@ -26,7 +40,7 @@ class UploadHttpClient {
      * @param {UploadFileParameters} parameters Information about the file that needs to be uploaded
      * @returns The size of the file that was uploaded in bytes along with any failed uploads
      */
-    private uploadFileAsync;
+    // private uploadFileAsync
     /**
      * Uploads a chunk of an individual file to the specified resourceUrl. If the upload fails and the status code
      * indicates a retryable status, we try to upload the chunk as well
@@ -40,11 +54,13 @@ class UploadHttpClient {
      * @param {number} totalFileSize Original total size of the file that is being uploaded
      * @returns if the chunk was successfully uploaded
      */
-    private uploadChunk;
-
+    // private uploadChunk
     /**
      * Updates the size of the artifact from -1 which was initially set when the container was first created for the artifact.
      * Updating the size indicates that we are done uploading all the contents of the artifact
      */
-    patchArtifactSize(size: number, artifactName: string): Promise<void>;
+    fun patchArtifactSize(
+        size: Number,
+        artifactName: String,
+    ): Promise<Void>
 }

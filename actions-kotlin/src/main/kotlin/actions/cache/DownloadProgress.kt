@@ -1,62 +1,66 @@
-class DownloadProgress {
-    contentLength: number;
-    segmentIndex: number;
-    segmentSize: number;
-    segmentOffset: number;
-    receivedBytes: number;
-    startTime: number;
-    displayedComplete: boolean;
-    timeoutHandle?: ReturnType<typeof setTimeout>;
+// Automatically generated - do not modify!
 
-    constructor(contentLength: number);
+@file:JsModule("@actions/cache")
 
+package actions.cache
+
+external class DownloadProgress {
+    var contentLength: Number
+    var segmentIndex: Number
+    var segmentSize: Number
+    var segmentOffset: Number
+    var receivedBytes: Number
+    var startTime: Number
+    var displayedComplete: Boolean
+    var timeoutHandle: ReturnType<typeof setTimeout>?
+    // constructor(contentLength: number)
     /**
      * Progress to the next segment. Only call this method when the previous segment
      * is complete.
      *
      * @param segmentSize the length of the next segment
      */
-    nextSegment(segmentSize: number): void;
+    fun nextSegment(segmentSize: Number)
 
     /**
      * Sets the number of bytes received for the current segment.
      *
      * @param receivedBytes the number of bytes received
      */
-    setReceivedBytes(receivedBytes: number): void;
+    fun setReceivedBytes(receivedBytes: Number)
 
     /**
      * Returns the total number of bytes transferred.
      */
-    getTransferredBytes(): number;
+    fun getTransferredBytes(): Number
 
     /**
      * Returns true if the download is complete.
      */
-    isDone(): boolean;
+    fun isDone(): Boolean
 
     /**
      * Prints the current download stats. Once the download completes, this will print one
      * last line and then stop.
      */
-    display(): void;
+    fun display()
 
     /**
      * Returns a function used to handle TransferProgressEvents.
      */
-    onProgress(): (progress: TransferProgressEvent) => void;
+    fun onProgress(): (progress: TransferProgressEvent) -> Unit
 
     /**
      * Starts the timer that displays the stats.
      *
      * @param delayInMs the delay between each write
      */
-    startDisplayTimer(delayInMs?: number): void;
+    fun startDisplayTimer(delayInMs: Number = definedExternally)
 
     /**
      * Stops the timer that displays the stats. As this typically indicates the download
      * is complete, this will display one last line, unless the last line has already
      * been written.
      */
-    stopDisplayTimer(): void;
+    fun stopDisplayTimer()
 }

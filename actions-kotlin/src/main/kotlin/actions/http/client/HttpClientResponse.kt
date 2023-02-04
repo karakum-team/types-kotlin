@@ -1,6 +1,13 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("@actions/http-client")
+
 package actions.http.client
 
-// TEMP
-external interface HttpClientResponse
+import kotlin.js.Promise
+
+external class HttpClientResponse {
+    // constructor(message: http.IncomingMessage)
+    var message: node.http.IncomingMessage
+    fun readBody(): Promise<String>
+}
