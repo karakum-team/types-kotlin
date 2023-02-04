@@ -51,6 +51,7 @@ private fun generate(
     var results = files.asSequence()
         .flatMap { convert(it.readText()) }
         .toList()
+        .mergeDuplicated()
 
     if (library.name == "http-client") {
         results +=
