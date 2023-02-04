@@ -10,6 +10,8 @@ private val EXCLUDED_NAMES = setOf(
     "retryTypedResponse",
 )
 
+private const val STATIC_MARKER = "/* static */\n"
+
 internal fun convert(
     content: String,
 ): Sequence<ConversionResult> {
@@ -409,7 +411,7 @@ private fun convertMethod(
     }
 
     if (source.startsWith("static "))
-        return "/* static */\n" + convertMethod(source.removePrefix("static "))
+        return STATIC_MARKER + convertMethod(source.removePrefix("static "))
 
     var declaration = source.substringBefore("(")
     if ("<" in declaration) {
