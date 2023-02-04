@@ -33,6 +33,7 @@ private fun cleanup(
         .filter { line -> !line.startsWith("    private _") }
         .joinToString("\n")
         .replace(" ifm.", " ")
+        .replace(" im.", " ")
         .replace("<ifm.", "<")
         .trim()
 
@@ -361,7 +362,26 @@ private fun convertProperty(
 private fun convertConstructor(
     source: String,
 ): String {
-    return "// $source"
+    // TODO: move to patches
+    sequenceOf(
+        "string | string[]",
+    ).forEach { unionType ->
+        if (": $unionType" in source) {
+            val (t1, t2) = unionType.split(" | ")
+
+            return sequenceOf(
+                source.replace(": $unionType", ": $t1"),
+                source.replace(": $unionType", ": $t2"),
+            ).map { convertConstructor(it) }
+                .joinToString("\n\n")
+        }
+    }
+
+    val parameters = convertParameters(
+        source.removeSurrounding("constructor(", ")")
+    )
+
+    return "constructor($parameters)"
 }
 
 private fun convertMethod(

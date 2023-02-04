@@ -6,6 +6,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "string" to "String",
     "number" to "Number",
     "bigint" to "BigInt",
+    "undefined" to "Void",
 
     "string[]" to "ReadonlyArray<String>",
     "Record<string, string>" to "Record<String, String>",
