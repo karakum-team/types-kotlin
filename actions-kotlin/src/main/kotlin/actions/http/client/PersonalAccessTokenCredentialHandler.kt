@@ -10,7 +10,7 @@ external class PersonalAccessTokenCredentialHandler : RequestHandler {
     var token: String
 
     // constructor(token: string)
-    fun prepareRequest(options: node.http.RequestOptions)
+    override fun prepareRequest(options: node.http.RequestOptions)
     fun canHandleAuthentication(): Boolean
     fun handleAuthentication(): Promise<HttpClientResponse>
 }

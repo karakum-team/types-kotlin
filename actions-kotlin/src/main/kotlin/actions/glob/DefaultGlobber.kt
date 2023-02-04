@@ -12,9 +12,9 @@ external class DefaultGlobber : Globber {
     // private readonly patterns
     // private readonly searchPaths
     // private constructor()
-    fun getSearchPaths(): ReadonlyArray<String>
-    fun glob(): Promise<ReadonlyArray<String>>
-    fun globGenerator(): Any /* AsyncGenerator<string, void> */
+    override fun getSearchPaths(): ReadonlyArray<String>
+    override fun glob(): Promise<ReadonlyArray<String>>
+    override fun globGenerator(): Any /* AsyncGenerator<string, void> */
 
     /**
      * Constructs a DefaultGlobber

@@ -11,7 +11,7 @@ external class BasicCredentialHandler : RequestHandler {
     var password: String
 
     // constructor(username: string, password: string)
-    fun prepareRequest(options: node.http.RequestOptions)
+    override fun prepareRequest(options: node.http.RequestOptions)
     fun canHandleAuthentication(): Boolean
     fun handleAuthentication(): Promise<HttpClientResponse>
 }
