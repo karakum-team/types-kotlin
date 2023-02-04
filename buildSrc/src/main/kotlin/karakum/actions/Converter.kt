@@ -408,6 +408,9 @@ private fun convertMethod(
         }
     }
 
+    if (source.startsWith("static "))
+        return "/* static */\n" + convertMethod(source.removePrefix("static "))
+
     var declaration = source.substringBefore("(")
     if ("<" in declaration) {
         val name = declaration.substringBefore("<")
@@ -415,9 +418,6 @@ private fun convertMethod(
 
         declaration = "$typeParameters $name"
     }
-
-    if (declaration.startsWith("static "))
-        declaration = declaration.replaceFirst("static ", "/* static */ ")
 
     val parameters = convertParameters(
         source.substringAfter("(")
