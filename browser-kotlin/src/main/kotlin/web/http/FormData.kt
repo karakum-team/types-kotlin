@@ -5,11 +5,10 @@ package web.http
 import js.core.ReadonlyArray
 import web.buffer.Blob
 import web.events.EventTarget
-import web.html.HTMLElement
 
 external class FormData(
     form: EventTarget /* HTMLFormElement */ = definedExternally,
-    submitter: HTMLElement? = definedExternally,
+    submitter: EventTarget /* HTMLElement */? = definedExternally,
 ) {
     fun append(
         name: String,
