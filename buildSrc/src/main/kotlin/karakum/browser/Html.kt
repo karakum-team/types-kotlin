@@ -1162,7 +1162,13 @@ private fun convertConstructor(
     if (parametersSource == "")
         return ""
 
-    val parameters = convertFunctionParameters(parametersSource)
+    var parameters = convertFunctionParameters(parametersSource)
+
+    // FormData
+    parameters = parameters
+        .replace("form: HTMLFormElement", "form: EventTarget /* HTMLFormElement */")
+        .replace("submitter: HTMLElement", "submitter: EventTarget /* HTMLElement */")
+
     return "constructor($parameters)"
 }
 
@@ -1666,10 +1672,6 @@ private fun getParameterType(
 
         return type
     }
-
-    // FormData
-    if (name == "form" && source == "HTMLFormElement")
-        return "EventTarget /* $source */"
 
     return when {
         source == "number | DOMPointInit | (number | DOMPointInit)[]"
