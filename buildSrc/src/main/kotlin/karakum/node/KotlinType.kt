@@ -115,6 +115,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "ReadableStreamDefaultReadResult<R>" to "Any /* ReadableStreamDefaultReadResult<R> */",
     "ReadlineInterface" to "$DYNAMIC /* ReadlineInterface */",
 
+    "typeof after" to "(fn: HookFn,\noptions: HookOptions,\n) -> Unit /* typeof after */",
     "typeof afterEach" to "(fn: HookFn,\noptions: HookOptions,\n) -> Unit /* typeof afterEach */",
     "typeof beforeEach" to "(fn: HookFn,\noptions: HookOptions,\n) -> Unit /* typeof beforeEach */",
 )
