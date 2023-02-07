@@ -26,7 +26,10 @@ sealed external interface TestContext {
      * @param options Configuration options for the hook.
      * @since v18.13.0
      */
-    var after: typeof after
+    var after: (
+        fn: HookFn,
+        options: HookOptions,
+    ) -> Unit /* typeof after */
 
     /**
      * This function is used to create a hook running after each subtest of the current test.
