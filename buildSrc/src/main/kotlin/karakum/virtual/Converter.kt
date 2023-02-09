@@ -37,8 +37,13 @@ internal fun convertDefinitions(
                 .replace("\n", "\n    "),
             ITEM_RANGE,
         )
+        .replace("align?: ScrollAlignment)", "align: ScrollAlignment?)")
+        .replace(
+            """readonly [number, "auto"] | readonly [number, "start" | "center" | "end"]""",
+            "JsTuple2<Double, ScrollAlignment>"
+        )
         .replace("{ align, behavior }?: ScrollToOffsetOptions", "options: ScrollToOffsetOptions?")
-        .replace("{ align, behavior }?: ScrollToIndexOptions", "options: ScrollToIndexOptions?")
+        .replace("{ align: initialAlign, behavior }?: ScrollToIndexOptions", "options: ScrollToIndexOptions?")
         .replace("{ behavior }?: ScrollToOffsetOptions", "options: ScrollToOffsetOptions?")
         .splitToSequence("\ndeclare ")
         .drop(1)
@@ -72,7 +77,7 @@ private fun convertConst(
 
     var body = source.replace(": {", " {")
         .replace("\n    ", "\n    val ")
-        .replace("Virtualizer<any, any>", "Virtualizer<*, *>")
+        .replace("Virtualizer<Window, any>", "Virtualizer<Window, *>")
         .replace("Virtualizer<T, any>", "Virtualizer<*, *>")
         .replace("Virtualizer<any, TItemElement>", "Virtualizer<*, Element>")
         .replace(": TItemElement", ": Element")

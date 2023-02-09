@@ -13,6 +13,7 @@ private val DEFAULT_IMPORTS = listOf(
     "Void" to "js.core.Void",
 
     "Element" to "web.dom.Element",
+    "Window" to "web.window.Window",
     "EventTarget" to "web.events.EventTarget",
     "ScrollBehavior" to "web.scroll.ScrollBehavior",
 )
