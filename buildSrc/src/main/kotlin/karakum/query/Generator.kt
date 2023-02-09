@@ -48,7 +48,7 @@ fun generateKotlinDeclarations(
 private fun moduleDeclaration(
     pkg: Package,
 ): String =
-    "@file:JsModule(\"${pkg.module}\")\n@file:JsNonModule"
+    "@file:JsModule(\"${pkg.module}\")"
 
 private fun generate(
     definitionsDir: File,

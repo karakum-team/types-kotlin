@@ -27,7 +27,7 @@ fun generateKotlinDeclarations(
     for ((name, body) in convertDefinitions(coreDefinitionsFile)) {
         val annotations = when {
             "external val " in body || "external object " in body || "external fun " in body
-            -> "@file:JsModule(\"${Package.TABLE_CORE.moduleName}\")\n@file:JsNonModule"
+            -> "@file:JsModule(\"${Package.TABLE_CORE.moduleName}\")"
 
             "inline fun " in body
             -> fileSuppress(NOTHING_TO_INLINE)
