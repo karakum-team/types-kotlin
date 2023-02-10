@@ -16,6 +16,7 @@ private val DEFAULT_IMPORTS = listOf(
     "Window" to "web.window.Window",
     "EventTarget" to "web.events.EventTarget",
     "ScrollBehavior" to "web.scroll.ScrollBehavior",
+    "ResizeObserverEntry" to "web.dom.observers.ResizeObserverEntry",
 )
 
 fun generateKotlinDeclarations(

@@ -53,6 +53,7 @@ internal fun kotlinType(
         .replace(") -> void", ") -> Unit")
         .replace("number[]", "ReadonlyArray<Int>")
         .replace("VirtualItem<TItemElement>[]", "ReadonlyArray<VirtualItem<TItemElement>>")
+        .replace(": ResizeObserverEntry | undefined", ": ResizeObserverEntry?")
         .replace("?: number", ": Int?")
         .replace("?: boolean", ": Boolean?")
         .replace("?: string", ": String?")
