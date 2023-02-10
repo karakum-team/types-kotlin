@@ -19,7 +19,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "AsyncGenerator<string, void>" to "Any /* AsyncGenerator<string, void> */",
 
-    "Map<number,string>" to "Map<Int, String>",
+    "Map<number,string>" to "ReadonlyMap<Int, String>",
 
     "string | Buffer" to "Any /* String | Buffer */",
 
