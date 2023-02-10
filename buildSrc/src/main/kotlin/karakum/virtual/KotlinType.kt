@@ -43,6 +43,9 @@ internal fun kotlinType(
     if (type.endsWith(" | undefined"))
         return kotlinType(type.removeSuffix(" | undefined"), name)
 
+    if (type.startsWith("Map<"))
+        return "Js${type}"
+
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
 
