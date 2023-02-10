@@ -16,6 +16,7 @@ external class Virtualizer<TScrollElement : EventTarget /* Element | Window */, 
     var measurementsCache: ReadonlyArray<VirtualItem>
     var scrollOffset: Int
     var scrollDirection: ScrollDirection?
+    var measureElementCache: Map<Key, TItemElement>
     var range: ItemRange
 
     constructor(opts: VirtualizerOptions<TScrollElement, TItemElement>)
