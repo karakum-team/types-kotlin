@@ -44,7 +44,7 @@ internal fun kotlinType(
         return kotlinType(type.removeSuffix(" | undefined"), name)
 
     if (type.startsWith("Map<"))
-        return "Js${type}"
+        return "Readonly${type}"
 
     STANDARD_TYPE_MAP[type]
         ?.also { return it }

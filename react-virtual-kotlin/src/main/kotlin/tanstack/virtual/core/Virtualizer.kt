@@ -4,7 +4,7 @@
 
 package tanstack.virtual.core
 
-import js.collections.JsMap
+import js.collections.ReadonlyMap
 import js.core.JsTuple2
 import js.core.ReadonlyArray
 import web.dom.Element
@@ -17,7 +17,7 @@ external class Virtualizer<TScrollElement : EventTarget /* Element | Window */, 
     var measurementsCache: ReadonlyArray<VirtualItem>
     var scrollOffset: Int
     var scrollDirection: ScrollDirection?
-    var measureElementCache: JsMap<Key, TItemElement>
+    var measureElementCache: ReadonlyMap<Key, TItemElement>
     var range: ItemRange
 
     constructor(opts: VirtualizerOptions<TScrollElement, TItemElement>)
