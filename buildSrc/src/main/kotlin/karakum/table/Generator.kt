@@ -18,13 +18,15 @@ private val DEFAULT_IMPORTS = listOf(
 )
 
 fun generateKotlinDeclarations(
-    coreDefinitionsFile: File,
+    coreDefinitionsDir: File,
     sourceDir: File,
 ) {
+    val content = readContent(coreDefinitionsDir)
+
     val targetDir = sourceDir.resolve("tanstack/table/core")
         .also { it.mkdirs() }
 
-    for ((name, body) in convertDefinitions(coreDefinitionsFile)) {
+    for ((name, body) in convertDefinitions(content)) {
         val annotations = when {
             "external val " in body || "external object " in body || "external fun " in body
             -> "@file:JsModule(\"${Package.TABLE_CORE.moduleName}\")"
@@ -43,6 +45,24 @@ fun generateKotlinDeclarations(
             .writeText(fileContent(Package.TABLE_CORE, annotations, body))
     }
 }
+
+private fun readContent(
+    definitionsDir: File,
+): String =
+    definitionsDir.walk()
+        .maxDepth(2)
+        .filter { it.isFile }
+        .filter { it.name.endsWith(".d.ts") }
+        .mapNotNull { file ->
+            file.readLines()
+                .filter { !it.startsWith("import ") }
+                .filter { !it.startsWith("export * from ") }
+                .joinToString("\n")
+                .substringBefore("\nexport {")
+                .trim()
+        }
+        .filter { it.isNotEmpty() }
+        .joinToString("\n\n")
 
 private fun fileContent(
     pkg: Package,

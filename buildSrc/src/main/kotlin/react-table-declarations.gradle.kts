@@ -4,15 +4,15 @@ plugins {
 
 tasks.named("generateDeclarations") {
     doLast {
-        val coreDefinitionsFile = rootProject.buildDir
-            .resolve("js/node_modules/@tanstack/table-core/build/types/index.d.ts")
+        val coreDefinitionsDir = rootProject.buildDir
+            .resolve("js/node_modules/@tanstack/table-core/build/lib")
 
         val sourceDir = projectDir.resolve("src/main/kotlin")
 
         delete(sourceDir)
 
         karakum.table.generateKotlinDeclarations(
-            coreDefinitionsFile = coreDefinitionsFile,
+            coreDefinitionsDir = coreDefinitionsDir,
             sourceDir = sourceDir,
         )
     }

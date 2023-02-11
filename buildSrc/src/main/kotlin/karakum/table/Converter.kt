@@ -44,13 +44,13 @@ private val EXCLUDED_ITEMS = setOf(
 )
 
 internal fun convertDefinitions(
-    definitionFile: File,
+    source: String,
 ): Sequence<ConversionResult> =
-    definitionFile.readText()
-        .substringBefore("\n\nexport {")
-        .replace("\ninterface ", "\ndeclare interface ")
-        .replace("\ntype ", "\ndeclare type ")
-        .splitToSequence("\ndeclare ")
+    source
+        .replace("\nexport declare ", "\nexport ")
+        .replace("\ninterface ", "\nexport interface ")
+        .replace("\ntype ", "\nexport type ")
+        .splitToSequence("\nexport ")
         .drop(1)
         .map { it.removeSuffix(";") }
         .filter { " = keyof typeof " !in it }
@@ -68,7 +68,7 @@ private fun convertDefinition(
         "function" -> convertFunction(body)
         "type" -> convertType(body)
         "interface" -> convertInterface(body)
-        else -> TODO()
+        else -> TODO("Unable to convert type '$type' with body:\n```\n$body\n```")
     }
 }
 
