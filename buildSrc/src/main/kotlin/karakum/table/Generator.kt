@@ -72,6 +72,7 @@ private fun fileContent(
     val defaultImports = DEFAULT_IMPORTS
         .filter { it.first in body }
         .map { "import ${it.second}" }
+        .plus("import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn")
         .joinToString("\n")
 
     val finalBody = if (!body.endsWith("\n")) {
