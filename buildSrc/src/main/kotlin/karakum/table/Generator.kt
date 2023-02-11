@@ -62,7 +62,7 @@ private fun readContent(
                 .trim()
         }
         .filter { it.isNotEmpty() }
-        .joinToString("\n\n")
+        .joinToString("\n\n", "\n\n")
 
 private fun fileContent(
     pkg: Package,
@@ -74,12 +74,16 @@ private fun fileContent(
         .map { "import ${it.second}" }
         .joinToString("\n")
 
+    val finalBody = if (!body.endsWith("\n")) {
+        body + "\n"
+    } else body
+
     return sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
         pkg.pkg,
         defaultImports,
-        body,
+        finalBody,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
 }
