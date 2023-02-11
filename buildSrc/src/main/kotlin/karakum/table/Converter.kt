@@ -1,7 +1,5 @@
 package karakum.table
 
-import java.io.File
-
 internal data class ConversionResult(
     val name: String,
     val body: String,
@@ -116,6 +114,7 @@ private fun convertFunction(
         .replace(": boolean | 'some' | 'all'", ": Any /* Boolean | 'some' | 'all' */")
         .replace("Record<string, boolean>", "ReadonlyRecord<String, Boolean>")
         .replace("Map<any, number>", "JsMap<Any, Int>")
+        .replace(" => any", " -> Boolean /* Any? */")
         .replace(" => void", " -> Unit")
         .replace(" => ", " -> ")
         .replace(": string[]", ": ReadonlyArray<String>")
@@ -128,6 +127,8 @@ private fun convertFunction(
         .replace(": ColumnDef<TData>", ": ColumnDef<TData, *>")
         .replace(": TData | undefined", ": TData?")
         .replace("?: Row<TData>[] | undefined", ": ReadonlyArray<Row<TData>>? = definedExternally")
+        .replace(": Row<TData>[],", ": ReadonlyArray<Row<TData>>,")
+        .replace(" -> Row<TData>[],", " -> ReadonlyArray<Row<TData>>,")
         .replace(": string", ": String")
         .replace(": number", ": Int")
         .replace(": boolean", ": Boolean")
