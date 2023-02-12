@@ -8,7 +8,7 @@ private val EXCLUDED_NAMES = setOf(
     "getCacheEntry",
     "reserveCache",
     "retryTypedResponse",
-)
+).flatMap { sequenceOf(it, "${it}Async") }
 
 private const val STATIC_MARKER = "/* static */\n"
 
@@ -249,7 +249,7 @@ private fun convertClass(
 private fun convertFunction(
     source: String,
 ): ConversionResult {
-    val name = source
+    var name = source
         .substringBefore("(")
         .substringBefore("<")
 
@@ -259,9 +259,17 @@ private fun convertFunction(
             .removeSuffix(";")
             .replace(": Map<number, string>", ": Map<number,string>"),
     )!!
-    val body = ("\n" + bodies)
+    var body = ("\n" + bodies)
         .replace("\nfun ", "\nexternal fun ")
         .removePrefix("\n")
+
+    if ("): Promise<" in body) {
+        val asyncName = "${name}Async"
+
+        body = """@JsName("$name")""" + "\n" +
+                body.replaceFirst(" $name(", " $asyncName(")
+        name = asyncName
+    }
 
     return ConversionResult(
         name = name,
