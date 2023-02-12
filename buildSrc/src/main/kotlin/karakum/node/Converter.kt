@@ -1,5 +1,6 @@
 package karakum.node
 
+import karakum.common.ConversionResult
 import karakum.common.Parameter
 
 private val IGNORE_LIST = setOf(
@@ -34,11 +35,6 @@ private val IGNORE_LIST = setOf(
 
     "ByteLengthQueuingStrategy",
     "CountQueuingStrategy",
-)
-
-internal data class ConversionResult(
-    val name: String,
-    val body: String,
 )
 
 internal fun convertDefinitions(
@@ -156,7 +152,12 @@ internal fun convertDefinitions(
             }
             .plus(PipeOptions())
             .plus(ConversionResult("Dict", "typealias Dict<T> = Record<String, T>"))
-            .plus(ConversionResult("ReadOnlyDict", "typealias ReadOnlyDict<T> = ReadonlyRecord<String, T>"))
+            .plus(
+                ConversionResult(
+                    "ReadOnlyDict",
+                    "typealias ReadOnlyDict<T> = ReadonlyRecord<String, T>"
+                )
+            )
 
         Package("fs") -> (interfaces + classes)
             .plus(convertFunctions(content, syncOnly = true))
@@ -165,7 +166,12 @@ internal fun convertDefinitions(
             .plus(ConversionResult("PathLike", "typealias PathLike = String"))
             .plus(ConversionResult("PathOrFileDescriptor", "typealias PathOrFileDescriptor = PathLike"))
             .plus(ConversionResult("TimeLike", "typealias TimeLike = kotlin.js.Date"))
-            .plus(ConversionResult("EncodingOption", "typealias EncodingOption = ObjectEncodingOptions?"))
+            .plus(
+                ConversionResult(
+                    "EncodingOption",
+                    "typealias EncodingOption = ObjectEncodingOptions?"
+                )
+            )
             .plus(
                 ConversionResult(
                     "WriteFileOptions",
@@ -204,7 +210,12 @@ internal fun convertDefinitions(
 
         Package("os") -> interfaces
             .plus(convertFunctions(content))
-            .plus(ConversionResult("NetworkInterfaceInfo", "typealias NetworkInterfaceInfo = NetworkInterfaceBase"))
+            .plus(
+                ConversionResult(
+                    "NetworkInterfaceInfo",
+                    "typealias NetworkInterfaceInfo = NetworkInterfaceBase"
+                )
+            )
 
         Package("path") -> interfaces
             .plus(rootVal("path", "PlatformPath"))

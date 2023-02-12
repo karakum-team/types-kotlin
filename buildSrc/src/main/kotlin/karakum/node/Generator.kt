@@ -1,5 +1,6 @@
 package karakum.node
 
+import karakum.common.ConversionResult
 import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
 import karakum.common.fileSuppress

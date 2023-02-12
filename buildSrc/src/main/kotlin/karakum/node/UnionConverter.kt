@@ -1,5 +1,6 @@
 package karakum.node
 
+import karakum.common.ConversionResult
 import karakum.common.objectUnionBody
 import karakum.common.unionBody
 import karakum.common.unionConstant

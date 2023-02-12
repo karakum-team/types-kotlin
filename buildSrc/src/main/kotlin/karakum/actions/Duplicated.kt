@@ -1,5 +1,7 @@
 package karakum.actions
 
+import karakum.common.ConversionResult
+
 internal fun List<ConversionResult>.mergeDuplicated(): List<ConversionResult> {
     val duplicatedGroups = this
         .filter { "external fun " in it.body }

@@ -1,5 +1,7 @@
 package karakum.node
 
+import karakum.common.ConversionResult
+
 internal const val ABORT_CONTROLLER = "AbortController"
 internal const val ABORT_SIGNAL = "AbortSignal"
 internal const val ABORTABLE = "Abortable"

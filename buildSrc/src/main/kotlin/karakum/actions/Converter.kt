@@ -1,5 +1,6 @@
 package karakum.actions
 
+import karakum.common.ConversionResult
 import karakum.common.UnionConstant
 import karakum.common.unionBody
 import karakum.common.unionBodyByConstants

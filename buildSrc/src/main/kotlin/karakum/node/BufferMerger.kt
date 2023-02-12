@@ -1,5 +1,7 @@
 package karakum.node
 
+import karakum.common.ConversionResult
+
 internal fun mergeBuffers(
     source: Sequence<ConversionResult>,
 ): Sequence<ConversionResult> {

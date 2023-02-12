@@ -1,5 +1,7 @@
 package karakum.node
 
+import karakum.common.ConversionResult
+
 internal const val PIPE_OPTIONS = "PipeOptions"
 
 // language=kotlin

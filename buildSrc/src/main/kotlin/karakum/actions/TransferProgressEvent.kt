@@ -1,5 +1,7 @@
 package karakum.actions
 
+import karakum.common.ConversionResult
+
 internal fun TransferProgressEvent(): ConversionResult =
     ConversionResult(
         name = "TransferProgressEvent",

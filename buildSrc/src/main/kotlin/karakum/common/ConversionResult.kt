@@ -1,4 +1,4 @@
-package karakum.actions
+package karakum.common
 
 internal data class ConversionResult(
     val name: String,

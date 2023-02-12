@@ -1,5 +1,7 @@
 package karakum.actions
 
+import karakum.common.ConversionResult
+
 internal fun List<ConversionResult>.removeDuplicatedInterfaces(): List<ConversionResult> {
     val classNames = this
         .filter { "external class " in it.body }
