@@ -255,12 +255,13 @@ private fun convertFunction(
         .substringBefore("(")
         .substringBefore("<")
 
-    val bodies = convertMember(
+    val bodies = convertMethod(
         source
             .substringBefore(";\n")
             .removeSuffix(";")
             .replace(": Map<number, string>", ": Map<number,string>"),
-    )!!
+    )
+
     var body = ("\n" + bodies)
         .replace("\nfun ", "\nexternal fun ")
         .removePrefix("\n")
