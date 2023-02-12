@@ -7,7 +7,7 @@ tasks.named("generateDeclarations") {
         val coreDefinitionsDir = rootProject.buildDir
             .resolve("js/node_modules/@tanstack/table-core/build/lib")
 
-        val sourceDir = projectDir.resolve("src/main/kotlin")
+        val sourceDir = projectDir.resolve("src/jsMain/kotlin")
 
         delete(sourceDir)
 

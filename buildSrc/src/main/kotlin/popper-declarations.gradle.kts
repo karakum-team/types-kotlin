@@ -6,7 +6,7 @@ tasks.named("generateDeclarations") {
     doLast {
         val definitionsDir = rootProject.buildDir
             .resolve("js/node_modules/@popperjs/core/lib")
-        val sourceDir = projectDir.resolve("src/main/kotlin")
+        val sourceDir = projectDir.resolve("src/jsMain/kotlin")
 
         delete(sourceDir)
 
