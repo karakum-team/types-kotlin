@@ -49,55 +49,57 @@ private fun convertItem(
         return null
 
     val type = source.substringBefore(" ")
-    when (type) {
+    return when (type) {
         "interface" ->
-            return convertInterface(
+            convertInterface(
                 source = source.substringAfter(" ")
             )
 
         "class" ->
-            return convertClass(
+            convertClass(
                 source = source.substringAfter(" ")
             )
 
         "function" ->
-            return convertFunction(
+            convertFunction(
                 source = source.substringAfter(" ")
             )
 
         "enum" ->
-            return convertEnum(
+            convertEnum(
                 source = source.substringAfter(" ")
             )
 
         "type" ->
-            return convertType(
+            convertType(
                 source = source.substringAfter(" ")
             )
 
         "const" ->
-            return convertConst(
+            convertConst(
                 source = source.substringAfter(" ")
             )
+
+        else -> {
+            val name = source.substringAfter(" ")
+                .substringBefore("<")
+                .substringBefore(" ")
+                .substringBefore("(")
+                .substringBefore(":")
+
+            var body = source
+            if (body.startsWith("function ") && "():" !in body)
+                body = body
+                    .replaceFirst("(", "(\n")
+                    .replace(", ", ",\n")
+                    .replaceFirst("):", ",\n):")
+
+            ConversionResult(
+                name = name,
+                body = body,
+            )
+        }
     }
-
-    val name = source.substringAfter(" ")
-        .substringBefore("<")
-        .substringBefore(" ")
-        .substringBefore("(")
-        .substringBefore(":")
-
-    var body = source
-    if (body.startsWith("function ") && "():" !in body)
-        body = body
-            .replaceFirst("(", "(\n")
-            .replace(", ", ",\n")
-            .replaceFirst("):", ",\n):")
-
-    return ConversionResult(
-        name = name,
-        body = body,
-    )
 }
 
 private fun convertEnum(
