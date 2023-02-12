@@ -1,4 +1,4 @@
-package karakum.node
+package karakum.common
 
 data class Parameter(
     val name: String,

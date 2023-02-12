@@ -1,5 +1,7 @@
 package karakum.node
 
+import karakum.common.Parameter
+
 private val IGNORE_LIST = setOf(
     "Global",
 
