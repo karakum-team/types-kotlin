@@ -1,6 +1,7 @@
 package karakum.actions
 
 import karakum.common.ConversionResult
+import karakum.common.Parameter
 import karakum.common.UnionConstant
 import karakum.common.unionBody
 import karakum.common.unionBodyByConstants
@@ -411,7 +412,7 @@ private fun convertConstructor(
 
     val parameters = convertParameters(
         source.removeSurrounding("constructor(", ")")
-    )
+    ).joinToString(",\n")
 
     return "constructor($parameters)"
 }
@@ -452,7 +453,7 @@ private fun convertMethod(
     val parameters = convertParameters(
         source.substringAfter("(")
             .substringBeforeLast("): ")
-    )
+    ).joinToString(",\n")
 
     val returnType = kotlinType(source.substringAfter("): "))
     val returns = when (returnType) {
@@ -465,28 +466,26 @@ private fun convertMethod(
 
 private fun convertParameters(
     source: String,
-): String {
+): List<Parameter> {
     if (source.isEmpty())
-        return ""
+        return emptyList()
 
-    val params = if ("onResult: (err?: Error, res?: HttpClientResponse) => void" in source) {
+    return if ("onResult: (err?: Error, res?: HttpClientResponse) => void" in source) {
         source
             .substringBefore(", onResult: ")
             .split(", ")
             .map { convertParameter(it) }
-            .plus("onResult: (err: JsError?, res: HttpClientResponse?) -> Unit")
+            .plus(Parameter("onResult", "(err: JsError?, res: HttpClientResponse?) -> Unit", false))
     } else {
         source
             .split(", ")
             .map { convertParameter(it) }
     }
-
-    return params.joinToString(",\n")
 }
 
 private fun convertParameter(
     source: String,
-): String {
+): Parameter {
     val nameSource = source.substringBefore(": ")
     val typeSource = source.substringAfter(": ")
 
@@ -494,11 +493,9 @@ private fun convertParameter(
     if (name == "val")
         name = "value"
 
-    var type = kotlinType(typeSource)
-
-    if (nameSource.endsWith("?")) {
-        type += " = definedExternally"
-    }
-
-    return "$name: $type"
+    return Parameter(
+        name = name,
+        type = kotlinType(typeSource),
+        optional = nameSource.endsWith("?"),
+    )
 }
