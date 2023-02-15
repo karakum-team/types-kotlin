@@ -241,6 +241,10 @@ private fun convertFunction(
         .substringBefore("(")
         .substringBefore("<")
 
+    // WA
+    if ((name == "extractTar" || name == "extractXar") && ": string | string[]" in source)
+        return convertFunction(source.replace(": string | string[]", ": string[]"))
+
     val bodySource = source
         .substringBefore(";\n")
         .removeSuffix(";")
@@ -287,7 +291,7 @@ private fun convertFunction(
         name = name,
         parameters = parameters,
         returnType = resturnType,
-    ) ?: TODO("Failed with:\n$source")
+    )!!
 
     return sequenceOf(
         ConversionResult(
