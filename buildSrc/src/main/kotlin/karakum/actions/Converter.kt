@@ -248,7 +248,7 @@ private fun convertFunction(
     val bodySource = source
         .substringBefore(";\n")
         .removeSuffix(";")
-        .replace(": Map<number, string>", ": Map<number,string>")
+        .replace(": Map<number, string>", ": Map<number_string>")
 
     val async = "): Promise<" in bodySource
 
@@ -278,13 +278,12 @@ private fun convertFunction(
         )
 
     val parameters = convertParameters(
-        source.substringAfter("(")
+        bodySource.substringAfter("(")
             .substringBeforeLast("): ")
     )
 
     val resturnType = kotlinType(
-        source.substringAfterLast("): ")
-            .removeSuffix(";")
+        bodySource.substringAfterLast("): ")
     )
 
     val suspendResult = suspendFunctions(
