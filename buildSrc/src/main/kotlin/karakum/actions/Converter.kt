@@ -24,7 +24,7 @@ internal fun convert(
         .map { it.substringBefore("\n/**") }
         // TODO: check
         .filter { !it.startsWith("const chmod") }
-        .mapNotNull { convertItem(it) }
+        .flatMap { convertItem(it) }
         .filter { it.name !in EXCLUDED_NAMES }
 }
 
@@ -43,33 +43,41 @@ private fun cleanup(
 
 private fun convertItem(
     source: String,
-): ConversionResult? {
+): Sequence<ConversionResult> {
     if (source.startsWith("{"))
-        return null
+        return emptySequence()
 
     if (source.startsWith("default "))
-        return null
+        return emptySequence()
 
     val type = source.substringBefore(" ")
     return when (type) {
         "interface" ->
-            convertInterface(
-                source = source.substringAfter(" ")
+            sequenceOf(
+                convertInterface(
+                    source = source.substringAfter(" ")
+                )
             )
 
         "class" ->
-            convertClass(
-                source = source.substringAfter(" ")
+            sequenceOf(
+                convertClass(
+                    source = source.substringAfter(" ")
+                )
             )
 
         "function" ->
-            convertFunction(
-                source = source.substringAfter(" ")
+            sequenceOf(
+                convertFunction(
+                    source = source.substringAfter(" ")
+                )
             )
 
         "enum" ->
-            convertEnum(
-                source = source.substringAfter(" ")
+            sequenceOf(
+                convertEnum(
+                    source = source.substringAfter(" ")
+                )
             )
 
         "type" ->
@@ -78,29 +86,13 @@ private fun convertItem(
             )
 
         "const" ->
-            convertConst(
-                source = source.substringAfter(" ")
+            sequenceOf(
+                convertConst(
+                    source = source.substringAfter(" ")
+                )
             )
 
-        else -> {
-            val name = source.substringAfter(" ")
-                .substringBefore("<")
-                .substringBefore(" ")
-                .substringBefore("(")
-                .substringBefore(":")
-
-            var body = source
-            if (body.startsWith("function ") && "():" !in body)
-                body = body
-                    .replaceFirst("(", "(\n")
-                    .replace(", ", ",\n")
-                    .replaceFirst("):", ",\n):")
-
-            ConversionResult(
-                name = name,
-                body = body,
-            )
-        }
+        else -> TODO("Unable to convert item:\n$source")
     }
 }
 
@@ -291,7 +283,7 @@ private fun convertFunction(
 
 private fun convertType(
     source: String,
-): ConversionResult? {
+): Sequence<ConversionResult> {
     val (name, bodySource) = source
         .removeSuffix(";")
         .split(" = ")
@@ -299,7 +291,7 @@ private fun convertType(
     when (name) {
         "IToolRelease",
         "IToolReleaseFile",
-        -> return null
+        -> return emptySequence()
     }
 
     val body = when {
@@ -317,9 +309,11 @@ private fun convertType(
         else -> TODO("Unable to convert body source: '$bodySource'")
     }
 
-    return ConversionResult(
-        name = name,
-        body = body,
+    return sequenceOf(
+        ConversionResult(
+            name = name,
+            body = body,
+        )
     )
 }
 
