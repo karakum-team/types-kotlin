@@ -50,6 +50,7 @@ private fun generate(
         .filter { it.exists() }
         .mapNotNull { it.listFiles { file -> file.name.endsWith(".d.ts") } }
         .flatMap { it.asSequence() }
+        .filter { it.name != "io-util.d.ts" }
         .toList()
 
     val dir = sourceDir.resolve(library.path)
