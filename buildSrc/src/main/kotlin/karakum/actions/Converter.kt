@@ -67,10 +67,8 @@ private fun convertItem(
             )
 
         "function" ->
-            sequenceOf(
-                convertFunction(
-                    source = source.substringAfter(" ")
-                )
+            convertFunction(
+                source = source.substringAfter(" ")
             )
 
         "enum" ->
@@ -242,7 +240,7 @@ private fun convertClass(
 
 private fun convertFunction(
     source: String,
-): ConversionResult {
+): Sequence<ConversionResult> {
     var name = source
         .substringBefore("(")
         .substringBefore("<")
@@ -275,9 +273,11 @@ private fun convertFunction(
         name = "${name}Async"
     }
 
-    return ConversionResult(
-        name = name,
-        body = body,
+    return sequenceOf(
+        ConversionResult(
+            name = name,
+            body = body,
+        )
     )
 }
 
