@@ -255,23 +255,32 @@ private fun convertFunction(
         .substringBefore("(")
         .substringBefore("<")
 
-    val bodies = convertMethod(
-        source
-            .substringBefore(";\n")
-            .removeSuffix(";")
-            .replace(": Map<number, string>", ": Map<number,string>"),
-    )
+    val bodySource = source
+        .substringBefore(";\n")
+        .removeSuffix(";")
+        .replace(": Map<number, string>", ": Map<number,string>")
 
-    var body = ("\n" + bodies)
-        .replace("\nfun ", "\nexternal fun ")
-        .removePrefix("\n")
+    val async = "): Promise<" in bodySource
 
-    if ("): Promise<" in body) {
-        val asyncName = "${name}Async"
+    val body = methodSourceVariants(bodySource)
+        .map { convertMethod(it) }
+        .joinToString("\n\n") {
+            var body = ("\n" + it)
+                .replace("\nfun ", "\nexternal fun ")
+                .removePrefix("\n")
 
-        body = """@JsName("$name")""" + "\n" +
-                body.replaceFirst(" $name(", " $asyncName(")
-        name = asyncName
+            if (async) {
+                val asyncName = "${name}Async"
+
+                body = """@JsName("$name")""" + "\n" +
+                        body.replaceFirst(" $name(", " $asyncName(")
+            }
+
+            body
+        }
+
+    if (async) {
+        name = "${name}Async"
     }
 
     return ConversionResult(
@@ -364,7 +373,10 @@ private fun convertMember(
         -> convertConstructor(source)
 
         "(" in source.substringBefore(":")
-        -> convertMethod(source)
+        -> methodSourceVariants(source)
+            .joinToString("\n\n") {
+                convertMethod(it)
+            }
 
         else -> convertProperty(source)
     }
@@ -418,28 +430,38 @@ private fun convertConstructor(
     return "constructor($parameters)"
 }
 
-private fun convertMethod(
-    source: String,
-): String {
-    // TODO: move to patches
-    sequenceOf(
-        "string | NodeJS.ReadableStream",
-        "string | Error",
-        "string | string[]",
-        "number | string",
-        "Buffer | string",
-    ).forEach { unionType ->
-        if (": $unionType" in source) {
-            val (t1, t2) = unionType.split(" | ")
+private val UNION_TYPES = listOf(
+    "string | NodeJS.ReadableStream",
+    "string | Error",
+    "string | string[]",
+    "number | string",
+    "Buffer | string",
+)
 
-            return sequenceOf(
-                source.replace(": $unionType", ": $t1"),
-                source.replace(": $unionType", ": $t2"),
-            ).map { convertMethod(it) }
-                .joinToString("\n\n")
+private fun methodSourceVariants(
+    methodSource: String,
+): List<String> {
+    var result = listOf(methodSource)
+
+    for (unionType in UNION_TYPES) {
+        result = result.flatMap { source ->
+            if (": $unionType" in source) {
+                val (t1, t2) = unionType.split(" | ")
+
+                sequenceOf(
+                    source.replace(": $unionType", ": $t1"),
+                    source.replace(": $unionType", ": $t2"),
+                )
+            } else sequenceOf(source)
         }
     }
 
+    return result
+}
+
+private fun convertMethod(
+    source: String,
+): String {
     if (source.startsWith("static "))
         return STATIC_MARKER + convertMethod(source.removePrefix("static "))
 
