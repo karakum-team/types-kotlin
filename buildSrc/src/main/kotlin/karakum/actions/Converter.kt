@@ -286,11 +286,17 @@ private fun convertFunction(
         bodySource.substringAfterLast("): ")
     )
 
-    val suspendResult = suspendFunctions(
+    var suspendResult = suspendFunctions(
         name = name,
         parameters = parameters,
         returnType = resturnType,
     )!!
+
+    val declaration = methodDeclaration(bodySource.substringBefore("("))
+    if (declaration != name) {
+        val newBody = suspendResult.body.replace(" $name(", " $declaration(")
+        suspendResult = suspendResult.copy(body = newBody)
+    }
 
     return sequenceOf(
         ConversionResult(
@@ -473,19 +479,25 @@ private fun methodSourceVariants(
     return result
 }
 
+private fun methodDeclaration(
+    source: String,
+): String {
+    if ("<" !in source)
+        return source
+
+    val name = source.substringBefore("<")
+    val typeParameters = source.substringAfter(name)
+
+    return "$typeParameters $name"
+}
+
 private fun convertMethod(
     source: String,
 ): String {
     if (source.startsWith("static "))
         return STATIC_MARKER + convertMethod(source.removePrefix("static "))
 
-    var declaration = source.substringBefore("(")
-    if ("<" in declaration) {
-        val name = declaration.substringBefore("<")
-        val typeParameters = declaration.substringAfter(name)
-
-        declaration = "$typeParameters $name"
-    }
+    val declaration = methodDeclaration(source.substringBefore("("))
 
     val parameters = convertParameters(
         source.substringAfter("(")
