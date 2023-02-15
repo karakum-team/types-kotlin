@@ -17,4 +17,6 @@ dependencies {
     implementation(npmv("@actions/tool-cache"))
 
     implementation(wrappers("node"))
+
+    implementation(kotlinxCoroutines("core"))
 }
