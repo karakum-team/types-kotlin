@@ -5,23 +5,23 @@ package actions.cache
 import kotlinx.coroutines.await
 
 suspend fun downloadCache(
- archiveLocation: String,
- archivePath: String,
+    archiveLocation: String,
+    archivePath: String,
 ) {
- downloadCacheAsync(
-  archiveLocation = archiveLocation,
-  archivePath = archivePath,
- ).await()
+    downloadCacheAsync(
+        archiveLocation = archiveLocation,
+        archivePath = archivePath,
+    ).await()
 }
 
 suspend fun downloadCache(
- archiveLocation: String,
- archivePath: String,
- options: DownloadOptions,
+    archiveLocation: String,
+    archivePath: String,
+    options: DownloadOptions,
 ) {
- downloadCacheAsync(
-  archiveLocation = archiveLocation,
-  archivePath = archivePath,
-  options = options,
- ).await()
+    downloadCacheAsync(
+        archiveLocation = archiveLocation,
+        archivePath = archivePath,
+        options = options,
+    ).await()
 }
