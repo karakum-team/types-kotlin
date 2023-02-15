@@ -4,7 +4,7 @@ import karakum.common.ConversionResult
 
 internal fun List<ConversionResult>.mergeDuplicated(): List<ConversionResult> {
     val duplicatedGroups = this
-        .filter { "external fun " in it.body }
+        .filter { "external fun " in it.body || ".await()" in it.body }
         .groupBy { it.name }
         .map { it.value }
         .filter { it.size > 1 }

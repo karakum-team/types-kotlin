@@ -1,10 +1,6 @@
 package karakum.actions
 
-import karakum.common.ConversionResult
-import karakum.common.Parameter
-import karakum.common.UnionConstant
-import karakum.common.unionBody
-import karakum.common.unionBodyByConstants
+import karakum.common.*
 
 private val EXCLUDED_NAMES = setOf(
     "getCacheEntry",
@@ -241,7 +237,7 @@ private fun convertClass(
 private fun convertFunction(
     source: String,
 ): Sequence<ConversionResult> {
-    var name = source
+    val name = source
         .substringBefore("(")
         .substringBefore("<")
 
@@ -269,15 +265,36 @@ private fun convertFunction(
             body
         }
 
-    if (async) {
-        name = "${name}Async"
-    }
+    if (!async)
+        return sequenceOf(
+            ConversionResult(
+                name = name,
+                body = body,
+            )
+        )
+
+    val parameters = convertParameters(
+        source.substringAfter("(")
+            .substringBeforeLast("): ")
+    )
+
+    val resturnType = kotlinType(
+        source.substringAfterLast("): ")
+            .removeSuffix(";")
+    )
+
+    val suspendResult = suspendFunctions(
+        name = name,
+        parameters = parameters,
+        returnType = resturnType,
+    ) ?: TODO("Failed with:\n$source")
 
     return sequenceOf(
         ConversionResult(
-            name = name,
+            name = "${name}Async",
             body = body,
-        )
+        ),
+        suspendResult,
     )
 }
 
