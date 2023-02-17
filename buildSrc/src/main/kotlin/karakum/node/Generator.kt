@@ -90,12 +90,6 @@ private val MODULES = setOf(
     "worker_threads",
 )
 
-private val GLOBAL_TYPES = setOf(
-    ABORT_CONTROLLER,
-    ABORT_SIGNAL,
-    "Buffer",
-)
-
 fun generateKotlinDeclarations(
     definitionsDir: File,
     sourceDir: File,
@@ -156,8 +150,6 @@ fun generateKotlinDeclarations(
             }.toTypedArray()
 
             val annotations = when {
-                name in GLOBAL_TYPES -> ""
-
                 "@JsModule(" in body -> ""
 
                 "external class " in body
