@@ -6,17 +6,17 @@ plugins {
 }
 
 dependencies {
-    implementation(npmv("@actions/artifact"))
-    implementation(npmv("@actions/cache"))
-    implementation(npmv("@actions/core"))
-    implementation(npmv("@actions/exec"))
-    // implementation(npmv("@actions/github"))
-    implementation(npmv("@actions/glob"))
-    implementation(npmv("@actions/http-client"))
-    implementation(npmv("@actions/io"))
-    implementation(npmv("@actions/tool-cache"))
+    jsMainImplementation(npmv("@actions/artifact"))
+    jsMainImplementation(npmv("@actions/cache"))
+    jsMainImplementation(npmv("@actions/core"))
+    jsMainImplementation(npmv("@actions/exec"))
+    // jsMainImplementation(npmv("@actions/github"))
+    jsMainImplementation(npmv("@actions/glob"))
+    jsMainImplementation(npmv("@actions/http-client"))
+    jsMainImplementation(npmv("@actions/io"))
+    jsMainImplementation(npmv("@actions/tool-cache"))
 
-    implementation(wrappers("node"))
+    jsMainImplementation(wrappers("node"))
 
-    implementation(kotlinxCoroutines("core"))
+    jsMainImplementation(kotlinxCoroutines("core"))
 }

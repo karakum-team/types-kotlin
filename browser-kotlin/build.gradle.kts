@@ -6,11 +6,11 @@ plugins {
 }
 
 dependencies {
-    implementation(npmv("@types/web"))
-    implementation(npmv("@types/serviceworker"))
-    implementation(npmv("typescript"))
-    implementation(npmv("@webref/idl"))
+    jsMainImplementation(npmv("@types/web"))
+    jsMainImplementation(npmv("@types/serviceworker"))
+    jsMainImplementation(npmv("typescript"))
+    jsMainImplementation(npmv("@webref/idl"))
 
-    implementation(wrappers("js"))
-    implementation(wrappers("web"))
+    jsMainImplementation(wrappers("js"))
+    jsMainImplementation(wrappers("web"))
 }

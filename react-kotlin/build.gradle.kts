@@ -6,8 +6,8 @@ plugins {
 }
 
 dependencies {
-    implementation(npmv("@types/react"))
+    jsMainImplementation(npmv("@types/react"))
 
-    implementation(wrappers("browser"))
-    implementation(wrappers("react-core"))
+    jsMainImplementation(wrappers("browser"))
+    jsMainImplementation(wrappers("react-core"))
 }

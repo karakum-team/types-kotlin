@@ -8,7 +8,7 @@ plugins {
 val popperVersion = property("popper.version") as String
 
 dependencies {
-    implementation(npm("@popperjs/core", popperVersion))
+    jsMainImplementation(npm("@popperjs/core", popperVersion))
 
-    implementation(wrappers("browser"))
+    jsMainImplementation(wrappers("browser"))
 }

@@ -12,7 +12,7 @@ kotlin {
 }
 
 dependencies {
-    implementation(npmv("typescript"))
+    jsMainImplementation(npmv("typescript"))
 
-    implementation(wrappers("js"))
+    jsMainImplementation(wrappers("js"))
 }

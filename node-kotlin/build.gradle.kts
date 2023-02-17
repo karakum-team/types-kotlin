@@ -9,10 +9,10 @@ plugins {
 val nodeTypesVersion = property("node-types.version") as String
 
 dependencies {
-    implementation(npm("@types/node", nodeTypesVersion))
+    jsMainImplementation(npm("@types/node", nodeTypesVersion))
 
-    implementation(wrappers("js"))
-    implementation(wrappers("web"))
+    jsMainImplementation(wrappers("js"))
+    jsMainImplementation(wrappers("web"))
 
-    implementation(kotlinxCoroutines("core"))
+    jsMainImplementation(kotlinxCoroutines("core"))
 }

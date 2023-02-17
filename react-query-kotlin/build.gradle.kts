@@ -8,8 +8,8 @@ plugins {
 val reactQueryVersion = property("react-query.version") as String
 
 dependencies {
-    implementation(npm("@tanstack/react-query", reactQueryVersion))
+    jsMainImplementation(npm("@tanstack/react-query", reactQueryVersion))
 
-    implementation(wrappers("web"))
-    implementation(wrappers("react-core"))
+    jsMainImplementation(wrappers("web"))
+    jsMainImplementation(wrappers("react-core"))
 }

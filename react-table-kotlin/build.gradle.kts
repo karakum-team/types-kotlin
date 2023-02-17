@@ -8,8 +8,8 @@ plugins {
 val reactTableVersion = property("react-table.version") as String
 
 dependencies {
-    implementation(npm("@tanstack/react-table", reactTableVersion))
+    jsMainImplementation(npm("@tanstack/react-table", reactTableVersion))
 
-    implementation(wrappers("browser"))
-    implementation(wrappers("react-core"))
+    jsMainImplementation(wrappers("browser"))
+    jsMainImplementation(wrappers("react-core"))
 }

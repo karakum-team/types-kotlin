@@ -6,7 +6,7 @@ plugins {
 }
 
 dependencies {
-    implementation(npmv("csstype"))
+    jsMainImplementation(npmv("csstype"))
 
-    implementation(wrappers("js"))
+    jsMainImplementation(wrappers("js"))
 }

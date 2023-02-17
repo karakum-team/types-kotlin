@@ -8,8 +8,8 @@ plugins {
 val reactVirtualVersion = property("react-virtual.version") as String
 
 dependencies {
-    implementation(npm("@tanstack/react-virtual", reactVirtualVersion))
+    jsMainImplementation(npm("@tanstack/react-virtual", reactVirtualVersion))
 
-    implementation(wrappers("browser"))
-    implementation(wrappers("react-core"))
+    jsMainImplementation(wrappers("browser"))
+    jsMainImplementation(wrappers("react-core"))
 }
