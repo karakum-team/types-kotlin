@@ -27,9 +27,15 @@ class Interface(
             }
         }
 
-        val body = if (name.startsWith("MutationObserver")) {
-            content.replaceFirst("status: QueryStatus", "status: MutationStatus")
-        } else content
+        val body = when {
+            name.startsWith("MutationObserver")
+            -> content.replaceFirst("status: QueryStatus", "status: MutationStatus")
+
+            name.startsWith("NotifyEvent")
+            -> content.replaceFirst("type: Type /*", "type: NotifyEventType /*")
+
+            else -> content
+        }
 
         return "external interface $name ${formatParameters(typeParameters)} $extends {\n$body\n}"
     }
