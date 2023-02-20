@@ -302,22 +302,22 @@
   dependencies:
     "@tanstack/table-core" "8.7.9"
 
-"@tanstack/react-virtual@3.0.0-beta.48":
-  version "3.0.0-beta.48"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-virtual/-/react-virtual-3.0.0-beta.48.tgz#c5055f78b84bf5cb37ee3ca612edf3b19ddf7e10"
-  integrity sha512-zNNEtCF5clBLhqvUZPfmGaOiWrqdgIc7IzrT/HiAKFkFTF4R30b/mfY4+wCJ9tW95Tvs1Ml4THUA3s/vIHMHQg==
+"@tanstack/react-virtual@3.0.0-beta.49":
+  version "3.0.0-beta.49"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-virtual/-/react-virtual-3.0.0-beta.49.tgz#ea17058135fa71162948390e13c25246d091e39c"
+  integrity sha512-bd7WBHu1LUBbs3qYZnvWSo4AhcSysc/QyBoHpGK2XOMTXzP9D4FVISMfCvdIbi+JoTqdZqhtaV7c1WY5gzZRlQ==
   dependencies:
-    "@tanstack/virtual-core" "3.0.0-beta.48"
+    "@tanstack/virtual-core" "3.0.0-beta.49"
 
 "@tanstack/table-core@8.7.9":
   version "8.7.9"
   resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.7.9.tgz#0e975f8a5079972f1827a569079943d43257c42f"
   integrity sha512-4RkayPMV1oS2SKDXfQbFoct1w5k+pvGpmX18tCXMofK/VDRdA2hhxfsQlMvsJ4oTX8b0CI4Y3GDKn5T425jBCw==
 
-"@tanstack/virtual-core@3.0.0-beta.48":
-  version "3.0.0-beta.48"
-  resolved "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.0.0-beta.48.tgz#bcc5737dc0b9bd3e3c61e75b319c1b5edf30c621"
-  integrity sha512-W57cC4J1rd3fvWfiio1EteZiokZL8/CvDK/wo+C7xkgYrFw4BXr2P3mvo0HFxCDb15KeqyuF2pTpGWN+D1OXIg==
+"@tanstack/virtual-core@3.0.0-beta.49":
+  version "3.0.0-beta.49"
+  resolved "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.0.0-beta.49.tgz#058d876a4ccdb1c980b24b39824a8eae2a438791"
+  integrity sha512-tPmuUiQwUW3PdQirBjlqeZD1JMn7bcyNE6stS50RUu5vyopzLFALnN0uTBftrZOcHpkRtYVa0ifz9fB9yKKJYw==
 
 "@tweenjs/tween.js@^18.6.4":
   version "18.6.4"
@@ -332,7 +332,7 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node@*", "@types/node@18.14.0", "@types/node@>=13.7.0", "@types/node@^18.13.0":
+"@types/node@*", "@types/node@18.14.0", "@types/node@>=13.7.0", "@types/node@^18.14.0":
   version "18.14.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.14.0.tgz#94c47b9217bbac49d4a67a967fdcdeed89ebb7d0"
   integrity sha512-5EWrvLmglK+imbCJY0+INViFWUHg1AHel1sq4ZVSfdcNqGy9Edv3UB9IIzzg+xPaUcAgZYcfVs2fBcwDeZzU0A==
