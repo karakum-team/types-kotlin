@@ -8,7 +8,14 @@ internal class LibraryConversionResult(
     val results: List<ConversionResult>,
     private val pathMap: Map<String, String>,
 ) {
-    fun getPath(name: String): String? = null
+    fun getPath(name: String): String? =
+        when (val path = pathMap[name]) {
+            "lib/auth",
+            "lib/proxy",
+            -> path
+
+            else -> null
+        }
 }
 
 internal fun convertLibrary(
@@ -23,8 +30,16 @@ internal fun convertLibrary(
         .filter { it.name != "io-util.d.ts" }
         .toList()
 
+    val pathMap = mutableMapOf<String, String>()
+
     var results = files.asSequence()
-        .flatMap { convert(it.readText()) }
+        .flatMap { file ->
+            val filePath = file.toRelativeString(definitionsDir)
+                .removeSuffix(".d.ts")
+
+            convert(file.readText())
+                .onEach { pathMap[it.name] = filePath }
+        }
         .toList()
         .mergeDuplicated()
         .removeDuplicatedInterfaces()
@@ -35,6 +50,6 @@ internal fun convertLibrary(
     return LibraryConversionResult(
         library = library,
         results = results,
-        pathMap = emptyMap()
+        pathMap = pathMap,
     )
 }
