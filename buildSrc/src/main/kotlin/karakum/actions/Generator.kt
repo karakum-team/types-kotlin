@@ -2,7 +2,8 @@ package karakum.actions
 
 import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
-import karakum.common.Suppress.*
+import karakum.common.Suppress.ABSTRACT_MEMBER_NOT_IMPLEMENTED
+import karakum.common.Suppress.NAME_CONTAINS_ILLEGAL_CHARS
 import karakum.common.fileSuppress
 import java.io.File
 
@@ -63,7 +64,15 @@ private fun generate(
             "external class " in body
                     || "external val " in body
                     || "external fun " in body
-            -> """@file:JsModule("${library.moduleId}")"""
+            -> {
+                val module = sequenceOf(
+                    library.moduleId,
+                    result.getPath(name),
+                ).filterNotNull()
+                    .joinToString("/")
+
+                """@file:JsModule("$module")"""
+            }
 
             else -> ""
         }

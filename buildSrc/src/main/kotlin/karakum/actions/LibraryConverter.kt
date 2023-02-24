@@ -7,7 +7,9 @@ internal class LibraryConversionResult(
     val library: Library,
     val results: List<ConversionResult>,
     private val pathMap: Map<String, String>,
-)
+) {
+    fun getPath(name: String): String? = null
+}
 
 internal fun convertLibrary(
     definitionsDir: File,
