@@ -44,28 +44,13 @@ private fun generate(
     definitionsDir: File,
     sourceDir: File,
 ) {
-    val library = Library(definitionsDir.name)
-    val files = sequenceOf("lib", "lib/internal")
-        .map { definitionsDir.resolve(it) }
-        .filter { it.exists() }
-        .mapNotNull { it.listFiles { file -> file.name.endsWith(".d.ts") } }
-        .flatMap { it.asSequence() }
-        .filter { it.name != "io-util.d.ts" }
-        .toList()
+    val result = convertLibrary(definitionsDir)
+    val library = result.library
 
     val dir = sourceDir.resolve(library.path)
         .also { it.mkdirs() }
 
-    var results = files.asSequence()
-        .flatMap { convert(it.readText()) }
-        .toList()
-        .mergeDuplicated()
-        .removeDuplicatedInterfaces()
-
-    if (library.name == "cache")
-        results += TransferProgressEvent()
-
-    for ((name, body) in results) {
+    for ((name, body) in result.results) {
         val suppresses = mutableListOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
