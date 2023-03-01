@@ -145,6 +145,8 @@ private fun readDeclarations(
         .replace("(webAssemblyOptions", "(options")
         .replace("The DOM element or ID", "The DOM element")
         .replace("this: TerrainProvider, ", "")
+        // For version `1.103.0`
+        .replace(" readonly targetPropertyNames: any;", " readonly targetPropertyNames: string[];")
         .replace("};\n    type UpdaterFunction ", "};\n    /**\n     * Function\n     */\n    type UpdaterFunction ")
         .replace(RECORD) { record(it.groupValues[1]) }
         .applyTypeAliasCorrection()
