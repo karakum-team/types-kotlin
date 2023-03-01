@@ -187,10 +187,10 @@
     events "^3.0.0"
     tslib "^2.2.0"
 
-"@cesium/engine@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@cesium/engine/-/engine-2.0.0.tgz#8b7deadf50563aac8b89df228d86199542ebacff"
-  integrity sha512-P0LMwJD5bJ2pvYp2s6B4B8Wx375TCMjV19/pyPUnqGeEDK85GHPcd50NNACXC8F+MqOrNZKlrzcfrksK/RTIuA==
+"@cesium/engine@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@cesium/engine/-/engine-2.1.0.tgz#da6c0c0ba5fdb98de96eed6c4323cd304cdfe981"
+  integrity sha512-U80bWcu+SmJYH/5nzowHcJI093qTkOd8wYj54Hgj7PKk1QhFKfE+oLCb8F577wAvwptoEZ57CdR4KgJNLGO1SA==
   dependencies:
     "@tweenjs/tween.js" "^18.6.4"
     "@zip.js/zip.js" "2.4.x"
@@ -211,12 +211,12 @@
     topojson-client "^3.1.0"
     urijs "^1.19.7"
 
-"@cesium/widgets@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@cesium/widgets/-/widgets-2.0.0.tgz#e889224830d35c988e8ba782142ff8708216edbe"
-  integrity sha512-9pYmRCMhhEXB3BDdD9YixUIjd6RT7v35mFRtvLFf5psm7IRRxz2lgF87JuQGtoXNyG0rZRN5b2IwD99VeiidKg==
+"@cesium/widgets@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@cesium/widgets/-/widgets-2.1.0.tgz#a9371bc929d81d19e51cba7f6f32fd7d531f1847"
+  integrity sha512-/sdDNr8nJMALjzHBdeeFdIxakP/9DbTccDouQWjOvpOj2aVe5iFNQWkYULssV38ywp2JEqmhvF5+eHsT0PAjPA==
   dependencies:
-    "@cesium/engine" "2.0.0"
+    "@cesium/engine" "2.1.0"
     nosleep.js "^0.12.0"
 
 "@opentelemetry/api@^1.0.1":
@@ -420,13 +420,13 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-cesium@1.102.0:
-  version "1.102.0"
-  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.102.0.tgz#64fab4b38d5cbcd5d5c0bc9e9c72311c240cacea"
-  integrity sha512-6reR5r2l9vkNClAEbK0NB+7vg27fzHplM1atdDM5CdUQUwKF3my9edi5BHcGRCgZ3ONmjU+ruGHwRXtmMG7dng==
+cesium@1.103.0:
+  version "1.103.0"
+  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.103.0.tgz#46af9c7789bf38d583e12c70cfeb9f78281a3e72"
+  integrity sha512-BoZx7Op/BYd8p8rBDnuv/u7b/yg2WpK3WBfrAKceemU1pv2QlMrFNBxKnd3PWHSUgJZc/yHtP7YrX5pIn7JSgA==
   dependencies:
-    "@cesium/engine" "2.0.0"
-    "@cesium/widgets" "2.0.0"
+    "@cesium/engine" "2.1.0"
+    "@cesium/widgets" "2.1.0"
 
 combined-stream@^1.0.6, combined-stream@^1.0.8:
   version "1.0.8"
