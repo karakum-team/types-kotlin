@@ -62,6 +62,18 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
             pkg = "web.html",
         ),
         ConversionResult(
+            name = "ButtonType",
+            body = unionBody(
+                name = "ButtonType",
+                values = listOf(
+                    "submit",
+                    "reset",
+                    "button",
+                )
+            ),
+            pkg = "web.html",
+        ),
+        ConversionResult(
             name = "InputType",
             body = unionBody(
                 name = "InputType",

@@ -1353,6 +1353,9 @@ private fun convertProperty(
         "string | DOMHighResTimeStamp",
         -> "HighResTimeStamp /* | String */"
 
+        """"submit" | "reset" | "button"""",
+        -> "ButtonType"
+
         // RTC
         "number[]",
         -> "ReadonlyArray<Number>"
