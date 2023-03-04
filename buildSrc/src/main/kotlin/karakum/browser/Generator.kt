@@ -51,6 +51,7 @@ import web.scroll.ScrollIntoViewOptions
 import web.scroll.ScrollToOptions
 import web.dom.GlobalEventHandlers
 import web.window.WindowEventHandlers
+import web.window.WindowName
 import web.aria.ARIAMixin
 import web.dom.css.LinkStyle
 import web.dom.css.ElementCSSInlineStyle

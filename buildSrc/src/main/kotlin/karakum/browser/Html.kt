@@ -1339,6 +1339,9 @@ private fun convertProperty(
     if (safeName == "frames" && type == "WindowProxy")
         type = "ArrayLike<Window>"
 
+    if (safeName == "formTarget" && type == "string")
+        type = "WindowName"
+
     type = when (type) {
         "null" -> "Void"
 
