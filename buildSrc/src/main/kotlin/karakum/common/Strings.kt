@@ -7,7 +7,7 @@ private val UNDERSCORE_LETTER = Regex("""_(\w)""")
 private val SPACE_LETTER = Regex("""\s(\w)""")
 
 private val toUpperCase: (MatchResult) -> CharSequence = {
-    it.groupValues[1].uppercase()
+    it.groupValues[1].toUpperCase()
 }
 
 internal fun String.kebabToCamel(): String =

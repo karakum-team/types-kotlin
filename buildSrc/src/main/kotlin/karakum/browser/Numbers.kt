@@ -363,7 +363,7 @@ internal class TypeProvider(
         propertyName: String,
     ): String {
         // flags
-        if (propertyName == propertyName.uppercase()
+        if (propertyName == propertyName.toUpperCase()
             || parentType == "SVGAnimatedEnumeration"
             || propertyName in FLAG_NAMES
         ) return "Short"
