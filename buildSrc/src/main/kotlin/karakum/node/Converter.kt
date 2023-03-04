@@ -300,7 +300,7 @@ private fun convertConst(
         else -> sourceType
     }
 
-    val finalName = if (name != name.toUpperCase()) {
+    val finalName = if (name != name.uppercase()) {
         "$name.const"
     } else name
 

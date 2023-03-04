@@ -58,7 +58,7 @@ private val PROPERTY_NAMES = setOf(
 )
 
 private val PROPERTY_NAME_MAP = PROPERTY_NAMES
-    .associateBy { it.toLowerCase() }
+    .associateBy { it.lowercase() }
 
 internal fun String.ariaPropertyName(): String =
     PROPERTY_NAME_MAP.getValue(replace("aria-", "aria"))

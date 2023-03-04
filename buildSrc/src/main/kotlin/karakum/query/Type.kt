@@ -103,14 +103,14 @@ class Type(
                 .map { it.removeSuffix("'") }
                 .toList()
 
-            val jsName = items.joinToString(", ", "({ ", " })") { "${it.toUpperCase()}: '$it'" }
+            val jsName = items.joinToString(", ", "({ ", " })") { "${it.uppercase()}: '$it'" }
 
             return sequenceOf(
                 "@Suppress(\"NAME_CONTAINS_ILLEGAL_CHARS\")",
                 "// language=JavaScript",
                 "@JsName(\"\"\"$jsName\"\"\")",
                 "external enum class $name {",
-                items.joinToString("", postfix = "\n;") { "${it.toUpperCase()},\n" },
+                items.joinToString("", postfix = "\n;") { "${it.uppercase()},\n" },
                 "}"
             ).joinToString("\n")
         }

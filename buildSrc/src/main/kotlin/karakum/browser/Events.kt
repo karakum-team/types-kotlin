@@ -269,7 +269,7 @@ private fun eventTypes(
         .map { (name, type) ->
             val memberName = EVENT_CORRECTION_MAP
                 .getOrDefault(name, name)
-                .toUpperCase()
+                .uppercase()
 
             val finalType = if (type == "ProgressEvent") "$type<*>" else type
 
