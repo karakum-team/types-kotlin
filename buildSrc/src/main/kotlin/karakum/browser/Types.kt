@@ -16,6 +16,9 @@ private val PKG_MAP = mapOf(
     "PremultiplyAlpha" to "web.canvas",
     "ResizeQuality" to "web.canvas",
 
+    "CSSMathOperator" to "web.cssom",
+    "CSSNumericBaseType" to "web.cssom",
+
     "InsertPosition" to "web.dom",
     "MutationRecordType" to "web.dom.observers",
     "ResizeObserverBoxOptions" to "web.dom.observers",
@@ -63,9 +66,17 @@ private val PKG_MAP = mapOf(
 
     "PresentationStyle" to "web.clipboard",
 
+    "AlphaOption" to "web.codecs",
+    "AvcBitstreamFormat" to "web.codecs",
+    "BitrateMode" to "web.codecs",
+    "CodecState" to "web.codecs",
+    "EncodedVideoChunkType" to "web.codecs",
+    "HardwareAcceleration" to "web.codecs",
+    "LatencyMode" to "web.codecs",
     "VideoMatrixCoefficients" to "web.codecs",
     "VideoColorPrimaries" to "web.codecs",
     "VideoTransferCharacteristics" to "web.codecs",
+    "VideoPixelFormat" to "web.codecs",
 
     "ScrollRestoration" to "web.history",
 
@@ -75,6 +86,8 @@ private val PKG_MAP = mapOf(
 
     "CredentialMediationRequirement" to "web.credentials",
     "SecurityPolicyViolationEventDisposition" to "web.csp",
+
+    "WakeLockType" to "web.wakelock",
 
     "BinaryType" to "websockets",
 
