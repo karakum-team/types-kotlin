@@ -2,13 +2,11 @@
 
 package web.cssom
 
-import js.core.ReadonlyArray
-
 sealed external class CSSNumericValue :
     CSSStyleValue {
     fun add(vararg values: CSSNumberish): CSSNumericValue
     fun div(vararg values: CSSNumberish): CSSNumericValue
-    fun equals(...value: ReadonlyArray<CSSNumberish>): Boolean
+    fun equals(vararg value: CSSNumberish): Boolean
     fun max(vararg values: CSSNumberish): CSSNumericValue
     fun min(vararg values: CSSNumberish): CSSNumericValue
     fun mul(vararg values: CSSNumberish): CSSNumericValue

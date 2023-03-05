@@ -9,5 +9,5 @@ external class CSSUnparsedValue(
     members: ReadonlyArray<CSSUnparsedSegment>,
 ) : CSSStyleValue,
     ArrayLike<CSSUnparsedSegment> {
-    fun forEach(action: (item)
+    fun forEach(action: (item: CSSUnparsedSegment) -> Unit)
 }

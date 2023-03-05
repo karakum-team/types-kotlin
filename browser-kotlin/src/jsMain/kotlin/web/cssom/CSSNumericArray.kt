@@ -6,5 +6,5 @@ import js.core.ArrayLike
 
 sealed external class CSSNumericArray :
     ArrayLike<CSSNumericValue> {
-    fun forEach(action: (item)
+    fun forEach(action: (item: CSSNumericValue) -> Unit)
 }

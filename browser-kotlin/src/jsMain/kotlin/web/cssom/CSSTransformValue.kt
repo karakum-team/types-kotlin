@@ -12,5 +12,5 @@ external class CSSTransformValue(
     ArrayLike<CSSTransformComponent> {
     val is2D: Boolean
     fun toMatrix(): DOMMatrix
-    fun forEach(action: (item)
+    fun forEach(action: (item: CSSTransformComponent) -> Unit)
 }
