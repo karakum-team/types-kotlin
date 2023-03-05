@@ -6,8 +6,8 @@ internal fun String.applyPatches(): String =
         .replace(
             "\n    set(name: string, value: string | Blob, fileName?: string): void;\n",
             "\n    set(name: string, value: string | Blob): void;" +
-            "\n    set(name: string, value: string | Blob, fileName: string): void;\n",
-            )
+                    "\n    set(name: string, value: string | Blob, fileName: string): void;\n",
+        )
         .splitUnion("string | string[]")
         .splitUnion("string | number[]")
         .splitUnion("number[] | Float32Array")
@@ -45,9 +45,10 @@ internal fun String.applyPatches(): String =
         .replace("clearWatch(watchId: number)", "clearWatch(watchId: $GEOLOCATION_WATCH_ID)")
         .replace(": PositionOptions): number;", ": PositionOptions): $GEOLOCATION_WATCH_ID;")
         .replace(
-            Regex("""forEach\(callbackfn: \(value: (\w+), .+?, thisArg\?: any\): void;"""),
+            Regex("""forEach\(callbackfn: \(value: ([\w\[\]]+), .+?, thisArg\?: any\): void;"""),
             "forEach(action: (item: $1) => void): void;"
         )
+        .replace("): undefined | CSSStyleValue", "): CSSStyleValue | undefined")
         .patchCollections()
         .replace(
             "arg?: boolean | ScrollIntoViewOptions",

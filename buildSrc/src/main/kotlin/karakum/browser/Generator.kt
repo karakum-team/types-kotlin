@@ -56,6 +56,7 @@ import web.window.WindowName
 import web.aria.ARIAMixin
 import web.cssom.LinkStyle
 import web.cssom.ElementCSSInlineStyle
+import web.cssom.StylePropertyMapReadOnly
 import web.data.DataTransfer
 import web.geometry.DOMMatrix
 import web.geometry.DOMMatrixReadOnly

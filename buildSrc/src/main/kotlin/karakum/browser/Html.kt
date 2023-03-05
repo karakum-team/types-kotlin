@@ -87,10 +87,15 @@ private val FULLSCREEN_TYPES = setOf(
     "FullscreenOptions",
 )
 
-internal val CSSOM_TYPES = listOf(
+private val CSSOM_INTERFACES = listOf(
     "ElementCSSInlineStyle",
     "LinkStyle",
 )
+
+private val CSSOM_TYPES = listOf(
+    "StylePropertyMap",
+    "StylePropertyMapReadOnly",
+) + CSSOM_INTERFACES
 
 private val DOM_DATA_TYPES = listOf(
     "DataTransfer",
@@ -509,7 +514,7 @@ internal fun htmlDeclarations(
         .plus(DOM_TYPES)
         .plus(SCROLL_TYPES)
         .plus(FULLSCREEN_TYPES)
-        .plus(CSSOM_TYPES)
+        .plus(CSSOM_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(DOM_DATA_TYPES)
         .plus(DOM_GEOMETRY_TYPES)
         .plus(DOM_PARSING_TYPES)
@@ -918,7 +923,7 @@ internal fun convertInterface(
                 name == "Comment"
         -> "sealed"
 
-        name in CSSOM_TYPES ||
+        name in CSSOM_INTERFACES ||
                 name in DOM_PARSING_TYPES ||
                 name == "DataTransfer" ||
                 name == "FileReader" ||
@@ -1580,7 +1585,7 @@ private fun convertFunction(
     val parameterCount = parameters.count { it == ':' }
     val isOperator = when (name) {
         "get" -> parameterCount == 1 && ":" in result
-        "set" -> parameterCount == 2 && ":" !in result
+        "set" -> parameterCount == 2 && ":" !in result && "vararg " !in parameters
         else -> false
     }
 
@@ -1601,6 +1606,12 @@ private fun convertFunctionParameters(
         "...nodes: (Node | string)[]",
         -> listOf(
             "vararg nodes: Any /* Node | string */",
+        )
+
+        "property: string, ...values: (CSSStyleValue | string)[]",
+        -> listOf(
+            "property: String",
+            "vararg values: Any /* CSSStyleValue | string */",
         )
 
         "...args: CSSNumberish[]",
@@ -1635,6 +1646,7 @@ private fun convertFunctionParameters(
         "action: (item: CSSNumericValue) => void",
         "action: (item: CSSTransformComponent) => void",
         "action: (item: CSSUnparsedSegment) => void",
+        "action: (item: CSSStyleValue[]) => void",
         "action: (item: FontFace) => void",
         "action: (item: T) => void",
         "action: (item: string) => void",
@@ -1647,6 +1659,7 @@ private fun convertFunctionParameters(
             source
                 .replace(": string", ": String")
                 .replace(": any", ": Any?")
+                .replace(": CSSStyleValue[]", ": ReadonlyArray<CSSStyleValue>")
                 .replace(" => void", " -> Unit"),
         )
 
