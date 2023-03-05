@@ -260,6 +260,8 @@ internal fun kotlinType(
             .replace("Mutation<unknown, unknown, unknown, unknown>", "Mutation<*, *, *, *>")
             .replace(") => Promise<unknown> | unknown", ") -> Promise<*>?")
             .replace("unknown", "Any?")
+            // hotfix
+            .replace("Any??", "Any?")
             .replace(" => ", " -> ")
 
     if (" | " in type || " & " in type || type.startsWith("typeof "))
