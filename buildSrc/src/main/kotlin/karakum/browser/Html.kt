@@ -1597,6 +1597,7 @@ private fun convertFunctionParameters(
         )
 
         "...args: CSSNumberish[]",
+        "...value: CSSNumberish[]",
         "...values: CSSNumberish[]",
         "...units: string[]",
 
@@ -1624,6 +1625,9 @@ private fun convertFunctionParameters(
         )
 
         "action: (item: AudioParam) => void",
+        "action: (item: CSSNumericValue) => void",
+        "action: (item: CSSTransformComponent) => void",
+        "action: (item: CSSUnparsedSegment) => void",
         "action: (item: FontFace) => void",
         "action: (item: T) => void",
         "action: (item: string) => void",
