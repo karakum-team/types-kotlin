@@ -31,6 +31,7 @@ import js.typedarrays.Uint8ClampedArray
 import js.core.JsLong
 import js.core.Void
 import web.canvas.OffscreenCanvas
+import web.canvas.PredefinedColorSpace
 import web.cssom.CSSStyleDeclaration
 import web.cssom.CSSStyleSheet
 import web.dom.Document

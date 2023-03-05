@@ -835,6 +835,10 @@ internal fun convertInterface(
             -> result
                 .replace("val ownerDocument:", "open val ownerDocument:")
 
+            "CSSTransformValue",
+            "CSSUnparsedValue",
+            -> "override val length: Int\n$result"
+
             "DOMMatrixReadOnly",
             "DOMPointReadOnly",
             "DOMRectReadOnly",
@@ -1355,6 +1359,9 @@ private fun convertProperty(
 
         "string | DOMHighResTimeStamp",
         -> "HighResTimeStamp /* | String */"
+
+        "number | CSSNumericValue | string",
+        -> "Any /* $type */"
 
         """"submit" | "reset" | "button"""",
         -> "ButtonType"
