@@ -6,6 +6,7 @@ import js.core.ReadonlyArray
 
 sealed external interface WebGLRenderingContextBase {
     val canvas: Any /* HTMLCanvasElement | OffscreenCanvas */
+    var drawingBufferColorSpace: PredefinedColorSpace
     val drawingBufferHeight: GLsizei
     val drawingBufferWidth: GLsizei
     fun activeTexture(texture: GLenum)

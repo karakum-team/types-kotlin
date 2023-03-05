@@ -50,6 +50,8 @@ sealed external class Navigator :
 
     /** Available only in secure contexts. */
     val serviceWorker: ServiceWorkerContainer
+    val userActivation: UserActivation
+    val wakeLock: WakeLock
 
     /** Available only in secure contexts. */
     fun canShare(data: ShareData = definedExternally): Boolean
