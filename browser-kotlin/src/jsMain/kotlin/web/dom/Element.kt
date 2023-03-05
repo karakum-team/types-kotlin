@@ -5,6 +5,7 @@ package web.dom
 import js.core.ReadonlyArray
 import js.core.Void
 import web.aria.ARIAMixin
+import web.cssom.StylePropertyMapReadOnly
 import web.events.Event
 import web.events.EventHandler
 import web.fullscreen.FullscreenOptions
