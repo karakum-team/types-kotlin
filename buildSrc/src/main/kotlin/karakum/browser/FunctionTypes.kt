@@ -19,6 +19,11 @@ private fun convertFunctionType(
 
         name == "FunctionStringCallback" -> "web.data"
 
+        name == "WebCodecsErrorCallback" -> "web.codecs"
+        name == "VideoFrameOutputCallback" -> "web.codecs"
+        name == "WebCodecsErrorCallback" -> "web.codecs"
+        name == "EncodedVideoChunkOutputCallback" -> "web.codecs"
+
         name.startsWith("IntersectionObserver") -> "web.dom.observers"
         name == "MutationCallback" -> "web.dom.observers"
         name.startsWith("ResizeObserver") -> "web.dom.observers"
@@ -58,6 +63,7 @@ private fun convertFunctionType(
         .replace(": IntersectionObserverEntry[]", ": ReadonlyArray<IntersectionObserverEntry>")
         .replace(": MutationRecord[]", ": ReadonlyArray<MutationRecord>")
         .replace(": ResizeObserverEntry[]", ": ReadonlyArray<ResizeObserverEntry>")
+        .replace("?: EncodedVideoChunkMetadata", ": EncodedVideoChunkMetadata?")
         .replace("): void", ") -> Unit")
         .replace(" | null", "?")
 

@@ -33,6 +33,12 @@ private val LONG_NAMES = setOf(
     "total",
 
     "whatToShow",
+
+    // Codecs
+    "decodeQueueSize",
+    "encodeQueueSize",
+    "timestamp",
+    "stride",
 )
 
 private val INT_NAMES = setOf(
@@ -167,6 +173,16 @@ private val INT_NAMES = setOf(
 
     // WebSocket
     "bufferedAmount",
+
+    // Video
+    "codedHeight",
+    "codedWidth",
+    "displayAspectHeight",
+    "displayAspectWidth",
+    "displayHeight",
+    "displayWidth",
+
+    "byteLength"
 )
 
 private val DOUBLE_NAMES = setOf(

@@ -313,6 +313,31 @@ private val QUERY_TYPES = listOf(
     "MultiCacheQueryOptions",
 )
 
+private val CODECS_TYPES = listOf(
+    "AvcEncoderConfig",
+    "EncodedVideoChunk",
+    "EncodedVideoChunkInit",
+    "VideoColorSpace",
+    "VideoColorSpaceInit",
+    "VideoDecoder",
+    "VideoDecoderConfig",
+    "VideoDecoderConfig",
+    "VideoDecoderInit",
+    "VideoDecoderSupport",
+    "VideoEncoder",
+    "VideoEncoderConfig",
+    "VideoEncoderConfig",
+    "VideoEncoderEncodeOptions",
+    "VideoEncoderInit",
+    "VideoEncoderSupport",
+    "VideoFrame",
+    "VideoFrameBufferInit",
+    "VideoFrameInit",
+    "EncodedVideoChunkMetadata",
+    "VideoFrameCopyToOptions",
+    "PlaneLayout",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -535,6 +560,7 @@ internal fun htmlDeclarations(
         .plus(WORKERS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WEB_CRYPTO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(QUERY_TYPES.flatMap { sequenceOf(it, "$it .+?") })
+        .plus(CODECS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(USER_ACTIVATION_TYPES)
         .joinToString("|")
 
@@ -1103,6 +1129,7 @@ internal fun convertInterface(
         name == "WebSocket" -> "websockets"
 
         name in QUERY_TYPES -> "web.cache"
+        name in CODECS_TYPES -> "web.codecs"
 
         name in USER_ACTIVATION_TYPES -> "web.useractivation"
 
@@ -1553,6 +1580,7 @@ private fun convertFunction(
         .replace(": RadioNodeList | Element | null", ": Any? /* RadioNodeList | Element */")
         .replace(": Promise<any>", ": Promise<*>")
         .replace(": Promise<number>", ": Promise<Number>")
+        .replace(": Promise<PlaneLayout[]>", ": Promise<ReadonlyArray<PlaneLayout>>")
         .replace(": Promise<FontFace[]>", ": Promise<ReadonlyArray<FontFace>>")
         .replace(": Promise<MediaDeviceInfo[]>", ": Promise<ReadonlyArray<MediaDeviceInfo>>")
         .replace(": Promise<Notification[]>", ": Promise<ReadonlyArray<Notification>>")

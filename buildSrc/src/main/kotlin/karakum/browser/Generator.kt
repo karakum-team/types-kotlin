@@ -30,6 +30,7 @@ import js.typedarrays.Uint32Array
 import js.typedarrays.Uint8ClampedArray
 import js.core.JsLong
 import js.core.Void
+import web.canvas.CanvasImageSource
 import web.canvas.OffscreenCanvas
 import web.canvas.PredefinedColorSpace
 import web.cssom.CSSStyleDeclaration
