@@ -2,10 +2,8 @@
 
 package web.cssom
 
-import js.core.ReadonlyArray
-
 external class CSSMathProduct(
-    ...args: ReadonlyArray<CSSNumberish>
+    vararg values: CSSNumberish,
 ) : CSSMathValue {
     val values: CSSNumericArray
 }
