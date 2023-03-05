@@ -10,6 +10,7 @@ external class CSSTransformValue(
     transforms: ReadonlyArray<CSSTransformComponent>,
 ) : CSSStyleValue,
     ArrayLike<CSSTransformComponent> {
+    override val length: Int
     val is2D: Boolean
     fun toMatrix(): DOMMatrix
     fun forEach(action: (item: CSSTransformComponent) -> Unit)

@@ -3,6 +3,7 @@
 package webgl
 
 import js.core.ReadonlyArray
+import web.canvas.PredefinedColorSpace
 
 sealed external interface WebGLRenderingContextBase {
     val canvas: Any /* HTMLCanvasElement | OffscreenCanvas */

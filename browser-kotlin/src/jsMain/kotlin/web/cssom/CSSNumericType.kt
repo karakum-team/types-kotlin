@@ -3,12 +3,12 @@
 package web.cssom
 
 sealed external interface CSSNumericType {
-    var angle: Double?
-    var flex: Number?
-    var frequency: Double?
+    var angle: Int?
+    var flex: Int?
+    var frequency: Int?
     var length: Int?
-    var percent: Number?
+    var percent: Int?
     var percentHint: CSSNumericBaseType?
-    var resolution: Number?
-    var time: Number?
+    var resolution: Int?
+    var time: Int?
 }
