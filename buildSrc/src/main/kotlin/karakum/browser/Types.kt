@@ -178,9 +178,15 @@ private fun convertType(
             "BigInteger" -> "web.crypto"
             "HashAlgorithmIdentifier" -> "web.crypto"
 
-            else -> if (name.startsWith("Constrain")) {
-                "web.media.streams"
-            } else return null
+            else -> when {
+                name.startsWith("CSS")
+                ->  "web.cssom"
+
+                name.startsWith("Constrain")
+                ->  "web.media.streams"
+
+                else -> return null
+            }
         }
 
         val body = when {
