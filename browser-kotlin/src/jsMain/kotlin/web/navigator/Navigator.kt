@@ -19,7 +19,9 @@ import web.permissions.Permissions
 import web.serviceworker.ServiceWorkerContainer
 import web.share.ShareData
 import web.url.URL
+import web.useractivation.UserActivation
 import web.vibration.VibratePattern
+import web.wakelock.WakeLock
 import kotlin.js.Promise
 
 sealed external class Navigator :
