@@ -1596,11 +1596,16 @@ private fun convertFunctionParameters(
             "vararg nodes: Any /* Node | string */",
         )
 
+        "...args: CSSNumberish[]",
+        "...values: CSSNumberish[]",
+        "...units: string[]",
+
         "...text: string[]",
         "...tokens: string[]",
         "...streams: MediaStream[]",
         -> listOf(
             source
+                .replace("...args", "...values")
                 .replace("...", "vararg ")
                 .removeSuffix("[]")
                 .replace(": string", ": String")
