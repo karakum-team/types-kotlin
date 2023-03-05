@@ -283,6 +283,8 @@ fun generateKotlinDeclarations(
             import web.gamepad.Gamepad
             import web.midi.MIDIOptions
             import web.midi.MIDIAccess
+            import web.useractivation.UserActivation
+            import web.wakelock.WakeLock
             """.trimIndent()
 
             "Window",

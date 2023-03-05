@@ -301,6 +301,10 @@ private val WEB_CRYPTO_TYPES = listOf(
     "RsaHashedKeyGenParams",
 )
 
+private val USER_ACTIVATION_TYPES = listOf(
+    "UserActivation",
+)
+
 private val QUERY_TYPES = listOf(
     "Cache",
     "CacheStorage",
@@ -510,6 +514,9 @@ internal fun htmlDeclarations(
 
         "WebSocket.+?",
         "MIDI.+?",
+
+        "WakeLock",
+        "WakeLock.+?",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(SCROLL_TYPES)
@@ -528,6 +535,7 @@ internal fun htmlDeclarations(
         .plus(WORKERS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WEB_CRYPTO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(QUERY_TYPES.flatMap { sequenceOf(it, "$it .+?") })
+        .plus(USER_ACTIVATION_TYPES)
         .joinToString("|")
 
     val interfaces =
@@ -1096,7 +1104,10 @@ internal fun convertInterface(
 
         name in QUERY_TYPES -> "web.cache"
 
+        name in USER_ACTIVATION_TYPES -> "web.useractivation"
+
         name.startsWith("MIDI") -> "web.midi"
+        name.startsWith("WakeLock") -> "web.wakelock"
 
         else -> "web.html"
     }
