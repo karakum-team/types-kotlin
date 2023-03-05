@@ -54,8 +54,8 @@ import web.dom.GlobalEventHandlers
 import web.window.WindowEventHandlers
 import web.window.WindowName
 import web.aria.ARIAMixin
-import web.dom.css.LinkStyle
-import web.dom.css.ElementCSSInlineStyle
+import web.cssom.LinkStyle
+import web.cssom.ElementCSSInlineStyle
 import web.data.DataTransfer
 import web.geometry.DOMMatrix
 import web.geometry.DOMMatrixReadOnly

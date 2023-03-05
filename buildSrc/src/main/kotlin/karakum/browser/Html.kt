@@ -87,7 +87,7 @@ private val FULLSCREEN_TYPES = setOf(
     "FullscreenOptions",
 )
 
-internal val DOM_CSS_TYPES = listOf(
+internal val CSSOM_TYPES = listOf(
     "ElementCSSInlineStyle",
     "LinkStyle",
 )
@@ -509,7 +509,7 @@ internal fun htmlDeclarations(
         .plus(DOM_TYPES)
         .plus(SCROLL_TYPES)
         .plus(FULLSCREEN_TYPES)
-        .plus(DOM_CSS_TYPES)
+        .plus(CSSOM_TYPES)
         .plus(DOM_DATA_TYPES)
         .plus(DOM_GEOMETRY_TYPES)
         .plus(DOM_PARSING_TYPES)
@@ -918,7 +918,7 @@ internal fun convertInterface(
                 name == "Comment"
         -> "sealed"
 
-        name in DOM_CSS_TYPES ||
+        name in CSSOM_TYPES ||
                 name in DOM_PARSING_TYPES ||
                 name == "DataTransfer" ||
                 name == "FileReader" ||
@@ -1023,7 +1023,7 @@ internal fun convertInterface(
 
         name.startsWith("Document") -> "web.dom"
         name in DOM_TYPES -> "web.dom"
-        name in DOM_CSS_TYPES -> "web.dom.css"
+        name in CSSOM_TYPES -> "web.cssom"
         name in DOM_DATA_TYPES -> "web.data"
         name in DOM_GEOMETRY_TYPES -> "web.geometry"
         name == "XMLDocument" -> "web.xml"
