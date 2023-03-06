@@ -7,6 +7,7 @@ private val PARENT_TYPES = listOf(
     ANIMATION_NAME,
     "GridArea",
     TRANSITION_PROPERTY,
+    "WillChange"
 )
 
 internal fun IdentType(): ConversionResult {
