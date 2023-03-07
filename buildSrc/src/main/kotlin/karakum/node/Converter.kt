@@ -36,6 +36,11 @@ private val IGNORE_LIST = setOf(
 
     "ByteLengthQueuingStrategy",
     "CountQueuingStrategy",
+
+    // NEW TEMP
+    "MockFunctionCall",
+    "MockFunctionContext",
+    "MockTracker",
 )
 
 internal fun convertDefinitions(
@@ -112,6 +117,7 @@ internal fun convertDefinitions(
             .mapNotNull { convertType(it) }
             .filter { it.name != "BufferEncodingOption" }
             .filter { it.name != "WatchListener" }
+            .filter { it.name != "NoOpFunction" }
     } else emptySequence()
 
     val constants = "\n$mainContent"
@@ -296,6 +302,8 @@ private fun convertConst(
         "boolean" -> "Boolean"
         "number" -> "Number"
         "string" -> "String"
+
+        "MockTracker" -> "$DYNAMIC /* MockTracker */"
 
         else -> sourceType
     }

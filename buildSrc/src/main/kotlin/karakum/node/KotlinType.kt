@@ -110,6 +110,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Array<string | string[]>" to "ReadonlyArray<Any /* string | string[] */>",
 
     // TEMP
+    "MockTracker" to "$DYNAMIC /* MockTracker */",
     "Require" to "$DYNAMIC /* Require */",
     "EventLoopUtilityFunction" to "Function<*> /* EventLoopUtilityFunction */",
     "ReadableStreamDefaultReadResult<R>" to "Any /* ReadableStreamDefaultReadResult<R> */",
