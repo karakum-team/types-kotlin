@@ -119,6 +119,10 @@ fun generateKotlinDeclarations(
             // TEMP
             .replace("headers: OutgoingHttpHeaders | ReadonlyArray<[string, string]>", "headers: OutgoingHttpHeaders")
 
+            // TODO: merge?
+            .replace("export interface StatsFs extends StatsFsBase<number> {}", "")
+            .replace("export class StatsFs {}", "export class StatsFs extends StatsFsBase<number> {}")
+
         var definitions = convertDefinitions(source, pkg)
         when (pkg) {
             Package("events") -> definitions = definitions + Event(definitionsDir) + EventType()

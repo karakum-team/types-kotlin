@@ -550,6 +550,7 @@ private fun convertInterface(
 
                 // TEMP
                 name == "Stats" -> "abstract class"
+                name == "StatsFs" -> "abstract class"
                 name in OPEN_CLASSES -> "open class"
                 else -> "class"
             }
