@@ -29,6 +29,8 @@ private val PKG_MAP = mapOf(
     "TouchType" to "web.uievents",
     "DOMParserSupportedType" to "web.dom.parsing",
 
+    "WriteCommandType" to "web.filesystem",
+
     "ColorGamut" to "web.media.capabilities",
     "HdrMetadataType" to "web.media.capabilities",
     "MediaDecodingType" to "web.media.capabilities",
@@ -164,6 +166,8 @@ private fun convertType(
             "VibratePattern" -> "web.vibration"
 
             "ClipboardItems" -> "web.clipboard"
+
+            "FileSystemWriteChunkType" -> "web.filesystem"
 
             "IDBValidKey" -> "web.idb"
 

@@ -338,6 +338,10 @@ private val CODECS_TYPES = listOf(
     "PlaneLayout",
 )
 
+private val FILE_SYSTEM_TYPES = listOf(
+    "WriteParams",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -562,6 +566,7 @@ internal fun htmlDeclarations(
         .plus(QUERY_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(CODECS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(USER_ACTIVATION_TYPES)
+        .plus(FILE_SYSTEM_TYPES)
         .joinToString("|")
 
     val interfaces =
@@ -1035,6 +1040,8 @@ internal fun convertInterface(
         name.startsWith("DeviceMotion") -> "web.device"
 
         name.startsWith("FileSystem") -> "web.filesystem"
+        name in FILE_SYSTEM_TYPES -> "web.filesystem"
+
         name.startsWith("File") -> "web.file"
         name.startsWith("Gamepad") -> "web.gamepad"
 
