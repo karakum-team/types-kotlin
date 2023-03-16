@@ -49,6 +49,10 @@ internal fun String.applyPatches(): String =
             "forEach(action: (item: $1) => void): void;"
         )
         .replace("): undefined | CSSStyleValue", "): CSSStyleValue | undefined")
+        .replace(
+            "FileSystemWritableFileStream extends WritableStream {",
+            "FileSystemWritableFileStream extends WritableStream<FileSystemWriteChunkType> {"
+        )
         .patchCollections()
         .replace(
             "arg?: boolean | ScrollIntoViewOptions",

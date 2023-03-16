@@ -1445,6 +1445,7 @@ private fun convertProperty(
         "HTMLCollection",
         -> "$type<*>"
 
+        "BufferSource | Blob | string",
         "Client | ServiceWorker | MessagePort",
         -> "Any /* $type */"
 
