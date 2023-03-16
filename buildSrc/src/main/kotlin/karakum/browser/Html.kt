@@ -648,6 +648,7 @@ internal fun htmlDeclarations(
                     )
                 }
         )
+        .plus(DedicatedWorkerGlobalScope())
 }
 
 private fun prepareContent(
