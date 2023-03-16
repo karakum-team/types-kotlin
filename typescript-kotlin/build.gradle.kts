@@ -2,7 +2,8 @@ plugins {
     kfc("library")
     kfc("wrappers")
     seskar()
-    `typescript-declarations`
+    // TEMP
+    // `typescript-declarations`
 }
 
 kotlin {
