@@ -834,6 +834,12 @@ internal fun convertInterface(
         declaration += "\nJsIterable<$typeParameter>"
     }
 
+    val additionalParent = IterableRegistry.additionalParent(name)
+    if (additionalParent != null) {
+        declaration += if (":" in declaration) "," else ":"
+        declaration += "\n$additionalParent"
+    }
+
     val typeProvider = TypeProvider(name, arrayType)
 
     val mainConstructor: String

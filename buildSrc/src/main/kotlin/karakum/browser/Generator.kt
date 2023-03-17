@@ -21,6 +21,7 @@ import js.typedarrays.Float32Array
 import js.typedarrays.Float64Array
 import js.core.HighResTimeStamp
 import js.typedarrays.Int32Array
+import js.collections.JsSet
 import js.collections.ReadonlyMap
 import js.core.Record
 import js.core.ReadonlyArray    
