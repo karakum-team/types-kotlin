@@ -51,6 +51,6 @@ object IterableRegistry {
             .replace("Set<", "JsSet<")
             .replace("string", "String")
             .replace("number", "Number")
-            .replace(" any>", " Any>")
+            .replace(" any>", " Any?>")
     }
 }
