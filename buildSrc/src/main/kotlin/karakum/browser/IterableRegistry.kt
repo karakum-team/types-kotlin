@@ -47,6 +47,9 @@ object IterableRegistry {
         val result = additionalParentMap[type]
             ?: return null
 
+        if (result.startsWith("Set<"))
+            return null
+
         return result
             .replace("Set<", "JsSet<")
             .replace("string", "String")
