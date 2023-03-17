@@ -146,6 +146,11 @@ internal fun kotlinType(
         }
     }
 
+    if (type.startsWith("Partial")) {
+        val baseType = kotlinType(type.removeSurrounding("Partial<", ">"))
+        return "$baseType /* Partial */"
+    }
+
     if (" is " in type)
         return "Boolean /* $type */"
 
