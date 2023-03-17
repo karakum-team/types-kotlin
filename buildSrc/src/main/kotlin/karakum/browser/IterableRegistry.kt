@@ -9,10 +9,13 @@ object IterableRegistry {
 
     fun fill(
         definitionsDir: File,
+        vararg additionalFiles: File,
     ) {
         map = definitionsDir
             .listFiles { file -> file.name.endsWith(".d.ts") }!!
             .asSequence()
+            .filter { file -> file.name.startsWith("lib.es") }
+            .plus(additionalFiles)
             .map { it.readText() }
             .map { it.replace("\r\n", "\n") }
             .flatMap { ITERATOR_REGEX.findAll(it) }
@@ -24,7 +27,7 @@ object IterableRegistry {
         val result = map[type]
             ?: return null
 
-        return when(result) {
+        return when (result) {
             "string" -> "String"
             else -> result
         }

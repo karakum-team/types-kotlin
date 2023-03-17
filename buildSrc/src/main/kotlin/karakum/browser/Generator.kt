@@ -155,7 +155,11 @@ fun generateKotlinDeclarations(
     serviceworkerDefinitionsFile: File,
     sourceDir: File,
 ) {
-    IterableRegistry.fill(definitionsDir)
+    IterableRegistry.fill(
+        definitionsDir,
+        webDefinitionsFile.parentFile.resolve("iterable.d.ts"),
+        serviceworkerDefinitionsFile.parentFile.resolve("iterable.d.ts"),
+    )
 
     val content = webDefinitionsFile
         .readText()
