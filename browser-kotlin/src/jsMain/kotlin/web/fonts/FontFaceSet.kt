@@ -2,7 +2,6 @@
 
 package web.fonts
 
-import js.collections.JsSet
 import js.core.ReadonlyArray
 import web.events.Event
 import web.events.EventHandler
@@ -11,8 +10,7 @@ import kotlin.js.Promise
 
 external class FontFaceSet(
     initialFaces: ReadonlyArray<FontFace>,
-) : EventTarget,
-    JsSet<FontFace> {
+) : EventTarget {
     var onloading: EventHandler<Event>?
     var onloadingdone: EventHandler<Event>?
     var onloadingerror: EventHandler<Event>?
