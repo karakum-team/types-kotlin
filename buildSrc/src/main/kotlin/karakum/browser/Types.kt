@@ -70,13 +70,13 @@ private val PKG_MAP = mapOf(
 
     "AlphaOption" to "web.codecs",
     "AvcBitstreamFormat" to "web.codecs",
-    "BitrateMode" to "web.codecs",
     "CodecState" to "web.codecs",
     "EncodedVideoChunkType" to "web.codecs",
     "HardwareAcceleration" to "web.codecs",
     "LatencyMode" to "web.codecs",
     "VideoMatrixCoefficients" to "web.codecs",
     "VideoColorPrimaries" to "web.codecs",
+    "VideoEncoderBitrateMode" to "web.codecs",
     "VideoTransferCharacteristics" to "web.codecs",
     "VideoPixelFormat" to "web.codecs",
 
