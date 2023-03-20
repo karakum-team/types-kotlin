@@ -43,6 +43,7 @@ internal fun addOverrides(
         && "EventEmitter" in declaration
         || name == "Readable"
         || name == "Writable"
+        || name == "Duplex"
         || name == "Socket"
         || name == "ReadStream"
         || name == "WriteStream"
@@ -60,6 +61,7 @@ internal fun addOverrides(
 
         EMITTER_METHODS.forEach { method ->
             sequenceOf(
+                "Event.DRAIN",
                 "Event.END",
                 "Event.ERROR",
             ).forEach { event ->
@@ -154,6 +156,23 @@ internal fun addOverrides(
     }
 
     if (name == "Duplex") {
+        EMITTER_METHODS.forEach { method ->
+            sequenceOf(
+                "Event.CLOSE",
+                "Event.DATA",
+                "Event.END",
+                "Event.ERROR",
+                "Event.PAUSE",
+                "Event.READABLE",
+                "Event.RESUME",
+            ).forEach { event ->
+                result = result.replace(
+                    "fun  $method(event: $event",
+                    "override fun $method(event: $event",
+                )
+            }
+        }
+
         result = result
             .replace("val closed:", "override val closed:")
             .replace("val errored:", "override val errored:")
