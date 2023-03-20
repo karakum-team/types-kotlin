@@ -362,6 +362,12 @@ private fun convertType(
     }
 
     when (name) {
+        "UUID",
+        -> return ConversionResult(
+            name = name,
+            body = "typealias $name = String /* $bodySource */",
+        )
+
         "Serializable",
         "TransferListItem",
         "SendHandle",
