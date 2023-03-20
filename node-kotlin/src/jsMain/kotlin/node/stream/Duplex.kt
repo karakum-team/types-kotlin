@@ -98,12 +98,12 @@ open external class Duplex : Readable /* , Writable */ {
      * 10. resume
      * 11. unpipe
      */
-    open fun addListener(
+    override fun addListener(
         event: Event.CLOSE,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun addListener(
+    override fun addListener(
         event: Event.DATA,
         listener: (chunk: Any) -> Unit,
     ) /* : this */
@@ -113,12 +113,12 @@ open external class Duplex : Readable /* , Writable */ {
         listener: () -> Unit,
     ) /* : this */
 
-    open fun addListener(
+    override fun addListener(
         event: Event.END,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun addListener(
+    override fun addListener(
         event: Event.ERROR,
         listener: (error: Error) -> Unit,
     ) /* : this */
@@ -128,7 +128,7 @@ open external class Duplex : Readable /* , Writable */ {
         listener: () -> Unit,
     ) /* : this */
 
-    open fun addListener(
+    override fun addListener(
         event: Event.PAUSE,
         listener: () -> Unit,
     ) /* : this */
@@ -138,12 +138,12 @@ open external class Duplex : Readable /* , Writable */ {
         listener: (src: Readable) -> Unit,
     ) /* : this */
 
-    open fun addListener(
+    override fun addListener(
         event: Event.READABLE,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun addListener(
+    override fun addListener(
         event: Event.RESUME,
         listener: () -> Unit,
     ) /* : this */
@@ -153,49 +153,49 @@ open external class Duplex : Readable /* , Writable */ {
         listener: (src: Readable) -> Unit,
     ) /* : this */
 
-    open fun addListener(
+    override fun addListener(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
 
-    open fun emit(event: Event.CLOSE): Boolean
-    open fun emit(
+    override fun emit(event: Event.CLOSE): Boolean
+    override fun emit(
         event: Event.DATA,
         chunk: Any,
     ): Boolean
 
     open fun emit(event: Event.DRAIN): Boolean
-    open fun emit(event: Event.END): Boolean
-    open fun emit(
+    override fun emit(event: Event.END): Boolean
+    override fun emit(
         event: Event.ERROR,
         err: Error,
     ): Boolean
 
     open fun emit(event: Event.FINISH): Boolean
-    open fun emit(event: Event.PAUSE): Boolean
+    override fun emit(event: Event.PAUSE): Boolean
     open fun emit(
         event: Event.PIPE,
         src: Readable,
     ): Boolean
 
-    open fun emit(event: Event.READABLE): Boolean
-    open fun emit(event: Event.RESUME): Boolean
+    override fun emit(event: Event.READABLE): Boolean
+    override fun emit(event: Event.RESUME): Boolean
     open fun emit(
         event: Event.UNPIPE,
         src: Readable,
     ): Boolean
 
-    open fun emit(
+    override fun emit(
         event: EventType,
         vararg args: Any,
     ): Boolean
 
-    open fun on(
+    override fun on(
         event: Event.CLOSE,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun on(
+    override fun on(
         event: Event.DATA,
         listener: (chunk: Any) -> Unit,
     ) /* : this */
@@ -205,12 +205,12 @@ open external class Duplex : Readable /* , Writable */ {
         listener: () -> Unit,
     ) /* : this */
 
-    open fun on(
+    override fun on(
         event: Event.END,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun on(
+    override fun on(
         event: Event.ERROR,
         listener: (error: Error) -> Unit,
     ) /* : this */
@@ -220,7 +220,7 @@ open external class Duplex : Readable /* , Writable */ {
         listener: () -> Unit,
     ) /* : this */
 
-    open fun on(
+    override fun on(
         event: Event.PAUSE,
         listener: () -> Unit,
     ) /* : this */
@@ -230,12 +230,12 @@ open external class Duplex : Readable /* , Writable */ {
         listener: (src: Readable) -> Unit,
     ) /* : this */
 
-    open fun on(
+    override fun on(
         event: Event.READABLE,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun on(
+    override fun on(
         event: Event.RESUME,
         listener: () -> Unit,
     ) /* : this */
@@ -245,17 +245,17 @@ open external class Duplex : Readable /* , Writable */ {
         listener: (src: Readable) -> Unit,
     ) /* : this */
 
-    open fun on(
+    override fun on(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
 
-    open fun once(
+    override fun once(
         event: Event.CLOSE,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun once(
+    override fun once(
         event: Event.DATA,
         listener: (chunk: Any) -> Unit,
     ) /* : this */
@@ -265,12 +265,12 @@ open external class Duplex : Readable /* , Writable */ {
         listener: () -> Unit,
     ) /* : this */
 
-    open fun once(
+    override fun once(
         event: Event.END,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun once(
+    override fun once(
         event: Event.ERROR,
         listener: (error: Error) -> Unit,
     ) /* : this */
@@ -280,7 +280,7 @@ open external class Duplex : Readable /* , Writable */ {
         listener: () -> Unit,
     ) /* : this */
 
-    open fun once(
+    override fun once(
         event: Event.PAUSE,
         listener: () -> Unit,
     ) /* : this */
@@ -290,12 +290,12 @@ open external class Duplex : Readable /* , Writable */ {
         listener: (src: Readable) -> Unit,
     ) /* : this */
 
-    open fun once(
+    override fun once(
         event: Event.READABLE,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun once(
+    override fun once(
         event: Event.RESUME,
         listener: () -> Unit,
     ) /* : this */
@@ -305,17 +305,17 @@ open external class Duplex : Readable /* , Writable */ {
         listener: (src: Readable) -> Unit,
     ) /* : this */
 
-    open fun once(
+    override fun once(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
 
-    open fun prependListener(
+    override fun prependListener(
         event: Event.CLOSE,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun prependListener(
+    override fun prependListener(
         event: Event.DATA,
         listener: (chunk: Any) -> Unit,
     ) /* : this */
@@ -325,12 +325,12 @@ open external class Duplex : Readable /* , Writable */ {
         listener: () -> Unit,
     ) /* : this */
 
-    open fun prependListener(
+    override fun prependListener(
         event: Event.END,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun prependListener(
+    override fun prependListener(
         event: Event.ERROR,
         listener: (error: Error) -> Unit,
     ) /* : this */
@@ -340,7 +340,7 @@ open external class Duplex : Readable /* , Writable */ {
         listener: () -> Unit,
     ) /* : this */
 
-    open fun prependListener(
+    override fun prependListener(
         event: Event.PAUSE,
         listener: () -> Unit,
     ) /* : this */
@@ -350,12 +350,12 @@ open external class Duplex : Readable /* , Writable */ {
         listener: (src: Readable) -> Unit,
     ) /* : this */
 
-    open fun prependListener(
+    override fun prependListener(
         event: Event.READABLE,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun prependListener(
+    override fun prependListener(
         event: Event.RESUME,
         listener: () -> Unit,
     ) /* : this */
@@ -365,17 +365,17 @@ open external class Duplex : Readable /* , Writable */ {
         listener: (src: Readable) -> Unit,
     ) /* : this */
 
-    open fun prependListener(
+    override fun prependListener(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
 
-    open fun prependOnceListener(
+    override fun prependOnceListener(
         event: Event.CLOSE,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun prependOnceListener(
+    override fun prependOnceListener(
         event: Event.DATA,
         listener: (chunk: Any) -> Unit,
     ) /* : this */
@@ -385,12 +385,12 @@ open external class Duplex : Readable /* , Writable */ {
         listener: () -> Unit,
     ) /* : this */
 
-    open fun prependOnceListener(
+    override fun prependOnceListener(
         event: Event.END,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun prependOnceListener(
+    override fun prependOnceListener(
         event: Event.ERROR,
         listener: (error: Error) -> Unit,
     ) /* : this */
@@ -400,7 +400,7 @@ open external class Duplex : Readable /* , Writable */ {
         listener: () -> Unit,
     ) /* : this */
 
-    open fun prependOnceListener(
+    override fun prependOnceListener(
         event: Event.PAUSE,
         listener: () -> Unit,
     ) /* : this */
@@ -410,12 +410,12 @@ open external class Duplex : Readable /* , Writable */ {
         listener: (src: Readable) -> Unit,
     ) /* : this */
 
-    open fun prependOnceListener(
+    override fun prependOnceListener(
         event: Event.READABLE,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun prependOnceListener(
+    override fun prependOnceListener(
         event: Event.RESUME,
         listener: () -> Unit,
     ) /* : this */
@@ -425,17 +425,17 @@ open external class Duplex : Readable /* , Writable */ {
         listener: (src: Readable) -> Unit,
     ) /* : this */
 
-    open fun prependOnceListener(
+    override fun prependOnceListener(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
 
-    open fun removeListener(
+    override fun removeListener(
         event: Event.CLOSE,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun removeListener(
+    override fun removeListener(
         event: Event.DATA,
         listener: (chunk: Any) -> Unit,
     ) /* : this */
@@ -445,12 +445,12 @@ open external class Duplex : Readable /* , Writable */ {
         listener: () -> Unit,
     ) /* : this */
 
-    open fun removeListener(
+    override fun removeListener(
         event: Event.END,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun removeListener(
+    override fun removeListener(
         event: Event.ERROR,
         listener: (error: Error) -> Unit,
     ) /* : this */
@@ -460,7 +460,7 @@ open external class Duplex : Readable /* , Writable */ {
         listener: () -> Unit,
     ) /* : this */
 
-    open fun removeListener(
+    override fun removeListener(
         event: Event.PAUSE,
         listener: () -> Unit,
     ) /* : this */
@@ -470,12 +470,12 @@ open external class Duplex : Readable /* , Writable */ {
         listener: (src: Readable) -> Unit,
     ) /* : this */
 
-    open fun removeListener(
+    override fun removeListener(
         event: Event.READABLE,
         listener: () -> Unit,
     ) /* : this */
 
-    open fun removeListener(
+    override fun removeListener(
         event: Event.RESUME,
         listener: () -> Unit,
     ) /* : this */
@@ -485,7 +485,7 @@ open external class Duplex : Readable /* , Writable */ {
         listener: (src: Readable) -> Unit,
     ) /* : this */
 
-    open fun removeListener(
+    override fun removeListener(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
