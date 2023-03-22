@@ -1,6 +1,7 @@
 package karakum.cesium
 
-import karakum.cesium.Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE
+import karakum.common.Suppress
+import karakum.common.Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE
 
 internal class Interface(
     source: Definition,

@@ -1,6 +1,7 @@
 package karakum.cesium
 
-import karakum.cesium.Suppress.*
+import karakum.common.Suppress
+import karakum.common.Suppress.*
 
 internal abstract class TypeBase(
     final override val source: Definition,
