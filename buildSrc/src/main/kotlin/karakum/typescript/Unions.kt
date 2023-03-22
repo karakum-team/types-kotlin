@@ -1,5 +1,6 @@
 package karakum.typescript
 
+import karakum.common.sealedUnionBody
 import karakum.common.unionBody
 
 internal data class Union(
@@ -7,7 +8,7 @@ internal data class Union(
     val source: String,
 ) {
     val body: String
-        get() = unionBody(
+        get() = sealedUnionBody(
             name = name,
             values = source
                 .splitToSequence(" | ")

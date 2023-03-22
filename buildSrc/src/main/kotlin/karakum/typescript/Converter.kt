@@ -1,6 +1,7 @@
 package karakum.typescript
 
 import karakum.common.UnionConstant
+import karakum.common.sealedUnionBody
 import karakum.common.unionBody
 import karakum.common.unionBodyByConstants
 import java.io.File
@@ -251,7 +252,7 @@ private fun convertType(
                 .map { it.removeSurrounding("\"") }
                 .toList()
 
-            return unionBody(name, values)
+            return sealedUnionBody(name, values)
         }
     }
 
