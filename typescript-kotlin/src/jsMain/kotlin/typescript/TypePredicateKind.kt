@@ -10,10 +10,9 @@ package typescript
 // language=JavaScript
 @JsName("""(/*union*/{This: 0, Identifier: 1, AssertsThis: 2, AssertsIdentifier: 3}/*union*/)""")
 sealed external interface TypePredicateKind {
-    companion object {
-        val This: TypePredicateKind
-        val Identifier: TypePredicateKind
-        val AssertsThis: TypePredicateKind
-        val AssertsIdentifier: TypePredicateKind
-    }
+    object This : TypePredicateKind
+    object Identifier : TypePredicateKind
+    object AssertsThis : TypePredicateKind
+    object AssertsIdentifier : TypePredicateKind
+
 }
