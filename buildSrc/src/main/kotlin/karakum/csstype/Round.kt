@@ -1,11 +1,11 @@
 package karakum.csstype
 
-import karakum.common.unionBody
+import karakum.common.sealedUnionBody
 
 internal const val ROUND = "Round"
 
 internal fun Round(): ConversionResult =
     ConversionResult(
         name = ROUND,
-        body = unionBody(ROUND, listOf("round")),
+        body = sealedUnionBody(ROUND, listOf("round")),
     )

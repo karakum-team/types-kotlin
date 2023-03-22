@@ -1,5 +1,6 @@
 package karakum.csstype
 
+import karakum.common.sealedUnionBody
 import karakum.common.unionBody
 
 private const val PROPERTY_NAME = "PropertyName"

@@ -1,7 +1,7 @@
 package karakum.csstype
 
 import karakum.common.sealedUnionBody
-import karakum.common.unionBody
+import karakum.common.sealedUnionBody
 
 internal const val GEOMETRY_POSITION = "GeometryPosition"
 internal val GEOMETRY_POSITION_VALUES = listOf(

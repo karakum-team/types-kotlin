@@ -1,9 +1,9 @@
 package karakum.csstype
 
-import karakum.common.unionBody
+import karakum.common.sealedUnionBody
 
 internal const val GEOMETRY_BOX = "GeometryBox"
-private val GEOMETRY_BOX_BODY = unionBody(
+private val GEOMETRY_BOX_BODY = sealedUnionBody(
     GEOMETRY_BOX,
     listOf(
         "border-box",

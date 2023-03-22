@@ -1,6 +1,6 @@
 package karakum.csstype
 
-import karakum.common.unionBody
+import karakum.common.sealedUnionBody
 
 internal const val BOX_SHADOW = "BoxShadow"
 internal const val BOX_SHADOW_INSET = "BoxShadowInset"
@@ -23,7 +23,7 @@ internal fun boxShadowFactories(): String {
         .let { it + it.map { listOf(INSET_PARAMETER) + it } }
         .map { factory(BOX_SHADOW, it.toTypedArray()) }
 
-    return sequenceOf(unionBody(BOX_SHADOW_INSET, listOf("inset")))
+    return sequenceOf(sealedUnionBody(BOX_SHADOW_INSET, listOf("inset")))
         .plus(factories)
         .joinToString("\n\n")
 }

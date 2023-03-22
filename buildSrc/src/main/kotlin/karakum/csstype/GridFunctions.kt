@@ -1,6 +1,6 @@
 package karakum.csstype
 
-import karakum.common.unionBody
+import karakum.common.sealedUnionBody
 
 private const val AUTO_REPEAT = "AutoRepeat"
 private const val GRID_AUTO_TRACKS = "GridAutoTracks"
@@ -9,7 +9,7 @@ private const val GRID_TEMPLATE_TRACKS = "GridTemplateTracks"
 internal fun AutoRepeat(): ConversionResult =
     ConversionResult(
         AUTO_REPEAT,
-        unionBody(AUTO_REPEAT, listOf("auto-fill", "auto-fit")),
+        sealedUnionBody(AUTO_REPEAT, listOf("auto-fill", "auto-fit")),
     )
 
 internal fun gridFunctions(): ConversionResult {

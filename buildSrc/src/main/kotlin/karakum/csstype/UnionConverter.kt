@@ -2,7 +2,6 @@ package karakum.csstype
 
 import karakum.common.UnionConstant
 import karakum.common.sealedUnionBody
-import karakum.common.unionBody
 import karakum.common.unionBodyByConstants
 
 private const val AUTO_VALUE = "\"auto\""
@@ -87,7 +86,7 @@ internal fun tryToUnion(
                     .replaceFirst(NAMED_COLOR, "$NAMED_COLOR: Color")
             }
 
-            else -> unionBody(name, items.toUnionValues())
+            else -> sealedUnionBody(name, items.toUnionValues())
         }
 
         return ConversionResult(name, enumBody)

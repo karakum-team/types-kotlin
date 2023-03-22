@@ -1,11 +1,11 @@
 package karakum.csstype
 
-import karakum.common.unionBody
+import karakum.common.sealedUnionBody
 
 internal const val AUTO = "Auto"
 
 internal fun Auto(): ConversionResult =
     ConversionResult(
         name = AUTO,
-        body = unionBody(AUTO, listOf("auto")),
+        body = sealedUnionBody(AUTO, listOf("auto")),
     )
