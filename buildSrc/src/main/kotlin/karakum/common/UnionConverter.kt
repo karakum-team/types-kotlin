@@ -16,19 +16,20 @@ internal fun unionBodyByConstants(
     constants: List<UnionConstant>,
 ): String {
     val constantNames = constants
-        .joinToString("") {
+        .joinToString("\n") {
             sequenceOf(
                 it.comment,
-                "${it.kotlinName},\n",
+                "val ${it.kotlinName}: $name",
             ).filterNotNull()
                 .joinToString("\n")
         }
 
     return """
         ${jsName(constants)}
-        external enum class $name {
+        sealed external interface $name {
+            companion object {
             $constantNames
-            ;
+            }
         }
     """.trimIndent()
 }
