@@ -22,7 +22,7 @@ internal class Enum(
 
         return DEFAULT_PACKAGE +
                 source.doc(DocLink(this)) +
-                "\n\n" +
+                "\n" +
                 "sealed external interface $name {\n" +
                 "companion object {\n\n" +
                 "$body\n" +

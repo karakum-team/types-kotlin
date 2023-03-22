@@ -86,12 +86,12 @@ private fun hasRuntimeDeclarations(code: String): Boolean {
     return true
 }
 
-private val LAZY_REGEXP = Regex("""\n *external +(.+)\n""")
+private val LAZY_REGEXP = Regex("""\n *(external|sealed external) +(.+)\n""")
 
 private fun String.addLazyAnnotations(): String =
     replace(LAZY_REGEXP) {
         val value = it.value
-        val name = it.groupValues[1]
+        val name = it.groupValues[2]
             .substringBefore("{")
             .substringBefore("(")
             .substringBefore(":")
