@@ -125,14 +125,6 @@ internal abstract class TypeBase(
             .filter { it.isNotEmpty() } // TEMP
             .joinToString(separator = "\n\n")
 
-        val suppresses = suppresses()
-        val suppressHeader = if (suppresses.isNotEmpty()) {
-            suppresses.asSequence()
-                .map { """"${it.name}",""" }
-                .joinToString("\n")
-                .let { "@file:Suppress(\n$it\n)\n\n" }
-        } else ""
-
         if (!staticBody) {
             val staticMembers = members.filter { it.static }
                 .plus(companionMembers)
@@ -169,8 +161,7 @@ internal abstract class TypeBase(
             .replace(": $name.", ": ")
 
         val header = if (top) {
-            suppressHeader +
-                    DEFAULT_PACKAGE
+            DEFAULT_PACKAGE
         } else ""
 
         val modifiers = (if (top) "external " else "") +

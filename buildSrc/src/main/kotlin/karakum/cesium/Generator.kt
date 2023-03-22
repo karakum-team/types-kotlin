@@ -41,6 +41,9 @@ internal fun generateKotlinDeclarations(
                 } else ""
 
                 val suppresses = mutableListOf<Suppress>()
+                if (declaration is TypeBase)
+                    suppresses += declaration.suppresses()
+
                 if ("""@JsName("Cesium.""" in body)
                     suppresses += Suppress.NAME_CONTAINS_ILLEGAL_CHARS
 
