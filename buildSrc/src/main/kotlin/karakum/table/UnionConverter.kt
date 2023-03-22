@@ -1,8 +1,6 @@
 package karakum.table
 
-import karakum.common.Suppress
-import karakum.common.suppress
-import karakum.common.unionBody
+import karakum.common.sealedUnionBody
 
 internal fun convertUnion(
     name: String,
@@ -19,7 +17,8 @@ internal fun convertUnion(
 private fun convertUnion(
     name: String,
     values: List<String>,
-): ConversionResult {
-    val body = suppress(Suppress.NAME_CONTAINS_ILLEGAL_CHARS) + "\n" + unionBody(name, values)
-    return ConversionResult(name, body)
-}
+): ConversionResult =
+    ConversionResult(
+        name = name,
+        body = sealedUnionBody(name, values),
+    )

@@ -1,6 +1,8 @@
 package karakum.virtual
 
 import karakum.common.GENERATOR_COMMENT
+import karakum.common.Suppress
+import karakum.common.fileSuppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
@@ -31,6 +33,12 @@ fun generateKotlinDeclarations(
         val annotations = when {
             "external val " in body || "external object " in body || "external fun " in body || "external class " in body
             -> "@file:JsModule(\"${Package.VIRTUAL_CORE.moduleName}\")"
+
+            "JsName(\"\"\"(" in body
+            -> fileSuppress(
+                Suppress.NAME_CONTAINS_ILLEGAL_CHARS,
+                Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE,
+            )
 
             else -> ""
         }
