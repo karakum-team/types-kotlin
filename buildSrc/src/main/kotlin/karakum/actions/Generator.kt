@@ -2,8 +2,7 @@ package karakum.actions
 
 import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
-import karakum.common.Suppress.ABSTRACT_MEMBER_NOT_IMPLEMENTED
-import karakum.common.Suppress.NAME_CONTAINS_ILLEGAL_CHARS
+import karakum.common.Suppress.*
 import karakum.common.fileSuppress
 import java.io.File
 
@@ -53,8 +52,10 @@ private fun generate(
 
     for ((name, body) in result.results) {
         val suppresses = mutableListOf<Suppress>().apply {
-            if ("JsName(\"\"\"(" in body)
+            if ("JsName(\"\"\"(" in body) {
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
+                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
+            }
 
             if (name in CREDENTIAL_HANDLERS)
                 add(ABSTRACT_MEMBER_NOT_IMPLEMENTED)
