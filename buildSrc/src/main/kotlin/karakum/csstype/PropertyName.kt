@@ -18,7 +18,7 @@ internal fun PropertyName(
 
 
     val body = unionBody(PROPERTY_NAME, values)
-        .replace(PROPERTY_NAME, "$PROPERTY_NAME : $IDENT")
+        .replaceFirst(PROPERTY_NAME, "$PROPERTY_NAME : $IDENT")
 
     return ConversionResult(PROPERTY_NAME, body)
 }
