@@ -1,5 +1,7 @@
 package karakum.query
 
+import karakum.common.sealedUnionBody
+
 private val SPECIAL_TYPES = setOf(
     "boolean | number | ShouldRetryFunction<TError>",
     "number | RetryDelayFunction<TError>",
@@ -98,21 +100,15 @@ class Type(
             return ""
 
         if (originalBody.startsWith("'")) {
-            val items = originalBody.splitToSequence(" | ")
+            val values = originalBody.splitToSequence(" | ")
                 .map { it.removePrefix("'") }
                 .map { it.removeSuffix("'") }
                 .toList()
 
-            val jsName = items.joinToString(", ", "({ ", " })") { "${it.toUpperCase()}: '$it'" }
-
-            return sequenceOf(
-                "@Suppress(\"NAME_CONTAINS_ILLEGAL_CHARS\")",
-                "// language=JavaScript",
-                "@JsName(\"\"\"$jsName\"\"\")",
-                "external enum class $name {",
-                items.joinToString("", postfix = "\n;") { "${it.toUpperCase()},\n" },
-                "}"
-            ).joinToString("\n")
+            return sealedUnionBody(
+                name = name,
+                values = values,
+            )
         }
 
         val declaration = "$name${formatParameters(typeParameters)}"

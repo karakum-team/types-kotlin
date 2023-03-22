@@ -1,14 +1,8 @@
 package karakum.query
 
 import karakum.common.GENERATOR_COMMENT
+import karakum.common.Suppress
 import java.io.File
-
-private enum class Suppress {
-    UNUSED_TYPEALIAS_PARAMETER,
-    NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE,
-
-    ;
-}
 
 private val DEFAULT_IMPORTS = listOf(
     "Promise" to "kotlin.js.Promise",
@@ -123,6 +117,11 @@ private fun generate(
 
         if (moduleRequired && "typealias " in body)
             types.add(Suppress.NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE)
+
+        if ("JsName(\"\"\"(" in body) {
+            types.add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+            types.add(Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE)
+        }
 
         if (types.isNotEmpty()) {
             types.asSequence()
