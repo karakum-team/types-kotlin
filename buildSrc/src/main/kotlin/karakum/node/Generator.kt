@@ -146,7 +146,7 @@ fun generateKotlinDeclarations(
                 if ("JsName(\"\"\"(" in body || "JsName(\"'" in body)
                     add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
 
-                if ("JsName(\"\"\"(" in body && (name == "KeyFormat" || name == "KeyType"))
+                if ("JsName(\"\"\"(" in body)
                     add(Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
                 if ("inline fun " in body)

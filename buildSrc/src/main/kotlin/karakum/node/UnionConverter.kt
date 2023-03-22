@@ -1,8 +1,8 @@
 package karakum.node
 
+import karakum.common.*
 import karakum.common.ConversionResult
 import karakum.common.objectUnionBody
-import karakum.common.unionBody
 import karakum.common.unionConstant
 
 internal fun convertUnion(
@@ -35,7 +35,7 @@ internal fun convertUnion(
             constants = values.map(::unionConstant),
         )
 
-        else -> unionBody(name, values)
+        else -> sealedUnionBody(name, values)
     }
     return ConversionResult(name, body)
 }

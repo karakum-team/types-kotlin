@@ -1,6 +1,7 @@
 package karakum.node
 
 import karakum.common.ConversionResult
+import karakum.common.sealedUnionBody
 import karakum.common.unionBody
 
 private val VALUES = listOf(
@@ -13,5 +14,5 @@ private val VALUES = listOf(
 internal fun SymlinkType(): ConversionResult =
     ConversionResult(
         "SymlinkType",
-        unionBody("SymlinkType", VALUES)
+        sealedUnionBody("SymlinkType", VALUES)
     )
