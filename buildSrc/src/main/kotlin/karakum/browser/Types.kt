@@ -1,7 +1,7 @@
 package karakum.browser
 
 import karakum.common.objectUnionBody
-import karakum.common.unionBody
+import karakum.common.sealedUnionBody
 import karakum.common.unionConstant
 
 private val PKG_MAP = mapOf(
@@ -231,7 +231,7 @@ private fun convertType(
             constants = values.map(::unionConstant),
         )
 
-        else -> unionBody(name, values)
+        else -> sealedUnionBody(name, values)
     }
 
     return ConversionResult(

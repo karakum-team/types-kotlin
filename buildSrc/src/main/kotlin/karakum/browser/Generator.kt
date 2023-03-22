@@ -225,12 +225,8 @@ fun generateKotlinDeclarations(
             if ("JsName(\"\"\"(" in body || "JsName(\"'" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
 
-            when (name) {
-                RENDERING_CONTEXT_ID,
-                "KeyFormat",
-                "WindowTarget",
-                -> add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
-            }
+            if ("JsName(\"\"\"(" in body)
+                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
             if ("inline fun " in body)
                 add(NOTHING_TO_INLINE)
@@ -374,11 +370,10 @@ fun generateKotlinDeclarations(
 
     for ((name, body) in webglDeclarations(content)) {
         val suppresses = mutableSetOf<Suppress>().apply {
-            if ("JsName(\"\"\"(" in body)
+            if ("JsName(\"\"\"(" in body) {
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
-
-            if (name == "WebGLExtension")
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
+            }
         }.toTypedArray()
 
         val annotations = if (suppresses.isNotEmpty()) {

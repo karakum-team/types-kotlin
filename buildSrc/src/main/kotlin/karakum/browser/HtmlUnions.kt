@@ -1,12 +1,12 @@
 package karakum.browser
 
-import karakum.common.unionBody
+import karakum.common.sealedUnionBody
 
 internal fun htmlUnions(): Sequence<ConversionResult> =
     sequenceOf(
         ConversionResult(
             name = "CrossOrigin",
-            body = unionBody(
+            body = sealedUnionBody(
                 name = "CrossOrigin",
                 values = listOf(
                     "anonymous",
@@ -18,7 +18,7 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
         ),
         ConversionResult(
             name = "EnterKeyHint",
-            body = unionBody(
+            body = sealedUnionBody(
                 name = "EnterKeyHint",
                 values = listOf(
                     "enter",
@@ -34,7 +34,7 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
         ),
         ConversionResult(
             name = "ImageDecoding",
-            body = unionBody(
+            body = sealedUnionBody(
                 name = "ImageDecoding",
                 values = listOf(
                     "async",
@@ -46,7 +46,7 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
         ),
         ConversionResult(
             name = "InputMode",
-            body = unionBody(
+            body = sealedUnionBody(
                 name = "InputMode",
                 values = listOf(
                     "none",
@@ -63,7 +63,7 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
         ),
         ConversionResult(
             name = "ButtonType",
-            body = unionBody(
+            body = sealedUnionBody(
                 name = "ButtonType",
                 values = listOf(
                     "submit",
@@ -75,7 +75,7 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
         ),
         ConversionResult(
             name = "InputType",
-            body = unionBody(
+            body = sealedUnionBody(
                 name = "InputType",
                 values = listOf(
                     "button",
@@ -106,7 +106,7 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
         ),
         ConversionResult(
             name = "Loading",
-            body = unionBody(
+            body = sealedUnionBody(
                 name = "Loading",
                 values = listOf(
                     "eager",
@@ -117,7 +117,7 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
         ),
         ConversionResult(
             name = "SelectionDirection",
-            body = unionBody(
+            body = sealedUnionBody(
                 name = "SelectionDirection",
                 values = listOf(
                     "forward",
