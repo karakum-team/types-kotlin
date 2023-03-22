@@ -45,6 +45,9 @@ private fun generateCoreDeclarations(
         val suppresses = mutableListOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body || "JsName(\"'" in body)
                 add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+
+            if ("JsName(\"\"\"(" in body)
+                add(Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE)
         }.toTypedArray()
 
         val annotations = when {

@@ -1,6 +1,6 @@
 package karakum.popper
 
-import karakum.common.unionBody
+import karakum.common.sealedUnionBody
 
 internal fun enums(): Sequence<ConversionResult> =
     sequenceOf(
@@ -50,5 +50,5 @@ private fun enum(
 ): ConversionResult =
     ConversionResult(
         name = name,
-        body = unionBody(name, values.toList()),
+        body = sealedUnionBody(name, values.toList()),
     )
