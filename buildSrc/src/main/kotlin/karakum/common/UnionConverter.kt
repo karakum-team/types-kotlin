@@ -146,8 +146,6 @@ internal fun unionConstant(value: String): UnionConstant {
         // TEMP
         "2d" -> "canvas"
 
-        "name" -> "name_"
-
         else -> name.kebabToCamel()
     }
 
