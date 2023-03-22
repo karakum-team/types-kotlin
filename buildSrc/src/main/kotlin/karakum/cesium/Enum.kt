@@ -20,18 +20,14 @@ internal class Enum(
                 it.toCode()
             }
 
-        if (!LAZY_MODE)
-            body += "\n\n;\n"
-
-        val type = if (LAZY_MODE) {
-            "object /* enum */"
-        } else {
-            "enum class"
-        }
         return DEFAULT_PACKAGE +
                 source.doc(DocLink(this)) +
                 "\n\n" +
-                "external $type $name {\n\n$body\n}"
+                "sealed external interface $name {\n" +
+                "companion object {\n\n" +
+                "$body\n" +
+                "}\n" +
+                "}"
     }
 
     companion object {
@@ -50,11 +46,7 @@ internal class EnumConstant(
 
     override fun toCode(): String {
         val doc = source.doc()
-        val body = if (LAZY_MODE) {
-            "val $name: ${parent.name}"
-        } else {
-            "$name,"
-        }
+        val body = "val $name: ${parent.name}"
 
         return if (doc.isNotBlank()) {
             "$doc\n$body"

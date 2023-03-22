@@ -2,7 +2,7 @@ package karakum.cesium
 
 import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
-import karakum.common.suppress
+import karakum.common.fileSuppress
 import java.io.File
 
 private var nonModularMode: Boolean = false
@@ -31,14 +31,36 @@ internal fun generateKotlinDeclarations(
             val file = cesiumDir.resolve("${declaration.name}.kt")
             val code = declaration.toCode()
             if (!file.exists()) {
-                val content = "// $GENERATOR_COMMENT\n\n" +
-                        if (hasRuntimeDeclarations(code)) {
-                            if (LAZY_MODE) {
-                                code.addLazyAnnotations()
-                            } else {
-                                MODULE_ANNOTATION + "\n\n" + code
-                            }
-                        } else code
+                val isRuntime = hasRuntimeDeclarations(code)
+                val body = if (isRuntime && LAZY_MODE) {
+                    code.addLazyAnnotations()
+                } else code
+
+                var moduleDeclaration = if (isRuntime && !LAZY_MODE) {
+                    MODULE_ANNOTATION
+                } else ""
+
+                val suppresses = mutableListOf<Suppress>()
+                if ("""@JsName("Cesium.""" in body)
+                    suppresses += Suppress.NAME_CONTAINS_ILLEGAL_CHARS
+
+                if ("sealed external interface" in body && "companion object" in body)
+                    suppresses += Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE
+
+                val annotations = when {
+                    suppresses.isNotEmpty()
+                    -> fileSuppress(*suppresses.toTypedArray())
+
+                    else -> ""
+                }
+
+                val content = sequenceOf(
+                    "// $GENERATOR_COMMENT",
+                    moduleDeclaration,
+                    annotations,
+                    body,
+                ).filter { it.isNotEmpty() }
+                    .joinToString("\n\n")
 
                 file.writeText(content)
             } else {
@@ -49,8 +71,11 @@ internal fun generateKotlinDeclarations(
 }
 
 private fun hasRuntimeDeclarations(code: String): Boolean {
-    if ("\nexternal " !in code)
+    if ("\nexternal " !in code && "\nsealed external " !in code)
         return false
+
+    if ("\nsealed external interface " in code)
+        return "companion object" in code
 
     if (code.count("\nexternal ") == code.count("\nexternal interface"))
         return "companion object" in code
@@ -72,8 +97,5 @@ private fun String.addLazyAnnotations(): String =
             .splitToSequence(" ")
             .last()
 
-        sequenceOf(
-            suppress(Suppress.NAME_CONTAINS_ILLEGAL_CHARS),
-            "@JsName(\"Cesium.$name\")$value",
-        ).joinToString("\n", "\n")
+        "@JsName(\"Cesium.$name\")$value"
     }
