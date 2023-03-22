@@ -1,8 +1,6 @@
 package karakum.react
 
-import karakum.common.Suppress.NAME_CONTAINS_ILLEGAL_CHARS
-import karakum.common.suppress
-import karakum.common.unionBody
+import karakum.common.sealedUnionBody
 
 internal fun convertUnion(
     name: String,
@@ -34,7 +32,8 @@ internal fun convertUnion(
 internal fun convertUnion(
     name: String,
     values: List<String>,
-): ConversionResult {
-    val body = suppress(NAME_CONTAINS_ILLEGAL_CHARS) + "\n" + unionBody(name, values)
-    return ConversionResult(name, body)
-}
+): ConversionResult =
+    ConversionResult(
+        name = name,
+        body = sealedUnionBody(name, values),
+    )

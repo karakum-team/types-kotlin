@@ -1,8 +1,7 @@
 package karakum.react
 
 import karakum.common.GENERATOR_COMMENT
-import karakum.common.Suppress.DECLARATION_CANT_BE_INLINED
-import karakum.common.Suppress.EXTERNAL_TYPE_EXTENDS_NON_EXTERNAL_TYPE
+import karakum.common.Suppress
 import karakum.common.fileSuppress
 import java.io.File
 
@@ -25,6 +24,20 @@ fun generateKotlinDeclarations(
     sourceDir: File,
 ) {
     for ((name, body, pkg) in convertDefinitions(definitionsFile)) {
+        val suppresses = mutableListOf<Suppress>().apply {
+            if ("JsName(\"\"\"(" in body) {
+                add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+                add(Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE)
+            }
+        }.toTypedArray()
+
+        val annotations = when {
+            suppresses.isNotEmpty()
+            -> fileSuppress(*suppresses)
+
+            else -> ""
+        }
+
         val finalPkg = when {
             name.startsWith("Aria") -> Package.ARIA
             name in DOM_TYPES -> Package.DOM
@@ -46,16 +59,18 @@ fun generateKotlinDeclarations(
             .also { it.mkdirs() }
 
         targetDir.resolve("${name}.kt")
-            .writeText(fileContent(finalPkg, content))
+            .writeText(fileContent(finalPkg, annotations, content))
     }
 }
 
 private fun fileContent(
     pkg: Package,
+    annotations: String,
     body: String,
 ): String {
     return sequenceOf(
         "// $GENERATOR_COMMENT",
+        annotations,
         pkg.pkg,
         body,
     ).filter { it.isNotEmpty() }
