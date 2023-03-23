@@ -129,6 +129,7 @@ private fun convertFunction(
         .replace("?: Row<TData>[] | undefined", ": ReadonlyArray<Row<TData>>? = definedExternally")
         .replace(": Row<TData>[],", ": ReadonlyArray<Row<TData>>,")
         .replace(" -> Row<TData>[],", " -> ReadonlyArray<Row<TData>>,")
+        .replace("?: Row<TData> | undefined)", ": Row<TData>? = definedExternally)")
         .replace(": string", ": String")
         .replace(": number", ": Int")
         .replace(": boolean", ": Boolean")
