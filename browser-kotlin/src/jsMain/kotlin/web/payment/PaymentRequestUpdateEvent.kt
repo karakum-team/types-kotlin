@@ -9,6 +9,7 @@ package web.payment
 import web.events.Event
 import web.events.EventInit
 import web.events.EventType
+import kotlin.js.Promise
 
 external interface PaymentRequestUpdateEventInit : EventInit
 
@@ -17,7 +18,7 @@ open external class PaymentRequestUpdateEvent(
     init: PaymentRequestUpdateEventInit = definedExternally,
 ) : Event {
     fun updateWith(detailsPromise: PaymentDetailsUpdate)
-    fun updateWith(detailsPromise: PromiseLike<PaymentDetailsUpdate>)
+    fun updateWith(detailsPromise: Promise<PaymentDetailsUpdate> /* PromiseLike */)
 
     companion object
 }
