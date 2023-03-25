@@ -546,6 +546,8 @@ internal fun htmlDeclarations(
 
         "WakeLock",
         "WakeLock.+?",
+
+        "Console",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(SCROLL_TYPES)
@@ -1020,6 +1022,8 @@ internal fun convertInterface(
 
     val pkg = when {
         predefinedPkg != null -> predefinedPkg
+
+        name == "Console" -> "web.console"
 
         name == "RemotePlayback" -> "web.remoteplayback"
 
@@ -1652,6 +1656,14 @@ private fun convertFunctionParameters(
     source: String,
 ): String {
     val parameters = when (source) {
+        "...data: any[]",
+        "condition?: boolean, ...data: any[]",
+        "label?: string, ...data: any[]",
+        -> listOf(source.substringBefore(", ", ""))
+            .filter { it.isNotEmpty() }
+            .map { convertFunctionParameters(it) }
+            .plus("vararg data: Any?")
+
         "...nodes: (Element | Text)[]",
         -> listOf(
             "vararg nodes: Element /* | Text */",

@@ -1,6 +1,7 @@
 package karakum.browser
 
 private val PKG_MAP = mapOf(
+    "console" to "web.console",
     "performance" to "web.performance",
 
     "window" to "web.window",
