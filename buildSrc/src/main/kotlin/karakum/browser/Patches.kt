@@ -35,6 +35,7 @@ internal fun String.applyPatches(): String =
         .splitUnion("RsaHashedKeyGenParams | EcKeyGenParams")
         .splitUnion("AesKeyGenParams | HmacKeyGenParams | Pbkdf2Params")
         .splitUnion("IDBValidKey | IDBKeyRange")
+        .splitUnion("PaymentDetailsUpdate | PromiseLike<PaymentDetailsUpdate>")
         .patchDomGeometry()
         .replace("\n    getContext(contextId: string, options?: any): RenderingContext | null;", "")
         .replace("quality?: any", "quality?: number")

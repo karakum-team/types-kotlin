@@ -35,6 +35,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.idb.IDBVersionChangeEvent"),
     EventInfo("web.media.key.MediaKeyMessageEvent"),
     EventInfo("web.cssom.MediaQueryListEvent"),
+    EventInfo("web.fonts.FontFaceSetLoadEvent"),
     EventInfo("web.media.recorder.BlobEvent"),
     EventInfo("web.media.streams.MediaStreamTrackEvent"),
     EventInfo("web.audio.OfflineAudioCompletionEvent"),
@@ -61,6 +62,9 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.csp.SecurityPolicyViolationEvent"),
     EventInfo("web.window.BeforeUnloadEvent"),
     EventInfo("web.window.PromiseRejectionEvent"),
+    EventInfo("web.window.PictureInPictureEvent"),
+    EventInfo("web.payment.PaymentMethodChangeEvent"),
+    EventInfo("web.payment.PaymentRequestUpdateEvent"),
 )
 
 internal val WORKER_EVENT_DATA = listOf(

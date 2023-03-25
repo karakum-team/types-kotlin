@@ -86,6 +86,7 @@ private val EXCLUDED = setOf(
     // deprecated
     "AudioProcessingEvent",
     "MediaRecorderErrorEvent",
+    "MutationEvent",
     "SecurityPolicyViolationEvent",
 
     // TODO: check
@@ -97,7 +98,7 @@ internal fun eventDeclarations(
     webworkerContent: String,
 ): List<ConversionResult> =
     eventTypes(content + "\n\n" + webworkerContent)
-        .plus(eventPlaceholders(content, EVENT_DATA))
+        .plus(eventPlaceholders(content, EVENT_DATA, strict = true))
 
 internal fun workerEventDeclarations(
     content: String,
@@ -107,8 +108,24 @@ internal fun workerEventDeclarations(
 private fun eventPlaceholders(
     source: String,
     data: List<EventInfo>,
-): List<ConversionResult> =
-    data
+    strict: Boolean = false,
+): List<ConversionResult> {
+    if (strict) {
+        val eventNames = Regex("""interface ([\w\d]+Event) extends """)
+            .findAll(source)
+            .map { it.groupValues[1] }
+            .filter { it !in EXCLUDED }
+            .toList()
+
+        val knownEventNames = data.map { it.name }.toSet()
+        val unknownEventNames = eventNames.filter { it !in knownEventNames }
+
+        check(unknownEventNames.isEmpty()) {
+            "Unknown events:\n" + unknownEventNames.joinToString("\n")
+        }
+    }
+
+    return data
         .filter { !it.existed }
         .mapNotNull { info ->
             event(
@@ -117,6 +134,7 @@ private fun eventPlaceholders(
                 pkg = info.pkg,
             )
         }
+}
 
 private fun event(
     source: String,
