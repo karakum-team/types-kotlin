@@ -548,6 +548,8 @@ internal fun htmlDeclarations(
         "WakeLock.+?",
 
         "Console",
+
+        "Payment.+?",
     ).plus(ANIMATION_TYPES)
         .plus(DOM_TYPES)
         .plus(SCROLL_TYPES)
@@ -1153,6 +1155,8 @@ internal fun convertInterface(
 
         name.startsWith("MIDI") -> "web.midi"
         name.startsWith("WakeLock") -> "web.wakelock"
+
+        name.startsWith("Payment") -> "web.payment"
 
         else -> "web.html"
     }
@@ -1815,6 +1819,9 @@ private fun getParameterType(
 
         source == "Promise<any>"
         -> "Promise<*>"
+
+        source == "PromiseLike<PaymentDetailsUpdate>"
+        -> "Promise<PaymentDetailsUpdate> /* PromiseLike */"
 
         source == "DOMHighResTimeStamp"
         -> "HighResTimeStamp"
