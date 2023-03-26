@@ -7,11 +7,7 @@ tasks {
         dependsOn(":kotlinNpmInstall")
     }
 
-    named("compileKotlinJsLegacy") {
-        dependsOn(generateDeclarations)
-    }
-
-    named("compileKotlinJsIr") {
+    named("compileKotlinJs") {
         dependsOn(generateDeclarations)
     }
 }

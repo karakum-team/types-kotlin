@@ -46,11 +46,7 @@ tasks {
         dependsOn(cleanRemote)
     }
 
-    named("compileKotlinJsLegacy") {
-        dependsOn(generateDeclarations)
-    }
-
-    named("compileKotlinJsIr") {
+    named("compileKotlinJs") {
         dependsOn(generateDeclarations)
         finalizedBy(updateRemote)
     }
