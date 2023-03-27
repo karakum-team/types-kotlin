@@ -5,7 +5,6 @@ package react.dom.html
 import web.dom.Element
 
 external interface ButtonHTMLAttributes<T : Element> : HTMLAttributes<T> {
-    var autoFocus: Boolean?
     var disabled: Boolean?
     var form: String?
     var formAction: String?
