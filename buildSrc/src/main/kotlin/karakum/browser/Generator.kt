@@ -208,6 +208,7 @@ fun generateKotlinDeclarations(
         .plus(htmlUnions())
         .plus(browserConstants(content))
         .plus(browserTypes(content))
+        .plus(browserFunctions(content))
         .plus(browserFunctionTypes(content))
         .plus(keyboardTypes())
         .plus(windowTypes())
