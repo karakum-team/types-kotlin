@@ -71,7 +71,7 @@ private fun convertFunctionType(
             .replaceFirst("(", "(\n")
             .replace(", ", ",\n")
 
-    var body = "typealias $name = $bodySource"
+    val body = "typealias $name = $bodySource"
 
     return ConversionResult(
         name = name,
