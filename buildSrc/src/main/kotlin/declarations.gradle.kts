@@ -1,6 +1,6 @@
 tasks {
     named<Delete>("clean") {
-        // delete("src")
+        delete("src")
     }
 
     val generateDeclarations by registering {
