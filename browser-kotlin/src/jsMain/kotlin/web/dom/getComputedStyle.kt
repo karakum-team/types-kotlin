@@ -6,5 +6,5 @@ import web.cssom.CSSStyleDeclaration
 
 external fun getComputedStyle(
     element: Element,
-    pseudoElt: String = definedExternally,
+    pseudoElement: String = definedExternally,
 ): CSSStyleDeclaration

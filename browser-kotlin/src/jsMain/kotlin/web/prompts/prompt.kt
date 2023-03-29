@@ -4,5 +4,5 @@ package web.prompts
 
 external fun prompt(
     message: String,
-    _default: String = definedExternally,
+    default: String = definedExternally,
 ): String?
