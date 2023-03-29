@@ -30,6 +30,9 @@ private fun convertFunctionResult(
         "getComputedStyle",
         -> "web.dom"
 
+        "reportError",
+        -> "web.errors"
+
         "alert",
         "confirm",
         "prompt",
@@ -39,10 +42,14 @@ private fun convertFunctionResult(
     }
 
     val bodySource = source
+        // reportError
+        .replace("(e: any", "(error: JsError")
         // alert
         .replace("message?: any", "message: String")
         .replace("message?: ", "message: ")
+        .replace("_default?: ", "default?: ")
         .replace("elt: Element", "element: Element")
+        .replace("pseudoElt?: ", "pseudoElement?: ")
 
         .replace(": boolean", ": Boolean")
         .replace("?: string | null", "?: string")

@@ -26,6 +26,7 @@ import js.collections.ReadonlyMap
 import js.core.Record
 import js.core.ReadonlyArray    
 import js.core.ReadonlyRecord    
+import js.errors.JsError    
 import js.typedarrays.Uint8Array
 import js.typedarrays.Uint32Array
 import js.typedarrays.Uint8ClampedArray
