@@ -21,7 +21,6 @@ private fun convertFunctionType(
 
         name == "WebCodecsErrorCallback" -> "web.codecs"
         name == "VideoFrameOutputCallback" -> "web.codecs"
-        name == "WebCodecsErrorCallback" -> "web.codecs"
         name == "EncodedVideoChunkOutputCallback" -> "web.codecs"
 
         name.startsWith("IntersectionObserver") -> "web.dom.observers"
