@@ -95,6 +95,7 @@ private val CSSOM_INTERFACES = listOf(
 private val CSSOM_TYPES = listOf(
     "StylePropertyMap",
     "StylePropertyMapReadOnly",
+    "PropertyDefinition",
 ) + CSSOM_INTERFACES
 
 private val DOM_DATA_TYPES = listOf(
