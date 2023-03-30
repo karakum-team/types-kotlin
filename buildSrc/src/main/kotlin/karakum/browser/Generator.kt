@@ -216,6 +216,7 @@ fun generateKotlinDeclarations(
         .plus(windowTypes())
         .plus(tagNames(content))
         .plus(intlDeclarations(definitionsDir))
+        .plus(webAssemblyDeclarations(content))
         .plus(webWorkersDeclarations(serviceworkerDefinitionsFile))
 
     for ((name, body, pkg) in aliases) {
@@ -253,7 +254,15 @@ fun generateKotlinDeclarations(
             if (suppresses.isNotEmpty()) {
                 fileSuppress(*suppresses)
             } else "",
-            if (pkg == "js.intl" && "external class" in body) """@file:JsQualifier("Intl")""" else "",
+            when {
+                pkg == "js.intl" && "external class" in body
+                -> """@file:JsQualifier("Intl")"""
+
+                pkg == "webassembly" && "external class" in body
+                -> """@file:JsQualifier("WebAssembly")"""
+
+                else -> ""
+            },
         ).filter { it.isNotEmpty() }
             .joinToString("\n\n")
 
