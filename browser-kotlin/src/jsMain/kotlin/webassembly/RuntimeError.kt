@@ -4,6 +4,8 @@
 
 package webassembly
 
+import js.errors.JsError
+
 external class RuntimeError(
     message: String = definedExternally,
-)
+) : JsError
