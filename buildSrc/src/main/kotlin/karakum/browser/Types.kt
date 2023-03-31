@@ -182,18 +182,30 @@ private fun convertType(
             "BigInteger" -> "web.crypto"
             "HashAlgorithmIdentifier" -> "web.crypto"
 
+            "ExportValue",
+            "ImportValue",
+            -> getPkg(name)!!
+
             else -> when {
                 name.startsWith("CSS")
-                ->  "web.cssom"
+                -> "web.cssom"
 
                 name.startsWith("Constrain")
-                ->  "web.media.streams"
+                -> "web.media.streams"
+
+                bodySource.startsWith("Record<")
+                -> getPkg(name)!!
 
                 else -> return null
             }
         }
 
         val body = when {
+            bodySource.startsWith("Record<")
+            -> bodySource
+                .replace("Record<", "ReadonlyRecord<")
+                .replace("string", "String")
+
             bodySource == "ClipboardItem[]"
             -> "ReadonlyArray<ClipboardItem>"
 
