@@ -45,7 +45,7 @@ internal fun webAssemblyDeclarations(
                     body = """
                         external class ${result.name}(
                             message: String = definedExternally,
-                        )
+                        ): JsError
                     """.trimIndent()
                 )
             } else {
