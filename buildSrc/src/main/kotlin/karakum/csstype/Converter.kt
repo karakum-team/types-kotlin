@@ -1,6 +1,7 @@
 package karakum.csstype
 
 import java.io.File
+import java.util.*
 
 internal data class ConversionResult(
     val name: String,
@@ -25,7 +26,9 @@ internal fun convertDefinitions(
                 name == "Pseudos" -> sequenceOf(convertMetaPseudos(name, content))
                 name == "SimplePseudos" || name == "AdvancedPseudos" -> sequenceOf(convertPseudos(name, content))
                 content.startsWith("namespace AtRule ") ->
-                    convertNamespace(content) +
+                    convertNamespace(content)
+                        // Conflict with `Page` property
+                        .filter { it.name != "Page" } +
                             convertNamespaceTypes(content, AT_RULE_TYPES)
 
                 content.startsWith("namespace DataType ") -> convertNamespaceTypes(content)
@@ -548,13 +551,13 @@ private fun getAdditionalPropertyNames(
     when (name) {
         "appearance",
         -> sequenceOf(
-            "Webkit${name.capitalize()}",
-            "Moz${name.capitalize()}",
+            "Webkit${name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}",
+            "Moz${name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}",
         )
 
         "backdropFilter",
         -> sequenceOf(
-            "Webkit${name.capitalize()}",
+            "Webkit${name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}",
         )
 
         else -> emptySequence()
