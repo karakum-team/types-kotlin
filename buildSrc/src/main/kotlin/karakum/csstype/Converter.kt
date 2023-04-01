@@ -155,6 +155,8 @@ private fun contentMap(
         .removePrefix("export {};\n")
         .inlineTypes()
         .replace("DeprecatedSystemColor | ", "")
+        // for `PointerEvents`
+        .replace(Regex("""( = Globals \| .+) \| "inherit""""), "$1")
         .splitToSequence("\nexport ", "\ndeclare ")
         .drop(1)
         .associate { content ->
