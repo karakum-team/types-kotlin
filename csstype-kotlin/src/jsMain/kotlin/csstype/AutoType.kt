@@ -39,6 +39,7 @@ sealed external interface AutoType :
     MaskSize,
     Offset,
     OffsetAnchor,
+    OffsetPosition,
     OffsetRotate,
     Outline,
     OutlineStyle,
