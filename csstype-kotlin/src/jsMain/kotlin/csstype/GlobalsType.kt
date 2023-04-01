@@ -8,6 +8,7 @@ sealed external interface GlobalsType :
     AlignSelf,
     AlignTracks,
     All,
+    AnimationComposition,
     AnimationDirection,
     AnimationFillMode,
     AnimationIterationCount,
