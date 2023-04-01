@@ -30,6 +30,7 @@ sealed external interface AutoType :
     ForcedColorAdjust,
     GridLine,
     HyphenateCharacter,
+    HyphenateLimitChars,
     Hyphens,
     ImageRendering,
     InputSecurity,

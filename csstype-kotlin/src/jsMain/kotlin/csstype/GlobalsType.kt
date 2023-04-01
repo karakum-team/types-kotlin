@@ -94,6 +94,7 @@ sealed external interface GlobalsType :
     GridTemplateAreas,
     HangingPunctuation,
     HyphenateCharacter,
+    HyphenateLimitChars,
     Hyphens,
     ImageOrientation,
     ImageRendering,
