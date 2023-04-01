@@ -185,7 +185,12 @@ private fun convertNamespace(
                 name.startsWith("Moz") -> emptySequence()
                 name.startsWith("Ms") -> emptySequence()
                 name.startsWith("Webkit") -> emptySequence()
-                name.contains("Hyphen") && name != "Hyphens" && name != "HyphenateCharacter" -> emptySequence()
+                name.contains("Hyphen")
+                        && name != "Hyphens"
+                        && name != "HyphenateCharacter"
+                        && name != "HyphenateLimitChars"
+                -> emptySequence()
+
                 name.contains("Fallback") -> emptySequence()
                 name in DEPRECATED_TYPES -> emptySequence()
                 name in SVG_TYPES -> emptySequence()
@@ -195,6 +200,7 @@ private fun convertNamespace(
 }
 
 private val AT_RULE_TYPES = setOf(
+    "BasePalette",
     "FontDisplay",
     "Size",
     "Inherits",
@@ -428,6 +434,7 @@ private val INT_TYPES = setOf(
     "ZIndex",
 
     "FontWeight",
+    "HyphenateLimitChars",
 )
 
 private val DOUBLE_TYPES = setOf(
