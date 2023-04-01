@@ -13,6 +13,7 @@ private val LENGTH_UNIONS = setOf(
     "ObjectPosition",
     "Offset",
     "OffsetAnchor",
+    "OffsetPosition",
     "PerspectiveOrigin",
 
     "BackgroundPosition",
@@ -22,7 +23,7 @@ private val LENGTH_UNIONS = setOf(
     "TransformOrigin",
     "VerticalAlign",
 
-    "Flex",
+    FLEX,
     "FlexBasis",
     "Gap",
     "LetterSpacing",
@@ -109,7 +110,7 @@ internal fun tryToUnion(
         "TextDecoration",
         -> items - "TLength"
 
-        "Flex",
+        FLEX,
         "MaskBorder",
         -> items - "(number & {})"
 
