@@ -6,7 +6,7 @@ internal fun String.applyPatches(): String =
         .replace(
             "\n    set(name: string, value: string | Blob, fileName?: string): void;\n",
             "\n    set(name: string, value: string | Blob): void;" +
-                    "\n    set(name: string, value: string | Blob, fileName: string): void;\n",
+                    "\n    set(name: string, value: Blob, fileName: string): void;\n",
         )
         .splitUnion("string | string[]")
         .splitUnion("string | number[]")
