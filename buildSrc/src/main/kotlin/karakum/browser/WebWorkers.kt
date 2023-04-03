@@ -27,10 +27,9 @@ internal fun webWorkersDeclarations(
 
     val interfaces = Regex("""interface .+? \{[\s\S]+?\n}""")
         .findAll(content)
-        .asSequence()
         .map { it.value }
-        .mapNotNull {
-            val name = it
+        .mapNotNull { source ->
+            val name = source
                 .substringAfter(" ")
                 .substringBefore(" ")
 
@@ -41,7 +40,7 @@ internal fun webWorkersDeclarations(
             }
 
             convertInterface(
-                source = it,
+                source = source,
                 getStaticSource = { getStaticSource(it, content) },
                 predefinedPkg = predefinedPkg,
             )
