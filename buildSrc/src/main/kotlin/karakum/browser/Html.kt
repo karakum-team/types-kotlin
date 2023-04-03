@@ -1648,7 +1648,10 @@ private fun convertFunction(
     val parameterCount = parameters.count { it == ':' }
     val isOperator = when (name) {
         "get" -> parameterCount == 1 && ":" in result
-        "set" -> parameterCount == 2 && ":" !in result && "vararg " !in parameters
+        "set" -> parameterCount == 2 && ":" !in result
+                && "vararg " !in parameters
+                && " = definedExternally" !in parameters
+
         else -> false
     }
 
