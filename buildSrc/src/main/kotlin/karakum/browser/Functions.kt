@@ -50,6 +50,20 @@ internal fun convertFunctions(
         .findAll(content)
         .map { it.groupValues[1] }
         .mapNotNull { convertFunctionResult(it, getPkg) }
+        .groupBy { it.name }
+        .values
+        .asSequence()
+        .map { items ->
+            items.singleOrNull()
+                ?: run {
+                    val first = items.first()
+                    ConversionResult(
+                        name = first.name,
+                        body = items.joinToString("\n\n") { it.body },
+                        pkg = first.pkg,
+                    )
+                }
+        }
 
 private fun convertFunctionResult(
     source: String,
