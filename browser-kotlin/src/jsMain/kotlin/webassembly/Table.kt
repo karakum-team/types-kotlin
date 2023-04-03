@@ -1,8 +1,13 @@
 // Automatically generated - do not modify!
 
+@file:JsQualifier("WebAssembly")
+
 package webassembly
 
-sealed external interface Table {
+external class Table(
+    descriptor: TableDescriptor,
+    value: Any? = definedExternally,
+) {
     val length: Int
     operator fun get(index: Int): Any
     fun grow(
@@ -10,7 +15,7 @@ sealed external interface Table {
         value: Any? = definedExternally,
     ): Number
 
-    operator fun set(
+    fun set(
         index: Int,
         value: Any? = definedExternally,
     )
