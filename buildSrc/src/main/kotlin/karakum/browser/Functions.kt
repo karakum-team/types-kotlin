@@ -3,17 +3,18 @@ package karakum.browser
 internal fun browserFunctions(
     content: String,
 ): Sequence<ConversionResult> =
-    Regex("""\ndeclare function (.+);""")
-        .findAll(content)
-        .map { it.groupValues[1] }
-        .mapNotNull { convertFunctionResult(it) }
+    convertFunctions(
+        content = content.replace(
+            "\ndeclare function ",
+            "\nfunction ",
+        ),
+        getPkg = ::getBrowserPkg,
+    )
 
-private fun convertFunctionResult(
-    source: String,
-): ConversionResult? {
-    val name = source.substringBefore("(")
-
-    val pkg = when (name) {
+private fun getBrowserPkg(
+    name: String,
+): String? =
+    when (name) {
         "atob",
         "btoa",
         -> "web.buffer"
@@ -38,8 +39,24 @@ private fun convertFunctionResult(
         "prompt",
         -> "web.prompts"
 
-        else -> return null
+        else -> null
     }
+
+internal fun convertFunctions(
+    content: String,
+    getPkg: (name: String) -> String?,
+): Sequence<ConversionResult> =
+    Regex("""\nfunction (.+);""")
+        .findAll(content)
+        .map { it.groupValues[1] }
+        .mapNotNull { convertFunctionResult(it, getPkg) }
+
+private fun convertFunctionResult(
+    source: String,
+    getPkg: (name: String) -> String?,
+): ConversionResult? {
+    val name = source.substringBefore("(")
+    val pkg = getPkg(name) ?: return null
 
     val bodySource = source
         // reportError
