@@ -10,7 +10,7 @@ internal fun webAssemblyDeclarations(
         getPkg = { "webassembly" },
     )
 
-    val interfaces = Regex("""interface .+? \{[\s\S]+?\n\}""")
+    val interfaces = Regex("""interface .+? \{[\s\S]*?\n}""")
         .findAll(content)
         .map { it.value }
         .groupBy { it.substringBefore(" {\n") }

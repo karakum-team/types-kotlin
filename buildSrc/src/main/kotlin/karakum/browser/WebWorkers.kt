@@ -25,7 +25,7 @@ internal fun webWorkersDeclarations(
 ): Sequence<ConversionResult> {
     val content = webWorkersContent(definitionsFile)
 
-    val interfaces = Regex("""interface .+? \{[\s\S]+?\n\}""")
+    val interfaces = Regex("""interface .+? \{[\s\S]+?\n}""")
         .findAll(content)
         .asSequence()
         .map { it.value }

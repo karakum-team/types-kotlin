@@ -1173,7 +1173,7 @@ internal fun getStaticSource(
     name: String,
     source: String,
 ): String? {
-    val contentSource = sequenceOf("declare var", "const")
+    val contentSource = sequenceOf("declare var", "var", "const")
         .map { source.substringAfter("\n$it $name: {\n", "") }
         .filter { it.isNotEmpty() }
         .singleOrNull()
