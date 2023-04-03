@@ -79,6 +79,7 @@ private fun convertFunctionResult(
         .replace("message?: any", "message: String")
         .replace("message?: ", "message: ")
         .replace("_default?: ", "default?: ")
+        .replace("?: Imports", ": Imports = definedExternally")
         .replace("elt: Element", "element: Element")
         .replace("pseudoElt?: ", "pseudoElement?: ")
 
