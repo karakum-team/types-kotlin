@@ -53,7 +53,12 @@ internal fun webAssemblyDeclarations(
             }
         }
 
-    return (types + interfaces)
+    val functions = convertFunctions(
+        content = content,
+        getPkg = { "webassembly" },
+    )
+
+    return (types + interfaces + functions)
 }
 
 private fun webAssemblyContent(
