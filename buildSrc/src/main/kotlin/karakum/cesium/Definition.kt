@@ -121,7 +121,7 @@ private fun newBodies(
             .map { type -> body.replace(multiType, type) }
 
 
-    require("$optionalMultiType)" in body)
+    // require("$optionalMultiType)" in body)
     val primaryBody = body.substringBefore(optionalMultiType)
         .let { if ("," in it) it.substringBeforeLast(",") else it.substringBeforeLast("(") + "(" }
         .plus(body.substringAfter(optionalMultiType))

@@ -144,6 +144,8 @@ private fun readDeclarations(
         .replace("[webAssemblyOptions", "[options")
         .replace("(webAssemblyOptions", "(options")
         .replace("The DOM element or ID", "The DOM element")
+        .replace("this: ImageryLayer, ", "")
+        .replace("this: Terrain, ", "")
         .replace("this: TerrainProvider, ", "")
         // For version `1.103.0`
         .replace(" readonly targetPropertyNames: any;", " readonly targetPropertyNames: string[];")

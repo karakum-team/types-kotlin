@@ -24,7 +24,14 @@ internal abstract class TypeBase(
     }
 
     override val members by lazy {
+        val filter: (Member) -> Boolean = if (sealed) {
+            { it !is Constructor }
+        } else {
+            { true }
+        }
+
         members(source.body, source.optionsKdocBody())
+            .filter(filter)
             .onEach { it.parent = this }
             .onEach { if (!it.static) it.abstract = abstract }
     }
