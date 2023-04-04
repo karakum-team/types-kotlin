@@ -15,7 +15,6 @@ external interface LinkHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var imageSrcSet: String?
     var imageSizes: String?
     var referrerPolicy: ReferrerPolicy?
-    var rel: String?
     var sizes: String?
     var type: String?
     var charSet: String?
