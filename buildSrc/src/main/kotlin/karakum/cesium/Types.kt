@@ -1,11 +1,15 @@
 package karakum.cesium
 
+import java.util.*
+
+private const val IMAGERY_LAYER_CONSTRUCTOR_OPTIONS = "ImageryLayer.ConstructorOptions"
+
 internal fun isTypeAlias(
     source: String,
-): Boolean =
-    source.split(" = ")
-        .get(1)
-        .startsWith("(")
+): Boolean {
+    val body = source.split(" = ")[1]
+    return body.startsWith("(")
+}
 
 internal fun typeDeclaration(
     source: String,
@@ -18,6 +22,12 @@ internal fun typeDeclaration(
 
         body == "HTMLImageElement | HTMLCanvasElement | ImageBitmap"
         -> "typealias $name = Any /* $body */"
+
+        body == IMAGERY_LAYER_CONSTRUCTOR_OPTIONS
+        -> {
+            require(!top)
+            "interface /* typealias */ $name : $body"
+        }
 
         else -> {
             val modifier = if (top) "external" else ""
@@ -32,7 +42,7 @@ internal fun applyCallbackFix(
     when (source) {
         "foveatedInterpolationCallback",
         "updateCallback",
-        -> source.capitalize()
+        -> source.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
 
         else -> source
     }
