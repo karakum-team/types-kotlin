@@ -49,14 +49,14 @@ external class Terrain(terrainProviderPromise: Promise<TerrainProvider>) {
      * are passed an instance of the thrown error.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Terrain.html#errorEvent">Online Documentation</a>
      */
-    val errorEvent: Event<Terrain.ErrorEventCallback>
+    val errorEvent: Event<TerrainErrorEventCallback>
 
     /**
      * Gets an event that is raised when the terrain provider has been successfully created. Event listeners
      * are passed the created instance of [TerrainProvider].
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Terrain.html#readyEvent">Online Documentation</a>
      */
-    val readyEvent: Event<Terrain.ReadyEventCallback>
+    val readyEvent: Event<TerrainReadyEventCallback>
 
     companion object {
         /**
@@ -115,13 +115,13 @@ external class Terrain(terrainProviderPromise: Promise<TerrainProvider>) {
 /**
  * A function that is called when an error occurs.
  * @param [err] An object holding details about the error that occurred.
- * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Terrain.html#.ErrorEventCallback">Online Documentation</a>
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Terrain.html#.TerrainErrorEventCallback">Online Documentation</a>
  */
-typealias ErrorEventCallback = (err: Error) -> Unit
+typealias TerrainErrorEventCallback = (err: Error) -> Unit
 
 /**
  * A function that is called when the provider has been created
  * @param [provider] The created terrain provider.
- * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Terrain.html#.ReadyEventCallback">Online Documentation</a>
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Terrain.html#.TerrainReadyEventCallback">Online Documentation</a>
  */
-typealias ReadyEventCallback = (provider: TerrainProvider) -> Unit
+typealias TerrainReadyEventCallback = (provider: TerrainProvider) -> Unit

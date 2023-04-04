@@ -161,7 +161,7 @@ external class ImageryLayer(
      * are passed the created instance of [ImageryProvider].
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ImageryLayer.html#readyEvent">Online Documentation</a>
      */
-    val readyEvent: Event<ImageryLayer.ReadyEventCallback>
+    val readyEvent: Event<ImageryLayerReadyEventCallback>
 
     /**
      * Gets the rectangle of this layer.  If this rectangle is smaller than the rectangle of the
@@ -511,16 +511,16 @@ external class ImageryLayer(
 /**
  * A function that is called when an error occurs.
  * @param [err] An object holding details about the error that occurred.
- * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ImageryLayer.html#.ErrorEventCallback">Online Documentation</a>
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ImageryLayer.html#.ImageryLayerErrorEventCallback">Online Documentation</a>
  */
-typealias ErrorEventCallback = (err: Error) -> Unit
+typealias ImageryLayerErrorEventCallback = (err: Error) -> Unit
 
 /**
  * A function that is called when the provider has been created
  * @param [provider] The created imagery provider.
- * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ImageryLayer.html#.ReadyEventCallback">Online Documentation</a>
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ImageryLayer.html#.ImageryLayerReadyEventCallback">Online Documentation</a>
  */
-typealias ReadyEventCallback = (provider: ImageryProvider) -> Unit
+typealias ImageryLayerReadyEventCallback = (provider: ImageryProvider) -> Unit
 
 inline fun ImageryLayer(
     imageryProvider: ImageryProvider,
