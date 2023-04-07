@@ -17,11 +17,5 @@ dependencies {
     jsMainImplementation(npmv("@actions/tool-cache"))
 
     jsMainImplementation(wrappers("node"))
-
-    jsMainImplementation(npmv("@types/web"))
-    jsMainImplementation(npmv("@types/serviceworker"))
-    jsMainImplementation(devNpm("typescript", "5.0.3"))
-    jsMainImplementation(npmv("@webref/idl"))
-
     jsMainImplementation(kotlinxCoroutines("core"))
 }
