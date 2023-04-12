@@ -80,7 +80,7 @@ private fun tagDictionary(
     val namespaceBody = if (namespace != null) {
         """
         @JsName("'$namespace'")
-        external object ${name.toUpperCase()}_NAMESPACE: ElementNamespace
+        external object ${name.uppercase()}_NAMESPACE: ElementNamespace
         """.trimIndent()
     } else null
 
@@ -93,6 +93,6 @@ private fun tagDictionary(
     return ConversionResult(
         name = name,
         body = body,
-        pkg = "web.${name.toLowerCase()}",
+        pkg = "web.${name.lowercase()}",
     )
 }

@@ -119,5 +119,5 @@ private fun String.isClassLike(): Boolean =
         val types = split(CALL_DELIMITER)
         types.size == 2 && types[0].isClassLike() && applyCallbackFix(types[1]).isClassLike()
     } else {
-        CLASS_REGEX.matches(this) && get(0) == get(0).toUpperCase()
+        CLASS_REGEX.matches(this) && get(0) == get(0).uppercaseChar()
     }

@@ -302,4 +302,4 @@ fun String.fixDefaultOptions(): String =
     if (this == "DefaultOptions") "$this<*>" else this
 
 private fun String.isClassLike(): Boolean =
-    CLASS_REGEX.matches(this) && get(0) == get(0).toUpperCase()
+    CLASS_REGEX.matches(this) && get(0) == get(0).uppercaseChar()

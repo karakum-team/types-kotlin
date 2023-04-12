@@ -113,5 +113,5 @@ internal fun eventName(
     return name
         .replace("OCSP", "OCSP_")
         .replace(CAMEL_REGEX, "$1_$2")
-        .toUpperCase()
+        .uppercase()
 }
