@@ -82,7 +82,6 @@ private fun convertProperty(
         .let {
             when {
                 !optional -> it
-                it.startsWith(DYNAMIC) -> it
                 " // " in it -> it.replace(" // ", "? // ")
                 " /* " in it -> it.replace(" /* ", "? /* ")
                 else -> "$it?"

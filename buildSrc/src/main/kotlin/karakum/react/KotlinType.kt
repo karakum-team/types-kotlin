@@ -1,6 +1,5 @@
 package karakum.react
 
-internal const val DYNAMIC = "dynamic"
 internal const val UNIT = "Unit"
 
 internal const val STRING = "String"
@@ -29,6 +28,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     // TODO: use React interface instead
     "TouchList" to "web.uievents.TouchList",
+    "string | TrustedHTML" to "String /* | TrustedHTML */",
 
     // TODO: check
     "Booleanish" to "Boolean",
@@ -63,14 +63,14 @@ internal fun kotlinType(
 
     if (type.endsWith(" | null")) {
         val t = kotlinType(type.removeSuffix(" | null"), name)
-        return if (t == DYNAMIC) t else "$t?"
+        return "$t?"
     }
 
     if (type.startsWith("string | "))
-        return "$DYNAMIC // $type"
+        return "Any // $type"
 
     if (type.startsWith("Booleanish | "))
-        return "$DYNAMIC // $type"
+        return "Any // $type"
 
     return type
 }

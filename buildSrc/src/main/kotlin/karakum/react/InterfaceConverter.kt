@@ -6,6 +6,12 @@ import web.svg.*
 import react.IntrinsicType    
 """.trimIndent()
 
+private const val ORIGINAL_DANGEROUSLY_SET_INNER_HTML_BODY = """{
+        // Should be InnerHTML['innerHTML'].
+        // But unfortunately we're mixing renderer-specific type declarations.
+        __html: string | TrustedHTML;
+    }"""
+
 internal fun convertInterface(
     name: String,
     source: String,
@@ -90,7 +96,7 @@ private fun convertAttributesInterface(
 
         "DOMAttributes" -> source
             .replaceFirst("children?: ReactNode | undefined;\n", "")
-            .replaceFirst("{\n        __html: string;\n    }", "DangerouslySetInnerHTML")
+            .replaceFirst(ORIGINAL_DANGEROUSLY_SET_INNER_HTML_BODY, "DangerouslySetInnerHTML")
 
         "InputHTMLAttributes" -> source
             .replaceFirst("min?: number | string | undefined;\n", "min?: number | Date | undefined;\n")

@@ -2,7 +2,7 @@ package karakum.react
 
 private const val DANGEROUSLY_SET_INNER_HTML = """
 interface DangerouslySetInnerHTML {
-    __html: string;
+    __html: string | TrustedHTML;
 }
 """
 
