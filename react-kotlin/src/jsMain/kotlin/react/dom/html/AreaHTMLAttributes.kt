@@ -3,6 +3,7 @@
 package react.dom.html
 
 import web.dom.Element
+import web.http.ReferrerPolicy
 
 external interface AreaHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var alt: String?
