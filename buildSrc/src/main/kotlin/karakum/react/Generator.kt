@@ -17,6 +17,9 @@ private val DOM_TYPES = setOf(
 
 private val DOM_IMPORTS = """
 import react.dom.DOMAttributes
+import web.html.InputType
+import web.http.ReferrerPolicy
+import web.window.WindowTarget
 """.trimIndent()
 
 fun generateKotlinDeclarations(

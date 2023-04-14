@@ -17,9 +17,9 @@ internal fun convertDefinitions(
         .replace("HTMLTableHeaderCellElement", "HTMLTableCellElement")
         .replace("HTMLTableDataCellElement", "HTMLTableCellElement")
         .replace("HTMLWebViewElement", "HTMLElement")
-        .replace("HTMLAttributeAnchorTarget", "AnchorTarget")
-        .replace("HTMLAttributeReferrerPolicy", "ReferrerPolicy")
-        .replace("HTMLInputTypeAttribute", "InputType")
+        .replace(": HTMLAttributeAnchorTarget", ": WindowTarget")
+        .replace(": HTMLAttributeReferrerPolicy", ": ReferrerPolicy")
+        .replace(": HTMLInputTypeAttribute", ": InputType")
         .replace("    autoComplete?: string | undefined;", "    autoComplete?: AutoComplete | undefined;")
         .replace(" |  undefined", " | undefined")
         .replace("\r\n", "\n")
@@ -46,6 +46,12 @@ internal fun convertDefinitions(
         .plus(convertEventHandlers(reactContent))
 }
 
+private val EXCLUDED_UNIONS = setOf(
+    "HTMLAttributeAnchorTarget",
+    "HTMLAttributeReferrerPolicy",
+    "HTMLInputTypeAttribute",
+)
+
 private fun convertUnions(
     content: String,
 ): Sequence<ConversionResult> =
@@ -58,6 +64,7 @@ private fun convertUnions(
                 source = it.substringAfter(" =")
             )
         }
+        .filter { it.name !in EXCLUDED_UNIONS }
 
 private fun convertInterfaces(
     content: String,
