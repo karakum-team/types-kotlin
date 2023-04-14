@@ -508,10 +508,10 @@
   resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.99.tgz#a9c3a088e4634f6b08977f4fc733c916c2b0d50e"
   integrity sha512-xMz3tOvtkZzc7RpQrDNiLe5sfMmP+fz8bOxHIZ/U8qXyvzDX4L4Ss1HCjor/O9DSelba+1iXK1VM7lruX28hiQ==
 
-"@webref/idl@3.28.0":
-  version "3.28.0"
-  resolved "https://registry.yarnpkg.com/@webref/idl/-/idl-3.28.0.tgz#5a1b1f4993893a7df68f6156cbee001bb8fceeb6"
-  integrity sha512-Hue2C/BFleOheV2qCkkfaA+CJJEsf+jfCd6NDZu7bIxh2ihyIEQLanaPVzhgdcS8a6XEkvKLxdX/+2mNmnHxjg==
+"@webref/idl@3.33.0":
+  version "3.33.0"
+  resolved "https://registry.yarnpkg.com/@webref/idl/-/idl-3.33.0.tgz#e094fcc6e00d12f3031baedc349ca1901e2a9d63"
+  integrity sha512-DLOBZ3gxML+KX15nL4Nmw1K8kTFbiDWiqkTBlU5+nhk6V4kN5TLxZstUq0XDoF818NcfdetE9Ykjo9XFpYgmLQ==
 
 "@zip.js/zip.js@2.4.x":
   version "2.4.26"
