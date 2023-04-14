@@ -4,6 +4,7 @@ package react.dom.html
 
 import web.dom.Element
 import web.html.CrossOrigin
+import web.html.Loading
 import web.http.ReferrerPolicy
 
 external interface ImgHTMLAttributes<T : Element> : HTMLAttributes<T> {
@@ -11,7 +12,7 @@ external interface ImgHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var crossOrigin: CrossOrigin?
     var decoding: ImgDecoding?
     var height: Double?
-    var loading: ImgLoading?
+    var loading: Loading?
     var referrerPolicy: ReferrerPolicy?
     var sizes: String?
     var src: String?

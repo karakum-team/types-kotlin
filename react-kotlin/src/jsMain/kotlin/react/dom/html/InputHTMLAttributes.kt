@@ -5,7 +5,9 @@ package react.dom.html
 import react.dom.events.ChangeEventHandler
 import web.dom.Element
 import web.html.CrossOrigin
+import web.html.EnterKeyHint
 import web.html.InputType
+import web.window.WindowTarget
 
 external interface InputHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var accept: String?
@@ -21,7 +23,7 @@ external interface InputHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var formEncType: String?
     var formMethod: String?
     var formNoValidate: Boolean?
-    var formTarget: String?
+    var formTarget: WindowTarget?
     var height: Double?
     var list: String?
     var max: Any? /* number | Date */

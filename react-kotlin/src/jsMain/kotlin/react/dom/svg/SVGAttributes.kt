@@ -7,6 +7,7 @@ import react.dom.aria.AriaAttributes
 import react.dom.aria.AriaRole
 import web.dom.Element
 import web.html.CrossOrigin
+import web.window.WindowTarget
 
 external interface SVGAttributes<T : Element> :
     AriaAttributes,
@@ -22,7 +23,7 @@ external interface SVGAttributes<T : Element> :
     var min: Double?
     var name: String?
     override var style: react.CSSProperties?
-    var target: String?
+    var target: WindowTarget?
     var type: String?
     var width: Double?
 

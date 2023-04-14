@@ -3,6 +3,7 @@
 package react.dom.html
 
 import web.dom.Element
+import web.window.WindowTarget
 
 external interface ButtonHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var disabled: Boolean?
@@ -11,7 +12,7 @@ external interface ButtonHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var formEncType: String?
     var formMethod: String?
     var formNoValidate: Boolean?
-    var formTarget: String?
+    var formTarget: WindowTarget?
     var name: String?
     var type: ButtonType?
     var value: Any? /* string | ReadonlyArray<string> | number */
