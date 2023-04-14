@@ -20,6 +20,8 @@ internal fun convertDefinitions(
         .replace(": HTMLAttributeAnchorTarget", ": WindowTarget")
         .replace(": HTMLAttributeReferrerPolicy", ": ReferrerPolicy")
         .replace(": HTMLInputTypeAttribute", ": InputType")
+        .replace("    target?: string | undefined;", "    target?: WindowTarget | undefined;")
+        .replace("    formTarget?: string | undefined;", "    formTarget?: WindowTarget | undefined;")
         .replace("    autoComplete?: string | undefined;", "    autoComplete?: AutoComplete | undefined;")
         .replace(" |  undefined", " | undefined")
         .replace("\r\n", "\n")

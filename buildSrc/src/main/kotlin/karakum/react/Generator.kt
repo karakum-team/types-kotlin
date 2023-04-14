@@ -17,7 +17,9 @@ private val DOM_TYPES = setOf(
 
 private val DOM_IMPORTS = """
 import react.dom.DOMAttributes
+import web.html.EnterKeyHint
 import web.html.InputType
+import web.html.Loading
 import web.http.ReferrerPolicy
 import web.window.WindowTarget
 """.trimIndent()

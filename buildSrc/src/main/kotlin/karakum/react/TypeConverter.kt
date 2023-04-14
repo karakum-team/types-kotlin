@@ -1,5 +1,7 @@
 package karakum.react
 
+import java.util.*
+
 interface TypeConverter {
     fun convert(
         type: String,
@@ -34,7 +36,13 @@ internal class SimpleTypeConverter(
 
         when {
             propertyName == "crossOrigin" && type == """"anonymous" | "use-credentials" | """""
-            -> return propertyName.capitalize()
+            -> return propertyName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+
+            propertyName == "enterKeyHint"
+            -> return propertyName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+
+            propertyName == "loading"
+            -> return propertyName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
         }
 
         val sourceType = if (name == "Capture") {
@@ -63,23 +71,21 @@ internal class SimpleTypeConverter(
     ): String =
         when {
             propertyName == "capture"
-            -> propertyName.capitalize()
-
-            propertyName == "enterKeyHint"
-            -> propertyName.capitalize()
+            -> propertyName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
 
             propertyName.startsWith("aria-")
-            -> propertyName.ariaPropertyName().capitalize()
+            -> propertyName.ariaPropertyName()
+                .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
 
             parentName.endsWith("HTMLAttributes") -> {
                 val typeName = when (propertyName) {
                     "valign" -> "VAlign"
-                    else -> propertyName.capitalize()
+                    else -> propertyName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
                 }
 
                 parentName.removeSuffix("HTMLAttributes") + typeName
             }
 
-            else -> propertyName.capitalize()
+            else -> propertyName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
         }
 }
