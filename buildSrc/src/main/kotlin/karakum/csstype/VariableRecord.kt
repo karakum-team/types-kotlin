@@ -4,18 +4,19 @@ internal const val VARIABLE_RECORD = "VariableRecord"
 
 // language=Kotlin
 private val BODY = """
-sealed external interface $VARIABLE_RECORD
+sealed external interface $VARIABLE_RECORD {
+    @nativeGetter
+    @Suppress("DEPRECATION")
+    operator fun <T : Any> get(
+        name: $VARIABLE<T>,
+    ): T?
 
-inline fun <T: Any> $VARIABLE_RECORD.get(
-    name: $VARIABLE<T>,
-): T? =
-    asDynamic()[name]
-
-inline fun <T: Any> $VARIABLE_RECORD.set(
-    name: $VARIABLE<T>,
-    value: T?,
-) {
-    asDynamic()[name] = value
+    @nativeSetter
+    @Suppress("DEPRECATION")
+    operator fun <T : Any> set(
+        name: $VARIABLE<T>,
+        value: T?,
+    )
 }
 """.trimIndent()
 
