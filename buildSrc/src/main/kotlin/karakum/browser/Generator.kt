@@ -37,6 +37,7 @@ import web.canvas.OffscreenCanvas
 import web.canvas.PredefinedColorSpace
 import web.cssom.CSSStyleDeclaration
 import web.cssom.CSSStyleSheet
+import web.cssom.MediaQuery
 import web.dom.Document
 import web.dom.DocumentFragment
 import web.dom.DOMStringList

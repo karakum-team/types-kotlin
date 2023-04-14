@@ -246,12 +246,14 @@ private fun event(
     if (name == "TouchEvent")
         eventBody = "@JsName(\"globalThis.$name\")\n$eventBody"
 
-    val body = sequenceOf(
+    var body = sequenceOf(
         initBody,
         eventBody,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
 
+    if (name == "MediaQueryListEvent")
+        body = body.applyMediaQueryPatch()
 
     return ConversionResult(
         name = name,

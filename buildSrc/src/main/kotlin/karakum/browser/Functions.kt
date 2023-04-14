@@ -72,7 +72,7 @@ private fun convertFunctionResult(
     val name = source.substringBefore("(")
     val pkg = getPkg(name) ?: return null
 
-    val bodySource = source
+    var bodySource = source
         // reportError
         .replace("(e: any", "(error: JsError")
         // alert
@@ -92,6 +92,9 @@ private fun convertFunctionResult(
         .replace(", ", ",\n")
         .replace("(", "(\n")
         .replace(")", "\n)")
+
+    if (name == "matchMedia")
+        bodySource = bodySource.applyMediaQueryFunctionPatch()
 
     val body = "external fun $bodySource"
 

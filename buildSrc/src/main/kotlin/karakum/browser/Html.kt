@@ -1021,6 +1021,13 @@ internal fun convertInterface(
         "Body",
         "CanvasPath",
         -> body = """@JsName("Object")""" + "\n" + body
+
+        "MediaQueryList",
+
+        "HTMLMetaElement",
+        "HTMLStyleElement",
+        "SVGStyleElement",
+        -> body = body.applyMediaQueryPatch()
     }
 
     val pkg = when {
