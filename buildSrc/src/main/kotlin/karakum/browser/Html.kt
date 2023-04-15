@@ -1025,6 +1025,7 @@ internal fun convertInterface(
         "MediaQueryList",
 
         "HTMLMetaElement",
+        "HTMLSourceElement",
         "HTMLStyleElement",
         "SVGStyleElement",
         -> body = body.applyMediaQueryPatch()
