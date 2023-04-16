@@ -30,7 +30,7 @@ sealed external interface TestsStream : node.ReadableStream {
         listener: (data: TestStart) -> Unit,
     ) /* : this */
 
-    fun addListener(
+    override fun addListener(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
@@ -60,7 +60,7 @@ sealed external interface TestsStream : node.ReadableStream {
         data: TestStart,
     ): Boolean
 
-    fun emit(
+    override fun emit(
         event: EventType,
         vararg args: Any,
     ): Boolean
@@ -90,7 +90,7 @@ sealed external interface TestsStream : node.ReadableStream {
         listener: (data: TestStart) -> Unit,
     ) /* : this */
 
-    fun on(
+    override fun on(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
@@ -120,7 +120,7 @@ sealed external interface TestsStream : node.ReadableStream {
         listener: (data: TestStart) -> Unit,
     ) /* : this */
 
-    fun once(
+    override fun once(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
@@ -150,7 +150,7 @@ sealed external interface TestsStream : node.ReadableStream {
         listener: (data: TestStart) -> Unit,
     ) /* : this */
 
-    fun prependListener(
+    override fun prependListener(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
@@ -180,7 +180,7 @@ sealed external interface TestsStream : node.ReadableStream {
         listener: (data: TestStart) -> Unit,
     ) /* : this */
 
-    fun prependOnceListener(
+    override fun prependOnceListener(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
