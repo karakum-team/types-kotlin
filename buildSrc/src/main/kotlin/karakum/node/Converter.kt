@@ -580,6 +580,7 @@ private fun convertFunctions(
         .drop(1)
         .map { it.substringBefore(";\nexport ") }
         .map { it.substringBefore(";\ninterface ") }
+        .map { it.substringBefore(";\n\ninterface ") }
         .map { it.substringBefore("\n/**") }
         // WA for `http.get`
         .map { it.substringBefore(";\nlet ") }
