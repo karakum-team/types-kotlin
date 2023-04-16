@@ -2,8 +2,6 @@
 
 package node.vm
 
-import node.Module
-
 sealed external interface SourceTextModuleOptions {
     /**
      * String used in stack traces.

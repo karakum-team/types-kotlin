@@ -4,8 +4,6 @@
 
 package node.vm
 
-import node.Module
-
 external class SourceTextModule : Module {
     /**
      * Creates a new `SourceTextModule` instance.

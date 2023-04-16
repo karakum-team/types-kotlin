@@ -3,7 +3,6 @@
 package node.vm
 
 import js.promise.PromiseResult
-import node.Module
 
 typealias ModuleLinker = (
     specifier: String,

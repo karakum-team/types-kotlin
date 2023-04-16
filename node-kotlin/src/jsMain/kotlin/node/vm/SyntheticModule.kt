@@ -5,7 +5,6 @@
 package node.vm
 
 import js.core.ReadonlyArray
-import node.Module
 
 external class SyntheticModule : Module {
     /**

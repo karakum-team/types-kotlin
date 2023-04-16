@@ -2,8 +2,6 @@
 
 package node.vm
 
-import node.Module
-
 sealed external interface ScriptOptions : BaseOptions {
     /**
      * V8's code cache data for the supplied source.
