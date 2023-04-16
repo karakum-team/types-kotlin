@@ -2,8 +2,7 @@ plugins {
     kfc("library")
     kfc("wrappers")
     seskar()
-    // TEMP
-    // `node-declarations`
+    `node-declarations`
 }
 
 val nodeTypesVersion = property("node-types.version") as String
