@@ -12,6 +12,7 @@ internal val OPEN_CLASSES = setOf(
     "Writable",
     "IncomingMessage",
     "OutgoingMessage",
+    "Module",
 )
 
 private val EMITTER_METHODS = listOf(

@@ -206,7 +206,13 @@ private fun fileContent(
     pkg: Package,
 ): String {
     val defaultImports = DEFAULT_IMPORTS
-        .let { if (pkg.name != "process") it else it.filter { it.first != "Socket" } }
+        .let {
+            when (pkg.name) {
+                "process" -> it.filter { it.first != "Socket" }
+                "vm" -> it.filter { it.first != "Module" }
+                else -> it
+            }
+        }
         .filter { it.first in body }
         .map { "import ${it.second}" }
         .joinToString("\n")
