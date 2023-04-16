@@ -106,7 +106,6 @@ private val STANDARD_TYPE_MAP = mapOf(
     "(...args: any[]) => void" to "Function<Unit>",
     "typeof test" to "Function<Promise<Void>> /* typeof test */",
 
-    "LookupOptions['hints']" to "Int /* LookupOptions['hints'] */",
     "Array<string | string[]>" to "ReadonlyArray<Any /* string | string[] */>",
 
     // TEMP
@@ -133,6 +132,9 @@ internal fun kotlinType(
         return EVENT_TYPE
 
     STANDARD_TYPE_MAP[type]
+        ?.let { return it }
+
+    getAliasType(type)
         ?.let { return it }
 
     type.removeSurrounding("(", ")")
