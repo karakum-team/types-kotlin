@@ -15,7 +15,7 @@ external class SyntheticModule : Module {
      */
     constructor(
         exportNames: ReadonlyArray<String>,
-        evaluateCallback: (this: SyntheticModule) -> void,
+        evaluateCallback: () -> Unit,
         options: SyntheticModuleOptions = definedExternally,
     )
 
