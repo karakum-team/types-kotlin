@@ -164,7 +164,7 @@ internal fun kotlinType(
         return resultType
     }
 
-    functuionType(type)
+    functionType(type)
         ?.let { return it }
 
     if (type.startsWith("{")) {

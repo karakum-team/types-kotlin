@@ -1,6 +1,6 @@
 package karakum.node
 
-internal fun functuionType(type: String): String? {
+internal fun functionType(type: String): String? {
     if (type.startsWith("(") && "=>" in type) {
         val params = type.substringBeforeLast("=>").trim()
         val returnType = type.substringAfterLast("=>").trim()
