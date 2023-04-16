@@ -6,7 +6,7 @@ import js.promise.PromiseResult
 import node.Module
 
 typealias ModuleLinker = (
- specifier: String,
- referencingModule: Module,
- extra: Any, /* { assert: Object }  */
+    specifier: String,
+    referencingModule: Module,
+    extra: Any, /* { assert: Object }  */
 ) -> PromiseResult<Module>
