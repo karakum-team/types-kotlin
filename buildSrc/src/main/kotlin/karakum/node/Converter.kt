@@ -407,6 +407,8 @@ private fun convertType(
         .replace(": number", ": Number")
         .replace(" => void", " -> Unit")
         .replace(" => any", " -> Any?")
+        .replace(" => Module | Promise<Module>", " -> PromiseResult<Module>")
+        .replace("{ assert: Object }", "Any /* { assert: Object }  */")
         .replace("?: Error | null", ": Error?")
         .replace("?: any", ": Any?")
         .replace(": NodeJS.ErrnoException | null", ": ErrnoException?")
