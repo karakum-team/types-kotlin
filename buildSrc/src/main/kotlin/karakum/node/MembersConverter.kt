@@ -11,9 +11,13 @@ internal fun convertMembers(
     val members = source.removeSuffix(";")
         .replace(";\n  ", "-111-\n  ")
         .replace(";\n}", "-222-\n}")
+        .replace(";\n\n    /**", "-333-\n\n    /**")
         .splitToSequence(";\n")
-        .map { it.replace("-111-\n  ", ";\n  ") }
-        .map { it.replace("-222-\n}", ";\n}") }
+        .map { line ->
+            line.replace("-111-\n  ", ";\n  ")
+                .replace("-222-\n}", ";\n}")
+                .replace("-333-\n\n    /**", ";\n\n    /**")
+        }
         .map { convertMember(it) }
         .toList()
 
