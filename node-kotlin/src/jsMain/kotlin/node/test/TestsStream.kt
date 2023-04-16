@@ -4,10 +4,10 @@ package node.test
 
 import node.events.EventType
 
-sealed external interface TapStream : node.ReadableStream {
+sealed external interface TestsStream : node.ReadableStream {
     fun addListener(
         event: TestEvent.DIAGNOSTIC,
-        listener: (message: String) -> Unit,
+        listener: (data: DiagnosticData) -> Unit,
     ) /* : this */
 
     fun addListener(
@@ -20,14 +20,24 @@ sealed external interface TapStream : node.ReadableStream {
         listener: (data: TestPass) -> Unit,
     ) /* : this */
 
-    override fun addListener(
+    fun addListener(
+        event: TestEvent.PLAN,
+        listener: (data: TestPlan) -> Unit,
+    ) /* : this */
+
+    fun addListener(
+        event: TestEvent.START,
+        listener: (data: TestStart) -> Unit,
+    ) /* : this */
+
+    fun addListener(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
 
     fun emit(
         event: TestEvent.DIAGNOSTIC,
-        message: String,
+        data: DiagnosticData,
     ): Boolean
 
     fun emit(
@@ -40,14 +50,24 @@ sealed external interface TapStream : node.ReadableStream {
         data: TestPass,
     ): Boolean
 
-    override fun emit(
+    fun emit(
+        event: TestEvent.PLAN,
+        data: TestPlan,
+    ): Boolean
+
+    fun emit(
+        event: TestEvent.START,
+        data: TestStart,
+    ): Boolean
+
+    fun emit(
         event: EventType,
         vararg args: Any,
     ): Boolean
 
     fun on(
         event: TestEvent.DIAGNOSTIC,
-        listener: (message: String) -> Unit,
+        listener: (data: DiagnosticData) -> Unit,
     ) /* : this */
 
     fun on(
@@ -60,14 +80,24 @@ sealed external interface TapStream : node.ReadableStream {
         listener: (data: TestPass) -> Unit,
     ) /* : this */
 
-    override fun on(
+    fun on(
+        event: TestEvent.PLAN,
+        listener: (data: TestPlan) -> Unit,
+    ) /* : this */
+
+    fun on(
+        event: TestEvent.START,
+        listener: (data: TestStart) -> Unit,
+    ) /* : this */
+
+    fun on(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
 
     fun once(
         event: TestEvent.DIAGNOSTIC,
-        listener: (message: String) -> Unit,
+        listener: (data: DiagnosticData) -> Unit,
     ) /* : this */
 
     fun once(
@@ -80,14 +110,24 @@ sealed external interface TapStream : node.ReadableStream {
         listener: (data: TestPass) -> Unit,
     ) /* : this */
 
-    override fun once(
+    fun once(
+        event: TestEvent.PLAN,
+        listener: (data: TestPlan) -> Unit,
+    ) /* : this */
+
+    fun once(
+        event: TestEvent.START,
+        listener: (data: TestStart) -> Unit,
+    ) /* : this */
+
+    fun once(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
 
     fun prependListener(
         event: TestEvent.DIAGNOSTIC,
-        listener: (message: String) -> Unit,
+        listener: (data: DiagnosticData) -> Unit,
     ) /* : this */
 
     fun prependListener(
@@ -100,14 +140,24 @@ sealed external interface TapStream : node.ReadableStream {
         listener: (data: TestPass) -> Unit,
     ) /* : this */
 
-    override fun prependListener(
+    fun prependListener(
+        event: TestEvent.PLAN,
+        listener: (data: TestPlan) -> Unit,
+    ) /* : this */
+
+    fun prependListener(
+        event: TestEvent.START,
+        listener: (data: TestStart) -> Unit,
+    ) /* : this */
+
+    fun prependListener(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
 
     fun prependOnceListener(
         event: TestEvent.DIAGNOSTIC,
-        listener: (message: String) -> Unit,
+        listener: (data: DiagnosticData) -> Unit,
     ) /* : this */
 
     fun prependOnceListener(
@@ -120,7 +170,17 @@ sealed external interface TapStream : node.ReadableStream {
         listener: (data: TestPass) -> Unit,
     ) /* : this */
 
-    override fun prependOnceListener(
+    fun prependOnceListener(
+        event: TestEvent.PLAN,
+        listener: (data: TestPlan) -> Unit,
+    ) /* : this */
+
+    fun prependOnceListener(
+        event: TestEvent.START,
+        listener: (data: TestStart) -> Unit,
+    ) /* : this */
+
+    fun prependOnceListener(
         event: EventType,
         listener: Function<Unit>,
     ) /* : this */
