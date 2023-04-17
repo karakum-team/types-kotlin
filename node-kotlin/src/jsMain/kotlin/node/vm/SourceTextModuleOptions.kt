@@ -2,6 +2,8 @@
 
 package node.vm
 
+import js.import.ImportMeta
+
 sealed external interface SourceTextModuleOptions {
     /**
      * String used in stack traces.
