@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val GRADIENT = "Gradient"
 
 private const val LINEAR_GRADIENT = "linear-gradient"

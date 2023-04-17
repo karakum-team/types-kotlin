@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val COLOR_TYPE = "ColorType"
 
 // source - https://developer.mozilla.org/ru/docs/Web/CSS/url()

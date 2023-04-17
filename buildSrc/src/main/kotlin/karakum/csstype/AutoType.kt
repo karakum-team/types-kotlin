@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val AUTO_TYPE = "AutoType"
 
 internal fun AutoType(

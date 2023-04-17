@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val INTEGER = "Integer"
 internal const val INTEGER_TYPE = "IntegerType"
 

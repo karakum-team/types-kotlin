@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val NONE_TYPE = "NoneType"
 
 internal fun NoneType(

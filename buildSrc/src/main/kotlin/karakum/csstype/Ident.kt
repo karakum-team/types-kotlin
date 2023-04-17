@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val IDENT = "Ident"
 internal const val IDENT_TYPE = "IdentType"
 

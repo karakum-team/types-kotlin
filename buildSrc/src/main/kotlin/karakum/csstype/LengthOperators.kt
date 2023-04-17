@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal fun lengthOperators(): ConversionResult {
     val operators = listOf(
         listOf("plus", "+", LENGTH, LENGTH),

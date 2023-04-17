@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal fun shapeFunctions(): ConversionResult {
     val declarations = circleFunctions()
         .plus(ellipseFunctions())

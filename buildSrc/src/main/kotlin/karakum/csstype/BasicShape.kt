@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val BASIC_SHAPE = "BasicShape"
 private val BASIC_SHAPE_BODY = """
 external sealed interface $BASIC_SHAPE:

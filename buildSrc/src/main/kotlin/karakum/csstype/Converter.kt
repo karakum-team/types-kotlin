@@ -1,12 +1,8 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
 import java.io.File
 import java.util.*
-
-internal data class ConversionResult(
-    val name: String,
-    val body: String,
-)
 
 internal fun convertDefinitions(
     definitionsFile: File,

@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val LINE_STYLE_PROPERTY = "LineStyleProperty"
 
 internal fun LineStyleProperty(): ConversionResult {

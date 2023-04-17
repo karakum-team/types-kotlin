@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val LENGTH_PROPERTY = "LengthProperty"
 
 internal fun LengthProperty(

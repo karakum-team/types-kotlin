@@ -1,5 +1,6 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
 import karakum.common.UnionConstant
 import karakum.common.sealedUnionBody
 import karakum.common.unionBodyByConstants

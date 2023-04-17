@@ -1,5 +1,6 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
 import karakum.common.sealedUnionBody
 
 internal const val GEOMETRY_BOX = "GeometryBox"

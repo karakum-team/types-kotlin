@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val GRID_LENGTH_PROPERTY = "GridLengthProperty"
 
 internal val GRID_LENGTH_PROPERTY_PARENTS = listOf(

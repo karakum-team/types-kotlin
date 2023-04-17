@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val PERCENTAGE = "Percentage"
 
 internal fun Percentage(): ConversionResult {

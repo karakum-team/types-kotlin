@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val TIME_PROPERTY = "TimeProperty"
 
 internal fun TimeProperty(

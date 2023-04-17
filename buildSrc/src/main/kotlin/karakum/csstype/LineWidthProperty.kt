@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val LINE_WIDTH_PROPERTY = "LineWidthProperty"
 
 internal fun LineWidthProperty(): ConversionResult {

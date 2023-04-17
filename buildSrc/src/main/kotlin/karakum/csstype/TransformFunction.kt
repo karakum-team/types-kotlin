@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 private const val TRANSFORM = "Transform"
 private const val TRANSFORM_FUNCTION = "TransformFunction"
 

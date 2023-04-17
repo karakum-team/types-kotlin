@@ -1,5 +1,6 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
 import karakum.common.unionConstant
 
 internal fun convertMetaPseudos(
@@ -78,4 +79,3 @@ private fun convertPseudos(
 
     return ConversionResult(builderName, body)
 }
-

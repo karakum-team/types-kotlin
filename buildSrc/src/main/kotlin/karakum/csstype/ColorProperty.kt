@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val COLOR = "Color"
 internal const val COLOR_PROPERTY = "ColorProperty"
 

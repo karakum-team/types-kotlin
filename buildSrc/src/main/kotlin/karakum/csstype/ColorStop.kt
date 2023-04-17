@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val ANGULAR_COLOR_STOP = "AngularColorStop"
 internal const val LINEAR_COLOR_STOP = "LinearColorStop"
 

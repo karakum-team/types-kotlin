@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val GRID_LENGTH = "GridLength"
 
 internal fun GridLength(): ConversionResult {

@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 private const val FILTER_FUNCTION = "FilterFunction"
 
 private val PARENT_TYPES = listOf(

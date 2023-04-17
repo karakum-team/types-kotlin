@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val BLEND_MODE_PROPERTY = "BlendModeProperty"
 
 internal fun BlendModeProperty(): ConversionResult {

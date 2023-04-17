@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal class PropertyConsumer : ParentConsumer {
     override fun apply(
         items: List<ConversionResult>,

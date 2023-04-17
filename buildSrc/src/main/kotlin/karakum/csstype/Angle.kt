@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val ANGLE = "Angle"
 
 private val ANGLE_UNITS = listOf(

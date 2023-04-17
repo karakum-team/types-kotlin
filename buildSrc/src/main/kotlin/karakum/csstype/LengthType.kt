@@ -1,6 +1,8 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
 import karakum.common.kebabToCamel
+import java.util.*
 
 internal const val LENGTH_TYPE = "LengthType"
 
@@ -34,7 +36,8 @@ internal class LengthTypeConsumer : ParentConsumer {
             .filter { it.key != "subgrid" }
             .sortedBy { it.key }
             .map {
-                val name = it.key.kebabToCamel().capitalize()
+                val name = it.key.kebabToCamel()
+                    .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
 
                 """
                     sealed interface $name: 

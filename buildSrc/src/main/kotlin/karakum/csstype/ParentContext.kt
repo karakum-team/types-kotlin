@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal interface ParentProvider {
     val parentTypes: List<String>
     fun get(): String

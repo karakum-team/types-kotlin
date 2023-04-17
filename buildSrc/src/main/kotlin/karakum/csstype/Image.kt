@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val IMAGE = "Image"
 
 // source - https://developer.mozilla.org/en-US/docs/Web/CSS/image

@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal fun colorFunctions(): ConversionResult {
     val declarations = sequenceOf(
         factory(

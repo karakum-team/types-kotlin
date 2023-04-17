@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal fun mathFunctions(): ConversionResult {
     val declarations = sequenceOf(
         function(

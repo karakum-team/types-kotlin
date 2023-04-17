@@ -1,5 +1,7 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
+
 internal const val RULE_BUILDER = "RuleBuilder"
 
 // language=Kotlin
