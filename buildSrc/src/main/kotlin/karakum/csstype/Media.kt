@@ -68,7 +68,7 @@ private fun Resolution(): ConversionResult {
         unitsExtension(RESOLUTION, name, name)
     }
 
-    return ConversionResult(LENGTH, declarations.joinToString("\n\n"))
+    return ConversionResult(RESOLUTION, declarations.joinToString("\n\n"))
 }
 
 private sealed interface MediaFeature
