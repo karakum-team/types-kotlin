@@ -22,6 +22,8 @@ private val DEFAULT_IMPORTS = listOf(
     "Symbol" to "js.core.Symbol",
     "Void" to "js.core.Void",
 
+    "ImportMeta" to "js.import.ImportMeta",
+
     "Uint8Array" to "js.typedarrays.Uint8Array",
     "ArrayBuffer" to "js.buffer.ArrayBuffer",
     "ArrayBufferView" to "js.buffer.ArrayBufferView",
