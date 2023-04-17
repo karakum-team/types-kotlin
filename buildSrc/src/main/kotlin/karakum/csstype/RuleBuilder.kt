@@ -1,15 +1,30 @@
 package karakum.csstype
 
 import karakum.common.ConversionResult
+import karakum.browser.MEDIA_QUERY
 
 internal const val RULE_BUILDER = "RuleBuilder"
 
 // language=Kotlin
 private val BODY = """
 import js.core.jso
-import js.core.set
+import web.cssom.MediaQuery
     
 interface $RULE_BUILDER<T : Any> : $RULES {
+    inline fun media(
+        query: $MEDIA_QUERY,
+        block: T.() -> Unit,
+    ) {
+        set($SELECTOR("@media ${'$'}query"), jso(block))
+    }
+
+    inline fun media(
+        query: String,
+        block: T.() -> Unit,
+    ) {
+        set($SELECTOR("@media ${'$'}query"), jso(block))
+    }
+
     inline fun fontFace(
         block: FontFace.() -> Unit,
     ) {
