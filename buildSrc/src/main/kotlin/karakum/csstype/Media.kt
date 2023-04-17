@@ -4,6 +4,7 @@ import karakum.browser.MEDIA_QUERY
 import karakum.common.ConversionResult
 import karakum.common.kebabToCamel
 import karakum.common.sealedUnionBody
+import karakum.common.unionBody
 import java.util.*
 
 private const val RESOLUTION = "Resolution"
@@ -26,7 +27,7 @@ private val MEDIA_TYPE_VALUES = listOf(
 private fun MediaType(): ConversionResult =
     ConversionResult(
         name = MEDIA_TYPE,
-        body = sealedUnionBody(MEDIA_TYPE, MEDIA_QUERY, MEDIA_TYPE_VALUES),
+        body = unionBody(MEDIA_TYPE, /* MEDIA_QUERY, */ MEDIA_TYPE_VALUES),
     )
 
 private const val __RATIO__ = "--ratio--"
