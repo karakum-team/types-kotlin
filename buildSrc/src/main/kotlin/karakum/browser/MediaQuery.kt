@@ -10,6 +10,21 @@ inline fun $MEDIA_QUERY(
     value: String,
 ): $MEDIA_QUERY =
     value.unsafeCast<$MEDIA_QUERY>()
+
+infix fun $MEDIA_QUERY.and(
+    other: $MEDIA_QUERY,
+): $MEDIA_QUERY =
+    $MEDIA_QUERY("${'$'}this and ${'$'}other")
+
+infix fun $MEDIA_QUERY.or(
+    other: $MEDIA_QUERY,
+): $MEDIA_QUERY =
+    $MEDIA_QUERY("${'$'}this or ${'$'}other")
+
+inline fun not(
+    query: $MEDIA_QUERY,
+): $MEDIA_QUERY =
+    $MEDIA_QUERY("(not (${'$'}query))")
 """.trimIndent()
 
 internal fun MediaQuery(): Sequence<ConversionResult> =
