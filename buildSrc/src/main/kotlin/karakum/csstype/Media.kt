@@ -110,8 +110,24 @@ internal fun mediaTypes(): Sequence<ConversionResult> {
             factory(name, type)
         }
 
+    val functions = MEDIA_FEATURES
+        .filterIsInstance<MediaFunction>()
+        // TEMP
+        .filter { it.type != __RATIO__ }
+        .flatMap { function ->
+            val prefixes = if (function.minmax) listOf("", "min-", "max-") else listOf("")
+
+            prefixes.map { prefix ->
+                factory(
+                    name = prefix + function.name,
+                    type = function.type,
+                )
+            }
+        }
+
     return unions.asSequence()
         .plus(options)
+        .plus(functions)
         .plus(MediaType())
         .plus(Resolution())
 }
