@@ -9,4 +9,5 @@ dependencies {
     jsMainImplementation(npmv("csstype"))
 
     jsMainImplementation(wrappers("js"))
+    jsMainImplementation(wrappers("browser"))
 }
