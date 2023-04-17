@@ -144,7 +144,7 @@ private fun factory(
         fun $functionName(
             value: $type,
         ): $MEDIA_QUERY =
-            $MEDIA_QUERY("($name: ${'$'}value)")
+            $MEDIA_QUERY("($name:${'$'}value)")
         """.trimIndent()
     )
 }
