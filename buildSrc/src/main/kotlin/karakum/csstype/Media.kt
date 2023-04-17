@@ -65,7 +65,7 @@ private fun Resolution(): ConversionResult {
     val declarations = sequenceOf(
         "sealed interface $RESOLUTION",
     ) + RESOLUTION_UNITS.map { name ->
-        unitsExtension(LENGTH, name, name)
+        unitsExtension(RESOLUTION, name, name)
     }
 
     return ConversionResult(LENGTH, declarations.joinToString("\n\n"))
