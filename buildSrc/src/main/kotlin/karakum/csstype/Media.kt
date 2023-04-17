@@ -105,22 +105,30 @@ internal fun mediaTypes(): Sequence<ConversionResult> {
         .filterIsInstance<MediaOption>()
         .map { option ->
             val name = option.name
-            val functionName = name.kebabToCamel()
-            val type = functionName.replaceFirstChar { it.uppercaseChar() }
+            val type = name.kebabToCamel().replaceFirstChar { it.uppercaseChar() }
 
-            ConversionResult(
-                name = "${functionName}.fun",
-                body = """
-                fun $functionName(
-                    value: $type,
-                ): $MEDIA_QUERY =
-                    $MEDIA_QUERY("($name: ${'$'}value)")
-                """.trimIndent()
-            )
+            factory(name, type)
         }
 
     return unions.asSequence()
         .plus(options)
         .plus(MediaType())
         .plus(Resolution())
+}
+
+private fun factory(
+    name: String,
+    type: String,
+): ConversionResult {
+    val functionName = name.kebabToCamel()
+
+    return ConversionResult(
+        name = "${functionName}.fun",
+        body = """
+        fun $functionName(
+            value: $type,
+        ): $MEDIA_QUERY =
+            $MEDIA_QUERY("($name: ${'$'}value)")
+        """.trimIndent()
+    )
 }
