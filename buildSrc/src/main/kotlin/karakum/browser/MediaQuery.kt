@@ -4,7 +4,7 @@ internal const val MEDIA_QUERY: String = "MediaQuery"
 
 // language=kotlin
 private val MEDIA_QUERY_BODY = """
-sealed external interface $MEDIA_QUERY
+external interface $MEDIA_QUERY
 
 inline fun $MEDIA_QUERY(
     value: String,
