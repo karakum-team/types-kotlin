@@ -1,20 +1,46 @@
 package karakum.csstype
 
+import karakum.common.ConversionResult
 import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
 import karakum.common.Suppress.*
 import karakum.common.fileSuppress
 import java.io.File
 
+private val MEDIA_IMPORTS = """
+import csstype.Length
+import web.cssom.MediaQuery
+""".trimIndent()
+
 fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
 ) {
+    writeDeclarations(
+        declarations = convertDefinitions(definitionsFile),
+        sourceDir = sourceDir,
+        pkg = "csstype",
+    )
+
+    writeDeclarations(
+        declarations = mediaTypes(),
+        sourceDir = sourceDir,
+        pkg = "csstype.media",
+        imports = MEDIA_IMPORTS,
+    )
+}
+
+private fun writeDeclarations(
+    declarations: Sequence<ConversionResult>,
+    sourceDir: File,
+    pkg: String,
+    imports: String = "",
+) {
     val targetDir = sourceDir
-        .resolve("csstype")
+        .resolve(pkg.replace(".", "/"))
         .also { it.mkdirs() }
 
-    for ((name, body) in convertDefinitions(definitionsFile)) {
+    for ((name, body) in declarations) {
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body)
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
@@ -42,18 +68,28 @@ fun generateKotlinDeclarations(
 
         targetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(fileContent(annotations, body))
+            .writeText(
+                fileContent(
+                    annotations = annotations,
+                    imports = imports,
+                    body = body,
+                    pkg = pkg
+                )
+            )
     }
 }
 
 private fun fileContent(
-    annotations: String = "",
+    annotations: String,
+    imports: String,
     body: String,
+    pkg: String,
 ): String {
     var result = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
-        "package csstype",
+        "package $pkg",
+        imports,
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
