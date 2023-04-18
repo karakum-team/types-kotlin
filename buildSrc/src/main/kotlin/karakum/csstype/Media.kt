@@ -26,7 +26,8 @@ private val MEDIA_TYPE_VALUES = listOf(
 private fun MediaType(): ConversionResult =
     ConversionResult(
         name = MEDIA_TYPE,
-        body = unionBody(MEDIA_TYPE, /* MEDIA_QUERY, */ MEDIA_TYPE_VALUES),
+        body = unionBody(MEDIA_TYPE, MEDIA_TYPE_VALUES)
+            .replaceFirst(" $MEDIA_TYPE", " $MEDIA_TYPE : $MEDIA_QUERY"),
     )
 
 private const val __RATIO__ = "--ratio--"
