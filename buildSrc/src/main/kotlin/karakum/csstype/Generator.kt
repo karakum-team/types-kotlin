@@ -7,8 +7,22 @@ import karakum.common.Suppress.*
 import karakum.common.fileSuppress
 import java.io.File
 
+private val CSSTYPE_TYPES = setOf(
+    "AdvancedPseudosRuleBuilder",
+    "CssDsl",
+    "Properties",
+    "PseudosRuleBuilder",
+    "RuleBuilder",
+    "Rules",
+    "SimplePseudosRuleBuilder",
+)
+
+private val CSSTYPE_IMPORTS = """
+import web.cssom.*
+""".trimIndent()
+
 private val MEDIA_IMPORTS = """
-import csstype.Length
+import web.cssom.Length
 import web.cssom.MediaQuery
 """.trimIndent()
 
@@ -19,27 +33,24 @@ fun generateKotlinDeclarations(
     writeDeclarations(
         declarations = convertDefinitions(definitionsFile),
         sourceDir = sourceDir,
-        pkg = "csstype",
+        getPkg = { if (it in CSSTYPE_TYPES) "csstype" else "web.cssom" },
+        getImports = { if (it in CSSTYPE_TYPES) CSSTYPE_IMPORTS else "" },
     )
 
     writeDeclarations(
         declarations = mediaTypes(),
         sourceDir = sourceDir,
-        pkg = "csstype.media",
-        imports = MEDIA_IMPORTS,
+        getPkg = { "web.cssom.media" },
+        getImports = { MEDIA_IMPORTS },
     )
 }
 
 private fun writeDeclarations(
     declarations: Sequence<ConversionResult>,
     sourceDir: File,
-    pkg: String,
-    imports: String = "",
+    getPkg: (name: String) -> String,
+    getImports: (name: String) -> String,
 ) {
-    val targetDir = sourceDir
-        .resolve(pkg.replace(".", "/"))
-        .also { it.mkdirs() }
-
     for ((name, body) in declarations) {
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("JsName(\"\"\"(" in body)
@@ -65,6 +76,12 @@ private fun writeDeclarations(
         val annotations = if (suppresses.isNotEmpty()) {
             fileSuppress(*suppresses)
         } else ""
+
+        val pkg = getPkg(name)
+        val imports = getImports(name)
+        val targetDir = sourceDir
+            .resolve(pkg.replace(".", "/"))
+            .also { it.mkdirs() }
 
         targetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }

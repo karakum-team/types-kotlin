@@ -6,7 +6,7 @@ internal const val VARIABLE_RECORD = "VariableRecord"
 
 // language=Kotlin
 private val BODY = """
-sealed external interface $VARIABLE_RECORD {
+external interface $VARIABLE_RECORD {
     @nativeGetter
     @Suppress("DEPRECATION")
     operator fun <T : Any> get(
