@@ -24,6 +24,7 @@ private val DEFAULT_IMPORTS = listOf(
 
     "ImportMeta" to "js.import.ImportMeta",
 
+    "TypedArray" to "js.typedarrays.TypedArray",
     "Uint8Array" to "js.typedarrays.Uint8Array",
     "ArrayBuffer" to "js.buffer.ArrayBuffer",
     "ArrayBufferView" to "js.buffer.ArrayBufferView",
