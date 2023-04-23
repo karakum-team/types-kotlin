@@ -6,6 +6,8 @@
 
 package csstype
 
+import web.cssom.*
+
 interface AdvancedPseudosRuleBuilder<T : Any> : RuleBuilder<T> {
     inline fun cue(
         selector: Selector,

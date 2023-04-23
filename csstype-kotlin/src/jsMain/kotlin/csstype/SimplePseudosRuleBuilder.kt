@@ -6,6 +6,8 @@
 
 package csstype
 
+import web.cssom.*
+
 interface SimplePseudosRuleBuilder<T : Any> : RuleBuilder<T> {
     inline fun after(
         block: T.() -> Unit,

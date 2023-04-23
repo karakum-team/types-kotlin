@@ -7,7 +7,7 @@
 package csstype
 
 import js.core.jso
-import web.cssom.MediaQuery
+import web.cssom.*
 
 interface RuleBuilder<T : Any> : Rules {
     inline fun media(
