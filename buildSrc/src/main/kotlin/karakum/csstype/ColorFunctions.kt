@@ -9,6 +9,12 @@ private val RGB_PARAMETERS = arrayOf(
     "alpha" to "Double",
 )
 
+private val OKLCH_PARAMETERS = arrayOf(
+    "l" to PERCENTAGE,
+    "c" to "Double",
+    "h" to "Double",
+    "a" to "Double",
+)
 
 internal fun colorFunctions(): ConversionResult {
     val declarations = sequenceOf(
@@ -19,16 +25,29 @@ internal fun colorFunctions(): ConversionResult {
                 "value" to STRING,
             )
         )
-    ) + sequenceOf(3, 4)
-        .map { RGB_PARAMETERS.take(it).toTypedArray() }
-        .map { parameters ->
-            function(
-                name = "rgb",
-                returnType = COLOR,
-                parameters = parameters,
-                delimiter = " ",
-            )
-        }
+    ).plus(
+        sequenceOf(3, 4)
+            .map { RGB_PARAMETERS.take(it).toTypedArray() }
+            .map { parameters ->
+                function(
+                    name = "rgb",
+                    returnType = COLOR,
+                    parameters = parameters,
+                    delimiter = " ",
+                )
+            }
+    ).plus(
+        sequenceOf(3, 4)
+            .map { OKLCH_PARAMETERS.take(it).toTypedArray() }
+            .map { parameters ->
+                function(
+                    name = "oklch",
+                    returnType = COLOR,
+                    parameters = parameters,
+                    delimiter = " ",
+                )
+            }
+    )
 
     return ConversionResult(
         name = "Color.functions",
