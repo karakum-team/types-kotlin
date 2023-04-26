@@ -80,8 +80,11 @@ private fun prefix(
         }
     }
 
-    if (parameterName == "alpha")
-        return "/"
+    if (name == "rgb" || name == "oklch") {
+        when (parameterName) {
+            "alpha", "a" -> return "/"
+        }
+    }
 
     return null
 }
