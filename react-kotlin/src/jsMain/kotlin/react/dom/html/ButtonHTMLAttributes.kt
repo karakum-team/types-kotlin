@@ -8,7 +8,7 @@ import web.window.WindowTarget
 external interface ButtonHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var disabled: Boolean?
     var form: String?
-    var formAction: String?
+    var formAction: String? /* FormAction */
     var formEncType: String?
     var formMethod: String?
     var formNoValidate: Boolean?
