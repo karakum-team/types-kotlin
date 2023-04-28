@@ -84,6 +84,7 @@ private val STANDARD_TYPE_MAP = mapOf(
             "AsyncIterable<FileChangeInfo<Any /* string | Buffer */>>",
 
     "NodeJS.Dict<string>" to "Dict<String>",
+    "NodeJS.Dict<string[]>" to "Dict<ReadonlyArray<String>>",
     "NodeJS.Dict<NetworkInterfaceInfo[]>" to "Dict<ReadonlyArray<NetworkInterfaceInfo>>",
     "NodeJS.ReadOnlyDict<Socket[]>" to "ReadOnlyDict<ReadonlyArray<Socket>>",
     "NodeJS.ReadOnlyDict<IncomingMessage[]>" to "ReadOnlyDict<ReadonlyArray<IncomingMessage>>",
