@@ -1,7 +1,20 @@
 package karakum.cesium
 
+import java.util.*
+
 private val OPTIONS_REGEX = Regex("""options\??: (\{.+})""", RegexOption.DOT_MATCHES_ALL)
 private val INNER_OPTIONS_REGEX = Regex("""(\w+\??): \{.+?}""", RegexOption.DOT_MATCHES_ALL)
+
+// WA for Cesium `1.105.0`
+// GeocoderViewModel
+private val DESTROY = """
+    /**
+     * Destroys the widget.  Should be called if permanently
+     * removing the widget from layout.
+     */
+    destroy(): void;
+""".trimEnd()
+
 
 internal fun members(
     body: String,
@@ -9,6 +22,13 @@ internal fun members(
 ): List<Member> {
     if (body.endsWith("{\n}"))
         return emptyList()
+
+    if (DESTROY in body && body.count(DESTROY) > 1) {
+        return members(
+            body = body.replaceFirst(DESTROY, ""),
+            optionsDoc = optionsDoc,
+        )
+    }
 
     return body
         .substringAfter("\n    ")
@@ -63,7 +83,7 @@ internal fun Definition.toMethodMembers(): Sequence<Member> {
     val prefix = methodBody
         .substringBefore("(")
         .substringAfterLast(" ")
-        .capitalize()
+        .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
     val static = methodBody.startsWith("static ")
 
     val parameters = methodBody
@@ -99,7 +119,8 @@ private fun String.toOptionTypes(
     val innerTypes = INNER_OPTIONS_REGEX.findAll(this)
         .map {
             val parameter = it.groupValues[1]
-            val typeName = name + parameter.removeSuffix("?").capitalize()
+            val typeName = name + parameter.removeSuffix("?")
+                .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
             val typeBody = it.value
                 .removePrefix("$parameter: ")
                 .let { "$typeName = $it" }

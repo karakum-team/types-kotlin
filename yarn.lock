@@ -208,21 +208,21 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@cesium/engine@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@cesium/engine/-/engine-2.2.0.tgz#8b5cc86f98485fc0537a6a28bfdcb8fd1c2389e4"
-  integrity sha512-4F/K06HURmtm7rSbFdqxMBLVTmkKbLi5WtoVqMHLl1ezA5Hed8j0niJaOh6WesK2kZgU9NWGTjvJ1PNPdYe2lQ==
+"@cesium/engine@2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@cesium/engine/-/engine-2.3.0.tgz#4e230d4846db73840e52199b46fb3a65e4eb1598"
+  integrity sha512-2NoBmDvNkvC+m/uKZNaPoMQZEyuqGGBo/I91rHx5i7UEJwAF/zfUTZ1k2Dx8otu6bDHT/azNo5LWocqP4hpwcw==
   dependencies:
     "@tweenjs/tween.js" "^18.6.4"
     "@zip.js/zip.js" "2.4.x"
     autolinker "^4.0.0"
     bitmap-sdf "^1.0.3"
-    dompurify "^2.2.2"
+    dompurify "^3.0.2"
     earcut "^2.2.4"
     grapheme-splitter "^1.0.4"
     jsep "^1.3.8"
-    kdbush "^3.0.0"
-    ktx-parse "^0.4.5"
+    kdbush "^4.0.1"
+    ktx-parse "^0.5.0"
     lerc "^2.0.0"
     mersenne-twister "^1.1.0"
     meshoptimizer "^0.18.1"
@@ -232,12 +232,12 @@
     topojson-client "^3.1.0"
     urijs "^1.19.7"
 
-"@cesium/widgets@2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@cesium/widgets/-/widgets-2.1.1.tgz#581ae6d91d811f5d57796f91f35a8dd8c622f4f9"
-  integrity sha512-s+vgNVmJgi9efwB30o8ly94BMDZ9Mgt/rFCuj4mOinyqK+qVfWu1sekprrMCRTTir3r93ADXs3H/y8ObWFIjkQ==
+"@cesium/widgets@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@cesium/widgets/-/widgets-2.2.0.tgz#1b7d3940b6de509ed86a3e51a5c1caf288dd9f79"
+  integrity sha512-t15V02J5cJcq2GxJlWy6a5zT1P+kw7cGDOAKbWb/CMNXxc/bxl2FeOoX6PMT+FuPNxREkR+xMxtXig44hvbRJQ==
   dependencies:
-    "@cesium/engine" "2.2.0"
+    "@cesium/engine" "2.3.0"
     nosleep.js "^0.12.0"
 
 "@jridgewell/gen-mapping@^0.3.0":
@@ -577,13 +577,13 @@ builtin-modules@^3.3.0:
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-3.3.0.tgz#cae62812b89801e9656336e46223e030386be7b6"
   integrity sha512-zhaCDicdLuWN5UbN5IMnFqNMhNfo919sH85y2/ea+5Yg9TsTkeZxpL+JLbp6cgYFS4sRLp3YV4S6yDuqVWHYOw==
 
-cesium@1.104.0:
-  version "1.104.0"
-  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.104.0.tgz#1ddfbbd3e2b62114e75f7c11827f54b1452a832d"
-  integrity sha512-2E2bJiyPgcvakQFbkGUXpIlHkex2kTtbMcZ+POf0cJd6qMi2SfASuYtyjkejU8ZeaaaWnnRm2d156I2wEDdbJw==
+cesium@1.105.0:
+  version "1.105.0"
+  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.105.0.tgz#f6d366a08eeb5267249d1b021996a31f13269358"
+  integrity sha512-gh7sv67GmVen7LbOcugtfmWPN6wYyWNd3fq69xA81hJq0vvXFk/Pxwg1ElLi33ZsVJFyy5Js/vFX6oJNKYSbbg==
   dependencies:
-    "@cesium/engine" "2.2.0"
-    "@cesium/widgets" "2.1.1"
+    "@cesium/engine" "2.3.0"
+    "@cesium/widgets" "2.2.0"
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -648,10 +648,10 @@ delayed-stream@~1.0.0:
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==
 
-dompurify@^2.2.2:
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.4.5.tgz#0e89a27601f0bad978f9a924e7a05d5d2cccdd87"
-  integrity sha512-jggCCd+8Iqp4Tsz0nIvpcb22InKEBrGz5dw3EQJMs8HPJDsKbFIO3STYtAvCfDx26Muevn1MHVI0XxjgFfmiSA==
+dompurify@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.0.2.tgz#bc4c7c011c825e7704341a285461d8d407d9429a"
+  integrity sha512-B8c6JdiEpxAKnd8Dm++QQxJL4lfuc757scZtcapj6qjTjrQzyq5iAyznLKVvK+77eYNiFblHBlt7MM0fOeqoKw==
 
 earcut@^2.2.4:
   version "2.2.4"
@@ -839,15 +839,15 @@ jsep@^1.3.8:
   resolved "https://registry.yarnpkg.com/jsep/-/jsep-1.3.8.tgz#facb6eb908d085d71d950bd2b24b757c7b8a46d7"
   integrity sha512-qofGylTGgYj9gZFsHuyWAN4jr35eJ66qJCK4eKDnldohuUoQFbU3iZn2zjvEbd9wOAhP9Wx5DsAAduTyE1PSWQ==
 
-kdbush@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/kdbush/-/kdbush-3.0.0.tgz#f8484794d47004cc2d85ed3a79353dbe0abc2bf0"
-  integrity sha512-hRkd6/XW4HTsA9vjVpY9tuXJYLSlelnkTmVFu4M9/7MIYQtFcHpbugAU7UbOfjOiVSVYl2fqgBuJ32JUmRo5Ew==
+kdbush@^4.0.1:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/kdbush/-/kdbush-4.0.2.tgz#2f7b7246328b4657dd122b6c7f025fbc2c868e39"
+  integrity sha512-WbCVYJ27Sz8zi9Q7Q0xHC+05iwkm3Znipc2XTlrnJbsHMYktW4hPhXUE8Ys1engBrvffoSCqbil1JQAa7clRpA==
 
-ktx-parse@^0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/ktx-parse/-/ktx-parse-0.4.5.tgz#79905e22281a9d3e602b2ff522df1ee7d1813aa6"
-  integrity sha512-MK3FOody4TXbFf8Yqv7EBbySw7aPvEcPX++Ipt6Sox+/YMFvR5xaTyhfNSk1AEmMy+RYIw81ctN4IMxCB8OAlg==
+ktx-parse@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/ktx-parse/-/ktx-parse-0.5.0.tgz#b4025bbc73ac5386ac37e869de455eab915261bc"
+  integrity sha512-5IZrv5s1byUeDTIee1jjJQBiD5LPDB0w9pJJ0oT9BCKKJf16Tuj123vm1Ps0GOHSHmeWPgKM0zuViCVuTRpqaA==
 
 lerc@^2.0.0:
   version "2.0.0"
