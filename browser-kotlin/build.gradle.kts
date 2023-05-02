@@ -11,6 +11,7 @@ dependencies {
     jsMainImplementation(npmv("typescript"))
     jsMainImplementation(npmv("@webref/idl"))
 
+    jsMainImplementation(wrappers("cssom-core"))
     jsMainImplementation(wrappers("js"))
     jsMainImplementation(wrappers("web"))
 }

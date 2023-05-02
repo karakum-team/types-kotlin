@@ -213,7 +213,6 @@ fun generateKotlinDeclarations(
         .plus(browserFunctions(content))
         .plus(browserFunctionTypes(content))
         .plus(cssObject(content))
-        .plus(MediaQuery())
         .plus(keyboardTypes())
         .plus(windowTypes())
         .plus(tagNames(content))
