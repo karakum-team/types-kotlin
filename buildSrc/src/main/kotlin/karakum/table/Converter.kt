@@ -39,6 +39,8 @@ private val EXCLUDED_ITEMS = setOf(
 
     "createColumnHelper",
     "ColumnHelper",
+
+    "isNumberArray",
 )
 
 internal fun convertDefinitions(
