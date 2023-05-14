@@ -30,6 +30,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "TData | Promise<TData>" to "PromiseResult<TData>",
     "() => unknown | Promise<unknown>" to "() -> Promise<*>?",
 
+    "Set<HasListener<TListener>>" to "JsSet<Any /* HasListener<TListener> */>",
+
     "Mutation" to "Mutation<*, *, *, *>",
     "Mutation<any, any>" to "Mutation<*, *, *, *>",
     "MutationState" to "MutationState<*, *, *, *>",

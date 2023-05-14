@@ -14,6 +14,8 @@ private val DEFAULT_IMPORTS = listOf(
     "Record" to "js.core.Record",
     "Void" to "js.core.Void",
 
+    "JsSet" to "js.collections.JsSet",
+
     "AbortController" to "web.abort.AbortController",
     "AbortSignal" to "web.abort.AbortSignal",
 )

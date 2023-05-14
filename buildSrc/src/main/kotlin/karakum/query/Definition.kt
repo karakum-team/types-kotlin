@@ -21,6 +21,7 @@ fun toDeclarations(
     val fixAction = definitionFile.name == "mutation.d.ts"
 
     var content = definitionFile.readText()
+        .replace(": Set<{\n        listener: TListener;\n    }>;", ": Set<HasListener<TListener>>;")
         .replace("{ queries, context, }", "options")
         .replace("{ pageParam, ...options }", "options")
         .replace("{ refetchPage, ...options }", "options")
