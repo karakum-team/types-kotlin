@@ -187,30 +187,6 @@
     events "^3.0.0"
     tslib "^2.2.0"
 
-"@cesium/engine@2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@cesium/engine/-/engine-2.4.0.tgz#5716c992358330367046cb53810128a0a34984ba"
-  integrity sha512-U5/m0XSpoxr5uo7rf0+rBNw4AwTMdQRRB5FX5bcunfE6J2eyKWtMp0lRhcTKVDN0O7HZwJIIZt0rtiXt/aC0tQ==
-  dependencies:
-    "@tweenjs/tween.js" "^18.6.4"
-    "@zip.js/zip.js" "2.4.x"
-    autolinker "^4.0.0"
-    bitmap-sdf "^1.0.3"
-    dompurify "^3.0.2"
-    earcut "^2.2.4"
-    grapheme-splitter "^1.0.4"
-    jsep "^1.3.8"
-    kdbush "^4.0.1"
-    ktx-parse "^0.5.0"
-    lerc "^2.0.0"
-    mersenne-twister "^1.1.0"
-    meshoptimizer "^0.18.1"
-    pako "^2.0.4"
-    protobufjs "^7.1.0"
-    rbush "^3.0.1"
-    topojson-client "^3.1.0"
-    urijs "^1.19.7"
-
 "@cesium/engine@2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@cesium/engine/-/engine-2.4.1.tgz#b9b0395edebff581dbc55b7b9e1929f673dee058"
@@ -235,12 +211,12 @@
     topojson-client "^3.1.0"
     urijs "^1.19.7"
 
-"@cesium/widgets@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@cesium/widgets/-/widgets-2.3.0.tgz#eb82d8e43424c1faa62cf001afbf42e0b0926143"
-  integrity sha512-U+lHh1LoDezuKN/f4Hu5WROh87S5YECsO8Vb0gcXoEEG6hHyHz2zOO8GXmDWtKPSTjq88gxAp4APGKztvn7pxQ==
+"@cesium/widgets@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@cesium/widgets/-/widgets-2.3.1.tgz#446024fff8d8a271f2a4bcdccf15728be54767d8"
+  integrity sha512-KC/GtcrS2t9Vf710C5a0ArG9ZawVeUhA37ISzFSCqVoAmlNd2YAjv00SZZOMtFqjMFWr7sOcm3BwMjWXnTWjvw==
   dependencies:
-    "@cesium/engine" "2.4.0"
+    "@cesium/engine" "2.4.1"
     nosleep.js "^0.12.0"
 
 "@opentelemetry/api@^1.0.1":
@@ -449,13 +425,13 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-cesium@1.106.0:
-  version "1.106.0"
-  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.106.0.tgz#8d14167f1765f0e8a6cc5ec88b00a5f943f3a5ff"
-  integrity sha512-w6iYed7p5l1CVfpR+swdhjPYRtLwwhrfJuoi7JURKp4+im0ykP7vGocNZqdQ6+M6vvgB9QvHhD+6hctAm11Lkw==
+cesium@1.106.1:
+  version "1.106.1"
+  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.106.1.tgz#11bac4c365cd6f2deb51dba92ac2b81fc8198194"
+  integrity sha512-89sgLqWBhj57wtC8Jfn1yKfN3+Vk5IYxeW+5KqOZ280AL6Rr7E+MWTFiEfp5P3MY3xEcrutN3v8GYgP+Q3JfbA==
   dependencies:
     "@cesium/engine" "2.4.1"
-    "@cesium/widgets" "2.3.0"
+    "@cesium/widgets" "2.3.1"
 
 combined-stream@^1.0.6, combined-stream@^1.0.8:
   version "1.0.8"
@@ -617,11 +593,6 @@ mersenne-twister@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/mersenne-twister/-/mersenne-twister-1.1.0.tgz#f916618ee43d7179efcf641bec4531eb9670978a"
   integrity sha512-mUYWsMKNrm4lfygPkL3OfGzOPTR2DBlTkBNHM//F6hGp8cLThY897crAlk3/Jo17LEOOjQUrNAx6DvgO77QJkA==
-
-meshoptimizer@^0.18.1:
-  version "0.18.1"
-  resolved "https://registry.yarnpkg.com/meshoptimizer/-/meshoptimizer-0.18.1.tgz#cdb90907f30a7b5b1190facd3b7ee6b7087797d8"
-  integrity sha512-ZhoIoL7TNV4s5B6+rx5mC//fw8/POGyNxS/DZyCJeiZ12ScLfVwRE/GfsxwiTkMYYD5DmK2/JXnEVXqL4rF+Sw==
 
 meshoptimizer@^0.19.0:
   version "0.19.0"
