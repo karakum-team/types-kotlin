@@ -46,12 +46,12 @@ private val PKG_MAP = mapOf(
     "RemotePlaybackState" to "web.remoteplayback",
     "ClientTypes" to "web.serviceworker",
 
-    "AttestationConveyancePreference" to "web.authentication",
-    "AuthenticatorAttachment" to "web.authentication",
-    "AuthenticatorTransport" to "web.authentication",
-    "PublicKeyCredentialType" to "web.authentication",
-    "ResidentKeyRequirement" to "web.authentication",
-    "UserVerificationRequirement" to "web.authentication",
+    "AttestationConveyancePreference" to "web.authn",
+    "AuthenticatorAttachment" to "web.authn",
+    "AuthenticatorTransport" to "web.authn",
+    "PublicKeyCredentialType" to "web.authn",
+    "ResidentKeyRequirement" to "web.authn",
+    "UserVerificationRequirement" to "web.authn",
 
     "CompositeOperation" to "web.animations",
     "CompositeOperationOrAuto" to "web.animations",
