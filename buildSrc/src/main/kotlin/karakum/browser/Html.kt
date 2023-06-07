@@ -262,6 +262,13 @@ private val WORKERS_TYPES = listOf(
     "WorkerOptions",
 )
 
+private val CREDENTIALS_TYPES = listOf(
+    "Credential",
+    "CredentialCreationOptions",
+    "CredentialRequestOptions",
+    "CredentialsContainer",
+)
+
 private val WEB_CRYPTO_TYPES = listOf(
     "Algorithm",
     "KeyAlgorithm",
@@ -572,6 +579,7 @@ internal fun htmlDeclarations(
         .plus(CODECS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(USER_ACTIVATION_TYPES)
         .plus(FILE_SYSTEM_TYPES)
+        .plus(CREDENTIALS_TYPES)
         .joinToString("|")
 
     val interfaces =
@@ -1140,6 +1148,7 @@ internal fun convertInterface(
         name.startsWith("TextDecode") -> "web.encoding"
         name == "GenericTransformStream" -> "web.encoding"
 
+        name in CREDENTIALS_TYPES -> "web.credentials"
         name in WEB_CRYPTO_TYPES -> "web.crypto"
 
         name.startsWith("IDB") -> "web.idb"
@@ -1495,7 +1504,11 @@ private fun convertProperty(
         -> "BufferSource /* | String */"
 
         // TEMP
-        "CredentialsContainer",
+        "PublicKeyCredentialCreationOptions",
+        "PublicKeyCredentialRequestOptions",
+        -> "Any /* $type */"
+
+        // TEMP
         "DocumentTimeline",
         -> "dynamic /* $type */"
 

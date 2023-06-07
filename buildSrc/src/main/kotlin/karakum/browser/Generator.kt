@@ -294,6 +294,7 @@ fun generateKotlinDeclarations(
             import web.media.key.MediaKeySystemConfiguration
             import web.serviceworker.ServiceWorkerContainer
             import web.clipboard.Clipboard       
+            import web.credentials.CredentialsContainer       
             import web.geolocation.Geolocation       
             import web.gamepad.Gamepad
             import web.midi.MIDIOptions
