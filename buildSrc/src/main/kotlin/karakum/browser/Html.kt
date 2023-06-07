@@ -262,6 +262,18 @@ private val WORKERS_TYPES = listOf(
     "WorkerOptions",
 )
 
+private val WEB_AUTHN_TYPES = listOf(
+    "AuthenticationExtensionsClientInputs",
+    "AuthenticatorSelectionCriteria",
+    "PublicKeyCredentialCreationOptions",
+    "PublicKeyCredentialDescriptor",
+    "PublicKeyCredentialEntity",
+    "PublicKeyCredentialParameters",
+    "PublicKeyCredentialRequestOptions",
+    "PublicKeyCredentialRpEntity",
+    "PublicKeyCredentialUserEntity",
+)
+
 private val CREDENTIALS_TYPES = listOf(
     "Credential",
     "CredentialCreationOptions",
@@ -579,6 +591,7 @@ internal fun htmlDeclarations(
         .plus(CODECS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(USER_ACTIVATION_TYPES)
         .plus(FILE_SYSTEM_TYPES)
+        .plus(WEB_AUTHN_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(CREDENTIALS_TYPES)
         .joinToString("|")
 
@@ -1148,6 +1161,7 @@ internal fun convertInterface(
         name.startsWith("TextDecode") -> "web.encoding"
         name == "GenericTransformStream" -> "web.encoding"
 
+        name in WEB_AUTHN_TYPES -> "web.authn"
         name in CREDENTIALS_TYPES -> "web.credentials"
         name in WEB_CRYPTO_TYPES -> "web.crypto"
 
@@ -1502,11 +1516,6 @@ private fun convertProperty(
 
         "BufferSource | string",
         -> "BufferSource /* | String */"
-
-        // TEMP
-        "PublicKeyCredentialCreationOptions",
-        "PublicKeyCredentialRequestOptions",
-        -> "Any /* $type */"
 
         // TEMP
         "DocumentTimeline",

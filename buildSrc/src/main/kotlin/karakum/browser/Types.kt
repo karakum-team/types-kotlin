@@ -163,6 +163,8 @@ private fun convertType(
             "MediaProvider" -> "web.html"
             "WindowProxy" -> "web.window"
 
+            "COSEAlgorithmIdentifier" -> "web.authn"
+
             "VibratePattern" -> "web.vibration"
 
             "ClipboardItems" -> "web.clipboard"
@@ -214,6 +216,9 @@ private fun convertType(
 
             name == "VibratePattern" && bodySource == "number | number[]"
             -> "ReadonlyArray<Int> /* | Int */"
+
+            name == "COSEAlgorithmIdentifier" && bodySource == "number"
+            -> "Int"
 
             " | " in bodySource || bodySource == "AlgorithmIdentifier"
             -> "Any /* $bodySource */"

@@ -303,6 +303,13 @@ fun generateKotlinDeclarations(
             import web.wakelock.WakeLock
             """.trimIndent()
 
+            "CredentialCreationOptions",
+            "CredentialRequestOptions",
+            -> """
+            import web.authn.PublicKeyCredentialCreationOptions
+            import web.authn.PublicKeyCredentialRequestOptions    
+            """.trimIndent()
+
             "Window",
             -> """
             import web.device.DeviceMotionEvent    
