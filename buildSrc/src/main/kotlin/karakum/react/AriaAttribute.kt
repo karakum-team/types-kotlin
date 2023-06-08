@@ -45,6 +45,8 @@ private val PROPERTY_NAMES = setOf(
 
     // manual
     "ariaActiveDescendant",
+    "ariaBrailleLabel",
+    "ariaBrailleRoleDescription",
     "ariaControls",
     "ariaDescribedBy",
     "ariaDetails",
