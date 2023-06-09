@@ -18,6 +18,7 @@ import js.core.jso
 import js.core.ReadonlyArray
 import js.core.ReadonlyRecord
 import js.core.Void
+import js.errors.JsError
 import js.typedarrays.Float32Array
 import js.typedarrays.Float64Array
 import js.typedarrays.Uint16Array

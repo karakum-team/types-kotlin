@@ -3,13 +3,24 @@ package karakum.cesium
 import karakum.common.Suppress
 import karakum.common.Suppress.*
 
+private val ERROR_TYPES = setOf(
+    "RuntimeError",
+    "DeveloperError",
+)
+
 internal abstract class TypeBase(
     final override val source: Definition,
 ) : Declaration(), IType, HasMembers {
-    override val name: String =
+    final override val name: String =
         source.defaultName
 
-    var parents: List<String> = emptyList()
+    var parents: List<String> =
+        when (name) {
+            in ERROR_TYPES,
+            -> listOf("JsError")
+
+            else -> emptyList()
+        }
 
     abstract val typeName: String
     abstract val companion: HasMembers?
@@ -87,6 +98,13 @@ internal abstract class TypeBase(
             val parameter = "${p.name}: ${p.type}"
             val param = if ("$parameter?" in constructorBody) "$parameter?" else parameter
             constructorBody = constructorBody.replaceFirst(param, p.declaration)
+        }
+
+        if (name in ERROR_TYPES) {
+            constructorBody = constructorBody.replaceFirst(
+                "val message:",
+                "override val message:",
+            )
         }
 
         val companionMembers = companion?.members
