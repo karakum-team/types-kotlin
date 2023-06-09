@@ -36,7 +36,7 @@ internal fun generateKotlinDeclarations(
                     code.addLazyAnnotations()
                 } else code
 
-                var moduleDeclaration = if (isRuntime && !LAZY_MODE) {
+                val moduleDeclaration = if (isRuntime && !LAZY_MODE) {
                     MODULE_ANNOTATION
                 } else ""
 
