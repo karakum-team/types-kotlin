@@ -37,6 +37,15 @@ internal fun addOverrides(
     if (name == "Buffer") {
         result = result
             .replace("fun  reverse()", "override fun  reverse()")
+            .replace(
+                "fun  entries(): JsIterable.Iterator<JsTuple2<Int, Int>>",
+                "override fun  entries(): JsIterable.Iterator<JsTuple2<Int, Byte>>"
+            )
+            .replace("fun  keys(", "override fun  keys(")
+            .replace(
+                "fun  values(): JsIterable.Iterator<Int>",
+                "override fun  values(): JsIterable.Iterator<Byte>"
+            )
             .replace(" /* : this */", ": $name")
     }
 
