@@ -310,6 +310,11 @@ fun generateKotlinDeclarations(
             import web.authn.PublicKeyCredentialRequestOptions    
             """.trimIndent()
 
+            "PublicKeyCredential",
+            -> """
+            import web.credentials.Credential    
+            """.trimIndent()
+
             "Window",
             -> """
             import web.device.DeviceMotionEvent    

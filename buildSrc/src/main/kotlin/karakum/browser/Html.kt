@@ -264,7 +264,13 @@ private val WORKERS_TYPES = listOf(
 
 private val WEB_AUTHN_TYPES = listOf(
     "AuthenticationExtensionsClientInputs",
+    "AuthenticationExtensionsClientOutputs",
+    "AuthenticatorAssertionResponse",
+    "AuthenticatorAttestationResponse",
+    "AuthenticatorResponse",
     "AuthenticatorSelectionCriteria",
+    "CredentialPropertiesOutput",
+    "PublicKeyCredential",
     "PublicKeyCredentialCreationOptions",
     "PublicKeyCredentialDescriptor",
     "PublicKeyCredentialEntity",
@@ -987,7 +993,8 @@ internal fun convertInterface(
                 name == "DOMMatrixReadOnly" ||
                 name == "DOMPointReadOnly" ||
                 name == "DOMRectReadOnly" ||
-                name == "Worker"
+                name == "Worker" ||
+                name == "Credential"
         -> "open"
 
         // TEMP WA
