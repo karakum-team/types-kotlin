@@ -57,8 +57,14 @@ private fun intlContent(
     definitionsDir: File,
 ): String =
     definitionsDir.listFiles()!!
-        .filter { it.name.endsWith(".intl.d.ts") }
-        .sortedBy { it.name }
+        .filter { it.name.endsWith(".intl.d.ts") || it.name == "lib.es5.d.ts" }
+        .sortedBy { file ->
+            file.name
+                .removePrefix("lib.es")
+                .substringBefore(".")
+                .toIntOrNull()
+                ?: 3000
+        }
         .map {
             it.readText()
                 .replace("\r\n", "\n")
@@ -78,6 +84,7 @@ private fun intlContent(
                 .replace(";\ntype ES2020NumberFormatPartType = ", " | ")
                 .replace("\ntype NumberFormatPartTypes = ES2018NumberFormatPartType | ES2020NumberFormatPartType;", "")
                 .replace("NumberFormatPartTypes", "NumberFormatPartType")
+                .replace(""""basic" | "best fit" | "best fit"""", """"best fit" | "basic"""")
                 .replace("\n\n", "\n")
                 // WA for `DateTimeFormatPartTypesRegistry`
                 .replace("\n }\n", "\n}\n")
