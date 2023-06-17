@@ -374,6 +374,7 @@ private val WINDOW_EXCLUDED = setOf(
 internal class TypeProvider(
     private val parentType: String,
     private val arrayType: String? = null,
+    private val readonlyMap: Boolean = false,
 ) {
     fun numberType(
         propertyName: String,
@@ -452,6 +453,9 @@ internal class TypeProvider(
         name: String,
     ): Boolean {
         if (name == "length" && isArrayLike())
+            return false
+
+        if (name == "forEach" && readonlyMap)
             return false
 
         if (parentType == "Window")

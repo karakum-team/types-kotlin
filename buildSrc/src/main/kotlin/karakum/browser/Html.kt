@@ -872,7 +872,11 @@ internal fun convertInterface(
         declaration += "\n$additionalParent"
     }
 
-    val typeProvider = TypeProvider(name, arrayType)
+    val typeProvider = TypeProvider(
+        parentType = name,
+        arrayType = arrayType,
+        readonlyMap = additionalParent?.startsWith("ReadonlyMap<") ?: false
+    )
 
     val mainConstructor: String
     val additionalConstructors: String
