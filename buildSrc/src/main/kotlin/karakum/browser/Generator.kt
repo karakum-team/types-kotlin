@@ -12,6 +12,7 @@ import kotlin.js.Promise
 import js.core.ArrayLike
 import js.core.BigInt
 import js.core.JsIterable
+import js.core.JsTuple2
 import js.core.EpochTimeStamp
 import js.buffer.ArrayBuffer
 import js.buffer.ArrayBufferLike
@@ -23,6 +24,7 @@ import js.core.HighResTimeStamp
 import js.typedarrays.Int32Array
 import js.collections.JsSet
 import js.collections.ListLike
+import js.collections.MapLike
 import js.collections.ReadonlyMap
 import js.core.Record
 import js.core.ReadonlyArray    

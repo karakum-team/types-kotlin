@@ -995,7 +995,11 @@ internal fun convertInterface(
         result
     } else ""
 
-    members = sequenceOf(additionalConstructors, members)
+    val additionalOverrides = if (listLikeMode && name in FINAL_LIST_LIKE) {
+        listLikeOverrides(iterableTypeParameter!!)
+    } else ""
+
+    members = sequenceOf(additionalConstructors, members, additionalOverrides)
         .filter { it.isNotEmpty() }
         .joinToString("\n\n")
 
