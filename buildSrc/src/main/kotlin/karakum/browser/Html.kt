@@ -1054,6 +1054,9 @@ internal fun convertInterface(
         "CanvasPath",
         -> body = """@JsName("Object")""" + "\n" + body
 
+        "MediaList",
+        -> body = body.applyMediaListPatch()
+
         "MediaQueryList",
 
         "HTMLMetaElement",

@@ -2,8 +2,14 @@ package karakum.browser
 
 internal const val MEDIA_QUERY: String = "MediaQuery"
 
+internal fun String.applyMediaListPatch(): String =
+    replace("<String>", "<$MEDIA_QUERY>")
+        .replace(": String", ": $MEDIA_QUERY")
+        .replace("mediaText: $MEDIA_QUERY", "mediaText: String")
+
 internal fun String.applyMediaQueryPatch(): String =
-    replace("var media: String", "var media: $MEDIA_QUERY")
+    replace("val media: String", "val media: $MEDIA_QUERY")
+        .replace("var media: String", "var media: $MEDIA_QUERY")
 
 internal fun String.applyMediaQueryFunctionPatch(): String =
     replace("query: String", "query: $MEDIA_QUERY")
