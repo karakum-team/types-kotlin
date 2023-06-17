@@ -443,7 +443,7 @@ internal class TypeProvider(
     }
 
     fun isDefined(): Boolean =
-        parentType == "LocaleOptions" || parentType == "AbstractWorker"
+        parentType in Mixins.ALL
 
     fun isArrayLike(): Boolean =
         arrayType != null

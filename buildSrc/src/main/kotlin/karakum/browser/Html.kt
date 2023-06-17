@@ -1398,7 +1398,7 @@ internal fun convertMember(
 
         return sequenceOf(
             "var $handlerName: EventHandler<$eventType>?",
-            PROPERTY_DE.takeIf { typeProvider.isDefined() },
+            VAR_PROPERTY_DE.takeIf { typeProvider.isDefined() },
         ).filterNotNull()
             .joinToString("\n")
     }
@@ -1421,7 +1421,11 @@ internal fun convertMember(
     return convertProperty(source, typeProvider)
 }
 
-private val PROPERTY_DE = """
+private val VAL_PROPERTY_DE = """
+get() = definedExternally
+""".trimIndent()
+
+private val VAR_PROPERTY_DE = """
 get() = definedExternally
 set(value) = definedExternally
 """.trimIndent()
@@ -1430,7 +1434,8 @@ private fun convertProperty(
     source: String,
     typeProvider: TypeProvider,
 ): String? {
-    val modifier = if (source.startsWith("readonly ")) "val" else "var"
+    val isVal = source.startsWith("readonly ")
+    val modifier = if (isVal) "val" else "var"
 
     var (name, type) = source.removePrefix("readonly ").split(": ")
 
@@ -1603,9 +1608,13 @@ private fun convertProperty(
         else -> name
     }
 
+    val mixinSugar = if (typeProvider.isDefined()) {
+        if (isVal) VAL_PROPERTY_DE else VAR_PROPERTY_DE
+    } else null
+
     return sequenceOf(
         "$modifier $name: $type",
-        PROPERTY_DE.takeIf { typeProvider.isDefined() },
+        mixinSugar,
     ).filterNotNull()
         .joinToString("\n")
 }
@@ -1694,7 +1703,15 @@ private fun convertFunction(
 
     val modifier = if (isOperator) "operator" else ""
 
-    return "$modifier fun $typeParameters$safeName($parameters)$result"
+    val mixinSugar = if (typeProvider.isDefined()) {
+        sequenceOf(
+            ": Unit".takeIf { result.isEmpty() },
+            " = definedExternally",
+        ).filterNotNull()
+            .joinToString("")
+    } else ""
+
+    return "$modifier fun $typeParameters$safeName($parameters)$result$mixinSugar"
 }
 
 private fun convertFunctionParameters(

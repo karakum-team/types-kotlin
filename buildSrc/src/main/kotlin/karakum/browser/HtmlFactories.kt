@@ -1,6 +1,6 @@
 package karakum.browser
 
-internal val HTML_FACTORIES = setOf(
+private val HTML_FACTORIES = setOf(
     "Audio",
     "Image",
     "Option",
