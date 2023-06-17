@@ -853,17 +853,24 @@ internal fun convertInterface(
         } else null
     } else null
 
-    if (arrayType != null && name != "Window") {
+    val iterableTypeParameter = IterableRegistry.typeParameter(name)
+    val listLikeMode = name in LIST_LIKE
+    if (listLikeMode) {
+        requireNotNull(arrayType)
+        requireNotNull(iterableTypeParameter)
+    }
+
+    if (arrayType != null && name != "Window" && !listLikeMode) {
         declaration += if (":" in declaration && name !in COLLECTIONS_WITH_BOUNDS) "," else ":"
         declaration += "\nArrayLike<$arrayType>"
     }
 
-    val iterableTypeParameter = IterableRegistry.typeParameter(name)
     if (iterableTypeParameter != null) {
         val typeParameter = arrayType ?: iterableTypeParameter
+        val iterableType = if (listLikeMode) "ListLike" else "JsIterable"
 
-        declaration += if (":" in declaration) "," else ":"
-        declaration += "\nJsIterable<$typeParameter>"
+        declaration += if (":" in declaration && name != "NodeList") "," else ":"
+        declaration += "\n$iterableType<$typeParameter>"
     }
 
     val additionalParent = IterableRegistry.additionalParent(name)
@@ -875,7 +882,7 @@ internal fun convertInterface(
     val typeProvider = TypeProvider(
         parentType = name,
         arrayType = arrayType,
-        readonlyMap = additionalParent?.startsWith("ReadonlyMap<") ?: false
+        hideForEach = listLikeMode || (additionalParent?.startsWith("ReadonlyMap<") ?: false)
     )
 
     val mainConstructor: String
