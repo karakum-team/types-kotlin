@@ -85,6 +85,8 @@ private fun convertFunctionResult(
 
         .replace(": boolean", ": Boolean")
         .replace("?: string | null", "?: string")
+        // TEMP for getComputedStyle
+        .replace("pseudoElement?: string", "pseudoElement: String? = definedExternally")
         .replace("?: string", ": String = definedExternally")
         .replace(": string", ": String")
         .replace("): void", ")")
