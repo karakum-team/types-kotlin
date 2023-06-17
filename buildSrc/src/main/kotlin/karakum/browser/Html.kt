@@ -865,12 +865,24 @@ internal fun convertInterface(
         declaration += "\nArrayLike<$arrayType>"
     }
 
+    val mapLikeParameters = if (iterableTypeParameter != null) {
+        mapLikeParameters(iterableTypeParameter)
+    } else null
+
     if (iterableTypeParameter != null) {
         val typeParameter = arrayType ?: iterableTypeParameter
-        val iterableType = if (listLikeMode) "ListLike" else "JsIterable"
+        val iterableDeclaration = when {
+            mapLikeParameters != null
+            -> "MapLike<${mapLikeParameters.key}, ${mapLikeParameters.value}>"
+
+            listLikeMode
+            -> "ListLike<$typeParameter>"
+
+            else -> "JsIterable<$typeParameter>"
+        }
 
         declaration += if (":" in declaration && name != "NodeList") "," else ":"
-        declaration += "\n$iterableType<$typeParameter>"
+        declaration += "\n$iterableDeclaration"
     }
 
     val additionalParent = IterableRegistry.additionalParent(name)
@@ -995,9 +1007,15 @@ internal fun convertInterface(
         result
     } else ""
 
-    val additionalOverrides = if (listLikeMode && name in FINAL_LIST_LIKE) {
-        listLikeOverrides(iterableTypeParameter!!)
-    } else ""
+    val additionalOverrides = when {
+        listLikeMode && name in FINAL_LIST_LIKE
+        -> listLikeOverrides(iterableTypeParameter!!)
+
+        mapLikeParameters != null && name in FINAL_MAP_LIKE
+        -> mapLikeOverrides(mapLikeParameters.key, mapLikeParameters.value)
+
+        else -> ""
+    }
 
     members = sequenceOf(additionalConstructors, members, additionalOverrides)
         .filter { it.isNotEmpty() }
