@@ -2,10 +2,7 @@
 
 package web.streams
 
-sealed external interface ReadableWritablePair<
-        R,
-        W,
-        > {
+sealed external interface ReadableWritablePair<R, W> {
     var readable: ReadableStream<R>
 
     /**
