@@ -19,6 +19,8 @@ internal object Mixins {
         "InnerHTML",
         "ParentNode",
         "ElementContentEditable",
+
+        "ReadableStreamGenericReader",
     )
 
     val ALL: Set<String> = SAFE + UNSAFE

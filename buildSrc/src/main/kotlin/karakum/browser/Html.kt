@@ -395,6 +395,7 @@ private val STREAMS_TYPES = listOf(
     "TransformStream",
     "TransformStreamDefaultController",
     "UnderlyingByteSource",
+    "UnderlyingDefaultSource",
     "UnderlyingSink",
     "UnderlyingSource",
     "WritableStream",
@@ -1543,6 +1544,10 @@ private fun convertProperty(
         "string" -> "String"
         "boolean" -> "Boolean"
 
+        "false",
+        "true",
+        -> "Boolean /* $type */"
+
         "number",
         "number | string",
         -> typeProvider.numberType(safeName)
@@ -1648,12 +1653,6 @@ private fun convertProperty(
         "HTMLCollectionOf<HTMLAnchorElement | HTMLAreaElement>",
         -> "HTMLCollectionOf<HTMLElement /* HTMLAnchorElement | HTMLAreaElement */>"
 
-        "(controller: ReadableByteStreamController) => void | PromiseLike<void>",
-        -> "(controller: ReadableByteStreamController) -> PromiseLike<Void>?"
-
-        "(controller: ReadableByteStreamController) => any",
-        -> "(controller: ReadableByteStreamController) -> Unit"
-
         "typeof FileReader.EMPTY | typeof FileReader.LOADING | typeof FileReader.DONE",
         -> "Short"
 
@@ -1675,6 +1674,14 @@ private fun convertProperty(
 
             type.startsWith("\"")
             -> "String /* $type */"
+
+            type.startsWith("(controller: ")
+            -> type
+                .replace(") => any", ") -> Unit")
+                .replace(
+                    ") => void | PromiseLike<void>",
+                    ") -> PromiseLike<Void>?"
+                )
 
             else -> type
         }
