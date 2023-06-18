@@ -1857,7 +1857,7 @@ private fun convertFunctionParameters(
             "vararg values: Any /* CSSStyleValue | string */",
         )
 
-        "init?: Record<string, string>",
+        "init: Record<string, string>",
         -> listOf(
             "init: ReadonlyRecord<String, String> = definedExternally",
         )
@@ -1991,6 +1991,10 @@ private fun getParameterType(
 
         source == "Iterable<string>"
         -> "JsIterable<String>"
+
+        // URL
+        source == "string[][]"
+        -> "ReadonlyArray<JsTuple2<String, String>>"
 
         source.startsWith("\"")
         -> "String /* $source */"
