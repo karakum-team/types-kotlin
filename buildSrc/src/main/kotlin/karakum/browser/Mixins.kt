@@ -20,6 +20,10 @@ internal object Mixins {
         "ParentNode",
         "ElementContentEditable",
 
+        "TextDecoderCommon",
+        "TextEncoderCommon",
+
+        "GenericTransformStream",
         "ReadableStreamGenericReader",
     )
 

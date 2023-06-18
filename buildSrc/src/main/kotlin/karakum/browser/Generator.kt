@@ -256,7 +256,10 @@ fun generateKotlinDeclarations(
             if (name == "TextDecoder" || name == "TextDecoderStream")
                 add(ABSTRACT_MEMBER_NOT_IMPLEMENTED)
 
-            if (name == "WorkerNavigator")
+            if (name == "WorkerNavigator"
+                || name == "TextEncoderStream"
+                || name == "TextDecoderStream"
+            )
                 add(SEALED_INHERITOR_IN_DIFFERENT_PACKAGE)
         }.toTypedArray()
 

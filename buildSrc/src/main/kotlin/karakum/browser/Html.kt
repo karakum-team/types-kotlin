@@ -1092,7 +1092,8 @@ internal fun convertInterface(
                 name == "XMLHttpRequest" ||
                 name == "XMLHttpRequestUpload" ||
                 name == "AbstractWorker" ||
-                name == "GenericTransformStream" ||
+                name == "TextEncoder" ||
+                name == "TextEncoderStream" ||
                 name.endsWith("Handlers") ||
                 mainConstructor.isNotEmpty()
         -> ""
