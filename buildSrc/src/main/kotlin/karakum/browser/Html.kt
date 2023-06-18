@@ -702,6 +702,13 @@ internal fun htmlDeclarations(
             )
         )
         .plus(
+            ConversionResult(
+                name = "ReadableStreamReader",
+                body = "typealias ReadableStreamReader = ReadableStreamGenericReader /* {\n    fun releaseLock()\n} */",
+                pkg = "web.streams",
+            )
+        )
+        .plus(
             DOM_GEOMETRY_TYPES
                 .filter { it.endsWith("ReadOnly") }
                 .map { type ->
@@ -1743,6 +1750,10 @@ private fun convertFunction(
             "SVGCircleElement | SVGEllipseElement | SVGImageElement | SVGLineElement | SVGPathElement | SVGPolygonElement | SVGPolylineElement | SVGRectElement | SVGTextElement | SVGUseElement",
             "SVGElement /* SVGCircleElement | SVGEllipseElement | SVGImageElement | SVGLineElement | SVGPathElement | SVGPolygonElement | SVGPolylineElement | SVGRectElement | SVGTextElement | SVGUseElement */"
         )
+        .replace(
+            ": ReadableStreamReader<R>",
+            ": ReadableStreamReader",
+        )
         .replace(": DOMHighResTimeStamp", ": HighResTimeStamp")
         .replace(": OffscreenRenderingContext", ": Any /* OffscreenRenderingContext */")
         .replace(": RadioNodeList | Element | null", ": Any? /* RadioNodeList | Element */")
@@ -1991,6 +2002,9 @@ private fun getParameterType(
 
         source == "PromiseLike<PaymentDetailsUpdate>"
         -> "Promise<PaymentDetailsUpdate> /* PromiseLike */"
+
+        source == "ReadableStream"
+        -> "ReadableStream<*>"
 
         source == "DOMHighResTimeStamp"
         -> "HighResTimeStamp"
