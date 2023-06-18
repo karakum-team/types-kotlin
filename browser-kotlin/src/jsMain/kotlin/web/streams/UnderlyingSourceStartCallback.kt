@@ -2,6 +2,6 @@
 
 package web.streams
 
-typealias UnderlyingSourceStartCallback<R> = (
-    controller: ReadableStreamController<R>,
+typealias UnderlyingSourceStartCallback = (
+    controller: ReadableStreamController,
 ) -> Unit
