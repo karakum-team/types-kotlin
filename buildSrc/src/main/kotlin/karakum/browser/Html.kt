@@ -369,6 +369,7 @@ private val FILE_SYSTEM_TYPES = listOf(
 )
 
 private val STREAMS_TYPES = listOf(
+    "GenericTransformStream",
     "QueuingStrategy",
     "QueuingStrategyInit",
     "QueuingStrategySize",
@@ -594,7 +595,6 @@ internal fun htmlDeclarations(
 
         "TextEncode.+?",
         "TextDecode.+?",
-        "GenericTransformStream",
 
         "IDB.+?",
 
@@ -1095,6 +1095,7 @@ internal fun convertInterface(
                 name == "XMLHttpRequest" ||
                 name == "XMLHttpRequestUpload" ||
                 name == "AbstractWorker" ||
+                name == "GenericTransformStream" ||
                 name.endsWith("Handlers") ||
                 mainConstructor.isNotEmpty()
         -> ""
@@ -1249,7 +1250,6 @@ internal fun convertInterface(
 
         name.startsWith("TextEncode") -> "web.encoding"
         name.startsWith("TextDecode") -> "web.encoding"
-        name == "GenericTransformStream" -> "web.encoding"
 
         name in STREAMS_TYPES -> "web.streams"
 

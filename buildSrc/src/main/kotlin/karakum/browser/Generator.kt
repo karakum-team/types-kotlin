@@ -143,6 +143,7 @@ import web.permissions.PermissionState
 import web.push.PushManager
 import web.share.ShareData
 import web.storage.StorageManager
+import web.streams.GenericTransformStream
 import web.streams.ReadableStream
 import web.streams.WritableStream
 import web.url.URL
