@@ -1,7 +1,6 @@
 package karakum.browser
 
 private val STREAMS_FUNCTION_TYPES = setOf(
-    "ReadableByteStreamControllerCallback",
     "ReadableStreamErrorCallback",
     "TransformerFlushCallback",
     "TransformerStartCallback",
@@ -26,8 +25,11 @@ internal fun browserFunctionTypes(
 private fun convertFunctionType(
     source: String,
 ): ConversionResult? {
-    val name = source.substringAfter(" ")
-        .substringBefore(" ")
+    val declaration = source
+        .substringAfter(" ")
+        .substringBefore(" {")
+
+    val name = declaration.substringBefore("<")
 
     val pkg = when {
         name in STREAMS_FUNCTION_TYPES -> "web.streams"
@@ -91,7 +93,7 @@ private fun convertFunctionType(
             .replaceFirst("(", "(\n")
             .replace(", ", ",\n")
 
-    val body = "typealias $name = $bodySource"
+    val body = "typealias $declaration = $bodySource"
 
     return ConversionResult(
         name = name,

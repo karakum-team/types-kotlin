@@ -859,7 +859,7 @@ internal fun convertInterface(
         else -> {
             declaration
                 .replace(" extends ", " :\n")
-                .replace(", ", ",\n")
+                .let { if (":" in it) it.replace(", ", ",\n") else it }
                 .replace("\nAnimatable,", "\n/* Animatable, */")
         }
     }
