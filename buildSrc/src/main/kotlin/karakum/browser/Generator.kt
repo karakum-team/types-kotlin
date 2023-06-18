@@ -246,6 +246,9 @@ fun generateKotlinDeclarations(
             if (name in Mixins.UNSAFE)
                 add(NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE)
 
+            if (name == "ReadableStreamReadResult")
+                add(UNUSED_TYPEALIAS_PARAMETER)
+
             // TEMP Remove after inheritance fix
             if (name == "TextDecoder" || name == "TextDecoderStream")
                 add(ABSTRACT_MEMBER_NOT_IMPLEMENTED)

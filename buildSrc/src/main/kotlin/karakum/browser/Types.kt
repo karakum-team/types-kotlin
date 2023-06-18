@@ -134,9 +134,11 @@ private fun convertType(
     if (" = " !in source)
         return null
 
-    val (name, bodySource) = source
+    val (declaration, bodySource) = source
         .substringBefore(";")
         .split(" = ")
+
+    val name = declaration.substringBefore("<")
 
     if (bodySource == "string") {
         val pkg = getPkg(name)
@@ -183,6 +185,8 @@ private fun convertType(
             "BigInteger" -> "web.crypto"
             "HashAlgorithmIdentifier" -> "web.crypto"
 
+            "ReadableStreamReadResult" -> "web.streams"
+
             "ExportValue",
             "ImportValue",
             -> getPkg(name)!!
@@ -227,7 +231,7 @@ private fun convertType(
 
         return ConversionResult(
             name = name,
-            body = "typealias $name = $body",
+            body = "typealias $declaration = $body",
             pkg = pkg
         )
     }
