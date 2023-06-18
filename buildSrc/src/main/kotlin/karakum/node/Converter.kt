@@ -322,15 +322,6 @@ private fun convertType(
     val name = source.substringBefore(" =")
         .substringBefore("<")
 
-    if (name == "ReadableStreamController") {
-        val body = source.substringBefore(";")
-
-        return ConversionResult(
-            name = name,
-            body = "typealias " + body
-        )
-    }
-
     if (name == "RequestListener") {
         val body = source
             .substringBefore(";")
