@@ -257,6 +257,8 @@ fun generateKotlinDeclarations(
                 add(ABSTRACT_MEMBER_NOT_IMPLEMENTED)
 
             if (name == "WorkerNavigator"
+                || name == "CompressionStream"
+                || name == "DecompressionStream"
                 || name == "TextEncoderStream"
                 || name == "TextDecoderStream"
             )

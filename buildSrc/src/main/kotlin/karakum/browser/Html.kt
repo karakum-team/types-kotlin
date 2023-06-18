@@ -401,6 +401,11 @@ private val STREAMS_TYPES = listOf(
     "WritableStreamDefaultWriter",
 )
 
+private val COMPRESSION_STREAMS_TYPES = listOf(
+    "CompressionStream",
+    "DecompressionStream",
+)
+
 private val URL_TYPES = listOf(
     "URL",
     "URLSearchParams",
@@ -636,6 +641,7 @@ internal fun htmlDeclarations(
         .plus(FILE_SYSTEM_TYPES)
         .plus(WEB_AUTHN_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(STREAMS_TYPES.flatMap { sequenceOf(it, "$it<.+?", "$it .+?") })
+        .plus(COMPRESSION_STREAMS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(CREDENTIALS_TYPES)
         .plus(URL_TYPES)
         .joinToString("|")
@@ -1256,6 +1262,7 @@ internal fun convertInterface(
         name.startsWith("TextDecode") -> "web.encoding"
 
         name in STREAMS_TYPES -> "web.streams"
+        name in COMPRESSION_STREAMS_TYPES -> "web.compression"
 
         name in WEB_AUTHN_TYPES -> "web.authn"
         name in CREDENTIALS_TYPES -> "web.credentials"
