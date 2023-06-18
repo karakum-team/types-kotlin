@@ -182,7 +182,16 @@ private val INT_NAMES = setOf(
     "displayHeight",
     "displayWidth",
 
-    "byteLength"
+    "byteLength",
+
+    // Streams
+    "highWaterMark",
+    "autoAllocateChunkSize",
+    "desiredSize",
+
+    // Wasm
+    "initial",
+    "maximum",
 )
 
 private val DOUBLE_NAMES = setOf(
