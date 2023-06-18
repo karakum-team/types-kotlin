@@ -3,8 +3,8 @@
 package web.streams
 
 import js.core.Void
-import js.promise.PromiseResult
+import js.promise.PromiseLike
 
 typealias UnderlyingSourceCancelCallback = (
     reason: Any?,
-) -> PromiseResult<Void>
+) -> PromiseLike<Void>?

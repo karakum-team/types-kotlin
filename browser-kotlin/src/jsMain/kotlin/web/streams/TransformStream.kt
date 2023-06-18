@@ -2,10 +2,14 @@
 
 package web.streams
 
-sealed external class TransformStream<
+external class TransformStream<
         I,
         O,
-        > {
+        >(
+    transformer: Transformer<I, O> = definedExternally,
+    writableStrategy: QueuingStrategy<I> = definedExternally,
+    readableStrategy: QueuingStrategy<O> = definedExternally,
+) {
     val readable: ReadableStream<O>
     val writable: WritableStream<I>
 }

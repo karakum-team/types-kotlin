@@ -3,6 +3,6 @@
 package web.streams
 
 import js.core.Void
-import js.promise.PromiseResult
+import js.promise.PromiseLike
 
-typealias UnderlyingSinkCloseCallback = () -> PromiseResult<Void>
+typealias UnderlyingSinkCloseCallback = () -> PromiseLike<Void>?

@@ -5,7 +5,9 @@ package web.streams
 import js.core.Void
 import kotlin.js.Promise
 
-sealed external class WritableStreamDefaultWriter<W> {
+external class WritableStreamDefaultWriter<W>(
+    stream: WritableStream<W>,
+) {
     val closed: Promise<Void>
     val desiredSize: Number?
     val ready: Promise<Void>

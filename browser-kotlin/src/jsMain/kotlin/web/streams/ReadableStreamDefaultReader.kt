@@ -4,8 +4,9 @@ package web.streams
 
 import kotlin.js.Promise
 
-sealed external class ReadableStreamDefaultReader<R> :
-    ReadableStreamGenericReader {
+external class ReadableStreamDefaultReader<R>(
+    stream: ReadableStream<R>,
+) : ReadableStreamGenericReader {
     fun read(): Promise<ReadableStreamReadResult<R>>
     fun releaseLock()
 }
