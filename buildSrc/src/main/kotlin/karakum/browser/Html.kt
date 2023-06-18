@@ -1534,6 +1534,7 @@ private fun convertProperty(
 
     type = when (type) {
         "null" -> "Void"
+        "undefined" -> "Void"
 
         "any" -> "Any?"
         "string" -> "String"

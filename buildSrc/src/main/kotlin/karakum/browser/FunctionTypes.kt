@@ -82,6 +82,7 @@ private fun convertFunctionType(
         .replace("?: EncodedVideoChunkMetadata", ": EncodedVideoChunkMetadata?")
         .replace("): void | PromiseLike<void>", ") -> PromiseLike<Void>?")
         .replace("): void", ") -> Unit")
+        .replace("): any", ") -> Unit")
         .replace("?: any", ": Any?")
         .replace(" | null", "?")
 
