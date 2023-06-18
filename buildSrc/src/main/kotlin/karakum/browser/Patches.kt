@@ -20,6 +20,10 @@ internal fun String.applyPatches(): String =
         .splitUnion("string | ElementCreationOptions")
         .splitUnion("HTMLOptionElement | HTMLOptGroupElement")
         .splitUnion("HTMLElement | number")
+        .splitUnion(
+            "string[][] | Record<string, string> | string | URLSearchParams",
+            "Record<string, string> | string | URLSearchParams",
+        )
         // TODO: inline instead
         .splitUnion("string | BinaryData", "string | ArrayBuffer | ArrayBufferView")
         .splitUnion("Document | XMLHttpRequestBodyInit")

@@ -401,6 +401,11 @@ private val STREAMS_TYPES = listOf(
     "WritableStreamDefaultWriter",
 )
 
+private val URL_TYPES = listOf(
+    "URL",
+    "URLSearchParams",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -632,6 +637,7 @@ internal fun htmlDeclarations(
         .plus(WEB_AUTHN_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(STREAMS_TYPES.flatMap { sequenceOf(it, "$it<.+?", "$it .+?") })
         .plus(CREDENTIALS_TYPES)
+        .plus(URL_TYPES)
         .joinToString("|")
 
     val interfaces =
@@ -1280,6 +1286,8 @@ internal fun convertInterface(
 
         name.startsWith("Payment") -> "web.payment"
 
+        name in URL_TYPES -> "web.url"
+
         else -> "web.html"
     }
 
@@ -1847,6 +1855,17 @@ private fun convertFunctionParameters(
         -> listOf(
             "property: String",
             "vararg values: Any /* CSSStyleValue | string */",
+        )
+
+        "init?: Record<string, string>",
+        -> listOf(
+            "init: ReadonlyRecord<String, String> = definedExternally",
+        )
+
+        // URL
+        "obj: Blob | MediaSource",
+        -> listOf(
+            "obj: Blob /* | MediaSource */"
         )
 
         "...args: CSSNumberish[]",
