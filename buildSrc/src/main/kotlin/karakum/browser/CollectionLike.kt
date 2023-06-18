@@ -33,10 +33,11 @@ internal fun mapLikeParameters(
     if (!source.startsWith("["))
         return null
 
-    val (keySource, valueSource) = source.removeSurrounding("[", "]").split(", ")
-
-    val key = keySource
-    val value = valueSource
+    val (key, value) = source
+        .removeSurrounding("[", "]")
+        .replace("string", "String")
+        .replace(", Iterable<", ", JsIterable<")
+        .split(", ")
 
     return MapLikeParameters(
         key = key,

@@ -2,7 +2,7 @@ package karakum.browser
 
 import java.io.File
 
-private val ITERATOR_REGEX = Regex("""\ninterface (\w+) \{\n\s+\[Symbol.iterator]\(\): IterableIterator<(\w+)>;""")
+private val ITERATOR_REGEX = Regex("""\ninterface (\w+) \{\n\s+\[Symbol.iterator]\(\): IterableIterator<(.+)>;""")
 private val ADDITIONAL_PARENT_REGEX = Regex("""\ninterface (\w+) extends (.+?) \{\n""")
 
 object IterableRegistry {
