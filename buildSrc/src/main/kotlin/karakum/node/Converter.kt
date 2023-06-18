@@ -238,8 +238,6 @@ internal fun convertDefinitions(
         Package("stream/promises") -> convertFunctions(content)
             .filter { it.name.startsWith("finished") }
 
-        Package("stream/web") -> interfaces
-
         Package("test") -> interfaces
             .plus(convertFunctions(content))
 

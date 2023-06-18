@@ -7,7 +7,6 @@ internal data class Package(
 ) {
     private val root = name
         .removeSuffix("/promises")
-        .replace("stream/web", "web/streams")
         .snakeToCamel()
 
     val id: String = concat("node", ":", name)
