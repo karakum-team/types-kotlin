@@ -9,8 +9,9 @@ import js.core.ReadonlyArray
 import js.core.ReadonlyRecord
 
 external class URLSearchParams(
-    init: ReadonlyRecord<String, String> = definedExternally,
+    init: ReadonlyArray<JsTuple2<String, String>> = definedExternally,
 ) : MapLike<String, String> {
+    constructor(init: ReadonlyRecord<String, String> = definedExternally)
     constructor(init: String)
     constructor(init: URLSearchParams)
 
