@@ -18,7 +18,7 @@ external class ReadableStream<R>(
     val locked: Boolean
     fun cancel(reason: Any? = definedExternally): Promise<Void>
     fun getReader(): ReadableStreamDefaultReader<R>
-    fun getReader(options: ReadableStreamGetReaderOptions = definedExternally): ReadableStreamReader<R>
+    fun getReader(options: ReadableStreamGetReaderOptions = definedExternally): ReadableStreamReader
     fun <T> pipeThrough(
         transform: ReadableWritablePair<T, R>,
         options: StreamPipeOptions = definedExternally,

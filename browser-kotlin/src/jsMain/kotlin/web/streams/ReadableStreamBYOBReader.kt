@@ -6,7 +6,7 @@ import js.buffer.ArrayBufferView
 import kotlin.js.Promise
 
 external class ReadableStreamBYOBReader(
-    stream: ReadableStream,
+    stream: ReadableStream<*>,
 ) : ReadableStreamGenericReader {
     fun <T : ArrayBufferView> read(view: T): Promise<ReadableStreamReadResult<T>>
     fun releaseLock()
