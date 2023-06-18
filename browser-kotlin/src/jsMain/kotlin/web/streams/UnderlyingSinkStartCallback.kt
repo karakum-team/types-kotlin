@@ -4,4 +4,4 @@ package web.streams
 
 typealias UnderlyingSinkStartCallback = (
     controller: WritableStreamDefaultController,
-): any
+) -> Unit

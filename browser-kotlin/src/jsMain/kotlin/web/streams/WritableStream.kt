@@ -5,7 +5,7 @@ package web.streams
 import js.core.Void
 import kotlin.js.Promise
 
-external class WritableStream<W>(
+open external class WritableStream<W>(
     underlyingSink: UnderlyingSink<W> = definedExternally,
     strategy: QueuingStrategy<W> = definedExternally,
 ) {
