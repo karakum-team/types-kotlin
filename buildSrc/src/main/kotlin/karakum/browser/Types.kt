@@ -185,6 +185,7 @@ private fun convertType(
             "BigInteger" -> "web.crypto"
             "HashAlgorithmIdentifier" -> "web.crypto"
 
+            "ReadableStreamController" -> "web.streams"
             "ReadableStreamReadResult" -> "web.streams"
 
             "ExportValue",

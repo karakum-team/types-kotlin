@@ -1,6 +1,7 @@
 package karakum.browser
 
 private val STREAMS_FUNCTION_TYPES = setOf(
+    "QueuingStrategySize",
     "ReadableStreamErrorCallback",
     "TransformerFlushCallback",
     "TransformerStartCallback",
@@ -28,6 +29,7 @@ private fun convertFunctionType(
     val declaration = source
         .substringAfter(" ")
         .substringBefore(" {")
+        .replace(" = any>", ">")
 
     val name = declaration.substringBefore("<")
 
@@ -83,6 +85,8 @@ private fun convertFunctionType(
         .replace(": ResizeObserverEntry[]", ": ReadonlyArray<ResizeObserverEntry>")
         .replace("?: EncodedVideoChunkMetadata", ": EncodedVideoChunkMetadata?")
         .replace("): void | PromiseLike<void>", ") -> PromiseLike<Void>?")
+        // QueuingStrategySize
+        .replace("): number", ") -> Int")
         .replace("): void", ") -> Unit")
         .replace("): any", ") -> Unit")
         .replace("?: any", ": Any?")
