@@ -894,7 +894,9 @@ internal fun convertInterface(
     val typeProvider = TypeProvider(
         parentType = name,
         arrayType = arrayType,
-        hideForEach = listLikeMode || (additionalParent?.startsWith("ReadonlyMap<") ?: false)
+        hideForEach = listLikeMode
+                || mapLikeParameters != null
+                || (additionalParent?.startsWith("ReadonlyMap<") ?: false)
     )
 
     val mainConstructor: String
