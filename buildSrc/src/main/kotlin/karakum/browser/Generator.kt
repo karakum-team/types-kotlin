@@ -35,6 +35,7 @@ import js.typedarrays.Uint32Array
 import js.typedarrays.Uint8ClampedArray
 import js.core.JsLong
 import js.core.Void
+import js.promise.PromiseResult
 import web.canvas.CanvasImageSource
 import web.canvas.OffscreenCanvas
 import web.canvas.PredefinedColorSpace

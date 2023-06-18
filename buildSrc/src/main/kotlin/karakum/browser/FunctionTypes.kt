@@ -1,5 +1,20 @@
 package karakum.browser
 
+private val STREAMS_FUNCTION_TYPES = setOf(
+    "ReadableByteStreamControllerCallback",
+    "ReadableStreamErrorCallback",
+    "TransformerFlushCallback",
+    "TransformerStartCallback",
+    "TransformerTransformCallback",
+    "UnderlyingSinkAbortCallback",
+    "UnderlyingSinkCloseCallback",
+    "UnderlyingSinkStartCallback",
+    "UnderlyingSinkWriteCallback",
+    "UnderlyingSourceCancelCallback",
+    "UnderlyingSourcePullCallback",
+    "UnderlyingSourceStartCallback",
+)
+
 internal fun browserFunctionTypes(
     content: String,
 ): Sequence<ConversionResult> =
@@ -15,6 +30,8 @@ private fun convertFunctionType(
         .substringBefore(" ")
 
     val pkg = when {
+        name in STREAMS_FUNCTION_TYPES -> "web.streams"
+
         name == "PerformanceObserverCallback" -> "web.performance"
 
         name == "FunctionStringCallback" -> "web.data"
@@ -63,7 +80,9 @@ private fun convertFunctionType(
         .replace(": MutationRecord[]", ": ReadonlyArray<MutationRecord>")
         .replace(": ResizeObserverEntry[]", ": ReadonlyArray<ResizeObserverEntry>")
         .replace("?: EncodedVideoChunkMetadata", ": EncodedVideoChunkMetadata?")
+        .replace("): void | PromiseLike<void>", ") -> PromiseResult<Void>")
         .replace("): void", ") -> Unit")
+        .replace("?: any", ": Any?")
         .replace(" | null", "?")
 
     if ("()" !in bodySource)

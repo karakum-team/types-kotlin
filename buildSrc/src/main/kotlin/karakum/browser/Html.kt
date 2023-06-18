@@ -368,6 +368,40 @@ private val FILE_SYSTEM_TYPES = listOf(
     "WriteParams",
 )
 
+private val STREAMS_TYPES = listOf(
+    "QueuingStrategy",
+    "QueuingStrategyInit",
+    "QueuingStrategySize",
+    "ReadableByteStreamController",
+    "ReadableStream",
+    "ReadableStreamBYOBReader",
+    "ReadableStreamBYOBRequest",
+    "ReadableStreamController",
+    "ReadableStreamDefaultController",
+    "ReadableStreamDefaultReadDoneResult",
+    "ReadableStreamDefaultReadValueResult",
+    "ReadableStreamDefaultReader",
+    "ReadableStreamGenericReader",
+    "ReadableStreamGetReaderOptions",
+    "ReadableStreamReadDoneResult",
+    "ReadableStreamReadResult",
+    "ReadableStreamReadValueResult",
+    "ReadableWritablePair",
+    "StreamPipeOptions",
+    "TextDecoderOptions",
+    "TextDecoderStream",
+    "TextEncoderStream",
+    "Transformer",
+    "TransformStream",
+    "TransformStreamDefaultController",
+    "UnderlyingByteSource",
+    "UnderlyingSink",
+    "UnderlyingSource",
+    "WritableStream",
+    "WritableStreamDefaultController",
+    "WritableStreamDefaultWriter",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -598,6 +632,7 @@ internal fun htmlDeclarations(
         .plus(USER_ACTIVATION_TYPES)
         .plus(FILE_SYSTEM_TYPES)
         .plus(WEB_AUTHN_TYPES.flatMap { sequenceOf(it, "$it .+?") })
+        .plus(STREAMS_TYPES.flatMap { sequenceOf(it, "$it<.+?", "$it .+?") })
         .plus(CREDENTIALS_TYPES)
         .joinToString("|")
 
@@ -787,6 +822,7 @@ internal fun convertInterface(
     var declaration = source.substringBefore(" {\n")
         .replace(", AnimationFrameProvider", "")
         .replace(", WindowLocalStorage, WindowOrWorkerGlobalScope, WindowSessionStorage", "")
+        .replace(" = any, ", ", ")
         .replace(" = any>", ">")
         .replace("interface ", "$type ")
 
@@ -1205,6 +1241,8 @@ internal fun convertInterface(
         name.startsWith("TextEncode") -> "web.encoding"
         name.startsWith("TextDecode") -> "web.encoding"
         name == "GenericTransformStream" -> "web.encoding"
+
+        name in STREAMS_TYPES -> "web.streams"
 
         name in WEB_AUTHN_TYPES -> "web.authn"
         name in CREDENTIALS_TYPES -> "web.credentials"
@@ -1806,6 +1844,12 @@ private fun convertFunctionParameters(
         -> listOf(
             "items: ReadonlyRecord<String, Any /* String | Blob | PromiseLike<String | Blob> */>",
             "options: ClipboardItemOptions = definedExternally",
+        )
+
+        "transform: ReadableWritablePair<T, R>, options?: StreamPipeOptions",
+        -> listOf(
+            "transform: ReadableWritablePair<T, R>",
+            "options: StreamPipeOptions = definedExternally",
         )
 
         "action: (item: AudioParam) => void",
