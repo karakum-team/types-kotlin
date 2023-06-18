@@ -3,6 +3,6 @@
 package web.streams
 
 sealed external interface ReadableStreamReadValueResult<T> {
-    var done: false
+    var done: Boolean /* false */
     var value: T
 }
