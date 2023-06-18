@@ -1065,7 +1065,8 @@ internal fun convertInterface(
                 name == "DOMPointReadOnly" ||
                 name == "DOMRectReadOnly" ||
                 name == "Worker" ||
-                name == "Credential"
+                name == "Credential" ||
+                name == "WritableStream"
         -> "open"
 
         // TEMP WA
@@ -1514,7 +1515,9 @@ private fun convertProperty(
     val isVal = source.startsWith("readonly ")
     val modifier = if (isVal) "val" else "var"
 
-    var (name, type) = source.removePrefix("readonly ").split(": ")
+    var (name, type) = source.removePrefix("readonly ").let {
+        it.substringBefore(": ", "") to it.substringAfter(": ", "")
+    }
 
     val optional = type.endsWith(" | null") || type.endsWith(" | undefined")
     type = type
@@ -1644,6 +1647,12 @@ private fun convertProperty(
 
         "HTMLCollectionOf<HTMLAnchorElement | HTMLAreaElement>",
         -> "HTMLCollectionOf<HTMLElement /* HTMLAnchorElement | HTMLAreaElement */>"
+
+        "(controller: ReadableByteStreamController) => void | PromiseLike<void>",
+        -> "(controller: ReadableByteStreamController) -> PromiseLike<Void>?"
+
+        "(controller: ReadableByteStreamController) => any",
+        -> "(controller: ReadableByteStreamController) -> Unit"
 
         "typeof FileReader.EMPTY | typeof FileReader.LOADING | typeof FileReader.DONE",
         -> "Short"
