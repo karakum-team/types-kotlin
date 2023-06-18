@@ -1307,8 +1307,8 @@ private fun getConstructors(
     val constructorSources = source
         .split(";\n")
         .map { it.substringAfterLast("\n") }
-        .filter { it.startsWith("new(") }
-        .map { it.removePrefix("new(") }
+        .filter { it.startsWith("new(") || it.startsWith("new<") }
+        .map { it.substringAfter("(") }
         .map { it.substringBefore("): $name") }
 
     if (constructorSources.isEmpty())
@@ -1327,6 +1327,7 @@ private fun getCompanion(
 ): String {
     val content = source
         .substringAfterLast("\nnew(")
+        .substringAfterLast("\nnew<")
         .substringAfter(";\n", "")
         .ifEmpty { return "" }
 
@@ -1718,6 +1719,10 @@ private fun convertFunction(
     val result = (": " + source.substringAfter("): "))
         .removeSuffix(": void")
         .replace(
+            ": [ReadableStream<R>, ReadableStream<R>]",
+            ": JsTuple2<ReadableStream<R>, ReadableStream<R>>",
+        )
+        .replace(
             "SVGCircleElement | SVGEllipseElement | SVGImageElement | SVGLineElement | SVGPathElement | SVGPolygonElement | SVGPolylineElement | SVGRectElement | SVGTextElement | SVGUseElement",
             "SVGElement /* SVGCircleElement | SVGEllipseElement | SVGImageElement | SVGLineElement | SVGPathElement | SVGPolygonElement | SVGPolylineElement | SVGRectElement | SVGTextElement | SVGUseElement */"
         )
@@ -1850,6 +1855,13 @@ private fun convertFunctionParameters(
         -> listOf(
             "transform: ReadableWritablePair<T, R>",
             "options: StreamPipeOptions = definedExternally",
+        )
+
+        "transformer?: Transformer<I, O>, writableStrategy?: QueuingStrategy<I>, readableStrategy?: QueuingStrategy<O>",
+        -> listOf(
+            "transformer: Transformer<I, O> = definedExternally",
+            "writableStrategy: QueuingStrategy<I> = definedExternally",
+            "readableStrategy: QueuingStrategy<O> = definedExternally",
         )
 
         "action: (item: AudioParam) => void",

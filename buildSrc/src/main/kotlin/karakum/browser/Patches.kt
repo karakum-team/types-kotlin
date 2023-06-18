@@ -8,6 +8,11 @@ internal fun String.applyPatches(): String =
             "\n    set(name: string, value: string | Blob): void;" +
                     "\n    set(name: string, value: Blob, fileName: string): void;\n",
         )
+        .replace("    getReader(options: { mode: \"byob\" }): ReadableStreamBYOBReader;\n", "")
+        .replace(
+            "    new(underlyingSource: UnderlyingByteSource, strategy?: { highWaterMark?: number }): ReadableStream<Uint8Array>;\n",
+            ""
+        )
         .splitUnion("string | string[]")
         .splitUnion("string | number[]")
         .splitUnion("number[] | Float32Array")

@@ -99,15 +99,14 @@ private val PKG_MAP = mapOf(
     "KeyType" to "web.crypto",
     "KeyUsage" to "web.crypto",
     "NamedCurve" to "web.crypto",
+
+    "ReadableStreamReaderMode" to "web.streams",
+    "ReadableStreamType" to "web.streams",
 )
 
 private val EXCLUDED_TYPES = setOf(
     // buffer
     "EndingType",
-
-    // webstreams
-    "ReadableStreamType",
-    "ReadableStreamReaderMode",
 
     "DisplayCaptureSurfaceType",
     "VideoFacingModeEnum",

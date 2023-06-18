@@ -80,7 +80,7 @@ private fun convertFunctionType(
         .replace(": MutationRecord[]", ": ReadonlyArray<MutationRecord>")
         .replace(": ResizeObserverEntry[]", ": ReadonlyArray<ResizeObserverEntry>")
         .replace("?: EncodedVideoChunkMetadata", ": EncodedVideoChunkMetadata?")
-        .replace("): void | PromiseLike<void>", ") -> PromiseResult<Void>")
+        .replace("): void | PromiseLike<void>", ") -> PromiseLike<Void>?")
         .replace("): void", ") -> Unit")
         .replace("?: any", ": Any?")
         .replace(" | null", "?")
