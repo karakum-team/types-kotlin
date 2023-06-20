@@ -73,6 +73,9 @@ internal class SimpleTypeConverter(
             propertyName == "capture"
             -> propertyName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
 
+            propertyName == "fetchpriority"
+            -> "FetchPriority"
+
             propertyName.startsWith("aria-")
             -> propertyName.ariaPropertyName()
                 .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
