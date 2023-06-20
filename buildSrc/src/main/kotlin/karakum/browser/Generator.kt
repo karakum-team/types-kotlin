@@ -252,9 +252,8 @@ fun generateKotlinDeclarations(
             if (name == "ReadableStreamReadResult")
                 add(UNUSED_TYPEALIAS_PARAMETER)
 
-            // TEMP Remove after inheritance fix
-            if (name == "TextDecoder" || name == "TextDecoderStream")
-                add(ABSTRACT_MEMBER_NOT_IMPLEMENTED)
+            if (name == "ChildNode" || name == "ParentNode")
+                add(INTERFACE_WITH_SUPERCLASS)
 
             if (name == "WorkerNavigator"
                 || name == "CompressionStream"

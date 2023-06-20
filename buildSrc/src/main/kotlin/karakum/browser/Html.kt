@@ -844,10 +844,6 @@ internal fun convertInterface(
         .replace("interface ", "$type ")
 
     declaration = when (name) {
-        "ChildNode",
-        "ParentNode",
-        -> declaration.replace("extends Node", "/* : Node */")
-
         "Body",
         "CanvasPath",
         -> declaration.replace("interface", "class /* interface */")
@@ -1617,9 +1613,6 @@ private fun convertProperty(
         "OnErrorEventHandler",
         -> "Function<Unit>? /* $type */"
 
-        "ChildNode" -> "Node /* ChildNode */"
-        "ParentNode" -> "Node /* ParentNode */"
-        "NodeListOf<ChildNode>" -> "NodeListOf<Node /* ChildNode */>"
         "Element | Document" -> "Element /* | Document */"
 
         // Audio
