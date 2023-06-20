@@ -1573,7 +1573,7 @@ private fun convertProperty(
         -> typeProvider.numberType(safeName)
 
         "string | DOMHighResTimeStamp",
-        -> "HighResTimeStamp /* | String */"
+        -> "DOMHighResTimeStamp /* | String */"
 
         "number | CSSNumericValue | string",
         -> "Any /* $type */"
@@ -1660,7 +1660,6 @@ private fun convertProperty(
         "WritableStream<string>" -> "WritableStream<String>"
 
         "Promise<any>" -> "Promise<*>"
-        "DOMHighResTimeStamp" -> "HighResTimeStamp"
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"
         "ReadonlyArray<number>" -> "ReadonlyArray<Double>"
         "MediaList | string" -> "Any /* MediaList | string */"
@@ -1767,7 +1766,6 @@ private fun convertFunction(
             ": ReadableStreamReader<R>",
             ": ReadableStreamReader",
         )
-        .replace(": DOMHighResTimeStamp", ": HighResTimeStamp")
         .replace(": OffscreenRenderingContext", ": Any /* OffscreenRenderingContext */")
         .replace(": RadioNodeList | Element | null", ": Any? /* RadioNodeList | Element */")
         .replace(": Promise<any>", ": Promise<*>")
@@ -2033,9 +2031,6 @@ private fun getParameterType(
 
         source == "ReadableStream"
         -> "ReadableStream<*>"
-
-        source == "DOMHighResTimeStamp"
-        -> "HighResTimeStamp"
 
         source.endsWith("[]") -> {
             var atype = source.removeSuffix("[]")

@@ -78,7 +78,6 @@ private fun convertFunctionType(
         .substringBefore(";")
         .replace(": boolean", ": Boolean")
         .replace(": string", ": String")
-        .replace(": DOMHighResTimeStamp", ": HighResTimeStamp")
         .replace(": FileSystemEntry[]", ": ReadonlyArray<FileSystemEntry>")
         .replace(": IntersectionObserverEntry[]", ": ReadonlyArray<IntersectionObserverEntry>")
         .replace(": MutationRecord[]", ": ReadonlyArray<MutationRecord>")
