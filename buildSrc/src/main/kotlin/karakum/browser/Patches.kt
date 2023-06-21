@@ -3,6 +3,11 @@ package karakum.browser
 internal fun String.applyPatches(): String =
     patchVideoFrameCallback()
         .patchQuerySelectors()
+        /* TEMP NO MDN - START */
+        .splitToSequence("\n")
+        .filter { "/** [MDN Reference]" !in it }
+        .joinToString("\n")
+        /* TEMP NO MDN - END */
         .replace(
             "\n    set(name: string, value: string | Blob, fileName?: string): void;\n",
             "\n    set(name: string, value: string | Blob): void;" +
