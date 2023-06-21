@@ -444,6 +444,7 @@ internal fun htmlDeclarations(
 
         "ElementContentEditable",
         "ElementInternals .+?",
+        "PopoverInvokerElement",
         "ValidityStateFlags",
 
         "Node .+?",

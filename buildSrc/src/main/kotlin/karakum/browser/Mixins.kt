@@ -19,6 +19,7 @@ internal object Mixins {
         "InnerHTML",
         "ParentNode",
         "ElementContentEditable",
+        "PopoverInvokerElement",
 
         "TextDecoderCommon",
         "TextEncoderCommon",
