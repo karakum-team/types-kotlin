@@ -173,6 +173,7 @@ private fun convertType(
             "HTMLOrSVGImageElement" -> "web.dom"
             "HTMLOrSVGScriptElement" -> "web.dom"
 
+            "AutoFill" -> "web.html"
             "MediaProvider" -> "web.html"
             "WindowProxy" -> "web.window"
 
@@ -196,6 +197,8 @@ private fun convertType(
 
             "BigInteger" -> "web.crypto"
             "HashAlgorithmIdentifier" -> "web.crypto"
+
+            "AllowSharedBufferSource" -> "web.encoding"
 
             "ReadableStreamController" -> "web.streams"
             "ReadableStreamReadResult" -> "web.streams"
@@ -229,6 +232,9 @@ private fun convertType(
 
             bodySource == "PerformanceEntry[]"
             -> "ReadonlyArray<PerformanceEntry>"
+
+            name == "AutoFill"
+            -> "String /* $bodySource */"
 
             name == "VibratePattern" && bodySource == "number | number[]"
             -> "ReadonlyArray<Int> /* | Int */"
