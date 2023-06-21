@@ -8,11 +8,9 @@ internal fun String.applyPatches(): String =
         .filter { "/** [MDN Reference]" !in it }
         .joinToString("\n")
         /* TEMP NO MDN - END */
-        .replace(
-            "\n    set(name: string, value: string | Blob, fileName?: string): void;\n",
-            "\n    set(name: string, value: string | Blob): void;" +
-                    "\n    set(name: string, value: Blob, fileName: string): void;\n",
-        )
+        // FormData
+        .replace("\n    append(name: string, value: string): void;\n", "\n")
+        .replace("\n    set(name: string, value: string): void;\n", "\n")
         .replace("    getReader(options: { mode: \"byob\" }): ReadableStreamBYOBReader;\n", "")
         .replace(
             "    new(underlyingSource: UnderlyingByteSource, strategy?: { highWaterMark?: number }): ReadableStream<Uint8Array>;\n",
