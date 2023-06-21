@@ -119,6 +119,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.media.streams.MediaStream",
     "web.media.streams.MediaStreamConstraints",
     "web.media.streams.MediaStreamTrack",
+    "web.media.streams.MediaTrackCapabilities",
     "web.media.streams.MediaTrackConstraints",
     "web.media.streams.MediaTrackSupportedConstraints",
     "web.messaging.MessagePort",
