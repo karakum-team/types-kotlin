@@ -119,7 +119,7 @@ private fun convertCompanion(
 private fun convertMember(
     source: String,
 ): String {
-    if ("(" !in source)
+    if ("(" !in source.substringAfter("*/\n"))
         return convertProperty(source)
 
     return convertFunction(source.replace(" | null", "?"))
@@ -128,6 +128,14 @@ private fun convertMember(
 private fun convertProperty(
     source: String,
 ): String {
+    if ("*/\n" in source) {
+        val newSource = source.substringAfter("*/\n")
+        return sequenceOf(
+            source.substringBefore("\n$newSource"),
+            convertProperty(newSource),
+        ).joinToString("\n")
+    }
+
     val modifier = if (source.startsWith("readonly ")) "val" else "var"
     var (name, type) = source.removePrefix("readonly ").split(": ")
     type = when {
@@ -152,6 +160,14 @@ private fun convertProperty(
 private fun convertFunction(
     source: String,
 ): String {
+    if ("*/\n" in source) {
+        val newSource = source.substringAfter("*/\n")
+        return sequenceOf(
+            source.substringBefore("\n$newSource"),
+            convertFunction(newSource),
+        ).joinToString("\n")
+    }
+
     val name = source.substringBefore("(")
     val parameters = source
         .substringAfter("(")
