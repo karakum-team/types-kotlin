@@ -616,6 +616,9 @@ internal fun htmlDeclarations(
         "WakeLock",
         "WakeLock.+?",
 
+        "WebTransport",
+        "WebTransport.+?",
+
         "Console",
 
         "Payment.+?",
@@ -1260,6 +1263,7 @@ internal fun convertInterface(
 
         name in STREAMS_TYPES -> "web.streams"
         name in COMPRESSION_STREAMS_TYPES -> "web.compression"
+        name.startsWith("WebTransport") -> "web.transport"
 
         name in WEB_AUTHN_TYPES -> "web.authn"
         name in CREDENTIALS_TYPES -> "web.credentials"
@@ -1771,6 +1775,7 @@ private fun convertFunction(
         .replace(": Promise<IDBDatabaseInfo[]>", ": Promise<ReadonlyArray<IDBDatabaseInfo>>")
         .replace(": Promise<CryptoKeyPair | CryptoKey>", ": Promise<Any /* CryptoKeyPair | CryptoKey */>")
         .replace(": Promise<CryptoKeyPair | CryptoKey>", ": Promise<Any /* CryptoKeyPair | CryptoKey */>")
+        .replace(": Promise<WritableStream>", ": Promise<WritableStream<*>>")
         .replace("<string[]", "<ReadonlyArray<String>")
         .replace(": StaticRange[]", ": ReadonlyArray<Any /* StaticRange */>")
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")

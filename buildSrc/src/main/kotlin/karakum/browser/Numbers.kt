@@ -192,6 +192,17 @@ private val INT_NAMES = setOf(
     // Wasm
     "initial",
     "maximum",
+
+    // WebTransport
+    "closeCode",
+    "streamErrorCode",
+    "sendOrder",
+
+    "incomingHighWaterMark",
+    "incomingMaxAge",
+    "maxDatagramSize",
+    "outgoingHighWaterMark",
+    "outgoingMaxAge",
 )
 
 private val DOUBLE_NAMES = setOf(
