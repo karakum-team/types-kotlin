@@ -9,8 +9,16 @@ internal fun String.applyPatches(): String =
         .joinToString("\n")
         /* TEMP NO MDN - END */
         // FormData
-        .replace("\n    append(name: string, value: string): void;\n", "\n")
-        .replace("\n    set(name: string, value: string): void;\n", "\n")
+        .replace(
+            "\n    append(name: string, value: string | Blob): void;\n" +
+                    "    append(name: string, value: string): void;\n",
+            "\n    append(name: string, value: string | Blob): void;\n",
+        )
+        .replace(
+            "\n    set(name: string, value: string | Blob): void;\n" +
+                    "    set(name: string, value: string): void;\n",
+            "\n    set(name: string, value: string | Blob): void;\n",
+        )
         .replace("    getReader(options: { mode: \"byob\" }): ReadableStreamBYOBReader;\n", "")
         .replace(
             "    new(underlyingSource: UnderlyingByteSource, strategy?: { highWaterMark?: number }): ReadableStream<Uint8Array>;\n",
