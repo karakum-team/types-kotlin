@@ -22,6 +22,14 @@ private val PKG_MAP = mapOf(
     "InsertPosition" to "web.dom",
     "MutationRecordType" to "web.dom.observers",
     "ResizeObserverBoxOptions" to "web.dom.observers",
+
+    "AutoFillAddressKind" to "web.html",
+    "AutoFillBase" to "web.html",
+    "AutoFillContactField" to "web.html",
+    "AutoFillContactKind" to "web.html",
+    "AutoFillCredentialField" to "web.html",
+    "AutoFillNormalField" to "web.html",
+
     "CanPlayTypeResult" to "web.html",
     "SelectionMode" to "web.html",
     "ShadowRootMode" to "web.html",
@@ -102,6 +110,10 @@ private val PKG_MAP = mapOf(
 
     "ReadableStreamReaderMode" to "web.streams",
     "ReadableStreamType" to "web.streams",
+    "CompressionFormat" to "web.compression",
+
+    "WebTransportCongestionControl" to "web.transport",
+    "WebTransportErrorSource" to "web.transport",
 )
 
 private val EXCLUDED_TYPES = setOf(
