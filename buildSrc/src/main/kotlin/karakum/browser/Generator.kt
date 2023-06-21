@@ -162,13 +162,15 @@ private val DEFAULT_IMPORTS = Imports(
 fun generateKotlinDeclarations(
     definitionsDir: File,
     webDefinitionsFile: File,
+    webIterableDefinitionsFile: File,
     serviceworkerDefinitionsFile: File,
+    serviceworkerIterableDefinitionsFile: File,
     sourceDir: File,
 ) {
     IterableRegistry.fill(
         definitionsDir,
-        webDefinitionsFile.parentFile.resolve("iterable.d.ts"),
-        serviceworkerDefinitionsFile.parentFile.resolve("iterable.d.ts"),
+        webIterableDefinitionsFile,
+        serviceworkerIterableDefinitionsFile,
     )
 
     val content = webDefinitionsFile
