@@ -174,6 +174,7 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     "removesourcebuffer" to "remove_source_buffer",
     "removetrack" to "remove_track",
     "resourcetimingbufferfull" to "resource_timing_buffer_full",
+    "scrollend" to "scroll_end",
     "securitypolicyviolation" to "security_policy_violation",
     "selectedcandidatepairchange" to "selected_candidate_pair_change",
     "selectionchange" to "selection_change",
