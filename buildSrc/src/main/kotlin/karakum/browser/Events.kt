@@ -127,7 +127,7 @@ private fun eventPlaceholders(
 
     return data
         .filter { !it.existed }
-        .mapNotNull { info ->
+        .map { info ->
             event(
                 source = source,
                 name = info.name,
