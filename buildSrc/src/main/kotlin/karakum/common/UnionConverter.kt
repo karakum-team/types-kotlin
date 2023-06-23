@@ -19,7 +19,7 @@ internal fun unionBodyByConstants(
         .joinToString("\n") {
             sequenceOf(
                 it.comment,
-                "val ${it.kotlinName}: $name",
+                "val ${it.kotlinName}: ${it.type ?: name}",
             ).filterNotNull()
                 .joinToString("\n")
         }
@@ -117,6 +117,7 @@ internal data class UnionConstant(
     val kotlinName: String,
     val jsName: String,
     val value: String,
+    val type: String? = null,
     private val originalValue: Boolean = false,
     val comment: String? = null,
 ) {
