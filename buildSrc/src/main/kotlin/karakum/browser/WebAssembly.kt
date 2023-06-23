@@ -38,15 +38,15 @@ internal fun webAssemblyDeclarations(
                 "$declaration {\n$body\n}"
             }
         }
-        .mapNotNull {
-            if (it.startsWith("interface ValueTypeMap {")) {
-                convertValueType(source = it)
+        .mapNotNull { src ->
+            if (src.startsWith("interface ValueTypeMap {")) {
+                convertValueType(source = src)
             } else {
                 convertInterface(
-                    source = it,
+                    source = src,
                     getStaticSource = { getStaticSource(it, content) },
                     predefinedPkg = "webassembly",
-                )
+                )?.withComment(fullSource = content, source = src)
             }
         }.map { result ->
             if (result.name.endsWith("Error")) {
