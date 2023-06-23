@@ -1,5 +1,10 @@
 package karakum.browser
 
+import karakum.common.UnionConstant
+import karakum.common.unionBodyByConstants
+
+private const val VALUE_TYPE = "ValueType"
+
 internal fun webAssemblyDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -34,11 +39,15 @@ internal fun webAssemblyDeclarations(
             }
         }
         .mapNotNull {
-            convertInterface(
-                source = it,
-                getStaticSource = { getStaticSource(it, content) },
-                predefinedPkg = "webassembly",
-            )
+            if (it.startsWith("interface ValueTypeMap {")) {
+                convertValueType(source = it)
+            } else {
+                convertInterface(
+                    source = it,
+                    getStaticSource = { getStaticSource(it, content) },
+                    predefinedPkg = "webassembly",
+                )
+            }
         }.map { result ->
             if (result.name.endsWith("Error")) {
                 result.copy(
@@ -59,6 +68,41 @@ internal fun webAssemblyDeclarations(
     )
 
     return (types + interfaces + functions)
+}
+
+private fun convertValueType(
+    source: String,
+): ConversionResult {
+    val constants = source
+        .substringAfter(" {\n")
+        .substringBefore(";\n}")
+        .trimIndent()
+        .splitToSequence(";\n")
+        .map { line ->
+            val (name, type) = line.split(": ")
+            val typeParameter = when (type) {
+                "Function" -> "Function<*>"
+                "any" -> "Any?"
+                "number" -> "Number"
+                "bigint" -> "BigInt"
+                "never" -> "Void"
+                else -> error("No type parameter for type '$type'")
+            }
+
+            UnionConstant(
+                kotlinName = name,
+                jsName = name,
+                value = name,
+                type = "$VALUE_TYPE<$typeParameter>",
+            )
+        }
+        .toList()
+
+    return ConversionResult(
+        name = VALUE_TYPE,
+        body = unionBodyByConstants("$VALUE_TYPE<T>", constants),
+        pkg = "webassembly",
+    )
 }
 
 private fun webAssemblyContent(

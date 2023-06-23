@@ -837,6 +837,28 @@ internal fun convertInterface(
         )
     }
 
+    when (name) {
+        "Global",
+        "GlobalDescriptor",
+        -> {
+            if ("<T extends ValueType = ValueType>" in source) {
+                val newSource = source
+                    .replace("<T extends ValueType = ValueType>", "<T>")
+                    .replace("value: T", "value: ValueType<T>")
+                    .replace(": ValueTypeMap[T]", ": T")
+
+                val newGetStaticSource: (String) -> String? = {
+                    getStaticSource(it)?.replace(": ValueTypeMap[T]", ": T")
+                }
+                return convertInterface(
+                    source = newSource,
+                    getStaticSource = newGetStaticSource,
+                    predefinedPkg = predefinedPkg,
+                )
+            }
+        }
+    }
+
     val staticSource = getStaticSource(name)
     val type = if (staticSource != null) "class" else "interface"
 
