@@ -655,18 +655,8 @@ internal fun htmlDeclarations(
             .findAll(content)
             .map { it.value }
             .mapNotNull { src ->
-                var result = convertInterface(src, getStaticSource)
-                if (result != null) {
-                    val commentSource = content.substringBefore("\n$src", "")
-                        .takeIf { it.endsWith(" */") }
-
-                    if (commentSource != null) {
-                        val comment = "/**" + commentSource.substringAfterLast("\n/**")
-                        result = result.copy(body = "$comment\n${result.body}")
-                    }
-                }
-
-                result
+                convertInterface(src, getStaticSource)
+                    ?.withComment(fullSource = content, source = src)
             }
 
     return interfaces
