@@ -654,7 +654,20 @@ internal fun htmlDeclarations(
         Regex("""interface ($patterns) \{[\s\S]*?\n\}""")
             .findAll(content)
             .map { it.value }
-            .mapNotNull { convertInterface(it, getStaticSource) }
+            .mapNotNull { src ->
+                var result = convertInterface(src, getStaticSource)
+                if (result != null) {
+                    val commentSource = content.substringBefore("\n$src", "")
+                        .takeIf { it.endsWith(" */") }
+
+                    if (commentSource != null) {
+                        val comment = "/**" + commentSource.substringAfterLast("\n/**")
+                        result = result.copy(body = "$comment\n${result.body}")
+                    }
+                }
+
+                result
+            }
 
     return interfaces
         .plus(additionalType)
