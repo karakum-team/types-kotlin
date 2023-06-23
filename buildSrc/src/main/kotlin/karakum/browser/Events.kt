@@ -260,6 +260,15 @@ private fun event(
         body = body,
         pkg = pkg,
     )
+        .withComment(
+            fullSource = source,
+            source = "interface $name extends "
+        )
+        // ProgressEvent
+        .withComment(
+            fullSource = source,
+            source = "interface $name<"
+        )
 }
 
 private fun eventTypes(
