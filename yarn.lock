@@ -368,15 +368,15 @@
   dependencies:
     "@types/node" "*"
 
-"@types/web@0.0.101":
-  version "0.0.101"
-  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.101.tgz#b898982a713c099a11fcfbc98ff9a356cad4906e"
-  integrity sha512-0m/w/HLAJ7tTeJb6cSz12teDnaWxPXavtG4NLf7scd1vqg3FtzFWQBW6oxaT7f613W6vmezRQboKJbKc40rLUA==
+"@types/web@0.0.102":
+  version "0.0.102"
+  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.102.tgz#069384f0338d7e58a286a5aa168e74f2cf466d32"
+  integrity sha512-tw/GrgzPPKZ8D3ObPhiH9TRKU5WY6SxubgkC3miTRhkBC5TccVNIkk6nm53EpMbir8Vtq/3lHNOWDnA4rJ+kuA==
 
-"@webref/idl@3.35.0":
-  version "3.35.0"
-  resolved "https://registry.yarnpkg.com/@webref/idl/-/idl-3.35.0.tgz#07ecd82649a37833921ade34541018fdc6f1ce08"
-  integrity sha512-XtBnX2KktoafIeX97Sv4RMAkGT0Ch8NMvqgsVqP8EiwNLhbYX1q8xMIM8EUTUzxjLJcHAKA+GO4OLQUphLeh9g==
+"@webref/idl@3.35.1":
+  version "3.35.1"
+  resolved "https://registry.yarnpkg.com/@webref/idl/-/idl-3.35.1.tgz#d0d7e4b4ce27e8ff90ef59d7982e45b7957445db"
+  integrity sha512-OLBQ0NJJs9uTJl1v/l/1Lx9JLirb6uu5UrF3nzcZV2XBgzEsqvVG75/XcBWPwkNxt8ALz9nljehtWMVXjFA1NA==
 
 "@zip.js/zip.js@2.4.x":
   version "2.4.26"
