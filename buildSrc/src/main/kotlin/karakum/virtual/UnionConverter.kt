@@ -1,5 +1,6 @@
 package karakum.virtual
 
+import karakum.common.ConversionResult
 import karakum.common.sealedUnionBody
 
 internal fun convertUnion(

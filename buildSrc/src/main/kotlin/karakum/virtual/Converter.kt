@@ -1,11 +1,7 @@
 package karakum.virtual
 
+import karakum.common.ConversionResult
 import java.io.File
-
-internal data class ConversionResult(
-    val name: String,
-    val body: String,
-)
 
 private val EXCLUDED = setOf(
     "memo",
