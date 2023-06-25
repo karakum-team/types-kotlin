@@ -13,6 +13,8 @@ internal fun convertMetaPseudos(
         .substringBefore(";")
         .splitToSequence(" | ")
         .joinToString(",\n") { "$it$RULE_BUILDER<T>" }
+        .plus(",\n$NON_STANDARD_RULE_BUILDER<T>")
+        .plus(",\n$EXPERIMENTAL_RULE_BUILDER<T>")
 
     return ConversionResult(
         builderName,
@@ -25,33 +27,35 @@ internal fun convertPseudos(
     source: String,
 ): ConversionResult {
     val method: (String) -> String = when (name) {
-        "SimplePseudos" -> { selector ->
-            """
-            inline fun ${unionConstant(selector).kotlinName}(
-                block: T.() -> Unit,
-            ) {
-                "$selector"(block)
-            }
-            """.trimIndent()
-        }
-
-        "AdvancedPseudos" -> { selector ->
-            sequenceOf(SELECTOR, "String").joinToString("\n\n") { type ->
-                """
-                inline fun ${unionConstant(selector).kotlinName}(
-                    selector: $type,
-                    block: T.() -> Unit,
-                ) {
-                    "$selector(${'$'}selector)"(block)
-                }
-                """.trimIndent()
-            }
-        }
-
+        "SimplePseudos" -> ::convertSimplePseudo
+        "AdvancedPseudos" -> ::convertAdvancedPseudo
         else -> TODO("Method for `$name`")
     }
 
     return convertPseudos(name, source, method)
+}
+
+internal fun convertSimplePseudo(
+    selector: String,
+): String = """
+    inline fun ${unionConstant(selector).kotlinName.replaceFirstChar(Char::lowercase)}(
+        block: T.() -> Unit,
+    ) {
+        "$selector"(block)
+    }
+""".trimIndent()
+
+internal fun convertAdvancedPseudo(
+    selector: String,
+): String = sequenceOf(SELECTOR, "String").joinToString("\n\n") { type ->
+    """
+        inline fun ${unionConstant(selector).kotlinName.replaceFirstChar(Char::lowercase)}(
+            selector: $type,
+            block: T.() -> Unit,
+        ) {
+            "$selector(${'$'}selector)"(block)
+        }
+""".trimIndent()
 }
 
 private fun convertPseudos(

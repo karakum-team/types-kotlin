@@ -43,6 +43,13 @@ fun generateKotlinDeclarations(
         getPkg = { "web.cssom.media" },
         getImports = { MEDIA_IMPORTS },
     )
+
+    writeDeclarations(
+        declarations = sequenceOf(NonStandardRuleBuilder(), ExperimentalRuleBuilder()),
+        sourceDir = sourceDir,
+        getPkg = { "csstype" },
+        getImports = { CSSTYPE_IMPORTS },
+    )
 }
 
 private fun writeDeclarations(
