@@ -1,9 +1,6 @@
 package karakum.table
 
-internal data class ConversionResult(
-    val name: String,
-    val body: String,
-)
+import karakum.common.ConversionResult
 
 private val EXCLUDED_ITEMS = setOf(
     "IfDefined",
