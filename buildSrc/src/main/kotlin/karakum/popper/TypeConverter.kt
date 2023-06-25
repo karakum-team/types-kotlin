@@ -1,5 +1,7 @@
 package karakum.popper
 
+import karakum.common.ConversionResult
+
 private val EXCLUDED_NAMES = setOf(
     "StrictModifiers",
 )
@@ -29,6 +31,7 @@ internal fun convertType(
             // $source
             sealed external interface $name:$PADDING_TYPE 
         """.trimIndent()
+
         else -> "typealias $declaration = $content"
     }
 

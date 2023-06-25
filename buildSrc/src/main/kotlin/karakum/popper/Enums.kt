@@ -1,5 +1,6 @@
 package karakum.popper
 
+import karakum.common.ConversionResult
 import karakum.common.sealedUnionBody
 
 internal fun enums(): Sequence<ConversionResult> =

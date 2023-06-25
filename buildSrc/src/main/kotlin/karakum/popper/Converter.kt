@@ -1,9 +1,6 @@
 package karakum.popper
 
-internal data class ConversionResult(
-    val name: String,
-    val body: String,
-)
+import karakum.common.ConversionResult
 
 internal fun convertDefinitions(
     source: String,

@@ -1,5 +1,7 @@
 package karakum.popper
 
+import karakum.common.ConversionResult
+
 private val EXCLUDED_NAMES = setOf(
     "Obj",
     "Window",

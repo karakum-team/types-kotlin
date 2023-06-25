@@ -1,5 +1,7 @@
 package karakum.popper
 
+import karakum.common.ConversionResult
+
 private val EXTENDED_PADDING = """
  | ((arg0: {
         popper: Rect;

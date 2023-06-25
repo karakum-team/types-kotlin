@@ -1,5 +1,7 @@
 package karakum.popper
 
+import karakum.common.ConversionResult
+
 internal fun nameTypes(): Sequence<ConversionResult> =
     sequenceOf(
         ConversionResult(
