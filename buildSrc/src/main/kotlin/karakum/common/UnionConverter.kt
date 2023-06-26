@@ -136,6 +136,7 @@ internal fun unionConstant(value: String): UnionConstant {
         .removePrefix("::")
         .removePrefix(":")
         .removeSuffix("()")
+        .replace(":", "-")
 
     val jsName = when (name) {
         "" -> "none"
