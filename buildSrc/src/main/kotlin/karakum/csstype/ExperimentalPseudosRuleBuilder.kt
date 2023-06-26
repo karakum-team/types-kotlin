@@ -12,7 +12,7 @@ private val EXPERIMENTAL_PSEUDO_SIMPLE_ELEMENTS = listOf(
 )
 
 private val EXPERIMENTAL_PSEUDO_ADVANCED_ELEMENTS = listOf(
-    "::highlight()",
+    "::highlight",
 )
 
 // language=Kotlin
