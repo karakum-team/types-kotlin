@@ -11,10 +11,6 @@ private val EXPERIMENTAL_PSEUDO_SIMPLE_ELEMENTS = listOf(
     "::view-transition-old",
 )
 
-private val EXPERIMENTAL_PSEUDO_ADVANCED_ELEMENTS = listOf(
-    "::highlight",
-)
-
 // language=Kotlin
 private val BODY = """
 import csstype.$RULE_BUILDER
@@ -24,13 +20,6 @@ interface $EXPERIMENTAL_PSEUDOS_RULE_BUILDER<T : Any> : $RULE_BUILDER<T> {
     EXPERIMENTAL_PSEUDO_SIMPLE_ELEMENTS.joinToString(
         separator = "\n\n",
         transform = ::convertSimplePseudo,
-    )
-}
-
-    ${
-    EXPERIMENTAL_PSEUDO_ADVANCED_ELEMENTS.joinToString(
-        separator = "\n\n",
-        transform = ::convertAdvancedPseudo,
     )
 }
 }
