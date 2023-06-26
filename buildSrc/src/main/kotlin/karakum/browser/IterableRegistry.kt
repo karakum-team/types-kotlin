@@ -44,6 +44,11 @@ object IterableRegistry {
     }
 
     fun additionalParent(type: String): String? {
+        if (type == "FileSystemDirectoryHandle") {
+            require(additionalParentMap[type] == null)
+            return "AsyncMapLike<String, FileSystemHandle>"
+        }
+
         val result = additionalParentMap[type]
             ?: return null
 
