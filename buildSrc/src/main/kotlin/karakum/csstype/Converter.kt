@@ -506,7 +506,7 @@ private fun convertInterface(
             parents += VARIABLE_RECORD
 
         if (name == "PseudosRuleBuilder")
-            parents += listOf(NON_STANDARD_RULE_BUILDER, EXPERIMENTAL_RULE_BUILDER)
+            parents += listOf(NON_STANDARD_PSEUDOS_RULE_BUILDER, EXPERIMENTAL_PSEUDOS_RULE_BUILDER)
 
         val parentTypes = parents.joinToString(", ")
 

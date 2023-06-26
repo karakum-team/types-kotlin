@@ -2,7 +2,7 @@ package karakum.csstype
 
 import karakum.common.ConversionResult
 
-const val EXPERIMENTAL_RULE_BUILDER = "ExperimentalRuleBuilder"
+const val EXPERIMENTAL_PSEUDOS_RULE_BUILDER = "ExperimentalPseudosRuleBuilder"
 
 private val EXPERIMENTAL_PSEUDO_SIMPLE_ELEMENTS = listOf(
     "::view-transition-group",
@@ -19,7 +19,7 @@ private val EXPERIMENTAL_PSEUDO_ADVANCED_ELEMENTS = listOf(
 private val BODY = """
 import csstype.$RULE_BUILDER
 
-interface $EXPERIMENTAL_RULE_BUILDER<T : Any> : $RULE_BUILDER<T> {
+interface $EXPERIMENTAL_PSEUDOS_RULE_BUILDER<T : Any> : $RULE_BUILDER<T> {
     ${
     EXPERIMENTAL_PSEUDO_SIMPLE_ELEMENTS.joinToString(
         separator = "\n\n",
@@ -36,8 +36,8 @@ interface $EXPERIMENTAL_RULE_BUILDER<T : Any> : $RULE_BUILDER<T> {
 }
 """.trimIndent()
 
-internal fun ExperimentalRuleBuilder(): ConversionResult =
+internal fun ExperimentalPseudosRuleBuilder(): ConversionResult =
     ConversionResult(
-        name = EXPERIMENTAL_RULE_BUILDER,
+        name = EXPERIMENTAL_PSEUDOS_RULE_BUILDER,
         body = BODY,
     )

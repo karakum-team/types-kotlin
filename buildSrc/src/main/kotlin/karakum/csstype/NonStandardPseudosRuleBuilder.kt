@@ -2,7 +2,7 @@ package karakum.csstype
 
 import karakum.common.ConversionResult
 
-const val NON_STANDARD_RULE_BUILDER = "NonStandardRuleBuilder"
+const val NON_STANDARD_PSEUDOS_RULE_BUILDER = "NonStandardPseudosRuleBuilder"
 
 private val NON_STANDARD_PSEUDO_SIMPLE_ELEMENTS = listOf(
     "::-moz-color-swatchNon-standard",
@@ -37,7 +37,7 @@ private val NON_STANDARD_PSEUDO_SIMPLE_ELEMENTS = listOf(
 private val BODY = """
 import csstype.$RULE_BUILDER
 
-interface $NON_STANDARD_RULE_BUILDER<T : Any> : $RULE_BUILDER<T> {
+interface $NON_STANDARD_PSEUDOS_RULE_BUILDER<T : Any> : $RULE_BUILDER<T> {
     ${
     NON_STANDARD_PSEUDO_SIMPLE_ELEMENTS.joinToString(
         separator = "\n\n",
@@ -47,8 +47,8 @@ interface $NON_STANDARD_RULE_BUILDER<T : Any> : $RULE_BUILDER<T> {
 }
 """.trimIndent()
 
-internal fun NonStandardRuleBuilder(): ConversionResult =
+internal fun NonStandardPseudosRuleBuilder(): ConversionResult =
     ConversionResult(
-        name = NON_STANDARD_RULE_BUILDER,
+        name = NON_STANDARD_PSEUDOS_RULE_BUILDER,
         body = BODY,
     )
