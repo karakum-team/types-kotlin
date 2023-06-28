@@ -1138,6 +1138,7 @@ internal fun convertInterface(
                 name == "AbstractWorker" ||
                 name == "TextEncoder" ||
                 name == "TextEncoderStream" ||
+                name == "MessageChannel" ||
                 name == "StructuredSerializeOptions" ||
                 name.endsWith("Handlers") ||
                 mainConstructor.isNotEmpty()
