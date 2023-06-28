@@ -7,7 +7,7 @@ import java.io.File
 import java.io.FileFilter
 
 private val DEFAULT_IMPORTS = listOf(
-    "Promise" to "kotlin.js.Promise",
+    "Promise" to "js.promise.Promise",
 
     "ReadonlyArray" to "js.core.ReadonlyArray",
     "Record" to "js.core.Record",

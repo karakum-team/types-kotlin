@@ -7,7 +7,7 @@ import karakum.common.fileSuppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
-    "Promise" to "kotlin.js.Promise",
+    "Promise" to "js.promise.Promise",
 
     "AsyncIterable" to "js.core.AsyncIterable",
     "BigInt" to "js.core.BigInt",

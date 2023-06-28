@@ -7,7 +7,7 @@ import karakum.common.fileSuppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = """
-import kotlin.js.Promise
+import js.promise.Promise
 import js.collections.ReadonlyMap
 import js.core.BigInt
 import js.core.JsLong

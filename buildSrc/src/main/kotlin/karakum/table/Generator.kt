@@ -7,7 +7,7 @@ import karakum.common.fileSuppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
-    "Promise" to "kotlin.js.Promise",
+    "Promise" to "js.promise.Promise",
     "RegExp" to "kotlin.js.RegExp",
 
     "JsMap" to "js.collections.JsMap",

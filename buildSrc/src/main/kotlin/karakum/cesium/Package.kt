@@ -3,7 +3,7 @@ package karakum.cesium
 internal val DEFAULT_PACKAGE: String = """
 package cesium
 
-import kotlin.js.Promise
+import js.promise.Promise
 import web.canvas.ImageData
 import web.dom.Document
 import web.dom.Element

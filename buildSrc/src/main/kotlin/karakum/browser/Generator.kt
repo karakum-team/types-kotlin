@@ -28,6 +28,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.core.Record",
     "js.core.Void",
     "js.errors.JsError",
+    "js.promise.Promise",
     "js.promise.PromiseLike",
     "js.typedarrays.Float32Array",
     "js.typedarrays.Float64Array",
@@ -37,7 +38,6 @@ private val DEFAULT_IMPORTS = Imports(
     "js.typedarrays.Uint8ClampedArray",
 
     "kotlin.js.Date",
-    "kotlin.js.Promise",
 
     "web.abort.AbortSignal",
     "web.animations.Animation",

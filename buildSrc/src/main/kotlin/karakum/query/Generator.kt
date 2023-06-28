@@ -5,7 +5,7 @@ import karakum.common.Suppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
-    "Promise" to "kotlin.js.Promise",
+    "Promise" to "js.promise.Promise",
 
     "EpochTimeStamp" to "js.core.EpochTimeStamp",
     "JsTuple2" to "js.core.JsTuple2",
