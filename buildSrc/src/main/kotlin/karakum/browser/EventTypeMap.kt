@@ -28,7 +28,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.cssom.TransitionEvent"),
 
     EventInfo("web.errors.ErrorEvent"),
-    EventInfo("web.messaging.MessageEvent", existed = true),
+    EventInfo("web.messaging.MessageEvent"),
     EventInfo("web.events.ProgressEvent"),
     EventInfo("web.html.FormDataEvent"),
     EventInfo("web.html.SubmitEvent"),

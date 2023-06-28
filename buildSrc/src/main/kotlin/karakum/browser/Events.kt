@@ -81,8 +81,6 @@ private val ADDITIONAL_EVENTS = listOf(
 )
 
 private val EXCLUDED = setOf(
-    "MessageEvent",
-
     // deprecated
     "AudioProcessingEvent",
     "MediaRecorderErrorEvent",
@@ -171,6 +169,8 @@ private fun event(
     } else ""
 
     val eventSource = source
+        // MessageEvent
+        .replace("<T = any>", "")
         // ProgressEvent
         .replace("<T extends EventTarget = EventTarget>", "")
         .substringAfter("\ninterface $name extends ")
@@ -195,6 +195,7 @@ private fun event(
 
     val constructorSource = eventClassBody
         .removePrefix("new(")
+        .removePrefix("new<T>(")
         .substringBefore("): $name")
 
     val eventConstructor = if (constructorSource.isNotEmpty()) {
@@ -204,7 +205,13 @@ private fun event(
                 if ("?: " in p) {
                     p.replace("?: ", ": ") + " = definedExternally"
                 } else {
-                    val typeParameter = if (name == "ProgressEvent") "<T>" else ""
+                    val typeParameter = when (name) {
+                        "MessageEvent",
+                        "ProgressEvent",
+                        -> "<T>"
+
+                        else -> ""
+                    }
 
                     p.replace("type: string", "override val type: EventType<$name$typeParameter>")
                         .replace(": string", ": String")
@@ -231,9 +238,11 @@ private fun event(
     } else "companion object"
 
     val modifier = if (eventConstructor.isNotEmpty()) "open" else "sealed"
-    val typeParameters = if (name == "ProgressEvent") {
-        "<T : EventTarget>"
-    } else ""
+    val typeParameters = when (name) {
+        "MessageEvent" -> "<T>"
+        "ProgressEvent" -> "<T : EventTarget>"
+        else -> ""
+    }
 
     var eventBody = """  
     $modifier external class $name$typeParameters $eventConstructor : $eventParent {
@@ -303,7 +312,13 @@ private fun eventTypes(
                 .getOrDefault(name, name)
                 .uppercase()
 
-            val finalType = if (type == "ProgressEvent") "$type<*>" else type
+            val finalType = when (type) {
+                "MessageEvent",
+                "ProgressEvent",
+                -> "$type<*>"
+
+                else -> type
+            }
 
             """
             inline val $typeName.Companion.$memberName : $EVENT_TYPE<$finalType>
