@@ -245,8 +245,8 @@ private fun event(
 
     val modifier = if (eventConstructor.isNotEmpty()) "open" else "sealed"
     val typeParameters = when (name) {
-        "MessageEvent" -> "<T>"
-        "ProgressEvent" -> "<T : EventTarget>"
+        "MessageEvent" -> "<out T>"
+        "ProgressEvent" -> "<out T : EventTarget>"
         else -> ""
     }
 
