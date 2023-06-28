@@ -287,6 +287,11 @@ private val CREDENTIALS_TYPES = listOf(
     "CredentialsContainer",
 )
 
+private val ABORT_TYPES = listOf(
+    "AbortController",
+    "AbortSignal",
+)
+
 private val MESSAGING_TYPES = listOf(
     "MessageChannel",
     "MessagePort",
@@ -644,6 +649,7 @@ internal fun htmlDeclarations(
         .plus(MEDIA_SOURCE_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WEB_AUDIO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WORKERS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
+        .plus(ABORT_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(MESSAGING_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WEB_CRYPTO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(QUERY_TYPES.flatMap { sequenceOf(it, "$it .+?") })
@@ -1301,6 +1307,7 @@ internal fun convertInterface(
 
         name in WEB_AUTHN_TYPES -> "web.authn"
         name in CREDENTIALS_TYPES -> "web.credentials"
+        name in ABORT_TYPES -> "web.abort"
         name in MESSAGING_TYPES -> "web.messaging"
         name in WEB_CRYPTO_TYPES -> "web.crypto"
 
