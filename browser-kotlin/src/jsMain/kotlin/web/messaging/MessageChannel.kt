@@ -7,7 +7,7 @@ package web.messaging
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessageChannel)
  */
-sealed external class MessageChannel {
+external class MessageChannel {
     /**
      * Returns the first MessagePort object.
      *
