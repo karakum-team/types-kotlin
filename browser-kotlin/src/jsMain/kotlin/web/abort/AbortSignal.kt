@@ -31,7 +31,8 @@ sealed external class AbortSignal :
 
     companion object {
         /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/AbortSignal/abort_static) */
-// abort(reason?: any): AbortSignal; - To be re-added in the future
+        fun abort(reason: Any? = definedExternally): AbortSignal
+
         /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/AbortSignal/timeout_static) */
         fun timeout(milliseconds: Number): AbortSignal
     }
