@@ -1146,6 +1146,7 @@ internal fun convertInterface(
                 name == "TextEncoderStream" ||
                 name == "MessageChannel" ||
                 name == "StructuredSerializeOptions" ||
+                name == "AbortController" ||
                 name.endsWith("Handlers") ||
                 mainConstructor.isNotEmpty()
         -> ""

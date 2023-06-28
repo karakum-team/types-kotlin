@@ -19,6 +19,10 @@ internal fun String.applyPatches(): String =
             "    new(underlyingSource: UnderlyingByteSource, strategy?: { highWaterMark?: number }): ReadableStream<Uint8Array>;\n",
             ""
         )
+        .replace(
+            "// abort(reason?: any): AbortSignal; - To be re-added in the future",
+            "abort(reason?: any): AbortSignal;",
+        )
         .splitUnion("string | string[]")
         .splitUnion("string | number[]")
         .splitUnion("number[] | Float32Array")
