@@ -139,7 +139,9 @@ private fun event(
     name: String,
     pkg: String,
 ): ConversionResult {
-    val initName = "${name}Init"
+    val initName = "${name}Init" +
+            (if (name == "MessageEvent") "<T = any>" else "")
+
     var initSource = source
         .substringAfter("\ninterface $initName ", "")
         .substringBefore(";\n}\n")
@@ -165,7 +167,11 @@ private fun event(
                 .joinToString("\n")
         } else ""
 
-        "external interface $initName $parentDeclaration {\n$members\n}"
+        val declaration = initName
+            .replace("<T = any>", "<T>") +
+                " $parentDeclaration"
+
+        "external interface $declaration {\n$members\n}"
     } else ""
 
     val eventSource = source
