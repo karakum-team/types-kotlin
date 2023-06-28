@@ -24,7 +24,7 @@ external interface MessageEventInit<T> : EventInit {
     var source: MessageEventSource?
 }
 
-open external class MessageEvent<T>(
+open external class MessageEvent<out T>(
     override val type: EventType<MessageEvent<T>>,
     init: MessageEventInit<T> = definedExternally,
 ) : Event {
