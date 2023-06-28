@@ -287,6 +287,12 @@ private val CREDENTIALS_TYPES = listOf(
     "CredentialsContainer",
 )
 
+private val MESSAGING_TYPES = listOf(
+    "MessageChannel",
+    "MessagePort",
+    "StructuredSerializeOptions",
+)
+
 private val WEB_CRYPTO_TYPES = listOf(
     "Algorithm",
     "KeyAlgorithm",
@@ -638,6 +644,7 @@ internal fun htmlDeclarations(
         .plus(MEDIA_SOURCE_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WEB_AUDIO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WORKERS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
+        .plus(MESSAGING_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WEB_CRYPTO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(QUERY_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(CODECS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
@@ -1131,6 +1138,7 @@ internal fun convertInterface(
                 name == "AbstractWorker" ||
                 name == "TextEncoder" ||
                 name == "TextEncoderStream" ||
+                name == "StructuredSerializeOptions" ||
                 name.endsWith("Handlers") ||
                 mainConstructor.isNotEmpty()
         -> ""
@@ -1292,6 +1300,7 @@ internal fun convertInterface(
 
         name in WEB_AUTHN_TYPES -> "web.authn"
         name in CREDENTIALS_TYPES -> "web.credentials"
+        name in MESSAGING_TYPES -> "web.messaging"
         name in WEB_CRYPTO_TYPES -> "web.crypto"
 
         name.startsWith("IDB") -> "web.idb"

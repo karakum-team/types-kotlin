@@ -165,6 +165,9 @@ private fun convertType(
 
     if (!bodySource.startsWith("\"")) {
         val pkg = when (name) {
+            "MessageEventSource" -> "web.messaging"
+            "Transferable" -> "web.messaging"
+
             "PerformanceEntryList" -> "web.performance"
 
             "CanvasImageSource" -> "web.canvas"
