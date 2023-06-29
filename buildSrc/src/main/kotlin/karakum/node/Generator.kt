@@ -29,7 +29,7 @@ private val DEFAULT_IMPORTS = listOf(
     "ArrayBuffer" to "js.buffer.ArrayBuffer",
     "ArrayBufferView" to "js.buffer.ArrayBufferView",
 
-    ".await()" to "kotlinx.coroutines.await",
+    ".await()" to "js.promise.await",
 
     "Dict<" to "node.Dict",
     "ReadOnlyDict<" to "node.ReadOnlyDict",

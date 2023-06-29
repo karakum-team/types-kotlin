@@ -23,7 +23,7 @@ import web.url.URL
 import actions.http.client.HttpClient
 import actions.http.client.HttpClientResponse
 
-import kotlinx.coroutines.await
+import js.promise.await
 """.trimIndent()
 
 fun generateKotlinDeclarations(
