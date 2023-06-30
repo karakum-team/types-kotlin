@@ -41,6 +41,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Query" to "Query<*, *, *, *>",
     "QueryState" to "QueryState<*, *>",
     "QueryOptions<any, any>" to "QueryOptions<*, *, *, *>",
+    "QueryFunction<TQueryFnData, TQueryKey>" to "QueryFunction<TQueryFnData, TQueryKey, *>",
     "QueryObserverOptions[]" to "ReadonlyArray<QueryObserverOptions<*, *, *, *, *>>",
     "UseQueryOptions[]" to "ReadonlyArray<UseQueryOptions<*, *, *, *>>",
     "UseQueryResult[]" to "ReadonlyArray<UseQueryResult<*, *>>",
