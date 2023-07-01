@@ -787,13 +787,22 @@ private fun prepareContent(
         "web.canvas",
     )
 
+    val optionsMap = Regex("""getContext\(contextId\: "([\w\d]+)"\, options\?\: ([\w\d]{4,})""")
+        .findAll(source)
+        .associate { it.groupValues[1] to it.groupValues[2] }
+
     val content = ids.fold(source) { acc, id ->
         val name = kotlinName(id)
+        val options = optionsMap.getValue(id)
 
         acc.replace(
-            """getContext(contextId: "$id"""",
-            """getContext(contextId: $RENDERING_CONTEXT_ID.$name""",
+            """getContext(contextId: "$id", options?: any""",
+            """getContext(contextId: $RENDERING_CONTEXT_ID.$name, options?: $options""",
         )
+            .replace(
+                """getContext(contextId: "$id"""",
+                """getContext(contextId: $RENDERING_CONTEXT_ID.$name""",
+            )
     }
 
     return content to contextId

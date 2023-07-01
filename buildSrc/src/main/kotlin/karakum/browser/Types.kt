@@ -11,7 +11,6 @@ private val PKG_MAP = mapOf(
     "GlobalCompositeOperation" to "web.canvas",
     "ImageOrientation" to "web.canvas",
     "ImageSmoothingQuality" to "web.canvas",
-    "OffscreenRenderingContextId" to "web.canvas",
     "PredefinedColorSpace" to "web.canvas",
     "PremultiplyAlpha" to "web.canvas",
     "ResizeQuality" to "web.canvas",
@@ -117,6 +116,8 @@ private val PKG_MAP = mapOf(
 )
 
 private val EXCLUDED_TYPES = setOf(
+    "OffscreenRenderingContextId",
+
     // buffer
     "EndingType",
 

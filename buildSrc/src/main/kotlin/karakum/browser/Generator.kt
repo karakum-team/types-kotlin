@@ -302,8 +302,7 @@ fun generateKotlinDeclarations(
             """.trimIndent()
 
             "OffscreenCanvas" -> """  
-            import webgl.WebGLRenderingContext
-            import webgl.WebGL2RenderingContext
+            import webgl.*
             """.trimIndent()
 
             "Navigator" -> """
