@@ -7,6 +7,7 @@ import karakum.common.fileSuppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = Imports(
+    "js.buffer.AllowSharedBufferSource",
     "js.buffer.ArrayBuffer",
     "js.buffer.ArrayBufferLike",
     "js.buffer.ArrayBufferView",
