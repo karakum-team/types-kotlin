@@ -202,9 +202,6 @@ private fun convertType(
             "BigInteger" -> "web.crypto"
             "HashAlgorithmIdentifier" -> "web.crypto"
 
-            // TEMP
-            "AllowSharedBufferSource" -> "js.buffer"
-
             "ReadableStreamController" -> "web.streams"
             "ReadableStreamReadResult" -> "web.streams"
 
