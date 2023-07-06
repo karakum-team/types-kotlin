@@ -76,10 +76,10 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "ObjectEncodingOptions | BufferEncoding" to "node.buffer.BufferEncoding /* ObjectEncodingOptions | BufferEncoding */",
 
-    "IterableIterator<number>" to "JsIterable.Iterator<Int>",
-    "IterableIterator<[number, number]>" to "JsIterable.Iterator<JsTuple2<Int, Int>>",
+    "IterableIterator<number>" to "IterableIterator<Int>",
+    "IterableIterator<[number, number]>" to "IterableIterator<JsTuple2<Int, Int>>",
 
-    "AsyncIterableIterator<any>" to "AsyncIterable.Iterator<*>",
+    "AsyncIterableIterator<any>" to "AsyncIterableIterator<*>",
     "AsyncIterable<FileChangeInfo<string>> | AsyncIterable<FileChangeInfo<Buffer>>" to
             "AsyncIterable<FileChangeInfo<Any /* string | Buffer */>>",
 

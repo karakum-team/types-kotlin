@@ -10,8 +10,10 @@ private val DEFAULT_IMPORTS = listOf(
     "Promise" to "js.promise.Promise",
 
     "AsyncIterable" to "js.core.AsyncIterable",
+    "AsyncIterableIterator" to "js.core.AsyncIterableIterator",
     "BigInt" to "js.core.BigInt",
     "BufferSource" to "js.buffer.BufferSource",
+    "IterableIterator" to "js.core.IterableIterator",
     "JsIterable" to "js.core.JsIterable",
     "JsTuple2" to "js.core.JsTuple2",
     "JsSet" to "js.collections.JsSet",

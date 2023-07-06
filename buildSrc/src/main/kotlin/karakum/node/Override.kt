@@ -38,13 +38,13 @@ internal fun addOverrides(
         result = result
             .replace("fun  reverse()", "override fun  reverse()")
             .replace(
-                "fun  entries(): JsIterable.Iterator<JsTuple2<Int, Int>>",
-                "override fun  entries(): JsIterable.Iterator<JsTuple2<Int, Byte>>"
+                "fun  entries(): IterableIterator<JsTuple2<Int, Int>>",
+                "override fun  entries(): IterableIterator<JsTuple2<Int, Byte>>"
             )
             .replace("fun  keys(", "override fun  keys(")
             .replace(
-                "fun  values(): JsIterable.Iterator<Int>",
-                "override fun  values(): JsIterable.Iterator<Byte>"
+                "fun  values(): IterableIterator<Int>",
+                "override fun  values(): IterableIterator<Byte>"
             )
             .replace(" /* : this */", ": $name")
     }

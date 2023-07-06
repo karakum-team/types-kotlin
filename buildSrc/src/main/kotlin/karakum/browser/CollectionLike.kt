@@ -48,9 +48,9 @@ internal fun mapLikeParameters(
 internal fun listLikeOverrides(
     itemType: String,
 ): String = """
-override fun entries(): JsIterable.Iterator<JsTuple2<Int, $itemType>>
-override fun keys(): JsIterable.Iterator<Int>
-override fun values(): JsIterable.Iterator<$itemType>
+override fun entries(): IterableIterator<JsTuple2<Int, $itemType>>
+override fun keys(): IterableIterator<Int>
+override fun values(): IterableIterator<$itemType>
 override fun forEach(action: (item: $itemType) -> Unit)
 """.trimIndent()
 
@@ -58,8 +58,8 @@ internal fun mapLikeOverrides(
     keyType: String,
     valueType: String,
 ): String = """
-override fun entries(): JsIterable.Iterator<JsTuple2<$keyType, $valueType>>
-override fun keys(): JsIterable.Iterator<$keyType>
-override fun values(): JsIterable.Iterator<$valueType>
+override fun entries(): IterableIterator<JsTuple2<$keyType, $valueType>>
+override fun keys(): IterableIterator<$keyType>
+override fun values(): IterableIterator<$valueType>
 override fun forEach(action: (value: $valueType, key: $keyType) -> Unit)
 """.trimIndent()

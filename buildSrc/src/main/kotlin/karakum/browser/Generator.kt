@@ -21,6 +21,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.core.BigInt",
     "js.core.EpochTimeStamp",
     "js.core.DOMHighResTimeStamp",
+    "js.core.IterableIterator",
     "js.core.JsIterable",
     "js.core.JsLong",
     "js.core.JsTuple2",
