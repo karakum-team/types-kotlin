@@ -159,15 +159,14 @@
     tslib "^2.2.0"
 
 "@azure/ms-rest-js@^2.6.0":
-  version "2.6.6"
-  resolved "https://registry.yarnpkg.com/@azure/ms-rest-js/-/ms-rest-js-2.6.6.tgz#a2ae4a515565ae1b73729b52b25875853bb3240a"
-  integrity sha512-WYIda8VvrkZE68xHgOxUXvjThxNf1nnGPPe0rAljqK5HJHIZ12Pi3YhEDOn3Ge7UnwaaM3eFO0VtAy4nGVI27Q==
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/@azure/ms-rest-js/-/ms-rest-js-2.7.0.tgz#8639065577ffdf4946951e1d246334ebfd72d537"
+  integrity sha512-ngbzWbqF+NmztDOpLBVDxYM+XLcUj7nKhxGbSU9WtIsXfRB//cf2ZbAG5HkOrhU9/wd/ORRB6lM/d69RKVjiyA==
   dependencies:
     "@azure/core-auth" "^1.1.4"
     abort-controller "^3.0.0"
     form-data "^2.5.0"
     node-fetch "^2.6.7"
-    tough-cookie "^3.0.1"
     tslib "^1.10.0"
     tunnel "0.0.6"
     uuid "^8.3.2"
@@ -542,11 +541,6 @@ inherits@2:
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
-ip-regex@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/ip-regex/-/ip-regex-2.1.0.tgz#fa78bf5d2e6913c911ce9f819ee5146bb6d844e9"
-  integrity sha512-58yWmlHpp7VYfcdTwMTvwMmqx/Elfxjd9RXTDyMsbL7lLWmhMylLEqiYVLKuLzOZqVgiWXD9MfR62Vv89VRxkw==
-
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -665,16 +659,6 @@ protobufjs@^7.1.0:
     "@types/node" ">=13.7.0"
     long "^5.0.0"
 
-psl@^1.1.28:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/psl/-/psl-1.9.0.tgz#d0df2a137f00794565fcaf3b2c00cd09f8d5a5a7"
-  integrity sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==
-
-punycode@^2.1.1:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.3.0.tgz#f67fa67c94da8f4d0cfff981aee4118064199b8f"
-  integrity sha512-rRV+zQD8tVFys26lAGR9WUuS4iUAngJScM+ZRSKtvl5tKeZ2t5bvdNFdNHBW9FWR4guGHlgmsZ1G7BSm2wTbuA==
-
 quickselect@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/quickselect/-/quickselect-2.0.0.tgz#f19680a486a5eefb581303e023e98faaf25dd018"
@@ -731,15 +715,6 @@ topojson-client@^3.1.0:
   integrity sha512-605uxS6bcYxGXw9qi62XyrV6Q3xwbndjachmNxu8HWTtVPxZfEJN9fd/SZS1Q54Sn2y0TMyMxFj/cJINqGHrKw==
   dependencies:
     commander "2"
-
-tough-cookie@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-3.0.1.tgz#9df4f57e739c26930a018184887f4adb7dca73b2"
-  integrity sha512-yQyJ0u4pZsv9D4clxO69OEjLWYw+jbgspjTue4lTQZLfV0c5l1VmK2y1JK8E9ahdpltPOaAThPcp5nKPUgSnsg==
-  dependencies:
-    ip-regex "^2.1.0"
-    psl "^1.1.28"
-    punycode "^2.1.1"
 
 tr46@~0.0.3:
   version "0.0.3"
