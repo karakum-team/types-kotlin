@@ -6,7 +6,7 @@ plugins {
 }
 
 tasks.wrapper {
-    gradleVersion = "8.2"
+    gradleVersion = "8.2.1"
 }
 
 plugins.withType<YarnPlugin> {
