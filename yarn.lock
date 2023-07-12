@@ -367,10 +367,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/web@0.0.104":
-  version "0.0.104"
-  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.104.tgz#e9452eb75db6c9bcf663aabe111fb8919f78eb36"
-  integrity sha512-G/fhdaNwXh1Lj+nxOXB0EKrv9/DgwkJHOdZXUvb468EWsq9IvOLbpnFMTEN6fSEwemahAwHbfKvDFEwSDXfVcw==
+"@types/web@0.0.105":
+  version "0.0.105"
+  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.105.tgz#0c6f79f80eed4cdc41bb0504d89015e1116c7429"
+  integrity sha512-pPMlsJ5ue1DF9zvcLVTCWGoXCcrF9bOfJjVXlm052Ejd/87VY7CSn6mOlANOYTeocngnmu5uzEs0fOXLn16NZw==
 
 "@webref/idl@3.35.2":
   version "3.35.2"
@@ -455,9 +455,9 @@ delayed-stream@~1.0.0:
   integrity sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==
 
 dompurify@^3.0.2:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.0.4.tgz#963116d05c94ee42f8353a3690f935475d8cd2f7"
-  integrity sha512-ae0mA+Qiqp6C29pqZX3fQgK+F91+F7wobM/v8DRzDqJdZJELXiFUx4PP4pK/mzUS0xkiSEx3Ncd9gr69jg3YsQ==
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.0.5.tgz#eb3d9cfa10037b6e73f32c586682c4b2ab01fbed"
+  integrity sha512-F9e6wPGtY+8KNMRAVfxeCOHU0/NPWMSENNq4pQctuXRqqdEPW7q3CrLbR5Nse044WwacyjHGOMlvNsBe1y6z9A==
 
 earcut@^2.2.4:
   version "2.2.4"
@@ -691,9 +691,9 @@ sax@>=0.6.0:
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
 
 semver@^6.1.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
-  integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.1.tgz#556d2ef8689146e46dcea4bfdd095f3434dffcb4"
+  integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
 
 tmp-promise@^3.0.2:
   version "3.0.3"
