@@ -9,12 +9,12 @@ import java.io.File
 private val DEFAULT_IMPORTS = listOf(
     "Promise" to "js.promise.Promise",
 
-    "AsyncIterable" to "js.core.AsyncIterable",
-    "AsyncIterableIterator" to "js.core.AsyncIterableIterator",
+    "AsyncIterable" to "js.iterable.AsyncIterable",
+    "AsyncIterableIterator" to "js.iterable.AsyncIterableIterator",
     "BigInt" to "js.core.BigInt",
     "BufferSource" to "js.buffer.BufferSource",
-    "IterableIterator" to "js.core.IterableIterator",
-    "JsIterable" to "js.core.JsIterable",
+    "IterableIterator" to "js.iterable.IterableIterator",
+    "JsIterable" to "js.iterable.JsIterable",
     "JsTuple2" to "js.core.JsTuple2",
     "JsSet" to "js.collections.JsSet",
     "PromiseResult" to "js.promise.PromiseResult",
