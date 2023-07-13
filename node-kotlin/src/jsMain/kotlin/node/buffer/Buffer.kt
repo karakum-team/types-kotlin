@@ -5,9 +5,9 @@
 package node.buffer
 
 import js.core.BigInt
-import js.core.IterableIterator
 import js.core.JsTuple2
 import js.core.ReadonlyArray
+import js.iterable.IterableIterator
 import js.typedarrays.TypedArray
 import js.typedarrays.Uint8Array
 
