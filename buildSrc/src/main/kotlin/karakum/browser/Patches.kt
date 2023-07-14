@@ -23,6 +23,7 @@ internal fun String.applyPatches(): String =
             "// abort(reason?: any): AbortSignal; - To be re-added in the future",
             "abort(reason?: any): AbortSignal;",
         )
+        .replace("\n    exportKey(format: KeyFormat, key: CryptoKey): Promise<ArrayBuffer | JsonWebKey>;", "")
         .splitUnion("string | string[]")
         .splitUnion("string | number[]")
         .splitUnion("number[] | Float32Array")

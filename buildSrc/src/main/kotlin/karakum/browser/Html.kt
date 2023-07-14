@@ -753,6 +753,7 @@ internal fun htmlDeclarations(
                 }
         )
         .plus(DedicatedWorkerGlobalScope())
+        .plus(Ed25519())
 }
 
 private fun prepareContent(
@@ -2032,6 +2033,12 @@ private fun getParameterType(
     }
 
     return when {
+        source == "\"$ED25519\""
+        -> ED25519
+
+        source == """ReadonlyArray<"sign" | "verify">"""
+        -> """ReadonlyArray<KeyUsage /* "sign" | "verify" */>"""
+
         source == "number | DOMPointInit | (number | DOMPointInit)[]"
         -> "Any /* $source */"
 
