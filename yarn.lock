@@ -367,10 +367,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/web@0.0.107":
-  version "0.0.107"
-  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.107.tgz#c5bf94db3e51878bf35e62d137a2c854f3d7f4c5"
-  integrity sha512-ktJUwnQK/1O2Zce3rQ+NRUL9n3wHpR7mnO1ZwnFsWluYFJpDaW63fWKVfKsgveJ9OTyRi7S9fAXMUxgrTXC/Yg==
+"@types/web@0.0.108":
+  version "0.0.108"
+  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.108.tgz#03f17ce72775483c562dd49aa0e8e590bea5c205"
+  integrity sha512-/bXr3lDbRZ6tuGohyIhxAwS2E1Z8RSGXzp44h9kZH+8+ZmmyHtNR+XSR9Kf2vjLd63GaMA4RG6d7ssMg/uA4Qw==
 
 "@webref/idl@3.35.2":
   version "3.35.2"
