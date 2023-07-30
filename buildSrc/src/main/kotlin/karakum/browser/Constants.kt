@@ -21,6 +21,8 @@ private val PKG_MAP = mapOf(
     "localStorage" to "web.storage",
     "sessionStorage" to "web.storage",
     "crypto" to "web.crypto",
+
+    "indexedDB" to "web.idb",
 )
 
 internal fun browserConstants(
