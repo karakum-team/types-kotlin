@@ -9,7 +9,7 @@ internal const val SIZE_QUERY = "SizeQuery"
 internal fun MediaQuery(): ConversionResult =
     ConversionResult(
         name = MEDIA_QUERY,
-        body = queryBody(MEDIA_QUERY),
+        body = queryBody(MEDIA_QUERY, sealed = false),
     )
 
 internal fun ContainerQuery(): ConversionResult =
@@ -29,14 +29,16 @@ internal fun SizeQuery(): ConversionResult =
 
 private fun queryBody(
     name: String,
+    sealed: Boolean = true,
     parentTypes: List<String>? = null,
 ): String {
+    val modifier = if (sealed) "sealed" else ""
     val parents = if (parentTypes != null) {
         ":\n" + parentTypes.joinToString(",\n")
     } else ""
 
     return """
-external interface $name $parents
+$modifier external interface $name $parents
 
 inline fun $name(
     value: String,
