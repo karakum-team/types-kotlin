@@ -40,7 +40,7 @@ fun generateKotlinDeclarations(
     writeDeclarations(
         declarations = mediaTypes(),
         sourceDir = sourceDir,
-        getPkg = { "web.cssom.media" },
+        getPkg = { "web.cssom.atrule" },
         getImports = { MEDIA_IMPORTS },
     )
 
