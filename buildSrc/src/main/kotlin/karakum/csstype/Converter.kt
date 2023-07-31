@@ -34,7 +34,9 @@ internal fun convertDefinitions(
         }
         .plus(Auto())
         .plus(None())
+        .plus(ContainerQuery())
         .plus(MediaQuery())
+        .plus(SizeQuery())
         .toList()
 
     val globalsContext = ParentContext("Globals")
