@@ -121,6 +121,7 @@ internal fun mediaTypes(): Sequence<ConversionResult> {
                 factory(
                     name = prefix + function.name,
                     type = function.type,
+                    queryType = if (function.type == LENGTH) SIZE_QUERY else MEDIA_QUERY,
                 )
             }
         }
@@ -135,6 +136,7 @@ internal fun mediaTypes(): Sequence<ConversionResult> {
 private fun factory(
     name: String,
     type: String,
+    queryType: String = MEDIA_QUERY,
 ): ConversionResult {
     val functionName = name.kebabToCamel()
 
@@ -143,8 +145,8 @@ private fun factory(
         body = """
         fun $functionName(
             value: $type,
-        ): $MEDIA_QUERY =
-            $MEDIA_QUERY("($name:${'$'}value)")
+        ): $queryType =
+            $queryType("($name:${'$'}value)")
         """.trimIndent()
     )
 }

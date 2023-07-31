@@ -24,6 +24,7 @@ import web.cssom.*
 private val MEDIA_IMPORTS = """
 import web.cssom.Length
 import web.cssom.MediaQuery
+import web.cssom.SizeQuery
 """.trimIndent()
 
 fun generateKotlinDeclarations(
