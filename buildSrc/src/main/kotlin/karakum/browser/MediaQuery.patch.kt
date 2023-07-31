@@ -1,6 +1,6 @@
 package karakum.browser
 
-internal const val MEDIA_QUERY: String = "MediaQuery"
+import karakum.csstype.MEDIA_QUERY
 
 internal fun String.applyMediaListPatch(): String =
     replace("<String>", "<$MEDIA_QUERY>")

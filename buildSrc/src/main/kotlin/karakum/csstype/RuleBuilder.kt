@@ -1,7 +1,6 @@
 package karakum.csstype
 
 import karakum.common.ConversionResult
-import karakum.browser.MEDIA_QUERY
 
 internal const val RULE_BUILDER = "RuleBuilder"
 

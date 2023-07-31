@@ -1,6 +1,5 @@
 package karakum.csstype
 
-import karakum.browser.MEDIA_QUERY
 import karakum.common.ConversionResult
 import karakum.common.kebabToCamel
 import karakum.common.sealedUnionBody
