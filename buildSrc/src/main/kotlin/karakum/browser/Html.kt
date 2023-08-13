@@ -2092,6 +2092,9 @@ private fun getParameterType(
 
         source.endsWith("[]") -> {
             var atype = source.removeSuffix("[]")
+            if (atype == "any")
+                atype = "*"
+
             if (atype == "string")
                 atype = "String"
 

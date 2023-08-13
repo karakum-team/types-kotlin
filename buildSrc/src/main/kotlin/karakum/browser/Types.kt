@@ -205,6 +205,8 @@ private fun convertType(
             "ReadableStreamController" -> "web.streams"
             "ReadableStreamReadResult" -> "web.streams"
 
+            "RTCRtpTransform",
+
             "ExportValue",
             "ImportValue",
             -> getPkg(name)!!

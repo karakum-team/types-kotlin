@@ -154,6 +154,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.window.WindowProxy",
     "web.window.WindowTarget",
     "web.workers.AbstractWorker",
+    "web.workers.Worker",
     "web.workers.WorkerType",
     "web.worklets.Worklet",
     "web.xml.XMLDocument",
