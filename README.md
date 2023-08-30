@@ -1,5 +1,5 @@
 [![CI Status](https://github.com/turansky/react-types-kotlin/workflows/declarations/badge.svg)](https://github.com/turansky/react-types-kotlin/actions)
-[![Kotlin](https://img.shields.io/badge/kotlin-1.9.0-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.9.10-blue.svg?logo=kotlin)](http://kotlinlang.org)
 
 # Types [Kotlin]
 
