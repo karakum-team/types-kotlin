@@ -76,6 +76,8 @@ internal fun parseDeclarations(
         it.name == "cancelAnimationFrame"
                 || it.name == "requestAnimationFrame"
                 || it.name == "requestAnimationFrameCallback"
+                || it.name == "defaultValue"
+                || it.name == "defined<Type>"
     }
 
     declarations.removeAll {
