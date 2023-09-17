@@ -95,6 +95,7 @@ internal fun kotlinType(
         .replace(") -> void", ") -> Unit")
         .replace("?: ColumnPinningPosition", ": ColumnPinningPosition?")
         .replace("?: InitialTableState", ": InitialTableState?")
+        .replace("?: RowPinningPosition", ": RowPinningPosition?")
         .replace("?: number", ": Int?")
         .replace("?: boolean", ": Boolean?")
         .replace("?: string", ": String?")
