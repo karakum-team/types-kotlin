@@ -746,7 +746,7 @@ internal fun htmlDeclarations(
                         name = "$type.ext",
                         body = """
                         inline fun $type.asInit(): $initType =    
-                            unsafeCast<$initType>()                                                 
+                            unsafeCast<$initType>()
                         """.trimIndent(),
                         pkg = "web.geometry",
                     )
@@ -901,7 +901,7 @@ internal fun convertInterface(
         -> declaration.replace("interface", "class /* interface */")
 
         "AbstractWorker",
-        -> declaration + ": IEventTarget"
+        -> declaration + ": EventTarget"
 
         in COLLECTIONS_WITH_BOUNDS,
         -> declaration

@@ -247,7 +247,7 @@ private fun keyboardTypes(
     inline fun $codeType(
         code: String,
     ): $codeType =
-        code.unsafeCast<$codeType>()            
+        code.unsafeCast<$codeType>()
     """.trimIndent()
 
     return sequenceOf(

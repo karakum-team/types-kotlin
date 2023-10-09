@@ -259,7 +259,7 @@ fun generateKotlinDeclarations(
             if (name == "ReadableStreamReadResult")
                 add(UNUSED_TYPEALIAS_PARAMETER)
 
-            if (name == "ChildNode" || name == "ParentNode")
+            if (name == "ChildNode" || name == "ParentNode" || name == "AbstractWorker")
                 add(INTERFACE_WITH_SUPERCLASS)
 
             if (name == "WorkerNavigator"
@@ -374,7 +374,6 @@ fun generateKotlinDeclarations(
             "Worker",
             "WebSocket",
             -> """
-            import web.events.IEventTarget
             import web.errors.ErrorEvent
             import web.messaging.MessageEvent
             """.trimIndent()
