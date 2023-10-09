@@ -255,7 +255,7 @@ private fun event(
         $eventMembers
     
         $companion
-    }            
+    }
     """.trimIndent()
 
     if (name == "TouchEvent")
