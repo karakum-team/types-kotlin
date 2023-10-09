@@ -76,7 +76,7 @@ internal val WORKER_EVENT_DATA = listOf(
 )
 
 internal val EVENT_INFO_MAP = (EVENT_DATA + WORKER_EVENT_DATA)
-    .associate { it.name to it }
+    .associateBy { it.name }
 
 internal val EVENT_CORRECTION_MAP = mapOf(
     "DOMContentLoaded" to "dom_content_loaded",
