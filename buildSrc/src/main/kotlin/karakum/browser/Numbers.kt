@@ -86,6 +86,9 @@ private val INT_NAMES = setOf(
     "clientX",
     "clientY",
 
+    "layerX",
+    "layerY",
+
     "tiltX",
     "tiltY",
 

@@ -183,6 +183,9 @@ private fun convertFunction(
                 ptype == "string"
                 -> "String"
 
+                ptype == "number" && pname.removeSuffix("?").endsWith("Offset")
+                -> "Int /* GLuint */"
+
                 ptype == "GLint | GLboolean"
                 -> "GLint /* | GLboolean */"
 
