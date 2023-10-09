@@ -328,7 +328,7 @@ private fun eventTypes(
 
             """
             inline val $typeName.Companion.$memberName : $EVENT_TYPE<$finalType>
-                get() = $EVENT_TYPE("$name")                        
+                get() = $EVENT_TYPE("$name")
             """.trimIndent()
         }
 
