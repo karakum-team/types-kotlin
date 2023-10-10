@@ -181,15 +181,15 @@ private fun convertClass(
         .replace("/*`", "/ *`")
         .trimIndent()
 
-    var allMembers = memberSource
+    val allMembers = memberSource
         .split(";\n")
         .mapNotNull { convertMember(it) }
 
-    var members = allMembers
+    val members = allMembers
         .filter { STATIC_MARKER !in it }
         .joinToString("\n")
 
-    var staticMembers = allMembers
+    val staticMembers = allMembers
         .filter { STATIC_MARKER in it }
         .map { it.replace(STATIC_MARKER, "") }
         .joinToString("\n")
@@ -494,6 +494,9 @@ private fun methodDeclaration(
 private fun convertMethod(
     source: String,
 ): String {
+    if (source == "readBodyBuffer?(): Promise<Buffer>")
+        return "val readBodyBuffer: (() -> Promise<Buffer>)?"
+
     if (source.startsWith("static "))
         return STATIC_MARKER + convertMethod(source.removePrefix("static "))
 
@@ -504,8 +507,7 @@ private fun convertMethod(
             .substringBeforeLast("): ")
     ).joinToString(",\n")
 
-    val returnType = kotlinType(source.substringAfter("): "))
-    val returns = when (returnType) {
+    val returns = when (val returnType = kotlinType(source.substringAfter("): "))) {
         "void" -> ""
         else -> ": $returnType"
     }

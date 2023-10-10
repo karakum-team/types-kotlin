@@ -18,6 +18,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Promise<void>" to "Promise<Void>",
 
     "AsyncGenerator<string, void>" to "Any /* AsyncGenerator<string, void> */",
+    "ProxyAgent" to "Any /* ProxyAgent */",
 
     "Map<number_string>" to "ReadonlyMap<Int, String>",
 
