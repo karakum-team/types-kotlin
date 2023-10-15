@@ -94,18 +94,24 @@ private val EXCLUDED = setOf(
 internal fun eventDeclarations(
     content: String,
     webworkerContent: String,
-): List<ConversionResult> =
-    eventTypes(content + "\n\n" + webworkerContent)
-        .plus(eventPlaceholders(content, EVENT_DATA, strict = true))
+): List<ConversionResult> {
+    val dataMap = EventDataMap(content + "\n\n" + webworkerContent)
+    return eventTypes(dataMap)
+        .plus(eventPlaceholders(content, EVENT_DATA, dataMap, strict = true))
+}
 
 internal fun workerEventDeclarations(
     content: String,
-): List<ConversionResult> =
-    eventPlaceholders(content, WORKER_EVENT_DATA)
+    webworkerContent: String,
+): List<ConversionResult> {
+    val dataMap = EventDataMap(content + "\n\n" + webworkerContent)
+    return eventPlaceholders(webworkerContent, WORKER_EVENT_DATA, dataMap)
+}
 
 private fun eventPlaceholders(
     source: String,
     data: List<EventInfo>,
+    dataMap: EventDataMap,
     strict: Boolean = false,
 ): List<ConversionResult> {
     if (strict) {
@@ -130,6 +136,7 @@ private fun eventPlaceholders(
                 source = source,
                 name = info.name,
                 pkg = info.pkg,
+                types = dataMap.getEventTypes(info.name),
             )
         }
 }
@@ -138,6 +145,7 @@ private fun event(
     source: String,
     name: String,
     pkg: String,
+    types: List<String>?,
 ): ConversionResult {
     val initName = "${name}Init" +
             (if (name == "MessageEvent") "<T = any>" else "")
@@ -234,11 +242,19 @@ private fun event(
     val companionSource = eventClassBody
         .substringAfter("\n", "")
 
-    val companion = if (companionSource.isNotEmpty()) {
-        val members = companionSource
+    val companionMembers = if (companionSource.isNotEmpty()) {
+        companionSource
             .splitToSequence(";\n")
             .mapNotNull { convertMember(it, typeProvider) }
             .joinToString("\n")
+    } else null
+
+    val companion = if (companionMembers != null || types != null) {
+        val typeMembers = eventTypeMembers(name, types)
+
+        val members = sequenceOf(companionMembers, typeMembers)
+            .filterNotNull()
+            .joinToString("\n\n")
 
         "companion object {\n$members\n}"
     } else "companion object"
@@ -288,10 +304,10 @@ private fun event(
     )
 }
 
-private fun eventTypes(
+private class EventDataMap(
     content: String,
-): List<ConversionResult> =
-    Regex("""interface .+?EventMap \{\n    "[\s\S]+?\n\}""")
+) {
+    private val map = Regex("""interface .+?EventMap \{\n    "[\s\S]+?\n\}""")
         .findAll(content)
         .flatMap { parseEvents(it.value) }
         .filter { it.name != "orientationchange" }
@@ -300,9 +316,56 @@ private fun eventTypes(
         .distinct()
         .groupBy { it.typeName }
         .filter { it.key !in EXCLUDED }
-        .map { it.value }
-        .flatMap { it.groupBy { it.pkg }.values }
+
+    fun getEventTypes(
+        eventName: String,
+    ): List<String>? {
+        val data = map[eventName]
+            ?: return null
+
+        return data.map { it.name }
+    }
+
+
+    fun getDefaultEventTypes(): List<EventData> =
+        map.getValue("Event")
+}
+
+private fun eventTypes(
+    dataMap: EventDataMap,
+): List<ConversionResult> =
+    dataMap.getDefaultEventTypes()
+        .groupBy { it.pkg }
+        .values
         .map { items -> eventTypes(items) }
+
+private fun eventTypeMembers(
+    eventName: String,
+    types: List<String>?,
+): String? {
+    types ?: return null
+
+    val eventType = when (eventName) {
+        "MessageEvent",
+        "ProgressEvent",
+        -> "$eventName<*>"
+
+        else -> eventName
+    }
+
+    return types
+        .sorted()
+        .joinToString("\n\n") { name ->
+            val memberName = EVENT_CORRECTION_MAP
+                .getOrDefault(name, name)
+                .uppercase()
+
+            """
+            @JsValue("$name")
+            val $memberName : $EVENT_TYPE<$eventType>
+            """.trimIndent()
+        }
+}
 
 private fun eventTypes(
     items: List<EventData>,

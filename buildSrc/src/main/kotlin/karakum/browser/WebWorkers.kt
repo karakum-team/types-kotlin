@@ -51,9 +51,7 @@ internal fun webWorkersDeclarations(
         getPkg = PKG_MAP::get,
     ).filter { it.name in PKG_MAP.keys }
 
-    val events = workerEventDeclarations(content)
-
-    return interfaces + types + events
+    return interfaces + types
 }
 
 internal fun webWorkersContent(

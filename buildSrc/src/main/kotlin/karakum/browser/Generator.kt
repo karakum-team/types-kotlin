@@ -41,6 +41,8 @@ private val DEFAULT_IMPORTS = Imports(
 
     "kotlin.js.Date",
 
+    "seskar.js.JsValue",
+
     "web.abort.AbortSignal",
     "web.animations.Animation",
     "web.aria.ARIAMixin",
@@ -186,7 +188,8 @@ fun generateKotlinDeclarations(
         .resolve("webgl")
         .also { it.mkdirs() }
 
-    for ((name, body, optPkg) in eventDeclarations(content, webWorkersContent(serviceworkerDefinitionsFile))) {
+    val webWorkersContent = webWorkersContent(serviceworkerDefinitionsFile)
+    for ((name, body, optPkg) in (eventDeclarations(content, webWorkersContent) + workerEventDeclarations(content, webWorkersContent))) {
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("override val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
