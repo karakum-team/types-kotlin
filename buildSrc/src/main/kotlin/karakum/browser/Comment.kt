@@ -1,13 +1,27 @@
 package karakum.browser
 
-internal fun ConversionResult.withComment(
+internal fun String.withComment(
     fullSource: String,
     source: String,
-): ConversionResult {
+): String {
     val commentSource = fullSource.substringBefore("\n$source", "")
         .takeIf { it.endsWith(" */") }
         ?: return this
 
     val comment = "/**" + commentSource.substringAfterLast("\n/**")
-    return copy(body = "$comment\n${body}")
+    return "$comment\n${this}"
+}
+
+internal fun ConversionResult.withComment(
+    fullSource: String,
+    source: String,
+): ConversionResult {
+    val newBody = body.withComment(
+        fullSource = fullSource,
+        source = source,
+    )
+
+    return if (body != newBody) {
+        copy(body = newBody)
+    } else this
 }

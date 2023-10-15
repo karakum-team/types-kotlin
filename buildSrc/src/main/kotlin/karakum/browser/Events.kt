@@ -261,6 +261,17 @@ private fun event(
     if (name == "TouchEvent")
         eventBody = "@JsName(\"globalThis.$name\")\n$eventBody"
 
+    eventBody = eventBody
+        .withComment(
+            fullSource = source,
+            source = "interface $name extends "
+        )
+        // ProgressEvent
+        .withComment(
+            fullSource = source,
+            source = "interface $name<"
+        )
+
     var body = sequenceOf(
         initBody,
         eventBody,
@@ -275,15 +286,6 @@ private fun event(
         body = body,
         pkg = pkg,
     )
-        .withComment(
-            fullSource = source,
-            source = "interface $name extends "
-        )
-        // ProgressEvent
-        .withComment(
-            fullSource = source,
-            source = "interface $name<"
-        )
 }
 
 private fun eventTypes(
