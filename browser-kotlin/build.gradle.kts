@@ -14,4 +14,6 @@ dependencies {
     jsMainImplementation(wrappers("cssom-core"))
     jsMainImplementation(wrappers("js"))
     jsMainImplementation(wrappers("web"))
+
+    jsMainImplementation(seskarCore())
 }
