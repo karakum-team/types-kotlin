@@ -8,15 +8,9 @@ tasks.named("generateDeclarations") {
 
         delete(sourceDir)
 
-        val definitionsDir = rootProject.buildDir
-            .resolve("js/node_modules/typescript")
-            .resolve("lib")
-
-        val webDefinitionsDir = rootProject.buildDir
-            .resolve("js/node_modules/@types/web")
-
-        val serviceworkerDefinitionsDir = rootProject.buildDir
-            .resolve("js/node_modules/@types/serviceworker")
+        val definitionsDir = nodeModules.resolve("typescript/lib")
+        val webDefinitionsDir = nodeModules.resolve("@types/web")
+        val serviceworkerDefinitionsDir = nodeModules.resolve("@types/serviceworker")
 
         karakum.browser.generateKotlinDeclarations(
             definitionsDir = definitionsDir,

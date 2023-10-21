@@ -15,9 +15,7 @@ tasks {
         doLast {
             delete(sourceDir)
 
-            val definitionsFile = rootProject.buildDir
-                .resolve("js/node_modules/cesium")
-                .resolve("Source/Cesium.d.ts")
+            val definitionsFile = nodeModules.resolve("cesium/Source/Cesium.d.ts")
 
             generateKotlinDeclarations(
                 definitionsFile = definitionsFile,

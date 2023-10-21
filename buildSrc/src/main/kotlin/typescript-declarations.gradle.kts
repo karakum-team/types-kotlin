@@ -4,8 +4,7 @@ plugins {
 
 tasks.named("generateDeclarations") {
     doLast {
-        val definitionsFile = rootProject.buildDir
-            .resolve("js/node_modules/typescript/lib/typescript.d.ts")
+        val definitionsFile = nodeModules.resolve("typescript/lib/typescript.d.ts")
         val sourceDir = projectDir.resolve("src/jsMain/kotlin")
 
         delete(sourceDir)

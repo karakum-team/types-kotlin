@@ -4,8 +4,7 @@ plugins {
 
 tasks.named("generateDeclarations") {
     doLast {
-        val tanstackDir = rootProject.buildDir
-            .resolve("js/node_modules/@tanstack")
+        val tanstackDir = nodeModules.resolve("@tanstack")
 
         val coreTypesDir = tanstackDir
             .resolve("query-core/build/lib")
