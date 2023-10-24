@@ -106,6 +106,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.html.ShadowRoot",
     "web.html.ShadowRootInit",
     "web.http.BodyInit",
+    "web.http.CrossOrigin",
     "web.http.FormData",
     "web.http.ReferrerPolicy",
     "web.http.Request",

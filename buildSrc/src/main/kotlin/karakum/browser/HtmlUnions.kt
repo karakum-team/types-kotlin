@@ -14,7 +14,7 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
                     "",
                 )
             ),
-            pkg = "web.html",
+            pkg = "web.http",
         ),
         ConversionResult(
             name = "EnterKeyHint",
