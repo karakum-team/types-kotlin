@@ -101,6 +101,9 @@ internal fun kotlinType(
     if (type.endsWith(" | undefined") && type.indexOf("|") == type.lastIndexOf("|"))
         return kotlinType(type.removeSuffix(" | undefined"), name) + "?"
 
+    if (type.startsWith("undefined | "))
+        return kotlinType(type.removePrefix("undefined | "), name) + "?"
+
     if (type.endsWith("[]") && "|" !in type)
         return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"))}>"
 
