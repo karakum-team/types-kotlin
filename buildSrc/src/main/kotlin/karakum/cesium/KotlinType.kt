@@ -38,6 +38,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Promise<HTMLImageElement | HTMLCanvasElement> | undefined" to "$PROMISE<$HTML_ELEMENT>?",
     "Promise<ImageryTypes | CompressedTextureBuffer> | undefined" to "$PROMISE<Any /* ImageryTypes | CompressedTextureBuffer */>?",
+    "Promise<void>" to "$PROMISE<Void>",
     "undefined | Promise<void>" to "$PROMISE<Void>?",
     "Cartesian2 | Cartesian3" to "Cartesian3",
 
