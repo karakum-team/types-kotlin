@@ -9,4 +9,6 @@ dependencies {
     jsMainImplementation(npmv("csstype"))
 
     jsMainImplementation(wrappers("js"))
+
+    jsMainImplementation(seskarCore())
 }
