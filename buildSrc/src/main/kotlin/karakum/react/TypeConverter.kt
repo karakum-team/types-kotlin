@@ -1,7 +1,5 @@
 package karakum.react
 
-import java.util.*
-
 interface TypeConverter {
     fun convert(
         type: String,
@@ -36,13 +34,13 @@ internal class SimpleTypeConverter(
 
         when {
             propertyName == "crossOrigin" && type == """"anonymous" | "use-credentials" | """""
-            -> return propertyName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+            -> return propertyName.replaceFirstChar(Char::uppercase)
 
             propertyName == "enterKeyHint"
-            -> return propertyName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+            -> return propertyName.replaceFirstChar(Char::uppercase)
 
             propertyName == "loading"
-            -> return propertyName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+            -> return propertyName.replaceFirstChar(Char::uppercase)
         }
 
         val sourceType = if (name == "Capture") {
@@ -71,24 +69,24 @@ internal class SimpleTypeConverter(
     ): String =
         when {
             propertyName == "capture"
-            -> propertyName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+            -> propertyName.replaceFirstChar(Char::uppercase)
 
             propertyName == "fetchpriority"
             -> "FetchPriority"
 
             propertyName.startsWith("aria-")
             -> propertyName.ariaPropertyName()
-                .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+                .replaceFirstChar(Char::uppercase)
 
             parentName.endsWith("HTMLAttributes") -> {
                 val typeName = when (propertyName) {
                     "valign" -> "VAlign"
-                    else -> propertyName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+                    else -> propertyName.replaceFirstChar(Char::uppercase)
                 }
 
                 parentName.removeSuffix("HTMLAttributes") + typeName
             }
 
-            else -> propertyName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+            else -> propertyName.replaceFirstChar(Char::uppercase)
         }
 }

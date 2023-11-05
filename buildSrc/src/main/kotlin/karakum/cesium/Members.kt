@@ -1,7 +1,5 @@
 package karakum.cesium
 
-import java.util.*
-
 private val OPTIONS_REGEX = Regex("""options\??: (\{.+})""", RegexOption.DOT_MATCHES_ALL)
 private val INNER_OPTIONS_REGEX = Regex("""(\w+\??): \{.+?}""", RegexOption.DOT_MATCHES_ALL)
 
@@ -83,7 +81,7 @@ internal fun Definition.toMethodMembers(): Sequence<Member> {
     val prefix = methodBody
         .substringBefore("(")
         .substringAfterLast(" ")
-        .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+        .replaceFirstChar(Char::uppercase)
     val static = methodBody.startsWith("static ")
 
     val parameters = methodBody
@@ -120,7 +118,7 @@ private fun String.toOptionTypes(
         .map {
             val parameter = it.groupValues[1]
             val typeName = name + parameter.removeSuffix("?")
-                .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+                .replaceFirstChar(Char::uppercase)
             val typeBody = it.value
                 .removePrefix("$parameter: ")
                 .let { "$typeName = $it" }

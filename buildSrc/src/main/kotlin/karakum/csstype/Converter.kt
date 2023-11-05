@@ -2,7 +2,6 @@ package karakum.csstype
 
 import karakum.common.ConversionResult
 import java.io.File
-import java.util.*
 
 internal fun convertDefinitions(
     definitionsFile: File,
@@ -562,13 +561,13 @@ private fun getAdditionalPropertyNames(
     when (name) {
         "appearance",
         -> sequenceOf(
-            "Webkit${name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}",
-            "Moz${name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}",
+            "Webkit${name.replaceFirstChar(Char::uppercase)}",
+            "Moz${name.replaceFirstChar(Char::uppercase)}",
         )
 
         "backdropFilter",
         -> sequenceOf(
-            "Webkit${name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}",
+            "Webkit${name.replaceFirstChar(Char::uppercase)}",
         )
 
         else -> emptySequence()

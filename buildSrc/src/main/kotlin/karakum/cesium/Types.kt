@@ -1,7 +1,5 @@
 package karakum.cesium
 
-import java.util.*
-
 private const val IMAGERY_LAYER_CONSTRUCTOR_OPTIONS = "ImageryLayer.ConstructorOptions"
 
 internal fun isTypeAlias(
@@ -42,7 +40,7 @@ internal fun applyCallbackFix(
     when (source) {
         "foveatedInterpolationCallback",
         "updateCallback",
-        -> source.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+        -> source.replaceFirstChar(Char::uppercase)
 
         else -> source
     }

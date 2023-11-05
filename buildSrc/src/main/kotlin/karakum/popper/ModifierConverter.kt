@@ -23,7 +23,7 @@ internal fun convertModifier(
         .split(", ")
 
     val id = nameSource.removeSurrounding("\"")
-    val name = id.capitalize()
+    val name = id.replaceFirstChar(Char::uppercase)
 
     val typeParameter = when (optionsType) {
         "Options" -> "${name}Options"

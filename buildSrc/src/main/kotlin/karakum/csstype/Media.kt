@@ -92,7 +92,7 @@ internal fun mediaTypes(): Sequence<ConversionResult> {
         .filterIsInstance<MediaOption>()
         .map { option ->
             val name = option.name.kebabToCamel()
-                .replaceFirstChar { it.uppercaseChar() }
+                .replaceFirstChar(Char::uppercase)
             val body = sealedUnionBody(
                 name = name,
                 values = option.values.toList(),
@@ -105,7 +105,7 @@ internal fun mediaTypes(): Sequence<ConversionResult> {
         .filterIsInstance<MediaOption>()
         .map { option ->
             val name = option.name
-            val type = name.kebabToCamel().replaceFirstChar { it.uppercaseChar() }
+            val type = name.kebabToCamel().replaceFirstChar(Char::uppercase)
 
             factory(name, type)
         }
