@@ -21,6 +21,7 @@ private val DEFAULT_IMPORTS = listOf(
     "web.dom.observers.ResizeObserverEntry",
 
     "seskar.js.JsIntValue",
+    "seskar.js.JsUnion",
     "seskar.js.JsValue",
 ).map { it.substringAfterLast(".") to it }
 

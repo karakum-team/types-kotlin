@@ -24,6 +24,7 @@ internal fun unionBodyByConstants(
         }
 
     return """
+        @JsUnion
         sealed external interface $name {
             companion object {
             $constantNames
@@ -46,6 +47,7 @@ internal fun sealedUnionBody(
     }
 
     return """
+        @JsUnion
         sealed external interface $name {
             companion object {
                 $bodyMembers
@@ -69,6 +71,7 @@ internal fun sealedUnionBody(
     }
 
     return """
+        @JsUnion
         sealed external interface $name: $parentType {
             companion object {
                 $bodyMembers
