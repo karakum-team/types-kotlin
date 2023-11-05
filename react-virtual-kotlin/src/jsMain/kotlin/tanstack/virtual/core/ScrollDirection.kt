@@ -6,8 +6,10 @@
 
 package tanstack.virtual.core
 
+import seskar.js.JsUnion
 import seskar.js.JsValue
 
+@JsUnion
 sealed external interface ScrollDirection {
     companion object {
         @JsValue("forward")
