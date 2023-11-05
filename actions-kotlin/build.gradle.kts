@@ -18,4 +18,5 @@ dependencies {
 
     jsMainImplementation(wrappers("node"))
     jsMainImplementation(kotlinxCoroutines("core"))
+    jsMainImplementation(seskarCore())
 }
