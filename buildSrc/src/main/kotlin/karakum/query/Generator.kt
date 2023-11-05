@@ -5,20 +5,20 @@ import karakum.common.Suppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
-    "Promise" to "js.promise.Promise",
+    "js.promise.Promise",
 
-    "EpochTimeStamp" to "js.core.EpochTimeStamp",
-    "JsTuple2" to "js.core.JsTuple2",
-    "PromiseResult" to "js.promise.PromiseResult",
-    "ReadonlyArray" to "js.core.ReadonlyArray",
-    "Record" to "js.core.Record",
-    "Void" to "js.core.Void",
+    "js.core.EpochTimeStamp",
+    "js.core.JsTuple2",
+    "js.promise.PromiseResult",
+    "js.core.ReadonlyArray",
+    "js.core.Record",
+    "js.core.Void",
 
-    "JsSet" to "js.collections.JsSet",
+    "js.collections.JsSet",
 
-    "AbortController" to "web.abort.AbortController",
-    "AbortSignal" to "web.abort.AbortSignal",
-)
+    "web.abort.AbortController",
+    "web.abort.AbortSignal",
+).map { it.substringAfterLast(".") to it }
 
 fun generateKotlinDeclarations(
     coreTypesDir: File,
