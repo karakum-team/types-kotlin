@@ -133,9 +133,9 @@ internal data class UnionConstant(
         get() {
             val annotation = if (originalValue) {
                 if (value.startsWith("\"")) {
-                    "@JsValue(${value.removeSurrounding("\"")})"
+                    "@JsValue(\"${value.removeSurrounding("\"")}\")"
                 } else "@JsIntValue($value)"
-            } else "@JsValue($value)"
+            } else "@JsValue(\"$value\")"
 
             return listOfNotNull(comment, annotation)
                 .joinToString("\n")
