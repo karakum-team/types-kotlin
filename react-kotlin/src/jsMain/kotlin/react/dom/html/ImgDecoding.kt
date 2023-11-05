@@ -1,18 +1,24 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NAME_CONTAINS_ILLEGAL_CHARS",
     "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package react.dom.html
 
-// language=JavaScript
-@JsName("""(/*union*/{async: 'async', auto: 'auto', sync: 'sync'}/*union*/)""")
+import seskar.js.JsUnion
+import seskar.js.JsValue
+
+@JsUnion
 sealed external interface ImgDecoding {
     companion object {
+        @JsValue("async")
         val async: ImgDecoding
+
+        @JsValue("auto")
         val auto: ImgDecoding
+
+        @JsValue("sync")
         val sync: ImgDecoding
     }
 }
