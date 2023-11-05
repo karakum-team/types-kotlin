@@ -6,21 +6,23 @@ import karakum.common.fileSuppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
-    "Promise" to "js.promise.Promise",
-    "RegExp" to "kotlin.js.RegExp",
+    "js.promise.Promise",
 
-    "ReadonlyArray" to "js.core.ReadonlyArray",
-    "Record" to "js.core.Record",
-    "ReadonlyMap" to "js.collections.ReadonlyMap",
-    "JsTuple2" to "js.core.JsTuple2",
-    "Void" to "js.core.Void",
+    "js.core.ReadonlyArray",
+    "js.core.Record",
+    "js.collections.ReadonlyMap",
+    "js.core.JsTuple2",
+    "js.core.Void",
 
-    "Element" to "web.dom.Element",
-    "Window" to "web.window.Window",
-    "EventTarget" to "web.events.EventTarget",
-    "ScrollBehavior" to "web.scroll.ScrollBehavior",
-    "ResizeObserverEntry" to "web.dom.observers.ResizeObserverEntry",
-)
+    "web.dom.Element",
+    "web.window.Window",
+    "web.events.EventTarget",
+    "web.scroll.ScrollBehavior",
+    "web.dom.observers.ResizeObserverEntry",
+
+    "seskar.js.JsIntValue",
+    "seskar.js.JsValue",
+).map { it.substringAfterLast(".") to it }
 
 fun generateKotlinDeclarations(
     coreDefinitionsFile: File,
@@ -34,9 +36,8 @@ fun generateKotlinDeclarations(
             "external val " in body || "external object " in body || "external fun " in body || "external class " in body
             -> "@file:JsModule(\"${Package.VIRTUAL_CORE.moduleName}\")"
 
-            "JsName(\"\"\"(" in body
+            "@JsValue(" in body
             -> fileSuppress(
-                Suppress.NAME_CONTAINS_ILLEGAL_CHARS,
                 Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE,
             )
 
