@@ -37,14 +37,14 @@ internal fun referenceFunctions(): ConversionResult {
             name = "var",
             returnType = "T?",
             parameters = arrayOf(
-                "name" to "$VARIABLE<T>",
+                "name" to "$CUSTOM_PROPERTY_NAME<T>",
             )
         ),
         function(
             name = "var",
             returnType = "T",
             parameters = arrayOf(
-                "name" to "$VARIABLE<T>",
+                "name" to "$CUSTOM_PROPERTY_NAME<T>",
                 "fallback" to "T",
             )
         ),

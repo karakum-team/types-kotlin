@@ -2,25 +2,25 @@ package karakum.csstype
 
 import karakum.common.ConversionResult
 
-internal const val VARIABLE_RECORD = "VariableRecord"
+internal const val CustomProperties = "CustomProperties"
 
 // language=Kotlin
 private val BODY = """
-external interface $VARIABLE_RECORD {
+external interface $CustomProperties {
     @nativeGetter
     @Suppress("DEPRECATION")
     operator fun <T : Any> get(
-        name: $VARIABLE<T>,
+        name: $CUSTOM_PROPERTY_NAME<T>,
     ): T?
 
     @nativeSetter
     @Suppress("DEPRECATION")
     operator fun <T : Any> set(
-        name: $VARIABLE<T>,
+        name: $CUSTOM_PROPERTY_NAME<T>,
         value: T?,
     )
 }
 """.trimIndent()
 
-internal fun VariableRecord(): ConversionResult =
-    ConversionResult(VARIABLE_RECORD, BODY)
+internal fun CustomProperties(): ConversionResult =
+    ConversionResult(CustomProperties, BODY)

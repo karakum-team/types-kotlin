@@ -137,8 +137,8 @@ internal fun convertDefinitions(
         RuleBuilder(),
         Rules(),
         Selector(),
-        Variable(),
-        VariableRecord(),
+        CustomPropertyName(),
+        CustomProperties(),
     )
 
     return types.asSequence()
@@ -506,7 +506,7 @@ private fun convertInterface(
             .filter { "Vendor" !in it && "Obsolete" !in it && "Svg" !in it }
 
         if (name == "Properties")
-            parents += VARIABLE_RECORD
+            parents += CustomProperties
 
         if (name == "PseudosRuleBuilder")
             parents += listOf(NON_STANDARD_PSEUDOS_RULE_BUILDER, EXPERIMENTAL_PSEUDOS_RULE_BUILDER)

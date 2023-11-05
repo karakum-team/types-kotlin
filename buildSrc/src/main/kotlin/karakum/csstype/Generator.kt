@@ -77,7 +77,7 @@ private fun writeDeclarations(
             if ("inline fun " in body)
                 add(if (RULE_BUILDER in body) DECLARATION_CANT_BE_INLINED else NOTHING_TO_INLINE)
 
-            if (name == VARIABLE_RECORD)
+            if (name == CustomProperties)
                 add(NATIVE_INDEXER_KEY_SHOULD_BE_STRING_OR_NUMBER)
         }.toTypedArray()
 
