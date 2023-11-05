@@ -41,6 +41,8 @@ private val DEFAULT_IMPORTS = Imports(
 
     "kotlin.js.Date",
 
+    "seskar.js.JsIntValue",
+    "seskar.js.JsUnion",
     "seskar.js.JsValue",
 
     "web.abort.AbortSignal",
@@ -195,7 +197,7 @@ fun generateKotlinDeclarations(
             if ("override val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
 
-            if ("JsName(\"\"\"(" in body || name == "TouchEvent")
+            if (name == "TouchEvent")
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
 
             if ("companion object" in body && !name.endsWith("Event"))
@@ -245,10 +247,13 @@ fun generateKotlinDeclarations(
             if ("override val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
 
-            if ("JsName(\"\"\"(" in body || "JsName(\"'" in body)
+            // TODO: remove
+            if ("JsName(\"\"\"(" in body) {
                 add(NAME_CONTAINS_ILLEGAL_CHARS)
+                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
+            }
 
-            if ("JsName(\"\"\"(" in body)
+            if ("@JsValue(" in body && "companion object" in body)
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
             if ("inline fun " in body)
