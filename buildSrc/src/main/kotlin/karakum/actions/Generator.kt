@@ -2,12 +2,14 @@ package karakum.actions
 
 import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
-import karakum.common.Suppress.*
+import karakum.common.Suppress.ABSTRACT_MEMBER_NOT_IMPLEMENTED
+import karakum.common.Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE
 import karakum.common.fileSuppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = """
 import js.promise.Promise
+import js.promise.await
 import js.collections.ReadonlyMap
 import js.core.BigInt
 import js.core.JsLong
@@ -23,7 +25,9 @@ import web.url.URL
 import actions.http.client.HttpClient
 import actions.http.client.HttpClientResponse
 
-import js.promise.await
+import seskar.js.JsIntValue
+import seskar.js.JsUnion
+import seskar.js.JsValue
 """.trimIndent()
 
 fun generateKotlinDeclarations(
@@ -52,8 +56,7 @@ private fun generate(
 
     for ((name, body) in result.results) {
         val suppresses = mutableListOf<Suppress>().apply {
-            if ("JsName(\"\"\"(" in body) {
-                add(NAME_CONTAINS_ILLEGAL_CHARS)
+            if ("@JsUnion" in body) {
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
             }
 
@@ -98,7 +101,7 @@ private fun generate(
             "$name.kt"
         }
 
-        var f = dir.resolve(fileName)
+        val f = dir.resolve(fileName)
         check(!f.exists()) {
             "File $f already exists!"
         }
