@@ -168,9 +168,19 @@ internal fun tryToUnion(
             body = comment + "sealed external interface $name",
         )
 
+    var content = sealedUnionBody(name, items.toUnionValues())
+    if (name == COLOR) {
+        content = COLOR_COMMENT +
+                "\n\n" +
+                content.replace(
+                    "interface $COLOR",
+                    "class $COLOR\nprivate constructor()"
+                )
+    }
+
     return ConversionResult(
         name = name,
-        body = comment + sealedUnionBody(name, items.toUnionValues()),
+        body = comment + content,
     )
 }
 

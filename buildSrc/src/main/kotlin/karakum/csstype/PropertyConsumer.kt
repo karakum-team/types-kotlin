@@ -25,7 +25,12 @@ internal class PropertyConsumer : ParentConsumer {
         val newTypes = oldTypes.map { source ->
             val type = source.name
             val parentType = typeMap.getValue(type)
-            source.copy(body = source.body.replaceFirst(" $type", " $type: $parentType"))
+            val newBody = if ("constructor()" in source.body) {
+                source.body.replaceFirst("constructor()", "constructor(): $parentType")
+            } else {
+                source.body.replaceFirst(" $type", " $type: $parentType")
+            }
+            source.copy(body = newBody)
         }
 
         return items - oldTypes + newTypes

@@ -5,6 +5,16 @@ import karakum.common.ConversionResult
 internal const val COLOR = "Color"
 internal const val COLOR_PROPERTY = "ColorProperty"
 
+internal val COLOR_COMMENT = """
+/*
+ * `Color` declared as class for better multiplatform support
+ * - Java - `java.awt.Color`
+ * - iOS - `platform.UIKit.UIColor`
+ *
+ * [K2 issue](https://youtrack.jetbrains.com/issue/KT-60856)
+ */
+""".trimIndent()
+
 internal class ColorConsumer : ParentConsumer {
     private val marker: String = "// $COLOR_PROPERTY\n"
 
