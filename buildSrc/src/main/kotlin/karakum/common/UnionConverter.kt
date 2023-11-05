@@ -18,14 +18,12 @@ internal fun unionBodyByConstants(
     val constantNames = constants
         .joinToString("\n") {
             sequenceOf(
-                it.comment,
+                it.jsValueAnnotation,
                 "val ${it.kotlinName}: ${it.type ?: name}",
-            ).filterNotNull()
-                .joinToString("\n")
+            ).joinToString("\n")
         }
 
     return """
-        ${jsName(constants)}
         sealed external interface $name {
             companion object {
             $constantNames
@@ -40,11 +38,14 @@ internal fun sealedUnionBody(
 ): String {
     val constants = values.map(::unionConstant)
 
-    val bodyMembers = constants
-        .joinToString("\n") { "val ${it.kotlinName}: $name" }
+    val bodyMembers = constants.joinToString("\n") {
+        """
+        ${it.jsValueAnnotation}    
+        val ${it.kotlinName}: $name
+        """.trimIndent()
+    }
 
     return """
-        ${jsName(constants)}
         sealed external interface $name {
             companion object {
                 $bodyMembers
@@ -60,10 +61,14 @@ internal fun sealedUnionBody(
 ): String {
     val constants = values.map(::unionConstant)
 
-    val bodyMembers = constants
-        .joinToString("\n") { "val ${it.kotlinName}: $parentType.${it.kotlinName.replaceFirstChar(Char::uppercase)}" }
+    val bodyMembers = constants.joinToString("\n") {
+        """
+        ${it.jsValueAnnotation}    
+        val ${it.kotlinName}: $parentType.${it.kotlinName.replaceFirstChar(Char::uppercase)}
+        """.trimIndent()
+    }
 
-    return jsName(constants) + """
+    return """
         sealed external interface $name: $parentType {
             companion object {
                 $bodyMembers
