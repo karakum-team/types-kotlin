@@ -2,14 +2,23 @@
 
 @file:Suppress(
     "NAME_CONTAINS_ILLEGAL_CHARS",
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+    "WRONG_EXTERNAL_DECLARATION",
 )
 
 package web.cssom
 
+/*
+ * `Color` declared as class for better multiplatform support
+ * - Java - `java.awt.Color`
+ * - iOS - `platform.UIKit.UIColor`
+ *
+ * [K2 issue](https://youtrack.jetbrains.com/issue/KT-60856)
+ */
+
 // language=JavaScript
 @JsName("""(/*union*/{currentcolor: 'currentcolor'}/*union*/)""")
-sealed external interface Color : ColorType {
+sealed external class Color
+private constructor() : ColorType {
     companion object {
         val currentcolor: Color
     }
