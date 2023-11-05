@@ -127,12 +127,25 @@ internal data class UnionConstant(
     private val originalValue: Boolean = false,
     val comment: String? = null,
 ) {
+    // TODO: remove
     val jsValue: String
         get() = if (originalValue) {
             if (value.startsWith("\"")) {
                 "'${value.removeSurrounding("\"")}'"
             } else value
         } else "'$value'"
+
+    val jsValueAnnotation: String
+        get() {
+            val annotation = if (originalValue) {
+                if (value.startsWith("\"")) {
+                    "@JsValue(${value.removeSurrounding("\"")})"
+                } else "@JsIntValue($value)"
+            } else "@JsValue($value)"
+
+            return listOfNotNull(comment, annotation)
+                .joinToString("\n")
+        }
 }
 
 internal fun unionConstant(value: String): UnionConstant {
