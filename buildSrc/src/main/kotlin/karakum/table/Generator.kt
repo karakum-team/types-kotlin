@@ -7,16 +7,20 @@ import karakum.common.fileSuppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
-    "Promise" to "js.promise.Promise",
-    "RegExp" to "kotlin.js.RegExp",
+    "js.promise.Promise",
+    "kotlin.js.RegExp",
 
-    "JsMap" to "js.collections.JsMap",
-    "ReadonlyArray" to "js.core.ReadonlyArray",
-    "ReadonlyRecord" to "js.core.ReadonlyRecord",
-    "Symbol" to "js.core.Symbol",
-    "JsTuple2" to "js.core.JsTuple2",
-    "Void" to "js.core.Void",
-)
+    "js.collections.JsMap",
+    "js.core.ReadonlyArray",
+    "js.core.ReadonlyRecord",
+    "js.core.Symbol",
+    "js.core.JsTuple2",
+    "js.core.Void",
+
+    "seskar.js.JsIntValue",
+    "seskar.js.JsUnion",
+    "seskar.js.JsValue",
+).map { it.substringAfterLast(".") to it }
 
 fun generateKotlinDeclarations(
     coreDefinitionsDir: File,
@@ -32,9 +36,8 @@ fun generateKotlinDeclarations(
             "external val " in body || "external object " in body || "external fun " in body
             -> "@file:JsModule(\"${Package.TABLE_CORE.moduleName}\")"
 
-            "JsName(\"\"\"(" in body
+            "@JsValue(" in body
             -> fileSuppress(
-                Suppress.NAME_CONTAINS_ILLEGAL_CHARS,
                 Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE,
             )
 
