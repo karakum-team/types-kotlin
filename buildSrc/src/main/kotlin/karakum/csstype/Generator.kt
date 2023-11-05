@@ -27,6 +27,12 @@ import web.cssom.MediaQuery
 import web.cssom.SizeQuery
 """.trimIndent()
 
+private val SESKAR_IMPORTS = """
+import seskar.js.JsIntValue
+import seskar.js.JsUnion
+import seskar.js.JsValue
+""".trimIndent()
+
 fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
@@ -35,14 +41,14 @@ fun generateKotlinDeclarations(
         declarations = convertDefinitions(definitionsFile),
         sourceDir = sourceDir,
         getPkg = { if (it in CSSTYPE_TYPES) "csstype" else "web.cssom" },
-        getImports = { if (it in CSSTYPE_TYPES) CSSTYPE_IMPORTS else "" },
+        getImports = { if (it in CSSTYPE_TYPES) CSSTYPE_IMPORTS else SESKAR_IMPORTS },
     )
 
     writeDeclarations(
         declarations = mediaTypes(),
         sourceDir = sourceDir,
         getPkg = { "web.cssom.atrule" },
-        getImports = { MEDIA_IMPORTS },
+        getImports = { MEDIA_IMPORTS + "\n" + SESKAR_IMPORTS },
     )
 
     writeDeclarations(
@@ -61,9 +67,6 @@ private fun writeDeclarations(
 ) {
     for ((name, body) in declarations) {
         val suppresses = mutableSetOf<Suppress>().apply {
-            if ("JsName(\"\"\"(" in body)
-                add(NAME_CONTAINS_ILLEGAL_CHARS)
-
             if ("private constructor()" in body) {
                 add(WRONG_EXTERNAL_DECLARATION)
             } else if ("companion object" in body) {
