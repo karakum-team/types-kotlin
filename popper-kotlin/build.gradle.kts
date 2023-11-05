@@ -11,4 +11,6 @@ dependencies {
     jsMainImplementation(npm("@popperjs/core", popperVersion))
 
     jsMainImplementation(wrappers("browser"))
+
+    jsMainImplementation(seskarCore())
 }
