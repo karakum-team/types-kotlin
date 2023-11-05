@@ -17,7 +17,7 @@ package web.cssom
 
 // language=JavaScript
 @JsName("""(/*union*/{currentcolor: 'currentcolor'}/*union*/)""")
-sealed external class Color
+external class Color
 private constructor() : ColorType {
     companion object {
         val currentcolor: Color
