@@ -79,16 +79,14 @@ internal fun tryToUnion(
         if (!items.all { it.startsWith('"') })
             return null
 
-        val enumBody = when (name) {
-            NAMED_COLOR -> {
-                val constants = items.toUnionValues()
-                    .map { UnionConstant(it, it, NAMED_COLOR_MAP.getValue(it)) }
+        val enumBody = if (name == NAMED_COLOR) {
+            val constants = items.toUnionValues()
+                .map { UnionConstant(it, it, NAMED_COLOR_MAP.getValue(it)) }
 
-                unionBodyByConstants(COLOR, constants)
-                    .replaceFirst(COLOR, NAMED_COLOR)
-            }
-
-            else -> sealedUnionBody(name, items.toUnionValues())
+            unionBodyByConstants(COLOR, constants)
+                .replaceFirst(COLOR, NAMED_COLOR)
+        } else {
+            sealedUnionBody(name, items.toUnionValues())
         }
 
         return ConversionResult(name, enumBody)
