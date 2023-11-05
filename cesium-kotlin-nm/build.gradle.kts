@@ -9,4 +9,6 @@ dependencies {
     jsMainImplementation(npmv("cesium"))
 
     jsMainImplementation(wrappers("browser"))
+
+    jsMainImplementation(seskarCore())
 }
