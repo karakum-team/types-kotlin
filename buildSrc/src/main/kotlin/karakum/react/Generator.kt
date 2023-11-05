@@ -24,14 +24,19 @@ import web.http.ReferrerPolicy
 import web.window.WindowTarget
 """.trimIndent()
 
+private val SESKAR_IMPORTS = """
+import seskar.js.JsIntValue
+import seskar.js.JsUnion
+import seskar.js.JsValue
+""".trimIndent()
+
 fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
 ) {
     for ((name, body, pkg) in convertDefinitions(definitionsFile)) {
         val suppresses = mutableListOf<Suppress>().apply {
-            if ("JsName(\"\"\"(" in body) {
-                add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+            if ("@JsUnion" in body) {
                 add(Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE)
             }
         }.toTypedArray()
@@ -55,9 +60,9 @@ fun generateKotlinDeclarations(
         val content = when (finalPkg) {
             Package.HTML,
             Package.SVG,
-            -> ARIA_IMPORTS + "\n" + DOM_IMPORTS + "\n" + body
+            -> ARIA_IMPORTS + "\n" + DOM_IMPORTS + "\n" + SESKAR_IMPORTS + "\n" + body
 
-            else -> body
+            else -> SESKAR_IMPORTS + "\n" + body
         }
 
         val targetDir = sourceDir.resolve(finalPkg.path)
