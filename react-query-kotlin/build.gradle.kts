@@ -12,4 +12,6 @@ dependencies {
 
     jsMainImplementation(wrappers("web"))
     jsMainImplementation(wrappers("react-core"))
+
+    jsMainImplementation(seskarCore())
 }
