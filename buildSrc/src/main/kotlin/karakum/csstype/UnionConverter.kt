@@ -84,8 +84,8 @@ internal fun tryToUnion(
                 val constants = items.toUnionValues()
                     .map { UnionConstant(it, it, NAMED_COLOR_MAP.getValue(it)) }
 
-                unionBodyByConstants(name, constants)
-                    .replaceFirst(NAMED_COLOR, "$NAMED_COLOR: Color")
+                unionBodyByConstants(COLOR, constants)
+                    .replaceFirst(COLOR, NAMED_COLOR)
             }
 
             else -> sealedUnionBody(name, items.toUnionValues())
