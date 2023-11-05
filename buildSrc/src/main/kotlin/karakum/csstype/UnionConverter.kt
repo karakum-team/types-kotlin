@@ -173,8 +173,8 @@ internal fun tryToUnion(
         content = COLOR_COMMENT +
                 "\n\n" +
                 content.replace(
-                    "interface $COLOR",
-                    "class $COLOR\nprivate constructor()"
+                    "sealed external interface $COLOR",
+                    "external class $COLOR\nprivate constructor()"
                 )
     }
 
