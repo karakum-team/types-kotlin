@@ -1,5 +1,7 @@
 package karakum.common
 
+import java.util.*
+
 private const val UNION = """/*union*/"""
 
 internal fun unionBody(
@@ -61,7 +63,11 @@ internal fun sealedUnionBody(
     val constants = values.map(::unionConstant)
 
     val bodyMembers = constants
-        .joinToString("\n") { "val ${it.kotlinName}: $parentType.${it.kotlinName.capitalize()}" }
+        .joinToString("\n") { "val ${it.kotlinName}: $parentType.${it.kotlinName.replaceFirstChar {
+            if (it.isLowerCase()) it.titlecase(
+                Locale.getDefault()
+            ) else it.toString()
+        }}" }
 
     return jsName(constants) + """
         sealed external interface $name: $parentType {
@@ -95,7 +101,7 @@ internal fun objectUnionBody(
     """.trimIndent()
 }
 
-internal fun jsName(
+private fun jsName(
     constants: List<UnionConstant>,
 ): String {
     val name = constants
