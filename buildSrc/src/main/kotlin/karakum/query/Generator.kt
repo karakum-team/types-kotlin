@@ -18,6 +18,10 @@ private val DEFAULT_IMPORTS = listOf(
 
     "web.abort.AbortController",
     "web.abort.AbortSignal",
+
+    "seskar.js.JsIntValue",
+    "seskar.js.JsUnion",
+    "seskar.js.JsValue",
 ).map { it.substringAfterLast(".") to it }
 
 fun generateKotlinDeclarations(
@@ -120,8 +124,7 @@ private fun generate(
         if (moduleRequired && "typealias " in body)
             types.add(Suppress.NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE)
 
-        if ("JsName(\"\"\"(" in body) {
-            types.add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
+        if ("@JsValue(" in body) {
             types.add(Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE)
         }
 
