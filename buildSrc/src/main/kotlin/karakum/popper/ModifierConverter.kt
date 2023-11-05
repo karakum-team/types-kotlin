@@ -32,7 +32,7 @@ internal fun convertModifier(
     }
 
     val modifierBody = """
-        @JsName("'$id'")
+        @JsValue("$id")
         external val $name: popper.core.ModifierName<$typeParameter>
     """.trimIndent()
 

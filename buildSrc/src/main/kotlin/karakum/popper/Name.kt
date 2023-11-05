@@ -27,7 +27,7 @@ internal fun nameTypes(): Sequence<ConversionResult> =
         ConversionResult(
             name = "Popper",
             body = """
-                @JsName("'popper'")
+                @JsValue("popper")
                 external val Popper: Name
             """.trimIndent()
         ),

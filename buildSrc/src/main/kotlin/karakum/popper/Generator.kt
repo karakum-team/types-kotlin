@@ -7,12 +7,16 @@ import java.io.File
 import java.io.FileFilter
 
 private val DEFAULT_IMPORTS = listOf(
-    "Promise" to "js.promise.Promise",
+    "js.promise.Promise",
 
-    "ReadonlyArray" to "js.core.ReadonlyArray",
-    "Record" to "js.core.Record",
-    "Void" to "js.core.Void",
-)
+    "js.core.ReadonlyArray",
+    "js.core.Record",
+    "js.core.Void",
+
+    "seskar.js.JsIntValue",
+    "seskar.js.JsUnion",
+    "seskar.js.JsValue",
+).map { it.substringAfterLast(".") to it }
 
 fun generateKotlinDeclarations(
     definitionsDir: File,
@@ -43,10 +47,7 @@ private fun generateCoreDeclarations(
 
     for ((name, body) in types) {
         val suppresses = mutableListOf<Suppress>().apply {
-            if ("JsName(\"\"\"(" in body || "JsName(\"'" in body)
-                add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
-
-            if ("JsName(\"\"\"(" in body)
+            if ("@JsValue(" in body && "companion object" in body)
                 add(Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE)
         }.toTypedArray()
 
@@ -79,20 +80,8 @@ private fun generateModifiersDeclarations(
         .map { convertModifier(it.readText()) }
 
     for ((name, body) in modifiers) {
-        val suppresses = mutableListOf<Suppress>().apply {
-            if ("JsName(\"\"\"(" in body || "JsName(\"'" in body)
-                add(Suppress.NAME_CONTAINS_ILLEGAL_CHARS)
-        }.toTypedArray()
-
-        val annotations = when {
-            suppresses.isNotEmpty()
-            -> fileSuppress(*suppresses)
-
-            else -> ""
-        }
-
         targetDir.resolve("$name.kt")
-            .writeText(fileContent(Package.MODIFIERS, annotations, body))
+            .writeText(fileContent(Package.MODIFIERS, "", body))
     }
 }
 
