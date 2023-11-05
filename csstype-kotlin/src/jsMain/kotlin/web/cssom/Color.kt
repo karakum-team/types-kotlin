@@ -6,7 +6,6 @@
 
 package web.cssom
 
-import seskar.js.JsUnion
 import seskar.js.JsValue
 
 /*
@@ -17,7 +16,6 @@ import seskar.js.JsValue
  * [K2 issue](https://youtrack.jetbrains.com/issue/KT-60856)
  */
 
-@JsUnion
 @JsName("null")
 external class Color
 private constructor() : ColorType {
