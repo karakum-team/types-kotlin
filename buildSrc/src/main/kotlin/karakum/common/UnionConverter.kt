@@ -90,7 +90,7 @@ internal fun objectUnionBody(
     }
 
     val constantTypes = constants.joinToString("\n") {
-        "interface ${it.kotlinName} : $name"
+        "sealed interface ${it.kotlinName} : $name"
     }
 
     return """
