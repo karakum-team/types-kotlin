@@ -77,6 +77,11 @@ private fun fileContent(
     val defaultImports = sequenceOf("JsTuple2", "JsIterator", "ReadonlyArray")
         .filter { "$it<" in body }
         .map { "import js.core.$it" }
+        .plus(
+            sequenceOf("JsUnion", "JsValue", "JsIntValue")
+                .filter { it in body }
+                .map { "import seskar.js.$it" }
+        )
         .joinToString("\n")
 
     var result = sequenceOf(
