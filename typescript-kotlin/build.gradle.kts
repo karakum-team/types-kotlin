@@ -16,4 +16,5 @@ dependencies {
     jsMainImplementation(npmv("typescript"))
 
     jsMainImplementation(wrappers("js"))
+    jsMainImplementation(seskarCore())
 }
