@@ -82,42 +82,28 @@ internal fun sealedUnionBody(
 
 internal fun objectUnionBody(
     name: String,
-    type: String = name,
     constants: List<UnionConstant>,
 ): String {
-    val constantNames = constants
-        .joinToString("\n") {
-            sequenceOf(
-                it.comment,
-                "object ${it.kotlinName} : $type",
-            ).filterNotNull()
-                .joinToString("\n")
-        }
+    val constantNames = constants.joinToString("\n") {
+        sequenceOf(
+            it.jsValueAnnotation,
+            "val ${it.kotlinName} : ${name}.${it.kotlinName}",
+        ).joinToString("\n")
+    }
 
-    val modifier = if (name == type) "sealed interface" else "object"
-    return """
-        ${jsName(constants)}
-        external $modifier $name {
-            $constantNames
-        }
-    """.trimIndent()
-}
-
-private fun jsName(
-    constants: List<UnionConstant>,
-): String {
-    val name = constants
-        .joinToString(
-            separator = ", ",
-            prefix = "@JsName(\"\"\"($UNION{",
-            postfix = "}$UNION)\"\"\")",
-        ) {
-            "${it.jsName}: ${it.jsValue}"
-        }
+    val constantTypes = constants.joinToString("\n") {
+        "interface ${it.kotlinName}"
+    }
 
     return """
-        // language=JavaScript
-        $name
+        @JsUnion
+        external sealed interface $name {
+            companion object {
+                $constantNames
+            }
+            
+            $constantTypes
+        }
     """.trimIndent()
 }
 
@@ -129,14 +115,6 @@ internal data class UnionConstant(
     private val originalValue: Boolean = false,
     val comment: String? = null,
 ) {
-    // TODO: remove
-    val jsValue: String
-        get() = if (originalValue) {
-            if (value.startsWith("\"")) {
-                "'${value.removeSurrounding("\"")}'"
-            } else value
-        } else "'$value'"
-
     val jsValueAnnotation: String
         get() {
             val annotation = if (originalValue) {

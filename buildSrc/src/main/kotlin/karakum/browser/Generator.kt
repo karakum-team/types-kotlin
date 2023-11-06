@@ -247,12 +247,6 @@ fun generateKotlinDeclarations(
             if ("override val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
 
-            // TODO: remove
-            if ("JsName(\"\"\"(" in body) {
-                add(NAME_CONTAINS_ILLEGAL_CHARS)
-                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
-            }
-
             if ("@JsValue(" in body && "companion object" in body)
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
@@ -423,8 +417,7 @@ fun generateKotlinDeclarations(
 
     for ((name, body) in webglDeclarations(content)) {
         val suppresses = mutableSetOf<Suppress>().apply {
-            if ("JsName(\"\"\"(" in body) {
-                add(NAME_CONTAINS_ILLEGAL_CHARS)
+            if ("@JsUnion" in body) {
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
             }
         }.toTypedArray()
