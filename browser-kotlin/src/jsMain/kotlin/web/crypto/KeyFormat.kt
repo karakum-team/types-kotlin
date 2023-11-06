@@ -25,8 +25,8 @@ sealed external interface KeyFormat {
         val spki: spki
     }
 
-    interface jwk
-    interface pkcs8
-    interface raw
-    interface spki
+    interface jwk : KeyFormat
+    interface pkcs8 : KeyFormat
+    interface raw : KeyFormat
+    interface spki : KeyFormat
 }

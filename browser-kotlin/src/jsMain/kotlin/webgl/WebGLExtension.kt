@@ -115,38 +115,38 @@ sealed external interface WebGLExtension {
         val WEBGL_multi_draw: WEBGL_multi_draw
     }
 
-    interface ANGLE_instanced_arrays
-    interface EXT_blend_minmax
-    interface EXT_color_buffer_float
-    interface EXT_color_buffer_half_float
-    interface EXT_float_blend
-    interface EXT_frag_depth
-    interface EXT_sRGB
-    interface EXT_shader_texture_lod
-    interface EXT_texture_compression_bptc
-    interface EXT_texture_compression_rgtc
-    interface EXT_texture_filter_anisotropic
-    interface KHR_parallel_shader_compile
-    interface OES_element_index_uint
-    interface OES_fbo_render_mipmap
-    interface OES_standard_derivatives
-    interface OES_texture_float
-    interface OES_texture_float_linear
-    interface OES_texture_half_float
-    interface OES_texture_half_float_linear
-    interface OES_vertex_array_object
-    interface OVR_multiview2
-    interface WEBGL_color_buffer_float
-    interface WEBGL_compressed_texture_astc
-    interface WEBGL_compressed_texture_etc
-    interface WEBGL_compressed_texture_etc1
-    interface WEBGL_compressed_texture_pvrtc
-    interface WEBGL_compressed_texture_s3tc
-    interface WEBGL_compressed_texture_s3tc_srgb
-    interface WEBGL_debug_renderer_info
-    interface WEBGL_debug_shaders
-    interface WEBGL_depth_texture
-    interface WEBGL_draw_buffers
-    interface WEBGL_lose_context
-    interface WEBGL_multi_draw
+    interface ANGLE_instanced_arrays : WebGLExtension
+    interface EXT_blend_minmax : WebGLExtension
+    interface EXT_color_buffer_float : WebGLExtension
+    interface EXT_color_buffer_half_float : WebGLExtension
+    interface EXT_float_blend : WebGLExtension
+    interface EXT_frag_depth : WebGLExtension
+    interface EXT_sRGB : WebGLExtension
+    interface EXT_shader_texture_lod : WebGLExtension
+    interface EXT_texture_compression_bptc : WebGLExtension
+    interface EXT_texture_compression_rgtc : WebGLExtension
+    interface EXT_texture_filter_anisotropic : WebGLExtension
+    interface KHR_parallel_shader_compile : WebGLExtension
+    interface OES_element_index_uint : WebGLExtension
+    interface OES_fbo_render_mipmap : WebGLExtension
+    interface OES_standard_derivatives : WebGLExtension
+    interface OES_texture_float : WebGLExtension
+    interface OES_texture_float_linear : WebGLExtension
+    interface OES_texture_half_float : WebGLExtension
+    interface OES_texture_half_float_linear : WebGLExtension
+    interface OES_vertex_array_object : WebGLExtension
+    interface OVR_multiview2 : WebGLExtension
+    interface WEBGL_color_buffer_float : WebGLExtension
+    interface WEBGL_compressed_texture_astc : WebGLExtension
+    interface WEBGL_compressed_texture_etc : WebGLExtension
+    interface WEBGL_compressed_texture_etc1 : WebGLExtension
+    interface WEBGL_compressed_texture_pvrtc : WebGLExtension
+    interface WEBGL_compressed_texture_s3tc : WebGLExtension
+    interface WEBGL_compressed_texture_s3tc_srgb : WebGLExtension
+    interface WEBGL_debug_renderer_info : WebGLExtension
+    interface WEBGL_debug_shaders : WebGLExtension
+    interface WEBGL_depth_texture : WebGLExtension
+    interface WEBGL_draw_buffers : WebGLExtension
+    interface WEBGL_lose_context : WebGLExtension
+    interface WEBGL_multi_draw : WebGLExtension
 }

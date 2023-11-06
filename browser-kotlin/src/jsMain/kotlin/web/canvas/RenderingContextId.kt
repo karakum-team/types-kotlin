@@ -26,8 +26,8 @@ sealed external interface RenderingContextId {
         val webgl2: webgl2
     }
 
-    interface canvas
-    interface bitmaprenderer
-    interface webgl
-    interface webgl2
+    interface canvas : RenderingContextId
+    interface bitmaprenderer : RenderingContextId
+    interface webgl : RenderingContextId
+    interface webgl2 : RenderingContextId
 }
