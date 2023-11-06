@@ -1,7 +1,5 @@
 package karakum.common
 
-private const val UNION = """/*union*/"""
-
 internal fun unionBody(
     name: String,
     values: List<String>,
