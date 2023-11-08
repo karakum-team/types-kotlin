@@ -20,8 +20,8 @@ package cesium
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Ray.html">Online Documentation</a>
  */
 external class Ray(
-    var origin: Cartesian3 = definedExternally,
-    var direction: Cartesian3 = definedExternally,
+ var origin: Cartesian3 = definedExternally,
+ var direction: Cartesian3 = definedExternally,
 ) {
 
 
@@ -34,8 +34,8 @@ external class Ray(
          * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Ray.html#.clone">Online Documentation</a>
          */
         fun clone(
-            ray: Ray,
-            result: Ray? = definedExternally,
+         ray: Ray,
+         result: Ray? = definedExternally,
         ): Ray
 
         /**
@@ -53,9 +53,9 @@ external class Ray(
          * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Ray.html#.getPoint">Online Documentation</a>
          */
         fun getPoint(
-            ray: Ray,
-            t: Double,
-            result: Cartesian3? = definedExternally,
+         ray: Ray,
+         t: Double,
+         result: Cartesian3? = definedExternally,
         ): Cartesian3
     }
 }
