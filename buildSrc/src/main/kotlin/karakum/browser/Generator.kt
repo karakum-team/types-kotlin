@@ -42,7 +42,7 @@ private val DEFAULT_IMPORTS = Imports(
     "kotlin.js.Date",
 
     "seskar.js.JsIntValue",
-    "seskar.js.JsUnion",
+    "seskar.js.JsVirtual",
     "seskar.js.JsValue",
 
     "web.abort.AbortSignal",
@@ -417,7 +417,7 @@ fun generateKotlinDeclarations(
 
     for ((name, body) in webglDeclarations(content)) {
         val suppresses = mutableSetOf<Suppress>().apply {
-            if ("@JsUnion" in body) {
+            if ("@JsVirtual" in body) {
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
             }
         }.toTypedArray()

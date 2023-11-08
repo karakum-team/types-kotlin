@@ -26,7 +26,7 @@ import actions.http.client.HttpClient
 import actions.http.client.HttpClientResponse
 
 import seskar.js.JsIntValue
-import seskar.js.JsUnion
+import seskar.js.JsVirtual
 import seskar.js.JsValue
 """.trimIndent()
 
@@ -56,7 +56,7 @@ private fun generate(
 
     for ((name, body) in result.results) {
         val suppresses = mutableListOf<Suppress>().apply {
-            if ("@JsUnion" in body) {
+            if ("@JsVirtual" in body) {
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
             }
 

@@ -26,7 +26,7 @@ import web.window.WindowTarget
 
 private val SESKAR_IMPORTS = """
 import seskar.js.JsIntValue
-import seskar.js.JsUnion
+import seskar.js.JsVirtual
 import seskar.js.JsValue
 """.trimIndent()
 
@@ -36,7 +36,7 @@ fun generateKotlinDeclarations(
 ) {
     for ((name, body, pkg) in convertDefinitions(definitionsFile)) {
         val suppresses = mutableListOf<Suppress>().apply {
-            if ("@JsUnion" in body) {
+            if ("@JsVirtual" in body) {
                 add(Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE)
             }
         }.toTypedArray()

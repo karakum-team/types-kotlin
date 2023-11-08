@@ -78,7 +78,7 @@ private fun fileContent(
         .filter { "$it<" in body }
         .map { "import js.core.$it" }
         .plus(
-            sequenceOf("JsUnion", "JsValue", "JsIntValue")
+            sequenceOf("JsVirtual", "JsValue", "JsIntValue")
                 .filter { it in body }
                 .map { "import seskar.js.$it" }
         )
