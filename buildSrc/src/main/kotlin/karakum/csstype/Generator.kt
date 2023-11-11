@@ -12,7 +12,7 @@ private val CSSTYPE_TYPES = setOf(
     "CssDsl",
     "Properties",
     "PseudosRuleBuilder",
-    "RuleBuilder",
+    RULE_BUILDER,
     "Rules",
     "SimplePseudosRuleBuilder",
 )

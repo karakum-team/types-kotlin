@@ -6,6 +6,8 @@ internal const val MEDIA_QUERY = "MediaQuery"
 internal const val CONTAINER_QUERY = "ContainerQuery"
 internal const val SIZE_QUERY = "SizeQuery"
 
+internal const val CONTAINER_NAME = "ContainerName"
+
 internal fun MediaQuery(): ConversionResult =
     ConversionResult(
         name = MEDIA_QUERY,

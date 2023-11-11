@@ -7,7 +7,7 @@ internal const val IDENT_TYPE = "IdentType"
 
 private val PARENT_TYPES = listOf(
     ANIMATION_NAME,
-    "ContainerName",
+    CONTAINER_NAME,
     "ScrollTimelineName",
     "ViewTransitionName",
 
