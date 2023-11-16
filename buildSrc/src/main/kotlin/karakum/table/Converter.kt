@@ -432,7 +432,8 @@ private fun convertMembers(
         .removeSuffix("\n")
         .substringBefore(" & (keyof ")
         .substringBeforeLast("\n}")
-        .replace("\n  \n", "\n")
+        .replace("     * @link ", "     * ")
+        .replace("      * @link ", "     * ")
         .trimIndent()
 
     if (content == "")
@@ -442,12 +443,11 @@ private fun convertMembers(
         .splitToSequence("\n")
         .filter { !it.startsWith("_") }
         .map { it.removeSuffix(";") }
-        .mapNotNull { line ->
+        .map { line ->
             when {
-                line.startsWith("/") -> null // line
-                line.startsWith(" *") -> null // line
-                line.startsWith("    - ") -> null // line
-                line.startsWith("  * @link ") -> null // line
+                line.startsWith("/") -> line
+                line.startsWith(" *") -> line
+                line.startsWith("    - ") -> line
                 else -> convertMember(line)
             }
         }
