@@ -408,6 +408,7 @@ private fun convertMembers(
         .removeSuffix("\n")
         .substringBefore(" & (keyof ")
         .substringBeforeLast("\n}")
+        .replace("\n  \n", "\n")
         .trimIndent()
 
     if (content == "")
@@ -422,6 +423,7 @@ private fun convertMembers(
                 line.startsWith("/") -> null // line
                 line.startsWith(" *") -> null // line
                 line.startsWith("    - ") -> null // line
+                line.startsWith("  * @link ") -> null // line
                 else -> convertMember(line)
             }
         }
