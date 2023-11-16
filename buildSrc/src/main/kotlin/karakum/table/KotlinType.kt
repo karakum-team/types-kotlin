@@ -121,6 +121,7 @@ internal fun kotlinType(
         .replace("false | SortDirection", "SortDirection?")
         .replace(": Partial<TableOptions<TData>>", ": TableOptions<TData> /* Partial */")
         .replace("?: Row<TData>", ": Row<TData>?")
+        .replace("?: ToggleSelectedOptions", ": ToggleSelectedOptions?")
         .replace(" -> undefined | TData[]", " -> ReadonlyArray<TData>")
         .replace("Column<TData, unknown>", "Column<TData, *>")
         .replace("<TValue | null>", "<TValue?>")

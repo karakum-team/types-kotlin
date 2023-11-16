@@ -212,7 +212,11 @@ private fun convertTypealias(
     }
 
     if (body.startsWith("Pick<ColumnSizingOptions,")) {
-        return ConversionResult(name, "external interface $declaration : ColumnSizingOptions")
+        return ConversionResult(name, "sealed external interface $declaration : ColumnSizingOptions /* $body */")
+    }
+
+    if (body.startsWith("Pick<VisibilityOptions,")) {
+        return ConversionResult(name, "sealed external interface $declaration : VisibilityOptions  /* $body */")
     }
 
     if (" | " in body) {
@@ -401,9 +405,29 @@ private fun convertInterface(
     return ConversionResult(name, "external interface $declaration$body")
 }
 
+private val TOGGLE_SELECTED_OLD = """
+    toggleSelected: (value?: boolean, opts?: {
+        selectChildren?: boolean;
+    }) => void;
+""".trim()
+
+private val TOGGLE_SELECTED_NEW = """
+    toggleSelected: (value?: boolean, opts?: ToggleSelectedOptions) => void;
+""".trim()
+
 private fun convertMembers(
     source: String,
 ): String {
+    if (TOGGLE_SELECTED_OLD in source) {
+        return convertMembers(source.replace(TOGGLE_SELECTED_OLD, TOGGLE_SELECTED_NEW)) +
+                "\n\n" +
+                """
+                sealed interface ToggleSelectedOptions {
+                    var selectChildren: Boolean?
+                }    
+                """.trimIndent()
+    }
+
     val content = source
         .removeSuffix("\n")
         .substringBefore(" & (keyof ")
