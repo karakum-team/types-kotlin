@@ -211,6 +211,10 @@ private fun convertTypealias(
         return ConversionResult(name, "external interface $declaration : $parent {\n$interfaceBody\n}")
     }
 
+    if (body.startsWith("Pick<ColumnSizingOptions,")) {
+        return ConversionResult(name, "external interface $declaration : ColumnSizingOptions")
+    }
+
     if (" | " in body) {
         when (name) {
             "ColumnDef",
@@ -417,6 +421,7 @@ private fun convertMembers(
             when {
                 line.startsWith("/") -> null // line
                 line.startsWith(" *") -> null // line
+                line.startsWith("    - ") -> null // line
                 else -> convertMember(line)
             }
         }
