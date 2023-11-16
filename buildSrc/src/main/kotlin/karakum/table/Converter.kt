@@ -413,7 +413,13 @@ private fun convertMembers(
         .splitToSequence("\n")
         .filter { !it.startsWith("_") }
         .map { it.removeSuffix(";") }
-        .map { convertMember(it) }
+        .mapNotNull { line ->
+            when {
+                line.startsWith("/") -> null // line
+                line.startsWith(" *") -> null // line
+                else -> convertMember(line)
+            }
+        }
         .joinToString("\n")
 }
 
