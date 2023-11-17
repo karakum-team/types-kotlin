@@ -2,7 +2,7 @@ package karakum.query
 
 // language=TypeScript
 internal val HYDRATE_OPTIONS_SOURCE = """
-export interface HydrateOptions {
+interface HydrateOptions {
     defaultOptions?: {
         queries?: QueryOptions;
         mutations?: MutationOptions;
