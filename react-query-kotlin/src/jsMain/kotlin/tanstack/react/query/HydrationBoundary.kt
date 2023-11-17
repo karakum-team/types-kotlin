@@ -16,6 +16,4 @@ override var children: react.ReactNode?
 var queryClient: QueryClient
 }
 
-external val HydrationBoundary: (
-
-{ children, options, state, queryClient, }: HydrationBoundaryProps) -> React.ReactElement<any, string | React.JSXElementConstructor<any>>
+external val HydrationBoundary: react.FC<HydrationBoundaryProps>

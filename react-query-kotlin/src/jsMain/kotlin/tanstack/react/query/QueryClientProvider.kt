@@ -14,6 +14,4 @@ external interface QueryClientProviderProps : react.PropsWithChildren {
     var client: QueryClient
 }
 
-external val QueryClientProvider: (
-
-{ client, children, }: QueryClientProviderProps) -> JSX.Element
+external val QueryClientProvider: react.FC<QueryClientProviderProps>
