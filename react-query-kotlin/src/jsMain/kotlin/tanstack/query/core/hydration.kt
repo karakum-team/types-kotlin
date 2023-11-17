@@ -2,19 +2,11 @@
 
 @file:JsModule("@tanstack/query-core")
 
-@file:Suppress(
-    "NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE",
-)
-
 package tanstack.query.core
 
-import js.core.ReadonlyArray
-
 external interface DehydrateOptions {
-    var dehydrateMutations: Boolean
-    var dehydrateQueries: Boolean
-    var shouldDehydrateMutation: ShouldDehydrateMutationFunction
-    var shouldDehydrateQuery: ShouldDehydrateQueryFunction
+    var shouldDehydrateMutation: (mutation: Mutation) -> Boolean
+    var shouldDehydrateQuery: (query: Query<*, *, *, *>) -> Boolean
 }
 
 external interface DefaultHydrateOptions {
@@ -29,22 +21,20 @@ external interface HydrateOptions {
 external interface DehydratedMutation {
     var mutationKey: MutationKey
     var state: MutationState<*, *, *, *>
+    var meta: MutationMeta
 }
 
 external interface DehydratedQuery {
     var queryHash: String
     var queryKey: QueryKey
     var state: QueryState<*, *>
+    var meta: QueryMeta
 }
 
 external interface DehydratedState {
-    var mutations: ReadonlyArray<DehydratedMutation>
-    var queries: ReadonlyArray<DehydratedQuery>
+    var mutations: Array<DehydratedMutation>
+    var queries: Array<DehydratedQuery>
 }
-
-typealias ShouldDehydrateQueryFunction = (query: Query<*, *, *, *>) -> Boolean
-
-typealias ShouldDehydrateMutationFunction = (mutation: Mutation<*, *, *, *>) -> Boolean
 
 external fun defaultShouldDehydrateMutation(mutation: Mutation<*, *, *, *>): Boolean
 

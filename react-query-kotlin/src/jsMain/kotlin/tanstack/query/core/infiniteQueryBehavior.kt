@@ -4,26 +4,14 @@
 
 package tanstack.query.core
 
-import js.core.ReadonlyArray
-
-external fun <TQueryFnData, TError, TData> infiniteQueryBehavior(): QueryBehavior<TQueryFnData, TError, InfiniteData<TData>, *>
-
-external fun getNextPageParam(
-    options: QueryOptions<*, *, *, *>,
-    pages: ReadonlyArray<Page>,
-): Any?
-
-external fun getPreviousPageParam(
-    options: QueryOptions<*, *, *, *>,
-    pages: ReadonlyArray<Page>,
-): Any?
+external fun <TQueryFnData, TError, TData, TPageParam> infiniteQueryBehavior(pages: Int = definedExternally): QueryBehavior<TQueryFnData, TError, InfiniteData<TData, TPageParam>>
 
 external fun hasNextPage(
-    options: QueryOptions<*, *, *, *>,
-    pages: Page = definedExternally,
-): Boolean?
+    options: InfiniteQueryPageParamsOptions<*, *>,
+    data: InfiniteData<*> = definedExternally,
+): Boolean
 
 external fun hasPreviousPage(
-    options: QueryOptions<*, *, *, *>,
-    pages: Page = definedExternally,
-): Boolean?
+    options: InfiniteQueryPageParamsOptions<*, *>,
+    data: InfiniteData<*> = definedExternally,
+): Boolean

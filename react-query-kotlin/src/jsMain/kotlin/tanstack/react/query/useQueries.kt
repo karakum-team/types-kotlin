@@ -9,9 +9,7 @@
 
 package tanstack.react.query
 
-import js.core.ReadonlyArray
-
-typealias UseQueryOptionsForUseQueries<TQueryFnData, TError, TData, TQueryKey> = Any
+typealias UseQueryOptionsForUseQueries<TQueryFnData, TError, TData, TQueryKey> = Union /* Omit<UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'placeholderData' | 'suspense'> & { */
 
 const val MAXIMUM_DEPTH = 20
 
@@ -19,8 +17,10 @@ typealias GetOptions<T> = Any
 
 typealias GetResults<T> = Any
 
-typealias QueriesOptions<T, Result, Depth> = Any
+typealias QueriesOptions<T, Result> = Any
 
-typealias QueriesResults<T, Result, Depth> = Any
+typealias QueriesResults<T, Result> = Any
 
-external fun <T : ReadonlyArray<*>> useQueries(options: dynamic /* { */): QueriesResults<T, *, *>
+external fun <T : Array<any>, TCombinedResult> useQueries( {
+    queries, ...options
+}: dynamic /* { */ ): QueriesResults<T, *, *>

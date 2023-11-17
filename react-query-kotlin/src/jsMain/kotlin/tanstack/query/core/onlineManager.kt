@@ -8,14 +8,15 @@
 
 package tanstack.query.core
 
-typealias OnlineManagerSetupFn = (setOnline: (online: Boolean?) -> Unit) -> (() -> Unit)?
+typealias Listener = (online: Boolean) -> Unit
+
+typealias OnlineManagerSetupFn = (setOnline: Listener) -> (() -> Unit)?
 
 open external class OnlineManager : Subscribable<Listener> {
     override fun onSubscribe()
     override fun onUnsubscribe()
     open fun setEventListener(setup: OnlineManagerSetupFn)
-    open fun setOnline(online: Boolean = definedExternally)
-    open fun onOnline()
+    open fun setOnline(online: Boolean)
     open fun isOnline(): Boolean
 }
 

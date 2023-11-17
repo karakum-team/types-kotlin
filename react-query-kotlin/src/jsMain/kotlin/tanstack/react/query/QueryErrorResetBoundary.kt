@@ -16,4 +16,6 @@ external interface QueryErrorResetBoundaryProps : react.Props {
     var children: (value: QueryErrorResetBoundaryValue) -> react.ReactNode
 }
 
-external val QueryErrorResetBoundary: react.FC<QueryErrorResetBoundaryProps>
+external val QueryErrorResetBoundary: (
+
+{ children, }: QueryErrorResetBoundaryProps) -> React.JSX.Element

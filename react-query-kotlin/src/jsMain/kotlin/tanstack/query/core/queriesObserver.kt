@@ -10,22 +10,29 @@ package tanstack.query.core
 
 import js.core.ReadonlyArray
 
-typealias QueriesObserverListener = (result: ReadonlyArray<QueryObserverResult<*, *>>) -> Unit
+typealias QueriesObserverListener = (result: Array<QueryObserverResult>) -> Unit
 
-open external class QueriesObserver(
+external interface QueriesObserverOptions<TCombinedResult> {
+ var combine: (result: Array<QueryObserverResult>) -> TCombinedResult
+}
+
+open external class QueriesObserver<TCombinedResult>(
     client: QueryClient,
-    queries: ReadonlyArray<QueryObserverOptions<*, *, *, *, *>> = definedExternally,
+    queries: Array<QueryObserverOptions>,
+    options: QueriesObserverOptions<TCombinedResult> = definedExternally,
 ) : Subscribable<QueriesObserverListener> {
     override fun onSubscribe()
     override fun onUnsubscribe()
     open fun destroy()
     open fun setQueries(
-        queries: ReadonlyArray<QueryObserverOptions<*, *, *, *, *>>,
+     queries: Array<QueryObserverOptions>,
+     options: QueriesObserverOptions<TCombinedResult> = definedExternally,
         notifyOptions: NotifyOptions = definedExternally,
     )
 
-    open fun getCurrentResult(): ReadonlyArray<QueryObserverResult<*, *>>
-    open fun getQueries(): ReadonlyArray<Query<*, *, *, QueryKey>>
-    open fun getObservers(): ReadonlyArray<QueryObserver<*, *, *, *, QueryKey>>
-    open fun getOptimisticResult(queries: ReadonlyArray<QueryObserverOptions<*, *, *, *, *>>): ReadonlyArray<QueryObserverResult<*, *>>
+ open fun getCurrentResult(): TCombinedResult
+ open fun getQueries(): ReadonlyArray<Query<*, Error, *, QueryKey>>
+ open fun getObservers(): ReadonlyArray<QueryObserver<*, Error, *, *, QueryKey>>
+ open fun getOptimisticResult(queries: Array<QueryObserverOptions>): [
+ open fun ](]: ] ): ]
 }

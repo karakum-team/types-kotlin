@@ -10,15 +10,12 @@ import seskar.js.JsValue
 import seskar.js.JsVirtual
 
 @JsVirtual
-sealed external interface QueryStatus {
+sealed external interface FetchDirection {
     companion object {
-        @JsValue("pending")
-        val pending: QueryStatus
+        @JsValue("forward")
+        val forward: FetchDirection
 
-        @JsValue("error")
-        val error: QueryStatus
-
-        @JsValue("success")
-        val success: QueryStatus
+        @JsValue("backward")
+        val backward: FetchDirection
     }
 }

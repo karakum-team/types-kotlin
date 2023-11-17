@@ -4,7 +4,7 @@
     "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
-package tanstack.query.core
+package tanstack.react.query
 
 import seskar.js.JsValue
 import seskar.js.JsVirtual
