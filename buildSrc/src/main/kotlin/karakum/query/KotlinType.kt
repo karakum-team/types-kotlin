@@ -75,12 +75,12 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "boolean | ((error: TError) => boolean)" to "(error: TError) -> Boolean",
 
-    "({ children, }: QueryErrorResetBoundaryProps) => JSX.Element" to
+    "({ children, }: QueryErrorResetBoundaryProps) => React.JSX.Element" to
             "react.FC<QueryErrorResetBoundaryProps>",
-    "({ client, children, context, contextSharing, }: QueryClientProviderProps) => JSX.Element" to
+    "({ client, children, }: QueryClientProviderProps) => JSX.Element" to
             "react.FC<QueryClientProviderProps>",
-    "({ children, options, state }: HydrateProps) => React.ReactElement<any, string | React.JSXElementConstructor<any>>" to
-            "react.FC<HydrateProps>",
+    "({ children, options, state, queryClient, }: HydrationBoundaryProps) => React.ReactElement<any, string | React.JSXElementConstructor<any>>" to
+            "react.FC<HydrationBoundaryProps>",
 
     "import(\"./query\").Query<unknown, unknown, unknown, QueryKey>" to
             "Query<*, *, *, QueryKey>",
