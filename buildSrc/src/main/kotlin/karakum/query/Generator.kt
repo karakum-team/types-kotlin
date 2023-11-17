@@ -5,16 +5,18 @@ import karakum.common.Suppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
-    "js.promise.Promise",
-
     "js.core.EpochTimeStamp",
     "js.core.JsTuple2",
-    "js.promise.PromiseResult",
     "js.core.ReadonlyArray",
     "js.core.Record",
     "js.core.Void",
 
+    "js.promise.Promise",
+    "js.promise.PromiseResult",
+
     "js.collections.JsSet",
+
+    "js.iterable.IterableIterator",
 
     "web.abort.AbortController",
     "web.abort.AbortSignal",
