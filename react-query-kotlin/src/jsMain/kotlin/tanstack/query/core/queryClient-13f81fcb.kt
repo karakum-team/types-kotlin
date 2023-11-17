@@ -11,6 +11,7 @@ package tanstack.query.core
 
 import js.core.EpochTimeStamp
 import js.core.Void
+import js.iterable.IterableIterator
 import js.promise.Promise
 import js.promise.PromiseResult
 import web.abort.AbortSignal
