@@ -22,13 +22,13 @@ abstract class TypeBase : Declaration() {
         if (name.endsWith("Props"))
             return@lazy when (name) {
                 "QueryClientProviderProps",
-                "HydrateProps",
+                "HydrationBoundaryProps",
                 -> "react.PropsWithChildren"
 
                 "QueryErrorResetBoundaryProps",
                 -> "react.Props"
 
-                else -> TODO()
+                else -> TODO("No parent type for `$name`")
             }
 
         val line = source.substringBefore(" {")

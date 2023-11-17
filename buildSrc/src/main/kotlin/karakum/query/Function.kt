@@ -5,7 +5,7 @@ fun Function(
 ): Method =
     Method(
         source = source
-            .removePrefix("export declare function ")
+            .removePrefix("declare function ")
             .replace(" extends (...args: any[]) => boolean", ": Function<Boolean>")
             .replace("{ queryClient, broadcastChannel, }:", "options:")
             .replace("{ storage, key, throttleTime, }:", "options:")
