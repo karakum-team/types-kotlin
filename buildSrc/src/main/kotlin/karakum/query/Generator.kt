@@ -160,6 +160,9 @@ private fun generate(
             import tanstack.query.core.MutateFunction
             import tanstack.query.core.MutationObserverResult
             import tanstack.query.core.QueryFilters
+            
+            import tanstack.query.core.False
+            import tanstack.query.core.True
             """.trimIndent()
         }
 
