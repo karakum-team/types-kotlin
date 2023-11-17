@@ -25,7 +25,7 @@ open external class MutationObserver<TData, TError, TVariables, TContext>(
     protected open fun bindMethods()
     open fun setOptions(options: MutationObserverOptions<TData, TError, TVariables, TContext> = definedExternally)
     override fun onUnsubscribe()
-    open fun onMutationUpdate(action: Action$1<TData, TError, TVariables, TContext> )
+    open fun onMutationUpdate(action: Action_1<TData, TError, TVariables, TContext>)
     open fun getCurrentResult(): MutationObserverResult<TData, TError, TVariables, TContext>
     open fun reset()
     open fun mutate(
@@ -166,7 +166,7 @@ external interface NotifyEventMutationObserverOptionsUpdated : NotifyEvent {
 external interface NotifyEventMutationUpdated : NotifyEvent {
     override var type: NotifyEventType /* 'updated' */
     var mutation: Mutation<*, *, *, *>
-    var action: Action$1<*, *, *, *>
+    var action: Action_1<*, *, *, *>
 }
 
 typealias MutationCacheNotifyEvent = Union /* NotifyEventMutationAdded | NotifyEventMutationRemoved | NotifyEventMutationObserverAdded | NotifyEventMutationObserverRemoved | NotifyEventMutationObserverOptionsUpdated | NotifyEventMutationUpdated */
@@ -212,7 +212,7 @@ external interface MutationState<TData, TError, TVariables, TContext> {
     val submittedAt: EpochTimeStamp
 }
 
-external interface FailedAction$1 <TError>  {
+external interface FailedAction_1<TError> {
     var type: Type /* 'failed' */
     var failureCount: Int
     var error: TError?
@@ -224,25 +224,25 @@ external interface PendingAction<TVariables, TContext> {
     var context: TContext
 }
 
-external interface SuccessAction$1 <TData>  {
+external interface SuccessAction_1<TData> {
     var type: Type /* 'success' */
     var data: TData
 }
 
-external interface ErrorAction$1 <TError>  {
+external interface ErrorAction_1<TError> {
     var type: Type /* 'error' */
     var error: TError
 }
 
-external interface PauseAction$1   {
+external interface PauseAction_1 {
     var type: Type /* 'pause' */
 }
 
-external interface ContinueAction$1   {
+external interface ContinueAction_1 {
     var type: Type /* 'continue' */
 }
 
-typealias Action$1<TData, TError, TVariables, TContext> = Union /* ContinueAction$1 | ErrorAction$1<TError> | FailedAction$1<TError> | PendingAction<TVariables, TContext> | PauseAction$1 | SuccessAction$1<TData> */
+typealias Action_1<TData, TError, TVariables, TContext> = Union /* ContinueAction_1 | ErrorAction_1<TError> | FailedAction_1<TError> | PendingAction<TVariables, TContext> | PauseAction_1 | SuccessAction_1<TData> */
 
 open external class Mutation<TData, TError, TVariables, TContext>(config: MutationConfig<TData, TError, TVariables, TContext>) :
     Removable {

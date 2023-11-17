@@ -13,7 +13,7 @@ import js.core.ReadonlyArray
 typealias QueriesObserverListener = (result: Array<QueryObserverResult>) -> Unit
 
 external interface QueriesObserverOptions<TCombinedResult> {
- var combine: (result: Array<QueryObserverResult>) -> TCombinedResult
+    var combine: (result: Array<QueryObserverResult>) -> TCombinedResult
 }
 
 open external class QueriesObserver<TCombinedResult>(
@@ -25,14 +25,14 @@ open external class QueriesObserver<TCombinedResult>(
     override fun onUnsubscribe()
     open fun destroy()
     open fun setQueries(
-     queries: Array<QueryObserverOptions>,
-     options: QueriesObserverOptions<TCombinedResult> = definedExternally,
+        queries: Array<QueryObserverOptions>,
+        options: QueriesObserverOptions<TCombinedResult> = definedExternally,
         notifyOptions: NotifyOptions = definedExternally,
     )
 
- open fun getCurrentResult(): TCombinedResult
- open fun getQueries(): ReadonlyArray<Query<*, Error, *, QueryKey>>
- open fun getObservers(): ReadonlyArray<QueryObserver<*, Error, *, *, QueryKey>>
- open fun getOptimisticResult(queries: Array<QueryObserverOptions>): [
- open fun ](]: ] ): ]
+    open fun getCurrentResult(): TCombinedResult
+    open fun getQueries(): ReadonlyArray<Query<*, Error, *, QueryKey>>
+    open fun getObservers(): ReadonlyArray<QueryObserver<*, Error, *, *, QueryKey>>
+    open fun getOptimisticResult(queries: Array<QueryObserverOptions>): [
+    open fun ](]: ] ): ]
 }
