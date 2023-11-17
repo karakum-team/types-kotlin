@@ -11,9 +11,7 @@ package tanstack.react.query
 import js.core.EpochTimeStamp
 import js.core.Void
 import js.promise.Promise
-import tanstack.query.core.QueryClient
-import tanstack.query.core.QueryKey
-import tanstack.query.core.QueryObserver
+import tanstack.query.core.*
 import tanstack.query.core.QueryObserverResult
 
 external interface Register
