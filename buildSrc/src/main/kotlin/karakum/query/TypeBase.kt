@@ -89,6 +89,9 @@ private fun member(
     open: Boolean,
     optionsMode: Boolean,
 ): Member? {
+    if (source == "#private")
+        return null
+
     if (source.startsWith("private ") || source.startsWith(" ") || source.startsWith("/"))
         return null
 
