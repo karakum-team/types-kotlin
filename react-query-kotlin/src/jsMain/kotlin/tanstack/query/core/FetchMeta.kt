@@ -2,8 +2,10 @@
 
 package tanstack.query.core
 
-external interface FetchMeta {
-    var fetchMore: dynamic /* { */
-    fun
-}(}: } ): }
+sealed external interface FetchMeta {
+    var fetchMore: FetchMore?
+
+    sealed interface FetchMore {
+        var direction: FetchDirection
+    }
 }
