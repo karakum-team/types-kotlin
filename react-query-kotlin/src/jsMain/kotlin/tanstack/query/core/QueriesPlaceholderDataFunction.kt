@@ -6,4 +6,6 @@
 
 package tanstack.query.core
 
-typealias QueriesPlaceholderDataFunction<TQueryData> = (previousData: undefined, previousQuery: undefined) -> TQueryData?
+import js.core.Void
+
+typealias QueriesPlaceholderDataFunction<TQueryData> = (previousData: Void, previousQuery: Void) -> TQueryData?
