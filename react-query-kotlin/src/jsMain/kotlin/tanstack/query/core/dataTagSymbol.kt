@@ -4,4 +4,6 @@
 
 package tanstack.query.core
 
-external val dataTagSymbol: unique symbol
+import js.core.Symbol
+
+external val dataTagSymbol: Symbol /* unique symbol */
