@@ -68,7 +68,8 @@ abstract class TypeBase : Declaration() {
 
         if (body != "}") {
             val optionsMode = name.endsWith("Result") || name == "MutationState"
-            body.splitToSequence("\n")
+            body.replace(HYDRATION_BOUNDARY_OPTIONS_SOURCE, HYDRATION_BOUNDARY_OPTIONS_REPLACEMENT)
+                .splitToSequence("\n")
                 .map { it.removePrefix("    ") }
                 .map { it.removeSuffix(";") }
                 .mapNotNull { member(it, openByDefault, optionsMode) }

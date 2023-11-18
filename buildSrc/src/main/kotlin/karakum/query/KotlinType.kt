@@ -122,6 +122,9 @@ internal fun kotlinType(
     if (STANDARD_TYPE_MAP.containsKey(type))
         return STANDARD_TYPE_MAP.getValue(type)
 
+    if (type == HYDRATION_BOUNDARY_OPTIONS)
+        return "HydrateOptions /* $HYDRATION_BOUNDARY_OPTIONS */"
+
     if (type == "number")
         return when {
             name == null -> "Int"
