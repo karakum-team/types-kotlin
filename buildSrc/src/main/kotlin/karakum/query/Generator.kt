@@ -110,6 +110,17 @@ private fun generate(
     declarations: List<Declaration>,
     pkg: Package,
 ) {
+    if (file.name.startsWith("queryClient-")) {
+        for (group in declarations.groupBy { it.name }.values) {
+            generate(
+                file = file.parentFile.resolve(group.first().name + ".kt"),
+                declarations = group,
+                pkg = pkg,
+            )
+        }
+        return
+    }
+
     val body = declarations.asSequence()
         .map { it.toCode() }
         .filter { it.isNotEmpty() }
