@@ -45,6 +45,7 @@ class Type(
             .replace(" => T | Promise<T>", " => PromiseResult<T>")
             .replace("QueryFunctionContext<TQueryKey>", "QueryFunctionContext<TQueryKey, *>")
             .replace(": Array<QueryObserverResult>", ": ReadonlyArray<QueryObserverResult<*, *>>")
+            .replace(": undefined", ": Void")
 
         when {
             body in SPECIAL_TYPES -> body.substringAfterLast(" | ")
