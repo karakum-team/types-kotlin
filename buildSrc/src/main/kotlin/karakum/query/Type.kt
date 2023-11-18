@@ -117,7 +117,13 @@ class Type(
                 .removePrefix("Defined")
                 .replace("Result<", "BaseResult<")
 
-            val modifiers = if (name == "MutationObserverResult") "" else "sealed"
+            val modifiers = when (name) {
+                "MutationObserverResult",
+                "QueryObserverResult",
+                -> ""
+
+                else -> "sealed"
+            }
             return "external $modifiers interface $declaration\n: $parentDeclaration"
         }
 
