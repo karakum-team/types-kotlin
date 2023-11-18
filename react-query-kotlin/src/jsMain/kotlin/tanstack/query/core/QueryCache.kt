@@ -8,7 +8,7 @@ open external class QueryCache(config: QueryCacheConfig = definedExternally) : S
     open var config: QueryCacheConfig
     open fun <TQueryFnData, TError, TData, TQueryKey : QueryKey> build(
         client: QueryClient,
-        options: QueryOptions<TQueryFnData, TError, TData, TQueryKey>,
+        options: QueryOptions<TQueryFnData, TError, TData, TQueryKey, *>,
         state: QueryState<TData, TError> = definedExternally,
     ): Query<TQueryFnData, TError, TData, TQueryKey>
 

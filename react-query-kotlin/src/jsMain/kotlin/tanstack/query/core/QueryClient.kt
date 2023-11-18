@@ -12,7 +12,7 @@ open external class QueryClient(config: QueryClientConfig = definedExternally) {
     open fun isFetching(filters: QueryFilters = definedExternally): Int
     open fun isMutating(filters: MutationFilters = definedExternally): Int
     open var getQueryData: TQueryFnData>(queryKey: TaggedQueryKey): TInferredQueryFnData?
-    open fun <TQueryFnData, TError, TData, TQueryKey : QueryKey> ensureQueryData(options: FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>): Promise<TData>
+    open fun <TQueryFnData, TError, TData, TQueryKey : QueryKey> ensureQueryData(options: FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey, *>): Promise<TData>
     open fun <TQueryFnData> getQueriesData(filters: QueryFilters): Any /* Array<[QueryKey, TQueryFnData | undefined]> */
     open var setQueryData: Any /* TQueryFnData>(queryKey: TaggedQueryKey, updater: Updater<NoInfer<TInferredQueryFnData> | undefined, NoInfer<TInferredQueryFnData> | undefined>, options?: SetDataOptions): TInferredQueryFnData | undefined */
     open fun <TQueryFnData> setQueriesData(
@@ -34,17 +34,17 @@ open external class QueryClient(config: QueryClientConfig = definedExternally) {
     ): Promise<Unit>
 
     open fun invalidateQueries(
-        filters: InvalidateQueryFilters<*> = definedExternally,
+        filters: InvalidateQueryFilters = definedExternally,
         options: InvalidateOptions = definedExternally,
     ): Promise<Unit>
 
     open fun refetchQueries(
-        filters: RefetchQueryFilters<*> = definedExternally,
+        filters: RefetchQueryFilters = definedExternally,
         options: RefetchOptions = definedExternally,
     ): Promise<Unit>
 
     open fun <TQueryFnData, TError, TData, TQueryKey : QueryKey, TPageParam> fetchQuery(options: FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>): Promise<TData>
-    open fun <TQueryFnData, TError, TData, TQueryKey : QueryKey> prefetchQuery(options: FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>): Promise<Unit>
+    open fun <TQueryFnData, TError, TData, TQueryKey : QueryKey> prefetchQuery(options: FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey, *>): Promise<Unit>
     open fun <TQueryFnData, TError, TData, TQueryKey : QueryKey, TPageParam> fetchInfiniteQuery(options: FetchInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>): Promise<InfiniteData<TData, TPageParam>>
     open fun <TQueryFnData, TError, TData, TQueryKey : QueryKey, TPageParam> prefetchInfiniteQuery(options: FetchInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>): Promise<Unit>
     open fun resumePausedMutations(): Promise<Any?>
@@ -54,10 +54,10 @@ open external class QueryClient(config: QueryClientConfig = definedExternally) {
     open fun setDefaultOptions(options: DefaultOptions<*>)
     open fun setQueryDefaults(
         queryKey: QueryKey,
-        options: QueryObserverOptions<*, *, *, *, *>, /* Partial */
+        options: QueryObserverOptions<*, *, *, *, *, *>, /* Partial */
     )
 
-    open fun getQueryDefaults(queryKey: QueryKey): QueryObserverOptions<*, *, *, *, *>
+    open fun getQueryDefaults(queryKey: QueryKey): QueryObserverOptions<*, *, *, *, *, *>
     open fun setMutationDefaults(
         mutationKey: MutationKey,
         options: MutationObserverOptions<*, *, *, *>,
