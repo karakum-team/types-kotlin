@@ -4,6 +4,7 @@
 
 package tanstack.query.core
 
+import js.core.ReadonlyArray
 import js.promise.Promise
 
 open external class MutationCache(config: MutationCacheConfig = definedExternally) :
@@ -18,9 +19,9 @@ open external class MutationCache(config: MutationCacheConfig = definedExternall
     open fun add(mutation: Mutation<*, *, *, *>)
     open fun remove(mutation: Mutation<*, *, *, *>)
     open fun clear()
-    open fun getAll(): Array<Mutation>
+    open fun getAll(): ReadonlyArray<Mutation<*, *, *, *>>
     open fun <TData, TError, TVariables, TContext> find(filters: MutationFilters): Mutation<TData, TError, TVariables, TContext>?
-    open fun findAll(filters: MutationFilters = definedExternally): Array<Mutation>
+    open fun findAll(filters: MutationFilters = definedExternally): ReadonlyArray<Mutation<*, *, *, *>>
     open fun notify(event: MutationCacheNotifyEvent)
     open fun resumePausedMutations(): Promise<Any?>
 }

@@ -4,8 +4,10 @@
 
 package tanstack.query.core
 
+import js.core.ReadonlyArray
+
 external fun <T> addToStart(
-    items: Array<T>,
+    items: ReadonlyArray<T>,
     item: T,
     max: Int = definedExternally,
-): Array<T>
+): ReadonlyArray<T>

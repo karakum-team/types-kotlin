@@ -4,6 +4,8 @@
 
 package tanstack.query.core
 
+import js.core.ReadonlyArray
+
 open external class QueryCache(config: QueryCacheConfig = definedExternally) : Subscribable<QueryCacheListener> {
     open var config: QueryCacheConfig
     open fun <TQueryFnData, TError, TData, TQueryKey : QueryKey> build(
@@ -16,9 +18,9 @@ open external class QueryCache(config: QueryCacheConfig = definedExternally) : S
     open fun remove(query: Query<*, *, *, *>)
     open fun clear()
     open fun <TQueryFnData, TError, TData, TQueryKey : QueryKey> get(queryHash: String): Query<TQueryFnData, TError, TData, TQueryKey>?
-    open fun getAll(): Array<Query>
+    open fun getAll(): ReadonlyArray<Query<*, *, *, *>>
     open fun <TQueryFnData, TError, TData> find(filters: WithRequired<QueryFilters, 'queryKey'>): Query<TQueryFnData, TError, TData, *>?
-    open fun findAll(filters: QueryFilters = definedExternally): Array<Query>
+    open fun findAll(filters: QueryFilters = definedExternally): ReadonlyArray<Query<*, *, *, *>>
     open fun notify(event: QueryCacheNotifyEvent)
     open fun onFocus()
     open fun onOnline()

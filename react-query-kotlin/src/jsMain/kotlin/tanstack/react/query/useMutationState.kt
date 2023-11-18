@@ -9,6 +9,7 @@
 
 package tanstack.react.query
 
+import js.core.ReadonlyArray
 import tanstack.query.core.MutationFilters
 import tanstack.query.core.QueryClient
 
@@ -22,4 +23,4 @@ typealias MutationStateOptions<TResult> = Any
 external fun <TResult> useMutationState(
     options: MutationStateOptions<TResult> = definedExternally,
     queryClient: QueryClient = definedExternally,
-): Array<TResult>
+): ReadonlyArray<TResult>

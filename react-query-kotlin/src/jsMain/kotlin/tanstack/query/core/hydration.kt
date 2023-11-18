@@ -4,6 +4,8 @@
 
 package tanstack.query.core
 
+import js.core.ReadonlyArray
+
 external interface DehydrateOptions {
     var shouldDehydrateMutation: (mutation: Mutation) -> Boolean
     var shouldDehydrateQuery: (query: Query<*, *, *, *>) -> Boolean
@@ -32,8 +34,8 @@ external interface DehydratedQuery {
 }
 
 external interface DehydratedState {
-    var mutations: Array<DehydratedMutation>
-    var queries: Array<DehydratedQuery>
+    var mutations: ReadonlyArray<DehydratedMutation>
+    var queries: ReadonlyArray<DehydratedQuery>
 }
 
 external fun defaultShouldDehydrateMutation(mutation: Mutation<*, *, *, *>): Boolean
