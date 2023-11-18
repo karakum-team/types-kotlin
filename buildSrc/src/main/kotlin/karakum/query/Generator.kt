@@ -23,8 +23,8 @@ private val DEFAULT_IMPORTS = listOf(
     "web.abort.AbortSignal",
 
     "seskar.js.JsIntValue",
-    "seskar.js.JsVirtual",
     "seskar.js.JsValue",
+    "seskar.js.JsVirtual",
 ).map { it.substringAfterLast(".") to it }
 
 fun generateKotlinDeclarations(
