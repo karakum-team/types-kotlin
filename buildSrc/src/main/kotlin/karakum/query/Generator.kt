@@ -127,6 +127,8 @@ private fun generate(
 
     val body = declarations.asSequence()
         .map { it.toCode() }
+        .filter { "UndefinedInitialDataOptions" !in it }
+        .filter { "DefinedInitialDataOptions" !in it }
         .filter { it.isNotEmpty() }
         .joinToString("\n\n")
 
