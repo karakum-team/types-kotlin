@@ -47,8 +47,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Query" to "Query<*, *, *, *>",
     "QueryState" to "QueryState<*, *>",
-    "QueryOptions<any, any>" to "QueryOptions<*, *, *, *>",
-    "QueryOptions<TQueryFnData, TError, TData, TQueryKey>" to "QueryOptions<TQueryFnData, TError, TData, TQueryKey, *>",
+    "QueryOptions<any, any>" to "QueryOptions<*, *, *, *, *>",
     "QueryFunction<TQueryFnData, TQueryKey>" to "QueryFunction<TQueryFnData, TQueryKey, *>",
     "Array<QueryObserverOptions>" to "ReadonlyArray<QueryObserverOptions<*, *, *, *, *, *>>",
     "Array<QueryObserverResult>" to "ReadonlyArray<QueryObserverResult<*, *>>",
@@ -193,6 +192,9 @@ internal fun kotlinType(
 
                     t == "QueryObserverOptions<*, *, *, *>"
                     -> t.replace(">", ", *, *>")
+
+                    t.startsWith("QueryOptions<") && t.count { it == ',' } == 3
+                    -> t.replace(">", ", *>")
 
                     t.startsWith("QueryBehavior<T") && t.count { it == ',' } == 2
                     -> t.replace(Regex(">$"), ", *>")

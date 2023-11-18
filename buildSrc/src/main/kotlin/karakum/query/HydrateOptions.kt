@@ -13,7 +13,7 @@ interface HydrateOptions {
 // language=kotlin
 internal val HYDRATE_OPTIONS_CODE = """
 external interface DefaultHydrateOptions {
-    var queries: QueryOptions<*, *, *, *>
+    var queries: QueryOptions<*, *, *, *, *>
     var mutations: MutationOptions<*, *, *, *>
 }    
     
