@@ -71,6 +71,7 @@ private fun generate(
                     && name != "reactBatchedUpdates"
                     && name != "queryClient-89a8a2bf"
                     && name != "utils"
+                    && !(name == "QueryStatus" && pkg == Package.REACT)
                     // TEMP
                     && name != "suspense"
                     && name != "errorBoundaryUtils"
@@ -165,6 +166,7 @@ private fun generate(
             import tanstack.query.core.QueryObserver
             import tanstack.query.core.QueryObserverOptions
             import tanstack.query.core.QueryObserverResult
+            import tanstack.query.core.QueryStatus
             import tanstack.query.core.MutationObserverOptions
             import tanstack.query.core.MutationFilters
             import tanstack.query.core.MutationFunction
