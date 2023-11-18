@@ -10,10 +10,10 @@ package tanstack.query.core
 
 import js.core.ReadonlyArray
 
-typealias QueriesObserverListener = (result: Array<QueryObserverResult>) -> Unit
+typealias QueriesObserverListener = (result: ReadonlyArray<QueryObserverResult<*, *>>) -> Unit
 
 external interface QueriesObserverOptions<TCombinedResult> {
-    var combine: (result: Array<QueryObserverResult>) -> TCombinedResult
+    var combine: (result: ReadonlyArray<QueryObserverResult<*, *>>) -> TCombinedResult
 }
 
 open external class QueriesObserver<TCombinedResult>(
