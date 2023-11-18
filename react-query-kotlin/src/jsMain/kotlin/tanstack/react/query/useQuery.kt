@@ -8,16 +8,6 @@ import tanstack.query.core.QueryClient
 import tanstack.query.core.QueryKey
 
 external fun <TQueryFnData, TError, TData, TQueryKey : QueryKey> useQuery(
-    options: UndefinedInitialDataOptions<TQueryFnData, TError, TData, TQueryKey>,
-    queryClient: QueryClient = definedExternally,
-): UseQueryResult<TData, TError>
-
-external fun <TQueryFnData, TError, TData, TQueryKey : QueryKey> useQuery(
-    options: DefinedInitialDataOptions<TQueryFnData, TError, TData, TQueryKey>,
-    queryClient: QueryClient = definedExternally,
-): DefinedUseQueryResult<TData, TError>
-
-external fun <TQueryFnData, TError, TData, TQueryKey : QueryKey> useQuery(
     options: UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
     queryClient: QueryClient = definedExternally,
 ): UseQueryResult<TData, TError>
