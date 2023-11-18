@@ -75,6 +75,7 @@ private fun generate(
                     && !(name == "QueryStatus" && pkg == Package.REACT)
                     // TEMP
                     && name != "suspense"
+                    && name != "useQueries"
                     && name != "useSuspenseQueries"
                     && name != "errorBoundaryUtils"
         }
