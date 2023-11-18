@@ -104,7 +104,7 @@ external interface QueryObserverSuccessResult<TData, TError>
 sealed external interface DefinedQueryObserverResult<TData, TError>
     : QueryObserverBaseResult<TData, TError>
 
-sealed external interface QueryObserverResult<TData, TError>
+external interface QueryObserverResult<TData, TError>
     : QueryObserverBaseResult<TData, TError>
 
 external fun <TQueryFnData, TError, TData, TQueryData, TQueryKey : QueryKey> useBaseQuery(
