@@ -26,9 +26,9 @@ fun parseParameters(source: String): List<String> {
             .replace(" | undefined, ", "?, ")
             .split(", ")
 
-        "options?: QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey> | DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>",
+        "options?: QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey, TPageParam> | DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>",
         -> return listOf(
-            "options: QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>? /* | DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey> */"
+            "options: QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey, TPageParam>? = definedExternally /* | DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey> */"
         )
 
         "options: WithRequired<FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'queryKey'>",
