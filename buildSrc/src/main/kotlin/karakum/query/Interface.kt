@@ -21,6 +21,11 @@ class Interface(
                 return "external interface $name : Record<String, Any>"
             }
 
+            "FetchMeta" -> {
+                check(source == FETCH_META_SOURCE)
+                return FETCH_META_CODE
+            }
+
             "HydrateOptions" -> {
                 check(source == HYDRATE_OPTIONS_SOURCE)
                 return HYDRATE_OPTIONS_CODE
