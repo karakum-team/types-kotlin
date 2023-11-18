@@ -18,14 +18,14 @@ external interface QueriesObserverOptions<TCombinedResult> {
 
 open external class QueriesObserver<TCombinedResult>(
     client: QueryClient,
-    queries: Array<QueryObserverOptions>,
+    queries: ReadonlyArray<QueryObserverOptions<*, *, *, *, *, *>>,
     options: QueriesObserverOptions<TCombinedResult> = definedExternally,
 ) : Subscribable<QueriesObserverListener> {
     override fun onSubscribe()
     override fun onUnsubscribe()
     open fun destroy()
     open fun setQueries(
-        queries: Array<QueryObserverOptions>,
+        queries: ReadonlyArray<QueryObserverOptions<*, *, *, *, *, *>>,
         options: QueriesObserverOptions<TCombinedResult> = definedExternally,
         notifyOptions: NotifyOptions = definedExternally,
     )
@@ -33,6 +33,6 @@ open external class QueriesObserver<TCombinedResult>(
     open fun getCurrentResult(): TCombinedResult
     open fun getQueries(): ReadonlyArray<Query<*, Error, *, QueryKey>>
     open fun getObservers(): ReadonlyArray<QueryObserver<*, Error, *, *, QueryKey>>
-    open fun getOptimisticResult(queries: Array<QueryObserverOptions>): [
+    open fun getOptimisticResult(queries: ReadonlyArray<QueryObserverOptions<*, *, *, *, *, *>>): [
     open fun ](]: ] ): ]
 }
