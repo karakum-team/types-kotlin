@@ -40,21 +40,23 @@ private val STANDARD_TYPE_MAP = mapOf(
     "MutationObserver<any, any, any>" to "MutationObserver<*, *, *, *>",
     "MutationObserver<any, any, any, any>" to "MutationObserver<*, *, *, *>",
 
+    "QueryObserverOptions<any, any, any, any, any>" to "QueryObserverOptions<*, *, *, *, *, *>",
+    "QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>" to "QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey, *>",
+
+    "FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>" to "FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey, *>",
+
     "Query" to "Query<*, *, *, *>",
     "QueryState" to "QueryState<*, *>",
     "QueryOptions<any, any>" to "QueryOptions<*, *, *, *>",
+    "QueryOptions<TQueryFnData, TError, TData, TQueryKey>" to "QueryOptions<TQueryFnData, TError, TData, TQueryKey, *>",
     "QueryFunction<TQueryFnData, TQueryKey>" to "QueryFunction<TQueryFnData, TQueryKey, *>",
-    "QueryObserverOptions[]" to "ReadonlyArray<QueryObserverOptions<*, *, *, *, *>>",
+    "QueryObserverOptions[]" to "ReadonlyArray<QueryObserverOptions<*, *, *, *, *, *>>",
     "UseQueryOptions[]" to "ReadonlyArray<UseQueryOptions<*, *, *, *>>",
     "UseQueryResult[]" to "ReadonlyArray<UseQueryResult<*, *>>",
     "RefetchOptions & RefetchQueryFilters<TPageData>" to "RefetchOptions /* & RefetchQueryFilters<TPageData> */",
 
     "QueriesResults<T>" to "QueriesResults<T,*,*>",
     "QueryTypeFilter | 'none'" to "QueryTypeFilter /* | 'none' */",
-
-    "InvalidateQueryFilters" to "InvalidateQueryFilters<*>",
-    "RefetchQueryFilters" to "RefetchQueryFilters<*>",
-    "ResetQueryFilters" to "ResetQueryFilters<*>",
 
     "InvalidateQueryFilters<TPageData>" to "InvalidateQueryFilters<TPageData>",
     "RefetchQueryFilters<TPageData>" to "RefetchQueryFilters<TPageData>",
@@ -183,10 +185,10 @@ internal fun kotlinType(
                     -> t.replace("Action<", "MutationAction<")
 
                     t == "QueryObserverOptions<*, TError>"
-                    -> t.replace(">", ", *, *, *>")
+                    -> t.replace(">", ", *, *, *, *>")
 
                     t == "QueryObserverOptions<*, *, *, *>"
-                    -> t.replace(">", ", *>")
+                    -> t.replace(">", ", *, *>")
 
                     t.startsWith("QueryBehavior<T") && t.count { it == ',' } == 2
                     -> t.replace(Regex(">$"), ", *>")
