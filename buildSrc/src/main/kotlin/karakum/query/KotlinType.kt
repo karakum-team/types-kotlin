@@ -49,8 +49,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "QueryState" to "QueryState<*, *>",
     "QueryOptions<any, any>" to "QueryOptions<*, *, *, *, *>",
     "QueryFunction<TQueryFnData, TQueryKey>" to "QueryFunction<TQueryFnData, TQueryKey, *>",
-    "Array<QueryObserverOptions>" to "ReadonlyArray<QueryObserverOptions<*, *, *, *, *, *>>",
-    "Array<QueryObserverResult>" to "ReadonlyArray<QueryObserverResult<*, *>>",
+    "QueryObserverOptions" to "QueryObserverOptions<*, *, *, *, *, *>",
+    "QueryObserverResult" to "QueryObserverResult<*, *>",
     "UseQueryOptions[]" to "ReadonlyArray<UseQueryOptions<*, *, *, *>>",
     "UseQueryResult[]" to "ReadonlyArray<UseQueryResult<*, *>>",
     "RefetchOptions & RefetchQueryFilters<TPageData>" to "RefetchOptions /* & RefetchQueryFilters<TPageData> */",
@@ -227,8 +227,8 @@ internal fun kotlinType(
         return if (baseType != DYNAMIC) baseType + "?" else baseType
     }
 
-    if (type.endsWith("[]"))
-        return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
+    if (type.startsWith("Array<"))
+        return "ReadonlyArray<${kotlinType(type.removeSurrounding("Array<", ">"), name)}>"
 
     if (type.startsWith("[") && type.endsWith("]")) {
         val (a, b) = type.removeSurrounding("[", "]")
