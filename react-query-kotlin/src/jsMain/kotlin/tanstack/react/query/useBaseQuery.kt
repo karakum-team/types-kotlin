@@ -13,6 +13,7 @@ import js.core.Void
 import js.promise.Promise
 import tanstack.query.core.*
 import tanstack.query.core.QueryObserverResult
+import tanstack.query.core.QueryStatus
 
 external interface Register
 

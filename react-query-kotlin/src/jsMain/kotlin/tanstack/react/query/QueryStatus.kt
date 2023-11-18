@@ -8,6 +8,7 @@ package tanstack.react.query
 
 import seskar.js.JsValue
 import seskar.js.JsVirtual
+import tanstack.query.core.QueryStatus
 
 @JsVirtual
 sealed external interface QueryStatus {
