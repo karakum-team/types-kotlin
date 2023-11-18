@@ -296,6 +296,7 @@ fun kotlinFunctionType(type: String): String =
         .replace("Query)", "Query<*, *, *, *>)")
         .replace("TPageData[]", "ReadonlyArray<TPageData>")
         .replace("TQueryFnData[]", "ReadonlyArray<TQueryFnData>")
+        .replace(": Array<QueryObserverResult>", ": ReadonlyArray<QueryObserverResult<*, *>>")
         .replace("Query<unknown, unknown, unknown>", "Query<*, *, *, *>")
         .replace("Mutation<any, any, any>", "Mutation<*, *, *, *>")
         .replace("Mutation<unknown, unknown, unknown>", "Mutation<*, *, *, *>")
