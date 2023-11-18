@@ -71,6 +71,7 @@ private fun generate(
                     && name != "reactBatchedUpdates"
                     && name != "queryClient-89a8a2bf"
                     && name != "utils"
+                    && name != "queryOptions"
                     && !(name == "QueryStatus" && pkg == Package.REACT)
                     // TEMP
                     && name != "suspense"
