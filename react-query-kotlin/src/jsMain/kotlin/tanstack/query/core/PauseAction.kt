@@ -2,5 +2,6 @@
 
 package tanstack.query.core
 
-// ReadonlyArray<unknown>
-external interface QueryKey
+external interface PauseAction {
+    var type: Type /* 'pause' */
+}
