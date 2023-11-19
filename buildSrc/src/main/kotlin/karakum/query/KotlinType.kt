@@ -62,6 +62,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "QueriesResults<T>" to "QueriesResults<T,*,*>",
     "QueryTypeFilter | 'none'" to "QueryTypeFilter /* | 'none' */",
 
+    "QueryBehavior<TQueryFnData, TError, InfiniteData<TData, TPageParam>>" to "QueryBehavior<TQueryFnData, TError, InfiniteData<TData, TPageParam>, *>",
+
     "InvalidateQueryFilters<TPageData>" to "InvalidateQueryFilters<TPageData>",
     "RefetchQueryFilters<TPageData>" to "RefetchQueryFilters<TPageData>",
     "ResetQueryFilters<TPageData>" to "ResetQueryFilters<TPageData>",
