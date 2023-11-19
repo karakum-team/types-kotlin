@@ -37,6 +37,7 @@ fun toDeclarations(
             "MutationObserverOptions<TData, TError, TVariables, TContext>"
         )
         .replace("\n    isDataEqual?: (oldData: TData | undefined, newData: TData) => boolean;\n", "\n")
+        .replace(OPTIMISTIC_RESULT, "OptimisticResult<TCombinedResult>")
         // TODO: check
         .replace("    get meta(): ", "    meta: ")
         // TEMP
