@@ -102,7 +102,10 @@ private fun member(
     val i1 = source.indexOf(":")
     val i2 = source.indexOf("(")
     return if (i1 != -1 && (i2 == -1 || (i1 < i2))) {
-        Property(source, !optionsMode)
+        Property(
+            source = source.removePrefix("readonly "),
+            isVar = !optionsMode && !source.startsWith("readonly "),
+        )
     } else {
         Method(source)
     }.also { it.open = open }
