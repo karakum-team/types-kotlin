@@ -73,6 +73,7 @@ private fun generate(
                     && name != "queryClient-89a8a2bf"
                     && name != "utils"
                     && name != "queryOptions"
+                    && name != "infiniteQueryOptions"
                     && !(name == "QueryStatus" && pkg == Package.REACT)
                     // TEMP
                     && name != "suspense"
@@ -131,6 +132,8 @@ private fun generate(
         .map { it.toCode() }
         .filter { "UndefinedInitialDataOptions" !in it }
         .filter { "DefinedInitialDataOptions" !in it }
+        .filter { "UndefinedInitialDataInfiniteOptions" !in it }
+        .filter { "DefinedInitialDataInfiniteOptions" !in it }
         .filter { it.isNotEmpty() }
         .joinToString("\n\n")
 
