@@ -10,7 +10,7 @@ open external class Mutation<TData, TError, TVariables, TContext>(config: Mutati
     Removable {
     open var state: MutationState<TData, TError, TVariables, TContext>
     open var options: MutationOptions<TData, TError, TVariables, TContext>
-    open var readonly mutationId: Int
+    open val mutationId: Int
     open fun setOptions(options: MutationOptions<TData, TError, TVariables, TContext> = definedExternally)
     open var meta: MutationMeta?
     open fun addObserver(observer: MutationObserver<*, *, *, *>)
