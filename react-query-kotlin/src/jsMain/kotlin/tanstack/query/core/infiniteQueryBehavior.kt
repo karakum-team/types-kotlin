@@ -8,10 +8,10 @@ external fun <TQueryFnData, TError, TData, TPageParam> infiniteQueryBehavior(pag
 
 external fun hasNextPage(
     options: InfiniteQueryPageParamsOptions<*, *>,
-    data: InfiniteData<*> = definedExternally,
+    data: InfiniteData<*, *> = definedExternally,
 ): Boolean
 
 external fun hasPreviousPage(
     options: InfiniteQueryPageParamsOptions<*, *>,
-    data: InfiniteData<*> = definedExternally,
+    data: InfiniteData<*, *> = definedExternally,
 ): Boolean
