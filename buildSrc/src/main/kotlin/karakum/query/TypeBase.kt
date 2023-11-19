@@ -81,7 +81,7 @@ private fun getParentType(
     }
 
     if (type.startsWith("Omit<") || type.startsWith("WithRequired<"))
-        return type
+        type = type
             .removePrefix("Omit<")
             .removePrefix("WithRequired<")
             .removePrefix("Omit<")
@@ -92,6 +92,10 @@ private fun getParentType(
 
     if (type.startsWith("QueryObserver<") && type.count { it == ',' } == 3) {
         type = type.removeSuffix(">") + ", QueryKey>"
+    }
+
+    if (type.startsWith("QueryObserverOptions<") && type.count { it == ',' } == 4) {
+        type = type.removeSuffix(">") + ", Any?>"
     }
 
     return type
