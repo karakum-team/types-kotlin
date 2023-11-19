@@ -48,6 +48,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>" to "FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey, *>",
 
     "Query" to "Query<*, *, *, *>",
+    "IterableIterator<Query>" to "IterableIterator<Query<*, *, *, *>>",
+
     "QueryState" to "QueryState<*, *>",
     "QueryOptions<any, any>" to "QueryOptions<*, *, *, *, *>",
     "QueryFunction<TQueryFnData, TQueryKey>" to "QueryFunction<TQueryFnData, TQueryKey, *>",
@@ -308,6 +310,7 @@ fun kotlinFunctionType(type: String): String =
         .replace("TQueryFnData[]", "ReadonlyArray<TQueryFnData>")
         .replace(": Array<QueryObserverResult>", ": ReadonlyArray<QueryObserverResult<*, *>>")
         .replace("Query<unknown, unknown, unknown>", "Query<*, *, *, *>")
+        .replace(": Mutation)", ": Mutation<*, *, *, *>)")
         .replace("Mutation<any, any, any>", "Mutation<*, *, *, *>")
         .replace("Mutation<unknown, unknown, unknown>", "Mutation<*, *, *, *>")
         .replace("Mutation<unknown, unknown, unknown, unknown>", "Mutation<*, *, *, *>")
