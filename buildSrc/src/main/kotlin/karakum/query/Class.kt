@@ -20,8 +20,12 @@ class Class(
             .firstOrNull()
 
         val modifier = if (abstract) "abstract" else "open"
-        return "$modifier external class $name ${formatParameters(typeParameters)}" +
+        val result = "$modifier external class $name ${formatParameters(typeParameters)}" +
                 (constructor?.toCode() ?: "") +
                 "$extends {\n$content\n}"
+
+        return if ("QueriesObserverOptimisticResult<TCombinedResult>" in result) {
+            result + "\n\n" + QUERIES_OBSERVER_OPTIMISTIC_RESULT_CODE
+        } else result
     }
 }

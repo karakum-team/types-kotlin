@@ -10,8 +10,8 @@ internal val OPTIMISTIC_RESULT = """
 """.trimIndent()
 
 // language=kotlin
-internal val OPTIMISTIC_RESULT_CODE = """
-sealed interface OptimisticResult<TCombinedResult>: JsTuple3<
+internal val QUERIES_OBSERVER_OPTIMISTIC_RESULT_CODE = """
+typealias QueriesObserverOptimisticResult<TCombinedResult> = JsTuple3<
     /* rawResult: */ ReadonlyArray<QueryObserverResult<*, *>>,
     /* combineResult: */ (r: ReadonlyArray<QueryObserverResult<*, *>>?) -> TCombinedResult,
     /* trackResult */ () -> ReadonlyArray<QueryObserverResult<*, *>>,
