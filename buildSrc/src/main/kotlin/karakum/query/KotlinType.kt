@@ -34,6 +34,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Set<HasListener<TListener>>" to "JsSet<Any /* HasListener<TListener> */>",
 
+    "InfiniteData<unknown>" to "InfiniteData<*, *>",
+
     "Mutation" to "Mutation<*, *, *, *>",
     "Mutation<any, any>" to "Mutation<*, *, *, *>",
     "MutationState" to "MutationState<*, *, *, *>",
