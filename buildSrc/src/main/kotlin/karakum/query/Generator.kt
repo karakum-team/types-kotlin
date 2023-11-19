@@ -117,8 +117,11 @@ private fun generate(
     declarations: List<Declaration>,
     pkg: Package,
 ) {
-    if (file.name.startsWith("queryClient-")) {
+    val suggestedName = file.name.removeSuffix(".kt")
+    if (!declarations.all { it.name == suggestedName }) {
         for (group in declarations.groupBy { it.name }.values) {
+            group.first().name
+
             generate(
                 file = file.parentFile.resolve(group.first().name + ".kt"),
                 declarations = group,
@@ -205,5 +208,10 @@ private fun generate(
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
 
-    file.writeText(text)
+    val singleConst = declarations.singleOrNull() as? Const
+    val targetFile = if (singleConst != null) {
+        file.parentFile.resolve(singleConst.name + ".val.kt")
+    } else file
+
+    targetFile.writeText(text)
 }
