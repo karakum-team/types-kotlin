@@ -19,45 +19,10 @@ abstract class TypeBase : Declaration() {
     }
 
     protected val parentType: String? by lazy {
-        if (name.endsWith("Props"))
-            return@lazy when (name) {
-                "QueryClientProviderProps",
-                "HydrationBoundaryProps",
-                -> "react.PropsWithChildren"
-
-                "QueryErrorResetBoundaryProps",
-                -> "react.Props"
-
-                else -> TODO("No parent type for `$name`")
-            }
-
-        val line = source.substringBefore(" {")
-        if (" extends " !in line)
-            return@lazy null
-
-        var type = if ("$name<" in line) {
-            line.substringAfterLast("> extends ", "")
-                .takeIf { it.isNotEmpty() }
-                ?: return@lazy null
-        } else {
-            line.substringAfterLast(" extends ")
-        }
-
-        if (type.startsWith("Omit<") || type.startsWith("WithRequired<"))
-            return@lazy type
-                .removePrefix("Omit<")
-                .removePrefix("WithRequired<")
-                .removePrefix("Omit<")
-                .substringBefore(", '")
-
-        if (type == "Subscribable")
-            type = "Subscribable<Listener>"
-
-        if (type.startsWith("QueryObserver<") && type.count { it == ',' } == 3) {
-            type = type.removeSuffix(">") + ", QueryKey>"
-        }
-
-        type
+        getParentType(
+            name = name,
+            source = source,
+        )
     }
 
     val parentName: String? by lazy {
@@ -85,6 +50,51 @@ abstract class TypeBase : Declaration() {
             .map { it.toCode() }
             .joinToString("\n")
     }
+}
+
+private fun getParentType(
+    name: String,
+    source: String,
+): String? {
+    if (name.endsWith("Props"))
+        return when (name) {
+            "QueryClientProviderProps",
+            "HydrationBoundaryProps",
+            -> "react.PropsWithChildren"
+
+            "QueryErrorResetBoundaryProps",
+            -> "react.Props"
+
+            else -> TODO("No parent type for `$name`")
+        }
+
+    val line = source.substringBefore(" {")
+    if (" extends " !in line)
+        return null
+
+    var type = if ("$name<" in line) {
+        line.substringAfterLast("> extends ", "")
+            .takeIf { it.isNotEmpty() }
+            ?: return null
+    } else {
+        line.substringAfterLast(" extends ")
+    }
+
+    if (type.startsWith("Omit<") || type.startsWith("WithRequired<"))
+        return type
+            .removePrefix("Omit<")
+            .removePrefix("WithRequired<")
+            .removePrefix("Omit<")
+            .substringBefore(", '")
+
+    if (type == "Subscribable")
+        type = "Subscribable<Listener>"
+
+    if (type.startsWith("QueryObserver<") && type.count { it == ',' } == 3) {
+        type = type.removeSuffix(">") + ", QueryKey>"
+    }
+
+    return type
 }
 
 private fun member(
