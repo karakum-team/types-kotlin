@@ -4,6 +4,7 @@
 
 package tanstack.query.core
 
-import js.promise.Promise
-
-external fun sleep(timeout: JsDuration): Promise<Unit>
+external fun hasNextPage(
+    options: QueryOptions<*, *, *, *>,
+    pages: Page = definedExternally,
+): Boolean?

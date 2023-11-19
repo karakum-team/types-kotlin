@@ -13,7 +13,7 @@ external interface QueryState<TData, TError> {
     var errorUpdatedAt: EpochTimeStamp
     var fetchFailureCount: Int
     var fetchFailureReason: TError?
-    var fetchMeta: FetchMeta | null
+    var fetchMeta: Any
     var isInvalidated: Boolean
     var status: QueryStatus
     var fetchStatus: FetchStatus

@@ -4,6 +4,4 @@
 
 package tanstack.query.core
 
-import js.promise.Promise
-
-external fun sleep(timeout: JsDuration): Promise<Unit>
+external fun isError(value: Any): Boolean /* value is Error */

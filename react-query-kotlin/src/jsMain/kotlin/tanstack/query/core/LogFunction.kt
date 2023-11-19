@@ -2,4 +2,4 @@
 
 package tanstack.query.core
 
-typealias Updater<TInput, TOutput> = DataUpdateFunction<TInput, TOutput>
+typealias LogFunction = Function<Unit>

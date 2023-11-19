@@ -4,6 +4,4 @@
 
 package tanstack.query.core
 
-import js.promise.Promise
-
-external fun sleep(timeout: JsDuration): Promise<Unit>
+external fun isQueryKey(value: Any?): Boolean /* value is QueryKey */

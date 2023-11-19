@@ -2,4 +2,6 @@
 
 package tanstack.query.core
 
-typealias QueryMeta = Any
+import js.core.Record
+
+external interface QueryMeta : Record<String, Any>

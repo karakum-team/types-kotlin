@@ -10,12 +10,13 @@ open external class Mutation<TData, TError, TVariables, TContext>(config: Mutati
     Removable {
     open var state: MutationState<TData, TError, TVariables, TContext>
     open var options: MutationOptions<TData, TError, TVariables, TContext>
-    open val mutationId: Int
+    open var mutationId: Int
     open fun setOptions(options: MutationOptions<TData, TError, TVariables, TContext> = definedExternally)
     open var meta: MutationMeta?
+    open fun setState(state: MutationState<TData, TError, TVariables, TContext>)
     open fun addObserver(observer: MutationObserver<*, *, *, *>)
     open fun removeObserver(observer: MutationObserver<*, *, *, *>)
     override fun optionalRemove()
     open fun `continue`(): Promise<Any?>
-    open fun execute(variables: TVariables): Promise<TData>
+    open fun execute(): Promise<TData>
 }
