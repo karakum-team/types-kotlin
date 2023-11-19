@@ -177,6 +177,9 @@ internal fun kotlinType(
     if (type.startsWith("Omit<"))
         return kotlinType(type.removePrefix("Omit<").substringBefore(", '"))
 
+    if (type.startsWith("WithRequired<"))
+        return kotlinType(type.removePrefix("WithRequired<").substringBefore(", '"))
+
     if (SAFE_PREFIXES.any { type.startsWith(it) } && !type.startsWith("QueryKey |") && " | TOptions" !in type)
         return type
             .replace("<any", "<*")

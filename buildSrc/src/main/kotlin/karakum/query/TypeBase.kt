@@ -43,8 +43,10 @@ abstract class TypeBase : Declaration() {
             line.substringAfterLast(" extends ")
         }
 
-        if (type.startsWith("Omit<"))
+        if (type.startsWith("Omit<") || type.startsWith("WithRequired<"))
             return@lazy type
+                .removePrefix("Omit<")
+                .removePrefix("WithRequired<")
                 .removePrefix("Omit<")
                 .substringBefore(", '")
 
