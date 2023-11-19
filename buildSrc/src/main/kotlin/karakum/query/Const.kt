@@ -15,6 +15,9 @@ class Const(
     }
 
     override fun toCode(): String {
+        if (type == "unique symbol")
+            return "external object $name: Symbol"
+
         return "external val $name: $type"
     }
 }

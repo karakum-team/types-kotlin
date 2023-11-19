@@ -20,8 +20,6 @@ private val STANDARD_TYPE_MAP = mapOf(
     "null" to "Void",
     "undefined" to "Void",
 
-    "unique symbol" to "Symbol /* unique symbol */",
-
     "true" to "True",
     "false" to "False",
 
