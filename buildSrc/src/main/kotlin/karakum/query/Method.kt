@@ -7,6 +7,7 @@ class Method(
     private val typeParameters: List<String> by lazy {
         parseTypeParameters(
             source.substringBefore("(")
+                .replace("QueryOptions<any, any, any, any>", "QueryOptions<*, *, *, *, *>")
                 .replace("<any, any, any, any>", "<*, *, *, *>")
         )
     }
