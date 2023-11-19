@@ -11,17 +11,16 @@ import tanstack.query.core.DefinedQueryObserverResult
 import tanstack.query.core.QueryObserverResult
 
 external interface UseBaseQueryOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey : QueryKey>
-    : WithRequired<QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>, 'queryKey'>
+    : QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>
 
 external interface UseQueryOptions<TQueryFnData, TError, TData, TQueryKey : QueryKey>
-    : WithRequired<UseBaseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>
+    : UseBaseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>
 
 external interface UseSuspenseQueryOptions<TQueryFnData, TError, TData, TQueryKey : QueryKey>
     : UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>
 
 external interface UseInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey : QueryKey, TPageParam>
-    :
-    WithRequired<Omit<InfiniteQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey, TPageParam>, 'suspense'>, 'queryKey'>
+    : InfiniteQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey, TPageParam>
 
 external interface UseSuspenseInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey : QueryKey, TPageParam>
     : UseInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey, TPageParam>
