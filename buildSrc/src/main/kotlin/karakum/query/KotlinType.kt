@@ -26,7 +26,6 @@ private val STANDARD_TYPE_MAP = mapOf(
     "false" to "False",
 
     "unknown | undefined" to "Any?",
-    "TError | null" to "TError?",
     "boolean | T | undefined" to "T?",
 
     "TData | Promise<TData>" to "PromiseResult<TData>",
@@ -183,6 +182,11 @@ internal fun kotlinType(
 
     if (type.startsWith("WithRequired<"))
         return kotlinType(type.removePrefix("WithRequired<").substringBefore(", '"))
+
+    if (type.endsWith(" | null") && type.indexOf("|") == type.lastIndexOf("|")) {
+        val baseType = kotlinType(type.removeSuffix(" | null"), name)
+        return if (baseType != DYNAMIC) baseType + "?" else baseType
+    }
 
     if (SAFE_PREFIXES.any { type.startsWith(it) } && !type.startsWith("QueryKey |") && " | TOptions" !in type)
         return type
