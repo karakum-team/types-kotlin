@@ -98,9 +98,6 @@ class Type(
                 }
             """.trimIndent()
 
-        if (name.startsWith("QueryClientProviderProps"))
-            return ""
-
         if (originalBody.startsWith("'")) {
             val values = originalBody.splitToSequence(" | ")
                 .map { it.removePrefix("'") }
