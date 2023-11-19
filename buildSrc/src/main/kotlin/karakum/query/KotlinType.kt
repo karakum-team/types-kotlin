@@ -312,6 +312,7 @@ fun kotlinFunctionType(type: String): String =
         .replace("?: boolean", ": Boolean?")
         .replace("boolean", "Boolean")
         .replace("Query)", "Query<*, *, *, *>)")
+        .replace(Regex("(-> Query)$"), "$1<*, *, *, *>")
         .replace("TPageData[]", "ReadonlyArray<TPageData>")
         .replace("TQueryFnData[]", "ReadonlyArray<TQueryFnData>")
         .replace(": Array<QueryObserverResult>", ": ReadonlyArray<QueryObserverResult<*, *>>")
