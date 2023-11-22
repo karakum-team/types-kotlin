@@ -1835,7 +1835,7 @@ private fun convertFunction(
         .replace(": RelativeTimeFormatPart[]", ": ReadonlyArray<dynamic /* RelativeTimeFormatPart */>")
         .replace(Regex("""\: (\w+?)\[\]"""), ": ReadonlyArray<$1>")
         .replace(
-            """: { type: "element" | "literal", value: string; }[]""",
+            """: { type: "element" | "literal"; value: string; }[]""",
             ": ReadonlyArray<dynamic /* { type; value; } */>",
         )
         .replace(
