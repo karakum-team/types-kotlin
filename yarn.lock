@@ -364,10 +364,10 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.7.tgz#d62f1bd54724c84089f51f9218393930ba4abcf4"
   integrity sha512-8g25Nl3AuB1KulTlSUsUhUo/oBgBU6XIXQ+XURpeioEbEJvkO7qI4vDfREv3vJYHHzqXjcAHvoJy4pTtSQNZtA==
 
-"@types/serviceworker@0.0.76":
-  version "0.0.76"
-  resolved "https://registry.yarnpkg.com/@types/serviceworker/-/serviceworker-0.0.76.tgz#63b67faa54566700c73c7b9e6e1f70ef97b421d3"
-  integrity sha512-IAG9uWxdAkWwWBdptN7+e/aQRb3zWBuaFQhxGmDW3GyDruFuG4VRtW14Hntp1AfMM1MMD/bX+1gLo6QAsyjgzQ==
+"@types/serviceworker@0.0.77":
+  version "0.0.77"
+  resolved "https://registry.yarnpkg.com/@types/serviceworker/-/serviceworker-0.0.77.tgz#fa2014a9fe80ed8eb6dc56a4861960d81edcaf65"
+  integrity sha512-Yvp5oTg94rGmLewEb0lVPMeYkbRPmg1EZJ8pB+eYQUgQNkTPo996c7nDYU6miypoyX+dwsuyqrFFfq5web75tw==
 
 "@types/tunnel@^0.0.3":
   version "0.0.3"
