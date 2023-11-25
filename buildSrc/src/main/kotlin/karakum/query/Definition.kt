@@ -36,6 +36,10 @@ fun toDeclarations(
             "Omit<MutationObserverOptions<TData, TError, TVariables, TContext>, '_defaulted' | 'variables'>",
             "MutationObserverOptions<TData, TError, TVariables, TContext>"
         )
+        .replace(
+            "getQueryData<TQueryFnData = unknown, TaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = TaggedQueryKey extends DataTag<unknown, infer TaggedValue> ? TaggedValue : TQueryFnData>(queryKey: TaggedQueryKey): TInferredQueryFnData | undefined;",
+            "getQueryData<TQueryFnData>(queryKey: QueryKey): TQueryFnData | undefined;",
+        )
         .replace("\n    isDataEqual?: (oldData: TData | undefined, newData: TData) => boolean;\n", "\n")
         .replace(OPTIMISTIC_RESULT, "QueriesObserverOptimisticResult<TCombinedResult>")
         // TODO: check
