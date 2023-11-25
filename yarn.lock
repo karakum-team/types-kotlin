@@ -364,10 +364,10 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.8.tgz#ce5ace04cfeabe7ef87c0091e50752e36707deff"
   integrity sha512-WZLiwShhwLRmeV6zH+GkbOFT6Z6VklCItrDioxUnv+u4Ll+8vKeFySoFyK/0ctcRpOmwAicELfmys1sDc/Rw+A==
 
-"@types/serviceworker@0.0.77":
-  version "0.0.77"
-  resolved "https://registry.yarnpkg.com/@types/serviceworker/-/serviceworker-0.0.77.tgz#fa2014a9fe80ed8eb6dc56a4861960d81edcaf65"
-  integrity sha512-Yvp5oTg94rGmLewEb0lVPMeYkbRPmg1EZJ8pB+eYQUgQNkTPo996c7nDYU6miypoyX+dwsuyqrFFfq5web75tw==
+"@types/serviceworker@0.0.78":
+  version "0.0.78"
+  resolved "https://registry.yarnpkg.com/@types/serviceworker/-/serviceworker-0.0.78.tgz#0a2a39a05edeb56b26ddf3f7661c9178a81bb0ab"
+  integrity sha512-3sDCOzpKYP7FtY6wfT6C7+GJtUIgBFGjdNhwrnjsY3769susZaAIn0w+ipBvZWKOX9S+pNEM5yCXHeklExvLMA==
 
 "@types/tunnel@^0.0.3":
   version "0.0.3"
@@ -376,10 +376,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/web@0.0.120":
-  version "0.0.120"
-  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.120.tgz#0bc54f7592282af15dcc7c9e32e42ca94b17198d"
-  integrity sha512-bS/cCD8JFete2+7jiAXSeCfbaEdWgQZc8YZz9PpynmU0I7B96VYyQ69kVvvTtH2sSZ8icZ7dgLbeCDt2DMbBBg==
+"@types/web@0.0.121":
+  version "0.0.121"
+  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.121.tgz#a4850d13916baab7115d603547258a8c8c1ff117"
+  integrity sha512-9V4Hr4/x7/xAwhWlpbv6MbKy8C8NzMNxmjabZGGjcmOecYOwqbe+CQJFn4FvD3noEr82LgUbO5aILh0pSZLgMg==
 
 "@webref/idl@3.41.1":
   version "3.41.1"
