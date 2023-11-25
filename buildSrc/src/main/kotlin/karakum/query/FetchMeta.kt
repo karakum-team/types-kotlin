@@ -17,5 +17,5 @@ sealed external interface FetchMeta {
     sealed interface FetchMore {
         var direction: FetchDirection
     }
-}    
+}
 """.trimIndent()
