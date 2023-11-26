@@ -40,6 +40,10 @@ fun toDeclarations(
             "getQueryData<TQueryFnData = unknown, TaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = TaggedQueryKey extends DataTag<unknown, infer TaggedValue> ? TaggedValue : TQueryFnData>(queryKey: TaggedQueryKey): TInferredQueryFnData | undefined;",
             "getQueryData<TQueryFnData>(queryKey: QueryKey): TQueryFnData | undefined;",
         )
+        .replace(
+            "setQueryData<TQueryFnData = unknown, TaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = TaggedQueryKey extends DataTag<unknown, infer TaggedValue> ? TaggedValue : TQueryFnData>(queryKey: TaggedQueryKey, updater: Updater<NoInfer<TInferredQueryFnData> | undefined, NoInfer<TInferredQueryFnData> | undefined>, options?: SetDataOptions): TInferredQueryFnData | undefined;",
+            "setQueryData<TQueryFnData>(queryKey: QueryKey, updater: Updater<TQueryFnData | undefined, TQueryFnData | undefined>, options?: SetDataOptions): TQueryFnData | undefined;",
+        )
         .replace("\n    isDataEqual?: (oldData: TData | undefined, newData: TData) => boolean;\n", "\n")
         .replace(OPTIMISTIC_RESULT, "QueriesObserverOptimisticResult<TCombinedResult>")
         // TODO: check
