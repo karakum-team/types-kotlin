@@ -102,6 +102,26 @@ fun isFromWrapperProject(wp: WrapperProject): Spec<FileTreeElement> {
     }
 }
 
+val syncKotlinJs by tasks.creating(Sync::class) {
+    val generatedDir = project.layout.projectDirectory.dir("src/jsMain/kotlin")
+
+    val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")
+    val jsDir = kotlinWrappersDir.dir("kotlin-js/src/jsMain/generated")
+
+    from(generatedDir) {
+        include(isFromWrapperProject(WrapperProject.JS))
+
+        preserve {
+            include("js/atomic/WaitAsyncResult.kt")
+            include("js/atomic/WaitResult.kt")
+            include("js/atomic/WaitStatus.kt")
+            include("js/atomic/WaitSyncResult.kt")
+        }
+    }
+
+    into(jsDir.asFile)
+}
+
 val syncKotlinWeb by tasks.creating(Sync::class) {
     val generatedDir = project.layout.projectDirectory.dir("src/jsMain/kotlin")
 
@@ -129,6 +149,7 @@ val syncKotlinBrowser by tasks.creating(Sync::class) {
 }
 
 val syncWithWrappers by tasks.creating {
+    dependsOn(syncKotlinJs)
     dependsOn(syncKotlinWeb)
     dependsOn(syncKotlinBrowser)
 }
