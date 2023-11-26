@@ -82,8 +82,8 @@ fun isDirFromWrapperProject(
     if (included.any { it.startsWith("$path/") })
         return true
 
-    val basePath = path.substringBeforeLast("/", "")
-    return basePath.isNotEmpty() && isDirFromWrapperProject(basePath, wp)
+    val basePath = path.substringBefore("/", "")
+    return basePath in included
 }
 
 fun isFromWrapperProject(wp: WrapperProject): Spec<FileTreeElement> {
