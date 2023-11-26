@@ -3,6 +3,7 @@
 package web.buffer
 
 import js.buffer.ArrayBuffer
+import js.core.JsLong
 import js.core.ReadonlyArray
 import js.promise.Promise
 import js.typedarrays.Uint8Array
@@ -18,7 +19,7 @@ open external class Blob(
     options: BlobPropertyBag = definedExternally,
 ) {
     /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Blob/size) */
-    val size: Int
+    val size: JsLong
 
     /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Blob/type) */
     val type: String
