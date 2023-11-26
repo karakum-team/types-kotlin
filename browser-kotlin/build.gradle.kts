@@ -110,11 +110,6 @@ val syncKotlinWeb by tasks.creating(Sync::class) {
 
     from(generatedDir) {
         include(isFromWrapperProject(WrapperProject.WEB))
-
-        // TEMP
-        preserve {
-            include("web/events/EventType.kt")
-        }
     }
 
     into(webDir.asFile)
