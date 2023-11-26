@@ -1,7 +1,5 @@
 package karakum.browser
 
-internal const val EVENT_TYPE = "EventType"
-
 private val PACKAGE_MAP = mapOf(
     "AbortSignal" to "web.abort",
     "Animation" to "web.animations",
@@ -97,6 +95,7 @@ internal fun eventDeclarations(
 ): List<ConversionResult> {
     val dataMap = EventDataMap(content + "\n\n" + webworkerContent)
     return eventTypes(dataMap)
+        .plus(EventType())
         .plus(eventPlaceholders(content, EVENT_DATA, dataMap, strict = true))
 }
 
