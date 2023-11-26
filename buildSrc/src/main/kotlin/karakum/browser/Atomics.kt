@@ -38,6 +38,7 @@ internal fun atomicsFunction(
         .replace(", ", ",\n")
         .replace("index: number", "index: Int")
         .replace(": bigint", ": BigInt")
+        .replace(": boolean", ": Boolean")
         .replace("count?: number", "count: Int = definedExternally")
         .replace("timeout?: number", "timeout: Int = definedExternally")
 
@@ -51,6 +52,7 @@ internal fun atomicsFunction(
     }
 
     content = content.replace("value: number", "value: Int")
+        .replace(": number", ": Int")
 
     return "fun " + content
 }
