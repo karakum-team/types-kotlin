@@ -2,14 +2,13 @@ package karakum.browser
 
 internal class EventInfo(
     val fqn: String,
-    val existed: Boolean = false,
 ) {
     val name: String = fqn.substringAfterLast(".")
     val pkg: String = fqn.substringBeforeLast(".")
 }
 
 internal val EVENT_DATA = listOf(
-    EventInfo("web.events.Event", existed = true),
+    EventInfo("web.events.Event"),
     EventInfo("web.events.CustomEvent"),
 
     EventInfo("web.animations.AnimationEvent"),

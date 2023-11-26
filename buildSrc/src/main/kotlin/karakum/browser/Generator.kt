@@ -194,7 +194,7 @@ fun generateKotlinDeclarations(
     val webWorkersContent = webWorkersContent(serviceworkerDefinitionsFile)
     for ((name, body, optPkg) in (eventDeclarations(content, webWorkersContent) + workerEventDeclarations(content, webWorkersContent))) {
         val suppresses = mutableSetOf<Suppress>().apply {
-            if ("override val type: EventType<" in body)
+            if ("val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
 
             if (name == "TouchEvent")

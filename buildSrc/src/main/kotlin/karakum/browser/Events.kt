@@ -1,5 +1,7 @@
 package karakum.browser
 
+private const val EVENT = "Event"
+
 private val PACKAGE_MAP = mapOf(
     "AbortSignal" to "web.abort",
     "Animation" to "web.animations",
@@ -129,7 +131,6 @@ private fun eventPlaceholders(
     }
 
     return data
-        .filter { !it.existed }
         .map { info ->
             event(
                 source = source,
@@ -186,10 +187,17 @@ private fun event(
         .replace("<T = any>", "")
         // ProgressEvent
         .replace("<T extends EventTarget = EventTarget>", "")
-        .substringAfter("\ninterface $name extends ")
+        .let {
+            when (name) {
+                EVENT -> " {\n" + it.substringAfter("\ninterface $name {\n")
+                else -> it.substringAfter("\ninterface $name extends ")
+            }
+        }
         .substringBefore(";\n}\n")
 
     val eventParent = eventSource.substringBefore(" {\n")
+    val eventParentDeclaration = if (name != EVENT) ": $eventParent" else ""
+
     val typeProvider = TypeProvider(name)
 
     val eventMembers = eventSource.substringAfter(" {\n")
@@ -197,6 +205,9 @@ private fun event(
         .splitToSequence(";\n")
         .mapNotNull { convertMember(it, typeProvider) }
         .joinToString("\n")
+        // Event
+        .replace("val type: String", "    // val type: String")
+        .replace("val target: EventTarget?", "open val target: EventTarget?")
         // ProgressEvent
         .replace("val target: T?", "override val target: T?")
 
@@ -227,7 +238,10 @@ private fun event(
                         else -> ""
                     }
 
-                    p.replace("type: string", "override val type: EventType<$name$typeParameter>")
+                    val typeModifier = if (name == EVENT) "open" else "override"
+                    val typeDeclaration = "$typeModifier val type: EventType<$name$typeParameter>"
+
+                    p.replace("type: string", typeDeclaration)
                         .replace(": string", ": String")
                 }
             }
@@ -268,7 +282,7 @@ private fun event(
     }
 
     var eventBody = """  
-    $modifier external class $name$typeParameters $eventConstructor : $eventParent {
+    $modifier external class $name$typeParameters $eventConstructor $eventParentDeclaration {
         $eventMembers
     
         $companion
@@ -321,6 +335,9 @@ private class EventDataMap(
     fun getEventTypes(
         eventName: String,
     ): List<String>? {
+        if (eventName == EVENT)
+            return null
+
         val data = map[eventName]
             ?: return null
 
