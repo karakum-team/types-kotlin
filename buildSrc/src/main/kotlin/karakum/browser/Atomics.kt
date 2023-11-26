@@ -54,7 +54,7 @@ internal fun atomicsFunction(
     content = content.replace("value: number", "value: Int")
         .replace(": number", ": Int")
 
-    return "fun " + content
+    return "fun $content"
 }
 
 private fun atomicsContent(
@@ -73,4 +73,5 @@ private fun atomicsContent(
         .flatMap { it.splitToSequence("\n\n") }
         .filter { ": BigInt64Array | BigUint64Array," !in it }
         .filter { "[Symbol.toStringTag]" !in it }
+        .sortedBy { it.substringAfterLast("\n").substringBefore("(") }
         .joinToString("\n\n")
