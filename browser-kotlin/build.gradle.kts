@@ -24,6 +24,10 @@ val JS_INCLUDE = setOf(
 
 val WEB_INCLUDE = setOf(
     "web/abort",
+    "web/buffer/Blob.kt",
+    "web/buffer/BlobPart.kt",
+    "web/buffer/BlobPropertyBag.kt",
+    "web/buffer/EndingType.kt",
     "web/compression",
     "web/console",
     "web/crypto",
@@ -41,6 +45,7 @@ val WEB_INCLUDE = setOf(
 
 val BROWSER_INCLUDE = setOf(
     "web",
+    "web/buffer",
     "web/events/ProgressEvent.kt",
     "web/file",
 

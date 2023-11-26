@@ -18,6 +18,8 @@ private val PKG_MAP = mapOf(
     "CSSMathOperator" to "web.cssom",
     "CSSNumericBaseType" to "web.cssom",
 
+    "EndingType" to "web.buffer",
+
     "InsertPosition" to "web.dom",
     "MutationRecordType" to "web.dom.observers",
     "ResizeObserverBoxOptions" to "web.dom.observers",
@@ -118,9 +120,6 @@ private val PKG_MAP = mapOf(
 private val EXCLUDED_TYPES = setOf(
     "OffscreenRenderingContextId",
 
-    // buffer
-    "EndingType",
-
     "DisplayCaptureSurfaceType",
     "VideoFacingModeEnum",
 )
@@ -173,6 +172,8 @@ private fun convertType(
 
             "CanvasImageSource" -> "web.canvas"
             "ImageBitmapSource" -> "web.canvas"
+
+            "BlobPart" -> "web.buffer"
 
             "HTMLOrSVGImageElement" -> "web.dom"
             "HTMLOrSVGScriptElement" -> "web.dom"
