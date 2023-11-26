@@ -192,7 +192,10 @@ fun generateKotlinDeclarations(
         .also { it.mkdirs() }
 
     val webWorkersContent = webWorkersContent(serviceworkerDefinitionsFile)
-    for ((name, body, optPkg) in (eventDeclarations(content, webWorkersContent) + workerEventDeclarations(content, webWorkersContent))) {
+    for ((name, body, optPkg) in (eventDeclarations(content, webWorkersContent) + workerEventDeclarations(
+        content,
+        webWorkersContent
+    ))) {
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
@@ -237,6 +240,7 @@ fun generateKotlinDeclarations(
         .plus(windowTypes())
         .plus(tagNames(content))
         .plus(intlDeclarations(definitionsDir))
+        .plus(atomicsDeclarations(definitionsDir))
         .plus(webAssemblyDeclarations(content))
         .plus(webWorkersDeclarations(serviceworkerDefinitionsFile))
 
