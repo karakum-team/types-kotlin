@@ -565,6 +565,9 @@ internal fun htmlDeclarations(
         "Gamepad",
         "Gamepad.+?",
 
+        "Blob",
+        "Blob.+?",
+
         "File",
         "File.+?",
 
@@ -1126,6 +1129,7 @@ internal fun convertInterface(
 
     val modifier = when {
         name == "Animation" ||
+                name == "Blob" ||
                 name == "DOMMatrixReadOnly" ||
                 name == "DOMPointReadOnly" ||
                 name == "DOMRectReadOnly" ||
@@ -1139,7 +1143,8 @@ internal fun convertInterface(
                 name == "Comment"
         -> "sealed"
 
-        name in CSSOM_INTERFACES ||
+        name == "BlobPropertyBag" ||
+                name in CSSOM_INTERFACES ||
                 name in DOM_PARSING_TYPES ||
                 name == "DataTransfer" ||
                 name == "FileReader" ||
@@ -1236,6 +1241,8 @@ internal fun convertInterface(
 
         name.startsWith("FileSystem") -> "web.filesystem"
         name in FILE_SYSTEM_TYPES -> "web.filesystem"
+
+        name.startsWith("Blob") -> "web.buffer"
 
         name.startsWith("File") -> "web.file"
         name.startsWith("Gamepad") -> "web.gamepad"
