@@ -76,7 +76,14 @@ fun isDirFromWrapperProject(
         WrapperProject.BROWSER -> BROWSER_INCLUDE
     }
 
-    return path in included || included.any { it.startsWith("$path/") }
+    if (path in included)
+        return true
+
+    if (included.any { it.startsWith("$path/") })
+        return true
+
+    val basePath = path.substringBeforeLast("/", "")
+    return basePath.isNotEmpty() && isDirFromWrapperProject(basePath, wp)
 }
 
 fun isFromWrapperProject(wp: WrapperProject): Spec<FileTreeElement> {
