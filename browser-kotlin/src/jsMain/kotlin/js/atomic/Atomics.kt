@@ -58,7 +58,7 @@ external object Atomics {
      * (`true`) or must use locks (`false`) for the given number of bytes-per-element of a typed
      * array.
      */
-    fun isLockFree(size: number): boolean
+    fun isLockFree(size: Int): Boolean
 
     /**
      * Returns the value at the given position in the array. Until this atomic operation completes,
@@ -125,7 +125,7 @@ external object Atomics {
         typedArray: Int32Array,
         index: Int,
         count: Int = definedExternally,
-    ): number
+    ): Int
 
     /**
      * Stores the bitwise XOR of a value with the value at the given position in the array,
@@ -162,7 +162,7 @@ external object Atomics {
         typedArray: BigInt64Array,
         index: Int,
         count: Int = definedExternally,
-    ): number
+    ): Int
 
     /**
      * A non-blocking, asynchronous version of wait which is usable on the main thread.
