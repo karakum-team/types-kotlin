@@ -16,7 +16,12 @@ open external class QueryClient(config: QueryClientConfig = definedExternally) {
     open fun <TQueryFnData> getQueryData(queryKey: QueryKey): TQueryFnData?
     open fun <TQueryFnData, TError, TData, TQueryKey : QueryKey> ensureQueryData(options: FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey, *>): Promise<TData>
     open fun <TQueryFnData> getQueriesData(filters: QueryFilters): ReadonlyArray<JsTuple2<QueryKey, TQueryFnData?>>
-    open var setQueryData: Any /* TQueryFnData>(queryKey: TaggedQueryKey, updater: Updater<NoInfer<TInferredQueryFnData> | undefined, NoInfer<TInferredQueryFnData> | undefined>, options?: SetDataOptions): TInferredQueryFnData | undefined */
+    open fun <TQueryFnData> setQueryData(
+        queryKey: QueryKey,
+        updater: Updater<TQueryFnData?, TQueryFnData?>,
+        options: SetDataOptions = definedExternally,
+    ): TQueryFnData?
+
     open fun <TQueryFnData> setQueriesData(
         filters: QueryFilters,
         updater: Updater<TQueryFnData?, TQueryFnData?>,
