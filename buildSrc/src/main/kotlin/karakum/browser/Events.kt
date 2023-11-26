@@ -147,7 +147,7 @@ private fun event(
     types: List<String>?,
 ): ConversionResult {
     val initName = "${name}Init" +
-            (if (name == "MessageEvent") "<T = any>" else "")
+            (if (name == "CustomEvent" || name == "MessageEvent") "<T = any>" else "")
 
     var initSource = source
         .substringAfter("\ninterface $initName ", "")
