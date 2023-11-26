@@ -10,6 +10,7 @@ internal class EventInfo(
 
 internal val EVENT_DATA = listOf(
     EventInfo("web.events.Event", existed = true),
+    EventInfo("web.events.CustomEvent"),
 
     EventInfo("web.animations.AnimationEvent"),
     EventInfo("web.animations.AnimationPlaybackEvent"),

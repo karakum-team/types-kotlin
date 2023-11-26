@@ -219,6 +219,7 @@ private fun event(
                     p.replace("?: ", ": ") + " = definedExternally"
                 } else {
                     val typeParameter = when (name) {
+                        "CustomEvent",
                         "MessageEvent",
                         "ProgressEvent",
                         -> "<T>"
@@ -260,6 +261,7 @@ private fun event(
 
     val modifier = if (eventConstructor.isNotEmpty()) "open" else "sealed"
     val typeParameters = when (name) {
+        "CustomEvent" -> "<out T>"
         "MessageEvent" -> "<out T>"
         "ProgressEvent" -> "<out T : EventTarget>"
         else -> ""
