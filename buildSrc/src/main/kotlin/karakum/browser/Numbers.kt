@@ -416,6 +416,10 @@ internal class TypeProvider(
             }
         }
 
+        if (parentType == "Blob") {
+            return "JsLong"
+        }
+
         return when {
             propertyName == "lastModified" -> "EpochTimeStamp"
             propertyName == "expiration" -> "EpochTimeStamp"
