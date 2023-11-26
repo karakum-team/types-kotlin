@@ -1,6 +1,8 @@
 package karakum.browser
 
 private val FLAG_NAMES = setOf(
+    "eventPhase",
+
     "networkState",
     "readyState",
 
