@@ -30,7 +30,6 @@ val KNOWN_MISSED_TYPES = setOf(
     "AudioProcessingEventInit",
     "BarProp",
     "ByteLengthQueuingStrategy",       // TODO generate
-    "CanvasCaptureMediaStreamTrack",
     "ComputedKeyframe",
     "CountQueuingStrategy",            // TODO generate
     "DOMException",

@@ -18,9 +18,6 @@ private val DEPRECATED = setOf(
     "HTMLTableDataCellElement",
 
     "HTMLAllCollection",
-
-    // TEMP
-    "CanvasCaptureMediaStreamTrack",
 )
 
 private val ANIMATION_TYPES = setOf(
@@ -161,6 +158,7 @@ private val HTTP_TYPES = listOf(
 )
 
 private val MEDIA_STREAM_TYPES = listOf(
+    "CanvasCaptureMediaStreamTrack",
     "DoubleRange",
     "ULongRange",
 )
@@ -662,7 +660,7 @@ internal fun htmlDeclarations(
         .plus(CANVAS_TYPES)
         .plus(HTTP_TYPES)
         .plus(MEDIA_CAPABILITIES_TYPES)
-        .plus(MEDIA_STREAM_TYPES)
+        .plus(MEDIA_STREAM_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(MEDIA_SESSION_TYPES)
         .plus(MEDIA_SOURCE_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WEB_AUDIO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
@@ -1243,7 +1241,7 @@ internal fun convertInterface(
         name == "MediaQueryList" -> "web.cssom"
         name.startsWith("FontFace") -> "web.fonts"
 
-        name.startsWith("Canvas") -> "web.canvas"
+        name.startsWith("Canvas") && name != "CanvasCaptureMediaStreamTrack" -> "web.canvas"
         name in CANVAS_TYPES -> "web.canvas"
 
         name in ANIMATION_TYPES -> "web.animations"
