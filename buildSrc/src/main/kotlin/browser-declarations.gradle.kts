@@ -36,7 +36,6 @@ val KNOWN_MISSED_TYPES = setOf(
     "EventListenerOptions",
     "EventTarget",
     "FrameRequestCallback",
-    "GetAnimationsOptions",
     "HTMLAllCollection",
     "IdleDeadline",
     "IdleRequestCallback",
