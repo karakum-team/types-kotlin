@@ -83,7 +83,7 @@ val findMissedTypes by tasks.creating {
             .filter { !it.endsWith("NameMap") }
             .toSet()
 
-        val missedTypes = (declaredInterfaces - generatedInterfaces).sorted() // - KNOWN_MISSED_TYPES
+        val missedTypes = (declaredInterfaces - generatedInterfaces).sorted() - KNOWN_MISSED_TYPES
         println("MISSED TYPES: ${missedTypes.size}")
         println(missedTypes.joinToString("\n"))
     }
