@@ -60,8 +60,6 @@ val KNOWN_MISSED_TYPES = setOf(
     "PushMessageData",
     "RadioNodeList",
     "ServiceWorkerGlobalScope",
-    "StaticRange",
-    "StaticRangeInit",
     "WindowLocalStorage",
     "WindowOrWorkerGlobalScope",
     "WindowSessionStorage",
