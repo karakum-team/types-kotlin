@@ -85,9 +85,6 @@ private val EXCLUDED = setOf(
     "AudioProcessingEvent",
     "MediaRecorderErrorEvent",
     "MutationEvent",
-
-    // TODO: check
-    "PushEvent",
 )
 
 internal fun eventDeclarations(

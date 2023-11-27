@@ -69,6 +69,7 @@ internal val EVENT_DATA = listOf(
 )
 
 internal val WORKER_EVENT_DATA = listOf(
+    EventInfo("web.push.PushEvent"),
     EventInfo("web.serviceworker.ExtendableEvent"),
     EventInfo("web.serviceworker.ExtendableMessageEvent"),
     EventInfo("web.serviceworker.FetchEvent"),

@@ -213,6 +213,8 @@ private fun convertType(
 
             "ExportValue",
             "ImportValue",
+
+            "PushMessageDataInit",
             -> getPkg(name)!!
 
             else -> when {

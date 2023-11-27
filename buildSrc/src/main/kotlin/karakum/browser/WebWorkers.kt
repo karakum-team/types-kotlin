@@ -13,10 +13,17 @@ private val SERVICE_WORKER_TYPES = listOf(
     "Client",
     "Clients",
     "ClientQueryOptions",
+
     "WindowClient",
 )
 
+private val PUSH_TYPES = listOf(
+    "PushMessageData",
+    "PushMessageDataInit",
+)
+
 private val PKG_MAP = mapOf(
+    "PushMessageDataInit" to "web.push",
     "FrameType" to "web.serviceworker",
 )
 
@@ -35,7 +42,10 @@ internal fun webWorkersDeclarations(
 
             val predefinedPkg = when (name) {
                 in WORKER_TYPES -> "web.workers"
+
+                in PUSH_TYPES -> "web.push"
                 in SERVICE_WORKER_TYPES -> "web.serviceworker"
+
                 else -> return@mapNotNull null
             }
 
