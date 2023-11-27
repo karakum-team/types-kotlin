@@ -422,6 +422,17 @@ private val URL_TYPES = listOf(
     "URLSearchParams",
 )
 
+private val REPORTING_TYPES = listOf(
+    "CSPViolationReportBody",
+    "DeprecationReportBody",
+    "InterventionReportBody",
+    "Report",
+    "ReportBody",
+    "ReportError",
+    "ReportingObserver",
+    "ReportingObserverOptions",
+)
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -664,6 +675,7 @@ internal fun htmlDeclarations(
         .plus(COMPRESSION_STREAMS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(CREDENTIALS_TYPES)
         .plus(URL_TYPES)
+        .plus(REPORTING_TYPES)
         .joinToString("|")
 
     val interfaces =
@@ -1355,6 +1367,7 @@ internal fun convertInterface(
         name.startsWith("Payment") -> "web.payment"
 
         name in URL_TYPES -> "web.url"
+        name in REPORTING_TYPES -> "web.reporting"
 
         else -> "web.html"
     }

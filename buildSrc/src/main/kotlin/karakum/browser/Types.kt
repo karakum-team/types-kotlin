@@ -206,6 +206,8 @@ private fun convertType(
             "ReadableStreamController" -> "web.streams"
             "ReadableStreamReadResult" -> "web.streams"
 
+            "ReportList" -> "web.reporting"
+
             "RTCRtpTransform",
 
             "ExportValue",
@@ -237,6 +239,9 @@ private fun convertType(
 
             bodySource == "PerformanceEntry[]"
             -> "ReadonlyArray<PerformanceEntry>"
+
+            bodySource == "Report[]"
+            -> "ReadonlyArray<Report>"
 
             name == "AutoFill"
             -> "String /* $bodySource */"

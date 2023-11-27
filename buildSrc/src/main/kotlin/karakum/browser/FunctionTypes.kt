@@ -68,6 +68,8 @@ private fun convertFunctionType(
 
         name == "NotificationPermissionCallback" -> "web.notifications"
 
+        name == "ReportingObserverCallback" -> "web.reporting"
+
         name.startsWith("RTC") -> "webrtc"
         name == "VoidFunction" -> "webrtc"
 
@@ -82,6 +84,7 @@ private fun convertFunctionType(
         .replace(": IntersectionObserverEntry[]", ": ReadonlyArray<IntersectionObserverEntry>")
         .replace(": MutationRecord[]", ": ReadonlyArray<MutationRecord>")
         .replace(": ResizeObserverEntry[]", ": ReadonlyArray<ResizeObserverEntry>")
+        .replace(": Report[]", ": ReadonlyArray<Report>")
         .replace("?: EncodedVideoChunkMetadata", ": EncodedVideoChunkMetadata?")
         .replace("): void | PromiseLike<void>", ") -> PromiseLike<Void>?")
         // QueuingStrategySize
