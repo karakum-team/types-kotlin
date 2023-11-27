@@ -166,6 +166,9 @@ private val INT_NAMES = setOf(
     "fftSize",
     "offset",
 
+    // Animation
+    "computedOffset",
+
     // Crypto
     "tagLength",
     "modulusLength",

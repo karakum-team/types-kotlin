@@ -57,9 +57,14 @@ internal fun String.applyPatches(): String =
             "Response | PromiseLike<Response>",
             "Response | Promise<Response>",
         )
+        .splitUnion("Keyframe[] | PropertyIndexedKeyframes")
+        .splitUnion("number | KeyframeEffectOptions")
         .patchDomGeometry()
         .replace("\n    getContext(contextId: string, options?: any): RenderingContext | null;", "")
-        .replace("\n    getContext(contextId: OffscreenRenderingContextId, options?: any): OffscreenRenderingContext | null;", "")
+        .replace(
+            "\n    getContext(contextId: OffscreenRenderingContextId, options?: any): OffscreenRenderingContext | null;",
+            ""
+        )
         .replace("quality?: any", "quality?: number")
         .replace("LockGrantedCallback): Promise<any>", "LockGrantedCallback): Promise<void>")
         .replace("(lock: Lock | null): any", "(lock: Lock | null): void")

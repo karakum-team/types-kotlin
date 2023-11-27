@@ -30,7 +30,6 @@ val KNOWN_MISSED_TYPES = setOf(
     "AudioProcessingEventInit",
     "BarProp",
     "ByteLengthQueuingStrategy",       // TODO generate
-    "ComputedKeyframe",
     "CountQueuingStrategy",            // TODO generate
     "DOMException",
     "DocumentTimeline",
@@ -46,14 +45,9 @@ val KNOWN_MISSED_TYPES = setOf(
     "IdleRequestCallback",
     "IdleRequestOptions",
     "ImportMeta",
-    "Keyframe",
-    "KeyframeAnimationOptions",
-    "KeyframeEffect",
-    "KeyframeEffectOptions",
     "OnBeforeUnloadEventHandlerNonNull",
     "OnErrorEventHandlerNonNull",
     "OverconstrainedError",
-    "PropertyIndexedKeyframes",
     "PushEvent",
     "PushEventInit",
     "PushMessageData",

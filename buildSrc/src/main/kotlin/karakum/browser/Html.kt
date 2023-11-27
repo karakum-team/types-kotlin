@@ -28,6 +28,13 @@ private val ANIMATION_TYPES = setOf(
     "ComputedEffectTiming",
     "EffectTiming",
     "OptionalEffectTiming",
+
+    "ComputedKeyframe",
+    "Keyframe",
+    "KeyframeAnimationOptions",
+    "KeyframeEffect",
+    "KeyframeEffectOptions",
+    "PropertyIndexedKeyframes",
 )
 
 private val DOM_TYPES = setOf(
@@ -649,7 +656,7 @@ internal fun htmlDeclarations(
         "Console",
 
         "Payment.+?",
-    ).plus(ANIMATION_TYPES)
+    ).plus(ANIMATION_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(DOM_TYPES)
         .plus(SCROLL_TYPES)
         .plus(FULLSCREEN_TYPES)
@@ -1672,6 +1679,12 @@ private fun convertProperty(
 
         "Promise<undefined>",
         -> "Promise<Void>"
+
+        "CompositeOperationOrAuto | CompositeOperationOrAuto[]",
+        -> "ReadonlyArray<CompositeOperationOrAuto> /* | CompositeOperationOrAuto */"
+
+        "number | (number | null)[]",
+        -> "ReadonlyArray<Double?> /* | Double */"
 
         "IDBObjectStore | IDBIndex",
         "IDBObjectStore | IDBIndex | IDBCursor",
