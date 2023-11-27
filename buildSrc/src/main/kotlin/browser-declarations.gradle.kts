@@ -27,12 +27,10 @@ val KNOWN_MISSED_TYPES = setOf(
     "AddEventListenerOptions",
     "Animatable",
     "AnimationFrameProvider",
-    "AudioProcessingEvent",
     "AudioProcessingEventInit",
     "BarProp",
     "ByteLengthQueuingStrategy",
     "CanvasCaptureMediaStreamTrack",
-    "ClientRect",
     "ComputedKeyframe",
     "CountQueuingStrategy",
     "DOMException",
@@ -42,17 +40,9 @@ val KNOWN_MISSED_TYPES = setOf(
     "EventListenerObject",
     "EventListenerOptions",
     "EventTarget",
-    "External",
     "FrameRequestCallback",
     "GetAnimationsOptions",
     "HTMLAllCollection",
-    "HTMLDirectoryElement",
-    "HTMLFontElement",
-    "HTMLFrameElement",
-    "HTMLFrameSetElement",
-    "HTMLMarqueeElement",
-    "HTMLTableDataCellElement",
-    "HTMLTableHeaderCellElement",
     "IdleDeadline",
     "IdleRequestCallback",
     "IdleRequestOptions",
@@ -61,24 +51,17 @@ val KNOWN_MISSED_TYPES = setOf(
     "KeyframeAnimationOptions",
     "KeyframeEffect",
     "KeyframeEffectOptions",
-    "MimeType",
-    "MimeTypeArray",
-    "MutationEvent",
     "OnBeforeUnloadEventHandlerNonNull",
     "OnErrorEventHandlerNonNull",
     "OverconstrainedError",
-    "Plugin",
-    "PluginArray",
     "PropertyIndexedKeyframes",
     "PushEvent",
     "PushEventInit",
     "PushMessageData",
     "RadioNodeList",
-    "ScriptProcessorNode",
     "ServiceWorkerGlobalScope",
     "StaticRange",
     "StaticRangeInit",
-    "StyleMedia",
     "VTTCue",
     "VTTRegion",
     "WindowLocalStorage",
@@ -100,12 +83,22 @@ val findMissedTypes by tasks.creating {
             "@types/web",
             "@types/serviceworker",
         ).map { nodeModules.resolve("$it/index.d.ts") }
-            .flatMap { it.readLines() }
-            .zipWithNext { comment, line ->
-                if (line.startsWith("interface ") && "@deprecated" !in comment) line else null
+            .map { it.readText() }
+            .flatMap { content ->
+                content.splitToSequence("\ninterface ")
+                    .flatMap { line ->
+                        if (line.endsWith(" */") && "@deprecated" in line.substringAfterLast("/**")) {
+                            sequenceOf(line, "--deprecated--")
+                        } else {
+                            sequenceOf(line)
+                        }
+                    }
+                    .zipWithNext { note, line ->
+                        if (note != "--deprecated--" && line != "--deprecated--") line else null
+                    }
+                    .filterNotNull()
             }
-            .filterNotNull()
-            .map { it.removePrefix("interface ").substringBefore(" ").substringBefore("<") }
+            .map { it.substringBefore(" ").substringBefore("<") }
             .filter { !it.endsWith("EventMap") }
             .filter { !it.endsWith("NameMap") }
             .toSet()
