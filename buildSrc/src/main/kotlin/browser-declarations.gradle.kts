@@ -29,10 +29,10 @@ val KNOWN_MISSED_TYPES = setOf(
     "AnimationFrameProvider",
     "AudioProcessingEventInit",
     "BarProp",
-    "ByteLengthQueuingStrategy",
+    "ByteLengthQueuingStrategy",       // TODO generate
     "CanvasCaptureMediaStreamTrack",
     "ComputedKeyframe",
-    "CountQueuingStrategy",
+    "CountQueuingStrategy",            // TODO generate
     "DOMException",
     "DocumentTimeline",
     "DocumentTimelineOptions",
