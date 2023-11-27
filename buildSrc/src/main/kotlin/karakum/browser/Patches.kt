@@ -58,6 +58,7 @@ internal fun String.applyPatches(): String =
             "Response | Promise<Response>",
         )
         .splitUnion("Keyframe[] | PropertyIndexedKeyframes")
+        .splitUnion("number | KeyframeAnimationOptions")
         .splitUnion("number | KeyframeEffectOptions")
         .patchDomGeometry()
         .replace("\n    getContext(contextId: string, options?: any): RenderingContext | null;", "")

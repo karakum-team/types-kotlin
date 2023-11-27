@@ -49,6 +49,9 @@ private val DEFAULT_IMPORTS = Imports(
 
     "web.abort.AbortSignal",
     "web.animations.Animation",
+    "web.animations.Keyframe",
+    "web.animations.KeyframeAnimationOptions",
+    "web.animations.PropertyIndexedKeyframes",
     "web.aria.ARIAMixin",
     "web.buffer.Blob",
     "web.buffer.BlobPart",

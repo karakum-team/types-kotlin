@@ -42,6 +42,9 @@ private val DOM_TYPES = setOf(
     "DOMStringMap",
     "DOMTokenList",
 
+    "Animatable",
+    "GetAnimationsOptions",
+
     "Attr",
     "CDATASection",
     "CharacterData",
@@ -941,7 +944,6 @@ internal fun convertInterface(
             declaration
                 .replace(" extends ", " :\n")
                 .let { if (":" in it) it.replace(", ", ",\n") else it }
-                .replace("\nAnimatable,", "\n/* Animatable, */")
         }
     }
 

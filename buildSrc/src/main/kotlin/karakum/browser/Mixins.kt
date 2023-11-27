@@ -13,6 +13,7 @@ internal object Mixins {
     )
 
     val UNSAFE: Set<String> = setOf(
+        "Animatable",
         "ElementCSSInlineStyle",
         "ChildNode",
         "HTMLOrSVGElement",
