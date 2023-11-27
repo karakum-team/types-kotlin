@@ -49,6 +49,7 @@ private val DEFAULT_IMPORTS = Imports(
 
     "web.abort.AbortSignal",
     "web.animations.Animation",
+    "web.animations.DocumentTimeline",
     "web.animations.Keyframe",
     "web.animations.KeyframeAnimationOptions",
     "web.animations.PropertyIndexedKeyframes",
@@ -82,6 +83,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.dom.NodeList",
     "web.dom.NodeListOf",
     "web.dom.Range",
+    "web.dom.StaticRange",
     "web.errors.DOMException",
     "web.events.Event",
     "web.events.EventHandler",

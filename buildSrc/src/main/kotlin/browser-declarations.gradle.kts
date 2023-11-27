@@ -25,15 +25,12 @@ tasks.named("generateDeclarations") {
 
 val KNOWN_MISSED_TYPES = setOf(
     "AddEventListenerOptions",
-    "Animatable",
     "AnimationFrameProvider",
     "AudioProcessingEventInit",
     "BarProp",
     "ByteLengthQueuingStrategy",       // TODO generate
     "CountQueuingStrategy",            // TODO generate
     "DOMException",
-    "DocumentTimeline",
-    "DocumentTimelineOptions",
     "EventListener",
     "EventListenerObject",
     "EventListenerOptions",

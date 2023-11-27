@@ -35,6 +35,9 @@ private val ANIMATION_TYPES = setOf(
     "KeyframeEffect",
     "KeyframeEffectOptions",
     "PropertyIndexedKeyframes",
+
+    "DocumentTimeline",
+    "DocumentTimelineOptions",
 )
 
 private val DOM_TYPES = setOf(
@@ -1724,14 +1727,6 @@ private fun convertProperty(
 
         "BufferSource | string",
         -> "BufferSource /* | String */"
-
-        // TEMP
-        "DocumentTimeline",
-        -> "dynamic /* $type */"
-
-        // TEMP
-        "StaticRange[]",
-        -> "ReadonlyArray<Any /* StaticRange */>"
 
         // TEMP
         "DateTimeFormatPartTypes",
