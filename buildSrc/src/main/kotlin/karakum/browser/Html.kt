@@ -2118,9 +2118,6 @@ private fun getParameterType(
         source == "Promise<any>"
         -> "Promise<*>"
 
-        source == "PromiseLike<PaymentDetailsUpdate>"
-        -> "Promise<PaymentDetailsUpdate> /* PromiseLike */"
-
         source == "ReadableStream"
         -> "ReadableStream<*>"
 

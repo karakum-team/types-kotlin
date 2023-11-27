@@ -53,10 +53,7 @@ internal fun String.applyPatches(): String =
         .splitUnion("AesKeyGenParams | HmacKeyGenParams | Pbkdf2Params")
         .splitUnion("IDBValidKey | IDBKeyRange")
         .splitUnion("PaymentDetailsUpdate | PromiseLike<PaymentDetailsUpdate>")
-        .splitUnion(
-            "Response | PromiseLike<Response>",
-            "Response | Promise<Response>",
-        )
+        .splitUnion("Response | PromiseLike<Response>")
         .splitUnion("Keyframe[] | PropertyIndexedKeyframes")
         .splitUnion("number | KeyframeAnimationOptions")
         .splitUnion("number | KeyframeEffectOptions")
