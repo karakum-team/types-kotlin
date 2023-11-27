@@ -89,6 +89,11 @@ private val DOM_TYPES = setOf(
     "GlobalEventHandlers",
 )
 
+private val EVENTS_TYPES = setOf(
+    "AddEventListenerOptions",
+    "EventListenerOptions",
+)
+
 private val SCROLL_TYPES = setOf(
     "ScrollOptions",
     "ScrollToOptions",
@@ -664,6 +669,7 @@ internal fun htmlDeclarations(
         "Payment.+?",
     ).plus(ANIMATION_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(DOM_TYPES)
+        .plus(EVENTS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(SCROLL_TYPES)
         .plus(FULLSCREEN_TYPES)
         .plus(CSSOM_TYPES.flatMap { sequenceOf(it, "$it .+?") })
@@ -1366,6 +1372,7 @@ internal fun convertInterface(
         name == "PictureInPictureWindow" -> "web.window"
         name == "VisualViewport" -> "web.viewport"
 
+        name in EVENTS_TYPES -> "web.events"
         name in SCROLL_TYPES -> "web.scroll"
         name in FULLSCREEN_TYPES -> "web.fullscreen"
 
