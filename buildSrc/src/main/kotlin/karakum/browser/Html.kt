@@ -1201,6 +1201,7 @@ internal fun convertInterface(
         name == "Element" ||
                 name == "Document" ||
                 name == "DocumentFragment" ||
+                name == "WorkerGlobalScope" ||
                 name == "Worklet"
         -> "abstract"
 

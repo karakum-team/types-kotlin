@@ -395,12 +395,15 @@ fun generateKotlinDeclarations(
             """.trimIndent()
 
             "DedicatedWorkerGlobalScope",
+            "ServiceWorkerGlobalScope",
             "WorkerGlobalScope",
             -> """
             import web.fonts.FontFaceSource    
             import web.window.PromiseRejectionEvent
             import web.errors.ErrorEvent
             import web.messaging.MessageEvent
+            import web.push.PushEvent
+            import web.workers.WorkerGlobalScope
             """.trimIndent()
 
             "WorkerNavigator",

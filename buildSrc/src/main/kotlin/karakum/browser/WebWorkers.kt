@@ -14,6 +14,8 @@ private val SERVICE_WORKER_TYPES = listOf(
     "Clients",
     "ClientQueryOptions",
 
+    "ServiceWorkerGlobalScope",
+
     "WindowClient",
 )
 
