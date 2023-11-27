@@ -448,6 +448,8 @@ internal class TypeProvider(
             parentType == "SVGAnimatedInteger" -> "Int"
             parentType == "SVGAnimatedNumber" -> "Double"
 
+            parentType == "VTTRegion" -> "Double"
+
             propertyName.startsWith("numberOf") -> "Int"
             propertyName.endsWith("Count") -> "Int"
             propertyName.endsWith("Digits") -> "Int"

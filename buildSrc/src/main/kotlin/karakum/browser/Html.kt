@@ -599,6 +599,7 @@ internal fun htmlDeclarations(
         "RTC.+?",
 
         "MediaKey.+?",
+        "VTT.+?",
         "TextTrack.+?",
 
         "MediaStream.+?",
@@ -1294,6 +1295,8 @@ internal fun convertInterface(
 
         name.startsWith("RTC") -> "webrtc"
         name.startsWith("MediaKey") -> "web.media.key"
+
+        name.startsWith("VTT") -> "webvtt"
         name.startsWith("TextTrack") -> "webvtt"
 
         name.startsWith("MediaCapabilities") -> "web.media.capabilities"

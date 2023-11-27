@@ -62,8 +62,6 @@ val KNOWN_MISSED_TYPES = setOf(
     "ServiceWorkerGlobalScope",
     "StaticRange",
     "StaticRangeInit",
-    "VTTCue",
-    "VTTRegion",
     "WindowLocalStorage",
     "WindowOrWorkerGlobalScope",
     "WindowSessionStorage",

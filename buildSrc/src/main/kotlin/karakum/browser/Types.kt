@@ -207,6 +207,7 @@ private fun convertType(
             "ReadableStreamReadResult" -> "web.streams"
 
             "ReportList" -> "web.reporting"
+            "LineAndPositionSetting" -> "webvtt"
 
             "RTCRtpTransform",
 
