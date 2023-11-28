@@ -263,7 +263,7 @@ fun generateKotlinDeclarations(
             if ("override val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
 
-            if ("@JsValue(" in body && "companion object" in body)
+            if ("@JsValue(" in body && "companion object" in body && name != DOM_EXCEPTION)
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
             if ("inline fun " in body)
