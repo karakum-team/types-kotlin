@@ -34,6 +34,9 @@ private fun convertFunctionType(
     val name = declaration.substringBefore("<")
 
     val pkg = when {
+        name == "FrameRequestCallback" -> "web.timers"
+        name == "IdleRequestCallback" -> "web.timers"
+
         name in STREAMS_FUNCTION_TYPES -> "web.streams"
 
         name == "PerformanceObserverCallback" -> "web.performance"

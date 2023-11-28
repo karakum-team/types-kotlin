@@ -314,6 +314,11 @@ private val ERROR_TYPES = listOf(
     DOM_EXCEPTION,
 )
 
+private val TIMERS_TYPES = listOf(
+    "IdleDeadline",
+    "IdleRequestOptions",
+)
+
 private val MESSAGING_TYPES = listOf(
     "MessageChannel",
     "MessagePort",
@@ -692,6 +697,7 @@ internal fun htmlDeclarations(
         .plus(WORKERS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(ABORT_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(ERROR_TYPES.flatMap { sequenceOf(it, "$it .+?") })
+        .plus(TIMERS_TYPES)
         .plus(MESSAGING_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WEB_CRYPTO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(QUERY_TYPES.flatMap { sequenceOf(it, "$it .+?") })
@@ -1403,6 +1409,7 @@ internal fun convertInterface(
         name in CREDENTIALS_TYPES -> "web.credentials"
         name in ABORT_TYPES -> "web.abort"
         name in ERROR_TYPES -> "web.errors"
+        name in TIMERS_TYPES -> "web.timers"
         name in MESSAGING_TYPES -> "web.messaging"
         name in WEB_CRYPTO_TYPES -> "web.crypto"
 
