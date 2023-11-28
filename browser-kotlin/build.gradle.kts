@@ -32,6 +32,7 @@ val WEB_INCLUDE = setOf(
     "web/console",
     "web/crypto",
     "web/encoding",
+    "web/errors/DOMException.kt",
     "web/events",
     "web/file/File.kt",
     "web/file/FilePropertyBag.kt",

@@ -21,6 +21,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.core.BigInt",
     "js.core.EpochTimeStamp",
     "js.core.DOMHighResTimeStamp",
+    "js.errors.JsErrorName",
     "js.iterable.IterableIterator",
     "js.iterable.JsIterable",
     "js.core.JsLong",
@@ -186,6 +187,8 @@ fun generateKotlinDeclarations(
     serviceworkerIterableDefinitionsFile: File,
     sourceDir: File,
 ) {
+    domExceptionErrorNames()
+
     IterableRegistry.fill(
         definitionsDir,
         webIterableDefinitionsFile,

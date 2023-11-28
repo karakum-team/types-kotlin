@@ -310,6 +310,10 @@ private val ABORT_TYPES = listOf(
     "AbortSignal",
 )
 
+private val ERROR_TYPES = listOf(
+    DOM_EXCEPTION,
+)
+
 private val MESSAGING_TYPES = listOf(
     "MessageChannel",
     "MessagePort",
@@ -687,6 +691,7 @@ internal fun htmlDeclarations(
         .plus(WEB_AUDIO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WORKERS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(ABORT_TYPES.flatMap { sequenceOf(it, "$it .+?") })
+        .plus(ERROR_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(MESSAGING_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(WEB_CRYPTO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(QUERY_TYPES.flatMap { sequenceOf(it, "$it .+?") })
@@ -934,6 +939,9 @@ internal fun convertInterface(
         .replace("interface ", "$type ")
 
     declaration = when (name) {
+        DOM_EXCEPTION,
+        -> declaration.replace(" extends Error", " :\nJsError")
+
         "Body",
         "CanvasPath",
         -> declaration.replace("interface", "class /* interface */")
@@ -1041,13 +1049,13 @@ internal fun convertInterface(
                 || (additionalParent?.startsWith("ReadonlyMap<") ?: false)
     )
 
-    val mainConstructor: String
+    var mainConstructor: String
     val additionalConstructors: String
     if (staticSource != null) {
         val constructors = getConstructors(name, staticSource)
         val firstConstructor = constructors.firstOrNull()
         mainConstructor = if (firstConstructor != null) {
-            var result = firstConstructor.removePrefix("constructor")
+            val result = firstConstructor.removePrefix("constructor")
             when {
                 result.isEmpty()
                 -> "()"
@@ -1068,6 +1076,10 @@ internal fun convertInterface(
         additionalConstructors = ""
     }
 
+    if (name == DOM_EXCEPTION) {
+        mainConstructor = mainConstructor.replace("name: String", "name: JsErrorName")
+    }
+
     if (mainConstructor.isNotEmpty()) {
         declaration = if (":\n" in declaration) {
             declaration.replaceFirst(":\n", "$mainConstructor:")
@@ -1081,6 +1093,10 @@ internal fun convertInterface(
             .joinToString("\n")
 
         result = when (name) {
+            DOM_EXCEPTION,
+            -> result
+                .replace("val message: String", "override val message: String")
+
             "Node",
             -> result
                 .replace("val ownerDocument:", "open val ownerDocument:")
@@ -1173,7 +1189,8 @@ internal fun convertInterface(
         .joinToString("\n\n")
 
     val modifier = when {
-        name == "Animation" ||
+        name == DOM_EXCEPTION ||
+                name == "Animation" ||
                 name == "Blob" ||
                 name == "DOMMatrixReadOnly" ||
                 name == "DOMPointReadOnly" ||
@@ -1374,6 +1391,7 @@ internal fun convertInterface(
         name in WEB_AUTHN_TYPES -> "web.authn"
         name in CREDENTIALS_TYPES -> "web.credentials"
         name in ABORT_TYPES -> "web.abort"
+        name in ERROR_TYPES -> "web.errors"
         name in MESSAGING_TYPES -> "web.messaging"
         name in WEB_CRYPTO_TYPES -> "web.crypto"
 

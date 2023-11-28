@@ -27,7 +27,6 @@ val KNOWN_MISSED_TYPES = setOf(
     "AnimationFrameProvider",
     "AudioProcessingEventInit",
     "BarProp",
-    "DOMException",
     "EventListener",
     "EventListenerObject",
     "EventTarget",
