@@ -398,6 +398,8 @@ private val FILE_SYSTEM_TYPES = listOf(
 )
 
 private val STREAMS_TYPES = listOf(
+    "ByteLengthQueuingStrategy",
+    "CountQueuingStrategy",
     "GenericTransformStream",
     "QueuingStrategy",
     "QueuingStrategyInit",
@@ -945,6 +947,10 @@ internal fun convertInterface(
             .replaceFirst(" extends ", " : ")
             .replace(" extends ", " :\n")
 
+        "CountQueuingStrategy",
+        -> declaration
+            .replaceFirst(" extends QueuingStrategy", " :\nQueuingStrategy<Void>")
+
         "HTMLFormControlsCollection",
         -> declaration
             .replaceFirst(" extends HTMLCollectionBase", " :\nHTMLCollectionBase<Element>")
@@ -1138,6 +1144,13 @@ internal fun convertInterface(
             -> result
                 .replace("val target: Node?", "val target: EventTarget /* Node */?")
                 .replace("fun toJSON()", "override fun toJSON()")
+
+            "QueuingStrategy",
+            -> result.replace("var ", "val ")
+
+            "ByteLengthQueuingStrategy",
+            "CountQueuingStrategy",
+            -> result.replace("val ", "override val ")
 
             else -> result
         }
@@ -1692,6 +1705,9 @@ private fun convertProperty(
 
         "Promise<undefined>",
         -> "Promise<Void>"
+
+        "QueuingStrategySize",
+        -> "QueuingStrategySize<Void>"
 
         "CompositeOperationOrAuto | CompositeOperationOrAuto[]",
         -> "ReadonlyArray<CompositeOperationOrAuto> /* | CompositeOperationOrAuto */"

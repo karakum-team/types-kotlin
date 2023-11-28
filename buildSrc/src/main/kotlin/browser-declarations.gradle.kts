@@ -27,8 +27,6 @@ val KNOWN_MISSED_TYPES = setOf(
     "AnimationFrameProvider",
     "AudioProcessingEventInit",
     "BarProp",
-    "ByteLengthQueuingStrategy",       // TODO generate
-    "CountQueuingStrategy",            // TODO generate
     "DOMException",
     "EventListener",
     "EventListenerObject",
