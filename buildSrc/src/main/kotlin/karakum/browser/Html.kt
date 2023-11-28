@@ -1096,6 +1096,9 @@ internal fun convertInterface(
             DOM_EXCEPTION,
             -> result
                 .replace("val message: String", "override val message: String")
+                .splitToSequence("\n")
+                .filter { !it.endsWith(": Short") }
+                .joinToString("\n")
 
             "Node",
             -> result
@@ -1244,7 +1247,13 @@ internal fun convertInterface(
     }
 
     val companion = if (staticSource != null && predefinedPkg != "js.intl") {
-        getCompanion(name, staticSource)
+        val companionContent = getCompanion(name, staticSource)
+        if (name == DOM_EXCEPTION) {
+            companionContent
+                .splitToSequence("\n")
+                .filter { !it.endsWith(": Short") }
+                .joinToString("\n")
+        } else companionContent
     } else ""
 
     var body = sequenceOf(
