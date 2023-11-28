@@ -19,7 +19,7 @@ open external class DOMException(
     override val message: String
 
     /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMException/name) */
-    val name: String
+    val name: JsErrorName
 
     companion object {
         /**
