@@ -1252,8 +1252,8 @@ internal fun convertInterface(
             companionContent
                 .splitToSequence("\n")
                 .filter { !it.endsWith(": Short") }
-                .joinToString("\n") +
-                    domExceptionErrorNames()
+                .joinToString("\n")
+                .replaceFirst("\n}", domExceptionErrorNames() + "\n}")
         } else companionContent
     } else ""
 

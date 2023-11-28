@@ -37,7 +37,11 @@ private fun parseErrorName(
         return null
 
     val name = nameSource.substringBefore(" {{")
+        .removeSurrounding("`")
+
     val description = descriptionSource
+        .replace("""{{ domxref("Range") }}""", "`Range`")
+        .replace("""{{ domxref("Document") }}""", "`Document`")
 
     return name to description
 }
