@@ -1096,6 +1096,7 @@ internal fun convertInterface(
             DOM_EXCEPTION,
             -> result
                 .replace("val message: String", "override val message: String")
+                .replace("val name: String", "val name: JsErrorName")
                 .splitToSequence("\n")
                 .filter { !it.endsWith(": Short") }
                 .joinToString("\n")
