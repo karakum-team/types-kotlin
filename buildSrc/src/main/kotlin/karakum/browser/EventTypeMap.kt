@@ -92,6 +92,7 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     "auxclick" to "aux_click",
     "beforeinput" to "before_input",
     "beforeprint" to "before_print",
+    "beforetoggle" to "before_toggle",
     "beforeunload" to "before_unload",
     "bufferedamountlow" to "buffered_amount_low",
     "canplay" to "can_play",
