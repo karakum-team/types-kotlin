@@ -318,6 +318,17 @@ private fun event(
 private class EventDataMap(
     content: String,
 ) {
+    private val DEFAULT_EVENT_TYPES = listOf(
+        "abort",
+        "error",
+        "cancel",
+        "change",
+        "close",
+        "closing",
+        "complete",
+        "success",
+    )
+
     private val map = Regex("""interface .+?EventMap \{\n    "[\s\S]+?\n\}""")
         .findAll(content)
         .flatMap { parseEvents(it.value) }
@@ -331,18 +342,19 @@ private class EventDataMap(
     fun getEventTypes(
         eventName: String,
     ): List<String>? {
-        if (eventName == EVENT)
-            return null
-
         val data = map[eventName]
             ?: return null
 
-        return data.map { it.name }
+        val types = data.map { it.name }
+        return when (eventName) {
+            EVENT -> DEFAULT_EVENT_TYPES.filter { it in types }
+            else -> types
+        }
     }
-
 
     fun getDefaultEventTypes(): List<EventData> =
         map.getValue("Event")
+            .filter { it.name !in DEFAULT_EVENT_TYPES }
 }
 
 private fun eventTypes(
