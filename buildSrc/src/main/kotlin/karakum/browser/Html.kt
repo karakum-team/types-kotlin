@@ -547,6 +547,7 @@ internal fun htmlDeclarations(
         "Path2D .+?",
 
         "Window .+?",
+        "BarProp",
         "VisualViewport .+?",
         "WindowPostMessageOptions .+?",
 
@@ -905,7 +906,7 @@ internal fun convertInterface(
     }
 
     if (name == "HTMLInputElement" && " type: string;" in source) {
-        var newSource = source
+        val newSource = source
             .replace(" type: string;", " type: InputType;")
 
         return convertInterface(
@@ -1423,6 +1424,7 @@ internal fun convertInterface(
         name.startsWith("Performance") -> "web.performance"
 
         name.startsWith("Window") -> "web.window"
+        name == "BarProp" -> "web.window"
         name == "PictureInPictureWindow" -> "web.window"
         name == "VisualViewport" -> "web.viewport"
 
