@@ -1924,7 +1924,7 @@ private fun convertFunction(
         .replace(": Promise<CryptoKeyPair | CryptoKey>", ": Promise<Any /* CryptoKeyPair | CryptoKey */>")
         .replace(": Promise<WritableStream>", ": Promise<WritableStream<*>>")
         .replace("<string[]", "<ReadonlyArray<String>")
-        .replace(": StaticRange[]", ": ReadonlyArray<Any /* StaticRange */>")
+        .replace(": StaticRange[]", ": ReadonlyArray<StaticRange>")
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")
         .replace(": RelativeTimeFormatPart[]", ": ReadonlyArray<dynamic /* RelativeTimeFormatPart */>")
         .replace(Regex("""\: (\w+?)\[\]"""), ": ReadonlyArray<$1>")
