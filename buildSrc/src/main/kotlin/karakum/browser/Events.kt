@@ -320,12 +320,13 @@ private class EventDataMap(
 ) {
     private val DEFAULT_EVENT_TYPES = listOf(
         "abort",
-        "error",
         "cancel",
         "change",
         "close",
         "closing",
         "complete",
+        "error",
+        "open",
         "success",
     )
 
