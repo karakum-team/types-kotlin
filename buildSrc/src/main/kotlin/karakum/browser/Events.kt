@@ -33,7 +33,7 @@ private val PACKAGE_MAP = mapOf(
     "PaymentRequest" to "web.payment",
     "Performance" to "web.performance",
     "PermissionStatus" to "web.permissions",
-    "PictureInPictureWindow" to "web.window",
+    "PictureInPictureWindow" to "web.pip",
     "RTCDataChannel" to "webrtc",
     "RTCDtlsTransport" to "webrtc",
     "RTCIceTransport" to "webrtc",

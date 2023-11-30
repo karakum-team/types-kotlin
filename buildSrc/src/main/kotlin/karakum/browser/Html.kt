@@ -1425,7 +1425,7 @@ internal fun convertInterface(
 
         name.startsWith("Window") -> "web.window"
         name == "BarProp" -> "web.window"
-        name == "PictureInPictureWindow" -> "web.window"
+        name == "PictureInPictureWindow" -> "web.pip"
         name == "VisualViewport" -> "web.viewport"
 
         name in EVENTS_TYPES -> "web.events"
