@@ -39,7 +39,6 @@ val KNOWN_MISSED_TYPES = setOf(
     "WindowLocalStorage",
     "WindowOrWorkerGlobalScope",
     "WindowSessionStorage",
-    "XSLTProcessor",
 )
 
 val findMissedTypes by tasks.creating {

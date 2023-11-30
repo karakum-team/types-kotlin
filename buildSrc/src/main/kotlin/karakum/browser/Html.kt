@@ -462,6 +462,8 @@ private val REPORTING_TYPES = listOf(
     "ReportingObserverOptions",
 )
 
+private val XSLT_PROCESSOR = "XSLTProcessor"
+
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
@@ -710,6 +712,7 @@ internal fun htmlDeclarations(
         .plus(CREDENTIALS_TYPES)
         .plus(URL_TYPES)
         .plus(REPORTING_TYPES)
+        .plus(XSLT_PROCESSOR)
         .joinToString("|")
 
     val interfaces =
@@ -1234,6 +1237,7 @@ internal fun convertInterface(
                 name == "MessageChannel" ||
                 name == "StructuredSerializeOptions" ||
                 name == "AbortController" ||
+                name == XSLT_PROCESSOR ||
                 name.endsWith("Handlers") ||
                 mainConstructor.isNotEmpty()
         -> ""
@@ -1441,6 +1445,7 @@ internal fun convertInterface(
 
         name in URL_TYPES -> "web.url"
         name in REPORTING_TYPES -> "web.reporting"
+        name == XSLT_PROCESSOR -> "web.xslt"
 
         else -> "web.html"
     }
