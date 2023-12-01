@@ -382,9 +382,9 @@ external class Globe(var ellipsoid: Ellipsoid = definedExternally) {
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Globe.html#pick">Online Documentation</a>
      */
     fun pick(
-     ray: Ray,
-     scene: Scene,
-     result: Cartesian3? = definedExternally,
+        ray: Ray,
+        scene: Scene,
+        result: Cartesian3? = definedExternally,
     ): Cartesian3?
 
     /**
