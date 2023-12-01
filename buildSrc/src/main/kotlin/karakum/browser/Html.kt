@@ -997,7 +997,7 @@ internal fun convertInterface(
     if (memberSource == "new (...params: any[]): HTMLElement")
         return ConversionResult(
             name = name,
-            body = "typealias $name = JsClass<HTMLElement>",
+            body = "typealias $name = JsClass<out HTMLElement>",
             pkg = "web.html",
         )
 
