@@ -5,6 +5,9 @@ internal object Mixins {
         "LocaleOptions",
         "AbstractWorker",
 
+        // CSS
+        "LinkStyle",
+
         // DOM
         "ARIAMixin",
         "GlobalEventHandlers",

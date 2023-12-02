@@ -1083,9 +1083,7 @@ internal fun convertInterface(
 
     val isOldHtmlElementClass =
         name == "HTMLBodyElement" ||
-                name == "HTMLFormElement" ||
-                name == "HTMLLinkElement" ||
-                name == "HTMLStyleElement"
+                name == "HTMLFormElement"
 
     val isHtmlElementClass = type == "class" &&
             name.startsWith("HTML") &&
