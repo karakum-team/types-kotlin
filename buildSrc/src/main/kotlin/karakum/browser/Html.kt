@@ -1090,6 +1090,24 @@ internal fun convertInterface(
         mainConstructor = mainConstructor.replace("name: String", "name: JsErrorName")
     }
 
+    val isOldHtmlElementClass =
+        name == "HTMLAnchorElement" ||
+                name == "HTMLAreaElement" ||
+                name == "HTMLBodyElement" ||
+                name == "HTMLFormElement" ||
+                name == "HTMLLinkElement" ||
+                name == "HTMLStyleElement"
+
+    val isHtmlElementClass = type == "class" &&
+            name.startsWith("HTML") &&
+            name.endsWith("Element") &&
+            !isOldHtmlElementClass
+
+    if (isHtmlElementClass) {
+        require(mainConstructor.isEmpty())
+        mainConstructor = "\nprotected constructor()"
+    }
+
     if (mainConstructor.isNotEmpty()) {
         declaration = if (":\n" in declaration) {
             declaration.replaceFirst(":\n", "$mainConstructor:")
@@ -1211,7 +1229,8 @@ internal fun convertInterface(
                 name == "DOMRectReadOnly" ||
                 name == "Worker" ||
                 name == "Credential" ||
-                name == "WritableStream"
+                name == "WritableStream" ||
+                isHtmlElementClass
         -> "open"
 
         // TEMP WA
@@ -1250,10 +1269,7 @@ internal fun convertInterface(
                 name == "Worklet"
         -> "abstract"
 
-        type == "class" &&
-                name.startsWith("HTML") &&
-                name.endsWith("Element")
-        -> "abstract"
+        isOldHtmlElementClass -> "abstract"
 
         else -> "sealed"
     }
