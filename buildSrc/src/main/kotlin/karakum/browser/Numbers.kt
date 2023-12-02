@@ -393,6 +393,12 @@ private val WINDOW_EXCLUDED = setOf(
     "requestIdleCallback",
 )
 
+internal val LENGTH_REQUIRED = setOf(
+    "CSSTransformValue",
+    "CSSUnparsedValue",
+    "HTMLFormElement",
+)
+
 internal class TypeProvider(
     private val parentType: String,
     private val arrayType: String? = null,
@@ -481,7 +487,7 @@ internal class TypeProvider(
         name: String,
     ): Boolean {
         if (name == "length" && isArrayLike())
-            return false
+            return parentType in LENGTH_REQUIRED
 
         if (name == "forEach" && hideForEach)
             return false

@@ -1081,13 +1081,9 @@ internal fun convertInterface(
         mainConstructor = mainConstructor.replace("name: String", "name: JsErrorName")
     }
 
-    val isOldHtmlElementClass =
-        name == "HTMLFormElement"
-
     val isHtmlElementClass = type == "class" &&
             name.startsWith("HTML") &&
-            name.endsWith("Element") &&
-            !isOldHtmlElementClass
+            name.endsWith("Element")
 
     if (isHtmlElementClass) {
         require(mainConstructor.isEmpty())
@@ -1120,9 +1116,9 @@ internal fun convertInterface(
             -> result
                 .replace("val ownerDocument:", "open val ownerDocument:")
 
-            "CSSTransformValue",
-            "CSSUnparsedValue",
-            -> "override val length: Int\n$result"
+            in LENGTH_REQUIRED,
+            -> result
+                .replace("val length: Int", "override val length: Int")
 
             "DOMMatrixReadOnly",
             "DOMPointReadOnly",
@@ -1255,8 +1251,6 @@ internal fun convertInterface(
                 name == "WorkerGlobalScope" ||
                 name == "Worklet"
         -> "abstract"
-
-        isOldHtmlElementClass -> "abstract"
 
         else -> "sealed"
     }
