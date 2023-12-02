@@ -16,6 +16,7 @@ internal object Mixins {
         "Animatable",
         "ElementCSSInlineStyle",
         "ChildNode",
+        "HTMLHyperlinkElementUtils",
         "HTMLOrSVGElement",
         "InnerHTML",
         "ParentNode",
