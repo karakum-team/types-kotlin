@@ -13,6 +13,9 @@ internal object Mixins {
         "GlobalEventHandlers",
         "NonDocumentTypeChildNode",
         "Slottable",
+
+        // Window
+        "WindowEventHandlers",
     )
 
     val UNSAFE: Set<String> = setOf(
