@@ -11,8 +11,8 @@ import web.window.WindowTarget
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement)
  */
-abstract external class HTMLAreaElement :
-    HTMLElement,
+open external class HTMLAreaElement
+protected constructor() : HTMLElement,
     HTMLHyperlinkElementUtils {
     /**
      * Sets or retrieves a text alternative to the graphic.
