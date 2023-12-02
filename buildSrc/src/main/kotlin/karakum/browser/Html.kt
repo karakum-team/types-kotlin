@@ -1094,7 +1094,8 @@ internal fun convertInterface(
 
     if (isHtmlElementClass) {
         require(mainConstructor.isEmpty())
-        mainConstructor = "\nprotected constructor()"
+        require(":\n" in declaration)
+        declaration = declaration.replaceFirst(":\n", "\nprotected constructor():\n")
     }
 
     if (mainConstructor.isNotEmpty()) {
