@@ -988,7 +988,7 @@ internal fun convertInterface(
     if (memberSource == "new (...params: any[]): HTMLElement")
         return ConversionResult(
             name = name,
-            body = "typealias $name = JsClass<out HTMLElement>",
+            body = "typealias $name<T /* : HTMLElement */> = JsClass<T>",
             pkg = "web.html",
         )
 
@@ -1150,6 +1150,17 @@ internal fun convertInterface(
             "HTMLOptionsCollection",
             -> result
                 .replace("var length: Int", "override var length: Int")
+
+            "CustomElementRegistry",
+            -> result
+                .replace("CustomElementConstructor", "CustomElementConstructor<T>")
+                .replace("fun upgrade(", "fun_upgrade(")
+                .replace("fun ", "fun <T : HTMLElement> ")
+                .replace("fun_upgrade(", "fun upgrade(")
+                .replace(": String", ": HtmlTagName<T>")
+
+            "ElementDefinitionOptions",
+            -> result.replace(": String", ": HtmlTagName<*>")
 
             "CanvasPathDrawingStyles",
             -> result
