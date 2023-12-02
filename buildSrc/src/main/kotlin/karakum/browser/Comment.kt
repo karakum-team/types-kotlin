@@ -15,11 +15,14 @@ internal fun String.withComment(
 internal fun ConversionResult.withComment(
     fullSource: String,
     source: String,
-): ConversionResult {
+): ConversionResult? {
     val newBody = body.withComment(
         fullSource = fullSource,
         source = source,
     )
+
+    if ("@deprecated" in newBody)
+        return null
 
     return if (body != newBody) {
         copy(body = newBody)

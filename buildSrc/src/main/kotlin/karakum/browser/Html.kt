@@ -8,15 +8,6 @@ internal const val RENDERING_CONTEXT_ID = "RenderingContextId"
 internal const val GEOLOCATION_WATCH_ID = "GeolocationWatchId"
 
 private val DEPRECATED = setOf(
-    "HTMLDirectoryElement",
-    "HTMLFontElement",
-    "HTMLFrameElement",
-    "HTMLFrameSetElement",
-    "HTMLMarqueeElement",
-
-    "HTMLTableHeaderCellElement",
-    "HTMLTableDataCellElement",
-
     "HTMLAllCollection",
 )
 
