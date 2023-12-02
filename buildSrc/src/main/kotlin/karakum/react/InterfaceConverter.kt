@@ -19,6 +19,7 @@ internal fun convertInterface(
     val typeConverter = SimpleTypeConverter(name)
     val result = when {
         name == "AllHTMLAttributes" -> null
+        name == "ParamHTMLAttributes" -> null
 
         name.endsWith("Event") -> convertEventInterface(name, source, typeConverter)
         name.endsWith("Attributes") -> convertAttributesInterface(name, source, typeConverter)
@@ -201,7 +202,7 @@ private fun convertSvgType(
 ): String {
     val name = source.substringBefore(": ")
 
-    var elementType = source
+    val elementType = source
         .substringAfter(": React.SVGProps<")
         .substringBefore(">")
 
