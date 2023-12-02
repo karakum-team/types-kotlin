@@ -964,6 +964,9 @@ internal fun convertInterface(
         -> declaration
             .replaceFirst(" extends HTMLCollectionBase", " :\nHTMLCollectionBase<Element>")
 
+        "ElementDefinitionOptions",
+        -> declaration.replaceFirst("ElementDefinitionOptions", "ElementDefinitionOptions<T : HTMLElement>")
+
         else -> {
             declaration
                 .replace(" extends ", " :\n")
@@ -1154,13 +1157,15 @@ internal fun convertInterface(
             "CustomElementRegistry",
             -> result
                 .replace("CustomElementConstructor", "CustomElementConstructor<T>")
-                .replace("fun upgrade(", "fun_upgrade(")
-                .replace("fun ", "fun <T : HTMLElement> ")
-                .replace("fun_upgrade(", "fun upgrade(")
+                .replace("ElementDefinitionOptions", "ElementDefinitionOptions<P>")
+                .replaceFirst("fun define(", "fun <T: P, P : HTMLElement> define(")
+                .replace("fun get(", "fun <T : HTMLElement> get(")
+                .replace("fun getName(", "fun <T : HTMLElement> getName(")
+                .replace("fun whenDefined(", "fun <T : HTMLElement> whenDefined(")
                 .replace(": String", ": HtmlTagName<T>")
 
             "ElementDefinitionOptions",
-            -> result.replace(": String", ": HtmlTagName<*>")
+            -> result.replace(": String", ": HtmlTagName<T>")
 
             "CanvasPathDrawingStyles",
             -> result
