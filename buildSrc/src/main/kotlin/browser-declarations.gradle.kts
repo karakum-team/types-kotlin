@@ -26,7 +26,6 @@ tasks.named("generateDeclarations") {
 val KNOWN_MISSED_TYPES = setOf(
     "AnimationFrameProvider",
     "AudioProcessingEventInit",
-    "BarProp",
     "EventListener",
     "EventListenerObject",
     "EventTarget",
