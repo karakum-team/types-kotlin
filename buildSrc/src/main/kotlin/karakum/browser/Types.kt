@@ -377,7 +377,7 @@ private fun markerInterface(
     return listOf(
         """
         // $types    
-        external interface $name            
+        external interface $name
         """.trimIndent()
     ).plus(extensions)
         .joinToString("\n\n")

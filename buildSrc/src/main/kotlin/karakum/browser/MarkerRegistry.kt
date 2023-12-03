@@ -4,6 +4,9 @@ import java.io.File
 
 internal val MARKER_INTERFACES = listOf(
     "Transferable",
+
+    "HTMLOrSVGImageElement",
+    "HTMLOrSVGScriptElement",
 )
 
 private val BASE_TYPES = listOf(
