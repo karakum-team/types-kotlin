@@ -211,6 +211,9 @@ private val INT_NAMES = setOf(
     "maxDatagramSize",
     "outgoingHighWaterMark",
     "outgoingMaxAge",
+
+    // Highlight
+    "priority",
 )
 
 private val DOUBLE_NAMES = setOf(

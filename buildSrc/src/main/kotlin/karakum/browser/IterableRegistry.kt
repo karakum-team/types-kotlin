@@ -52,7 +52,7 @@ object IterableRegistry {
         val result = additionalParentMap[type]
             ?: return null
 
-        if (result.startsWith("Set<"))
+        if (result.startsWith("Set<") || result.startsWith("Map<"))
             return null
 
         return result

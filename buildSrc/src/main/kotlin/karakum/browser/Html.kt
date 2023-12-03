@@ -106,6 +106,11 @@ private val CSSOM_TYPES = listOf(
     "PropertyDefinition",
 ) + CSSOM_INTERFACES
 
+private val HIGHLIGHT_TYPES = listOf(
+    "Highlight",
+    "HighlightRegistry",
+)
+
 private val DOM_DATA_TYPES = listOf(
     "DataTransfer",
     "DataTransferItem",
@@ -679,6 +684,7 @@ internal fun htmlDeclarations(
         .plus(SCROLL_TYPES)
         .plus(FULLSCREEN_TYPES)
         .plus(CSSOM_TYPES.flatMap { sequenceOf(it, "$it .+?") })
+        .plus(HIGHLIGHT_TYPES)
         .plus(DOM_DATA_TYPES)
         .plus(DOM_GEOMETRY_TYPES)
         .plus(DOM_PARSING_TYPES)
@@ -1050,6 +1056,8 @@ internal fun convertInterface(
         arrayType = arrayType,
         hideForEach = listLikeMode
                 || mapLikeParameters != null
+                // TEMP
+                || name in HIGHLIGHT_TYPES
                 || (additionalParent?.startsWith("ReadonlyMap<") ?: false)
     )
 
@@ -1370,6 +1378,7 @@ internal fun convertInterface(
         name.startsWith("Document") -> "web.dom"
         name in DOM_TYPES -> "web.dom"
         name in CSSOM_TYPES -> "web.cssom"
+        name in HIGHLIGHT_TYPES -> "web.cssom.highlight"
         name in DOM_DATA_TYPES -> "web.data"
         name in DOM_GEOMETRY_TYPES -> "web.geometry"
         name == "XMLDocument" -> "web.xml"
@@ -2047,6 +2056,7 @@ private fun convertFunctionParameters(
         "...text: string[]",
         "...tokens: string[]",
         "...streams: MediaStream[]",
+        "...initialRanges: AbstractRange[]",
         -> listOf(
             source
                 .replace("...args", "...values")
