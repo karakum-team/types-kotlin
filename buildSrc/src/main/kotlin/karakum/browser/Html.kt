@@ -805,6 +805,17 @@ internal fun htmlDeclarations(
         )
         .plus(DedicatedWorkerGlobalScope())
         .plus(Ed25519())
+        // TEMP
+        .plus(
+            ConversionResult(
+                "__temp__.kt",
+                body = """
+                typealias MutableSetLike<T> = ReadonlyRecord<T, T>
+                typealias MutableMapLike<K, V> = ReadonlyMap<K, V>
+                """.trimIndent(),
+                pkg = "js.collections"
+            )
+        )
 }
 
 private fun prepareContent(
@@ -1051,11 +1062,15 @@ internal fun convertInterface(
         declaration += "\n$additionalParent"
     }
 
-    val hideForEach = (listLikeMode
-            || mapLikeParameters != null
-            // TEMP
-            || name in HIGHLIGHT_TYPES
-            || (additionalParent?.startsWith("ReadonlyMap<") ?: false))
+    val hideForEach = when {
+        listLikeMode -> true
+        mapLikeParameters != null -> true
+        additionalParent == null -> false
+        additionalParent.startsWith("ReadonlyMap<") -> true
+        additionalParent.startsWith("MutableMapLike<") -> true
+        additionalParent.startsWith("MutableSetLike<") -> true
+        else -> false
+    }
 
     val typeProvider = TypeProvider(
         parentType = name,

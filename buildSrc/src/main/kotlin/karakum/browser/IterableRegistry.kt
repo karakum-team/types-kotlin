@@ -49,14 +49,19 @@ object IterableRegistry {
             return "AsyncMapLike<String, FileSystemHandle>"
         }
 
-        val result = additionalParentMap[type]
+        var result = additionalParentMap[type]
             ?: return null
 
-        if (result.startsWith("Set<") || result.startsWith("Map<"))
-            return null
+        result = sequenceOf(
+            "Set<" to "MutableSetLike<",
+            "Map<" to "MutableMapLike<",
+        ).fold(result) { acc, (from, to) ->
+            if (acc.startsWith(from)) {
+                acc.replaceFirst(from, to)
+            } else acc
+        }
 
         return result
-            .replace("Set<", "JsSet<")
             .replace("string", "String")
             .replace("number", "Number")
             .replace(" any>", " Any?>")
