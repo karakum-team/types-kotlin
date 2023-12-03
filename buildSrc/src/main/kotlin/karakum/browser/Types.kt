@@ -361,8 +361,24 @@ private fun markerInterface(
     name: String,
     types: String,
 ): String {
-    return """
-    // $types    
-    external interface $name            
-    """.trimIndent()
+    val additionalChildTypes = MarkerRegistry.nonProcessedChildTypes(name)
+    val extensions = additionalChildTypes.flatMap { childType ->
+        sequenceOf(
+            """
+            inline fun ${childType}.as${name}(): $name =
+                unsafeCast<$name>()
+                
+            inline fun $name.as${childType}OrNull(): ${childType}? =
+                asDynamic() as? $childType    
+            """.trimIndent()
+        )
+    }
+
+    return listOf(
+        """
+        // $types    
+        external interface $name            
+        """.trimIndent()
+    ).plus(extensions)
+        .joinToString("\n\n")
 }

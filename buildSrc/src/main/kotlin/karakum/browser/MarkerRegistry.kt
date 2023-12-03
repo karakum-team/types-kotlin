@@ -6,6 +6,10 @@ internal val MARKER_INTERFACES = listOf(
     "Transferable",
 )
 
+private val BASE_TYPES = listOf(
+    "ArrayBuffer",
+)
+
 internal object MarkerRegistry {
     private lateinit var map: Map<String, List<String>>
 
@@ -22,6 +26,14 @@ internal object MarkerRegistry {
         type: String,
     ): List<String>? =
         map[type]
+
+    fun nonProcessedChildTypes(
+        type: String,
+    ): List<String> =
+        BASE_TYPES.filter {
+            val parentTypes = map[it]
+            parentTypes != null && type in parentTypes
+        }
 }
 
 private fun findParentTypes(
