@@ -34,7 +34,6 @@ val KNOWN_MISSED_TYPES = setOf(
     "OnBeforeUnloadEventHandlerNonNull",
     "OnErrorEventHandlerNonNull",
     "OverconstrainedError",
-    "RadioNodeList",
     "WindowLocalStorage",
     "WindowOrWorkerGlobalScope",
     "WindowSessionStorage",
