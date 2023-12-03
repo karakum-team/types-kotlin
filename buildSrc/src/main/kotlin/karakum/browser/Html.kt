@@ -2101,7 +2101,7 @@ private fun convertFunctionParameters(
         )
 
         else -> source
-            .splitToSequence(", ")
+            .let { if (it.count { char -> char == ':' } == 1) sequenceOf(it) else it.splitToSequence(", ") }
             .filter { it.isNotEmpty() }
             .map {
                 var (pname, ptype) = it.split(": ")
@@ -2210,6 +2210,9 @@ private fun getParameterType(
 
             if (atype == "number")
                 atype = "Double"
+
+            if (atype == "[string, string]")
+                atype = "JsTuple2<String, String>"
 
             "ReadonlyArray<$atype>"
         }
