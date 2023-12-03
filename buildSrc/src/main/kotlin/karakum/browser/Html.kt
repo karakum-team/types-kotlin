@@ -944,10 +944,6 @@ internal fun convertInterface(
         DOM_EXCEPTION,
         -> declaration.replace(" extends Error", " :\nJsError")
 
-        "Body",
-        "CanvasPath",
-        -> declaration.replace("interface", "class /* interface */")
-
         "AbstractWorker",
         -> declaration + ": EventTarget"
 
@@ -1298,10 +1294,6 @@ internal fun convertInterface(
         .joinToString("\n")
 
     when (name) {
-        "Body",
-        "CanvasPath",
-        -> body = """@JsName("Object")""" + "\n" + body
-
         "MediaList",
         -> body = body.applyMediaListPatch()
 

@@ -19,6 +19,9 @@ internal object Mixins {
     )
 
     val UNSAFE: Set<String> = setOf(
+        "Body",
+        "CanvasPath",
+
         "Animatable",
         "ElementCSSInlineStyle",
         "ChildNode",
