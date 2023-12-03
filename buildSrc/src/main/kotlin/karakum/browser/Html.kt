@@ -1045,19 +1045,19 @@ internal fun convertInterface(
         declaration += "\n$iterableDeclaration"
     }
 
-    val additionalParent = IterableRegistry.additionalParent(name)
-    if (additionalParent != null) {
+    val additionalIterableParent = IterableRegistry.additionalParent(name)
+    if (additionalIterableParent != null) {
         declaration += if (":" in declaration) "," else ":"
-        declaration += "\n$additionalParent"
+        declaration += "\n$additionalIterableParent"
     }
 
     val hideForEach = when {
         listLikeMode -> true
         mapLikeParameters != null -> true
-        additionalParent == null -> false
-        additionalParent.startsWith("ReadonlyMap<") -> true
-        additionalParent.startsWith("MutableMapLike<") -> true
-        additionalParent.startsWith("MutableSetLike<") -> true
+        additionalIterableParent == null -> false
+        additionalIterableParent.startsWith("ReadonlyMap<") -> true
+        additionalIterableParent.startsWith("MutableMapLike<") -> true
+        additionalIterableParent.startsWith("MutableSetLike<") -> true
         else -> false
     }
 
