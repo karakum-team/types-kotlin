@@ -22,9 +22,13 @@ internal object Mixins {
         "Body",
         "CanvasPath",
 
+        "FontFaceSource",
+        "XPathEvaluatorBase",
+
         "Animatable",
         "ElementCSSInlineStyle",
         "ChildNode",
+        "DocumentOrShadowRoot",
         "HTMLHyperlinkElementUtils",
         "HTMLOrSVGElement",
         "InnerHTML",

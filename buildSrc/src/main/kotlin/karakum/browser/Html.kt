@@ -1242,12 +1242,17 @@ internal fun convertInterface(
                 name == "AbortController" ||
                 name == XSLT_PROCESSOR ||
 
+                name == "Document" ||
+                name == "DocumentFragment" ||
+
                 isHtmlElementClass
         -> "open"
 
         name == "BlobPropertyBag" ||
                 name in CSSOM_INTERFACES ||
                 name in DOM_PARSING_TYPES ||
+
+                name == "XPathEvaluator" ||
 
                 name == "AbstractWorker" ||
                 name == "FontFaceSource" ||
@@ -1262,10 +1267,6 @@ internal fun convertInterface(
         -> ""
 
         name == "Element" ||
-                // TODO: open?
-                name == "Document" ||
-                name == "DocumentFragment" ||
-
                 name == "NodeList" ||
                 name == "WorkerGlobalScope" ||
                 name == "Worklet"
