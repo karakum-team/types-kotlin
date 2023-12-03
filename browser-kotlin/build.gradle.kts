@@ -48,6 +48,7 @@ val BROWSER_INCLUDE = setOf(
     "web",
     "web/buffer",
     "web/events/ProgressEvent.kt",
+    "web/events/ProgressEvent.types.kt",
     "web/file",
 
     "webgl",

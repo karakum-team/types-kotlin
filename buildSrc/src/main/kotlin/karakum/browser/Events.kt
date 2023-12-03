@@ -126,22 +126,34 @@ private fun eventPlaceholders(
         }
     }
 
-    return data
-        .map { info ->
+    return data.flatMap { info ->
+        val types = eventTypes(
+            eventName = info.name,
+            pkg = info.pkg,
+            types = dataMap.getEventTypes(info.name),
+        )
+
+        val typesName = if (types != null) {
+            "${info.name}Types"
+        } else null
+
+        sequenceOf(
             event(
                 source = source,
                 name = info.name,
                 pkg = info.pkg,
-                types = dataMap.getEventTypes(info.name),
-            )
-        }
+                typesName = typesName,
+            ),
+            types,
+        )
+    }.filterNotNull()
 }
 
 private fun event(
     source: String,
     name: String,
     pkg: String,
-    types: List<String>?,
+    typesName: String?,
 ): ConversionResult {
     val initName = "${name}Init" +
             (if (name == "CustomEvent" || name == "MessageEvent") "<T = any>" else "")
@@ -259,15 +271,13 @@ private fun event(
             .joinToString("\n")
     } else null
 
-    val companion = if (companionMembers != null || types != null) {
-        val typeMembers = eventTypeMembers(name, types)
+    val companionParentDeclaration = if (typesName != null) {
+        ": $typesName"
+    } else ""
 
-        val members = sequenceOf(companionMembers, typeMembers)
-            .filterNotNull()
-            .joinToString("\n\n")
-
-        "companion object {\n$members\n}"
-    } else "companion object"
+    val companion = if (companionMembers != null) {
+        "companion object $companionParentDeclaration {\n$companionMembers\n}"
+    } else "companion object $companionParentDeclaration"
 
     val modifier = if (eventConstructor.isNotEmpty()) "open" else "sealed"
     val typeParameters = when (name) {
@@ -366,10 +376,11 @@ private fun eventTypes(
         .values
         .map { items -> eventTypes(items) }
 
-private fun eventTypeMembers(
+private fun eventTypes(
     eventName: String,
+    pkg: String,
     types: List<String>?,
-): String? {
+): ConversionResult? {
     types ?: return null
 
     val eventType = when (eventName) {
@@ -380,7 +391,9 @@ private fun eventTypeMembers(
         else -> eventName
     }
 
-    return types
+    val typesName = "${eventName}Types"
+
+    val members = types
         .sorted()
         .joinToString("\n\n") { name ->
             val memberName = EVENT_CORRECTION_MAP
@@ -390,8 +403,21 @@ private fun eventTypeMembers(
             """
             @JsValue("$name")
             val $memberName : $EVENT_TYPE<$eventType>
+                get() = definedExternally
             """.trimIndent()
         }
+
+    val body = """
+    sealed external interface $typesName {
+        $members
+    }
+    """.trimIndent()
+
+    return ConversionResult(
+        name = "${eventName}.types",
+        body = body,
+        pkg = pkg,
+    )
 }
 
 private fun eventTypes(
