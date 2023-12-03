@@ -1236,38 +1236,37 @@ internal fun convertInterface(
                 isHtmlElementClass
         -> "open"
 
-        // TEMP WA
-        name == "Text" ||
-                name == "Comment"
-        -> "sealed"
-
         name == "BlobPropertyBag" ||
                 name in CSSOM_INTERFACES ||
                 name in DOM_PARSING_TYPES ||
+
+                // TODO: open?
                 name == "DataTransfer" ||
                 name == "FileReader" ||
+                name == "XMLHttpRequest" ||
+                name == "TextEncoder" ||
+                name == "TextEncoderStream" ||
+                name == "MessageChannel" ||
+                name == "AbortController" ||
+                name == XSLT_PROCESSOR ||
+
+                name == "AbstractWorker" ||
                 name == "FontFaceSource" ||
                 name == "XPathEvaluatorBase" ||
                 name == "ARIAMixin" ||
                 name == "HTMLOrSVGElement" ||
                 name == "InnerHTML" ||
                 name == "DocumentOrShadowRoot" ||
-                name == "XMLHttpRequest" ||
-                name == "XMLHttpRequestUpload" ||
-                name == "AbstractWorker" ||
-                name == "TextEncoder" ||
-                name == "TextEncoderStream" ||
-                name == "MessageChannel" ||
                 name == "StructuredSerializeOptions" ||
-                name == "AbortController" ||
-                name == XSLT_PROCESSOR ||
                 name.endsWith("Handlers") ||
                 mainConstructor.isNotEmpty()
         -> ""
 
         name == "Element" ||
+                // TODO: open?
                 name == "Document" ||
                 name == "DocumentFragment" ||
+
                 name == "NodeList" ||
                 name == "WorkerGlobalScope" ||
                 name == "Worklet"
