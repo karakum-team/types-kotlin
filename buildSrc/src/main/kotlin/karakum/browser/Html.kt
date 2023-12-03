@@ -474,6 +474,7 @@ internal fun htmlDeclarations(
         "SVG.+?",
         "MathML.+?",
         "HTMLCollection .+?",
+        "RadioNodeList .+?",
         "MediaError",
 
         "ShadowRoot .+?",
@@ -967,6 +968,9 @@ internal fun convertInterface(
         "ElementDefinitionOptions",
         -> declaration.replaceFirst("ElementDefinitionOptions", "ElementDefinitionOptions<T : HTMLElement>")
 
+        "RadioNodeList",
+        -> declaration.replaceFirst(" extends NodeList", " :\nNodeList<HTMLElement>")
+
         else -> {
             declaration
                 .replace(" extends ", " :\n")
@@ -1264,6 +1268,7 @@ internal fun convertInterface(
         name == "Element" ||
                 name == "Document" ||
                 name == "DocumentFragment" ||
+                name == "NodeList" ||
                 name == "WorkerGlobalScope" ||
                 name == "Worklet"
         -> "abstract"
