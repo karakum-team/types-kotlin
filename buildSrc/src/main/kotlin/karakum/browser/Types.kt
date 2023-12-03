@@ -260,9 +260,18 @@ private fun convertType(
             else -> bodySource
         }
 
+        val finalBody = if (name in MARKER_INTERFACES) {
+            """
+            // $bodySource    
+            external interface $name            
+            """.trimIndent()
+        } else {
+            "typealias $declaration = $body"
+        }
+
         return ConversionResult(
             name = name,
-            body = "typealias $declaration = $body",
+            body = finalBody,
             pkg = pkg
         )
     }

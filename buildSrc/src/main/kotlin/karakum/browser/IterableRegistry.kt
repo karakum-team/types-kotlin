@@ -5,7 +5,7 @@ import java.io.File
 private val ITERATOR_REGEX = Regex("""\ninterface (\w+) \{\n\s+\[Symbol.iterator]\(\): IterableIterator<(.+)>;""")
 private val ADDITIONAL_PARENT_REGEX = Regex("""\ninterface (\w+) extends (.+?) \{\n""")
 
-object IterableRegistry {
+internal object IterableRegistry {
     private lateinit var map: Map<String, String>
     private lateinit var additionalParentMap: Map<String, String>
 

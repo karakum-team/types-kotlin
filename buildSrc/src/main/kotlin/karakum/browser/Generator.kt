@@ -200,6 +200,8 @@ fun generateKotlinDeclarations(
         serviceworkerIterableDefinitionsFile,
     )
 
+    MarkerRegistry.fill(webDefinitionsFile)
+
     val content = webDefinitionsFile
         .readText()
         .applyPatches()

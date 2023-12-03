@@ -1045,6 +1045,12 @@ internal fun convertInterface(
         declaration += "\n$iterableDeclaration"
     }
 
+    val additionalParents = MarkerRegistry.additionalParents(name)
+    if (additionalParents != null) {
+        declaration += if (":" in declaration) "," else ":"
+        declaration += "\n${additionalParents.joinToString(",\n")}"
+    }
+
     val additionalIterableParent = IterableRegistry.additionalParent(name)
     if (additionalIterableParent != null) {
         declaration += if (":" in declaration) "," else ":"
