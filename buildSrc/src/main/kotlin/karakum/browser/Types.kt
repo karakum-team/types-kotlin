@@ -379,8 +379,17 @@ private fun markerInterface(
         ":\n${parentTypes.joinToString(",\n")}"
     } else ""
 
+
+    val comment = types.splitToSequence(" | ")
+        .joinToString(
+            separator = "\n",
+            prefix = "/**\n * Union of:\n",
+            postfix = "\n */",
+            transform = { " * - `$it`" },
+        )
+
     val type = """
-        // $types    
+        $comment    
         external interface $name$parentDeclaration
         """.trimIndent()
 
