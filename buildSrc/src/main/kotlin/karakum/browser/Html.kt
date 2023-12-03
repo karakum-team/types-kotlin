@@ -805,17 +805,6 @@ internal fun htmlDeclarations(
         )
         .plus(DedicatedWorkerGlobalScope())
         .plus(Ed25519())
-        // TEMP
-        .plus(
-            ConversionResult(
-                "__temp__.kt",
-                body = """
-                typealias MutableSetLike<T> = ReadonlyRecord<T, T>
-                typealias MutableMapLike<K, V> = ReadonlyMap<K, V>
-                """.trimIndent(),
-                pkg = "js.collections"
-            )
-        )
 }
 
 private fun prepareContent(
