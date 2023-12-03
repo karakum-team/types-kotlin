@@ -196,8 +196,6 @@ private fun convertType(
             "HeadersInit" -> "web.http"
             "FormDataEntryValue" -> "web.http"
 
-            "XMLHttpRequestBodyInit" -> "web.xhr"
-
             "TexImageSource" -> "webgl"
 
             "BigInteger" -> "web.crypto"

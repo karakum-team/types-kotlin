@@ -32,9 +32,11 @@ internal fun String.applyPatches(): String =
         .splitUnion("HTMLOptionElement | HTMLOptGroupElement")
         .splitUnion("HTMLElement | number")
         .splitUnion("string[][] | Record<string, string> | string | URLSearchParams")
-        // TODO: inline instead
-        .splitUnion("string | BinaryData", "string | ArrayBuffer | ArrayBufferView")
+        .splitTypealias("BinaryData")
+        .splitUnion("string | ArrayBuffer | ArrayBufferView")
         .splitUnion("Document | XMLHttpRequestBodyInit")
+        .splitTypealias("XMLHttpRequestBodyInit")
+        .splitUnion("Blob | BufferSource | FormData | URLSearchParams | string")
         .splitUnion("string | URL")
         .splitUnion("string | Blob")
         .splitUnion("RequestInfo | URL")
@@ -250,6 +252,17 @@ private fun String.splitUnionSafety(
             )
         }
         .joinToString("\n")
+}
+
+internal fun String.splitTypealias(
+    name: String,
+): String {
+    val aliasDeclaration = "\ntype $name = "
+    val aliasBody = substringAfter(aliasDeclaration)
+        .substringBefore("\n")
+
+    return replace(aliasDeclaration + aliasBody, "")
+        .replace(name, aliasBody.removeSuffix(";"))
 }
 
 internal fun String.splitUnion(

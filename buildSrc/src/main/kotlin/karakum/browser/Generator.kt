@@ -161,6 +161,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.svg.SVG_NAMESPACE",
     "web.svg.SvgTagName",
     "web.url.URL",
+    "web.url.URLSearchParams",
     "web.vibration.VibratePattern",
     "web.pip.PictureInPictureWindow",
     "web.window.Window",
