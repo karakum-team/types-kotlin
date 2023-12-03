@@ -3,6 +3,8 @@ package karakum.browser
 import java.io.File
 
 internal val MARKER_INTERFACES = listOf(
+    "MessageEventSource",
+
     "CanvasImageSource",
     "TexImageSource",
     "Transferable",
@@ -13,6 +15,11 @@ internal val MARKER_INTERFACES = listOf(
 
 private val BASE_TYPES = listOf(
     "ArrayBuffer",
+)
+
+// TODO: read from definitions
+private val ALIASES = mapOf(
+    "WindowProxy" to "Window",
 )
 
 internal object MarkerRegistry {
@@ -48,4 +55,5 @@ private fun findParentTypes(
     content.substringAfter("type $interfaceName = ", "")
         .substringBefore(";\n")
         .splitToSequence(" | ")
+        .map { ALIASES[it] ?: it }
         .map { it to interfaceName }

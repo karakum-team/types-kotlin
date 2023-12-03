@@ -145,6 +145,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.media.streams.MediaTrackConstraints",
     "web.media.streams.MediaTrackSupportedConstraints",
     "web.messaging.MessagePort",
+    "web.messaging.MessageEventSource",
     "web.messaging.StructuredSerializeOptions",
     "web.messaging.Transferable",
     "web.notifications.Notification",
