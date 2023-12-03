@@ -1051,14 +1051,16 @@ internal fun convertInterface(
         declaration += "\n$additionalParent"
     }
 
+    val hideForEach = (listLikeMode
+            || mapLikeParameters != null
+            // TEMP
+            || name in HIGHLIGHT_TYPES
+            || (additionalParent?.startsWith("ReadonlyMap<") ?: false))
+
     val typeProvider = TypeProvider(
         parentType = name,
         arrayType = arrayType,
-        hideForEach = listLikeMode
-                || mapLikeParameters != null
-                // TEMP
-                || name in HIGHLIGHT_TYPES
-                || (additionalParent?.startsWith("ReadonlyMap<") ?: false)
+        hideForEach = hideForEach
     )
 
     var mainConstructor: String
