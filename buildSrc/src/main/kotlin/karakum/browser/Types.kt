@@ -374,11 +374,17 @@ private fun markerInterface(
         )
     }
 
-    return listOf(
-        """
+    val parentTypes = MarkerRegistry.additionalParents(name)
+    val parentDeclaration = if (parentTypes != null) {
+        ":\n${parentTypes.joinToString(",\n")}"
+    } else ""
+
+    val type = """
         // $types    
-        external interface $name
+        external interface $name$parentDeclaration
         """.trimIndent()
-    ).plus(extensions)
+
+    return listOf(type)
+        .plus(extensions)
         .joinToString("\n\n")
 }

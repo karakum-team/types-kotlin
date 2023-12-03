@@ -180,6 +180,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.workers.WorkerType",
     "web.worklets.Worklet",
     "web.xml.XMLDocument",
+    "webgl.TexImageSource",
     "websockets.BinaryType",
     "webvtt.TextTrack",
     "webvtt.TextTrackKind",
