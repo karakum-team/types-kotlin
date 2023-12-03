@@ -2112,7 +2112,6 @@ private fun convertFunctionParameters(
         "action: (item: CSSTransformComponent) => void",
         "action: (item: CSSUnparsedSegment) => void",
         "action: (item: CSSStyleValue[]) => void",
-        "action: (item: FontFace) => void",
         "action: (item: T) => void",
         "action: (item: string) => void",
         "action: (item: FormDataEntryValue) => void",
