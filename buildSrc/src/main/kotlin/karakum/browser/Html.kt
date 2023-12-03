@@ -1233,14 +1233,10 @@ internal fun convertInterface(
                 name == "Worker" ||
                 name == "Credential" ||
                 name == "WritableStream" ||
-                isHtmlElementClass
-        -> "open"
 
-        name == "BlobPropertyBag" ||
-                name in CSSOM_INTERFACES ||
-                name in DOM_PARSING_TYPES ||
-
-                // TODO: open?
+                // with empty constructor
+                name == "Text" ||
+                name == "Comment" ||
                 name == "DataTransfer" ||
                 name == "FileReader" ||
                 name == "XMLHttpRequest" ||
@@ -1249,6 +1245,13 @@ internal fun convertInterface(
                 name == "MessageChannel" ||
                 name == "AbortController" ||
                 name == XSLT_PROCESSOR ||
+
+                isHtmlElementClass
+        -> "open"
+
+        name == "BlobPropertyBag" ||
+                name in CSSOM_INTERFACES ||
+                name in DOM_PARSING_TYPES ||
 
                 name == "AbstractWorker" ||
                 name == "FontFaceSource" ||
