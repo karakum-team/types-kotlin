@@ -276,7 +276,7 @@ fun generateKotlinDeclarations(
             if ("@JsValue(" in body && "companion object" in body && name != DOM_EXCEPTION)
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
-            if ("inline fun " in body)
+            if ("inline fun " in body && name != "Transferable" && !name.endsWith("ReadOnly.ext"))
                 add(NOTHING_TO_INLINE)
 
             if (name == "Locale")
