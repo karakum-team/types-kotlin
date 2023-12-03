@@ -261,10 +261,10 @@ private fun convertType(
         }
 
         val finalBody = if (name in MARKER_INTERFACES) {
-            """
-            // $bodySource    
-            external interface $name            
-            """.trimIndent()
+            markerInterface(
+                name = name,
+                types = bodySource,
+            )
         } else {
             "typealias $declaration = $body"
         }
@@ -356,3 +356,13 @@ private fun getTypePkg(
 
         else -> TODO("Unable to find package for `$name` union")
     }
+
+private fun markerInterface(
+    name: String,
+    types: String,
+): String {
+    return """
+    // $types    
+    external interface $name            
+    """.trimIndent()
+}
