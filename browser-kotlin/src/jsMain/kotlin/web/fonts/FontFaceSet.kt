@@ -1,5 +1,9 @@
 // Automatically generated - do not modify!
 
+@file:Suppress(
+    "INTERFACE_WITH_SUPERCLASS",
+)
+
 package web.fonts
 
 import js.collections.MutableSetLike
@@ -10,9 +14,8 @@ import web.events.EventHandler
 import web.events.EventTarget
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet) */
-external class FontFaceSet(
-    initialFaces: ReadonlyArray<FontFace>,
-) : EventTarget,
+sealed external interface FontFaceSet :
+    EventTarget,
     MutableSetLike<FontFace> {
     /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet/loading_event) */
     var onloading: EventHandler<Event>?
