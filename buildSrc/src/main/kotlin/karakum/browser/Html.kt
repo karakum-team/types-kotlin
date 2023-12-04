@@ -1135,6 +1135,9 @@ internal fun convertInterface(
                 .filter { !it.endsWith(": Short") }
                 .joinToString("\n")
 
+            "Highlight",
+            -> result + "\n\n" + mutableSetLikeOverrides("AbstractRange")
+
             "Node",
             -> result
                 .replace("val ownerDocument:", "open val ownerDocument:")
