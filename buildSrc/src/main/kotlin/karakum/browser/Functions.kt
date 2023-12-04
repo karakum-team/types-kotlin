@@ -46,7 +46,10 @@ internal fun convertFunctions(
     Regex("""\nfunction (.+);""")
         .findAll(content)
         .map { it.groupValues[1] }
-        .mapNotNull { convertFunctionResult(it, getPkg) }
+        .mapNotNull { source ->
+            val result = convertFunctionResult(source, getPkg)
+            result?.copy(body = result.body.withComment(content, "function $source;"))
+        }
         .groupBy { it.name }
         .values
         .asSequence()
