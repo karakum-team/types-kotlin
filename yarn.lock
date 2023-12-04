@@ -308,10 +308,10 @@
   dependencies:
     "@tanstack/table-core" "8.10.7"
 
-"@tanstack/react-virtual@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-virtual/-/react-virtual-3.0.0.tgz#59b7a901e062bf097f509d621bf82ea7ab8c181d"
-  integrity sha512-QfZ1AUrF4AcFFFNrrQZmb8I8CuuK7GMLlLSFnz6FbM78LpauxfTi46E8dH5YhMge/Kc6D/h1zXacsIxZfWvSZA==
+"@tanstack/react-virtual@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-virtual/-/react-virtual-3.0.1.tgz#b04c492e4dd5733b72b10a974870880f83ff4698"
+  integrity sha512-IFOFuRUTaiM/yibty9qQ9BfycQnYXIDHGP2+cU+0LrFFGNhVxCXSQnaY6wkX8uJVteFEBjUondX0Hmpp7TNcag==
   dependencies:
     "@tanstack/virtual-core" "3.0.0"
 
