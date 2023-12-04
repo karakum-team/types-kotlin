@@ -19,11 +19,8 @@ private fun getBrowserPkg(
         "btoa",
         -> "web.buffer"
 
-        // TODO: support
-        /*
         "createImageBitmap",
         -> "web.canvas"
-        */
 
         "matchMedia",
         -> "web.cssom"
@@ -87,8 +84,10 @@ private fun convertFunctionResult(
         .replace("?: string | null", "?: string")
         // TEMP for getComputedStyle
         .replace("pseudoElement?: string", "pseudoElement: String? = definedExternally")
+        .replace("options?: ImageBitmapOptions", "options: ImageBitmapOptions? = definedExternally")
         .replace("?: string", ": String = definedExternally")
         .replace(": string", ": String")
+        .replace(": number", ": Int")
         .replace("): void", ")")
         .replace(" | null", "?")
         .replace(", ", ",\n")
