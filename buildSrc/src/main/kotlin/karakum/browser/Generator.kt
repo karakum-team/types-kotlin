@@ -292,7 +292,7 @@ fun generateKotlinDeclarations(
             if (name == "ReadableStreamReadResult")
                 add(UNUSED_TYPEALIAS_PARAMETER)
 
-            if (name == "ChildNode" || name == "ParentNode" || name == "AbstractWorker")
+            if (name == "ChildNode" || name == "ParentNode" || name == "AbstractWorker" || name == "FontFaceSet")
                 add(INTERFACE_WITH_SUPERCLASS)
 
             if (name == "WorkerNavigator"

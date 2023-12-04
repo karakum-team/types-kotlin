@@ -1497,6 +1497,9 @@ internal fun getStaticSource(
     name: String,
     source: String,
 ): String? {
+    if (name == "FontFaceSet")
+        return null
+
     val contentSource = sequenceOf("declare var", "var", "const")
         .map { source.substringAfter("\n$it $name: {\n", "") }
         .filter { it.isNotEmpty() }
