@@ -156,6 +156,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.remoteplayback.RemotePlayback",
     "web.rendering.OffscreenRenderingContext",
     "web.rendering.RenderingContext",
+    "web.rendering.RenderingContextId",
     "web.scroll.ScrollIntoViewOptions",
     "web.scroll.ScrollToOptions",
     "web.selection.Selection",
@@ -280,7 +281,7 @@ fun generateKotlinDeclarations(
             if ("override val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
 
-            if ("@JsValue(" in body && "companion object" in body && name != DOM_EXCEPTION)
+            if ("@JsVirtual" in body && "companion object" in body)
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
             if ("inline fun " in body && name != "Transferable" && !name.endsWith("ReadOnly.ext"))

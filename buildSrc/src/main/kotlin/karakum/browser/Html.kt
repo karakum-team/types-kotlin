@@ -1,8 +1,5 @@
 package karakum.browser
 
-import karakum.common.UnionConstant
-import karakum.common.objectUnionBody
-
 internal const val VIDEO_FRAME_REQUEST_ID = "VideoFrameRequestId"
 internal const val RENDERING_CONTEXT_ID = "RenderingContextId"
 internal const val GEOLOCATION_WATCH_ID = "GeolocationWatchId"
@@ -463,9 +460,7 @@ private val XSLT_PROCESSOR = "XSLTProcessor"
 internal fun htmlDeclarations(
     source: String,
 ): Sequence<ConversionResult> {
-    val (content, additionalType) = prepareContent(
-        source.replace(";\n     *", ";--\n     *")
-    )
+    val content = source.replace(";\n     *", ";--\n     *")
 
     val getStaticSource = { name: String ->
         when (name) {
@@ -724,7 +719,13 @@ internal fun htmlDeclarations(
             }
 
     return interfaces
-        .plus(additionalType)
+        .plus(
+            ConversionResult(
+                RENDERING_CONTEXT_ID,
+                "sealed interface $RENDERING_CONTEXT_ID<T: Any, O: Any>",
+                "web.rendering",
+            )
+        )
         .plus(
             ConversionResult(
                 name = "EventCounts",
@@ -805,59 +806,6 @@ internal fun htmlDeclarations(
         )
         .plus(DedicatedWorkerGlobalScope())
         .plus(Ed25519())
-}
-
-private fun prepareContent(
-    source: String,
-): Pair<String, ConversionResult> {
-    val ids = Regex("""getContext\(contextId\: "([\w\d]+)"\, """)
-        .findAll(source)
-        .map { it.groupValues[1] }
-        .distinct()
-        .toList()
-
-    fun kotlinName(id: String): String =
-        if (id == "2d") "canvas" else id
-
-    val contextIdBody = objectUnionBody(
-        name = RENDERING_CONTEXT_ID,
-        constants = ids.map { id ->
-            val name = kotlinName(id)
-
-            UnionConstant(
-                kotlinName = name,
-                jsName = name,
-                value = id,
-                comment = if (id != name) "// `$id`" else null
-            )
-        }
-    )
-
-    val contextId = ConversionResult(
-        RENDERING_CONTEXT_ID,
-        contextIdBody,
-        "web.canvas",
-    )
-
-    val optionsMap = Regex("""getContext\(contextId\: "([\w\d]+)"\, options\?\: ([\w\d]{4,})""")
-        .findAll(source)
-        .associate { it.groupValues[1] to it.groupValues[2] }
-
-    val content = ids.fold(source) { acc, id ->
-        val name = kotlinName(id)
-        val options = optionsMap.getValue(id)
-
-        acc.replace(
-            """getContext(contextId: "$id", options?: any""",
-            """getContext(contextId: $RENDERING_CONTEXT_ID.$name, options?: $options""",
-        )
-            .replace(
-                """getContext(contextId: "$id"""",
-                """getContext(contextId: $RENDERING_CONTEXT_ID.$name""",
-            )
-    }
-
-    return content to contextId
 }
 
 private val COLLECTIONS_WITH_BOUNDS = setOf(
@@ -1298,16 +1246,33 @@ internal fun convertInterface(
         else -> "sealed"
     }
 
+    val idDeclaration = RenderingContextRegistry.getIdDeclaration(name)
     val companion = if (staticSource != null && predefinedPkg != "js.intl") {
         val companionContent = getCompanion(name, staticSource)
-        if (name == DOM_EXCEPTION) {
-            companionContent
-                .splitToSequence("\n")
-                .filter { !it.endsWith(": Short") }
-                .joinToString("\n")
-                .replaceFirst("\n}", domExceptionErrorNames() + "\n}")
-        } else companionContent
-    } else ""
+        when {
+            name == DOM_EXCEPTION -> {
+                companionContent
+                    .splitToSequence("\n")
+                    .filter { !it.endsWith(": Short") }
+                    .joinToString("\n")
+                    .replaceFirst("\n}", domExceptionErrorNames() + "\n}")
+            }
+
+            idDeclaration != null -> {
+                require(companionContent.isEmpty())
+                """
+                companion object {
+                    $idDeclaration
+                }    
+                """.trimIndent()
+            }
+
+            else -> companionContent
+        }
+    } else {
+        require(idDeclaration == null)
+        ""
+    }
 
     var body = sequenceOf(
         "$modifier external $declaration {",
@@ -1650,6 +1615,22 @@ internal fun convertMember(
             namespaceURI: MATHML_NAMESPACE,
             localName: MathMLTagName<T>,
         ): HTMLCollectionOf<T>
+        """.trimIndent()
+
+        "getContext(contextId: string, options?: any): RenderingContext | null",
+        -> return """
+        fun <T : RenderingContext, O : Any> getContext(
+            contextId: RenderingContextId<T, O>, 
+            options: O? = definedExternally,
+        ): T?
+        """.trimIndent()
+
+        "getContext(contextId: OffscreenRenderingContextId, options?: any): OffscreenRenderingContext | null",
+        -> return """
+        fun <T : OffscreenRenderingContext, O : Any> getContext(
+            contextId: RenderingContextId<T, O>, 
+            options: O? = definedExternally,
+        ): T?
         """.trimIndent()
     }
 

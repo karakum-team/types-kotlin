@@ -2,13 +2,15 @@ package karakum.browser
 
 import java.io.File
 
+internal val GET_CONTEXT_REGEX = Regex("""\n    getContext\(contextId: "(\w+)", options\?: (\w+)\): (\w+) \| null;""")
+
 internal object RenderingContextRegistry {
     private lateinit var map: Map<String, RenderingContextData>
 
     fun fill(
         definitionFile: File,
     ) {
-        val dataList = Regex("""getContext\(contextId: "(\w+)", options\?: (\w+)\): (\w+) \| null""")
+        val dataList = GET_CONTEXT_REGEX
             .findAll(definitionFile.readText())
             .map { result ->
                 RenderingContextData(
@@ -18,12 +20,23 @@ internal object RenderingContextRegistry {
                 )
             }
 
-        val dataMap = dataList.sortedBy { it.options.length }
+        map = dataList.sortedBy { it.options.length }
             .associateBy { it.type }
+            .mapValues { (_, data) ->
+                if (data.options == "any") {
+                    data.copy(options = data.type.removePrefix("Offscreen") + "Settings")
+                } else data
+            }
+    }
 
-        println(dataMap.values.joinToString("\n\n"))
+    fun getIdDeclaration(name: String): String? {
+        val data = map[name]
+            ?: return null
 
-        map = dataMap
+        return """
+        @JsValue("${data.id}")
+        val ID: $RENDERING_CONTEXT_ID<${data.type}, ${data.options}>
+        """.trimIndent()
     }
 }
 
