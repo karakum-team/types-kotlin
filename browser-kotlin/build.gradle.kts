@@ -40,6 +40,8 @@ val WEB_INCLUDE = setOf(
     "web/messaging",
     "web/performance",
     "web/streams",
+    "web/timers/queueMicrotask.kt",
+    "web/timers/VoidFunction.kt",
     "web/url",
     "webassembly",
 )

@@ -34,6 +34,7 @@ private fun convertFunctionType(
     val name = declaration.substringBefore("<")
 
     val pkg = when {
+        name == "VoidFunction" -> "web.timers"
         name == "FrameRequestCallback" -> "web.timers"
         name == "IdleRequestCallback" -> "web.timers"
 
@@ -74,7 +75,6 @@ private fun convertFunctionType(
         name == "ReportingObserverCallback" -> "web.reporting"
 
         name.startsWith("RTC") -> "webrtc"
-        name == "VoidFunction" -> "webrtc"
 
         else -> return null
     }

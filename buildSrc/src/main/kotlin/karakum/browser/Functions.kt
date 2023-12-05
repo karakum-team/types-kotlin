@@ -31,6 +31,9 @@ private fun getBrowserPkg(
         "reportError",
         -> "web.errors"
 
+        "queueMicrotask",
+        -> "web.timers"
+
         "alert",
         "confirm",
         "prompt",
