@@ -179,6 +179,9 @@ private fun convertType(
             "HTMLOrSVGImageElement" -> "web.dom"
             "HTMLOrSVGScriptElement" -> "web.dom"
 
+            "OffscreenRenderingContext" -> "web.rendering"
+            "RenderingContext" -> "web.rendering"
+
             "AutoFill" -> "web.html"
             "MediaProvider" -> "web.html"
             "WindowProxy" -> "web.window"

@@ -11,6 +11,9 @@ internal val MARKER_INTERFACES = listOf(
 
     "HTMLOrSVGImageElement",
     "HTMLOrSVGScriptElement",
+
+    "OffscreenRenderingContext",
+    "RenderingContext",
 )
 
 private val BASE_TYPES = listOf(

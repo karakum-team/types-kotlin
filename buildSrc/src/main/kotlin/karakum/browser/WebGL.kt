@@ -40,9 +40,14 @@ private fun convertInterface(
     if (name in CONVERTED_WEBGL_TYPES)
         return null
 
+    val additionalParentTypes = MarkerRegistry.additionalParents(name)
+        ?.joinToString("") { ",\n$it" }
+        ?: ""
+
     val declaration = source.substringBefore(" {\n")
         .replace(" extends ", " :\n")
-        .replace(", ", ",\n")
+        .replace(", ", ",\n") +
+            additionalParentTypes
 
     val memberSource = source
         .substringAfter(" {\n")

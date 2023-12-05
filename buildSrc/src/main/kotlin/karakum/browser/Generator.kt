@@ -154,6 +154,8 @@ private val DEFAULT_IMPORTS = Imports(
     "web.permissions.Permissions",
     "web.push.PushManager",
     "web.remoteplayback.RemotePlayback",
+    "web.rendering.OffscreenRenderingContext",
+    "web.rendering.RenderingContext",
     "web.scroll.ScrollIntoViewOptions",
     "web.scroll.ScrollToOptions",
     "web.selection.Selection",
