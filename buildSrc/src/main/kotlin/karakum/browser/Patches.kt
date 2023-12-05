@@ -45,6 +45,8 @@ internal fun String.applyPatches(): String =
         .splitTypealias("HeadersInit")
         .splitUnion("[string, string][] | Record<string, string> | Headers")
         .splitUnion("MediaStreamTrack | string")
+        .splitTypealias("ImageBitmapSource")
+        .splitUnion("CanvasImageSource | Blob | ImageData")
         .splitUnion("Path2D | string")
         .splitUnion("string | PerformanceMeasureOptions")
         .splitUnion("string | ArrayBufferLike | Blob | ArrayBufferView")
