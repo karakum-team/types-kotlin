@@ -108,10 +108,16 @@ private fun convertCompanion(
         .joinToString("\n")
 
     val body = if (memberSource.isNotEmpty()) {
+        var companionMembers = memberSource.replace("readonly ", "val ")
+            .replace(Regex(""": 0x\S+"""), ": GLenum")
+            .replace(Regex(""": \-?\d"""), ": GLenum")
+
+        val idDeclaration = RenderingContextRegistry.getIdDeclaration(name)
+        if (idDeclaration != null)
+            companionMembers += "\n\n$idDeclaration"
+
         "companion object {\n" +
-                memberSource.replace("readonly ", "val ")
-                    .replace(Regex(""": 0x\S+"""), ": GLenum")
-                    .replace(Regex(""": \-?\d"""), ": GLenum") +
+                companionMembers +
                 "\n}"
     } else ""
 
