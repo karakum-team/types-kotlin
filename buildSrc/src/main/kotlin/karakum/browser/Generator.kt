@@ -207,6 +207,7 @@ fun generateKotlinDeclarations(
     )
 
     MarkerRegistry.fill(webDefinitionsFile)
+    RenderingContextRegistry.fill(webDefinitionsFile)
 
     val content = webDefinitionsFile
         .readText()
