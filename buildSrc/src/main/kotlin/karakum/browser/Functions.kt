@@ -1,5 +1,12 @@
 package karakum.browser
 
+private val TIMERS = setOf(
+    "setTimeout",
+    "clearTimeout",
+    "setInterval",
+    "clearInterval",
+)
+
 internal fun browserFunctions(
     content: String,
 ): Sequence<ConversionResult> =
@@ -10,6 +17,20 @@ internal fun browserFunctions(
         ),
         getPkg = ::getBrowserPkg,
     )
+        .plus(
+            ConversionResult(
+                name = "Interval",
+                body = "sealed external interface Interval",
+                pkg = "web.timers",
+            )
+        )
+        .plus(
+            ConversionResult(
+                name = "Timeout",
+                body = "sealed external interface Timeout",
+                pkg = "web.timers",
+            )
+        )
 
 private fun getBrowserPkg(
     name: String,
@@ -33,6 +54,9 @@ private fun getBrowserPkg(
 
         "reportError",
         -> "web.errors"
+
+        in TIMERS,
+        -> "web.timers"
 
         "queueMicrotask",
         -> "web.scheduling"
@@ -83,6 +107,19 @@ private fun convertFunctionResult(
     var bodySource = source
         .substringAfter("(")
         .let { "($it" }
+
+    if (name in TIMERS) {
+        val idType = name
+            .removePrefix("set")
+            .removePrefix("clear")
+
+        bodySource = bodySource
+            .replace("timeout?: number, ...arguments: any[]", "timeout: Int")
+            .replace("id: number | undefined", "id: $idType?")
+            .replace("): number", "): $idType")
+    }
+
+    bodySource = bodySource
         // reportError
         .replace("(e: any", "(error: JsError")
         // alert
@@ -115,7 +152,25 @@ private fun convertFunctionResult(
         .removePrefix(name)
         .replace(" = any", "")
 
-    val body = "external fun $typeParameters $name $bodySource"
+    var body = "external fun $typeParameters $name $bodySource"
+
+    if (name in TIMERS && name.startsWith("set")) {
+        val idType = name.removePrefix("set")
+
+        body += "\n\n"
+
+        // language=kotlin
+        body += """
+        fun $name(
+            timeout: Duration,
+            handler: TimerHandler,
+        ): $idType =
+            $name(
+                handler = handler,
+                timeout = timeout.toInt(MILLISECONDS)
+            )
+        """.trimIndent()
+    }
 
     return ConversionResult(
         name = name,

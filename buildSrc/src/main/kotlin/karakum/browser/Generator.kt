@@ -326,6 +326,13 @@ fun generateKotlinDeclarations(
 
 
         val imports = when (name) {
+            "setInterval",
+            "setTimeout",
+            -> """
+            import kotlin.time.Duration
+            import kotlin.time.DurationUnit.MILLISECONDS
+            """.trimIndent()
+
             "Document",
             "DocumentOrShadowRoot",
             -> """

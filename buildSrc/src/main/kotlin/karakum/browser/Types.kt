@@ -168,6 +168,8 @@ private fun convertType(
         val pkg = when (name) {
             "Transferable" -> "js.core"
 
+            "TimerHandler" -> "web.timers"
+
             "MessageEventSource" -> "web.messaging"
 
             "PerformanceEntryList" -> "web.performance"
@@ -257,6 +259,9 @@ private fun convertType(
 
             name == "COSEAlgorithmIdentifier" && bodySource == "number"
             -> "Int"
+
+            bodySource == "string | Function"
+            -> "() -> Unit"
 
             " | " in bodySource || bodySource == "AlgorithmIdentifier"
             -> "Any /* $bodySource */"
