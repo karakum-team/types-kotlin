@@ -15,6 +15,9 @@ private fun getBrowserPkg(
     name: String,
 ): String? =
     when (name) {
+        "structuredClone",
+        -> "js.core"
+
         "atob",
         "btoa",
         -> "web.buffer"
@@ -73,9 +76,13 @@ private fun convertFunctionResult(
     getPkg: (name: String) -> String?,
 ): ConversionResult? {
     val name = source.substringBefore("(")
+        .substringBefore("<")
+
     val pkg = getPkg(name) ?: return null
 
     var bodySource = source
+        .substringAfter("(")
+        .let { "($it" }
         // reportError
         .replace("(e: any", "(error: JsError")
         // alert
@@ -91,6 +98,7 @@ private fun convertFunctionResult(
         // TEMP for getComputedStyle
         .replace("pseudoElement?: string", "pseudoElement: String? = definedExternally")
         .replace("options?: ImageBitmapOptions", "options: ImageBitmapOptions? = definedExternally")
+        .replace("options?: StructuredSerializeOptions", "options: StructuredSerializeOptions? = definedExternally")
         .replace("?: string", ": String = definedExternally")
         .replace(": string", ": String")
         .replace(": number", ": Int")
@@ -103,7 +111,11 @@ private fun convertFunctionResult(
     if (name == "matchMedia")
         bodySource = bodySource.applyMediaQueryFunctionPatch()
 
-    val body = "external fun $bodySource"
+    val typeParameters = source.substringBefore("(")
+        .removePrefix(name)
+        .replace(" = any", "")
+
+    val body = "external fun $typeParameters $name $bodySource"
 
     return ConversionResult(
         name = name,
