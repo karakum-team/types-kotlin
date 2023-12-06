@@ -381,10 +381,10 @@
   resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.125.tgz#e286cb1e1dc4c7623db0484a392e256ed0599fe8"
   integrity sha512-TGZ4jAe1Nj4x+/wZICAZhAM8K3RIqti90ye0onlprDarBH0nLImnyZ2S729X+mzab3EMBu3KWd/KNwJbKHRV4g==
 
-"@webref/idl@3.41.1":
-  version "3.41.1"
-  resolved "https://registry.yarnpkg.com/@webref/idl/-/idl-3.41.1.tgz#fa4aacf0458bd8f64ae8f384a9d80d3812522ede"
-  integrity sha512-CCbWjrHJu8w96MGusgOhkXke0wIR9I//rZ11hcS3id52fdw+6Q9bUH7qHiOJWnJjvLtcNBTW17K8B82P4ERIDg==
+"@webref/idl@3.42.0":
+  version "3.42.0"
+  resolved "https://registry.yarnpkg.com/@webref/idl/-/idl-3.42.0.tgz#3fbb952a567e1ff72f7d570ed9713f7b833dbf73"
+  integrity sha512-mpEx2OwkLuqGlF+AP026rI+paALJW+8idEyr8aORRu0VxZQj6x2xV2auffFtRhCU+AF0QsgAPUNJ4m2mbDHr8g==
 
 "@zip.js/zip.js@2.4.x":
   version "2.4.26"
@@ -741,10 +741,10 @@ tunnel@0.0.6, tunnel@^0.0.6:
   resolved "https://registry.yarnpkg.com/tunnel/-/tunnel-0.0.6.tgz#72f1314b34a5b192db012324df2cc587ca47f92c"
   integrity sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==
 
-typescript@5.3.2:
-  version "5.3.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.2.tgz#00d1c7c1c46928c5845c1ee8d0cc2791031d4c43"
-  integrity sha512-6l+RyNy7oAHDfxC4FzSJcz9vnjTKxrLpDG5M2Vu4SHRVNg6xzqZp6LYSR9zjqQTu8DU/f5xwxUdADOkbrIX2gQ==
+typescript@5.3.3:
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.3.tgz#b3ce6ba258e72e6305ba66f5c9b452aaee3ffe37"
+  integrity sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==
 
 undici-types@~5.26.4:
   version "5.26.5"
