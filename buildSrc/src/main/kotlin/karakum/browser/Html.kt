@@ -1376,8 +1376,8 @@ internal fun convertInterface(
         name.startsWith("RTC") -> "webrtc"
         name.startsWith("MediaKey") -> "web.media.key"
 
-        name.startsWith("VTT") -> "webvtt"
-        name.startsWith("TextTrack") -> "webvtt"
+        name.startsWith("VTT") -> "web.vtt"
+        name.startsWith("TextTrack") -> "web.vtt"
 
         name.startsWith("MediaCapabilities") -> "web.media.capabilities"
         name in MEDIA_CAPABILITIES_TYPES -> "web.media.capabilities"

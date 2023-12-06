@@ -186,9 +186,9 @@ private val DEFAULT_IMPORTS = Imports(
     "web.xml.XMLDocument",
     "webgl.TexImageSource",
     "websockets.BinaryType",
-    "webvtt.TextTrack",
-    "webvtt.TextTrackKind",
-    "webvtt.TextTrackList",
+    "web.vtt.TextTrack",
+    "web.vtt.TextTrackKind",
+    "web.vtt.TextTrackList",
 )
 
 fun generateKotlinDeclarations(

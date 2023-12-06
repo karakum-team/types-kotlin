@@ -51,7 +51,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.midi.MIDIMessageEvent"),
     EventInfo("web.speech.SpeechSynthesisEvent"),
     EventInfo("web.speech.SpeechSynthesisErrorEvent"),
-    EventInfo("webvtt.TrackEvent"),
+    EventInfo("web.vtt.TrackEvent"),
     EventInfo("websockets.CloseEvent"),
     EventInfo("web.device.DeviceMotionEvent"),
     EventInfo("web.device.DeviceOrientationEvent"),

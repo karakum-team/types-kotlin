@@ -103,7 +103,7 @@ private val PKG_MAP = mapOf(
 
     "BinaryType" to "websockets",
 
-    "AutoKeyword" to "webvtt",
+    "AutoKeyword" to "web.vtt",
 
     "KeyFormat" to "web.crypto",
     "KeyType" to "web.crypto",
@@ -210,7 +210,7 @@ private fun convertType(
             "ReadableStreamReadResult" -> "web.streams"
 
             "ReportList" -> "web.reporting"
-            "LineAndPositionSetting" -> "webvtt"
+            "LineAndPositionSetting" -> "web.vtt"
 
             "RTCRtpTransform",
 
@@ -313,7 +313,7 @@ private fun getTypePkg(
 
         PKG_MAP.containsKey(name) -> PKG_MAP.getValue(name)
 
-        name.endsWith("Setting") -> "webvtt"
+        name.endsWith("Setting") -> "web.vtt"
 
         name.startsWith("Document") -> "web.dom"
         name.startsWith("Fullscreen") -> "web.fullscreen"
@@ -352,7 +352,7 @@ private fun getTypePkg(
 
         name.startsWith("RTC") -> "webrtc"
         name.startsWith("ServiceWorker") -> "web.serviceworker"
-        name.startsWith("TextTrack") -> "webvtt"
+        name.startsWith("TextTrack") -> "web.vtt"
         name.startsWith("Worker") -> "web.workers"
 
         name.startsWith("WebGL") -> "webgl"
