@@ -75,7 +75,7 @@ private fun convertFunctionType(
 
         name == "ReportingObserverCallback" -> "web.reporting"
 
-        name.startsWith("RTC") -> "webrtc"
+        name.startsWith("RTC") -> "web.rtc"
 
         else -> return null
     }

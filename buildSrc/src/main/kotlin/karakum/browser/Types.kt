@@ -350,7 +350,7 @@ private fun getTypePkg(
         name.startsWith("Request") -> "web.http"
         name.startsWith("Response") -> "web.http"
 
-        name.startsWith("RTC") -> "webrtc"
+        name.startsWith("RTC") -> "web.rtc"
         name.startsWith("ServiceWorker") -> "web.serviceworker"
         name.startsWith("TextTrack") -> "web.vtt"
         name.startsWith("Worker") -> "web.workers"
