@@ -17,7 +17,7 @@ internal val MARKER_INTERFACES = listOf(
 )
 
 private val BASE_TYPES = listOf(
-    "ArrayBuffer",
+    "Blob",
 )
 
 // TODO: read from definitions
