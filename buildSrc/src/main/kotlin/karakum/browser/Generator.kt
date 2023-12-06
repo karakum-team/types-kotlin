@@ -215,7 +215,7 @@ fun generateKotlinDeclarations(
         .applyPatches()
 
     val webglTargetDir = sourceDir
-        .resolve("web.gl")
+        .resolve("web/gl")
         .also { it.mkdirs() }
 
     val webWorkersContent = webWorkersContent(serviceworkerDefinitionsFile)
