@@ -316,7 +316,7 @@ fun generateKotlinDeclarations(
                 pkg == "js.intl" && "external class " in body
                 -> """@file:JsQualifier("Intl")"""
 
-                pkg == "webassembly" && ("external class " in body || "external fun " in body)
+                pkg == "web.assembly" && ("external class " in body || "external fun " in body)
                 -> """@file:JsQualifier("WebAssembly")"""
 
                 else -> ""

@@ -24,6 +24,7 @@ val JS_INCLUDE = setOf(
 
 val WEB_INCLUDE = setOf(
     "web/abort",
+    "web/assembly",
     "web/buffer/Blob.kt",
     "web/buffer/BlobPart.kt",
     "web/buffer/BlobPropertyBag.kt",
@@ -43,7 +44,6 @@ val WEB_INCLUDE = setOf(
     "web/scheduling/VoidFunction.kt",
     "web/streams",
     "web/url",
-    "webassembly",
 )
 
 val BROWSER_INCLUDE = setOf(

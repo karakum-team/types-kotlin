@@ -12,7 +12,7 @@ internal fun webAssemblyDeclarations(
 
     val types = convertTypes(
         content = content,
-        getPkg = { "webassembly" },
+        getPkg = { "web.assembly" },
     )
 
     val interfaces = Regex("""interface .+? \{[\s\S]*?\n}""")
@@ -45,7 +45,7 @@ internal fun webAssemblyDeclarations(
                 convertInterface(
                     source = src,
                     getStaticSource = { getStaticSource(it, content) },
-                    predefinedPkg = "webassembly",
+                    predefinedPkg = "web.assembly",
                 )?.withComment(fullSource = content, source = src)
             }
         }.map { result ->
@@ -64,7 +64,7 @@ internal fun webAssemblyDeclarations(
 
     val functions = convertFunctions(
         content = content,
-        getPkg = { "webassembly" },
+        getPkg = { "web.assembly" },
     )
 
     return (types + interfaces + functions)
@@ -101,7 +101,7 @@ private fun convertValueType(
     return ConversionResult(
         name = VALUE_TYPE,
         body = unionBodyByConstants("$VALUE_TYPE<T>", constants),
-        pkg = "webassembly",
+        pkg = "web.assembly",
     )
 }
 
