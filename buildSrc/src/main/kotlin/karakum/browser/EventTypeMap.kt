@@ -52,7 +52,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.speech.SpeechSynthesisEvent"),
     EventInfo("web.speech.SpeechSynthesisErrorEvent"),
     EventInfo("web.vtt.TrackEvent"),
-    EventInfo("websockets.CloseEvent"),
+    EventInfo("web.sockets.CloseEvent"),
     EventInfo("web.device.DeviceMotionEvent"),
     EventInfo("web.device.DeviceOrientationEvent"),
     EventInfo("web.gamepad.GamepadEvent"),

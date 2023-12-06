@@ -55,7 +55,7 @@ private val PACKAGE_MAP = mapOf(
     "VideoEncoder" to "web.codecs",
     "VisualViewport" to "web.window",
     "WakeLockSentinel" to "web.wakelock",
-    "WebSocket" to "websockets",
+    "WebSocket" to "web.sockets",
     "Window" to "web.window",
     "WindowEventHandlers" to "web.window",
     "XMLHttpRequest" to "web.xhr",

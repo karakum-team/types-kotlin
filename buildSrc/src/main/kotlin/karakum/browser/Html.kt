@@ -1441,7 +1441,7 @@ internal fun convertInterface(
         name in FULLSCREEN_TYPES -> "web.fullscreen"
 
         name == "BroadcastChannel" -> "web.broadcast"
-        name == "WebSocket" -> "websockets"
+        name == "WebSocket" -> "web.sockets"
 
         name in QUERY_TYPES -> "web.cache"
         name in CODECS_TYPES -> "web.codecs"

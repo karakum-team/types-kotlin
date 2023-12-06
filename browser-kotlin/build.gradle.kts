@@ -55,7 +55,6 @@ val BROWSER_INCLUDE = setOf(
 
     "webgl",
     "webrtc",
-    "websockets",
 )
 
 enum class WrapperProject {
