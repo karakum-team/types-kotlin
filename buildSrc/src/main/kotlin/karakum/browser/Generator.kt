@@ -184,7 +184,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.workers.WorkerType",
     "web.worklets.Worklet",
     "web.xml.XMLDocument",
-    "webgl.TexImageSource",
+    "web.gl.TexImageSource",
     "web.sockets.BinaryType",
     "web.vtt.TextTrack",
     "web.vtt.TextTrackKind",
@@ -215,7 +215,7 @@ fun generateKotlinDeclarations(
         .applyPatches()
 
     val webglTargetDir = sourceDir
-        .resolve("webgl")
+        .resolve("web.gl")
         .also { it.mkdirs() }
 
     val webWorkersContent = webWorkersContent(serviceworkerDefinitionsFile)
@@ -333,15 +333,6 @@ fun generateKotlinDeclarations(
             import web.fonts.FontFaceSource    
             import web.html.*        
             import web.xpath.XPathEvaluatorBase
-            """.trimIndent()
-
-            "HTMLCanvasElement" -> """
-            import web.canvas.*    
-            import webgl.*    
-            """.trimIndent()
-
-            "OffscreenCanvas" -> """  
-            import webgl.*
             """.trimIndent()
 
             "Navigator" -> """
@@ -465,7 +456,7 @@ fun generateKotlinDeclarations(
 
         webglTargetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(fileContent(annotations, "", body, "webgl"))
+            .writeText(fileContent(annotations, "", body, "web.gl"))
     }
 }
 

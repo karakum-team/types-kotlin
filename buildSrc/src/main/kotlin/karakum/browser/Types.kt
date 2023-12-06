@@ -201,7 +201,7 @@ private fun convertType(
             "HeadersInit" -> "web.http"
             "FormDataEntryValue" -> "web.http"
 
-            "TexImageSource" -> "webgl"
+            "TexImageSource" -> "web.gl"
 
             "BigInteger" -> "web.crypto"
             "HashAlgorithmIdentifier" -> "web.crypto"
@@ -355,7 +355,7 @@ private fun getTypePkg(
         name.startsWith("TextTrack") -> "web.vtt"
         name.startsWith("Worker") -> "web.workers"
 
-        name.startsWith("WebGL") -> "webgl"
+        name.startsWith("WebGL") -> "web.gl"
         name.startsWith("XMLHttp") -> "web.xhr"
 
         else -> TODO("Unable to find package for `$name` union")

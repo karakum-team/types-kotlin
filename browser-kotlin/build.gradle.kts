@@ -52,8 +52,6 @@ val BROWSER_INCLUDE = setOf(
     "web/events/ProgressEvent.kt",
     "web/events/ProgressEvent.types.kt",
     "web/file",
-
-    "webgl",
 )
 
 enum class WrapperProject {
