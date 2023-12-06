@@ -312,10 +312,13 @@ private val SCHEDULING_TYPES = listOf(
     "IdleRequestOptions",
 )
 
+private val JS_CORE = listOf(
+    "StructuredSerializeOptions"
+)
+
 private val MESSAGING_TYPES = listOf(
     "MessageChannel",
     "MessagePort",
-    "StructuredSerializeOptions",
 )
 
 private val WEB_CRYPTO_TYPES = listOf(
@@ -674,6 +677,7 @@ internal fun htmlDeclarations(
 
         "Payment.+?",
     ).plus(ANIMATION_TYPES.flatMap { sequenceOf(it, "$it .+?") })
+        .plus(JS_CORE)
         .plus(DOM_TYPES)
         .plus(EVENTS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(SCROLL_TYPES)
@@ -1297,6 +1301,8 @@ internal fun convertInterface(
 
     val pkg = when {
         predefinedPkg != null -> predefinedPkg
+
+        name in JS_CORE -> "js.core"
 
         name == "Console" -> "web.console"
 
