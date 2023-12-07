@@ -42,6 +42,8 @@ private val LENGTH_UNIONS = setOf(
 
     "Background",
     "Mask",
+
+    "AnimationRange",
 )
 
 private val EXCLUDED_ENUMS = setOf(
