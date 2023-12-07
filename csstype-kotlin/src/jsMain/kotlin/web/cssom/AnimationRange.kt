@@ -2,5 +2,5 @@
 
 package web.cssom
 
-// Globals | DataType.TimelineRangeName | TLength | "normal" | (string & {})
+// Globals | "contain" | "cover" | "entry" | "entry-crossing" | "exit" | "exit-crossing" | TLength | "normal" | (string & {})
 sealed external interface AnimationRange
