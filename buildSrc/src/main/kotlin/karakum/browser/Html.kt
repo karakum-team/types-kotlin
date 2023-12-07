@@ -1364,7 +1364,7 @@ internal fun convertInterface(
         name.startsWith("Document") -> "web.dom"
         name in DOM_TYPES -> "web.dom"
         name in CSSOM_TYPES -> "web.cssom"
-        name in HIGHLIGHT_TYPES -> "web.cssom.highlight"
+        name in HIGHLIGHT_TYPES -> "web.highlight"
         name in DOM_DATA_TYPES -> "web.data"
         name in DOM_GEOMETRY_TYPES -> "web.geometry"
         name == "XMLDocument" -> "web.xml"

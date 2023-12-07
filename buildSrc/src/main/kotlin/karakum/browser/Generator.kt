@@ -72,7 +72,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.cssom.LinkStyle",
     "web.cssom.MediaQuery",
     "web.cssom.StylePropertyMapReadOnly",
-    "web.cssom.highlight.HighlightRegistry",
+    "web.highlight.HighlightRegistry",
     "web.data.DataTransfer",
     "web.dom.DOMStringList",
     "web.dom.DOMTokenList",

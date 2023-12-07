@@ -17,7 +17,7 @@ private val PKG_MAP = mapOf(
 
     "CSSMathOperator" to "web.cssom",
     "CSSNumericBaseType" to "web.cssom",
-    "HighlightType" to "web.cssom.highlight",
+    "HighlightType" to "web.highlight",
 
     "EndingType" to "web.buffer",
 
