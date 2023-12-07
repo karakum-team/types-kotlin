@@ -175,9 +175,6 @@ internal fun tryToUnion(
                 content.replace(
                     "sealed external interface $COLOR",
                     "external class $COLOR\nprivate constructor()"
-                ).replace(
-                    "@JsVirtual",
-                    "@JsName(\"null\")",
                 )
     }
 
