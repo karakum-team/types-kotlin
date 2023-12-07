@@ -38,6 +38,7 @@ internal fun String.inlineTypes(): String =
         .inlineType("MaskLayer")
         .inlineType("SingleAnimationComposition")
         .inlineType("SingleAnimationTimeline")
+        .inlineType("TimelineRangeName")
 
 private fun String.inlineType(
     name: String,
