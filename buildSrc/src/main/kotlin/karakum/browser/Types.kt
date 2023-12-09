@@ -270,7 +270,7 @@ private fun convertType(
         }
 
         val finalBody = when {
-            name == "BodyInit"
+            name == "BodyInit" || name == "IDBValidKey"
             -> valueInterface(
                 name,
                 bodySource,
@@ -383,6 +383,8 @@ private fun valueInterface(
             when (valueType) {
                 "ReadableStream" -> "ReadableStream<*>"
                 "string" -> "String"
+                "number" -> "Number"
+                "IDBValidKey[]" -> "ReadonlyArray<IDBValidKey>"
                 else -> valueType
             }
         }
