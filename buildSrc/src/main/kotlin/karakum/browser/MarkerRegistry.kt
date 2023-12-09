@@ -15,6 +15,7 @@ internal val MARKER_DECLARATIONS = listOf(
     "OffscreenRenderingContext",
     "RenderingContext",
 
+    "ReadableStreamController<T>",
     "ReadableStreamReadResult<T>",
 )
 

@@ -76,22 +76,6 @@ internal fun String.applyPatches(): String =
         // TODO: use `Error`
         .replace("  error(e?: any)", "  error(error?: JsError)")
         .replace(
-            "ReadableStreamController<T>",
-            "ReadableStreamController",
-        )
-        .replace(
-            "ReadableStreamController<R>",
-            "ReadableStreamController",
-        )
-        .replace(
-            "UnderlyingSourcePullCallback<R>",
-            "UnderlyingSourcePullCallback",
-        )
-        .replace(
-            "UnderlyingSourceStartCallback<R>",
-            "UnderlyingSourceStartCallback",
-        )
-        .replace(
             Regex("""forEach\(callbackfn: \(value: ([\w\[\]]+), .+?, thisArg\?: any\): void;"""),
             "forEach(action: (item: $1) => void): void;"
         )
