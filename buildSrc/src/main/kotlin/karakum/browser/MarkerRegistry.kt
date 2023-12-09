@@ -36,7 +36,7 @@ internal object MarkerRegistry {
     ) {
         val content = definitionFile.readText()
         map = MARKER_DECLARATIONS.asSequence()
-            .flatMap { name -> findParentTypes(content = content, interfaceName = name) }
+            .flatMap { name -> findParentTypes(content = content, interfaceDeclaration = name) }
             .groupBy(keySelector = { it.first }, valueTransform = { it.second })
     }
 
@@ -56,11 +56,19 @@ internal object MarkerRegistry {
 
 private fun findParentTypes(
     content: String,
-    interfaceName: String,
+    interfaceDeclaration: String,
 ): Sequence<Pair<String, String>> =
-    content.substringAfter("type $interfaceName = ", "")
+    content.substringAfter("type $interfaceDeclaration = ", "")
         .substringBefore(";\n")
         .splitToSequence(" | ")
         .map { it.substringBefore("<") }
         .map { ALIASES[it] ?: it }
-        .map { it to interfaceName }
+        .map { type ->
+            val parentType = when (type) {
+                "ReadableByteStreamController" -> interfaceDeclaration.replace("<T>", "<Void>")
+                "ReadableStreamDefaultController" -> interfaceDeclaration.replace("<T>", "<R>")
+                else -> interfaceDeclaration
+            }
+
+            type to parentType
+        }
