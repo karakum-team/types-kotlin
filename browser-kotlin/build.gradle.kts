@@ -5,6 +5,12 @@ plugins {
     `browser-declarations`
 }
 
+kotlin {
+    sourceSets.configureEach {
+        languageSettings.optIn("kotlin.ExperimentalStdlibApi")
+    }
+}
+
 dependencies {
     jsMainImplementation(npmv("@types/web"))
     jsMainImplementation(npmv("@types/serviceworker"))
