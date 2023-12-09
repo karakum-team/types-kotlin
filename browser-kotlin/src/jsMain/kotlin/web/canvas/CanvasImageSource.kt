@@ -11,4 +11,5 @@ package web.canvas
  * - `OffscreenCanvas`
  * - `VideoFrame`
  */
-external interface CanvasImageSource
+@JsExternalInheritorsOnly
+/* sealed */ external interface CanvasImageSource

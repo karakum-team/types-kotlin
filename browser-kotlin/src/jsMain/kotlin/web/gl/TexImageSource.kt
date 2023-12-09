@@ -12,4 +12,5 @@ package web.gl
  * - `OffscreenCanvas`
  * - `VideoFrame`
  */
-external interface TexImageSource
+@JsExternalInheritorsOnly
+/* sealed */ external interface TexImageSource

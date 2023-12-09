@@ -9,4 +9,5 @@ package web.rendering
  * - `WebGLRenderingContext`
  * - `WebGL2RenderingContext`
  */
-external interface OffscreenRenderingContext
+@JsExternalInheritorsOnly
+/* sealed */ external interface OffscreenRenderingContext

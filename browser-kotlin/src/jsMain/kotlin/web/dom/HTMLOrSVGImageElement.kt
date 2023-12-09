@@ -9,5 +9,6 @@ import web.canvas.CanvasImageSource
  * - `HTMLImageElement`
  * - `SVGImageElement`
  */
-external interface HTMLOrSVGImageElement :
+@JsExternalInheritorsOnly
+/* sealed */ external interface HTMLOrSVGImageElement :
     CanvasImageSource

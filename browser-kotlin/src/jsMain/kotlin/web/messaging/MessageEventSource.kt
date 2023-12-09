@@ -8,4 +8,5 @@ package web.messaging
  * - `MessagePort`
  * - `ServiceWorker`
  */
-external interface MessageEventSource
+@JsExternalInheritorsOnly
+/* sealed */ external interface MessageEventSource
