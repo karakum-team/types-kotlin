@@ -6,4 +6,9 @@
 
 package web.streams
 
-typealias ReadableStreamReadResult<T> = Any /* ReadableStreamReadValueResult<T> | ReadableStreamReadDoneResult<T> */
+/**
+ * Union of:
+ * - `ReadableStreamReadValueResult`
+ * - `ReadableStreamReadDoneResult`
+ */
+external interface ReadableStreamReadResult<T>
