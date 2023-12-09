@@ -7,4 +7,4 @@ package web.streams
  * - `ReadableStreamDefaultController`
  * - `ReadableByteStreamController`
  */
-external interface ReadableStreamController<T>
+sealed external interface ReadableStreamController<T>
