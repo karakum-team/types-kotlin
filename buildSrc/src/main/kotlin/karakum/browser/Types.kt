@@ -269,13 +269,20 @@ private fun convertType(
             else -> bodySource
         }
 
-        val finalBody = if (declaration in MARKER_DECLARATIONS) {
-            markerInterface(
+        val finalBody = when {
+            name == "BodyInit"
+            -> valueInterface(
+                name,
+                bodySource,
+            )
+
+            declaration in MARKER_DECLARATIONS
+            -> markerInterface(
                 declaration = declaration,
                 types = bodySource,
             )
-        } else {
-            "typealias $declaration = $body"
+
+            else -> "typealias $declaration = $body"
         }
 
         return ConversionResult(
@@ -365,6 +372,37 @@ private fun getTypePkg(
 
         else -> TODO("Unable to find package for `$name` union")
     }
+
+private fun valueInterface(
+    name: String,
+    types: String,
+): String {
+    val factoryMethods = types
+        .splitToSequence(" | ")
+        .map { valueType ->
+            when (valueType) {
+                "ReadableStream" -> "ReadableStream<*>"
+                "string" -> "String"
+                else -> valueType
+            }
+        }
+        .map { valueType ->
+            """
+            inline fun ${name}(
+                value: $valueType
+            ): $name =
+                value.unsafeCast<$name>()
+            """.trimIndent()
+        }
+
+    val type = """    
+        sealed external interface $name
+        """.trimIndent()
+
+    return listOf(type)
+        .plus(factoryMethods)
+        .joinToString("\n\n")
+}
 
 private fun markerInterface(
     declaration: String,
