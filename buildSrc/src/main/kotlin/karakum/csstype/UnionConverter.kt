@@ -159,9 +159,9 @@ internal fun tryToUnion(
         items = items - NONE_VALUE
     }
 
-    if (items == GEOMETRY_POSITION_ITEMS) {
+    if (items.containsAll(GEOMETRY_POSITION_ITEMS) && (items.size - GEOMETRY_POSITION_ITEMS.size) <= 1) {
         comment += "// $GEOMETRY_POSITION\n"
-        items = emptyList()
+        items = items - GEOMETRY_POSITION_ITEMS
     }
 
     if (items.isEmpty())
