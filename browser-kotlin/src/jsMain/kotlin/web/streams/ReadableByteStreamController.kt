@@ -6,7 +6,8 @@ import js.buffer.ArrayBufferView
 import js.errors.JsError
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableByteStreamController) */
-sealed external class ReadableByteStreamController {
+sealed external class ReadableByteStreamController :
+    ReadableStreamController<T> {
     /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableByteStreamController/byobRequest) */
     val byobRequest: ReadableStreamBYOBRequest?
 
