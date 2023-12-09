@@ -293,9 +293,6 @@ fun generateKotlinDeclarations(
             if (name in Mixins.UNSAFE)
                 add(NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE)
 
-            if (name == "ReadableStreamReadResult")
-                add(UNUSED_TYPEALIAS_PARAMETER)
-
             if (name == "ChildNode" || name == "ParentNode" || name == "AbstractWorker" || name == "FontFaceSet")
                 add(INTERFACE_WITH_SUPERCLASS)
 
