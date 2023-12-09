@@ -371,7 +371,7 @@ private fun markerInterface(
     types: String,
 ): String {
     val name = declaration.substringBefore("<")
-    val modifiers = if (name.startsWith("ReadableStream")) "sealed" else ""
+    val modifiers = if (name.startsWith("ReadableStream")) "sealed" else "/* sealed */"
 
     val additionalChildTypes = MarkerRegistry.nonProcessedChildTypes(name)
     val extensions = additionalChildTypes.flatMap { childType ->
@@ -403,7 +403,8 @@ private fun markerInterface(
         )
 
     val type = """
-        $comment    
+        $comment
+        @JsExternalInheritorsOnly
         $modifiers external interface $declaration$parentDeclaration
         """.trimIndent()
 
