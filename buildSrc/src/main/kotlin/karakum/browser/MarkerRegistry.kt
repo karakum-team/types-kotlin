@@ -2,7 +2,7 @@ package karakum.browser
 
 import java.io.File
 
-internal val MARKER_INTERFACES = listOf(
+internal val MARKER_DECLARATIONS = listOf(
     "MessageEventSource",
 
     "CanvasImageSource",
@@ -14,6 +14,8 @@ internal val MARKER_INTERFACES = listOf(
 
     "OffscreenRenderingContext",
     "RenderingContext",
+
+    "ReadableStreamReadResult<T>",
 )
 
 private val BASE_TYPES = listOf(
@@ -32,7 +34,7 @@ internal object MarkerRegistry {
         definitionFile: File,
     ) {
         val content = definitionFile.readText()
-        map = MARKER_INTERFACES.asSequence()
+        map = MARKER_DECLARATIONS.asSequence()
             .flatMap { name -> findParentTypes(content = content, interfaceName = name) }
             .groupBy(keySelector = { it.first }, valueTransform = { it.second })
     }
@@ -58,5 +60,6 @@ private fun findParentTypes(
     content.substringAfter("type $interfaceName = ", "")
         .substringBefore(";\n")
         .splitToSequence(" | ")
+        .map { it.substringBefore("<") }
         .map { ALIASES[it] ?: it }
         .map { it to interfaceName }

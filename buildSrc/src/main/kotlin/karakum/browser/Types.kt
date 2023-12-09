@@ -269,9 +269,9 @@ private fun convertType(
             else -> bodySource
         }
 
-        val finalBody = if (name in MARKER_INTERFACES) {
+        val finalBody = if (declaration in MARKER_DECLARATIONS) {
             markerInterface(
-                name = name,
+                declaration = declaration,
                 types = bodySource,
             )
         } else {
@@ -367,9 +367,11 @@ private fun getTypePkg(
     }
 
 private fun markerInterface(
-    name: String,
+    declaration: String,
     types: String,
 ): String {
+    val name = declaration.substringBefore("<")
+
     val additionalChildTypes = MarkerRegistry.nonProcessedChildTypes(name)
     val extensions = additionalChildTypes.flatMap { childType ->
         sequenceOf(
@@ -389,7 +391,9 @@ private fun markerInterface(
     } else ""
 
 
-    val comment = types.splitToSequence(" | ")
+    val comment = types
+        .splitToSequence(" | ")
+        .map { it.substringBefore("<") }
         .joinToString(
             separator = "\n",
             prefix = "/**\n * Union of:\n",
@@ -399,7 +403,7 @@ private fun markerInterface(
 
     val type = """
         $comment    
-        external interface $name$parentDeclaration
+        external interface $declaration$parentDeclaration
         """.trimIndent()
 
     return listOf(type)
