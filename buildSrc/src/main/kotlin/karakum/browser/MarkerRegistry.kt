@@ -2,7 +2,12 @@ package karakum.browser
 
 import java.io.File
 
-internal val MARKER_DECLARATIONS = listOf(
+internal val SEALED_MARKER_DECLARATIONS = setOf(
+    "ReadableStreamController<T>",
+    "ReadableStreamReadResult<T>",
+)
+
+internal val MARKER_DECLARATIONS = setOf(
     "MessageEventSource",
 
     "CanvasImageSource",
@@ -14,10 +19,7 @@ internal val MARKER_DECLARATIONS = listOf(
 
     "OffscreenRenderingContext",
     "RenderingContext",
-
-    "ReadableStreamController<T>",
-    "ReadableStreamReadResult<T>",
-)
+) + SEALED_MARKER_DECLARATIONS
 
 private val BASE_TYPES = listOf(
     "Blob",
