@@ -1,9 +1,5 @@
 // Automatically generated - do not modify!
 
-@file:Suppress(
-    "UNUSED_TYPEALIAS_PARAMETER",
-)
-
 package web.streams
 
 /**
@@ -11,4 +7,4 @@ package web.streams
  * - `ReadableStreamReadValueResult`
  * - `ReadableStreamReadDoneResult`
  */
-external interface ReadableStreamReadResult<T>
+sealed external interface ReadableStreamReadResult<T>
