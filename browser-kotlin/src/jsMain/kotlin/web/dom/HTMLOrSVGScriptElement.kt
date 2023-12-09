@@ -7,5 +7,4 @@ package web.dom
  * - `HTMLScriptElement`
  * - `SVGScriptElement`
  */
-@JsExternalInheritorsOnly
-/* sealed */ external interface HTMLOrSVGScriptElement
+external interface HTMLOrSVGScriptElement

@@ -13,5 +13,4 @@ package js.core
  * - `VideoFrame`
  * - `ArrayBuffer`
  */
-@JsExternalInheritorsOnly
-/* sealed */ external interface Transferable
+external interface Transferable

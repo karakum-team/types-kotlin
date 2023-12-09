@@ -7,5 +7,4 @@ package web.streams
  * - `ReadableStreamReadValueResult`
  * - `ReadableStreamReadDoneResult`
  */
-@JsExternalInheritorsOnly
 sealed external interface ReadableStreamReadResult<T>
