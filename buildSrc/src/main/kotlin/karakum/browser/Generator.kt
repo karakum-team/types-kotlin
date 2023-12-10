@@ -49,6 +49,7 @@ private val DEFAULT_IMPORTS = Imports(
     "kotlin.js.Date",
 
     "seskar.js.JsIntValue",
+    "seskar.js.JsTypeGuard",
     "seskar.js.JsVirtual",
     "seskar.js.JsValue",
 

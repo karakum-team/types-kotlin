@@ -953,6 +953,14 @@ internal fun convertInterface(
             pkg = "web.html",
         )
 
+    val typeGuardSource = sequenceOf(
+        "done: false",
+        "done: true",
+    ).firstOrNull { memberSource.startsWith("$it;") }
+
+    if (typeGuardSource != null)
+        memberSource = memberSource.removePrefix("$typeGuardSource;\n")
+
     val arrayType = if ("readonly length: number;" in memberSource) {
         val result = Regex("""\[index\: number\]\: (\w+)""")
             .find(memberSource)
@@ -1278,7 +1286,18 @@ internal fun convertInterface(
         ""
     }
 
+    val typeGuard = if (typeGuardSource != null) {
+        val (property, value) = typeGuardSource.split(": ")
+        """
+        @JsTypeGuard(
+            property = "$property",
+            value = "$value",
+        )
+        """.trimIndent()
+    } else ""
+
     var body = sequenceOf(
+        typeGuard,
         "$modifier external $declaration {",
         members,
         companion,
