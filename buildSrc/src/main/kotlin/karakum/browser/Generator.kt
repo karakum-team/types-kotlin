@@ -93,6 +93,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.dom.NodeListOf",
     "web.dom.AbstractRange",
     "web.dom.Range",
+    "web.dom.ParentNode",
     "web.dom.StaticRange",
     "web.errors.DOMException",
     "web.events.Event",

@@ -1831,7 +1831,7 @@ private fun convertProperty(
         "OnErrorEventHandler",
         -> "Function<Unit>? /* $type */"
 
-        "Element | Document" -> "Element /* | Document */"
+        "Element | Document" -> "ParentNode /* Element | Document */"
 
         // Audio
         "number[] | Float32Array",
