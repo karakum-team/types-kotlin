@@ -958,8 +958,12 @@ internal fun convertInterface(
         "done: true",
     ).firstOrNull { memberSource.startsWith("$it;") }
 
-    if (typeGuardSource != null)
+    if (typeGuardSource != null) {
+        declaration = declaration.replace("interface ", "class ")
         memberSource = memberSource.removePrefix("$typeGuardSource;\n")
+    }
+
+    val hasTypeGuard = typeGuardSource != null
 
     val arrayType = if ("readonly length: number;" in memberSource) {
         val result = Regex("""\[index\: number\]\: (\w+)""")
@@ -1068,7 +1072,7 @@ internal fun convertInterface(
             name.startsWith("HTML") &&
             name.endsWith("Element")
 
-    if (isHtmlElementClass) {
+    if (isHtmlElementClass || hasTypeGuard) {
         require(mainConstructor.isEmpty())
         require(":\n" in declaration)
         declaration = declaration.replaceFirst(":\n", "\nprotected constructor():\n")
@@ -1246,7 +1250,8 @@ internal fun convertInterface(
                 name == "DocumentOrShadowRoot" ||
                 name == "StructuredSerializeOptions" ||
                 name.endsWith("Handlers") ||
-                mainConstructor.isNotEmpty()
+                mainConstructor.isNotEmpty() ||
+                hasTypeGuard
         -> ""
 
         name == "Element" ||
