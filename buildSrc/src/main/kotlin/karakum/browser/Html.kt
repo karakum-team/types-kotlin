@@ -28,6 +28,13 @@ private val ANIMATION_TYPES = setOf(
     "DocumentTimelineOptions",
 )
 
+private val RANGES_TYPES = setOf(
+    "AbstractRange",
+    "Range",
+    "StaticRange",
+    "StaticRangeInit",
+)
+
 private val DOM_TYPES = setOf(
     "DOMStringList",
     "DOMStringMap",
@@ -48,10 +55,6 @@ private val DOM_TYPES = setOf(
     "DocumentType",
     "NodeFilter",
     "TreeWalker",
-    "AbstractRange",
-    "Range",
-    "StaticRange",
-    "StaticRangeInit",
     "Slottable",
     "Text",
     "NodeIterator",
@@ -503,8 +506,6 @@ internal fun htmlDeclarations(
         "Attr .+?",
         "CDATASection .+?",
         "Comment .+?",
-        "Range .+?",
-        "StaticRange .+?",
         "CharacterData .+?",
         "Text .+?",
         "ProcessingInstruction .+?",
@@ -678,6 +679,7 @@ internal fun htmlDeclarations(
         "Payment.+?",
     ).plus(ANIMATION_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(JS_CORE)
+        .plus(RANGES_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(DOM_TYPES)
         .plus(EVENTS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(SCROLL_TYPES)
@@ -1386,6 +1388,7 @@ internal fun convertInterface(
         name == "EventModifierInit" -> "web.uievents"
 
         name.startsWith("Document") -> "web.dom"
+        name in RANGES_TYPES -> "web.ranges"
         name in DOM_TYPES -> "web.dom"
         name in CSSOM_TYPES -> "web.cssom"
         name in HIGHLIGHT_TYPES -> "web.highlight"
