@@ -8,7 +8,8 @@ import seskar.js.JsTypeGuard
     property = "done",
     value = "false",
 )
-sealed external interface ReadableStreamReadValueResult<T> :
+external class ReadableStreamReadValueResult<T>
+protected constructor() :
     ReadableStreamReadResult<T> {
     var value: T
 }
