@@ -49,6 +49,32 @@ fun toDeclarations(
         )
         .replace("\n    isDataEqual?: (oldData: TData | undefined, newData: TData) => boolean;\n", "\n")
         .replace(OPTIMISTIC_RESULT, "QueriesObserverOptimisticResult<TCombinedResult>")
+        .replace(
+            """
+            type QueryPersister<T = unknown, TQueryKey extends QueryKey = QueryKey, TPageParam = never> = [TPageParam] extends [never] ? (queryFn: QueryFunction<T, TQueryKey, never>, context: QueryFunctionContext<TQueryKey>, query: Query) => T | Promise<T> : (queryFn: QueryFunction<T, TQueryKey, TPageParam>, context: QueryFunctionContext<TQueryKey>, query: Query) => T | Promise<T>;
+            type QueryFunctionContext<TQueryKey extends QueryKey = QueryKey, TPageParam = never> = [TPageParam] extends [never] ? {
+                queryKey: TQueryKey;
+                signal: AbortSignal;
+                meta: QueryMeta | undefined;
+            } : {
+                queryKey: TQueryKey;
+                signal: AbortSignal;
+                pageParam: TPageParam;
+                direction: FetchDirection;
+                meta: QueryMeta | undefined;
+            };
+            """.trimIndent(),
+            """
+            type QueryPersister<T = unknown, TQueryKey extends QueryKey = QueryKey, TPageParam> = (queryFn: QueryFunction<T, TQueryKey, TPageParam>, context: QueryFunctionContext<TQueryKey>, query: Query) => T | Promise<T>;
+            interface QueryFunctionContext<TQueryKey extends QueryKey = QueryKey, TPageParam> {
+                queryKey: TQueryKey;
+                signal: AbortSignal;
+                pageParam: TPageParam | undefined;
+                direction: FetchDirection | undefined;
+                meta: QueryMeta | undefined;
+            }
+            """.trimIndent(),
+        )
         // TODO: check
         .replace("    get meta(): ", "    meta: ")
         // TEMP
