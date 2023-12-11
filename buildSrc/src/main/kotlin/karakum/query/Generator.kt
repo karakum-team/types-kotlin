@@ -139,6 +139,7 @@ private fun generate(
         .filter { "DefinedInitialDataInfiniteOptions" !in it }
         .filter { it.isNotEmpty() }
         .joinToString("\n\n")
+        .ifEmpty { return }
 
     val moduleRequired = "external class " in body || "external fun " in body || "external val " in body
     val annotations = if (moduleRequired) {
