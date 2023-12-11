@@ -18,6 +18,18 @@ internal val UNION_DATA_LIST = listOf(
         ),
         pkg = "web.html",
     ),
+    /*
+    UnionData(
+        name = "Preload",
+        values = listOf(
+            "none",
+            "metadata",
+            "auto",
+            "",
+        ),
+        pkg = "web.html",
+    ),
+    */
     UnionData(
         name = "SelectionDirection",
         values = listOf(
@@ -48,7 +60,7 @@ internal val UNION_DATA_LIST = listOf(
             "linkMove",
             "move",
             "all",
-            "uninitialized"
+            "uninitialized",
         ),
         pkg = "web.data",
     ),
