@@ -32,8 +32,8 @@ fun toDeclarations(
         .replace("{ refetchPage, ...options }", "options")
         .replace("{ refetchPage, ...options }", "options")
         .replace(
-            "const useQueryClient: ({ context }?: ContextOptions) => QueryClient",
-            "function useQueryClient(options?: ContextOptions): QueryClient"
+            "const useQueryClient: (queryClient?: QueryClient) => QueryClient",
+            "function useQueryClient(queryClient?: QueryClient): QueryClient"
         )
         .replace(
             "Omit<MutationObserverOptions<TData, TError, TVariables, TContext>, '_defaulted' | 'variables'>",
