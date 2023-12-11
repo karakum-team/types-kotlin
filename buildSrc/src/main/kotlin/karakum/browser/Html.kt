@@ -2068,7 +2068,7 @@ private fun convertFunctionParameters(
 
         "init: Record<string, string>",
         -> listOf(
-            "init: ReadonlyRecord<String, String> = definedExternally",
+            "init: ReadonlyRecord<String, String>",
         )
 
         // URL
