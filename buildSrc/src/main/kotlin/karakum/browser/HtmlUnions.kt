@@ -2,6 +2,58 @@ package karakum.browser
 
 import karakum.common.sealedUnionBody
 
+internal class UnionData(
+    val name: String,
+    val values: List<String>,
+    val pkg: String,
+)
+
+internal val UNION_DATA_LIST = listOf(
+    UnionData(
+        name = "ButtonType",
+        values = listOf(
+            "submit",
+            "reset",
+            "button",
+        ),
+        pkg = "web.html",
+    ),
+    UnionData(
+        name = "SelectionDirection",
+        values = listOf(
+            "forward",
+            "backward",
+            "none",
+        ),
+        pkg = "web.html",
+    ),
+    UnionData(
+        name = "DropEffect",
+        values = listOf(
+            "none",
+            "copy",
+            "link",
+            "move",
+        ),
+        pkg = "web.data",
+    ),
+    UnionData(
+        name = "AllowedEffect",
+        values = listOf(
+            "none",
+            "copy",
+            "copyLink",
+            "copyMove",
+            "link",
+            "linkMove",
+            "move",
+            "all",
+            "uninitialized"
+        ),
+        pkg = "web.data",
+    ),
+)
+
 internal fun htmlUnions(): Sequence<ConversionResult> =
     sequenceOf(
         ConversionResult(
@@ -62,18 +114,6 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
             pkg = "web.html",
         ),
         ConversionResult(
-            name = "ButtonType",
-            body = sealedUnionBody(
-                name = "ButtonType",
-                values = listOf(
-                    "submit",
-                    "reset",
-                    "button",
-                )
-            ),
-            pkg = "web.html",
-        ),
-        ConversionResult(
             name = "InputType",
             body = sealedUnionBody(
                 name = "InputType",
@@ -114,17 +154,16 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
                 )
             ),
             pkg = "web.html",
-        ),
-        ConversionResult(
-            name = "SelectionDirection",
-            body = sealedUnionBody(
-                name = "SelectionDirection",
-                values = listOf(
-                    "forward",
-                    "backward",
-                    "none",
-                )
-            ),
-            pkg = "web.html",
-        ),
+        )
+    ).plus(
+        UNION_DATA_LIST.map { data ->
+            ConversionResult(
+                name = data.name,
+                body = sealedUnionBody(
+                    name = data.name,
+                    values = data.values,
+                ),
+                pkg = data.pkg,
+            )
+        }
     )

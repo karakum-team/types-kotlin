@@ -1786,9 +1786,6 @@ private fun convertProperty(
         "number | CSSNumericValue | string",
         -> "Any /* $type */"
 
-        """"submit" | "reset" | "button"""",
-        -> "ButtonType"
-
         // RTC
         "number[]",
         -> "ReadonlyArray<Number>"

@@ -125,13 +125,10 @@ internal fun String.applyPatches(): String =
             """inputMode: InputMode;""",
         )
         .replace(
-            """: "forward" | "backward" | "none"""",
-            """: SelectionDirection""",
-        )
-        .replace(
             "crossOrigin: string",
             "crossOrigin: CrossOrigin",
         )
+        .applyInlineUnionPatches()
 
 private val DOM_GEOMETRY_ALIASES = listOf(
     "DOMPointInit" to "DOMPointReadOnly",
@@ -219,6 +216,13 @@ private fun String.patchQuerySelectors(): String =
             "\"$MATHML_NAMESPACE\"",
             "MATHML_NAMESPACE"
         )
+
+private fun String.applyInlineUnionPatches(): String =
+    UNION_DATA_LIST.fold(this) { acc, data ->
+        val before = ": " + data.values.joinToString(" | ") { "\"$it\"" }
+        require(before in acc)
+        acc.replace(before, ": ${data.name}")
+    }
 
 // TODO: remove after `splitUnion` fix
 private fun String.splitUnionSafety(
