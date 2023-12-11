@@ -114,7 +114,7 @@ private fun convertFunctionResult(
             .removePrefix("clear")
 
         bodySource = bodySource
-            .replace("timeout?: number, ...arguments: any[]", "timeout: Int")
+            .replace("timeout?: number, ...arguments: any[]", "timeout: Int = definedExternally")
             .replace("id: number | undefined", "id: $idType?")
             .replace("): number", "): $idType")
     }
