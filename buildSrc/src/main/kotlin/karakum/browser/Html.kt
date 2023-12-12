@@ -469,10 +469,7 @@ internal fun htmlDeclarations(
     val content = source.replace(";\n     *", ";--\n     *")
 
     val getStaticSource = { name: String ->
-        when (name) {
-            "ElementInternals" -> null
-            else -> getStaticSource(name, content)
-        }
+        getStaticSource(name, content)
     }
 
     val patterns = sequenceOf(
