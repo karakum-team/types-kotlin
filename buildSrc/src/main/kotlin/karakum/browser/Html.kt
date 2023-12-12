@@ -80,6 +80,22 @@ private val DOM_TYPES = setOf(
     "GlobalEventHandlers",
 )
 
+private val WEB_COMPONENTS_TYPES = setOf(
+    "AssignedNodesOptions",
+
+    "CustomElementRegistry",
+    "CustomElementConstructor",
+    "ElementDefinitionOptions",
+
+    "CustomStateSet",
+    "ElementInternals",
+    "HTMLSlotElement",
+    "HTMLTemplateElement",
+
+    "ShadowRoot",
+    "ShadowRootInit",
+)
+
 private val EVENTS_TYPES = setOf(
     "AddEventListenerOptions",
     "EventListenerOptions",
@@ -480,13 +496,7 @@ internal fun htmlDeclarations(
         "RadioNodeList .+?",
         "MediaError",
 
-        "ShadowRoot .+?",
-        "ShadowRootInit",
         "WindowEventHandlers",
-
-        "CustomElementRegistry",
-        "CustomElementConstructor",
-        "ElementDefinitionOptions",
 
         "ARIAMixin",
 
@@ -616,7 +626,6 @@ internal fun htmlDeclarations(
         "Navigator.+?",
         "PictureInPictureWindow.+?",
         "ValidityState",
-        "AssignedNodesOptions",
         "VideoFrameCallbackMetadata",
         "VideoPlaybackQuality",
         "RemotePlayback .+?",
@@ -678,6 +687,7 @@ internal fun htmlDeclarations(
         .plus(JS_CORE)
         .plus(RANGES_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(DOM_TYPES)
+        .plus(WEB_COMPONENTS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(EVENTS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(SCROLL_TYPES)
         .plus(FULLSCREEN_TYPES)
@@ -949,7 +959,7 @@ internal fun convertInterface(
         return ConversionResult(
             name = name,
             body = "typealias $name<T /* : HTMLElement */> = JsClass<T>",
-            pkg = "web.html",
+            pkg = "web.components",
         )
 
     val typeGuardSource = sequenceOf(
@@ -1387,6 +1397,7 @@ internal fun convertInterface(
         name.startsWith("Document") -> "web.dom"
         name in RANGES_TYPES -> "web.ranges"
         name in DOM_TYPES -> "web.dom"
+        name in WEB_COMPONENTS_TYPES -> "web.components"
         name in CSSOM_TYPES -> "web.cssom"
         name in HIGHLIGHT_TYPES -> "web.highlight"
         name in DOM_DATA_TYPES -> "web.data"

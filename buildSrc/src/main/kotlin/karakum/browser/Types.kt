@@ -34,8 +34,8 @@ private val PKG_MAP = mapOf(
 
     "CanPlayTypeResult" to "web.html",
     "SelectionMode" to "web.html",
-    "ShadowRootMode" to "web.html",
-    "SlotAssignmentMode" to "web.html",
+    "ShadowRootMode" to "web.components",
+    "SlotAssignmentMode" to "web.components",
     "TouchType" to "web.uievents",
     "DOMParserSupportedType" to "web.dom.parsing",
 
