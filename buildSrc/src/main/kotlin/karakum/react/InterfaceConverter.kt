@@ -1,6 +1,8 @@
 package karakum.react
 
 private val TYPE_CONTAINER_IMPORTS = """
+import web.components.HTMLSlotElement
+import web.components.HTMLTemplateElement
 import web.html.*    
 import web.svg.*    
 import react.IntrinsicType    
