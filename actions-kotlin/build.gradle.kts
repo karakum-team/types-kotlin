@@ -10,7 +10,6 @@ dependencies {
     jsMainImplementation(npmv("@actions/cache"))
     jsMainImplementation(npmv("@actions/core"))
     jsMainImplementation(npmv("@actions/exec"))
-    // jsMainImplementation(npmv("@actions/github"))
     jsMainImplementation(npmv("@actions/glob"))
     jsMainImplementation(npmv("@actions/http-client"))
     jsMainImplementation(npmv("@actions/io"))
