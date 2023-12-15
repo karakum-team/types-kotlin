@@ -4,15 +4,15 @@ package js.intl
 
 sealed external interface DateTimeFormatOptions {
     var localeMatcher: LocaleMatcher?
-    var weekday: String /* "long" | "short" | "narrow" */?
-    var era: String /* "long" | "short" | "narrow" */?
-    var year: String /* "numeric" | "2-digit" */?
-    var month: String /* "numeric" | "2-digit" | "long" | "short" | "narrow" */?
-    var day: String /* "numeric" | "2-digit" */?
-    var hour: String /* "numeric" | "2-digit" */?
-    var minute: String /* "numeric" | "2-digit" */?
-    var second: String /* "numeric" | "2-digit" */?
-    var timeZoneName: TimeZoneName?
+    var weekday: WeekdayFormat?
+    var era: EraFormat?
+    var year: YearFormat?
+    var month: MonthFormat?
+    var day: DayFormat?
+    var hour: HourFormat?
+    var minute: MinuteFormat?
+    var second: SecondFormat?
+    var timeZoneName: TimeZoneNameFormat?
     var formatMatcher: FormatMatcher?
     var hour12: Boolean?
     var timeZone: String?

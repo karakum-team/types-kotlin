@@ -10,24 +10,24 @@ import seskar.js.JsValue
 import seskar.js.JsVirtual
 
 @JsVirtual
-sealed external interface TimeZoneName {
+sealed external interface TimeZoneNameFormat {
     companion object {
         @JsValue("short")
-        val short: TimeZoneName
+        val short: TimeZoneNameFormat
 
         @JsValue("long")
-        val long: TimeZoneName
+        val long: TimeZoneNameFormat
 
         @JsValue("shortOffset")
-        val shortOffset: TimeZoneName
+        val shortOffset: TimeZoneNameFormat
 
         @JsValue("longOffset")
-        val longOffset: TimeZoneName
+        val longOffset: TimeZoneNameFormat
 
         @JsValue("shortGeneric")
-        val shortGeneric: TimeZoneName
+        val shortGeneric: TimeZoneNameFormat
 
         @JsValue("longGeneric")
-        val longGeneric: TimeZoneName
+        val longGeneric: TimeZoneNameFormat
     }
 }
