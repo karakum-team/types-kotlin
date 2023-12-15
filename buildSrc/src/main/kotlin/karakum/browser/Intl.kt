@@ -45,7 +45,10 @@ internal fun intlDeclarations(
             )
         }
 
-    return (unions + types + interfaces)
+    return unions.asSequence()
+        .plus(types)
+        .distinct()
+        .plus(interfaces)
         .plus(
             ConversionResult(
                 name = "LocalesArgument",
@@ -53,7 +56,6 @@ internal fun intlDeclarations(
                 pkg = "js.intl",
             )
         )
-        .asSequence()
 }
 
 private fun intlContent(
@@ -83,12 +85,17 @@ private fun intlContent(
                 .replace("new (", "new(")
                 .replace("=\n    | ", "= ")
                 .replace("\n    | ", " | ")
+
+                // TODO: strict align
+                .replace("type RelativeTimeFormatLocaleMatcher = ", "type LocaleMatcher = ")
+                .replace(": RelativeTimeFormatLocaleMatcher;", ": LocaleMatcher;")
+
                 .replace("type ES2018NumberFormatPartType = ", "type NumberFormatPartType = ")
                 .replace(";\ntype ES2020NumberFormatPartType = ", " | ")
                 .replace("\ntype NumberFormatPartTypes = ES2018NumberFormatPartType | ES2020NumberFormatPartType;", "")
                 .replace("NumberFormatPartTypes", "NumberFormatPartType")
                 .replace(""""basic" | "best fit" | "best fit"""", """"best fit" | "basic"""")
-                .replace(""""lookup" | "best fit"""", """"best fit" | "lookup"""")
+                .replace(""": "best fit" | "lookup" | undefined;""", """: "lookup" | "best fit" | undefined;""")
                 .replace("\n\n", "\n")
                 // WA for `DateTimeFormatPartTypesRegistry`
                 .replace("\n }\n", "\n}\n")
