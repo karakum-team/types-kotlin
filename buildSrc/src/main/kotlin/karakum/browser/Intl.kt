@@ -91,6 +91,8 @@ private fun intlContent(
                 .replace(": RelativeTimeFormatLocaleMatcher;", ": LocaleMatcher;")
                 .replace("type LocaleCollationCaseFirst = ", "type CaseFirst = ")
                 .replace(": LocaleCollationCaseFirst;", ": CaseFirst;")
+                .replace("type LocaleHourCycleKey = ", "type HourCycle = ")
+                .replace(": LocaleHourCycleKey;", ": HourCycle;")
 
                 .replace("type ES2018NumberFormatPartType = ", "type NumberFormatPartType = ")
                 .replace(";\ntype ES2020NumberFormatPartType = ", " | ")
@@ -98,6 +100,7 @@ private fun intlContent(
                 .replace("NumberFormatPartTypes", "NumberFormatPartType")
                 .replace(""""basic" | "best fit" | "best fit"""", """"best fit" | "basic"""")
                 .replace(""": "best fit" | "lookup" | undefined;""", """: "lookup" | "best fit" | undefined;""")
+                .replace(""" = "h12" | "h23" | "h11" | "h24";""", """ = "h11" | "h12" | "h23" | "h24";""")
                 .replace("\n\n", "\n")
                 // WA for `DateTimeFormatPartTypesRegistry`
                 .replace("\n }\n", "\n}\n")
