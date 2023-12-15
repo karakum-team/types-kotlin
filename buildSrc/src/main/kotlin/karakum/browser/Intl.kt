@@ -122,6 +122,7 @@ private val FORMAT_PROPERTIES = setOf(
 
 private val PROPERTIES = setOf(
     "source",
+    "usage",
 
     "caseFirst",
     "collation",
@@ -158,6 +159,7 @@ private fun extractUnions(
         var name = propertyName.replaceFirstChar(Char::uppercase)
         name = when (propertyName) {
             "source" -> "PartSource"
+            "usage" -> "CollatorUsage"
             in FORMAT_PROPERTIES -> "${name}Format"
             else -> name
         }
