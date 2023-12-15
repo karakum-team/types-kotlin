@@ -1,11 +1,13 @@
 package karakum.browser
 
+import karakum.common.sealedUnionBody
 import java.io.File
 
 internal fun intlDeclarations(
     definitionsDir: File,
 ): Sequence<ConversionResult> {
-    val content = intlContent(definitionsDir)
+    val rawContent = intlContent(definitionsDir)
+    val (content, unions) = extractUnions(rawContent)
 
     val types = convertTypes(
         content = content,
@@ -43,7 +45,7 @@ internal fun intlDeclarations(
             )
         }
 
-    return (types + interfaces)
+    return (unions + types + interfaces)
         .plus(
             ConversionResult(
                 name = "LocalesArgument",
@@ -51,6 +53,7 @@ internal fun intlDeclarations(
                 pkg = "js.intl",
             )
         )
+        .asSequence()
 }
 
 private fun intlContent(
@@ -91,3 +94,52 @@ private fun intlContent(
 
         }
         .joinToString("\n")
+
+private val PROPERTIES = setOf(
+    "formatMatcher",
+    "dateStyle",
+    "timeStyle",
+    "hourCycle",
+    "dayPeriod",
+
+    "compactDisplay",
+    "notation",
+    "signDisplay",
+    "unitDisplay",
+
+    "granularity",
+    "localeMatcher",
+)
+
+private fun extractUnions(
+    content: String,
+): Pair<String, List<ConversionResult>> {
+    val unionRawMap = Regex("""(\w+)\??: (".+?);""")
+        .findAll(content)
+        .distinct()
+        .associate { it.groupValues[1] to it.groupValues[2].removeSuffix(" | undefined") }
+
+    val unionMap = PROPERTIES.associate { propertyName ->
+        val values = unionRawMap.getValue(propertyName)
+            .split(" | ")
+            .map { it.removeSurrounding("\"") }
+
+        val name = propertyName.replaceFirstChar(Char::uppercase)
+        val union = ConversionResult(
+            name = name,
+            body = sealedUnionBody(name, values),
+            pkg = "js.intl",
+        )
+
+        propertyName to union
+    }
+
+    val newContent = unionMap.entries.fold(content) { acc, (propertyName, result) ->
+        val rawValue = unionRawMap.getValue(propertyName)
+        acc.replace("$propertyName: $rawValue;", "$propertyName: ${result.name};")
+            .replace("$propertyName?: $rawValue;", "$propertyName?: ${result.name};")
+            .replace("$propertyName?: $rawValue | undefined;", "$propertyName?: ${result.name} | undefined;")
+    }
+
+    return newContent to unionMap.values.toList()
+}
