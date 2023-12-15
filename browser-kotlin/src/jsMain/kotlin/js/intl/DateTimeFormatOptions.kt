@@ -12,7 +12,7 @@ sealed external interface DateTimeFormatOptions {
     var hour: String /* "numeric" | "2-digit" */?
     var minute: String /* "numeric" | "2-digit" */?
     var second: String /* "numeric" | "2-digit" */?
-    var timeZoneName: String /* "short" | "long" | "shortOffset" | "longOffset" | "shortGeneric" | "longGeneric" */?
+    var timeZoneName: TimeZoneName?
     var formatMatcher: FormatMatcher?
     var hour12: Boolean?
     var timeZone: String?
