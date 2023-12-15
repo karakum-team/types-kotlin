@@ -96,6 +96,10 @@ private fun intlContent(
         .joinToString("\n")
 
 private val PROPERTIES = setOf(
+    "sensitivity",
+    "collation",
+
+    "timeZoneName",
     "formatMatcher",
     "dateStyle",
     "timeStyle",
