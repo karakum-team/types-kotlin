@@ -12,10 +12,10 @@ import seskar.js.JsVirtual
 @JsVirtual
 sealed external interface RelativeTimeFormatLocaleMatcher {
     companion object {
-        @JsValue("lookup")
-        val lookup: RelativeTimeFormatLocaleMatcher
-
         @JsValue("best fit")
         val bestFit: RelativeTimeFormatLocaleMatcher
+
+        @JsValue("lookup")
+        val lookup: RelativeTimeFormatLocaleMatcher
     }
 }
