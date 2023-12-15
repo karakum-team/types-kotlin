@@ -89,6 +89,8 @@ private fun intlContent(
                 // TODO: strict align
                 .replace("type RelativeTimeFormatLocaleMatcher = ", "type LocaleMatcher = ")
                 .replace(": RelativeTimeFormatLocaleMatcher;", ": LocaleMatcher;")
+                .replace("type LocaleCollationCaseFirst = ", "type CaseFirst = ")
+                .replace(": LocaleCollationCaseFirst;", ": CaseFirst;")
 
                 .replace("type ES2018NumberFormatPartType = ", "type NumberFormatPartType = ")
                 .replace(";\ntype ES2020NumberFormatPartType = ", " | ")
@@ -116,8 +118,9 @@ private val FORMAT_PROPERTIES = setOf(
 )
 
 private val PROPERTIES = setOf(
-    "sensitivity",
+    "caseFirst",
     "collation",
+    "sensitivity",
 
     "formatMatcher",
     "dateStyle",
