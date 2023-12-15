@@ -144,6 +144,7 @@ internal fun unionConstant(value: String): UnionConstant {
 
         // TEMP
         "2d" -> "canvas"
+        "2-digit" -> "twoDigit"
 
         else -> name.kebabToCamel()
     }

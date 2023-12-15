@@ -95,11 +95,22 @@ private fun intlContent(
         }
         .joinToString("\n")
 
+private val FORMAT_PROPERTIES = setOf(
+    "weekday",
+    "era",
+    "year",
+    "month",
+    "day",
+    "hour",
+    "minute",
+    "second",
+    "timeZoneName",
+)
+
 private val PROPERTIES = setOf(
     "sensitivity",
     "collation",
 
-    "timeZoneName",
     "formatMatcher",
     "dateStyle",
     "timeStyle",
@@ -123,12 +134,14 @@ private fun extractUnions(
         .distinct()
         .associate { it.groupValues[1] to it.groupValues[2].removeSuffix(" | undefined") }
 
-    val unionMap = PROPERTIES.associate { propertyName ->
+    val unionMap = (FORMAT_PROPERTIES + PROPERTIES).associate { propertyName ->
         val values = unionRawMap.getValue(propertyName)
             .split(" | ")
             .map { it.removeSurrounding("\"") }
 
-        val name = propertyName.replaceFirstChar(Char::uppercase)
+        val name = propertyName.replaceFirstChar(Char::uppercase) +
+                (if (propertyName in FORMAT_PROPERTIES) "Format" else "")
+
         val union = ConversionResult(
             name = name,
             body = sealedUnionBody(name, values),
