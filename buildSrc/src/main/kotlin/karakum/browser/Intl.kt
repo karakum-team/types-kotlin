@@ -88,6 +88,7 @@ private fun intlContent(
                 .replace("\ntype NumberFormatPartTypes = ES2018NumberFormatPartType | ES2020NumberFormatPartType;", "")
                 .replace("NumberFormatPartTypes", "NumberFormatPartType")
                 .replace(""""basic" | "best fit" | "best fit"""", """"best fit" | "basic"""")
+                .replace(""""lookup" | "best fit"""", """"best fit" | "lookup"""")
                 .replace("\n\n", "\n")
                 // WA for `DateTimeFormatPartTypesRegistry`
                 .replace("\n }\n", "\n}\n")
