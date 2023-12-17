@@ -10,7 +10,8 @@ import seskar.js.JsValue
 import seskar.js.JsVirtual
 
 @JsVirtual
-sealed external interface AutoFillNormalField : AutoFillField {
+sealed external interface AutoFillNormalField :
+    AutoFillField {
     companion object {
         @JsValue("additional-name")
         val additionalName: AutoFillNormalField
