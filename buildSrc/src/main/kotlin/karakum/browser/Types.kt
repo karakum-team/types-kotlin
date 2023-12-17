@@ -186,6 +186,7 @@ private fun convertType(
             "RenderingContext" -> "web.rendering"
 
             "AutoFill",
+            "AutoFillField",
             "AutoFillSection",
             -> "web.html"
 
@@ -289,6 +290,12 @@ private fun convertType(
                 "section-${'$'}value".unsafeCast<$name>()
             """.trimIndent()
 
+            name.startsWith("AutoFill")
+            -> autoFillInterface(
+                name = name,
+                bodySource = bodySource,
+            )
+
             declaration in MARKER_DECLARATIONS
             -> markerInterface(
                 declaration = declaration,
@@ -313,7 +320,7 @@ private fun convertType(
         .map { it.removeSurrounding("\"") }
         .toList()
 
-    val body = when (name) {
+    var body = when (name) {
         "KeyFormat",
         -> objectUnionBody(
             name = name,
@@ -321,6 +328,17 @@ private fun convertType(
         )
 
         else -> sealedUnionBody(name, values)
+    }
+
+    // TODO: calculate instead
+    when (name) {
+        "AutoFillBase",
+        "AutoFillField",
+        -> body = body.replaceFirst(name, "$name : AutoFill")
+
+        "AutoFillContactField",
+        "AutoFillNormalField",
+        -> body = body.replaceFirst(name, "$name : AutoFillField")
     }
 
     return ConversionResult(
@@ -462,5 +480,57 @@ private fun markerInterface(
 
     return listOf(type)
         .plus(extensions)
+        .joinToString("\n\n")
+}
+
+private fun autoFillInterface(
+    name: String,
+    bodySource: String,
+): String {
+    val parametersMap = bodySource
+        .substringAfter(" | ")
+        .removeSurrounding("`")
+        .removePrefix("$")
+        .splitToSequence("$")
+        .map { it.removeSurrounding("{", "}") }
+        .associate { parameterSource ->
+            val optional = "<" in parameterSource
+            val parameterName = parameterSource.substringAfter("<").removeSuffix(">")
+            require(!optional || parameterSource.startsWith("Optional")) {
+                "Invalid parameter source '$parameterSource'"
+            }
+
+            parameterName to optional
+        }
+
+    parametersMap.values.singleOrNull { !it }
+        ?: error("More then 1 optional parameter!")
+
+    val requiredParameterIndex = parametersMap.keys
+        .indexOfFirst { !parametersMap.getValue(it) }
+
+    val factories = mutableListOf<String>()
+    for (startIndex in 0..requiredParameterIndex) {
+        for (endIndex in requiredParameterIndex until parametersMap.size) {
+            val parameterTypes = parametersMap.keys.toList()
+                .subList(startIndex, endIndex + 1)
+
+            val parameterMap = parameterTypes.associateBy { type ->
+                type.removePrefix("AutoFill").replaceFirstChar(Char::lowercase)
+            }
+
+            factories.add(
+                """
+                inline fun $name(
+                    ${parameterMap.entries.joinToString("\n") { (pname, ptype) -> "$pname: $ptype," }}
+                ): $name =
+                    "${parameterMap.keys.joinToString(" ") { pname -> "\$$pname" }}".unsafeCast<$name>()
+                """.trimIndent()
+            )
+        }
+    }
+
+    return sequenceOf("sealed external interface $name")
+        .plus(factories)
         .joinToString("\n\n")
 }
