@@ -234,9 +234,6 @@ fun generateKotlinDeclarations(
             if ("val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
 
-            if (name == "TouchEvent")
-                add(NAME_CONTAINS_ILLEGAL_CHARS)
-
             if ("companion object" in body && !name.endsWith("Event"))
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
@@ -247,9 +244,13 @@ fun generateKotlinDeclarations(
                 add(NOTHING_TO_INLINE)
         }.toTypedArray()
 
-        val annotations = if (suppresses.isNotEmpty()) {
-            fileSuppress(*suppresses)
+        var annotations = if (suppresses.isNotEmpty()) {
+            fileSuppress(suppresses = suppresses)
         } else ""
+
+        if (name == "TouchEvent") {
+            annotations = """@file:JsQualifier("globalThis")""" + "\n\n" + annotations
+        }
 
         val pkg = optPkg ?: EVENT_INFO_MAP.getValue(name.substringBefore("."))
             .fqn

@@ -295,9 +295,6 @@ private fun event(
     }
     """.trimIndent()
 
-    if (name == "TouchEvent")
-        eventBody = "@JsName(\"globalThis.$name\")\n$eventBody"
-
     eventBody = eventBody
         .withComment(
             fullSource = source,
