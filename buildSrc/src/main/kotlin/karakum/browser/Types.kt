@@ -185,7 +185,10 @@ private fun convertType(
             "OffscreenRenderingContext" -> "web.rendering"
             "RenderingContext" -> "web.rendering"
 
-            "AutoFill" -> "web.html"
+            "AutoFill",
+            "AutoFillSection",
+            -> "web.html"
+
             "MediaProvider" -> "web.html"
             "WindowProxy" -> "web.window"
 
@@ -275,6 +278,16 @@ private fun convertType(
                 name,
                 bodySource,
             )
+
+            bodySource == "`section-${'$'}{string}`"
+            -> """
+            sealed interface $name
+            
+            inline fun $name(
+                value: String,
+            ): $name =
+                "section-${'$'}value".unsafeCast<$name>()
+            """.trimIndent()
 
             declaration in MARKER_DECLARATIONS
             -> markerInterface(
