@@ -512,6 +512,9 @@ private fun autoFillInterface(
     val factories = mutableListOf<String>()
     for (startIndex in 0..requiredParameterIndex) {
         for (endIndex in requiredParameterIndex until parametersMap.size) {
+            if (startIndex == endIndex)
+                continue
+
             val parameterTypes = parametersMap.keys.toList()
                 .subList(startIndex, endIndex + 1)
 
