@@ -334,11 +334,11 @@ private fun convertType(
     when (name) {
         "AutoFillBase",
         "AutoFillField",
-        -> body = body.replaceFirst(name, "$name : AutoFill")
+        -> body = body.replaceFirst(name, "$name:\nAutoFill")
 
         "AutoFillContactField",
         "AutoFillNormalField",
-        -> body = body.replaceFirst(name, "$name : AutoFillField")
+        -> body = body.replaceFirst(name, "$name:\nAutoFillField")
     }
 
     return ConversionResult(
