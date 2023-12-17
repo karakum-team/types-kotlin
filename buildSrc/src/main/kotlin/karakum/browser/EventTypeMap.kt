@@ -110,6 +110,7 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     "devicechange" to "device_change",
     "devicemotion" to "device_motion",
     "deviceorientation" to "device_orientation",
+    "deviceorientationabsolute" to "device_orientation_absolute",
     "dragend" to "drag_end",
     "dragenter" to "drag_enter",
     "dragleave" to "drag_leave",
