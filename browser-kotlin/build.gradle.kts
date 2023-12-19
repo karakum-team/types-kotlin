@@ -35,6 +35,7 @@ val WEB_INCLUDE = setOf(
     "web/buffer/BlobPart.kt",
     "web/buffer/BlobPropertyBag.kt",
     "web/buffer/EndingType.kt",
+    "web/broadcast",
     "web/compression",
     "web/console",
     "web/crypto",
