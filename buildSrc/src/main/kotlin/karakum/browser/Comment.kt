@@ -1,5 +1,14 @@
 package karakum.browser
 
+internal fun formatComment(
+    comment: String,
+): String =
+    if ("\n" !in comment) {
+        comment
+            .replaceFirst("/** ", "/**\n * ")
+            .removeSuffix(" */") + "\n */"
+    } else comment
+
 internal fun String.withComment(
     fullSource: String,
     source: String,
@@ -8,7 +17,7 @@ internal fun String.withComment(
         .takeIf { it.endsWith(" */") }
         ?: return this
 
-    val comment = "/**" + commentSource.substringAfterLast("\n/**")
+    val comment = formatComment("/**" + commentSource.substringAfterLast("\n/**"))
     return "$comment\n${this}"
 }
 

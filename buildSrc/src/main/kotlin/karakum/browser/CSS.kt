@@ -13,6 +13,8 @@ internal fun cssObject(
         .replace(": string", ": String")
         .replace(": boolean", ": Boolean")
         .replace("): void", ")")
+        .splitToSequence("\n")
+        .joinToString("\n") { line -> if (line.startsWith("/** ") && line.endsWith(" */")) formatComment(line) else line }
 
     val body = "external object CSS {\n" +
             members +

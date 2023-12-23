@@ -142,7 +142,7 @@ private fun convertProperty(
     if ("*/\n" in source) {
         val newSource = source.substringAfter("*/\n")
         return sequenceOf(
-            source.substringBefore("\n$newSource"),
+            formatComment(source.substringBefore("\n$newSource")),
             convertProperty(newSource),
         ).joinToString("\n")
     }
@@ -174,7 +174,7 @@ private fun convertFunction(
     if ("*/\n" in source) {
         val newSource = source.substringAfter("*/\n")
         return sequenceOf(
-            source.substringBefore("\n$newSource"),
+            formatComment(source.substringBefore("\n$newSource")),
             convertFunction(newSource),
         ).joinToString("\n")
     }

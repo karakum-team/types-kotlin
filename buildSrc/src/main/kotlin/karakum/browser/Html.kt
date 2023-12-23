@@ -1587,6 +1587,7 @@ internal fun convertMember(
     if ("\n" in source) {
         val comment = source.substringBeforeLast("\n")
             .replace(";--\n", ";\n") // RESTORE
+            .let(::formatComment)
 
         if ("@deprecated" in comment)
             return null
