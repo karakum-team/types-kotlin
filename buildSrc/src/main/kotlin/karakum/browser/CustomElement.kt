@@ -2,6 +2,7 @@ package karakum.browser
 
 internal const val ATTRIBUTE_CHANGED_CALLBACK = "AttributeChangedCallback"
 internal const val CUSTOM_ELEMENT_CALLBACKS = "CustomElementCallbacks"
+internal const val CUSTOM_ELEMENT_COMPANION = "CustomElementCompanion"
 
 private val CALLBACKS = mapOf(
     "connectedCallback" to "() -> Unit",
@@ -24,6 +25,7 @@ internal fun customElementTypes(): Sequence<ConversionResult> =
             pkg = "web.components"
         ),
         CustomElementCallbacks(),
+        CustomElementCompanion(),
     )
 
 private fun CustomElementCallbacks(): ConversionResult {
@@ -50,6 +52,23 @@ private fun CustomElementCallbacks(): ConversionResult {
 
     return ConversionResult(
         name = CUSTOM_ELEMENT_CALLBACKS,
+        body = body,
+        pkg = "web.components"
+    )
+}
+
+private fun CustomElementCompanion(): ConversionResult {
+    val body = """
+    external interface $CUSTOM_ELEMENT_COMPANION {
+        /**
+         * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#responding_to_attribute_changes)
+         */
+        val observedAttributes: ReadonlyArray<String> 
+    }
+    """.trimIndent()
+
+    return ConversionResult(
+        name = CUSTOM_ELEMENT_COMPANION,
         body = body,
         pkg = "web.components"
     )
