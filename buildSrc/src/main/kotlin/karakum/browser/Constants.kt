@@ -36,8 +36,6 @@ internal fun browserConstants(
         .splitToSequence("\ndeclare var ")
         .drop(1)
         .map { it.substringBefore(";\n") }
-        .map { it.removeSuffix(";") }
-        .filter { "\n" !in it }
         .mapNotNull { convertConstant(it) }
 
 private fun convertConstant(
