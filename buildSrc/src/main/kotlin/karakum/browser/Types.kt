@@ -322,6 +322,7 @@ private fun convertType(
 
     var body = when (name) {
         "KeyFormat",
+        "FileSystemHandleKind",
         -> objectUnionBody(
             name = name,
             constants = values.map(::unionConstant),

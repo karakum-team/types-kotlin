@@ -1195,6 +1195,13 @@ internal fun convertInterface(
             "CountQueuingStrategy",
             -> result.replace("val ", "override val ")
 
+            "FileSystemHandle",
+            -> result.replace("val kind:", "open val kind:")
+
+            "FileSystemDirectoryHandle",
+            "FileSystemFileHandle",
+            -> result.replace("val kind:", "override val kind:")
+
             else -> result
         }
 
@@ -1795,6 +1802,10 @@ private fun convertProperty(
 
         "number | CSSNumericValue | string",
         -> "Any /* $type */"
+
+        "\"file\"",
+        "\"directory\"",
+        -> "FileSystemHandleKind.${type.removeSurrounding("\"")}"
 
         // RTC
         "number[]",

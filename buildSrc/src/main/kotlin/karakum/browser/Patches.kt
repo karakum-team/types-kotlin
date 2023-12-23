@@ -72,8 +72,6 @@ internal fun String.applyPatches(): String =
         .replace("quality?: any", "quality?: number")
         .replace("LockGrantedCallback): Promise<any>", "LockGrantedCallback): Promise<void>")
         .replace("(lock: Lock | null): any", "(lock: Lock | null): void")
-        .replace("""readonly kind: "file";""", """/* val kind: "file" */""")
-        .replace("""readonly kind: "directory";""", """/* val kind: "directory" */""")
         .replace("clearWatch(watchId: number)", "clearWatch(watchId: $GEOLOCATION_WATCH_ID)")
         .replace(": PositionOptions): number;", ": PositionOptions): $GEOLOCATION_WATCH_ID;")
         // TODO: use `Error`
