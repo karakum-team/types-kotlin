@@ -6,6 +6,7 @@
 
 package web.window
 
+import js.errors.JsError
 import js.promise.Promise
 import web.events.Event
 import web.events.EventInit
@@ -25,7 +26,7 @@ open external class PromiseRejectionEvent(
     val promise: Promise<*>
 
     /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PromiseRejectionEvent/reason) */
-    val reason: Any?
+    val reason: JsError?
 
     companion object : PromiseRejectionEventTypes
 }
