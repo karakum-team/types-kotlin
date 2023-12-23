@@ -4,6 +4,10 @@ private val PKG_MAP = mapOf(
     "console" to "web.console",
     "performance" to "web.performance",
 
+    "crossOriginIsolated" to "web.globals",
+    "isSecureContext" to "web.globals",
+    "origin" to "web.globals",
+
     "window" to "web.window",
     "visualViewport" to "web.viewport",
 
@@ -47,6 +51,8 @@ private fun convertConstant(
         ?: return null
 
     val type = when (typeSource) {
+        "boolean" -> "Boolean"
+        "string" -> "String"
         "number" -> "Double"
         "VisualViewport | null" -> typeSource.substringBefore(" ")
         else -> typeSource
