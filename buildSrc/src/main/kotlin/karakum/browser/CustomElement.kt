@@ -34,8 +34,9 @@ private fun CustomElementCallbacks(): ConversionResult {
          */
         """.trimIndent()
 
+        val propertyType = if (type.startsWith("(")) "($type)?" else "$type?"
         val declaration = """
-        var $name: ($type)?
+        var $name: $propertyType
             get() = definedExternally
             set(value) = definedExternally
         """.trimIndent()
