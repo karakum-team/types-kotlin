@@ -127,6 +127,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.components.HTMLTemplateElement",
     "web.components.ShadowRoot",
     "web.components.ShadowRootInit",
+    "web.components.Slottable",
     "web.http.BodyInit",
     "web.http.CrossOrigin",
     "web.http.FormData",

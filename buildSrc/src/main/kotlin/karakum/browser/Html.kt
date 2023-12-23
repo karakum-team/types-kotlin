@@ -55,7 +55,6 @@ private val DOM_TYPES = setOf(
     "DocumentType",
     "NodeFilter",
     "TreeWalker",
-    "Slottable",
     "Text",
     "NodeIterator",
     "InnerHTML",
@@ -94,6 +93,7 @@ private val WEB_COMPONENTS_TYPES = setOf(
 
     "ShadowRoot",
     "ShadowRootInit",
+    "Slottable",
 )
 
 private val EVENTS_TYPES = setOf(
@@ -1257,6 +1257,7 @@ internal fun convertInterface(
                 name == "HTMLOrSVGElement" ||
                 name == "InnerHTML" ||
                 name == "DocumentOrShadowRoot" ||
+                name == "Slottable" ||
                 name == "StructuredSerializeOptions" ||
                 name.endsWith("Handlers") ||
                 mainConstructor.isNotEmpty() ||
