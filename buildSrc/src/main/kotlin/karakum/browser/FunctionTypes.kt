@@ -84,6 +84,7 @@ private fun convertFunctionType(
         .substringBefore(";")
         .replace(": boolean", ": Boolean")
         .replace(": string", ": String")
+        .replace("?: JsError)", ": JsError?)")
         .replace(": FileSystemEntry[]", ": ReadonlyArray<FileSystemEntry>")
         .replace(": IntersectionObserverEntry[]", ": ReadonlyArray<IntersectionObserverEntry>")
         .replace(": MutationRecord[]", ": ReadonlyArray<MutationRecord>")
