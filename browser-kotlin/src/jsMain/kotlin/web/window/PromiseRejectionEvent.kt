@@ -14,7 +14,7 @@ import web.events.EventType
 
 external interface PromiseRejectionEventInit : EventInit {
     var promise: Promise<*>
-    var reason: Any?
+    var reason: JsError?
 }
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PromiseRejectionEvent) */
