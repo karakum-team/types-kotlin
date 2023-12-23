@@ -27,7 +27,7 @@ external interface CustomElementCallbacks {
     /**
      * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/Web_components#attributechangedcallback)
      */
-    var attributeChangedCallback: (AttributeChangedCallback)?
+    var attributeChangedCallback: AttributeChangedCallback?
         get() = definedExternally
         set(value) = definedExternally
 }
