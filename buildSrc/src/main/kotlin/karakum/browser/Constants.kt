@@ -36,7 +36,13 @@ internal fun browserConstants(
         .splitToSequence("\ndeclare var ")
         .drop(1)
         .map { it.substringBefore(";\n") }
-        .mapNotNull { convertConstant(it) }
+        .mapNotNull { source ->
+            convertConstant(source)
+                ?.withComment(
+                    fullSource = content,
+                    source = "declare var $source;\n"
+                )
+        }
 
 private fun convertConstant(
     source: String,
