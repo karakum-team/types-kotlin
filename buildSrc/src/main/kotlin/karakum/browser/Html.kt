@@ -732,6 +732,7 @@ internal fun htmlDeclarations(
             }
 
     return interfaces
+        .plus(customElementTypes())
         .plus(
             ConversionResult(
                 RENDERING_CONTEXT_ID,
@@ -1029,6 +1030,9 @@ internal fun convertInterface(
         declaration += if (":" in declaration) "," else ":"
         declaration += "\n$additionalIterableParent"
     }
+
+    if (name == "HTMLElement")
+        declaration += ",\n$CUSTOM_ELEMENT_CALLBACKS"
 
     val hideForEach = when {
         listLikeMode -> true

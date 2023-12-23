@@ -122,6 +122,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.html.HtmlTagName",
     "web.html.ValidityState",
     "web.html.ValidityStateFlags",
+    "web.components.CustomElementCallbacks",
     "web.components.ElementInternals",
     "web.components.HTMLSlotElement",
     "web.components.HTMLTemplateElement",
