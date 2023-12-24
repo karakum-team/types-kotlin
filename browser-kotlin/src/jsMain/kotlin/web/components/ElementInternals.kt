@@ -4,6 +4,8 @@ package web.components
 
 import web.aria.ARIAMixin
 import web.dom.NodeList
+import web.file.File
+import web.form.FormData
 import web.html.HTMLElement
 import web.html.HTMLFormElement
 import web.validation.ValidationTarget
@@ -80,8 +82,18 @@ sealed external class ElementInternals :
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ElementInternals/setFormValue)
      */
     fun setFormValue(
-        value: Any /* File | string | FormData */?,
-        state: Any /* File | string | FormData */? = definedExternally,
+        value: File?,
+        state: File? = definedExternally,
+    )
+
+    fun setFormValue(
+        value: String?,
+        state: String? = definedExternally,
+    )
+
+    fun setFormValue(
+        value: FormData?,
+        state: FormData? = definedExternally,
     )
 
     /**
