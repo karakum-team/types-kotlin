@@ -3,16 +3,12 @@
 package web.form
 
 external interface CustomFormControlCallbacks {
-    var formAssociatedCallback: FormAssociatedCallback?
+    val formAssociatedCallback: FormAssociatedCallback?
         get() = definedExternally
-        set(value) = definedExternally
-    var formDisabledCallback: FormDisabledCallback?
+    val formDisabledCallback: FormDisabledCallback?
         get() = definedExternally
-        set(value) = definedExternally
-    var formResetCallback: FormResetCallback?
+    val formResetCallback: FormResetCallback?
         get() = definedExternally
-        set(value) = definedExternally
-    var formStateRestoreCallback: FormStateRestoreCallback?
+    val formStateRestoreCallback: FormStateRestoreCallback?
         get() = definedExternally
-        set(value) = definedExternally
 }
