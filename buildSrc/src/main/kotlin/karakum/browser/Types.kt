@@ -205,7 +205,7 @@ private fun convertType(
 
             "BodyInit" -> "web.http"
             "HeadersInit" -> "web.http"
-            "FormDataEntryValue" -> "web.http"
+            "FormDataEntryValue" -> "web.form"
 
             "TexImageSource" -> "web.gl"
 

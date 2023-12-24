@@ -179,6 +179,10 @@ private val CANVAS_TYPES = listOf(
     "OffscreenCanvasRenderingContext2D",
 )
 
+private val FORM_TYPES = listOf(
+    "FormData",
+)
+
 private val HTTP_TYPES = listOf(
     "Body",
     "Request",
@@ -188,8 +192,6 @@ private val HTTP_TYPES = listOf(
 
     "Headers",
     "HeadersInit",
-
-    "FormData",
 )
 
 private val MEDIA_STREAM_TYPES = listOf(
@@ -701,6 +703,7 @@ internal fun htmlDeclarations(
         .plus(DOM_GEOMETRY_TYPES)
         .plus(DOM_PARSING_TYPES)
         .plus(CANVAS_TYPES)
+        .plus(FORM_TYPES)
         .plus(HTTP_TYPES)
         .plus(MEDIA_CAPABILITIES_TYPES)
         .plus(MEDIA_STREAM_TYPES.flatMap { sequenceOf(it, "$it .+?") })
@@ -1402,6 +1405,7 @@ internal fun convertInterface(
         name.startsWith("Storage") -> "web.storage"
 
         name.startsWith("EventSource") -> "web.sse"
+        name in FORM_TYPES -> "web.form"
         name in HTTP_TYPES -> "web.http"
         name.startsWith("XMLHttp") -> "web.xhr"
 
@@ -2225,7 +2229,7 @@ private fun getParameterType(
         -> "Any /* $source */"
 
         source == "File | string | FormData"
-        -> "Any /* File | String | FormData */"
+        -> "Any /* $source */"
 
         source == "DateTimeFormatPartTypes"
         -> "String /* $source */"
