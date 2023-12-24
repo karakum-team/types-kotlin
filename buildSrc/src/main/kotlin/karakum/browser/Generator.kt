@@ -103,6 +103,8 @@ private val DEFAULT_IMPORTS = Imports(
     "web.filesystem.FileSystemDirectoryHandle",
     "web.filesystem.FileSystemEntry",
     "web.form.FormData",
+    "web.form.FormDataEvent",
+    "web.form.SubmitEvent",
     "web.fullscreen.FullscreenOptions",
     "web.geometry.DOMMatrix",
     "web.geometry.DOMMatrix2DInit",
@@ -387,8 +389,6 @@ fun generateKotlinDeclarations(
             "FileReader",
             -> """
             import web.cssom.TransitionEvent
-            import web.html.FormDataEvent
-            import web.html.SubmitEvent
             import web.uievents.*
             import web.animations.AnimationEvent
             import web.clipboard.ClipboardEvent
