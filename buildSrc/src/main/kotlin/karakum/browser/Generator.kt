@@ -132,6 +132,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.html.HTMLCollectionOf",
     "web.html.HTMLElement",
     "web.html.HTMLFormElement",
+    "web.html.HTMLLabelElement",
     "web.html.HTMLMediaElement",
     "web.html.HtmlTagName",
     "web.http.BodyInit",

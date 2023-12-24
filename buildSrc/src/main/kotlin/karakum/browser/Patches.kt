@@ -74,6 +74,7 @@ internal fun String.applyPatches(): String =
         .replace("(lock: Lock | null): any", "(lock: Lock | null): void")
         .replace("clearWatch(watchId: number)", "clearWatch(watchId: $GEOLOCATION_WATCH_ID)")
         .replace(": PositionOptions): number;", ": PositionOptions): $GEOLOCATION_WATCH_ID;")
+        .replaceFirst("readonly labels: NodeList;", "readonly labels: NodeListOf<HTMLLabelElement>;")
         .replaceFirst(
             """    setFormValue(value: File | string | FormData | null, state?: File | string | FormData | null): void;""",
             sequenceOf(
