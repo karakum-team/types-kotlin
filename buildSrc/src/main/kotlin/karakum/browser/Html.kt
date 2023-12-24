@@ -739,6 +739,7 @@ internal fun htmlDeclarations(
             }
 
     return interfaces
+        .plus(formTypes())
         .plus(customElementTypes())
         .plus(
             ConversionResult(
@@ -1038,8 +1039,10 @@ internal fun convertInterface(
         declaration += "\n$additionalIterableParent"
     }
 
-    if (name == "HTMLElement")
-        declaration += ",\n$CUSTOM_ELEMENT_CALLBACKS"
+    when (name) {
+        "HTMLElement" -> declaration += ",\n$CUSTOM_ELEMENT_CALLBACKS"
+        in WELL_KNOWN_FORM_CONTROL -> declaration += ",\n$FORM_CONTROL"
+    }
 
     val hideForEach = when {
         listLikeMode -> true
@@ -1126,6 +1129,13 @@ internal fun convertInterface(
             -> result
                 .replace("val ownerDocument:", "open val ownerDocument:")
 
+            in WELL_KNOWN_FORM_CONTROL,
+            -> result.applyFormControlPatch().let {
+                if (name == "HTMLSelectElement") {
+                    it.replace("fun remove()", "override fun remove()")
+                } else it
+            }
+
             in LENGTH_REQUIRED,
             -> result
                 .replace("val length: Int", "override val length: Int")
@@ -1152,10 +1162,6 @@ internal fun convertInterface(
             -> result
                 .replace("val ownerDocument:", "override val ownerDocument:")
                 .replace("fun getElementById(", "override fun getElementById(")
-
-            "HTMLSelectElement",
-            -> result
-                .replace("fun remove()", "override fun remove()")
 
             "HTMLOptionsCollection",
             -> result
