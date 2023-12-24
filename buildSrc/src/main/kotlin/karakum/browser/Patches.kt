@@ -74,6 +74,14 @@ internal fun String.applyPatches(): String =
         .replace("(lock: Lock | null): any", "(lock: Lock | null): void")
         .replace("clearWatch(watchId: number)", "clearWatch(watchId: $GEOLOCATION_WATCH_ID)")
         .replace(": PositionOptions): number;", ": PositionOptions): $GEOLOCATION_WATCH_ID;")
+        .replaceFirst(
+            """    setFormValue(value: File | string | FormData | null, state?: File | string | FormData | null): void;""",
+            sequenceOf(
+                """    setFormValue(value: File | null, state?: File | null): void;""",
+                """    setFormValue(value: string | null, state?: string | null): void;""",
+                """    setFormValue(value: FormData | null, state?: FormData | null): void;""",
+            ).joinToString("\n")
+        )
         // TODO: use `Error`
         .replace("  error(e?: any)", "  error(error?: JsError)")
         .replace(
