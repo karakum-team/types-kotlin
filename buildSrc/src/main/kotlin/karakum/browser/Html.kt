@@ -96,6 +96,11 @@ private val WEB_COMPONENTS_TYPES = setOf(
     "Slottable",
 )
 
+private val VALIDATION_TYPES = setOf(
+    "ValidityState",
+    "ValidityStateFlags",
+)
+
 private val EVENTS_TYPES = setOf(
     "AddEventListenerOptions",
     "EventListenerOptions",
@@ -503,7 +508,6 @@ internal fun htmlDeclarations(
         "ElementContentEditable",
         "ElementInternals .+?",
         "PopoverInvokerElement",
-        "ValidityStateFlags",
 
         "Node .+?",
         "NodeList<.+?",
@@ -625,7 +629,6 @@ internal fun htmlDeclarations(
         "Lock.+?",
         "Navigator.+?",
         "PictureInPictureWindow.+?",
-        "ValidityState",
         "VideoFrameCallbackMetadata",
         "VideoPlaybackQuality",
         "RemotePlayback .+?",
@@ -688,6 +691,7 @@ internal fun htmlDeclarations(
         .plus(RANGES_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(DOM_TYPES)
         .plus(WEB_COMPONENTS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
+        .plus(VALIDATION_TYPES)
         .plus(EVENTS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
         .plus(SCROLL_TYPES)
         .plus(FULLSCREEN_TYPES)
@@ -1410,6 +1414,7 @@ internal fun convertInterface(
         name in RANGES_TYPES -> "web.ranges"
         name in DOM_TYPES -> "web.dom"
         name in WEB_COMPONENTS_TYPES -> "web.components"
+        name in VALIDATION_TYPES -> "web.validation"
         name in CSSOM_TYPES -> "web.cssom"
         name in HIGHLIGHT_TYPES -> "web.highlight"
         name in DOM_DATA_TYPES -> "web.data"
