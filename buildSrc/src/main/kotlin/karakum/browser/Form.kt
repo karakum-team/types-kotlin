@@ -28,7 +28,15 @@ var name: String
 """.trimIndent()
 
 internal fun String.applyFormControlPatch(): String =
-    sequenceOf(VALIDATION_TARGET_MEMBERS, FORM_CONTROL_MEMBERS)
+    applyPatch(VALIDATION_TARGET_MEMBERS, FORM_CONTROL_MEMBERS)
+
+internal fun String.applyValidationTargetPatch(): String =
+    applyPatch(VALIDATION_TARGET_MEMBERS)
+
+private fun String.applyPatch(
+    vararg members: String,
+): String =
+    members.asSequence()
         .flatMap { it.splitToSequence("\n") }
         .fold(this) { acc, member ->
             acc.replaceFirst(member, "override $member")
