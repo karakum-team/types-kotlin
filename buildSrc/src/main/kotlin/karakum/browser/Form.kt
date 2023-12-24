@@ -114,9 +114,8 @@ internal fun formTypes(): Sequence<ConversionResult> =
 private fun CustomFormControlCallbacks(): ConversionResult {
     val members = CALLBACKS.keys.joinToString("\n") { name ->
         """
-        var $name: ${name.replaceFirstChar(Char::uppercase)}?
+        val $name: ${name.replaceFirstChar(Char::uppercase)}?
             get() = definedExternally
-            set(value) = definedExternally
         """.trimIndent()
     }
 
