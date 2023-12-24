@@ -25,12 +25,12 @@ private val PKG_MAP = mapOf(
     "MutationRecordType" to "web.dom.observers",
     "ResizeObserverBoxOptions" to "web.dom.observers",
 
-    "AutoFillAddressKind" to "web.html",
-    "AutoFillBase" to "web.html",
-    "AutoFillContactField" to "web.html",
-    "AutoFillContactKind" to "web.html",
-    "AutoFillCredentialField" to "web.html",
-    "AutoFillNormalField" to "web.html",
+    "AutoFillAddressKind" to "web.autofill",
+    "AutoFillBase" to "web.autofill",
+    "AutoFillContactField" to "web.autofill",
+    "AutoFillContactKind" to "web.autofill",
+    "AutoFillCredentialField" to "web.autofill",
+    "AutoFillNormalField" to "web.autofill",
 
     "CanPlayTypeResult" to "web.html",
     "SelectionMode" to "web.html",
@@ -188,7 +188,7 @@ private fun convertType(
             "AutoFill",
             "AutoFillField",
             "AutoFillSection",
-            -> "web.html"
+            -> "web.autofill"
 
             "MediaProvider" -> "web.html"
             "WindowProxy" -> "web.window"

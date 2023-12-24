@@ -60,6 +60,8 @@ private val DEFAULT_IMPORTS = Imports(
     "web.animations.KeyframeAnimationOptions",
     "web.animations.PropertyIndexedKeyframes",
     "web.aria.ARIAMixin",
+    "web.autofill.AutoFill",
+    "web.autofill.AutoFillBase",
     "web.buffer.Blob",
     "web.buffer.BlobPart",
     "web.buffer.BlobPropertyBag",
