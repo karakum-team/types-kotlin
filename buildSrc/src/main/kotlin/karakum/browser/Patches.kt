@@ -1,5 +1,11 @@
 package karakum.browser
 
+// TEMP
+private val ABORT_SIGNAL_ANY = """
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/AbortSignal/any_static) */
+    any(values: AbortSignal[]): AbortSignal;
+""".trimEnd()
+
 internal fun String.applyPatches(): String =
     patchVideoFrameCallback()
         .patchQuerySelectors()
@@ -21,7 +27,7 @@ internal fun String.applyPatches(): String =
         )
         .replace(
             "// abort(reason?: any): AbortSignal; - To be re-added in the future",
-            "abort(reason?: any): AbortSignal;",
+            "abort(reason?: any): AbortSignal;" + ABORT_SIGNAL_ANY,
         )
         .replace("    reason?: any;", "    reason?: JsError;")
         .replace("readonly reason: any;", "readonly reason: JsError | undefined;")
