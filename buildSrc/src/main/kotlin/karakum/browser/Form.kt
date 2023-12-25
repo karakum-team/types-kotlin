@@ -33,7 +33,6 @@ val validity: ValidityState
 val willValidate: Boolean
 fun checkValidity(): Boolean
 fun reportValidity(): Boolean
-fun setCustomValidity(error: String)
 """.trimIndent()
 
 private val FORM_CONTROL_MEMBERS = """
