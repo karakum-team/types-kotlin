@@ -37,6 +37,8 @@ fun reportValidity(): Boolean
 
 private val FORM_CONTROL_MEMBERS = """
 val form: HTMLFormElement?
+val labels: NodeListOf<HTMLLabelElement>?
+    get() = definedExternally
 var name: String
 """.trimIndent()
 
@@ -51,6 +53,8 @@ private fun String.applyPatch(
 ): String =
     members.asSequence()
         .flatMap { it.splitToSequence("\n") }
+        .filter { !it.startsWith(" ") }
+        .map { it.removeSuffix("?") }
         .fold(this) { acc, member ->
             acc.replaceFirst(member, "override $member")
         }
