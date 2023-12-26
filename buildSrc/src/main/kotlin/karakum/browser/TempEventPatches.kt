@@ -1,24 +1,29 @@
 package karakum.browser
 
-private val TYPE_MAP = mapOf(
-    "processorerror" to "ErrorEvent",
+private val TYPE_MAP = listOf(
+    EventCorrection("processorerror", "ErrorEvent"),
 
-    "loading" to "FontFaceSetLoadEvent",
-    "loadingdone" to "FontFaceSetLoadEvent",
-    "loadingerror" to "FontFaceSetLoadEvent",
+    EventCorrection("loading", "FontFaceSetLoadEvent"),
+    EventCorrection("loadingdone", "FontFaceSetLoadEvent"),
+    EventCorrection("loadingerror", "FontFaceSetLoadEvent"),
 
-    "enterpictureinpicture" to "PictureInPictureEvent",
-    "leavepictureinpicture" to "PictureInPictureEvent",
+    EventCorrection("enterpictureinpicture", "PictureInPictureEvent"),
+    EventCorrection("leavepictureinpicture", "PictureInPictureEvent"),
 
-    "paymentmethodchange" to "PaymentMethodChangeEvent",
+    EventCorrection("paymentmethodchange", "PaymentMethodChangeEvent"),
 
-    "icecandidateerror" to "RTCPeerConnectionIceErrorEvent",
+    EventCorrection("icecandidateerror", "RTCPeerConnectionIceErrorEvent"),
 
-    "rtctransform" to "RTCTransformEvent",
+    EventCorrection("rtctransform", "RTCTransformEvent"),
+)
+
+private data class EventCorrection(
+    val name: String,
+    val type: String,
 )
 
 internal fun String.applyTempEventPatches(): String =
-    TYPE_MAP.entries.fold(this) { acc, (name, type) ->
+    TYPE_MAP.fold(this) { acc, (name, type) ->
         val result = acc.replaceFirst(""""$name": Event;""", """"$name": $type;""")
 
         val handler = " on$name: "
