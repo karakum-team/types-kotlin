@@ -1,6 +1,16 @@
 package karakum.browser
 
 import java.io.File
+import java.net.URL
+
+private val WEB_WORKER_URL =
+    URL("https://raw.githubusercontent.com/microsoft/TypeScript-DOM-lib-generator/main/baselines/webworker.generated.d.ts")
+
+internal val WEB_WORKER_CONTENT by lazy {
+    WEB_WORKER_URL.openStream()
+        .use { stream -> String(stream.readAllBytes()) }
+        .applyTempEventPatches()
+}
 
 private val WORKER_TYPES = listOf(
     "DedicatedWorkerGlobalScope",

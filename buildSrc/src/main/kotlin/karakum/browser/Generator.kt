@@ -237,8 +237,9 @@ fun generateKotlinDeclarations(
         .also { it.mkdirs() }
 
     val serviceWorkersContent = serviceWorkersContent(serviceworkerDefinitionsFile)
-    val eventDeclarations = eventDeclarations(content, serviceWorkersContent) +
-            workerEventDeclarations(content, serviceWorkersContent)
+    val eventDeclarations = eventDeclarations(content, WEB_WORKER_CONTENT, serviceWorkersContent) +
+            webWorkersEventDeclarations(WEB_WORKER_CONTENT) +
+            serviceWorkersEventDeclarations(content, serviceWorkersContent)
 
     for ((name, body, optPkg) in eventDeclarations) {
         val suppresses = mutableSetOf<Suppress>().apply {

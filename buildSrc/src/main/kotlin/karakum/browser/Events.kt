@@ -8,6 +8,7 @@ private val PACKAGE_MAP = mapOf(
     "AudioScheduledSourceNode" to "web.audio",
     "AudioWorkletNode" to "web.audio",
     "BaseAudioContext" to "web.audio",
+    "DedicatedWorkerGlobalScope" to "web.workers",
     "Document" to "web.dom",
     "Element" to "web.dom",
     "EventSource" to "web.sse",
@@ -88,20 +89,28 @@ private val EXCLUDED = setOf(
 
 internal fun eventDeclarations(
     content: String,
+    webWorkerContent: String,
     serviceWorkersContent: String,
 ): List<ConversionResult> {
-    val dataMap = EventDataMap(content + "\n\n" + serviceWorkersContent)
+    val dataMap = EventDataMap(content + "\n\n" + webWorkerContent + "\n\n" + serviceWorkersContent)
     return eventTypes(dataMap)
         .plus(EventType())
         .plus(eventPlaceholders(content, EVENT_DATA, dataMap, strict = true))
 }
 
-internal fun workerEventDeclarations(
-    content: String,
-    webworkerContent: String,
+internal fun webWorkersEventDeclarations(
+    webWorkersContent: String,
 ): List<ConversionResult> {
-    val dataMap = EventDataMap(content + "\n\n" + webworkerContent)
-    return eventPlaceholders(webworkerContent, WORKER_EVENT_DATA, dataMap)
+    val dataMap = EventDataMap(webWorkersContent)
+    return eventPlaceholders(webWorkersContent, WEB_WORKER_EVENT_DATA, dataMap)
+}
+
+internal fun serviceWorkersEventDeclarations(
+    content: String,
+    serviceWorkersContent: String,
+): List<ConversionResult> {
+    val dataMap = EventDataMap(content + "\n\n" + serviceWorkersContent)
+    return eventPlaceholders(serviceWorkersContent, SERVICE_WORKER_EVENT_DATA, dataMap)
 }
 
 private fun eventPlaceholders(

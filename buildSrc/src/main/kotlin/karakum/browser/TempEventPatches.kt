@@ -13,6 +13,8 @@ private val TYPE_MAP = mapOf(
     "paymentmethodchange" to "PaymentMethodChangeEvent",
 
     "icecandidateerror" to "RTCPeerConnectionIceErrorEvent",
+
+    "rtctransform" to "RTCTransformEvent",
 )
 
 internal fun String.applyTempEventPatches(): String =

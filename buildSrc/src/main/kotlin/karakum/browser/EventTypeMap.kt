@@ -68,7 +68,11 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.payment.PaymentRequestUpdateEvent"),
 )
 
-internal val WORKER_EVENT_DATA = listOf(
+internal val WEB_WORKER_EVENT_DATA = listOf(
+    EventInfo("web.rtc.RTCTransformEvent"),
+)
+
+internal val SERVICE_WORKER_EVENT_DATA = listOf(
     EventInfo("web.push.PushEvent"),
     EventInfo("web.serviceworker.ExtendableEvent"),
     EventInfo("web.serviceworker.ExtendableMessageEvent"),
@@ -76,7 +80,7 @@ internal val WORKER_EVENT_DATA = listOf(
     EventInfo("web.serviceworker.NotificationEvent"),
 )
 
-internal val EVENT_INFO_MAP = (EVENT_DATA + WORKER_EVENT_DATA)
+internal val EVENT_INFO_MAP = (EVENT_DATA + SERVICE_WORKER_EVENT_DATA)
     .associateBy { it.name }
 
 internal val EVENT_CORRECTION_MAP = mapOf(
@@ -177,6 +181,7 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     "removesourcebuffer" to "remove_source_buffer",
     "removetrack" to "remove_track",
     "resourcetimingbufferfull" to "resource_timing_buffer_full",
+    "rtctransform" to "rtc_transform",
     "scrollend" to "scroll_end",
     "securitypolicyviolation" to "security_policy_violation",
     "selectedcandidatepairchange" to "selected_candidate_pair_change",
