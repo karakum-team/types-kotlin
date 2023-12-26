@@ -1272,6 +1272,8 @@ internal fun convertInterface(
         -> "open"
 
         name == "BlobPropertyBag" ||
+                name == "FileReaderSync" ||
+
                 name in CSSOM_INTERFACES ||
                 name in DOM_PARSING_TYPES ||
 
