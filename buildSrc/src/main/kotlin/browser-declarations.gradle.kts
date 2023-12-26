@@ -53,6 +53,7 @@ val findMissedTypes by tasks.creating {
             "@types/serviceworker",
         ).map { nodeModules.resolve("$it/index.d.ts") }
             .map { it.readText() }
+            .plus(karakum.browser.WEB_WORKER_CONTENT)
             .flatMap { content ->
                 content.splitToSequence("\ninterface ")
                     .flatMap { line ->
