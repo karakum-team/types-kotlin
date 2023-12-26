@@ -826,7 +826,6 @@ internal fun htmlDeclarations(
                     )
                 }
         )
-        .plus(DedicatedWorkerGlobalScope())
         .plus(Ed25519())
 }
 

@@ -12,14 +12,14 @@ internal val WEB_WORKER_CONTENT by lazy {
         .applyTempEventPatches()
 }
 
-private val WORKER_TYPES = listOf(
+private val WORKER_TYPES = setOf(
     "DedicatedWorkerGlobalScope",
     "WorkerGlobalScope",
     "WorkerLocation",
     "WorkerNavigator",
 )
 
-private val SERVICE_WORKER_TYPES = listOf(
+private val SERVICE_WORKER_TYPES = setOf(
     "Client",
     "Clients",
     "ClientQueryOptions",
@@ -29,27 +29,46 @@ private val SERVICE_WORKER_TYPES = listOf(
     "WindowClient",
 )
 
-private val PUSH_TYPES = listOf(
+private val PUSH_TYPES = setOf(
     "PushMessageData",
     "PushMessageDataInit",
 )
+
+private val RTC_TYPES = setOf(
+    "RTCRtpScriptTransformer",
+)
+
+private val WEB_WORKER_TYPES = RTC_TYPES
+    .plus("DedicatedWorkerGlobalScope")
 
 private val PKG_MAP = mapOf(
     "PushMessageDataInit" to "web.push",
     "FrameType" to "web.serviceworker",
 )
 
+internal fun webWorkersDeclarations(): Sequence<ConversionResult> {
+    return workersDeclarations(WEB_WORKER_CONTENT, typeFilter = { it in WEB_WORKER_TYPES })
+}
+
 internal fun serviceWorkersDeclarations(
     definitionsFile: File,
 ): Sequence<ConversionResult> {
     val content = serviceWorkersContent(definitionsFile)
-    return workersDeclarations(content)
+    val interfaces = workersDeclarations(content, typeFilter = { it !in WEB_WORKER_TYPES })
+
+    val types = convertTypes(
+        content = content,
+        getPkg = PKG_MAP::get,
+    ).filter { it.name in PKG_MAP.keys }
+
+    return interfaces + types
 }
 
 private fun workersDeclarations(
     content: String,
-): Sequence<ConversionResult> {
-    val interfaces = Regex("""interface .+? \{[\s\S]+?\n}""")
+    typeFilter: (type: String) -> Boolean,
+): Sequence<ConversionResult> =
+    Regex("""interface .+? \{[\s\S]+?\n}""")
         .findAll(content)
         .map { it.value }
         .mapNotNull { source ->
@@ -57,10 +76,14 @@ private fun workersDeclarations(
                 .substringAfter(" ")
                 .substringBefore(" ")
 
+            if (!typeFilter(name))
+                return@mapNotNull null
+
             val predefinedPkg = when (name) {
                 in WORKER_TYPES -> "web.workers"
 
                 in PUSH_TYPES -> "web.push"
+                in RTC_TYPES -> "web.rtc"
                 in SERVICE_WORKER_TYPES -> "web.serviceworker"
 
                 else -> return@mapNotNull null
@@ -72,14 +95,6 @@ private fun workersDeclarations(
                 predefinedPkg = predefinedPkg,
             )
         }
-
-    val types = convertTypes(
-        content = content,
-        getPkg = PKG_MAP::get,
-    ).filter { it.name in PKG_MAP.keys }
-
-    return interfaces + types
-}
 
 internal fun serviceWorkersContent(
     definitionsFile: File,

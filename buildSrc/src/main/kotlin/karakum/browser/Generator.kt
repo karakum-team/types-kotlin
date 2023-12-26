@@ -292,6 +292,7 @@ fun generateKotlinDeclarations(
         .plus(intlDeclarations(definitionsDir))
         .plus(atomicsDeclarations(definitionsDir))
         .plus(webAssemblyDeclarations(content))
+        .plus(webWorkersDeclarations())
         .plus(serviceWorkersDeclarations(serviceworkerDefinitionsFile))
 
     for ((name, body, pkg) in aliases) {
@@ -435,6 +436,7 @@ fun generateKotlinDeclarations(
             import web.window.PromiseRejectionEvent
             import web.messaging.MessageEvent
             import web.push.PushEvent
+            import web.rtc.RTCTransformEvent
             import web.workers.WorkerGlobalScope
             """.trimIndent()
 
