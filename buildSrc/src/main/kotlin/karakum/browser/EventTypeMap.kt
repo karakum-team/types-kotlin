@@ -170,7 +170,7 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     "pointerover" to "pointer_over",
     "pointerup" to "pointer_up",
     "popstate" to "pop_state",
-    "processorerror" to "process_or_error", //?
+    "processorerror" to "processor_error",
     "ratechange" to "rate_change",
     "readystatechange" to "ready_state_change",
     "rejectionhandled" to "rejection_handled",
