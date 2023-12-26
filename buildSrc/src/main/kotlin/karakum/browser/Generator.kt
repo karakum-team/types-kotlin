@@ -158,6 +158,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.media.streams.MediaTrackCapabilities",
     "web.media.streams.MediaTrackConstraints",
     "web.media.streams.MediaTrackSupportedConstraints",
+    "web.messaging.MessageEvent",
     "web.messaging.MessageEventSource",
     "web.messaging.MessagePort",
     "web.notifications.Notification",
@@ -407,7 +408,6 @@ fun generateKotlinDeclarations(
             import web.history.HashChangeEvent
             import web.history.PageTransitionEvent
             import web.history.PopStateEvent
-            import web.messaging.MessageEvent
             import web.storage.StorageEvent
             """.trimIndent()
 
@@ -418,14 +418,6 @@ fun generateKotlinDeclarations(
             "BroadcastChannel",
             -> """
             import web.events.ProgressEvent
-            import web.messaging.MessageEvent
-            """.trimIndent()
-
-            "AbstractWorker",
-            "Worker",
-            "WebSocket",
-            -> """
-            import web.messaging.MessageEvent
             """.trimIndent()
 
             "DedicatedWorkerGlobalScope",
@@ -434,7 +426,6 @@ fun generateKotlinDeclarations(
             -> """
             import web.fonts.FontFaceSource    
             import web.window.PromiseRejectionEvent
-            import web.messaging.MessageEvent
             import web.push.PushEvent
             import web.rtc.RTCTransformEvent
             import web.workers.WorkerGlobalScope
@@ -443,7 +434,6 @@ fun generateKotlinDeclarations(
             "WorkerNavigator",
             -> """
             import web.navigator.*
-            import web.messaging.MessageEvent
             """.trimIndent()
 
             else -> ""
