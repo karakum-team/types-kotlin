@@ -29,11 +29,16 @@ private val PKG_MAP = mapOf(
     "FrameType" to "web.serviceworker",
 )
 
-internal fun webWorkersDeclarations(
+internal fun serviceWorkersDeclarations(
     definitionsFile: File,
 ): Sequence<ConversionResult> {
-    val content = webWorkersContent(definitionsFile)
+    val content = serviceWorkersContent(definitionsFile)
+    return workersDeclarations(content)
+}
 
+private fun workersDeclarations(
+    content: String,
+): Sequence<ConversionResult> {
     val interfaces = Regex("""interface .+? \{[\s\S]+?\n}""")
         .findAll(content)
         .map { it.value }
@@ -66,7 +71,7 @@ internal fun webWorkersDeclarations(
     return interfaces + types
 }
 
-internal fun webWorkersContent(
+internal fun serviceWorkersContent(
     definitionsFile: File,
 ): String =
     definitionsFile
