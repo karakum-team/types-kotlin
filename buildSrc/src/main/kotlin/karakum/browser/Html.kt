@@ -1394,8 +1394,8 @@ internal fun convertInterface(
 
         name.startsWith("DeviceMotion") -> "web.device"
 
-        name.startsWith("FileSystem") -> "web.filesystem"
-        name in FILE_SYSTEM_TYPES -> "web.filesystem"
+        name.startsWith("FileSystem") -> "web.fs"
+        name in FILE_SYSTEM_TYPES -> "web.fs"
 
         name.startsWith("Blob") -> "web.buffer"
 

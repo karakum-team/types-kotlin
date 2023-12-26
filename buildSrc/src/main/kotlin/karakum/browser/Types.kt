@@ -39,7 +39,7 @@ private val PKG_MAP = mapOf(
     "TouchType" to "web.uievents",
     "DOMParserSupportedType" to "web.dom.parsing",
 
-    "WriteCommandType" to "web.filesystem",
+    "WriteCommandType" to "web.fs",
 
     "ColorGamut" to "web.media.capabilities",
     "HdrMetadataType" to "web.media.capabilities",
@@ -199,7 +199,7 @@ private fun convertType(
 
             "ClipboardItems" -> "web.clipboard"
 
-            "FileSystemWriteChunkType" -> "web.filesystem"
+            "FileSystemWriteChunkType" -> "web.fs"
 
             "IDBValidKey" -> "web.idb"
 
@@ -377,7 +377,7 @@ private fun getTypePkg(
 
         name.startsWith("MIDI") -> "web.midi"
 
-        name.startsWith("FileSystem") -> "web.filesystem"
+        name.startsWith("FileSystem") -> "web.fs"
         name.startsWith("Lock") -> "web.locks"
 
         name.startsWith("MediaDevice") -> "web.media.devices"

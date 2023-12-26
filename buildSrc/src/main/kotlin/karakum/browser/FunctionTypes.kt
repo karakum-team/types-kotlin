@@ -63,9 +63,9 @@ private fun convertFunctionType(
         name == "DecodeSuccessCallback" -> "web.audio"
         name == "DecodeErrorCallback" -> "web.audio"
 
-        name == "ErrorCallback" -> "web.filesystem"
-        name == "FileCallback" -> "web.filesystem"
-        name.startsWith("FileSystem") -> "web.filesystem"
+        name == "ErrorCallback" -> "web.fs"
+        name == "FileCallback" -> "web.fs"
+        name.startsWith("FileSystem") -> "web.fs"
 
         name.startsWith("Position") -> "web.geolocation"
 

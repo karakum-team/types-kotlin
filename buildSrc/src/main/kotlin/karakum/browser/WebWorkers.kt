@@ -96,7 +96,7 @@ private fun workersDeclarations(
             val predefinedPkg = when (name) {
                 in WORKER_TYPES -> "web.workers"
                 in FILE_TYPES -> "web.file"
-                in FS_TYPES -> "web.filesystem"
+                in FS_TYPES -> "web.fs"
 
                 in PUSH_TYPES -> "web.push"
                 in RTC_TYPES -> "web.rtc"
