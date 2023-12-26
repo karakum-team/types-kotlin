@@ -101,6 +101,7 @@ internal fun serviceWorkersContent(
 ): String =
     definitionsFile
         .readText()
+        .applyTempEventPatches()
         .replace(", WindowOrWorkerGlobalScope", "")
         .replace(
             """ReadonlyArray<T["type"] extends "window" ? WindowClient : Client>""",
