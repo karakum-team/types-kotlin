@@ -88,9 +88,9 @@ private val EXCLUDED = setOf(
 
 internal fun eventDeclarations(
     content: String,
-    webworkerContent: String,
+    serviceWorkersContent: String,
 ): List<ConversionResult> {
-    val dataMap = EventDataMap(content + "\n\n" + webworkerContent)
+    val dataMap = EventDataMap(content + "\n\n" + serviceWorkersContent)
     return eventTypes(dataMap)
         .plus(EventType())
         .plus(eventPlaceholders(content, EVENT_DATA, dataMap, strict = true))
