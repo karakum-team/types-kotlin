@@ -14,6 +14,8 @@ internal val WEB_WORKER_CONTENT by lazy {
 
 private val WORKER_TYPES = setOf(
     "DedicatedWorkerGlobalScope",
+    "SharedWorkerGlobalScope",
+
     "WorkerGlobalScope",
     "WorkerLocation",
     "WorkerNavigator",
@@ -38,8 +40,20 @@ private val RTC_TYPES = setOf(
     "RTCRtpScriptTransformer",
 )
 
+private val FILE_TYPES = setOf(
+    "FileReaderSync",
+)
+
+private val FS_TYPES = setOf(
+    "FileSystemReadWriteOptions",
+    "FileSystemSyncAccessHandle",
+)
+
 private val WEB_WORKER_TYPES = RTC_TYPES
+    .plus(FILE_TYPES)
+    .plus(FS_TYPES)
     .plus("DedicatedWorkerGlobalScope")
+    .plus("SharedWorkerGlobalScope")
 
 private val PKG_MAP = mapOf(
     "PushMessageDataInit" to "web.push",
@@ -81,6 +95,8 @@ private fun workersDeclarations(
 
             val predefinedPkg = when (name) {
                 in WORKER_TYPES -> "web.workers"
+                in FILE_TYPES -> "web.file"
+                in FS_TYPES -> "web.filesystem"
 
                 in PUSH_TYPES -> "web.push"
                 in RTC_TYPES -> "web.rtc"
