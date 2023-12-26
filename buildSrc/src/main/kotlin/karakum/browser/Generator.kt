@@ -101,6 +101,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.dom.NodeListOf",
     "web.dom.ParentNode",
     "web.errors.DOMException",
+    "web.errors.ErrorEvent",
     "web.events.Event",
     "web.events.EventHandler",
     "web.events.EventInit",
@@ -163,6 +164,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.notifications.NotificationOptions",
     "web.permissions.PermissionState",
     "web.permissions.Permissions",
+    "web.pip.PictureInPictureEvent",
     "web.pip.PictureInPictureWindow",
     "web.push.PushManager",
     "web.ranges.AbstractRange",
@@ -421,7 +423,6 @@ fun generateKotlinDeclarations(
             "Worker",
             "WebSocket",
             -> """
-            import web.errors.ErrorEvent
             import web.messaging.MessageEvent
             """.trimIndent()
 
@@ -431,7 +432,6 @@ fun generateKotlinDeclarations(
             -> """
             import web.fonts.FontFaceSource    
             import web.window.PromiseRejectionEvent
-            import web.errors.ErrorEvent
             import web.messaging.MessageEvent
             import web.push.PushEvent
             import web.workers.WorkerGlobalScope
