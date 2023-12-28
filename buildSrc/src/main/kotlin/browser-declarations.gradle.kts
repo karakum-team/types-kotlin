@@ -23,22 +23,6 @@ tasks.named("generateDeclarations") {
     }
 }
 
-val KNOWN_MISSED_TYPES = setOf(
-    "AnimationFrameProvider",
-    "AudioProcessingEventInit",
-    "EventListener",
-    "EventListenerObject",
-    "EventTarget",
-    "HTMLAllCollection",
-    "ImportMeta",
-    "OnBeforeUnloadEventHandlerNonNull",
-    "OnErrorEventHandlerNonNull",
-    "OverconstrainedError",
-    "WindowLocalStorage",
-    "WindowOrWorkerGlobalScope",
-    "WindowSessionStorage",
-)
-
 val findMissedTypes by tasks.creating {
     doLast {
         val sourceDir = projectDir.resolve("src/jsMain/kotlin")
@@ -73,7 +57,7 @@ val findMissedTypes by tasks.creating {
             .filter { !it.endsWith("NameMap") }
             .toSet()
 
-        val missedTypes = (declaredInterfaces - generatedInterfaces).sorted() - KNOWN_MISSED_TYPES
+        val missedTypes = (declaredInterfaces - generatedInterfaces).sorted() - karakum.browser.KNOWN_MISSED_TYPES
         println("MISSED TYPES: ${missedTypes.size}")
         println(missedTypes.joinToString("\n"))
     }

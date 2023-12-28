@@ -495,248 +495,21 @@ internal fun htmlDeclarations(
         getStaticSource(name, content)
     }
 
-    val patterns = sequenceOf(
-        "HTML.+?",
-        "SVG.+?",
-        "MathML.+?",
-        "HTMLCollection .+?",
-        "RadioNodeList .+?",
-        "MediaError",
-
-        "WindowEventHandlers",
-
-        "ARIAMixin",
-
-        "ElementContentEditable",
-        "ElementInternals .+?",
-        "PopoverInvokerElement",
-
-        "Node .+?",
-        "NodeList<.+?",
-        "ChildNode .+?",
-        "ParentNode .+?",
-        "Element .+?",
-        "Attr .+?",
-        "CDATASection .+?",
-        "Comment .+?",
-        "CharacterData .+?",
-        "Text .+?",
-        "ProcessingInstruction .+?",
-
-        "Document .+?",
-        "DocumentType .+?",
-        "DocumentFragment .+?",
-        "DocumentOrShadowRoot",
-        "XMLDocument .+?",
-        "XPath.+?",
-
-        "DOMMatrix .+?",
-        "DOMMatrixInit .+?",
-        "DOMPoint .+?",
-        "DOMRect .+?",
-
-        "IntersectionObserve?.+",
-        "MutationObserve?.+",
-        "MutationRecord",
-        "ResizeObserve?.+",
-
-        "ScrollToOptions .+?",
-        "ScrollIntoViewOptions .+?",
-
-        "Selection",
-
-        "Touch",
-        "TouchInit",
-        "TouchList",
-
-        "Canvas.+?",
-        "CanvasRenderingContext2D .+?",
-        "OffscreenCanvas .+?",
-        "OffscreenCanvasRenderingContext2D .+?",
-        "Path2D .+?",
-
-        "Window .+?",
-        "BarProp",
-        "VisualViewport .+?",
-        "WindowPostMessageOptions .+?",
-
-        "Animation .+?",
-        "ComputedEffectTiming .+?",
-
-        "FileReader .+?",
-
-        "Request .+?",
-        "Response .+?",
-
-        "CSS.+?",
-        "StyleSheet",
-        "StyleSheetList",
-        "MediaList",
-        "MediaQueryList .+?",
-
-        "FontFace",
-        "FontFaceDescriptors",
-        "FontFaceSet .+?",
-        "FontFaceSource",
-
-        "EventModifierInit .+?",
-
-        "Clipboard .+?",
-        "Clipboard.+?",
-
-        "History",
-        "Location",
-
-        "Screen",
-        "ScreenOrientation .+?",
-
-        "SpeechReco.+?",
-        "SpeechSynt.+?",
-
-        "Geolocation",
-        "Geolocation.+?",
-        "PositionOptions",
-
-        "DeviceMotionEventAcceleration",
-        "DeviceMotionEventAccelerationInit",
-        "DeviceMotionEventRotationRate",
-        "DeviceMotionEventRotationRateInit",
-
-        "ShareData",
-
-        "EventSourceInit",
-        "EventSource .+?",
-
-        "XMLHttp.+?",
-
-        "BroadcastChannel .+?",
-
-        "Storage",
-        "StorageEstimate",
-        "StorageManager",
-        "Permission.+?",
-        "Gamepad",
-        "Gamepad.+?",
-
-        "Blob",
-        "Blob.+?",
-
-        "File",
-        "File.+?",
-
-        "FileSystem",
-        "FileSystem.+?",
-
-        "Lock",
-        "Lock.+?",
-        "Navigator.+?",
-        "PictureInPictureWindow.+?",
-        "VideoFrameCallbackMetadata",
-        "VideoPlaybackQuality",
-        "RemotePlayback .+?",
-        "DOMMatrix2DInit",
-
-        "RTC.+?",
-
-        "MediaKey.+?",
-        "VTT.+?",
-        "TextTrack.+?",
-
-        "MediaStream.+?",
-        "MediaTrack.+?",
-        "Constrain.+?",
-
-        "MediaDevice.+?",
-        "InputDeviceInfo .+?",
-        "DisplayMediaStreamOptions",
-
-        "MediaCapabilitie.+?",
-        "MediaEncodingConfiguration .+?",
-        "MediaDecodingConfiguration .+?",
-
-        "MediaRecorder.+?",
-
-        "Worklet",
-        "WorkletOptions",
-
-        "Notification.+?",
-
-        "ServiceWorker.+?",
-        "GetNotificationOptions",
-        "NavigationPreloadManager",
-        "NavigationPreloadState",
-        "RegistrationOptions",
-
-        "TextEncode.+?",
-        "TextDecode.+?",
-
-        "IDB.+?",
-
-        "Push.+?",
-
-        "Performance.+?",
-
-        "WebSocket.+?",
-        "MIDI.+?",
-
-        "WakeLock",
-        "WakeLock.+?",
-
-        "WebTransport",
-        "WebTransport.+?",
-
-        "Console",
-
-        "Payment.+?",
-    ).plus(ANIMATION_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(JS_CORE)
-        .plus(RANGES_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(DOM_TYPES)
-        .plus(WEB_COMPONENTS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(VALIDATION_TYPES)
-        .plus(EVENTS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(SCROLL_TYPES)
-        .plus(FULLSCREEN_TYPES)
-        .plus(CSSOM_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(HIGHLIGHT_TYPES)
-        .plus(DOM_DATA_TYPES)
-        .plus(DOM_GEOMETRY_TYPES)
-        .plus(DOM_PARSING_TYPES)
-        .plus(CANVAS_TYPES)
-        .plus(FORM_TYPES)
-        .plus(HTTP_TYPES)
-        .plus(MEDIA_CAPABILITIES_TYPES)
-        .plus(MEDIA_STREAM_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(MEDIA_SESSION_TYPES)
-        .plus(MEDIA_SOURCE_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(WEB_AUDIO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(WORKERS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(ABORT_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(ERROR_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(SCHEDULING_TYPES)
-        .plus(MESSAGING_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(WEB_CRYPTO_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(QUERY_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(CODECS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(USER_ACTIVATION_TYPES)
-        .plus(FILE_SYSTEM_TYPES)
-        .plus(WEB_AUTHN_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(STREAMS_TYPES.flatMap { sequenceOf(it, "$it<.+?", "$it .+?") })
-        .plus(COMPRESSION_STREAMS_TYPES.flatMap { sequenceOf(it, "$it .+?") })
-        .plus(CREDENTIALS_TYPES)
-        .plus(URL_TYPES)
-        .plus(REPORTING_TYPES)
-        .plus(XSLT_PROCESSOR)
-        .joinToString("|")
-
     val interfaces =
-        Regex("""interface ($patterns) \{[\s\S]*?\n\}""")
+        Regex("""\ninterface .+? \{[\s\S]*?\n}""")
             .findAll(content)
-            .map { it.value }
+            .map { it.value.removePrefix("\n") }
             .mapNotNull { src ->
                 convertInterface(src, getStaticSource)
                     ?.withComment(fullSource = content, source = src)
             }
+            // TEMP (WebGL)
+            .filter { "_" !in it.name }
+            // custom
+            .filter { it.name != "EventCounts" }
+            .filter { it.name != "NodeListOf" }
+            // duplicates
+            .filter { it.name != "ClientQueryOptions" }
             .filter { it.name != "FileSystemFileHandle" }
 
     return interfaces
@@ -847,6 +620,10 @@ internal fun convertInterface(
         .substringBefore("<")
 
     when {
+        // TEMP
+        name.startsWith("WebGL") -> return null
+
+        name in KNOWN_MISSED_TYPES -> return null
         name in DEPRECATED -> return null
         name.endsWith("NameMap") -> return null
         name.endsWith("Event") -> return null
