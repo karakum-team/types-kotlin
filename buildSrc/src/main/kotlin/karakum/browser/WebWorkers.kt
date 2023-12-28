@@ -45,6 +45,9 @@ private val FILE_TYPES = setOf(
 )
 
 private val FS_TYPES = setOf(
+    // common
+    "FileSystemFileHandle",
+
     "FileSystemReadWriteOptions",
     "FileSystemSyncAccessHandle",
 )

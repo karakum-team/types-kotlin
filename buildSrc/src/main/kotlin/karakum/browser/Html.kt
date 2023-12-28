@@ -737,6 +737,7 @@ internal fun htmlDeclarations(
                 convertInterface(src, getStaticSource)
                     ?.withComment(fullSource = content, source = src)
             }
+            .filter { it.name != "FileSystemFileHandle" }
 
     return interfaces
         .plus(formTypes())
