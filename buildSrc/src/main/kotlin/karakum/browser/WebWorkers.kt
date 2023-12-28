@@ -112,7 +112,7 @@ private fun workersDeclarations(
                 source = source,
                 getStaticSource = { getStaticSource(it, content) },
                 predefinedPkg = predefinedPkg,
-            )
+            )?.withComment(fullSource = content, source = source)
         }
 
 internal fun serviceWorkersContent(
