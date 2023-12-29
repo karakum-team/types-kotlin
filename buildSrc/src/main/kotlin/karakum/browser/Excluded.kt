@@ -10,7 +10,6 @@ internal val KNOWN_MISSED_TYPES = setOf(
     "ImportMeta",
     "OnBeforeUnloadEventHandlerNonNull",
     "OnErrorEventHandlerNonNull",
-    "OverconstrainedError",
     "WindowLocalStorage",
     "WindowOrWorkerGlobalScope",
     "WindowSessionStorage",

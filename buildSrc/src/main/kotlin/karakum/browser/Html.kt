@@ -196,6 +196,8 @@ private val HTTP_TYPES = listOf(
 
 private val MEDIA_STREAM_TYPES = listOf(
     "CanvasCaptureMediaStreamTrack",
+    "OverconstrainedError",
+
     "DoubleRange",
     "ULongRange",
 )
