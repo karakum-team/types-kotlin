@@ -2,12 +2,15 @@ package karakum.browser
 
 internal fun formatComment(
     comment: String,
-): String =
-    if ("\n" !in comment) {
+): String {
+    val formatted = if ("\n" !in comment) {
         comment
             .replaceFirst("/** ", "/**\n * ")
             .removeSuffix(" */") + "\n */"
     } else comment
+
+    return formatted.replace(Typography.nbsp.toString(), " ")
+}
 
 internal fun String.withComment(
     fullSource: String,
