@@ -1120,11 +1120,17 @@ internal fun convertInterface(
         """.trimIndent()
     } else ""
 
+    val additionalAliasName = getAdditionalAliasName(name)
+    val additionalAlias = if (additionalAliasName != null) {
+        "sealed interface $additionalAliasName"
+    } else ""
+
     var body = sequenceOf(
         typeGuard,
         "$modifier external $declaration {",
         members,
         companion,
+        additionalAlias,
         "}",
     ).filter { it.isNotEmpty() }
         .joinToString("\n")
