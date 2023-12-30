@@ -5,7 +5,7 @@ internal const val NODE_TYPE = "NodeType"
 
 private val CORRECTION_MAP = listOf(
     StateCorrection("CSSRule", null),
-    StateCorrection("Range", null),
+    StateCorrection("Range", "compareMethod", parameterName = "how"),
 
     StateCorrection("FileReader", "readyState"),
     StateCorrection("HTMLTrackElement", "readyState"),
@@ -24,7 +24,7 @@ private val CORRECTION_MAP = listOf(
 
 private val ALIAS_NAME_MAP = CORRECTION_MAP.asSequence()
     .mapNotNull { correction ->
-        val (_, propertyName, existedAliasName) = correction
+        val (_, propertyName, _, existedAliasName) = correction
         if (propertyName != null && existedAliasName == null) {
             val aliasName = propertyName.replaceFirstChar(Char::uppercase)
 
@@ -46,6 +46,7 @@ internal fun getAdditionalAliasNames(
 private data class StateCorrection(
     val className: String,
     val propertyName: String?,
+    val parameterName: String? = null,
     val existedAliasName: String? = null,
     val constantPrefix: String = "",
 )
@@ -78,8 +79,15 @@ private fun applyCorrection(
         val aliasName = correction.existedAliasName
             ?: ALIAS_NAME_MAP.getValue(correction)
 
-        source.replace("readonly $propertyName: number;", "readonly $propertyName: $aliasName;")
+        var result = source.replace("readonly $propertyName: number;", "readonly $propertyName: $aliasName;")
             .replace(constantRegex(correction.constantPrefix), "$1$aliasName$2")
+
+        val parameterName = correction.parameterName
+        if (parameterName != null) {
+            result = result.replace("($parameterName: number", "($parameterName: $aliasName")
+        }
+
+        result
     } else {
         source.replace(constantRegex(), "")
     }
