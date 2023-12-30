@@ -376,10 +376,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/web@0.0.131":
-  version "0.0.131"
-  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.131.tgz#dd23803a2bb680b7d78e8d845c6afdae66c04b0b"
-  integrity sha512-0IuR9UfS7PvOK6rJNiSyef09Cn7ZY5yeOtAY3cnLelITnGXlptg4ktxwBnGDovzICZQoR5+zcE6rJlGnpdf6cA==
+"@types/web@0.0.132":
+  version "0.0.132"
+  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.132.tgz#30e9369aac36588fb3b05f417314b9b5fb97daa2"
+  integrity sha512-y1UK2eAi3AtAUwbhlp7lknvrOuUteW5lFBxwLtfBZKky5W3h6XkeRAZbiK/xQ/1DXaBwp4nb7BRWdszWdkrfSA==
 
 "@webref/idl@3.42.2":
   version "3.42.2"
