@@ -12,12 +12,20 @@ private val CORRECTION_MAP = listOf(
 
     StateCorrection("GeolocationPositionError", "code"),
     StateCorrection("MediaError", "code"),
+
+    // StateCorrection("Event", "eventPhase"),
+    StateCorrection("Node", "nodeType"),
 )
 
 private val ALIAS_MAP = CORRECTION_MAP.asSequence()
     .mapNotNull { (className, propertyName) ->
         if (propertyName != null) {
-            className to propertyName.replaceFirstChar(Char::uppercase)
+            val aliasName = propertyName
+                .removePrefix("event")
+                .removePrefix("node")
+                .replaceFirstChar(Char::uppercase)
+
+            className to aliasName
         } else null
     }
     .toMap()
@@ -46,7 +54,7 @@ internal fun String.applyReadyStatePatches(): String =
             }
     }
 
-private val CONSTANT_REGEX = Regex("""(\n\s+readonly [A-Z_]+: )\d+(;)""")
+private val CONSTANT_REGEX = Regex("""(\n\s+readonly [A-Z_]+: )[\dx]+(;)""")
 
 private fun applyCorrection(
     source: String,
@@ -54,7 +62,7 @@ private fun applyCorrection(
 ): String {
     val propertyName = correction.propertyName
     return if (propertyName != null) {
-        val aliasName = propertyName.replaceFirstChar(Char::uppercase)
+        val aliasName = ALIAS_MAP.getValue(correction.className)
         source.replace("readonly $propertyName: number;", "readonly $propertyName: $aliasName;")
             .replace(CONSTANT_REGEX, "$1$aliasName$2")
     } else {
