@@ -2,6 +2,7 @@ package karakum.browser
 
 internal const val EVENT_PHASE = "EventPhase"
 internal const val NODE_TYPE = "NodeType"
+internal const val DELTA_MODE = "DeltaMode"
 
 private val CORRECTION_MAP = listOf(
     StateCorrection("CSSRule", null),
@@ -22,6 +23,7 @@ private val CORRECTION_MAP = listOf(
 
     StateCorrection("Event", "eventPhase", existedAliasName = EVENT_PHASE),
     StateCorrection("Node", "nodeType", existedAliasName = NODE_TYPE),
+    StateCorrection("WheelEvent", "deltaMode", existedAliasName = DELTA_MODE),
 )
 
 private val ALIAS_NAME_MAP = CORRECTION_MAP.asSequence()
@@ -57,10 +59,9 @@ internal fun String.applyReadyStatePatches(): String =
     CORRECTION_MAP.fold(this) { acc, correction ->
         val className = correction.className
 
-        sequenceOf(
-            "\ninterface $className ",
-            "\ndeclare var $className: ",
-        )
+        sequenceOf("\ninterface $className ")
+            .plus("\ndeclare var $className: ")
+            .plus(if (className.endsWith("Event")) sequenceOf("\ninterface ${className}Init ") else emptySequence())
             .map { prefix -> prefix + acc.substringAfter(prefix).substringBefore("\n}\n") }
             .fold(acc) { localAcc, before ->
                 localAcc.replace(before, applyCorrection(before, correction))
@@ -81,7 +82,9 @@ private fun applyCorrection(
         val aliasName = correction.existedAliasName
             ?: ALIAS_NAME_MAP.getValue(correction)
 
-        var result = source.replace("readonly $propertyName: number;", "readonly $propertyName: $aliasName;")
+        var result = source
+            .replace("readonly $propertyName: number;", "readonly $propertyName: $aliasName;")
+            .replace("    $propertyName?: number;", "    $propertyName?: $aliasName;")
             .replace(constantRegex(correction.constantPrefix), "$1$aliasName$2")
 
         val parameterName = correction.parameterName
