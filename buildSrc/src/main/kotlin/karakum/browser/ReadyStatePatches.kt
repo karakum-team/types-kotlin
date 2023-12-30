@@ -3,6 +3,7 @@ package karakum.browser
 internal const val EVENT_PHASE = "EventPhase"
 internal const val NODE_TYPE = "NodeType"
 internal const val DELTA_MODE = "DeltaMode"
+internal const val KEY_LOCATION = "KeyLocation"
 
 private val CORRECTION_MAP = listOf(
     StateCorrection("CSSRule", null),
@@ -23,6 +24,7 @@ private val CORRECTION_MAP = listOf(
 
     StateCorrection("Event", "eventPhase", existedAliasName = EVENT_PHASE),
     StateCorrection("Node", "nodeType", existedAliasName = NODE_TYPE),
+    StateCorrection("KeyboardEvent", "location", existedAliasName = KEY_LOCATION),
     StateCorrection("WheelEvent", "deltaMode", existedAliasName = DELTA_MODE),
 )
 
