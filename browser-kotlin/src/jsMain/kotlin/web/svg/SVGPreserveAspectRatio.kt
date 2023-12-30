@@ -8,8 +8,8 @@ package web.svg
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGPreserveAspectRatio)
  */
 sealed external class SVGPreserveAspectRatio {
-    var align: Short
-    var meetOrSlice: Short
+    var align: Align
+    var meetOrSlice: MeetOrSlice
     val SVG_PRESERVEASPECTRATIO_UNKNOWN: Align
     val SVG_PRESERVEASPECTRATIO_NONE: Align
     val SVG_PRESERVEASPECTRATIO_XMINYMIN: Align
