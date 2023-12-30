@@ -9,6 +9,7 @@ private val ABORT_SIGNAL_ANY = """
 internal fun String.applyPatches(): String =
     patchVideoFrameCallback()
         .applyTempEventPatches()
+        .applyReadyStatePatches()
         .patchQuerySelectors()
         // FormData
         .replace(
