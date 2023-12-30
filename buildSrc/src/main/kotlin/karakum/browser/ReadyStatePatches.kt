@@ -26,6 +26,10 @@ private val CORRECTION_MAP = listOf(
     StateCorrection("Node", "nodeType", existedAliasName = NODE_TYPE),
     StateCorrection("KeyboardEvent", "location", existedAliasName = KEY_LOCATION),
     StateCorrection("WheelEvent", "deltaMode", existedAliasName = DELTA_MODE),
+
+    StateCorrection("SVGAngle", "unitType", "unitType"),
+    StateCorrection("SVGLength", "unitType", "unitType"),
+    StateCorrection("SVGTransform", "type"),
 )
 
 private val ALIAS_NAME_MAP = CORRECTION_MAP.asSequence()
