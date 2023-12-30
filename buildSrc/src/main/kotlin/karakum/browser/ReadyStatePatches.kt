@@ -1,5 +1,7 @@
 package karakum.browser
 
+internal const val NODE_TYPE = "NodeType"
+
 private val CORRECTION_MAP = listOf(
     StateCorrection("CSSRule", null),
     StateCorrection("Range", null),
@@ -14,15 +16,14 @@ private val CORRECTION_MAP = listOf(
     StateCorrection("MediaError", "code"),
 
     // StateCorrection("Event", "eventPhase"),
-    StateCorrection("Node", "nodeType"),
+    StateCorrection("Node", "nodeType", NODE_TYPE),
 )
 
 private val ALIAS_MAP = CORRECTION_MAP.asSequence()
-    .mapNotNull { (className, propertyName) ->
-        if (propertyName != null) {
+    .mapNotNull { (className, propertyName, existedAliasName) ->
+        if (propertyName != null && existedAliasName == null) {
             val aliasName = propertyName
                 .removePrefix("event")
-                .removePrefix("node")
                 .replaceFirstChar(Char::uppercase)
 
             className to aliasName
@@ -38,6 +39,7 @@ internal fun getAdditionalAliasName(
 private data class StateCorrection(
     val className: String,
     val propertyName: String?,
+    val existedAliasName: String? = null,
 )
 
 internal fun String.applyReadyStatePatches(): String =
@@ -62,7 +64,9 @@ private fun applyCorrection(
 ): String {
     val propertyName = correction.propertyName
     return if (propertyName != null) {
-        val aliasName = ALIAS_MAP.getValue(correction.className)
+        val aliasName = correction.existedAliasName
+            ?: ALIAS_MAP.getValue(correction.className)
+
         source.replace("readonly $propertyName: number;", "readonly $propertyName: $aliasName;")
             .replace(CONSTANT_REGEX, "$1$aliasName$2")
     } else {

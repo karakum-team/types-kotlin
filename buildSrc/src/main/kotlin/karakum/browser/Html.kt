@@ -546,18 +546,17 @@ internal fun htmlDeclarations(
             )
         )
         .plus(
-            ConversionResult(
-                name = VIDEO_FRAME_REQUEST_ID,
-                body = "sealed external interface $VIDEO_FRAME_REQUEST_ID",
-                pkg = "web.html",
-            )
-        )
-        .plus(
-            ConversionResult(
-                name = GEOLOCATION_WATCH_ID,
-                body = "sealed external interface $GEOLOCATION_WATCH_ID",
-                pkg = "web.geolocation",
-            )
+            sequenceOf(
+                "web.dom" to "NodeType",
+                "web.html" to VIDEO_FRAME_REQUEST_ID,
+                "web.geolocation" to GEOLOCATION_WATCH_ID,
+            ).map { (pkg, name) ->
+                ConversionResult(
+                    name = name,
+                    body = "sealed external interface $name",
+                    pkg = pkg,
+                )
+            }
         )
         .plus(
             ConversionResult(
