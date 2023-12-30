@@ -547,7 +547,8 @@ internal fun htmlDeclarations(
         )
         .plus(
             sequenceOf(
-                "web.dom" to "NodeType",
+                "web.dom" to NODE_TYPE,
+                "web.events" to EVENT_PHASE,
                 "web.html" to VIDEO_FRAME_REQUEST_ID,
                 "web.geolocation" to GEOLOCATION_WATCH_ID,
             ).map { (pkg, name) ->

@@ -1,5 +1,6 @@
 package karakum.browser
 
+internal const val EVENT_PHASE = "EventPhase"
 internal const val NODE_TYPE = "NodeType"
 
 private val CORRECTION_MAP = listOf(
@@ -15,7 +16,7 @@ private val CORRECTION_MAP = listOf(
     StateCorrection("GeolocationPositionError", "code"),
     StateCorrection("MediaError", "code"),
 
-    // StateCorrection("Event", "eventPhase"),
+    StateCorrection("Event", "eventPhase", EVENT_PHASE),
     StateCorrection("Node", "nodeType", NODE_TYPE),
 )
 
