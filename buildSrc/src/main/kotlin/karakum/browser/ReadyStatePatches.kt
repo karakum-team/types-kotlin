@@ -30,6 +30,9 @@ private val CORRECTION_MAP = listOf(
     StateCorrection("SVGAngle", "unitType", "unitType"),
     StateCorrection("SVGLength", "unitType", "unitType"),
     StateCorrection("SVGTransform", "type"),
+
+    StateCorrection("SVGPreserveAspectRatio", "align", constantPrefix = "SVG_PRESERVEASPECTRATIO_"),
+    StateCorrection("SVGPreserveAspectRatio", "meetOrSlice", constantPrefix = "SVG_MEETORSLICE_"),
 )
 
 private val ALIAS_NAME_MAP = CORRECTION_MAP.asSequence()
