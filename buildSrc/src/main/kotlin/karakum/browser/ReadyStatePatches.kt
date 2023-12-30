@@ -23,9 +23,7 @@ private val CORRECTION_MAP = listOf(
 private val ALIAS_MAP = CORRECTION_MAP.asSequence()
     .mapNotNull { (className, propertyName, existedAliasName) ->
         if (propertyName != null && existedAliasName == null) {
-            val aliasName = propertyName
-                .removePrefix("event")
-                .replaceFirstChar(Char::uppercase)
+            val aliasName = propertyName.replaceFirstChar(Char::uppercase)
 
             className to aliasName
         } else null
