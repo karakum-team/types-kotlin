@@ -9,6 +9,8 @@ private val CORRECTION_MAP = listOf(
 
     StateCorrection("FileReader", "readyState"),
     StateCorrection("HTMLTrackElement", "readyState"),
+    StateCorrection("HTMLMediaElement", "networkState", constantPrefix = "NETWORK_"),
+    StateCorrection("HTMLMediaElement", "readyState", constantPrefix = "HAVE_"),
     StateCorrection("WebSocket", "readyState"),
     StateCorrection("EventSource", "readyState"),
     StateCorrection("XMLHttpRequest", "readyState"),
@@ -16,29 +18,36 @@ private val CORRECTION_MAP = listOf(
     StateCorrection("GeolocationPositionError", "code"),
     StateCorrection("MediaError", "code"),
 
-    StateCorrection("Event", "eventPhase", EVENT_PHASE),
-    StateCorrection("Node", "nodeType", NODE_TYPE),
+    StateCorrection("Event", "eventPhase", existedAliasName = EVENT_PHASE),
+    StateCorrection("Node", "nodeType", existedAliasName = NODE_TYPE),
 )
 
-private val ALIAS_MAP = CORRECTION_MAP.asSequence()
-    .mapNotNull { (className, propertyName, existedAliasName) ->
+private val ALIAS_NAME_MAP = CORRECTION_MAP.asSequence()
+    .mapNotNull { correction ->
+        val (_, propertyName, existedAliasName) = correction
         if (propertyName != null && existedAliasName == null) {
             val aliasName = propertyName.replaceFirstChar(Char::uppercase)
 
-            className to aliasName
+            correction to aliasName
         } else null
     }
     .toMap()
 
-internal fun getAdditionalAliasName(
+private val ALIASES_MAP = ALIAS_NAME_MAP.entries.groupBy(
+    keySelector = { it.key.className },
+    valueTransform = { it.value },
+)
+
+internal fun getAdditionalAliasNames(
     name: String,
-): String? =
-    ALIAS_MAP[name]
+): List<String>? =
+    ALIASES_MAP[name]
 
 private data class StateCorrection(
     val className: String,
     val propertyName: String?,
     val existedAliasName: String? = null,
+    val constantPrefix: String = "",
 )
 
 internal fun String.applyReadyStatePatches(): String =
@@ -55,7 +64,10 @@ internal fun String.applyReadyStatePatches(): String =
             }
     }
 
-private val CONSTANT_REGEX = Regex("""(\n\s+readonly [A-Z_]+: )[\dx]+(;)""")
+private fun constantRegex(
+    prefix: String = "",
+): Regex =
+    Regex("""(\n\s+readonly $prefix[A-Z_]+: )[\dx]+(;)""")
 
 private fun applyCorrection(
     source: String,
@@ -64,11 +76,11 @@ private fun applyCorrection(
     val propertyName = correction.propertyName
     return if (propertyName != null) {
         val aliasName = correction.existedAliasName
-            ?: ALIAS_MAP.getValue(correction.className)
+            ?: ALIAS_NAME_MAP.getValue(correction)
 
         source.replace("readonly $propertyName: number;", "readonly $propertyName: $aliasName;")
-            .replace(CONSTANT_REGEX, "$1$aliasName$2")
+            .replace(constantRegex(correction.constantPrefix), "$1$aliasName$2")
     } else {
-        source.replace(CONSTANT_REGEX, "")
+        source.replace(constantRegex(), "")
     }
 }
