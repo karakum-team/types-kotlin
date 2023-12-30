@@ -93,6 +93,7 @@ private fun applyCorrection(
 
         var result = source
             .replace("readonly $propertyName: number;", "readonly $propertyName: $aliasName;")
+            .replace("    $propertyName: number;", "    $propertyName: $aliasName;")
             .replace("    $propertyName?: number;", "    $propertyName?: $aliasName;")
             .replace(constantRegex(correction.constantPrefix), "$1$aliasName$2")
 
