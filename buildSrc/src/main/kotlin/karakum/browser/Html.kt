@@ -1707,7 +1707,7 @@ private fun convertProperty(
         -> "HTMLCollectionOf<HTMLElement /* HTMLAnchorElement | HTMLAreaElement */>"
 
         "typeof FileReader.EMPTY | typeof FileReader.LOADING | typeof FileReader.DONE",
-        -> "Short"
+        -> "ReadyState"
 
         else -> when {
             type.startsWith("0x") -> "Short"
