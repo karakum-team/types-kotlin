@@ -18,6 +18,8 @@ private val CORRECTION_MAP = listOf(
     StateCorrection("GeolocationPositionError", "code"),
     StateCorrection("MediaError", "code"),
 
+    StateCorrection("XPathResult", "resultType"),
+
     StateCorrection("Event", "eventPhase", existedAliasName = EVENT_PHASE),
     StateCorrection("Node", "nodeType", existedAliasName = NODE_TYPE),
 )
