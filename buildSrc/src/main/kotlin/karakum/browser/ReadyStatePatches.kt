@@ -9,6 +9,9 @@ private val CORRECTION_MAP = listOf(
     StateCorrection("WebSocket", "readyState"),
     StateCorrection("EventSource", "readyState"),
     StateCorrection("XMLHttpRequest", "readyState"),
+
+    StateCorrection("GeolocationPositionError", "code"),
+    StateCorrection("MediaError", "code"),
 )
 
 private val ALIAS_MAP = CORRECTION_MAP.asSequence()
