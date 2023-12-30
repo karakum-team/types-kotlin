@@ -6,8 +6,22 @@ private val ABORT_SIGNAL_ANY = """
     any(values: AbortSignal[]): AbortSignal;
 """.trimEnd()
 
-internal fun String.applyPatches(): String =
-    patchVideoFrameCallback()
+private val SVG_ANIMATED_ENUMERATION_BEFORE = """
+interface SVGAnimatedEnumeration {
+    readonly animVal: number;
+    baseVal: number;
+}
+""".trimIndent()
+
+private val SVG_ANIMATED_ENUMERATION_AFTER = """
+interface SVGAnimatedEnumeration<T> {
+    readonly animVal: T;
+    baseVal: T;
+}
+""".trimIndent()
+
+internal fun String.applyPatches(): String {
+    return patchVideoFrameCallback()
         .applyTempEventPatches()
         .applyReadyStatePatches()
         .patchQuerySelectors()
@@ -146,7 +160,9 @@ internal fun String.applyPatches(): String =
             "crossOrigin: string",
             "crossOrigin: CrossOrigin",
         )
+        .replace(SVG_ANIMATED_ENUMERATION_BEFORE, SVG_ANIMATED_ENUMERATION_AFTER)
         .applyInlineUnionPatches()
+}
 
 private val DOM_GEOMETRY_ALIASES = listOf(
     "DOMPointInit" to "DOMPointReadOnly",

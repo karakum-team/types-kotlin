@@ -1679,6 +1679,10 @@ private fun convertProperty(
         -> "BufferSource /* | String */"
 
         // TEMP
+        "SVGAnimatedEnumeration",
+        -> "SVGAnimatedEnumeration<Short>"
+
+        // TEMP
         "DateTimeFormatPartTypes",
         -> "String /* $type */"
 
