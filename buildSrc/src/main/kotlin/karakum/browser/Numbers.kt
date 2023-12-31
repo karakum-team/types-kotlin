@@ -4,6 +4,9 @@ private val FLAG_NAMES = setOf(
     // mouse event
     "button",
     "buttons",
+
+    // sockets
+    "code",
 )
 
 private val LONG_NAMES = setOf(
@@ -88,8 +91,6 @@ private val INT_NAMES = setOf(
 
     "charIndex",
     "charLength",
-
-    "code",
 
     // RTC
     "errorCode",
