@@ -1,24 +1,24 @@
 package karakum.browser
 
 private val TYPES = listOf(
-    "GLbitfield",
-    "GLboolean",
-    "GLclampf",
-    "GLenum",
-    "GLfloat",
-    "GLint",
-    "GLint64",
-    "GLintptr",
-    "GLsizei",
-    "GLsizeiptr",
-    "GLuint",
-    "GLuint64",
+    "GLbitfield" to "Number",
+    "GLboolean" to "Boolean",
+    "GLclampf" to "Number",
+    "GLenum" to "Short",
+    "GLfloat" to "Number",
+    "GLint" to "Number",
+    "GLint64" to "Number",
+    "GLintptr" to "Number",
+    "GLsizei" to "Number",
+    "GLsizeiptr" to "Number",
+    "GLuint" to "Number",
+    "GLuint64" to "Number",
 )
 
 internal fun GLNumbers(): ConversionResult =
     ConversionResult(
-        name = "Numbers",
-        body = TYPES.joinToString("\n") { type ->
-            "typealias $type = Number"
+        name = "Aliases",
+        body = TYPES.joinToString("\n") { (type, alias) ->
+            "typealias $type = $alias"
         },
     )
