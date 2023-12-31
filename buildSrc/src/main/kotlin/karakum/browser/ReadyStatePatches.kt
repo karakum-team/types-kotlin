@@ -52,6 +52,8 @@ private val CORRECTION_MAP = listOf(
 
     StateCorrection("SVGTextPathElement", "method", constantPrefix = "TEXTPATH_METHODTYPE_"),
     StateCorrection("SVGTextPathElement", "spacing", constantPrefix = "TEXTPATH_SPACINGTYPE_"),
+
+    StateCorrection("SVGUnitTypes", "type"),
 )
 
 private val ALIAS_NAME_MAP = CORRECTION_MAP.asSequence()
@@ -97,6 +99,7 @@ internal fun String.applyReadyStatePatches(): String =
                 localAcc.replace(before, applyCorrection(before, correction))
             }
     }
+        .replace("Units: SVGAnimatedEnumeration;\n", "Units: SVGAnimatedEnumeration<SVGUnitTypes.Type>;\n")
 
 private fun constantRegex(
     prefix: String = "",
