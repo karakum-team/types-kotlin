@@ -37,8 +37,9 @@ private val CORRECTION_MAP = listOf(
     StateCorrection("SVGComponentTransferFunctionElement", "type"),
     StateCorrection("SVGFEBlendElement", "mode"),
     StateCorrection("SVGFEColorMatrixElement", "mode"),
-    // StateCorrection("SVGFECompositeElement", "operator"),
     StateCorrection("SVGFEConvolveMatrixElement", "edgeMode"),
+    // Magic line switch
+    StateCorrection("SVGFECompositeElement", "operator"),
     StateCorrection("SVGFEDisplacementMapElement", "xChannelSelector"),
     StateCorrection("SVGFEDisplacementMapElement", "yChannelSelector"),
     StateCorrection("SVGFEMorphologyElement", "operator"),
@@ -49,6 +50,9 @@ private val CORRECTION_MAP = listOf(
     StateCorrection("SVGMarkerElement", "markerUnits", constantPrefix = "SVG_MARKERUNITS_"),
     StateCorrection("SVGMarkerElement", "orientType", constantPrefix = "SVG_MARKER_ORIENT_"),
     StateCorrection("SVGTextContentElement", "lengthAdjust"),
+
+    StateCorrection("SVGTextPathElement", "method", constantPrefix = "TEXTPATH_METHODTYPE_"),
+    StateCorrection("SVGTextPathElement", "spacing", constantPrefix = "TEXTPATH_SPACINGTYPE_"),
 )
 
 private val ALIAS_NAME_MAP = CORRECTION_MAP.asSequence()
