@@ -1,25 +1,9 @@
 package karakum.browser
 
 private val FLAG_NAMES = setOf(
-    "eventPhase",
-
-    "networkState",
-    "readyState",
-
-    "nodeType",
-    "resultType",
-    "unitType",
-    "type",
-
-    "align",
-    "meetOrSlice",
-
     // mouse event
     "button",
     "buttons",
-
-    "location",
-    "deltaMode",
 )
 
 private val LONG_NAMES = setOf(
