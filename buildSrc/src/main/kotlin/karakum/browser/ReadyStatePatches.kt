@@ -39,6 +39,8 @@ private val CORRECTION_MAP = listOf(
     StateCorrection("SVGFEColorMatrixElement", "mode"),
     // StateCorrection("SVGFECompositeElement", "operator"),
     StateCorrection("SVGFEConvolveMatrixElement", "edgeMode"),
+    StateCorrection("SVGFEDisplacementMapElement", "xChannelSelector"),
+    StateCorrection("SVGFEDisplacementMapElement", "yChannelSelector"),
     StateCorrection("SVGFEMorphologyElement", "operator"),
 )
 
@@ -46,7 +48,9 @@ private val ALIAS_NAME_MAP = CORRECTION_MAP.asSequence()
     .mapNotNull { correction ->
         val (_, propertyName, _, existedAliasName) = correction
         if (propertyName != null && existedAliasName == null) {
-            val aliasName = propertyName.replaceFirstChar(Char::uppercase)
+            val aliasName = if (propertyName.endsWith("ChannelSelector")) {
+                "ChannelSelector"
+            } else propertyName.replaceFirstChar(Char::uppercase)
 
             correction to aliasName
         } else null
@@ -61,7 +65,7 @@ private val ALIASES_MAP = ALIAS_NAME_MAP.entries.groupBy(
 internal fun getAdditionalAliasNames(
     name: String,
 ): List<String>? =
-    ALIASES_MAP[name]
+    ALIASES_MAP[name]?.distinct()
 
 private data class StateCorrection(
     val className: String,
