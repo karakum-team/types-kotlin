@@ -36,10 +36,9 @@ private val CORRECTION_MAP = listOf(
 
     StateCorrection("SVGComponentTransferFunctionElement", "type"),
     StateCorrection("SVGFEBlendElement", "mode"),
-    StateCorrection("SVGFEColorMatrixElement", "mode"),
-    StateCorrection("SVGFEConvolveMatrixElement", "edgeMode"),
-    // Magic line switch
+    StateCorrection("SVGFEColorMatrixElement", "type"),
     StateCorrection("SVGFECompositeElement", "operator"),
+    StateCorrection("SVGFEConvolveMatrixElement", "edgeMode"),
     StateCorrection("SVGFEDisplacementMapElement", "xChannelSelector"),
     StateCorrection("SVGFEDisplacementMapElement", "yChannelSelector"),
     StateCorrection("SVGFEMorphologyElement", "operator"),
@@ -93,7 +92,7 @@ internal fun String.applyReadyStatePatches(): String =
         sequenceOf("\ninterface $className ")
             .plus("\ndeclare var $className: ")
             .plus(if (className.endsWith("Event")) sequenceOf("\ninterface ${className}Init ") else emptySequence())
-            .map { prefix -> prefix + acc.substringAfter(prefix).substringBefore("\n}\n") }
+            .map { prefix -> prefix + acc.substringAfter(prefix).substringBefore("\n}\n").substringBefore("\n};\n") }
             .fold(acc) { localAcc, before ->
                 localAcc.replace(before, applyCorrection(before, correction))
             }
