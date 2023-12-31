@@ -42,6 +42,13 @@ private val CORRECTION_MAP = listOf(
     StateCorrection("SVGFEDisplacementMapElement", "xChannelSelector"),
     StateCorrection("SVGFEDisplacementMapElement", "yChannelSelector"),
     StateCorrection("SVGFEMorphologyElement", "operator"),
+
+    StateCorrection("SVGFETurbulenceElement", "stitchTiles", constantPrefix = "SVG_STITCHTYPE_"),
+    StateCorrection("SVGFETurbulenceElement", "type", constantPrefix = "SVG_TURBULENCE_TYPE_"),
+    StateCorrection("SVGGradientElement", "spreadMethod"),
+    StateCorrection("SVGMarkerElement", "markerUnits", constantPrefix = "SVG_MARKERUNITS_"),
+    StateCorrection("SVGMarkerElement", "orientType", constantPrefix = "SVG_MARKER_ORIENT_"),
+    StateCorrection("SVGTextContentElement", "lengthAdjust"),
 )
 
 private val ALIAS_NAME_MAP = CORRECTION_MAP.asSequence()
