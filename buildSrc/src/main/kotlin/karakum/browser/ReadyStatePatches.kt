@@ -33,6 +33,13 @@ private val CORRECTION_MAP = listOf(
 
     StateCorrection("SVGPreserveAspectRatio", "align", constantPrefix = "SVG_PRESERVEASPECTRATIO_"),
     StateCorrection("SVGPreserveAspectRatio", "meetOrSlice", constantPrefix = "SVG_MEETORSLICE_"),
+
+    StateCorrection("SVGComponentTransferFunctionElement", "type"),
+    StateCorrection("SVGFEBlendElement", "mode"),
+    StateCorrection("SVGFEColorMatrixElement", "mode"),
+    // StateCorrection("SVGFECompositeElement", "operator"),
+    StateCorrection("SVGFEConvolveMatrixElement", "edgeMode"),
+    StateCorrection("SVGFEMorphologyElement", "operator"),
 )
 
 private val ALIAS_NAME_MAP = CORRECTION_MAP.asSequence()
@@ -93,6 +100,10 @@ private fun applyCorrection(
 
         var result = source
             .replace("readonly $propertyName: number;", "readonly $propertyName: $aliasName;")
+            .replace(
+                "readonly $propertyName: SVGAnimatedEnumeration;",
+                "readonly $propertyName: SVGAnimatedEnumeration<$aliasName>;"
+            )
             .replace("    $propertyName: number;", "    $propertyName: $aliasName;")
             .replace("    $propertyName?: number;", "    $propertyName?: $aliasName;")
             .replace(constantRegex(correction.constantPrefix), "$1$aliasName$2")
