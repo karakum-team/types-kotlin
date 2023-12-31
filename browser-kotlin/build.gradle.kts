@@ -14,6 +14,7 @@ kotlin {
 dependencies {
     jsMainImplementation(npmv("@types/web"))
     jsMainImplementation(npmv("@types/serviceworker"))
+    jsMainImplementation(npmv("@types/audioworklet"))
     jsMainImplementation(npmv("typescript"))
     jsMainImplementation(npmv("@webref/idl"))
 

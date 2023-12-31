@@ -330,6 +330,11 @@
   resolved "https://registry.yarnpkg.com/@tweenjs/tween.js/-/tween.js-21.0.0.tgz#73f993c2d1de37b78b4c1246163e20bc6ae3b75e"
   integrity sha512-qVfOiFh0U8ZSkLgA6tf7kj2MciqRbSCWaJZRwftVO7UbtVDNsZAXpWXqvCDtIefvjC83UJB+vHTDOGm5ibXjEA==
 
+"@types/audioworklet@0.0.53":
+  version "0.0.53"
+  resolved "https://registry.yarnpkg.com/@types/audioworklet/-/audioworklet-0.0.53.tgz#ff558f809e7d52ad62b5ec675812b3e40917dbbb"
+  integrity sha512-glsfnbwNb3Iom3Qkvd8c8Aj4N0X+UVVGuCK/X8Qci1hfV+gsY8C72ud6ScJfJYE3g1GYY2Jq3kihjXo5WuH6qw==
+
 "@types/node-fetch@^2.5.0":
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.6.9.tgz#15f529d247f1ede1824f7e7acdaa192d5f28071e"
