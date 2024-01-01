@@ -1142,6 +1142,9 @@ internal fun convertInterface(
     ).filter { it.isNotEmpty() }
         .joinToString("\n")
 
+    if (memberSource == "new (options: any): AudioWorkletProcessorImpl")
+        body = "typealias $name = JsClass<out AudioWorkletProcessorImpl>"
+
     when (name) {
         "MediaList",
         -> body = body.applyMediaListPatch()
