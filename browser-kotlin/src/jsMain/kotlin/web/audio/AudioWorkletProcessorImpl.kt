@@ -10,7 +10,7 @@ import js.core.ReadonlyArray
 import js.core.Record
 import js.typedarrays.Float32Array
 
-sealed external interface AudioWorkletProcessorImpl :
+external interface AudioWorkletProcessorImpl :
     AudioWorkletProcessor {
     fun process(
         inputs: ReadonlyArray<ReadonlyArray<Float32Array>>,

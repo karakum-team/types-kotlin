@@ -7,7 +7,7 @@ import web.messaging.MessagePort
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioWorkletProcessor)
  */
-sealed external class AudioWorkletProcessor {
+abstract external class AudioWorkletProcessor {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioWorkletProcessor/port)
      */
