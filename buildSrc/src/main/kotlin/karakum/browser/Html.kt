@@ -1066,6 +1066,7 @@ internal fun convertInterface(
 
                 name == "XPathEvaluator" ||
 
+                name == "AudioWorkletProcessorImpl" ||
                 name == "AbstractWorker" ||
                 name == "FontFaceSource" ||
                 name == "XPathEvaluatorBase" ||
@@ -1084,7 +1085,8 @@ internal fun convertInterface(
                 name == "NodeList" ||
                 name == "WorkerGlobalScope" ||
                 name == "Worklet" ||
-                name == "WorkletGlobalScope"
+                name == "WorkletGlobalScope" ||
+                name == "AudioWorkletProcessor"
         -> "abstract"
 
         else -> "sealed"
