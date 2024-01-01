@@ -35,6 +35,7 @@ val findMissedTypes by tasks.creating {
         val declaredInterfaces = sequenceOf(
             "@types/web",
             "@types/serviceworker",
+            "@types/audioworklet",
         ).map { nodeModules.resolve("$it/index.d.ts") }
             .map { it.readText() }
             .plus(karakum.browser.WEB_WORKER_CONTENT)
