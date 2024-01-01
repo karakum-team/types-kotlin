@@ -11,6 +11,7 @@ tasks.named("generateDeclarations") {
         val definitionsDir = nodeModules.resolve("typescript/lib")
         val webDefinitionsDir = nodeModules.resolve("@types/web")
         val serviceworkerDefinitionsDir = nodeModules.resolve("@types/serviceworker")
+        val audioWorkletDefinitionsDir = nodeModules.resolve("@types/audioworklet")
 
         karakum.browser.generateKotlinDeclarations(
             definitionsDir = definitionsDir,
@@ -18,6 +19,7 @@ tasks.named("generateDeclarations") {
             webIterableDefinitionsFile = webDefinitionsDir.resolve("iterable.d.ts"),
             serviceworkerDefinitionsFile = serviceworkerDefinitionsDir.resolve("index.d.ts"),
             serviceworkerIterableDefinitionsFile = serviceworkerDefinitionsDir.resolve("iterable.d.ts"),
+            audioWorkletDefinitionsFile = audioWorkletDefinitionsDir.resolve("index.d.ts"),
             sourceDir = sourceDir,
         )
     }

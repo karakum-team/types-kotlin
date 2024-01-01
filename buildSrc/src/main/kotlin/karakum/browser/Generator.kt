@@ -216,6 +216,7 @@ fun generateKotlinDeclarations(
     webIterableDefinitionsFile: File,
     serviceworkerDefinitionsFile: File,
     serviceworkerIterableDefinitionsFile: File,
+    audioWorkletDefinitionsFile: File,
     sourceDir: File,
 ) {
     domExceptionErrorNames()
@@ -295,6 +296,7 @@ fun generateKotlinDeclarations(
         .plus(webAssemblyDeclarations(content))
         .plus(webWorkersDeclarations())
         .plus(serviceWorkersDeclarations(serviceworkerDefinitionsFile))
+        .plus(audioWorkletDeclarations(audioWorkletDefinitionsFile))
 
     for ((name, body, pkg) in aliases) {
         pkg!!

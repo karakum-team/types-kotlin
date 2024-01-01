@@ -292,17 +292,11 @@ private val WEB_AUDIO_TYPES = listOf(
     "PeriodicWave",
     "StereoPannerNode",
     "WaveShaperNode",
-
-    "AudioWorkletGlobalScope",
-    "AudioWorkletProcessor",
-    "AudioWorkletProcessorConstructor",
-    "AudioWorkletProcessorImpl",
 )
 
 private val WORKLETS_TYPES = listOf(
     "Worklet",
     "WorkletOptions",
-    "WorkletGlobalScope"
 )
 
 private val WORKERS_TYPES = listOf(
