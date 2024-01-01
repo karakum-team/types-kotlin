@@ -10,7 +10,7 @@ private val WEB_AUDIO_TYPES = listOf(
 )
 
 private val WORKLETS_TYPES = listOf(
-    "WorkletGlobalScope"
+    "WorkletGlobalScope",
 )
 
 internal fun audioWorkletDeclarations(

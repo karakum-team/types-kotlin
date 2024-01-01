@@ -1083,7 +1083,8 @@ internal fun convertInterface(
         name == "Element" ||
                 name == "NodeList" ||
                 name == "WorkerGlobalScope" ||
-                name == "Worklet"
+                name == "Worklet" ||
+                name == "WorkletGlobalScope"
         -> "abstract"
 
         else -> "sealed"
@@ -1954,6 +1955,13 @@ private fun convertFunctionParameters(
             "transformer: Transformer<I, O> = definedExternally",
             "writableStrategy: QueuingStrategy<I> = definedExternally",
             "readableStrategy: QueuingStrategy<O> = definedExternally",
+        )
+
+        "inputs: Float32Array[][], outputs: Float32Array[][], parameters: Record<string, Float32Array>",
+        -> listOf(
+            "inputs: ReadonlyArray<ReadonlyArray<Float32Array>>",
+            "outputs: ReadonlyArray<ReadonlyArray<Float32Array>>",
+            "parameters: Record<String, Float32Array>",
         )
 
         "action: (item: AudioParam) => void",

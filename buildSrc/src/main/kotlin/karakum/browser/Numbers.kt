@@ -29,6 +29,9 @@ private val LONG_NAMES = setOf(
     "encodeQueueSize",
     "timestamp",
     "stride",
+
+    // Audio
+    "currentFrame",
 )
 
 private val INT_NAMES = setOf(
