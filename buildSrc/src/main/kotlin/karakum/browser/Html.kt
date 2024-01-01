@@ -292,6 +292,17 @@ private val WEB_AUDIO_TYPES = listOf(
     "PeriodicWave",
     "StereoPannerNode",
     "WaveShaperNode",
+
+    "AudioWorkletGlobalScope",
+    "AudioWorkletProcessor",
+    "AudioWorkletProcessorConstructor",
+    "AudioWorkletProcessorImpl",
+)
+
+private val WORKLETS_TYPES = listOf(
+    "Worklet",
+    "WorkletOptions",
+    "WorkletGlobalScope"
 )
 
 private val WORKERS_TYPES = listOf(
@@ -1250,7 +1261,7 @@ internal fun convertInterface(
 
         name in MEDIA_SOURCE_TYPES -> "web.media.source"
 
-        name.startsWith("Worklet") -> "web.worklets"
+        name in WORKLETS_TYPES -> "web.worklets"
         name in WORKERS_TYPES -> "web.workers"
 
         name.startsWith("Notification") -> "web.notifications"
