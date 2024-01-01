@@ -18,7 +18,7 @@ internal fun audioWorkletDeclarations(
 ): Sequence<ConversionResult> {
     val content = definitionsFile.readText()
 
-    return Regex("""interface .+? \{[\s\S]+?\n}""")
+    return Regex("""interface .+? \{[\s\S]*?\n}""")
         .findAll(content)
         .map { it.value }
         .mapNotNull { source ->
