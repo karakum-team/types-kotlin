@@ -63,6 +63,11 @@ internal class Constructor(
         val optionsType = "$type.$CONSTRUCTOR_OPTIONS"
         val params = parameters.dropLast(1)
             .joinToString("") { it.toCode() + ",\n" }
+            // split?
+            .replace(
+                "imageryProvider: ImageryProvider? = definedExternally",
+                "imageryProvider: ImageryProvider",
+            )
         val args = parameters.joinToString(", ") {
             var result = it.name
             if (result == "options")
