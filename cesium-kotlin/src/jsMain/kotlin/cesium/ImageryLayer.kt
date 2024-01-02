@@ -19,7 +19,7 @@ import js.promise.Promise
  * // Add an OpenStreetMaps layer
  * const imageryLayer = new ImageryLayer(new OpenStreetMapImageryProvider({
  *   url: "https://tile.openstreetmap.org/"
- * })),
+ * }));
  * scene.imageryLayers.add(imageryLayer);
  * ```
  * ```
@@ -41,8 +41,8 @@ import js.promise.Promise
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ImageryLayer.html">Online Documentation</a>
  */
 external class ImageryLayer(
-    val imageryProvider: ImageryProvider,
-    options: ConstructorOptions,
+    val imageryProvider: ImageryProvider = definedExternally,
+    options: ConstructorOptions? = definedExternally,
 ) {
     /**
      * The alpha blending value of this layer, with 0.0 representing fully transparent and
@@ -505,7 +505,7 @@ typealias ImageryLayerErrorEventCallback = (err: Error) -> Unit
 typealias ImageryLayerReadyEventCallback = (provider: ImageryProvider) -> Unit
 
 inline fun ImageryLayer(
-    imageryProvider: ImageryProvider,
+    imageryProvider: ImageryProvider? = definedExternally,
     block: ImageryLayer.ConstructorOptions.() -> Unit,
 ): ImageryLayer =
     ImageryLayer(imageryProvider, options = jso(block))
