@@ -1059,13 +1059,7 @@ internal fun convertInterface(
         -> "open"
 
         name == "BlobPropertyBag" ||
-                name == "FileReaderSync" ||
-
                 name in CSSOM_INTERFACES ||
-                name in DOM_PARSING_TYPES ||
-
-                name == "XPathEvaluator" ||
-
                 name == "AudioWorkletProcessorImpl" ||
                 name == "AbstractWorker" ||
                 name == "FontFaceSource" ||
@@ -1077,6 +1071,7 @@ internal fun convertInterface(
                 name == "Slottable" ||
                 name == "StructuredSerializeOptions" ||
                 name.endsWith("Handlers") ||
+
                 mainConstructor.isNotEmpty() ||
                 IDLRegistry.hasEmptyConstructor(name) ||
                 hasTypeGuard
