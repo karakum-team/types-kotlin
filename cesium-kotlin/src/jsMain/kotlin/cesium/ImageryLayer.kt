@@ -505,7 +505,7 @@ typealias ImageryLayerErrorEventCallback = (err: Error) -> Unit
 typealias ImageryLayerReadyEventCallback = (provider: ImageryProvider) -> Unit
 
 inline fun ImageryLayer(
-    imageryProvider: ImageryProvider? = definedExternally,
+    imageryProvider: ImageryProvider,
     block: ImageryLayer.ConstructorOptions.() -> Unit,
 ): ImageryLayer =
     ImageryLayer(imageryProvider, options = jso(block))
