@@ -5,21 +5,37 @@ import java.io.File
 object IDLRegistry {
     lateinit var rootDirectory: File
 
-    private val typesWithEmptyConstructors: Set<String> by lazy {
+    private val idlData: List<String> by lazy {
         rootDirectory
             .listFiles { file -> file.extension == "idl" }!!
-            .asSequence()
-            .flatMap { file ->
-                file.readText()
+            .map { it.readText() }
+    }
+
+    private fun hasContent(
+        memberContent: String,
+    ): Set<String> =
+        idlData.asSequence()
+            .flatMap { content ->
+                content
                     .splitToSequence("\ninterface ")
                     .drop(1)
                     .map { it.substringBefore("\n};") }
-                    .filter { "constructor();" in it }
+                    .filter { memberContent in it }
                     .map { it.substringBefore(" ") }
             }
             .toSet()
+
+    private val typesWithEmptyConstructors: Set<String> by lazy {
+        hasContent("  constructor();")
+    }
+
+    private val typesWithHtmlConstructors: Set<String> by lazy {
+        hasContent("[HTMLConstructor] constructor();")
     }
 
     fun hasEmptyConstructor(type: String): Boolean =
         type in typesWithEmptyConstructors
+
+    fun hasHtmlConstructor(type: String): Boolean =
+        type in typesWithHtmlConstructors
 }

@@ -1053,10 +1053,14 @@ internal fun convertInterface(
                 name == XSLT_PROCESSOR ||
 
                 name == "Document" ||
-                name == "DocumentFragment" ||
-
-                isHtmlElementClass
+                name == "DocumentFragment"
         -> "open"
+
+        isHtmlElementClass
+        -> when {
+            IDLRegistry.hasHtmlConstructor(name) -> "open"
+            else -> "sealed"
+        }
 
         name == "BlobPropertyBag" ||
                 name in CSSOM_INTERFACES ||
