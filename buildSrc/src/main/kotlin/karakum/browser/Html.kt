@@ -1078,6 +1078,7 @@ internal fun convertInterface(
                 name == "StructuredSerializeOptions" ||
                 name.endsWith("Handlers") ||
                 mainConstructor.isNotEmpty() ||
+                IDLRegistry.hasEmptyConstructor(name) ||
                 hasTypeGuard
         -> ""
 

@@ -212,6 +212,7 @@ private val DEFAULT_IMPORTS = Imports(
 )
 
 fun generateKotlinDeclarations(
+    idlDir: File,
     definitionsDir: File,
     webDefinitionsFile: File,
     webIterableDefinitionsFile: File,
@@ -220,7 +221,7 @@ fun generateKotlinDeclarations(
     audioWorkletDefinitionsFile: File,
     sourceDir: File,
 ) {
-    domExceptionErrorNames()
+    IDLRegistry.rootDirectory = idlDir
 
     IterableRegistry.fill(
         definitionsDir,
