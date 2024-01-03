@@ -1,10 +1,6 @@
 package karakum.browser
 
 private val FLAG_NAMES = setOf(
-    // mouse event
-    "button",
-    "buttons",
-
     // sockets
     "code",
 )
@@ -399,11 +395,14 @@ internal class TypeProvider(
     fun numberType(
         propertyName: String,
     ): String {
+        when (propertyName) {
+            "button" -> return MOUSE_BUTTON
+            "buttons" -> return MOUSE_BUTTONS
+        }
+
         // flags
-        if (propertyName == propertyName.uppercase()
-            || parentType == "SVGAnimatedEnumeration"
-            || propertyName in FLAG_NAMES
-        ) return "Short"
+        if (propertyName in FLAG_NAMES)
+            return "Short"
 
         if (parentType == "HTMLCanvasElement" || parentType == "ImageBitmap" || parentType == "ImageData") {
             when (propertyName) {
