@@ -1051,10 +1051,9 @@ internal fun convertInterface(
                 name == XSLT_PROCESSOR ||
 
                 name == "Document" ||
-                name == "DocumentFragment"
-        -> "open"
+                name == "DocumentFragment" ||
 
-        isHtmlElementClass
+                isHtmlElementClass
         -> "open"
 
         name == "BlobPropertyBag" ||
