@@ -177,7 +177,7 @@ private fun convertType(
                 "Int"
             }
 
-            "DOMHighResTimeStamp" -> {
+            "EpochTimeStamp" -> {
                 require(bodySource == "number")
                 "JsLong"
             }
