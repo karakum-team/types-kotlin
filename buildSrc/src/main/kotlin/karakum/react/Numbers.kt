@@ -226,7 +226,7 @@ internal fun numberType(
     name: String,
 ): String =
     when {
-        name == "timeStamp" -> "js.core.DOMHighResTimeStamp"
+        name == "timeStamp" -> "web.time.DOMHighResTimeStamp"
 
         name in INT_NAMES -> INT
         name in DOUBLE_NAMES -> DOUBLE

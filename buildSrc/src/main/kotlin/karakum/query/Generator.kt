@@ -5,7 +5,7 @@ import karakum.common.Suppress
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
-    "js.core.EpochTimeStamp",
+    "web.time.EpochTimeStamp",
     "js.core.JsTuple2",
     "js.core.JsTuple3",
     "js.core.ReadonlyArray",
