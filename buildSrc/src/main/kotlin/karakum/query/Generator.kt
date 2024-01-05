@@ -10,7 +10,7 @@ private val DEFAULT_IMPORTS = listOf(
     "js.core.JsTuple3",
     "js.core.ReadonlyArray",
     "js.core.Record",
-    "js.core.Symbol",
+    "js.symbol.Symbol",
     "js.core.Void",
 
     "js.promise.Promise",

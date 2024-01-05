@@ -13,7 +13,7 @@ private val DEFAULT_IMPORTS = listOf(
     "js.collections.JsMap",
     "js.core.ReadonlyArray",
     "js.core.ReadonlyRecord",
-    "js.core.Symbol",
+    "js.symbol.Symbol",
     "js.core.JsTuple2",
     "js.core.Void",
 
