@@ -2,9 +2,7 @@
 
 package web.time
 
-import js.core.JsLong
-
 /**
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp)
  */
-typealias DOMHighResTimeStamp = JsLong
+typealias DOMHighResTimeStamp = Double
