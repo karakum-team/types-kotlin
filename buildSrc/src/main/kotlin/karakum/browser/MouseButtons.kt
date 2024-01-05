@@ -37,6 +37,7 @@ internal fun mouseButtonTypes(): Sequence<ConversionResult> {
         ),
         mouseButtonType(
             type = MOUSE_BUTTONS,
+            parentType = "Bitmask<$MOUSE_BUTTONS>",
             constants = MOUSE_BUTTONS_CONSTANTS,
         )
     )
@@ -44,9 +45,10 @@ internal fun mouseButtonTypes(): Sequence<ConversionResult> {
 
 private fun mouseButtonType(
     type: String,
+    parentType: String? = null,
     constants: List<ButtonConstant>,
 ): ConversionResult {
-    val body = unionBodyByConstants(
+    var body = unionBodyByConstants(
         name = type,
         constants = constants.map { constant ->
             UnionConstant(
@@ -62,6 +64,10 @@ private fun mouseButtonType(
             )
         }
     )
+
+    if (parentType != null) {
+        body = body.replaceFirst(type, "$type:\n$parentType")
+    }
 
     return ConversionResult(
         name = type,
