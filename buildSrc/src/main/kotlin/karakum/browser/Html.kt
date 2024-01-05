@@ -878,9 +878,7 @@ internal fun convertInterface(
         mainConstructor = mainConstructor.replace("name: String", "name: JsErrorName")
     }
 
-    val isHtmlElementClass = type == "class" &&
-            name.startsWith("HTML") &&
-            name.endsWith("Element")
+    val isHtmlElementClass = IDLRegistry.hasHtmlConstructor(name)
 
     if (isHtmlElementClass || hasTypeGuard) {
         require(mainConstructor.isEmpty())
@@ -1057,10 +1055,7 @@ internal fun convertInterface(
         -> "open"
 
         isHtmlElementClass
-        -> when {
-            IDLRegistry.hasHtmlConstructor(name) -> "open"
-            else -> "sealed"
-        }
+        -> "open"
 
         name == "BlobPropertyBag" ||
                 name in CSSOM_INTERFACES ||
