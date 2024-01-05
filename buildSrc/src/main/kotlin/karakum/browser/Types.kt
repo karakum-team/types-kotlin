@@ -5,6 +5,9 @@ import karakum.common.sealedUnionBody
 import karakum.common.unionConstant
 
 private val PKG_MAP = mapOf(
+    "DOMHighResTimeStamp" to "web.time",
+    "EpochTimeStamp" to "web.time",
+
     "NavigationTimingType" to "web.performance",
 
     "ColorSpaceConversion" to "web.canvas",
@@ -59,6 +62,7 @@ private val PKG_MAP = mapOf(
     "AttestationConveyancePreference" to "web.authn",
     "AuthenticatorAttachment" to "web.authn",
     "AuthenticatorTransport" to "web.authn",
+    "COSEAlgorithmIdentifier" to "web.authn",
     "PublicKeyCredentialType" to "web.authn",
     "ResidentKeyRequirement" to "web.authn",
     "UserVerificationRequirement" to "web.authn",
@@ -125,6 +129,11 @@ private val EXCLUDED_TYPES = setOf(
     "VideoFacingModeEnum",
 )
 
+private val ALIAS_MAP = mapOf(
+    "string" to "String",
+    "number" to "Double",
+)
+
 internal fun browserTypes(
     content: String,
 ): Sequence<ConversionResult> =
@@ -153,13 +162,44 @@ private fun convertType(
 
     val name = declaration.substringBefore("<")
 
-    if (bodySource == "string") {
+    val aliasType = ALIAS_MAP[bodySource]
+    if (aliasType != null) {
+        // TEMP
+        if (name.startsWith("GL"))
+            return null
+
         val pkg = getPkg(name)
             ?: return null
 
+        val type = when (name) {
+            "COSEAlgorithmIdentifier" -> {
+                require(bodySource == "number")
+                "Int"
+            }
+
+            "DOMHighResTimeStamp" -> {
+                require(bodySource == "number")
+                "JsLong"
+            }
+
+            else -> aliasType
+        }
+
+        val body = sequenceOf(
+            if (name.endsWith("TimeStamp")) {
+                """
+                /**
+                 * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/$name)
+                 */    
+                """.trimIndent()
+            } else null,
+            "typealias $name = $type"
+        ).filterNotNull()
+            .joinToString("\n")
+
         return ConversionResult(
             name = name,
-            body = "typealias $name = String",
+            body = body,
             pkg = pkg
         )
     }
@@ -192,8 +232,6 @@ private fun convertType(
 
             "MediaProvider" -> "web.html"
             "WindowProxy" -> "web.window"
-
-            "COSEAlgorithmIdentifier" -> "web.authn"
 
             "VibratePattern" -> "web.vibration"
 
@@ -260,9 +298,6 @@ private fun convertType(
 
             name == "VibratePattern" && bodySource == "number | number[]"
             -> "ReadonlyArray<Int> /* | Int */"
-
-            name == "COSEAlgorithmIdentifier" && bodySource == "number"
-            -> "Int"
 
             bodySource == "string | Function"
             -> "() -> Unit"
