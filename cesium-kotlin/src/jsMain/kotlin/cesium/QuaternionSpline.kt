@@ -9,7 +9,7 @@
 package cesium
 
 import js.array.ReadonlyArray
-import js.core.jso
+import js.objects.jso
 
 /**
  * A spline that uses spherical linear (slerp) interpolation to create a quaternion curve.

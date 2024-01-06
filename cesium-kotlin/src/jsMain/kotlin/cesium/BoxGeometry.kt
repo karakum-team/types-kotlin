@@ -9,7 +9,7 @@
 package cesium
 
 import js.array.ReadonlyArray
-import js.core.jso
+import js.objects.jso
 
 /**
  * Describes a cube centered at the origin.

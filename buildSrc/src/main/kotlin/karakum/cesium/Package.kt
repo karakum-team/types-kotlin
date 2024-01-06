@@ -14,7 +14,7 @@ import web.html.HTMLImageElement
 import web.html.HTMLVideoElement
 import web.xml.XMLDocument
 import js.buffer.ArrayBuffer
-import js.core.jso
+import js.objects.jso
 import js.array.ReadonlyArray
 import js.core.ReadonlyRecord
 import js.core.Void

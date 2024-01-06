@@ -4,7 +4,7 @@ package karakum.cesium
 private const val CODE: String = """
 package cesium
 
-import js.core.jso
+import js.objects.jso
 
 sealed external interface CameraOrientation
 

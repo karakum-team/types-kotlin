@@ -6,7 +6,7 @@ internal const val RULE_BUILDER = "RuleBuilder"
 
 // language=Kotlin
 private val BODY = """
-import js.core.jso
+import js.objects.jso
 import web.cssom.ContainerName
 import web.cssom.ContainerQuery
 import web.cssom.MediaQuery

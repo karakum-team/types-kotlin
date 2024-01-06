@@ -9,7 +9,7 @@
 package cesium
 
 import js.array.ReadonlyArray
-import js.core.jso
+import js.objects.jso
 
 /**
  * A metadata enum.

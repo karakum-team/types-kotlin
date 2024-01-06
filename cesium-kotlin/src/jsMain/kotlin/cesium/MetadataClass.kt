@@ -9,7 +9,7 @@
 package cesium
 
 import js.core.ReadonlyRecord
-import js.core.jso
+import js.objects.jso
 
 /**
  * A metadata class.
