@@ -1393,7 +1393,7 @@ private fun convertConstructor(
     if (parametersSource == "")
         return ""
 
-    var parameters = convertFunctionParameters(parametersSource)
+    var parameters = convertFunctionParameters(parametersSource, null)
 
     // FormData
     parameters = parameters
@@ -1790,7 +1790,7 @@ private fun convertFunction(
         .substringAfter("(")
         .substringBefore("):")
 
-    val parameters = convertFunctionParameters(parametersSource)
+    val parameters = convertFunctionParameters(parametersSource, typeProvider)
 
     val result = (": " + source.substringAfter("): "))
         .removeSuffix(": void")
@@ -1877,6 +1877,7 @@ private fun convertFunction(
 
 private fun convertFunctionParameters(
     source: String,
+    typeProvider: TypeProvider?,
 ): String {
     val parameters = when (source) {
         "...data: any[]",
@@ -1884,7 +1885,7 @@ private fun convertFunctionParameters(
         "label?: string, ...data: any[]",
         -> listOf(source.substringBefore(", ", ""))
             .filter { it.isNotEmpty() }
-            .map { convertFunctionParameters(it) }
+            .map { convertFunctionParameters(it, typeProvider) }
             .plus("vararg data: Any?")
 
         "...nodes: (Element | Text)[]",
