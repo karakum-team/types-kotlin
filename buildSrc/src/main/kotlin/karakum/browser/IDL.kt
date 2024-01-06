@@ -124,6 +124,20 @@ internal object IDLRegistry {
 
     private val parameterTypeMap: Map<Pair<String, String>, String> by lazy {
         parameterData.associate { (it.className to it.parameterName) to it.parameterType }
+            .plus(
+                sequenceOf(
+                    ("DateTimeFormat" to "date") to "JsLong",
+                    ("DateTimeFormat" to "endDate") to "JsLong",
+                    ("DateTimeFormat" to "startDate") to "JsLong",
+                    ("NumberFormat" to "end") to "Number",
+                    ("NumberFormat" to "number") to "Number",
+                    ("NumberFormat" to "start") to "Number",
+                    ("NumberFormat" to "value") to "Number",
+                    ("PluralRules" to "n") to "Int",
+                    ("RelativeTimeFormat" to "value") to "Number",
+                    ("Segments" to "codeUnitIndex") to "Int",
+                )
+            )
     }
 
     fun hasEmptyConstructor(type: String): Boolean =
