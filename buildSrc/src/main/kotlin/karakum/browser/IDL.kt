@@ -66,6 +66,9 @@ internal object IDLRegistry {
         className: String,
         line: String,
     ): Sequence<ParameterData> {
+        if (line.startsWith("["))
+            return getParameterData(className, line.substringAfter("] ", ""))
+
         val source = line
             .substringAfter("(", "")
             .substringBeforeLast(")", "")
@@ -83,6 +86,9 @@ internal object IDLRegistry {
             .map { it.removePrefix("optional ") }
             .mapNotNull { psource ->
                 val type = when (psource.substringBeforeLast(" ")) {
+                    "float",
+                    -> "Float"
+
                     "double",
                     "unrestricted double",
                     -> "Double"
