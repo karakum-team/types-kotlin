@@ -4,9 +4,9 @@
 
 package tanstack.virtual.core
 
+import js.array.JsTuple2
 import js.array.ReadonlyArray
 import js.collections.ReadonlyMap
-import js.objects.JsTuple2
 import web.dom.Element
 import web.events.EventTarget
 

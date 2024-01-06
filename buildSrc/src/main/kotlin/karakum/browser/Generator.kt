@@ -23,7 +23,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.core.BigInt",
     "js.core.Bitmask",
     "js.core.JsLong",
-    "js.objects.JsTuple2",
+    "js.array.JsTuple2",
     "js.array.ReadonlyArray",
     "js.objects.ReadonlyRecord",
     "js.objects.Record",

@@ -2,10 +2,10 @@
 
 package web.cssom
 
+import js.array.JsTuple2
 import js.array.ReadonlyArray
 import js.collections.ListLike
 import js.iterable.IterableIterator
-import js.objects.JsTuple2
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSUnparsedValue)

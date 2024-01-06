@@ -7,8 +7,8 @@
 
 package typescript
 
+import js.array.JsTuple2
 import js.iterable.JsIterator
-import js.objects.JsTuple2
 
 /** ES6 Set interface, only read methods included. */
 sealed external interface ReadonlySet<T> : ReadonlyCollection<T> {

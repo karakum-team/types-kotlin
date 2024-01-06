@@ -2,8 +2,8 @@
 
 package tanstack.table.core
 
+import js.array.JsTuple2
 import js.collections.JsMap
-import js.objects.JsTuple2
 
 external interface FiltersInstance<TData : RowData> {
     /**

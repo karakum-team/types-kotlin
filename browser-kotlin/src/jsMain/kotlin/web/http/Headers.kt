@@ -2,10 +2,10 @@
 
 package web.http
 
+import js.array.JsTuple2
 import js.array.ReadonlyArray
 import js.collections.MapLike
 import js.iterable.IterableIterator
-import js.objects.JsTuple2
 import js.objects.ReadonlyRecord
 
 /**

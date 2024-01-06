@@ -6,8 +6,8 @@ import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
     "web.time.EpochTimeStamp",
-    "js.objects.JsTuple2",
-    "js.objects.JsTuple3",
+    "js.array.JsTuple2",
+    "js.array.JsTuple3",
     "js.array.ReadonlyArray",
     "js.objects.Record",
     "js.symbol.Symbol",
