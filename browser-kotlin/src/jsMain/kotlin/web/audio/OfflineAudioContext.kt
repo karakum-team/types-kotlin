@@ -15,8 +15,8 @@ external class OfflineAudioContext(
     contextOptions: OfflineAudioContextOptions,
 ) : BaseAudioContext {
     constructor(
-        numberOfChannels: Number,
-        length: Number,
+        numberOfChannels: Int,
+        length: Int,
         sampleRate: Number,
     )
 
@@ -43,5 +43,5 @@ external class OfflineAudioContext(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext/suspend)
      */
-    fun suspend(suspendTime: Number): Promise<Void>
+    fun suspend(suspendTime: Double): Promise<Void>
 }

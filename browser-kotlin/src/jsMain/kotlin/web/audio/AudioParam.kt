@@ -39,19 +39,19 @@ sealed external class AudioParam {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioParam/cancelAndHoldAtTime)
      */
-    fun cancelAndHoldAtTime(cancelTime: Number): AudioParam
+    fun cancelAndHoldAtTime(cancelTime: Double): AudioParam
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioParam/cancelScheduledValues)
      */
-    fun cancelScheduledValues(cancelTime: Number): AudioParam
+    fun cancelScheduledValues(cancelTime: Double): AudioParam
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioParam/exponentialRampToValueAtTime)
      */
     fun exponentialRampToValueAtTime(
         value: Number,
-        endTime: Number,
+        endTime: Double,
     ): AudioParam
 
     /**
@@ -59,7 +59,7 @@ sealed external class AudioParam {
      */
     fun linearRampToValueAtTime(
         value: Number,
-        endTime: Number,
+        endTime: Double,
     ): AudioParam
 
     /**
@@ -67,7 +67,7 @@ sealed external class AudioParam {
      */
     fun setTargetAtTime(
         target: Number,
-        startTime: Number,
+        startTime: Double,
         timeConstant: Number,
     ): AudioParam
 
@@ -76,7 +76,7 @@ sealed external class AudioParam {
      */
     fun setValueAtTime(
         value: Number,
-        startTime: Number,
+        startTime: Double,
     ): AudioParam
 
     /**
@@ -84,13 +84,13 @@ sealed external class AudioParam {
      */
     fun setValueCurveAtTime(
         values: ReadonlyArray<Double>,
-        startTime: Number,
-        duration: Number,
+        startTime: Double,
+        duration: Double,
     ): AudioParam
 
     fun setValueCurveAtTime(
         values: Float32Array,
-        startTime: Number,
-        duration: Number,
+        startTime: Double,
+        duration: Double,
     ): AudioParam
 }
