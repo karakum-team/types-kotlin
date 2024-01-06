@@ -3,7 +3,7 @@
 package web.audio
 
 import js.array.ReadonlyArray
-import js.core.ReadonlyRecord
+import js.objects.ReadonlyRecord
 
 sealed external interface AudioWorkletNodeOptions :
     AudioNodeOptions {

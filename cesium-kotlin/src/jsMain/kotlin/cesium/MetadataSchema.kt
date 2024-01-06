@@ -8,7 +8,7 @@
 
 package cesium
 
-import js.core.ReadonlyRecord
+import js.objects.ReadonlyRecord
 import js.objects.jso
 
 /**
