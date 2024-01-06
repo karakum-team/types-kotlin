@@ -68,7 +68,7 @@ internal object IDLRegistry {
     ): Sequence<ParameterData> {
         val source = line
             .substringAfter("(", "")
-            .substringBefore(")", "")
+            .substringBeforeLast(")", "")
             .ifEmpty { return emptySequence() }
 
         val methodName = line
@@ -79,6 +79,7 @@ internal object IDLRegistry {
         return source
             .splitToSequence(", ")
             .map { it.substringBefore(" = ") }
+            .map { it.substringAfter("] ") }
             .map { it.removePrefix("optional ") }
             .mapNotNull { psource ->
                 val type = when (psource.substringBeforeLast(" ")) {
