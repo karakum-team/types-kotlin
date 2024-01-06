@@ -492,4 +492,7 @@ internal class TypeProvider(
 
         return true
     }
+
+    fun getParameterType(name: String): String =
+        IDLRegistry.getParameterType(parentType, name)
 }

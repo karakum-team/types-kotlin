@@ -106,9 +106,27 @@ internal object IDLRegistry {
             }
     }
 
+    private val parameterTypeMap: Map<Pair<String, String>, String> by lazy {
+        parameterData.associate { (it.className to it.parameterName) to it.parameterType }
+    }
+
     fun hasEmptyConstructor(type: String): Boolean =
         type in typesWithEmptyConstructors
 
     fun hasHtmlConstructor(type: String): Boolean =
         type in typesWithHtmlConstructors
+
+    fun getParameterType(
+        className: String,
+        parameterName: String,
+    ): String {
+        val type = parameterTypeMap[className to parameterName]
+
+        return if (type != null) {
+            type
+        } else {
+            println("Missed number type for [$className.$parameterName]")
+            "Number"
+        }
+    }
 }

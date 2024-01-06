@@ -850,7 +850,7 @@ internal fun convertInterface(
     var mainConstructor: String
     val additionalConstructors: String
     if (staticSource != null) {
-        val constructors = getConstructors(name, staticSource)
+        val constructors = getConstructors(name, staticSource, typeProvider)
         val firstConstructor = constructors.firstOrNull()
         mainConstructor = if (firstConstructor != null) {
             val result = firstConstructor.removePrefix("constructor")
@@ -1349,6 +1349,7 @@ internal fun getStaticSource(
 private fun getConstructors(
     name: String,
     source: String,
+    typeProvider: TypeProvider,
 ): List<String> {
     val constructorSources = source
         .split(";\n")
@@ -1364,7 +1365,7 @@ private fun getConstructors(
         return emptyList()
 
     return constructorSources
-        .map { convertConstructor(it) }
+        .map { convertConstructor(it, typeProvider) }
 }
 
 private fun getCompanion(
@@ -1389,11 +1390,12 @@ private fun getCompanion(
 
 private fun convertConstructor(
     parametersSource: String,
+    typeProvider: TypeProvider,
 ): String {
     if (parametersSource == "")
         return ""
 
-    var parameters = convertFunctionParameters(parametersSource, null)
+    var parameters = convertFunctionParameters(parametersSource, typeProvider)
 
     // FormData
     parameters = parameters
@@ -1877,7 +1879,7 @@ private fun convertFunction(
 
 private fun convertFunctionParameters(
     source: String,
-    typeProvider: TypeProvider?,
+    typeProvider: TypeProvider,
 ): String {
     val parameters = when (source) {
         "...data: any[]",
@@ -1989,7 +1991,7 @@ private fun convertFunctionParameters(
             .filter { it.isNotEmpty() }
             .map {
                 var (pname, ptype) = it.split(": ")
-                ptype = getParameterType(pname.removeSuffix("?"), ptype)
+                ptype = getParameterType(pname.removeSuffix("?"), ptype, typeProvider)
 
                 if (pname.endsWith("?")) {
                     pname = pname.removeSuffix("?")
@@ -2020,9 +2022,10 @@ private fun convertFunctionParameters(
 private fun getParameterType(
     name: String,
     source: String,
+    typeProvider: TypeProvider,
 ): String {
     if (source.endsWith(" | null")) {
-        var type = getParameterType(name, source.removeSuffix(" | null"))
+        var type = getParameterType(name, source.removeSuffix(" | null"), typeProvider)
         if ("? /* " !in type)
             type += "?"
 
@@ -2072,7 +2075,7 @@ private fun getParameterType(
         -> when (name) {
             "code" -> "Short"
             "index" -> "Int"
-            else -> "Number"
+            else -> typeProvider.getParameterType(name)
         }
 
         source == "boolean"
