@@ -86,6 +86,9 @@ internal object IDLRegistry {
             .map { it.removePrefix("optional ") }
             .mapNotNull { psource ->
                 val type = when (psource.substringBeforeLast(" ")) {
+                    "unsigned short",
+                    -> "Short"
+
                     "float",
                     -> "Float"
 
