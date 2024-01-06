@@ -9,6 +9,21 @@ internal data class ParameterData(
     val parameterType: String,
 )
 
+private val NUMBER_TYPE_MAP = mapOf(
+    "unsigned short" to "Short",
+
+    "float" to "Float",
+
+    "double" to "Double",
+    "unrestricted double" to "Double",
+
+    "long" to "Int",
+    "unsigned long" to "Int",
+
+    "long long" to "JsLong",
+    "unsigned long long" to "JsLong",
+)
+
 internal object IDLRegistry {
     lateinit var rootDirectory: File
 
@@ -91,27 +106,8 @@ internal object IDLRegistry {
             .map { it.substringAfter("] ") }
             .map { it.removePrefix("optional ") }
             .mapNotNull { psource ->
-                val type = when (psource.substringBeforeLast(" ")) {
-                    "unsigned short",
-                    -> "Short"
-
-                    "float",
-                    -> "Float"
-
-                    "double",
-                    "unrestricted double",
-                    -> "Double"
-
-                    "long",
-                    "unsigned long",
-                    -> "Int"
-
-                    "long long",
-                    "unsigned long long",
-                    -> "JsLong"
-
-                    else -> return@mapNotNull null
-                }
+                val type = getNumberType(psource.substringBeforeLast(" "))
+                    ?: return@mapNotNull null
 
                 ParameterData(
                     className = className,
@@ -120,6 +116,24 @@ internal object IDLRegistry {
                     parameterType = type,
                 )
             }
+    }
+
+    private fun getNumberType(
+        source: String,
+    ): String? {
+        val type = NUMBER_TYPE_MAP[source]
+        if (type != null)
+            return type
+
+        if (!source.startsWith("("))
+            return null
+
+        return source
+            .substringAfter("(")
+            .substringBefore(")")
+            .splitToSequence(" or ")
+            .mapNotNull { getNumberType(it) }
+            .firstOrNull()
     }
 
     private val parameterTypeMap: Map<Pair<String, String>, String> by lazy {
