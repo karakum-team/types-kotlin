@@ -47,9 +47,16 @@ internal object IDLRegistry {
                 .drop(1)
                 .map { it.substringBefore("\n};") }
                 .flatMap { classBody ->
-                    val className = classBody.substringBefore(" ")
-                    classBody.substringAfter(" {\n")
-                        .splitToSequence("\n")
+                    val className = classBody
+                        .removePrefix("mixin ")
+                        .substringBefore("\n")
+                        .substringBefore(" ")
+
+                    classBody
+                        .substringAfter(" {\n")
+                        .removeSuffix(";")
+                        .splitToSequence(";\n")
+                        .map { body -> body.splitToSequence("\n").joinToString(" ") { it.trim() } }
                         .flatMap { line -> getParameterData(className = className, line = line) }
                 }
         }
@@ -66,10 +73,13 @@ internal object IDLRegistry {
 
         val methodName = line
             .substringBefore("(")
+            .trim()
             .substringAfterLast(" ")
 
         return source
             .splitToSequence(", ")
+            .map { it.substringBefore(" = ") }
+            .map { it.removePrefix("optional ") }
             .mapNotNull { psource ->
                 val type = when (psource.substringBeforeLast(" ")) {
                     "double",
