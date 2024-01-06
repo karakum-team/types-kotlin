@@ -6,7 +6,7 @@ internal const val RULES = "Rules"
 
 // language=Kotlin
 private val BODY = """
-import js.core.Record
+import js.objects.Record
 
 typealias $RULES = Record<$SELECTOR, Any>
 """.trimIndent()

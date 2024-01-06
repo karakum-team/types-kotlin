@@ -9,7 +9,7 @@ private val DEFAULT_IMPORTS = listOf(
     "js.promise.Promise",
 
     "js.array.ReadonlyArray",
-    "js.core.Record",
+    "js.objects.Record",
     "js.collections.ReadonlyMap",
     "js.objects.JsTuple2",
     "js.core.Void",
