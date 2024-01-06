@@ -68,7 +68,7 @@ sealed external class BaseAudioContext :
     fun createBuffer(
         numberOfChannels: Int,
         length: Int,
-        sampleRate: Number,
+        sampleRate: Float,
     ): AudioBuffer
 
     /**

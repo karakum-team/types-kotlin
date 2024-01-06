@@ -50,7 +50,7 @@ sealed external class AudioParam {
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioParam/exponentialRampToValueAtTime)
      */
     fun exponentialRampToValueAtTime(
-        value: Number,
+        value: Float,
         endTime: Double,
     ): AudioParam
 
@@ -58,7 +58,7 @@ sealed external class AudioParam {
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioParam/linearRampToValueAtTime)
      */
     fun linearRampToValueAtTime(
-        value: Number,
+        value: Float,
         endTime: Double,
     ): AudioParam
 
@@ -66,16 +66,16 @@ sealed external class AudioParam {
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioParam/setTargetAtTime)
      */
     fun setTargetAtTime(
-        target: Number,
+        target: Float,
         startTime: Double,
-        timeConstant: Number,
+        timeConstant: Float,
     ): AudioParam
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioParam/setValueAtTime)
      */
     fun setValueAtTime(
-        value: Number,
+        value: Float,
         startTime: Double,
     ): AudioParam
 

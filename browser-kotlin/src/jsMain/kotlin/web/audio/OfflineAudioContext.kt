@@ -17,7 +17,7 @@ external class OfflineAudioContext(
     constructor(
         numberOfChannels: Int,
         length: Int,
-        sampleRate: Number,
+        sampleRate: Float,
     )
 
     /**
