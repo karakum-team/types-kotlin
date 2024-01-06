@@ -11,7 +11,7 @@ private val DEFAULT_IMPORTS = listOf(
     "js.array.ReadonlyArray",
     "js.core.Record",
     "js.collections.ReadonlyMap",
-    "js.core.JsTuple2",
+    "js.objects.JsTuple2",
     "js.core.Void",
 
     "web.dom.Element",

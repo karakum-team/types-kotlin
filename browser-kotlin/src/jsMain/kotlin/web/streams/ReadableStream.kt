@@ -2,10 +2,10 @@
 
 package web.streams
 
-import js.core.JsTuple2
 import js.core.Transferable
 import js.core.Void
 import js.errors.JsError
+import js.objects.JsTuple2
 import js.promise.Promise
 
 /**

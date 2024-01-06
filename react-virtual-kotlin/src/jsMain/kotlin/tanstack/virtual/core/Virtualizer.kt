@@ -6,7 +6,7 @@ package tanstack.virtual.core
 
 import js.array.ReadonlyArray
 import js.collections.ReadonlyMap
-import js.core.JsTuple2
+import js.objects.JsTuple2
 import web.dom.Element
 import web.events.EventTarget
 

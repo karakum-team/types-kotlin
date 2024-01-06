@@ -14,7 +14,7 @@ private val DEFAULT_IMPORTS = listOf(
     "js.array.ReadonlyArray",
     "js.core.ReadonlyRecord",
     "js.symbol.Symbol",
-    "js.core.JsTuple2",
+    "js.objects.JsTuple2",
     "js.core.Void",
 
     "seskar.js.JsIntValue",

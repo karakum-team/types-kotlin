@@ -3,8 +3,8 @@
 package web.highlight
 
 import js.collections.MutableSetLike
-import js.core.JsTuple2
 import js.iterable.IterableIterator
+import js.objects.JsTuple2
 import web.ranges.AbstractRange
 
 external class Highlight(

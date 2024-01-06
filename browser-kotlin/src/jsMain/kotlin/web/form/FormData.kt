@@ -4,8 +4,8 @@ package web.form
 
 import js.array.ReadonlyArray
 import js.collections.MapLike
-import js.core.JsTuple2
 import js.iterable.IterableIterator
+import js.objects.JsTuple2
 import web.buffer.Blob
 import web.events.EventTarget
 
