@@ -61,7 +61,7 @@ internal object IDLRegistry {
                         .substringAfter(" {\n")
                         .removeSuffix(";")
                         .splitToSequence(";\n")
-                        .map { body -> body.splitToSequence("\n").joinToString(" ") { it.trim() } }
+                        .map { it.trim() }
                         .flatMap { line -> getParameterData(className = className, line = line) }
                 }
         }
@@ -85,7 +85,8 @@ internal object IDLRegistry {
             .substringAfterLast(" ")
 
         return source
-            .splitToSequence(", ")
+            .splitToSequence(",")
+            .map { it.trim() }
             .map { it.substringBefore(" = ") }
             .map { it.substringAfter("] ") }
             .map { it.removePrefix("optional ") }
