@@ -19,7 +19,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.collections.MutableMapLike",
     "js.collections.MutableSetLike",
     "js.collections.ReadonlyMap",
-    "js.core.ArrayLike",
+    "js.array.ArrayLike",
     "js.core.BigInt",
     "js.core.Bitmask",
     "js.core.JsLong",
