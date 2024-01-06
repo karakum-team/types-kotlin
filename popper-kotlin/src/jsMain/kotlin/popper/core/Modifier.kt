@@ -2,7 +2,7 @@
 
 package popper.core
 
-import js.core.ReadonlyArray
+import js.array.ReadonlyArray
 import js.core.Record
 
 external interface Modifier<Options> {

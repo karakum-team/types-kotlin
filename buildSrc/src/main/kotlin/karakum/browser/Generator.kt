@@ -24,7 +24,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.core.Bitmask",
     "js.core.JsLong",
     "js.core.JsTuple2",
-    "js.core.ReadonlyArray",
+    "js.array.ReadonlyArray",
     "js.core.ReadonlyRecord",
     "js.core.Record",
     "js.core.StructuredSerializeOptions",

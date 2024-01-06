@@ -8,8 +8,8 @@
 
 package cesium
 
+import js.array.ReadonlyArray
 import js.buffer.ArrayBuffer
-import js.core.ReadonlyArray
 import js.core.jso
 import js.promise.Promise
 

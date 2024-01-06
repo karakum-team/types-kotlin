@@ -8,7 +8,7 @@ private val DEFAULT_IMPORTS = listOf(
     "web.time.EpochTimeStamp",
     "js.core.JsTuple2",
     "js.core.JsTuple3",
-    "js.core.ReadonlyArray",
+    "js.array.ReadonlyArray",
     "js.core.Record",
     "js.symbol.Symbol",
     "js.core.Void",

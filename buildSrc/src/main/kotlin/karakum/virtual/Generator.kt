@@ -8,7 +8,7 @@ import java.io.File
 private val DEFAULT_IMPORTS = listOf(
     "js.promise.Promise",
 
-    "js.core.ReadonlyArray",
+    "js.array.ReadonlyArray",
     "js.core.Record",
     "js.collections.ReadonlyMap",
     "js.core.JsTuple2",

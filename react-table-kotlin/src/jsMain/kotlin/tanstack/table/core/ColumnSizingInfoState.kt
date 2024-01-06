@@ -2,8 +2,8 @@
 
 package tanstack.table.core
 
+import js.array.ReadonlyArray
 import js.core.JsTuple2
-import js.core.ReadonlyArray
 
 external interface ColumnSizingInfoState {
     var columnSizingStart: ReadonlyArray<JsTuple2<String, Int>>

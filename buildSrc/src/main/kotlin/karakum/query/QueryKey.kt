@@ -14,7 +14,7 @@ ${fileSuppress(Suppress.NOTHING_TO_INLINE)}
 
 ${Package.CORE.pkg}
 
-import js.core.ReadonlyArray
+import js.array.ReadonlyArray
 
 inline fun <T : QueryKey> QueryKey(
     vararg keys: Comparable<*>,

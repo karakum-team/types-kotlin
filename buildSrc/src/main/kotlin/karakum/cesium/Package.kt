@@ -15,7 +15,7 @@ import web.html.HTMLVideoElement
 import web.xml.XMLDocument
 import js.buffer.ArrayBuffer
 import js.core.jso
-import js.core.ReadonlyArray
+import js.array.ReadonlyArray
 import js.core.ReadonlyRecord
 import js.core.Void
 import js.errors.JsError

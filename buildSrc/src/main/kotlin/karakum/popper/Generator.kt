@@ -9,7 +9,7 @@ import java.io.FileFilter
 private val DEFAULT_IMPORTS = listOf(
     "js.promise.Promise",
 
-    "js.core.ReadonlyArray",
+    "js.array.ReadonlyArray",
     "js.core.Record",
     "js.core.Void",
 

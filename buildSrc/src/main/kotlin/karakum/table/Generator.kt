@@ -11,7 +11,7 @@ private val DEFAULT_IMPORTS = listOf(
     "kotlin.js.RegExp",
 
     "js.collections.JsMap",
-    "js.core.ReadonlyArray",
+    "js.array.ReadonlyArray",
     "js.core.ReadonlyRecord",
     "js.symbol.Symbol",
     "js.core.JsTuple2",
