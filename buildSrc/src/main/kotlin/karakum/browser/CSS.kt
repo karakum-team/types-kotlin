@@ -9,7 +9,7 @@ internal fun cssObject(
         .replace(";\n", "\n")
         .trimIndent()
         .replace("function ", "fun ")
-        .replace(": number", ": Double")
+        .replace(": number", ": Number")
         .replace(": string", ": String")
         .replace(": boolean", ": Boolean")
         .replace("): void", ")")
