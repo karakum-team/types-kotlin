@@ -43,7 +43,12 @@ internal object IDLRegistry {
     /* private */ val parameterData: List<ParameterData> by lazy {
         idlData.flatMap { content ->
             content
-                .splitToSequence("\ninterface ", "\npartial interface ")
+                .splitToSequence(
+                    "\ninterface ",
+                    "]interface ",
+                    "\npartial interface ",
+                    "]partial interface "
+                )
                 .drop(1)
                 .map { it.substringBefore("\n};") }
                 .flatMap { classBody ->
