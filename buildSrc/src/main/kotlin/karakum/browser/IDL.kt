@@ -80,6 +80,7 @@ internal object IDLRegistry {
                 .splitToSequence(
                     "\ninterface ",
                     "]interface ",
+                    "] interface ",
                     "\npartial interface ",
                     "]partial interface ",
                     "\ndictionary ",
@@ -88,10 +89,15 @@ internal object IDLRegistry {
                 .drop(1)
                 .map { it.substringBefore("\n};") }
                 .flatMap { classBody ->
-                    val className = classBody
+                    var className = classBody
                         .removePrefix("mixin ")
                         .substringBefore("\n")
                         .substringBefore(" ")
+
+                    when (className) {
+                        "BaseComputedKeyframe" -> className = "ComputedKeyframe"
+                        "BaseKeyframe" -> className = "Keyframe"
+                    }
 
                     classBody
                         .substringAfter(" {\n")
@@ -118,7 +124,7 @@ internal object IDLRegistry {
             return getMemberNumberData(className, line.replace(Regex("""\s+"""), " "))
         }
 
-        if ("(" !in line) {
+        if ("(" !in line || line.startsWith("(")) {
             val data = line
                 .replace("[EnforceRange] ", "")
                 .removePrefix("inherit ")
@@ -204,6 +210,14 @@ internal object IDLRegistry {
         memberNumberData.asSequence()
             .filterIsInstance<PropertyData>()
             .associate { (it.className to it.propertyName) to it.propertyType }
+            .plus(
+                sequenceOf(
+                    ("UnderlyingByteSource" to "autoAllocateChunkSize") to "Int",
+                    ("RTCEncodedAudioFrame" to "timestamp") to "Int",
+                    ("RTCEncodedVideoFrame" to "timestamp") to "Int",
+                    ("SegmentData" to "index") to "Int",
+                )
+            )
     }
 
     private val parameterTypeMap: Map<Pair<String, String>, String> by lazy {
@@ -248,11 +262,7 @@ internal object IDLRegistry {
         className: String,
         propertyName: String,
     ): String =
-        propertyTypeMap[className to propertyName]
-            ?: run {
-                println("Missed property number type for [$className.$propertyName]")
-                "Number"
-            }
+        propertyTypeMap.getValue(className to propertyName)
 
     fun getParameterType(
         className: String,
