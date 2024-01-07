@@ -96,6 +96,7 @@ internal object IDLRegistry {
                     classBody
                         .substringAfter(" {\n")
                         .removeSuffix(";")
+                        .replace(Regex(""";\s+//.+?\n"""), ";\n")
                         .splitToSequence(";\n")
                         .map { it.trim() }
                         .flatMap { line -> getMemberNumberData(className = className, line = line) }
