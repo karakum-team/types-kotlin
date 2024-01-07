@@ -83,6 +83,7 @@ internal object IDLRegistry {
                     "\npartial interface ",
                     "]partial interface ",
                     "\ndictionary ",
+                    "\npartial dictionary ",
                 )
                 .drop(1)
                 .map { it.substringBefore("\n};") }
