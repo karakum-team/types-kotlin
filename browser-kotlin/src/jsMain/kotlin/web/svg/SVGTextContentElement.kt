@@ -18,10 +18,10 @@ sealed external class SVGTextContentElement :
     val textLength: SVGAnimatedLength
     fun getCharNumAtPosition(point: DOMPointInit = definedExternally): Int
     fun getCharNumAtPosition(point: DOMPointReadOnly /* DOMPointInit */): Int
-    fun getComputedTextLength(): Number
+    fun getComputedTextLength(): Float
     fun getEndPositionOfChar(charnum: Int): DOMPoint
     fun getExtentOfChar(charnum: Int): DOMRect
-    fun getNumberOfChars(): Number
+    fun getNumberOfChars(): Int
     fun getRotationOfChar(charnum: Int): Float
     fun getStartPositionOfChar(charnum: Int): DOMPoint
     fun getSubStringLength(

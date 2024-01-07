@@ -24,7 +24,7 @@ sealed external class FileSystemSyncAccessHandle {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemSyncAccessHandle/getSize)
      */
-    fun getSize(): Number
+    fun getSize(): JsLong
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemSyncAccessHandle/read)
