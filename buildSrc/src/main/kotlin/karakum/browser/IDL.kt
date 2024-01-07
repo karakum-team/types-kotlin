@@ -2,12 +2,16 @@ package karakum.browser
 
 import java.io.File
 
-internal data class ParameterData(
-    val className: String,
+private sealed class MemberNumberData {
+    abstract val className: String
+}
+
+private data class ParameterData(
+    override val className: String,
     val methodName: String,
     val parameterName: String,
     val parameterType: String,
-)
+) : MemberNumberData()
 
 private val NUMBER_TYPE_MAP = mapOf(
     "unsigned short" to "Short",
@@ -55,7 +59,7 @@ internal object IDLRegistry {
         hasContent("[HTMLConstructor] constructor();")
     }
 
-    /* private */ val parameterData: List<ParameterData> by lazy {
+    private val memberNumberData: List<MemberNumberData> by lazy {
         idlData.flatMap { content ->
             content
                 .splitToSequence(
@@ -77,17 +81,17 @@ internal object IDLRegistry {
                         .removeSuffix(";")
                         .splitToSequence(";\n")
                         .map { it.trim() }
-                        .flatMap { line -> getParameterData(className = className, line = line) }
+                        .flatMap { line -> getMemberNumberData(className = className, line = line) }
                 }
         }
     }
 
-    private fun getParameterData(
+    private fun getMemberNumberData(
         className: String,
         line: String,
-    ): Sequence<ParameterData> {
+    ): Sequence<MemberNumberData> {
         if (line.startsWith("["))
-            return getParameterData(className, line.substringAfter("] ", ""))
+            return getMemberNumberData(className, line.substringAfter("] ", ""))
 
         val source = line
             .substringAfter("(", "")
@@ -99,7 +103,7 @@ internal object IDLRegistry {
             .trim()
             .substringAfterLast(" ")
 
-        return source
+        val parametersData = source
             .splitToSequence(",")
             .map { it.trim() }
             .map { it.substringBefore(" = ") }
@@ -116,6 +120,8 @@ internal object IDLRegistry {
                     parameterType = type,
                 )
             }
+
+        return parametersData
     }
 
     private fun getNumberType(
@@ -137,7 +143,9 @@ internal object IDLRegistry {
     }
 
     private val parameterTypeMap: Map<Pair<String, String>, String> by lazy {
-        parameterData.associate { (it.className to it.parameterName) to it.parameterType }
+        memberNumberData.asSequence()
+            .filterIsInstance<ParameterData>()
+            .associate { (it.className to it.parameterName) to it.parameterType }
             .plus(
                 sequenceOf(
                     // TODO: copy from `Document`?
