@@ -1839,7 +1839,11 @@ private fun convertFunction(
         .replace(": IDBRequest<string>", ": IDBRequest<String>")
         .replace(": IDBRequest<IDBValidKey[]>", ": IDBRequest<ReadonlyArray<IDBValidKey>>")
         .replace(": IDBRequest<any[]>", ": IDBRequest<ReadonlyArray<*>>")
-        .replace(": number", ": Number")
+        .let {
+            if (it.startsWith(": number")) {
+                it.replace(": number", ": ${typeProvider.getReturnType(name)}")
+            } else it
+        }
         .replace(": string", ": String")
         .replace("<string>", "<String>")
         .replace(": boolean", ": Boolean")

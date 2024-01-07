@@ -182,6 +182,12 @@ internal object IDLRegistry {
             )
     }
 
+    private val returnTypeMap: Map<Pair<String, String>, String> by lazy {
+        memberNumberData.asSequence()
+            .filterIsInstance<MethodReturnData>()
+            .associate { (it.className to it.methodName) to it.returnType }
+    }
+
     fun hasEmptyConstructor(type: String): Boolean =
         type in typesWithEmptyConstructors
 
@@ -193,4 +199,14 @@ internal object IDLRegistry {
         parameterName: String,
     ): String =
         parameterTypeMap.getValue(className to parameterName)
+
+    fun getReturnType(
+        className: String,
+        methodName: String,
+    ): String =
+        returnTypeMap[className to methodName]
+            ?: run {
+                println("Missed return number type for [$className.$methodName]")
+                "Number"
+            }
 }
