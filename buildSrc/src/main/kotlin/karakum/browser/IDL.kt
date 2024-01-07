@@ -20,6 +20,7 @@ private data class MethodReturnData(
 ) : MemberNumberData()
 
 private val NUMBER_TYPE_MAP = mapOf(
+    "short" to "Short",
     "unsigned short" to "Short",
 
     "float" to "Float",
@@ -187,6 +188,7 @@ internal object IDLRegistry {
         memberNumberData.asSequence()
             .filterIsInstance<MethodReturnData>()
             .associate { (it.className to it.methodName) to it.returnType }
+            .plus(("Collator" to "compare") to "Int")
     }
 
     fun hasEmptyConstructor(type: String): Boolean =
@@ -205,9 +207,5 @@ internal object IDLRegistry {
         className: String,
         methodName: String,
     ): String =
-        returnTypeMap[className to methodName]
-            ?: run {
-                println("Missed return number type for [$className.$methodName]")
-                "Number"
-            }
+        returnTypeMap.getValue(className to methodName)
 }
