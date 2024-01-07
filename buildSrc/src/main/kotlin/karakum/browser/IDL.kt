@@ -186,6 +186,12 @@ internal object IDLRegistry {
             .firstOrNull()
     }
 
+    private val propertyTypeMap: Map<Pair<String, String>, String> by lazy {
+        memberNumberData.asSequence()
+            .filterIsInstance<PropertyData>()
+            .associate { (it.className to it.propertyName) to it.propertyType }
+    }
+
     private val parameterTypeMap: Map<Pair<String, String>, String> by lazy {
         memberNumberData.asSequence()
             .filterIsInstance<ParameterData>()
@@ -223,6 +229,12 @@ internal object IDLRegistry {
 
     fun hasHtmlConstructor(type: String): Boolean =
         type in typesWithHtmlConstructors
+
+    fun getPropertyType(
+        className: String,
+        propertyName: String,
+    ): String =
+        propertyTypeMap.getValue(className to propertyName)
 
     fun getParameterType(
         className: String,
