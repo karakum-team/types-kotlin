@@ -107,6 +107,10 @@ internal object IDLRegistry {
         if (line.startsWith("["))
             return getMemberNumberData(className, line.substringAfter("] ", ""))
 
+        if ("  " in line) {
+            return getMemberNumberData(className, line.replace(Regex("""\s+"""), " "))
+        }
+
         if ("(" !in line) {
             val data = line
                 .removePrefix("inherit ")
@@ -114,7 +118,7 @@ internal object IDLRegistry {
                 .removePrefix("attribute ")
                 .substringBefore(" = ")
 
-            val type = getNumberType(data.substringBeforeLast(" "))
+            val type = getNumberType(data.substringBeforeLast(" ").removeSuffix("?"))
                 ?: return emptySequence()
 
             val name = data.substringAfterLast(" ")
@@ -234,7 +238,11 @@ internal object IDLRegistry {
         className: String,
         propertyName: String,
     ): String =
-        propertyTypeMap.getValue(className to propertyName)
+        propertyTypeMap[className to propertyName]
+            ?: run {
+                println("Missed property number type for [$className.$propertyName]")
+                "Number"
+            }
 
     fun getParameterType(
         className: String,

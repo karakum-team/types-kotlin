@@ -457,7 +457,7 @@ internal class TypeProvider(
             parentType.startsWith("Canvas") -> "Double"
 
             // TEMP
-            parentType.startsWith("RTC") -> "Number"
+            parentType.startsWith("RTC") -> IDLRegistry.getPropertyType(parentType, propertyName)
 
             else -> {
                 println("$parentType.$propertyName")
