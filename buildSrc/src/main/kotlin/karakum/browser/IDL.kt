@@ -97,7 +97,7 @@ internal object IDLRegistry {
                     when (className) {
                         "BaseComputedKeyframe" -> className = "ComputedKeyframe"
                         "BaseKeyframe" -> className = "Keyframe"
-                        "UnderlyingSource" -> className == "UnderlyingByteSource"
+                        "UnderlyingSource" -> className = "UnderlyingByteSource"
                     }
 
                     classBody
@@ -213,7 +213,6 @@ internal object IDLRegistry {
             .associate { (it.className to it.propertyName) to it.propertyType }
             .plus(
                 sequenceOf(
-                    ("UnderlyingByteSource" to "autoAllocateChunkSize") to "JsLong",
                     ("RTCEncodedAudioFrame" to "timestamp") to "JsLong",
                     ("RTCEncodedVideoFrame" to "timestamp") to "JsLong",
                     ("SegmentData" to "index") to "Int",
