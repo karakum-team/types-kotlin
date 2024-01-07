@@ -400,6 +400,16 @@ internal class TypeProvider(
             "buttons" -> return MOUSE_BUTTONS
         }
 
+        when {
+            propertyName == "lastModified" -> return "EpochTimeStamp"
+            propertyName == "expiration" -> return "EpochTimeStamp"
+            propertyName.endsWith("Digits") -> return "Int"
+        }
+
+        val type = IDLRegistry.getPropertyType(parentType, propertyName)
+        if (type != "Number")
+            return type
+
         // flags
         if (propertyName in FLAG_NAMES)
             return "Short"
@@ -417,9 +427,6 @@ internal class TypeProvider(
         }
 
         return when {
-            propertyName == "lastModified" -> "EpochTimeStamp"
-            propertyName == "expiration" -> "EpochTimeStamp"
-
             parentType.endsWith("DoubleRange") -> "Double"
             parentType.endsWith("ULongRange") -> "Int"
 
@@ -446,7 +453,6 @@ internal class TypeProvider(
 
             propertyName.startsWith("numberOf") -> "Int"
             propertyName.endsWith("Count") -> "Int"
-            propertyName.endsWith("Digits") -> "Int"
             propertyName.endsWith("Frames") -> "Int"
 
             propertyName in LONG_NAMES -> "JsLong"
@@ -456,15 +462,7 @@ internal class TypeProvider(
             parentType == "TextMetrics" -> "Double"
             parentType.startsWith("Canvas") -> "Double"
 
-            // TEMP
-            parentType.startsWith("RTC") -> IDLRegistry.getPropertyType(parentType, propertyName)
-
-            else -> {
-                println("$parentType.$propertyName")
-
-                // TODO("No numberability configuration for property '$propertyName'")
-                "Number"
-            }
+            else -> TODO("No numberability configuration for property '$propertyName'")
         }
     }
 
