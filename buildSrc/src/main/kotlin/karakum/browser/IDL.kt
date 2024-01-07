@@ -26,6 +26,8 @@ private data class MethodReturnData(
 ) : MemberNumberData()
 
 private val NUMBER_TYPE_MAP = mapOf(
+    "octet" to "Short /* unsigned byte */",
+
     "short" to "Short",
     "unsigned short" to "Short",
 
@@ -114,6 +116,7 @@ internal object IDLRegistry {
         if ("(" !in line) {
             val data = line
                 .removePrefix("inherit ")
+                .removePrefix("required ")
                 .removePrefix("readonly ")
                 .removePrefix("attribute ")
                 .substringBefore(" = ")
