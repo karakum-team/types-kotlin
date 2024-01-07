@@ -116,8 +116,10 @@ internal object IDLRegistry {
 
         if ("(" !in line) {
             val data = line
+                .replace("[EnforceRange] ", "")
                 .removePrefix("inherit ")
                 .removePrefix("required ")
+                .removePrefix("optional ")
                 .removePrefix("readonly ")
                 .removePrefix("attribute ")
                 .substringBefore(" = ")
