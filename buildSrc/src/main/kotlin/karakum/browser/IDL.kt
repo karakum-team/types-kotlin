@@ -6,6 +6,12 @@ private sealed class MemberNumberData {
     abstract val className: String
 }
 
+private data class PropertyData(
+    override val className: String,
+    val propertyName: String,
+    val propertyType: String,
+) : MemberNumberData()
+
 private data class ParameterData(
     override val className: String,
     val methodName: String,
@@ -73,7 +79,8 @@ internal object IDLRegistry {
                     "\ninterface ",
                     "]interface ",
                     "\npartial interface ",
-                    "]partial interface "
+                    "]partial interface ",
+                    "\ndictionary ",
                 )
                 .drop(1)
                 .map { it.substringBefore("\n};") }
@@ -99,6 +106,26 @@ internal object IDLRegistry {
     ): Sequence<MemberNumberData> {
         if (line.startsWith("["))
             return getMemberNumberData(className, line.substringAfter("] ", ""))
+
+        if ("(" !in line) {
+            val data = line
+                .removePrefix("inherit ")
+                .removePrefix("readonly ")
+                .removePrefix("attribute ")
+                .substringBefore(" = ")
+
+            val type = getNumberType(data.substringBeforeLast(" "))
+                ?: return emptySequence()
+
+            val name = data.substringAfterLast(" ")
+            return sequenceOf(
+                PropertyData(
+                    className = className,
+                    propertyName = name,
+                    propertyType = type,
+                )
+            )
+        }
 
         val source = line
             .substringAfter("(", "")
