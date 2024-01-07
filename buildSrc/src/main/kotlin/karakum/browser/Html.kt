@@ -2077,7 +2077,6 @@ private fun getParameterType(
 
         source == "number"
         -> when (name) {
-            "code" -> "Short"
             "index" -> "Int"
             else -> typeProvider.getParameterType(name)
         }
