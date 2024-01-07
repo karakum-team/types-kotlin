@@ -140,6 +140,11 @@ internal object IDLRegistry {
         parameterData.associate { (it.className to it.parameterName) to it.parameterType }
             .plus(
                 sequenceOf(
+                    // TODO: copy from `Document`?
+                    ("DocumentOrShadowRoot" to "x") to "Double",
+                    ("DocumentOrShadowRoot" to "y") to "Double",
+                    ("HTMLCanvasElement" to "quality") to "Double",
+
                     ("DateTimeFormat" to "date") to "JsLong",
                     ("DateTimeFormat" to "endDate") to "JsLong",
                     ("DateTimeFormat" to "startDate") to "JsLong",
@@ -163,14 +168,6 @@ internal object IDLRegistry {
     fun getParameterType(
         className: String,
         parameterName: String,
-    ): String {
-        val type = parameterTypeMap[className to parameterName]
-
-        return if (type != null) {
-            type
-        } else {
-            println("Missed number type for [$className.$parameterName]")
-            "Number"
-        }
-    }
+    ): String =
+        parameterTypeMap.getValue(className to parameterName)
 }
