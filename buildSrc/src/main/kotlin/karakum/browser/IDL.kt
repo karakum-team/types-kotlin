@@ -102,30 +102,31 @@ internal object IDLRegistry {
         val source = line
             .substringAfter("(", "")
             .substringBeforeLast(")", "")
-            .ifEmpty { return emptySequence() }
 
         val methodName = line
             .substringBefore("(")
             .trim()
             .substringAfterLast(" ")
 
-        val parametersData = source
-            .splitToSequence(",")
-            .map { it.trim() }
-            .map { it.substringBefore(" = ") }
-            .map { it.substringAfter("] ") }
-            .map { it.removePrefix("optional ") }
-            .mapNotNull { psource ->
-                val type = getNumberType(psource.substringBeforeLast(" "))
-                    ?: return@mapNotNull null
+        val parametersData = if (source.isNotEmpty()) {
+            source
+                .splitToSequence(",")
+                .map { it.trim() }
+                .map { it.substringBefore(" = ") }
+                .map { it.substringAfter("] ") }
+                .map { it.removePrefix("optional ") }
+                .mapNotNull { psource ->
+                    val type = getNumberType(psource.substringBeforeLast(" "))
+                        ?: return@mapNotNull null
 
-                ParameterData(
-                    className = className,
-                    methodName = methodName,
-                    parameterName = psource.substringAfterLast(" "),
-                    parameterType = type,
-                )
-            }
+                    ParameterData(
+                        className = className,
+                        methodName = methodName,
+                        parameterName = psource.substringAfterLast(" "),
+                        parameterType = type,
+                    )
+                }
+        } else emptySequence()
 
         val returnType = getNumberType(line.substringBefore(" $methodName"))
             ?: return parametersData
