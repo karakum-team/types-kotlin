@@ -13,6 +13,12 @@ private data class ParameterData(
     val parameterType: String,
 ) : MemberNumberData()
 
+private data class MethodReturnData(
+    override val className: String,
+    val methodName: String,
+    val returnType: String,
+) : MemberNumberData()
+
 private val NUMBER_TYPE_MAP = mapOf(
     "unsigned short" to "Short",
 
@@ -121,7 +127,16 @@ internal object IDLRegistry {
                 )
             }
 
-        return parametersData
+        val returnType = getNumberType(line.substringBefore(" $methodName"))
+            ?: return parametersData
+
+        return parametersData.plus(
+            MethodReturnData(
+                className = className,
+                methodName = methodName,
+                returnType = returnType,
+            )
+        )
     }
 
     private fun getNumberType(
