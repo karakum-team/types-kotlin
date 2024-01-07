@@ -89,15 +89,17 @@ internal object IDLRegistry {
                 .drop(1)
                 .map { it.substringBefore("\n};") }
                 .flatMap { classBody ->
-                    var className = classBody
+                    val className = classBody
                         .removePrefix("mixin ")
                         .substringBefore("\n")
                         .substringBefore(" ")
 
-                    when (className) {
-                        "BaseComputedKeyframe" -> className = "ComputedKeyframe"
-                        "BaseKeyframe" -> className = "Keyframe"
-                        "UnderlyingSource" -> className = "UnderlyingByteSource"
+                    val classNames = when (className) {
+                        "BaseComputedKeyframe" -> listOf("ComputedKeyframe")
+                        "BaseKeyframe" -> listOf("Keyframe")
+                        "UnderlyingSource" -> listOf(className, "UnderlyingByteSource")
+                        "Document" -> listOf(className, "DocumentOrShadowRoot")
+                        else -> listOf(className)
                     }
 
                     classBody
@@ -109,7 +111,11 @@ internal object IDLRegistry {
                         .joinToString("\n")
                         .splitToSequence(";\n")
                         .map { it.trim() }
-                        .flatMap { line -> getMemberNumberData(className = className, line = line) }
+                        .flatMap { line ->
+                            classNames.flatMap { cn ->
+                                getMemberNumberData(className = cn, line = line)
+                            }
+                        }
                 }
         }
     }
@@ -226,9 +232,6 @@ internal object IDLRegistry {
             .associate { (it.className to it.parameterName) to it.parameterType }
             .plus(
                 sequenceOf(
-                    // TODO: copy from `Document`?
-                    ("DocumentOrShadowRoot" to "x") to "Double",
-                    ("DocumentOrShadowRoot" to "y") to "Double",
                     ("HTMLCanvasElement" to "quality") to "Double",
 
                     ("DateTimeFormat" to "date") to "JsLong",
