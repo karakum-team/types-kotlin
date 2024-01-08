@@ -41,7 +41,7 @@ private fun getBrowserPkg(
 
         "atob",
         "btoa",
-        -> "web.buffer"
+        -> "web.encoding"
 
         "createImageBitmap",
         -> "web.canvas"
