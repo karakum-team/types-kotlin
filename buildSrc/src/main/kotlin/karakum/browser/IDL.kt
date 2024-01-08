@@ -99,6 +99,10 @@ internal object IDLRegistry {
                         "BaseKeyframe" -> listOf("Keyframe")
                         "UnderlyingSource" -> listOf(className, "UnderlyingByteSource")
                         "Document" -> listOf(className, "DocumentOrShadowRoot")
+
+                        "HTMLCollection" -> listOf(className, "HTMLCollectionBase")
+                        "NodeList" -> listOf(className, "NodeListOf")
+
                         else -> listOf(className)
                     }
 

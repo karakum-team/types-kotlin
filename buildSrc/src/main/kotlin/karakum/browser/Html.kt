@@ -2076,10 +2076,7 @@ private fun getParameterType(
         -> "BigInt"
 
         source == "number"
-        -> when (name) {
-            "index" -> "Int"
-            else -> typeProvider.getParameterType(name)
-        }
+        -> typeProvider.getParameterType(name)
 
         source == "boolean"
         -> "Boolean"
