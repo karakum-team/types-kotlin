@@ -381,10 +381,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/web@0.0.134":
-  version "0.0.134"
-  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.134.tgz#88a27e53a1f7a9edd5a338bd3548d851c28a8859"
-  integrity sha512-h0Fy1aa7uSy4uMMRcfMT/hL9cmvYkKh6Yi9OoQgDdXtuKGs4cJOTzwvMLl2SWqbLVnz5qfhmBMYjIsbURIIkHw==
+"@types/web@0.0.135":
+  version "0.0.135"
+  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.135.tgz#d97bf78512db0e34273ebc1a995a635cb7ecfb7a"
+  integrity sha512-3fNGUqpXzakTUJ9FQVoplG+fpzVn1WhQRz3eIE7dTGY4uI8/ngi9KbAtaK4nrIUk8dAI0qYPMIvq2ydTLYbJyA==
 
 "@webref/idl@3.42.4":
   version "3.42.4"
