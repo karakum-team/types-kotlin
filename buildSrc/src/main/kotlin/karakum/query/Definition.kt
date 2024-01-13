@@ -25,7 +25,6 @@ fun toDeclarations(
         .filter { !it.startsWith("export ") }
         .joinToString("\n")
         .replace("Action$1", "Action_1")
-        .replace(": Set<{\n        listener: TListener;\n    }>;", ": Set<HasListener<TListener>>;")
         .replace("{ queries, context, }", "options")
         .replace("{ ...options }", "options")
         .replace("{ pageParam, ...options }", "options")

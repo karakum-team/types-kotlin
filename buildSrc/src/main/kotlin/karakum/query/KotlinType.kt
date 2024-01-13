@@ -29,7 +29,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "TData | Promise<TData>" to "PromiseResult<TData>",
     "() => unknown | Promise<unknown>" to "() -> Promise<*>?",
 
-    "Set<HasListener<TListener>>" to "JsSet<Any /* HasListener<TListener> */>",
+    "Set<TListener>" to "JsSet<TListener>",
 
     "InfiniteData<unknown>" to "InfiniteData<*, *>",
 
