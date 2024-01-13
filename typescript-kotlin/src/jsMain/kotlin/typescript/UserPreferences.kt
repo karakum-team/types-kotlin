@@ -33,6 +33,15 @@ sealed external interface UserPreferences {
     val includeInlayPropertyDeclarationTypeHints: Boolean?
     val includeInlayFunctionLikeReturnTypeHints: Boolean?
     val includeInlayEnumMemberValueHints: Boolean?
+    val interactiveInlayHints: Boolean?
     val allowRenameOfImportPath: Boolean?
     val autoImportFileExcludePatterns: ReadonlyArray<String>?
+    val preferTypeOnlyAutoImports: Boolean?
+    val organizeImportsIgnoreCase: Union.UserPreferences_organizeImportsIgnoreCase?
+    val organizeImportsCollation: Union.UserPreferences_organizeImportsCollation?
+    val organizeImportsLocale: String?
+    val organizeImportsNumericCollation: Boolean?
+    val organizeImportsAccentCollation: Boolean?
+    val organizeImportsCaseFirst: Union.UserPreferences_organizeImportsCaseFirst?
+    val excludeLibrarySymbolsInNavTo: Boolean?
 }

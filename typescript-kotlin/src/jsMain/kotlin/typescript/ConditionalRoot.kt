@@ -11,7 +11,7 @@ sealed external interface ConditionalRoot {
     var isDistributive: Boolean
     var inferTypeParameters: ReadonlyArray<TypeParameter>?
     var outerTypeParameters: ReadonlyArray<TypeParameter>?
-    var instantiations: Map<Type>?
+    var instantiations: Map<string, Type>?
     var aliasSymbol: Symbol?
     var aliasTypeArguments: ReadonlyArray<Type>?
 }

@@ -64,6 +64,14 @@ sealed external interface ScriptElementKind {
         @JsValue("local var")
         val localVariableElement: ScriptElementKind
 
+        /** using foo = ... */
+        @JsValue("using")
+        val variableUsingElement: ScriptElementKind
+
+        /** await using foo = ... */
+        @JsValue("await using")
+        val variableAwaitUsingElement: ScriptElementKind
+
         /**
          * Inside module and script only
          * function f() { }

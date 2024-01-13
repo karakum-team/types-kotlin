@@ -36,26 +36,29 @@ sealed external interface LanguageServiceHost : GetEffectiveTypeRootsHost, Minim
 
     override fun fileExists(fileName: String): Boolean
     val getTypeRootsVersion: (() -> Int)?
-    val resolveModuleNames: ((
-        moduleNames: ReadonlyArray<String>,
-        containingFile: String,
-        reusedNames: ReadonlyArray<String>?,
-        redirectedReference: ResolvedProjectReference?,
-        options: CompilerOptions,
-        containingSourceFile: SourceFile?,
-    ) -> ReadonlyArray<ResolvedModule?>)?
+
     val getResolvedModuleWithFailedLookupLocationsFromCache: ((
         modulename: String,
         containingFile: String,
         resolutionMode: ResolutionMode?,
     ) -> ResolvedModuleWithFailedLookupLocations?)?
-    val resolveTypeReferenceDirectives: ((
-        typeDirectiveNames: dynamic, /* string[] | FileReference[] */
+
+    val resolveModuleNameLiterals: ((
+        moduleLiterals: ReadonlyArray<StringLiteralLike>,
         containingFile: String,
         redirectedReference: ResolvedProjectReference?,
         options: CompilerOptions,
-        containingFileMode: NodeFormat?,
-    ) -> ReadonlyArray<ResolvedTypeReferenceDirective?>)?
+        containingSourceFile: SourceFile,
+        reusedNames: ReadonlyArray<StringLiteralLike>?,
+    ) -> ReadonlyArray<ResolvedModuleWithFailedLookupLocations>)?
+    val resolveTypeReferenceDirectiveReferences: ((
+        typeDirectiveReferences: ReadonlyArray<T>,
+        containingFile: String,
+        redirectedReference: ResolvedProjectReference?,
+        options: CompilerOptions,
+        containingSourceFile: SourceFile?,
+        reusedNames: ReadonlyArray<T>?,
+    ) -> ReadonlyArray<ResolvedTypeReferenceDirectiveWithFailedLookupLocations>)?
     override val getDirectories: ((directoryName: String) -> ReadonlyArray<String>)?
 
     /**
@@ -69,4 +72,5 @@ sealed external interface LanguageServiceHost : GetEffectiveTypeRootsHost, Minim
         content: String,
     ) -> Unit)?
     val getParsedCommandLine: ((fileName: String) -> ParsedCommandLine?)?
+    var jsDocParsingMode: JSDocParsingMode?
 }

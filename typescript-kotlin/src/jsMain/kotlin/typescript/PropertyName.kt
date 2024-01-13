@@ -3,4 +3,4 @@
 package typescript
 
 sealed external interface PropertyName :
-    DeclarationName /* Identifier | StringLiteral | NumericLiteral | ComputedPropertyName | PrivateIdentifier */
+    DeclarationName /* Identifier | StringLiteral | NoSubstitutionTemplateLiteral | NumericLiteral | ComputedPropertyName | PrivateIdentifier */

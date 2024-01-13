@@ -4,7 +4,7 @@ package typescript
 
 import js.array.ReadonlyArray
 
-sealed external interface ParseConfigHost {
+sealed external interface ParseConfigHost : ModuleResolutionHost {
     var useCaseSensitiveFileNames: Boolean
     fun readDirectory(
         rootDir: String,
