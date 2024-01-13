@@ -243,8 +243,13 @@ private fun convertType(
     source: String,
     typeConverter: GlobalTypeConverter,
 ): String {
-    if (" =\n" in source)
-        return convertType(name, source.replace("\n    |", " |"), typeConverter)
+    if (" =\n" in source) {
+        val newSource = source
+            .removePrefix("\n    |")
+            .replace("\n    |", " |")
+
+        return convertType(name, newSource, typeConverter)
+    }
 
     val (declarationSource, body) = source.split(" = ")
 
