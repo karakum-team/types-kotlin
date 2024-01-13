@@ -15,14 +15,6 @@ sealed external interface ModuleResolutionKind {
         @JsIntValue(1)
         val Classic: ModuleResolutionKind
 
-        /**
-         * @deprecated
-         * `NodeJs` was renamed to `Node10` to better reflect the version of Node that it targets.
-         * Use the new name or consider switching to a modern module resolution target.
-         */
-        @JsIntValue(2)
-        val NodeJs: ModuleResolutionKind
-
         @JsIntValue(2)
         val Node10: ModuleResolutionKind
 

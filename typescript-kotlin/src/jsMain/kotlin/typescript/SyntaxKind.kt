@@ -917,27 +917,6 @@ sealed external interface SyntaxKind {
         @JsIntValue(301)
         val ImportAttribute: ImportAttribute
 
-        @JsIntValue(300)
-        val
-                /** @deprecated */
-                AssertClause:
-                /** @deprecated */
-                AssertClause
-
-        @JsIntValue(301)
-        val
-                /** @deprecated */
-                AssertEntry:
-                /** @deprecated */
-                AssertEntry
-
-        @JsIntValue(302)
-        val
-                /** @deprecated */
-                ImportTypeAssertionContainer:
-                /** @deprecated */
-                ImportTypeAssertionContainer
-
         @JsIntValue(303)
         val PropertyAssignment: PropertyAssignment
 
@@ -950,60 +929,11 @@ sealed external interface SyntaxKind {
         @JsIntValue(306)
         val EnumMember: EnumMember
 
-        @JsIntValue(307)
-        val
-                /** @deprecated */
-                UnparsedPrologue:
-                /** @deprecated */
-                UnparsedPrologue
-
-        @JsIntValue(308)
-        val
-                /** @deprecated */
-                UnparsedPrepend:
-                /** @deprecated */
-                UnparsedPrepend
-
-        @JsIntValue(309)
-        val
-                /** @deprecated */
-                UnparsedText:
-                /** @deprecated */
-                UnparsedText
-
-        @JsIntValue(310)
-        val
-                /** @deprecated */
-                UnparsedInternalText:
-                /** @deprecated */
-                UnparsedInternalText
-
-        @JsIntValue(311)
-        val
-                /** @deprecated */
-                UnparsedSyntheticReference:
-                /** @deprecated */
-                UnparsedSyntheticReference
-
         @JsIntValue(312)
         val SourceFile: SourceFile
 
         @JsIntValue(313)
         val Bundle: Bundle
-
-        @JsIntValue(314)
-        val
-                /** @deprecated */
-                UnparsedSource:
-                /** @deprecated */
-                UnparsedSource
-
-        @JsIntValue(315)
-        val
-                /** @deprecated */
-                InputFiles:
-                /** @deprecated */
-                InputFiles
 
         @JsIntValue(316)
         val JSDocTypeExpression: JSDocTypeExpression
@@ -1040,10 +970,6 @@ sealed external interface SyntaxKind {
 
         @JsIntValue(327)
         val JSDoc: JSDoc
-
-        /** @deprecated Use SyntaxKind.JSDoc */
-        @JsIntValue(327)
-        val JSDocComment: JSDocComment
 
         @JsIntValue(328)
         val JSDocText: JSDocText
@@ -1552,52 +1478,12 @@ sealed external interface SyntaxKind {
     sealed interface CatchClause : SyntaxKind
     sealed interface ImportAttributes : SyntaxKind
     sealed interface ImportAttribute : SyntaxKind
-    sealed interface
-    /** @deprecated */
-    AssertClause : SyntaxKind
-
-    sealed interface
-    /** @deprecated */
-    AssertEntry : SyntaxKind
-
-    sealed interface
-    /** @deprecated */
-    ImportTypeAssertionContainer : SyntaxKind
-
     sealed interface PropertyAssignment : SyntaxKind
     sealed interface ShorthandPropertyAssignment : SyntaxKind
     sealed interface SpreadAssignment : SyntaxKind
     sealed interface EnumMember : SyntaxKind
-    sealed interface
-    /** @deprecated */
-    UnparsedPrologue : SyntaxKind
-
-    sealed interface
-    /** @deprecated */
-    UnparsedPrepend : SyntaxKind
-
-    sealed interface
-    /** @deprecated */
-    UnparsedText : SyntaxKind
-
-    sealed interface
-    /** @deprecated */
-    UnparsedInternalText : SyntaxKind
-
-    sealed interface
-    /** @deprecated */
-    UnparsedSyntheticReference : SyntaxKind
-
     sealed interface SourceFile : SyntaxKind
     sealed interface Bundle : SyntaxKind
-    sealed interface
-    /** @deprecated */
-    UnparsedSource : SyntaxKind
-
-    sealed interface
-    /** @deprecated */
-    InputFiles : SyntaxKind
-
     sealed interface JSDocTypeExpression : SyntaxKind
     sealed interface JSDocNameReference : SyntaxKind
     sealed interface JSDocMemberName : SyntaxKind
@@ -1610,7 +1496,6 @@ sealed external interface SyntaxKind {
     sealed interface JSDocVariadicType : SyntaxKind
     sealed interface JSDocNamepathType : SyntaxKind
     sealed interface JSDoc : SyntaxKind
-    sealed interface JSDocComment : SyntaxKind
     sealed interface JSDocText : SyntaxKind
     sealed interface JSDocTypeLiteral : SyntaxKind
     sealed interface JSDocSignature : SyntaxKind

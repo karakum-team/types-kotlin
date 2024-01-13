@@ -152,13 +152,6 @@ sealed external interface ScriptElementKind {
         @JsValue("external module name")
         val externalModuleName: ScriptElementKind
 
-        /**
-         * <JsxTagName attribute1 attribute2={0} />
-         * @deprecated
-         */
-        @JsValue("JSX attribute")
-        val jsxAttribute: ScriptElementKind
-
         /** String literal */
         @JsValue("string")
         val string: ScriptElementKind
