@@ -6,4 +6,4 @@ package typescript.raw
 
 import typescript.Node
 
-internal external fun isUnparsedSource(node: Node): Boolean /* node is UnparsedSource */
+internal external fun isLeftHandSideExpression(node: Node): Boolean /* node is LeftHandSideExpression */

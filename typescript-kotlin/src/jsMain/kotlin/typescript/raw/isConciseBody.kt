@@ -6,4 +6,4 @@ package typescript.raw
 
 import typescript.Node
 
-internal external fun isUnparsedTextLike(node: Node): Boolean /* node is UnparsedTextLike */
+internal external fun isConciseBody(node: Node): Boolean /* node is ConciseBody */

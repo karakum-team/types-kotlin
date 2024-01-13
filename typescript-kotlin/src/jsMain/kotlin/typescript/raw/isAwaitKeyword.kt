@@ -6,4 +6,4 @@ package typescript.raw
 
 import typescript.Node
 
-internal external fun isUnparsedPrepend(node: Node): Boolean /* node is UnparsedPrepend */
+internal external fun isAwaitKeyword(node: Node): Boolean /* node is AwaitKeyword */

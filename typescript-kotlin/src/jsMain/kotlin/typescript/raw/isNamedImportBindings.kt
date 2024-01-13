@@ -6,4 +6,4 @@ package typescript.raw
 
 import typescript.Node
 
-internal external fun isAssertionKey(node: Node): Boolean /* node is AssertionKey */
+internal external fun isNamedImportBindings(node: Node): Boolean /* node is NamedImportBindings */

@@ -6,4 +6,4 @@ package typescript.raw
 
 import typescript.Node
 
-internal external fun isAssertClause(node: Node): Boolean /* node is AssertClause */
+internal external fun isBinaryOperatorToken(node: Node): Boolean /* node is BinaryOperatorToken */

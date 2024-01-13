@@ -6,4 +6,4 @@ package typescript.raw
 
 import typescript.Node
 
-internal external fun isAssertEntry(node: Node): Boolean /* node is AssertEntry */
+internal external fun isExclamationToken(node: Node): Boolean /* node is ExclamationToken */

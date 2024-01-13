@@ -6,4 +6,4 @@ package typescript.raw
 
 import typescript.Node
 
-internal external fun isUnparsedNode(node: Node): Boolean /* node is UnparsedNode */
+internal external fun isModuleReference(node: Node): Boolean /* node is ModuleReference */
