@@ -388,6 +388,7 @@ private fun convertEnum(
         .substringBeforeLast(",\n}")
         .trimIndent()
         .splitToSequence(",\n")
+        .filter { "@deprecated" !in it }
         .map {
             val (cname, cvalue) = it.substringAfterLast("\n").split(" = ")
             val comment = it.substringBeforeLast("\n", "").ifEmpty { null }
