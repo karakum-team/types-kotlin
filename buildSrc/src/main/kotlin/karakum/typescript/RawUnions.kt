@@ -115,7 +115,7 @@ internal val RAW_UNIONS = mapOf(
     "JSDocComment" to "JSDocText | JSDocLink | JSDocLinkCode | JSDocLinkPlain",
     "FlowNode" to "FlowStart | FlowLabel | FlowAssignment | FlowCondition | FlowSwitchClause | FlowArrayMutation | FlowCall | FlowReduceLabel",
     "FlowType" to "Type | IncompleteType",
-    "ResolutionMode" to "ModuleKind.ESNext | ModuleKind.CommonJS | undefined",
+    "ResolutionMode" to "ModuleKind.ESNext | ModuleKind.CommonJS",
     "JsonObjectExpression" to "ObjectLiteralExpression | ArrayLiteralExpression | JsonMinusNumericLiteral | NumericLiteral | StringLiteral | BooleanLiteral | NullLiteral",
     "TypePredicate" to "ThisTypePredicate | IdentifierTypePredicate | AssertsThisTypePredicate | AssertsIdentifierTypePredicate",
     "DestructuringPattern" to "BindingPattern | ObjectLiteralExpression | ArrayLiteralExpression",
