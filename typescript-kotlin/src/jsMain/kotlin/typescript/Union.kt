@@ -8,7 +8,7 @@ sealed external interface Union {
 
     sealed interface AccessibilityModifier_ : ParameterPropertyModifier, ClassMemberModifier
 
-    sealed interface AccessorDeclaration_ : SignatureDeclaration, ObjectLiteralElementLike
+    sealed interface AccessorDeclaration_ : HasJSDoc, SignatureDeclaration, ObjectLiteralElementLike
 
     sealed interface AccessorKeyword_ : Modifier, ClassMemberModifier
 
@@ -451,8 +451,6 @@ sealed external interface Union {
     sealed interface NoSubstitutionTemplateLiteral_ : PropertyName, StringLiteralLike, LiteralToken,
         TemplateLiteralToken, TemplateLiteral
 
-    sealed interface Node, TOut extends Node_: Visitor
-
     sealed interface NonNullChain_ : OptionalChain
 
     sealed interface NullLiteral_ : JsonObjectExpression, LiteralTypeNode_literal
@@ -595,7 +593,7 @@ sealed external interface Union {
 
     sealed interface SwitchStatement_ : HasJSDoc
 
-    sealed interface SyntaxKind_AbstractKeyword : ModifierSyntaxKind
+    sealed interface SyntaxKind_AbstractKeyword : KeywordSyntaxKind, ModifierSyntaxKind
 
     sealed interface SyntaxKind_AccessorKeyword : KeywordSyntaxKind, ModifierSyntaxKind
 
@@ -821,7 +819,7 @@ sealed external interface Union {
 
     sealed interface SyntaxKind_OfKeyword : KeywordSyntaxKind
 
-    sealed interface SyntaxKind_OpenBraceToken : JsxTokenSyntaxKind, JSDocSyntaxKind
+    sealed interface SyntaxKind_OpenBraceToken : PunctuationSyntaxKind, JsxTokenSyntaxKind, JSDocSyntaxKind
 
     sealed interface SyntaxKind_OpenBracketToken : PunctuationSyntaxKind, JSDocSyntaxKind
 
@@ -1035,13 +1033,5 @@ sealed external interface Union {
     sealed interface WhileStatement_ : HasJSDoc
 
     sealed interface WithStatement_ : HasJSDoc
-
-    sealed interface undefined_ : ResolutionMode, Visitor
-
-    sealed interface | AccessorDeclaration_: HasJSDoc
-
-    sealed interface | SyntaxKind_AbstractKeyword: KeywordSyntaxKind
-
-    sealed interface | SyntaxKind_OpenBraceToken: PunctuationSyntaxKind
 
 }
