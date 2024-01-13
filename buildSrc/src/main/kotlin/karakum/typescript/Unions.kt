@@ -1,7 +1,6 @@
 package karakum.typescript
 
 import karakum.common.sealedUnionBody
-import karakum.common.unionBody
 
 internal data class Union(
     val name: String,
