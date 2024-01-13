@@ -38,7 +38,9 @@ internal fun convertMembers(
         .replace(": this;", ": $thisReplacement;")
         .removeSuffix(";")
         .splitToSequence(";\n")
+        .filter { "@deprecated" !in it }
         .map { convertMember(it, typeConverter) }
+        .filter { it.isNotEmpty() }
         .joinToString("\n")
         .replace(";---\n * ", ";\n * ")
 }
