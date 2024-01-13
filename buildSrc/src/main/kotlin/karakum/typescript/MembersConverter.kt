@@ -105,6 +105,7 @@ internal fun convertMethod(
         .substringAfter("<", "")
         .let { if (it.isNotEmpty()) "<$it" else "" }
         .replace(" extends ", " : ")
+        .replace(" | undefined", "?")
 
     val parametersSource = source
         .substringAfter("(")
