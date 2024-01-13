@@ -385,7 +385,7 @@ private fun convertEnum(
 ): String {
     val constants = source
         .substringAfter("{\n")
-        .substringBeforeLast("\n}")
+        .substringBeforeLast(",\n}")
         .trimIndent()
         .splitToSequence(",\n")
         .map {
