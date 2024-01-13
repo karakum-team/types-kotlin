@@ -1336,7 +1336,7 @@ sealed external interface SyntaxKind {
     sealed interface UndefinedKeyword : SyntaxKind, Union.SyntaxKind_UndefinedKeyword
     sealed interface UniqueKeyword : SyntaxKind, Union.SyntaxKind_UniqueKeyword
     sealed interface UnknownKeyword : SyntaxKind, Union.SyntaxKind_UnknownKeyword
-    sealed interface UsingKeyword : SyntaxKind
+    sealed interface UsingKeyword : SyntaxKind, Union.SyntaxKind_UsingKeyword
     sealed interface FromKeyword : SyntaxKind, Union.SyntaxKind_FromKeyword
     sealed interface GlobalKeyword : SyntaxKind, Union.SyntaxKind_GlobalKeyword
     sealed interface BigIntKeyword : SyntaxKind, Union.SyntaxKind_BigIntKeyword

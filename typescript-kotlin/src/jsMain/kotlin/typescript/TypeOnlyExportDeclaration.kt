@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface TypeOnlyExportDeclaration /* | ExportSpecifier
+sealed external interface TypeOnlyExportDeclaration : Union.TypeOnlyExportDeclaration_ /* | ExportSpecifier
         & ({
             readonly isTypeOnly: true;
         } | {

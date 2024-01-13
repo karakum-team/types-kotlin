@@ -2,4 +2,4 @@
 
 package typescript
 
-sealed external interface JsxAttributeName /* Identifier | JsxNamespacedName */
+sealed external interface JsxAttributeName : Union.JsxAttributeName_ /* Identifier | JsxNamespacedName */
