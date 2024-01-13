@@ -74,9 +74,9 @@ private fun fileContent(
     annotations: String = "",
     body: String,
 ): String {
-    val defaultImports = sequenceOf("JsTuple2", "JsIterator", "ReadonlyArray")
-        .filter { "$it<" in body }
-        .map { "import js.core.$it" }
+    val defaultImports = sequenceOf("js.array.JsTuple2", "js.iterator.JsIterator", "js.array.ReadonlyArray")
+        .filter { "${it.substringAfterLast(".")}<" in body }
+        .map { "import $it" }
         .plus(
             sequenceOf("JsVirtual", "JsValue", "JsIntValue")
                 .filter { it in body }
