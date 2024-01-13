@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface InstanceofExpression : BinaryExpression {
+sealed external interface InstanceofExpression : BinaryExpression, Union.InstanceofExpression_ {
     val operatorToken: Token<SyntaxKind.InstanceOfKeyword>
 }
