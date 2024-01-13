@@ -93,6 +93,7 @@ internal fun kotlinType(
     return type
         .replace(" => ", " -> ")
         .replace(") -> void", ") -> Unit")
+        .replace("?: Document", ": Document?")
         .replace("?: ColumnPinningPosition", ": ColumnPinningPosition?")
         .replace("?: InitialTableState", ": InitialTableState?")
         .replace("?: RowPinningPosition", ": RowPinningPosition?")

@@ -20,6 +20,8 @@ private val DEFAULT_IMPORTS = listOf(
     "seskar.js.JsIntValue",
     "seskar.js.JsVirtual",
     "seskar.js.JsValue",
+
+    "web.dom.Document",
 ).map { it.substringAfterLast(".") to it }
 
 fun generateKotlinDeclarations(
@@ -63,7 +65,7 @@ private fun readContent(
         .maxDepth(2)
         .filter { it.isFile }
         .filter { it.name.endsWith(".d.ts") }
-        .mapNotNull { file ->
+        .map { file ->
             file.readLines()
                 .filter { !it.startsWith("import ") }
                 .filter { !it.startsWith("export * from ") }
