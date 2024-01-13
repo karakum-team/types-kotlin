@@ -35,7 +35,6 @@ internal fun convertDefinitions(
         .filter { it.name != "Iterator" }
         .plus(arrayHelpers())
         .plus(ConversionResult(NodeFormat.name, NodeFormat.body))
-        .plus(ConversionResult(ResolutionMode.name, ResolutionMode.body))
         .plus(UNIONS.map { ConversionResult(it.name, it.body) })
         .plus(union())
         .groupBy { it.pkg to it.name }

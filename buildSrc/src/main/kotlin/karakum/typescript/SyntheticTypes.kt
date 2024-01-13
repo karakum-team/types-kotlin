@@ -8,14 +8,6 @@ internal object NodeFormat {
     val body = "typealias $name = ModuleKind /* $alias */"
 }
 
-// ResolutionMode
-
-internal object ResolutionMode {
-    val name = "ResolutionMode"
-    val alias = "ModuleKind.CommonJS | ModuleKind.ESNext"
-    val body = "typealias $name = ModuleKind /* $alias */"
-}
-
 // ConfigProvider
 
 internal const val CONFIG_PROVIDER = "ConfigProvider"

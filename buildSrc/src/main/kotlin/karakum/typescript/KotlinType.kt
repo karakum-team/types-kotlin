@@ -52,7 +52,6 @@ private val STANDARD_TYPE_MAP = mapOf(
     "AssertsToken" to "AssertsKeyword",
 
     NodeFormat.alias to NodeFormat.name,
-    ResolutionMode.alias to ResolutionMode.name,
 
     """SourceFile["impliedNodeFormat"]""" to NodeFormat.name,
 )
