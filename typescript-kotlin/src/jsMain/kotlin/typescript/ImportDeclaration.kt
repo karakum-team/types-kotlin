@@ -10,5 +10,5 @@ sealed external interface ImportDeclaration : Statement, Union.ImportDeclaration
 
     /** If this is not a StringLiteral it will be a grammar error. */
     val moduleSpecifier: Expression
-    val assertClause: AssertClause?
+    val attributes: ImportAttributes?
 }

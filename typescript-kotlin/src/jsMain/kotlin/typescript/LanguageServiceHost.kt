@@ -36,13 +36,11 @@ sealed external interface LanguageServiceHost : GetEffectiveTypeRootsHost, Minim
 
     override fun fileExists(fileName: String): Boolean
     val getTypeRootsVersion: (() -> Int)?
-
     val getResolvedModuleWithFailedLookupLocationsFromCache: ((
         modulename: String,
         containingFile: String,
         resolutionMode: ResolutionMode?,
     ) -> ResolvedModuleWithFailedLookupLocations?)?
-
     val resolveModuleNameLiterals: ((
         moduleLiterals: ReadonlyArray<StringLiteralLike>,
         containingFile: String,

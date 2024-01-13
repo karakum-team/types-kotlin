@@ -17,6 +17,4 @@ sealed external interface GetCompletionsAtPositionOptions : UserPreferences {
      * @default false
      */
     var includeSymbol: Boolean?
-
-
 }

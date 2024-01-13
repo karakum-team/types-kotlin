@@ -39,7 +39,6 @@ sealed external interface CompilerHost : ModuleResolutionHost {
      * Returns the module resolution cache used by a provided `resolveModuleNames` implementation so that any non-name module resolution operations (eg, package.json lookup) can reuse it
      */
     val getModuleResolutionCache: (() -> ModuleResolutionCache?)?
-
     val resolveModuleNameLiterals: ((
         moduleLiterals: ReadonlyArray<StringLiteralLike>,
         containingFile: String,

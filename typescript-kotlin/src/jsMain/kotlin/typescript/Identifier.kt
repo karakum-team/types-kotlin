@@ -13,5 +13,4 @@ sealed external interface Identifier : PrimaryExpression, Declaration, JSDocCont
     val escapedText: __String
     val text: String
 
-
 }

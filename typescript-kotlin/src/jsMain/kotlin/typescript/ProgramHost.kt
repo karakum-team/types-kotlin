@@ -54,8 +54,6 @@ sealed external interface ProgramHost<T : BuilderProgram> {
 
     /** If provided is used to get the environment variable */
     val getEnvironmentVariable: ((name: String) -> String?)?
-
-
     val resolveModuleNameLiterals: ((
         moduleLiterals: ReadonlyArray<StringLiteralLike>,
         containingFile: String,
