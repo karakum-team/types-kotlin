@@ -30,6 +30,8 @@ internal fun convertDefinitions(
         .plus(OPTIONS_PROVIDER_SOURCE)
         .plus(RELATION_CACHE_SIZES_SOURCE)
         .flatMap { convertDefinitions(it, typeConverter) }
+        // TEMP: convert
+        .filter { it.name != "server" }
         .filter { it.name != "Iterator" }
         .plus(arrayHelpers())
         .plus(ConversionResult(NodeFormat.name, NodeFormat.body))
@@ -241,6 +243,9 @@ private fun convertType(
     source: String,
     typeConverter: GlobalTypeConverter,
 ): String {
+    if (" =\n" in source)
+        return convertType(name, source.replace("\n    |", " |"), typeConverter)
+
     val (declarationSource, body) = source.split(" = ")
 
     when (name) {
