@@ -12,9 +12,6 @@ fun generateKotlinDeclarations(
 ) {
     for ((name, body, pkg) in convertDefinitions(definitionsFile)) {
         val suppresses = mutableListOf<Suppress>().apply {
-            if ("JsName(\"\"\"(" in body)
-                add(NAME_CONTAINS_ILLEGAL_CHARS)
-
             if ("contract {" in body)
                 add(CANNOT_CHECK_FOR_EXTERNAL_INTERFACE)
 

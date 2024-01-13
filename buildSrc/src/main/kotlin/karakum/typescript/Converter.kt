@@ -1,6 +1,7 @@
 package karakum.typescript
 
 import karakum.common.UnionConstant
+import karakum.common.objectUnionBody
 import karakum.common.sealedUnionBody
 import karakum.common.unionBodyByConstants
 import java.io.File
@@ -395,22 +396,20 @@ private fun convertEnum(
         }
         .toList()
 
-    val result = unionBodyByConstants(name, constants)
     if (name != "SyntaxKind" && name != "TypePredicateKind" && name != "InvalidatedProjectKind")
-        return result
+        return unionBodyByConstants(name, constants)
 
-    return result.replaceFirst(" enum class ", " sealed interface ")
-        .replaceFirst(";\n", "")
+    return objectUnionBody(name, constants)
         .splitToSequence("\n")
-        .joinToString("\n") {
-            if (it.endsWith(",")) {
-                val constName = it.removeSuffix(",")
-                var declaration = "object $constName: $name"
-                if (hasUnionParent("$name.$constName"))
-                    declaration += ", Union.${name}_$constName"
+        .joinToString("\n") { line ->
+            val constName = line
+                .substringAfter(" interface ", "")
+                .substringBefore(":", "")
+                .trim()
 
-                declaration
-            } else it
+            if (constName.isNotEmpty() && hasUnionParent("$name.$constName")) {
+                line + ", Union.${name}_$constName"
+            } else line
         }
 }
 
