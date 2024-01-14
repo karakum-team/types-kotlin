@@ -114,7 +114,9 @@ internal fun kotlinType(
             .replace(" => boolean", " -> Boolean")
             .replace(" => element is T", " -> Boolean /* element is T */")
             .replace(" => tag is T", " -> Boolean /* tag is T */")
+            .replace(" => node is TOut", " -> Boolean /* node is TOut */")
             .replace(" => node is T", " -> Boolean /* node is T */")
+            .replace(": readonly Node[])", ": ReadonlyArray<Node>)")
             .replace(": string", ": String")
 
     return type

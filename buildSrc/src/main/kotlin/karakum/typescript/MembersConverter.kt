@@ -122,10 +122,14 @@ internal fun convertMethod(
         parametersSource.isNotEmpty()
         -> parametersSource
             .replace("Map<string, ExtendedConfigCacheEntry>", "Map<string__ExtendedConfigCacheEntry>")
+            .replace("Visitor<NonNullable<TIn>, TVisited>", "Visitor<NonNullable<TIn>__TVisited>")
+            .replace("Visitor<TIn, Node | undefined>", "Visitor<TIn__Node | undefined>")
             .splitToSequence(", ")
             .joinToString(",\n") {
                 convertParameter(it, optional)
                     .replace("Map<string__ExtendedConfigCacheEntry>", "JsMap<String, ExtendedConfigCacheEntry>")
+                    .replace("Visitor<NonNullable<TIn>__TVisited>", "Visitor<TIn & Any, TVisited>")
+                    .replace("Visitor<TIn__Node | undefined>", "Visitor<TIn, Node?>")
             }
 
         else -> ""
