@@ -11,6 +11,6 @@ package typescript
  */
 external fun visitCommaListElements(
     elements: NodeArray<Expression>,
-    visitor: Visitor,
-    discardVisitor: Visitor = definedExternally,
+    visitor: Visitor<*, *>,
+    discardVisitor: Visitor<*, *> = definedExternally,
 ): NodeArray<Expression>
