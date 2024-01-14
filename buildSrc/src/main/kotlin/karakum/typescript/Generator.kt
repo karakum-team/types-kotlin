@@ -15,15 +15,9 @@ fun generateKotlinDeclarations(
             if ("contract {" in body)
                 add(CANNOT_CHECK_FOR_EXTERNAL_INTERFACE)
 
-            when (name) {
-                "isAsteriskToken",
-                "isDotDotDotToken",
-                "isMinusToken",
-                "isPlusToken",
-                -> {
-                    add(CANNOT_CHECK_FOR_ERASED)
-                    add(ERROR_IN_CONTRACT_DESCRIPTION)
-                }
+            if (name in CONTRACT_WITH_ERASED_TYPE) {
+                add(CANNOT_CHECK_FOR_ERASED)
+                add(ERROR_IN_CONTRACT_DESCRIPTION)
             }
 
             if ("companion object" in body || name == "SyntaxKind" || name == "TypePredicateKind" || name == "InvalidatedProjectKind")

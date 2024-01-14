@@ -1,5 +1,21 @@
 package karakum.typescript
 
+internal val CONTRACT_WITH_ERASED_TYPE = setOf(
+    "isAssertsKeyword",
+    "isAsteriskToken",
+    "isAwaitKeyword",
+    "isBinaryOperatorToken",
+    "isColonToken",
+    "isDotDotDotToken",
+    "isEqualsGreaterThanToken",
+    "isExclamationToken",
+    "isImportTypeAssertionContainer",
+    "isMinusToken",
+    "isPlusToken",
+    "isQuestionDotToken",
+    "isQuestionToken",
+)
+
 internal fun addContractSupport(
     result: ConversionResult,
 ): Sequence<ConversionResult> {
