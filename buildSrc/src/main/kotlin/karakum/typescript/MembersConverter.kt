@@ -105,6 +105,10 @@ internal fun convertMethod(
         .substringAfter("<", "")
         .let { if (it.isNotEmpty()) "<$it" else "" }
         .replace(" extends ", " : ")
+        .replace(
+            "AccessorDeclaration | MethodDeclaration | MethodSignature | PropertyDeclaration | PropertySignature | PropertyAssignment",
+            "Any /* AccessorDeclaration | MethodDeclaration | MethodSignature | PropertyDeclaration | PropertySignature | PropertyAssignment */",
+        )
         .replace(" | undefined", "?")
 
     val parametersSource = source
