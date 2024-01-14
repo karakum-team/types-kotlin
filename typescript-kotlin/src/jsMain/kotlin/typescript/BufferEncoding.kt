@@ -18,16 +18,10 @@ sealed external interface BufferEncoding {
         @JsValue("utf8")
         val utf8: BufferEncoding
 
-        @JsValue("utf-8")
-        val utf8: BufferEncoding
-
         @JsValue("utf16le")
         val utf16le: BufferEncoding
 
         @JsValue("ucs2")
-        val ucs2: BufferEncoding
-
-        @JsValue("ucs-2")
         val ucs2: BufferEncoding
 
         @JsValue("base64")
