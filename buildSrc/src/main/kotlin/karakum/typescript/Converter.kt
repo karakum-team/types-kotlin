@@ -250,7 +250,10 @@ private fun convertType(
         return convertType(name, newSource, typeConverter)
     }
 
-    val (declarationSource, body) = source.split(" = ")
+    val (declarationSource, body) = source
+        .replace(" = Node, ", ", ")
+        .replace(" = TIn | undefined>", ">")
+        .split(" = ")
 
     when (name) {
         "RefactorTriggerReason",
@@ -267,6 +270,7 @@ private fun convertType(
 
     val declaration = declarationSource
         .replace("extends BuilderProgram", "/* : BuilderProgram */")
+        .replace("extends Node | undefined", "/* : Node? */")
         .replace("extends Node", "/* : Node */")
 
     if (" | " !in body && "(" !in body && "{" !in body && name !in IGNORED_TYPES)
