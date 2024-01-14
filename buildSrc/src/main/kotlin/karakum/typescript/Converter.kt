@@ -104,7 +104,7 @@ private fun convertDefinitions(
         .map { it.removeSuffix(";") }
         .forEach { part ->
             if (part.startsWith("/**")) {
-                comment = part
+                comment = part.replace("*\\/", "*/")
             } else {
                 val ignore = comment?.let {
                     it.startsWith("/** @deprecated ") || it.startsWith("/**\n * @deprecated ")
