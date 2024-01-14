@@ -62,6 +62,9 @@ internal fun kotlinType(
     STANDARD_TYPE_MAP[type]
         ?.also { return it }
 
+    if (type.startsWith("Visitor<"))
+        return type
+
     if (type.startsWith("Iterator<")) {
         var typeParameter = type.removeSurrounding("Iterator<", ">")
         if (typeParameter.startsWith("["))
