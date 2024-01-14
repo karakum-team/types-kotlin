@@ -10,7 +10,16 @@ private const val SIGNATURE_TO_SIGNATURE = """ & {
     typeArguments?: NodeArray<TypeNode>;
 } | undefined;"""
 
-val SIGNATURE_TO_SIGNATURE_REPLACEMENT = SIGNATURE_TO_SIGNATURE
+private val SIGNATURE_TO_SIGNATURE_REPLACEMENT = SIGNATURE_TO_SIGNATURE
+    .replace("\n    ", " ")
+    .replace(";\n", "; ")
+
+private const val FILE_SUGGESTIONS = """: {
+    newFileName: string;
+    files: string[];
+};"""
+
+private val FILE_SUGGESTIONS_REPLACEMENT = FILE_SUGGESTIONS
     .replace("\n    ", " ")
     .replace(";\n", "; ")
 
@@ -35,6 +44,7 @@ internal fun convertMembers(
         .replace(";\n * ", ";---\n * ")
         .replace(RELATION_CACHE_SIZES_BODY, RELATION_CACHE_SIZES)
         .replace(SIGNATURE_TO_SIGNATURE, SIGNATURE_TO_SIGNATURE_REPLACEMENT)
+        .replace(FILE_SUGGESTIONS, FILE_SUGGESTIONS_REPLACEMENT)
         .replace(": this;", ": $thisReplacement;")
         .removeSuffix(";")
         .splitToSequence(";\n")
