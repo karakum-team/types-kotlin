@@ -376,11 +376,7 @@ private fun convertType(
         typeConverter.register(name, body)
 
     val parentDeclaration = if (baseType != null) " : $baseType" else ""
-    var content = "sealed external interface $declaration$parentDeclaration /* $body */"
-    if ("<T" in declaration)
-        content = "@Suppress(\"UNUSED_TYPEALIAS_PARAMETER\")\n" + content
-
-    return content
+    return "sealed external interface $declaration$parentDeclaration /* $body */"
 }
 
 private fun convertEnum(
