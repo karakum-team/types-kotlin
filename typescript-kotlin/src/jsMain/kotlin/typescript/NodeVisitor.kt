@@ -2,6 +2,8 @@
 
 package typescript
 
+import js.array.ReadonlyArray
+
 /**
  * A function that walks a node using the given visitor, lifting node arrays into single nodes,
  * returning an node which satisfies the test.
@@ -15,17 +17,17 @@ package typescript
  * For the canonical implementation of this type, @see {visitNode}.
  */
 sealed external interface NodeVisitor {
-    fun <T : Node> /* native */ invoke(
-        nodes: T,
-        visitor: Visitor?,
-        test: (node: Node) -> Boolean = definedExternally,
-        lift: (node: ReadonlyArray<Node>) -> T = definedExternally,
-    ): T
+    fun <TIn : Node?, TVisited : Node?, TOut : Node> /* native */ invoke(
+        node: TIn,
+        visitor: Visitor<TIn & Any, TVisited>,
+        test: (node: Node) -> Boolean, /* node is TOut */
+        lift: (node: ReadonlyArray<Node>) -> Node = definedExternally,
+    ): dynamic /* TOut | (TIn & undefined) | (TVisited & undefined) */
 
-    fun <T : Node> /* native */ invoke(
-        nodes: T?,
-        visitor: Visitor?,
+    fun <TIn : Node?, TVisited : Node?> /* native */ invoke(
+        node: TIn,
+        visitor: Visitor<TIn & Any, TVisited>,
         test: (node: Node) -> Boolean = definedExternally,
-        lift: (node: ReadonlyArray<Node>) -> T = definedExternally,
-    ): T?
+        lift: (node: ReadonlyArray<Node>) -> Node = definedExternally,
+    ): dynamic /* Node | (TIn & undefined) | (TVisited & undefined) */
 }

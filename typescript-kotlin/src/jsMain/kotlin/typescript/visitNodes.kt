@@ -19,13 +19,13 @@ package typescript
  * @param start An optional value indicating the starting offset at which to start visiting.
  * @param count An optional value indicating the maximum number of nodes to visit.
  */
-external fun <T : Node> visitNodes(
-    nodes: NodeArray<T>,
-    visitor: Visitor?,
-    test: (node: Node) -> Boolean = definedExternally,
+external fun <TIn : Node, TInArray : NodeArray<TIn>?, TOut : Node> visitNodes(
+    nodes: TInArray,
+    visitor: dynamic, /* Visitor<TIn, Node?> */
+    test: (node: Node) -> Boolean, /* node is TOut */
     start: Int = definedExternally,
     count: Int = definedExternally,
-): NodeArray<T>
+): dynamic /* NodeArray<TOut> | (TInArray & undefined) */
 
 /**
  * Visits a NodeArray using the supplied visitor, possibly returning a new NodeArray in its place.
@@ -42,10 +42,10 @@ external fun <T : Node> visitNodes(
  * @param start An optional value indicating the starting offset at which to start visiting.
  * @param count An optional value indicating the maximum number of nodes to visit.
  */
-external fun <T : Node> visitNodes(
-    nodes: NodeArray<T>?,
-    visitor: Visitor?,
+external fun <TIn : Node, TInArray : NodeArray<TIn>?> visitNodes(
+    nodes: TInArray,
+    visitor: dynamic, /* Visitor<TIn, Node?> */
     test: (node: Node) -> Boolean = definedExternally,
     start: Int = definedExternally,
     count: Int = definedExternally,
-): NodeArray<T>?
+): dynamic /* NodeArray<Node> | (TInArray & undefined) */

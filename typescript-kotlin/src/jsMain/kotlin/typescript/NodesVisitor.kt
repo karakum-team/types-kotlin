@@ -14,19 +14,19 @@ package typescript
  * For the canonical implementation of this type, @see {visitNodes}.
  */
 sealed external interface NodesVisitor {
-    fun <T : Node> /* native */ invoke(
-        nodes: NodeArray<T>,
-        visitor: Visitor?,
-        test: (node: Node) -> Boolean = definedExternally,
+    fun <TIn : Node, TInArray : NodeArray<TIn>?, TOut : Node> /* native */ invoke(
+        nodes: TInArray,
+        visitor: dynamic, /* Visitor<TIn, Node?> */
+        test: (node: Node) -> Boolean, /* node is TOut */
         start: Int = definedExternally,
         count: Int = definedExternally,
-    ): NodeArray<T>
+    ): dynamic /* NodeArray<TOut> | (TInArray & undefined) */
 
-    fun <T : Node> /* native */ invoke(
-        nodes: NodeArray<T>?,
-        visitor: Visitor?,
+    fun <TIn : Node, TInArray : NodeArray<TIn>?> /* native */ invoke(
+        nodes: TInArray,
+        visitor: dynamic, /* Visitor<TIn, Node?> */
         test: (node: Node) -> Boolean = definedExternally,
         start: Int = definedExternally,
         count: Int = definedExternally,
-    ): NodeArray<T>?
+    ): dynamic /* NodeArray<Node> | (TInArray & undefined) */
 }
