@@ -275,6 +275,10 @@ private fun convertType(
             .splitToSequence(" | ")
             .map { it.removeSurrounding("\"") }
             .map { it.removeSurrounding("'") }
+            .distinctBy { value ->
+                value.replace("-2", "2")
+                    .replace("-8", "8")
+            }
             .map { value ->
                 val kotlinName = KEY_NAMES[value]
                 if (kotlinName != null) {
