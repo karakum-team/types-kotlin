@@ -119,7 +119,14 @@ internal data class UnionConstant(
                 if (value.startsWith("\"")) {
                     "@JsValue(\"${value.removeSurrounding("\"")}\")"
                 } else "@JsIntValue($value)"
-            } else "@JsValue(\"$value\")"
+            } else {
+                val escapedValue = when (value) {
+                    "\"" -> """\""""
+                    else -> value
+                }
+
+                """@JsValue("$escapedValue")"""
+            }
 
             return listOfNotNull(comment, annotation)
                 .joinToString("\n")

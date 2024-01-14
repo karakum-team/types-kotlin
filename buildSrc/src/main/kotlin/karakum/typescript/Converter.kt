@@ -2,8 +2,8 @@ package karakum.typescript
 
 import karakum.common.UnionConstant
 import karakum.common.objectUnionBody
-import karakum.common.sealedUnionBody
 import karakum.common.unionBodyByConstants
+import karakum.common.unionConstant
 import java.io.File
 
 internal data class ConversionResult(
@@ -237,6 +237,20 @@ private val IGNORED_TYPES = setOf(
     "EndOfFileToken",
 )
 
+private val KEY_NAMES = mapOf(
+    "." to "period",
+    "\"" to "backslash",
+    "'" to "quote",
+    "`" to "backquote",
+    "/" to "slash",
+    "@" to "at",
+    "<" to "less",
+    "#" to "sharp",
+    " " to "space",
+
+    "(" to "leftParenthesis",
+)
+
 private fun convertType(
     name: String,
     source: String,
@@ -256,12 +270,25 @@ private fun convertType(
         .split(" = ")
 
     if (body.startsWith("\"") && " | " in body) {
-        val values = body
+        val constants = body
             .splitToSequence(" | ")
             .map { it.removeSurrounding("\"") }
+            .map { it.removeSurrounding("'") }
+            .map { value ->
+                val kotlinName = KEY_NAMES[value]
+                if (kotlinName != null) {
+                    UnionConstant(
+                        kotlinName = kotlinName,
+                        jsName = kotlinName,
+                        value = value,
+                    )
+                } else {
+                    unionConstant(value)
+                }
+            }
             .toList()
 
-        return sealedUnionBody(name, values)
+        return unionBodyByConstants(name, constants)
     }
 
     val declaration = declarationSource
