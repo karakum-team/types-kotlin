@@ -16,7 +16,7 @@ package typescript
 sealed external interface NodesVisitor {
     fun <TIn : Node, TInArray : NodeArray<TIn>?, TOut : Node> /* native */ invoke(
         nodes: TInArray,
-        visitor: dynamic, /* Visitor<TIn, Node?> */
+        visitor: Visitor<TIn, Node?>,
         test: (node: Node) -> Boolean, /* node is TOut */
         start: Int = definedExternally,
         count: Int = definedExternally,
@@ -24,7 +24,7 @@ sealed external interface NodesVisitor {
 
     fun <TIn : Node, TInArray : NodeArray<TIn>?> /* native */ invoke(
         nodes: TInArray,
-        visitor: dynamic, /* Visitor<TIn, Node?> */
+        visitor: Visitor<TIn, Node?>,
         test: (node: Node) -> Boolean = definedExternally,
         start: Int = definedExternally,
         count: Int = definedExternally,

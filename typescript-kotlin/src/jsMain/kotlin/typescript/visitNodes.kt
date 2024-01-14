@@ -21,7 +21,7 @@ package typescript
  */
 external fun <TIn : Node, TInArray : NodeArray<TIn>?, TOut : Node> visitNodes(
     nodes: TInArray,
-    visitor: dynamic, /* Visitor<TIn, Node?> */
+    visitor: Visitor<TIn, Node?>,
     test: (node: Node) -> Boolean, /* node is TOut */
     start: Int = definedExternally,
     count: Int = definedExternally,
@@ -44,7 +44,7 @@ external fun <TIn : Node, TInArray : NodeArray<TIn>?, TOut : Node> visitNodes(
  */
 external fun <TIn : Node, TInArray : NodeArray<TIn>?> visitNodes(
     nodes: TInArray,
-    visitor: dynamic, /* Visitor<TIn, Node?> */
+    visitor: Visitor<TIn, Node?>,
     test: (node: Node) -> Boolean = definedExternally,
     start: Int = definedExternally,
     count: Int = definedExternally,
