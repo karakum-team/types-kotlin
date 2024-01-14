@@ -24,7 +24,6 @@ internal fun PropertyName(
 
         UnionConstant(
             kotlinName = name,
-            jsName = name,
             value = value,
             type = "$PROPERTY_NAME<$typeParameter>",
         )

@@ -107,7 +107,6 @@ internal fun objectUnionBody(
 
 internal data class UnionConstant(
     val kotlinName: String,
-    val jsName: String,
     val value: String,
     val type: String? = null,
     private val originalValue: Boolean = false,

@@ -280,7 +280,6 @@ private fun convertType(
                 if (kotlinName != null) {
                     UnionConstant(
                         kotlinName = kotlinName,
-                        jsName = kotlinName,
                         value = value,
                     )
                 } else {
@@ -422,7 +421,6 @@ private fun convertEnum(
             val comment = it.substringBeforeLast("\n", "").ifEmpty { null }
             UnionConstant(
                 kotlinName = cname,
-                jsName = cname,
                 value = cvalue,
                 originalValue = true,
                 comment = comment,

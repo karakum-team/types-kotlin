@@ -53,7 +53,6 @@ private fun mouseButtonType(
         constants = constants.map { constant ->
             UnionConstant(
                 kotlinName = constant.name,
-                jsName = constant.name,
                 value = constant.value.toString(),
                 originalValue = true,
                 comment = """
