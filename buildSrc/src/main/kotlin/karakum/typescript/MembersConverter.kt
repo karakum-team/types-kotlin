@@ -121,9 +121,11 @@ internal fun convertMethod(
 
         parametersSource.isNotEmpty()
         -> parametersSource
+            .replace("Map<string, ExtendedConfigCacheEntry>", "Map<string__ExtendedConfigCacheEntry>")
             .splitToSequence(", ")
             .joinToString(",\n") {
                 convertParameter(it, optional)
+                    .replace("Map<string__ExtendedConfigCacheEntry>", "JsMap<String, ExtendedConfigCacheEntry>")
             }
 
         else -> ""

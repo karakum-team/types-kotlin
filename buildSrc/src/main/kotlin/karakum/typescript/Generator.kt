@@ -66,12 +66,20 @@ fun generateKotlinDeclarations(
     }
 }
 
+private val DEFAULT_IMPORTS = listOf(
+    "js.array.JsTuple2",
+    "js.array.ReadonlyArray",
+    "js.collections.JsMap",
+    "js.collections.JsSet",
+    "js.iterable.JsIterator",
+)
+
 private fun fileContent(
     pkg: Package,
     annotations: String = "",
     body: String,
 ): String {
-    val defaultImports = sequenceOf("js.array.JsTuple2", "js.iterable.JsIterator", "js.array.ReadonlyArray")
+    val defaultImports = DEFAULT_IMPORTS
         .filter { "${it.substringAfterLast(".")}<" in body }
         .map { "import $it" }
         .plus(
