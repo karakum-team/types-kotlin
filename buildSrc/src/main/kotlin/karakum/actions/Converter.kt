@@ -108,7 +108,7 @@ private fun convertEnum(
 
             val (constName, value) = constSource.substringAfterLast("\n").split(" = ")
             UnionConstant(
-                kotlinName = constName,
+                name = constName,
                 value = value,
                 originalValue = true,
                 comment = comment,

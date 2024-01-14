@@ -38,7 +38,7 @@ internal fun convertPseudos(
 internal fun convertSimplePseudo(
     selector: String,
 ): String = """
-    inline fun ${unionConstant(selector).kotlinName.replaceFirstChar(Char::lowercase)}(
+    inline fun ${unionConstant(selector).name.replaceFirstChar(Char::lowercase)}(
         block: T.() -> Unit,
     ) {
         "$selector"(block)
@@ -49,7 +49,7 @@ internal fun convertAdvancedPseudo(
     selector: String,
 ): String = sequenceOf(SELECTOR, "String").joinToString("\n\n") { type ->
     """
-        inline fun ${unionConstant(selector).kotlinName.replaceFirstChar(Char::lowercase)}(
+        inline fun ${unionConstant(selector).name.replaceFirstChar(Char::lowercase)}(
             selector: $type,
             block: T.() -> Unit,
         ) {

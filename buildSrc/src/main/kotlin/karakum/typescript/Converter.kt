@@ -279,7 +279,7 @@ private fun convertType(
                 val kotlinName = KEY_NAMES[value]
                 if (kotlinName != null) {
                     UnionConstant(
-                        kotlinName = kotlinName,
+                        name = kotlinName,
                         value = value,
                     )
                 } else {
@@ -420,7 +420,7 @@ private fun convertEnum(
             val (cname, cvalue) = it.substringAfterLast("\n").split(" = ")
             val comment = it.substringBeforeLast("\n", "").ifEmpty { null }
             UnionConstant(
-                kotlinName = cname,
+                name = cname,
                 value = cvalue,
                 originalValue = true,
                 comment = comment,

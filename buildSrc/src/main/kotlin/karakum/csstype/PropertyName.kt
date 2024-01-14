@@ -23,7 +23,7 @@ internal fun PropertyName(
         val typeParameter = getPropertyType(name.replaceFirstChar(Char::uppercase))
 
         UnionConstant(
-            kotlinName = name,
+            name = name,
             value = value,
             type = "$PROPERTY_NAME<$typeParameter>",
         )

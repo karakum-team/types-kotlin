@@ -90,7 +90,7 @@ private fun convertValueType(
             }
 
             UnionConstant(
-                kotlinName = name,
+                name = name,
                 value = name,
                 type = "$VALUE_TYPE<$typeParameter>",
             )

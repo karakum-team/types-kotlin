@@ -17,7 +17,7 @@ internal fun unionBodyByConstants(
         .joinToString("\n") {
             sequenceOf(
                 it.jsValueAnnotation,
-                "val ${it.kotlinName}: ${it.type ?: name}",
+                "val ${it.name}: ${it.type ?: name}",
             ).joinToString("\n")
         }
 
@@ -40,7 +40,7 @@ internal fun sealedUnionBody(
     val bodyMembers = constants.joinToString("\n") {
         """
         ${it.jsValueAnnotation}    
-        val ${it.kotlinName}: $name
+        val ${it.name}: $name
         """.trimIndent()
     }
 
@@ -64,7 +64,7 @@ internal fun sealedUnionBody(
     val bodyMembers = constants.joinToString("\n") {
         """
         ${it.jsValueAnnotation}    
-        val ${it.kotlinName}: $parentType.${it.kotlinName.replaceFirstChar(Char::uppercase)}
+        val ${it.name}: $parentType.${it.name.replaceFirstChar(Char::uppercase)}
         """.trimIndent()
     }
 
@@ -85,12 +85,12 @@ internal fun objectUnionBody(
     val constantNames = constants.joinToString("\n") {
         sequenceOf(
             it.jsValueAnnotation,
-            "val ${it.kotlinName} : ${name}.${it.kotlinName}",
+            "val ${it.name} : ${name}.${it.name}",
         ).joinToString("\n")
     }
 
     val constantTypes = constants.joinToString("\n") {
-        "sealed interface ${it.kotlinName} : $name"
+        "sealed interface ${it.name} : $name"
     }
 
     return """
@@ -106,7 +106,7 @@ internal fun objectUnionBody(
 }
 
 internal data class UnionConstant(
-    val kotlinName: String,
+    val name: String,
     val value: String,
     val type: String? = null,
     private val originalValue: Boolean = false,
