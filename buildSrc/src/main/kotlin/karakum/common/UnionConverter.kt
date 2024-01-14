@@ -169,5 +169,8 @@ internal fun unionConstant(value: String): UnionConstant {
         else -> jsName
     }
 
-    return UnionConstant(kotlinName, jsName, value)
+    return UnionConstant(
+        name = kotlinName,
+        value = value,
+    )
 }
