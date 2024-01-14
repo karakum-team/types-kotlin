@@ -255,17 +255,13 @@ private fun convertType(
         .replace(" = TIn | undefined>", ">")
         .split(" = ")
 
-    when (name) {
-        "RefactorTriggerReason",
-        "TypeOfTag",
-        -> {
-            val values = body
-                .splitToSequence(" | ")
-                .map { it.removeSurrounding("\"") }
-                .toList()
+    if (body.startsWith("\"") && " | " in body) {
+        val values = body
+            .splitToSequence(" | ")
+            .map { it.removeSurrounding("\"") }
+            .toList()
 
-            return sealedUnionBody(name, values)
-        }
+        return sealedUnionBody(name, values)
     }
 
     val declaration = declarationSource
