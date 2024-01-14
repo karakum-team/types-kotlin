@@ -48,8 +48,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "typeof visitNodes" to "$DYNAMIC /* typeof visitNodes */",
 
-    "AwaitKeywordToken" to "AwaitKeyword",
-    "AssertsToken" to "AssertsKeyword",
+    "Visitor" to "Visitor<*, *>",
 
     NodeFormat.alias to NodeFormat.name,
 
