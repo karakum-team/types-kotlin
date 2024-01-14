@@ -239,6 +239,7 @@ private val IGNORED_TYPES = setOf(
 
 private val KEY_NAMES = mapOf(
     "." to "period",
+    "," to "comma",
     "\"" to "backslash",
     "'" to "quote",
     "`" to "backquote",
