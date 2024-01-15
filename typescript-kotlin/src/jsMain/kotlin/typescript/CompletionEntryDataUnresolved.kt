@@ -4,5 +4,5 @@ package typescript
 
 sealed external interface CompletionEntryDataUnresolved : CompletionEntryDataAutoImport,
     Union.CompletionEntryDataUnresolved_ {
-    var exportMapKey: ExportMapInfoKey
+    override var exportMapKey: ExportMapInfoKey
 }
