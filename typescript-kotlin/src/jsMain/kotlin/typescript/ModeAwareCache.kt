@@ -24,13 +24,6 @@ sealed external interface ModeAwareCache<T> {
         mode: ResolutionMode,
     ): Boolean
 
-    fun forEach(
-        cb: (
-            elem: T,
-            key: String,
-            mode: ResolutionMode,
-        ) => void
-    )
-
+    fun forEach(cb: (elem: T, key: String, mode: ResolutionMode?) -> Unit)
     fun size(): Int
 }
