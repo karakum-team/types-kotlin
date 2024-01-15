@@ -108,9 +108,12 @@ private fun convertDefinitions(
             if (part.startsWith("/**")) {
                 comment = part.replace("*\\/", "*/")
             } else {
-                val ignore = comment?.let {
-                    it.startsWith("/** @deprecated ") || it.startsWith("/**\n * @deprecated ")
-                } ?: false
+                val lastComment = comment
+                val ignore = when {
+                    EXCLUDED_VISIT_NODES in part -> true
+                    lastComment != null -> lastComment.startsWith("/** @deprecated ") || lastComment.startsWith("/**\n * @deprecated ")
+                    else -> false
+                }
 
                 if (!ignore) {
                     results += convertDefinition(comment, part, typeConverter)

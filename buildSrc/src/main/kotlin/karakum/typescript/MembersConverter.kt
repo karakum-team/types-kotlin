@@ -62,6 +62,7 @@ internal fun convertMembers(
         .removeSuffix(";")
         .splitToSequence(";\n")
         .filter { "@deprecated" !in it }
+        .filter { NODE_VISITOR_TYPE_PARAMETERS !in it }
         .map { convertMember(it, typeConverter) }
         .filter { it.isNotEmpty() }
         .joinToString("\n")
