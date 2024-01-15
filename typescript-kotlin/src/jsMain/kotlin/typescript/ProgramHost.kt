@@ -63,12 +63,12 @@ sealed external interface ProgramHost<T : BuilderProgram> {
         reusedNames: ReadonlyArray<StringLiteralLike>?,
     ) -> ReadonlyArray<ResolvedModuleWithFailedLookupLocations>)?
     val resolveTypeReferenceDirectiveReferences: ((
-        typeDirectiveReferences: ReadonlyArray<T>,
+        typeDirectiveReferences: ReadonlyArray<Any /* T (FileReference | string) */>,
         containingFile: String,
         redirectedReference: ResolvedProjectReference?,
         options: CompilerOptions,
         containingSourceFile: SourceFile?,
-        reusedNames: ReadonlyArray<T>?,
+        reusedNames: ReadonlyArray<Any /* T (FileReference | string) */>?,
     ) -> ReadonlyArray<ResolvedTypeReferenceDirectiveWithFailedLookupLocations>)?
 
     /** If provided along with custom resolveModuleNames or resolveTypeReferenceDirectives, used to determine if unchanged file path needs to re-resolve modules/type reference directives */

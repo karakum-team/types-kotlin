@@ -50,12 +50,12 @@ sealed external interface LanguageServiceHost : GetEffectiveTypeRootsHost, Minim
         reusedNames: ReadonlyArray<StringLiteralLike>?,
     ) -> ReadonlyArray<ResolvedModuleWithFailedLookupLocations>)?
     val resolveTypeReferenceDirectiveReferences: ((
-        typeDirectiveReferences: ReadonlyArray<T>,
+        typeDirectiveReferences: ReadonlyArray<Any /* T (FileReference | string) */>,
         containingFile: String,
         redirectedReference: ResolvedProjectReference?,
         options: CompilerOptions,
         containingSourceFile: SourceFile?,
-        reusedNames: ReadonlyArray<T>?,
+        reusedNames: ReadonlyArray<Any /* T (FileReference | string) */>?,
     ) -> ReadonlyArray<ResolvedTypeReferenceDirectiveWithFailedLookupLocations>)?
     override val getDirectories: ((directoryName: String) -> ReadonlyArray<String>)?
 
