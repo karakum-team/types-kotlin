@@ -22,6 +22,9 @@ internal class GlobalTypeConverter {
         name: String,
         type: String,
     ): String? {
+        if (type.startsWith("\""))
+            return null
+
         if (" | " in type && " | undefined" !in type && "(" !in type && "string" !in type && "ModuleKind." !in type && "<" !in type) {
             map[name] = type
             return "Union.${name.replace(".", "_")}"
