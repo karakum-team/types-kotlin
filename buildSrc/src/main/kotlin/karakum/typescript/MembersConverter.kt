@@ -17,15 +17,25 @@ private const val FILE_SUGGESTIONS = """: {
     files: string[];
 };"""
 
+private const val GET_MODE_FILE_PARAMETER = """{
+    impliedNodeFormat?: ResolutionMode;
+}"""
+
 private val REPLACEMENTS = sequenceOf(
     SIGNATURE_TO_SIGNATURE,
     FILE_SUGGESTIONS,
+    GET_MODE_FILE_PARAMETER,
 ).associateWith { from ->
     from.replace(":\n    | ", ": ")
         .replace("\n        ", " ")
         .replace("\n    ", " ")
         .replace(";\n", "; ")
 }
+
+internal fun String.applyFunctionParametersPathes(): String =
+    REPLACEMENTS.entries.fold(this) { acc, (from, to) ->
+        acc.replace(from, to)
+    }
 
 internal fun convertMembers(
     name: String,
@@ -47,11 +57,7 @@ internal fun convertMembers(
     return source.trimIndent()
         .replace(";\n * ", ";---\n * ")
         .replace(RELATION_CACHE_SIZES_BODY, RELATION_CACHE_SIZES)
-        .let {
-            REPLACEMENTS.entries.fold(it) { acc, (from, to) ->
-                acc.replace(from, to)
-            }
-        }
+        .applyFunctionParametersPathes()
         .replace(": this;", ": $thisReplacement;")
         .removeSuffix(";")
         .splitToSequence(";\n")

@@ -51,8 +51,6 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Visitor" to "Visitor<*, *>",
 
     NodeFormat.alias to NodeFormat.name,
-
-    """SourceFile["impliedNodeFormat"]""" to NodeFormat.name,
 )
 
 internal fun kotlinType(
@@ -91,7 +89,7 @@ internal fun kotlinType(
     if (type.startsWith("(") && type.endsWith(" | undefined)[]"))
         return "ReadonlyArray<${kotlinType(type.removeSurrounding("(", " | undefined)[]"), name)}?>"
 
-    if (" | " in type)
+    if (" | " in type || type.startsWith("{ "))
         return "$DYNAMIC /* $type */"
 
     if (type.startsWith("\""))

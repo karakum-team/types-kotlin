@@ -222,7 +222,7 @@ private fun convertFunction(
         else -> source
     }
 
-    val result = "external ${convertMethod(content)}"
+    val result = "external ${convertMethod(content.applyFunctionParametersPathes())}"
         .replace(" = EmitAndSemanticDiagnosticsBuilderProgram", " /* = EmitAndSemanticDiagnosticsBuilderProgram */")
 
     return if (name.endsWith("CommentRange")) {
