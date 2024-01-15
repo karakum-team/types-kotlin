@@ -386,9 +386,7 @@ sealed external interface LanguageService {
         preferences: UserPreferences?,
         triggerReason: RefactorTriggerReason = definedExternally,
         kind: String = definedExternally,
-    ): {
-        newFileName: string; files: string[]
-    }
+    ): dynamic /* { newFileName: string; files: string[]; } */
 
     fun organizeImports(
         args: OrganizeImportsArgs,
