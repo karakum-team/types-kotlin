@@ -14,14 +14,6 @@ package typescript
  * For the canonical implementation of this type, @see {visitNodes}.
  */
 sealed external interface NodesVisitor {
-    fun <TIn : Node, TInArray : NodeArray<TIn>?, TOut : Node> /* native */ invoke(
-        nodes: TInArray,
-        visitor: Visitor<TIn, Node?>,
-        test: (node: Node) -> Boolean, /* node is TOut */
-        start: Int = definedExternally,
-        count: Int = definedExternally,
-    ): dynamic /* NodeArray<TOut> | (TInArray & undefined) */
-
     fun <TIn : Node, TInArray : NodeArray<TIn>?> /* native */ invoke(
         nodes: TInArray,
         visitor: Visitor<TIn, Node?>,
