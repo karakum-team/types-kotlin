@@ -37,11 +37,6 @@ fun generateKotlinDeclarations(
 
             if ("inline operator fun " in body && name != "ReadonlyArrayAdapter")
                 add(DECLARATION_CANT_BE_INLINED)
-
-            if (name == "ReadonlySet" || name == "Set") {
-                add(PARAMETER_NAME_CHANGED_ON_OVERRIDE)
-                add(DIFFERENT_NAMES_FOR_THE_SAME_PARAMETER_IN_SUPERTYPES)
-            }
         }.toTypedArray()
 
         val annotations = when {
