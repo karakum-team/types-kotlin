@@ -62,7 +62,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.storage.StorageEvent"),
     EventInfo("web.csp.SecurityPolicyViolationEvent"),
     EventInfo("web.window.BeforeUnloadEvent"),
-    EventInfo("web.window.PromiseRejectionEvent"),
+    EventInfo("web.promise.PromiseRejectionEvent"),
     EventInfo("web.pip.PictureInPictureEvent"),
     EventInfo("web.payment.PaymentMethodChangeEvent"),
     EventInfo("web.payment.PaymentRequestUpdateEvent"),

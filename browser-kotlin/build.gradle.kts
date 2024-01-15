@@ -47,6 +47,7 @@ val WEB_INCLUDE = setOf(
     "web/http",
     "web/messaging",
     "web/performance",
+    "web/promise",
     "web/scheduling/queueMicrotask.kt",
     "web/scheduling/VoidFunction.kt",
     "web/sockets",

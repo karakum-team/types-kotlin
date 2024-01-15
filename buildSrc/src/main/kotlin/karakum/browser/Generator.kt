@@ -415,6 +415,7 @@ fun generateKotlinDeclarations(
             import web.history.PageTransitionEvent
             import web.history.PopStateEvent
             import web.storage.StorageEvent
+            import web.promise.PromiseRejectionEvent
             """.trimIndent()
 
             "EventSource",
@@ -431,7 +432,7 @@ fun generateKotlinDeclarations(
             "WorkerGlobalScope",
             -> """
             import web.fonts.FontFaceSource    
-            import web.window.PromiseRejectionEvent
+            import web.promise.PromiseRejectionEvent
             import web.push.PushEvent
             import web.rtc.RTCTransformEvent
             import web.workers.WorkerGlobalScope
