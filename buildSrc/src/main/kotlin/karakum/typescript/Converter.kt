@@ -32,7 +32,7 @@ internal fun convertDefinitions(
         .flatMap { convertDefinitions(it, typeConverter) }
         // TEMP: convert
         .filter { it.name != "server" }
-        .filter { it.name != "Iterator" }
+        .filter { it.name != "JsTyping" }
         .plus(arrayHelpers())
         .plus(ConversionResult(NodeFormat.name, NodeFormat.body))
         .plus(UNIONS.map { ConversionResult(it.name, it.body) })
