@@ -28,6 +28,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "MapLike<string>" to "MapLike<String>",
     "MapLike<string[]>" to "MapLike<ReadonlyArray<String>>",
+    "Map<string, Type>" to "JsMap<String, Type>",
+    "Map<__String, Symbol>" to "JsMap<__String, Symbol>",
 
     "-1" to "Int /* -1 */",
 

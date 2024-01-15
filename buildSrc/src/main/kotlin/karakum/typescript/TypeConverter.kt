@@ -22,7 +22,7 @@ internal class GlobalTypeConverter {
         name: String,
         type: String,
     ): String? {
-        if (type.startsWith("\""))
+        if (type.startsWith("\"") || " | 0" in type)
             return null
 
         if (" | " in type && " | undefined" !in type && "(" !in type && "string" !in type && "ModuleKind." !in type && "<" !in type) {

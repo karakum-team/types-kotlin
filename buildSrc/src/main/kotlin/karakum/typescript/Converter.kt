@@ -303,7 +303,7 @@ private fun convertType(
         .replace("extends Node", "/* : Node */")
 
     if (" | " !in body && "(" !in body && "{" !in body && name !in IGNORED_TYPES)
-        return "typealias $declaration = $body"
+        return "typealias $declaration = ${kotlinType(body, "")}"
 
     if (body.startsWith("(") && " & {" !in body) {
         val parameters = body
