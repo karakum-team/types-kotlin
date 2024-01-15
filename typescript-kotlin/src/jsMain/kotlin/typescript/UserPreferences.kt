@@ -37,11 +37,11 @@ sealed external interface UserPreferences {
     val allowRenameOfImportPath: Boolean?
     val autoImportFileExcludePatterns: ReadonlyArray<String>?
     val preferTypeOnlyAutoImports: Boolean?
-    val organizeImportsIgnoreCase: Union.UserPreferences_organizeImportsIgnoreCase?
-    val organizeImportsCollation: Union.UserPreferences_organizeImportsCollation?
+    val organizeImportsIgnoreCase: dynamic /* "auto" | boolean */
+    val organizeImportsCollation: dynamic /* "ordinal" | "unicode" */
     val organizeImportsLocale: String?
     val organizeImportsNumericCollation: Boolean?
     val organizeImportsAccentCollation: Boolean?
-    val organizeImportsCaseFirst: Union.UserPreferences_organizeImportsCaseFirst?
+    val organizeImportsCaseFirst: dynamic /* "upper" | "lower" | false */
     val excludeLibrarySymbolsInNavTo: Boolean?
 }
