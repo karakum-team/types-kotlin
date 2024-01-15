@@ -50,6 +50,7 @@ internal fun fixOverrides(
         "PropertySignature",
         -> content
             .override("kind")
+            .override("parent")
             .override("name")
             .override("questionToken")
 
@@ -128,6 +129,13 @@ internal fun fixOverrides(
         "Program",
         -> content
             .override("getCurrentDirectory")
+
+        "ParseConfigHost",
+        -> content
+            .override("useCaseSensitiveFileNames")
+            .override("fileExists")
+            .override("readFile")
+            .override("trace")
 
         "LanguageServiceHost",
         -> content
