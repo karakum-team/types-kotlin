@@ -33,6 +33,8 @@ internal fun convertDefinitions(
         // TEMP: convert
         .filter { it.name != "server" }
         .filter { it.name != "JsTyping" }
+        // deprecated
+        .filter { it.name != "isImportTypeAssertionContainer" }
         .plus(arrayHelpers())
         .plus(ConversionResult(NodeFormat.name, NodeFormat.body))
         .plus(UNIONS.map { ConversionResult(it.name, it.body) })
