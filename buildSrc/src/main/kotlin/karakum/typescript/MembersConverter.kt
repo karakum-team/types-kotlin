@@ -190,11 +190,7 @@ internal fun convertMethod(
         ": $returnType"
     } else ""
 
-    var result = "$keyword $typeParameters $name($parameters)$returnDeclaration$whereParameters"
-    if (name == "createToken" && typeParameters.isNotEmpty())
-        result = "    // TODO: restore after alias update\n    // $result"
-
-    return result
+    return "$keyword $typeParameters $name($parameters)$returnDeclaration$whereParameters"
 }
 
 internal fun convertParameter(
