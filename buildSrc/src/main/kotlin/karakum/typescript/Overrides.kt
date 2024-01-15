@@ -80,6 +80,7 @@ internal fun fixOverrides(
         "JSDocSeeTag",
         "MetaProperty",
         "NamedTupleMember",
+        "ImportAttribute",
         -> content
             .override("kind")
             .override("parent")
@@ -118,14 +119,6 @@ internal fun fixOverrides(
             .override("kind")
             .override("parent")
 
-        "ReadonlySet",
-        -> content
-            .override("has")
-
-        "Set",
-        -> content
-            .override("delete")
-
         "Program",
         -> content
             .override("getCurrentDirectory")
@@ -150,6 +143,14 @@ internal fun fixOverrides(
                 "/* val */ var useCaseSensitiveFileNames",
             )
             .replace("fileExists(path:", "fileExists(fileName:")
+
+        "CompletionEntryDataUnresolved",
+        -> content
+            .override("exportMapKey")
+
+        "InstanceofExpression",
+        -> content
+            .override("operatorToken")
 
         else -> content
             .override("body")
