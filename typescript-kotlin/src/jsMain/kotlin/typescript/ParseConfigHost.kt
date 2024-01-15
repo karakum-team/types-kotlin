@@ -5,7 +5,7 @@ package typescript
 import js.array.ReadonlyArray
 
 sealed external interface ParseConfigHost : ModuleResolutionHost {
-    var useCaseSensitiveFileNames: Boolean
+    override var useCaseSensitiveFileNames: Boolean
     fun readDirectory(
         rootDir: String,
         extensions: ReadonlyArray<String>,
@@ -18,7 +18,7 @@ sealed external interface ParseConfigHost : ModuleResolutionHost {
      * Gets a value indicating whether the specified path exists and is a file.
      * @param path The path to test.
      */
-    fun fileExists(path: String): Boolean
-    fun readFile(path: String): String?
-    val trace: ((s: String) -> Unit)?
+    override fun fileExists(path: String): Boolean
+    override fun readFile(path: String): String?
+    override val trace: ((s: String) -> Unit)?
 }
