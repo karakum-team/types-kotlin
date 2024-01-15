@@ -2,7 +2,7 @@
 
 package web.file
 
-import web.buffer.BlobPropertyBag
+import web.blob.BlobPropertyBag
 import web.time.EpochTimeStamp
 
 sealed external interface FilePropertyBag :

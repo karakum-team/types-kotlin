@@ -6,7 +6,7 @@
 
 package web.media.recorder
 
-import web.buffer.Blob
+import web.blob.Blob
 import web.events.Event
 import web.events.EventType
 import web.time.DOMHighResTimeStamp

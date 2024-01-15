@@ -6,7 +6,7 @@ import js.array.JsTuple2
 import js.array.ReadonlyArray
 import js.collections.MapLike
 import js.iterable.IterableIterator
-import web.buffer.Blob
+import web.blob.Blob
 import web.events.EventTarget
 
 /**

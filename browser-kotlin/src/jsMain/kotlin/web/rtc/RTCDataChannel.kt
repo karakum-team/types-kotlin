@@ -4,7 +4,7 @@ package web.rtc
 
 import js.buffer.ArrayBuffer
 import js.buffer.ArrayBufferView
-import web.buffer.Blob
+import web.blob.Blob
 import web.events.Event
 import web.events.EventHandler
 import web.events.EventTarget

@@ -1,6 +1,6 @@
 // Automatically generated - do not modify!
 
-package web.buffer
+package web.blob
 
 import js.array.ReadonlyArray
 import js.buffer.ArrayBuffer

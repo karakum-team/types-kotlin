@@ -3,7 +3,7 @@
 package web.xhr
 
 import js.buffer.BufferSource
-import web.buffer.Blob
+import web.blob.Blob
 import web.dom.Document
 import web.events.Event
 import web.events.EventHandler
