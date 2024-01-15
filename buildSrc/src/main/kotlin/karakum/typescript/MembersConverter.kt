@@ -143,7 +143,7 @@ internal fun convertMethod(
         parametersSource == "action: (value: V, key: K) => void" || parametersSource == "action: (value: T, key: T) => void"
         -> parametersSource.replace(" => void", " -> $UNIT")
 
-        parametersSource == "cb: (elem: T, key: string, mode: ModuleKind.CommonJS | ModuleKind.ESNext | undefined) => void"
+        parametersSource == "cb: (elem: T, key: string, mode: ResolutionMode) => void"
         -> "cb: (elem: T, key: String, mode: ResolutionMode?) -> Unit"
 
         parametersSource.isNotEmpty()
