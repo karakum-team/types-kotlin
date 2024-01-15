@@ -2313,10 +2313,11 @@ sealed external interface NodeFactory {
     /**
      * Updates a node that may contain decorators or modifiers, replacing only the decorators and modifiers of the node.
      */
-    fun <T : HasModifiers & HasDecorators> replaceDecoratorsAndModifiers(
+    fun <T> replaceDecoratorsAndModifiers(
         node: T,
         modifiers: ReadonlyArray<ModifierLike>?,
-    ): T
+    ): T where T : HasModifiers,
+               T : HasDecorators
 
     /**
      * Updates a node that contains a property name, replacing only the name of the node.
