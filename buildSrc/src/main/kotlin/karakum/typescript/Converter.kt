@@ -342,6 +342,9 @@ private fun convertType(
         "PropertyName",
         -> "DeclarationName"
 
+        "JsxAttributeName",
+        -> "PropertyName"
+
         "MemberName",
         -> "PrimaryExpression, DeclarationName"
 
