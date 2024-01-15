@@ -40,6 +40,10 @@ internal fun fixOverrides(
             .override("pos")
             .override("end")
 
+        "JsxNamespacedName",
+        -> content
+            .override("kind")
+
         "FunctionOrConstructorTypeNodeBase",
         "IndexSignatureDeclaration",
         -> content
