@@ -22,7 +22,7 @@ private val PKG_MAP = mapOf(
     "CSSNumericBaseType" to "web.cssom",
     "HighlightType" to "web.highlight",
 
-    "EndingType" to "web.buffer",
+    "EndingType" to "web.blob",
 
     "InsertPosition" to "web.dom",
     "MutationRecordType" to "web.dom.observers",
@@ -217,7 +217,7 @@ private fun convertType(
             "CanvasImageSource" -> "web.canvas"
             "ImageBitmapSource" -> "web.canvas"
 
-            "BlobPart" -> "web.buffer"
+            "BlobPart" -> "web.blob"
 
             "HTMLOrSVGImageElement" -> "web.dom"
             "HTMLOrSVGScriptElement" -> "web.dom"

@@ -1189,7 +1189,7 @@ internal fun convertInterface(
         name.startsWith("FileSystem") -> "web.fs"
         name in FILE_SYSTEM_TYPES -> "web.fs"
 
-        name.startsWith("Blob") -> "web.buffer"
+        name.startsWith("Blob") -> "web.blob"
 
         name.startsWith("File") -> "web.file"
         name.startsWith("Gamepad") -> "web.gamepad"
