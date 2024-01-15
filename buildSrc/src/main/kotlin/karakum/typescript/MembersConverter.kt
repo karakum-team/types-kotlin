@@ -139,7 +139,7 @@ internal fun convertMethod(
         .substringBeforeLast("): ")
 
     val optional = source.startsWith("$name?")
-    val parameters = when {
+    var parameters = when {
         parametersSource == "action: (value: V, key: K) => void" || parametersSource == "action: (value: T, key: T) => void"
         -> parametersSource.replace(" => void", " -> $UNIT")
 
@@ -164,8 +164,13 @@ internal fun convertMethod(
 
     val returnType = kotlinType(source.substringAfterLast("): "), name)
 
-    if (optional)
+    if (optional) {
+        if (name == "resolveTypeReferenceDirectiveReferences") {
+            parameters = parameters.replace("<T>", "<Any /* T (FileReference | string) */>")
+        }
+
         return "val $name: (($parameters) -> $returnType)?"
+    }
 
     val isOperator = when (name) {
         "get" -> parameters.count { it == ':' } == 1
