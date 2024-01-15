@@ -73,15 +73,10 @@ sealed external interface NodeFactory {
     fun createToken(token: SyntaxKind.FalseKeyword): FalseLiteral
     fun createToken(token: SyntaxKind.EndOfFileToken): EndOfFileToken
     fun createToken(token: SyntaxKind.Unknown): Token<SyntaxKind.Unknown>
-
-    // TODO: restore after alias update
-    // fun <TKind : PunctuationSyntaxKind> createToken(token: TKind): PunctuationToken<TKind>
-    // TODO: restore after alias update
-    // fun <TKind : KeywordTypeSyntaxKind> createToken(token: TKind): KeywordTypeNode<TKind>
-    // TODO: restore after alias update
-    // fun <TKind : ModifierSyntaxKind> createToken(token: TKind): ModifierToken<TKind>
-    // TODO: restore after alias update
-    // fun <TKind : KeywordSyntaxKind> createToken(token: TKind): KeywordToken<TKind>
+    fun <TKind : PunctuationSyntaxKind> createToken(token: TKind): PunctuationToken<TKind>
+    fun <TKind : KeywordTypeSyntaxKind> createToken(token: TKind): KeywordTypeNode<TKind>
+    fun <TKind : ModifierSyntaxKind> createToken(token: TKind): ModifierToken<TKind>
+    fun <TKind : KeywordSyntaxKind> createToken(token: TKind): KeywordToken<TKind>
     fun createSuper(): SuperExpression
     fun createThis(): ThisExpression
     fun createNull(): NullLiteral
