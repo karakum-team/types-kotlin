@@ -124,7 +124,7 @@ internal fun convertMethod(
         .removeSuffix("?")
         .ifEmpty { "/* native */ invoke" }
 
-    val typeParameters = source.substringBefore("(")
+    var typeParameters = source.substringBefore("(")
         .substringAfter("<", "")
         .let { if (it.isNotEmpty()) "<$it" else "" }
         .replace(" extends ", " : ")
@@ -133,6 +133,13 @@ internal fun convertMethod(
             "Any /* AccessorDeclaration | MethodDeclaration | MethodSignature | PropertyDeclaration | PropertySignature | PropertyAssignment */",
         )
         .replace(" | undefined", "?")
+
+    var whereParameters = ""
+    if (typeParameters == "<T : HasModifiers & HasDecorators>") {
+        typeParameters = "<T>"
+        whereParameters = " where T : HasModifiers,\n" +
+                "T : HasDecorators"
+    }
 
     val parametersSource = source
         .substringAfter("(")
@@ -183,7 +190,7 @@ internal fun convertMethod(
         ": $returnType"
     } else ""
 
-    var result = "$keyword $typeParameters $name($parameters)$returnDeclaration"
+    var result = "$keyword $typeParameters $name($parameters)$returnDeclaration$whereParameters"
     if (name == "createToken" && typeParameters.isNotEmpty())
         result = "    // TODO: restore after alias update\n    // $result"
 
