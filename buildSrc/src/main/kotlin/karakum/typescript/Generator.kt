@@ -20,10 +20,19 @@ fun generateKotlinDeclarations(
                 add(ERROR_IN_CONTRACT_DESCRIPTION)
             }
 
-            if ("companion object" in body || name == "SyntaxKind" || name == "TypePredicateKind" || name == "InvalidatedProjectKind")
+            if ("companion object" in body
+                || name == "SyntaxKind"
+                || name == "TypePredicateKind"
+                || name == "InvalidatedProjectKind"
+            )
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
-            if ("override var kind: TypePredicateKind." in body || name == "TupleTypeReference" || name == "CompletionEntryDataResolved" || name == "DiagnosticWithLocation")
+            if ("override var kind: TypePredicateKind." in body
+                || name == "TupleTypeReference"
+                || name == "CompletionEntryDataResolved"
+                || name == "CompletionEntryDataUnresolved"
+                || name == "DiagnosticWithLocation"
+            )
                 add(VAR_TYPE_MISMATCH_ON_OVERRIDE)
 
             if ("inline operator fun " in body && name != "ReadonlyArrayAdapter")
