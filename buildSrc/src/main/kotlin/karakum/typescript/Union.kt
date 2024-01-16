@@ -14,10 +14,14 @@ private val TYPES = RAW_UNIONS.asSequence()
         RAW_UNIONS.keys.asSequence()
             .filter { "." in it }
             .forEach {
-                val parentType = when (it.substringAfterLast(".")) {
-                    "kind" -> "SyntaxKind"
-                    "name" -> "DeclarationName"
-                    "parent" -> "Node"
+                val propertyName = it.substringAfterLast(".")
+                val parentType = when {
+                    it == "JsxTagNamePropertyAccess.expression" -> "LeftHandSideExpression"
+
+                    propertyName == "kind" -> "SyntaxKind"
+                    propertyName == "name" -> "DeclarationName"
+                    propertyName == "parent" -> "Node"
+
                     else -> null
                 }
 
