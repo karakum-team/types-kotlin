@@ -8,6 +8,7 @@ internal fun String.addOptionality(): String {
         return this
 
     return when {
+        endsWith(">") -> "$this?"
         " /*" in this -> replace(" /*", "? /*")
         endsWith("?") -> this
         else -> "$this?"

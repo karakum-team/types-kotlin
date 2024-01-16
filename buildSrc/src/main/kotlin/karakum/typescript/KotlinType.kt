@@ -48,7 +48,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "AffectedFileResult<readonly Diagnostic[]>" to "AffectedFileResult<ReadonlyArray<Diagnostic>>",
     "(indexSymbol: Symbol) => IndexInfo[]" to "(indexSymbol: Symbol) -> ReadonlyArray<IndexInfo>",
 
-    "typeof visitNodes" to "$DYNAMIC /* typeof visitNodes */",
+    "typeof visitNodes" to "NodeVisitor",
 
     "Visitor" to "Visitor<*, *>",
 
@@ -88,8 +88,13 @@ internal fun kotlinType(
     if (type.startsWith("SignatureDeclaration & {"))
         return "SignatureDeclaration /* $type */"
 
-    if (type.startsWith("(") && type.endsWith(" | undefined)[]"))
-        return "ReadonlyArray<${kotlinType(type.removeSurrounding("(", " | undefined)[]"), name)}?>"
+    if (type.startsWith("(") && type.endsWith(" | undefined)[]")) {
+        var itemType = kotlinType(type.removeSurrounding("(", " | undefined)[]"), name)
+        if (!itemType.startsWith(DYNAMIC))
+            itemType += "?"
+
+        return "ReadonlyArray<$itemType>"
+    }
 
     if (" | " in type || type.startsWith("{ "))
         return "$DYNAMIC /* $type */"
