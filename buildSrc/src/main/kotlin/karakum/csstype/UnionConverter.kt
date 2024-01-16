@@ -83,7 +83,7 @@ internal fun tryToUnion(
 
         val enumBody = if (name == NAMED_COLOR) {
             val constants = items.toUnionValues()
-                .map { UnionConstant(it, it, NAMED_COLOR_MAP.getValue(it)) }
+                .map { UnionConstant(it, NAMED_COLOR_MAP.getValue(it)) }
 
             unionBodyByConstants(COLOR, constants)
                 .replaceFirst(COLOR, NAMED_COLOR)
