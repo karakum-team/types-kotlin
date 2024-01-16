@@ -34,7 +34,7 @@ sealed external interface LanguageServiceHost : GetEffectiveTypeRootsHost, Minim
         encoding: String = definedExternally,
     ): String?
 
-    override fun fileExists(fileName: String): Boolean
+    override fun fileExists(path: String): Boolean
     val getTypeRootsVersion: (() -> Int)?
     val getResolvedModuleWithFailedLookupLocationsFromCache: ((
         modulename: String,
