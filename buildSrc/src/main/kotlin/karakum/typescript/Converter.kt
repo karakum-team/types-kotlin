@@ -488,7 +488,7 @@ private fun convertInterface(
 
     val members = convertMembers(name, bodySource, typeConverter)
     var body = when {
-        " extends " in source
+        " extends " in source || name == "ModuleResolutionHost"
         -> fixOverrides(name, members)
 
         else -> members

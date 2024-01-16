@@ -134,6 +134,11 @@ internal fun fixOverrides(
             .override("readFile")
             .override("trace")
 
+        "ModuleResolutionHost",
+        -> content
+            .replace("fileExists(fileName:", "fileExists(path:")
+            .replace("readFile(fileName:", "readFile(path:")
+
         "LanguageServiceHost",
         -> content
             .override("getCompilationSettings")
@@ -146,7 +151,6 @@ internal fun fixOverrides(
                 "val useCaseSensitiveFileNames",
                 "/* val */ var useCaseSensitiveFileNames",
             )
-            .replace("fileExists(path:", "fileExists(fileName:")
 
         "CompletionEntryDataUnresolved",
         -> content
