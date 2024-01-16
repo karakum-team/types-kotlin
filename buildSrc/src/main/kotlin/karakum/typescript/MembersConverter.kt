@@ -123,7 +123,7 @@ internal fun convertMethod(
     val name = source.substringBefore("(")
         .substringBefore("<")
         .removeSuffix("?")
-        .ifEmpty { "/* native */ invoke" }
+        .ifEmpty { "invoke" }
 
     var typeParameters = source.substringBefore("(")
         .substringAfter("<", "")
@@ -181,17 +181,24 @@ internal fun convertMethod(
     }
 
     val isOperator = when (name) {
+        "invoke" -> true
         "get" -> parameters.count { it == ':' } == 1
         "set" -> parameters.count { it == ':' } == 2
         else -> false
     }
+
+    val annotation = if (name == "invoke") "@JsNative" else ""
     val keyword = if (isOperator) "operator fun" else "fun"
 
     val returnDeclaration = if (returnType != UNIT) {
         ": $returnType"
     } else ""
 
-    return "$keyword $typeParameters $name($parameters)$returnDeclaration$whereParameters"
+    return sequenceOf(
+        annotation,
+        "$keyword $typeParameters $name($parameters)$returnDeclaration$whereParameters"
+    ).filter { it.isNotEmpty() }
+        .joinToString("\n")
 }
 
 internal fun convertParameter(

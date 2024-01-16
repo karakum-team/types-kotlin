@@ -110,7 +110,7 @@ internal fun kotlinType(
 
     if (type.startsWith("Promise<")) {
         val parameter = kotlinType(type.removeSurrounding("Promise<", ">"), name)
-        return "js.promise.Promise<$parameter>"
+        return "Promise<$parameter>"
     }
 
     if (type.startsWith("("))

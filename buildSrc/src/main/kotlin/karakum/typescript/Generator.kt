@@ -70,6 +70,7 @@ private val DEFAULT_IMPORTS = listOf(
     "js.collections.JsMap",
     "js.collections.JsSet",
     "js.iterable.JsIterator",
+    "js.promise.Promise",
 )
 
 private fun fileContent(
@@ -81,7 +82,7 @@ private fun fileContent(
         .filter { "${it.substringAfterLast(".")}<" in body }
         .map { "import $it" }
         .plus(
-            sequenceOf("JsVirtual", "JsValue", "JsIntValue")
+            sequenceOf("JsVirtual", "JsValue", "JsIntValue", "JsNative")
                 .filter { it in body }
                 .map { "import seskar.js.$it" }
         )
