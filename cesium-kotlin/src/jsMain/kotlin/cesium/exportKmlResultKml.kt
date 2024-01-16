@@ -3,7 +3,7 @@
 package cesium
 
 import js.objects.ReadonlyRecord
-import web.buffer.Blob
+import web.blob.Blob
 
 /**
  * @property [kml] The generated KML.
