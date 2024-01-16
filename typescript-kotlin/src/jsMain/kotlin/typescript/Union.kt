@@ -370,7 +370,7 @@ sealed external interface Union {
 
     sealed interface JsxTagNamePropertyAccess_ : JsxTagNameExpression, JsxTagNamePropertyAccess_expression
 
-    sealed interface JsxTagNamePropertyAccess_expression
+    sealed interface JsxTagNamePropertyAccess_expression : LeftHandSideExpression
 
     sealed interface JsxText_ : LiteralToken, JsxChild
 
