@@ -28,6 +28,6 @@ external fun <T : Node> visitEachChild(
     node: T?,
     visitor: Visitor<*, *>,
     context: TransformationContext,
-    nodesVisitor: dynamic /* typeof visitNodes */ = definedExternally,
+    nodesVisitor: NodeVisitor = definedExternally,
     tokenVisitor: Visitor<*, *> = definedExternally,
 ): T?
