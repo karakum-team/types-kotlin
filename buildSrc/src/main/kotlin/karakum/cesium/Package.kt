@@ -23,6 +23,6 @@ import js.typedarrays.Float32Array
 import js.typedarrays.Float64Array
 import js.typedarrays.Uint16Array
 import js.typedarrays.Uint8Array
-import web.buffer.Blob
+import web.blob.Blob
 
 """.trimStart()
