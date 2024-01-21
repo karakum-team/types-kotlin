@@ -609,6 +609,7 @@ internal fun htmlDeclarations(
                     )
                 }
         )
+        .plus(Abortable())
         .plus(Ed25519())
 }
 
