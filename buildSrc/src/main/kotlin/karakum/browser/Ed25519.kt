@@ -9,7 +9,7 @@ external object $ED25519
 
 internal fun Ed25519(): ConversionResult =
     ConversionResult(
-        name = "ED25519",
+        name = ED25519,
         body = ED25519_BODY,
         pkg = "web.crypto",
     )
