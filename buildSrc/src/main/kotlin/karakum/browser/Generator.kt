@@ -52,6 +52,7 @@ private val DEFAULT_IMPORTS = Imports(
     "seskar.js.JsValue",
     "seskar.js.JsVirtual",
 
+    "web.abort.Abortable",
     "web.abort.AbortSignal",
     "web.animations.Animation",
     "web.animations.DocumentTimeline",

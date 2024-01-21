@@ -794,6 +794,9 @@ internal fun convertInterface(
         declaration += "\nArrayLike<$arrayType>"
     }
 
+    val abortable = "signal?: AbortSignal;" in memberSource
+            || "signal?: AbortSignal | null;" in memberSource
+
     val mapLikeParameters = if (iterableTypeParameter != null) {
         mapLikeParameters(iterableTypeParameter)
     } else null
@@ -814,11 +817,15 @@ internal fun convertInterface(
         declaration += "\n$iterableDeclaration"
     }
 
-    val additionalParents = MarkerRegistry.additionalParents(name)
-    if (additionalParents != null) {
-        declaration += if (":" in declaration) "," else ":"
-        declaration += "\n${additionalParents.joinToString(",\n")}"
-    }
+    sequenceOf(MarkerRegistry.additionalParents(name))
+        .filterNotNull()
+        .flatten()
+        .plus(ABORTABLE.takeIf { abortable })
+        .filterNotNull()
+        .forEach { additionalParent ->
+            declaration += if (":" in declaration) "," else ":"
+            declaration += "\n$additionalParent"
+        }
 
     val additionalIterableParent = IterableRegistry.additionalParent(name)
     if (additionalIterableParent != null) {
@@ -1008,7 +1015,11 @@ internal fun convertInterface(
             "FileSystemFileHandle",
             -> result.replace("val kind:", "override val kind:")
 
-            else -> result
+            else -> {
+                if (abortable) {
+                    result.replace("var signal: AbortSignal?", "override var signal: AbortSignal?")
+                } else result
+            }
         }
 
         result
