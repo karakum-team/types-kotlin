@@ -794,8 +794,9 @@ internal fun convertInterface(
         declaration += "\nArrayLike<$arrayType>"
     }
 
-    val abortable = "signal?: AbortSignal;" in memberSource
-            || "signal?: AbortSignal | null;" in memberSource
+    val abortable = memberSource.substringAfter("signal?: AbortSignal", "-")
+        .removePrefix(" | null")
+        .let { it.startsWith(";") || it.isEmpty() }
 
     val mapLikeParameters = if (iterableTypeParameter != null) {
         mapLikeParameters(iterableTypeParameter)
