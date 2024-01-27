@@ -258,6 +258,13 @@ fun generateKotlinDeclarations(
             if (name.endsWith("Event.types") && " = definedExternally" in body)
                 add(NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE)
 
+            if (name == EVENT_TARGET) {
+                add(WRONG_BODY_OF_EXTERNAL_DECLARATION)
+                add(INLINE_EXTERNAL_DECLARATION)
+                add(NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE)
+                add(DECLARATION_CANT_BE_INLINED)
+            }
+
             if ("inline fun " in body)
                 add(NOTHING_TO_INLINE)
         }.toTypedArray()
