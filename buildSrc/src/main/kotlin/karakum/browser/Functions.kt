@@ -7,6 +7,16 @@ private val TIMERS = setOf(
     "clearInterval",
 )
 
+private val RAF = setOf(
+    "requestAnimationFrame",
+    "cancelAnimationFrame",
+)
+
+private val IDLE = setOf(
+    "requestIdleCallback",
+    "cancelIdleCallback",
+)
+
 internal fun browserFunctions(
     content: String,
 ): Sequence<ConversionResult> =
@@ -71,6 +81,12 @@ private fun getBrowserPkg(
 
         in TIMERS,
         -> "web.timers"
+
+        in RAF,
+        -> "web.animations"
+
+        in IDLE,
+        -> "web.scheduling"
 
         "queueMicrotask",
         -> "web.scheduling"
@@ -162,6 +178,7 @@ private fun convertFunctionResult(
         .replace("init?: RequestInit", "init: RequestInit? = definedExternally")
         .replace("options?: ImageBitmapOptions", "options: ImageBitmapOptions? = definedExternally")
         .replace("options?: StructuredSerializeOptions", "options: StructuredSerializeOptions? = definedExternally")
+        .replace("options?: IdleRequestOptions", "options: IdleRequestOptions? = definedExternally")
         .replace("...urls: string[]", "vararg urls: String")
         .replace("...urls: URL[]", "vararg urls: URL")
         .replace("?: string", ": String = definedExternally")
