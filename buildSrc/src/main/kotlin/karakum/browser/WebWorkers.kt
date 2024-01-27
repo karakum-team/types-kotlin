@@ -128,4 +128,5 @@ internal fun serviceWorkersContent(
         )
         .splitUnion("string | string[]")
         .splitUnion("string | URL")
+        .splitUnion("(string | URL)[]", "string[] | URL[]")
         .splitUnion("Response | PromiseLike<Response>")

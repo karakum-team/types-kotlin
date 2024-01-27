@@ -308,6 +308,7 @@ fun generateKotlinDeclarations(
         .plus(webAssemblyDeclarations(content))
         .plus(webWorkersDeclarations())
         .plus(serviceWorkersDeclarations(serviceworkerDefinitionsFile))
+        .plus(workerFunctions(serviceWorkersContent))
         .plus(audioWorkletDeclarations(audioWorkletDefinitionsFile))
 
     for ((name, body, pkg) in aliases) {

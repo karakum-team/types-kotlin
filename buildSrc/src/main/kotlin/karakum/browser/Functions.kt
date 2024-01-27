@@ -32,6 +32,17 @@ internal fun browserFunctions(
             )
         )
 
+internal fun workerFunctions(
+    content: String,
+): Sequence<ConversionResult> =
+    convertFunctions(
+        content = content.replace(
+            "\ndeclare function ",
+            "\nfunction ",
+        ),
+        getPkg = ::getWorkerPkg,
+    )
+
 private fun getBrowserPkg(
     name: String,
 ): String? =
@@ -68,6 +79,16 @@ private fun getBrowserPkg(
         "confirm",
         "prompt",
         -> "web.prompts"
+
+        else -> null
+    }
+
+private fun getWorkerPkg(
+    name: String,
+): String? =
+    when (name) {
+        "importScripts",
+        -> "web.workers"
 
         else -> null
     }
@@ -127,6 +148,7 @@ private fun convertFunctionResult(
         .replace("(e: any", "(error: JsError")
         // alert
         .replace("message?: any", "message: String")
+        .replace("message?: any", "message: String")
         .replace("message?: ", "message: ")
         .replace("_default?: ", "default?: ")
         .replace("?: Imports", ": Imports = definedExternally")
@@ -140,6 +162,8 @@ private fun convertFunctionResult(
         .replace("init?: RequestInit", "init: RequestInit? = definedExternally")
         .replace("options?: ImageBitmapOptions", "options: ImageBitmapOptions? = definedExternally")
         .replace("options?: StructuredSerializeOptions", "options: StructuredSerializeOptions? = definedExternally")
+        .replace("...urls: string[]", "vararg urls: String")
+        .replace("...urls: URL[]", "vararg urls: URL")
         .replace("?: string", ": String = definedExternally")
         .replace(": string", ": String")
         .replace(": number", ": Int")
