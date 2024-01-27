@@ -43,6 +43,9 @@ private fun getBrowserPkg(
         "btoa",
         -> "web.encoding"
 
+        "fetch",
+        -> "web.http"
+
         "createImageBitmap",
         -> "web.canvas"
 
@@ -134,6 +137,7 @@ private fun convertFunctionResult(
         .replace("?: string | null", "?: string")
         // TEMP for getComputedStyle
         .replace("pseudoElement?: string", "pseudoElement: String? = definedExternally")
+        .replace("init?: RequestInit", "init: RequestInit? = definedExternally")
         .replace("options?: ImageBitmapOptions", "options: ImageBitmapOptions? = definedExternally")
         .replace("options?: StructuredSerializeOptions", "options: StructuredSerializeOptions? = definedExternally")
         .replace("?: string", ": String = definedExternally")
@@ -148,11 +152,24 @@ private fun convertFunctionResult(
     if (name == "matchMedia")
         bodySource = bodySource.applyMediaQueryFunctionPatch()
 
+    val finalName = when (name) {
+        "fetch" -> "${name}Async"
+        else -> name
+    }
+
     val typeParameters = source.substringBefore("(")
         .removePrefix(name)
         .replace(" = any", "")
 
-    var body = "external fun $typeParameters $name $bodySource"
+    val jsName = if (finalName != name) {
+        """@JsName("$name")"""
+    } else null
+
+    var body = sequenceOf(
+        jsName,
+        "external fun $typeParameters $finalName $bodySource",
+    ).filterNotNull()
+        .joinToString("\n")
 
     if (name in TIMERS && name.startsWith("set")) {
         val idType = name.removePrefix("set")
@@ -173,7 +190,7 @@ private fun convertFunctionResult(
     }
 
     return ConversionResult(
-        name = name,
+        name = finalName,
         body = body,
         pkg = pkg
     )
