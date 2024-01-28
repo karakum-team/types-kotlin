@@ -28,18 +28,16 @@ internal fun browserFunctions(
         getPkg = ::getBrowserPkg,
     )
         .plus(
-            ConversionResult(
-                name = "Interval",
-                body = "sealed external interface Interval",
-                pkg = "web.timers",
-            )
-        )
-        .plus(
-            ConversionResult(
-                name = "Timeout",
-                body = "sealed external interface Timeout",
-                pkg = "web.timers",
-            )
+            TIMERS
+                .map { getIdType(it) to getBrowserPkg(it) }
+                .distinct()
+                .map { (name, pkg) ->
+                    ConversionResult(
+                        name = name,
+                        body = "sealed external interface $name",
+                        pkg = pkg,
+                    )
+                }
         )
 
 internal fun workerFunctions(
@@ -135,6 +133,16 @@ internal fun convertFunctions(
                 }
         }
 
+private fun getIdType(
+    name: String,
+): String {
+    require(name in TIMERS)
+
+    return name
+        .removePrefix("set")
+        .removePrefix("clear")
+}
+
 private fun convertFunctionResult(
     source: String,
     getPkg: (name: String) -> String?,
@@ -149,9 +157,7 @@ private fun convertFunctionResult(
         .let { "($it" }
 
     if (name in TIMERS) {
-        val idType = name
-            .removePrefix("set")
-            .removePrefix("clear")
+        val idType = getIdType(name)
 
         bodySource = bodySource
             .replace("timeout?: number, ...arguments: any[]", "timeout: Int = definedExternally")
