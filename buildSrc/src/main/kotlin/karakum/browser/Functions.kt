@@ -17,6 +17,8 @@ private val IDLE = setOf(
     "cancelIdleCallback",
 )
 
+private val HANDLERS = TIMERS + RAF + IDLE
+
 internal fun browserFunctions(
     content: String,
 ): Sequence<ConversionResult> =
@@ -28,7 +30,7 @@ internal fun browserFunctions(
         getPkg = ::getBrowserPkg,
     )
         .plus(
-            TIMERS
+            HANDLERS
                 .map { getIdType(it) to getBrowserPkg(it) }
                 .distinct()
                 .map { (name, pkg) ->
@@ -135,13 +137,17 @@ internal fun convertFunctions(
 
 private fun getIdType(
     name: String,
-): String {
-    require(name in TIMERS)
-
-    return name
-        .removePrefix("set")
-        .removePrefix("clear")
-}
+): String =
+    when (name) {
+        in RAF -> "FrameRequestId"
+        in IDLE -> "IdleRequestId"
+        else -> {
+            require(name in TIMERS)
+            name
+                .removePrefix("set")
+                .removePrefix("clear")
+        }
+    }
 
 private fun convertFunctionResult(
     source: String,
@@ -156,12 +162,13 @@ private fun convertFunctionResult(
         .substringAfter("(")
         .let { "($it" }
 
-    if (name in TIMERS) {
+    if (name in HANDLERS) {
         val idType = getIdType(name)
 
         bodySource = bodySource
             .replace("timeout?: number, ...arguments: any[]", "timeout: Int = definedExternally")
             .replace("id: number | undefined", "id: $idType?")
+            .replace("handle: number", "id: $idType")
             .replace("): number", "): $idType")
     }
 
