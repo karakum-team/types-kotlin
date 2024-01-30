@@ -1092,7 +1092,8 @@ internal fun convertInterface(
                 hasTypeGuard
         -> ""
 
-        name == "Element" ||
+        name == "PerformanceEntry" ||
+                name == "Element" ||
                 name == "NodeList" ||
                 name == "WorkerGlobalScope" ||
                 name == "Worklet" ||
