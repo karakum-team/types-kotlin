@@ -916,6 +916,10 @@ internal fun convertInterface(
                 .filter { !it.endsWith(": Short") }
                 .joinToString("\n")
 
+            "LargestContentfulPaint",
+            -> result
+                .replace("fun toJSON(): Any", "override fun toJSON(): Any")
+
             "Highlight",
             -> result + "\n\n" + mutableSetLikeOverrides("AbstractRange")
 
@@ -1302,6 +1306,7 @@ internal fun convertInterface(
         name.startsWith("Push") -> "web.push"
 
         name.startsWith("Performance") -> "web.performance"
+        name == "LargestContentfulPaint" -> "web.performance"
 
         name.startsWith("Window") -> "web.window"
         name == "BarProp" -> "web.window"

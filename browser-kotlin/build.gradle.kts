@@ -60,6 +60,7 @@ val WEB_INCLUDE = setOf(
 val BROWSER_INCLUDE = setOf(
     "web",
     "web/file",
+    "web/performance/LargestContentfulPaint",
 )
 
 enum class WrapperProject {
