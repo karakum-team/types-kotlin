@@ -1349,14 +1349,24 @@ internal fun getStaticSource(
     if (name == "FontFaceSet")
         return null
 
-    val contentSource = sequenceOf("declare var", "var", "const")
+    val contentSourceList = sequenceOf("declare var", "var", "const")
         .map { source.substringAfter("\n$it $name: {\n", "") }
+        .plus(source.substringAfter("\ninterface ${name}Constructor {\n", ""))
         .filter { it.isNotEmpty() }
-        .singleOrNull()
-        ?: return null
+        .toList()
+
+    val contentSource = when (name) {
+        "AudioWorkletProcessor" -> contentSourceList.first()
+        else -> {
+            require(contentSourceList.size <= 1)
+            contentSourceList.singleOrNull()
+                ?: return null
+        }
+    }
 
     return contentSource
         .substringBefore(";\n};")
+        .substringBefore(";\n}\n")
         .trimIndent()
         .removePrefix("prototype: $name;\n")
         .takeIf { it.isNotEmpty() }

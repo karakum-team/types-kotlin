@@ -17,6 +17,7 @@ internal fun intlDeclarations(
     val interfaces = Regex("""interface .+? \{[\s\S]+?\n\}""")
         .findAll(content)
         .map { it.value }
+        .filter { "Constructor {\n" !in it }
         .groupBy { it.substringBefore(" {\n") }
         .map { (declaration, sourceParts) ->
             sourceParts.singleOrNull() ?: run {
@@ -76,12 +77,12 @@ private fun intlContent(
                 .substringAfter("\ndeclare namespace Intl {\n")
                 .substringBefore("\n}")
                 .trimIndent()
+                .replace("readonly string[]", "string[]")
                 .splitUnion("string | string[]")
                 .splitUnion("number | bigint")
                 .splitUnion("Date | number | bigint")
                 .splitUnion("Date | number")
-                .splitUnion("BCP47LanguageTag | Locale")
-                .splitUnion("BCP47LanguageTag | BCP47LanguageTag[]")
+                .splitUnion("UnicodeBCP47LocaleIdentifier | Locale")
                 .replace("new (", "new(")
                 .replace("=\n    | ", "= ")
                 .replace("\n    | ", " | ")
