@@ -50,13 +50,6 @@ internal fun intlDeclarations(
         .plus(types)
         .distinct()
         .plus(interfaces)
-        .plus(
-            ConversionResult(
-                name = "LocalesArgument",
-                body = "typealias LocalesArgument = Any",
-                pkg = "js.intl",
-            )
-        )
 }
 
 private fun intlContent(
@@ -77,37 +70,44 @@ private fun intlContent(
                 .substringAfter("\ndeclare namespace Intl {\n")
                 .substringBefore("\n}")
                 .trimIndent()
-                .replace("readonly string[]", "string[]")
-                .splitUnion("string | string[]")
-                .splitUnion("number | bigint")
-                .splitUnion("Date | number | bigint")
-                .splitUnion("Date | number")
-                .splitUnion("UnicodeBCP47LocaleIdentifier | Locale")
-                .replace("new (", "new(")
-                .replace("=\n    | ", "= ")
-                .replace("\n    | ", " | ")
-
-                // TODO: strict align
-                .replace("type RelativeTimeFormatLocaleMatcher = ", "type LocaleMatcher = ")
-                .replace(": RelativeTimeFormatLocaleMatcher;", ": LocaleMatcher;")
-                .replace("type LocaleCollationCaseFirst = ", "type CaseFirst = ")
-                .replace(": LocaleCollationCaseFirst;", ": CaseFirst;")
-                .replace("type LocaleHourCycleKey = ", "type HourCycle = ")
-                .replace(": LocaleHourCycleKey;", ": HourCycle;")
-
-                .replace("type ES2018NumberFormatPartType = ", "type NumberFormatPartType = ")
-                .replace(";\ntype ES2020NumberFormatPartType = ", " | ")
-                .replace("\ntype NumberFormatPartTypes = ES2018NumberFormatPartType | ES2020NumberFormatPartType;", "")
-                .replace("NumberFormatPartTypes", "NumberFormatPartType")
-                .replace(""""basic" | "best fit" | "best fit"""", """"best fit" | "basic"""")
-                .replace(""": "best fit" | "lookup" | undefined;""", """: "lookup" | "best fit" | undefined;""")
-                .replace(""" = "h12" | "h23" | "h11" | "h24";""", """ = "h11" | "h12" | "h23" | "h24";""")
                 .replace("\n\n", "\n")
                 // WA for `DateTimeFormatPartTypesRegistry`
                 .replace("\n }\n", "\n}\n")
 
         }
         .joinToString("\n")
+        .replace("readonly string[]", "string[]")
+        .splitUnion("string | string[]")
+        .splitUnion("number | bigint")
+        .splitUnion("Date | number | bigint")
+        .splitUnion("Date | number")
+        .splitTypealias("LocalesArgument")
+        .splitUnion(
+            "UnicodeBCP47LocaleIdentifier | Locale | readonly (UnicodeBCP47LocaleIdentifier | Locale)[] | undefined",
+            "UnicodeBCP47LocaleIdentifier | Locale | UnicodeBCP47LocaleIdentifier[] | Locale[]",
+        )
+        .splitUnion("UnicodeBCP47LocaleIdentifier | Locale")
+        .replace("new (", "new(")
+        .replace("=\n    | ", "= ")
+        .replace("\n    | ", " | ")
+
+        .replace("Pick<ListFormatOptions, \"localeMatcher\">", "ListFormatOptions")
+        .replace("Pick<SegmenterOptions, \"localeMatcher\">", "SegmenterOptions")
+        // TODO: strict align
+        .replace("type RelativeTimeFormatLocaleMatcher = ", "type LocaleMatcher = ")
+        .replace(": RelativeTimeFormatLocaleMatcher;", ": LocaleMatcher;")
+        .replace("type LocaleCollationCaseFirst = ", "type CaseFirst = ")
+        .replace(": LocaleCollationCaseFirst;", ": CaseFirst;")
+        .replace("type LocaleHourCycleKey = ", "type HourCycle = ")
+        .replace(": LocaleHourCycleKey;", ": HourCycle;")
+
+        .replace("type ES2018NumberFormatPartType = ", "type NumberFormatPartType = ")
+        .replace(";\ntype ES2020NumberFormatPartType = ", " | ")
+        .replace("\ntype NumberFormatPartTypes = ES2018NumberFormatPartType | ES2020NumberFormatPartType;", "")
+        .replace("NumberFormatPartTypes", "NumberFormatPartType")
+        .replace(""""basic" | "best fit" | "best fit"""", """"best fit" | "basic"""")
+        .replace(""": "best fit" | "lookup" | undefined;""", """: "lookup" | "best fit" | undefined;""")
+        .replace(""" = "h12" | "h23" | "h11" | "h24";""", """ = "h11" | "h12" | "h23" | "h24";""")
 
 private val FORMAT_PROPERTIES = setOf(
     "weekday",
