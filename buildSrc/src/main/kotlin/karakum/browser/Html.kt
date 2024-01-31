@@ -1369,7 +1369,7 @@ internal fun getStaticSource(
         .substringBefore(";\n}\n")
         .trimIndent()
         .removePrefix("prototype: $name;\n")
-        .removeSuffix("\nprototype: $name")
+        .removeSuffix("\nreadonly prototype: $name")
         .takeIf { it.isNotEmpty() }
 }
 
