@@ -916,10 +916,6 @@ internal fun convertInterface(
                 .filter { !it.endsWith(": Short") }
                 .joinToString("\n")
 
-            "LargestContentfulPaint",
-            -> result
-                .replace("fun toJSON(): Any", "override fun toJSON(): Any")
-
             "Highlight",
             -> result + "\n\n" + mutableSetLikeOverrides("AbstractRange")
 
@@ -1002,6 +998,7 @@ internal fun convertInterface(
             "PerformanceEventTiming",
             "PerformanceNavigationTiming",
             "PerformanceResourceTiming",
+            "LargestContentfulPaint",
             -> result
                 .replace("val target: Node?", "val target: EventTarget /* Node */?")
                 .replace("fun toJSON()", "override fun toJSON()")
