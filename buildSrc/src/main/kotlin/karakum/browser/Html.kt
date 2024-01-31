@@ -1102,7 +1102,7 @@ internal fun convertInterface(
     }
 
     val idDeclaration = RenderingContextRegistry.getIdDeclaration(name)
-    val companion = if (staticSource != null && predefinedPkg != "js.intl") {
+    val companion = if (staticSource != null) {
         val companionContent = getCompanion(name, staticSource)
         when {
             name == DOM_EXCEPTION -> {

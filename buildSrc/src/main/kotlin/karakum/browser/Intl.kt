@@ -3,6 +3,10 @@ package karakum.browser
 import karakum.common.sealedUnionBody
 import java.io.File
 
+private const val SUPPORTED_LOCALES_OPTIONS = "SupportedLocalesOptions"
+
+private const val s = SUPPORTED_LOCALES_OPTIONS
+
 internal fun intlDeclarations(
     definitionsDir: File,
 ): Sequence<ConversionResult> {
@@ -14,7 +18,7 @@ internal fun intlDeclarations(
         getPkg = { "js.intl" },
     )
 
-    val interfaces = Regex("""interface .+? \{[\s\S]+?\n\}""")
+    val interfaces = Regex("""interface .+? \{[\s\S]+?\n}""")
         .findAll(content)
         .map { it.value }
         .filter { "Constructor {\n" !in it }
@@ -50,6 +54,17 @@ internal fun intlDeclarations(
         .plus(types)
         .distinct()
         .plus(interfaces)
+        .plus(
+            ConversionResult(
+                SUPPORTED_LOCALES_OPTIONS,
+                """
+                    sealed external interface $SUPPORTED_LOCALES_OPTIONS {
+                        var localeMatcher: LocaleMatcher?
+                    }
+                    """,
+                "js.intl",
+            )
+        )
 }
 
 private fun intlContent(
@@ -78,17 +93,24 @@ private fun intlContent(
         .splitUnion("Date | number | bigint")
         .splitUnion("Date | number")
         .splitTypealias("LocalesArgument")
+        .replace("(\n        ", "(")
+        .replace(",\n        ", ", ")
+        .replace(",\n    )", ")")
         .splitUnion(
             "UnicodeBCP47LocaleIdentifier | Locale | readonly (UnicodeBCP47LocaleIdentifier | Locale)[] | undefined",
             "UnicodeBCP47LocaleIdentifier | Locale | UnicodeBCP47LocaleIdentifier[] | Locale[]",
         )
         .splitUnion("UnicodeBCP47LocaleIdentifier | Locale")
+        .replace(Regex("""\s{4}\(.+\n"""), "\n")
         .replace("new (", "new(")
         .replace("=\n    | ", "= ")
         .replace("\n    | ", " | ")
 
+        // static
         .replace("Pick<ListFormatOptions, \"localeMatcher\">", "ListFormatOptions")
         .replace("Pick<SegmenterOptions, \"localeMatcher\">", "SegmenterOptions")
+        .replace("""{ localeMatcher?: "lookup" | "best fit"; }""", SUPPORTED_LOCALES_OPTIONS)
+        .replace("""{ localeMatcher?: RelativeTimeFormatLocaleMatcher; }""", SUPPORTED_LOCALES_OPTIONS)
         // TODO: strict align
         .replace("type RelativeTimeFormatLocaleMatcher = ", "type LocaleMatcher = ")
         .replace(": RelativeTimeFormatLocaleMatcher;", ": LocaleMatcher;")
