@@ -2,7 +2,6 @@
 
 package js.intl
 
-
 sealed external interface SupportedLocalesOptions {
     var localeMatcher: LocaleMatcher?
 }

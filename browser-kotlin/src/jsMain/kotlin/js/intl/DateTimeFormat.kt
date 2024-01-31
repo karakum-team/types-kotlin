@@ -54,8 +54,6 @@ external class DateTimeFormat(
     ): ReadonlyArray<DateTimeRangeFormatPart>
 
     companion object {
-
-
         fun supportedLocalesOf(
             locales: String,
             options: DateTimeFormatOptions = definedExternally,

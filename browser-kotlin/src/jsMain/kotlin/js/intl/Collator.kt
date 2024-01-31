@@ -23,8 +23,6 @@ external class Collator(
     fun resolvedOptions(): ResolvedCollatorOptions
 
     companion object {
-
-
         fun supportedLocalesOf(
             locales: String,
             options: CollatorOptions = definedExternally,

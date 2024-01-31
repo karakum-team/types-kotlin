@@ -41,8 +41,6 @@ external class NumberFormat(
     ): ReadonlyArray<NumberRangeFormatPart>
 
     companion object {
-
-
         fun supportedLocalesOf(
             locales: String,
             options: NumberFormatOptions = definedExternally,

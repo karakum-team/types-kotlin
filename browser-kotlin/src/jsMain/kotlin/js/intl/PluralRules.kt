@@ -19,8 +19,6 @@ external class PluralRules(
     fun select(n: Int): LDMLPluralRule
 
     companion object {
-
-
         fun supportedLocalesOf(
             locales: String,
             options: SupportedLocalesOptions = definedExternally,
