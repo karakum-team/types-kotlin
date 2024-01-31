@@ -21,4 +21,18 @@ external class Collator(
     ): Int
 
     fun resolvedOptions(): ResolvedCollatorOptions
+
+    companion object {
+
+
+        fun supportedLocalesOf(
+            locales: String,
+            options: CollatorOptions = definedExternally,
+        ): ReadonlyArray<String>
+
+        fun supportedLocalesOf(
+            locales: ReadonlyArray<String>,
+            options: CollatorOptions = definedExternally,
+        ): ReadonlyArray<String>
+    }
 }
