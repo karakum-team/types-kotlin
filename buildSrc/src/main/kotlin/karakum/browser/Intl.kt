@@ -64,18 +64,14 @@ private fun intlContent(
                 .toIntOrNull()
                 ?: 3000
         }
-        .map {
+        .joinToString("\n") {
             it.readText()
                 .replace("\r\n", "\n")
                 .substringAfter("\ndeclare namespace Intl {\n")
                 .substringBefore("\n}")
                 .trimIndent()
                 .replace("\n\n", "\n")
-                // WA for `DateTimeFormatPartTypesRegistry`
-                .replace("\n }\n", "\n}\n")
-
         }
-        .joinToString("\n")
         .replace("readonly string[]", "string[]")
         .splitUnion("string | string[]")
         .splitUnion("number | bigint")
