@@ -1369,6 +1369,7 @@ internal fun getStaticSource(
         .substringBefore(";\n}\n")
         .trimIndent()
         .removePrefix("prototype: $name;\n")
+        .removeSuffix("\nprototype: $name")
         .takeIf { it.isNotEmpty() }
 }
 
@@ -1409,6 +1410,7 @@ private fun getCompanion(
         .splitToSequence(";\n")
         .mapNotNull { convertMember(it, typeProvider) }
         .joinToString("\n")
+        .trim()
         .ifEmpty { return "" }
 
     return "companion object {\n$members\n}"
