@@ -58,10 +58,10 @@ internal fun intlDeclarations(
             ConversionResult(
                 SUPPORTED_LOCALES_OPTIONS,
                 """
-                    sealed external interface $SUPPORTED_LOCALES_OPTIONS {
-                        var localeMatcher: LocaleMatcher?
-                    }
-                    """,
+                sealed external interface $SUPPORTED_LOCALES_OPTIONS {
+                    var localeMatcher: LocaleMatcher?
+                }
+                """.trimIndent(),
                 "js.intl",
             )
         )
