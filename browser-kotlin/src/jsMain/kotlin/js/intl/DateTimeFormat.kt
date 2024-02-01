@@ -63,7 +63,5 @@ external class DateTimeFormat(
             locales: ReadonlyArray<String>,
             options: DateTimeFormatOptions = definedExternally,
         ): ReadonlyArray<String>
-
-        val prototype: DateTimeFormat
     }
 }

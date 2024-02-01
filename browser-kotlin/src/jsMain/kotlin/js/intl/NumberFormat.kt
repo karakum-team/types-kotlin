@@ -50,7 +50,5 @@ external class NumberFormat(
             locales: ReadonlyArray<String>,
             options: NumberFormatOptions = definedExternally,
         ): ReadonlyArray<String>
-
-        val prototype: NumberFormat
     }
 }
