@@ -188,13 +188,13 @@
     events "^3.0.0"
     tslib "^2.2.0"
 
-"@cesium/engine@^6.2.0":
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/@cesium/engine/-/engine-6.2.0.tgz#d0ef9af567f73e30f279f592423f2833c438eacc"
-  integrity sha512-9Iv0JFsCp7wGi7ZzP88WlkBMfOjA49obFJ4I+p2gNIGSmKZRPdstzEqUWjyJDZeck3sZaLfYUsyRDmDCgOIaBw==
+"@cesium/engine@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@cesium/engine/-/engine-7.0.0.tgz#5d8a16f8b24d4e16866ab4d401772f6c770d78de"
+  integrity sha512-lupWF9XbLjcd0YEjfXdL2sYWxIcew8v3LEKRnQ9zb20byJRDAjLfITVR1S8Eo2Yb0X6ZE13pu8dDa8BVjcQEpg==
   dependencies:
-    "@tweenjs/tween.js" "^21.0.0"
-    "@zip.js/zip.js" "2.4.x"
+    "@tweenjs/tween.js" "^23.1.1"
+    "@zip.js/zip.js" "^2.7.34"
     autolinker "^4.0.0"
     bitmap-sdf "^1.0.3"
     dompurify "^3.0.2"
@@ -213,12 +213,12 @@
     topojson-client "^3.1.0"
     urijs "^1.19.7"
 
-"@cesium/widgets@^4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@cesium/widgets/-/widgets-4.4.0.tgz#573d9d7e834053b33f386f09811e26e15402c829"
-  integrity sha512-K3kGy9rQAc1HVhPy4YE0ZIYK2RoQ9USpYh2l6NqtqFYXQy7buyctPjPC8aOvqX2+3Nn91+AOOyD1DHmkezR9BA==
+"@cesium/widgets@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@cesium/widgets/-/widgets-4.5.0.tgz#28fb36c3f246c1fa14b39e0aec327af38a4610de"
+  integrity sha512-wrZD5DslQ/02Dxpf40jM3zYA7qZA0R6xE1qayCb/WL1qMjQn4iEjJJSDFIBUmI30XtwkMaxFnjqopAT/eFydDw==
   dependencies:
-    "@cesium/engine" "^6.2.0"
+    "@cesium/engine" "^7.0.0"
     nosleep.js "^0.12.0"
 
 "@fastify/busboy@^2.0.0":
@@ -325,10 +325,10 @@
   resolved "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.0.0.tgz#637bee36f0cabf96a1d436887c90f138a7e9378b"
   integrity sha512-SYXOBTjJb05rXa2vl55TTwO40A6wKu0R5i1qQwhJYNDIqaIGF7D0HsLw+pJAyi2OvntlEIVusx3xtbbgSUi6zg==
 
-"@tweenjs/tween.js@^21.0.0":
-  version "21.0.0"
-  resolved "https://registry.yarnpkg.com/@tweenjs/tween.js/-/tween.js-21.0.0.tgz#73f993c2d1de37b78b4c1246163e20bc6ae3b75e"
-  integrity sha512-qVfOiFh0U8ZSkLgA6tf7kj2MciqRbSCWaJZRwftVO7UbtVDNsZAXpWXqvCDtIefvjC83UJB+vHTDOGm5ibXjEA==
+"@tweenjs/tween.js@^23.1.1":
+  version "23.1.1"
+  resolved "https://registry.yarnpkg.com/@tweenjs/tween.js/-/tween.js-23.1.1.tgz#0ae28ed9c635805557f78c2626464018d5f1b5e2"
+  integrity sha512-ZpboH7pCPPeyBWKf8c7TJswtCEQObFo3bOBYalm99NzZarATALYCo5OhbCa/n4RQyJyHfhkdx+hNrdL5ByFYDw==
 
 "@types/audioworklet@0.0.53":
   version "0.0.53"
@@ -391,10 +391,10 @@
   resolved "https://registry.yarnpkg.com/@webref/idl/-/idl-3.43.0.tgz#1c453556481e6c6af349d2ddd40861d32208d41c"
   integrity sha512-hBujEyIHExKec+3oelL+qcovcUqf+AP3YL59qFVJCPRquKiFu8IHdzMPzoUgnE4iJ6Z0EnzBtw3uDADAcN8JwA==
 
-"@zip.js/zip.js@2.4.x":
-  version "2.4.26"
-  resolved "https://registry.yarnpkg.com/@zip.js/zip.js/-/zip.js-2.4.26.tgz#b79bb2055dc6e185890ee01cdb710caba505d5b2"
-  integrity sha512-I9HBO3BHIxEMQmltmHM3iqUW6IHqi3gsL9wTSXvHTRpOrA6q2OxtR58EDSaOGjHhDVJ+wIOAxZyKq2x00AVmqw==
+"@zip.js/zip.js@^2.7.34":
+  version "2.7.34"
+  resolved "https://registry.yarnpkg.com/@zip.js/zip.js/-/zip.js-2.7.34.tgz#2d5c84cffa4b6b27a94e8eb1bbb3682de6598bdf"
+  integrity sha512-SWAK+hLYKRHswhakNUirPYrdsflSFOxykUckfbWDcPvP8tjLuV5EWyd3GHV0hVaJLDps40jJnv8yQVDbWnQDfg==
 
 abort-controller@^3.0.0:
   version "3.0.0"
@@ -433,13 +433,13 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-cesium@1.113.0:
-  version "1.113.0"
-  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.113.0.tgz#5a3a5a2806c8f73fb822d2e982b70f246fb18d4c"
-  integrity sha512-OtbeMGXZn2dlNVYWCeq0JeGjgFPikXp6aTjo/azzuvOTj3JwgVie0tgNUGVlYDVi+fMPQqttC14lJbPYRL7etw==
+cesium@1.114.0:
+  version "1.114.0"
+  resolved "https://registry.yarnpkg.com/cesium/-/cesium-1.114.0.tgz#1edec57964a314ca4e49bbeb73ce42c359cde52b"
+  integrity sha512-vjNoGZCwuXLqYR9KW+h9mOwod0JThm2Qx3pAofQJ4PuW/CLi8yCcOn2FwsndQEI7Snr+XjXXFzOzwYTnhXktow==
   dependencies:
-    "@cesium/engine" "^6.2.0"
-    "@cesium/widgets" "^4.4.0"
+    "@cesium/engine" "^7.0.0"
+    "@cesium/widgets" "^4.5.0"
 
 combined-stream@^1.0.6, combined-stream@^1.0.8:
   version "1.0.8"
