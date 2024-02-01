@@ -18,8 +18,9 @@ private const val FILE_SUGGESTIONS = """: {
 };"""
 
 private const val GET_MODE_FILE_PARAMETER = """{
-    impliedNodeFormat?: ResolutionMode;
-}"""
+        impliedNodeFormat?: ResolutionMode;
+    },
+    """
 
 private val REPLACEMENTS = sequenceOf(
     SIGNATURE_TO_SIGNATURE,
