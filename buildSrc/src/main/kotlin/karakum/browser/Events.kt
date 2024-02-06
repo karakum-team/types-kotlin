@@ -147,16 +147,13 @@ private fun eventPlaceholders(
             "${info.name}Types"
         } else null
 
-        sequenceOf(
-            event(
-                source = source,
-                name = info.name,
-                pkg = info.pkg,
-                typesName = typesName,
-            ),
-            types,
-        )
-    }.filterNotNull()
+        event(
+            source = source,
+            name = info.name,
+            pkg = info.pkg,
+            typesName = typesName,
+        ).plus(listOfNotNull(types))
+    }
 }
 
 private fun event(
@@ -164,7 +161,7 @@ private fun event(
     name: String,
     pkg: String,
     typesName: String?,
-): ConversionResult {
+): Sequence<ConversionResult> {
     val initName = "${name}Init" +
             (if (name == "CustomEvent" || name == "MessageEvent") "<T = any>" else "")
 
@@ -175,7 +172,7 @@ private fun event(
     if ("{\n}" in initSource)
         initSource = initSource.substringBefore("}")
 
-    val initBody = if (initSource.isNotEmpty()) {
+    var initBody = if (initSource.isNotEmpty()) {
         val parentDeclaration = initSource
             .substringBefore("{\n")
             .replace("extends ", ": ")
@@ -316,20 +313,23 @@ private fun event(
             source = "interface $name<"
         )
 
-    var body = sequenceOf(
-        initBody,
-        eventBody,
-    ).filter { it.isNotEmpty() }
-        .joinToString("\n\n")
+    if (name == "MediaQueryListEvent") {
+        initBody = initBody.applyMediaQueryPatch()
+        eventBody = eventBody.applyMediaQueryPatch()
+    }
 
-    if (name == "MediaQueryListEvent")
-        body = body.applyMediaQueryPatch()
-
-    return ConversionResult(
-        name = name,
-        body = body,
-        pkg = pkg,
-    )
+    return sequenceOf(
+        ConversionResult(
+            name = initName.substringBefore("<"),
+            body = initBody,
+            pkg = pkg,
+        ),
+        ConversionResult(
+            name = name,
+            body = eventBody,
+            pkg = pkg,
+        ),
+    ).filter { it.body.isNotEmpty() }
 }
 
 private class EventDataMap(
