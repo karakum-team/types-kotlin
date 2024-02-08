@@ -25,6 +25,7 @@ internal fun String.applyPatches(): String {
         .applyTempEventPatches()
         .applyReadyStatePatches()
         .patchQuerySelectors()
+        .patchURLSearchParams()
         // FormData
         .replace(
             "\n    append(name: string, value: string | Blob): void;\n" +
@@ -206,6 +207,15 @@ private fun String.patchCollections(): String {
     }
 
     return result
+}
+
+private fun String.patchURLSearchParams(): String {
+    val oldBody = substringAfter("\ninterface URLSearchParams {\n", "")
+        .substringBefore("\n}")
+
+    val newBody = oldBody.replace("name: string", "key: string")
+
+    return replaceFirst(oldBody, newBody)
 }
 
 private fun String.patchQuerySelectors(): String =
