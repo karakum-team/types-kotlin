@@ -815,7 +815,10 @@ internal fun convertInterface(
                     else -> "MapLike"
                 }
 
-                "$mapLikeType<${mapLikeParameters.key}, ${mapLikeParameters.value}>"
+                val result = "$mapLikeType<${mapLikeParameters.key}, ${mapLikeParameters.value}>"
+                if (name == "StylePropertyMapReadOnly") {
+                    "$result,\nSetLike<${mapLikeParameters.key}>"
+                } else result
             }
 
             listLikeMode
@@ -931,6 +934,11 @@ internal fun convertInterface(
             -> result
                 .replace("val size: Int", "override val size: Int")
                 .replaceFirst("fun get(", "override fun get(")
+                .replaceFirst("fun has(", "override fun has(")
+
+            "StylePropertyMapReadOnly",
+            -> result
+                .replace("val size: Int", "override val size: Int")
                 .replaceFirst("fun has(", "override fun has(")
 
             "Highlight",

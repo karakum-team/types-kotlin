@@ -36,6 +36,9 @@ internal fun String.applyPatches(): String {
         .patchInterface("MediaKeyStatusMap") {
             it.replace("(keyId: ", "(key: ")
         }
+        .patchInterface("StylePropertyMapReadOnly") {
+            it.replace("has(property: ", "has(key: ")
+        }
         // FormData
         .replace(
             "\n    append(name: string, value: string | Blob): void;\n" +
