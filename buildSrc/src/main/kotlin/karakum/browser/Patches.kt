@@ -25,7 +25,17 @@ internal fun String.applyPatches(): String {
         .applyTempEventPatches()
         .applyReadyStatePatches()
         .patchQuerySelectors()
-        .patchURLSearchParams()
+        .patchInterface("URLSearchParams") {
+            it.replace("name: string", "key: string")
+                .replace(
+                    "    has(key: string, value?: string): boolean;",
+                    "    has(key: string): boolean;" +
+                            "\n    has(key: string, value: string): boolean;",
+                )
+        }
+        .patchInterface("MediaKeyStatusMap") {
+            it.replace("(keyId: ", "(key: ")
+        }
         // FormData
         .replace(
             "\n    append(name: string, value: string | Blob): void;\n" +
@@ -209,13 +219,14 @@ private fun String.patchCollections(): String {
     return result
 }
 
-private fun String.patchURLSearchParams(): String {
-    val oldBody = substringAfter("\ninterface URLSearchParams {\n", "")
-        .substringBefore("\n}")
+private fun String.patchInterface(
+    name: String,
+    transform: (String) -> String,
+): String {
+    val oldBody = substringAfter("\ninterface $name {\n", "")
+        .substringBefore("\n}", "")
 
-    val newBody = oldBody.replace("name: string", "key: string")
-
-    return replaceFirst(oldBody, newBody)
+    return replaceFirst(oldBody, transform(oldBody))
 }
 
 private fun String.patchQuerySelectors(): String =
