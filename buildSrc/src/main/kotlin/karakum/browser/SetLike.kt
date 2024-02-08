@@ -8,7 +8,7 @@ override fun clear()
 override fun delete(value: -T-): Boolean
 override fun entries(): IterableIterator<JsTuple2<-T-, -T->>
 override fun forEach(action: (value: -T-) -> Unit)
-override fun has(value: -T-): Boolean
+override fun has(key: -T-): Boolean
 override fun keys(): IterableIterator<-T->
 override fun values(): IterableIterator<-T->
 """.trimIndent()
