@@ -21,10 +21,10 @@ sealed external class MediaKeyStatusMap :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeyStatusMap/get)
      */
-    operator fun get(keyId: BufferSource): MediaKeyStatus?
+    operator fun get(key: BufferSource): MediaKeyStatus?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeyStatusMap/has)
      */
-    fun has(keyId: BufferSource): Boolean
+    fun has(key: BufferSource): Boolean
 }
