@@ -806,7 +806,17 @@ internal fun convertInterface(
         val typeParameter = arrayType ?: iterableTypeParameter
         val iterableDeclaration = when {
             mapLikeParameters != null
-            -> "MapLike<${mapLikeParameters.key}, ${mapLikeParameters.value}>"
+            -> {
+                val mapLikeType = when (name) {
+                    "URLSearchParams",
+                    "MediaKeyStatusMap",
+                    -> "ReadonlyMap"
+
+                    else -> "MapLike"
+                }
+
+                "$mapLikeType<${mapLikeParameters.key}, ${mapLikeParameters.value}>"
+            }
 
             listLikeMode
             -> "ListLike<$typeParameter>"
@@ -915,6 +925,13 @@ internal fun convertInterface(
                 .splitToSequence("\n")
                 .filter { !it.endsWith(": Short") }
                 .joinToString("\n")
+
+            "URLSearchParams",
+            "MediaKeyStatusMap",
+            -> result
+                .replace("val size: Int", "override val size: Int")
+                .replaceFirst("fun get(", "override fun get(")
+                .replaceFirst("fun has(", "override fun has(")
 
             "Highlight",
             -> result + "\n\n" + mutableSetLikeOverrides("AbstractRange")
