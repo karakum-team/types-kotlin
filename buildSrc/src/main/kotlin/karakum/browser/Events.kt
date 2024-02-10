@@ -196,7 +196,7 @@ private fun event(
         initMembers = members
 
         val declaration = initName
-            .replace("<T = any>", "<T>") +
+            .replace("<T = any>", "<out T>") +
                 " $parentDeclaration"
 
         "external interface $declaration {\n$members\n}"
