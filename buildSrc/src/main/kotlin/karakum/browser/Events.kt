@@ -162,7 +162,7 @@ private fun event(
     pkg: String,
     typesName: String?,
 ): Sequence<ConversionResult> {
-    val initName = "${name}Init" +
+    var initName = "${name}Init" +
             (if (name == "CustomEvent" || name == "MessageEvent") "<T = any>" else "")
 
     var initSource = source
@@ -172,6 +172,7 @@ private fun event(
     if ("{\n}" in initSource)
         initSource = initSource.substringBefore("}")
 
+    var initMembers: String? = null
     var initBody = if (initSource.isNotEmpty()) {
         val parentDeclaration = initSource
             .substringBefore("{\n")
@@ -189,6 +190,8 @@ private fun event(
                 .mapNotNull { convertMember(it, typeProvider) }
                 .joinToString("\n")
         } else ""
+
+        initMembers = members
 
         val declaration = initName
             .replace("<T = any>", "<T>") +
@@ -318,10 +321,51 @@ private fun event(
         eventBody = eventBody.applyMediaQueryPatch()
     }
 
+    initName = initName.substringBefore("<")
+    val initFactoryBody = when (name) {
+        "CustomEvent",
+        "MessageEvent",
+        -> {
+            val members = requireNotNull(initMembers)
+                .substringBefore("\n")
+
+            val parameters = members
+                .splitToSequence("\n")
+                .map { it.substringAfter(" ") + "," }
+                .joinToString("\n")
+
+            val parameterNames = members
+                .splitToSequence("\n")
+                .map { it.substringAfter(" ") }
+                .map { it.substringBefore(":") }
+                .toList()
+
+            """
+            fun <T> $initName(
+                $parameters
+            ): $initName<T> =
+                jso {
+                    ${
+                parameterNames.joinToString("\n") {
+                    "asDynamic().$it = $it"
+                }
+            }
+                }
+            """.trimIndent()
+        }
+
+        else -> ""
+    }
+
     return sequenceOf(
         ConversionResult(
-            name = initName.substringBefore("<"),
+            name = initName,
             body = initBody,
+            pkg = pkg,
+        ),
+        ConversionResult(
+            name = "$initName.factory",
+            body = initFactoryBody,
             pkg = pkg,
         ),
         ConversionResult(

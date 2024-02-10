@@ -26,6 +26,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.core.JsLong",
     "js.array.JsTuple2",
     "js.array.ReadonlyArray",
+    "js.objects.jso",
     "js.objects.ReadonlyRecord",
     "js.objects.Record",
     "js.core.StructuredSerializeOptions",
