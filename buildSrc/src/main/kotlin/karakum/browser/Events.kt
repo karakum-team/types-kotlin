@@ -216,7 +216,21 @@ private fun event(
         .substringBefore(";\n}\n")
 
     val eventParent = eventSource.substringBefore(" {\n")
-    val eventParentDeclaration = if (name != EVENT) ": $eventParent" else ""
+    val eventIsInitLike = pkg != "web.uievents"
+            // TEMP WA
+            && name != "DeviceMotionEvent"
+            // TEMP WA
+            && name != "RTCTransformEvent"
+
+    val eventParents = listOfNotNull(
+        eventParent.takeIf { name != EVENT },
+        initName.replace("<T = any>", "<T>")
+            .takeIf { eventIsInitLike }
+            .takeIf { initBody.isNotEmpty() },
+    )
+    val eventParentDeclaration = if (eventParents.isNotEmpty()) {
+        ": " + eventParents.joinToString(",\n")
+    } else ""
 
     val typeProvider = TypeProvider(name)
 
@@ -230,6 +244,19 @@ private fun event(
         .replace("val target: EventTarget?", "open val target: EventTarget?")
         // ProgressEvent
         .replace("val target: T?", "override val target: T?")
+        .let {
+            when {
+                name == EVENT
+                -> it.replace("val bubbles: ", "override val bubbles: ")
+                    .replace("val cancelable: ", "override val cancelable: ")
+                    .replace("val composed: ", "override val composed: ")
+
+                eventIsInitLike
+                -> "\n$it".replace(Regex("""\n(val [a-z]+)"""), "\noverride $1").removePrefix("\n")
+
+                else -> it
+            }
+        }
 
     val eventClassBody = source
         .substringAfter("\ndeclare var $name: {\n")

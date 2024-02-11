@@ -43,6 +43,10 @@ internal fun String.applyPatches(): String {
         .patchInterface("EventModifierInit extends UIEventInit") {
             it.replace("    ", "    readonly ")
         }
+        // Safari
+        .patchInterface("RTCPeerConnectionIceEventInit extends EventInit") {
+            it.replace("\n    url?: string | null;", "")
+        }
         // FormData
         .replace(
             "\n    append(name: string, value: string | Blob): void;\n" +
@@ -226,7 +230,7 @@ private fun String.patchCollections(): String {
     return result
 }
 
-private fun String.patchInterface(
+internal fun String.patchInterface(
     name: String,
     transform: (String) -> String,
 ): String {
