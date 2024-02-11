@@ -216,7 +216,10 @@ private fun event(
         .substringBefore(";\n}\n")
 
     val eventParent = eventSource.substringBefore(" {\n")
-    val eventIsInitLike = pkg != "web.uievents"
+    val eventIsInitLike = "EventModifierInit" !in initBody
+            && "MouseEventInit" !in initBody
+            // TEMP WA
+            && name != "InputEvent"
             // TEMP WA
             && name != "DeviceMotionEvent"
             // TEMP WA
