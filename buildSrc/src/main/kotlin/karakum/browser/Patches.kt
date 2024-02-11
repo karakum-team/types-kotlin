@@ -1,3 +1,4 @@
+
 package karakum.browser
 
 // TEMP
@@ -38,6 +39,9 @@ internal fun String.applyPatches(): String {
         }
         .patchInterface("StylePropertyMapReadOnly") {
             it.replace("has(property: ", "has(key: ")
+        }
+        .patchInterface("EventModifierInit extends UIEventInit") {
+            it.replace("    ", "    readonly ")
         }
         // FormData
         .replace(
