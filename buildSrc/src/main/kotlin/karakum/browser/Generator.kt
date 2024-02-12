@@ -213,6 +213,9 @@ private val DEFAULT_IMPORTS = Imports(
     "web.worklets.Worklet",
     "web.worklets.WorkletGlobalScope",
     "web.xml.XMLDocument",
+
+    // TEMP
+    "web.events.EventInitMutable",
 )
 
 fun generateKotlinDeclarations(
@@ -245,7 +248,7 @@ fun generateKotlinDeclarations(
         .also { it.mkdirs() }
 
     val serviceWorkersContent = serviceWorkersContent(serviceworkerDefinitionsFile)
-    val eventDeclarations = eventDeclarations(content, WEB_WORKER_CONTENT, serviceWorkersContent) +
+    val eventDeclarations = eventDeclarations(content, WEB_WORKER_CONTENT, serviceWorkersContent).withFactories() +
             webWorkersEventDeclarations(WEB_WORKER_CONTENT) +
             serviceWorkersEventDeclarations(content, serviceWorkersContent)
 
