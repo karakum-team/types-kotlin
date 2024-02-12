@@ -1,8 +1,18 @@
 // Automatically generated - do not modify!
 
+@file:Suppress(
+    "NOTHING_TO_INLINE",
+)
+
 package web.uievents
 
+import js.objects.jso
 import web.events.EventTarget
+
+inline fun MouseEventInit(
+    block: MouseEventInitMutable.() -> Unit,
+): MouseEventInit =
+    jso(block)
 
 external interface MouseEventInitMutable :
     MouseEventInit, EventModifierInitMutable {
