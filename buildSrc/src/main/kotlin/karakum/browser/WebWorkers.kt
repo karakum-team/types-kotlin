@@ -131,6 +131,6 @@ internal fun serviceWorkersContent(
         .splitUnion("(string | URL)[]", "string[] | URL[]")
         .splitUnion("Response | PromiseLike<Response>")
         // Safari legacy
-        .patchInterface("FetchEventInit extends ExtendableEventInit") {
+        .patchInterface("FetchEventInit") {
             it.replace("\n    replacesClientId?: string;", "")
         }

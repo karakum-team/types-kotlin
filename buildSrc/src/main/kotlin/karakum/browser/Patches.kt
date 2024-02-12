@@ -34,11 +34,11 @@ internal fun String.applyPatches(): String {
         .patchInterface("StylePropertyMapReadOnly") {
             it.replace("has(property: ", "has(key: ")
         }
-        .patchInterface("EventModifierInit extends UIEventInit") {
+        .patchInterface("EventModifierInit") {
             it.replace("    ", "    readonly ")
         }
         // Safari
-        .patchInterface("RTCPeerConnectionIceEventInit extends EventInit") {
+        .patchInterface("RTCPeerConnectionIceEventInit") {
             it.replace("\n    url?: string | null;", "")
         }
         // FormData
@@ -228,7 +228,8 @@ internal fun String.patchInterface(
     name: String,
     transform: (String) -> String,
 ): String {
-    val oldBody = substringAfter("\ninterface $name {\n", "")
+    val oldBody = substringAfter("\ninterface $name ", "")
+        .substringAfter("{\n")
         .substringBefore("\n}", "")
 
     return replaceFirst(oldBody, transform(oldBody))
