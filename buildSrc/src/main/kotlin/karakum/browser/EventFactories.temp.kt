@@ -22,21 +22,33 @@ internal fun Sequence<ConversionResult>.withMutableEventModifiersInit(): List<Co
 
 private fun toFactory(source: ConversionResult): ConversionResult {
     val name = source.name
-    val newBody = source.body
+    val nameMutable = name + "Mutable"
+
+    var newBody = source.body
         .replace("EventInit", "EventInitMutable")
         .replace("ModifierInit", "ModifierInitMutable")
         .replace("\nval ", "\noverride var ")
         .let { body ->
             if (name == "EventInit") {
-                val nameMutable = name + "Mutable"
                 body.replaceFirst(nameMutable, "$nameMutable:\n$name")
             } else {
                 body.replaceFirst(":", ":\n$name,")
             }
         }
 
+    if (name.endsWith("EventInit")) {
+        val factory = """
+        inline fun $name(
+            block: $nameMutable.() -> Unit,
+        ): $name =
+            jso(block)
+        """.trimIndent()
+
+        newBody = "$factory\n\n$newBody"
+    }
+
     return source.copy(
-        name = name + ".temp",
+        name = "$name.temp",
         body = newBody,
     )
 }
