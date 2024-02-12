@@ -271,7 +271,7 @@ fun generateKotlinDeclarations(
                 add(DECLARATION_CANT_BE_INLINED)
             }
 
-            if ("inline fun " in body)
+            if ("inline fun " in body && !name.endsWith(".temp"))
                 add(NOTHING_TO_INLINE)
         }.toTypedArray()
 
