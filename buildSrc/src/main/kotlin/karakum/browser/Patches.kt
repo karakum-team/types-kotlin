@@ -1,12 +1,6 @@
 
 package karakum.browser
 
-// TEMP
-private val ABORT_SIGNAL_ANY = """
-    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/AbortSignal/any_static) */
-    any(values: AbortSignal[]): AbortSignal;
-""".trimEnd()
-
 private val SVG_ANIMATED_ENUMERATION_BEFORE = """
 interface SVGAnimatedEnumeration {
     readonly animVal: number;
@@ -65,7 +59,7 @@ internal fun String.applyPatches(): String {
         )
         .replace(
             "// abort(reason?: any): AbortSignal; - To be re-added in the future",
-            "abort(reason?: any): AbortSignal;" + ABORT_SIGNAL_ANY,
+            "abort(reason?: any): AbortSignal;",
         )
         .replace("    reason?: any;", "    reason?: JsError;")
         .replace("readonly reason: any;", "readonly reason: JsError | undefined;")
