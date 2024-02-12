@@ -4,7 +4,7 @@ package web.uievents
 
 import web.events.EventTarget
 
-external interface MouseEventInitMutable : EventModifierInit {
+external interface MouseEventInitMutable : EventModifierInitMutable {
     var button: MouseButton?
     var buttons: MouseButtons?
     var clientX: Int?
