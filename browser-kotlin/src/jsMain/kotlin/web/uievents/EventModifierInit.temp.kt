@@ -3,19 +3,20 @@
 package web.uievents
 
 sealed external interface EventModifierInitMutable :
+    EventModifierInit,
     UIEventInitMutable {
-    var altKey: Boolean?
-    var ctrlKey: Boolean?
-    var metaKey: Boolean?
-    var modifierAltGraph: Boolean?
-    var modifierCapsLock: Boolean?
-    var modifierFn: Boolean?
-    var modifierFnLock: Boolean?
-    var modifierHyper: Boolean?
-    var modifierNumLock: Boolean?
-    var modifierScrollLock: Boolean?
-    var modifierSuper: Boolean?
-    var modifierSymbol: Boolean?
-    var modifierSymbolLock: Boolean?
-    var shiftKey: Boolean?
+    override var altKey: Boolean?
+    override var ctrlKey: Boolean?
+    override var metaKey: Boolean?
+    override var modifierAltGraph: Boolean?
+    override var modifierCapsLock: Boolean?
+    override var modifierFn: Boolean?
+    override var modifierFnLock: Boolean?
+    override var modifierHyper: Boolean?
+    override var modifierNumLock: Boolean?
+    override var modifierScrollLock: Boolean?
+    override var modifierSuper: Boolean?
+    override var modifierSymbol: Boolean?
+    override var modifierSymbolLock: Boolean?
+    override var shiftKey: Boolean?
 }

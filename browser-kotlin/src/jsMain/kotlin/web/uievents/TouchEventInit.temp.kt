@@ -4,8 +4,9 @@ package web.uievents
 
 import js.array.ReadonlyArray
 
-external interface TouchEventInitMutable : EventModifierInitMutable {
-    var changedTouches: ReadonlyArray<Touch>?
-    var targetTouches: ReadonlyArray<Touch>?
-    var touches: ReadonlyArray<Touch>?
+external interface TouchEventInitMutable :
+    TouchEventInit, EventModifierInitMutable {
+    override var changedTouches: ReadonlyArray<Touch>?
+    override var targetTouches: ReadonlyArray<Touch>?
+    override var touches: ReadonlyArray<Touch>?
 }

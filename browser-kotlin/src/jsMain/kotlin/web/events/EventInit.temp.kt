@@ -2,8 +2,9 @@
 
 package web.events
 
-external interface EventInitMutable {
-    var bubbles: Boolean?
-    var cancelable: Boolean?
-    var composed: Boolean?
+external interface EventInitMutable :
+    EventInit {
+    override var bubbles: Boolean?
+    override var cancelable: Boolean?
+    override var composed: Boolean?
 }

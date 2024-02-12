@@ -4,10 +4,11 @@ package web.uievents
 
 import web.keyboard.KeyCode
 
-external interface KeyboardEventInitMutable : EventModifierInitMutable {
-    var code: KeyCode?
-    var isComposing: Boolean?
-    var key: String?
-    var location: KeyLocation?
-    var repeat: Boolean?
+external interface KeyboardEventInitMutable :
+    KeyboardEventInit, EventModifierInitMutable {
+    override var code: KeyCode?
+    override var isComposing: Boolean?
+    override var key: String?
+    override var location: KeyLocation?
+    override var repeat: Boolean?
 }

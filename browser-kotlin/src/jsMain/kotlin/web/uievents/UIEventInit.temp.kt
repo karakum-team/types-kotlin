@@ -5,7 +5,8 @@ package web.uievents
 import web.events.EventInitMutable
 import web.window.Window
 
-external interface UIEventInitMutable : EventInitMutable {
-    var detail: Int?
-    var view: Window?
+external interface UIEventInitMutable :
+    UIEventInit, EventInitMutable {
+    override var detail: Int?
+    override var view: Window?
 }
