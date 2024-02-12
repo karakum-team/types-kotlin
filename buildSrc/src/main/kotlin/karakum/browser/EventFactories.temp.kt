@@ -20,14 +20,23 @@ internal fun Sequence<ConversionResult>.withMutableEventModifiersInit(): List<Co
     return toList().let { list -> list + toFactory(list.first { it.name == "EventModifierInit" }) }
 }
 
-private fun toFactory(it: ConversionResult): ConversionResult {
-    val newBody = it.body
+private fun toFactory(source: ConversionResult): ConversionResult {
+    val name = source.name
+    val newBody = source.body
         .replace("EventInit", "EventInitMutable")
         .replace("ModifierInit", "ModifierInitMutable")
-        .replace("\nval ", "\nvar ")
+        .replace("\nval ", "\noverride var ")
+        .let { body ->
+            if (name == "EventInit") {
+                val nameMutable = name + "Mutable"
+                body.replaceFirst(nameMutable, "$nameMutable:\n$name")
+            } else {
+                body.replaceFirst(":", ":\n$name,")
+            }
+        }
 
-    return it.copy(
-        name = it.name + ".temp",
+    return source.copy(
+        name = name + ".temp",
         body = newBody,
     )
 }
