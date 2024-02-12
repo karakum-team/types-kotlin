@@ -2,7 +2,11 @@ package karakum.browser
 
 private val FACTORY_REQUIRED = setOf(
     "EventInit",
+    "ClipboardEventInit",
     "UIEventInit",
+    "KeyboardEventInit",
+    "MouseEventInit",
+    "TouchEventInit",
 )
 
 internal fun List<ConversionResult>.withFactories(): List<ConversionResult> {
@@ -13,7 +17,7 @@ internal fun List<ConversionResult>.withFactories(): List<ConversionResult> {
             .replace("\nval ", "\nvar ")
 
         it.copy(
-            name = it.name + ".factory",
+            name = it.name + ".temp",
             body = newBody,
         )
     }
