@@ -10,17 +10,19 @@ private val FACTORY_REQUIRED = setOf(
 )
 
 internal fun List<ConversionResult>.withFactories(): List<ConversionResult> {
-    val inits = filter { it.name in FACTORY_REQUIRED }
-    val factories = inits.map {
-        val newBody = it.body
-            .replace("EventInit", "EventInitMutable")
-            .replace("\nval ", "\nvar ")
-
-        it.copy(
-            name = it.name + ".temp",
-            body = newBody,
-        )
-    }
+    val factories = filter { it.name in FACTORY_REQUIRED }
+        .map(::toFactory)
 
     return this + factories
+}
+
+private fun toFactory(it: ConversionResult): ConversionResult {
+    val newBody = it.body
+        .replace("EventInit", "EventInitMutable")
+        .replace("\nval ", "\nvar ")
+
+    return it.copy(
+        name = it.name + ".temp",
+        body = newBody,
+    )
 }
