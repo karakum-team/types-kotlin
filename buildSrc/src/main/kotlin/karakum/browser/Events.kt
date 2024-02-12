@@ -176,7 +176,7 @@ private fun event(
     var initBody = if (initSource.isNotEmpty()) {
         val parentDeclaration = initSource
             .substringBefore("{\n")
-            .replace("extends ", ": ")
+            .replace("extends ", ":\n")
 
         val typeProvider = TypeProvider(initName)
 
