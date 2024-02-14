@@ -83,7 +83,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "boolean | ((error: TError) => boolean)" to "(error: TError) -> Boolean",
 
-    "({ children, }: QueryErrorResetBoundaryProps) => React.JSX.Element" to
+    "({ children, }: QueryErrorResetBoundaryProps) => react_jsx_runtime.JSX.Element" to
             "react.FC<QueryErrorResetBoundaryProps>",
     "({ client, children, }: QueryClientProviderProps) => JSX.Element" to
             "react.FC<QueryClientProviderProps>",
