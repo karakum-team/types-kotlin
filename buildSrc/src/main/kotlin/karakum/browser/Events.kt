@@ -216,20 +216,18 @@ private fun event(
         .substringBefore(";\n}\n")
 
     val eventParent = eventSource.substringBefore(" {\n")
-    val eventIsInitLike = "EventModifierInit" !in initBody
+    val eventIsInitLike = initBody.isNotEmpty()
+            && "EventModifierInit" !in initBody
             && "MouseEventInit" !in initBody
             // TEMP WA
             && name != "InputEvent"
             // TEMP WA
             && name != "DeviceMotionEvent"
-            // TEMP WA
-            && name != "RTCTransformEvent"
 
     val eventParents = listOfNotNull(
         eventParent.takeIf { name != EVENT },
         initName.replace("<T = any>", "<T>")
-            .takeIf { eventIsInitLike }
-            .takeIf { initBody.isNotEmpty() },
+            .takeIf { eventIsInitLike },
     )
     val eventParentDeclaration = if (eventParents.isNotEmpty()) {
         ": " + eventParents.joinToString(",\n")
