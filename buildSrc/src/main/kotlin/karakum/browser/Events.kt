@@ -230,11 +230,8 @@ private fun event(
     val optionsBody = if (eventIsOptionsLike) {
         val body = initBody.replace("EventInit", "EventOptions")
             .replace("UIEventOptions", "UIEventInit")
-            .splitToSequence("\n")
-            .filter { !it.startsWith("val targetRanges") }
-            .joinToString("\n")
 
-        initBody = Regex("""\n(val [a-zA-Z]+)""")
+        initBody = Regex("""\n(val [a-z]+)""")
             .replace(initBody.replaceFirst("{", ",\n$optionsName {")) {
                 val firstGroup = it.groupValues[1]
                 if (!firstGroup.startsWith("val targetRanges")) {
