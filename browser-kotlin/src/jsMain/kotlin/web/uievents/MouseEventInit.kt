@@ -5,14 +5,15 @@ package web.uievents
 import web.events.EventTarget
 
 external interface MouseEventInit :
-    EventModifierInit {
-    val button: MouseButton?
-    val buttons: MouseButtons?
-    val clientX: Int?
-    val clientY: Int?
-    val movementX: Double?
-    val movementY: Double?
-    val relatedTarget: EventTarget?
-    val screenX: Int?
-    val screenY: Int?
+    EventModifierInit,
+    MouseEventOptions {
+    override val button: MouseButton?
+    override val buttons: MouseButtons?
+    override val clientX: Int?
+    override val clientY: Int?
+    override val movementX: Double?
+    override val movementY: Double?
+    override val relatedTarget: EventTarget?
+    override val screenX: Int?
+    override val screenY: Int?
 }

@@ -5,10 +5,11 @@ package web.uievents
 import web.keyboard.KeyCode
 
 external interface KeyboardEventInit :
-    EventModifierInit {
-    val code: KeyCode?
-    val isComposing: Boolean?
-    val key: String?
-    val location: KeyLocation?
-    val repeat: Boolean?
+    EventModifierInit,
+    KeyboardEventOptions {
+    override val code: KeyCode?
+    override val isComposing: Boolean?
+    override val key: String?
+    override val location: KeyLocation?
+    override val repeat: Boolean?
 }
