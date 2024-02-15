@@ -49,7 +49,9 @@ private fun toFactory(source: ConversionResult): ConversionResult {
     var newBody = source.body
         .replace("EventInit", "EventInitMutable")
         .replace("ModifierInit", "ModifierInitMutable")
+        .replace("\noverride val ", "\noverride var ")
         .replace("\nval ", "\noverride var ")
+        .replace(",\n${name.replace("Init", "Options")}", "")
         .let { body ->
             if (name == "EventInit") {
                 body.replaceFirst(nameMutable, "$nameMutable:\n$name")
