@@ -5,9 +5,8 @@ package web.uievents
 import js.array.ReadonlyArray
 
 external interface TouchEventInit :
-    EventModifierInit,
-    TouchEventOptions {
-    override val changedTouches: ReadonlyArray<Touch>?
-    override val targetTouches: ReadonlyArray<Touch>?
-    override val touches: ReadonlyArray<Touch>?
+    EventModifierInit {
+    val changedTouches: ReadonlyArray<Touch>?
+    val targetTouches: ReadonlyArray<Touch>?
+    val touches: ReadonlyArray<Touch>?
 }

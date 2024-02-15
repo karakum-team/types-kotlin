@@ -3,10 +3,9 @@
 package web.uievents
 
 external interface WheelEventInit :
-    MouseEventInit,
-    WheelEventOptions {
-    override val deltaMode: DeltaMode?
-    override val deltaX: Double?
-    override val deltaY: Double?
-    override val deltaZ: Double?
+    MouseEventInit {
+    val deltaMode: DeltaMode?
+    val deltaX: Double?
+    val deltaY: Double?
+    val deltaZ: Double?
 }
