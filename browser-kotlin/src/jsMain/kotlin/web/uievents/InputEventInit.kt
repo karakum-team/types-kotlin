@@ -13,5 +13,5 @@ external interface InputEventInit :
     override val dataTransfer: DataTransfer?
     override val inputType: String?
     override val isComposing: Boolean?
-    override val targetRanges: ReadonlyArray<StaticRange>?
+    val targetRanges: ReadonlyArray<StaticRange>?
 }
