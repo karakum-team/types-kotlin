@@ -17,29 +17,7 @@ internal fun List<ConversionResult>.withEventInitFactories(): List<ConversionRes
 }
 
 internal fun Sequence<ConversionResult>.withMutableEventModifiersInit(): List<ConversionResult> {
-    return toList().let { list ->
-        val init = list.first { it.name == "EventModifierInit" }
-        val optionsName = init.name.replace("Init", "Options")
-        val options = init.copy(
-            name = optionsName,
-            body = init.body.replaceFirst("Init", "Options")
-                .splitToSequence("\n")
-                .filter { "val modifier" !in it }
-                .joinToString("\n"),
-        )
-
-        val newInit = init.copy(
-            body = init.body.replaceFirst("{", ",\n$optionsName {")
-                .splitToSequence("\n")
-                .joinToString("\n") { line ->
-                    if (line.startsWith("val ") && !line.startsWith("val modifier")) {
-                        "override $line"
-                    } else line
-                }
-        )
-
-        list - init + newInit + options + toFactory(init)
-    }
+    return toList().let { list -> list + toFactory(list.first { it.name == "EventModifierInit" }) }
 }
 
 private fun toFactory(source: ConversionResult): ConversionResult {
