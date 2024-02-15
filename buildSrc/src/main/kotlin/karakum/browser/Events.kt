@@ -216,13 +216,21 @@ private fun event(
         .substringBefore(";\n}\n")
 
     val eventParent = eventSource.substringBefore(" {\n")
+    val eventIsOptionsLike = initBody.isNotEmpty()
+            && ("EventModifierInit" in initBody
+            || "MouseEventInit" in initBody
+            || name == "InputEvent")
+
     val eventIsInitLike = initBody.isNotEmpty()
-            && "EventModifierInit" !in initBody
-            && "MouseEventInit" !in initBody
-            // TEMP WA
-            && name != "InputEvent"
+            && !eventIsOptionsLike
             // TEMP WA
             && name != "DeviceMotionEvent"
+
+    val optionsName = "${name}Options"
+    val optionsBody = if (eventIsOptionsLike) {
+        initBody.replace("EventInit", "EventOptions")
+            .replace("UIEventOptions", "UIEventInit")
+    } else ""
 
     val eventParents = listOfNotNull(
         eventParent.takeIf { name != EVENT },
@@ -396,6 +404,11 @@ private fun event(
         ConversionResult(
             name = "$initName.factory",
             body = initFactoryBody,
+            pkg = pkg,
+        ),
+        ConversionResult(
+            name = optionsName,
+            body = optionsBody,
             pkg = pkg,
         ),
         ConversionResult(
