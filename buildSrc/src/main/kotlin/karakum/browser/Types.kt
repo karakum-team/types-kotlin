@@ -206,7 +206,7 @@ private fun convertType(
 
     if (!bodySource.startsWith("\"")) {
         val pkg = when (name) {
-            "Transferable" -> "js.core"
+            "Transferable" -> "js.transferable"
 
             "TimerHandler" -> "web.timers"
 

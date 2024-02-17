@@ -345,7 +345,7 @@ private val SCHEDULING_TYPES = listOf(
     "IdleRequestOptions",
 )
 
-private val JS_CORE = listOf(
+private val WEB_SERIALIZATION = listOf(
     "StructuredSerializeOptions"
 )
 
@@ -1197,7 +1197,7 @@ internal fun convertInterface(
     val pkg = when {
         predefinedPkg != null -> predefinedPkg
 
-        name in JS_CORE -> "js.core"
+        name in WEB_SERIALIZATION -> "web.serialization"
 
         name == "Console" -> "web.console"
 

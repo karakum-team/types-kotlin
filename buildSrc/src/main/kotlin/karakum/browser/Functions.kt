@@ -58,7 +58,7 @@ private fun getBrowserPkg(
 ): String? =
     when (name) {
         "structuredClone",
-        -> "js.core"
+        -> "web.serialization"
 
         "atob",
         "btoa",
