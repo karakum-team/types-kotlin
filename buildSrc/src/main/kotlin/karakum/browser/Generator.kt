@@ -29,7 +29,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.objects.jso",
     "js.objects.ReadonlyRecord",
     "js.objects.Record",
-    "js.core.StructuredSerializeOptions",
+    "web.serialization.StructuredSerializeOptions",
     "js.transferable.Transferable",
     "js.core.Void",
     "js.errors.JsError",
