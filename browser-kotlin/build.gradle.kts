@@ -49,6 +49,7 @@ val WEB_INCLUDE = setOf(
     "web/promise",
     "web/scheduling/queueMicrotask.kt",
     "web/scheduling/VoidFunction.kt",
+    "web/serialization",
     "web/sockets",
     "web/time",
     "web/timers",
