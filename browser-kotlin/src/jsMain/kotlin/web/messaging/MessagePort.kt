@@ -4,7 +4,7 @@ package web.messaging
 
 import js.array.ReadonlyArray
 import js.core.StructuredSerializeOptions
-import js.core.Transferable
+import js.transferable.Transferable
 import web.events.EventHandler
 import web.events.EventTarget
 

@@ -1,6 +1,8 @@
 // Automatically generated - do not modify!
 
-package js.core
+package web.serialization
+
+import js.core.StructuredSerializeOptions
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/structuredClone)

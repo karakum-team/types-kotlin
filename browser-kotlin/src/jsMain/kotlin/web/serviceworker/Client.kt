@@ -4,7 +4,7 @@ package web.serviceworker
 
 import js.array.ReadonlyArray
 import js.core.StructuredSerializeOptions
-import js.core.Transferable
+import js.transferable.Transferable
 
 /**
  * The Client interface represents an executable context such as a Worker, or a SharedWorker. Window clients are represented by the more-specific WindowClient. You can get Client/WindowClient objects from methods such as Clients.matchAll() and Clients.get().
