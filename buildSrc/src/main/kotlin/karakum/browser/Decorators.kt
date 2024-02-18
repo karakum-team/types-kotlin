@@ -24,6 +24,13 @@ internal fun decoratorsDeclarations(
         .map { "/**\n$it".trim() }
         .filter { "\ninterface " in it }
         .mapNotNull { decoratorInterface(it) }
+        .plus(
+            ConversionResult(
+                name = "DecoratorMetadata",
+                body = "typealias DecoratorMetadata = ReadonlyRecord<PropertyKey, *>",
+                pkg = "js.decorators",
+            )
+        )
 }
 
 private fun decoratorInterface(

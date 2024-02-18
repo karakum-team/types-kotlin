@@ -310,6 +310,7 @@ fun generateKotlinDeclarations(
         .plus(mouseButtonTypes())
         .plus(windowTypes())
         .plus(tagNames(content))
+        .plus(decoratorsDeclarations(definitionsDir))
         .plus(intlDeclarations(definitionsDir))
         .plus(atomicsDeclarations(definitionsDir))
         .plus(webAssemblyDeclarations(content))
