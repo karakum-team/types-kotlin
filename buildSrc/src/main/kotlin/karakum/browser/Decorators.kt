@@ -61,6 +61,7 @@ private fun decoratorInterface(
         .replace("): void;", ")")
         .replace(": (this: This) => void", ": (/* this: This */) -> Unit")
         .replace(": (this: Class) => void", ": (/* this: Class */) -> Unit")
+        .replace("(object: ", "(o: ")
 
     val body = comment +
             "\nsealed external interface $name$typeParameters {\n" +
