@@ -5,8 +5,6 @@ import java.io.File
 
 private const val SUPPORTED_LOCALES_OPTIONS = "SupportedLocalesOptions"
 
-private const val s = SUPPORTED_LOCALES_OPTIONS
-
 internal fun intlDeclarations(
     definitionsDir: File,
 ): Sequence<ConversionResult> {
