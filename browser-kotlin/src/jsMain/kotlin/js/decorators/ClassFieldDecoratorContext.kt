@@ -2,6 +2,8 @@
 
 package js.decorators
 
+import js.objects.PropertyKey
+
 /**
  * Context provided to a class field decorator.
  * @template This The type on which the class element will be defined. For a static class element, this will be
@@ -28,17 +30,17 @@ sealed external interface ClassFieldDecoratorContext<This : Any, Value : Any> {
         /**
          * Determines whether an object has a property with the same name as the decorated element.
          */
-        fun has(object: This): Boolean
+        fun has(o: This): Boolean
 
         /**
          * Gets the value of the field on the provided object.
          */
-        fun get(object: This): Value
+        fun get(o: This): Value
 
         /**
          * Sets the value of the field on the provided object.
          */
-        fun set(object: This, value: Value)
+        fun set(o: This, value: Value)
     }
 
     /**

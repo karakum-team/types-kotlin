@@ -2,6 +2,8 @@
 
 package js.decorators
 
+import js.objects.PropertyKey
+
 /**
  * Context provided to a class getter decorator.
  * @template This The type on which the class element will be defined. For a static class element, this will be
@@ -28,7 +30,7 @@ sealed external interface ClassGetterDecoratorContext<This : Any, Value : Any> {
         /**
          * Determines whether an object has a property with the same name as the decorated element.
          */
-        fun has(object: This): Boolean
+        fun has(o: This): Boolean
 
         /**
          * Invokes the getter on the provided object.
@@ -36,7 +38,7 @@ sealed external interface ClassGetterDecoratorContext<This : Any, Value : Any> {
          * @example
          * let value = context.access.get(instance);
          */
-        fun get(object: This): Value
+        fun get(o: This): Value
     }
 
     /**
