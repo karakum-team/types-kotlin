@@ -31,6 +31,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.errors.JsErrorName",
     "js.iterable.IterableIterator",
     "js.iterable.JsIterable",
+    "js.objects.PropertyKey",
     "js.objects.ReadonlyRecord",
     "js.objects.Record",
     "js.objects.jso",
