@@ -132,8 +132,18 @@ internal data class UnionConstant(
         }
 }
 
-internal fun unionConstant(value: String): UnionConstant {
-    val name = value
+internal fun unionConstant(
+    value: String,
+): UnionConstant =
+    UnionConstant(
+        name = unionName(value),
+        value = value,
+    )
+
+internal fun unionName(
+    value: String,
+): String {
+    var name = value
         .removePrefix("@")
         .removeSurrounding("[", "]")
         .removePrefix("::")
@@ -141,7 +151,7 @@ internal fun unionConstant(value: String): UnionConstant {
         .removeSuffix("()")
         .replace(":", "-")
 
-    val jsName = when (name) {
+    name = when (name) {
         "" -> "none"
         "1" -> "D"
 
@@ -155,7 +165,7 @@ internal fun unionConstant(value: String): UnionConstant {
         else -> name.kebabToCamel()
     }
 
-    val kotlinName = when (jsName) {
+    return when (name) {
         "false",
         "true",
 
@@ -164,13 +174,8 @@ internal fun unionConstant(value: String): UnionConstant {
         "is",
         "object",
         "super",
-        -> "`${jsName}`"
+        -> "`${name}`"
 
-        else -> jsName
+        else -> name
     }
-
-    return UnionConstant(
-        name = kotlinName,
-        value = value,
-    )
 }
