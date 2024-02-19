@@ -12,7 +12,7 @@ import js.objects.PropertyKey
  */
 sealed external interface ClassGetterDecoratorContext<This : Any, Value : Any> {
     /** The kind of class element that was decorated. */
-    val kind: "getter"
+    val kind: DecoratorContextKind.getter
 
     /** The name of the decorated class element. */
     val name: PropertyKey

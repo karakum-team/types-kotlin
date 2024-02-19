@@ -12,7 +12,7 @@ import js.objects.PropertyKey
  */
 sealed external interface ClassMethodDecoratorContext<This : Any, Value : Function<*>> {
     /** The kind of class element that was decorated. */
-    val kind: "method"
+    val kind: DecoratorContextKind.method
 
     /** The name of the decorated class element. */
     val name: PropertyKey
