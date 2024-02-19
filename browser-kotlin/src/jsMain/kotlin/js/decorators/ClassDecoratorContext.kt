@@ -8,9 +8,7 @@ package js.decorators
  */
 sealed external interface ClassDecoratorContext<Class : JsClass<*>> {
     /** The kind of element that was decorated. */
-    val kind: DecoratorContextKind.
-
-    class
+    val kind: DecoratorContextKind.`class`
 
     /** The name of the decorated class. */
     val name: String?
