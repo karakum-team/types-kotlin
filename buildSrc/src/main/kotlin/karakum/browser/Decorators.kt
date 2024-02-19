@@ -1,6 +1,12 @@
 package karakum.browser
 
+import karakum.common.objectUnionBody
+import karakum.common.unionConstant
 import java.io.File
+
+private val DECORATOR_CONTEXT_KIND = "DecoratorContextKind"
+
+private val KIND_REGEX = Regex("""kind: "(\w+)";""")
 
 private val EXCLUDED = setOf(
     "ClassAccessorDecoratorResult",
@@ -17,7 +23,14 @@ private val TYPE_PARAMETER_MAP = mapOf(
 internal fun decoratorsDeclarations(
     definitionsDir: File,
 ): Sequence<ConversionResult> {
-    val content = decoratorsContent(definitionsDir)
+    val rawContent = decoratorsContent(definitionsDir)
+
+    val kinds = KIND_REGEX
+        .findAll(rawContent)
+        .map { it.groupValues[1] }
+        .toList()
+
+    val content = rawContent.replace(KIND_REGEX, "kind: $DECORATOR_CONTEXT_KIND.$1")
 
     return content.splitToSequence("\n/**\n")
         .drop(1)
@@ -28,6 +41,13 @@ internal fun decoratorsDeclarations(
             ConversionResult(
                 name = "DecoratorMetadata",
                 body = "typealias DecoratorMetadata = ReadonlyRecord<PropertyKey, *>",
+                pkg = "js.decorators",
+            )
+        )
+        .plus(
+            ConversionResult(
+                name = DECORATOR_CONTEXT_KIND,
+                body = objectUnionBody(DECORATOR_CONTEXT_KIND, kinds.map(::unionConstant)),
                 pkg = "js.decorators",
             )
         )
