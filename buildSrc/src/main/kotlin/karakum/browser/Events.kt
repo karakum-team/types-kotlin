@@ -199,7 +199,12 @@ private fun event(
             .replace("<T = any>", "<out T>") +
                 " $parentDeclaration"
 
-        "external interface $declaration {\n$members\n}"
+        sequenceOf(
+            "@JsPlainObject",
+            "external interface $declaration {",
+            members,
+            "}",
+        ).joinToString("\n")
     } else ""
 
     val eventSource = source
