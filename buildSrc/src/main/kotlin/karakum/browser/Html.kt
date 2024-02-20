@@ -1168,8 +1168,13 @@ internal fun convertInterface(
         ?.joinToString("\n") { "sealed interface $it" }
         ?: ""
 
+    val annotations = if (name.endsWith("Options")) {
+        "@JsPlainObject"
+    } else ""
+
     var body = sequenceOf(
         typeGuard,
+        annotations,
         "$modifier external $declaration {",
         members,
         companion,
