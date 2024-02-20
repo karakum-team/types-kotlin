@@ -2,6 +2,7 @@ package karakum.browser
 
 private val FACTORY_REQUIRED = setOf(
     "EventInit",
+    "ErrorEventInit",
     "ClipboardEventInit",
     "UIEventInit",
     "KeyboardEventInit",
