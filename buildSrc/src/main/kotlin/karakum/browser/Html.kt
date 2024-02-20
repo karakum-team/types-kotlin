@@ -1177,6 +1177,7 @@ internal fun convertInterface(
         name.contains("_") -> ""
 
         name.endsWith("Algorithm") -> "@JsPlainObject"
+        name.endsWith("Bag") -> "@JsPlainObject"
         name.endsWith("Init") -> "@JsPlainObject"
         name.endsWith("Options") -> "@JsPlainObject"
         name.endsWith("Parameters") -> "@JsPlainObject"
