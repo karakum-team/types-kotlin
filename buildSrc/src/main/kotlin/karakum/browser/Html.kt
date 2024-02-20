@@ -1170,11 +1170,13 @@ internal fun convertInterface(
 
     val annotations = when {
         !declaration.startsWith("interface ") -> ""
+        name.endsWith("Handlers") -> ""
         name.endsWith("Mutable") -> ""
         name.contains("_") -> ""
 
         name.endsWith("Init") -> "@JsPlainObject"
         name.endsWith("Options") -> "@JsPlainObject"
+        name.endsWith("Parameters") -> "@JsPlainObject"
         name.endsWith("Params") -> "@JsPlainObject"
         else -> {
             println(name)
