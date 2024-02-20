@@ -1171,6 +1171,7 @@ internal fun convertInterface(
     val annotations = when {
         !declaration.startsWith("interface ") -> ""
         " fun " in members -> ""
+        "= definedExternally" in members -> ""
         name.startsWith("Navigator") -> ""
         name.endsWith("Handlers") -> ""
         name.endsWith("Mutable") -> ""
