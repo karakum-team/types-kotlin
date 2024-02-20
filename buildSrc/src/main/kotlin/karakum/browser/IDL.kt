@@ -52,6 +52,17 @@ internal object IDLRegistry {
             .map { it.readText() }
     }
 
+    private val plainObjectInterfaces: Set<String> by lazy {
+        idlData.asSequence()
+            .flatMap { content ->
+                content
+                    .splitToSequence("\npartial dictionary ", "\ndictionary ")
+                    .drop(1)
+                    .map { it.substringBefore(" ") }
+            }
+            .toSet()
+    }
+
     private fun hasContent(
         memberContent: String,
     ): Set<String> =
@@ -282,4 +293,9 @@ internal object IDLRegistry {
         methodName: String,
     ): String =
         returnTypeMap.getValue(className to methodName)
+
+    fun isPlainObjectInterface(
+        name: String,
+    ): Boolean =
+        name in plainObjectInterfaces
 }

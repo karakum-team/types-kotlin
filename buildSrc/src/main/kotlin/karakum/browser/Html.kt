@@ -1171,26 +1171,11 @@ internal fun convertInterface(
     val annotations = when {
         !declaration.startsWith("interface ") -> ""
         "= definedExternally" in members -> ""
-        " fun " in members -> ""
 
-        name.startsWith("Navigator") -> ""
-        name.endsWith("Handlers") -> ""
-        name.endsWith("Mutable") -> ""
-        name.contains("_") -> ""
-
-        name.endsWith("Algorithm") -> "@JsPlainObject"
-        name.endsWith("Bag") -> "@JsPlainObject"
-        name.endsWith("Config") -> "@JsPlainObject"
-        name.endsWith("Configuration") -> "@JsPlainObject"
-        name.endsWith("Init") -> "@JsPlainObject"
         name.endsWith("Options") -> "@JsPlainObject"
-        name.endsWith("Parameters") -> "@JsPlainObject"
-        name.endsWith("Params") -> "@JsPlainObject"
-        name.endsWith("Settings") -> "@JsPlainObject"
-        else -> {
-            println(name)
-            ""
-        }
+        IDLRegistry.isPlainObjectInterface(name) -> "@JsPlainObject"
+
+        else -> ""
     }
 
     var body = sequenceOf(
