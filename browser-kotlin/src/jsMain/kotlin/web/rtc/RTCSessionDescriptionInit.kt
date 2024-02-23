@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface RTCSessionDescriptionInit {
-    var sdp: String?
-    var type: RTCSdpType
+var sdp: String?
+var type: RTCSdpType
 }

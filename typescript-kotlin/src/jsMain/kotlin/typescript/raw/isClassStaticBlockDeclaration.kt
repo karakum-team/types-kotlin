@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isClassStaticBlockDeclaration(node: Node): Boolean /* node is ClassStaticBlockDeclaration */
+internal external fun  isClassStaticBlockDeclaration(node: Node): Boolean /* node is ClassStaticBlockDeclaration */

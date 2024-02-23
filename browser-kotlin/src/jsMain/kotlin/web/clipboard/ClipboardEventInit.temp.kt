@@ -5,6 +5,8 @@ package web.clipboard
 import js.objects.JsPlainObject
 import js.objects.jso
 import web.data.DataTransfer
+import web.events.Event
+import web.events.EventInit
 import web.events.EventInitMutable
 
 inline fun ClipboardEventInit(
@@ -14,7 +16,7 @@ inline fun ClipboardEventInit(
 
 @JsPlainObject
 external interface ClipboardEventInitMutable :
-    ClipboardEventInit,
-    EventInitMutable {
-    override var clipboardData: DataTransfer?
+ClipboardEventInit,
+EventInitMutable  {
+override var clipboardData: DataTransfer?
 }

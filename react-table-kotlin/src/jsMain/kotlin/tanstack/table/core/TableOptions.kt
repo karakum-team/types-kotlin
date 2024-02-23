@@ -2,4 +2,8 @@
 
 package tanstack.table.core
 
-external interface TableOptions<TData : RowData> : TableOptionsResolved<TData>
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface TableOptions<TData : RowData> : TableOptionsResolved<TData>{
+
+}

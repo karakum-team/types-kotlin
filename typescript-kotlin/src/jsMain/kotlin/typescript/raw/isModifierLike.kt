@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isModifierLike(node: Node): Boolean /* node is ModifierLike */
+internal external fun  isModifierLike(node: Node): Boolean /* node is ModifierLike */

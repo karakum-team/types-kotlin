@@ -2,6 +2,6 @@
 
 package tanstack.query.core
 
-external interface InitialPageParam<TPageParam> {
-    var initialPageParam: TPageParam
+external interface InitialPageParam <TPageParam>  {
+ var initialPageParam: TPageParam
 }

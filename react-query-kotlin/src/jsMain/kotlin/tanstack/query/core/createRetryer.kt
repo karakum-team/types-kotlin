@@ -4,4 +4,4 @@
 
 package tanstack.query.core
 
-external fun <TData, TError> createRetryer(config: RetryerConfig<TData, TError>): Retryer<TData>
+external fun <TData, TError> createRetryer(config: RetryerConfig<TData, TError> ): Retryer<TData>

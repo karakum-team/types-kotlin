@@ -4,7 +4,5 @@
 
 package tanstack.query.core
 
-external fun partialMatchKey(
-    a: QueryKey,
-    b: QueryKey,
-): Boolean
+external fun  partialMatchKey(a: QueryKey ,
+b: QueryKey ): Boolean

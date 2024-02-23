@@ -2,8 +2,8 @@
 
 package typescript
 
-sealed external interface LineAndCharacter {
-    /** 0-based. */
-    var line: Int
-    var character: Int
+external sealed interface LineAndCharacter {
+/** 0-based. */
+var line: Int
+var character: Int
 }

@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface ConfigProvider {
-    val config: Any?
-    val error: Diagnostic?
+external sealed interface ConfigProvider {
+val config: Any?
+val error: Diagnostic?
 }

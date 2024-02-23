@@ -4,7 +4,7 @@ package typescript
 
 import js.array.ReadonlyArray
 
-sealed external interface Bundle : Node {
-    override val kind: SyntaxKind.Bundle
-    val sourceFiles: ReadonlyArray<SourceFile>
+external sealed interface Bundle : Node {
+override val kind: SyntaxKind.Bundle
+val sourceFiles: ReadonlyArray<SourceFile>
 }

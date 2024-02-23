@@ -2,9 +2,9 @@
 
 package typescript
 
-sealed external interface IndexInfo {
-    var keyType: Type
-    var type: Type
-    var isReadonly: Boolean
-    var declaration: IndexSignatureDeclaration?
+external sealed interface IndexInfo {
+var keyType: Type
+var type: Type
+var isReadonly: Boolean
+var declaration: IndexSignatureDeclaration?
 }

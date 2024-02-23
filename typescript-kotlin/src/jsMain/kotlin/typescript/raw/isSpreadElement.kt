@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isSpreadElement(node: Node): Boolean /* node is SpreadElement */
+internal external fun  isSpreadElement(node: Node): Boolean /* node is SpreadElement */

@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun isConstTypeReference(node: Node): Boolean
+external fun  isConstTypeReference(node: Node): Boolean

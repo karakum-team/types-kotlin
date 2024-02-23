@@ -2,19 +2,22 @@
 
 package web.svg
 
+import web.dom.Element
+import web.svg.SVGElement
+
 /**
  * Corresponds to the <feSpotLight> element.
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFESpotLightElement)
  */
 sealed external class SVGFESpotLightElement :
-    SVGElement {
-    val limitingConeAngle: SVGAnimatedNumber
-    val pointsAtX: SVGAnimatedNumber
-    val pointsAtY: SVGAnimatedNumber
-    val pointsAtZ: SVGAnimatedNumber
-    val specularExponent: SVGAnimatedNumber
-    val x: SVGAnimatedNumber
-    val y: SVGAnimatedNumber
-    val z: SVGAnimatedNumber
+SVGElement {
+val limitingConeAngle: SVGAnimatedNumber
+val pointsAtX: SVGAnimatedNumber
+val pointsAtY: SVGAnimatedNumber
+val pointsAtZ: SVGAnimatedNumber
+val specularExponent: SVGAnimatedNumber
+val x: SVGAnimatedNumber
+val y: SVGAnimatedNumber
+val z: SVGAnimatedNumber
 }

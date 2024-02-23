@@ -4,4 +4,4 @@
 
 package tanstack.query.core
 
-external fun isValidTimeout(value: Any?): Boolean /* value is number */
+external fun  isValidTimeout(value: Any? ): Boolean /* value is number */

@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isConciseBody(node: Node): Boolean /* node is ConciseBody */
+internal external fun  isConciseBody(node: Node): Boolean /* node is ConciseBody */

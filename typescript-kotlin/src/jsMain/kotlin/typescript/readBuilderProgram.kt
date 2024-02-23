@@ -4,7 +4,5 @@
 
 package typescript
 
-external fun readBuilderProgram(
-    compilerOptions: CompilerOptions,
-    host: ReadBuildProgramHost,
-): EmitAndSemanticDiagnosticsBuilderProgram?
+external fun  readBuilderProgram(compilerOptions: CompilerOptions,
+host: ReadBuildProgramHost): EmitAndSemanticDiagnosticsBuilderProgram?

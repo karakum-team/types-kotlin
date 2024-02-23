@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface OrganizeImportsArgs : CombinedCodeFixScope {
-    var mode: OrganizeImportsMode?
+external sealed interface OrganizeImportsArgs : CombinedCodeFixScope {
+var mode: OrganizeImportsMode?
 }

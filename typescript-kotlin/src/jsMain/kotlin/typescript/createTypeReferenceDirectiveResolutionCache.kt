@@ -4,9 +4,7 @@
 
 package typescript
 
-external fun createTypeReferenceDirectiveResolutionCache(
-    currentDirectory: String,
-    getCanonicalFileName: (s: String) -> String,
-    options: CompilerOptions = definedExternally,
-    packageJsonInfoCache: PackageJsonInfoCache = definedExternally,
-): TypeReferenceDirectiveResolutionCache
+external fun  createTypeReferenceDirectiveResolutionCache(currentDirectory: String,
+getCanonicalFileName: (s: String) -> String,
+options: CompilerOptions = definedExternally,
+packageJsonInfoCache: PackageJsonInfoCache = definedExternally): TypeReferenceDirectiveResolutionCache

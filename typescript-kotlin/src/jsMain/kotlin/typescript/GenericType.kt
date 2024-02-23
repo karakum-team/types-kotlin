@@ -2,4 +2,6 @@
 
 package typescript
 
-sealed external interface GenericType : InterfaceType, TypeReference
+external sealed interface GenericType : InterfaceType, TypeReference {
+
+}

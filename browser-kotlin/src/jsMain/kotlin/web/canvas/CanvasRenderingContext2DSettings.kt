@@ -3,11 +3,13 @@
 package web.canvas
 
 import js.objects.JsPlainObject
+import web.canvas.PredefinedColorSpace
+import web.rendering.RenderingContext
 
 @JsPlainObject
 sealed external interface CanvasRenderingContext2DSettings {
-    var alpha: Boolean?
-    var colorSpace: PredefinedColorSpace?
-    var desynchronized: Boolean?
-    var willReadFrequently: Boolean?
+var alpha: Boolean?
+var colorSpace: PredefinedColorSpace?
+var desynchronized: Boolean?
+var willReadFrequently: Boolean?
 }

@@ -17,20 +17,15 @@ import seskar.js.JsNative
  *
  * For the canonical implementation of this type, @see {visitNode}.
  */
-sealed external interface NodeVisitor {
-    @JsNative
-    operator fun <TIn : Node?, TVisited : Node?, TOut : Node> invoke(
-        node: TIn,
-        visitor: Visitor<TIn & Any, TVisited>,
-        test: (node: Node) -> Boolean, /* node is TOut */
-        lift: (node: ReadonlyArray<Node>) -> Node = definedExternally,
-    ): dynamic /* TOut | (TIn & undefined) | (TVisited & undefined) */
-
-    @JsNative
-    operator fun <TIn : Node?, TVisited : Node?> invoke(
-        node: TIn,
-        visitor: Visitor<TIn & Any, TVisited>,
-        test: (node: Node) -> Boolean = definedExternally,
-        lift: (node: ReadonlyArray<Node>) -> Node = definedExternally,
-    ): dynamic /* Node | (TIn & undefined) | (TVisited & undefined) */
+external sealed interface NodeVisitor {
+@JsNative
+operator fun <TIn : Node?, TVisited : Node?, TOut : Node> invoke(node: TIn,
+visitor: Visitor<TIn & Any, TVisited>,
+test: (node: Node) -> Boolean /* node is TOut */,
+lift: (node: ReadonlyArray<Node>) -> Node = definedExternally): dynamic /* TOut | (TIn & undefined) | (TVisited & undefined) */
+@JsNative
+operator fun <TIn : Node?, TVisited : Node?> invoke(node: TIn,
+visitor: Visitor<TIn & Any, TVisited>,
+test: (node: Node) -> Boolean = definedExternally,
+lift: (node: ReadonlyArray<Node>) -> Node = definedExternally): dynamic /* Node | (TIn & undefined) | (TVisited & undefined) */
 }

@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun tokenToString(t: SyntaxKind): String?
+external fun  tokenToString(t: SyntaxKind): String?

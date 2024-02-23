@@ -5,4 +5,4 @@
 package typescript
 
 /** Gets the JSDoc augments tag for the node if present */
-external fun getJSDocAugmentsTag(node: Node): JSDocAugmentsTag?
+external fun  getJSDocAugmentsTag(node: Node): JSDocAugmentsTag?

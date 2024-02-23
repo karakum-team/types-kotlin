@@ -7,7 +7,7 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface PublicKeyCredentialUserEntity :
-    PublicKeyCredentialEntity {
-    var displayName: String
-    var id: BufferSource
+PublicKeyCredentialEntity {
+var displayName: String
+var id: BufferSource
 }

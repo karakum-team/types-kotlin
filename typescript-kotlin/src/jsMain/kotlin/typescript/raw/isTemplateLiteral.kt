@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isTemplateLiteral(node: Node): Boolean /* node is TemplateLiteral */
+internal external fun  isTemplateLiteral(node: Node): Boolean /* node is TemplateLiteral */

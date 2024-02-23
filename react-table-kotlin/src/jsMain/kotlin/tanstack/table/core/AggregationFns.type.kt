@@ -2,4 +2,8 @@
 
 package tanstack.table.core
 
-external interface AggregationFns
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface AggregationFns{
+
+}

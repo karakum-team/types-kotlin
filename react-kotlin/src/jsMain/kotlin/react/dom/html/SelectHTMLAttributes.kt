@@ -2,17 +2,29 @@
 
 package react.dom.html
 
-import react.dom.events.ChangeEventHandler
+import react.dom.aria.AriaAttributes
+import react.dom.aria.AriaRole    
+import react.dom.DOMAttributes
+import web.html.EnterKeyHint
+import web.html.InputType
+import web.html.Loading
+import web.http.ReferrerPolicy
+import web.window.WindowTarget
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
 import web.dom.Element
+import web.http.CrossOrigin
+import react.dom.events.*
 
 external interface SelectHTMLAttributes<T : Element> : HTMLAttributes<T> {
-    var autoComplete: AutoComplete?
-    var disabled: Boolean?
-    var form: String?
-    var multiple: Boolean?
-    var name: String?
-    var required: Boolean?
-    var size: Int?
-    var value: Any? /* string | ReadonlyArray<string> | number */
-    var onChange: ChangeEventHandler<T>?
+var autoComplete: AutoComplete?
+var disabled: Boolean?
+var form: String?
+var multiple: Boolean?
+var name: String?
+var required: Boolean?
+var size: Int?
+var value: Any? /* string | ReadonlyArray<string> | number */
+var onChange: ChangeEventHandler<T>?
 }

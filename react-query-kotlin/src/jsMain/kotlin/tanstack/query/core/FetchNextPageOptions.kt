@@ -2,6 +2,6 @@
 
 package tanstack.query.core
 
-external interface FetchNextPageOptions : ResultOptions {
-    var cancelRefetch: Boolean
+external interface FetchNextPageOptions  : ResultOptions {
+ var cancelRefetch: Boolean
 }

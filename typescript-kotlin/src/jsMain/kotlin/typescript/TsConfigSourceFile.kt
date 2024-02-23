@@ -4,6 +4,6 @@ package typescript
 
 import js.array.ReadonlyArray
 
-sealed external interface TsConfigSourceFile : JsonSourceFile {
-    var extendedSourceFiles: ReadonlyArray<String>?
+external sealed interface TsConfigSourceFile : JsonSourceFile {
+var extendedSourceFiles: ReadonlyArray<String>?
 }

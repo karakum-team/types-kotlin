@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isColonToken(node: Node): Boolean /* node is ColonToken */
+internal external fun  isColonToken(node: Node): Boolean /* node is ColonToken */

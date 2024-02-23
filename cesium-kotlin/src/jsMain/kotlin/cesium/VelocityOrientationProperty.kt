@@ -4,6 +4,28 @@
 
 package cesium
 
+import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
+
 /**
  * A [Property] which evaluates to a [Quaternion] rotation
  * based on the velocity of the provided [PositionProperty].
@@ -17,50 +39,50 @@ package cesium
  * }));
  * ```
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/VelocityOrientationProperty.html">Online Documentation</a>
- *
+ * 
  * @constructor
  * @param [position] The position property used to compute the orientation.
  * @param [ellipsoid] The ellipsoid used to determine which way is up.
  *   Default value - [Ellipsoid.WGS84]
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/VelocityOrientationProperty.html">Online Documentation</a>
  */
-external class VelocityOrientationProperty(
-    position: PositionProperty? = definedExternally,
-    ellipsoid: Ellipsoid? = definedExternally,
-) {
-    /**
-     * Gets a value indicating if this property is constant.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/VelocityOrientationProperty.html#isConstant">Online Documentation</a>
-     */
-    val isConstant: Boolean
+external  class VelocityOrientationProperty (
+ position: PositionProperty? = definedExternally,
+ ellipsoid: Ellipsoid? = definedExternally
+)  {
+/**
+ * Gets a value indicating if this property is constant.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/VelocityOrientationProperty.html#isConstant">Online Documentation</a>
+ */
+val isConstant: Boolean
 
-    /**
-     * Gets the event that is raised whenever the definition of this property changes.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/VelocityOrientationProperty.html#definitionChanged">Online Documentation</a>
-     */
-    val definitionChanged: DefaultEvent
+/**
+ * Gets the event that is raised whenever the definition of this property changes.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/VelocityOrientationProperty.html#definitionChanged">Online Documentation</a>
+ */
+val definitionChanged: DefaultEvent
 
-    /**
-     * Gets or sets the position property used to compute orientation.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/VelocityOrientationProperty.html#position">Online Documentation</a>
-     */
-    var position: Property?
+/**
+ * Gets or sets the position property used to compute orientation.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/VelocityOrientationProperty.html#position">Online Documentation</a>
+ */
+var position: Property?
 
-    /**
-     * Gets or sets the ellipsoid used to determine which way is up.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/VelocityOrientationProperty.html#ellipsoid">Online Documentation</a>
-     */
-    var ellipsoid: Property?
+/**
+ * Gets or sets the ellipsoid used to determine which way is up.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/VelocityOrientationProperty.html#ellipsoid">Online Documentation</a>
+ */
+var ellipsoid: Property?
 
-    /**
-     * Gets the value of the property at the provided time.
-     * @param [time] The time for which to retrieve the value.
-     * @param [result] The object to store the value into, if omitted, a new instance is created and returned.
-     * @return The modified result parameter or a new instance if the result parameter was not supplied.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/VelocityOrientationProperty.html#getValue">Online Documentation</a>
-     */
-    fun getValue(
-        time: JulianDate? = definedExternally,
-        result: Quaternion? = definedExternally,
-    ): Quaternion
+/**
+ * Gets the value of the property at the provided time.
+ * @param [time] The time for which to retrieve the value.
+ * @param [result] The object to store the value into, if omitted, a new instance is created and returned.
+ * @return The modified result parameter or a new instance if the result parameter was not supplied.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/VelocityOrientationProperty.html#getValue">Online Documentation</a>
+ */
+ fun getValue (
+ time: JulianDate? = definedExternally,
+ result: Quaternion? = definedExternally
+): Quaternion
 }

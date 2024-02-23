@@ -8,6 +8,6 @@ package web.svg
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGAnimatedTransformList)
  */
 sealed external class SVGAnimatedTransformList {
-    val animVal: SVGTransformList
-    val baseVal: SVGTransformList
+val animVal: SVGTransformList
+val baseVal: SVGTransformList
 }

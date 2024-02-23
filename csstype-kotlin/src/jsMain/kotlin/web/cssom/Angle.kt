@@ -2,6 +2,10 @@
 
 package web.cssom
 
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
 sealed external interface Angle
 
 inline val Number.deg: Angle

@@ -2,10 +2,10 @@
 
 package typescript
 
-sealed external interface ImportTypeNode : NodeWithTypeArguments {
-    override val kind: SyntaxKind.ImportType
-    val isTypeOf: Boolean
-    val argument: TypeNode
-    val attributes: ImportAttributes?
-    val qualifier: EntityName?
+external sealed interface ImportTypeNode : NodeWithTypeArguments {
+override val kind: SyntaxKind.ImportType
+val isTypeOf: Boolean
+val argument: TypeNode
+val attributes: ImportAttributes?
+val qualifier: EntityName?
 }

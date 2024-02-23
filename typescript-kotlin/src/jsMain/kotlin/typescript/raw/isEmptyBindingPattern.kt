@@ -4,6 +4,7 @@
 
 package typescript.raw
 
+import typescript.Node
 import typescript.BindingName
 
-internal external fun isEmptyBindingPattern(node: BindingName): Boolean /* node is BindingPattern */
+internal external fun  isEmptyBindingPattern(node: BindingName): Boolean /* node is BindingPattern */

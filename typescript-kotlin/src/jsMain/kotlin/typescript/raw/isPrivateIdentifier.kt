@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isPrivateIdentifier(node: Node): Boolean /* node is PrivateIdentifier */
+internal external fun  isPrivateIdentifier(node: Node): Boolean /* node is PrivateIdentifier */

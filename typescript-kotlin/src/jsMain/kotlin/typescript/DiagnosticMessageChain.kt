@@ -10,9 +10,9 @@ import js.array.ReadonlyArray
  * While it seems that DiagnosticMessageChain is structurally similar to DiagnosticMessage,
  * the difference is that messages are all preformatted in DMC.
  */
-sealed external interface DiagnosticMessageChain {
-    var messageText: String
-    var category: DiagnosticCategory
-    var code: Int
-    var next: ReadonlyArray<DiagnosticMessageChain>?
+external sealed interface DiagnosticMessageChain {
+var messageText: String
+var category: DiagnosticCategory
+var code: Int
+var next: ReadonlyArray<DiagnosticMessageChain>?
 }

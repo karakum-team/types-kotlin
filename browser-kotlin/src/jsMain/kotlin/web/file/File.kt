@@ -5,6 +5,7 @@ package web.file
 import js.array.ReadonlyArray
 import web.blob.Blob
 import web.blob.BlobPart
+import web.file.File
 import web.time.EpochTimeStamp
 
 /**
@@ -12,23 +13,21 @@ import web.time.EpochTimeStamp
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/File)
  */
-external class File(
-    fileBits: ReadonlyArray<BlobPart>,
-    fileName: String,
-    options: FilePropertyBag = definedExternally,
-) : Blob {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/lastModified)
-     */
-    val lastModified: EpochTimeStamp
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/name)
-     */
-    val name: String
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/webkitRelativePath)
-     */
-    val webkitRelativePath: String
+ external class File (
+fileBits: ReadonlyArray<BlobPart>,
+fileName: String,
+options: FilePropertyBag = definedExternally,
+):Blob {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/lastModified)
+ */
+val lastModified: EpochTimeStamp
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/name)
+ */
+val name: String
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/webkitRelativePath)
+ */
+val webkitRelativePath: String
 }

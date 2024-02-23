@@ -5,5 +5,4 @@ package web.codecs
 import web.errors.DOMException
 
 typealias WebCodecsErrorCallback = (
-    error: DOMException,
-) -> Unit
+error: DOMException) -> Unit

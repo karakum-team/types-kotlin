@@ -4,4 +4,6 @@
 
 package tanstack.table.core
 
-external val Sorting: TableFeature
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external val Sorting: TableFeature;

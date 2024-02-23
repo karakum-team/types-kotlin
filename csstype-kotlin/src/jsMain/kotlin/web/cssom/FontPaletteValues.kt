@@ -2,7 +2,11 @@
 
 package web.cssom
 
-external interface FontPaletteValues {
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+external interface FontPaletteValues{
     var basePalette: BasePalette?
     var fontFamily: String?
     var overrideColors: String?

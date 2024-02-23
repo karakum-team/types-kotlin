@@ -3,5 +3,4 @@
 package web.rtc
 
 typealias RTCSessionDescriptionCallback = (
-    description: RTCSessionDescriptionInit,
-) -> Unit
+description: RTCSessionDescriptionInit) -> Unit

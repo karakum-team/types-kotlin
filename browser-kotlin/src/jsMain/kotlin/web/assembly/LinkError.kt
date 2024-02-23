@@ -8,4 +8,4 @@ import js.errors.JsError
 
 external class LinkError(
     message: String = definedExternally,
-) : JsError
+): JsError

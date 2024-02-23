@@ -2,7 +2,9 @@
 
 package tanstack.table.core
 
-external interface ColumnSort {
-    var desc: Boolean
-    var id: String
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface ColumnSort{
+var desc: Boolean
+var id: String
 }

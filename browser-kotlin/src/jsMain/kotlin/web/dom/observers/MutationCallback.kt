@@ -3,8 +3,8 @@
 package web.dom.observers
 
 import js.array.ReadonlyArray
+import js.objects.Record
 
 typealias MutationCallback = (
-    mutations: ReadonlyArray<MutationRecord>,
-    observer: MutationObserver,
-) -> Unit
+mutations: ReadonlyArray<MutationRecord>,
+observer: MutationObserver) -> Unit

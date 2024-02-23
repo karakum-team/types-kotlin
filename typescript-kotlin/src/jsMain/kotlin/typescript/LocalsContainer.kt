@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface LocalsContainer : Node {
-    var _localsContainerBrand: Any
+external sealed interface LocalsContainer : Node {
+var _localsContainerBrand: Any
 }

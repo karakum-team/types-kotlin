@@ -1,14 +1,18 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "DECLARATION_CANT_BE_INLINED",
+"DECLARATION_CANT_BE_INLINED",
 )
 
 package csstype
 
-import js.objects.jso
 import web.cssom.*
 
+import js.objects.jso
+import web.cssom.ContainerName
+import web.cssom.ContainerQuery
+import web.cssom.MediaQuery
+    
 interface RuleBuilder<T : Any> : Rules {
     inline fun media(
         query: MediaQuery,
@@ -23,14 +27,14 @@ interface RuleBuilder<T : Any> : Rules {
     ) {
         set(Selector("@container $query"), jso(block))
     }
-
+    
     inline fun container(
         containerName: ContainerName,
         query: ContainerQuery,
         block: T.() -> Unit,
     ) {
         set(Selector("@container $containerName $query"), jso(block))
-    }
+    }    
 
     inline fun fontFace(
         block: FontFace.() -> Unit,
@@ -55,7 +59,7 @@ interface RuleBuilder<T : Any> : Rules {
     ) {
         Selector(this)(block)
     }
-
+    
     inline fun and(
         className: ClassName,
         block: T.() -> Unit,

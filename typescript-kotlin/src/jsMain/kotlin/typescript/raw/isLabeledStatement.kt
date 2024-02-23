@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isLabeledStatement(node: Node): Boolean /* node is LabeledStatement */
+internal external fun  isLabeledStatement(node: Node): Boolean /* node is LabeledStatement */

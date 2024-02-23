@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface Statement : Node, JSDocContainer {
-    var _statementBrand: Any
+external sealed interface Statement : Node, JSDocContainer {
+var _statementBrand: Any
 }

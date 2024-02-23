@@ -4,9 +4,7 @@
 
 package typescript
 
-external fun createModuleResolutionCache(
-    currentDirectory: String,
-    getCanonicalFileName: (s: String) -> String,
-    options: CompilerOptions = definedExternally,
-    packageJsonInfoCache: PackageJsonInfoCache = definedExternally,
-): ModuleResolutionCache
+external fun  createModuleResolutionCache(currentDirectory: String,
+getCanonicalFileName: (s: String) -> String,
+options: CompilerOptions = definedExternally,
+packageJsonInfoCache: PackageJsonInfoCache = definedExternally): ModuleResolutionCache

@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun isCallOrNewExpression(node: Node): Boolean /* node is CallExpression | NewExpression */
+external fun  isCallOrNewExpression(node: Node): Boolean /* node is CallExpression | NewExpression */

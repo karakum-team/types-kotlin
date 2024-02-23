@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isMethodSignature(node: Node): Boolean /* node is MethodSignature */
+internal external fun  isMethodSignature(node: Node): Boolean /* node is MethodSignature */

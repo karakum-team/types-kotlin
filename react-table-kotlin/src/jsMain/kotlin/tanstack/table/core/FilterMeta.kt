@@ -2,4 +2,8 @@
 
 package tanstack.table.core
 
-external interface FilterMeta
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface FilterMeta{
+
+}

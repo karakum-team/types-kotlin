@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun getJSDocOverrideTagNoCache(node: Node): JSDocOverrideTag?
+external fun  getJSDocOverrideTagNoCache(node: Node): JSDocOverrideTag?

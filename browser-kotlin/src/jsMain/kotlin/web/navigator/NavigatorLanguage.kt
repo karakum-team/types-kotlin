@@ -5,13 +5,12 @@ package web.navigator
 import js.array.ReadonlyArray
 
 sealed external interface NavigatorLanguage {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/language)
-     */
-    val language: String
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/languages)
-     */
-    val languages: ReadonlyArray<String>
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/language)
+ */
+val language: String
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/languages)
+ */
+val languages: ReadonlyArray<String>
 }

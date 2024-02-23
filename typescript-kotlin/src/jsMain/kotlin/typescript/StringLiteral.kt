@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface StringLiteral : LiteralExpression, Declaration, Union.StringLiteral_ {
-    override val kind: SyntaxKind.StringLiteral
+external sealed interface StringLiteral : LiteralExpression, Declaration, Union.StringLiteral_ {
+override val kind: SyntaxKind.StringLiteral
 }

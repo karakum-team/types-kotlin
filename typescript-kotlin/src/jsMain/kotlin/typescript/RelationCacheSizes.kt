@@ -2,9 +2,9 @@
 
 package typescript
 
-sealed external interface RelationCacheSizes {
-    val assignable: Int
-    val identity: Int
-    val subtype: Int
-    val strictSubtype: Int
+external sealed interface RelationCacheSizes {
+val assignable: Int
+val identity: Int
+val subtype: Int
+val strictSubtype: Int
 }

@@ -1,10 +1,13 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package web.events
+
+import web.events.Event
+import web.events.EventType
 
 sealed external interface EventType<out T : Event>
 

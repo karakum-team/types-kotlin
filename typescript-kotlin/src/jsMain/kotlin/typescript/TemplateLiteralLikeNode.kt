@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface TemplateLiteralLikeNode : LiteralLikeNode {
-    var rawText: String?
+external sealed interface TemplateLiteralLikeNode : LiteralLikeNode {
+var rawText: String?
 }

@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isArrowFunction(node: Node): Boolean /* node is ArrowFunction */
+internal external fun  isArrowFunction(node: Node): Boolean /* node is ArrowFunction */

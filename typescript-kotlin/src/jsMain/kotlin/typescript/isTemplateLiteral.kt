@@ -1,17 +1,17 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "CANNOT_CHECK_FOR_EXTERNAL_INTERFACE",
+"CANNOT_CHECK_FOR_EXTERNAL_INTERFACE",
 )
 
 package typescript
 
 import kotlin.contracts.contract
 
-fun isTemplateLiteral(node: Node): Boolean {
-    contract {
-        returns(true) implies (node is TemplateLiteral)
+fun  isTemplateLiteral(node: Node): Boolean{
+        contract {
+            returns(true) implies (node is TemplateLiteral)
+        }
+    
+        return typescript.raw.isTemplateLiteral(node)
     }
-
-    return typescript.raw.isTemplateLiteral(node)
-}

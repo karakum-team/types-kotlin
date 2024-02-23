@@ -3,9 +3,10 @@
 package web.media.streams
 
 import js.objects.JsPlainObject
+import web.ranges.Range
 
 @JsPlainObject
 sealed external interface DoubleRange {
-    var max: Double?
-    var min: Double?
+var max: Double?
+var min: Double?
 }

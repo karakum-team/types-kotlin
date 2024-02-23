@@ -5,211 +5,214 @@ package web.errors
 import js.errors.JsError
 import js.errors.JsErrorName
 import seskar.js.JsValue
+import web.dom.Document
+import web.dom.Node
+import web.errors.DOMException
+import web.http.Request
+import web.ranges.Range
+import web.url.URL
 
 /**
  * An abnormal event (called an exception) which occurs as a result of calling a method or accessing a property of a web API.
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMException)
  */
-open external class DOMException(
-    message: String = definedExternally,
-    name: JsErrorName = definedExternally,
-) : JsError {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMException/message)
-     */
-    override val message: String
+open external class DOMException (
+message: String = definedExternally,
+name: JsErrorName = definedExternally,
+):JsError {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMException/message)
+ */
+override val message: String
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMException/name)
+ */
+val name: JsErrorName
+companion object {/**
+  * The index is not in the allowed range. For example, this can be thrown by the `Range` object
+  */
+@JsValue("IndexSizeError")
+val IndexSizeError: JsErrorName
 
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMException/name)
-     */
-    val name: JsErrorName
+/**
+  * The node tree hierarchy is not correct
+  */
+@JsValue("HierarchyRequestError")
+val HierarchyRequestError: JsErrorName
 
-    companion object {
-        /**
-         * The index is not in the allowed range. For example, this can be thrown by the `Range` object
-         */
-        @JsValue("IndexSizeError")
-        val IndexSizeError: JsErrorName
+/**
+  * The object is in the wrong `Document`
+  */
+@JsValue("WrongDocumentError")
+val WrongDocumentError: JsErrorName
 
-        /**
-         * The node tree hierarchy is not correct
-         */
-        @JsValue("HierarchyRequestError")
-        val HierarchyRequestError: JsErrorName
+/**
+  * The string contains invalid characters
+  */
+@JsValue("InvalidCharacterError")
+val InvalidCharacterError: JsErrorName
 
-        /**
-         * The object is in the wrong `Document`
-         */
-        @JsValue("WrongDocumentError")
-        val WrongDocumentError: JsErrorName
+/**
+  * The object cannot be modified
+  */
+@JsValue("NoModificationAllowedError")
+val NoModificationAllowedError: JsErrorName
 
-        /**
-         * The string contains invalid characters
-         */
-        @JsValue("InvalidCharacterError")
-        val InvalidCharacterError: JsErrorName
+/**
+  * The object cannot be found here
+  */
+@JsValue("NotFoundError")
+val NotFoundError: JsErrorName
 
-        /**
-         * The object cannot be modified
-         */
-        @JsValue("NoModificationAllowedError")
-        val NoModificationAllowedError: JsErrorName
+/**
+  * The operation is not supported
+  */
+@JsValue("NotSupportedError")
+val NotSupportedError: JsErrorName
 
-        /**
-         * The object cannot be found here
-         */
-        @JsValue("NotFoundError")
-        val NotFoundError: JsErrorName
+/**
+  * The object is in an invalid state
+  */
+@JsValue("InvalidStateError")
+val InvalidStateError: JsErrorName
 
-        /**
-         * The operation is not supported
-         */
-        @JsValue("NotSupportedError")
-        val NotSupportedError: JsErrorName
+/**
+  * The attribute is in use
+  */
+@JsValue("InUseAttributeError")
+val InUseAttributeError: JsErrorName
 
-        /**
-         * The object is in an invalid state
-         */
-        @JsValue("InvalidStateError")
-        val InvalidStateError: JsErrorName
+/**
+  * The string did not match the expected pattern
+  */
+@JsValue("SyntaxError")
+val SyntaxError: JsErrorName
 
-        /**
-         * The attribute is in use
-         */
-        @JsValue("InUseAttributeError")
-        val InUseAttributeError: JsErrorName
+/**
+  * The object cannot be modified in this way
+  */
+@JsValue("InvalidModificationError")
+val InvalidModificationError: JsErrorName
 
-        /**
-         * The string did not match the expected pattern
-         */
-        @JsValue("SyntaxError")
-        val SyntaxError: JsErrorName
+/**
+  * The operation is not allowed by Namespaces in XML
+  */
+@JsValue("NamespaceError")
+val NamespaceError: JsErrorName
 
-        /**
-         * The object cannot be modified in this way
-         */
-        @JsValue("InvalidModificationError")
-        val InvalidModificationError: JsErrorName
+/**
+  * The object does not support the operation or argument
+  */
+@JsValue("InvalidAccessError")
+val InvalidAccessError: JsErrorName
 
-        /**
-         * The operation is not allowed by Namespaces in XML
-         */
-        @JsValue("NamespaceError")
-        val NamespaceError: JsErrorName
+/**
+  * The operation is insecure
+  */
+@JsValue("SecurityError")
+val SecurityError: JsErrorName
 
-        /**
-         * The object does not support the operation or argument
-         */
-        @JsValue("InvalidAccessError")
-        val InvalidAccessError: JsErrorName
+/**
+  * A network error occurred
+  */
+@JsValue("NetworkError")
+val NetworkError: JsErrorName
 
-        /**
-         * The operation is insecure
-         */
-        @JsValue("SecurityError")
-        val SecurityError: JsErrorName
+/**
+  * The operation was aborted
+  */
+@JsValue("AbortError")
+val AbortError: JsErrorName
 
-        /**
-         * A network error occurred
-         */
-        @JsValue("NetworkError")
-        val NetworkError: JsErrorName
+/**
+  * The given URL does not match another URL
+  */
+@JsValue("URLMismatchError")
+val URLMismatchError: JsErrorName
 
-        /**
-         * The operation was aborted
-         */
-        @JsValue("AbortError")
-        val AbortError: JsErrorName
+/**
+  * The quota has been exceeded
+  */
+@JsValue("QuotaExceededError")
+val QuotaExceededError: JsErrorName
 
-        /**
-         * The given URL does not match another URL
-         */
-        @JsValue("URLMismatchError")
-        val URLMismatchError: JsErrorName
+/**
+  * The operation timed out
+  */
+@JsValue("TimeoutError")
+val TimeoutError: JsErrorName
 
-        /**
-         * The quota has been exceeded
-         */
-        @JsValue("QuotaExceededError")
-        val QuotaExceededError: JsErrorName
+/**
+  * The node is incorrect or has an incorrect ancestor for this operation
+  */
+@JsValue("InvalidNodeTypeError")
+val InvalidNodeTypeError: JsErrorName
 
-        /**
-         * The operation timed out
-         */
-        @JsValue("TimeoutError")
-        val TimeoutError: JsErrorName
+/**
+  * The object can not be cloned
+  */
+@JsValue("DataCloneError")
+val DataCloneError: JsErrorName
 
-        /**
-         * The node is incorrect or has an incorrect ancestor for this operation
-         */
-        @JsValue("InvalidNodeTypeError")
-        val InvalidNodeTypeError: JsErrorName
+/**
+  * The encoding or decoding operation failed
+  */
+@JsValue("EncodingError")
+val EncodingError: JsErrorName
 
-        /**
-         * The object can not be cloned
-         */
-        @JsValue("DataCloneError")
-        val DataCloneError: JsErrorName
+/**
+  * The input/output read operation failed
+  */
+@JsValue("NotReadableError")
+val NotReadableError: JsErrorName
 
-        /**
-         * The encoding or decoding operation failed
-         */
-        @JsValue("EncodingError")
-        val EncodingError: JsErrorName
+/**
+  * The operation failed for an unknown transient reason (e.g. out of memory)
+  */
+@JsValue("UnknownError")
+val UnknownError: JsErrorName
 
-        /**
-         * The input/output read operation failed
-         */
-        @JsValue("NotReadableError")
-        val NotReadableError: JsErrorName
+/**
+  * A mutation operation in a transaction failed because a constraint was not satisfied
+  */
+@JsValue("ConstraintError")
+val ConstraintError: JsErrorName
 
-        /**
-         * The operation failed for an unknown transient reason (e.g. out of memory)
-         */
-        @JsValue("UnknownError")
-        val UnknownError: JsErrorName
+/**
+  * Provided data is inadequate
+  */
+@JsValue("DataError")
+val DataError: JsErrorName
 
-        /**
-         * A mutation operation in a transaction failed because a constraint was not satisfied
-         */
-        @JsValue("ConstraintError")
-        val ConstraintError: JsErrorName
+/**
+  * A request was placed against a transaction that is currently not active or is finished
+  */
+@JsValue("TransactionInactiveError")
+val TransactionInactiveError: JsErrorName
 
-        /**
-         * Provided data is inadequate
-         */
-        @JsValue("DataError")
-        val DataError: JsErrorName
+/**
+  * The mutating operation was attempted in a "readonly" transaction
+  */
+@JsValue("ReadOnlyError")
+val ReadOnlyError: JsErrorName
 
-        /**
-         * A request was placed against a transaction that is currently not active or is finished
-         */
-        @JsValue("TransactionInactiveError")
-        val TransactionInactiveError: JsErrorName
+/**
+  * An attempt was made to open a database using a lower version than the existing version
+  */
+@JsValue("VersionError")
+val VersionError: JsErrorName
 
-        /**
-         * The mutating operation was attempted in a "readonly" transaction
-         */
-        @JsValue("ReadOnlyError")
-        val ReadOnlyError: JsErrorName
+/**
+  * The operation failed for an operation-specific reason
+  */
+@JsValue("OperationError")
+val OperationError: JsErrorName
 
-        /**
-         * An attempt was made to open a database using a lower version than the existing version
-         */
-        @JsValue("VersionError")
-        val VersionError: JsErrorName
-
-        /**
-         * The operation failed for an operation-specific reason
-         */
-        @JsValue("OperationError")
-        val OperationError: JsErrorName
-
-        /**
-         * The request is not allowed by the user agent or the platform in the current context, possibly because the user denied permission
-         */
-        @JsValue("NotAllowedError")
-        val NotAllowedError: JsErrorName
-    }
+/**
+  * The request is not allowed by the user agent or the platform in the current context, possibly because the user denied permission
+  */
+@JsValue("NotAllowedError")
+val NotAllowedError: JsErrorName
+}
 }

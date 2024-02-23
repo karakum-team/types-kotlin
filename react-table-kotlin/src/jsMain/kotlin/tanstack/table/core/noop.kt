@@ -4,4 +4,6 @@
 
 package tanstack.table.core
 
-external fun noop()
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external fun  noop()

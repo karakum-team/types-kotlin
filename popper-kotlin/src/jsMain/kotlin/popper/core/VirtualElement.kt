@@ -2,7 +2,7 @@
 
 package popper.core
 
-external interface VirtualElement {
-    var getBoundingClientRect: () -> web.geometry.DOMRect
-    var contextElement: web.dom.Element?
+external interface VirtualElement  {
+var getBoundingClientRect: () -> web.geometry.DOMRect
+var contextElement: web.dom.Element?
 }

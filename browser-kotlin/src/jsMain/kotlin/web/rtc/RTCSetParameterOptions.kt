@@ -5,4 +5,5 @@ package web.rtc
 import js.objects.JsPlainObject
 
 @JsPlainObject
-sealed external interface RTCSetParameterOptions
+sealed external interface RTCSetParameterOptions {
+}

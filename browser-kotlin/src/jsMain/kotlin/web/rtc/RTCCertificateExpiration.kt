@@ -7,5 +7,5 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface RTCCertificateExpiration {
-    var expires: JsLong?
+var expires: JsLong?
 }

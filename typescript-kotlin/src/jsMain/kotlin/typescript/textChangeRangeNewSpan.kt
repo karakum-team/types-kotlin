@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun textChangeRangeNewSpan(range: TextChangeRange): TextSpan
+external fun  textChangeRangeNewSpan(range: TextChangeRange): TextSpan

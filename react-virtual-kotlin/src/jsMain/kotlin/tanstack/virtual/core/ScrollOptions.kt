@@ -4,7 +4,7 @@ package tanstack.virtual.core
 
 import web.scroll.ScrollBehavior
 
-external interface ScrollOptions {
-    var adjustments: Int?
-    var behavior: ScrollBehavior?
+external interface ScrollOptions{
+var adjustments: Int?
+var behavior: ScrollBehavior?
 }

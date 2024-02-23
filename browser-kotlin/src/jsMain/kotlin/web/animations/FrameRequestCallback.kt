@@ -2,8 +2,8 @@
 
 package web.animations
 
+import web.http.Request
 import web.time.DOMHighResTimeStamp
 
 typealias FrameRequestCallback = (
-    time: DOMHighResTimeStamp,
-) -> Unit
+time: DOMHighResTimeStamp) -> Unit

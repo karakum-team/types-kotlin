@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocTypeLiteral(node: Node): Boolean /* node is JSDocTypeLiteral */
+internal external fun  isJSDocTypeLiteral(node: Node): Boolean /* node is JSDocTypeLiteral */

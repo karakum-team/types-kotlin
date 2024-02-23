@@ -1,7 +1,7 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package js.intl
@@ -9,19 +9,16 @@ package js.intl
 import seskar.js.JsValue
 import seskar.js.JsVirtual
 
-@JsVirtual
-sealed external interface HourCycle {
-    companion object {
-        @JsValue("h11")
-        val h11: HourCycle
-
-        @JsValue("h12")
-        val h12: HourCycle
-
-        @JsValue("h23")
-        val h23: HourCycle
-
-        @JsValue("h24")
-        val h24: HourCycle
-    }
-}
+        @JsVirtual
+        sealed external interface HourCycle {
+            companion object {
+                @JsValue("h11")    
+val h11: HourCycle
+@JsValue("h12")    
+val h12: HourCycle
+@JsValue("h23")    
+val h23: HourCycle
+@JsValue("h24")    
+val h24: HourCycle
+            }
+        }

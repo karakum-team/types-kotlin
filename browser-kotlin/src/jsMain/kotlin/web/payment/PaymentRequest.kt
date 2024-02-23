@@ -6,8 +6,11 @@ import js.array.ReadonlyArray
 import js.core.Void
 import js.promise.Promise
 import js.promise.PromiseLike
+import web.events.Event
 import web.events.EventHandler
 import web.events.EventTarget
+import web.http.Request
+import web.http.Response
 
 /**
  * This Payment Request API interface is the primary access point into the API, and lets web content and apps accept payments from the end user.
@@ -15,33 +18,29 @@ import web.events.EventTarget
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequest)
  */
-external class PaymentRequest(
-    methodData: ReadonlyArray<PaymentMethodData>,
-    details: PaymentDetailsInit,
-) : EventTarget {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequest/id)
-     */
-    val id: String
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequest/paymentmethodchange_event)
-     */
-    var onpaymentmethodchange: EventHandler<PaymentMethodChangeEvent>?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequest/abort)
-     */
-    fun abort(): Promise<Void>
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequest/canMakePayment)
-     */
-    fun canMakePayment(): Promise<Boolean>
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequest/show)
-     */
-    fun show(detailsPromise: PaymentDetailsUpdate = definedExternally): Promise<PaymentResponse>
-    fun show(detailsPromise: PromiseLike<PaymentDetailsUpdate>): Promise<PaymentResponse>
+ external class PaymentRequest (
+methodData: ReadonlyArray<PaymentMethodData>,
+details: PaymentDetailsInit,
+):EventTarget {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequest/id)
+ */
+val id: String
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequest/paymentmethodchange_event)
+ */
+var onpaymentmethodchange: EventHandler<PaymentMethodChangeEvent>?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequest/abort)
+ */
+ fun abort(): Promise<Void>
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequest/canMakePayment)
+ */
+ fun canMakePayment(): Promise<Boolean>
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequest/show)
+ */
+ fun show(detailsPromise: PaymentDetailsUpdate = definedExternally): Promise<PaymentResponse>
+ fun show(detailsPromise: PromiseLike<PaymentDetailsUpdate>): Promise<PaymentResponse>
 }

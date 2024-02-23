@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isThisTypeNode(node: Node): Boolean /* node is ThisTypeNode */
+internal external fun  isThisTypeNode(node: Node): Boolean /* node is ThisTypeNode */

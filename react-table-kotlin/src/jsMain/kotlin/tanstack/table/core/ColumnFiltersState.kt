@@ -3,5 +3,6 @@
 package tanstack.table.core
 
 import js.array.ReadonlyArray
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
 
 typealias ColumnFiltersState = ReadonlyArray<ColumnFilter>

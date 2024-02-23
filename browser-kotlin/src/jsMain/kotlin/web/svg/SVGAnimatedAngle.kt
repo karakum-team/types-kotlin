@@ -8,6 +8,6 @@ package web.svg
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGAnimatedAngle)
  */
 sealed external class SVGAnimatedAngle {
-    val animVal: SVGAngle
-    val baseVal: SVGAngle
+val animVal: SVGAngle
+val baseVal: SVGAngle
 }

@@ -1,17 +1,17 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "CANNOT_CHECK_FOR_EXTERNAL_INTERFACE",
+"CANNOT_CHECK_FOR_EXTERNAL_INTERFACE",
 )
 
 package typescript
 
 import kotlin.contracts.contract
 
-fun isGetAccessor(node: Node): Boolean {
-    contract {
-        returns(true) implies (node is GetAccessorDeclaration)
+fun  isGetAccessor(node: Node): Boolean{
+        contract {
+            returns(true) implies (node is GetAccessorDeclaration)
+        }
+    
+        return typescript.raw.isGetAccessor(node)
     }
-
-    return typescript.raw.isGetAccessor(node)
-}

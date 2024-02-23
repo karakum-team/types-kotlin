@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun getEffectiveConstraintOfTypeParameter(node: TypeParameterDeclaration): TypeNode?
+external fun  getEffectiveConstraintOfTypeParameter(node: TypeParameterDeclaration): TypeNode?

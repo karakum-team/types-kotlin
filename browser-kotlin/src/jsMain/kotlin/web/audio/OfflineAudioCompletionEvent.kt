@@ -1,12 +1,13 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+"EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
 package web.audio
 
 import web.events.Event
+import web.events.EventInit
 import web.events.EventType
 
 /**
@@ -14,15 +15,15 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioCompletionEvent)
  */
-open external class OfflineAudioCompletionEvent(
-    override val type: EventType<OfflineAudioCompletionEvent>,
-    init: OfflineAudioCompletionEventInit,
+    open external class OfflineAudioCompletionEvent (
+override val type: EventType<OfflineAudioCompletionEvent>,
+init: OfflineAudioCompletionEventInit
 ) : Event,
-    OfflineAudioCompletionEventInit {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioCompletionEvent/renderedBuffer)
-     */
-    override val renderedBuffer: AudioBuffer
-
-    companion object : OfflineAudioCompletionEventTypes
-}
+OfflineAudioCompletionEventInit {
+        /**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioCompletionEvent/renderedBuffer)
+ */
+override val renderedBuffer: AudioBuffer
+    
+        companion object : OfflineAudioCompletionEventTypes
+    }

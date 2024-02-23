@@ -6,8 +6,6 @@ package typescript
 
 import js.array.ReadonlyArray
 
-external fun getOutputFileNames(
-    commandLine: ParsedCommandLine,
-    inputFileName: String,
-    ignoreCase: Boolean,
-): ReadonlyArray<String>
+external fun  getOutputFileNames(commandLine: ParsedCommandLine,
+inputFileName: String,
+ignoreCase: Boolean): ReadonlyArray<String>

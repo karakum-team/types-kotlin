@@ -1,12 +1,14 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+"EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
 package web.uievents
 
 import js.array.ReadonlyArray
+import web.events.Event
+import web.events.EventInit
 import web.events.EventType
 
 /**
@@ -14,71 +16,60 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent)
  */
-open external class PointerEvent(
-    override val type: EventType<PointerEvent>,
-    init: PointerEventInit = definedExternally,
+    open external class PointerEvent (
+override val type: EventType<PointerEvent>,
+init: PointerEventInit = definedExternally
 ) : MouseEvent {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/height)
-     */
-    val height: Double
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/isPrimary)
-     */
-    val isPrimary: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/pointerId)
-     */
-    val pointerId: Int
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/pointerType)
-     */
-    val pointerType: String
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/pressure)
-     */
-    val pressure: Float
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/tangentialPressure)
-     */
-    val tangentialPressure: Float
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/tiltX)
-     */
-    val tiltX: Int
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/tiltY)
-     */
-    val tiltY: Int
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/twist)
-     */
-    val twist: Int
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/width)
-     */
-    val width: Double
-
-    /**
-     * Available only in secure contexts.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/getCoalescedEvents)
-     */
-    fun getCoalescedEvents(): ReadonlyArray<PointerEvent>
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/getPredictedEvents)
-     */
-    fun getPredictedEvents(): ReadonlyArray<PointerEvent>
-
-    companion object : PointerEventTypes
-}
+        /**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/height)
+ */
+val height: Double
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/isPrimary)
+ */
+val isPrimary: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/pointerId)
+ */
+val pointerId: Int
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/pointerType)
+ */
+val pointerType: String
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/pressure)
+ */
+val pressure: Float
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/tangentialPressure)
+ */
+val tangentialPressure: Float
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/tiltX)
+ */
+val tiltX: Int
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/tiltY)
+ */
+val tiltY: Int
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/twist)
+ */
+val twist: Int
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/width)
+ */
+val width: Double
+/**
+ * Available only in secure contexts.
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/getCoalescedEvents)
+ */
+ fun getCoalescedEvents(): ReadonlyArray<PointerEvent>
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent/getPredictedEvents)
+ */
+ fun getPredictedEvents(): ReadonlyArray<PointerEvent>
+    
+        companion object : PointerEventTypes
+    }

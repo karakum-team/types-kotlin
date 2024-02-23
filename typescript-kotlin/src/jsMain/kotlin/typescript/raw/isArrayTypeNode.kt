@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isArrayTypeNode(node: Node): Boolean /* node is ArrayTypeNode */
+internal external fun  isArrayTypeNode(node: Node): Boolean /* node is ArrayTypeNode */

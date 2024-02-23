@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isWhileStatement(node: Node): Boolean /* node is WhileStatement */
+internal external fun  isWhileStatement(node: Node): Boolean /* node is WhileStatement */

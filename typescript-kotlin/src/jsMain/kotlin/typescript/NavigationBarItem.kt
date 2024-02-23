@@ -10,13 +10,13 @@ import js.array.ReadonlyArray
  * The navbar is returned as a list of top-level items, each of which has a list of child items.
  * Child items always have an empty array for their `childItems`.
  */
-sealed external interface NavigationBarItem {
-    var text: String
-    var kind: ScriptElementKind
-    var kindModifiers: String
-    var spans: ReadonlyArray<TextSpan>
-    var childItems: ReadonlyArray<NavigationBarItem>
-    var indent: Int
-    var bolded: Boolean
-    var grayed: Boolean
+external sealed interface NavigationBarItem {
+var text: String
+var kind: ScriptElementKind
+var kindModifiers: String
+var spans: ReadonlyArray<TextSpan>
+var childItems: ReadonlyArray<NavigationBarItem>
+var indent: Int
+var bolded: Boolean
+var grayed: Boolean
 }

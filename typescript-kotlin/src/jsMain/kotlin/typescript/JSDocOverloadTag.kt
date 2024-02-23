@@ -2,8 +2,8 @@
 
 package typescript
 
-sealed external interface JSDocOverloadTag : JSDocTag {
-    override val kind: SyntaxKind.JSDocOverloadTag
-    override val parent: JSDoc
-    val typeExpression: JSDocSignature
+external sealed interface JSDocOverloadTag : JSDocTag {
+override val kind: SyntaxKind.JSDocOverloadTag
+override val parent: JSDoc
+val typeExpression: JSDocSignature
 }

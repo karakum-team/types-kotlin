@@ -2,8 +2,7 @@
 
 package csstype
 
-import web.cssom.CustomProperties
-import web.cssom.StandardProperties
+import web.cssom.*
 
 @CssDsl
-external interface Properties : StandardProperties, CustomProperties
+ external interface Properties: StandardProperties, CustomProperties

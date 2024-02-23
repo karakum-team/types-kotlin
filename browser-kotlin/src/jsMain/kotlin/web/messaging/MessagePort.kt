@@ -4,8 +4,13 @@ package web.messaging
 
 import js.array.ReadonlyArray
 import js.transferable.Transferable
+import web.errors.DOMException
+import web.events.Event
 import web.events.EventHandler
 import web.events.EventTarget
+import web.messaging.MessageEvent
+import web.messaging.MessageEventSource
+import web.messaging.MessagePort
 import web.serialization.StructuredSerializeOptions
 
 /**
@@ -14,47 +19,42 @@ import web.serialization.StructuredSerializeOptions
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessagePort)
  */
 sealed external class MessagePort :
-    EventTarget,
-    MessageEventSource,
-    Transferable {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessagePort/message_event)
-     */
-    var onmessage: EventHandler<MessageEvent<*>>?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessagePort/messageerror_event)
-     */
-    var onmessageerror: EventHandler<MessageEvent<*>>?
-
-    /**
-     * Disconnects the port, so that it is no longer active.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessagePort/close)
-     */
-    fun close()
-
-    /**
-     * Posts a message through the channel. Objects listed in transfer are transferred, not just cloned, meaning that they are no longer usable on the sending side.
-     *
-     * Throws a "DataCloneError" DOMException if transfer contains duplicate objects or port, or if message could not be cloned.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessagePort/postMessage)
-     */
-    fun postMessage(
-        message: Any?,
-        transfer: ReadonlyArray<Transferable>,
-    )
-
-    fun postMessage(
-        message: Any?,
-        options: StructuredSerializeOptions = definedExternally,
-    )
-
-    /**
-     * Begins dispatching messages received on the port.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessagePort/start)
-     */
-    fun start()
+EventTarget,
+MessageEventSource,
+Transferable {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessagePort/message_event)
+ */
+var onmessage: EventHandler<MessageEvent<*>>?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessagePort/messageerror_event)
+ */
+var onmessageerror: EventHandler<MessageEvent<*>>?
+/**
+ * Disconnects the port, so that it is no longer active.
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessagePort/close)
+ */
+ fun close()
+/**
+ * Posts a message through the channel. Objects listed in transfer are transferred, not just cloned, meaning that they are no longer usable on the sending side.
+ *
+ * Throws a "DataCloneError" DOMException if transfer contains duplicate objects or port, or if message could not be cloned.
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessagePort/postMessage)
+ */
+ fun postMessage(
+message: Any?,
+transfer: ReadonlyArray<Transferable>,
+)
+ fun postMessage(
+message: Any?,
+options: StructuredSerializeOptions = definedExternally,
+)
+/**
+ * Begins dispatching messages received on the port.
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessagePort/start)
+ */
+ fun start()
 }

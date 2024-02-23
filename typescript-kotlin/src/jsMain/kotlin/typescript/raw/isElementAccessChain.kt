@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isElementAccessChain(node: Node): Boolean /* node is ElementAccessChain */
+internal external fun  isElementAccessChain(node: Node): Boolean /* node is ElementAccessChain */

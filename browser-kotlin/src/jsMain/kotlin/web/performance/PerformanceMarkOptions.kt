@@ -7,6 +7,6 @@ import web.time.DOMHighResTimeStamp
 
 @JsPlainObject
 sealed external interface PerformanceMarkOptions {
-    var detail: Any?
-    var startTime: DOMHighResTimeStamp?
+var detail: Any?
+var startTime: DOMHighResTimeStamp?
 }

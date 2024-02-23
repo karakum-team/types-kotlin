@@ -2,7 +2,7 @@
 
 package popper.core
 
-external interface StateRects {
-    var reference: Rect
-    var popper: Rect
+external interface StateRects  {
+var reference: Rect
+var popper: Rect
 }

@@ -4,8 +4,6 @@
 
 package tanstack.table.core
 
-external fun <TData : RowData> shouldAutoRemoveFilter(
-    filterFn: FilterFn<TData> = definedExternally,
-    value: Any = definedExternally,
-    column: Column<TData, *> = definedExternally,
-): Boolean
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external fun <TData : RowData> shouldAutoRemoveFilter(filterFn: FilterFn<TData> = definedExternally, value: Any = definedExternally, column: Column<TData, *> = definedExternally): Boolean;

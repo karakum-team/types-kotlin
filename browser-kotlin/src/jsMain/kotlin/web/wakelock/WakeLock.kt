@@ -10,8 +10,8 @@ import js.promise.Promise
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLock)
  */
 sealed external class WakeLock {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLock/request)
-     */
-    fun request(type: WakeLockType = definedExternally): Promise<WakeLockSentinel>
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLock/request)
+ */
+ fun request(type: WakeLockType = definedExternally): Promise<WakeLockSentinel>
 }

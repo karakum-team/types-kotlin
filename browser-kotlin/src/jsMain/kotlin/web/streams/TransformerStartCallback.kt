@@ -3,5 +3,4 @@
 package web.streams
 
 typealias TransformerStartCallback<O> = (
-    controller: TransformStreamDefaultController<O>,
-) -> Unit
+controller: TransformStreamDefaultController<O>) -> Unit

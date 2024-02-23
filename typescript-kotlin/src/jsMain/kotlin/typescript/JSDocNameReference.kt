@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface JSDocNameReference : Node {
-    override val kind: SyntaxKind.JSDocNameReference
-    val name: Union.JSDocNameReference_name
+external sealed interface JSDocNameReference : Node {
+override val kind: SyntaxKind.JSDocNameReference
+val name: Union.JSDocNameReference_name
 }

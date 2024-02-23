@@ -2,7 +2,9 @@
 
 package tanstack.table.core
 
-external interface StringHeaderIdentifier {
-    var header: String
-    var id: String?
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface StringHeaderIdentifier{
+var header: String
+var id: String?
 }

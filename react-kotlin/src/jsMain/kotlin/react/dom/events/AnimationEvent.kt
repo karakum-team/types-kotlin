@@ -2,10 +2,16 @@
 
 package react.dom.events
 
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
 import web.dom.Element
+import web.window.Window
+import web.events.Event
+import web.events.EventTarget
 
 external interface AnimationEvent<out T : Element> : SyntheticEvent<T, NativeAnimationEvent> {
-    val animationName: String
-    val elapsedTime: Double
-    val pseudoElement: String
+val animationName: String
+val elapsedTime: Double
+val pseudoElement: String
 }

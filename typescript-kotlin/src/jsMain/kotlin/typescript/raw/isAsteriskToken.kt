@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isAsteriskToken(node: Node): Boolean /* node is AsteriskToken */
+internal external fun  isAsteriskToken(node: Node): Boolean /* node is AsteriskToken */

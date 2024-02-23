@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isDebuggerStatement(node: Node): Boolean /* node is DebuggerStatement */
+internal external fun  isDebuggerStatement(node: Node): Boolean /* node is DebuggerStatement */

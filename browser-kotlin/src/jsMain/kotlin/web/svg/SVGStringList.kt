@@ -10,22 +10,21 @@ import js.iterable.JsIterable
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGStringList)
  */
-sealed external class SVGStringList :
-    ArrayLike<String>,
-    JsIterable<String> {
-    val numberOfItems: Int
-    fun appendItem(newItem: String): String
-    fun clear()
-    fun getItem(index: Int): String
-    fun initialize(newItem: String): String
-    fun insertItemBefore(
-        newItem: String,
-        index: Int,
-    ): String
-
-    fun removeItem(index: Int): String
-    fun replaceItem(
-        newItem: String,
-        index: Int,
-    ): String
+sealed external class SVGStringList:
+ArrayLike<String>,
+JsIterable<String> {
+val numberOfItems: Int
+ fun appendItem(newItem: String): String
+ fun clear()
+ fun getItem(index: Int): String
+ fun initialize(newItem: String): String
+ fun insertItemBefore(
+newItem: String,
+index: Int,
+): String
+ fun removeItem(index: Int): String
+ fun replaceItem(
+newItem: String,
+index: Int,
+): String
 }

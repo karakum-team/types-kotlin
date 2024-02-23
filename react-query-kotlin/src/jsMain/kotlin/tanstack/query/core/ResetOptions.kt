@@ -2,4 +2,6 @@
 
 package tanstack.query.core
 
-external interface ResetOptions : RefetchOptions
+external interface ResetOptions  : RefetchOptions {
+
+}

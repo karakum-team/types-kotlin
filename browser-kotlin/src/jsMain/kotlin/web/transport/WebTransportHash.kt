@@ -7,6 +7,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface WebTransportHash {
-    var algorithm: String?
-    var value: BufferSource?
+var algorithm: String?
+var value: BufferSource?
 }

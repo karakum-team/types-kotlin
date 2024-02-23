@@ -2,4 +2,8 @@
 
 package tanstack.table.core
 
-external interface SortingOptions<TData : RowData> : SortingOptionsBase<TData>, ResolvedSortingFns
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface SortingOptions<TData : RowData> : SortingOptionsBase<TData>, ResolvedSortingFns{
+
+}

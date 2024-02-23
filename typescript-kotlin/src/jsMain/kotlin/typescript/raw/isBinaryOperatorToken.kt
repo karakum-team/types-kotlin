@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isBinaryOperatorToken(node: Node): Boolean /* node is BinaryOperatorToken */
+internal external fun  isBinaryOperatorToken(node: Node): Boolean /* node is BinaryOperatorToken */

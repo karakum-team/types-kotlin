@@ -4,4 +4,6 @@
 
 package tanstack.table.core
 
-external val Expanding: TableFeature
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external val Expanding: TableFeature;

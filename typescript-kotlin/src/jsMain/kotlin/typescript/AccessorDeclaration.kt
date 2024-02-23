@@ -2,5 +2,4 @@
 
 package typescript
 
-sealed external interface AccessorDeclaration : Declaration,
-    Union.AccessorDeclaration_ /* GetAccessorDeclaration | SetAccessorDeclaration */
+sealed external interface AccessorDeclaration : Declaration, Union.AccessorDeclaration_ /* GetAccessorDeclaration | SetAccessorDeclaration */

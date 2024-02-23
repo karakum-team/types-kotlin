@@ -3,5 +3,4 @@
 package web.codecs
 
 typealias VideoFrameOutputCallback = (
-    output: VideoFrame,
-) -> Unit
+output: VideoFrame) -> Unit

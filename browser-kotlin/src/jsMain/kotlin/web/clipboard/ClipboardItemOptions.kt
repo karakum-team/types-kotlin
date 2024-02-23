@@ -6,5 +6,5 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface ClipboardItemOptions {
-    var presentationStyle: PresentationStyle?
+var presentationStyle: PresentationStyle?
 }

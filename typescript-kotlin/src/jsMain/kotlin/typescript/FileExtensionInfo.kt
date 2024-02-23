@@ -2,8 +2,8 @@
 
 package typescript
 
-sealed external interface FileExtensionInfo {
-    var extension: String
-    var isMixedContent: Boolean
-    var scriptKind: ScriptKind?
+external sealed interface FileExtensionInfo {
+var extension: String
+var isMixedContent: Boolean
+var scriptKind: ScriptKind?
 }

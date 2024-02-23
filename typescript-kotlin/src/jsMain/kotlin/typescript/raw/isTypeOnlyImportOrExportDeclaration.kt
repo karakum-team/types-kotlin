@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isTypeOnlyImportOrExportDeclaration(node: Node): Boolean /* node is TypeOnlyAliasDeclaration */
+internal external fun  isTypeOnlyImportOrExportDeclaration(node: Node): Boolean /* node is TypeOnlyAliasDeclaration */

@@ -2,4 +2,6 @@
 
 package web.gl
 
-sealed external class WebGLQuery
+sealed external class WebGLQuery {
+
+}

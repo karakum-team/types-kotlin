@@ -2,10 +2,8 @@
 
 package typescript
 
-sealed external interface Classifier {
-    fun getEncodedLexicalClassifications(
-        text: String,
-        endOfLineState: EndOfLineState,
-        syntacticClassifierAbsent: Boolean,
-    ): Classifications
+external sealed interface Classifier {
+fun  getEncodedLexicalClassifications(text: String,
+endOfLineState: EndOfLineState,
+syntacticClassifierAbsent: Boolean): Classifications
 }

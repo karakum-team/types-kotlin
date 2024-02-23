@@ -5,5 +5,5 @@
 package typescript
 
 external object ScriptSnapshot {
-    fun fromString(text: String): IScriptSnapshot
+fun  fromString(text: String): IScriptSnapshot
 }

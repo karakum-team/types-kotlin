@@ -6,7 +6,5 @@ package tanstack.query.core
 
 import web.time.EpochTimeStamp
 
-external fun timeUntilStale(
-    updatedAt: EpochTimeStamp,
-    staleTime: JsDuration = definedExternally,
-): Int
+external fun  timeUntilStale(updatedAt: EpochTimeStamp ,
+staleTime: JsDuration  = definedExternally): Int

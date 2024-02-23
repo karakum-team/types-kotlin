@@ -12,46 +12,41 @@ import web.geometry.DOMMatrixReadOnly
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGTransform)
  */
 sealed external class SVGTransform {
-    val angle: Float
-    val matrix: DOMMatrix
-    val type: Type
-    fun setMatrix(matrix: DOMMatrix2DInit = definedExternally)
-    fun setMatrix(matrix: DOMMatrixReadOnly /* DOMMatrix2DInit */)
-    fun setRotate(
-        angle: Float,
-        cx: Float,
-        cy: Float,
-    )
-
-    fun setScale(
-        sx: Float,
-        sy: Float,
-    )
-
-    fun setSkewX(angle: Float)
-    fun setSkewY(angle: Float)
-    fun setTranslate(
-        tx: Float,
-        ty: Float,
-    )
-
-    val SVG_TRANSFORM_UNKNOWN: Type
-    val SVG_TRANSFORM_MATRIX: Type
-    val SVG_TRANSFORM_TRANSLATE: Type
-    val SVG_TRANSFORM_SCALE: Type
-    val SVG_TRANSFORM_ROTATE: Type
-    val SVG_TRANSFORM_SKEWX: Type
-    val SVG_TRANSFORM_SKEWY: Type
-
-    companion object {
-        val SVG_TRANSFORM_UNKNOWN: Type
-        val SVG_TRANSFORM_MATRIX: Type
-        val SVG_TRANSFORM_TRANSLATE: Type
-        val SVG_TRANSFORM_SCALE: Type
-        val SVG_TRANSFORM_ROTATE: Type
-        val SVG_TRANSFORM_SKEWX: Type
-        val SVG_TRANSFORM_SKEWY: Type
-    }
-
-    sealed interface Type
+val angle: Float
+val matrix: DOMMatrix
+val type: Type
+ fun setMatrix(matrix: DOMMatrix2DInit = definedExternally)
+ fun setMatrix(matrix: DOMMatrixReadOnly /* DOMMatrix2DInit */)
+ fun setRotate(
+angle: Float,
+cx: Float,
+cy: Float,
+)
+ fun setScale(
+sx: Float,
+sy: Float,
+)
+ fun setSkewX(angle: Float)
+ fun setSkewY(angle: Float)
+ fun setTranslate(
+tx: Float,
+ty: Float,
+)
+val SVG_TRANSFORM_UNKNOWN: Type
+val SVG_TRANSFORM_MATRIX: Type
+val SVG_TRANSFORM_TRANSLATE: Type
+val SVG_TRANSFORM_SCALE: Type
+val SVG_TRANSFORM_ROTATE: Type
+val SVG_TRANSFORM_SKEWX: Type
+val SVG_TRANSFORM_SKEWY: Type
+companion object {
+val SVG_TRANSFORM_UNKNOWN: Type
+val SVG_TRANSFORM_MATRIX: Type
+val SVG_TRANSFORM_TRANSLATE: Type
+val SVG_TRANSFORM_SCALE: Type
+val SVG_TRANSFORM_ROTATE: Type
+val SVG_TRANSFORM_SKEWX: Type
+val SVG_TRANSFORM_SKEWY: Type
+}
+sealed interface Type
 }

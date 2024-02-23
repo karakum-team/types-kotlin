@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isEnumMember(node: Node): Boolean /* node is EnumMember */
+internal external fun  isEnumMember(node: Node): Boolean /* node is EnumMember */

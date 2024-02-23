@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface JSDocAllType : JSDocType {
-    override val kind: SyntaxKind.JSDocAllType
+external sealed interface JSDocAllType : JSDocType {
+override val kind: SyntaxKind.JSDocAllType
 }

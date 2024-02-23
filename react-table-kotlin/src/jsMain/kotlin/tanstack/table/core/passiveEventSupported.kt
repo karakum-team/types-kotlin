@@ -4,4 +4,6 @@
 
 package tanstack.table.core
 
-external fun passiveEventSupported(): Boolean
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external fun  passiveEventSupported(): Boolean;

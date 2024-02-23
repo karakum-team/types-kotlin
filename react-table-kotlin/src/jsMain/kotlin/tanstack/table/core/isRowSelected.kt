@@ -5,5 +5,6 @@
 package tanstack.table.core
 
 import js.objects.ReadonlyRecord
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
 
 external fun <TData : RowData> isRowSelected(row: Row<TData>, selection: ReadonlyRecord<String, Boolean>): Boolean

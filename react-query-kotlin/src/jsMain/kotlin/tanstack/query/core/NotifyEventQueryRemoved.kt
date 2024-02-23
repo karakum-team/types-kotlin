@@ -2,7 +2,7 @@
 
 package tanstack.query.core
 
-external interface NotifyEventQueryRemoved : NotifyEvent {
-    override var type: NotifyEventType /* 'removed' */
-    var query: Query<*, *, *, *>
+external interface NotifyEventQueryRemoved  : NotifyEvent {
+override var type: NotifyEventType /* 'removed' */
+ var query: Query<*, *, *, *>
 }

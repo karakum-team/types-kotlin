@@ -1,21 +1,24 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package web.cssom.atrule
 
-import seskar.js.JsValue
+import web.cssom.Length
+import web.cssom.MediaQuery
+import web.cssom.SizeQuery
+import seskar.js.JsIntValue
 import seskar.js.JsVirtual
+import seskar.js.JsValue
 
-@JsVirtual
-sealed external interface PrefersReducedMotion {
-    companion object {
-        @JsValue("no-preference")
-        val noPreference: PrefersReducedMotion
-
-        @JsValue("reduce")
-        val reduce: PrefersReducedMotion
-    }
-}
+        @JsVirtual
+        sealed external interface PrefersReducedMotion {
+            companion object {
+                @JsValue("no-preference")    
+val noPreference: PrefersReducedMotion
+@JsValue("reduce")    
+val reduce: PrefersReducedMotion
+            }
+        }

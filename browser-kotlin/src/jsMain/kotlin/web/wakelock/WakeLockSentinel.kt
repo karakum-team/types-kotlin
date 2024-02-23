@@ -14,24 +14,21 @@ import web.events.EventTarget
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLockSentinel)
  */
 sealed external class WakeLockSentinel :
-    EventTarget {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLockSentinel/release_event)
-     */
-    var onrelease: EventHandler<Event>?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLockSentinel/released)
-     */
-    val released: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLockSentinel/type)
-     */
-    val type: WakeLockType
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLockSentinel/release)
-     */
-    fun release(): Promise<Void>
+EventTarget {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLockSentinel/release_event)
+ */
+var onrelease: EventHandler<Event>?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLockSentinel/released)
+ */
+val released: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLockSentinel/type)
+ */
+val type: WakeLockType
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLockSentinel/release)
+ */
+ fun release(): Promise<Void>
 }

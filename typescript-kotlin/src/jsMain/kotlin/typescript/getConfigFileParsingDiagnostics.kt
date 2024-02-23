@@ -6,4 +6,4 @@ package typescript
 
 import js.array.ReadonlyArray
 
-external fun getConfigFileParsingDiagnostics(configFileParseResult: ParsedCommandLine): ReadonlyArray<Diagnostic>
+external fun  getConfigFileParsingDiagnostics(configFileParseResult: ParsedCommandLine): ReadonlyArray<Diagnostic>

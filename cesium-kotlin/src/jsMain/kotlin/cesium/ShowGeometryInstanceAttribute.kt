@@ -4,7 +4,27 @@
 
 package cesium
 
+import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
 import js.typedarrays.Uint8Array
+import web.blob.Blob
 
 /**
  * Value and type information for per-instance geometry attribute that determines if the geometry instance will be shown.
@@ -24,55 +44,55 @@ import js.typedarrays.Uint8Array
  * });
  * ```
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ShowGeometryInstanceAttribute.html">Online Documentation</a>
- *
+ * 
  * @constructor
  * @param [show] Determines if the geometry instance will be shown.
  *   Default value - `true`
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ShowGeometryInstanceAttribute.html">Online Documentation</a>
  */
-external class ShowGeometryInstanceAttribute(show: Boolean? = definedExternally) {
-    /**
-     * The values for the attributes stored in a typed array.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ShowGeometryInstanceAttribute.html#value">Online Documentation</a>
-     */
-    var value: Uint8Array
+external  class ShowGeometryInstanceAttribute ( show: Boolean? = definedExternally)  {
+/**
+ * The values for the attributes stored in a typed array.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ShowGeometryInstanceAttribute.html#value">Online Documentation</a>
+ */
+var value: Uint8Array
 
-    /**
-     * The datatype of each component in the attribute, e.g., individual elements in
-     * [ColorGeometryInstanceAttribute.value].
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ShowGeometryInstanceAttribute.html#componentDatatype">Online Documentation</a>
-     */
-    val componentDatatype: ComponentDatatype
+/**
+ * The datatype of each component in the attribute, e.g., individual elements in
+ * [ColorGeometryInstanceAttribute.value].
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ShowGeometryInstanceAttribute.html#componentDatatype">Online Documentation</a>
+ */
+val componentDatatype: ComponentDatatype
 
-    /**
-     * The number of components in the attributes, i.e., [ColorGeometryInstanceAttribute.value].
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ShowGeometryInstanceAttribute.html#componentsPerAttribute">Online Documentation</a>
-     */
-    val componentsPerAttribute: Int
+/**
+ * The number of components in the attributes, i.e., [ColorGeometryInstanceAttribute.value].
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ShowGeometryInstanceAttribute.html#componentsPerAttribute">Online Documentation</a>
+ */
+val componentsPerAttribute: Int
 
-    /**
-     * When `true` and `componentDatatype` is an integer format,
-     * indicate that the components should be mapped to the range [0, 1] (unsigned)
-     * or [-1, 1] (signed) when they are accessed as floating-point for rendering.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ShowGeometryInstanceAttribute.html#normalize">Online Documentation</a>
-     */
-    val normalize: Boolean
+/**
+ * When `true` and `componentDatatype` is an integer format,
+ * indicate that the components should be mapped to the range [0, 1] (unsigned)
+ * or [-1, 1] (signed) when they are accessed as floating-point for rendering.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ShowGeometryInstanceAttribute.html#normalize">Online Documentation</a>
+ */
+val normalize: Boolean
 
-    companion object {
-        /**
-         * Converts a boolean show to a typed array that can be used to assign a show attribute.
-         * ```
-         * const attributes = primitive.getGeometryInstanceAttributes('an id');
-         * attributes.show = ShowGeometryInstanceAttribute.toValue(true, attributes.show);
-         * ```
-         * @param [show] The show value.
-         * @param [result] The array to store the result in, if undefined a new instance will be created.
-         * @return The modified result parameter or a new instance if result was undefined.
-         * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ShowGeometryInstanceAttribute.html#.toValue">Online Documentation</a>
-         */
-        fun toValue(
-            show: Boolean,
-            result: Uint8Array? = definedExternally,
-        ): Uint8Array
-    }
+companion object  {
+/**
+ * Converts a boolean show to a typed array that can be used to assign a show attribute.
+ * ```
+ * const attributes = primitive.getGeometryInstanceAttributes('an id');
+ * attributes.show = ShowGeometryInstanceAttribute.toValue(true, attributes.show);
+ * ```
+ * @param [show] The show value.
+ * @param [result] The array to store the result in, if undefined a new instance will be created.
+ * @return The modified result parameter or a new instance if result was undefined.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ShowGeometryInstanceAttribute.html#.toValue">Online Documentation</a>
+ */
+ fun toValue (
+ show: Boolean,
+ result: Uint8Array? = definedExternally
+): Uint8Array
+}
 }

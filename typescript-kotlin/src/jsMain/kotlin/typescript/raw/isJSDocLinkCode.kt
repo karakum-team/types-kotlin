@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocLinkCode(node: Node): Boolean /* node is JSDocLinkCode */
+internal external fun  isJSDocLinkCode(node: Node): Boolean /* node is JSDocLinkCode */

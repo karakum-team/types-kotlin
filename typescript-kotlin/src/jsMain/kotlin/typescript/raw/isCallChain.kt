@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isCallChain(node: Node): Boolean /* node is CallChain */
+internal external fun  isCallChain(node: Node): Boolean /* node is CallChain */

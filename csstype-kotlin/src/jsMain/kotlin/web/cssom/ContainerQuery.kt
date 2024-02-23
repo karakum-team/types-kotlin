@@ -1,18 +1,22 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package web.cssom
 
-sealed external interface ContainerQuery
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+sealed external interface ContainerQuery 
 
 inline fun ContainerQuery(
     value: String,
 ): ContainerQuery =
     value.unsafeCast<ContainerQuery>()
-
+    
 infix fun ContainerQuery.and(
     other: ContainerQuery,
 ): ContainerQuery =

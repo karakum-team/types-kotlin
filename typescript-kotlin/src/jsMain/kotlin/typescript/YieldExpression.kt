@@ -2,8 +2,8 @@
 
 package typescript
 
-sealed external interface YieldExpression : Expression {
-    override val kind: SyntaxKind.YieldExpression
-    val asteriskToken: AsteriskToken?
-    val expression: Expression?
+external sealed interface YieldExpression : Expression {
+override val kind: SyntaxKind.YieldExpression
+val asteriskToken: AsteriskToken?
+val expression: Expression?
 }

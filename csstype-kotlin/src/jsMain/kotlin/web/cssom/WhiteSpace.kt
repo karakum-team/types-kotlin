@@ -1,69 +1,53 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package web.cssom
 
-import seskar.js.JsValue
+import seskar.js.JsIntValue
 import seskar.js.JsVirtual
+import seskar.js.JsValue
 
-@JsVirtual
-sealed external interface WhiteSpace {
-    companion object {
-        @JsValue("balance")
-        val balance: WhiteSpace
-
-        @JsValue("break-spaces")
-        val breakSpaces: WhiteSpace
-
-        @JsValue("collapse")
-        val collapse: WhiteSpace
-
-        @JsValue("discard")
-        val discard: WhiteSpace
-
-        @JsValue("discard-after")
-        val discardAfter: WhiteSpace
-
-        @JsValue("discard-before")
-        val discardBefore: WhiteSpace
-
-        @JsValue("discard-inner")
-        val discardInner: WhiteSpace
-
-        @JsValue("normal")
-        val normal: WhiteSpace
-
-        @JsValue("nowrap")
-        val nowrap: WhiteSpace
-
-        @JsValue("pre")
-        val pre: WhiteSpace
-
-        @JsValue("pre-line")
-        val preLine: WhiteSpace
-
-        @JsValue("pre-wrap")
-        val preWrap: WhiteSpace
-
-        @JsValue("preserve")
-        val preserve: WhiteSpace
-
-        @JsValue("preserve-breaks")
-        val preserveBreaks: WhiteSpace
-
-        @JsValue("preserve-spaces")
-        val preserveSpaces: WhiteSpace
-
-        @JsValue("pretty")
-        val pretty: WhiteSpace
-
-        @JsValue("stable")
-        val stable: WhiteSpace
-
-        @JsValue("wrap")
-        val wrap: WhiteSpace
-    }
-}
+        @JsVirtual
+        sealed external interface WhiteSpace {
+            companion object {
+                @JsValue("balance")    
+val balance: WhiteSpace
+@JsValue("break-spaces")    
+val breakSpaces: WhiteSpace
+@JsValue("collapse")    
+val collapse: WhiteSpace
+@JsValue("discard")    
+val discard: WhiteSpace
+@JsValue("discard-after")    
+val discardAfter: WhiteSpace
+@JsValue("discard-before")    
+val discardBefore: WhiteSpace
+@JsValue("discard-inner")    
+val discardInner: WhiteSpace
+@JsValue("normal")    
+val normal: WhiteSpace
+@JsValue("nowrap")    
+val nowrap: WhiteSpace
+@JsValue("pre")    
+val pre: WhiteSpace
+@JsValue("pre-line")    
+val preLine: WhiteSpace
+@JsValue("pre-wrap")    
+val preWrap: WhiteSpace
+@JsValue("preserve")    
+val preserve: WhiteSpace
+@JsValue("preserve-breaks")    
+val preserveBreaks: WhiteSpace
+@JsValue("preserve-spaces")    
+val preserveSpaces: WhiteSpace
+@JsValue("pretty")    
+val pretty: WhiteSpace
+@JsValue("stable")    
+val stable: WhiteSpace
+@JsValue("wrap")    
+val wrap: WhiteSpace
+            }
+        }

@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocPublicTag(node: Node): Boolean /* node is JSDocPublicTag */
+internal external fun  isJSDocPublicTag(node: Node): Boolean /* node is JSDocPublicTag */

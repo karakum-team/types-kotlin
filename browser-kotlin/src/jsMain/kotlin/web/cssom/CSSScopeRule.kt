@@ -3,7 +3,7 @@
 package web.cssom
 
 sealed external class CSSScopeRule :
-    CSSGroupingRule {
-    val end: String?
-    val start: String?
+CSSGroupingRule {
+val end: String?
+val start: String?
 }

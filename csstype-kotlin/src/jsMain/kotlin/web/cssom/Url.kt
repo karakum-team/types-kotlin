@@ -2,8 +2,12 @@
 
 package web.cssom
 
-sealed external interface Url :
-    Cursor,
-    Filter,
-    Image,
-    OffsetPath
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+sealed external interface Url:
+Cursor,
+Filter,
+Image,
+OffsetPath

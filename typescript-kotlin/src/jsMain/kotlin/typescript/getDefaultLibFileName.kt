@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun getDefaultLibFileName(options: CompilerOptions): String
+external fun  getDefaultLibFileName(options: CompilerOptions): String

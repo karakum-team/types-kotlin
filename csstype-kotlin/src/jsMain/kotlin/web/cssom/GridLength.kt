@@ -2,7 +2,11 @@
 
 package web.cssom
 
-sealed external interface GridLength :
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+sealed external interface GridLength:
     GridLengthProperty
 
 inline val Number.fr: GridLength

@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun isIdentifierOrThisTypeNode(node: Node): Boolean /* node is Identifier | ThisTypeNode */
+external fun  isIdentifierOrThisTypeNode(node: Node): Boolean /* node is Identifier | ThisTypeNode */

@@ -4,11 +4,33 @@
 
 package cesium
 
+import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
+
 /**
  * <div class="notice">
  * Use [Model.getNode] to get a node from a loaded model. Do not call the constructor directly.
  * </div>
- *
+ * 
  * A model node with a modifiable transform to allow users to define their
  * own animations. While a model's asset can contain animations that target
  * a node's transform, this class allows users to change a node's transform
@@ -20,42 +42,42 @@ package cesium
  * ```
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelNode.html">Online Documentation</a>
  */
-sealed external class ModelNode {
-    /**
-     * The value of the `name` property of this node.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelNode.html#name">Online Documentation</a>
-     */
-    val name: String
+external sealed  class ModelNode   {
+/**
+ * The value of the `name` property of this node.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelNode.html#name">Online Documentation</a>
+ */
+val name: String
 
-    /**
-     * The index of the node in the glTF.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelNode.html#id">Online Documentation</a>
-     */
-    val id: Double
+/**
+ * The index of the node in the glTF.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelNode.html#id">Online Documentation</a>
+ */
+val id: Double
 
-    /**
-     * Determines if this node and its children will be shown.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelNode.html#show">Online Documentation</a>
-     */
-    var show: Boolean
+/**
+ * Determines if this node and its children will be shown.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelNode.html#show">Online Documentation</a>
+ */
+var show: Boolean
 
-    /**
-     * The node's 4x4 matrix transform from its local coordinates to
-     * its parent's. Setting the matrix to undefined will restore the
-     * node's original transform, and allow the node to be animated by
-     * any animations in the model again.
-     *
-     * For changes to take effect, this property must be assigned to;
-     * setting individual elements of the matrix will not work.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelNode.html#matrix">Online Documentation</a>
-     */
-    var matrix: Matrix4
+/**
+ * The node's 4x4 matrix transform from its local coordinates to
+ * its parent's. Setting the matrix to undefined will restore the
+ * node's original transform, and allow the node to be animated by
+ * any animations in the model again.
+ * 
+ * For changes to take effect, this property must be assigned to;
+ * setting individual elements of the matrix will not work.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelNode.html#matrix">Online Documentation</a>
+ */
+var matrix: Matrix4
 
-    /**
-     * Gets the node's original 4x4 matrix transform from its local
-     * coordinates to its parent's, without any node transformations
-     * or articulations applied.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelNode.html#originalMatrix">Online Documentation</a>
-     */
-    var originalMatrix: Matrix4
+/**
+ * Gets the node's original 4x4 matrix transform from its local
+ * coordinates to its parent's, without any node transformations
+ * or articulations applied.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ModelNode.html#originalMatrix">Online Documentation</a>
+ */
+var originalMatrix: Matrix4
 }

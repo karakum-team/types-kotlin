@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface IDBObjectStoreParameters {
-    var autoIncrement: Boolean?
-    var keyPath: Any /* string | string[] */?
+var autoIncrement: Boolean?
+var keyPath: Any /* string | string[] */?
 }

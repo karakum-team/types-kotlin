@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun isPartOfTypeNode(node: Node): Boolean
+external fun  isPartOfTypeNode(node: Node): Boolean

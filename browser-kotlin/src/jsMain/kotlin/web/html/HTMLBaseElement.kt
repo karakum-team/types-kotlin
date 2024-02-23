@@ -2,6 +2,10 @@
 
 package web.html
 
+import web.dom.Element
+import web.html.HTMLElement
+import web.url.URL
+import web.window.Window
 import web.window.WindowTarget
 
 /**
@@ -9,20 +13,19 @@ import web.window.WindowTarget
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLBaseElement)
  */
-open external class HTMLBaseElement
-protected constructor() :
-    HTMLElement {
-    /**
-     * Gets or sets the baseline URL on which relative links are based.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLBaseElement/href)
-     */
-    var href: String
-
-    /**
-     * Sets or retrieves the window or frame at which to target content.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLBaseElement/target)
-     */
-    var target: WindowTarget
+open external class HTMLBaseElement 
+protected constructor():
+HTMLElement {
+/**
+ * Gets or sets the baseline URL on which relative links are based.
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLBaseElement/href)
+ */
+var href: String
+/**
+ * Sets or retrieves the window or frame at which to target content.
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLBaseElement/target)
+ */
+var target: WindowTarget
 }

@@ -5,4 +5,4 @@
 package typescript
 
 /** Optionally, get the shebang */
-external fun getShebang(text: String): String?
+external fun  getShebang(text: String): String?

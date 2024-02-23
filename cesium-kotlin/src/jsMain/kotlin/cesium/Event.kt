@@ -3,10 +3,32 @@
 @file:JsModule("cesium")
 
 @file:Suppress(
-    "NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE",
+"NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE",
 )
 
 package cesium
+
+import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
 
 /**
  * A generic utility class for managing subscribers for a particular event.
@@ -17,7 +39,7 @@ package cesium
  *     this.myArg1Copy = arg1;
  *     this.myArg2Copy = arg2;
  * }
- *
+ * 
  * const myObjectInstance = new MyObject();
  * const evt = new Event();
  * evt.addEventListener(MyObject.prototype.myListener, myObjectInstance);
@@ -26,46 +48,46 @@ package cesium
  * ```
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Event.html">Online Documentation</a>
  */
-external class Event<Listener : Function<Unit>> {
-    /**
-     * The number of listeners currently subscribed to the event.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Event.html#numberOfListeners">Online Documentation</a>
-     */
-    val numberOfListeners: Int
+external  class Event<Listener : Function<Unit>> ()  {
+/**
+ * The number of listeners currently subscribed to the event.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Event.html#numberOfListeners">Online Documentation</a>
+ */
+val numberOfListeners: Int
 
-    /**
-     * Registers a callback function to be executed whenever the event is raised.
-     * An optional scope can be provided to serve as the `this` pointer
-     * in which the function will execute.
-     * @param [listener] The function to be executed when the event is raised.
-     * @param [scope] An optional object scope to serve as the `this`
-     *   pointer in which the listener function will execute.
-     * @return A function that will remove this event listener when invoked.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Event.html#addEventListener">Online Documentation</a>
-     */
-    fun addEventListener(
-        listener: Listener,
-        scope: Any? = definedExternally,
-    ): RemoveCallback
+/**
+ * Registers a callback function to be executed whenever the event is raised.
+ * An optional scope can be provided to serve as the `this` pointer
+ * in which the function will execute.
+ * @param [listener] The function to be executed when the event is raised.
+ * @param [scope] An optional object scope to serve as the `this`
+ *   pointer in which the listener function will execute.
+ * @return A function that will remove this event listener when invoked.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Event.html#addEventListener">Online Documentation</a>
+ */
+ fun addEventListener (
+ listener: Listener,
+ scope: Any? = definedExternally
+): RemoveCallback
 
-    /**
-     * Unregisters a previously registered callback.
-     * @param [listener] The function to be unregistered.
-     * @param [scope] The scope that was originally passed to addEventListener.
-     * @return `true` if the listener was removed; `false` if the listener and scope are not registered with the event.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Event.html#removeEventListener">Online Documentation</a>
-     */
-    fun removeEventListener(
-        listener: Listener,
-        scope: Any? = definedExternally,
-    ): Boolean
+/**
+ * Unregisters a previously registered callback.
+ * @param [listener] The function to be unregistered.
+ * @param [scope] The scope that was originally passed to addEventListener.
+ * @return `true` if the listener was removed; `false` if the listener and scope are not registered with the event.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Event.html#removeEventListener">Online Documentation</a>
+ */
+ fun removeEventListener (
+ listener: Listener,
+ scope: Any? = definedExternally
+): Boolean
 
-    /**
-     * Raises the event by calling each registered listener with all supplied arguments.
-     * @param [arguments] This method takes any number of parameters and passes them through to the listener functions.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Event.html#raiseEvent">Online Documentation</a>
-     */
-    fun raiseEvent(vararg arguments: dynamic)
+/**
+ * Raises the event by calling each registered listener with all supplied arguments.
+ * @param [arguments] This method takes any number of parameters and passes them through to the listener functions.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Event.html#raiseEvent">Online Documentation</a>
+ */
+ fun raiseEvent (vararg  arguments: dynamic)
 }
 
 /**

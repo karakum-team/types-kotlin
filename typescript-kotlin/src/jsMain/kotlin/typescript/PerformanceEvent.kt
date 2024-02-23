@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface PerformanceEvent {
-    var kind: PerformanceEventKind
-    var durationMs: Int
+external sealed interface PerformanceEvent {
+var kind: PerformanceEventKind
+var durationMs: Int
 }

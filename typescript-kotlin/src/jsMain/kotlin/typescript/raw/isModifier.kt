@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isModifier(node: Node): Boolean /* node is Modifier */
+internal external fun  isModifier(node: Node): Boolean /* node is Modifier */

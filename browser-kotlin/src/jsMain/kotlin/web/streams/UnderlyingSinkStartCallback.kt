@@ -2,6 +2,7 @@
 
 package web.streams
 
+import web.streams.WritableStream
+
 typealias UnderlyingSinkStartCallback = (
-    controller: WritableStreamDefaultController,
-) -> Unit
+controller: WritableStreamDefaultController) -> Unit

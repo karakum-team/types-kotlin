@@ -10,7 +10,7 @@ import js.objects.PropertyKey
  * the type of the constructor. For a non-static class element, this will be the type of the instance.
  * @template Value The type of the decorated class method.
  */
-sealed external interface ClassMethodDecoratorContext<This : Any, Value : Function<*>> {
+sealed external interface ClassMethodDecoratorContext<This: Any, Value: Function<*>> {
     /** The kind of class element that was decorated. */
     val kind: DecoratorContextKind.method
 
@@ -26,20 +26,18 @@ sealed external interface ClassMethodDecoratorContext<This : Any, Value : Functi
     /** An object that can be used to access the current value of the class element at runtime. */
     val access: Access<This, Value>
 
-    interface Access<This : Any, Value : Function<*>> {
-        /**
+interface Access<This: Any, Value: Function<*>> {        /**
          * Determines whether an object has a property with the same name as the decorated element.
          */
         fun has(o: This): Boolean
-
         /**
          * Gets the current value of the method from the provided object.
          *
          * @example
          * let fn = context.access.get(instance);
          */
-        fun get(o: This): Value
-    }
+        fun get(o: This): Value;
+    };
 
     /**
      * Adds a callback to be invoked either before static initializers are run (when
@@ -67,5 +65,5 @@ sealed external interface ClassMethodDecoratorContext<This : Any, Value : Functi
      */
     fun addInitializer(initializer: (/* this: This */) -> Unit)
 
-    val metadata: DecoratorMetadata
+    val metadata: DecoratorMetadata;
 }

@@ -2,6 +2,9 @@
 
 package web.abort
 
+import web.abort.AbortSignal
+import web.abort.Abortable
+
 @JsExternalInheritorsOnly
 external interface Abortable {
     /**

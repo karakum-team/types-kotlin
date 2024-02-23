@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface ApplyCodeActionCommandResult {
-    var successMessage: String
+external sealed interface ApplyCodeActionCommandResult {
+var successMessage: String
 }

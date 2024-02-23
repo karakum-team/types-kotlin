@@ -2,6 +2,9 @@
 
 package web.components
 
+import web.dom.Element
+import web.window.Window
+
 /**
  * Defines a new custom element, mapping the given name to the given constructor as an autonomous custom element.
  *

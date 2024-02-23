@@ -5,6 +5,5 @@ package web.dom.observers
 import js.array.ReadonlyArray
 
 typealias IntersectionObserverCallback = (
-    entries: ReadonlyArray<IntersectionObserverEntry>,
-    observer: IntersectionObserver,
-) -> Unit
+entries: ReadonlyArray<IntersectionObserverEntry>,
+observer: IntersectionObserver) -> Unit

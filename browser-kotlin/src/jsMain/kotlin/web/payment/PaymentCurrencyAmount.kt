@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface PaymentCurrencyAmount {
-    var currency: String
-    var value: String
+var currency: String
+var value: String
 }

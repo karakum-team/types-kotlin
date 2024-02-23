@@ -4,4 +4,6 @@
 
 package tanstack.table.core
 
-external fun <TData : RowData> getFacetedRowModel(): (table: Table<TData>, columnId: String) -> () -> RowModel<TData>
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external fun <TData : RowData> getFacetedRowModel(): (table: Table<TData>, columnId: String) -> () -> RowModel<TData>;

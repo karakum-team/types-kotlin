@@ -4,4 +4,4 @@
 
 package tanstack.query.core
 
-external fun canFetch(networkMode: NetworkMode?): Boolean
+external fun  canFetch(networkMode: NetworkMode? ): Boolean

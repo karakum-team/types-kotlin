@@ -2,4 +2,8 @@
 
 package tanstack.table.core
 
-external interface CoreTableState
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface CoreTableState{
+
+}

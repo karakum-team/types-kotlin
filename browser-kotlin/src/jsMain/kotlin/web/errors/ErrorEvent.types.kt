@@ -1,20 +1,22 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE",
+"NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE",
 )
 
 package web.errors
 
 import seskar.js.JsValue
+import web.errors.ErrorEvent
+import web.events.Event
 import web.events.EventType
 
-sealed external interface ErrorEventTypes {
-    @JsValue("error")
-    val ERROR: EventType<ErrorEvent>
-        get() = definedExternally
+    sealed external interface ErrorEventTypes {
+        @JsValue("error")
+val ERROR : EventType<ErrorEvent>
+    get() = definedExternally
 
-    @JsValue("processorerror")
-    val PROCESSOR_ERROR: EventType<ErrorEvent>
-        get() = definedExternally
-}
+@JsValue("processorerror")
+val PROCESSOR_ERROR : EventType<ErrorEvent>
+    get() = definedExternally
+    }

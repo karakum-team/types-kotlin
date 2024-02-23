@@ -2,6 +2,6 @@
 
 package tanstack.query.core
 
-external interface ObserverFetchOptions : FetchOptions {
-    var throwOnError: Boolean
+external interface ObserverFetchOptions  : FetchOptions {
+ var throwOnError: Boolean
 }

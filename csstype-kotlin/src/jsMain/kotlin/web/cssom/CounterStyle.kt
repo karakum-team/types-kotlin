@@ -2,7 +2,11 @@
 
 package web.cssom
 
-external interface CounterStyle {
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+external interface CounterStyle{
     var additiveSymbols: String?
     var fallback: String?
     var negative: String?

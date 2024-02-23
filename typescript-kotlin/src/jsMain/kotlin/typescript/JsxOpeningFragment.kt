@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface JsxOpeningFragment : Expression {
-    override val kind: SyntaxKind.JsxOpeningFragment
-    override val parent: JsxFragment
+external sealed interface JsxOpeningFragment : Expression {
+override val kind: SyntaxKind.JsxOpeningFragment
+override val parent: JsxFragment
 }

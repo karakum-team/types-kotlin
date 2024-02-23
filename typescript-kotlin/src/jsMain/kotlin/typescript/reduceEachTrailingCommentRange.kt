@@ -4,16 +4,12 @@
 
 package typescript
 
-external fun <T, U> reduceEachTrailingCommentRange(
-    text: String,
-    pos: Int,
-    cb: (
-        pos: Int,
-        end: Int,
-        kind: CommentKind,
-        hasTrailingNewLine: Boolean,
-        state: T,
-    ) -> U,
-    state: T,
-    initial: U,
-): U?
+external fun <T, U> reduceEachTrailingCommentRange(text: String,
+pos: Int,
+cb: (pos: Int,
+end: Int,
+kind: CommentKind,
+hasTrailingNewLine: Boolean,
+state: T) -> U,
+state: T,
+initial: U): U?

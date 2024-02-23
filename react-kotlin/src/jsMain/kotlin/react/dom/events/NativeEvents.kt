@@ -2,6 +2,9 @@
 
 package react.dom.events
 
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
 typealias NativeAnimationEvent = web.animations.AnimationEvent
 
 typealias NativeClipboardEvent = web.clipboard.ClipboardEvent

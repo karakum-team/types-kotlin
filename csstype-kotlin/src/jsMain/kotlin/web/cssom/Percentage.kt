@@ -2,7 +2,11 @@
 
 package web.cssom
 
-sealed external interface Percentage :
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+sealed external interface Percentage:
     Length
 
 inline val Number.pct: Percentage

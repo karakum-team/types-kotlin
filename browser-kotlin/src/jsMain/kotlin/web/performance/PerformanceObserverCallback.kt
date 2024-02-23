@@ -3,6 +3,5 @@
 package web.performance
 
 typealias PerformanceObserverCallback = (
-    entries: PerformanceObserverEntryList,
-    observer: PerformanceObserver,
-) -> Unit
+entries: PerformanceObserverEntryList,
+observer: PerformanceObserver) -> Unit

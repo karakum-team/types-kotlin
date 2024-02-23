@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isNumericLiteral(node: Node): Boolean /* node is NumericLiteral */
+internal external fun  isNumericLiteral(node: Node): Boolean /* node is NumericLiteral */

@@ -3,5 +3,4 @@
 package web.data
 
 typealias FunctionStringCallback = (
-    data: String,
-) -> Unit
+data: String) -> Unit

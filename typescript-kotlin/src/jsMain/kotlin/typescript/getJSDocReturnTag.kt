@@ -5,4 +5,4 @@
 package typescript
 
 /** Gets the JSDoc return tag for the node if present */
-external fun getJSDocReturnTag(node: Node): JSDocReturnTag?
+external fun  getJSDocReturnTag(node: Node): JSDocReturnTag?

@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface BigIntLiteralType : LiteralType {
-    override var value: PseudoBigInt
+external sealed interface BigIntLiteralType : LiteralType {
+override var value: PseudoBigInt
 }

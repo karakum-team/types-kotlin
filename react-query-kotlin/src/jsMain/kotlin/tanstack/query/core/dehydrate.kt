@@ -4,7 +4,5 @@
 
 package tanstack.query.core
 
-external fun dehydrate(
-    client: QueryClient,
-    options: DehydrateOptions = definedExternally,
-): DehydratedState
+external fun  dehydrate(client: QueryClient ,
+options: DehydrateOptions  = definedExternally): DehydratedState

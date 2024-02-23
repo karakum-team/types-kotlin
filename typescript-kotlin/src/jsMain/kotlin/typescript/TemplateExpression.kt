@@ -2,8 +2,8 @@
 
 package typescript
 
-sealed external interface TemplateExpression : PrimaryExpression, Union.TemplateExpression_ {
-    override val kind: SyntaxKind.TemplateExpression
-    val head: TemplateHead
-    val templateSpans: NodeArray<TemplateSpan>
+external sealed interface TemplateExpression : PrimaryExpression, Union.TemplateExpression_ {
+override val kind: SyntaxKind.TemplateExpression
+val head: TemplateHead
+val templateSpans: NodeArray<TemplateSpan>
 }

@@ -4,8 +4,6 @@
 
 package tanstack.query.core
 
-external fun hydrate(
-    client: QueryClient,
-    dehydratedState: Any?,
-    options: HydrateOptions = definedExternally,
-)
+external fun  hydrate(client: QueryClient ,
+dehydratedState: Any? ,
+options: HydrateOptions  = definedExternally)

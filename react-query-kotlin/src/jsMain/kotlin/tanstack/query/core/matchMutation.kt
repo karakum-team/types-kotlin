@@ -4,7 +4,5 @@
 
 package tanstack.query.core
 
-external fun matchMutation(
-    filters: MutationFilters,
-    mutation: Mutation<*, *, *, *>,
-): Boolean
+external fun  matchMutation(filters: MutationFilters ,
+mutation: Mutation<*, *, *, *> ): Boolean

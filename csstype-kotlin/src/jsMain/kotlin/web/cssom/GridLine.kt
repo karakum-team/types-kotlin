@@ -2,4 +2,8 @@
 
 package web.cssom
 
-sealed external interface GridLine : GridLineProperty
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+sealed external interface GridLine: GridLineProperty

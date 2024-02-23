@@ -2,6 +2,11 @@
 
 package web.html
 
+import web.dom.Element
+import web.events.Event
+import web.events.EventHandler
+import web.html.HTMLElement
+import web.window.Window
 import web.window.WindowEventHandlers
 
 /**
@@ -9,7 +14,8 @@ import web.window.WindowEventHandlers
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLBodyElement)
  */
-open external class HTMLBodyElement
-protected constructor() :
-    HTMLElement,
-    WindowEventHandlers
+open external class HTMLBodyElement 
+protected constructor():
+HTMLElement,
+WindowEventHandlers {
+}

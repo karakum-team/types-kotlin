@@ -11,10 +11,10 @@ import web.http.Response
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/WebAssembly/JavaScript_interface/compileStreaming_static)
  */
-external fun compileStreaming(
-    source: Response,
+external fun  compileStreaming (
+source: Response
 ): Promise<Module>
 
-external fun compileStreaming(
-    source: PromiseLike<Response>,
+external fun  compileStreaming (
+source: PromiseLike<Response>
 ): Promise<Module>

@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
-external interface ColumnIdentifiers<TData : RowData, TValue> :
-    IdIdentifier<TData, TValue>
-/* StringHeaderIdentifier */
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface ColumnIdentifiers<TData : RowData, TValue> : 
+IdIdentifier<TData, TValue>
+    /* StringHeaderIdentifier */

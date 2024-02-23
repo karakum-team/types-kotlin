@@ -9,16 +9,15 @@ import js.core.Void
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CountQueuingStrategy)
  */
-external class CountQueuingStrategy(
-    init: QueuingStrategyInit,
-) : QueuingStrategy<Void> {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CountQueuingStrategy/highWaterMark)
-     */
-    override val highWaterMark: Double
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CountQueuingStrategy/size)
-     */
-    override val size: QueuingStrategySize<Void>
+ external class CountQueuingStrategy (
+init: QueuingStrategyInit
+):QueuingStrategy<Void> {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CountQueuingStrategy/highWaterMark)
+ */
+override val highWaterMark: Double
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CountQueuingStrategy/size)
+ */
+override val size: QueuingStrategySize<Void>
 }

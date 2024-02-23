@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocPropertyLikeTag(node: Node): Boolean /* node is JSDocPropertyLikeTag */
+internal external fun  isJSDocPropertyLikeTag(node: Node): Boolean /* node is JSDocPropertyLikeTag */

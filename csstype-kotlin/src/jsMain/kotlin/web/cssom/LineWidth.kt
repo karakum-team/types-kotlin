@@ -1,24 +1,23 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package web.cssom
 
-import seskar.js.JsValue
+import seskar.js.JsIntValue
 import seskar.js.JsVirtual
+import seskar.js.JsValue
 
-@JsVirtual
-sealed external interface LineWidth : LineWidthProperty {
-    companion object {
-        @JsValue("medium")
-        val medium: LineWidth
-
-        @JsValue("thick")
-        val thick: LineWidth
-
-        @JsValue("thin")
-        val thin: LineWidth
-    }
-}
+        @JsVirtual
+        sealed external interface LineWidth: LineWidthProperty {
+            companion object {
+                @JsValue("medium")    
+val medium: LineWidth
+@JsValue("thick")    
+val thick: LineWidth
+@JsValue("thin")    
+val thin: LineWidth
+            }
+        }

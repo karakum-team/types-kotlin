@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun getCombinedModifierFlags(node: Declaration): ModifierFlags
+external fun  getCombinedModifierFlags(node: Declaration): ModifierFlags

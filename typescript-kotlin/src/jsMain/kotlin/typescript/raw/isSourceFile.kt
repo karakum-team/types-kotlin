@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isSourceFile(node: Node): Boolean /* node is SourceFile */
+internal external fun  isSourceFile(node: Node): Boolean /* node is SourceFile */

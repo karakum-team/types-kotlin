@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isCallSignatureDeclaration(node: Node): Boolean /* node is CallSignatureDeclaration */
+internal external fun  isCallSignatureDeclaration(node: Node): Boolean /* node is CallSignatureDeclaration */

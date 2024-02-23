@@ -7,6 +7,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface ReportingObserverOptions {
-    var buffered: Boolean?
-    var types: ReadonlyArray<String>?
+var buffered: Boolean?
+var types: ReadonlyArray<String>?
 }

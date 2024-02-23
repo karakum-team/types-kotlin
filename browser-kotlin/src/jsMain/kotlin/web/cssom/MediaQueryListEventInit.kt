@@ -3,11 +3,13 @@
 package web.cssom
 
 import js.objects.JsPlainObject
+import web.cssom.MediaQuery
+import web.events.Event
 import web.events.EventInit
 
 @JsPlainObject
 external interface MediaQueryListEventInit :
-    EventInit {
-    val matches: Boolean?
-    val media: MediaQuery?
+EventInit  {
+val matches: Boolean?
+val media: MediaQuery?
 }

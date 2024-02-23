@@ -1,43 +1,36 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package web.autofill
 
 import seskar.js.JsValue
 import seskar.js.JsVirtual
+import web.autofill.AutoFill
 
-@JsVirtual
-sealed external interface AutoFillContactField :
-    AutoFillField {
-    companion object {
-        @JsValue("email")
-        val email: AutoFillContactField
-
-        @JsValue("tel")
-        val tel: AutoFillContactField
-
-        @JsValue("tel-area-code")
-        val telAreaCode: AutoFillContactField
-
-        @JsValue("tel-country-code")
-        val telCountryCode: AutoFillContactField
-
-        @JsValue("tel-extension")
-        val telExtension: AutoFillContactField
-
-        @JsValue("tel-local")
-        val telLocal: AutoFillContactField
-
-        @JsValue("tel-local-prefix")
-        val telLocalPrefix: AutoFillContactField
-
-        @JsValue("tel-local-suffix")
-        val telLocalSuffix: AutoFillContactField
-
-        @JsValue("tel-national")
-        val telNational: AutoFillContactField
-    }
-}
+        @JsVirtual
+        sealed external interface AutoFillContactField:
+AutoFillField {
+            companion object {
+                @JsValue("email")    
+val email: AutoFillContactField
+@JsValue("tel")    
+val tel: AutoFillContactField
+@JsValue("tel-area-code")    
+val telAreaCode: AutoFillContactField
+@JsValue("tel-country-code")    
+val telCountryCode: AutoFillContactField
+@JsValue("tel-extension")    
+val telExtension: AutoFillContactField
+@JsValue("tel-local")    
+val telLocal: AutoFillContactField
+@JsValue("tel-local-prefix")    
+val telLocalPrefix: AutoFillContactField
+@JsValue("tel-local-suffix")    
+val telLocalSuffix: AutoFillContactField
+@JsValue("tel-national")    
+val telNational: AutoFillContactField
+            }
+        }

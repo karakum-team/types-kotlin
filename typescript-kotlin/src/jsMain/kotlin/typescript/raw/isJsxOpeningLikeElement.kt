@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJsxOpeningLikeElement(node: Node): Boolean /* node is JsxOpeningLikeElement */
+internal external fun  isJsxOpeningLikeElement(node: Node): Boolean /* node is JsxOpeningLikeElement */

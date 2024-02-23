@@ -3,6 +3,5 @@
 package web.codecs
 
 typealias EncodedVideoChunkOutputCallback = (
-    chunk: EncodedVideoChunk,
-    metadata: EncodedVideoChunkMetadata?,
-) -> Unit
+chunk: EncodedVideoChunk,
+metadata: EncodedVideoChunkMetadata?) -> Unit

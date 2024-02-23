@@ -2,6 +2,6 @@
 
 package tanstack.query.core
 
-external interface NotifyEvent {
-    var type: NotifyEventType
+external interface NotifyEvent   {
+ var type: NotifyEventType
 }

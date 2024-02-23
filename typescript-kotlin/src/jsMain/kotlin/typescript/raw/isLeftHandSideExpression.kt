@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isLeftHandSideExpression(node: Node): Boolean /* node is LeftHandSideExpression */
+internal external fun  isLeftHandSideExpression(node: Node): Boolean /* node is LeftHandSideExpression */

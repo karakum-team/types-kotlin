@@ -3,9 +3,10 @@
 package web.audio
 
 import js.objects.JsPlainObject
+import web.dom.Node
 
 @JsPlainObject
 sealed external interface GainOptions :
-    AudioNodeOptions {
-    var gain: Float?
+AudioNodeOptions {
+var gain: Float?
 }

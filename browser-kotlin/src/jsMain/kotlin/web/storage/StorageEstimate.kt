@@ -7,6 +7,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface StorageEstimate {
-    var quota: JsLong?
-    var usage: JsLong?
+var quota: JsLong?
+var usage: JsLong?
 }

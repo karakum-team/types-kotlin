@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isDefaultClause(node: Node): Boolean /* node is DefaultClause */
+internal external fun  isDefaultClause(node: Node): Boolean /* node is DefaultClause */

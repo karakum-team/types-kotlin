@@ -3,8 +3,9 @@
 package web.fs
 
 import js.objects.JsPlainObject
+import web.file.File
 
 @JsPlainObject
 sealed external interface FileSystemCreateWritableOptions {
-    var keepExistingData: Boolean?
+var keepExistingData: Boolean?
 }

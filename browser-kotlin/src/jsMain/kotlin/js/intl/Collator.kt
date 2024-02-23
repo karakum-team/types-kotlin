@@ -6,31 +6,28 @@ package js.intl
 
 import js.array.ReadonlyArray
 
-external class Collator(
-    locales: String = definedExternally,
-    options: CollatorOptions = definedExternally,
+ external class Collator(
+locales: String = definedExternally,
+options: CollatorOptions = definedExternally,
 ) {
-    constructor(
-        locales: ReadonlyArray<String>,
-        options: CollatorOptions = definedExternally,
-    )
+constructor(
+locales: ReadonlyArray<String>,
+options: CollatorOptions = definedExternally,
+)
 
-    fun compare(
-        x: String,
-        y: String,
-    ): Int
-
-    fun resolvedOptions(): ResolvedCollatorOptions
-
-    companion object {
-        fun supportedLocalesOf(
-            locales: String,
-            options: CollatorOptions = definedExternally,
-        ): ReadonlyArray<String>
-
-        fun supportedLocalesOf(
-            locales: ReadonlyArray<String>,
-            options: CollatorOptions = definedExternally,
-        ): ReadonlyArray<String>
-    }
+ fun compare(
+x: String,
+y: String,
+): Int
+ fun resolvedOptions(): ResolvedCollatorOptions
+companion object {
+fun supportedLocalesOf(
+locales: String,
+options: CollatorOptions = definedExternally,
+): ReadonlyArray<String>
+ fun supportedLocalesOf(
+locales: ReadonlyArray<String>,
+options: CollatorOptions = definedExternally,
+): ReadonlyArray<String>
+}
 }

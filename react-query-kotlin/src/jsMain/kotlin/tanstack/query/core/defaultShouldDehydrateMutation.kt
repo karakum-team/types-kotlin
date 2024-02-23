@@ -4,4 +4,4 @@
 
 package tanstack.query.core
 
-external fun defaultShouldDehydrateMutation(mutation: Mutation<*, *, *, *>): Boolean
+external fun  defaultShouldDehydrateMutation(mutation: Mutation<*, *, *, *> ): Boolean

@@ -6,8 +6,6 @@ package tanstack.query.core
 
 import js.array.ReadonlyArray
 
-external fun <T> addToEnd(
-    items: ReadonlyArray<T>,
-    item: T,
-    max: Int = definedExternally,
-): ReadonlyArray<T>
+external fun <T> addToEnd(items: ReadonlyArray<T> ,
+item: T ,
+max: Int  = definedExternally): ReadonlyArray<T>

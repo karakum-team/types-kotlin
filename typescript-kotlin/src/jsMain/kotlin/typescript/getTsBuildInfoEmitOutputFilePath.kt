@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun getTsBuildInfoEmitOutputFilePath(options: CompilerOptions): String?
+external fun  getTsBuildInfoEmitOutputFilePath(options: CompilerOptions): String?

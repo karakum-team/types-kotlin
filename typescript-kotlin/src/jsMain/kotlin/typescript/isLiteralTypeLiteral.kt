@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun isLiteralTypeLiteral(node: Node): Boolean /* node is NullLiteral | BooleanLiteral | LiteralExpression | PrefixUnaryExpression */
+external fun  isLiteralTypeLiteral(node: Node): Boolean /* node is NullLiteral | BooleanLiteral | LiteralExpression | PrefixUnaryExpression */

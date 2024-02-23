@@ -2,4 +2,6 @@
 
 package typescript
 
-sealed external interface ModifierToken<out TKind : ModifierSyntaxKind> : KeywordToken<TKind>
+external sealed interface ModifierToken<out TKind : ModifierSyntaxKind> : KeywordToken<TKind> {
+
+}

@@ -2,7 +2,7 @@
 
 package tanstack.query.core
 
-external interface FetchAction {
-    var type: Type /* 'fetch' */
-    var meta: FetchMeta
+external interface FetchAction   {
+ var type: Type /* 'fetch' */
+ var meta: FetchMeta
 }

@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isAwaitExpression(node: Node): Boolean /* node is AwaitExpression */
+internal external fun  isAwaitExpression(node: Node): Boolean /* node is AwaitExpression */

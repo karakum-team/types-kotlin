@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun getDefaultFormatCodeSettings(newLineCharacter: String = definedExternally): FormatCodeSettings
+external fun  getDefaultFormatCodeSettings(newLineCharacter: String = definedExternally): FormatCodeSettings

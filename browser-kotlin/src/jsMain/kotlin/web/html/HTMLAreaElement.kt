@@ -3,7 +3,10 @@
 package web.html
 
 import web.dom.DOMTokenList
+import web.dom.Element
+import web.html.HTMLElement
 import web.http.ReferrerPolicy
+import web.window.Window
 import web.window.WindowTarget
 
 /**
@@ -11,60 +14,52 @@ import web.window.WindowTarget
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement)
  */
-open external class HTMLAreaElement
-protected constructor() :
-    HTMLElement,
-    HTMLHyperlinkElementUtils {
-    /**
-     * Sets or retrieves a text alternative to the graphic.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/alt)
-     */
-    var alt: String
-
-    /**
-     * Sets or retrieves the coordinates of the object.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/coords)
-     */
-    var coords: String
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/download)
-     */
-    var download: String
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/ping)
-     */
-    var ping: String
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/referrerPolicy)
-     */
-    var referrerPolicy: ReferrerPolicy
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/rel)
-     */
-    var rel: String
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/relList)
-     */
-    val relList: DOMTokenList
-
-    /**
-     * Sets or retrieves the shape of the object.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/shape)
-     */
-    var shape: String
-
-    /**
-     * Sets or retrieves the window or frame at which to target content.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/target)
-     */
-    var target: WindowTarget
+open external class HTMLAreaElement 
+protected constructor():
+HTMLElement,
+HTMLHyperlinkElementUtils {
+/**
+ * Sets or retrieves a text alternative to the graphic.
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/alt)
+ */
+var alt: String
+/**
+ * Sets or retrieves the coordinates of the object.
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/coords)
+ */
+var coords: String
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/download)
+ */
+var download: String
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/ping)
+ */
+var ping: String
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/referrerPolicy)
+ */
+var referrerPolicy: ReferrerPolicy
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/rel)
+ */
+var rel: String
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/relList)
+ */
+val relList: DOMTokenList
+/**
+ * Sets or retrieves the shape of the object.
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/shape)
+ */
+var shape: String
+/**
+ * Sets or retrieves the window or frame at which to target content.
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement/target)
+ */
+var target: WindowTarget
 }

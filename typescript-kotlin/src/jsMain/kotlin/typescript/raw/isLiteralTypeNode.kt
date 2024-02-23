@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isLiteralTypeNode(node: Node): Boolean /* node is LiteralTypeNode */
+internal external fun  isLiteralTypeNode(node: Node): Boolean /* node is LiteralTypeNode */

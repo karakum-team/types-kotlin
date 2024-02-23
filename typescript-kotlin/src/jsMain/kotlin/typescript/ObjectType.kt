@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface ObjectType : Type, Union.ObjectType_ {
-    var objectFlags: ObjectFlags
+external sealed interface ObjectType : Type, Union.ObjectType_ {
+var objectFlags: ObjectFlags
 }

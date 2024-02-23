@@ -5,8 +5,6 @@
 package tanstack.table.core
 
 import js.array.ReadonlyArray
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
 
-external fun <TNode> flattenBy(
-    arr: ReadonlyArray<TNode>,
-    getChildren: (item: TNode) -> ReadonlyArray<TNode>,
-): ReadonlyArray<TNode>
+external fun <TNode> flattenBy(arr: ReadonlyArray<TNode>, getChildren: (item: TNode) -> ReadonlyArray<TNode>): ReadonlyArray<TNode>

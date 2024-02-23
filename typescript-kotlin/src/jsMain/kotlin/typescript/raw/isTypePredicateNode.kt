@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isTypePredicateNode(node: Node): Boolean /* node is TypePredicateNode */
+internal external fun  isTypePredicateNode(node: Node): Boolean /* node is TypePredicateNode */

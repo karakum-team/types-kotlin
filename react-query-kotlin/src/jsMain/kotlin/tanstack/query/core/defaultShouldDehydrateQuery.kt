@@ -4,4 +4,4 @@
 
 package tanstack.query.core
 
-external fun defaultShouldDehydrateQuery(query: Query<*, *, *, *>): Boolean
+external fun  defaultShouldDehydrateQuery(query: Query<*, *, *, *> ): Boolean

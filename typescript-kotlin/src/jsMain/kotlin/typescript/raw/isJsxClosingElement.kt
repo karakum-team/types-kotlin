@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJsxClosingElement(node: Node): Boolean /* node is JsxClosingElement */
+internal external fun  isJsxClosingElement(node: Node): Boolean /* node is JsxClosingElement */

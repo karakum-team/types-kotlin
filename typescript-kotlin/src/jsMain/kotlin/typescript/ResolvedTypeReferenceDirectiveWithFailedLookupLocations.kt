@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface ResolvedTypeReferenceDirectiveWithFailedLookupLocations {
-    val resolvedTypeReferenceDirective: ResolvedTypeReferenceDirective?
+external sealed interface ResolvedTypeReferenceDirectiveWithFailedLookupLocations {
+val resolvedTypeReferenceDirective: ResolvedTypeReferenceDirective?
 }

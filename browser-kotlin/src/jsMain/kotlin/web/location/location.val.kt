@@ -2,6 +2,8 @@
 
 package web.location
 
+import web.window.Window
+
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/location)
  */

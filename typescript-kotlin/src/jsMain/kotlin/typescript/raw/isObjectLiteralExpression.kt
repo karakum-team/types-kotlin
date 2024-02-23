@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isObjectLiteralExpression(node: Node): Boolean /* node is ObjectLiteralExpression */
+internal external fun  isObjectLiteralExpression(node: Node): Boolean /* node is ObjectLiteralExpression */

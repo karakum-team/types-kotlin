@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isTemplateMiddle(node: Node): Boolean /* node is TemplateMiddle */
+internal external fun  isTemplateMiddle(node: Node): Boolean /* node is TemplateMiddle */

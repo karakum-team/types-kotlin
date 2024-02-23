@@ -3,10 +3,11 @@
 package web.crypto
 
 import js.objects.JsPlainObject
+import web.crypto.Algorithm
 
 @JsPlainObject
 sealed external interface HmacKeyGenParams :
-    Algorithm {
-    var hash: HashAlgorithmIdentifier
-    var length: Int?
+Algorithm {
+var hash: HashAlgorithmIdentifier
+var length: Int?
 }

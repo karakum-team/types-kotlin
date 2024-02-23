@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isSetAccessor(node: Node): Boolean /* node is SetAccessorDeclaration */
+internal external fun  isSetAccessor(node: Node): Boolean /* node is SetAccessorDeclaration */

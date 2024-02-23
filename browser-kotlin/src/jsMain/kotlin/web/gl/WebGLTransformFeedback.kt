@@ -2,4 +2,6 @@
 
 package web.gl
 
-sealed external class WebGLTransformFeedback
+sealed external class WebGLTransformFeedback {
+
+}

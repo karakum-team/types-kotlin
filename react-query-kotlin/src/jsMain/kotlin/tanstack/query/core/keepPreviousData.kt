@@ -4,4 +4,4 @@
 
 package tanstack.query.core
 
-external fun <T> keepPreviousData(previousData: T?): T?
+external fun <T> keepPreviousData(previousData: T? ): T?

@@ -3,11 +3,13 @@
 @file:JsQualifier("globalThis")
 
 @file:Suppress(
-    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+"EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
 package web.uievents
 
+import web.events.Event
+import web.events.EventInit
 import web.events.EventType
 
 /**
@@ -15,44 +17,38 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent)
  */
-open external class TouchEvent(
-    override val type: EventType<TouchEvent>,
-    init: TouchEventInit = definedExternally,
+    open external class TouchEvent (
+override val type: EventType<TouchEvent>,
+init: TouchEventInit = definedExternally
 ) : UIEvent {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent/altKey)
-     */
-    val altKey: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent/changedTouches)
-     */
-    val changedTouches: TouchList
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent/ctrlKey)
-     */
-    val ctrlKey: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent/metaKey)
-     */
-    val metaKey: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent/shiftKey)
-     */
-    val shiftKey: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent/targetTouches)
-     */
-    val targetTouches: TouchList
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent/touches)
-     */
-    val touches: TouchList
-
-    companion object : TouchEventTypes
-}
+        /**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent/altKey)
+ */
+val altKey: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent/changedTouches)
+ */
+val changedTouches: TouchList
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent/ctrlKey)
+ */
+val ctrlKey: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent/metaKey)
+ */
+val metaKey: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent/shiftKey)
+ */
+val shiftKey: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent/targetTouches)
+ */
+val targetTouches: TouchList
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent/touches)
+ */
+val touches: TouchList
+    
+        companion object : TouchEventTypes
+    }

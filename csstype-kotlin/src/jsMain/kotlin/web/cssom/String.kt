@@ -1,16 +1,20 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package web.cssom
 
-sealed external interface StringType :
-    Content,
-    FontFamily
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
 
-inline fun string(
-    value: String,
+        sealed external interface StringType:
+        Content,
+FontFamily
+        
+        inline fun string(
+     value: String,
 ): StringType =
     value.unsafeCast<StringType>()

@@ -2,4 +2,6 @@
 
 package web.gl
 
-sealed external class WebGLBuffer
+sealed external class WebGLBuffer {
+
+}

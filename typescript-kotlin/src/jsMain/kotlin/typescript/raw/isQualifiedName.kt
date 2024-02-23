@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isQualifiedName(node: Node): Boolean /* node is QualifiedName */
+internal external fun  isQualifiedName(node: Node): Boolean /* node is QualifiedName */

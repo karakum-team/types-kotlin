@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isNoSubstitutionTemplateLiteral(node: Node): Boolean /* node is NoSubstitutionTemplateLiteral */
+internal external fun  isNoSubstitutionTemplateLiteral(node: Node): Boolean /* node is NoSubstitutionTemplateLiteral */

@@ -4,7 +4,9 @@ package web.clipboard
 
 import js.array.ReadonlyArray
 import js.objects.ReadonlyRecord
+import js.objects.Record
 import js.promise.Promise
+import js.promise.PromiseLike
 import web.blob.Blob
 
 /**
@@ -12,17 +14,16 @@ import web.blob.Blob
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ClipboardItem)
  */
-external class ClipboardItem(
-    items: ReadonlyRecord<String, Any /* String | Blob | PromiseLike<String | Blob> */>,
-    options: ClipboardItemOptions = definedExternally,
+ external class ClipboardItem(
+items: ReadonlyRecord<String, Any /* String | Blob | PromiseLike<String | Blob> */>,
+options: ClipboardItemOptions = definedExternally,
 ) {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ClipboardItem/types)
-     */
-    val types: ReadonlyArray<String>
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ClipboardItem/getType)
-     */
-    fun getType(type: String): Promise<Blob>
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ClipboardItem/types)
+ */
+val types: ReadonlyArray<String>
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ClipboardItem/getType)
+ */
+ fun getType(type: String): Promise<Blob>
 }

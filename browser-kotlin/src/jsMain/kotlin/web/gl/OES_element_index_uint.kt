@@ -2,4 +2,6 @@
 
 package web.gl
 
-sealed external interface OES_element_index_uint
+sealed external interface OES_element_index_uint {
+
+}

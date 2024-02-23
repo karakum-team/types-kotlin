@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isQuestionDotToken(node: Node): Boolean /* node is QuestionDotToken */
+internal external fun  isQuestionDotToken(node: Node): Boolean /* node is QuestionDotToken */

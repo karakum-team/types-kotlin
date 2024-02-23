@@ -4,4 +4,6 @@
 
 package tanstack.table.core
 
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
 external fun <TData : RowData> selectRowsFn(table: Table<TData>, rowModel: RowModel<TData>): RowModel<TData>

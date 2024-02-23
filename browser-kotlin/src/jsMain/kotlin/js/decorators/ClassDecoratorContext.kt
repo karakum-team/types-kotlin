@@ -2,11 +2,13 @@
 
 package js.decorators
 
+import web.dom.Element
+
 /**
  * Context provided to a class decorator.
  * @template Class The type of the decorated class associated with this context.
  */
-sealed external interface ClassDecoratorContext<Class : JsClass<*>> {
+sealed external interface ClassDecoratorContext<Class: JsClass<*>> {
     /** The kind of element that was decorated. */
     val kind: DecoratorContextKind.`class`
 
@@ -32,5 +34,5 @@ sealed external interface ClassDecoratorContext<Class : JsClass<*>> {
      */
     fun addInitializer(initializer: (/* this: Class */) -> Unit)
 
-    val metadata: DecoratorMetadata
+    val metadata: DecoratorMetadata;
 }

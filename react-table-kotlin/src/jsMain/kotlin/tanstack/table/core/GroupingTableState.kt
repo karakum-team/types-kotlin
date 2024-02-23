@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
-external interface GroupingTableState {
-    var grouping: GroupingState
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface GroupingTableState{
+var grouping: GroupingState
 }

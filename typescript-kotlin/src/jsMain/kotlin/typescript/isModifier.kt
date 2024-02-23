@@ -1,17 +1,17 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "CANNOT_CHECK_FOR_EXTERNAL_INTERFACE",
+"CANNOT_CHECK_FOR_EXTERNAL_INTERFACE",
 )
 
 package typescript
 
 import kotlin.contracts.contract
 
-fun isModifier(node: Node): Boolean {
-    contract {
-        returns(true) implies (node is Modifier)
+fun  isModifier(node: Node): Boolean{
+        contract {
+            returns(true) implies (node is Modifier)
+        }
+    
+        return typescript.raw.isModifier(node)
     }
-
-    return typescript.raw.isModifier(node)
-}

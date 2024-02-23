@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
-external interface RowSelectionTableState {
-    var rowSelection: RowSelectionState
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface RowSelectionTableState{
+var rowSelection: RowSelectionState
 }

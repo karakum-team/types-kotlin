@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocFunctionType(node: Node): Boolean /* node is JSDocFunctionType */
+internal external fun  isJSDocFunctionType(node: Node): Boolean /* node is JSDocFunctionType */

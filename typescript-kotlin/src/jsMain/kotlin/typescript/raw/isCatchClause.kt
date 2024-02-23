@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isCatchClause(node: Node): Boolean /* node is CatchClause */
+internal external fun  isCatchClause(node: Node): Boolean /* node is CatchClause */

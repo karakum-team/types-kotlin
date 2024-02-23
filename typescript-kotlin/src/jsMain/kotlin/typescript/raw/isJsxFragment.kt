@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJsxFragment(node: Node): Boolean /* node is JsxFragment */
+internal external fun  isJsxFragment(node: Node): Boolean /* node is JsxFragment */

@@ -1,27 +1,25 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package web.animations
 
 import seskar.js.JsValue
 import seskar.js.JsVirtual
+import web.animations.Animation
 
-@JsVirtual
-sealed external interface AnimationPlayState {
-    companion object {
-        @JsValue("finished")
-        val finished: AnimationPlayState
-
-        @JsValue("idle")
-        val idle: AnimationPlayState
-
-        @JsValue("paused")
-        val paused: AnimationPlayState
-
-        @JsValue("running")
-        val running: AnimationPlayState
-    }
-}
+        @JsVirtual
+        sealed external interface AnimationPlayState {
+            companion object {
+                @JsValue("finished")    
+val finished: AnimationPlayState
+@JsValue("idle")    
+val idle: AnimationPlayState
+@JsValue("paused")    
+val paused: AnimationPlayState
+@JsValue("running")    
+val running: AnimationPlayState
+            }
+        }

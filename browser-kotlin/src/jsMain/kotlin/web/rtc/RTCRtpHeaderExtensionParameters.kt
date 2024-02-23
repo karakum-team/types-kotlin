@@ -6,7 +6,7 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface RTCRtpHeaderExtensionParameters {
-    var encrypted: Boolean?
-    var id: Short
-    var uri: String
+var encrypted: Boolean?
+var id: Short
+var uri: String
 }

@@ -11,13 +11,12 @@ import web.streams.WritableStream
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebTransportBidirectionalStream)
  */
 sealed external class WebTransportBidirectionalStream {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebTransportBidirectionalStream/readable)
-     */
-    val readable: ReadableStream<*>
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebTransportBidirectionalStream/writable)
-     */
-    val writable: WritableStream<*>
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebTransportBidirectionalStream/readable)
+ */
+val readable: ReadableStream<*>
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebTransportBidirectionalStream/writable)
+ */
+val writable: WritableStream<*>
 }

@@ -1,13 +1,15 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package web.keyboard
 
-sealed external interface KeyCode
+import web.keyboard.KeyCode
 
+sealed external interface KeyCode
+        
 inline fun KeyCode(
     code: String,
 ): KeyCode =

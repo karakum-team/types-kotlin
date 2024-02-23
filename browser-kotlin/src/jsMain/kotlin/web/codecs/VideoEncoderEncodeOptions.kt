@@ -6,5 +6,5 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface VideoEncoderEncodeOptions {
-    var keyFrame: Boolean?
+var keyFrame: Boolean?
 }

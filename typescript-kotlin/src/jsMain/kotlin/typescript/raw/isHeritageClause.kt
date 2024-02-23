@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isHeritageClause(node: Node): Boolean /* node is HeritageClause */
+internal external fun  isHeritageClause(node: Node): Boolean /* node is HeritageClause */

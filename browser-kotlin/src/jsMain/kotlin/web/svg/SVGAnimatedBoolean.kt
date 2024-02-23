@@ -8,6 +8,6 @@ package web.svg
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGAnimatedBoolean)
  */
 sealed external class SVGAnimatedBoolean {
-    val animVal: Boolean
-    var baseVal: Boolean
+val animVal: Boolean
+var baseVal: Boolean
 }

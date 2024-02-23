@@ -6,5 +6,5 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface IDBTransactionOptions {
-    var durability: IDBTransactionDurability?
+var durability: IDBTransactionDurability?
 }

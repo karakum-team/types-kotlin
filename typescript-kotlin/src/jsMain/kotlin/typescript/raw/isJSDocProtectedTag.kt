@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocProtectedTag(node: Node): Boolean /* node is JSDocProtectedTag */
+internal external fun  isJSDocProtectedTag(node: Node): Boolean /* node is JSDocProtectedTag */

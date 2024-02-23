@@ -6,5 +6,5 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface TextDecodeOptions {
-    var stream: Boolean?
+var stream: Boolean?
 }

@@ -5,4 +5,4 @@
 package typescript
 
 /** Gets the JSDoc private tag for the node if present */
-external fun getJSDocPrivateTag(node: Node): JSDocPrivateTag?
+external fun  getJSDocPrivateTag(node: Node): JSDocPrivateTag?

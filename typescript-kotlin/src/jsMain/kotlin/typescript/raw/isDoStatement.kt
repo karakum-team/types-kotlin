@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isDoStatement(node: Node): Boolean /* node is DoStatement */
+internal external fun  isDoStatement(node: Node): Boolean /* node is DoStatement */

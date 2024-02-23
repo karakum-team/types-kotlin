@@ -2,7 +2,6 @@
 
 package typescript
 
-sealed external interface ArrayDestructuringAssignment : AssignmentExpression<EqualsToken>,
-    Union.ArrayDestructuringAssignment_ {
-    override val left: ArrayLiteralExpression
+external sealed interface ArrayDestructuringAssignment : AssignmentExpression<EqualsToken>, Union.ArrayDestructuringAssignment_ {
+override val left: ArrayLiteralExpression
 }

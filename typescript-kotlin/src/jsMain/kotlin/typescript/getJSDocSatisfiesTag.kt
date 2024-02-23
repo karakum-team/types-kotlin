@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun getJSDocSatisfiesTag(node: Node): JSDocSatisfiesTag?
+external fun  getJSDocSatisfiesTag(node: Node): JSDocSatisfiesTag?

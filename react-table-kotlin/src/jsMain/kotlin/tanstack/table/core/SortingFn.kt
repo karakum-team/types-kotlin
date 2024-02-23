@@ -2,7 +2,9 @@
 
 package tanstack.table.core
 
-external interface SortingFn<TData : RowData> {
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface SortingFn<TData : RowData>{
     // TODO: support invoke
     /* (rowA: Row<TData>, rowB: Row<TData>, columnId: string): number */
 }

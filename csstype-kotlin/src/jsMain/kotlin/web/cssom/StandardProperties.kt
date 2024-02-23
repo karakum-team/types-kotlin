@@ -2,4 +2,8 @@
 
 package web.cssom
 
-external interface StandardProperties : StandardLonghandProperties, StandardShorthandProperties
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+ external interface StandardProperties: StandardLonghandProperties, StandardShorthandProperties

@@ -2,4 +2,6 @@
 
 package web.gl
 
-sealed external interface EXT_float_blend
+sealed external interface EXT_float_blend {
+
+}

@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface PaymentMethodData {
-    var data: Any?
-    var supportedMethods: String
+var data: Any?
+var supportedMethods: String
 }

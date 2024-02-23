@@ -3,10 +3,11 @@
 package web.gl
 
 import js.objects.JsPlainObject
+import web.events.Event
 import web.events.EventInit
 
 @JsPlainObject
 external interface WebGLContextEventInit :
-    EventInit {
-    val statusMessage: String?
+EventInit  {
+val statusMessage: String?
 }

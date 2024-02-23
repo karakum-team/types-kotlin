@@ -6,5 +6,5 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface CredentialPropertiesOutput {
-    var rk: Boolean?
+var rk: Boolean?
 }

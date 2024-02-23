@@ -5,11 +5,12 @@ package web.promise
 import js.errors.JsError
 import js.objects.JsPlainObject
 import js.promise.Promise
+import web.events.Event
 import web.events.EventInit
 
 @JsPlainObject
 external interface PromiseRejectionEventInit :
-    EventInit {
-    val promise: Promise<*>
-    val reason: JsError?
+EventInit  {
+val promise: Promise<*>
+val reason: JsError?
 }

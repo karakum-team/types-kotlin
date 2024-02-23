@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun isStringLiteralOrJsxExpression(node: Node): Boolean /* node is StringLiteral | JsxExpression */
+external fun  isStringLiteralOrJsxExpression(node: Node): Boolean /* node is StringLiteral | JsxExpression */

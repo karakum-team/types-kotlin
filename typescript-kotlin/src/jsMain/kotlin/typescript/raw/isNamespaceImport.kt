@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isNamespaceImport(node: Node): Boolean /* node is NamespaceImport */
+internal external fun  isNamespaceImport(node: Node): Boolean /* node is NamespaceImport */

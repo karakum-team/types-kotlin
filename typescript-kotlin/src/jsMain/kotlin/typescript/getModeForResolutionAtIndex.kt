@@ -16,8 +16,6 @@ package typescript
  * @param compilerOptions The compiler options for the program that owns the file. If the file belongs to a referenced project, the compiler options
  * should be the options of the referenced project, not the referencing project.
  */
-external fun getModeForResolutionAtIndex(
-    file: SourceFile,
-    index: Int,
-    compilerOptions: CompilerOptions,
-): ResolutionMode
+external fun  getModeForResolutionAtIndex(file: SourceFile,
+index: Int,
+compilerOptions: CompilerOptions): ResolutionMode

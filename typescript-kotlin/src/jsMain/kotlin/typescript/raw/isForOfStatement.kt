@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isForOfStatement(node: Node): Boolean /* node is ForOfStatement */
+internal external fun  isForOfStatement(node: Node): Boolean /* node is ForOfStatement */

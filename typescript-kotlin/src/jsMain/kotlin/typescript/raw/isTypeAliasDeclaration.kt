@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isTypeAliasDeclaration(node: Node): Boolean /* node is TypeAliasDeclaration */
+internal external fun  isTypeAliasDeclaration(node: Node): Boolean /* node is TypeAliasDeclaration */

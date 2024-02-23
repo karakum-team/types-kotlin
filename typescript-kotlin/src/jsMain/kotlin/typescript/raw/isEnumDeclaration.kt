@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isEnumDeclaration(node: Node): Boolean /* node is EnumDeclaration */
+internal external fun  isEnumDeclaration(node: Node): Boolean /* node is EnumDeclaration */

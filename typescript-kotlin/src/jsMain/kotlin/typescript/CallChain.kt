@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface CallChain : CallExpression, Union.CallChain_ {
-    var _optionalChainBrand: Any
+external sealed interface CallChain : CallExpression, Union.CallChain_ {
+var _optionalChainBrand: Any
 }

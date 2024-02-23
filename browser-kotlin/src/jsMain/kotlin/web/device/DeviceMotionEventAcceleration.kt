@@ -2,24 +2,24 @@
 
 package web.device
 
+import web.events.Event
+
 /**
  * Available only in secure contexts.
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DeviceMotionEventAcceleration)
  */
 sealed external interface DeviceMotionEventAcceleration {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DeviceMotionEventAcceleration/x)
-     */
-    val x: Double?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DeviceMotionEventAcceleration/y)
-     */
-    val y: Double?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DeviceMotionEventAcceleration/z)
-     */
-    val z: Double?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DeviceMotionEventAcceleration/x)
+ */
+val x: Double?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DeviceMotionEventAcceleration/y)
+ */
+val y: Double?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DeviceMotionEventAcceleration/z)
+ */
+val z: Double?
 }

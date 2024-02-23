@@ -7,6 +7,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface PaymentDetailsBase {
-    var displayItems: ReadonlyArray<PaymentItem>?
-    var modifiers: ReadonlyArray<PaymentDetailsModifier>?
+var displayItems: ReadonlyArray<PaymentItem>?
+var modifiers: ReadonlyArray<PaymentDetailsModifier>?
 }

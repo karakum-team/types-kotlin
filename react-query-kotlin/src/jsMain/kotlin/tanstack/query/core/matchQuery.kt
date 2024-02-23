@@ -4,7 +4,5 @@
 
 package tanstack.query.core
 
-external fun matchQuery(
-    filters: QueryFilters,
-    query: Query<*, *, *, *>,
-): Boolean
+external fun  matchQuery(filters: QueryFilters ,
+query: Query<*, *, *, *> ): Boolean

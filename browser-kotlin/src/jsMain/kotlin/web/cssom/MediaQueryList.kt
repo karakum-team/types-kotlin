@@ -2,6 +2,8 @@
 
 package web.cssom
 
+import web.cssom.MediaQuery
+import web.events.Event
 import web.events.EventHandler
 import web.events.EventTarget
 
@@ -11,19 +13,17 @@ import web.events.EventTarget
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaQueryList)
  */
 sealed external class MediaQueryList :
-    EventTarget {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaQueryList/matches)
-     */
-    val matches: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaQueryList/media)
-     */
-    val media: MediaQuery
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaQueryList/change_event)
-     */
-    var onchange: EventHandler<MediaQueryListEvent>?
+EventTarget {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaQueryList/matches)
+ */
+val matches: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaQueryList/media)
+ */
+val media: MediaQuery
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaQueryList/change_event)
+ */
+var onchange: EventHandler<MediaQueryListEvent>?
 }

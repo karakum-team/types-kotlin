@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isDecorator(node: Node): Boolean /* node is Decorator */
+internal external fun  isDecorator(node: Node): Boolean /* node is Decorator */

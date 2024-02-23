@@ -4,4 +4,6 @@
 
 package tanstack.table.core
 
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
 external fun <TData : RowData> getExpandedRowModel(): (table: Table<TData>) -> () -> RowModel<TData>

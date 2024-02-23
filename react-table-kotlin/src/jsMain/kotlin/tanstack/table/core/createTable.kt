@@ -4,4 +4,6 @@
 
 package tanstack.table.core
 
-external fun <TData : RowData> createTable(options: TableOptionsResolved<TData>): Table<TData>
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external fun <TData : RowData> createTable(options: TableOptionsResolved<TData>): Table<TData>;

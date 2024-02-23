@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isMethodDeclaration(node: Node): Boolean /* node is MethodDeclaration */
+internal external fun  isMethodDeclaration(node: Node): Boolean /* node is MethodDeclaration */

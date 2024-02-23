@@ -3,9 +3,10 @@
 package web.crypto
 
 import js.objects.JsPlainObject
+import web.crypto.Algorithm
 
 @JsPlainObject
 sealed external interface EcKeyImportParams :
-    Algorithm {
-    var namedCurve: NamedCurve
+Algorithm {
+var namedCurve: NamedCurve
 }

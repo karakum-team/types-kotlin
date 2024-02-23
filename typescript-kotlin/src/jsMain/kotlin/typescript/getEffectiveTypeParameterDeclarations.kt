@@ -16,4 +16,4 @@ import js.array.ReadonlyArray
  * // @type {Id}
  * function id(x) { return x }
  */
-external fun getEffectiveTypeParameterDeclarations(node: DeclarationWithTypeParameters): ReadonlyArray<TypeParameterDeclaration>
+external fun  getEffectiveTypeParameterDeclarations(node: DeclarationWithTypeParameters): ReadonlyArray<TypeParameterDeclaration>

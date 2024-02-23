@@ -4,4 +4,4 @@
 
 package tanstack.query.core
 
-external fun isCancelledError(value: Any): Boolean /* value is CancelledError */
+external fun  isCancelledError(value: Any ): Boolean /* value is CancelledError */

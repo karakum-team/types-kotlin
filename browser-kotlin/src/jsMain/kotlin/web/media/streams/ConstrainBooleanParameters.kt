@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface ConstrainBooleanParameters {
-    var exact: Boolean?
-    var ideal: Boolean?
+var exact: Boolean?
+var ideal: Boolean?
 }

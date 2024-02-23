@@ -3,16 +3,38 @@
 @file:JsModule("cesium")
 
 @file:Suppress(
-    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+"EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
 package cesium
+
+import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
 
 /**
  * A Plane in Hessian Normal form to be used with [ClippingPlaneCollection].
  * Compatible with mathematics functions in [Plane]
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ClippingPlane.html">Online Documentation</a>
- *
+ * 
  * @constructor
  * @property [normal] The plane's normal (normalized).
  * @property [distance] The shortest distance from the origin to the plane.  The sign of
@@ -22,35 +44,35 @@ package cesium
  *   opposite to the normal; if zero, the plane passes through the origin.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ClippingPlane.html">Online Documentation</a>
  */
-external class ClippingPlane(
-    var normal: Cartesian3,
-    var distance: Double,
-) {
+external  class ClippingPlane (
+ var normal: Cartesian3,
+ var distance: Double
+)  {
 
 
-    companion object {
-        /**
-         * Create a ClippingPlane from a Plane object.
-         * @param [plane] The plane containing parameters to copy
-         * @param [result] The object on which to store the result
-         * @return The ClippingPlane generated from the plane's parameters.
-         * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ClippingPlane.html#.fromPlane">Online Documentation</a>
-         */
-        fun fromPlane(
-            plane: Plane,
-            result: ClippingPlane? = definedExternally,
-        ): ClippingPlane
+companion object  {
+/**
+ * Create a ClippingPlane from a Plane object.
+ * @param [plane] The plane containing parameters to copy
+ * @param [result] The object on which to store the result
+ * @return The ClippingPlane generated from the plane's parameters.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ClippingPlane.html#.fromPlane">Online Documentation</a>
+ */
+ fun fromPlane (
+ plane: Plane,
+ result: ClippingPlane? = definedExternally
+): ClippingPlane
 
-        /**
-         * Clones the ClippingPlane without setting its ownership.
-         * @param [clippingPlane] The ClippingPlane to be cloned
-         * @param [result] The object on which to store the cloned parameters.
-         * @return a clone of the input ClippingPlane
-         * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ClippingPlane.html#.clone">Online Documentation</a>
-         */
-        fun clone(
-            clippingPlane: ClippingPlane,
-            result: ClippingPlane? = definedExternally,
-        ): ClippingPlane
-    }
+/**
+ * Clones the ClippingPlane without setting its ownership.
+ * @param [clippingPlane] The ClippingPlane to be cloned
+ * @param [result] The object on which to store the cloned parameters.
+ * @return a clone of the input ClippingPlane
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ClippingPlane.html#.clone">Online Documentation</a>
+ */
+ fun clone (
+ clippingPlane: ClippingPlane,
+ result: ClippingPlane? = definedExternally
+): ClippingPlane
+}
 }

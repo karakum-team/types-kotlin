@@ -8,6 +8,6 @@ package web.svg
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGAnimatedInteger)
  */
 sealed external class SVGAnimatedInteger {
-    val animVal: Int
-    var baseVal: Int
+val animVal: Int
+var baseVal: Int
 }

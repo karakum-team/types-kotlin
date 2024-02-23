@@ -3,6 +3,6 @@
 package web.svg
 
 sealed external interface SVGAnimatedPoints {
-    val animatedPoints: SVGPointList
-    val points: SVGPointList
+val animatedPoints: SVGPointList
+val points: SVGPointList
 }

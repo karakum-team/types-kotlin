@@ -2,9 +2,12 @@
 
 package web.dom
 
-/**
- * Union of:
- * - `HTMLScriptElement`
- * - `SVGScriptElement`
- */
-external interface HTMLOrSVGScriptElement
+import web.dom.Element
+import web.dom.HTMLOrSVGScriptElement
+
+       /**
+* Union of:
+* - `HTMLScriptElement`
+* - `SVGScriptElement`
+*/    
+        external interface HTMLOrSVGScriptElement

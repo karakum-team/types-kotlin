@@ -2,16 +2,29 @@
 
 package react.dom.html
 
+import react.dom.aria.AriaAttributes
+import react.dom.aria.AriaRole    
+import react.dom.DOMAttributes
+import web.html.EnterKeyHint
+import web.html.InputType
+import web.html.Loading
+import web.http.ReferrerPolicy
+import web.window.WindowTarget
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
 import web.dom.Element
+import web.http.CrossOrigin
+import react.dom.events.*
 
 external interface ObjectHTMLAttributes<T : Element> : HTMLAttributes<T> {
-    var classID: String?
-    var data: String?
-    var form: String?
-    var height: Double?
-    var name: String?
-    var type: String?
-    var useMap: String?
-    var width: Double?
-    var wmode: String?
+var classID: String?
+var data: String?
+var form: String?
+var height: Double?
+var name: String?
+var type: String?
+var useMap: String?
+var width: Double?
+var wmode: String?
 }

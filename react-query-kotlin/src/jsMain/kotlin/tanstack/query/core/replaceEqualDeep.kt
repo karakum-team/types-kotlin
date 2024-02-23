@@ -4,7 +4,5 @@
 
 package tanstack.query.core
 
-external fun <T> replaceEqualDeep(
-    a: Any?,
-    b: T,
-): T
+external fun <T> replaceEqualDeep(a: Any? ,
+b: T ): T

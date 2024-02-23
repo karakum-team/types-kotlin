@@ -2,4 +2,6 @@
 
 package web.gl
 
-sealed external interface EXT_frag_depth
+sealed external interface EXT_frag_depth {
+
+}

@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isAccessor(node: Node): Boolean /* node is AccessorDeclaration */
+internal external fun  isAccessor(node: Node): Boolean /* node is AccessorDeclaration */

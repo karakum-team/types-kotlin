@@ -2,7 +2,11 @@
 
 package web.cssom
 
-sealed external interface ColorType :
-    ColorProperty,
-    AngularColorStop,
-    LinearColorStop
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+sealed external interface ColorType:
+ColorProperty,
+AngularColorStop,
+LinearColorStop

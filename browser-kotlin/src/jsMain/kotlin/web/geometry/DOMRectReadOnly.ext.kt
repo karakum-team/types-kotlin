@@ -2,5 +2,9 @@
 
 package web.geometry
 
-inline fun DOMRectReadOnly.asInit(): DOMRectInit =
+import web.geometry.DOMRect
+import web.geometry.DOMRectInit
+import web.geometry.DOMRectReadOnly
+
+inline fun DOMRectReadOnly.asInit(): DOMRectInit =    
     unsafeCast<DOMRectInit>()

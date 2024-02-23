@@ -6,7 +6,5 @@ package typescript
 
 import js.array.ReadonlyArray
 
-external fun getEffectiveTypeRoots(
-    options: CompilerOptions,
-    host: GetEffectiveTypeRootsHost,
-): ReadonlyArray<String>?
+external fun  getEffectiveTypeRoots(options: CompilerOptions,
+host: GetEffectiveTypeRootsHost): ReadonlyArray<String>?

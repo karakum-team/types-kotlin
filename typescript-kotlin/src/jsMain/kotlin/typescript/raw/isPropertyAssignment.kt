@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isPropertyAssignment(node: Node): Boolean /* node is PropertyAssignment */
+internal external fun  isPropertyAssignment(node: Node): Boolean /* node is PropertyAssignment */

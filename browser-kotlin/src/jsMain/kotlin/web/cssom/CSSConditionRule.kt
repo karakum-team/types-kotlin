@@ -8,9 +8,9 @@ package web.cssom
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSConditionRule)
  */
 sealed external class CSSConditionRule :
-    CSSGroupingRule {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSConditionRule/conditionText)
-     */
-    val conditionText: String
+CSSGroupingRule {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSConditionRule/conditionText)
+ */
+val conditionText: String
 }

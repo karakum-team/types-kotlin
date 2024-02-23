@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJsxSpreadAttribute(node: Node): Boolean /* node is JsxSpreadAttribute */
+internal external fun  isJsxSpreadAttribute(node: Node): Boolean /* node is JsxSpreadAttribute */

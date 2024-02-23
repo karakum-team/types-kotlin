@@ -4,4 +4,7 @@
 
 package typescript.raw
 
-internal external fun isStringLiteralLike(node: dynamic /* Node | FileReference */): Boolean /* node is StringLiteralLike */
+import typescript.Node
+import typescript.BindingName
+
+internal external fun  isStringLiteralLike(node: dynamic /* Node | FileReference */): Boolean /* node is StringLiteralLike */

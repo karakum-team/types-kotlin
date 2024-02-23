@@ -3,9 +3,10 @@
 package web.crypto
 
 import js.objects.JsPlainObject
+import web.crypto.Algorithm
 
 @JsPlainObject
 sealed external interface EcdsaParams :
-    Algorithm {
-    var hash: HashAlgorithmIdentifier
+Algorithm {
+var hash: HashAlgorithmIdentifier
 }

@@ -4,9 +4,9 @@ package popper.core
 
 import js.array.ReadonlyArray
 
-external interface Options {
-    var placement: Placement
-    var modifiers: ReadonlyArray<Modifier<*>>
-    var strategy: PositioningStrategy
-    var onFirstUpdate: UpdateCallback?
+external interface Options  {
+var placement: Placement
+var modifiers: ReadonlyArray<Modifier<*>>
+var strategy: PositioningStrategy
+var onFirstUpdate: UpdateCallback?
 }

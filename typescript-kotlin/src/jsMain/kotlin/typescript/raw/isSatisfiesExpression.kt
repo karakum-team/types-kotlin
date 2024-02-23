@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isSatisfiesExpression(node: Node): Boolean /* node is SatisfiesExpression */
+internal external fun  isSatisfiesExpression(node: Node): Boolean /* node is SatisfiesExpression */

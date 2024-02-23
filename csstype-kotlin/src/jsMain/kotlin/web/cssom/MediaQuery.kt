@@ -1,18 +1,22 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package web.cssom
 
-external interface MediaQuery
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+ external interface MediaQuery 
 
 inline fun MediaQuery(
     value: String,
 ): MediaQuery =
     value.unsafeCast<MediaQuery>()
-
+    
 infix fun MediaQuery.and(
     other: MediaQuery,
 ): MediaQuery =

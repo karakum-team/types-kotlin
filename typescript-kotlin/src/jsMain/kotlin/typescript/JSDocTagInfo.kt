@@ -4,7 +4,7 @@ package typescript
 
 import js.array.ReadonlyArray
 
-sealed external interface JSDocTagInfo {
-    var name: String
-    var text: ReadonlyArray<SymbolDisplayPart>?
+external sealed interface JSDocTagInfo {
+var name: String
+var text: ReadonlyArray<SymbolDisplayPart>?
 }

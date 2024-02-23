@@ -3,10 +3,32 @@
 @file:JsModule("cesium")
 
 @file:Suppress(
-    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+"EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
 package cesium
+
+import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
 
 /**
  * A viewport aligned quad.
@@ -15,53 +37,53 @@ package cesium
  * viewportQuad.material.uniforms.color = new Color(1.0, 0.0, 0.0, 1.0);
  * ```
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ViewportQuad.html">Online Documentation</a>
- *
+ * 
  * @constructor
  * @property [rectangle] The [BoundingRectangle] defining the quad's position within the viewport.
  * @property [material] The [Material] defining the surface appearance of the viewport quad.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ViewportQuad.html">Online Documentation</a>
  */
-external class ViewportQuad(
-    var rectangle: BoundingRectangle = definedExternally,
-    var material: Material = definedExternally,
-) {
-    /**
-     * Determines if the viewport quad primitive will be shown.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ViewportQuad.html#show">Online Documentation</a>
-     */
-    var show: Boolean
+external  class ViewportQuad (
+ var rectangle: BoundingRectangle = definedExternally,
+ var material: Material = definedExternally
+)  {
+/**
+ * Determines if the viewport quad primitive will be shown.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ViewportQuad.html#show">Online Documentation</a>
+ */
+var show: Boolean
 
-    /**
-     * Called when [Viewer] or [CesiumWidget] render the scene to
-     * get the draw commands needed to render this primitive.
-     *
-     * Do not call this function directly.  This is documented just to
-     * list the exceptions that may be propagated when the scene is rendered:
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ViewportQuad.html#update">Online Documentation</a>
-     */
-    fun update()
+/**
+ * Called when [Viewer] or [CesiumWidget] render the scene to
+ * get the draw commands needed to render this primitive.
+ * 
+ * Do not call this function directly.  This is documented just to
+ * list the exceptions that may be propagated when the scene is rendered:
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ViewportQuad.html#update">Online Documentation</a>
+ */
+ fun update ()
 
-    /**
-     * Returns true if this object was destroyed; otherwise, false.
-     *
-     * If this object was destroyed, it should not be used; calling any function other than
-     * `isDestroyed` will result in a [DeveloperError] exception.
-     * @return True if this object was destroyed; otherwise, false.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ViewportQuad.html#isDestroyed">Online Documentation</a>
-     */
-    fun isDestroyed(): Boolean
+/**
+ * Returns true if this object was destroyed; otherwise, false.
+ * 
+ * If this object was destroyed, it should not be used; calling any function other than
+ * `isDestroyed` will result in a [DeveloperError] exception.
+ * @return True if this object was destroyed; otherwise, false.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ViewportQuad.html#isDestroyed">Online Documentation</a>
+ */
+ fun isDestroyed (): Boolean
 
-    /**
-     * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
-     * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
-     *
-     * Once an object is destroyed, it should not be used; calling any function other than
-     * `isDestroyed` will result in a [DeveloperError] exception.  Therefore,
-     * assign the return value (`undefined`) to the object as done in the example.
-     * ```
-     * quad = quad && quad.destroy();
-     * ```
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ViewportQuad.html#destroy">Online Documentation</a>
-     */
-    fun destroy()
+/**
+ * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
+ * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+ * 
+ * Once an object is destroyed, it should not be used; calling any function other than
+ * `isDestroyed` will result in a [DeveloperError] exception.  Therefore,
+ * assign the return value (`undefined`) to the object as done in the example.
+ * ```
+ * quad = quad && quad.destroy();
+ * ```
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/ViewportQuad.html#destroy">Online Documentation</a>
+ */
+ fun destroy ()
 }

@@ -6,5 +6,5 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface AvcEncoderConfig {
-    var format: AvcBitstreamFormat?
+var format: AvcBitstreamFormat?
 }

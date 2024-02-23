@@ -17,8 +17,8 @@ package typescript
  * should be the options of the referenced project, not the referencing project.
  * @returns The final resolution mode of the import
  */
-external fun getModeForUsageLocation(
-    file: dynamic, /* { impliedNodeFormat?: ResolutionMode; } */
-    usage: StringLiteralLike,
+external fun  getModeForUsageLocation(
+    file: dynamic /* { impliedNodeFormat?: ResolutionMode; } */,
+usage: StringLiteralLike,
     compilerOptions: CompilerOptions,
 ): dynamic /* ModuleKind.CommonJS | ModuleKind.ESNext */

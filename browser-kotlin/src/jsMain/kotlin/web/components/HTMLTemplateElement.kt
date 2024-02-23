@@ -2,7 +2,10 @@
 
 package web.components
 
+import web.components.HTMLTemplateElement
+import web.dom.Document
 import web.dom.DocumentFragment
+import web.dom.Element
 import web.html.HTMLElement
 
 /**
@@ -10,14 +13,14 @@ import web.html.HTMLElement
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLTemplateElement)
  */
-open external class HTMLTemplateElement
-protected constructor() :
-    HTMLElement {
-    /**
-     * Returns the template contents (a DocumentFragment).
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLTemplateElement/content)
-     */
-    val content: DocumentFragment
-    var shadowRootMode: String
+open external class HTMLTemplateElement 
+protected constructor():
+HTMLElement {
+/**
+ * Returns the template contents (a DocumentFragment).
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLTemplateElement/content)
+ */
+val content: DocumentFragment
+var shadowRootMode: String
 }

@@ -1,7 +1,7 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package web.animations
@@ -9,19 +9,16 @@ package web.animations
 import seskar.js.JsValue
 import seskar.js.JsVirtual
 
-@JsVirtual
-sealed external interface PlaybackDirection {
-    companion object {
-        @JsValue("alternate")
-        val alternate: PlaybackDirection
-
-        @JsValue("alternate-reverse")
-        val alternateReverse: PlaybackDirection
-
-        @JsValue("normal")
-        val normal: PlaybackDirection
-
-        @JsValue("reverse")
-        val reverse: PlaybackDirection
-    }
-}
+        @JsVirtual
+        sealed external interface PlaybackDirection {
+            companion object {
+                @JsValue("alternate")    
+val alternate: PlaybackDirection
+@JsValue("alternate-reverse")    
+val alternateReverse: PlaybackDirection
+@JsValue("normal")    
+val normal: PlaybackDirection
+@JsValue("reverse")    
+val reverse: PlaybackDirection
+            }
+        }

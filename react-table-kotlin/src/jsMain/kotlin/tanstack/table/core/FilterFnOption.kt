@@ -1,19 +1,21 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package tanstack.table.core
 
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
 sealed external interface FilterFnOption<TData : RowData> /* 'auto' | BuiltInFilterFn | keyof FilterFns | FilterFn<TData> */
 
 inline fun <TData : RowData> FilterFnOption(
-    source: String, /* 'auto' */
-): FilterFnOption<TData> =
-    source.unsafeCast<FilterFnOption<TData>>()
+     source: String /* 'auto' */,
+): FilterFnOption<TData > =
+    source.unsafeCast<FilterFnOption<TData >>()
 
 inline fun <TData : RowData> FilterFnOption(
-    source: FilterFn<TData>,
-): FilterFnOption<TData> =
-    source.unsafeCast<FilterFnOption<TData>>()
+     source: FilterFn<TData>,
+): FilterFnOption<TData > =
+    source.unsafeCast<FilterFnOption<TData >>()

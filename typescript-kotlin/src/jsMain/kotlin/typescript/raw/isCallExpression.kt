@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isCallExpression(node: Node): Boolean /* node is CallExpression */
+internal external fun  isCallExpression(node: Node): Boolean /* node is CallExpression */

@@ -1,122 +1,126 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package web.cssom
 
-sealed external interface FilterFunction :
-    Filter,
-    BackdropFilter
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
 
-inline fun blur(
-    value: Number,
-): FilterFunction =
-    "blur($value)".unsafeCast<FilterFunction>()
+        sealed external interface FilterFunction:
+                Filter,
+BackdropFilter
 
-inline fun blur(
-    value: Length,
+    inline fun  blur(
+ value: Number,
 ): FilterFunction =
-    "blur($value)".unsafeCast<FilterFunction>()
+        "blur($value)".unsafeCast<FilterFunction>()
 
-inline fun brightness(
-    value: Number,
+    inline fun  blur(
+ value: Length,
 ): FilterFunction =
-    "brightness($value)".unsafeCast<FilterFunction>()
+        "blur($value)".unsafeCast<FilterFunction>()
 
-inline fun brightness(
-    value: Percentage,
+    inline fun  brightness(
+ value: Number,
 ): FilterFunction =
-    "brightness($value)".unsafeCast<FilterFunction>()
+        "brightness($value)".unsafeCast<FilterFunction>()
 
-inline fun contrast(
-    value: Number,
+    inline fun  brightness(
+ value: Percentage,
 ): FilterFunction =
-    "contrast($value)".unsafeCast<FilterFunction>()
+        "brightness($value)".unsafeCast<FilterFunction>()
 
-inline fun contrast(
-    value: Percentage,
+    inline fun  contrast(
+ value: Number,
 ): FilterFunction =
-    "contrast($value)".unsafeCast<FilterFunction>()
+        "contrast($value)".unsafeCast<FilterFunction>()
 
-inline fun dropShadow(
-    offsetX: Length,
-    offsetY: Length,
+    inline fun  contrast(
+ value: Percentage,
 ): FilterFunction =
-    "drop-shadow($offsetX $offsetY)".unsafeCast<FilterFunction>()
+        "contrast($value)".unsafeCast<FilterFunction>()
 
-inline fun dropShadow(
-    offsetX: Length,
-    offsetY: Length,
-    blurRadius: Length,
+    inline fun  dropShadow(
+ offsetX: Length,
+ offsetY: Length,
 ): FilterFunction =
-    "drop-shadow($offsetX $offsetY $blurRadius)".unsafeCast<FilterFunction>()
+        "drop-shadow($offsetX $offsetY)".unsafeCast<FilterFunction>()
 
-inline fun dropShadow(
-    offsetX: Length,
-    offsetY: Length,
-    blurRadius: Length,
-    color: Color,
+    inline fun  dropShadow(
+ offsetX: Length,
+ offsetY: Length,
+ blurRadius: Length,
 ): FilterFunction =
-    "drop-shadow($offsetX $offsetY $blurRadius $color)".unsafeCast<FilterFunction>()
+        "drop-shadow($offsetX $offsetY $blurRadius)".unsafeCast<FilterFunction>()
 
-inline fun grayscale(
-    value: Number,
+    inline fun  dropShadow(
+ offsetX: Length,
+ offsetY: Length,
+ blurRadius: Length,
+ color: Color,
 ): FilterFunction =
-    "grayscale($value)".unsafeCast<FilterFunction>()
+        "drop-shadow($offsetX $offsetY $blurRadius $color)".unsafeCast<FilterFunction>()
 
-inline fun grayscale(
-    value: Percentage,
+    inline fun  grayscale(
+ value: Number,
 ): FilterFunction =
-    "grayscale($value)".unsafeCast<FilterFunction>()
+        "grayscale($value)".unsafeCast<FilterFunction>()
 
-inline fun hueRotate(
-    value: Number,
+    inline fun  grayscale(
+ value: Percentage,
 ): FilterFunction =
-    "hue-rotate($value)".unsafeCast<FilterFunction>()
+        "grayscale($value)".unsafeCast<FilterFunction>()
 
-inline fun hueRotate(
-    value: Angle,
+    inline fun  hueRotate(
+ value: Number,
 ): FilterFunction =
-    "hue-rotate($value)".unsafeCast<FilterFunction>()
+        "hue-rotate($value)".unsafeCast<FilterFunction>()
 
-inline fun invert(
-    value: Number,
+    inline fun  hueRotate(
+ value: Angle,
 ): FilterFunction =
-    "invert($value)".unsafeCast<FilterFunction>()
+        "hue-rotate($value)".unsafeCast<FilterFunction>()
 
-inline fun invert(
-    value: Percentage,
+    inline fun  invert(
+ value: Number,
 ): FilterFunction =
-    "invert($value)".unsafeCast<FilterFunction>()
+        "invert($value)".unsafeCast<FilterFunction>()
 
-inline fun opacity(
-    value: Number,
+    inline fun  invert(
+ value: Percentage,
 ): FilterFunction =
-    "opacity($value)".unsafeCast<FilterFunction>()
+        "invert($value)".unsafeCast<FilterFunction>()
 
-inline fun opacity(
-    value: Percentage,
+    inline fun  opacity(
+ value: Number,
 ): FilterFunction =
-    "opacity($value)".unsafeCast<FilterFunction>()
+        "opacity($value)".unsafeCast<FilterFunction>()
 
-inline fun saturate(
-    value: Number,
+    inline fun  opacity(
+ value: Percentage,
 ): FilterFunction =
-    "saturate($value)".unsafeCast<FilterFunction>()
+        "opacity($value)".unsafeCast<FilterFunction>()
 
-inline fun saturate(
-    value: Percentage,
+    inline fun  saturate(
+ value: Number,
 ): FilterFunction =
-    "saturate($value)".unsafeCast<FilterFunction>()
+        "saturate($value)".unsafeCast<FilterFunction>()
 
-inline fun sepia(
-    value: Number,
+    inline fun  saturate(
+ value: Percentage,
 ): FilterFunction =
-    "sepia($value)".unsafeCast<FilterFunction>()
+        "saturate($value)".unsafeCast<FilterFunction>()
 
-inline fun sepia(
-    value: Percentage,
+    inline fun  sepia(
+ value: Number,
 ): FilterFunction =
-    "sepia($value)".unsafeCast<FilterFunction>()
+        "sepia($value)".unsafeCast<FilterFunction>()
+
+    inline fun  sepia(
+ value: Percentage,
+): FilterFunction =
+        "sepia($value)".unsafeCast<FilterFunction>()

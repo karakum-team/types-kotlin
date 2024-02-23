@@ -6,12 +6,12 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface CSSNumericType {
-    var angle: Int?
-    var flex: Int?
-    var frequency: Int?
-    var length: Int?
-    var percent: Int?
-    var percentHint: CSSNumericBaseType?
-    var resolution: Int?
-    var time: Int?
+var angle: Int?
+var flex: Int?
+var frequency: Int?
+var length: Int?
+var percent: Int?
+var percentHint: CSSNumericBaseType?
+var resolution: Int?
+var time: Int?
 }

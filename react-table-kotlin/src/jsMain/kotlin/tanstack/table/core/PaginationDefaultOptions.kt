@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
-external interface PaginationDefaultOptions {
-    var onPaginationChange: OnChangeFn<PaginationState>
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface PaginationDefaultOptions{
+var onPaginationChange: OnChangeFn<PaginationState>
 }

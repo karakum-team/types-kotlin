@@ -1,14 +1,16 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+"EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
 package web.media.key
 
 import js.buffer.ArrayBuffer
 import web.events.Event
+import web.events.EventInit
 import web.events.EventType
+import web.messaging.MessageEvent
 
 /**
  * This EncryptedMediaExtensions API interface contains the content and related data when the content decryption module generates a message for the session.
@@ -16,20 +18,19 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeyMessageEvent)
  */
-open external class MediaKeyMessageEvent(
-    override val type: EventType<MediaKeyMessageEvent>,
-    init: MediaKeyMessageEventInit,
+    open external class MediaKeyMessageEvent (
+override val type: EventType<MediaKeyMessageEvent>,
+init: MediaKeyMessageEventInit
 ) : Event,
-    MediaKeyMessageEventInit {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeyMessageEvent/message)
-     */
-    override val message: ArrayBuffer
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeyMessageEvent/messageType)
-     */
-    override val messageType: MediaKeyMessageType
-
-    companion object : MediaKeyMessageEventTypes
-}
+MediaKeyMessageEventInit {
+        /**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeyMessageEvent/message)
+ */
+override val message: ArrayBuffer
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeyMessageEvent/messageType)
+ */
+override val messageType: MediaKeyMessageType
+    
+        companion object : MediaKeyMessageEventTypes
+    }

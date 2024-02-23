@@ -2,6 +2,9 @@
 
 package react.dom.events
 
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
 typealias EventHandler<E> = (event: E) -> Unit
 
 typealias ReactEventHandler<T> = EventHandler<SyntheticEvent<T, *>>

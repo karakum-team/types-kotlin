@@ -6,7 +6,5 @@ package typescript
 
 import js.array.ReadonlyArray
 
-external fun formatDiagnosticsWithColorAndContext(
-    diagnostics: ReadonlyArray<Diagnostic>,
-    host: FormatDiagnosticsHost,
-): String
+external fun  formatDiagnosticsWithColorAndContext(diagnostics: ReadonlyArray<Diagnostic>,
+host: FormatDiagnosticsHost): String

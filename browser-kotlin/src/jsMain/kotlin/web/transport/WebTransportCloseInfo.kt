@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface WebTransportCloseInfo {
-    var closeCode: Int?
-    var reason: String?
+var closeCode: Int?
+var reason: String?
 }

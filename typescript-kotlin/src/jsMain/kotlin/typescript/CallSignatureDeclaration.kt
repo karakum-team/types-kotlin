@@ -2,7 +2,6 @@
 
 package typescript
 
-sealed external interface CallSignatureDeclaration : SignatureDeclarationBase, TypeElement, LocalsContainer,
-    Union.CallSignatureDeclaration_ {
-    override val kind: SyntaxKind.CallSignature
+external sealed interface CallSignatureDeclaration : SignatureDeclarationBase, TypeElement, LocalsContainer, Union.CallSignatureDeclaration_ {
+override val kind: SyntaxKind.CallSignature
 }

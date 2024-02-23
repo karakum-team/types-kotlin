@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface VideoDecoderSupport {
-    var config: VideoDecoderConfig?
-    var supported: Boolean?
+var config: VideoDecoderConfig?
+var supported: Boolean?
 }

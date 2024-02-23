@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isYieldExpression(node: Node): Boolean /* node is YieldExpression */
+internal external fun  isYieldExpression(node: Node): Boolean /* node is YieldExpression */

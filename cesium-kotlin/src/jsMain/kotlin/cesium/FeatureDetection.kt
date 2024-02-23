@@ -4,80 +4,102 @@
 
 package cesium
 
+import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
+
 /**
  * A set of functions to detect whether the current browser supports
  * various features.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html">Online Documentation</a>
  */
-external object FeatureDetection {
-    /**
-     * Detects whether the current browser supports Basis Universal textures and the web assembly modules needed to transcode them.
-     * @return true if the browser supports web assembly modules and the scene supports Basis Universal textures, false if not.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsBasis">Online Documentation</a>
-     */
-    fun supportsBasis(scene: Scene): Boolean
+external  object FeatureDetection   {
+/**
+ * Detects whether the current browser supports Basis Universal textures and the web assembly modules needed to transcode them.
+ * @return true if the browser supports web assembly modules and the scene supports Basis Universal textures, false if not.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsBasis">Online Documentation</a>
+ */
+ fun supportsBasis ( scene: Scene): Boolean
 
-    /**
-     * Detects whether the current browser supports the full screen standard.
-     * @return true if the browser supports the full screen standard, false if not.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsFullscreen">Online Documentation</a>
-     */
-    fun supportsFullscreen(): Boolean
+/**
+ * Detects whether the current browser supports the full screen standard.
+ * @return true if the browser supports the full screen standard, false if not.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsFullscreen">Online Documentation</a>
+ */
+ fun supportsFullscreen (): Boolean
 
-    /**
-     * Detects whether the current browser supports typed arrays.
-     * @return true if the browser supports typed arrays, false if not.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsTypedArrays">Online Documentation</a>
-     */
-    fun supportsTypedArrays(): Boolean
+/**
+ * Detects whether the current browser supports typed arrays.
+ * @return true if the browser supports typed arrays, false if not.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsTypedArrays">Online Documentation</a>
+ */
+ fun supportsTypedArrays (): Boolean
 
-    /**
-     * Detects whether the current browser supports BigInt64Array typed arrays.
-     * @return true if the browser supports BigInt64Array typed arrays, false if not.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsBigInt64Array">Online Documentation</a>
-     */
-    fun supportsBigInt64Array(): Boolean
+/**
+ * Detects whether the current browser supports BigInt64Array typed arrays.
+ * @return true if the browser supports BigInt64Array typed arrays, false if not.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsBigInt64Array">Online Documentation</a>
+ */
+ fun supportsBigInt64Array (): Boolean
 
-    /**
-     * Detects whether the current browser supports BigUint64Array typed arrays.
-     * @return true if the browser supports BigUint64Array typed arrays, false if not.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsBigUint64Array">Online Documentation</a>
-     */
-    fun supportsBigUint64Array(): Boolean
+/**
+ * Detects whether the current browser supports BigUint64Array typed arrays.
+ * @return true if the browser supports BigUint64Array typed arrays, false if not.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsBigUint64Array">Online Documentation</a>
+ */
+ fun supportsBigUint64Array (): Boolean
 
-    /**
-     * Detects whether the current browser supports BigInt.
-     * @return true if the browser supports BigInt, false if not.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsBigInt">Online Documentation</a>
-     */
-    fun supportsBigInt(): Boolean
+/**
+ * Detects whether the current browser supports BigInt.
+ * @return true if the browser supports BigInt, false if not.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsBigInt">Online Documentation</a>
+ */
+ fun supportsBigInt (): Boolean
 
-    /**
-     * Detects whether the current browser supports Web Workers.
-     * @return true if the browsers supports Web Workers, false if not.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsWebWorkers">Online Documentation</a>
-     */
-    fun supportsWebWorkers(): Boolean
+/**
+ * Detects whether the current browser supports Web Workers.
+ * @return true if the browsers supports Web Workers, false if not.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsWebWorkers">Online Documentation</a>
+ */
+ fun supportsWebWorkers (): Boolean
 
-    /**
-     * Detects whether the current browser supports Web Assembly.
-     * @return true if the browsers supports Web Assembly, false if not.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsWebAssembly">Online Documentation</a>
-     */
-    fun supportsWebAssembly(): Boolean
+/**
+ * Detects whether the current browser supports Web Assembly.
+ * @return true if the browsers supports Web Assembly, false if not.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsWebAssembly">Online Documentation</a>
+ */
+ fun supportsWebAssembly (): Boolean
 
-    /**
-     * Detects whether the current browser supports a WebGL2 rendering context for the specified scene.
-     * @param [scene] the Cesium scene specifying the rendering context
-     * @return true if the browser supports a WebGL2 rendering context, false if not.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsWebgl2">Online Documentation</a>
-     */
-    fun supportsWebgl2(scene: Scene): Boolean
+/**
+ * Detects whether the current browser supports a WebGL2 rendering context for the specified scene.
+ * @param [scene] the Cesium scene specifying the rendering context
+ * @return true if the browser supports a WebGL2 rendering context, false if not.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsWebgl2">Online Documentation</a>
+ */
+ fun supportsWebgl2 ( scene: Scene): Boolean
 
-    /**
-     * Detects whether the current browser supports ECMAScript modules in web workers.
-     * @return true if the browser supports ECMAScript modules in web workers.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsEsmWebWorkers">Online Documentation</a>
-     */
-    fun supportsEsmWebWorkers(): Boolean
+/**
+ * Detects whether the current browser supports ECMAScript modules in web workers.
+ * @return true if the browser supports ECMAScript modules in web workers.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/FeatureDetection.html#.supportsEsmWebWorkers">Online Documentation</a>
+ */
+ fun supportsEsmWebWorkers (): Boolean
 }

@@ -6,5 +6,5 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface PermissionDescriptor {
-    var name: PermissionName
+var name: PermissionName
 }

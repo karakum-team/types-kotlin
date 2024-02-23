@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface FreshableType : Type {
-    var freshType: FreshableType
-    var regularType: FreshableType
+external sealed interface FreshableType : Type {
+var freshType: FreshableType
+var regularType: FreshableType
 }

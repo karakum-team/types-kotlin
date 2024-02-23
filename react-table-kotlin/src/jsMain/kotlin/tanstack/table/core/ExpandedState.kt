@@ -1,21 +1,22 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package tanstack.table.core
 
 import js.objects.ReadonlyRecord
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
 
 sealed external interface ExpandedState /* true | Record<string, boolean> */
 
-inline fun ExpandedState(
-    source: Boolean, /* true */
+inline fun  ExpandedState(
+     source: Boolean /* true */,
 ): ExpandedState =
     source.unsafeCast<ExpandedState>()
 
-inline fun ExpandedState(
-    source: ReadonlyRecord<String, Boolean>,
+inline fun  ExpandedState(
+     source: ReadonlyRecord<String, Boolean>,
 ): ExpandedState =
     source.unsafeCast<ExpandedState>()

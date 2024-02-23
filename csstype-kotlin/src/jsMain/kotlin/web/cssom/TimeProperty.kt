@@ -2,5 +2,9 @@
 
 package web.cssom
 
-sealed external interface TimeProperty :
-    Transition
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+sealed external interface TimeProperty:
+Transition

@@ -4,7 +4,7 @@ package typescript
 
 import js.array.ReadonlyArray
 
-sealed external interface DefinitionInfoAndBoundSpan {
-    var definitions: ReadonlyArray<DefinitionInfo>?
-    var textSpan: TextSpan
+external sealed interface DefinitionInfoAndBoundSpan {
+var definitions: ReadonlyArray<DefinitionInfo>?
+var textSpan: TextSpan
 }

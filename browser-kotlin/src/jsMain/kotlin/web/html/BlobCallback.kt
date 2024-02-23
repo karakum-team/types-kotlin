@@ -5,5 +5,4 @@ package web.html
 import web.blob.Blob
 
 typealias BlobCallback = (
-    blob: Blob?,
-) -> Unit
+blob: Blob?) -> Unit

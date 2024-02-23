@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface GlobalDescriptor<T> {
-    var mutable: Boolean?
-    var value: ValueType<T>
+var mutable: Boolean?
+var value: ValueType<T>
 }

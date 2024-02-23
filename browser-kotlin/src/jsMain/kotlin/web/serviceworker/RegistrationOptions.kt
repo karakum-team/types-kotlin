@@ -3,11 +3,12 @@
 package web.serviceworker
 
 import js.objects.JsPlainObject
+import web.workers.Worker
 import web.workers.WorkerType
 
 @JsPlainObject
 sealed external interface RegistrationOptions {
-    var scope: String?
-    var type: WorkerType?
-    var updateViaCache: ServiceWorkerUpdateViaCache?
+var scope: String?
+var type: WorkerType?
+var updateViaCache: ServiceWorkerUpdateViaCache?
 }

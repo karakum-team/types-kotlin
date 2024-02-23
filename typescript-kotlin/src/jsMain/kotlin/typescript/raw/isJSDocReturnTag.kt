@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocReturnTag(node: Node): Boolean /* node is JSDocReturnTag */
+internal external fun  isJSDocReturnTag(node: Node): Boolean /* node is JSDocReturnTag */

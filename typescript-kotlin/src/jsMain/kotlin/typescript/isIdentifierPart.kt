@@ -4,8 +4,6 @@
 
 package typescript
 
-external fun isIdentifierPart(
-    ch: Int,
-    languageVersion: ScriptTarget?,
-    identifierVariant: LanguageVariant = definedExternally,
-): Boolean
+external fun  isIdentifierPart(ch: Int,
+languageVersion: ScriptTarget?,
+identifierVariant: LanguageVariant = definedExternally): Boolean

@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface ReferencedSymbolEntry : ReferenceEntry {
-    var isDefinition: Boolean?
+external sealed interface ReferencedSymbolEntry : ReferenceEntry {
+var isDefinition: Boolean?
 }

@@ -1,42 +1,46 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package web.cssom
 
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
 inline fun Color(
-    value: String,
+     value: String,
 ): Color =
     value.unsafeCast<Color>()
 
-inline fun rgb(
-    red: Int,
-    green: Int,
-    blue: Int,
+    inline fun  rgb(
+ red: Int,
+ green: Int,
+ blue: Int,
 ): Color =
-    "rgb($red $green $blue)".unsafeCast<Color>()
+        "rgb($red $green $blue)".unsafeCast<Color>()
 
-inline fun rgb(
-    red: Int,
-    green: Int,
-    blue: Int,
-    alpha: Double,
+    inline fun  rgb(
+ red: Int,
+ green: Int,
+ blue: Int,
+ alpha: Double,
 ): Color =
-    "rgb($red $green $blue / $alpha)".unsafeCast<Color>()
+        "rgb($red $green $blue / $alpha)".unsafeCast<Color>()
 
-inline fun oklch(
-    l: Percentage,
-    c: Double,
-    h: Double,
+    inline fun  oklch(
+ l: Percentage,
+ c: Double,
+ h: Double,
 ): Color =
-    "oklch($l $c $h)".unsafeCast<Color>()
+        "oklch($l $c $h)".unsafeCast<Color>()
 
-inline fun oklch(
-    l: Percentage,
-    c: Double,
-    h: Double,
-    a: Double,
+    inline fun  oklch(
+ l: Percentage,
+ c: Double,
+ h: Double,
+ a: Double,
 ): Color =
-    "oklch($l $c $h / $a)".unsafeCast<Color>()
+        "oklch($l $c $h / $a)".unsafeCast<Color>()

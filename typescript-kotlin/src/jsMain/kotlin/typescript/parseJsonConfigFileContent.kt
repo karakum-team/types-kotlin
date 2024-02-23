@@ -14,14 +14,12 @@ import js.collections.JsMap
  * @param basePath A root directory to resolve relative path entries in the config
  *    file to. e.g. outDir
  */
-external fun parseJsonConfigFileContent(
-    json: Any,
-    host: ParseConfigHost,
-    basePath: String,
-    existingOptions: CompilerOptions = definedExternally,
-    configFileName: String = definedExternally,
-    resolutionStack: ReadonlyArray<Path> = definedExternally,
-    extraFileExtensions: ReadonlyArray<FileExtensionInfo> = definedExternally,
-    extendedConfigCache: JsMap<String, ExtendedConfigCacheEntry> = definedExternally,
-    existingWatchOptions: WatchOptions = definedExternally,
-): ParsedCommandLine
+external fun  parseJsonConfigFileContent(json: Any,
+host: ParseConfigHost,
+basePath: String,
+existingOptions: CompilerOptions = definedExternally,
+configFileName: String = definedExternally,
+resolutionStack: ReadonlyArray<Path> = definedExternally,
+extraFileExtensions: ReadonlyArray<FileExtensionInfo> = definedExternally,
+extendedConfigCache: JsMap<String, ExtendedConfigCacheEntry> = definedExternally,
+existingWatchOptions: WatchOptions = definedExternally): ParsedCommandLine

@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface EvolvingArrayType : ObjectType {
-    var elementType: Type
-    var finalArrayType: Type?
+external sealed interface EvolvingArrayType : ObjectType {
+var elementType: Type
+var finalArrayType: Type?
 }

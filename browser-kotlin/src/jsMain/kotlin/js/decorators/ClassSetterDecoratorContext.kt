@@ -10,7 +10,7 @@ import js.objects.PropertyKey
  * the type of the constructor. For a non-static class element, this will be the type of the instance.
  * @template Value The type of the decorated class setter.
  */
-sealed external interface ClassSetterDecoratorContext<This : Any, Value : Any> {
+sealed external interface ClassSetterDecoratorContext<This: Any, Value: Any> {
     /** The kind of class element that was decorated. */
     val kind: DecoratorContextKind.setter
 
@@ -26,12 +26,10 @@ sealed external interface ClassSetterDecoratorContext<This : Any, Value : Any> {
     /** An object that can be used to access the current value of the class element at runtime. */
     val access: Access<This, Value>
 
-    interface Access<This : Any, Value : Any> {
-        /**
+interface Access<This: Any, Value: Any> {        /**
          * Determines whether an object has a property with the same name as the decorated element.
          */
         fun has(o: This): Boolean
-
         /**
          * Invokes the setter on the provided object.
          *
@@ -39,7 +37,7 @@ sealed external interface ClassSetterDecoratorContext<This : Any, Value : Any> {
          * context.access.set(instance, value);
          */
         fun set(o: This, value: Value)
-    }
+    };
 
     /**
      * Adds a callback to be invoked either before static initializers are run (when
@@ -48,5 +46,5 @@ sealed external interface ClassSetterDecoratorContext<This : Any, Value : Any> {
      */
     fun addInitializer(initializer: (/* this: This */) -> Unit)
 
-    val metadata: DecoratorMetadata
+    val metadata: DecoratorMetadata;
 }

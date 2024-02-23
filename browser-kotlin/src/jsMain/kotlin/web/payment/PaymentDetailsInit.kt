@@ -6,7 +6,7 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface PaymentDetailsInit :
-    PaymentDetailsBase {
-    var id: String?
-    var total: PaymentItem
+PaymentDetailsBase {
+var id: String?
+var total: PaymentItem
 }

@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isIntersectionTypeNode(node: Node): Boolean /* node is IntersectionTypeNode */
+internal external fun  isIntersectionTypeNode(node: Node): Boolean /* node is IntersectionTypeNode */

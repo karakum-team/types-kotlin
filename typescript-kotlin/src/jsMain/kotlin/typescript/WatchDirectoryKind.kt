@@ -1,27 +1,24 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package typescript
 
-import seskar.js.JsIntValue
 import seskar.js.JsVirtual
+import seskar.js.JsIntValue
 
-@JsVirtual
-sealed external interface WatchDirectoryKind {
-    companion object {
-        @JsIntValue(0)
-        val UseFsEvents: WatchDirectoryKind
-
-        @JsIntValue(1)
-        val FixedPollingInterval: WatchDirectoryKind
-
-        @JsIntValue(2)
-        val DynamicPriorityPolling: WatchDirectoryKind
-
-        @JsIntValue(3)
-        val FixedChunkSizePolling: WatchDirectoryKind
-    }
-}
+        @JsVirtual
+        sealed external interface WatchDirectoryKind {
+            companion object {
+            @JsIntValue(0)
+val UseFsEvents: WatchDirectoryKind
+@JsIntValue(1)
+val FixedPollingInterval: WatchDirectoryKind
+@JsIntValue(2)
+val DynamicPriorityPolling: WatchDirectoryKind
+@JsIntValue(3)
+val FixedChunkSizePolling: WatchDirectoryKind
+            }
+        }

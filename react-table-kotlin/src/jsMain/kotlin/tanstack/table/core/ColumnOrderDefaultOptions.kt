@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
-external interface ColumnOrderDefaultOptions {
-    var onColumnOrderChange: OnChangeFn<ColumnOrderState>
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface ColumnOrderDefaultOptions{
+var onColumnOrderChange: OnChangeFn<ColumnOrderState>
 }

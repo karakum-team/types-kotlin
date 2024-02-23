@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface UpdateExpression : UnaryExpression {
-    var _updateExpressionBrand: Any
+external sealed interface UpdateExpression : UnaryExpression {
+var _updateExpressionBrand: Any
 }

@@ -2,9 +2,11 @@
 
 package web.streams
 
-/**
- * Union of:
- * - `ReadableStreamDefaultController`
- * - `ReadableByteStreamController`
- */
-sealed external interface ReadableStreamController<T>
+import web.streams.ReadableStream
+
+       /**
+* Union of:
+* - `ReadableStreamDefaultController`
+* - `ReadableByteStreamController`
+*/    
+       sealed external interface ReadableStreamController<T>

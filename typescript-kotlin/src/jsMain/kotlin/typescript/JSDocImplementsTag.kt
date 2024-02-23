@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface JSDocImplementsTag : JSDocTag {
+external sealed interface JSDocImplementsTag : JSDocTag {
     /*
     readonly kind: SyntaxKind.JSDocImplementsTag;
     readonly class: ExpressionWithTypeArguments & {

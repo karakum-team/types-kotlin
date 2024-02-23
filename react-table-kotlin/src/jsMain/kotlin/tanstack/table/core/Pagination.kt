@@ -4,4 +4,6 @@
 
 package tanstack.table.core
 
-external val Pagination: TableFeature
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external val Pagination: TableFeature;

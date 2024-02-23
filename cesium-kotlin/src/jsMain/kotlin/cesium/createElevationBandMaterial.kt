@@ -4,11 +4,31 @@
 
 package cesium
 
+import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
 import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
 
 /**
  * Creates a [Material] that combines multiple layers of color/gradient bands and maps them to terrain heights.
- *
+ * 
  * The shader does a binary search over all the heights to find out which colors are above and below a given height, and
  * interpolates between them for the final color. This material supports hundreds of entries relatively cheaply.
  * ```
@@ -38,13 +58,13 @@ import js.array.ReadonlyArray
  * @return A new [Material] instance.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/global.html#createElevationBandMaterial">Online Documentation</a>
  */
-external fun createElevationBandMaterial(options: CreateElevationBandMaterialOptions): Material
+external  fun createElevationBandMaterial ( options: CreateElevationBandMaterialOptions): Material
 
 /**
  * @property [scene] The scene where the visualization is taking place.
  * @property [layers] A list of bands ordered from lowest to highest precedence.
  */
-external interface CreateElevationBandMaterialOptions {
-    var scene: Scene
-    var layers: ReadonlyArray<createElevationBandMaterialBand>
+external  interface CreateElevationBandMaterialOptions {
+var  scene: Scene
+var  layers: ReadonlyArray<createElevationBandMaterialBand>
 }

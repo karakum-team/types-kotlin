@@ -4,7 +4,5 @@
 
 package typescript
 
-external fun isInternalDeclaration(
-    node: Node,
-    sourceFile: SourceFile = definedExternally,
-): Boolean
+external fun  isInternalDeclaration(node: Node,
+sourceFile: SourceFile = definedExternally): Boolean

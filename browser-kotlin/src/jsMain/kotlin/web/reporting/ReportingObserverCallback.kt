@@ -5,6 +5,5 @@ package web.reporting
 import js.array.ReadonlyArray
 
 typealias ReportingObserverCallback = (
-    reports: ReadonlyArray<Report>,
-    observer: ReportingObserver,
-) -> Unit
+reports: ReadonlyArray<Report>,
+observer: ReportingObserver) -> Unit

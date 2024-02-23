@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun canHaveModifiers(node: Node): Boolean /* node is HasModifiers */
+internal external fun  canHaveModifiers(node: Node): Boolean /* node is HasModifiers */

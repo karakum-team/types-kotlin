@@ -2,7 +2,9 @@
 
 package tanstack.table.core
 
-external interface AccessorKeyColumnDefBase<TData : RowData, TValue> : ColumnDefBase<TData, TValue> {
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface AccessorKeyColumnDefBase<TData : RowData, TValue> : ColumnDefBase<TData, TValue>{
     /* var id: String? */
-    var accessorKey: String /* keyof TData */
+var accessorKey: String /* keyof TData */
 }

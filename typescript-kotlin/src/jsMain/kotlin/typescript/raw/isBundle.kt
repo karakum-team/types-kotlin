@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isBundle(node: Node): Boolean /* node is Bundle */
+internal external fun  isBundle(node: Node): Boolean /* node is Bundle */

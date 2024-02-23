@@ -4,20 +4,22 @@ package web.uievents
 
 import js.array.ReadonlyArray
 import js.objects.JsPlainObject
+import web.events.Event
+import web.events.EventInit
 
 @JsPlainObject
 external interface PointerEventInit :
-    MouseEventInit {
-    val coalescedEvents: ReadonlyArray<PointerEvent>?
-    val height: Double?
-    val isPrimary: Boolean?
-    val pointerId: Int?
-    val pointerType: String?
-    val predictedEvents: ReadonlyArray<PointerEvent>?
-    val pressure: Float?
-    val tangentialPressure: Float?
-    val tiltX: Int?
-    val tiltY: Int?
-    val twist: Int?
-    val width: Double?
+MouseEventInit  {
+val coalescedEvents: ReadonlyArray<PointerEvent>?
+val height: Double?
+val isPrimary: Boolean?
+val pointerId: Int?
+val pointerType: String?
+val predictedEvents: ReadonlyArray<PointerEvent>?
+val pressure: Float?
+val tangentialPressure: Float?
+val tiltX: Int?
+val tiltY: Int?
+val twist: Int?
+val width: Double?
 }

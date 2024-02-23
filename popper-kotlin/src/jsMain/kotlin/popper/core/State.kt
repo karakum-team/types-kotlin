@@ -4,7 +4,7 @@ package popper.core
 
 import js.array.ReadonlyArray
 
-external interface State {
+external interface State  {
     val elements: dynamic /* {
         reference: Element | VirtualElement;
         popper: HTMLElement;

@@ -8,6 +8,6 @@ package web.svg
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGAnimatedNumberList)
  */
 sealed external class SVGAnimatedNumberList {
-    val animVal: SVGNumberList
-    val baseVal: SVGNumberList
+val animVal: SVGNumberList
+val baseVal: SVGNumberList
 }

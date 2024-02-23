@@ -4,4 +4,6 @@
 
 package tanstack.table.core
 
-external fun <TData : RowData> getSortedRowModel(): (table: Table<TData>) -> () -> RowModel<TData>
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external fun <TData : RowData> getSortedRowModel(): (table: Table<TData>) -> () -> RowModel<TData>;

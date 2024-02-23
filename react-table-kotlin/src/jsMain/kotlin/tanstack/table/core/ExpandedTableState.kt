@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
-external interface ExpandedTableState {
-    var expanded: ExpandedState
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface ExpandedTableState{
+var expanded: ExpandedState
 }

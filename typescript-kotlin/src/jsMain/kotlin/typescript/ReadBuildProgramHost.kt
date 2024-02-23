@@ -2,8 +2,8 @@
 
 package typescript
 
-sealed external interface ReadBuildProgramHost {
-    fun useCaseSensitiveFileNames(): Boolean
-    fun getCurrentDirectory(): String
-    fun readFile(fileName: String): String?
+external sealed interface ReadBuildProgramHost {
+fun  useCaseSensitiveFileNames(): Boolean
+fun  getCurrentDirectory(): String
+fun  readFile(fileName: String): String?
 }

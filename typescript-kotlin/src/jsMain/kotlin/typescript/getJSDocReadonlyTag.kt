@@ -5,4 +5,4 @@
 package typescript
 
 /** Gets the JSDoc protected tag for the node if present */
-external fun getJSDocReadonlyTag(node: Node): JSDocReadonlyTag?
+external fun  getJSDocReadonlyTag(node: Node): JSDocReadonlyTag?

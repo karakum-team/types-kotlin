@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocNullableType(node: Node): Boolean /* node is JSDocNullableType */
+internal external fun  isJSDocNullableType(node: Node): Boolean /* node is JSDocNullableType */

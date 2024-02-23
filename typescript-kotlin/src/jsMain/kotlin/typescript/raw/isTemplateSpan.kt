@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isTemplateSpan(node: Node): Boolean /* node is TemplateSpan */
+internal external fun  isTemplateSpan(node: Node): Boolean /* node is TemplateSpan */

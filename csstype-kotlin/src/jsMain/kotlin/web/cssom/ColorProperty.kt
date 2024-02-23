@@ -2,13 +2,17 @@
 
 package web.cssom
 
-sealed external interface ColorProperty :
-    AccentColor,
-    Background,
-    Border,
-    Caret,
-    CaretColor,
-    Outline,
-    OutlineColor,
-    TextDecoration,
-    TextEmphasis
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+sealed external interface ColorProperty:
+AccentColor,
+Background,
+Border,
+Caret,
+CaretColor,
+Outline,
+OutlineColor,
+TextDecoration,
+TextEmphasis

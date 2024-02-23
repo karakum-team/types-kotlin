@@ -3,9 +3,10 @@
 package web.media.streams
 
 import js.objects.JsPlainObject
+import web.ranges.Range
 
 @JsPlainObject
 sealed external interface ULongRange {
-    var max: Int?
-    var min: Int?
+var max: Int?
+var min: Int?
 }

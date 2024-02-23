@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isSyntheticExpression(node: Node): Boolean /* node is SyntheticExpression */
+internal external fun  isSyntheticExpression(node: Node): Boolean /* node is SyntheticExpression */

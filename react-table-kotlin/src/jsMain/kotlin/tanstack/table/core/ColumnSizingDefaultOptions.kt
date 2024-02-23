@@ -2,5 +2,6 @@
 
 package tanstack.table.core
 
-sealed external interface ColumnSizingDefaultOptions :
-    ColumnSizingOptions /* Pick<ColumnSizingOptions, 'columnResizeMode' | 'onColumnSizingChange' | 'onColumnSizingInfoChange' | 'columnResizeDirection'> */
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+sealed external interface ColumnSizingDefaultOptions : ColumnSizingOptions /* Pick<ColumnSizingOptions, 'columnResizeMode' | 'onColumnSizingChange' | 'onColumnSizingInfoChange' | 'columnResizeDirection'> */

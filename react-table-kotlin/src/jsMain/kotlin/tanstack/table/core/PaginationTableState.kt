@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
-external interface PaginationTableState {
-    var pagination: PaginationState
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface PaginationTableState{
+var pagination: PaginationState
 }

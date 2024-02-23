@@ -1,15 +1,17 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package tanstack.table.core
 
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
 sealed external interface Updater<T> /* T | ((old: T) -> T) */
 
 inline fun <T> Updater(
-    source: T,
+     source: T,
 ): Updater<T> =
     source.unsafeCast<Updater<T>>()
 

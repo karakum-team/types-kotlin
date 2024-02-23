@@ -3,14 +3,16 @@
 package web.rtc
 
 import js.objects.JsPlainObject
+import web.errors.ErrorEvent
+import web.events.Event
 import web.events.EventInit
 
 @JsPlainObject
 external interface RTCPeerConnectionIceErrorEventInit :
-    EventInit {
-    val address: String?
-    val errorCode: Short
-    val errorText: String?
-    val port: Short?
-    val url: String?
+EventInit  {
+val address: String?
+val errorCode: Short
+val errorText: String?
+val port: Short?
+val url: String?
 }

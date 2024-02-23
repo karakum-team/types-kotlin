@@ -2,6 +2,7 @@
 
 package web.streams
 
+import js.buffer.ArrayBuffer
 import js.buffer.ArrayBufferView
 
 /**
@@ -9,16 +10,15 @@ import js.buffer.ArrayBufferView
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ByteLengthQueuingStrategy)
  */
-external class ByteLengthQueuingStrategy(
-    init: QueuingStrategyInit,
-) : QueuingStrategy<ArrayBufferView> {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ByteLengthQueuingStrategy/highWaterMark)
-     */
-    override val highWaterMark: Double
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ByteLengthQueuingStrategy/size)
-     */
-    override val size: QueuingStrategySize<ArrayBufferView>
+ external class ByteLengthQueuingStrategy (
+init: QueuingStrategyInit
+):QueuingStrategy<ArrayBufferView> {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ByteLengthQueuingStrategy/highWaterMark)
+ */
+override val highWaterMark: Double
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ByteLengthQueuingStrategy/size)
+ */
+override val size: QueuingStrategySize<ArrayBufferView>
 }

@@ -3,5 +3,4 @@
 package web.audio
 
 typealias DecodeSuccessCallback = (
-    decodedData: AudioBuffer,
-) -> Unit
+decodedData: AudioBuffer) -> Unit

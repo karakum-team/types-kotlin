@@ -2,13 +2,32 @@
 
 package actions.io
 
+import js.promise.Promise
+import js.promise.await
+import js.collections.ReadonlyMap
+import js.core.BigInt
+import js.core.JsLong
+import js.objects.Record
+import js.array.ReadonlyArray
+import js.core.Void
+import js.errors.JsError
+import node.buffer.Buffer
+import node.http.IncomingHttpHeaders
+import node.http.OutgoingHttpHeaders
+import web.url.URL
+
+import actions.http.client.HttpClient
+import actions.http.client.HttpClientResponse
+
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
 sealed external interface CopyOptions {
     /** Optional. Whether to recursively copy all subdirectories. Defaults to false */
     var recursive: Boolean?
-
     /** Optional. Whether to overwrite existing files in the destination. Defaults to true */
     var force: Boolean?
-
     /** Optional. Whether to copy the source directory along with all the files. Only takes effect when recursive=true and copying a directory. Default is true*/
     var copySourceDirectory: Boolean?
 }

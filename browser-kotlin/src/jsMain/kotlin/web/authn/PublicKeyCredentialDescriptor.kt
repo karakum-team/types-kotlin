@@ -8,7 +8,7 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface PublicKeyCredentialDescriptor {
-    var id: BufferSource
-    var transports: ReadonlyArray<AuthenticatorTransport>?
-    var type: PublicKeyCredentialType
+var id: BufferSource
+var transports: ReadonlyArray<AuthenticatorTransport>?
+var type: PublicKeyCredentialType
 }

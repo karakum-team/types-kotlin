@@ -5,6 +5,26 @@
 package cesium
 
 import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
 
 /**
  * Exports an EntityCollection as a KML document. Only Point, Billboard, Model, Path, Polygon, Polyline geometries
@@ -21,7 +41,7 @@ import js.promise.Promise
  *  })
  *   .then(function(result) {
  *     // The XML string is in result.kml
- *
+ * 
  *     const externalFiles = result.externalFiles
  *     for(const file in externalFiles) {
  *       // file is the name of the file used in the KML document as the href
@@ -32,7 +52,7 @@ import js.promise.Promise
  * @return A promise that resolved to an object containing the KML string and a dictionary of external file blobs, or a kmz file as a blob if options.kmz is true.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/global.html#exportKml">Online Documentation</a>
  */
-external fun exportKml(options: ExportKmlOptions): Promise<dynamic>
+external  fun exportKml ( options: ExportKmlOptions): Promise<dynamic>
 
 /**
  * @property [entities] The EntityCollection to export as KML.
@@ -48,12 +68,12 @@ external fun exportKml(options: ExportKmlOptions): Promise<dynamic>
  * @property [kmz] If true KML and external files will be compressed into a kmz file.
  *   Default value - `false`
  */
-external interface ExportKmlOptions {
-    var entities: EntityCollection
-    var ellipsoid: Ellipsoid?
-    var modelCallback: exportKmlModelCallback?
-    var time: JulianDate?
-    var defaultAvailability: TimeInterval?
-    var sampleDuration: Int?
-    var kmz: Boolean?
+external  interface ExportKmlOptions {
+var  entities: EntityCollection
+var  ellipsoid: Ellipsoid?
+var  modelCallback: exportKmlModelCallback?
+var  time: JulianDate?
+var  defaultAvailability: TimeInterval?
+var  sampleDuration: Int?
+var  kmz: Boolean?
 }

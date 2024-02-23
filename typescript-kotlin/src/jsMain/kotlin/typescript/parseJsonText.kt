@@ -9,7 +9,5 @@ package typescript
  * @param fileName
  * @param sourceText
  */
-external fun parseJsonText(
-    fileName: String,
-    sourceText: String,
-): JsonSourceFile
+external fun  parseJsonText(fileName: String,
+sourceText: String): JsonSourceFile

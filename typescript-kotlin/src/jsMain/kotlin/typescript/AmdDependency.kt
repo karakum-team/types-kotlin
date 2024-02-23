@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface AmdDependency {
-    var path: String
-    var name: String?
+external sealed interface AmdDependency {
+var path: String
+var name: String?
 }

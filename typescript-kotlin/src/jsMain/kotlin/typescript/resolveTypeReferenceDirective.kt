@@ -9,12 +9,10 @@ package typescript
  * This is possible in case if resolution is performed for directives specified via 'types' parameter. In this case initial path for secondary lookups
  * is assumed to be the same as root directory of the project.
  */
-external fun resolveTypeReferenceDirective(
-    typeReferenceDirectiveName: String,
-    containingFile: String?,
-    options: CompilerOptions,
-    host: ModuleResolutionHost,
-    redirectedReference: ResolvedProjectReference = definedExternally,
-    cache: TypeReferenceDirectiveResolutionCache = definedExternally,
-    resolutionMode: ResolutionMode = definedExternally,
-): ResolvedTypeReferenceDirectiveWithFailedLookupLocations
+external fun  resolveTypeReferenceDirective(typeReferenceDirectiveName: String,
+containingFile: String?,
+options: CompilerOptions,
+host: ModuleResolutionHost,
+redirectedReference: ResolvedProjectReference = definedExternally,
+cache: TypeReferenceDirectiveResolutionCache = definedExternally,
+resolutionMode: ResolutionMode = definedExternally): ResolvedTypeReferenceDirectiveWithFailedLookupLocations

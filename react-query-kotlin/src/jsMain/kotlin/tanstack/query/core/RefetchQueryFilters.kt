@@ -2,4 +2,6 @@
 
 package tanstack.query.core
 
-external interface RefetchQueryFilters : QueryFilters
+external interface RefetchQueryFilters  : QueryFilters {
+
+}

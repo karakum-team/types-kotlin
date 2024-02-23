@@ -3,9 +3,10 @@
 package web.crypto
 
 import js.objects.JsPlainObject
+import web.crypto.Algorithm
 
 @JsPlainObject
 sealed external interface AesKeyGenParams :
-    Algorithm {
-    var length: Short
+Algorithm {
+var length: Short
 }

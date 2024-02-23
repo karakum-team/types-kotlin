@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isThrowStatement(node: Node): Boolean /* node is ThrowStatement */
+internal external fun  isThrowStatement(node: Node): Boolean /* node is ThrowStatement */

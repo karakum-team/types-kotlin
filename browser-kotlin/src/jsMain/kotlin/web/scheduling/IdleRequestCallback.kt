@@ -2,6 +2,7 @@
 
 package web.scheduling
 
+import web.http.Request
+
 typealias IdleRequestCallback = (
-    deadline: IdleDeadline,
-) -> Unit
+deadline: IdleDeadline) -> Unit

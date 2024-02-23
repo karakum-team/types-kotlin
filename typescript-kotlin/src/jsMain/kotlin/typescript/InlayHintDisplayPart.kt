@@ -2,8 +2,8 @@
 
 package typescript
 
-sealed external interface InlayHintDisplayPart {
-    var text: String
-    var span: TextSpan?
-    var file: String?
+external sealed interface InlayHintDisplayPart {
+var text: String
+var span: TextSpan?
+var file: String?
 }

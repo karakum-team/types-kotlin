@@ -2,38 +2,56 @@
 
 package actions.tool.cache
 
-import js.array.ReadonlyArray
+import js.promise.Promise
 import js.promise.await
+import js.collections.ReadonlyMap
+import js.core.BigInt
+import js.core.JsLong
+import js.objects.Record
+import js.array.ReadonlyArray
+import js.core.Void
+import js.errors.JsError
+import node.buffer.Buffer
+import node.http.IncomingHttpHeaders
+import node.http.OutgoingHttpHeaders
+import web.url.URL
+
+import actions.http.client.HttpClient
+import actions.http.client.HttpClientResponse
+
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
 
 suspend fun getManifestFromRepo(
-    owner: String,
-    repo: String,
-): ReadonlyArray<IToolRelease> =
-    getManifestFromRepoAsync(
-        owner = owner,
-        repo = repo,
-    ).await()
+owner: String,
+repo: String,
+) : ReadonlyArray<IToolRelease> =
+ getManifestFromRepoAsync(
+owner = owner,
+repo = repo,
+).await()
 
 suspend fun getManifestFromRepo(
-    owner: String,
-    repo: String,
-    auth: String,
-): ReadonlyArray<IToolRelease> =
-    getManifestFromRepoAsync(
-        owner = owner,
-        repo = repo,
-        auth = auth,
-    ).await()
+owner: String,
+repo: String,
+auth: String,
+) : ReadonlyArray<IToolRelease> =
+ getManifestFromRepoAsync(
+owner = owner,
+repo = repo,
+auth = auth,
+).await()
 
 suspend fun getManifestFromRepo(
-    owner: String,
-    repo: String,
-    auth: String,
-    branch: String,
-): ReadonlyArray<IToolRelease> =
-    getManifestFromRepoAsync(
-        owner = owner,
-        repo = repo,
-        auth = auth,
-        branch = branch,
-    ).await()
+owner: String,
+repo: String,
+auth: String,
+branch: String,
+) : ReadonlyArray<IToolRelease> =
+ getManifestFromRepoAsync(
+owner = owner,
+repo = repo,
+auth = auth,
+branch = branch,
+).await()

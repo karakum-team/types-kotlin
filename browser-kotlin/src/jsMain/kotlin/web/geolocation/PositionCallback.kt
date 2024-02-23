@@ -3,5 +3,4 @@
 package web.geolocation
 
 typealias PositionCallback = (
-    position: GeolocationPosition,
-) -> Unit
+position: GeolocationPosition) -> Unit

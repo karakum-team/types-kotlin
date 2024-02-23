@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocImplementsTag(node: Node): Boolean /* node is JSDocImplementsTag */
+internal external fun  isJSDocImplementsTag(node: Node): Boolean /* node is JSDocImplementsTag */

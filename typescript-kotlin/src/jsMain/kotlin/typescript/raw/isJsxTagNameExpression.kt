@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJsxTagNameExpression(node: Node): Boolean /* node is JsxTagNameExpression */
+internal external fun  isJsxTagNameExpression(node: Node): Boolean /* node is JsxTagNameExpression */

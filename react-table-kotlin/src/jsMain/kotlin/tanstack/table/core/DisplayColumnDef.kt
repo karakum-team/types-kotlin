@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
 external interface DisplayColumnDef<TData : RowData, TValue> :
-    ColumnDefBase<TData, TValue>,
-    ColumnIdentifiers<TData, TValue>
+ColumnDefBase<TData, TValue>,
+ColumnIdentifiers<TData, TValue>

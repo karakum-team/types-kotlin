@@ -2,7 +2,11 @@
 
 package web.cssom
 
-external interface FontFace {
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+external interface FontFace{
     var MozFontFeatureSettings: FontFeatureSettings?
     var ascentOverride: AscentOverride?
     var descentOverride: DescentOverride?

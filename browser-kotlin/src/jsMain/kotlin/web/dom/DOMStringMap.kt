@@ -9,4 +9,5 @@ import js.objects.Record
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMStringMap)
  */
-sealed external class DOMStringMap : Record<String, String>
+sealed external class DOMStringMap : Record<String, String> {
+}

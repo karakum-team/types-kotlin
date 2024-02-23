@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isPartiallyEmittedExpression(node: Node): Boolean /* node is PartiallyEmittedExpression */
+internal external fun  isPartiallyEmittedExpression(node: Node): Boolean /* node is PartiallyEmittedExpression */

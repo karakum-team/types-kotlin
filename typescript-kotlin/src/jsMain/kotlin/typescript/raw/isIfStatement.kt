@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isIfStatement(node: Node): Boolean /* node is IfStatement */
+internal external fun  isIfStatement(node: Node): Boolean /* node is IfStatement */

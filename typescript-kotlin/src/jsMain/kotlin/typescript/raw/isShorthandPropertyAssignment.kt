@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isShorthandPropertyAssignment(node: Node): Boolean /* node is ShorthandPropertyAssignment */
+internal external fun  isShorthandPropertyAssignment(node: Node): Boolean /* node is ShorthandPropertyAssignment */

@@ -7,6 +7,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface RTCRtpCapabilities {
-    var codecs: ReadonlyArray<RTCRtpCodecCapability>
-    var headerExtensions: ReadonlyArray<RTCRtpHeaderExtensionCapability>
+var codecs: ReadonlyArray<RTCRtpCodecCapability>
+var headerExtensions: ReadonlyArray<RTCRtpHeaderExtensionCapability>
 }

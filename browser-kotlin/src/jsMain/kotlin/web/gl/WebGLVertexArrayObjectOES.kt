@@ -2,4 +2,6 @@
 
 package web.gl
 
-sealed external interface WebGLVertexArrayObjectOES
+sealed external interface WebGLVertexArrayObjectOES {
+
+}

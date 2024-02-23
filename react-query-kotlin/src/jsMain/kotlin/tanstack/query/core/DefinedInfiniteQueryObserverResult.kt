@@ -2,5 +2,5 @@
 
 package tanstack.query.core
 
-sealed external interface DefinedInfiniteQueryObserverResult<TData, TError>
-    : InfiniteQueryObserverBaseResult<TData, TError>
+external sealed interface DefinedInfiniteQueryObserverResult<TData, TError>
+: InfiniteQueryObserverBaseResult<TData, TError>

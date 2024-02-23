@@ -2,4 +2,6 @@
 
 package web.gl
 
-sealed external class WebGLVertexArrayObject
+sealed external class WebGLVertexArrayObject {
+
+}

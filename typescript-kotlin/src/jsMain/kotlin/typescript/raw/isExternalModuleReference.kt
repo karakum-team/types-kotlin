@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isExternalModuleReference(node: Node): Boolean /* node is ExternalModuleReference */
+internal external fun  isExternalModuleReference(node: Node): Boolean /* node is ExternalModuleReference */

@@ -3,17 +3,18 @@
 package web.codecs
 
 import js.buffer.AllowSharedBufferSource
+import js.buffer.BufferSource
 import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface VideoDecoderConfig {
-    var codec: String
-    var codedHeight: Int?
-    var codedWidth: Int?
-    var colorSpace: VideoColorSpaceInit?
-    var description: AllowSharedBufferSource?
-    var displayAspectHeight: Int?
-    var displayAspectWidth: Int?
-    var hardwareAcceleration: HardwareAcceleration?
-    var optimizeForLatency: Boolean?
+var codec: String
+var codedHeight: Int?
+var codedWidth: Int?
+var colorSpace: VideoColorSpaceInit?
+var description: AllowSharedBufferSource?
+var displayAspectHeight: Int?
+var displayAspectWidth: Int?
+var hardwareAcceleration: HardwareAcceleration?
+var optimizeForLatency: Boolean?
 }

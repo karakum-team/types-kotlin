@@ -1,7 +1,8 @@
-// Automatically generated - do not modify!
+
+// Automatically generated - do not modify!    
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package tanstack.query.core

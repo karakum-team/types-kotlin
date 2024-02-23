@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface LiteralType : FreshableType {
-    var value: dynamic /* string | number | PseudoBigInt */
+external sealed interface LiteralType : FreshableType {
+var value: dynamic /* string | number | PseudoBigInt */
 }

@@ -4,4 +4,6 @@
 
 package tanstack.virtual.core
 
+import web.dom.Element
+
 external val observeElementRect: (instance: Virtualizer<*, *>, cb: (rect: Rect) -> Unit) -> (() -> Unit)?

@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun symbolName(symbol: Symbol): String
+external fun  symbolName(symbol: Symbol): String

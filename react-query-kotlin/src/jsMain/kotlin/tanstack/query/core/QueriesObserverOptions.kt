@@ -2,6 +2,6 @@
 
 package tanstack.query.core
 
-external interface QueriesObserverOptions<TCombinedResult> {
-    var combine: CombineFn<TCombinedResult>
+external interface QueriesObserverOptions <TCombinedResult>  {
+ var combine: CombineFn<TCombinedResult>
 }

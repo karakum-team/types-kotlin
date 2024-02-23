@@ -3,11 +3,14 @@
 package web.workers
 
 import js.objects.JsPlainObject
+import web.http.Request
 import web.http.RequestCredentials
+import web.workers.Worker
+import web.workers.WorkerType
 
 @JsPlainObject
 sealed external interface WorkerOptions {
-    var credentials: RequestCredentials?
-    var name: String?
-    var type: WorkerType?
+var credentials: RequestCredentials?
+var name: String?
+var type: WorkerType?
 }

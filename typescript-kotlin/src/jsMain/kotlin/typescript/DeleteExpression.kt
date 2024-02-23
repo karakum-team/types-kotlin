@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface DeleteExpression : UnaryExpression {
-    override val kind: SyntaxKind.DeleteExpression
-    val expression: UnaryExpression
+external sealed interface DeleteExpression : UnaryExpression {
+override val kind: SyntaxKind.DeleteExpression
+val expression: UnaryExpression
 }

@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun getTypeParameterOwner(d: Declaration): Declaration?
+external fun  getTypeParameterOwner(d: Declaration): Declaration?

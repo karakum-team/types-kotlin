@@ -1,12 +1,13 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+"EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
 package web.gl
 
 import web.events.Event
+import web.events.EventInit
 import web.events.EventType
 
 /**
@@ -14,15 +15,15 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLContextEvent)
  */
-open external class WebGLContextEvent(
-    override val type: EventType<WebGLContextEvent>,
-    init: WebGLContextEventInit = definedExternally,
+    open external class WebGLContextEvent (
+override val type: EventType<WebGLContextEvent>,
+init: WebGLContextEventInit = definedExternally
 ) : Event,
-    WebGLContextEventInit {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLContextEvent/statusMessage)
-     */
-    override val statusMessage: String
-
-    companion object
-}
+WebGLContextEventInit {
+        /**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLContextEvent/statusMessage)
+ */
+override val statusMessage: String
+    
+        companion object 
+    }

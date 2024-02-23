@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun canHaveDecorators(node: Node): Boolean /* node is HasDecorators */
+internal external fun  canHaveDecorators(node: Node): Boolean /* node is HasDecorators */

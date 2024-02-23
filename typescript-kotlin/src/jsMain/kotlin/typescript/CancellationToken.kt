@@ -2,9 +2,8 @@
 
 package typescript
 
-sealed external interface CancellationToken {
-    fun isCancellationRequested(): Boolean
-
-    /** @throws OperationCanceledException if isCancellationRequested is true */
-    fun throwIfCancellationRequested()
+external sealed interface CancellationToken {
+fun  isCancellationRequested(): Boolean
+/** @throws OperationCanceledException if isCancellationRequested is true */
+fun  throwIfCancellationRequested()
 }

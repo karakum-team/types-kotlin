@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface JSDocVariadicType : JSDocType, Union.JSDocVariadicType_ {
-    override val kind: SyntaxKind.JSDocVariadicType
-    val type: TypeNode
+external sealed interface JSDocVariadicType : JSDocType, Union.JSDocVariadicType_ {
+override val kind: SyntaxKind.JSDocVariadicType
+val type: TypeNode
 }

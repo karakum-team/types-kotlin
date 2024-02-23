@@ -6,8 +6,8 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface RTCRtpCodec {
-    var channels: Short?
-    var clockRate: Int
-    var mimeType: String
-    var sdpFmtpLine: String?
+var channels: Short?
+var clockRate: Int
+var mimeType: String
+var sdpFmtpLine: String?
 }

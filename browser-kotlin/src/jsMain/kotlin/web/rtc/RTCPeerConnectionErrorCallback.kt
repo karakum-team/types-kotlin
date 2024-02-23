@@ -5,5 +5,4 @@ package web.rtc
 import web.errors.DOMException
 
 typealias RTCPeerConnectionErrorCallback = (
-    error: DOMException,
-) -> Unit
+error: DOMException) -> Unit

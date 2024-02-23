@@ -1,25 +1,29 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package web.cssom
 
-sealed external interface IntegerType :
-    ColumnCount,
-    FontWeight,
-    GridLine,
-    HyphenateLimitChars,
-    LineClamp,
-    MathDepth,
-    MaxLines,
-    Order,
-    Orphans,
-    Widows,
-    ZIndex
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
 
-inline fun integer(
-    value: Int,
+        sealed external interface IntegerType:
+        ColumnCount,
+FontWeight,
+GridLine,
+HyphenateLimitChars,
+LineClamp,
+MathDepth,
+MaxLines,
+Order,
+Orphans,
+Widows,
+ZIndex
+        
+        inline fun integer(
+     value: Int,
 ): IntegerType =
     value.unsafeCast<IntegerType>()

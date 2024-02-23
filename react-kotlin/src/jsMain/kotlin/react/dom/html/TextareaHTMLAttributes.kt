@@ -2,23 +2,35 @@
 
 package react.dom.html
 
-import react.dom.events.ChangeEventHandler
+import react.dom.aria.AriaAttributes
+import react.dom.aria.AriaRole    
+import react.dom.DOMAttributes
+import web.html.EnterKeyHint
+import web.html.InputType
+import web.html.Loading
+import web.http.ReferrerPolicy
+import web.window.WindowTarget
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
 import web.dom.Element
+import web.http.CrossOrigin
+import react.dom.events.*
 
 external interface TextareaHTMLAttributes<T : Element> : HTMLAttributes<T> {
-    var autoComplete: AutoComplete?
-    var cols: Int?
-    var dirName: String?
-    var disabled: Boolean?
-    var form: String?
-    var maxLength: Int?
-    var minLength: Int?
-    var name: String?
-    override var placeholder: String?
-    var readOnly: Boolean?
-    var required: Boolean?
-    var rows: Int?
-    var value: Any? /* string | ReadonlyArray<string> | number */
-    var wrap: String?
-    var onChange: ChangeEventHandler<T>?
+var autoComplete: AutoComplete?
+var cols: Int?
+var dirName: String?
+var disabled: Boolean?
+var form: String?
+var maxLength: Int?
+var minLength: Int?
+var name: String?
+override var placeholder: String?
+var readOnly: Boolean?
+var required: Boolean?
+var rows: Int?
+var value: Any? /* string | ReadonlyArray<string> | number */
+var wrap: String?
+var onChange: ChangeEventHandler<T>?
 }

@@ -3,6 +3,7 @@
 package web.authn
 
 import js.buffer.ArrayBuffer
+import web.http.Response
 
 /**
  * Available only in secure contexts.
@@ -10,8 +11,8 @@ import js.buffer.ArrayBuffer
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AuthenticatorResponse)
  */
 sealed external class AuthenticatorResponse {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AuthenticatorResponse/clientDataJSON)
-     */
-    val clientDataJSON: ArrayBuffer
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AuthenticatorResponse/clientDataJSON)
+ */
+val clientDataJSON: ArrayBuffer
 }

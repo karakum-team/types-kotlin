@@ -5,4 +5,4 @@
 package typescript
 
 /** Gets the JSDoc enum tag for the node if present */
-external fun getJSDocEnumTag(node: Node): JSDocEnumTag?
+external fun  getJSDocEnumTag(node: Node): JSDocEnumTag?

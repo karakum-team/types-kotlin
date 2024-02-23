@@ -2,7 +2,7 @@
 
 package tanstack.virtual.core
 
-external interface Rect {
-    var width: Int
-    var height: Int
+external interface Rect{
+var width: Int
+var height: Int
 }

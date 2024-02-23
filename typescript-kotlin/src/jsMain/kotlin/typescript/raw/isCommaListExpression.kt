@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isCommaListExpression(node: Node): Boolean /* node is CommaListExpression */
+internal external fun  isCommaListExpression(node: Node): Boolean /* node is CommaListExpression */

@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface MultiCacheQueryOptions :
-    CacheQueryOptions {
-    var cacheName: String?
+CacheQueryOptions {
+var cacheName: String?
 }

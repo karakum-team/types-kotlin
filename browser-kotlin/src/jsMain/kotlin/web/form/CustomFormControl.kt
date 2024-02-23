@@ -2,6 +2,8 @@
 
 package web.form
 
-external interface CustomFormControl :
+import web.form.FormControl
+
+external interface CustomFormControl:
     FormControl,
     CustomFormControlCallbacks

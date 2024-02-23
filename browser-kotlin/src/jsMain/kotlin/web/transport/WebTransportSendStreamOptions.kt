@@ -7,5 +7,5 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface WebTransportSendStreamOptions {
-    var sendOrder: JsLong?
+var sendOrder: JsLong?
 }

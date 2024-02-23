@@ -8,4 +8,5 @@ package web.dom
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CDATASection)
  */
 sealed external class CDATASection :
-    Text
+Text {
+}

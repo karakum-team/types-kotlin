@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isTypeParameterDeclaration(node: Node): Boolean /* node is TypeParameterDeclaration */
+internal external fun  isTypeParameterDeclaration(node: Node): Boolean /* node is TypeParameterDeclaration */

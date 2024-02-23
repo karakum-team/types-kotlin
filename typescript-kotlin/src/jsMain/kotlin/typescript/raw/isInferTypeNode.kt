@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isInferTypeNode(node: Node): Boolean /* node is InferTypeNode */
+internal external fun  isInferTypeNode(node: Node): Boolean /* node is InferTypeNode */

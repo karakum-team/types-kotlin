@@ -6,5 +6,5 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface ResizeObserverOptions {
-    var box: ResizeObserverBoxOptions?
+var box: ResizeObserverBoxOptions?
 }

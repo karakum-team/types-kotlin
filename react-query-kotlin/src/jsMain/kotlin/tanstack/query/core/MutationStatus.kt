@@ -1,7 +1,7 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package tanstack.query.core
@@ -9,19 +9,16 @@ package tanstack.query.core
 import seskar.js.JsValue
 import seskar.js.JsVirtual
 
-@JsVirtual
-sealed external interface MutationStatus {
-    companion object {
-        @JsValue("idle")
-        val idle: MutationStatus
-
-        @JsValue("pending")
-        val pending: MutationStatus
-
-        @JsValue("success")
-        val success: MutationStatus
-
-        @JsValue("error")
-        val error: MutationStatus
-    }
-}
+        @JsVirtual
+        sealed external interface MutationStatus {
+            companion object {
+                @JsValue("idle")    
+val idle: MutationStatus
+@JsValue("pending")    
+val pending: MutationStatus
+@JsValue("success")    
+val success: MutationStatus
+@JsValue("error")    
+val error: MutationStatus
+            }
+        }

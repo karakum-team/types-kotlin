@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface ClassElement : NamedDeclaration {
-    var _classElementBrand: Any
-    override val name: PropertyName?
+external sealed interface ClassElement : NamedDeclaration {
+var _classElementBrand: Any
+override val name: PropertyName?
 }

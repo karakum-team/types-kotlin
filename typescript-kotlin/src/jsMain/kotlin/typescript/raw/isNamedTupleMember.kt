@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isNamedTupleMember(node: Node): Boolean /* node is NamedTupleMember */
+internal external fun  isNamedTupleMember(node: Node): Boolean /* node is NamedTupleMember */

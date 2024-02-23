@@ -4,9 +4,9 @@ package popper.core.modifiers
 
 import seskar.js.JsValue
 
-external interface EventListenersOptions {
-    var scroll: Boolean
-    var resize: Boolean
+external interface EventListenersOptions  {
+var     scroll: Boolean
+var     resize: Boolean
 }
 
 @JsValue("eventListeners")

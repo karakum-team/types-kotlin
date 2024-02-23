@@ -8,9 +8,9 @@ package web.cssom
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMediaRule)
  */
 sealed external class CSSMediaRule :
-    CSSConditionRule {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMediaRule/media)
-     */
-    val media: MediaList
+CSSConditionRule {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMediaRule/media)
+ */
+val media: MediaList
 }

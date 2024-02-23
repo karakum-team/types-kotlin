@@ -3,6 +3,7 @@
 package web.push
 
 import js.buffer.ArrayBuffer
+import js.objects.jso
 import web.blob.Blob
 
 /**
@@ -12,23 +13,20 @@ import web.blob.Blob
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PushMessageData)
  */
 sealed external class PushMessageData {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PushMessageData/arrayBuffer)
-     */
-    fun arrayBuffer(): ArrayBuffer
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PushMessageData/blob)
-     */
-    fun blob(): Blob
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PushMessageData/json)
-     */
-    fun json(): Any
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PushMessageData/text)
-     */
-    fun text(): String
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PushMessageData/arrayBuffer)
+ */
+ fun arrayBuffer(): ArrayBuffer
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PushMessageData/blob)
+ */
+ fun blob(): Blob
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PushMessageData/json)
+ */
+ fun json(): Any
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PushMessageData/text)
+ */
+ fun text(): String
 }

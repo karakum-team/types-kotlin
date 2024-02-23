@@ -2,4 +2,6 @@
 
 package web.events
 
+import web.events.Event
+
 sealed external interface EventPhase

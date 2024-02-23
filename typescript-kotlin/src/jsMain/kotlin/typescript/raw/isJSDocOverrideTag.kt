@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocOverrideTag(node: Node): Boolean /* node is JSDocOverrideTag */
+internal external fun  isJSDocOverrideTag(node: Node): Boolean /* node is JSDocOverrideTag */

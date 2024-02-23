@@ -2,8 +2,8 @@
 
 package typescript
 
-sealed external interface WithStatement : Statement, FlowContainer, Union.WithStatement_ {
-    override val kind: SyntaxKind.WithStatement
-    val expression: Expression
-    val statement: Statement
+external sealed interface WithStatement : Statement, FlowContainer, Union.WithStatement_ {
+override val kind: SyntaxKind.WithStatement
+val expression: Expression
+val statement: Statement
 }

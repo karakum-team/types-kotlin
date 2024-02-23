@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isPrefixUnaryExpression(node: Node): Boolean /* node is PrefixUnaryExpression */
+internal external fun  isPrefixUnaryExpression(node: Node): Boolean /* node is PrefixUnaryExpression */

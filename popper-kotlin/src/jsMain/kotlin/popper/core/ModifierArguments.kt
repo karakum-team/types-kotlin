@@ -2,9 +2,9 @@
 
 package popper.core
 
-external interface ModifierArguments<Options> {
-    var state: State
-    var instance: Instance
-    var options: Options
-    var name: String
+external interface ModifierArguments <Options> {
+var state: State
+var instance: Instance
+var options: Options
+var name: String
 }

@@ -3,10 +3,32 @@
 @file:JsModule("cesium")
 
 @file:Suppress(
-    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+"EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
 package cesium
+
+import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
 
 /**
  * Defines a heading angle, pitch angle, and range in a local frame.
@@ -14,7 +36,7 @@ package cesium
  * Pitch is the rotation from the local xy-plane. Positive pitch angles are above the plane. Negative pitch
  * angles are below the plane. Range is the distance from the center of the frame.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/HeadingPitchRange.html">Online Documentation</a>
- *
+ * 
  * @constructor
  * @property [heading] The heading angle in radians.
  *   Default value - `0.0`
@@ -24,24 +46,24 @@ package cesium
  *   Default value - `0.0`
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/HeadingPitchRange.html">Online Documentation</a>
  */
-external class HeadingPitchRange(
-    var heading: Double = definedExternally,
-    var pitch: Double = definedExternally,
-    var range: Double = definedExternally,
-) {
+external  class HeadingPitchRange (
+ var heading: Double = definedExternally,
+ var pitch: Double = definedExternally,
+ var range: Double = definedExternally
+)  {
 
 
-    companion object {
-        /**
-         * Duplicates a HeadingPitchRange instance.
-         * @param [hpr] The HeadingPitchRange to duplicate.
-         * @param [result] The object onto which to store the result.
-         * @return The modified result parameter or a new HeadingPitchRange instance if one was not provided. (Returns undefined if hpr is undefined)
-         * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/HeadingPitchRange.html#.clone">Online Documentation</a>
-         */
-        fun clone(
-            hpr: HeadingPitchRange,
-            result: HeadingPitchRange? = definedExternally,
-        ): HeadingPitchRange
-    }
+companion object  {
+/**
+ * Duplicates a HeadingPitchRange instance.
+ * @param [hpr] The HeadingPitchRange to duplicate.
+ * @param [result] The object onto which to store the result.
+ * @return The modified result parameter or a new HeadingPitchRange instance if one was not provided. (Returns undefined if hpr is undefined)
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/HeadingPitchRange.html#.clone">Online Documentation</a>
+ */
+ fun clone (
+ hpr: HeadingPitchRange,
+ result: HeadingPitchRange? = definedExternally
+): HeadingPitchRange
+}
 }

@@ -4,9 +4,6 @@
 
 package tanstack.table.core
 
-external fun <TData : RowData, TValue> createColumn(
-    table: Table<TData>,
-    columnDef: ColumnDef<TData, TValue>,
-    depth: Int,
-    parent: Column<TData, TValue> = definedExternally,
-): Column<TData, TValue>
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external fun <TData : RowData, TValue> createColumn(table: Table<TData>, columnDef: ColumnDef<TData, TValue>, depth: Int, parent: Column<TData, TValue> = definedExternally): Column<TData, TValue>;

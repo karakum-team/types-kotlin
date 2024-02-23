@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface CheckJsDirective : TextRange {
-    var enabled: Boolean
+external sealed interface CheckJsDirective : TextRange {
+var enabled: Boolean
 }

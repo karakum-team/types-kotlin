@@ -3,41 +3,63 @@
 @file:JsModule("cesium")
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package cesium
+
+import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
 
 /**
  * Enumerates the available input for interacting with the camera.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/global.html#CameraEventType">Online Documentation</a>
  */
 sealed external interface CameraEventType {
-    companion object {
+companion object {
 
-        /**
-         * A left mouse button press followed by moving the mouse and releasing the button.
-         */
-        val LEFT_DRAG: CameraEventType
+/**
+ * A left mouse button press followed by moving the mouse and releasing the button.
+ */
+val LEFT_DRAG: CameraEventType
 
-        /**
-         * A right mouse button press followed by moving the mouse and releasing the button.
-         */
-        val RIGHT_DRAG: CameraEventType
+/**
+ * A right mouse button press followed by moving the mouse and releasing the button.
+ */
+val RIGHT_DRAG: CameraEventType
 
-        /**
-         * A middle mouse button press followed by moving the mouse and releasing the button.
-         */
-        val MIDDLE_DRAG: CameraEventType
+/**
+ * A middle mouse button press followed by moving the mouse and releasing the button.
+ */
+val MIDDLE_DRAG: CameraEventType
 
-        /**
-         * Scrolling the middle mouse button.
-         */
-        val WHEEL: CameraEventType
+/**
+ * Scrolling the middle mouse button.
+ */
+val WHEEL: CameraEventType
 
-        /**
-         * A two-finger touch on a touch surface.
-         */
-        val PINCH: CameraEventType
-    }
+/**
+ * A two-finger touch on a touch surface.
+ */
+val PINCH: CameraEventType
+}
 }

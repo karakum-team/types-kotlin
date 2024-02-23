@@ -10,10 +10,10 @@ package typescript
  * - MethodDeclaration
  * - AccessorDeclaration
  */
-sealed external interface FunctionLikeDeclarationBase : SignatureDeclarationBase {
-    var _functionLikeDeclarationBrand: Any
-    val asteriskToken: AsteriskToken?
-    val questionToken: QuestionToken?
-    val exclamationToken: ExclamationToken?
-    val body: dynamic /* Block | Expression */
+external sealed interface FunctionLikeDeclarationBase : SignatureDeclarationBase {
+var _functionLikeDeclarationBrand: Any
+val asteriskToken: AsteriskToken?
+val questionToken: QuestionToken?
+val exclamationToken: ExclamationToken?
+val body: dynamic /* Block | Expression */
 }

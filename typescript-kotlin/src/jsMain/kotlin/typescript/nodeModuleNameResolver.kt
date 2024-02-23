@@ -4,11 +4,9 @@
 
 package typescript
 
-external fun nodeModuleNameResolver(
-    moduleName: String,
-    containingFile: String,
-    compilerOptions: CompilerOptions,
-    host: ModuleResolutionHost,
-    cache: ModuleResolutionCache = definedExternally,
-    redirectedReference: ResolvedProjectReference = definedExternally,
-): ResolvedModuleWithFailedLookupLocations
+external fun  nodeModuleNameResolver(moduleName: String,
+containingFile: String,
+compilerOptions: CompilerOptions,
+host: ModuleResolutionHost,
+cache: ModuleResolutionCache = definedExternally,
+redirectedReference: ResolvedProjectReference = definedExternally): ResolvedModuleWithFailedLookupLocations

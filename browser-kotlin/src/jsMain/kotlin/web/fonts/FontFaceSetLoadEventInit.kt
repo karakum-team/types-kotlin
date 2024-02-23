@@ -4,10 +4,11 @@ package web.fonts
 
 import js.array.ReadonlyArray
 import js.objects.JsPlainObject
+import web.events.Event
 import web.events.EventInit
 
 @JsPlainObject
 external interface FontFaceSetLoadEventInit :
-    EventInit {
-    val fontfaces: ReadonlyArray<FontFace>?
+EventInit  {
+val fontfaces: ReadonlyArray<FontFace>?
 }

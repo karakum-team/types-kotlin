@@ -2,7 +2,7 @@
 
 package tanstack.query.core
 
-external interface FetchOptions {
-    var cancelRefetch: Boolean
-    var meta: FetchMeta
+external interface FetchOptions   {
+ var cancelRefetch: Boolean
+ var meta: FetchMeta
 }

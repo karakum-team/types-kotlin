@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface InstanceofExpression : BinaryExpression, Union.InstanceofExpression_ {
-    override val operatorToken: Token<SyntaxKind.InstanceOfKeyword>
+external sealed interface InstanceofExpression : BinaryExpression, Union.InstanceofExpression_ {
+override val operatorToken: Token<SyntaxKind.InstanceOfKeyword>
 }

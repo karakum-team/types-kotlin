@@ -5,5 +5,6 @@
 package tanstack.table.core
 
 import js.array.JsTuple2
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
 
-external fun <TData : RowData> getFacetedMinMaxValues(): (table: Table<TData>, columnId: String) -> () -> JsTuple2<Int, Int>?
+external fun <TData : RowData> getFacetedMinMaxValues(): (table: Table<TData>, columnId: String) -> () -> JsTuple2<Int, Int>?;

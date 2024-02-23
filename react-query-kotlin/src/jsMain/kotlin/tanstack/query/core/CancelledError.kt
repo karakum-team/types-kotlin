@@ -4,7 +4,7 @@
 
 package tanstack.query.core
 
-open external class CancelledError(options: CancelOptions = definedExternally) {
-    open var revert: Boolean
-    open var silent: Boolean
+open external class CancelledError (options: CancelOptions  = definedExternally) {
+open var revert: Boolean
+open var silent: Boolean
 }

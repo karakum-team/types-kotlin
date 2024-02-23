@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isClassElement(node: Node): Boolean /* node is ClassElement */
+internal external fun  isClassElement(node: Node): Boolean /* node is ClassElement */

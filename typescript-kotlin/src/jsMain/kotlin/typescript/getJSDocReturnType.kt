@@ -10,4 +10,4 @@ package typescript
  * @remarks `getJSDocReturnTag` just gets the whole JSDoc tag. This function
  * gets the type from inside the braces, after the fat arrow, etc.
  */
-external fun getJSDocReturnType(node: Node): TypeNode?
+external fun  getJSDocReturnType(node: Node): TypeNode?

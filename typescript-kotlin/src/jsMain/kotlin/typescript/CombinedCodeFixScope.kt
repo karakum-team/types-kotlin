@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface CombinedCodeFixScope {
-    var type: String /* "file" */
-    var fileName: String
+external sealed interface CombinedCodeFixScope {
+var type: String /* "file" */
+var fileName: String
 }

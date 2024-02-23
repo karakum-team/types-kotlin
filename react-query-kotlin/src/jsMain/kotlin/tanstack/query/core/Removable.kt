@@ -4,11 +4,11 @@
 
 package tanstack.query.core
 
-abstract external class Removable {
-    open var gcTime: JsDuration
-    open fun destroy()
-    protected open fun scheduleGc()
-    protected open fun updateGcTime(newGcTime: JsDuration?)
-    protected open fun clearGcTimeout()
-    protected abstract fun optionalRemove()
+abstract external class Removable  {
+open var gcTime: JsDuration
+open fun  destroy()
+open protected fun  scheduleGc()
+open protected fun  updateGcTime(newGcTime: JsDuration? )
+open protected fun  clearGcTimeout()
+abstract protected fun  optionalRemove()
 }

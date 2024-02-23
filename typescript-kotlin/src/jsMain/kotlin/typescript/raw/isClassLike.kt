@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isClassLike(node: Node): Boolean /* node is ClassLikeDeclaration */
+internal external fun  isClassLike(node: Node): Boolean /* node is ClassLikeDeclaration */

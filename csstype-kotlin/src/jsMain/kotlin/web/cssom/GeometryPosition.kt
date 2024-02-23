@@ -1,38 +1,35 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package web.cssom
 
-import seskar.js.JsValue
+import seskar.js.JsIntValue
 import seskar.js.JsVirtual
+import seskar.js.JsValue
 
-@JsVirtual
-sealed external interface GeometryPosition :
-    BackgroundPosition,
-    MaskPosition,
-    ObjectPosition,
-    Offset,
-    OffsetAnchor,
-    OffsetPosition,
-    PerspectiveOrigin,
-    TransformOrigin {
-    companion object {
-        @JsValue("bottom")
-        val bottom: GeometryPosition
-
-        @JsValue("center")
-        val center: GeometryPosition
-
-        @JsValue("left")
-        val left: GeometryPosition
-
-        @JsValue("right")
-        val right: GeometryPosition
-
-        @JsValue("top")
-        val top: GeometryPosition
-    }
-}
+        @JsVirtual
+        sealed external interface GeometryPosition :
+BackgroundPosition,
+MaskPosition,
+ObjectPosition,
+Offset,
+OffsetAnchor,
+OffsetPosition,
+PerspectiveOrigin,
+TransformOrigin {
+            companion object {
+                @JsValue("bottom")    
+val bottom: GeometryPosition
+@JsValue("center")    
+val center: GeometryPosition
+@JsValue("left")    
+val left: GeometryPosition
+@JsValue("right")    
+val right: GeometryPosition
+@JsValue("top")    
+val top: GeometryPosition
+            }
+        }

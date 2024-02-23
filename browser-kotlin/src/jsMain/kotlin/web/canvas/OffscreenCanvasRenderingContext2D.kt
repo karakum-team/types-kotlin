@@ -3,38 +3,38 @@
 package web.canvas
 
 import seskar.js.JsValue
+import web.canvas.OffscreenCanvas
 import web.rendering.OffscreenRenderingContext
+import web.rendering.RenderingContext
 import web.rendering.RenderingContextId
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OffscreenCanvasRenderingContext2D)
  */
 sealed external class OffscreenCanvasRenderingContext2D :
-    CanvasCompositing,
-    CanvasDrawImage,
-    CanvasDrawPath,
-    CanvasFillStrokeStyles,
-    CanvasFilters,
-    CanvasImageData,
-    CanvasImageSmoothing,
-    CanvasPath,
-    CanvasPathDrawingStyles,
-    CanvasRect,
-    CanvasShadowStyles,
-    CanvasState,
-    CanvasText,
-    CanvasTextDrawingStyles,
-    CanvasTransform,
-    OffscreenRenderingContext {
-    val canvas: OffscreenCanvas
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OffscreenCanvasRenderingContext2D/commit)
-     */
-    fun commit()
-
-    companion object {
-        @JsValue("2d")
-        val ID: RenderingContextId<OffscreenCanvasRenderingContext2D, CanvasRenderingContext2DSettings>
-    }
+CanvasCompositing,
+CanvasDrawImage,
+CanvasDrawPath,
+CanvasFillStrokeStyles,
+CanvasFilters,
+CanvasImageData,
+CanvasImageSmoothing,
+CanvasPath,
+CanvasPathDrawingStyles,
+CanvasRect,
+CanvasShadowStyles,
+CanvasState,
+CanvasText,
+CanvasTextDrawingStyles,
+CanvasTransform,
+OffscreenRenderingContext {
+val canvas: OffscreenCanvas
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OffscreenCanvasRenderingContext2D/commit)
+ */
+ fun commit()
+                companion object {
+                    @JsValue("2d")
+val ID: RenderingContextId<OffscreenCanvasRenderingContext2D, CanvasRenderingContext2DSettings>
+                }    
 }

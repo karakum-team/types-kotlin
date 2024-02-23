@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface InteractiveRefactorArguments {
-    var targetFile: String
+external sealed interface InteractiveRefactorArguments {
+var targetFile: String
 }

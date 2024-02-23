@@ -12,8 +12,6 @@ import js.array.ReadonlyArray
  * @param transformers An array of `TransformerFactory` callbacks used to process the transformation.
  * @param compilerOptions Optional compiler options.
  */
-external fun <T : Node> transform(
-    source: dynamic, /* T | T[] */
-    transformers: ReadonlyArray<TransformerFactory<T>>,
-    compilerOptions: CompilerOptions = definedExternally,
-): TransformationResult<T>
+external fun <T : Node> transform(source: dynamic /* T | T[] */,
+transformers: ReadonlyArray<TransformerFactory<T>>,
+compilerOptions: CompilerOptions = definedExternally): TransformationResult<T>

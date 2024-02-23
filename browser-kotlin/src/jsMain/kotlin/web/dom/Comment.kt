@@ -7,6 +7,7 @@ package web.dom
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Comment)
  */
-open external class Comment(
-    data: String = definedExternally,
-) : CharacterData
+open external class Comment (
+data: String = definedExternally
+):CharacterData {
+}

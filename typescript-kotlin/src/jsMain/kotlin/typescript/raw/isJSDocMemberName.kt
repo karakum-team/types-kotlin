@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocMemberName(node: Node): Boolean /* node is JSDocMemberName */
+internal external fun  isJSDocMemberName(node: Node): Boolean /* node is JSDocMemberName */

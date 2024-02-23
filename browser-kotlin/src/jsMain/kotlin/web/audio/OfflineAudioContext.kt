@@ -4,6 +4,8 @@ package web.audio
 
 import js.core.Void
 import js.promise.Promise
+import web.dom.Node
+import web.events.Event
 import web.events.EventHandler
 
 /**
@@ -11,37 +13,33 @@ import web.events.EventHandler
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext)
  */
-external class OfflineAudioContext(
-    contextOptions: OfflineAudioContextOptions,
-) : BaseAudioContext {
-    constructor(
-        numberOfChannels: Int,
-        length: Int,
-        sampleRate: Float,
-    )
+ external class OfflineAudioContext (
+contextOptions: OfflineAudioContextOptions
+):BaseAudioContext {
+constructor(
+numberOfChannels: Int,
+length: Int,
+sampleRate: Float,
+)
 
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext/length)
-     */
-    val length: Int
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext/complete_event)
-     */
-    var oncomplete: EventHandler<OfflineAudioCompletionEvent>?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext/resume)
-     */
-    fun resume(): Promise<Void>
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext/startRendering)
-     */
-    fun startRendering(): Promise<AudioBuffer>
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext/suspend)
-     */
-    fun suspend(suspendTime: Double): Promise<Void>
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext/length)
+ */
+val length: Int
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext/complete_event)
+ */
+var oncomplete: EventHandler<OfflineAudioCompletionEvent>?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext/resume)
+ */
+ fun resume(): Promise<Void>
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext/startRendering)
+ */
+ fun startRendering(): Promise<AudioBuffer>
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext/suspend)
+ */
+ fun suspend(suspendTime: Double): Promise<Void>
 }

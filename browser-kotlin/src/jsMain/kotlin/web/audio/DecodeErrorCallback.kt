@@ -5,5 +5,4 @@ package web.audio
 import web.errors.DOMException
 
 typealias DecodeErrorCallback = (
-    error: DOMException,
-) -> Unit
+error: DOMException) -> Unit

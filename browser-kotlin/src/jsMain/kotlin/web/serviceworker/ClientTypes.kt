@@ -1,7 +1,7 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package web.serviceworker
@@ -9,19 +9,16 @@ package web.serviceworker
 import seskar.js.JsValue
 import seskar.js.JsVirtual
 
-@JsVirtual
-sealed external interface ClientTypes {
-    companion object {
-        @JsValue("all")
-        val all: ClientTypes
-
-        @JsValue("sharedworker")
-        val sharedworker: ClientTypes
-
-        @JsValue("window")
-        val window: ClientTypes
-
-        @JsValue("worker")
-        val worker: ClientTypes
-    }
-}
+        @JsVirtual
+        sealed external interface ClientTypes {
+            companion object {
+                @JsValue("all")    
+val all: ClientTypes
+@JsValue("sharedworker")    
+val sharedworker: ClientTypes
+@JsValue("window")    
+val window: ClientTypes
+@JsValue("worker")    
+val worker: ClientTypes
+            }
+        }

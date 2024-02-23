@@ -1,19 +1,21 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package tanstack.table.core
 
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
 sealed external interface ColumnDefTemplate<TProps : Any> /* string | ((props: TProps) -> any) */
 
 inline fun <TProps : Any> ColumnDefTemplate(
-    source: String,
-): ColumnDefTemplate<TProps> =
-    source.unsafeCast<ColumnDefTemplate<TProps>>()
+     source: String,
+): ColumnDefTemplate<TProps > =
+    source.unsafeCast<ColumnDefTemplate<TProps >>()
 
 inline fun <TProps : Any> ColumnDefTemplate(
     noinline source: (props: TProps) -> Any?,
-): ColumnDefTemplate<TProps> =
-    source.unsafeCast<ColumnDefTemplate<TProps>>()
+): ColumnDefTemplate<TProps > =
+    source.unsafeCast<ColumnDefTemplate<TProps >>()

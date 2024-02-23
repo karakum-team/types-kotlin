@@ -2,6 +2,6 @@
 
 package tanstack.query.core
 
-external interface ResultOptions {
-    var throwOnError: Boolean
+external interface ResultOptions   {
+ var throwOnError: Boolean
 }

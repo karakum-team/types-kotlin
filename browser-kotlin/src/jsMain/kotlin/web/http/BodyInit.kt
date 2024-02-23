@@ -1,7 +1,7 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package web.http
@@ -9,37 +9,39 @@ package web.http
 import js.buffer.BufferSource
 import web.blob.Blob
 import web.form.FormData
+import web.http.BodyInit
 import web.streams.ReadableStream
+import web.url.URL
 import web.url.URLSearchParams
 
 sealed external interface BodyInit
 
 inline fun BodyInit(
-    value: ReadableStream<*>,
+    value: ReadableStream<*>
 ): BodyInit =
     value.unsafeCast<BodyInit>()
 
 inline fun BodyInit(
-    value: Blob,
+    value: Blob
 ): BodyInit =
     value.unsafeCast<BodyInit>()
 
 inline fun BodyInit(
-    value: BufferSource,
+    value: BufferSource
 ): BodyInit =
     value.unsafeCast<BodyInit>()
 
 inline fun BodyInit(
-    value: FormData,
+    value: FormData
 ): BodyInit =
     value.unsafeCast<BodyInit>()
 
 inline fun BodyInit(
-    value: URLSearchParams,
+    value: URLSearchParams
 ): BodyInit =
     value.unsafeCast<BodyInit>()
 
 inline fun BodyInit(
-    value: String,
+    value: String
 ): BodyInit =
     value.unsafeCast<BodyInit>()

@@ -4,8 +4,27 @@
 
 package cesium
 
-import js.array.ReadonlyArray
 import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
 
 /**
  * Initiates a sampleTerrain() request at the maximum available tile level for a terrain dataset.
@@ -19,7 +38,7 @@ import js.promise.Promise
  * const updatedPositions = await sampleTerrainMostDetailed(terrainProvider, positions);
  * // positions[0].height and positions[1].height have been updated.
  * // updatedPositions is just a reference to positions.
- *
+ * 
  * // To handle tile errors, pass true for the rejectOnTileFail parameter.
  * try {
  *    const updatedPositions = await sampleTerrainMostDetailed(terrainProvider, positions, true);
@@ -35,8 +54,8 @@ import js.promise.Promise
  *   promise will reject if the terrain provider's `availability` property is undefined.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/global.html#sampleTerrainMostDetailed">Online Documentation</a>
  */
-external fun sampleTerrainMostDetailed(
-    terrainProvider: TerrainProvider,
-    positions: ReadonlyArray<Cartographic>,
-    rejectOnTileFail: Boolean? = definedExternally,
+external  fun sampleTerrainMostDetailed (
+ terrainProvider: TerrainProvider,
+ positions: ReadonlyArray<Cartographic>,
+ rejectOnTileFail: Boolean? = definedExternally
 ): Promise<ReadonlyArray<Cartographic>>

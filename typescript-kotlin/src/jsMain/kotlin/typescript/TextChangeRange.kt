@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface TextChangeRange {
-    var span: TextSpan
-    var newLength: Int
+external sealed interface TextChangeRange {
+var span: TextSpan
+var newLength: Int
 }

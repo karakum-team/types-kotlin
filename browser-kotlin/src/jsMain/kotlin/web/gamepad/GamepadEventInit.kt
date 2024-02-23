@@ -3,10 +3,11 @@
 package web.gamepad
 
 import js.objects.JsPlainObject
+import web.events.Event
 import web.events.EventInit
 
 @JsPlainObject
 external interface GamepadEventInit :
-    EventInit {
-    val gamepad: Gamepad
+EventInit  {
+val gamepad: Gamepad
 }

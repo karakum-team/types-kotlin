@@ -2,6 +2,8 @@
 
 package web.audio
 
+import web.dom.Element
+import web.dom.Node
 import web.html.HTMLMediaElement
 
 /**
@@ -9,12 +11,12 @@ import web.html.HTMLMediaElement
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaElementAudioSourceNode)
  */
-external class MediaElementAudioSourceNode(
-    context: AudioContext,
-    options: MediaElementAudioSourceOptions,
-) : AudioNode {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaElementAudioSourceNode/mediaElement)
-     */
-    val mediaElement: HTMLMediaElement
+ external class MediaElementAudioSourceNode (
+context: AudioContext,
+options: MediaElementAudioSourceOptions,
+):AudioNode {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaElementAudioSourceNode/mediaElement)
+ */
+val mediaElement: HTMLMediaElement
 }

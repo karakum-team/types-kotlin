@@ -10,11 +10,11 @@ import js.iterable.JsIterable
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSRuleList)
  */
-sealed external class CSSRuleList :
-    ArrayLike<CSSRule>,
-    JsIterable<CSSRule> {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSRuleList/item)
-     */
-    fun item(index: Int): CSSRule?
+sealed external class CSSRuleList:
+ArrayLike<CSSRule>,
+JsIterable<CSSRule> {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSRuleList/item)
+ */
+ fun item(index: Int): CSSRule?
 }

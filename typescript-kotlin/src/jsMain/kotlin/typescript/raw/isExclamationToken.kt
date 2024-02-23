@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isExclamationToken(node: Node): Boolean /* node is ExclamationToken */
+internal external fun  isExclamationToken(node: Node): Boolean /* node is ExclamationToken */

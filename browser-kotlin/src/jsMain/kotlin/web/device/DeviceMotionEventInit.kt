@@ -3,13 +3,14 @@
 package web.device
 
 import js.objects.JsPlainObject
+import web.events.Event
 import web.events.EventInit
 
 @JsPlainObject
 external interface DeviceMotionEventInit :
-    EventInit {
-    val acceleration: DeviceMotionEventAccelerationInit?
-    val accelerationIncludingGravity: DeviceMotionEventAccelerationInit?
-    val interval: Double?
-    val rotationRate: DeviceMotionEventRotationRateInit?
+EventInit  {
+val acceleration: DeviceMotionEventAccelerationInit?
+val accelerationIncludingGravity: DeviceMotionEventAccelerationInit?
+val interval: Double?
+val rotationRate: DeviceMotionEventRotationRateInit?
 }

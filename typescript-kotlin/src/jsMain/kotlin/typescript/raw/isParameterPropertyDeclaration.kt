@@ -5,8 +5,7 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isParameterPropertyDeclaration(
-    node: Node,
-    parent: Node,
-): Boolean /* node is ParameterPropertyDeclaration */
+internal external fun  isParameterPropertyDeclaration(node: Node,
+parent: Node): Boolean /* node is ParameterPropertyDeclaration */

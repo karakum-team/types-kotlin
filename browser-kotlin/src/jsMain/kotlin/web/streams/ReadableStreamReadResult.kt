@@ -2,9 +2,11 @@
 
 package web.streams
 
-/**
- * Union of:
- * - `ReadableStreamReadValueResult`
- * - `ReadableStreamReadDoneResult`
- */
-sealed external interface ReadableStreamReadResult<T>
+import web.streams.ReadableStream
+
+       /**
+* Union of:
+* - `ReadableStreamReadValueResult`
+* - `ReadableStreamReadDoneResult`
+*/    
+       sealed external interface ReadableStreamReadResult<T>

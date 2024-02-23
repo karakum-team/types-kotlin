@@ -2,40 +2,43 @@
 
 package web.keyboard
 
-object ModifierKey {
-    inline val Alt: ModifierKeyCode
-        get() = ModifierKeyCode("Alt")
+import web.keyboard.KeyCode
+import web.keyboard.ModifierKeyCode
 
-    inline val AltGraph: ModifierKeyCode
-        get() = ModifierKeyCode("AltGraph")
+    object ModifierKey {
+        inline val Alt: ModifierKeyCode
+    get() = ModifierKeyCode("Alt")
 
-    inline val CapsLock: ModifierKeyCode
-        get() = ModifierKeyCode("CapsLock")
+inline val AltGraph: ModifierKeyCode
+    get() = ModifierKeyCode("AltGraph")
 
-    inline val Control: ModifierKeyCode
-        get() = ModifierKeyCode("Control")
+inline val CapsLock: ModifierKeyCode
+    get() = ModifierKeyCode("CapsLock")
 
-    inline val Fn: ModifierKeyCode
-        get() = ModifierKeyCode("Fn")
+inline val Control: ModifierKeyCode
+    get() = ModifierKeyCode("Control")
 
-    inline val FnLock: ModifierKeyCode
-        get() = ModifierKeyCode("FnLock")
+inline val Fn: ModifierKeyCode
+    get() = ModifierKeyCode("Fn")
 
-    inline val Meta: ModifierKeyCode
-        get() = ModifierKeyCode("Meta")
+inline val FnLock: ModifierKeyCode
+    get() = ModifierKeyCode("FnLock")
 
-    inline val NumLock: ModifierKeyCode
-        get() = ModifierKeyCode("NumLock")
+inline val Meta: ModifierKeyCode
+    get() = ModifierKeyCode("Meta")
 
-    inline val ScrollLock: ModifierKeyCode
-        get() = ModifierKeyCode("ScrollLock")
+inline val NumLock: ModifierKeyCode
+    get() = ModifierKeyCode("NumLock")
 
-    inline val Shift: ModifierKeyCode
-        get() = ModifierKeyCode("Shift")
+inline val ScrollLock: ModifierKeyCode
+    get() = ModifierKeyCode("ScrollLock")
 
-    inline val Symbol: ModifierKeyCode
-        get() = ModifierKeyCode("Symbol")
+inline val Shift: ModifierKeyCode
+    get() = ModifierKeyCode("Shift")
 
-    inline val SymbolLock: ModifierKeyCode
-        get() = ModifierKeyCode("SymbolLock")
-}
+inline val Symbol: ModifierKeyCode
+    get() = ModifierKeyCode("Symbol")
+
+inline val SymbolLock: ModifierKeyCode
+    get() = ModifierKeyCode("SymbolLock")
+    }

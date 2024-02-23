@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
-external interface ColumnOrderTableState {
-    var columnOrder: ColumnOrderState
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface ColumnOrderTableState{
+var columnOrder: ColumnOrderState
 }

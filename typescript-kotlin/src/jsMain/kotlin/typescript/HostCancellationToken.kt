@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface HostCancellationToken {
-    fun isCancellationRequested(): Boolean
+external sealed interface HostCancellationToken {
+fun  isCancellationRequested(): Boolean
 }

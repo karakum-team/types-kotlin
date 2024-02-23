@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isImportClause(node: Node): Boolean /* node is ImportClause */
+internal external fun  isImportClause(node: Node): Boolean /* node is ImportClause */

@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJsxAttributes(node: Node): Boolean /* node is JsxAttributes */
+internal external fun  isJsxAttributes(node: Node): Boolean /* node is JsxAttributes */

@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isArrayBindingElement(node: Node): Boolean /* node is ArrayBindingElement */
+internal external fun  isArrayBindingElement(node: Node): Boolean /* node is ArrayBindingElement */

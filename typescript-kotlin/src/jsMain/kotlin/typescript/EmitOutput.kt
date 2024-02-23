@@ -4,7 +4,7 @@ package typescript
 
 import js.array.ReadonlyArray
 
-sealed external interface EmitOutput {
-    var outputFiles: ReadonlyArray<OutputFile>
-    var emitSkipped: Boolean
+external sealed interface EmitOutput {
+var outputFiles: ReadonlyArray<OutputFile>
+var emitSkipped: Boolean
 }

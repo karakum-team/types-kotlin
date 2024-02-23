@@ -7,8 +7,8 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface RTCRtpSendParameters :
-    RTCRtpParameters {
-    var degradationPreference: RTCDegradationPreference?
-    var encodings: ReadonlyArray<RTCRtpEncodingParameters>
-    var transactionId: String
+RTCRtpParameters {
+var degradationPreference: RTCDegradationPreference?
+var encodings: ReadonlyArray<RTCRtpEncodingParameters>
+var transactionId: String
 }

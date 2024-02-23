@@ -1,14 +1,19 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "WRONG_BODY_OF_EXTERNAL_DECLARATION",
-    "INLINE_EXTERNAL_DECLARATION",
-    "NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE",
-    "DECLARATION_CANT_BE_INLINED",
-    "NOTHING_TO_INLINE",
+"WRONG_BODY_OF_EXTERNAL_DECLARATION",
+"INLINE_EXTERNAL_DECLARATION",
+"NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE",
+"DECLARATION_CANT_BE_INLINED",
+"NOTHING_TO_INLINE",
 )
 
 package web.events
+
+import web.events.Event
+import web.events.EventHandler
+import web.events.EventTarget
+import web.events.EventType
 
 open external class EventTarget {
     fun <T : Event> addEventListener(

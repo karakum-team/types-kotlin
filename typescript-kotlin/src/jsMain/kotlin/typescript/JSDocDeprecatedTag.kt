@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface JSDocDeprecatedTag : JSDocTag {
-    override var kind: SyntaxKind.JSDocDeprecatedTag
+external sealed interface JSDocDeprecatedTag : JSDocTag {
+override var kind: SyntaxKind.JSDocDeprecatedTag
 }

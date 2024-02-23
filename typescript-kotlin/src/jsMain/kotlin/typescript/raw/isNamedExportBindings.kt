@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isNamedExportBindings(node: Node): Boolean /* node is NamedExportBindings */
+internal external fun  isNamedExportBindings(node: Node): Boolean /* node is NamedExportBindings */

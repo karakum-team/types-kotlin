@@ -1,17 +1,17 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "CANNOT_CHECK_FOR_EXTERNAL_INTERFACE",
+"CANNOT_CHECK_FOR_EXTERNAL_INTERFACE",
 )
 
 package typescript
 
 import kotlin.contracts.contract
 
-fun isJSDocEnumTag(node: Node): Boolean {
-    contract {
-        returns(true) implies (node is JSDocEnumTag)
+fun  isJSDocEnumTag(node: Node): Boolean{
+        contract {
+            returns(true) implies (node is JSDocEnumTag)
+        }
+    
+        return typescript.raw.isJSDocEnumTag(node)
     }
-
-    return typescript.raw.isJSDocEnumTag(node)
-}

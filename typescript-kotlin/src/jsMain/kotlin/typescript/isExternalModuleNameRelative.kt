@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun isExternalModuleNameRelative(moduleName: String): Boolean
+external fun  isExternalModuleNameRelative(moduleName: String): Boolean

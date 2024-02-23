@@ -1,12 +1,13 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+"EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
 package web.history
 
 import web.events.Event
+import web.events.EventInit
 import web.events.EventType
 
 /**
@@ -14,17 +15,17 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PopStateEvent)
  */
-open external class PopStateEvent(
-    override val type: EventType<PopStateEvent>,
-    init: PopStateEventInit = definedExternally,
+    open external class PopStateEvent (
+override val type: EventType<PopStateEvent>,
+init: PopStateEventInit = definedExternally
 ) : Event,
-    PopStateEventInit {
-    /**
-     * Returns a copy of the information that was provided to pushState() or replaceState().
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PopStateEvent/state)
-     */
-    override val state: Any?
-
-    companion object : PopStateEventTypes
-}
+PopStateEventInit {
+        /**
+ * Returns a copy of the information that was provided to pushState() or replaceState().
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PopStateEvent/state)
+ */
+override val state: Any?
+    
+        companion object : PopStateEventTypes
+    }

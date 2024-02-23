@@ -1,7 +1,7 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package web.vtt
@@ -9,13 +9,12 @@ package web.vtt
 import seskar.js.JsValue
 import seskar.js.JsVirtual
 
-@JsVirtual
-sealed external interface ScrollSetting {
-    companion object {
-        @JsValue("")
-        val none: ScrollSetting
-
-        @JsValue("up")
-        val up: ScrollSetting
-    }
-}
+        @JsVirtual
+        sealed external interface ScrollSetting {
+            companion object {
+                @JsValue("")    
+val none: ScrollSetting
+@JsValue("up")    
+val up: ScrollSetting
+            }
+        }

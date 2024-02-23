@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isRestTypeNode(node: Node): Boolean /* node is RestTypeNode */
+internal external fun  isRestTypeNode(node: Node): Boolean /* node is RestTypeNode */

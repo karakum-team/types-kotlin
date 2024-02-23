@@ -5,9 +5,6 @@
 package tanstack.table.core
 
 import js.array.ReadonlyArray
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
 
-external fun <TData : RowData> filterRows(
-    rows: ReadonlyArray<Row<TData>>,
-    filterRowImpl: (row: Row<TData>) -> Boolean, /* Any? */
-    table: Table<TData>,
-): RowModel<TData>
+external fun <TData : RowData> filterRows(rows: ReadonlyArray<Row<TData>>, filterRowImpl: (row: Row<TData>) -> Boolean /* Any? */, table: Table<TData>): RowModel<TData>

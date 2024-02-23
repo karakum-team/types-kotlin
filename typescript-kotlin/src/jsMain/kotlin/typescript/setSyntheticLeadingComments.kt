@@ -6,7 +6,5 @@ package typescript
 
 import js.array.ReadonlyArray
 
-external fun <T : Node> setSyntheticLeadingComments(
-    node: T,
-    comments: ReadonlyArray<SynthesizedComment>?,
-): T
+external fun <T : Node> setSyntheticLeadingComments(node: T,
+comments: ReadonlyArray<SynthesizedComment>?): T

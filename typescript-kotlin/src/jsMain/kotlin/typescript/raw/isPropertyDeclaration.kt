@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isPropertyDeclaration(node: Node): Boolean /* node is PropertyDeclaration */
+internal external fun  isPropertyDeclaration(node: Node): Boolean /* node is PropertyDeclaration */

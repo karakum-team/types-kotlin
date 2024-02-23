@@ -2,6 +2,11 @@
 
 package web.dom
 
+import web.dom.Document
+import web.dom.DocumentFragment
+import web.dom.Element
+import web.dom.Node
+import web.dom.ParentNode
 import web.html.HTMLElement
 
 /**
@@ -10,9 +15,9 @@ import web.html.HTMLElement
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DocumentFragment)
  */
 open external class DocumentFragment :
-    Node,
-    NonElementParentNode,
-    ParentNode {
-    override val ownerDocument: Document
-    override fun getElementById(elementId: String): HTMLElement?
+Node,
+NonElementParentNode,
+ParentNode {
+override val ownerDocument: Document
+ override fun getElementById(elementId: String): HTMLElement?
 }

@@ -1,20 +1,24 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package web.cssom
 
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
 sealed external interface SizeQuery :
-    ContainerQuery,
-    MediaQuery
+ContainerQuery,
+MediaQuery
 
 inline fun SizeQuery(
     value: String,
 ): SizeQuery =
     value.unsafeCast<SizeQuery>()
-
+    
 infix fun SizeQuery.and(
     other: SizeQuery,
 ): SizeQuery =

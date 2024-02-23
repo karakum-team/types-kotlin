@@ -8,13 +8,12 @@ import web.geometry.DOMMatrix
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSTransformComponent)
  */
 sealed external class CSSTransformComponent {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSTransformComponent/is2D)
-     */
-    var is2D: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSTransformComponent/toMatrix)
-     */
-    fun toMatrix(): DOMMatrix
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSTransformComponent/is2D)
+ */
+var is2D: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSTransformComponent/toMatrix)
+ */
+ fun toMatrix(): DOMMatrix
 }

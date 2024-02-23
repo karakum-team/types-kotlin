@@ -4,6 +4,8 @@ package web.svg
 
 import web.cssom.LinkStyle
 import web.cssom.MediaQuery
+import web.dom.Element
+import web.svg.SVGElement
 
 /**
  * Corresponds to the SVG <style> element.
@@ -11,17 +13,15 @@ import web.cssom.MediaQuery
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGStyleElement)
  */
 sealed external class SVGStyleElement :
-    SVGElement,
-    LinkStyle {
-    var disabled: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGStyleElement/media)
-     */
-    var media: MediaQuery
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGStyleElement/title)
-     */
-    var title: String
+SVGElement,
+LinkStyle {
+var disabled: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGStyleElement/media)
+ */
+var media: MediaQuery
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGStyleElement/title)
+ */
+var title: String
 }

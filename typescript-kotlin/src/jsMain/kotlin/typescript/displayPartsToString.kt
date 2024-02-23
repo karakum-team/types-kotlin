@@ -6,4 +6,4 @@ package typescript
 
 import js.array.ReadonlyArray
 
-external fun displayPartsToString(displayParts: ReadonlyArray<SymbolDisplayPart>?): String
+external fun  displayPartsToString(displayParts: ReadonlyArray<SymbolDisplayPart>?): String

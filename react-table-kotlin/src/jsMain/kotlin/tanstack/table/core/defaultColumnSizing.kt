@@ -4,8 +4,10 @@
 
 package tanstack.table.core
 
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
 external object defaultColumnSizing {
-    val size: Int
-    val minSize: Int
-    val maxSize: Int
+    val size: Int;
+    val minSize: Int;
+    val maxSize: Int;
 }

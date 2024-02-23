@@ -3,5 +3,5 @@
 package web.svg
 
 sealed external interface SVGURIReference {
-    val href: SVGAnimatedString
+val href: SVGAnimatedString
 }

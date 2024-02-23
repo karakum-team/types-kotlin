@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface RenameInfoFailure : Union.RenameInfoFailure_ {
-    var canRename: Boolean /* false */
-    var localizedErrorMessage: String
+external sealed interface RenameInfoFailure: Union.RenameInfoFailure_ {
+var canRename: Boolean /* false */
+var localizedErrorMessage: String
 }

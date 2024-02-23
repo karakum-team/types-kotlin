@@ -3,10 +3,11 @@
 package web.http
 
 import js.objects.JsPlainObject
+import web.http.Response
 
 @JsPlainObject
 sealed external interface ResponseInit {
-    var headers: Headers?
-    var status: Short?
-    var statusText: String?
+var headers: Headers?
+var status: Short?
+var statusText: String?
 }

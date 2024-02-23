@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface PaymentValidationErrors {
-    var error: String?
-    var paymentMethod: Any?
+var error: String?
+var paymentMethod: Any?
 }

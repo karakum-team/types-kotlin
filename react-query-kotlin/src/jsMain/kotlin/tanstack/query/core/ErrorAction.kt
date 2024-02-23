@@ -2,7 +2,7 @@
 
 package tanstack.query.core
 
-external interface ErrorAction<TError> {
-    var type: Type /* 'error' */
-    var error: TError
+external interface ErrorAction <TError>  {
+ var type: Type /* 'error' */
+ var error: TError
 }

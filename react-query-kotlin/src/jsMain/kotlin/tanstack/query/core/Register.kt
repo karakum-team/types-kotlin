@@ -2,4 +2,6 @@
 
 package tanstack.query.core
 
-external interface Register
+external interface Register   {
+
+}

@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface FlowStart : FlowNodeBase, Union.FlowStart_ {
-    var node: Union.FlowStart_node?
+external sealed interface FlowStart : FlowNodeBase, Union.FlowStart_ {
+var node: Union.FlowStart_node?
 }

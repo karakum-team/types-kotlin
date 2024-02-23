@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun isStringTextContainingNode(node: Node): Boolean /* node is StringLiteral | TemplateLiteralToken */
+external fun  isStringTextContainingNode(node: Node): Boolean /* node is StringLiteral | TemplateLiteralToken */

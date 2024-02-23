@@ -2,6 +2,6 @@
 
 package tanstack.query.core
 
-external interface NotifyOptions {
-    var listeners: Boolean
+external interface NotifyOptions   {
+ var listeners: Boolean
 }

@@ -2,5 +2,8 @@
 
 package web.geometry
 
-inline fun DOMMatrixReadOnly.asInit(): DOMMatrixInit =
+import web.geometry.DOMMatrix
+import web.geometry.DOMMatrixReadOnly
+
+inline fun DOMMatrixReadOnly.asInit(): DOMMatrixInit =    
     unsafeCast<DOMMatrixInit>()

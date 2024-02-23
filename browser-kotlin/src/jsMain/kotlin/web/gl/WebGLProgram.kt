@@ -2,4 +2,6 @@
 
 package web.gl
 
-sealed external class WebGLProgram
+sealed external class WebGLProgram {
+
+}

@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocParameterTag(node: Node): Boolean /* node is JSDocParameterTag */
+internal external fun  isJSDocParameterTag(node: Node): Boolean /* node is JSDocParameterTag */

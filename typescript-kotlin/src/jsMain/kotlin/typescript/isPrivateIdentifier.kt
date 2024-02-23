@@ -1,17 +1,17 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "CANNOT_CHECK_FOR_EXTERNAL_INTERFACE",
+"CANNOT_CHECK_FOR_EXTERNAL_INTERFACE",
 )
 
 package typescript
 
 import kotlin.contracts.contract
 
-fun isPrivateIdentifier(node: Node): Boolean {
-    contract {
-        returns(true) implies (node is PrivateIdentifier)
+fun  isPrivateIdentifier(node: Node): Boolean{
+        contract {
+            returns(true) implies (node is PrivateIdentifier)
+        }
+    
+        return typescript.raw.isPrivateIdentifier(node)
     }
-
-    return typescript.raw.isPrivateIdentifier(node)
-}

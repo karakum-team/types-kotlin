@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isBigIntLiteral(node: Node): Boolean /* node is BigIntLiteral */
+internal external fun  isBigIntLiteral(node: Node): Boolean /* node is BigIntLiteral */

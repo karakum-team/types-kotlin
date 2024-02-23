@@ -2,6 +2,6 @@
 
 package tanstack.query.core
 
-external interface SetStateOptions {
-    var meta: Any
+external interface SetStateOptions   {
+ var meta: Any
 }

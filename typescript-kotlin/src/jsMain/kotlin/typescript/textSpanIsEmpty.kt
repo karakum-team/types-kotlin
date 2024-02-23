@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun textSpanIsEmpty(span: TextSpan): Boolean
+external fun  textSpanIsEmpty(span: TextSpan): Boolean

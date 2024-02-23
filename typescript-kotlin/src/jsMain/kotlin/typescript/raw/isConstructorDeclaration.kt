@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isConstructorDeclaration(node: Node): Boolean /* node is ConstructorDeclaration */
+internal external fun  isConstructorDeclaration(node: Node): Boolean /* node is ConstructorDeclaration */

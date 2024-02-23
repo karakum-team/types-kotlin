@@ -1,12 +1,13 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+"EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
 package web.midi
 
 import web.events.Event
+import web.events.EventInit
 import web.events.EventType
 
 /**
@@ -14,15 +15,15 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MIDIConnectionEvent)
  */
-open external class MIDIConnectionEvent(
-    override val type: EventType<MIDIConnectionEvent>,
-    init: MIDIConnectionEventInit = definedExternally,
+    open external class MIDIConnectionEvent (
+override val type: EventType<MIDIConnectionEvent>,
+init: MIDIConnectionEventInit = definedExternally
 ) : Event,
-    MIDIConnectionEventInit {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MIDIConnectionEvent/port)
-     */
-    override val port: MIDIPort?
-
-    companion object : MIDIConnectionEventTypes
-}
+MIDIConnectionEventInit {
+        /**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MIDIConnectionEvent/port)
+ */
+override val port: MIDIPort?
+    
+        companion object : MIDIConnectionEventTypes
+    }

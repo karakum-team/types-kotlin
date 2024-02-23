@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface IterationStatement : Statement {
-    val statement: Statement
+external sealed interface IterationStatement : Statement {
+val statement: Statement
 }

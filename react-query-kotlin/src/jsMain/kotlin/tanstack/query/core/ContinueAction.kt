@@ -2,6 +2,6 @@
 
 package tanstack.query.core
 
-external interface ContinueAction {
-    var type: Type /* 'continue' */
+external interface ContinueAction   {
+ var type: Type /* 'continue' */
 }

@@ -10,12 +10,12 @@ import js.promise.Promise
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/WebAssembly/JavaScript_interface/instantiate_static)
  */
-external fun instantiate(
-    bytes: BufferSource,
-    importObject: Imports = definedExternally,
+external fun  instantiate (
+bytes: BufferSource,
+importObject: Imports = definedExternally
 ): Promise<WebAssemblyInstantiatedSource>
 
-external fun instantiate(
-    moduleObject: Module,
-    importObject: Imports = definedExternally,
+external fun  instantiate (
+moduleObject: Module,
+importObject: Imports = definedExternally
 ): Promise<Instance>

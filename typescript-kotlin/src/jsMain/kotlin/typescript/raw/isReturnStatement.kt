@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isReturnStatement(node: Node): Boolean /* node is ReturnStatement */
+internal external fun  isReturnStatement(node: Node): Boolean /* node is ReturnStatement */

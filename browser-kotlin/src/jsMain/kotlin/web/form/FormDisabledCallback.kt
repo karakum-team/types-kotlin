@@ -3,5 +3,4 @@
 package web.form
 
 typealias FormDisabledCallback = (
-    disabled: Boolean,
-) -> Unit
+disabled: Boolean) -> Unit

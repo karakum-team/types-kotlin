@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isEntityName(node: Node): Boolean /* node is EntityName */
+internal external fun  isEntityName(node: Node): Boolean /* node is EntityName */

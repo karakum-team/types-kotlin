@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface WebAssemblyInstantiatedSource {
-    var instance: Instance
-    var module: Module
+var instance: Instance
+var module: Module
 }

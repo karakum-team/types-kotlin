@@ -4,6 +4,7 @@ package web.locks
 
 import js.core.Void
 import js.promise.Promise
+import web.locks.LockManager
 
 /**
  * Available only in secure contexts.
@@ -11,22 +12,20 @@ import js.promise.Promise
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/LockManager)
  */
 sealed external class LockManager {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/LockManager/query)
-     */
-    fun query(): Promise<LockManagerSnapshot>
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/LockManager/request)
-     */
-    fun request(
-        name: String,
-        callback: LockGrantedCallback,
-    ): Promise<Void>
-
-    fun request(
-        name: String,
-        options: LockOptions,
-        callback: LockGrantedCallback,
-    ): Promise<Void>
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/LockManager/query)
+ */
+ fun query(): Promise<LockManagerSnapshot>
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/LockManager/request)
+ */
+ fun request(
+name: String,
+callback: LockGrantedCallback,
+): Promise<Void>
+ fun request(
+name: String,
+options: LockOptions,
+callback: LockGrantedCallback,
+): Promise<Void>
 }

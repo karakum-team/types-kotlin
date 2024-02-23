@@ -4,10 +4,8 @@
 
 package typescript
 
-external fun createSourceFile(
-    fileName: String,
-    sourceText: String,
-    languageVersionOrOptions: dynamic, /* ScriptTarget | CreateSourceFileOptions */
-    setParentNodes: Boolean = definedExternally,
-    scriptKind: ScriptKind = definedExternally,
-): SourceFile
+external fun  createSourceFile(fileName: String,
+sourceText: String,
+languageVersionOrOptions: dynamic /* ScriptTarget | CreateSourceFileOptions */,
+setParentNodes: Boolean = definedExternally,
+scriptKind: ScriptKind = definedExternally): SourceFile

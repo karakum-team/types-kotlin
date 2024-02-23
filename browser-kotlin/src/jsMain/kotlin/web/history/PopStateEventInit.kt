@@ -3,10 +3,11 @@
 package web.history
 
 import js.objects.JsPlainObject
+import web.events.Event
 import web.events.EventInit
 
 @JsPlainObject
 external interface PopStateEventInit :
-    EventInit {
-    val state: Any?
+EventInit  {
+val state: Any?
 }

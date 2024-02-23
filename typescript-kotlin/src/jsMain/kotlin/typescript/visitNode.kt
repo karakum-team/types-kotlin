@@ -20,12 +20,10 @@ import js.array.ReadonlyArray
  * @param test A callback to execute to verify the Node is valid.
  * @param lift An optional callback to execute to lift a NodeArray into a valid Node.
  */
-external fun <TIn : Node?, TVisited : Node?, TOut : Node> visitNode(
-    node: TIn,
-    visitor: Visitor<TIn & Any, TVisited>,
-    test: (node: Node) -> Boolean, /* node is TOut */
-    lift: (node: ReadonlyArray<Node>) -> Node = definedExternally,
-): dynamic /* TOut | (TIn & undefined) | (TVisited & undefined) */
+external fun <TIn : Node?, TVisited : Node?, TOut : Node> visitNode(node: TIn,
+visitor: Visitor<TIn & Any, TVisited>,
+test: (node: Node) -> Boolean /* node is TOut */,
+lift: (node: ReadonlyArray<Node>) -> Node = definedExternally): dynamic /* TOut | (TIn & undefined) | (TVisited & undefined) */
 
 /**
  * Visits a Node using the supplied visitor, possibly returning a new Node in its place.
@@ -41,9 +39,7 @@ external fun <TIn : Node?, TVisited : Node?, TOut : Node> visitNode(
  * @param test A callback to execute to verify the Node is valid.
  * @param lift An optional callback to execute to lift a NodeArray into a valid Node.
  */
-external fun <TIn : Node?, TVisited : Node?> visitNode(
-    node: TIn,
-    visitor: Visitor<TIn & Any, TVisited>,
-    test: (node: Node) -> Boolean = definedExternally,
-    lift: (node: ReadonlyArray<Node>) -> Node = definedExternally,
-): dynamic /* Node | (TIn & undefined) | (TVisited & undefined) */
+external fun <TIn : Node?, TVisited : Node?> visitNode(node: TIn,
+visitor: Visitor<TIn & Any, TVisited>,
+test: (node: Node) -> Boolean = definedExternally,
+lift: (node: ReadonlyArray<Node>) -> Node = definedExternally): dynamic /* Node | (TIn & undefined) | (TVisited & undefined) */

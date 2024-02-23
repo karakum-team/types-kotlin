@@ -7,14 +7,14 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface RTCTransportStats :
-    RTCStats {
-    var bytesReceived: JsLong?
-    var bytesSent: JsLong?
-    var dtlsCipher: String?
-    var dtlsState: RTCDtlsTransportState
-    var localCertificateId: String?
-    var remoteCertificateId: String?
-    var selectedCandidatePairId: String?
-    var srtpCipher: String?
-    var tlsVersion: String?
+RTCStats {
+var bytesReceived: JsLong?
+var bytesSent: JsLong?
+var dtlsCipher: String?
+var dtlsState: RTCDtlsTransportState
+var localCertificateId: String?
+var remoteCertificateId: String?
+var selectedCandidatePairId: String?
+var srtpCipher: String?
+var tlsVersion: String?
 }

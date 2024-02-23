@@ -2,7 +2,7 @@
 
 package tanstack.query.core
 
-external interface NotifyEventQueryAdded : NotifyEvent {
-    override var type: NotifyEventType /* 'added' */
-    var query: Query<*, *, *, *>
+external interface NotifyEventQueryAdded  : NotifyEvent {
+override var type: NotifyEventType /* 'added' */
+ var query: Query<*, *, *, *>
 }

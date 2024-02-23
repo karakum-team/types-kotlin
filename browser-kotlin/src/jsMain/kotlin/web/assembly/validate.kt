@@ -9,6 +9,6 @@ import js.buffer.BufferSource
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/WebAssembly/JavaScript_interface/validate_static)
  */
-external fun validate(
-    bytes: BufferSource,
+external fun  validate (
+bytes: BufferSource
 ): Boolean

@@ -2,5 +2,8 @@
 
 package tanstack.table.core
 
-external interface ColumnDefExtensions<TData : RowData, TValue> : VisibilityColumnDef, ColumnPinningColumnDef,
-    FiltersColumnDef<TData>, SortingColumnDef<TData>, GroupingColumnDef<TData, TValue>, ColumnSizingColumnDef
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface ColumnDefExtensions<TData : RowData, TValue> : VisibilityColumnDef, ColumnPinningColumnDef, FiltersColumnDef<TData>, SortingColumnDef<TData>, GroupingColumnDef<TData, TValue>, ColumnSizingColumnDef{
+
+}

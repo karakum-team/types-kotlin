@@ -4,7 +4,7 @@ package typescript
 
 import js.array.ReadonlyArray
 
-sealed external interface ClassificationResult {
-    var finalLexState: EndOfLineState
-    var entries: ReadonlyArray<ClassificationInfo>
+external sealed interface ClassificationResult {
+var finalLexState: EndOfLineState
+var entries: ReadonlyArray<ClassificationInfo>
 }

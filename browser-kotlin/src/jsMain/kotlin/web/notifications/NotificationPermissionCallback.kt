@@ -2,6 +2,7 @@
 
 package web.notifications
 
+import web.notifications.Notification
+
 typealias NotificationPermissionCallback = (
-    permission: NotificationPermission,
-) -> Unit
+permission: NotificationPermission) -> Unit

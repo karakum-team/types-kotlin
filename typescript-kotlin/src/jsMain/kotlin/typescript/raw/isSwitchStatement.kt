@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isSwitchStatement(node: Node): Boolean /* node is SwitchStatement */
+internal external fun  isSwitchStatement(node: Node): Boolean /* node is SwitchStatement */

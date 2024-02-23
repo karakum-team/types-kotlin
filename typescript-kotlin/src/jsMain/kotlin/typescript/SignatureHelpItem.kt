@@ -11,12 +11,12 @@ import js.array.ReadonlyArray
  * an edit has happened, while signature help is still active, the host can ask important
  * questions like 'what parameter is the user currently contained within?'.
  */
-sealed external interface SignatureHelpItem {
-    var isVariadic: Boolean
-    var prefixDisplayParts: ReadonlyArray<SymbolDisplayPart>
-    var suffixDisplayParts: ReadonlyArray<SymbolDisplayPart>
-    var separatorDisplayParts: ReadonlyArray<SymbolDisplayPart>
-    var parameters: ReadonlyArray<SignatureHelpParameter>
-    var documentation: ReadonlyArray<SymbolDisplayPart>
-    var tags: ReadonlyArray<JSDocTagInfo>
+external sealed interface SignatureHelpItem {
+var isVariadic: Boolean
+var prefixDisplayParts: ReadonlyArray<SymbolDisplayPart>
+var suffixDisplayParts: ReadonlyArray<SymbolDisplayPart>
+var separatorDisplayParts: ReadonlyArray<SymbolDisplayPart>
+var parameters: ReadonlyArray<SignatureHelpParameter>
+var documentation: ReadonlyArray<SymbolDisplayPart>
+var tags: ReadonlyArray<JSDocTagInfo>
 }

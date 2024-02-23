@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface ReportFileInError {
-    var fileName: String
-    var line: Int
+external sealed interface ReportFileInError {
+var fileName: String
+var line: Int
 }

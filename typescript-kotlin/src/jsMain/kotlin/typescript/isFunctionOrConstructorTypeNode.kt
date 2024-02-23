@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun isFunctionOrConstructorTypeNode(node: Node): Boolean /* node is FunctionTypeNode | ConstructorTypeNode */
+external fun  isFunctionOrConstructorTypeNode(node: Node): Boolean /* node is FunctionTypeNode | ConstructorTypeNode */

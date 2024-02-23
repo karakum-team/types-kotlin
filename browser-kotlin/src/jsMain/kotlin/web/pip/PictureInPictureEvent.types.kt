@@ -1,20 +1,22 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE",
+"NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE",
 )
 
 package web.pip
 
 import seskar.js.JsValue
+import web.events.Event
 import web.events.EventType
+import web.pip.PictureInPictureEvent
 
-sealed external interface PictureInPictureEventTypes {
-    @JsValue("enterpictureinpicture")
-    val ENTER_PICTURE_IN_PICTURE: EventType<PictureInPictureEvent>
-        get() = definedExternally
+    sealed external interface PictureInPictureEventTypes {
+        @JsValue("enterpictureinpicture")
+val ENTER_PICTURE_IN_PICTURE : EventType<PictureInPictureEvent>
+    get() = definedExternally
 
-    @JsValue("leavepictureinpicture")
-    val LEAVE_PICTURE_IN_PICTURE: EventType<PictureInPictureEvent>
-        get() = definedExternally
-}
+@JsValue("leavepictureinpicture")
+val LEAVE_PICTURE_IN_PICTURE : EventType<PictureInPictureEvent>
+    get() = definedExternally
+    }

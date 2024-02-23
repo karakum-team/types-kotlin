@@ -4,11 +4,14 @@ package web.dom.observers
 
 import js.array.ReadonlyArray
 import js.objects.JsPlainObject
+import web.dom.Document
+import web.dom.Element
+import web.dom.Node
 import web.dom.ParentNode
 
 @JsPlainObject
 sealed external interface IntersectionObserverInit {
-    var root: ParentNode /* Element | Document */?
-    var rootMargin: String?
-    var threshold: ReadonlyArray<Double>?
+var root: ParentNode /* Element | Document */?
+var rootMargin: String?
+var threshold: ReadonlyArray<Double>?
 }

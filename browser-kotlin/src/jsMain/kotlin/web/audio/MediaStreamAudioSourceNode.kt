@@ -2,6 +2,7 @@
 
 package web.audio
 
+import web.dom.Node
 import web.media.streams.MediaStream
 
 /**
@@ -9,12 +10,12 @@ import web.media.streams.MediaStream
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaStreamAudioSourceNode)
  */
-external class MediaStreamAudioSourceNode(
-    context: AudioContext,
-    options: MediaStreamAudioSourceOptions,
-) : AudioNode {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaStreamAudioSourceNode/mediaStream)
-     */
-    val mediaStream: MediaStream
+ external class MediaStreamAudioSourceNode (
+context: AudioContext,
+options: MediaStreamAudioSourceOptions,
+):AudioNode {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaStreamAudioSourceNode/mediaStream)
+ */
+val mediaStream: MediaStream
 }

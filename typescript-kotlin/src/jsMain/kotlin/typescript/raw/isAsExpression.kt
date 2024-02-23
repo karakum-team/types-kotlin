@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isAsExpression(node: Node): Boolean /* node is AsExpression */
+internal external fun  isAsExpression(node: Node): Boolean /* node is AsExpression */

@@ -1,12 +1,13 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+"EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
 package web.rtc
 
 import web.events.Event
+import web.events.EventInit
 import web.events.EventType
 
 /**
@@ -14,15 +15,15 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCDTMFToneChangeEvent)
  */
-open external class RTCDTMFToneChangeEvent(
-    override val type: EventType<RTCDTMFToneChangeEvent>,
-    init: RTCDTMFToneChangeEventInit = definedExternally,
+    open external class RTCDTMFToneChangeEvent (
+override val type: EventType<RTCDTMFToneChangeEvent>,
+init: RTCDTMFToneChangeEventInit = definedExternally
 ) : Event,
-    RTCDTMFToneChangeEventInit {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCDTMFToneChangeEvent/tone)
-     */
-    override val tone: String
-
-    companion object : RTCDTMFToneChangeEventTypes
-}
+RTCDTMFToneChangeEventInit {
+        /**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCDTMFToneChangeEvent/tone)
+ */
+override val tone: String
+    
+        companion object : RTCDTMFToneChangeEventTypes
+    }

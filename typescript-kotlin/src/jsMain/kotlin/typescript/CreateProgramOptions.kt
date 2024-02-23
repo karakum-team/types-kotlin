@@ -4,11 +4,11 @@ package typescript
 
 import js.array.ReadonlyArray
 
-sealed external interface CreateProgramOptions {
-    var rootNames: ReadonlyArray<String>
-    var options: CompilerOptions
-    var projectReferences: ReadonlyArray<ProjectReference>?
-    var host: CompilerHost?
-    var oldProgram: Program?
-    var configFileParsingDiagnostics: ReadonlyArray<Diagnostic>?
+external sealed interface CreateProgramOptions {
+var rootNames: ReadonlyArray<String>
+var options: CompilerOptions
+var projectReferences: ReadonlyArray<ProjectReference>?
+var host: CompilerHost?
+var oldProgram: Program?
+var configFileParsingDiagnostics: ReadonlyArray<Diagnostic>?
 }

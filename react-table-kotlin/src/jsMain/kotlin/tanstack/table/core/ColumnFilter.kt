@@ -2,7 +2,9 @@
 
 package tanstack.table.core
 
-external interface ColumnFilter {
-    var id: String
-    var value: Any
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface ColumnFilter{
+var id: String
+var value: Any
 }

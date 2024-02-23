@@ -5,8 +5,9 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
 /**
  * Determines whether a node is an expression based only on its kind.
  */
-internal external fun isExpression(node: Node): Boolean /* node is Expression */
+internal external fun  isExpression(node: Node): Boolean /* node is Expression */

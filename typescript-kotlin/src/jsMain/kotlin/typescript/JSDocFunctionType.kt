@@ -2,7 +2,6 @@
 
 package typescript
 
-sealed external interface JSDocFunctionType : JSDocType, SignatureDeclarationBase, LocalsContainer,
-    Union.JSDocFunctionType_ {
-    override val kind: SyntaxKind.JSDocFunctionType
+external sealed interface JSDocFunctionType : JSDocType, SignatureDeclarationBase, LocalsContainer, Union.JSDocFunctionType_ {
+override val kind: SyntaxKind.JSDocFunctionType
 }

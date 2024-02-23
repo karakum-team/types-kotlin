@@ -2,9 +2,9 @@
 
 package typescript
 
-sealed external interface SyntheticExpression : Expression {
-    override val kind: SyntaxKind.SyntheticExpression
-    val isSpread: Boolean
-    val type: Type
-    val tupleNameSource: Union.SyntheticExpression_tupleNameSource?
+external sealed interface SyntheticExpression : Expression {
+override val kind: SyntaxKind.SyntheticExpression
+val isSpread: Boolean
+val type: Type
+val tupleNameSource: Union.SyntheticExpression_tupleNameSource?
 }

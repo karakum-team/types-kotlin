@@ -4,6 +4,8 @@
 
 package tanstack.table.core
 
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
 external fun <TData : RowData> expandRows(rowModel: RowModel<TData>): Any /* {
     rows: Row<TData>[];
     flatRows: Row<TData>[];

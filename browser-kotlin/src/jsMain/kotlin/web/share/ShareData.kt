@@ -5,11 +5,12 @@ package web.share
 import js.array.ReadonlyArray
 import js.objects.JsPlainObject
 import web.file.File
+import web.share.ShareData
 
 @JsPlainObject
 sealed external interface ShareData {
-    var files: ReadonlyArray<File>?
-    var text: String?
-    var title: String?
-    var url: String?
+var files: ReadonlyArray<File>?
+var text: String?
+var title: String?
+var url: String?
 }

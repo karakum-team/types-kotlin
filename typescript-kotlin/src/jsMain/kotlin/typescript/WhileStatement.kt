@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface WhileStatement : IterationStatement, FlowContainer, Union.WhileStatement_ {
-    override val kind: SyntaxKind.WhileStatement
-    val expression: Expression
+external sealed interface WhileStatement : IterationStatement, FlowContainer, Union.WhileStatement_ {
+override val kind: SyntaxKind.WhileStatement
+val expression: Expression
 }

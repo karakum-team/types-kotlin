@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isModuleBlock(node: Node): Boolean /* node is ModuleBlock */
+internal external fun  isModuleBlock(node: Node): Boolean /* node is ModuleBlock */

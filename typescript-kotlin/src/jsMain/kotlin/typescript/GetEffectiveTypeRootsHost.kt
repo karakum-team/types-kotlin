@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface GetEffectiveTypeRootsHost {
-    val getCurrentDirectory: (() -> String)?
+external sealed interface GetEffectiveTypeRootsHost {
+val getCurrentDirectory: (() -> String)?
 }

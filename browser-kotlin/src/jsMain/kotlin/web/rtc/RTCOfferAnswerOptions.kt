@@ -5,4 +5,5 @@ package web.rtc
 import js.objects.JsPlainObject
 
 @JsPlainObject
-sealed external interface RTCOfferAnswerOptions
+sealed external interface RTCOfferAnswerOptions {
+}

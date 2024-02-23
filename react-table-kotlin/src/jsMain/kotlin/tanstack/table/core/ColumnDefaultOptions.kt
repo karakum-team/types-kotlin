@@ -2,7 +2,9 @@
 
 package tanstack.table.core
 
-external interface ColumnDefaultOptions {
-    var enableGrouping: Boolean
-    var onGroupingChange: OnChangeFn<GroupingState>
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface ColumnDefaultOptions{
+var enableGrouping: Boolean
+var onGroupingChange: OnChangeFn<GroupingState>
 }

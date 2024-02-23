@@ -3,6 +3,6 @@
 package js.intl
 
 sealed external interface NumberFormatPart {
-    var type: NumberFormatPartType
-    var value: String
+var type: NumberFormatPartType
+var value: String
 }

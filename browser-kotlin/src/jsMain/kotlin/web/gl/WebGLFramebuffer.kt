@@ -2,4 +2,6 @@
 
 package web.gl
 
-sealed external class WebGLFramebuffer
+sealed external class WebGLFramebuffer {
+
+}

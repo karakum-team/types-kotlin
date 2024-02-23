@@ -5,24 +5,24 @@ package web.pip
 import web.events.Event
 import web.events.EventHandler
 import web.events.EventTarget
+import web.pip.PictureInPictureWindow
+import web.window.Window
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PictureInPictureWindow)
  */
 sealed external class PictureInPictureWindow :
-    EventTarget {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PictureInPictureWindow/height)
-     */
-    val height: Int
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PictureInPictureWindow/resize_event)
-     */
-    var onresize: EventHandler<Event>?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PictureInPictureWindow/width)
-     */
-    val width: Int
+EventTarget {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PictureInPictureWindow/height)
+ */
+val height: Int
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PictureInPictureWindow/resize_event)
+ */
+var onresize: EventHandler<Event>?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PictureInPictureWindow/width)
+ */
+val width: Int
 }

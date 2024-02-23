@@ -1,24 +1,23 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package typescript
 
-import seskar.js.JsIntValue
 import seskar.js.JsVirtual
+import seskar.js.JsIntValue
 
-@JsVirtual
-sealed external interface InvalidatedProjectKind {
-    companion object {
-        @JsIntValue(0)
-        val Build: Build
-
-        @JsIntValue(2)
-        val UpdateOutputFileStamps: UpdateOutputFileStamps
-    }
-
-    sealed interface Build : InvalidatedProjectKind
-    sealed interface UpdateOutputFileStamps : InvalidatedProjectKind
-}
+        @JsVirtual
+        external sealed interface InvalidatedProjectKind {
+            companion object {
+                @JsIntValue(0)
+val Build : InvalidatedProjectKind.Build
+@JsIntValue(2)
+val UpdateOutputFileStamps : InvalidatedProjectKind.UpdateOutputFileStamps
+            }
+            
+            sealed interface Build : InvalidatedProjectKind
+sealed interface UpdateOutputFileStamps : InvalidatedProjectKind
+        }

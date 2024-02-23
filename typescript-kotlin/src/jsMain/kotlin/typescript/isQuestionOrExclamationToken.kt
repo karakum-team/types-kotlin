@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun isQuestionOrExclamationToken(node: Node): Boolean /* node is QuestionToken | ExclamationToken */
+external fun  isQuestionOrExclamationToken(node: Node): Boolean /* node is QuestionToken | ExclamationToken */

@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isEmptyStatement(node: Node): Boolean /* node is EmptyStatement */
+internal external fun  isEmptyStatement(node: Node): Boolean /* node is EmptyStatement */

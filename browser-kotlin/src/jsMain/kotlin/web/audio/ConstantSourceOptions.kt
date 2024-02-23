@@ -6,5 +6,5 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface ConstantSourceOptions {
-    var offset: Float?
+var offset: Float?
 }

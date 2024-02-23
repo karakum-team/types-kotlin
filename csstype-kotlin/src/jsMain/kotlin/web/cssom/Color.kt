@@ -1,13 +1,14 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "WRONG_EXTERNAL_DECLARATION",
+"WRONG_EXTERNAL_DECLARATION",
 )
 
 package web.cssom
 
-import seskar.js.JsValue
+import seskar.js.JsIntValue
 import seskar.js.JsVirtual
+import seskar.js.JsValue
 
 /*
  * `Color` declared as class for better multiplatform support
@@ -17,11 +18,11 @@ import seskar.js.JsVirtual
  * [K2 issue](https://youtrack.jetbrains.com/issue/KT-60856)
  */
 
-@JsVirtual
-external class Color
-private constructor() : ColorType {
-    companion object {
-        @JsValue("currentcolor")
-        val currentcolor: Color
-    }
-}
+        @JsVirtual
+        external class Color
+private constructor(): ColorType {
+            companion object {
+                @JsValue("currentcolor")    
+val currentcolor: Color
+            }
+        }

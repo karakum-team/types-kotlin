@@ -5,13 +5,6 @@
 package tanstack.table.core
 
 import js.array.ReadonlyArray
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
 
-external fun <TData : RowData> createRow(
-    table: Table<TData>,
-    id: String,
-    original: TData,
-    rowIndex: Int,
-    depth: Int,
-    subRows: ReadonlyArray<Row<TData>>? = definedExternally,
-    parentId: String? = definedExternally,
-): Row<TData>
+external fun <TData : RowData> createRow(table: Table<TData>, id: String, original: TData, rowIndex: Int, depth: Int, subRows: ReadonlyArray<Row<TData>>? = definedExternally, parentId: String? = definedExternally): Row<TData>;

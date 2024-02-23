@@ -7,8 +7,8 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface PaymentDetailsModifier {
-    var additionalDisplayItems: ReadonlyArray<PaymentItem>?
-    var data: Any?
-    var supportedMethods: String
-    var total: PaymentItem?
+var additionalDisplayItems: ReadonlyArray<PaymentItem>?
+var data: Any?
+var supportedMethods: String
+var total: PaymentItem?
 }

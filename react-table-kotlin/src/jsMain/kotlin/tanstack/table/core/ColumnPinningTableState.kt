@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
-external interface ColumnPinningTableState {
-    var columnPinning: ColumnPinningState
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface ColumnPinningTableState{
+var columnPinning: ColumnPinningState
 }

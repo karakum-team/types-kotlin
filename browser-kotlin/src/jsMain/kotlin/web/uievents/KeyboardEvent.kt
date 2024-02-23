@@ -1,11 +1,13 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+"EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
 package web.uievents
 
+import web.events.Event
+import web.events.EventInit
 import web.events.EventType
 import web.keyboard.KeyCode
 import web.keyboard.ModifierKeyCode
@@ -15,68 +17,59 @@ import web.keyboard.ModifierKeyCode
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent)
  */
-open external class KeyboardEvent(
-    override val type: EventType<KeyboardEvent>,
-    init: KeyboardEventInit = definedExternally,
+    open external class KeyboardEvent (
+override val type: EventType<KeyboardEvent>,
+init: KeyboardEventInit = definedExternally
 ) : UIEvent {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/altKey)
-     */
-    val altKey: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/code)
-     */
-    val code: KeyCode
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/ctrlKey)
-     */
-    val ctrlKey: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/isComposing)
-     */
-    val isComposing: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/key)
-     */
-    val key: String
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/location)
-     */
-    val location: KeyLocation
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/metaKey)
-     */
-    val metaKey: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/repeat)
-     */
-    val repeat: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/shiftKey)
-     */
-    val shiftKey: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/getModifierState)
-     */
-    fun getModifierState(keyArg: ModifierKeyCode): Boolean
-    val DOM_KEY_LOCATION_STANDARD: KeyLocation
-    val DOM_KEY_LOCATION_LEFT: KeyLocation
-    val DOM_KEY_LOCATION_RIGHT: KeyLocation
-    val DOM_KEY_LOCATION_NUMPAD: KeyLocation
-
-    companion object : KeyboardEventTypes {
-        val DOM_KEY_LOCATION_STANDARD: KeyLocation
-        val DOM_KEY_LOCATION_LEFT: KeyLocation
-        val DOM_KEY_LOCATION_RIGHT: KeyLocation
-        val DOM_KEY_LOCATION_NUMPAD: KeyLocation
-    }
+        /**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/altKey)
+ */
+val altKey: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/code)
+ */
+val code: KeyCode
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/ctrlKey)
+ */
+val ctrlKey: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/isComposing)
+ */
+val isComposing: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/key)
+ */
+val key: String
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/location)
+ */
+val location: KeyLocation
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/metaKey)
+ */
+val metaKey: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/repeat)
+ */
+val repeat: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/shiftKey)
+ */
+val shiftKey: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/getModifierState)
+ */
+ fun getModifierState(keyArg: ModifierKeyCode): Boolean
+val DOM_KEY_LOCATION_STANDARD: KeyLocation
+val DOM_KEY_LOCATION_LEFT: KeyLocation
+val DOM_KEY_LOCATION_RIGHT: KeyLocation
+val DOM_KEY_LOCATION_NUMPAD: KeyLocation
+    
+        companion object : KeyboardEventTypes {
+val DOM_KEY_LOCATION_STANDARD: KeyLocation
+val DOM_KEY_LOCATION_LEFT: KeyLocation
+val DOM_KEY_LOCATION_RIGHT: KeyLocation
+val DOM_KEY_LOCATION_NUMPAD: KeyLocation
 }
+    }

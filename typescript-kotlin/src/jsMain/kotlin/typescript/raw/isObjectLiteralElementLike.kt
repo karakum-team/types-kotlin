@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isObjectLiteralElementLike(node: Node): Boolean /* node is ObjectLiteralElementLike */
+internal external fun  isObjectLiteralElementLike(node: Node): Boolean /* node is ObjectLiteralElementLike */

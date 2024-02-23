@@ -4,9 +4,7 @@
 
 package typescript
 
-external fun resolveModuleNameFromCache(
-    moduleName: String,
-    containingFile: String,
-    cache: ModuleResolutionCache,
-    mode: ResolutionMode = definedExternally,
-): ResolvedModuleWithFailedLookupLocations?
+external fun  resolveModuleNameFromCache(moduleName: String,
+containingFile: String,
+cache: ModuleResolutionCache,
+mode: ResolutionMode = definedExternally): ResolvedModuleWithFailedLookupLocations?

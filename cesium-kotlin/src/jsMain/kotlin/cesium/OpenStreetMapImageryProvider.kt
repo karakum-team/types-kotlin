@@ -3,12 +3,32 @@
 @file:JsModule("cesium")
 
 @file:Suppress(
-    "NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE",
+"NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE",
 )
 
 package cesium
 
+import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
 import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
 
 /**
  * An imagery provider that provides tiled imagery hosted by OpenStreetMap
@@ -22,38 +42,37 @@ import js.objects.jso
  * ```
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/OpenStreetMapImageryProvider.html">Online Documentation</a>
  */
-external class OpenStreetMapImageryProvider(options: ConstructorOptions) {
-    /**
-     * Initialization options for the OpenStreetMapImageryProvider constructor
-     * @property [url] The OpenStreetMap server url.
-     *   Default value - `'https://tile.openstreetmap.org'`
-     * @property [fileExtension] The file extension for images on the server.
-     *   Default value - `'png'`
-     * @property [retinaTiles] When true, request tiles at the 2x resolution for retina displays.
-     *   Default value - `false`
-     * @property [rectangle] The rectangle of the layer.
-     *   Default value - [Rectangle.MAX_VALUE]
-     * @property [minimumLevel] The minimum level-of-detail supported by the imagery provider.
-     *   Default value - `0`
-     * @property [maximumLevel] The maximum level-of-detail supported by the imagery provider, or undefined if there is no limit.
-     * @property [ellipsoid] The ellipsoid.  If not specified, the WGS84 ellipsoid is used.
-     * @property [credit] A credit for the data source, which is displayed on the canvas.
-     *   Default value - `'MapQuest, Open Street Map and contributors, CC-BY-SA'`
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/OpenStreetMapImageryProvider.html#.ConstructorOptions">Online Documentation</a>
-     */
-    interface ConstructorOptions {
-        var url: String?
-        var fileExtension: String?
-        var retinaTiles: Boolean?
-        var rectangle: Rectangle?
-        var minimumLevel: Int?
-        var maximumLevel: Int?
-        var ellipsoid: Ellipsoid?
-        var credit: Credit?
-    }
+external  class OpenStreetMapImageryProvider ( options: ConstructorOptions)  {
+/**
+ * Initialization options for the OpenStreetMapImageryProvider constructor
+ * @property [url] The OpenStreetMap server url.
+ *   Default value - `'https://tile.openstreetmap.org'`
+ * @property [fileExtension] The file extension for images on the server.
+ *   Default value - `'png'`
+ * @property [retinaTiles] When true, request tiles at the 2x resolution for retina displays.
+ *   Default value - `false`
+ * @property [rectangle] The rectangle of the layer.
+ *   Default value - [Rectangle.MAX_VALUE]
+ * @property [minimumLevel] The minimum level-of-detail supported by the imagery provider.
+ *   Default value - `0`
+ * @property [maximumLevel] The maximum level-of-detail supported by the imagery provider, or undefined if there is no limit.
+ * @property [ellipsoid] The ellipsoid.  If not specified, the WGS84 ellipsoid is used.
+ * @property [credit] A credit for the data source, which is displayed on the canvas.
+ *   Default value - `'MapQuest, Open Street Map and contributors, CC-BY-SA'`
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/OpenStreetMapImageryProvider.html#.ConstructorOptions">Online Documentation</a>
+ */
+ interface ConstructorOptions {
+var  url: String?
+var  fileExtension: String?
+var  retinaTiles: Boolean?
+var  rectangle: Rectangle?
+var  minimumLevel: Int?
+var  maximumLevel: Int?
+var  ellipsoid: Ellipsoid?
+var  credit: Credit?
 }
-
+}
 inline fun OpenStreetMapImageryProvider(
-    block: OpenStreetMapImageryProvider.ConstructorOptions.() -> Unit,
+     block: OpenStreetMapImageryProvider.ConstructorOptions.() -> Unit,
 ): OpenStreetMapImageryProvider =
     OpenStreetMapImageryProvider(options = jso(block))

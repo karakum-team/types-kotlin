@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface SourceMapRange : TextRange {
-    var source: SourceMapSource?
+external sealed interface SourceMapRange : TextRange {
+var source: SourceMapSource?
 }

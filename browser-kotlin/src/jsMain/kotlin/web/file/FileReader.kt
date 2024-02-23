@@ -2,11 +2,27 @@
 
 package web.file
 
+import js.buffer.ArrayBuffer
 import web.blob.Blob
 import web.errors.DOMException
+import web.events.Event
 import web.events.EventHandler
 import web.events.EventTarget
+import web.file.File
+import web.url.URL
+
+import web.cssom.TransitionEvent
+import web.uievents.*
+import web.animations.AnimationEvent
+import web.clipboard.ClipboardEvent
+import web.csp.SecurityPolicyViolationEvent
 import web.events.ProgressEvent
+import web.gamepad.GamepadEvent
+import web.history.HashChangeEvent
+import web.history.PageTransitionEvent
+import web.history.PopStateEvent
+import web.storage.StorageEvent
+import web.promise.PromiseRejectionEvent
 
 /**
  * Lets web applications asynchronously read the contents of files (or raw data buffers) stored on the user's computer, using File or Blob objects to specify the file or data to read.
@@ -14,84 +30,69 @@ import web.events.ProgressEvent
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader)
  */
 open external class FileReader :
-    EventTarget {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/error)
-     */
-    val error: DOMException?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/abort_event)
-     */
-    var onabort: EventHandler<ProgressEvent<FileReader>>?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/error_event)
-     */
-    var onerror: EventHandler<ProgressEvent<FileReader>>?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/load_event)
-     */
-    var onload: EventHandler<ProgressEvent<FileReader>>?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/loadend_event)
-     */
-    var onloadend: EventHandler<ProgressEvent<FileReader>>?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/loadstart_event)
-     */
-    var onloadstart: EventHandler<ProgressEvent<FileReader>>?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/progress_event)
-     */
-    var onprogress: EventHandler<ProgressEvent<FileReader>>?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/readyState)
-     */
-    val readyState: ReadyState
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/result)
-     */
-    val result: Any /* string | ArrayBuffer */?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/abort)
-     */
-    fun abort()
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/readAsArrayBuffer)
-     */
-    fun readAsArrayBuffer(blob: Blob)
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/readAsDataURL)
-     */
-    fun readAsDataURL(blob: Blob)
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/readAsText)
-     */
-    fun readAsText(
-        blob: Blob,
-        encoding: String = definedExternally,
-    )
-
-    val EMPTY: ReadyState
-    val LOADING: ReadyState
-    val DONE: ReadyState
-
-    companion object {
-        val EMPTY: ReadyState
-        val LOADING: ReadyState
-        val DONE: ReadyState
-    }
-
-    sealed interface ReadyState
+EventTarget {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/error)
+ */
+val error: DOMException?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/abort_event)
+ */
+var onabort: EventHandler<ProgressEvent<FileReader>>?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/error_event)
+ */
+var onerror: EventHandler<ProgressEvent<FileReader>>?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/load_event)
+ */
+var onload: EventHandler<ProgressEvent<FileReader>>?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/loadend_event)
+ */
+var onloadend: EventHandler<ProgressEvent<FileReader>>?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/loadstart_event)
+ */
+var onloadstart: EventHandler<ProgressEvent<FileReader>>?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/progress_event)
+ */
+var onprogress: EventHandler<ProgressEvent<FileReader>>?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/readyState)
+ */
+val readyState: ReadyState
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/result)
+ */
+val result: Any /* string | ArrayBuffer */?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/abort)
+ */
+ fun abort()
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/readAsArrayBuffer)
+ */
+ fun readAsArrayBuffer(blob: Blob)
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/readAsDataURL)
+ */
+ fun readAsDataURL(blob: Blob)
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/readAsText)
+ */
+ fun readAsText(
+blob: Blob,
+encoding: String = definedExternally,
+)
+val EMPTY: ReadyState
+val LOADING: ReadyState
+val DONE: ReadyState
+companion object {
+val EMPTY: ReadyState
+val LOADING: ReadyState
+val DONE: ReadyState
+}
+sealed interface ReadyState
 }

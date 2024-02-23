@@ -6,7 +6,7 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface RsaOtherPrimesInfo {
-    var d: String?
-    var r: String?
-    var t: String?
+var d: String?
+var r: String?
+var t: String?
 }

@@ -4,4 +4,4 @@ package tanstack.query.core
 
 import js.symbol.Symbol
 
-external object dataTagSymbol : Symbol
+external object dataTagSymbol: Symbol

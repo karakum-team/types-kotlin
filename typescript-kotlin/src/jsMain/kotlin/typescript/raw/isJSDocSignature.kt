@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocSignature(node: Node): Boolean /* node is JSDocSignature */
+internal external fun  isJSDocSignature(node: Node): Boolean /* node is JSDocSignature */

@@ -4,14 +4,16 @@
 
 package tanstack.table.core
 
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
 external object aggregationFns {
-    val sum: AggregationFn<*>
-    val min: AggregationFn<*>
-    val max: AggregationFn<*>
-    val extent: AggregationFn<*>
-    val mean: AggregationFn<*>
-    val median: AggregationFn<*>
-    val unique: AggregationFn<*>
-    val uniqueCount: AggregationFn<*>
-    val count: AggregationFn<*>
+    val sum: AggregationFn<*>;
+    val min: AggregationFn<*>;
+    val max: AggregationFn<*>;
+    val extent: AggregationFn<*>;
+    val mean: AggregationFn<*>;
+    val median: AggregationFn<*>;
+    val unique: AggregationFn<*>;
+    val uniqueCount: AggregationFn<*>;
+    val count: AggregationFn<*>;
 }

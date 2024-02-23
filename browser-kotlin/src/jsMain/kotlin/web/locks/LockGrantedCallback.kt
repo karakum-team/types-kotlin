@@ -3,5 +3,4 @@
 package web.locks
 
 typealias LockGrantedCallback = (
-    lock: Lock?,
-) -> Unit
+lock: Lock?) -> Unit

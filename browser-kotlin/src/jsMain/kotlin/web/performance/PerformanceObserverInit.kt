@@ -7,7 +7,7 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface PerformanceObserverInit {
-    var buffered: Boolean?
-    var entryTypes: ReadonlyArray<String>?
-    var type: String?
+var buffered: Boolean?
+var entryTypes: ReadonlyArray<String>?
+var type: String?
 }

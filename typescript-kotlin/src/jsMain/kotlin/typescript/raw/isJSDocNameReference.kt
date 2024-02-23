@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocNameReference(node: Node): Boolean /* node is JSDocNameReference */
+internal external fun  isJSDocNameReference(node: Node): Boolean /* node is JSDocNameReference */

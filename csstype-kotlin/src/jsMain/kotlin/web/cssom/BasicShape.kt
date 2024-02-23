@@ -2,7 +2,11 @@
 
 package web.cssom
 
-sealed external interface BasicShape :
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+external sealed interface BasicShape:
     ClipPath,
     ShapeOutside,
     OffsetPath

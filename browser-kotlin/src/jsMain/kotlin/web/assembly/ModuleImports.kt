@@ -3,5 +3,6 @@
 package web.assembly
 
 import js.objects.ReadonlyRecord
+import js.objects.Record
 
 typealias ModuleImports = ReadonlyRecord<String, ImportValue>

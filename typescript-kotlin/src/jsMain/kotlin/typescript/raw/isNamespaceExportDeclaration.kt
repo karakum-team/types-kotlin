@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isNamespaceExportDeclaration(node: Node): Boolean /* node is NamespaceExportDeclaration */
+internal external fun  isNamespaceExportDeclaration(node: Node): Boolean /* node is NamespaceExportDeclaration */

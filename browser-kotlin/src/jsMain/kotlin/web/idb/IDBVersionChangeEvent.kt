@@ -1,34 +1,35 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+"EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
 package web.idb
 
 import js.core.JsLong
 import web.events.Event
+import web.events.EventInit
 import web.events.EventType
+import web.http.Request
 
 /**
  * This IndexedDB API interface indicates that the version of the database has changed, as the result of an IDBOpenDBRequest.onupgradeneeded event handler function.
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBVersionChangeEvent)
  */
-open external class IDBVersionChangeEvent(
-    override val type: EventType<IDBVersionChangeEvent>,
-    init: IDBVersionChangeEventInit = definedExternally,
+    open external class IDBVersionChangeEvent (
+override val type: EventType<IDBVersionChangeEvent>,
+init: IDBVersionChangeEventInit = definedExternally
 ) : Event,
-    IDBVersionChangeEventInit {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBVersionChangeEvent/newVersion)
-     */
-    override val newVersion: JsLong?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBVersionChangeEvent/oldVersion)
-     */
-    override val oldVersion: JsLong
-
-    companion object : IDBVersionChangeEventTypes
-}
+IDBVersionChangeEventInit {
+        /**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBVersionChangeEvent/newVersion)
+ */
+override val newVersion: JsLong?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBVersionChangeEvent/oldVersion)
+ */
+override val oldVersion: JsLong
+    
+        companion object : IDBVersionChangeEventTypes
+    }

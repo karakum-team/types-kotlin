@@ -2,5 +2,9 @@
 
 package web.cssom
 
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
 // "normal" | (string & {})
 sealed external interface AscentOverride

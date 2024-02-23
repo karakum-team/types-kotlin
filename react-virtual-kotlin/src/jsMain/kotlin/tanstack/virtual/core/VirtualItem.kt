@@ -2,11 +2,11 @@
 
 package tanstack.virtual.core
 
-external interface VirtualItem {
-    var key: Key
-    var index: Int
-    var start: Int
-    var end: Int
-    var size: Int
-    var lane: Int
+external interface VirtualItem{
+var key: Key
+var index: Int
+var start: Int
+var end: Int
+var size: Int
+var lane: Int
 }

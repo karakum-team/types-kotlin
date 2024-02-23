@@ -2,4 +2,6 @@
 
 package typescript
 
-sealed external interface PunctuationToken<out TKind : PunctuationSyntaxKind> : Token<TKind>
+external sealed interface PunctuationToken<out TKind : PunctuationSyntaxKind> : Token<TKind> {
+
+}

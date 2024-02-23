@@ -3,12 +3,32 @@
 @file:JsModule("cesium")
 
 @file:Suppress(
-    "EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
+"EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER",
 )
 
 package cesium
 
+import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
 import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
 
 /**
  * The credit display is responsible for displaying credits on screen.
@@ -23,7 +43,7 @@ import web.html.HTMLElement
  * viewer.creditDisplay.addStaticCredit(credit);
  * ```
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html">Online Documentation</a>
- *
+ * 
  * @constructor
  * @property [container] The HTML element where credits will be displayed
  * @param [delimiter] The string to separate text credits
@@ -32,84 +52,84 @@ import web.html.HTMLElement
  *   Default value - `document.body`
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html">Online Documentation</a>
  */
-external class CreditDisplay(
-    var container: HTMLElement,
-    delimiter: String? = definedExternally,
-    viewport: HTMLElement? = definedExternally,
-) {
-    /**
-     * Adds a [Credit] that will show on screen or in the lightbox until
-     * the next frame. This is mostly for internal use. Use [CreditDisplay.addStaticCredit] to add a persistent credit to the screen.
-     * @param [credit] The credit to display in the next frame.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#addCreditToNextFrame">Online Documentation</a>
-     */
-    fun addCreditToNextFrame(credit: Credit)
+external  class CreditDisplay (
+ var container: HTMLElement,
+ delimiter: String? = definedExternally,
+ viewport: HTMLElement? = definedExternally
+)  {
+/**
+ * Adds a [Credit] that will show on screen or in the lightbox until
+ * the next frame. This is mostly for internal use. Use [CreditDisplay.addStaticCredit] to add a persistent credit to the screen.
+ * @param [credit] The credit to display in the next frame.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#addCreditToNextFrame">Online Documentation</a>
+ */
+ fun addCreditToNextFrame ( credit: Credit)
 
-    /**
-     * Adds a [Credit] that will show on screen or in the lightbox until removed with [CreditDisplay.removeStaticCredit].
-     * ```
-     * // Add a credit with a tooltip, image and link to display onscreen
-     * const credit = new Credit(`<a href="https://cesium.com/" target="_blank"><img src="/images/cesium_logo.png" title="Cesium"/></a>`, true);
-     * viewer.creditDisplay.addStaticCredit(credit);
-     * ```
-     * ```
-     * // Add a credit with a plaintext link to display in the lightbox
-     * const credit = new Credit('<a href="https://cesium.com/" target="_blank">Cesium</a>');
-     * viewer.creditDisplay.addStaticCredit(credit);
-     * ```
-     * @param [credit] The credit to added
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#addStaticCredit">Online Documentation</a>
-     */
-    fun addStaticCredit(credit: Credit)
+/**
+ * Adds a [Credit] that will show on screen or in the lightbox until removed with [CreditDisplay.removeStaticCredit].
+ * ```
+ * // Add a credit with a tooltip, image and link to display onscreen
+ * const credit = new Credit(`<a href="https://cesium.com/" target="_blank"><img src="/images/cesium_logo.png" title="Cesium"/></a>`, true);
+ * viewer.creditDisplay.addStaticCredit(credit);
+ * ```
+ * ```
+ * // Add a credit with a plaintext link to display in the lightbox
+ * const credit = new Credit('<a href="https://cesium.com/" target="_blank">Cesium</a>');
+ * viewer.creditDisplay.addStaticCredit(credit);
+ * ```
+ * @param [credit] The credit to added
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#addStaticCredit">Online Documentation</a>
+ */
+ fun addStaticCredit ( credit: Credit)
 
-    /**
-     * Removes a static credit shown on screen or in the lightbox.
-     * @param [credit] The credit to be removed.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#removeStaticCredit">Online Documentation</a>
-     */
-    fun removeStaticCredit(credit: Credit)
+/**
+ * Removes a static credit shown on screen or in the lightbox.
+ * @param [credit] The credit to be removed.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#removeStaticCredit">Online Documentation</a>
+ */
+ fun removeStaticCredit ( credit: Credit)
 
-    /**
-     * Updates the credit display before a new frame is rendered.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#update">Online Documentation</a>
-     */
-    fun update()
+/**
+ * Updates the credit display before a new frame is rendered.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#update">Online Documentation</a>
+ */
+ fun update ()
 
-    /**
-     * Resets the credit display to a beginning of frame state, clearing out current credits.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#beginFrame">Online Documentation</a>
-     */
-    fun beginFrame()
+/**
+ * Resets the credit display to a beginning of frame state, clearing out current credits.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#beginFrame">Online Documentation</a>
+ */
+ fun beginFrame ()
 
-    /**
-     * Sets the credit display to the end of frame state, displaying credits from the last frame in the credit container.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#endFrame">Online Documentation</a>
-     */
-    fun endFrame()
+/**
+ * Sets the credit display to the end of frame state, displaying credits from the last frame in the credit container.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#endFrame">Online Documentation</a>
+ */
+ fun endFrame ()
 
-    /**
-     * Destroys the resources held by this object.  Destroying an object allows for deterministic
-     * release of resources, instead of relying on the garbage collector to destroy this object.
-     *
-     * Once an object is destroyed, it should not be used; calling any function other than
-     * `isDestroyed` will result in a [DeveloperError] exception.  Therefore,
-     * assign the return value (`undefined`) to the object as done in the example.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#destroy">Online Documentation</a>
-     */
-    fun destroy()
+/**
+ * Destroys the resources held by this object.  Destroying an object allows for deterministic
+ * release of resources, instead of relying on the garbage collector to destroy this object.
+ * 
+ * Once an object is destroyed, it should not be used; calling any function other than
+ * `isDestroyed` will result in a [DeveloperError] exception.  Therefore,
+ * assign the return value (`undefined`) to the object as done in the example.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#destroy">Online Documentation</a>
+ */
+ fun destroy ()
 
-    /**
-     * Returns true if this object was destroyed; otherwise, false.
-     * @return `true` if this object was destroyed; otherwise, `false`.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#isDestroyed">Online Documentation</a>
-     */
-    fun isDestroyed(): Boolean
+/**
+ * Returns true if this object was destroyed; otherwise, false.
+ * @return `true` if this object was destroyed; otherwise, `false`.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#isDestroyed">Online Documentation</a>
+ */
+ fun isDestroyed (): Boolean
 
-    companion object {
-        /**
-         * Gets or sets the Cesium logo credit.
-         * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#.cesiumCredit">Online Documentation</a>
-         */
-        var cesiumCredit: Credit
-    }
+companion object  {
+/**
+ * Gets or sets the Cesium logo credit.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/CreditDisplay.html#.cesiumCredit">Online Documentation</a>
+ */
+var cesiumCredit: Credit
+}
 }

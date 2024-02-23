@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isOmittedExpression(node: Node): Boolean /* node is OmittedExpression */
+internal external fun  isOmittedExpression(node: Node): Boolean /* node is OmittedExpression */

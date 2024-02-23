@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isMinusToken(node: Node): Boolean /* node is MinusToken */
+internal external fun  isMinusToken(node: Node): Boolean /* node is MinusToken */

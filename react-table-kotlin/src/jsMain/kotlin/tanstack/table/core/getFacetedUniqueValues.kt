@@ -5,5 +5,6 @@
 package tanstack.table.core
 
 import js.collections.JsMap
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
 
-external fun <TData : RowData> getFacetedUniqueValues(): (table: Table<TData>, columnId: String) -> () -> JsMap<Any, Int>
+external fun <TData : RowData> getFacetedUniqueValues(): (table: Table<TData>, columnId: String) -> () -> JsMap<Any, Int>;

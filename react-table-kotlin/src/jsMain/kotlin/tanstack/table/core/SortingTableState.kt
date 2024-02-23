@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
-external interface SortingTableState {
-    var sorting: SortingState
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface SortingTableState{
+var sorting: SortingState
 }

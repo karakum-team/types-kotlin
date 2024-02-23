@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isTupleTypeNode(node: Node): Boolean /* node is TupleTypeNode */
+internal external fun  isTupleTypeNode(node: Node): Boolean /* node is TupleTypeNode */

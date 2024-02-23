@@ -8,11 +8,11 @@ package web.idb
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBCursorWithValue)
  */
 sealed external class IDBCursorWithValue :
-    IDBCursor {
-    /**
-     * Returns the cursor's current value.
-     *
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBCursorWithValue/value)
-     */
-    val value: Any?
+IDBCursor {
+/**
+ * Returns the cursor's current value.
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBCursorWithValue/value)
+ */
+val value: Any?
 }

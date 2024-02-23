@@ -2,4 +2,7 @@
 
 package web.rendering
 
-sealed interface RenderingContextId<T : Any, O : Any>
+import web.rendering.RenderingContext
+import web.rendering.RenderingContextId
+
+sealed interface RenderingContextId<T: Any, O: Any>

@@ -5,6 +5,5 @@ package web.dom.observers
 import js.array.ReadonlyArray
 
 typealias ResizeObserverCallback = (
-    entries: ReadonlyArray<ResizeObserverEntry>,
-    observer: ResizeObserver,
-) -> Unit
+entries: ReadonlyArray<ResizeObserverEntry>,
+observer: ResizeObserver) -> Unit

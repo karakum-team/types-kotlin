@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocTemplateTag(node: Node): Boolean /* node is JSDocTemplateTag */
+internal external fun  isJSDocTemplateTag(node: Node): Boolean /* node is JSDocTemplateTag */

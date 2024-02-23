@@ -10,10 +10,9 @@ import js.promise.Promise
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/GamepadHapticActuator)
  */
 sealed external class GamepadHapticActuator {
-    fun playEffect(
-        type: GamepadHapticEffectType,
-        params: GamepadEffectParameters = definedExternally,
-    ): Promise<GamepadHapticsResult>
-
-    fun reset(): Promise<GamepadHapticsResult>
+ fun playEffect(
+type: GamepadHapticEffectType,
+params: GamepadEffectParameters = definedExternally,
+): Promise<GamepadHapticsResult>
+ fun reset(): Promise<GamepadHapticsResult>
 }

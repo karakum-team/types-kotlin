@@ -6,8 +6,8 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface SVGBoundingBoxOptions {
-    var clipped: Boolean?
-    var fill: Boolean?
-    var markers: Boolean?
-    var stroke: Boolean?
+var clipped: Boolean?
+var fill: Boolean?
+var markers: Boolean?
+var stroke: Boolean?
 }

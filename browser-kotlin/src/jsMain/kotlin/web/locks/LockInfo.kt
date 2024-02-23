@@ -6,7 +6,7 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface LockInfo {
-    var clientId: String?
-    var mode: LockMode?
-    var name: String?
+var clientId: String?
+var mode: LockMode?
+var name: String?
 }

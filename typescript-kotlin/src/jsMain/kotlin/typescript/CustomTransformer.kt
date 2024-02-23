@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface CustomTransformer {
-    fun transformSourceFile(node: SourceFile): SourceFile
-    fun transformBundle(node: Bundle): Bundle
+external sealed interface CustomTransformer {
+fun  transformSourceFile(node: SourceFile): SourceFile
+fun  transformBundle(node: Bundle): Bundle
 }

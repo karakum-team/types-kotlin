@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface ResolvedModuleWithFailedLookupLocations {
-    val resolvedModule: ResolvedModuleFull?
+external sealed interface ResolvedModuleWithFailedLookupLocations {
+val resolvedModule: ResolvedModuleFull?
 }

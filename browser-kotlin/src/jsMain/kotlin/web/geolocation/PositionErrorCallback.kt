@@ -3,5 +3,4 @@
 package web.geolocation
 
 typealias PositionErrorCallback = (
-    positionError: GeolocationPositionError,
-) -> Unit
+positionError: GeolocationPositionError) -> Unit

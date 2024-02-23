@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isNewExpression(node: Node): Boolean /* node is NewExpression */
+internal external fun  isNewExpression(node: Node): Boolean /* node is NewExpression */

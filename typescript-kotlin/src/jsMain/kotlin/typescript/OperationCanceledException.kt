@@ -4,4 +4,5 @@
 
 package typescript
 
-external class OperationCanceledException
+external class OperationCanceledException {
+}

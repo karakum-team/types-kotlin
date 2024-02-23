@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isNonNullExpression(node: Node): Boolean /* node is NonNullExpression */
+internal external fun  isNonNullExpression(node: Node): Boolean /* node is NonNullExpression */

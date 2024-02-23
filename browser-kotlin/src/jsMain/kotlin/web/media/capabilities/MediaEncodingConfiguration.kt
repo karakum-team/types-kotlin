@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface MediaEncodingConfiguration :
-    MediaConfiguration {
-    var type: MediaEncodingType
+MediaConfiguration {
+var type: MediaEncodingType
 }

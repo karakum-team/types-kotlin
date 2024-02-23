@@ -4,6 +4,28 @@
 
 package cesium
 
+import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
+
 /**
  * Creates a [Primitive] to visualize well-known vector vertex attributes:
  * `normal`, `tangent`, and `bitangent`.  Normal
@@ -19,7 +41,7 @@ package cesium
  * @return A new `Primitive` instance with geometry for the vectors.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/global.html#createTangentSpaceDebugPrimitive">Online Documentation</a>
  */
-external fun createTangentSpaceDebugPrimitive(options: CreateTangentSpaceDebugPrimitiveOptions): Primitive
+external  fun createTangentSpaceDebugPrimitive ( options: CreateTangentSpaceDebugPrimitiveOptions): Primitive
 
 /**
  * @property [geometry] The `Geometry` instance with the attribute.
@@ -28,8 +50,8 @@ external fun createTangentSpaceDebugPrimitive(options: CreateTangentSpaceDebugPr
  * @property [modelMatrix] The model matrix that transforms to transform the geometry from model to world coordinates.
  *   Default value - [Matrix4.IDENTITY]
  */
-external interface CreateTangentSpaceDebugPrimitiveOptions {
-    var geometry: Geometry
-    var length: Int?
-    var modelMatrix: Matrix4?
+external  interface CreateTangentSpaceDebugPrimitiveOptions {
+var  geometry: Geometry
+var  length: Int?
+var  modelMatrix: Matrix4?
 }

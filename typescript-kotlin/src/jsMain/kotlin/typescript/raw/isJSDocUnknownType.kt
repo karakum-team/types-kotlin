@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isJSDocUnknownType(node: Node): Boolean /* node is JSDocUnknownType */
+internal external fun  isJSDocUnknownType(node: Node): Boolean /* node is JSDocUnknownType */

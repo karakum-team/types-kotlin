@@ -1,7 +1,7 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package web.codecs
@@ -9,13 +9,12 @@ package web.codecs
 import seskar.js.JsValue
 import seskar.js.JsVirtual
 
-@JsVirtual
-sealed external interface AvcBitstreamFormat {
-    companion object {
-        @JsValue("annexb")
-        val annexb: AvcBitstreamFormat
-
-        @JsValue("avc")
-        val avc: AvcBitstreamFormat
-    }
-}
+        @JsVirtual
+        sealed external interface AvcBitstreamFormat {
+            companion object {
+                @JsValue("annexb")    
+val annexb: AvcBitstreamFormat
+@JsValue("avc")    
+val avc: AvcBitstreamFormat
+            }
+        }

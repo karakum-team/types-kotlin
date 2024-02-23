@@ -2,7 +2,8 @@
 
 package tanstack.table.core
 
-external interface Table<TData : RowData> : CoreInstance<TData>, HeadersInstance<TData>, VisibilityInstance<TData>,
-    ColumnOrderInstance<TData>, ColumnPinningInstance<TData>, RowPinningInstance<TData>, FiltersInstance<TData>,
-    SortingInstance<TData>, GroupingInstance<TData>, ColumnSizingInstance, ExpandedInstance<TData>,
-    PaginationInstance<TData>, RowSelectionInstance<TData>
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface Table<TData : RowData> : CoreInstance<TData>, HeadersInstance<TData>, VisibilityInstance<TData>, ColumnOrderInstance<TData>, ColumnPinningInstance<TData>, RowPinningInstance<TData>, FiltersInstance<TData>, SortingInstance<TData>, GroupingInstance<TData>, ColumnSizingInstance, ExpandedInstance<TData>, PaginationInstance<TData>, RowSelectionInstance<TData>{
+
+}

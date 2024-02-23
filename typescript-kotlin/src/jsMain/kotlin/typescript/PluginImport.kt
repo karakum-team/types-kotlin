@@ -2,6 +2,6 @@
 
 package typescript
 
-sealed external interface PluginImport {
-    var name: String
+external sealed interface PluginImport {
+var name: String
 }

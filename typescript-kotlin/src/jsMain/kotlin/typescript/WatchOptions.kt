@@ -4,12 +4,12 @@ package typescript
 
 import js.array.ReadonlyArray
 
-sealed external interface WatchOptions {
-    var watchFile: WatchFileKind?
-    var watchDirectory: WatchDirectoryKind?
-    var fallbackPolling: PollingWatchKind?
-    var synchronousWatchDirectory: Boolean?
-    var excludeDirectories: ReadonlyArray<String>?
-    var excludeFiles: ReadonlyArray<String>?
+external sealed interface WatchOptions {
+var watchFile: WatchFileKind?
+var watchDirectory: WatchDirectoryKind?
+var fallbackPolling: PollingWatchKind?
+var synchronousWatchDirectory: Boolean?
+var excludeDirectories: ReadonlyArray<String>?
+var excludeFiles: ReadonlyArray<String>?
     // [option: string]: CompilerOptionsValue | undefined
 }

@@ -4,9 +4,6 @@
 
 package tanstack.table.core
 
-external fun <TData : RowData, TValue> createCell(
-    table: Table<TData>,
-    row: Row<TData>,
-    column: Column<TData, TValue>,
-    columnId: String,
-): Cell<TData, TValue>
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external fun <TData : RowData, TValue> createCell(table: Table<TData>, row: Row<TData>, column: Column<TData, TValue>, columnId: String): Cell<TData, TValue>;

@@ -6,4 +6,5 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface RTCRtpReceiveParameters :
-    RTCRtpParameters
+RTCRtpParameters {
+}

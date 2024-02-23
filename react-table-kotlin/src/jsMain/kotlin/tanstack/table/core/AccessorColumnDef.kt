@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
-external interface AccessorColumnDef<TData : RowData, TValue> :
-    AccessorKeyColumnDef<TData, TValue>,
-    AccessorFnColumnDef<TData, TValue>
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface AccessorColumnDef<TData : RowData, TValue> : 
+AccessorKeyColumnDef<TData, TValue>,
+AccessorFnColumnDef<TData, TValue>

@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun getDefaultCompilerOptions(): CompilerOptions
+external fun  getDefaultCompilerOptions(): CompilerOptions

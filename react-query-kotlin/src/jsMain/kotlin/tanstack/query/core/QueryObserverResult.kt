@@ -2,5 +2,5 @@
 
 package tanstack.query.core
 
-external interface QueryObserverResult<TData, TError>
-    : QueryObserverBaseResult<TData, TError>
+external  interface QueryObserverResult<TData, TError>
+: QueryObserverBaseResult<TData, TError>

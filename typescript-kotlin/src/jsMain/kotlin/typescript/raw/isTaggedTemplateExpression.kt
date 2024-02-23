@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isTaggedTemplateExpression(node: Node): Boolean /* node is TaggedTemplateExpression */
+internal external fun  isTaggedTemplateExpression(node: Node): Boolean /* node is TaggedTemplateExpression */

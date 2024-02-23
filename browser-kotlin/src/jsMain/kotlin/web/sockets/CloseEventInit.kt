@@ -3,12 +3,13 @@
 package web.sockets
 
 import js.objects.JsPlainObject
+import web.events.Event
 import web.events.EventInit
 
 @JsPlainObject
 external interface CloseEventInit :
-    EventInit {
-    val code: Short?
-    val reason: String?
-    val wasClean: Boolean?
+EventInit  {
+val code: Short?
+val reason: String?
+val wasClean: Boolean?
 }

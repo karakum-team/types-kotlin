@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface IncompleteType : Union.IncompleteType_ {
-    var flags: dynamic /* TypeFlags | 0 */
-    var type: Type
+external sealed interface IncompleteType: Union.IncompleteType_ {
+var flags: dynamic /* TypeFlags | 0 */
+var type: Type
 }

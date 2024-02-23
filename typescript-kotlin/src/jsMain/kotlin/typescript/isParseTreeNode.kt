@@ -9,4 +9,4 @@ package typescript
  *
  * @param node The node to test.
  */
-external fun isParseTreeNode(node: Node): Boolean
+external fun  isParseTreeNode(node: Node): Boolean

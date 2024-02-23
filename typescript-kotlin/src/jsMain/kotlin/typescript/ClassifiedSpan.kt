@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface ClassifiedSpan {
-    var textSpan: TextSpan
-    var classificationType: ClassificationTypeNames
+external sealed interface ClassifiedSpan {
+var textSpan: TextSpan
+var classificationType: ClassificationTypeNames
 }

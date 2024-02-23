@@ -2,4 +2,6 @@
 
 package web.gl
 
-sealed external interface OES_fbo_render_mipmap
+sealed external interface OES_fbo_render_mipmap {
+
+}

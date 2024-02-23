@@ -10,12 +10,12 @@ import web.dom.Node
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathExpression)
  */
 sealed external class XPathExpression {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathExpression/evaluate)
-     */
-    fun evaluate(
-        contextNode: Node,
-        type: Short = definedExternally,
-        result: XPathResult? = definedExternally,
-    ): XPathResult
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathExpression/evaluate)
+ */
+ fun evaluate(
+contextNode: Node,
+type: Short = definedExternally,
+result: XPathResult? = definedExternally,
+): XPathResult
 }

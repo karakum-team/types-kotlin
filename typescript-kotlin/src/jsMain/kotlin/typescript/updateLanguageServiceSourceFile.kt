@@ -4,10 +4,8 @@
 
 package typescript
 
-external fun updateLanguageServiceSourceFile(
-    sourceFile: SourceFile,
-    scriptSnapshot: IScriptSnapshot,
-    version: String,
-    textChangeRange: TextChangeRange?,
-    aggressiveChecks: Boolean = definedExternally,
-): SourceFile
+external fun  updateLanguageServiceSourceFile(sourceFile: SourceFile,
+scriptSnapshot: IScriptSnapshot,
+version: String,
+textChangeRange: TextChangeRange?,
+aggressiveChecks: Boolean = definedExternally): SourceFile

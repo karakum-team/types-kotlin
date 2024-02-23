@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface PlaneLayout {
-    var offset: Int
-    var stride: Int
+var offset: Int
+var stride: Int
 }

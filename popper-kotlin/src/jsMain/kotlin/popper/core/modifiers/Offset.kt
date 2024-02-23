@@ -6,8 +6,8 @@ import seskar.js.JsValue
 
 sealed external interface OffsetType
 
-external interface OffsetOptions {
-    var offset: OffsetType
+external interface OffsetOptions  {
+var     offset: OffsetType
 }
 
 @JsValue("offset")

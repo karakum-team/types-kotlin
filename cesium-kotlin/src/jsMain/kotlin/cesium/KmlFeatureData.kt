@@ -4,76 +4,98 @@
 
 package cesium
 
+import js.promise.Promise
+import web.canvas.ImageData
+import web.dom.Document
+import web.dom.Element
+import web.html.HTMLCanvasElement
+import web.html.HTMLElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLVideoElement
+import web.xml.XMLDocument
+import js.buffer.ArrayBuffer
+import js.objects.jso
+import js.array.ReadonlyArray
+import js.objects.ReadonlyRecord
+import js.core.Void
+import js.errors.JsError
+import js.typedarrays.Float32Array
+import js.typedarrays.Float64Array
+import js.typedarrays.Uint16Array
+import js.typedarrays.Uint8Array
+import web.blob.Blob
+
 /**
  * Contains KML Feature data loaded into the `Entity.kml` property by [KmlDataSource].
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html">Online Documentation</a>
  */
-external class KmlFeatureData {
-    /**
-     * Gets the atom syndication format author field.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#author">Online Documentation</a>
-     */
-    var author: Author
+external  class KmlFeatureData ()  {
+/**
+ * Gets the atom syndication format author field.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#author">Online Documentation</a>
+ */
+var author: Author
 
-    /**
-     * Gets the link.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#link">Online Documentation</a>
-     */
-    var link: Link
+/**
+ * Gets the link.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#link">Online Documentation</a>
+ */
+var link: Link
 
-    /**
-     * Gets the unstructured address field.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#address">Online Documentation</a>
-     */
-    var address: String
+/**
+ * Gets the unstructured address field.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#address">Online Documentation</a>
+ */
+var address: String
 
-    /**
-     * Gets the phone number.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#phoneNumber">Online Documentation</a>
-     */
-    var phoneNumber: String
+/**
+ * Gets the phone number.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#phoneNumber">Online Documentation</a>
+ */
+var phoneNumber: String
 
-    /**
-     * Gets the snippet.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#snippet">Online Documentation</a>
-     */
-    var snippet: String
+/**
+ * Gets the snippet.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#snippet">Online Documentation</a>
+ */
+var snippet: String
 
-    /**
-     * Gets the extended data, parsed into a JSON object.
-     * Currently only the `Data` property is supported.
-     * `SchemaData` and custom data are ignored.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#extendedData">Online Documentation</a>
-     */
-    var extendedData: String
+/**
+ * Gets the extended data, parsed into a JSON object.
+ * Currently only the `Data` property is supported.
+ * `SchemaData` and custom data are ignored.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#extendedData">Online Documentation</a>
+ */
+var extendedData: String
 
-    /**
-     * @property [name] Gets the name.
-     * @property [uri] Gets the URI.
-     * @property [age] Gets the email.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#.Author">Online Documentation</a>
-     */
-    interface Author {
-        var name: String
-        var uri: String
-        var age: Double
-    }
+/**
+ * @property [name] Gets the name.
+ * @property [uri] Gets the URI.
+ * @property [age] Gets the email.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#.Author">Online Documentation</a>
+ */
+ interface Author {
+var  name: String
+var  uri: String
+var  age: Double
+}
 
-    /**
-     * @property [href] Gets the href.
-     * @property [hreflang] Gets the language of the linked resource.
-     * @property [rel] Gets the link relation.
-     * @property [type] Gets the link type.
-     * @property [title] Gets the link title.
-     * @property [length] Gets the link length.
-     * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#.Link">Online Documentation</a>
-     */
-    interface Link {
-        var href: String
-        var hreflang: String
-        var rel: String
-        var type: String
-        var title: String
-        var length: String
-    }
+/**
+ * @property [href] Gets the href.
+ * @property [hreflang] Gets the language of the linked resource.
+ * @property [rel] Gets the link relation.
+ * @property [type] Gets the link type.
+ * @property [title] Gets the link title.
+ * @property [length] Gets the link length.
+ * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/KmlFeatureData.html#.Link">Online Documentation</a>
+ */
+ interface Link {
+var  href: String
+var  hreflang: String
+var  rel: String
+var  type: String
+var  title: String
+var  length: String
+}
 }

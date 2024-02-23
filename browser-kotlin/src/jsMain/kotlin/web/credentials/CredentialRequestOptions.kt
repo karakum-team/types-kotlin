@@ -5,12 +5,15 @@ package web.credentials
 import js.objects.JsPlainObject
 import web.abort.AbortSignal
 import web.abort.Abortable
-import web.authn.PublicKeyCredentialRequestOptions
+import web.http.Request
+
+import web.authn.PublicKeyCredentialCreationOptions
+import web.authn.PublicKeyCredentialRequestOptions    
 
 @JsPlainObject
-sealed external interface CredentialRequestOptions :
-    Abortable {
-    var mediation: CredentialMediationRequirement?
-    var publicKey: PublicKeyCredentialRequestOptions?
-    override var signal: AbortSignal?
+sealed external interface CredentialRequestOptions:
+Abortable {
+var mediation: CredentialMediationRequirement?
+var publicKey: PublicKeyCredentialRequestOptions?
+override var signal: AbortSignal?
 }

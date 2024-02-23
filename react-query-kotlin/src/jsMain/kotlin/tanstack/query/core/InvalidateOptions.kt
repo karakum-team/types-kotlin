@@ -2,4 +2,6 @@
 
 package tanstack.query.core
 
-external interface InvalidateOptions : RefetchOptions
+external interface InvalidateOptions  : RefetchOptions {
+
+}

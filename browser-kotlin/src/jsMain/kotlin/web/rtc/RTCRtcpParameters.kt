@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface RTCRtcpParameters {
-    var cname: String?
-    var reducedSize: Boolean?
+var cname: String?
+var reducedSize: Boolean?
 }

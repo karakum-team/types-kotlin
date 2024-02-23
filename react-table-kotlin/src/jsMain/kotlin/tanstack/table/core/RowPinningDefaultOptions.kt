@@ -2,6 +2,8 @@
 
 package tanstack.table.core
 
-external interface RowPinningDefaultOptions {
-    var onRowPinningChange: OnChangeFn<RowPinningState>
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface RowPinningDefaultOptions{
+var onRowPinningChange: OnChangeFn<RowPinningState>
 }

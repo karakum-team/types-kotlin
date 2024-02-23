@@ -2,5 +2,5 @@
 
 package tanstack.query.core
 
-sealed external interface DefinedQueryObserverResult<TData, TError>
-    : QueryObserverBaseResult<TData, TError>
+external sealed interface DefinedQueryObserverResult<TData, TError>
+: QueryObserverBaseResult<TData, TError>

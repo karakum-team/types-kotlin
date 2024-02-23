@@ -10,73 +10,63 @@ import web.dom.Node
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult)
  */
 sealed external class XPathResult {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/booleanValue)
-     */
-    val booleanValue: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/invalidIteratorState)
-     */
-    val invalidIteratorState: Boolean
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/numberValue)
-     */
-    val numberValue: Double
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/resultType)
-     */
-    val resultType: ResultType
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/singleNodeValue)
-     */
-    val singleNodeValue: Node?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/snapshotLength)
-     */
-    val snapshotLength: Int
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/stringValue)
-     */
-    val stringValue: String
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/iterateNext)
-     */
-    fun iterateNext(): Node?
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/snapshotItem)
-     */
-    fun snapshotItem(index: Int): Node?
-    val ANY_TYPE: ResultType
-    val NUMBER_TYPE: ResultType
-    val STRING_TYPE: ResultType
-    val BOOLEAN_TYPE: ResultType
-    val UNORDERED_NODE_ITERATOR_TYPE: ResultType
-    val ORDERED_NODE_ITERATOR_TYPE: ResultType
-    val UNORDERED_NODE_SNAPSHOT_TYPE: ResultType
-    val ORDERED_NODE_SNAPSHOT_TYPE: ResultType
-    val ANY_UNORDERED_NODE_TYPE: ResultType
-    val FIRST_ORDERED_NODE_TYPE: ResultType
-
-    companion object {
-        val ANY_TYPE: ResultType
-        val NUMBER_TYPE: ResultType
-        val STRING_TYPE: ResultType
-        val BOOLEAN_TYPE: ResultType
-        val UNORDERED_NODE_ITERATOR_TYPE: ResultType
-        val ORDERED_NODE_ITERATOR_TYPE: ResultType
-        val UNORDERED_NODE_SNAPSHOT_TYPE: ResultType
-        val ORDERED_NODE_SNAPSHOT_TYPE: ResultType
-        val ANY_UNORDERED_NODE_TYPE: ResultType
-        val FIRST_ORDERED_NODE_TYPE: ResultType
-    }
-
-    sealed interface ResultType
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/booleanValue)
+ */
+val booleanValue: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/invalidIteratorState)
+ */
+val invalidIteratorState: Boolean
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/numberValue)
+ */
+val numberValue: Double
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/resultType)
+ */
+val resultType: ResultType
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/singleNodeValue)
+ */
+val singleNodeValue: Node?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/snapshotLength)
+ */
+val snapshotLength: Int
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/stringValue)
+ */
+val stringValue: String
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/iterateNext)
+ */
+ fun iterateNext(): Node?
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathResult/snapshotItem)
+ */
+ fun snapshotItem(index: Int): Node?
+val ANY_TYPE: ResultType
+val NUMBER_TYPE: ResultType
+val STRING_TYPE: ResultType
+val BOOLEAN_TYPE: ResultType
+val UNORDERED_NODE_ITERATOR_TYPE: ResultType
+val ORDERED_NODE_ITERATOR_TYPE: ResultType
+val UNORDERED_NODE_SNAPSHOT_TYPE: ResultType
+val ORDERED_NODE_SNAPSHOT_TYPE: ResultType
+val ANY_UNORDERED_NODE_TYPE: ResultType
+val FIRST_ORDERED_NODE_TYPE: ResultType
+companion object {
+val ANY_TYPE: ResultType
+val NUMBER_TYPE: ResultType
+val STRING_TYPE: ResultType
+val BOOLEAN_TYPE: ResultType
+val UNORDERED_NODE_ITERATOR_TYPE: ResultType
+val ORDERED_NODE_ITERATOR_TYPE: ResultType
+val UNORDERED_NODE_SNAPSHOT_TYPE: ResultType
+val ORDERED_NODE_SNAPSHOT_TYPE: ResultType
+val ANY_UNORDERED_NODE_TYPE: ResultType
+val FIRST_ORDERED_NODE_TYPE: ResultType
+}
+sealed interface ResultType
 }

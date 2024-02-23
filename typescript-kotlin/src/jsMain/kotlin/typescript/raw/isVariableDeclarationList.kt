@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isVariableDeclarationList(node: Node): Boolean /* node is VariableDeclarationList */
+internal external fun  isVariableDeclarationList(node: Node): Boolean /* node is VariableDeclarationList */

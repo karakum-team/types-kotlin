@@ -3,27 +3,28 @@
 package js.intl
 
 import js.objects.JsPlainObject
+import kotlin.js.Date
 
 @JsPlainObject
 sealed external interface DateTimeFormatOptions {
-    var localeMatcher: LocaleMatcher?
-    var weekday: WeekdayFormat?
-    var era: EraFormat?
-    var year: YearFormat?
-    var month: MonthFormat?
-    var day: DayFormat?
-    var hour: HourFormat?
-    var minute: MinuteFormat?
-    var second: SecondFormat?
-    var timeZoneName: TimeZoneNameFormat?
-    var formatMatcher: FormatMatcher?
-    var hour12: Boolean?
-    var timeZone: String?
-    var calendar: String?
-    var dayPeriod: DayPeriod?
-    var numberingSystem: String?
-    var dateStyle: DateStyle?
-    var timeStyle: TimeStyle?
-    var hourCycle: HourCycle?
-    var fractionalSecondDigits: Int /* 1 | 2 | 3 */?
+var localeMatcher: LocaleMatcher?
+var weekday: WeekdayFormat?
+var era: EraFormat?
+var year: YearFormat?
+var month: MonthFormat?
+var day: DayFormat?
+var hour: HourFormat?
+var minute: MinuteFormat?
+var second: SecondFormat?
+var timeZoneName: TimeZoneNameFormat?
+var formatMatcher: FormatMatcher?
+var hour12: Boolean?
+var timeZone: String?
+var calendar: String?
+var dayPeriod: DayPeriod?
+var numberingSystem: String?
+var dateStyle: DateStyle?
+var timeStyle: TimeStyle?
+var hourCycle: HourCycle?
+var fractionalSecondDigits: Int /* 1 | 2 | 3 */?
 }

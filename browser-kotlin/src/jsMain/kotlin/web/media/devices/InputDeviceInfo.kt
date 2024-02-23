@@ -10,9 +10,9 @@ import web.media.streams.MediaTrackCapabilities
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/InputDeviceInfo)
  */
 sealed external class InputDeviceInfo :
-    MediaDeviceInfo {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/InputDeviceInfo/getCapabilities)
-     */
-    fun getCapabilities(): MediaTrackCapabilities
+MediaDeviceInfo {
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/InputDeviceInfo/getCapabilities)
+ */
+ fun getCapabilities(): MediaTrackCapabilities
 }

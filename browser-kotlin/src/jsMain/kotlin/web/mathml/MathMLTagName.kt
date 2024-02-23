@@ -1,10 +1,14 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NOTHING_TO_INLINE",
+"NOTHING_TO_INLINE",
 )
 
 package web.mathml
+
+import web.dom.Element
+import web.mathml.MathMLElement
+import web.mathml.MathMLTagName
 
 sealed external interface MathMLTagName<T : MathMLElement>
 

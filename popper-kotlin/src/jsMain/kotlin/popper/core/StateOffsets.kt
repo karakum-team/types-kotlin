@@ -2,7 +2,7 @@
 
 package popper.core
 
-external interface StateOffsets {
-    var popper: Offsets
-    var arrow: Offsets?
+external interface StateOffsets  {
+var popper: Offsets
+var arrow: Offsets?
 }

@@ -14,8 +14,8 @@ import js.array.ReadonlyArray
  * if the class or interface has no type parameters and the reference isn't specifying an
  * explicit "this" argument.
  */
-sealed external interface TypeReference : ObjectType {
-    var target: GenericType
-    var node: Union.TypeReference_node?
-    var typeArguments: ReadonlyArray<Type>?
+external sealed interface TypeReference : ObjectType {
+var target: GenericType
+var node: Union.TypeReference_node?
+var typeArguments: ReadonlyArray<Type>?
 }

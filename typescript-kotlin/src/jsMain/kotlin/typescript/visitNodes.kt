@@ -19,10 +19,8 @@ package typescript
  * @param start An optional value indicating the starting offset at which to start visiting.
  * @param count An optional value indicating the maximum number of nodes to visit.
  */
-external fun <TIn : Node, TInArray : NodeArray<TIn>?> visitNodes(
-    nodes: TInArray,
-    visitor: Visitor<TIn, Node?>,
-    test: (node: Node) -> Boolean = definedExternally,
-    start: Int = definedExternally,
-    count: Int = definedExternally,
-): dynamic /* NodeArray<Node> | (TInArray & undefined) */
+external fun <TIn : Node, TInArray : NodeArray<TIn>?> visitNodes(nodes: TInArray,
+visitor: Visitor<TIn, Node?>,
+test: (node: Node) -> Boolean = definedExternally,
+start: Int = definedExternally,
+count: Int = definedExternally): dynamic /* NodeArray<Node> | (TInArray & undefined) */

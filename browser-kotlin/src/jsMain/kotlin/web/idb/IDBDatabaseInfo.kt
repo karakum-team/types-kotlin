@@ -7,6 +7,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface IDBDatabaseInfo {
-    var name: String?
-    var version: JsLong?
+var name: String?
+var version: JsLong?
 }

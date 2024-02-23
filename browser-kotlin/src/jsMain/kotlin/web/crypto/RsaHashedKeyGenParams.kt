@@ -3,9 +3,10 @@
 package web.crypto
 
 import js.objects.JsPlainObject
+import web.crypto.Algorithm
 
 @JsPlainObject
 sealed external interface RsaHashedKeyGenParams :
-    RsaKeyGenParams {
-    var hash: HashAlgorithmIdentifier
+RsaKeyGenParams {
+var hash: HashAlgorithmIdentifier
 }

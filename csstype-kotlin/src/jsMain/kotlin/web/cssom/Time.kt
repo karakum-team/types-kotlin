@@ -2,7 +2,11 @@
 
 package web.cssom
 
-sealed external interface Time : TimeProperty
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+sealed external interface Time: TimeProperty
 
 inline val Number.ms: Time
     get() = "${this}ms".unsafeCast<Time>()

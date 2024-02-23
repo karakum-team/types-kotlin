@@ -2,11 +2,11 @@
 
 package typescript
 
-sealed external interface InlayHintsContext {
-    var file: SourceFile
-    var program: Program
-    var cancellationToken: CancellationToken
-    var host: LanguageServiceHost
-    var span: TextSpan
-    var preferences: UserPreferences
+external sealed interface InlayHintsContext {
+var file: SourceFile
+var program: Program
+var cancellationToken: CancellationToken
+var host: LanguageServiceHost
+var span: TextSpan
+var preferences: UserPreferences
 }

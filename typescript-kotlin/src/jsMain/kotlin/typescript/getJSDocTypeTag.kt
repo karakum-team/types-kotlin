@@ -5,4 +5,4 @@
 package typescript
 
 /** Gets the JSDoc type tag for the node if present and valid */
-external fun getJSDocTypeTag(node: Node): JSDocTypeTag?
+external fun  getJSDocTypeTag(node: Node): JSDocTypeTag?

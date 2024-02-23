@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface CompletionEntryLabelDetails {
-    var detail: String?
-    var description: String?
+external sealed interface CompletionEntryLabelDetails {
+var detail: String?
+var description: String?
 }

@@ -6,7 +6,7 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface MediaPositionState {
-    var duration: Double?
-    var playbackRate: Double?
-    var position: Double?
+var duration: Double?
+var playbackRate: Double?
+var position: Double?
 }

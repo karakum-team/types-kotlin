@@ -1,36 +1,32 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "NESTED_CLASS_IN_EXTERNAL_INTERFACE",
+"NESTED_CLASS_IN_EXTERNAL_INTERFACE",
 )
 
 package web.cssom
 
-import seskar.js.JsValue
+import seskar.js.JsIntValue
 import seskar.js.JsVirtual
+import seskar.js.JsValue
 
-@JsVirtual
-sealed external interface Length : LengthType {
-    companion object {
-        @JsValue("fit-content")
-        val fitContent: LengthType.FitContent
-
-        @JsValue("intrinsic")
-        val intrinsic: LengthType.Intrinsic
-
-        @JsValue("max-content")
-        val maxContent: LengthType.MaxContent
-
-        @JsValue("min-content")
-        val minContent: LengthType.MinContent
-
-        @JsValue("min-intrinsic")
-        val minIntrinsic: LengthType.MinIntrinsic
-
-        @JsValue("normal")
-        val normal: LengthType.Normal
-    }
-}
+        @JsVirtual
+        sealed external interface Length: LengthType {
+            companion object {
+                @JsValue("fit-content")    
+val fitContent: LengthType.FitContent
+@JsValue("intrinsic")    
+val intrinsic: LengthType.Intrinsic
+@JsValue("max-content")    
+val maxContent: LengthType.MaxContent
+@JsValue("min-content")    
+val minContent: LengthType.MinContent
+@JsValue("min-intrinsic")    
+val minIntrinsic: LengthType.MinIntrinsic
+@JsValue("normal")    
+val normal: LengthType.Normal
+            }
+        }
 
 inline val Number.ch: Length
     get() = "${this}ch".unsafeCast<Length>()

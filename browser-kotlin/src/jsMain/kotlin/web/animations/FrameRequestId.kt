@@ -2,4 +2,6 @@
 
 package web.animations
 
+import web.http.Request
+
 sealed external interface FrameRequestId

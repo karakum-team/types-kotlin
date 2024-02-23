@@ -2,4 +2,6 @@
 
 package web.gl
 
-sealed external interface OES_texture_float_linear
+sealed external interface OES_texture_float_linear {
+
+}

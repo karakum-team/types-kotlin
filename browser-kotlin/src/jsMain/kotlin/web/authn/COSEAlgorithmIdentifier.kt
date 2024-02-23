@@ -2,4 +2,6 @@
 
 package web.authn
 
+import web.crypto.Algorithm
+
 typealias COSEAlgorithmIdentifier = Int

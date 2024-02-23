@@ -17,105 +17,86 @@ package typescript
  * To create a default DocumentRegistry, use createDocumentRegistry to create one, and pass it
  * to all subsequent createLanguageService calls.
  */
-sealed external interface DocumentRegistry {
-    /**
-     * Request a stored SourceFile with a given fileName and compilationSettings.
-     * The first call to acquire will call createLanguageServiceSourceFile to generate
-     * the SourceFile if was not found in the registry.
-     *
-     * @param fileName The name of the file requested
-     * @param compilationSettingsOrHost Some compilation settings like target affects the
-     * shape of a the resulting SourceFile. This allows the DocumentRegistry to store
-     * multiple copies of the same file for different compilation settings. A minimal
-     * resolution cache is needed to fully define a source file's shape when
-     * the compilation settings include `module: node16`+, so providing a cache host
-     * object should be preferred. A common host is a language service `ConfiguredProject`.
-     * @param scriptSnapshot Text of the file. Only used if the file was not found
-     * in the registry and a new one was created.
-     * @param version Current version of the file. Only used if the file was not found
-     * in the registry and a new one was created.
-     */
-    fun acquireDocument(
-        fileName: String,
-        compilationSettingsOrHost: dynamic, /* CompilerOptions | MinimalResolutionCacheHost */
-        scriptSnapshot: IScriptSnapshot,
-        version: String,
-        scriptKind: ScriptKind = definedExternally,
-        sourceFileOptions: dynamic /* CreateSourceFileOptions | ScriptTarget */ = definedExternally,
-    ): SourceFile
-
-    fun acquireDocumentWithKey(
-        fileName: String,
-        path: Path,
-        compilationSettingsOrHost: dynamic, /* CompilerOptions | MinimalResolutionCacheHost */
-        key: DocumentRegistryBucketKey,
-        scriptSnapshot: IScriptSnapshot,
-        version: String,
-        scriptKind: ScriptKind = definedExternally,
-        sourceFileOptions: dynamic /* CreateSourceFileOptions | ScriptTarget */ = definedExternally,
-    ): SourceFile
-
-    /**
-     * Request an updated version of an already existing SourceFile with a given fileName
-     * and compilationSettings. The update will in-turn call updateLanguageServiceSourceFile
-     * to get an updated SourceFile.
-     *
-     * @param fileName The name of the file requested
-     * @param compilationSettingsOrHost Some compilation settings like target affects the
-     * shape of a the resulting SourceFile. This allows the DocumentRegistry to store
-     * multiple copies of the same file for different compilation settings. A minimal
-     * resolution cache is needed to fully define a source file's shape when
-     * the compilation settings include `module: node16`+, so providing a cache host
-     * object should be preferred. A common host is a language service `ConfiguredProject`.
-     * @param scriptSnapshot Text of the file.
-     * @param version Current version of the file.
-     */
-    fun updateDocument(
-        fileName: String,
-        compilationSettingsOrHost: dynamic, /* CompilerOptions | MinimalResolutionCacheHost */
-        scriptSnapshot: IScriptSnapshot,
-        version: String,
-        scriptKind: ScriptKind = definedExternally,
-        sourceFileOptions: dynamic /* CreateSourceFileOptions | ScriptTarget */ = definedExternally,
-    ): SourceFile
-
-    fun updateDocumentWithKey(
-        fileName: String,
-        path: Path,
-        compilationSettingsOrHost: dynamic, /* CompilerOptions | MinimalResolutionCacheHost */
-        key: DocumentRegistryBucketKey,
-        scriptSnapshot: IScriptSnapshot,
-        version: String,
-        scriptKind: ScriptKind = definedExternally,
-        sourceFileOptions: dynamic /* CreateSourceFileOptions | ScriptTarget */ = definedExternally,
-    ): SourceFile
-
-    fun getKeyForCompilationSettings(settings: CompilerOptions): DocumentRegistryBucketKey
-
-    /**
-     * Informs the DocumentRegistry that a file is not needed any longer.
-     *
-     * Note: It is not allowed to call release on a SourceFile that was not acquired from
-     * this registry originally.
-     *
-     * @param fileName The name of the file to be released
-     * @param compilationSettings The compilation settings used to acquire the file
-     * @param scriptKind The script kind of the file to be released
-     * @param impliedNodeFormat The implied source file format of the file to be released
-     */
-    fun releaseDocument(
-        fileName: String,
-        compilationSettings: CompilerOptions,
-        scriptKind: ScriptKind,
-        impliedNodeFormat: ResolutionMode,
-    )
-
-    fun releaseDocumentWithKey(
-        path: Path,
-        key: DocumentRegistryBucketKey,
-        scriptKind: ScriptKind,
-        impliedNodeFormat: ResolutionMode,
-    )
-
-    fun reportStats(): String
+external sealed interface DocumentRegistry {
+/**
+ * Request a stored SourceFile with a given fileName and compilationSettings.
+ * The first call to acquire will call createLanguageServiceSourceFile to generate
+ * the SourceFile if was not found in the registry.
+ *
+ * @param fileName The name of the file requested
+ * @param compilationSettingsOrHost Some compilation settings like target affects the
+ * shape of a the resulting SourceFile. This allows the DocumentRegistry to store
+ * multiple copies of the same file for different compilation settings. A minimal
+ * resolution cache is needed to fully define a source file's shape when
+ * the compilation settings include `module: node16`+, so providing a cache host
+ * object should be preferred. A common host is a language service `ConfiguredProject`.
+ * @param scriptSnapshot Text of the file. Only used if the file was not found
+ * in the registry and a new one was created.
+ * @param version Current version of the file. Only used if the file was not found
+ * in the registry and a new one was created.
+ */
+fun  acquireDocument(fileName: String,
+compilationSettingsOrHost: dynamic /* CompilerOptions | MinimalResolutionCacheHost */,
+scriptSnapshot: IScriptSnapshot,
+version: String,
+scriptKind: ScriptKind = definedExternally,
+sourceFileOptions: dynamic /* CreateSourceFileOptions | ScriptTarget */ = definedExternally): SourceFile
+fun  acquireDocumentWithKey(fileName: String,
+path: Path,
+compilationSettingsOrHost: dynamic /* CompilerOptions | MinimalResolutionCacheHost */,
+key: DocumentRegistryBucketKey,
+scriptSnapshot: IScriptSnapshot,
+version: String,
+scriptKind: ScriptKind = definedExternally,
+sourceFileOptions: dynamic /* CreateSourceFileOptions | ScriptTarget */ = definedExternally): SourceFile
+/**
+ * Request an updated version of an already existing SourceFile with a given fileName
+ * and compilationSettings. The update will in-turn call updateLanguageServiceSourceFile
+ * to get an updated SourceFile.
+ *
+ * @param fileName The name of the file requested
+ * @param compilationSettingsOrHost Some compilation settings like target affects the
+ * shape of a the resulting SourceFile. This allows the DocumentRegistry to store
+ * multiple copies of the same file for different compilation settings. A minimal
+ * resolution cache is needed to fully define a source file's shape when
+ * the compilation settings include `module: node16`+, so providing a cache host
+ * object should be preferred. A common host is a language service `ConfiguredProject`.
+ * @param scriptSnapshot Text of the file.
+ * @param version Current version of the file.
+ */
+fun  updateDocument(fileName: String,
+compilationSettingsOrHost: dynamic /* CompilerOptions | MinimalResolutionCacheHost */,
+scriptSnapshot: IScriptSnapshot,
+version: String,
+scriptKind: ScriptKind = definedExternally,
+sourceFileOptions: dynamic /* CreateSourceFileOptions | ScriptTarget */ = definedExternally): SourceFile
+fun  updateDocumentWithKey(fileName: String,
+path: Path,
+compilationSettingsOrHost: dynamic /* CompilerOptions | MinimalResolutionCacheHost */,
+key: DocumentRegistryBucketKey,
+scriptSnapshot: IScriptSnapshot,
+version: String,
+scriptKind: ScriptKind = definedExternally,
+sourceFileOptions: dynamic /* CreateSourceFileOptions | ScriptTarget */ = definedExternally): SourceFile
+fun  getKeyForCompilationSettings(settings: CompilerOptions): DocumentRegistryBucketKey
+/**
+ * Informs the DocumentRegistry that a file is not needed any longer.
+ *
+ * Note: It is not allowed to call release on a SourceFile that was not acquired from
+ * this registry originally.
+ *
+ * @param fileName The name of the file to be released
+ * @param compilationSettings The compilation settings used to acquire the file
+ * @param scriptKind The script kind of the file to be released
+ * @param impliedNodeFormat The implied source file format of the file to be released
+ */
+fun  releaseDocument(fileName: String,
+compilationSettings: CompilerOptions,
+scriptKind: ScriptKind,
+impliedNodeFormat: ResolutionMode)
+fun  releaseDocumentWithKey(path: Path,
+key: DocumentRegistryBucketKey,
+scriptKind: ScriptKind,
+impliedNodeFormat: ResolutionMode)
+fun  reportStats(): String
 }

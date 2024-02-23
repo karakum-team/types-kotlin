@@ -2,4 +2,8 @@
 
 package tanstack.table.core
 
-external interface HeaderGroup<TData : RowData> : CoreHeaderGroup<TData>
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface HeaderGroup<TData : RowData> : CoreHeaderGroup<TData>{
+
+}

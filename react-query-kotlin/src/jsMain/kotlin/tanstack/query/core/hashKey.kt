@@ -4,4 +4,4 @@
 
 package tanstack.query.core
 
-external fun hashKey(queryKey: Any /* QueryKey | MutationKey */): String
+external fun  hashKey(queryKey: Any /* QueryKey | MutationKey */ ): String

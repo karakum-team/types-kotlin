@@ -4,4 +4,4 @@
 
 package typescript
 
-external fun getCombinedNodeFlags(node: Node): NodeFlags
+external fun  getCombinedNodeFlags(node: Node): NodeFlags

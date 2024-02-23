@@ -7,6 +7,6 @@ import js.errors.JsError
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/reportError)
  */
-external fun reportError(
-    error: JsError,
+external fun  reportError (
+error: JsError
 )

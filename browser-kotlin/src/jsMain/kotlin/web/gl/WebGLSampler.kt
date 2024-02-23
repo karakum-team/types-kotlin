@@ -2,4 +2,6 @@
 
 package web.gl
 
-sealed external class WebGLSampler
+sealed external class WebGLSampler {
+
+}

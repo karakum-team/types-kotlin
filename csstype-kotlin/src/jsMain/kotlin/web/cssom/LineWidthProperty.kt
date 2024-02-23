@@ -2,6 +2,10 @@
 
 package web.cssom
 
-sealed external interface LineWidthProperty :
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+sealed external interface LineWidthProperty:
     Border,
     Outline

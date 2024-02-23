@@ -2,7 +2,9 @@
 
 package tanstack.table.core
 
-external interface ColumnSizingTableState {
-    var columnSizing: ColumnSizingState
-    var columnSizingInfo: ColumnSizingInfoState
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface ColumnSizingTableState{
+var columnSizing: ColumnSizingState
+var columnSizingInfo: ColumnSizingInfoState
 }

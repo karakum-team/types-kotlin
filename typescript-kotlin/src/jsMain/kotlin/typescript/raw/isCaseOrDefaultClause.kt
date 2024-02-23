@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isCaseOrDefaultClause(node: Node): Boolean /* node is CaseOrDefaultClause */
+internal external fun  isCaseOrDefaultClause(node: Node): Boolean /* node is CaseOrDefaultClause */

@@ -2,8 +2,26 @@
 
 package actions.artifact
 
-import js.array.ReadonlyArray
 import js.promise.Promise
+import js.promise.await
+import js.collections.ReadonlyMap
+import js.core.BigInt
+import js.core.JsLong
+import js.objects.Record
+import js.array.ReadonlyArray
+import js.core.Void
+import js.errors.JsError
+import node.buffer.Buffer
+import node.http.IncomingHttpHeaders
+import node.http.OutgoingHttpHeaders
+import web.url.URL
+
+import actions.http.client.HttpClient
+import actions.http.client.HttpClientResponse
+
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
 
 sealed external interface ArtifactClient {
     /**
@@ -15,13 +33,10 @@ sealed external interface ArtifactClient {
      * @param options extra options for customizing the upload behavior
      * @returns single UploadInfo object
      */
-    fun uploadArtifact(
-        name: String,
-        files: ReadonlyArray<String>,
-        rootDirectory: String,
-        options: UploadOptions = definedExternally,
-    ): Promise<UploadResponse>
-
+    fun uploadArtifact(name: String,
+    files: ReadonlyArray<String>,
+    rootDirectory: String,
+    options: UploadOptions = definedExternally): Promise<UploadResponse>
     /**
      * Downloads a single artifact associated with a run
      *
@@ -29,12 +44,9 @@ sealed external interface ArtifactClient {
      * @param path optional path that denotes where the artifact will be downloaded to
      * @param options extra options that allow for the customization of the download behavior
      */
-    fun downloadArtifact(
-        name: String,
-        path: String = definedExternally,
-        options: DownloadOptions = definedExternally,
-    ): Promise<DownloadResponse>
-
+    fun downloadArtifact(name: String,
+    path: String = definedExternally,
+    options: DownloadOptions = definedExternally): Promise<DownloadResponse>
     /**
      * Downloads all artifacts associated with a run. Because there are multiple artifacts being downloaded, a folder will be created for each one in the specified or default directory
      * @param path optional path that denotes where the artifacts will be downloaded to

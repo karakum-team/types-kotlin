@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isSemicolonClassElement(node: Node): Boolean /* node is SemicolonClassElement */
+internal external fun  isSemicolonClassElement(node: Node): Boolean /* node is SemicolonClassElement */

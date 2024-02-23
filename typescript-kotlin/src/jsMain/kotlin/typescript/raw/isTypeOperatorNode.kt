@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isTypeOperatorNode(node: Node): Boolean /* node is TypeOperatorNode */
+internal external fun  isTypeOperatorNode(node: Node): Boolean /* node is TypeOperatorNode */

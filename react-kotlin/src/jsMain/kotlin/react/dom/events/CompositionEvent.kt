@@ -2,8 +2,14 @@
 
 package react.dom.events
 
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
 import web.dom.Element
+import web.window.Window
+import web.events.Event
+import web.events.EventTarget
 
 external interface CompositionEvent<out T : Element> : SyntheticEvent<T, NativeCompositionEvent> {
-    val data: String
+val data: String
 }

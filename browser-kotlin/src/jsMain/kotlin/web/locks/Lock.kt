@@ -8,13 +8,12 @@ package web.locks
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Lock)
  */
 sealed external class Lock {
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Lock/mode)
-     */
-    val mode: LockMode
-
-    /**
-     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Lock/name)
-     */
-    val name: String
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Lock/mode)
+ */
+val mode: LockMode
+/**
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Lock/name)
+ */
+val name: String
 }

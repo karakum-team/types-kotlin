@@ -2,6 +2,7 @@
 
 package web.remoteplayback
 
+import web.remoteplayback.RemotePlayback
+
 typealias RemotePlaybackAvailabilityCallback = (
-    available: Boolean,
-) -> Unit
+available: Boolean) -> Unit

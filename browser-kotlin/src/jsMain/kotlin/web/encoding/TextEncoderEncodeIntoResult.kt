@@ -7,6 +7,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface TextEncoderEncodeIntoResult {
-    var read: JsLong
-    var written: JsLong
+var read: JsLong
+var written: JsLong
 }

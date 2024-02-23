@@ -6,6 +6,6 @@ import js.objects.JsPlainObject
 
 @JsPlainObject
 sealed external interface VideoDecoderInit {
-    var error: WebCodecsErrorCallback
-    var output: VideoFrameOutputCallback
+var error: WebCodecsErrorCallback
+var output: VideoFrameOutputCallback
 }

@@ -1,7 +1,7 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "INTERFACE_WITH_SUPERCLASS",
+"INTERFACE_WITH_SUPERCLASS",
 )
 
 package web.audio
@@ -9,12 +9,13 @@ package web.audio
 import js.array.ReadonlyArray
 import js.objects.Record
 import js.typedarrays.Float32Array
+import web.worklets.Worklet
 
-external interface AudioWorkletProcessorImpl :
-    AudioWorkletProcessor {
-    fun process(
-        inputs: ReadonlyArray<ReadonlyArray<Float32Array>>,
-        outputs: ReadonlyArray<ReadonlyArray<Float32Array>>,
-        parameters: Record<String, Float32Array>,
-    ): Boolean
+ external interface AudioWorkletProcessorImpl :
+AudioWorkletProcessor {
+ fun process(
+inputs: ReadonlyArray<ReadonlyArray<Float32Array>>,
+outputs: ReadonlyArray<ReadonlyArray<Float32Array>>,
+parameters: Record<String, Float32Array>,
+): Boolean
 }

@@ -2,7 +2,7 @@
 
 package typescript
 
-sealed external interface ClassifiedSpan2020 {
-    var textSpan: TextSpan
-    var classificationType: Int
+external sealed interface ClassifiedSpan2020 {
+var textSpan: TextSpan
+var classificationType: Int
 }

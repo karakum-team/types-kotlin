@@ -2,6 +2,6 @@
 
 package tanstack.query.core
 
-external interface InvalidateAction {
-    var type: Type /* 'invalidate' */
+external interface InvalidateAction   {
+ var type: Type /* 'invalidate' */
 }

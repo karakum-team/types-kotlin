@@ -4,7 +4,7 @@ package typescript
 
 import js.array.ReadonlyArray
 
-sealed external interface CombinedCodeActions {
-    var changes: ReadonlyArray<FileTextChanges>
-    var commands: ReadonlyArray<CodeActionCommand>?
+external sealed interface CombinedCodeActions {
+var changes: ReadonlyArray<FileTextChanges>
+var commands: ReadonlyArray<CodeActionCommand>?
 }

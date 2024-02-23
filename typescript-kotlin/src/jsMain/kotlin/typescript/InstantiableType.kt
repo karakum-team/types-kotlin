@@ -2,4 +2,6 @@
 
 package typescript
 
-sealed external interface InstantiableType : Type, Union.InstantiableType_
+external sealed interface InstantiableType : Type, Union.InstantiableType_ {
+
+}

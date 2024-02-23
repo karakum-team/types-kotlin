@@ -2,14 +2,18 @@
 
 package web.cssom
 
-sealed external interface Image :
-    Background,
-    BackgroundImage,
-    Border,
-    BorderImage,
-    BorderImageSource,
-    Content,
-    ListStyle,
-    ListStyleImage,
-    Mask,
-    MaskImage
+import seskar.js.JsIntValue
+import seskar.js.JsVirtual
+import seskar.js.JsValue
+
+sealed external interface Image:
+Background,
+BackgroundImage,
+Border,
+BorderImage,
+BorderImageSource,
+Content,
+ListStyle,
+ListStyleImage,
+Mask,
+MaskImage

@@ -2,4 +2,6 @@
 
 package web.html
 
+import web.http.Request
+
 sealed external interface VideoFrameRequestId

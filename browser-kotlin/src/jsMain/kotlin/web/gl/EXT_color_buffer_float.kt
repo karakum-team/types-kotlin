@@ -2,4 +2,6 @@
 
 package web.gl
 
-sealed external interface EXT_color_buffer_float
+sealed external interface EXT_color_buffer_float {
+
+}

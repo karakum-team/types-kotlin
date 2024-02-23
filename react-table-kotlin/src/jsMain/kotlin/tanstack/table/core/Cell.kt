@@ -2,4 +2,8 @@
 
 package tanstack.table.core
 
-external interface Cell<TData : RowData, TValue> : CoreCell<TData, TValue>, GroupingCell
+import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn
+
+external interface Cell<TData : RowData, TValue> : CoreCell<TData, TValue>, GroupingCell{
+
+}

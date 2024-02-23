@@ -15,13 +15,11 @@ import seskar.js.JsNative
  *
  * For the canonical implementation of this type, @see {visitNodes}.
  */
-sealed external interface NodesVisitor {
-    @JsNative
-    operator fun <TIn : Node, TInArray : NodeArray<TIn>?> invoke(
-        nodes: TInArray,
-        visitor: Visitor<TIn, Node?>,
-        test: (node: Node) -> Boolean = definedExternally,
-        start: Int = definedExternally,
-        count: Int = definedExternally,
-    ): dynamic /* NodeArray<Node> | (TInArray & undefined) */
+external sealed interface NodesVisitor {
+@JsNative
+operator fun <TIn : Node, TInArray : NodeArray<TIn>?> invoke(nodes: TInArray,
+visitor: Visitor<TIn, Node?>,
+test: (node: Node) -> Boolean = definedExternally,
+start: Int = definedExternally,
+count: Int = definedExternally): dynamic /* NodeArray<Node> | (TInArray & undefined) */
 }

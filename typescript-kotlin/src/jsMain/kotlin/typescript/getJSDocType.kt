@@ -15,4 +15,4 @@ package typescript
  * node are examined first, so in the previous example, the type
  * tag directly on the node would be returned.
  */
-external fun getJSDocType(node: Node): TypeNode?
+external fun  getJSDocType(node: Node): TypeNode?

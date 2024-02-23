@@ -1,17 +1,17 @@
 // Automatically generated - do not modify!
 
 @file:Suppress(
-    "CANNOT_CHECK_FOR_EXTERNAL_INTERFACE",
+"CANNOT_CHECK_FOR_EXTERNAL_INTERFACE",
 )
 
 package typescript
 
 import kotlin.contracts.contract
 
-fun isNamespaceExportDeclaration(node: Node): Boolean {
-    contract {
-        returns(true) implies (node is NamespaceExportDeclaration)
+fun  isNamespaceExportDeclaration(node: Node): Boolean{
+        contract {
+            returns(true) implies (node is NamespaceExportDeclaration)
+        }
+    
+        return typescript.raw.isNamespaceExportDeclaration(node)
     }
-
-    return typescript.raw.isNamespaceExportDeclaration(node)
-}

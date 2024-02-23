@@ -2,4 +2,6 @@
 
 package typescript
 
-sealed external interface EnumType : FreshableType
+external sealed interface EnumType : FreshableType {
+
+}

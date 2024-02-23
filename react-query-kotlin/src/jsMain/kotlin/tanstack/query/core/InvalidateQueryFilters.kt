@@ -2,6 +2,6 @@
 
 package tanstack.query.core
 
-external interface InvalidateQueryFilters : QueryFilters {
-    var refetchType: QueryTypeFilter /* | 'none' */
+external interface InvalidateQueryFilters  : QueryFilters {
+ var refetchType: QueryTypeFilter /* | 'none' */
 }

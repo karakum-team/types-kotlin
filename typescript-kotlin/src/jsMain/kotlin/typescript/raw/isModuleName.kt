@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isModuleName(node: Node): Boolean /* node is ModuleName */
+internal external fun  isModuleName(node: Node): Boolean /* node is ModuleName */

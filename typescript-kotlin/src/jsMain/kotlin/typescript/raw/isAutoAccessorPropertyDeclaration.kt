@@ -5,5 +5,6 @@
 package typescript.raw
 
 import typescript.Node
+import typescript.BindingName
 
-internal external fun isAutoAccessorPropertyDeclaration(node: Node): Boolean /* node is AutoAccessorPropertyDeclaration */
+internal external fun  isAutoAccessorPropertyDeclaration(node: Node): Boolean /* node is AutoAccessorPropertyDeclaration */
