@@ -22,7 +22,26 @@ internal fun String.applyPatches(): String {
         .patchInterface("ProgressEvent") {
             it.replace("\n    readonly target: T | null;", "")
         }
+        .replace("ProgressEvent<T extends EventTarget = EventTarget>", "ProgressEvent")
         .replace("ProgressEvent<FileReader>", "ProgressEvent")
+        .patchInterface("CustomEvent") {
+            it.replace("\n    readonly detail: T;", "\n    readonly detail: D;")
+        }
+        .replace(" CustomEvent<T = any>", " CustomEvent<D = any>")
+        .patchInterface("CustomEventInit") {
+            it.replace("\n    detail?: T;", "\n    detail?: D;")
+        }
+        .replace(" CustomEventInit<T = any>", " CustomEventInit<D = any>")
+        .replace(" CustomEventInit<T>", " CustomEventInit<D>")
+        .patchInterface("MessageEvent") {
+            it.replace("\n    readonly data: T;", "\n    readonly data: D;")
+        }
+        .replace(" MessageEvent<T = any>", " MessageEvent<D = any>")
+        .patchInterface("MessageEventInit") {
+            it.replace("\n    data?: T;", "\n    data?: D;")
+        }
+        .replace(" MessageEventInit<T = any>", " MessageEventInit<D = any>")
+        .replace(" MessageEventInit<T>", " MessageEventInit<D>")
         .patchInterface("URLSearchParams") {
             it.replace("name: string", "key: string")
                 .replace(
@@ -237,8 +256,8 @@ internal fun String.patchInterface(
     ).firstOrNull { it in this }
         ?: return this
 
-    val oldBody = substringAfter(declarationStart, "")
-        .substringAfter("{\n")
+    val oldBody = "\n" + substringAfter(declarationStart, "")
+        .substringAfter("{\n", "")
         .substringBefore("\n}", "")
 
     return replaceFirst(oldBody, transform(oldBody))

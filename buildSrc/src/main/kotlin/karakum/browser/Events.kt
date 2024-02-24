@@ -163,7 +163,7 @@ private fun event(
     typesName: String?,
 ): Sequence<ConversionResult> {
     var initName = "${name}Init" +
-            (if (name == "CustomEvent" || name == "MessageEvent") "<T = any>" else "")
+            (if (name == "CustomEvent" || name == "MessageEvent") "<D = any>" else "")
 
     var initSource = source
         .substringAfter("\ninterface $initName ", "")
@@ -196,7 +196,7 @@ private fun event(
         initMembers = members
 
         val declaration = initName
-            .replace("<T = any>", "<out T>") +
+            .replace("<D = any>", "<out D>") +
                 " $parentDeclaration"
 
         sequenceOf(
@@ -209,9 +209,7 @@ private fun event(
 
     val eventSource = source
         // MessageEvent
-        .replace("<T = any>", "")
-        // ProgressEvent
-        .replace("<T extends EventTarget = EventTarget>", "")
+        .replace("<D = any>", "")
         .let {
             when (name) {
                 EVENT -> " {\n" + it.substringAfter("\ninterface $name {\n")
@@ -231,7 +229,7 @@ private fun event(
 
     val eventParents = listOfNotNull(
         eventParent.takeIf { name != EVENT },
-        initName.replace("<T = any>", "<T>")
+        initName.replace("<D = any>", "<D>")
             .takeIf { eventIsInitLike },
     )
     val eventParentDeclaration = if (eventParents.isNotEmpty()) {
@@ -248,8 +246,6 @@ private fun event(
         // Event
         .replace("val type: String", "    // val type: String")
         .replace("val target: EventTarget?", "open val target: EventTarget?")
-        // ProgressEvent
-        .replace("val target: T?", "override val target: T?")
         .let {
             when {
                 name == EVENT
@@ -285,7 +281,7 @@ private fun event(
                     val typeParameter = when (name) {
                         "CustomEvent",
                         "MessageEvent",
-                        -> "<T>"
+                        -> "<D>"
 
                         else -> ""
                     }
@@ -325,8 +321,8 @@ private fun event(
 
     val modifier = if (eventConstructor.isNotEmpty()) "open" else "sealed"
     val typeParameters = when (name) {
-        "CustomEvent" -> "<out T>"
-        "MessageEvent" -> "<out T>"
+        "CustomEvent" -> "<out D>"
+        "MessageEvent" -> "<out D>"
         else -> ""
     }
 
@@ -374,9 +370,9 @@ private fun event(
                 .toList()
 
             """
-            fun <T> $initName(
+            fun <D> $initName(
                 $parameters
-            ): $initName<T> =
+            ): $initName<D> =
                 jso {
                     ${
                 parameterNames.joinToString("\n") {
