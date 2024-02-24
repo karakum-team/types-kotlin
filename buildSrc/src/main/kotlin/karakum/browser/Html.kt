@@ -1890,7 +1890,7 @@ private fun convertFunction(
         .replace(": StaticRange[]", ": ReadonlyArray<StaticRange>")
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")
         .replace(": RelativeTimeFormatPart[]", ": ReadonlyArray<dynamic /* RelativeTimeFormatPart */>")
-        .replace(Regex("""\: (\w+?)\[\]"""), ": ReadonlyArray<$1>")
+        .replace(Regex(""": (\w+?)\[]"""), ": ReadonlyArray<$1>")
         .replace(
             """: { type: "element" | "literal"; value: string; }[]""",
             ": ReadonlyArray<dynamic /* { type; value; } */>",
