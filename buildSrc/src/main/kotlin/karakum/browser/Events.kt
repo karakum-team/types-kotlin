@@ -339,7 +339,7 @@ private fun event(
             fullSource = source,
             source = "interface $name extends "
         )
-        // ProgressEvent
+        // CustomEvent, MessageEvent
         .withComment(
             fullSource = source,
             source = "interface $name<"
