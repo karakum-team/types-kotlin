@@ -44,7 +44,7 @@ open external class Event<out C : EventTarget?>(
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Event/currentTarget)
      */
-    val currentTarget: EventTarget?
+    val currentTarget: C
 
     /**
      * Returns true if preventDefault() was invoked successfully to indicate cancelation, and false otherwise.
