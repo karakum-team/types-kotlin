@@ -337,12 +337,12 @@ private fun event(
     eventBody = eventBody
         .withComment(
             fullSource = source,
-            source = "interface $name extends "
+            source = "interface $name extends ",
         )
         // CustomEvent, MessageEvent
         .withComment(
             fullSource = source,
-            source = "interface $name<"
+            source = "interface $name<",
         )
 
     if (name == "MediaQueryListEvent") {
