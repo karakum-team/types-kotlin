@@ -218,7 +218,7 @@ private fun event(
         }
         .substringBefore(";\n}\n")
 
-    val eventParent = eventSource.substringBefore(" {\n")
+    val eventParent = eventSource.substringBefore(" {\n") + "<C>"
     val eventIsInitLike = initBody.isNotEmpty()
             && "EventModifierInit" !in initBody
             && "MouseEventInit" !in initBody
@@ -281,9 +281,9 @@ private fun event(
                     val typeParameter = when (name) {
                         "CustomEvent",
                         "MessageEvent",
-                        -> "<D>"
+                        -> "<D, *>"
 
-                        else -> ""
+                        else -> "<*>"
                     }
 
                     val typeModifier = if (name == EVENT) "open" else "override"
@@ -321,9 +321,11 @@ private fun event(
 
     val modifier = if (eventConstructor.isNotEmpty()) "open" else "sealed"
     val typeParameters = when (name) {
-        "CustomEvent" -> "<out D>"
-        "MessageEvent" -> "<out D>"
-        else -> ""
+        "CustomEvent",
+        "MessageEvent",
+        -> "<out D, out C: EventTarget?>"
+
+        else -> "<out C: EventTarget?>"
     }
 
     var eventBody = """  
@@ -465,9 +467,9 @@ private fun eventTypes(
 
     val eventType = when (eventName) {
         "MessageEvent",
-        -> "$eventName<*>"
+        -> "$eventName<*, *>"
 
-        else -> eventName
+        else -> "$eventName<*>"
     }
 
     val typesName = "${eventName}Types"
@@ -517,9 +519,9 @@ private fun eventTypes(
 
             val finalType = when (type) {
                 "MessageEvent",
-                -> "$type<*>"
+                -> "$type<*, *>"
 
-                else -> type
+                else -> "$type<*>"
             }
 
             """

@@ -1596,9 +1596,11 @@ internal fun convertMember(
             .substringAfter("ev: ")
             .substringBefore(")")
 
-        when (eventType) {
+        eventType += when (eventType) {
             "MessageEvent",
-            -> eventType += "<*>"
+            -> "<*, *>"
+
+            else -> "<*>"
         }
 
         return sequenceOf(
@@ -1790,6 +1792,7 @@ private fun convertProperty(
                 arrayType = when (arrayType) {
                     "string" -> "String"
                     "boolean" -> "Boolean"
+                    "PointerEvent" -> "PointerEvent<*>"
                     else -> arrayType
                 }
 

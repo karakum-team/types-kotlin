@@ -4,13 +4,13 @@ internal const val EVENT_TARGET = "EventTarget"
 
 private val EVENT_TARGET_BODY: String = """
 open external class EventTarget {
-    fun <T : Event> addEventListener(
+    fun <T : Event<*>> addEventListener(
         type: EventType<T>,
         callback: EventHandler<T>,
         options: AddEventListenerOptions? = definedExternally,
     )
 
-    inline fun <T : Event> addEventHandler(
+    inline fun <T : Event<*>> addEventHandler(
         type: EventType<T>,
         noinline handler: EventHandler<T>,
     ): () -> Unit =
@@ -20,7 +20,7 @@ open external class EventTarget {
             handler = handler,
         )
 
-    inline fun <T : Event> addEventHandler(
+    inline fun <T : Event<*>> addEventHandler(
         type: EventType<T>,
         options: AddEventListenerOptions?,
         noinline handler: EventHandler<T>,
@@ -32,19 +32,19 @@ open external class EventTarget {
             options = options,
         )
 
-    fun <T : Event> removeEventListener(
+    fun <T : Event<*>> removeEventListener(
         type: EventType<T>,
         callback: EventHandler<T>,
         options: EventListenerOptions? = definedExternally,
     )
 
     fun dispatchEvent(
-        event: Event,
+        event: Event<*>,
     ): Boolean
 }
 
 @PublishedApi
-internal fun <T : Event> addEventHandler(
+internal fun <T : Event<*>> addEventHandler(
     target: EventTarget,
     type: EventType<T>,
     handler: EventHandler<T>,
@@ -57,7 +57,7 @@ internal fun <T : Event> addEventHandler(
     )
 
 @PublishedApi
-internal fun <T : Event> addEventHandler(
+internal fun <T : Event<*>> addEventHandler(
     target: EventTarget,
     type: EventType<T>,
     handler: EventHandler<T>,
