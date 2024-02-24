@@ -4,7 +4,6 @@ private val TYPES = listOf(
     "GLbitfield" to "Number",
     "GLboolean" to "Boolean",
     "GLclampf" to "Number",
-    "GLenum" to "Short",
     "GLfloat" to "Number",
     "GLint" to "Int",
     "GLint64" to "Number",
@@ -15,10 +14,16 @@ private val TYPES = listOf(
     "GLuint64" to "Number",
 )
 
-internal fun GLNumbers(): ConversionResult =
-    ConversionResult(
-        name = "Aliases",
-        body = TYPES.joinToString("\n") { (type, alias) ->
-            "typealias $type = $alias"
-        },
+internal fun GLNumbers(): Sequence<ConversionResult> =
+    sequenceOf(
+        ConversionResult(
+            name = "Aliases",
+            body = TYPES.joinToString("\n") { (type, alias) ->
+                "typealias $type = $alias"
+            },
+        ),
+        ConversionResult(
+            name = "GLenum",
+            body = "sealed external interface GLenum",
+        ),
     )
