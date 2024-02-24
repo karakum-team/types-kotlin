@@ -114,6 +114,10 @@ internal object IDLRegistry {
                         "HTMLCollection" -> listOf(className, "HTMLCollectionBase")
                         "NodeList" -> listOf(className, "NodeListOf")
 
+                        // TEMP?
+                        "MediaSessionSeekActionDetails" -> listOf(className, "MediaSessionActionDetails")
+                        "MediaSessionSeekToActionDetails" -> listOf(className, "MediaSessionActionDetails")
+
                         else -> listOf(className)
                     }
 
