@@ -337,7 +337,7 @@ private fun event(
     eventBody = eventBody
         .withComment(
             fullSource = source,
-            source = "interface $name extends ",
+            source = "interface $name ",
         )
         // CustomEvent, MessageEvent
         .withComment(
