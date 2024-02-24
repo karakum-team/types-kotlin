@@ -1598,7 +1598,6 @@ internal fun convertMember(
 
         when (eventType) {
             "MessageEvent",
-            "ProgressEvent",
             -> eventType += "<*>"
         }
 

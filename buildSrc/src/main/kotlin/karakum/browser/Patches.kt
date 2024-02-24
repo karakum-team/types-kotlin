@@ -1,4 +1,3 @@
-
 package karakum.browser
 
 private val SVG_ANIMATED_ENUMERATION_BEFORE = """
@@ -20,6 +19,10 @@ internal fun String.applyPatches(): String {
         .applyTempEventPatches()
         .applyReadyStatePatches()
         .patchQuerySelectors()
+        .patchInterface("ProgressEvent") {
+            it.replace("\n    readonly target: T | null;", "")
+        }
+        .replace("ProgressEvent<FileReader>", "ProgressEvent")
         .patchInterface("URLSearchParams") {
             it.replace("name: string", "key: string")
                 .replace(
@@ -228,7 +231,13 @@ internal fun String.patchInterface(
     name: String,
     transform: (String) -> String,
 ): String {
-    val oldBody = substringAfter("\ninterface $name ", "")
+    val declarationStart = sequenceOf(
+        "\ninterface $name ",
+        "\ninterface $name<",
+    ).firstOrNull { it in this }
+        ?: return this
+
+    val oldBody = substringAfter(declarationStart, "")
         .substringAfter("{\n")
         .substringBefore("\n}", "")
 

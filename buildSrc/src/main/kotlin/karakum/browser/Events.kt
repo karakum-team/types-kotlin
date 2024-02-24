@@ -285,7 +285,6 @@ private fun event(
                     val typeParameter = when (name) {
                         "CustomEvent",
                         "MessageEvent",
-                        "ProgressEvent",
                         -> "<T>"
 
                         else -> ""
@@ -328,7 +327,6 @@ private fun event(
     val typeParameters = when (name) {
         "CustomEvent" -> "<out T>"
         "MessageEvent" -> "<out T>"
-        "ProgressEvent" -> "<out T : EventTarget>"
         else -> ""
     }
 
@@ -471,7 +469,6 @@ private fun eventTypes(
 
     val eventType = when (eventName) {
         "MessageEvent",
-        "ProgressEvent",
         -> "$eventName<*>"
 
         else -> eventName
@@ -524,7 +521,6 @@ private fun eventTypes(
 
             val finalType = when (type) {
                 "MessageEvent",
-                "ProgressEvent",
                 -> "$type<*>"
 
                 else -> type
