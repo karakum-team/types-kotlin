@@ -36,12 +36,12 @@ sealed external class MediaKeySession :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeySession/keystatuseschange_event)
      */
-    var onkeystatuseschange: EventHandler<Event>?
+    var onkeystatuseschange: EventHandler<Event<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeySession/message_event)
      */
-    var onmessage: EventHandler<MediaKeyMessageEvent>?
+    var onmessage: EventHandler<MediaKeyMessageEvent<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeySession/sessionId)

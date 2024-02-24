@@ -26,17 +26,17 @@ sealed external class DedicatedWorkerGlobalScope :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DedicatedWorkerGlobalScope/message_event)
      */
-    var onmessage: EventHandler<MessageEvent<*>>?
+    var onmessage: EventHandler<MessageEvent<*, *>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DedicatedWorkerGlobalScope/messageerror_event)
      */
-    var onmessageerror: EventHandler<MessageEvent<*>>?
+    var onmessageerror: EventHandler<MessageEvent<*, *>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event)
      */
-    var onrtctransform: EventHandler<RTCTransformEvent>?
+    var onrtctransform: EventHandler<RTCTransformEvent<*>>?
 
     /**
      * Aborts dedicatedWorkerGlobal.

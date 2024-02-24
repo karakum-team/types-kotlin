@@ -23,32 +23,32 @@ open external class FileReader :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/abort_event)
      */
-    var onabort: EventHandler<ProgressEvent>?
+    var onabort: EventHandler<ProgressEvent<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/error_event)
      */
-    var onerror: EventHandler<ProgressEvent>?
+    var onerror: EventHandler<ProgressEvent<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/load_event)
      */
-    var onload: EventHandler<ProgressEvent>?
+    var onload: EventHandler<ProgressEvent<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/loadend_event)
      */
-    var onloadend: EventHandler<ProgressEvent>?
+    var onloadend: EventHandler<ProgressEvent<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/loadstart_event)
      */
-    var onloadstart: EventHandler<ProgressEvent>?
+    var onloadstart: EventHandler<ProgressEvent<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/progress_event)
      */
-    var onprogress: EventHandler<ProgressEvent>?
+    var onprogress: EventHandler<ProgressEvent<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader/readyState)

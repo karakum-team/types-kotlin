@@ -58,47 +58,47 @@ external class RTCPeerConnection(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/connectionstatechange_event)
      */
-    var onconnectionstatechange: EventHandler<Event>?
+    var onconnectionstatechange: EventHandler<Event<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/datachannel_event)
      */
-    var ondatachannel: EventHandler<RTCDataChannelEvent>?
+    var ondatachannel: EventHandler<RTCDataChannelEvent<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/icecandidate_event)
      */
-    var onicecandidate: EventHandler<RTCPeerConnectionIceEvent>?
+    var onicecandidate: EventHandler<RTCPeerConnectionIceEvent<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/icecandidateerror_event)
      */
-    var onicecandidateerror: EventHandler<RTCPeerConnectionIceErrorEvent>?
+    var onicecandidateerror: EventHandler<RTCPeerConnectionIceErrorEvent<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event)
      */
-    var oniceconnectionstatechange: EventHandler<Event>?
+    var oniceconnectionstatechange: EventHandler<Event<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event)
      */
-    var onicegatheringstatechange: EventHandler<Event>?
+    var onicegatheringstatechange: EventHandler<Event<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/negotiationneeded_event)
      */
-    var onnegotiationneeded: EventHandler<Event>?
+    var onnegotiationneeded: EventHandler<Event<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/signalingstatechange_event)
      */
-    var onsignalingstatechange: EventHandler<Event>?
+    var onsignalingstatechange: EventHandler<Event<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/track_event)
      */
-    var ontrack: EventHandler<RTCTrackEvent>?
+    var ontrack: EventHandler<RTCTrackEvent<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/pendingLocalDescription)

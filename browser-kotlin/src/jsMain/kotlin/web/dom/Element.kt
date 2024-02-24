@@ -104,12 +104,12 @@ abstract external class Element :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/fullscreenchange_event)
      */
-    var onfullscreenchange: EventHandler<Event>?
+    var onfullscreenchange: EventHandler<Event<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/fullscreenerror_event)
      */
-    var onfullscreenerror: EventHandler<Event>?
+    var onfullscreenerror: EventHandler<Event<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/outerHTML)

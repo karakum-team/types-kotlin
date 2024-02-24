@@ -19,7 +19,7 @@ external class AudioWorkletNode(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioWorkletNode/processorerror_event)
      */
-    var onprocessorerror: EventHandler<ErrorEvent>?
+    var onprocessorerror: EventHandler<ErrorEvent<*>>?
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioWorkletNode/parameters)
