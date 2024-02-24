@@ -1591,6 +1591,12 @@ internal fun convertMember(
         val handlerName = source.substringBefore(": ")
             .removeSuffix("?")
 
+        val currentTarget = source
+            .substringAfter("(this: ", "")
+            .substringBefore(", ", "")
+            .takeIf { !it.endsWith("Handlers") }
+            ?: "*"
+
         var eventType = source
             .substringAfter(": ")
             .substringAfter("ev: ")
@@ -1598,9 +1604,9 @@ internal fun convertMember(
 
         eventType += when (eventType) {
             "MessageEvent",
-            -> "<*, *>"
+            -> "<*, $currentTarget>"
 
-            else -> "<*>"
+            else -> "<$currentTarget>"
         }
 
         return sequenceOf(
