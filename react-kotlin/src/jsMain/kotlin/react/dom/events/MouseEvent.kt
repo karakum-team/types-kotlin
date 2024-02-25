@@ -5,7 +5,7 @@ package react.dom.events
 import web.dom.Element
 import web.events.EventTarget
 
-external interface MouseEvent<out T : Element, out E : NativeMouseEvent> : UIEvent<T, E> {
+external interface MouseEvent<out T : Element, out E : NativeMouseEvent<T>> : UIEvent<T, E> {
     val altKey: Boolean
     val button: Int
     val buttons: Int
