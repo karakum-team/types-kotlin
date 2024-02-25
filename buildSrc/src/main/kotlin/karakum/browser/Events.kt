@@ -271,21 +271,24 @@ private fun event(
         .removePrefix("new<T>(")
         .substringBefore("): $name")
 
-    val eventConstructor = if (constructorSource.isNotEmpty()) {
-        constructorSource
+    val eventConstructor: String
+    val eventFactories: String
+
+    if (constructorSource.isNotEmpty()) {
+        val typeParameter = when (name) {
+            "CustomEvent",
+            "MessageEvent",
+            -> "<D, *>"
+
+            else -> "<*>"
+        }
+
+        val eventParameters = constructorSource
             .split(", ")
             .map { p ->
                 if ("?: " in p) {
                     p.replace("?: ", ": ") + " = definedExternally"
                 } else {
-                    val typeParameter = when (name) {
-                        "CustomEvent",
-                        "MessageEvent",
-                        -> "<D, *>"
-
-                        else -> "<*>"
-                    }
-
                     val typeModifier = if (name == EVENT) "open" else "override"
                     val typeDeclaration = "$typeModifier val type: EventType<$name$typeParameter>"
 
@@ -298,8 +301,14 @@ private fun event(
                     "init: " + it.substringAfter(": ")
                 } else it
             }
-            .joinToString(",\n", "(\n", "\n)")
-    } else ""
+            .joinToString(",\n")
+
+        eventConstructor = "(\n$eventParameters\n)"
+        eventFactories = ""
+    } else {
+        eventConstructor = ""
+        eventFactories = ""
+    }
 
     val companionSource = eventClassBody
         .substringAfter("\n", "")
@@ -334,6 +343,8 @@ private fun event(
     
         $companion
     }
+    
+    $eventFactories
     """.trimIndent()
 
     eventBody = eventBody
