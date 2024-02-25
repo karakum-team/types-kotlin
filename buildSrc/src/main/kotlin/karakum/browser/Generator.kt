@@ -336,7 +336,7 @@ fun generateKotlinDeclarations(
             if ("@JsVirtual" in body && "companion object" in body)
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
-            if ("inline fun " in body && name != "Transferable" && !name.endsWith("ReadOnly.ext"))
+            if ("inline fun " in body && !name.endsWith("ReadOnly.ext"))
                 add(NOTHING_TO_INLINE)
 
             if (name == "Locale")
