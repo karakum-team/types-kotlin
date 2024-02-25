@@ -2,6 +2,7 @@ package karakum.browser
 
 internal const val EVENT_TARGET = "EventTarget"
 
+// language=kotlin
 private val EVENT_TARGET_BODY: String = """
 open external class EventTarget {
     fun <E : Event<*>> addEventListener(
