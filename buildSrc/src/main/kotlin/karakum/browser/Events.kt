@@ -375,8 +375,6 @@ private fun event(
     
         $companion
     }
-    
-    $eventFactories
     """.trimIndent()
 
     eventBody = eventBody
@@ -445,6 +443,11 @@ private fun event(
         ConversionResult(
             name = name,
             body = eventBody,
+            pkg = pkg,
+        ),
+        ConversionResult(
+            name = "$name.factory",
+            body = eventFactories,
             pkg = pkg,
         ),
     ).filter { it.body.isNotEmpty() }
