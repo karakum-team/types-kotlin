@@ -282,6 +282,7 @@ private fun event(
 
             else -> "<*>"
         }
+        val genericEvent = "$name$typeParameter"
 
         val eventParameters = constructorSource
             .split(", ")
@@ -290,7 +291,7 @@ private fun event(
                     p.replace("?: ", ": ") + " = definedExternally"
                 } else {
                     val typeModifier = if (name == EVENT) "open" else "override"
-                    val typeDeclaration = "$typeModifier val type: EventType<$name$typeParameter>"
+                    val typeDeclaration = "$typeModifier val type: EventType<$genericEvent>"
 
                     p.replace("type: string", typeDeclaration)
                         .replace(": string", ": String")
@@ -304,7 +305,38 @@ private fun event(
             .joinToString(",\n")
 
         eventConstructor = "(\n$eventParameters\n)"
-        eventFactories = ""
+
+        eventFactories = sequenceOf(eventParameters)
+            .flatMap {
+                val optionalInit = it.endsWith(" = definedExternally")
+                val ps = it
+                    .replace("open val ", "")
+                    .replace("override val ", "")
+                    .replace(" = definedExternally", "")
+
+                if (optionalInit) {
+                    sequenceOf(
+                        1 to ps.substringBefore(",\n", ""),
+                        2 to ps,
+                    )
+                } else {
+                    sequenceOf(2 to ps)
+                }
+            }.joinToString("\n\n") { (pc, parameters) ->
+                val callParameters = sequenceOf("type", "init")
+                    .take(pc)
+                    .map { "$it = $it," }
+                    .joinToString("\n")
+
+                """
+                inline fun $name(
+                    $parameters
+                ): $genericEvent =
+                    $name<EventTarget?>(
+                        $callParameters
+                    )
+                """.trimIndent()
+            }
     } else {
         eventConstructor = ""
         eventFactories = ""
