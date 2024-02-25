@@ -42,6 +42,9 @@ internal enum class Suppress {
 
     WRONG_EXTERNAL_DECLARATION,
 
+    INVISIBLE_MEMBER,
+    INVISIBLE_REFERENCE,
+
     ;
 }
 

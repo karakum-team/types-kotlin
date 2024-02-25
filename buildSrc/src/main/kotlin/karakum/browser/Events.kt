@@ -306,7 +306,8 @@ private fun event(
             }
             .joinToString(",\n")
 
-        eventConstructor = "(\n$eventParameters\n)"
+        eventConstructor = (if (withDataSupport) "\n@LowPriorityInOverloadResolution\nconstructor" else "") +
+                "(\n$eventParameters\n)"
 
         eventFactories = sequenceOf(eventParameters)
             .flatMap {

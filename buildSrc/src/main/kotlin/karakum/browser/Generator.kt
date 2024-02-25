@@ -49,6 +49,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.typedarrays.Uint8ClampedArray",
 
     "kotlin.js.Date",
+    "kotlin.internal.LowPriorityInOverloadResolution",
 
     "seskar.js.JsIntValue",
     "seskar.js.JsTypeGuard",
@@ -252,8 +253,8 @@ fun generateKotlinDeclarations(
     val serviceWorkersContent = serviceWorkersContent(serviceworkerDefinitionsFile)
     val eventDeclarations =
         eventDeclarations(content, WEB_WORKER_CONTENT, serviceWorkersContent).withEventInitFactories() +
-            webWorkersEventDeclarations(WEB_WORKER_CONTENT) +
-            serviceWorkersEventDeclarations(content, serviceWorkersContent)
+                webWorkersEventDeclarations(WEB_WORKER_CONTENT) +
+                serviceWorkersEventDeclarations(content, serviceWorkersContent)
 
     for ((name, body, optPkg) in eventDeclarations) {
         val suppresses = mutableSetOf<Suppress>().apply {
@@ -275,6 +276,11 @@ fun generateKotlinDeclarations(
 
             if ("inline fun " in body && !name.endsWith(".temp"))
                 add(NOTHING_TO_INLINE)
+
+            if ("@LowPriorityInOverloadResolution" in body) {
+                add(INVISIBLE_MEMBER)
+                add(INVISIBLE_REFERENCE)
+            }
         }.toTypedArray()
 
         var annotations = if (suppresses.isNotEmpty()) {
