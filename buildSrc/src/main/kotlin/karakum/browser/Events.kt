@@ -281,9 +281,9 @@ private fun event(
                     val typeParameter = when (name) {
                         "CustomEvent",
                         "MessageEvent",
-                        -> "<D, C>"
+                        -> "<D, *>"
 
-                        else -> "<C>"
+                        else -> "<*>"
                     }
 
                     val typeModifier = if (name == EVENT) "open" else "override"
