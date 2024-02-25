@@ -6,18 +6,18 @@
 
 package web.events
 
-inline fun CustomEvent(
+inline fun <D> CustomEvent(
     type: EventType<CustomEvent<D, *>>,
 ): CustomEvent<D, *> =
-    CustomEvent<EventTarget?>(
+    CustomEvent<D, EventTarget?>(
         type = type,
     )
 
-inline fun CustomEvent(
+inline fun <D> CustomEvent(
     type: EventType<CustomEvent<D, *>>,
     init: CustomEventInit<D>,
 ): CustomEvent<D, *> =
-    CustomEvent<EventTarget?>(
+    CustomEvent<D, EventTarget?>(
         type = type,
         init = init,
     )
