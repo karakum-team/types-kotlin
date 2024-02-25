@@ -3,8 +3,8 @@ package karakum.browser
 internal const val EVENT_HANDLER = "EventHandler"
 
 private val EVENT_HANDLER_BODY: String = """
-typealias EventHandler<T /* : Event */> = (
-    event: T,
+typealias EventHandler<E /* : Event */> = (
+    event: E,
 ) -> Unit
 """.trimIndent()
 
