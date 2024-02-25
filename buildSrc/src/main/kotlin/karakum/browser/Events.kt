@@ -275,13 +275,15 @@ private fun event(
     val eventFactories: String
 
     if (constructorSource.isNotEmpty()) {
-        val typeParameter = when (name) {
+        val withDataSupport = when (name) {
             "CustomEvent",
             "MessageEvent",
-            -> "<D, *>"
+            -> true
 
-            else -> "<*>"
+            else -> false
         }
+
+        val typeParameter = if (withDataSupport) "<D, *>" else "<*>"
         val genericEvent = "$name$typeParameter"
 
         val eventParameters = constructorSource
@@ -329,10 +331,10 @@ private fun event(
                     .joinToString("\n")
 
                 """
-                inline fun $name(
+                inline fun ${if (withDataSupport) "<D>" else ""} $name(
                     $parameters
                 ): $genericEvent =
-                    $name<EventTarget?>(
+                    ${genericEvent.replace("*>", "EventTarget?>")}(
                         $callParameters
                     )
                 """.trimIndent()
