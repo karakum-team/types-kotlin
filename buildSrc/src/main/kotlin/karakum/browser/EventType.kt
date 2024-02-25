@@ -3,12 +3,12 @@ package karakum.browser
 internal const val EVENT_TYPE = "EventType"
 
 private val EVENT_TYPE_BODY: String = """
-sealed external interface $EVENT_TYPE<out T : Event<*>>
+sealed external interface $EVENT_TYPE<out E : Event<*>>
 
-inline fun <T : Event<*>> $EVENT_TYPE(
+inline fun <E : Event<*>> $EVENT_TYPE(
     value: String,
-): $EVENT_TYPE<T> =
-    value.unsafeCast<$EVENT_TYPE<T>>()
+): $EVENT_TYPE<E> =
+    value.unsafeCast<$EVENT_TYPE<E>>()
 """.trimIndent()
 
 internal fun EventType(): ConversionResult =
