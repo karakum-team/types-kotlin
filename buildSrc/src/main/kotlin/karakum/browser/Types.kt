@@ -478,7 +478,8 @@ private fun markerInterface(
     types: String,
 ): String {
     val name = declaration.substringBefore("<")
-    val modifiers = if (declaration in SEALED_MARKER_DECLARATIONS) "sealed" else ""
+    val modifiers = (if (declaration in NATIVE_ONLY_MARKER_DECLARATIONS) "@JsExternalInheritorsOnly\n" else "") +
+            (if (declaration in SEALED_MARKER_DECLARATIONS) "sealed" else "")
 
     val additionalChildTypes = MarkerRegistry.nonProcessedChildTypes(name)
     val extensions = additionalChildTypes.flatMap { childType ->

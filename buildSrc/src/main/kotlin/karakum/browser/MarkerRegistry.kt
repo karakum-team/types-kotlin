@@ -7,19 +7,23 @@ internal val SEALED_MARKER_DECLARATIONS = setOf(
     "ReadableStreamReadResult<T>",
 )
 
-internal val MARKER_DECLARATIONS = setOf(
+internal val NATIVE_ONLY_MARKER_DECLARATIONS = setOf(
     "MessageEventSource",
 
-    "CanvasImageSource",
-    "TexImageSource",
     "Transferable",
-
-    "HTMLOrSVGImageElement",
-    "HTMLOrSVGScriptElement",
 
     "OffscreenRenderingContext",
     "RenderingContext",
 ) + SEALED_MARKER_DECLARATIONS
+
+internal val MARKER_DECLARATIONS = setOf(
+    "CanvasImageSource",
+    "TexImageSource",
+
+    "HTMLOrSVGImageElement",
+    "HTMLOrSVGScriptElement",
+).plus(NATIVE_ONLY_MARKER_DECLARATIONS)
+    .plus(SEALED_MARKER_DECLARATIONS)
 
 private val BASE_TYPES = listOf(
     "Blob",
