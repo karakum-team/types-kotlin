@@ -58,7 +58,7 @@ private fun tagDictionary(
         .trimIndent()
         .splitToSequence("\n")
         .joinToString("\n\n") { line ->
-            var (tagName, tagType) = line
+            val (tagName, tagType) = line
                 .removePrefix("\"")
                 .removeSuffix(";")
                 .split("\": ")
