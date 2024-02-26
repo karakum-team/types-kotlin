@@ -5,20 +5,12 @@ import karakum.common.Suppress
 import karakum.common.fileSuppress
 import java.io.File
 
-private var nonModularMode: Boolean = false
-
-val LAZY_MODE: Boolean
-    get() = nonModularMode
-
 private const val MODULE_ANNOTATION: String = """@file:JsModule("cesium")"""
 
 internal fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
-    nonModular: Boolean,
 ) {
-    nonModularMode = nonModular
-
     val cesiumDir = sourceDir.resolve("cesium")
         .also { it.mkdirs() }
 
@@ -29,14 +21,10 @@ internal fun generateKotlinDeclarations(
         .sortedBy(Declaration::name)
         .forEach { declaration ->
             val file = cesiumDir.resolve("${declaration.name}.kt")
-            val code = declaration.toCode()
+            val body = declaration.toCode()
             if (!file.exists()) {
-                val isRuntime = hasRuntimeDeclarations(code)
-                val body = if (isRuntime && LAZY_MODE) {
-                    code.addLazyAnnotations()
-                } else code
-
-                val moduleDeclaration = if (isRuntime && !LAZY_MODE) {
+                val isRuntime = hasRuntimeDeclarations(body)
+                val moduleDeclaration = if (isRuntime) {
                     MODULE_ANNOTATION
                 } else ""
 
@@ -68,7 +56,7 @@ internal fun generateKotlinDeclarations(
                 file.writeText(content)
             } else {
                 // for functions with union type parameters
-                file.appendText("\n\n" + code)
+                file.appendText("\n\n" + body)
             }
         }
 }
@@ -85,20 +73,3 @@ private fun hasRuntimeDeclarations(code: String): Boolean {
 
     return true
 }
-
-private val LAZY_REGEXP = Regex("""\n *(external|sealed external) +(.+)\n""")
-
-private fun String.addLazyAnnotations(): String =
-    replace(LAZY_REGEXP) {
-        val value = it.value
-        val name = it.groupValues[2]
-            .substringBefore("{")
-            .substringBefore("(")
-            .substringBefore(":")
-            .substringBefore("<")
-            .trim()
-            .splitToSequence(" ")
-            .last()
-
-        "@JsName(\"Cesium.$name\")$value"
-    }
