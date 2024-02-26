@@ -23,7 +23,6 @@ dependencyResolutionManagement {
 include("actions-kotlin")
 include("browser-kotlin")
 include("cesium-kotlin")
-include("cesium-kotlin-nm")
 include("csstype-kotlin")
 include("popper-kotlin")
 include("react-kotlin")
