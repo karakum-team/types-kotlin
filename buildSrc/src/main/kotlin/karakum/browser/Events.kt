@@ -514,16 +514,15 @@ private fun eventTypes(
 ): List<ConversionResult> {
     types ?: return emptyList()
 
-    val eventType = when (eventName) {
+    val typesName = "${eventName}Types"
+    val deprecatedTypesName = "${typesName}_deprecated"
+
+    val deprecatedEventType = when (eventName) {
         "MessageEvent",
         -> "$eventName<*, *>"
 
         else -> "$eventName<*>"
     }
-
-    val typesName = "${eventName}Types"
-    val deprecatedTypesName = "${typesName}_deprecated"
-
     val deprecatedMembers = types
         .sorted()
         .joinToString("\n\n") { name ->
@@ -533,7 +532,7 @@ private fun eventTypes(
 
             """
             @JsValue("$name")
-            val $memberName : $EVENT_TYPE<$eventType>
+            val $memberName : $EVENT_TYPE<$deprecatedEventType>
                 get() = definedExternally
             """.trimIndent()
         }
