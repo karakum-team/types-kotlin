@@ -576,6 +576,7 @@ private fun eventTypes(
     @JsVirtual    
     sealed external class $typesName :
         $deprecatedTypesName {
+
         $members
     }
     """.trimIndent()
