@@ -522,7 +522,7 @@ private fun eventTypes(
     }
 
     val typesName = "${eventName}Types"
-    val deprecatedTypesName = "${eventName}DeprecatedTypes"
+    val deprecatedTypesName = "${typesName}_deprecated"
 
     val deprecatedMembers = types
         .sorted()
@@ -546,7 +546,8 @@ private fun eventTypes(
 
     val members = ""
     val body = """
-    sealed external interface $typesName : $deprecatedTypesName {
+    sealed external interface $typesName :
+        $deprecatedTypesName {
         $members
     }
     """.trimIndent()
