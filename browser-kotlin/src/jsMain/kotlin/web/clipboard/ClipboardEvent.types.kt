@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class ClipboardEventTypes :
     ClipboardEventTypes_deprecated {
+
     @JsValue("copy")
     fun <C : EventTarget> copy(): EventType<ClipboardEvent<C>>
 

@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class MIDIMessageEventTypes :
     MIDIMessageEventTypes_deprecated {
+
     @JsValue("midimessage")
     fun <C : EventTarget> midiMessage(): EventType<MIDIMessageEvent<C>>
 }

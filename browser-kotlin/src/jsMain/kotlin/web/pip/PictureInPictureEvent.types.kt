@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class PictureInPictureEventTypes :
     PictureInPictureEventTypes_deprecated {
+
     @JsValue("enterpictureinpicture")
     fun <C : EventTarget> enterPictureInPicture(): EventType<PictureInPictureEvent<C>>
 

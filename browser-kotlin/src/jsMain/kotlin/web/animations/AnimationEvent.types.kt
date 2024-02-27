@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class AnimationEventTypes :
     AnimationEventTypes_deprecated {
+
     @JsValue("animationcancel")
     fun <C : EventTarget> animationCancel(): EventType<AnimationEvent<C>>
 

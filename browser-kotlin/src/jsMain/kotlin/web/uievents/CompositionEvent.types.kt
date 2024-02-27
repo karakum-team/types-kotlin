@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class CompositionEventTypes :
     CompositionEventTypes_deprecated {
+
     @JsValue("compositionend")
     fun <C : EventTarget> compositionEnd(): EventType<CompositionEvent<C>>
 

@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class FormDataEventTypes :
     FormDataEventTypes_deprecated {
+
     @JsValue("formdata")
     fun <C : EventTarget> formData(): EventType<FormDataEvent<C>>
 }

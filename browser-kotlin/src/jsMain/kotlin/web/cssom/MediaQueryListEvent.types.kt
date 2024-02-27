@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class MediaQueryListEventTypes :
     MediaQueryListEventTypes_deprecated {
+
     @JsValue("change")
     fun <C : EventTarget> change(): EventType<MediaQueryListEvent<C>>
 }

@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class FocusEventTypes :
     FocusEventTypes_deprecated {
+
     @JsValue("blur")
     fun <C : EventTarget> blur(): EventType<FocusEvent<C>>
 

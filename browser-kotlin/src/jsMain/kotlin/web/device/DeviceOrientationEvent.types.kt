@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class DeviceOrientationEventTypes :
     DeviceOrientationEventTypes_deprecated {
+
     @JsValue("deviceorientation")
     fun <C : EventTarget> deviceOrientation(): EventType<DeviceOrientationEvent<C>>
 

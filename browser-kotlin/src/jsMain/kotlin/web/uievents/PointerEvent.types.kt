@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class PointerEventTypes :
     PointerEventTypes_deprecated {
+
     @JsValue("gotpointercapture")
     fun <C : EventTarget> gotPointerCapture(): EventType<PointerEvent<C>>
 

@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class GamepadEventTypes :
     GamepadEventTypes_deprecated {
+
     @JsValue("gamepadconnected")
     fun <C : EventTarget> gamepadConnected(): EventType<GamepadEvent<C>>
 

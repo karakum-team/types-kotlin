@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class NotificationEventTypes :
     NotificationEventTypes_deprecated {
+
     @JsValue("notificationclick")
     fun <C : EventTarget> notificationClick(): EventType<NotificationEvent<C>>
 

@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class MediaStreamTrackEventTypes :
     MediaStreamTrackEventTypes_deprecated {
+
     @JsValue("addtrack")
     fun <C : EventTarget> addTrack(): EventType<MediaStreamTrackEvent<C>>
 

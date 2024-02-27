@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class BeforeUnloadEventTypes :
     BeforeUnloadEventTypes_deprecated {
+
     @JsValue("beforeunload")
     fun <C : EventTarget> beforeUnload(): EventType<BeforeUnloadEvent<C>>
 }

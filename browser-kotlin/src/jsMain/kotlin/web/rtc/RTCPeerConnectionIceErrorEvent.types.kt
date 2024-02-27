@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class RTCPeerConnectionIceErrorEventTypes :
     RTCPeerConnectionIceErrorEventTypes_deprecated {
+
     @JsValue("icecandidateerror")
     fun <C : EventTarget> iceCandidateError(): EventType<RTCPeerConnectionIceErrorEvent<C>>
 }

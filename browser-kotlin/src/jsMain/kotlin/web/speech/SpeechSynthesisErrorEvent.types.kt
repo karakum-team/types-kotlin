@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class SpeechSynthesisErrorEventTypes :
     SpeechSynthesisErrorEventTypes_deprecated {
+
     @JsValue("error")
     fun <C : EventTarget> error(): EventType<SpeechSynthesisErrorEvent<C>>
 }

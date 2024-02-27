@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class UIEventTypes :
     UIEventTypes_deprecated {
+
     @JsValue("abort")
     fun <C : EventTarget> abort(): EventType<UIEvent<C>>
 

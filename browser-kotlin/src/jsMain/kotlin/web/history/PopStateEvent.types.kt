@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class PopStateEventTypes :
     PopStateEventTypes_deprecated {
+
     @JsValue("popstate")
     fun <C : EventTarget> popState(): EventType<PopStateEvent<C>>
 }

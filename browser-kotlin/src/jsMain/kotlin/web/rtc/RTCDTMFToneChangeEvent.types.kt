@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class RTCDTMFToneChangeEventTypes :
     RTCDTMFToneChangeEventTypes_deprecated {
+
     @JsValue("tonechange")
     fun <C : EventTarget> toneChange(): EventType<RTCDTMFToneChangeEvent<C>>
 }

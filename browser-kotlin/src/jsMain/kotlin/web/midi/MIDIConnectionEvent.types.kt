@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class MIDIConnectionEventTypes :
     MIDIConnectionEventTypes_deprecated {
+
     @JsValue("statechange")
     fun <C : EventTarget> stateChange(): EventType<MIDIConnectionEvent<C>>
 }

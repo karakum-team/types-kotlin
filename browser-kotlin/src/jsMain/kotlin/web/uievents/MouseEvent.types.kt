@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class MouseEventTypes :
     MouseEventTypes_deprecated {
+
     @JsValue("auxclick")
     fun <C : EventTarget> auxClick(): EventType<MouseEvent<C>>
 

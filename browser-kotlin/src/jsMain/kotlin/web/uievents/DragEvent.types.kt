@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class DragEventTypes :
     DragEventTypes_deprecated {
+
     @JsValue("drag")
     fun <C : EventTarget> drag(): EventType<DragEvent<C>>
 

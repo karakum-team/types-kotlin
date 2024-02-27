@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class FontFaceSetLoadEventTypes :
     FontFaceSetLoadEventTypes_deprecated {
+
     @JsValue("loading")
     fun <C : EventTarget> loading(): EventType<FontFaceSetLoadEvent<C>>
 

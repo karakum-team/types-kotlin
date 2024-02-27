@@ -10,6 +10,7 @@ import web.events.EventType
 @JsVirtual
 sealed external class SpeechSynthesisEventTypes :
     SpeechSynthesisEventTypes_deprecated {
+
     @JsValue("boundary")
     fun <C : EventTarget> boundary(): EventType<SpeechSynthesisEvent<C>>
 
