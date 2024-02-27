@@ -264,7 +264,7 @@ fun generateKotlinDeclarations(
             if ("companion object" in body && !name.endsWith("Event"))
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
-            if (name.endsWith("Event.types") && " = definedExternally" in body)
+            if ("Event.types" in name && " = definedExternally" in body)
                 add(NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE)
 
             if (name == EVENT_TARGET) {

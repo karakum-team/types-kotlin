@@ -544,7 +544,7 @@ private fun eventTypes(
     """.trimIndent()
 
     return ConversionResult(
-        name = "${eventName}.types",
+        name = "${eventName}.types.deprecated",
         body = body,
         pkg = pkg,
     )
@@ -588,7 +588,7 @@ private fun eventTypes(
         .takeIf { it.isNotEmpty() }
 
     return ConversionResult(
-        name = "$typeName.types",
+        name = "$typeName.types.deprecated",
         body = body,
         pkg = pkg,
     )
