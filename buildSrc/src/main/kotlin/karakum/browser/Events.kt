@@ -556,9 +556,6 @@ private fun eventTypes(
     val firstItem = items.first()
     val typeName = firstItem.typeName
 
-    val info = EVENT_INFO_MAP.getValue(typeName)
-    val imports = if (info.name != "Event") "import ${info.fqn}" else ""
-
     val members = items
         .sortedBy { it.name }
         .map { (name, type) ->
@@ -566,23 +563,13 @@ private fun eventTypes(
                 .getOrDefault(name, name)
                 .uppercase()
 
-            val finalType = when (type) {
-                "MessageEvent",
-                -> "$type<*, *>"
-
-                else -> "$type<*>"
-            }
-
             """
-            inline val $typeName.Companion.$memberName : $EVENT_TYPE<$finalType>
+            inline val $typeName.Companion.$memberName : $EVENT_TYPE<$type<*>>
                 get() = $EVENT_TYPE("$name")
             """.trimIndent()
         }
 
-    val body = sequenceOf(imports)
-        .filter { it.isNotEmpty() }
-        .plus(members)
-        .joinToString("\n\n")
+    val body = members.joinToString("\n\n")
 
     val pkg = firstItem.pkg
         .takeIf { it.isNotEmpty() }
