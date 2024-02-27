@@ -143,7 +143,7 @@ private fun eventPlaceholders(
             types = dataMap.getEventTypes(info.name),
         )
 
-        val typesName = if (types != null) {
+        val typesName = if (types.isNotEmpty()) {
             "${info.name}Types"
         } else null
 
@@ -152,7 +152,7 @@ private fun eventPlaceholders(
             name = info.name,
             pkg = info.pkg,
             typesName = typesName,
-        ).plus(listOfNotNull(types))
+        ).plus(types)
     }
 }
 
@@ -511,8 +511,8 @@ private fun eventTypes(
     eventName: String,
     pkg: String,
     types: List<String>?,
-): ConversionResult? {
-    types ?: return null
+): List<ConversionResult> {
+    types ?: return emptyList()
 
     val eventType = when (eventName) {
         "MessageEvent",
@@ -522,8 +522,9 @@ private fun eventTypes(
     }
 
     val typesName = "${eventName}Types"
+    val deprecatedTypesName = "${eventName}DeprecatedTypes"
 
-    val members = types
+    val deprecatedMembers = types
         .sorted()
         .joinToString("\n\n") { name ->
             val memberName = EVENT_CORRECTION_MAP
@@ -537,16 +538,30 @@ private fun eventTypes(
             """.trimIndent()
         }
 
+    val deprecatedBody = """
+    sealed external interface $deprecatedTypesName {
+        $deprecatedMembers
+    }
+    """.trimIndent()
+
+    val members = ""
     val body = """
-    sealed external interface $typesName {
+    sealed external interface $typesName : $deprecatedTypesName {
         $members
     }
     """.trimIndent()
 
-    return ConversionResult(
-        name = "${eventName}.types.deprecated",
-        body = body,
-        pkg = pkg,
+    return listOf(
+        ConversionResult(
+            name = "${eventName}.types",
+            body = body,
+            pkg = pkg,
+        ),
+        ConversionResult(
+            name = "${eventName}.types.deprecated",
+            body = deprecatedBody,
+            pkg = pkg,
+        ),
     )
 }
 
