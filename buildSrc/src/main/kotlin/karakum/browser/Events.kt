@@ -543,9 +543,38 @@ private fun eventTypes(
     }
     """.trimIndent()
 
-    val members = ""
+    val typeParameters = when (eventName) {
+        "MessageEvent",
+        -> "<D, C : EventTarget>"
+
+        else -> "<C : EventTarget>"
+    }
+
+    val eventType = when (eventName) {
+        "MessageEvent",
+        -> "$eventName<D, C>"
+
+        else -> "$eventName<C>"
+    }
+
+    val members = types
+        .sorted()
+        .joinToString("\n\n") { name ->
+            val sourceName = EVENT_CORRECTION_MAP
+                .getOrDefault(name, name)
+
+            val memberName = Regex("_([a-z])")
+                .replace(sourceName) { it.groupValues[1].uppercase() }
+
+            """
+            @JsValue("$name")
+            fun $typeParameters $memberName(): $EVENT_TYPE<$eventType>
+            """.trimIndent()
+        }
+
     val body = """
-    sealed external interface $typesName :
+    @JsVirtual    
+    sealed external class $typesName :
         $deprecatedTypesName {
         $members
     }
