@@ -1,5 +1,7 @@
 package karakum.browser
 
+import karakum.common.snakeToCamel
+
 private const val EVENT = "Event"
 
 private val PACKAGE_MAP = mapOf(
@@ -562,11 +564,9 @@ private fun eventTypes(
     val members = types
         .sorted()
         .joinToString("\n\n") { name ->
-            val sourceName = EVENT_CORRECTION_MAP
+            val memberName = EVENT_CORRECTION_MAP
                 .getOrDefault(name, name)
-
-            val memberName = Regex("_([a-z])")
-                .replace(sourceName) { it.groupValues[1].uppercase() }
+                .snakeToCamel()
 
             """
             @JsValue("$name")
