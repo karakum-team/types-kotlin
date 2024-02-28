@@ -89,6 +89,15 @@ private val EXCLUDED = setOf(
     "MutationEvent",
 )
 
+private fun eventTypeDeprecation(
+    replacement: String,
+): String = """
+@Deprecated(
+    message = "Legacy type declaration. Use type function instead!",
+    replaceWith = ReplaceWith("$replacement"),
+)
+""".trimIndent()
+
 internal fun eventDeclarations(
     content: String,
     webWorkerContent: String,
@@ -530,13 +539,13 @@ private fun eventTypes(
     val deprecatedMembers = types
         .sorted()
         .joinToString("\n\n") { name ->
-            val memberName = EVENT_CORRECTION_MAP
+            val rawName = EVENT_CORRECTION_MAP
                 .getOrDefault(name, name)
-                .uppercase()
 
             """
+            ${eventTypeDeprecation("$eventName.${rawName.snakeToCamel()}()")}
             @JsValue("$name")
-            val $memberName : $EVENT_TYPE<$deprecatedEventType>
+            val ${rawName.uppercase()} : $EVENT_TYPE<$deprecatedEventType>
                 get() = definedExternally
             """.trimIndent()
         }
