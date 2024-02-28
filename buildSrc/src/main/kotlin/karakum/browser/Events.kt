@@ -532,9 +532,9 @@ private fun eventTypes(
 
     val deprecatedEventType = when (eventName) {
         "MessageEvent",
-        -> "$eventName<*, *>"
+        -> "$eventName<*, EventTarget>"
 
-        else -> "$eventName<*>"
+        else -> "$eventName<EventTarget>"
     }
     val deprecatedMembers = types
         .sorted()
@@ -647,7 +647,7 @@ private fun eventTypes(
 
             """
             ${eventTypeDeprecation("$typeName.${rawName.snakeToCamel()}()")}
-            inline val $typeName.Companion.${rawName.uppercase()} : $EVENT_TYPE<$type<*>>
+            inline val $typeName.Companion.${rawName.uppercase()} : $EVENT_TYPE<$type<EventTarget>>
                 get() = $EVENT_TYPE("$name")
             """.trimIndent()
         }
