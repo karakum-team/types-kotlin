@@ -642,12 +642,12 @@ private fun eventTypes(
     val deprecatedBody = items
         .sortedBy { it.name }
         .joinToString("\n\n") { (name, type) ->
-            val memberName = EVENT_CORRECTION_MAP
+            val rawName = EVENT_CORRECTION_MAP
                 .getOrDefault(name, name)
-                .uppercase()
 
             """
-            inline val $typeName.Companion.$memberName : $EVENT_TYPE<$type<*>>
+            ${eventTypeDeprecation("$typeName.${rawName.snakeToCamel()}()")}
+            inline val $typeName.Companion.${rawName.uppercase()} : $EVENT_TYPE<$type<*>>
                 get() = $EVENT_TYPE("$name")
             """.trimIndent()
         }
