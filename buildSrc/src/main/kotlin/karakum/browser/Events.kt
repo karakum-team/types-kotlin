@@ -285,6 +285,7 @@ private fun event(
 
         val typeParameter = if (withDataSupport) "<D, *>" else "<*>"
         val genericEvent = "$name$typeParameter"
+        val concreteEvent = genericEvent.replace("*>", "EventTarget?>")
 
         val eventParameters = constructorSource
             .split(", ")
@@ -315,6 +316,7 @@ private fun event(
                 val ps = it
                     .replace("open val ", "")
                     .replace("override val ", "")
+                    .replace(genericEvent, concreteEvent)
                     .replace(" = definedExternally", "")
 
                 if (optionalInit) {
@@ -335,7 +337,7 @@ private fun event(
                 inline fun ${if (withDataSupport) "<D>" else ""} $name(
                     $parameters
                 ): $genericEvent =
-                    ${genericEvent.replace("*>", "EventTarget?>")}(
+                    $concreteEvent(
                         $callParameters
                     )
                 """.trimIndent()
