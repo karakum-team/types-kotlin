@@ -603,6 +603,33 @@ private fun eventTypes(
     val firstItem = items.first()
     val typeName = firstItem.typeName
 
+    val typeParameters = when (typeName) {
+        "MessageEvent",
+        -> "<D, C : EventTarget>"
+
+        else -> "<C : EventTarget>"
+    }
+
+    val eventType = when (typeName) {
+        "MessageEvent",
+        -> "$typeName<D, C>"
+
+        else -> "$typeName<C>"
+    }
+
+    val body = items
+        .sortedBy { it.name }
+        .joinToString("\n\n") { (name, type) ->
+            val memberName = EVENT_CORRECTION_MAP
+                .getOrDefault(name, name)
+                .snakeToCamel()
+
+            """
+            inline fun $typeParameters $typeName.Companion.$memberName() : $EVENT_TYPE<$eventType> =
+                $EVENT_TYPE("$name")
+            """.trimIndent()
+        }
+
     val deprecatedBody = items
         .sortedBy { it.name }
         .joinToString("\n\n") { (name, type) ->
@@ -621,10 +648,15 @@ private fun eventTypes(
 
     return sequenceOf(
         ConversionResult(
+            name = "$typeName.types",
+            body = body,
+            pkg = pkg,
+        ),
+        ConversionResult(
             name = "$typeName.types.deprecated",
             body = deprecatedBody,
             pkg = pkg,
-        )
+        ),
     )
 }
 
