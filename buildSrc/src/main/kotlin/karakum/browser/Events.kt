@@ -603,9 +603,9 @@ private fun eventTypes(
     val firstItem = items.first()
     val typeName = firstItem.typeName
 
-    val members = items
+    val deprecatedBody = items
         .sortedBy { it.name }
-        .map { (name, type) ->
+        .joinToString("\n\n") { (name, type) ->
             val memberName = EVENT_CORRECTION_MAP
                 .getOrDefault(name, name)
                 .uppercase()
@@ -616,15 +616,13 @@ private fun eventTypes(
             """.trimIndent()
         }
 
-    val body = members.joinToString("\n\n")
-
     val pkg = firstItem.pkg
         .takeIf { it.isNotEmpty() }
 
     return sequenceOf(
         ConversionResult(
             name = "$typeName.types.deprecated",
-            body = body,
+            body = deprecatedBody,
             pkg = pkg,
         )
     )
