@@ -507,7 +507,7 @@ private fun eventTypes(
     dataMap.getDefaultEventTypes()
         .groupBy { it.pkg }
         .values
-        .map { items -> eventTypes(items) }
+        .flatMap { items -> eventTypes(items) }
 
 private fun eventTypes(
     eventName: String,
@@ -599,7 +599,7 @@ private fun eventTypes(
 
 private fun eventTypes(
     items: List<EventData>,
-): ConversionResult {
+): Sequence<ConversionResult> {
     val firstItem = items.first()
     val typeName = firstItem.typeName
 
@@ -621,10 +621,12 @@ private fun eventTypes(
     val pkg = firstItem.pkg
         .takeIf { it.isNotEmpty() }
 
-    return ConversionResult(
-        name = "$typeName.types.deprecated",
-        body = body,
-        pkg = pkg,
+    return sequenceOf(
+        ConversionResult(
+            name = "$typeName.types.deprecated",
+            body = body,
+            pkg = pkg,
+        )
     )
 }
 
