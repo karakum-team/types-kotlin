@@ -3,9 +3,9 @@ package karakum.browser
 internal const val EVENT_TYPE = "EventType"
 
 private val EVENT_TYPE_BODY: String = """
-sealed external interface $EVENT_TYPE<out E : Event<*>>
+sealed external interface $EVENT_TYPE<out E : Event<EventTarget>>
 
-inline fun <E : Event<*>> $EVENT_TYPE(
+inline fun <E : Event<EventTarget>> $EVENT_TYPE(
     value: String,
 ): $EVENT_TYPE<E> =
     value.unsafeCast<$EVENT_TYPE<E>>()
