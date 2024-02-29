@@ -5,37 +5,27 @@ internal const val EVENT_TARGET = "EventTarget"
 // language=kotlin
 private val EVENT_TARGET_BODY: String = """
 open external class EventTarget {
-    fun <E : Event<EventTarget>> addEventListener(
-        type: EventType<E>,
-        callback: EventHandler<E>,
+    fun addEventListener(
+        type: EventType<Event<EventTarget>>,
+        callback: EventHandler<Event<EventTarget>>,
         options: AddEventListenerOptions? = definedExternally,
     )
 
-    inline fun <E : Event<EventTarget>> addEventHandler(
-        type: EventType<E>,
-        noinline handler: EventHandler<E>,
-    ): () -> Unit =
-        addEventHandler(
-            target = this,
-            type = type,
-            handler = handler,
-        )
+    internal fun addEventListener(
+        type: EventType<*>,
+        callback: Function<Unit>,
+        options: AddEventListenerOptions? = definedExternally,
+    )
 
-    inline fun <E : Event<EventTarget>> addEventHandler(
-        type: EventType<E>,
-        options: AddEventListenerOptions?,
-        noinline handler: EventHandler<E>,
-    ): () -> Unit =
-        addEventHandler(
-            target = this,
-            type = type,
-            handler = handler,
-            options = options,
-        )
+    fun removeEventListener(
+        type: EventType<Event<EventTarget>>,
+        callback: EventHandler<Event<EventTarget>>,
+        options: EventListenerOptions? = definedExternally,
+    )
 
-    fun <E : Event<EventTarget>> removeEventListener(
-        type: EventType<E>,
-        callback: EventHandler<E>,
+    internal fun removeEventListener(
+        type: EventType<*>,
+        callback: Function<Unit>,
         options: EventListenerOptions? = definedExternally,
     )
 
@@ -44,34 +34,29 @@ open external class EventTarget {
     ): Boolean
 }
 
-@PublishedApi
-internal fun <E : Event<EventTarget>> addEventHandler(
-    target: EventTarget,
+fun <T : EventTarget, E : Event<T>> T.addEventHandler(
     type: EventType<E>,
     handler: EventHandler<E>,
 ): () -> Unit =
     addEventHandler(
-        target = target,
         type = type,
-        handler = handler,
         options = undefined,
+        handler = handler,
     )
 
-@PublishedApi
-internal fun <E : Event<EventTarget>> addEventHandler(
-    target: EventTarget,
+fun <T : EventTarget, E : Event<T>> T.addEventHandler(
     type: EventType<E>,
-    handler: EventHandler<E>,
     options: AddEventListenerOptions?,
+    handler: EventHandler<E>,
 ): () -> Unit {
-    target.addEventListener(
+    addEventListener(
         type = type,
         callback = handler,
         options = options,
     )
 
     return {
-        target.removeEventListener(
+        removeEventListener(
             type = type,
             callback = handler,
             options = options,
