@@ -393,10 +393,10 @@
   resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.140.tgz#bc61a99f08047f130be1abe9329933e3a0575f83"
   integrity sha512-uBeH71RjueNd68iI5LJHi0EYg9f+eFczOJFJ1mEdw0Kw3UC54UPhEgw/HYpY/jc9GB0HhAnZnyF6sCmP+IQKPg==
 
-"@webref/idl@3.44.0":
-  version "3.44.0"
-  resolved "https://registry.yarnpkg.com/@webref/idl/-/idl-3.44.0.tgz#432ed1d5874542a923692c8848bdf34b7fa6803c"
-  integrity sha512-L0hhomvx77AHS2Bczohg9smyD36VpsWoHLPgg1DvN1wmBcg2w2Wigb2ftCH0B5HM1HktYAD37hBrHDd3aPiqKA==
+"@webref/idl@3.44.1":
+  version "3.44.1"
+  resolved "https://registry.yarnpkg.com/@webref/idl/-/idl-3.44.1.tgz#036b649f18bd983c1ee8739bc538c2bb4070e3c2"
+  integrity sha512-hFXYK4PhD0CgrRkNgjyYs9ny2AAQlhU2BF2efkAN7LjKzHaj7R6OHA7WIvM/RLYw+0jFYTRv1XVglprnX5CmeA==
 
 "@zip.js/zip.js@^2.7.34":
   version "2.7.34"
