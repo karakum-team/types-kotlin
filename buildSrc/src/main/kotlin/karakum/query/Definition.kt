@@ -101,6 +101,8 @@ fun toDeclarations(
                 else -> null
             }
         }
+        .filter { it.name != "Optional" }
+        .filter { it.name != "WithRequired" }
         .toList()
 }
 
