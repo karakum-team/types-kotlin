@@ -94,6 +94,7 @@ internal fun kotlinType(
         .replace(" => ", " -> ")
         .replace(") -> void", ") -> Unit")
         .replace("?: Document", ": Document?")
+        .replace("?: ColumnPinningPosition | 'center'", ": ColumnOrderPosition?")
         .replace("?: ColumnPinningPosition", ": ColumnPinningPosition?")
         .replace("?: InitialTableState", ": InitialTableState?")
         .replace("?: RowPinningPosition", ": RowPinningPosition?")

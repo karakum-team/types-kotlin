@@ -54,8 +54,21 @@ internal fun convertDefinitions(
         .drop(1)
         .map { it.removeSuffix(";") }
         .filter { " = keyof typeof " !in it }
+        .plusColumnOrderPosition()
         .map { convertDefinition(it) }
         .filter { it.name !in EXCLUDED_ITEMS }
+
+private fun Sequence<String>.plusColumnOrderPosition(): Sequence<String> =
+    flatMap {
+        if (it.startsWith("type ColumnPinningPosition = ")) {
+            sequenceOf(
+                it,
+                it.replaceFirst("type ColumnPinningPosition = ", "type ColumnOrderPosition = ") + " | 'center'"
+            )
+        } else {
+            sequenceOf(it)
+        }
+    }
 
 private fun convertDefinition(
     source: String,
