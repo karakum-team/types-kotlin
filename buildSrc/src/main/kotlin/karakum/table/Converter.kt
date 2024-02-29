@@ -38,6 +38,9 @@ private val EXCLUDED_ITEMS = setOf(
     "ColumnHelper",
 
     "isNumberArray",
+
+    "getMemoOptions",
+    "_getVisibleLeafColumns",
 )
 
 internal fun convertDefinitions(
