@@ -49,6 +49,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "QueryState" to "QueryState<*, *>",
     "QueryOptions<any, any>" to "QueryOptions<*, *, *, *, *>",
+    "QueryOptions<any, any, any, any>" to "QueryOptions<*, *, *, *, *>",
     "QueryFunction<TQueryFnData, TQueryKey>" to "QueryFunction<TQueryFnData, TQueryKey, *>",
     "QueryObserverOptions" to "QueryObserverOptions<*, *, *, *, *, *>",
     "QueryObserverResult" to "QueryObserverResult<*, *>",
@@ -178,6 +179,9 @@ internal fun kotlinType(
 
     if (type.startsWith("Omit<"))
         return kotlinType(type.removePrefix("Omit<").substringBefore(", '"))
+
+    if (type.startsWith("Pick<"))
+        return kotlinType(type.removePrefix("Pick<").substringBefore(", '"))
 
     if (type.startsWith("WithRequired<"))
         return kotlinType(type.removePrefix("WithRequired<").substringBefore(", '"))
