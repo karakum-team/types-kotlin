@@ -162,15 +162,18 @@ private val DOM_PARSING_TYPES = listOf(
     "XMLSerializer",
 )
 
-private val CANVAS_TYPES = listOf(
+private val IMAGES_TYPES = listOf(
     "ImageData",
     "ImageDataSettings",
-    "ImageEncodeOptions",
 
     "ImageBitmap",
     "ImageBitmapOptions",
     "ImageBitmapRenderingContext",
     "ImageBitmapRenderingContextSettings",
+)
+
+private val CANVAS_TYPES = listOf(
+    "ImageEncodeOptions",
 
     "Path2D",
     "TextMetrics",
@@ -1224,6 +1227,8 @@ internal fun convertInterface(
         name == "MediaList" -> "web.cssom"
         name == "MediaQueryList" -> "web.cssom"
         name.startsWith("FontFace") -> "web.fonts"
+
+        name in IMAGES_TYPES -> "web.images"
 
         name.startsWith("Canvas") && name != "CanvasCaptureMediaStreamTrack" -> "web.canvas"
         name in CANVAS_TYPES -> "web.canvas"

@@ -10,13 +10,14 @@ private val PKG_MAP = mapOf(
 
     "NavigationTimingType" to "web.performance",
 
-    "ColorSpaceConversion" to "web.canvas",
+    "ColorSpaceConversion" to "web.images",
+    "ImageOrientation" to "web.images",
+    "PredefinedColorSpace" to "web.images",
+    "PremultiplyAlpha" to "web.images",
+    "ResizeQuality" to "web.images",
+
     "GlobalCompositeOperation" to "web.canvas",
-    "ImageOrientation" to "web.canvas",
     "ImageSmoothingQuality" to "web.canvas",
-    "PredefinedColorSpace" to "web.canvas",
-    "PremultiplyAlpha" to "web.canvas",
-    "ResizeQuality" to "web.canvas",
 
     "CSSMathOperator" to "web.cssom",
     "CSSNumericBaseType" to "web.cssom",

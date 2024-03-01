@@ -68,7 +68,7 @@ private fun getBrowserPkg(
         -> "web.http"
 
         "createImageBitmap",
-        -> "web.canvas"
+        -> "web.images"
 
         "matchMedia",
         -> "web.cssom"
