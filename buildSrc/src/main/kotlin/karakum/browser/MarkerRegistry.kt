@@ -51,16 +51,19 @@ internal object MarkerRegistry {
         type: String,
     ): List<String>? =
         map[type]
-            // TEMP ?
-            ?.takeIf { type !in BASE_TYPES }
 
     fun nonProcessedChildTypes(
         type: String,
-    ): List<String> =
-        BASE_TYPES.filter {
+    ): List<String> {
+        // TEMP
+        if (type == "ImageBitmapSource")
+            return emptyList()
+
+        return BASE_TYPES.filter {
             val parentTypes = map[it]
             parentTypes != null && type in parentTypes
         }
+    }
 }
 
 private fun findParentTypes(
