@@ -133,6 +133,10 @@ private val EXCLUDED_TYPES = setOf(
 private val ALIAS_MAP = mapOf(
     "string" to "String",
     "number" to "Double",
+
+    "number[] | GPUColorDict" to "GPUColorDict /* number[] */",
+    "number[] | GPUExtent3DDict" to "GPUExtent3DDict /* number[] */",
+    "number[] | GPUOrigin3DDict" to "GPUOrigin3DDict /* number[] */",
 )
 
 internal fun browserTypes(
