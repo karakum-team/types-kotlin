@@ -4,5 +4,5 @@ package web.gpu
 
 sealed external interface GPUPipelineDescriptorBase :
     GPUObjectDescriptorBase {
-    var layout: GPUPipelineLayout | GPUAutoLayoutMode
+    var layout: Any /* GPUPipelineLayout | GPUAutoLayoutMode */
 }
