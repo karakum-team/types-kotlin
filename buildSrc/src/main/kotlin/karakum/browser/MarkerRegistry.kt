@@ -51,6 +51,8 @@ internal object MarkerRegistry {
         type: String,
     ): List<String>? =
         map[type]
+            // TEMP ?
+            ?.takeIf { type !in BASE_TYPES }
 
     fun nonProcessedChildTypes(
         type: String,
