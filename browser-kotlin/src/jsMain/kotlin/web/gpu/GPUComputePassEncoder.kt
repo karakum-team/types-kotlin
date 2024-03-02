@@ -28,9 +28,9 @@ sealed external class GPUComputePassEncoder :
     override fun insertDebugMarker(markerLabel: String)
     fun setPipeline(pipeline: GPUComputePipeline)
     fun dispatchWorkgroups(
-        x: Number,
-        y: Number = definedExternally,
-        z: Number = definedExternally,
+        x: Int,
+        y: Int = definedExternally,
+        z: Int = definedExternally,
     )
 
     fun dispatchWorkgroupsIndirect(
