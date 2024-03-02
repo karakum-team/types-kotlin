@@ -9,6 +9,10 @@ internal val WEB_GPU_CONTENT by lazy {
     WEB_GPU_URL.openStream()
         .use { stream -> String(stream.readAllBytes()) }
         .replace("/** @category WebGPU */\n", "")
+        // TEMP?
+        .replace("\n  // extended from spec", "")
+        .replace(" =\n  | ", " = ")
+        .replace("\n  | ", " | ")
         .replace("\ndeclare type ", "type ")
 }
 
@@ -23,6 +27,7 @@ private fun webGpuDeclarations(
         content = content,
         getPkg = { "web.gpu" },
     ).filter { it.name != "GPUTextureDimension" }
+        .filter { it.name != "GPUTextureViewDimension" }
 
     // TODO: strict flags
 
