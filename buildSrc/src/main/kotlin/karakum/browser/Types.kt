@@ -267,6 +267,8 @@ private fun convertType(
             "ImportValue",
 
             "PushMessageDataInit",
+
+            "GPUBindingResource",
             -> getPkg(name)!!
 
             else -> when {

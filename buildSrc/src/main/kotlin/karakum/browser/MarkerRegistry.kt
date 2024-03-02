@@ -5,6 +5,8 @@ import java.io.File
 internal val SEALED_MARKER_DECLARATIONS = setOf(
     "ReadableStreamController<T>",
     "ReadableStreamReadResult<T>",
+
+    "GPUBindingResource",
 )
 
 internal val NATIVE_ONLY_MARKER_DECLARATIONS = setOf(
@@ -41,7 +43,7 @@ internal object MarkerRegistry {
     fun fill(
         definitionFile: File,
     ) {
-        val content = definitionFile.readText()
+        val content = definitionFile.readText() + "\n\n" + WEB_GPU_CONTENT
         map = MARKER_DECLARATIONS.asSequence()
             .flatMap { name -> findParentTypes(content = content, interfaceDeclaration = name) }
             .groupBy(keySelector = { it.first }, valueTransform = { it.second })
