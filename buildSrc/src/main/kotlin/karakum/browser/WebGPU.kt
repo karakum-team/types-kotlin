@@ -14,12 +14,16 @@ internal val WEB_GPU_CONTENT by lazy {
         .replace(" =\n  | ", " = ")
         .replace("\n  | ", " | ")
         .replace(Regex("""(\(\n)( +)"""), "(")
+        .replace(Regex("""(,\n)( +\):)"""), "):")
         .replace(Regex("""(,\n)( +)"""), ", ")
         .replace("): undefined;", "): void;")
         .replace(",)", ")")
         .replace(";\n\n  ", ";\n  ")
         .replace(" {}\n", " {\n}\n")
+        .replace(Regex("""(class \w+) implements """), "$1 extends ")
+        .replace(Regex("""(extends \w+) implements """), "$1, ")
         .replace("\ndeclare type ", "type ")
+        .replace(": Promise<undefined>", ": Promise<void>")
 }
 
 internal fun webGpuDeclarations(): Sequence<ConversionResult> {
@@ -36,15 +40,25 @@ private fun webGpuDeclarations(
 
     // TODO: strict flags
 
-    val interfaces = Regex("""interface .+? \{[\s\S]*?\n}""")
+    val interfaces = Regex("""(interface|class) .+? \{[\s\S]*?\n}""")
         .findAll(content)
         .map { it.value }
+        // TEMP
+        .filter { " static " !in it }
         .mapNotNull { source ->
-            convertInterface(
-                source = source,
-                getStaticSource = { getStaticSource(it, content) },
-                predefinedPkg = "web.gpu",
-            )?.withComment(fullSource = content, source = source)
+            if (source.startsWith("class GPUSupportedFeatures ")) {
+                ConversionResult(
+                    name = "GPUSupportedFeatures",
+                    body = "sealed external class GPUSupportedFeatures : ReadonlySet<GPUFeatureName>",
+                    pkg = "web.gpu",
+                )
+            } else {
+                convertInterface(
+                    source = source,
+                    getStaticSource = { if (source.startsWith("class")) "" else null },
+                    predefinedPkg = "web.gpu",
+                )?.withComment(fullSource = content, source = source)
+            }
         }
 
     return types + interfaces
