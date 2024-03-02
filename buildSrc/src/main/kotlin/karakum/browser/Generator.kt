@@ -226,6 +226,14 @@ private val DEFAULT_IMPORTS = Imports(
     "web.events.EventInitMutable",
 )
 
+private val GPU_FLAGS = setOf(
+    "GPUBufferUsage",
+    "GPUColorWrite",
+    "GPUMapMode",
+    "GPUShaderStage",
+    "GPUTextureUsage",
+)
+
 fun generateKotlinDeclarations(
     idlDir: File,
     definitionsDir: File,
@@ -332,7 +340,7 @@ fun generateKotlinDeclarations(
             if ("override val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
 
-            if ("@JsVirtual" in body && "companion object" in body)
+            if (("@JsVirtual" in body || name in GPU_FLAGS) && "companion object" in body)
                 add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
             if ("inline fun " in body && !name.endsWith("ReadOnly.ext"))

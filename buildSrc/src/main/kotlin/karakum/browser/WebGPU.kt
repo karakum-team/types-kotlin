@@ -45,10 +45,41 @@ private fun webGpuDeclarations(
     val interfaces = Regex("""(interface|class) .+? \{[\s\S]*?\n}""")
         .findAll(content)
         .map { it.value }
-        // TEMP
-        .filter { " static " !in it }
         .mapNotNull { source ->
             when {
+                " static " in source -> {
+                    val name = source
+                        .removePrefix("class ")
+                        .substringBefore(" ")
+
+                    val constants = source
+                        .substringAfter("{\n")
+                        .substringBefore("\n}")
+                        .trimIndent()
+                        .splitToSequence("\n")
+                        .joinToString("\n") { line ->
+                            val (cn, cv) = line.removePrefix("static ")
+                                .removeSuffix(";")
+                                .split(": ")
+
+                            "val $cn: $name".let { it + (" ".repeat(40 - it.length)) } + "// $cv"
+                        }
+
+                    val body = """
+                    external interface $name {
+                        companion object {
+                            $constants
+                        } 
+                    }
+                    """.trimIndent()
+
+                    ConversionResult(
+                        name = name,
+                        body = body,
+                        pkg = "web.gpu",
+                    )
+                }
+
                 source.startsWith("class GPUSupportedFeatures ")
                 -> ConversionResult(
                     name = "GPUSupportedFeatures",
