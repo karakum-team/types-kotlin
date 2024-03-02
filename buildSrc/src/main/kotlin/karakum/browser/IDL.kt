@@ -221,6 +221,9 @@ internal object IDLRegistry {
         if (type != null)
             return type
 
+        if (source in WEB_GPU_NUMBER_TYPES)
+            return source
+
         if (!source.startsWith("("))
             return null
 

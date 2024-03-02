@@ -49,6 +49,8 @@ private val WEB_GPU_NUMBER_ALIASES = mapOf(
     "GPUSize32Out" to "unsigned long",
 )
 
+internal val WEB_GPU_NUMBER_TYPES = WEB_GPU_NUMBER_ALIASES.keys
+
 internal fun webGpuDeclarations(): Sequence<ConversionResult> {
     return webGpuDeclarations(WEB_GPU_CONTENT)
 }
