@@ -322,6 +322,7 @@ fun generateKotlinDeclarations(
         .plus(serviceWorkersDeclarations(serviceworkerDefinitionsFile))
         .plus(workerFunctions(serviceWorkersContent))
         .plus(audioWorkletDeclarations(audioWorkletDefinitionsFile))
+        .plus(webGpuDeclarations())
 
     for ((name, body, pkg) in aliases) {
         pkg!!
