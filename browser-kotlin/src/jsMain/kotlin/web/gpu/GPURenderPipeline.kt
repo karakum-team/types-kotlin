@@ -6,5 +6,5 @@ sealed external class GPURenderPipeline :
     GPUObjectBase,
     GPUPipelineBase {
     override var label: String
-    fun getBindGroupLayout(index: Int): GPUBindGroupLayout
+    override fun getBindGroupLayout(index: Int): GPUBindGroupLayout
 }
