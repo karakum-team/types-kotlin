@@ -2,7 +2,9 @@
 
 package web.gpu
 
+import js.array.ReadonlyArray
+
 sealed external interface GPUFragmentState :
     GPUProgrammableStage {
-    var targets: (GPUColorTargetState | null)[]
+    var targets: ReadonlyArray<GPUColorTargetState?>
 }
