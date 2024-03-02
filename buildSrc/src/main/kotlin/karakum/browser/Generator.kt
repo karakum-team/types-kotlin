@@ -146,6 +146,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.http.RequestCredentials",
     "web.http.Response",
     "web.images.ImageBitmap",
+    "web.images.ImageBitmapSource",
     "web.images.ImageData",
     "web.images.ImageDataSettings",
     "web.images.PredefinedColorSpace",

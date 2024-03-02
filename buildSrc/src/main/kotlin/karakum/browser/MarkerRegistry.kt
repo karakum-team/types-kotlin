@@ -17,6 +17,7 @@ internal val NATIVE_ONLY_MARKER_DECLARATIONS = setOf(
 ) + SEALED_MARKER_DECLARATIONS
 
 internal val MARKER_DECLARATIONS = setOf(
+    "ImageBitmapSource",
     "CanvasImageSource",
     "TexImageSource",
 

@@ -215,8 +215,8 @@ private fun convertType(
 
             "PerformanceEntryList" -> "web.performance"
 
+            "ImageBitmapSource" -> "web.images"
             "CanvasImageSource" -> "web.canvas"
-            "ImageBitmapSource" -> "web.canvas"
 
             "BlobPart" -> "web.blob"
 
