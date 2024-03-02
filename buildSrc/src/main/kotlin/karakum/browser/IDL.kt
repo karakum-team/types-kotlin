@@ -286,14 +286,38 @@ internal object IDLRegistry {
     fun getPropertyType(
         className: String,
         propertyName: String,
-    ): String =
-        propertyTypeMap.getValue(className to propertyName)
+    ): String {
+        if (className.startsWith("GPU")) {
+            return propertyTypeMap[className to propertyName] ?: run {
+                when (propertyName) {
+                    "width",
+                    "height",
+                    -> "JsLong"
+
+                    else -> "Number"
+                }
+            }
+        }
+
+        return propertyTypeMap.getValue(className to propertyName)
+    }
 
     fun getParameterType(
         className: String,
         parameterName: String,
-    ): String =
-        parameterTypeMap.getValue(className to parameterName)
+    ): String {
+        if (className.startsWith("GPU")) {
+            return parameterTypeMap[className to parameterName] ?: run {
+                when (parameterName) {
+                    "index" -> "Int"
+
+                    else -> "Number"
+                }
+            }
+        }
+
+        return parameterTypeMap.getValue(className to parameterName)
+    }
 
     fun getReturnType(
         className: String,
