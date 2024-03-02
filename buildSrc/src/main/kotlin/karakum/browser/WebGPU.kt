@@ -18,6 +18,7 @@ internal val WEB_GPU_CONTENT by lazy {
         .replace("): undefined;", "): void;")
         .replace(",)", ")")
         .replace(";\n\n  ", ";\n  ")
+        .replace(" {}\n", " {\n}\n")
         .replace("\ndeclare type ", "type ")
 }
 
@@ -35,11 +36,9 @@ private fun webGpuDeclarations(
 
     // TODO: strict flags
 
-    val interfaces = Regex("""interface .+? \{[\s\S]+?\n}""")
+    val interfaces = Regex("""interface .+? \{[\s\S]*?\n}""")
         .findAll(content)
         .map { it.value }
-        // TEMP
-        .map { it.substringBefore("\ndeclare ") }
         .mapNotNull { source ->
             convertInterface(
                 source = source,
