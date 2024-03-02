@@ -30,6 +30,7 @@ internal val WEB_GPU_CONTENT by lazy {
         .replace(Regex("""type GPU\w+Flags = number;\n"""), "")
         .replace("\ndeclare type ", "type ")
         .replace(": Promise<undefined>", ": Promise<void>")
+        .replace(""": "srgb" | "display-p3"""", ": PredefinedColorSpace")
 }
 
 private val WEB_GPU_NUMBER_ALIASES = mapOf(
