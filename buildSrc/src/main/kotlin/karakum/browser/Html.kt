@@ -1010,6 +1010,25 @@ internal fun convertInterface(
                 .replace("Number[]", "ReadonlyArray<Double>")
                 .replace("<number>", "<Double>")
 
+            "GPUBindGroup",
+            "GPUBindGroupLayout",
+            "GPUBuffer",
+            "GPUCommandBuffer",
+            "GPUCommandEncoder",
+            "GPUComputePipeline",
+            "GPUDevice",
+            "GPUPipelineLayout",
+            "GPUQuerySet",
+            "GPUQueue",
+            "GPURenderBundle",
+            "GPURenderPipeline",
+            "GPUSampler",
+            "GPUShaderModule",
+            "GPUTexture",
+            "GPUTextureView",
+            -> result
+                .replace("var label: String", "override var label: String")
+
             "RTCInboundRtpStreamStats",
             -> result.replace("var kind:", "override var kind:")
 
