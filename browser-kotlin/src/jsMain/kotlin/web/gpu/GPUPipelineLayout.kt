@@ -4,5 +4,5 @@ package web.gpu
 
 sealed external class GPUPipelineLayout :
     GPUObjectBase {
-    var label: String
+    override var label: String
 }

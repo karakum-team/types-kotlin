@@ -4,7 +4,7 @@ package web.gpu
 
 sealed external class GPUCommandEncoder :
     GPUObjectBase {
-    var label: String
+    override var label: String
     fun beginRenderPass(descriptor: GPURenderPassDescriptor): GPURenderPassEncoder
     fun beginComputePass(descriptor: GPUComputePassDescriptor = definedExternally): GPUComputePassEncoder
     fun copyBufferToBuffer(

@@ -8,7 +8,7 @@ import web.events.EventTarget
 sealed external class GPUDevice :
     EventTarget,
     GPUObjectBase {
-    var label: String
+    override var label: String
     val lost: Promise<GPUDeviceLostInfo>
     fun pushErrorScope(filter: GPUErrorFilter)
     fun popErrorScope(): Promise<GPUError?>

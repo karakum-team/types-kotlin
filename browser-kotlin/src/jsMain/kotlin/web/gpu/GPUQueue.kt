@@ -9,7 +9,7 @@ import js.promise.Promise
 
 sealed external class GPUQueue :
     GPUObjectBase {
-    var label: String
+    override var label: String
     fun submit(commandBuffers: ReadonlyArray<GPUCommandBuffer>)
     fun onSubmittedWorkDone(): Promise<Void>
     fun writeBuffer(

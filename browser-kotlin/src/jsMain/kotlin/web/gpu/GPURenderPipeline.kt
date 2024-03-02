@@ -5,6 +5,6 @@ package web.gpu
 sealed external class GPURenderPipeline :
     GPUObjectBase,
     GPUPipelineBase {
-    var label: String
+    override var label: String
     fun getBindGroupLayout(index: Number): GPUBindGroupLayout
 }

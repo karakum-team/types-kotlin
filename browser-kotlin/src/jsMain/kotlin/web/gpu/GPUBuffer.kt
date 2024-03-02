@@ -8,7 +8,7 @@ import js.promise.Promise
 
 sealed external class GPUBuffer :
     GPUObjectBase {
-    var label: String
+    override var label: String
     val size: Number
     val usage: GPUFlagsConstant
     val mapState: GPUBufferMapState

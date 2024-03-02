@@ -4,5 +4,5 @@ package web.gpu
 
 sealed external class GPUBindGroup :
     GPUObjectBase {
-    var label: String
+    override var label: String
 }

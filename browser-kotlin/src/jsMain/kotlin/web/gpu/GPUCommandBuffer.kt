@@ -4,5 +4,5 @@ package web.gpu
 
 sealed external class GPUCommandBuffer :
     GPUObjectBase {
-    var label: String
+    override var label: String
 }

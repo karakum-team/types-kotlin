@@ -4,7 +4,7 @@ package web.gpu
 
 sealed external class GPUTexture :
     GPUObjectBase {
-    var label: String
+    override var label: String
     fun createView(descriptor: GPUTextureViewDescriptor = definedExternally): GPUTextureView
     fun destroy()
     val width: Number
