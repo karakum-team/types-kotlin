@@ -24,8 +24,8 @@ internal val WEB_GPU_CONTENT by lazy {
         .replace(" {}\n", " {\n}\n")
         .replace(Regex("""(class \w+) implements """), "$1 extends ")
         .replace(Regex("""(extends \w+) implements """), "$1, ")
-        .replace("type GPUFlagsConstant = number;", "interface GPUConstant {\n}")
-        .replace(": GPUFlagsConstant", ": GPUConstant")
+        .replace("type GPUFlagsConstant = number;", "interface GPUUsage {\n}")
+        .replace("usage: GPUFlagsConstant", "usage: GPUUsage")
         .replace(Regex("""(: GPU\w+)Flags"""), "$1")
         .replace(Regex("""type GPU\w+Flags = number;\n"""), "")
         .replace("\ndeclare type ", "type ")
@@ -69,9 +69,12 @@ private fun webGpuDeclarations(
                             "val $cn: $name".let { it + (" ".repeat(40 - it.length)) } + "// $cv"
                         }
 
+                    val parent = if (name.endsWith("Usage")) {
+                        ":\nGPUUsage"
+                    } else ""
+
                     val body = """
-                    external interface $name
-                        : GPUConstant {
+                    external interface $name $parent {
                         companion object {
                             $constants
                         } 
