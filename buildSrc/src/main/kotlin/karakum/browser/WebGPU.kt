@@ -32,6 +32,23 @@ internal val WEB_GPU_CONTENT by lazy {
         .replace(": Promise<undefined>", ": Promise<void>")
 }
 
+private val WEB_GPU_NUMBER_ALIASES = mapOf(
+    "GPUBufferDynamicOffset" to "unsigned long",
+    "GPUStencilValue" to "unsigned long",
+    "GPUSampleMask" to "unsigned long",
+    "GPUDepthBias" to "long",
+
+    "GPUSize64" to "unsigned long long",
+    "GPUIntegerCoordinate" to "unsigned long",
+    "GPUIndex32" to "unsigned long",
+    "GPUSize32" to "unsigned long",
+    "GPUSignedOffset32" to "long",
+
+    "GPUSize64Out" to "unsigned long long",
+    "GPUIntegerCoordinateOut" to "unsigned long",
+    "GPUSize32Out" to "unsigned long",
+)
+
 internal fun webGpuDeclarations(): Sequence<ConversionResult> {
     return webGpuDeclarations(WEB_GPU_CONTENT)
 }
@@ -134,5 +151,13 @@ private fun webGpuDeclarations(
             }
         }
 
-    return types + interfaces
+    val aliases = ConversionResult(
+        name = "Aliases",
+        body = WEB_GPU_NUMBER_ALIASES.entries.joinToString("\n") { (name, idlType) ->
+            "typealias $name = ${NUMBER_TYPE_MAP.getValue(idlType)}"
+        },
+        pkg = "web.gpu",
+    )
+
+    return types + interfaces + aliases
 }
