@@ -38,6 +38,8 @@ private fun webGpuDeclarations(
     val interfaces = Regex("""interface .+? \{[\s\S]+?\n}""")
         .findAll(content)
         .map { it.value }
+        // TEMP
+        .map { it.substringBefore("\ndeclare ") }
         .mapNotNull { source ->
             convertInterface(
                 source = source,
