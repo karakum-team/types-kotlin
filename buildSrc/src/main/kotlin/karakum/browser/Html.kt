@@ -1029,6 +1029,23 @@ internal fun convertInterface(
             -> result
                 .replace("var label: String", "override var label: String")
 
+            "GPUComputePassEncoder",
+            "GPURenderBundleEncoder",
+            "GPURenderPassEncoder",
+            -> result
+                .replace("var label: String", "override var label: String")
+                .replace("fun draw(", "override fun draw(")
+                .replace("fun drawIndexed(", "override fun drawIndexed(")
+                .replace("fun drawIndexedIndirect(", "override fun drawIndexedIndirect(")
+                .replace("fun drawIndirect(", "override fun drawIndirect(")
+                .replace("fun insertDebugMarker(", "override fun insertDebugMarker(")
+                .replace("fun popDebugGroup(", "override fun popDebugGroup(")
+                .replace("fun pushDebugGroup(", "override fun pushDebugGroup(")
+                .replace("fun setBindGroup(", "override fun setBindGroup(")
+                .replace("fun setIndexBuffer(", "override fun setIndexBuffer(")
+                .replace("fun setPipeline(", "override fun setPipeline(")
+                .replace("fun setVertexBuffer(", "override fun setVertexBuffer(")
+
             "RTCInboundRtpStreamStats",
             -> result.replace("var kind:", "override var kind:")
 
