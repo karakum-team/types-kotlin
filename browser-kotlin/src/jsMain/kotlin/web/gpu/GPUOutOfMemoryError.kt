@@ -2,8 +2,6 @@
 
 package web.gpu
 
-sealed external class GPUOutOfMemoryError :
-    GPUError {
-    fun constructor(message: string)):
-    constructor(message: String)
-}
+external class GPUOutOfMemoryError(
+    message: String,
+) : GPUError

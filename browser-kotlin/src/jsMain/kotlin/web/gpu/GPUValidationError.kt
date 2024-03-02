@@ -2,8 +2,6 @@
 
 package web.gpu
 
-sealed external class GPUValidationError :
-    GPUError {
-    fun constructor(message: string)):
-    constructor(message: String)
-}
+external class GPUValidationError(
+    message: String,
+) : GPUError
