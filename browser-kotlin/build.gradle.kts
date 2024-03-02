@@ -44,6 +44,7 @@ val WEB_INCLUDE = setOf(
     "web/form/FormData.kt",
     "web/form/FormDataEntryValue.kt",
     "web/http",
+    "web/images",
     "web/messaging",
     "web/performance",
     "web/promise",
@@ -55,11 +56,17 @@ val WEB_INCLUDE = setOf(
     "web/timers",
     "web/streams",
     "web/url",
+
+    // markers
+    "web/canvas/CanvasImageSource.kt",
+    "web/gl/TexImageSource.kt",
 )
 
 val BROWSER_INCLUDE = setOf(
     "web",
     "web/file",
+    "web/images/ImageBitmapRenderingContext.kt",
+    "web/images/ImageBitmapRenderingContextSettings.kt",
     "web/performance/LargestContentfulPaint.kt",
 )
 
