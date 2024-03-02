@@ -6,7 +6,8 @@
 
 package web.gpu
 
-external interface GPUShaderStage {
+external interface GPUShaderStage
+    : GPUConstant {
     companion object {
         val VERTEX: GPUShaderStage              // 0x1
         val FRAGMENT: GPUShaderStage            // 0x2

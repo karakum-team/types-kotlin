@@ -6,7 +6,8 @@
 
 package web.gpu
 
-external interface GPUColorWrite {
+external interface GPUColorWrite
+    : GPUConstant {
     companion object {
         val RED: GPUColorWrite                  // 0x1
         val GREEN: GPUColorWrite                // 0x2
