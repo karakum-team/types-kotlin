@@ -9,15 +9,15 @@ sealed external class GPURenderBundleEncoder :
     GPUObjectBase,
     GPUProgrammablePassEncoder,
     GPURenderEncoderBase {
-    var label: String
-    fun draw(
+    override var label: String
+    override fun draw(
         vertexCount: Number,
         instanceCount: Number = definedExternally,
         firstVertex: Number = definedExternally,
         firstInstance: Number = definedExternally,
     )
 
-    fun drawIndexed(
+    override fun drawIndexed(
         indexCount: Number,
         instanceCount: Number = definedExternally,
         firstIndex: Number = definedExternally,
@@ -25,26 +25,26 @@ sealed external class GPURenderBundleEncoder :
         firstInstance: Number = definedExternally,
     )
 
-    fun drawIndexedIndirect(
+    override fun drawIndexedIndirect(
         indirectBuffer: GPUBuffer,
         indirectOffset: Number,
     )
 
-    fun drawIndirect(
+    override fun drawIndirect(
         indirectBuffer: GPUBuffer,
         indirectOffset: Number,
     )
 
-    fun insertDebugMarker(markerLabel: String)
-    fun popDebugGroup()
-    fun pushDebugGroup(groupLabel: String)
-    fun setBindGroup(
+    override fun insertDebugMarker(markerLabel: String)
+    override fun popDebugGroup()
+    override fun pushDebugGroup(groupLabel: String)
+    override fun setBindGroup(
         index: Number,
         bindGroup: GPUBindGroup,
         dynamicOffsets: ReadonlyArray<Double> = definedExternally,
     )
 
-    fun setBindGroup(
+    override fun setBindGroup(
         index: Number,
         bindGroup: GPUBindGroup,
         dynamicOffsetsData: Uint32Array,
@@ -52,15 +52,15 @@ sealed external class GPURenderBundleEncoder :
         dynamicOffsetsDataLength: Number,
     )
 
-    fun setIndexBuffer(
+    override fun setIndexBuffer(
         buffer: GPUBuffer,
         indexFormat: GPUIndexFormat,
         offset: Number = definedExternally,
         size: Number = definedExternally,
     )
 
-    fun setPipeline(pipeline: GPURenderPipeline)
-    fun setVertexBuffer(
+    override fun setPipeline(pipeline: GPURenderPipeline)
+    override fun setVertexBuffer(
         slot: Number,
         buffer: GPUBuffer,
         offset: Number = definedExternally,

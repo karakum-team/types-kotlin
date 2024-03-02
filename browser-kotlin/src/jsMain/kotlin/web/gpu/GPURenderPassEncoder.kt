@@ -9,14 +9,14 @@ sealed external class GPURenderPassEncoder :
     GPUObjectBase,
     GPUProgrammablePassEncoder,
     GPURenderEncoderBase {
-    var label: String
-    fun setBindGroup(
+    override var label: String
+    override fun setBindGroup(
         index: Number,
         bindGroup: GPUBindGroup,
         dynamicOffsets: ReadonlyArray<Double> = definedExternally,
     )
 
-    fun setBindGroup(
+    override fun setBindGroup(
         index: Number,
         bindGroup: GPUBindGroup,
         dynamicOffsetsData: Uint32Array,
@@ -24,32 +24,32 @@ sealed external class GPURenderPassEncoder :
         dynamicOffsetsDataLength: Number,
     )
 
-    fun pushDebugGroup(groupLabel: String)
-    fun popDebugGroup()
-    fun insertDebugMarker(markerLabel: String)
-    fun setPipeline(pipeline: GPURenderPipeline)
-    fun setIndexBuffer(
+    override fun pushDebugGroup(groupLabel: String)
+    override fun popDebugGroup()
+    override fun insertDebugMarker(markerLabel: String)
+    override fun setPipeline(pipeline: GPURenderPipeline)
+    override fun setIndexBuffer(
         buffer: GPUBuffer,
         indexFormat: GPUIndexFormat,
         offset: Number = definedExternally,
         size: Number = definedExternally,
     )
 
-    fun setVertexBuffer(
+    override fun setVertexBuffer(
         slot: Number,
         buffer: GPUBuffer,
         offset: Number = definedExternally,
         size: Number = definedExternally,
     )
 
-    fun draw(
+    override fun draw(
         vertexCount: Number,
         instanceCount: Number = definedExternally,
         firstVertex: Number = definedExternally,
         firstInstance: Number = definedExternally,
     )
 
-    fun drawIndexed(
+    override fun drawIndexed(
         indexCount: Number,
         instanceCount: Number = definedExternally,
         firstIndex: Number = definedExternally,
@@ -57,12 +57,12 @@ sealed external class GPURenderPassEncoder :
         firstInstance: Number = definedExternally,
     )
 
-    fun drawIndirect(
+    override fun drawIndirect(
         indirectBuffer: GPUBuffer,
         indirectOffset: Number,
     )
 
-    fun drawIndexedIndirect(
+    override fun drawIndexedIndirect(
         indirectBuffer: GPUBuffer,
         indirectOffset: Number,
     )

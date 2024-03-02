@@ -8,14 +8,14 @@ import js.typedarrays.Uint32Array
 sealed external class GPUComputePassEncoder :
     GPUObjectBase,
     GPUProgrammablePassEncoder {
-    var label: String
-    fun setBindGroup(
+    override var label: String
+    override fun setBindGroup(
         index: Number,
         bindGroup: GPUBindGroup,
         dynamicOffsets: ReadonlyArray<Double> = definedExternally,
     )
 
-    fun setBindGroup(
+    override fun setBindGroup(
         index: Number,
         bindGroup: GPUBindGroup,
         dynamicOffsetsData: Uint32Array,
@@ -23,10 +23,10 @@ sealed external class GPUComputePassEncoder :
         dynamicOffsetsDataLength: Number,
     )
 
-    fun pushDebugGroup(groupLabel: String)
-    fun popDebugGroup()
-    fun insertDebugMarker(markerLabel: String)
-    fun setPipeline(pipeline: GPUComputePipeline)
+    override fun pushDebugGroup(groupLabel: String)
+    override fun popDebugGroup()
+    override fun insertDebugMarker(markerLabel: String)
+    override fun setPipeline(pipeline: GPUComputePipeline)
     fun dispatchWorkgroups(
         x: Number,
         y: Number = definedExternally,
