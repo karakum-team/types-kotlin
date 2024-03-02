@@ -24,6 +24,10 @@ internal val WEB_GPU_CONTENT by lazy {
         .replace(" {}\n", " {\n}\n")
         .replace(Regex("""(class \w+) implements """), "$1 extends ")
         .replace(Regex("""(extends \w+) implements """), "$1, ")
+        .replace("type GPUFlagsConstant = number;", "interface GPUConstant {\n}")
+        .replace(": GPUFlagsConstant", ": GPUConstant")
+        .replace(Regex("""(: GPU\w+)Flags"""), "$1")
+        .replace(Regex("""type GPU\w+Flags = number;\n"""), "")
         .replace("\ndeclare type ", "type ")
         .replace(": Promise<undefined>", ": Promise<void>")
 }
@@ -66,7 +70,8 @@ private fun webGpuDeclarations(
                         }
 
                     val body = """
-                    external interface $name {
+                    external interface $name
+                        : GPUConstant {
                         companion object {
                             $constants
                         } 
