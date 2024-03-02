@@ -13,6 +13,11 @@ internal val WEB_GPU_CONTENT by lazy {
         .replace("\n  // extended from spec", "")
         .replace(" =\n  | ", " = ")
         .replace("\n  | ", " | ")
+        .replace(Regex("""(\(\n)( +)"""), "(")
+        .replace(Regex("""(,\n)( +)"""), ", ")
+        .replace("): undefined;", "): void;")
+        .replace(",)", ")")
+        .replace(";\n\n  ", ";\n  ")
         .replace("\ndeclare type ", "type ")
 }
 
@@ -30,9 +35,6 @@ private fun webGpuDeclarations(
 
     // TODO: strict flags
 
-    return types
-
-    /*
     val interfaces = Regex("""interface .+? \{[\s\S]+?\n}""")
         .findAll(content)
         .map { it.value }
@@ -44,6 +46,5 @@ private fun webGpuDeclarations(
             )?.withComment(fullSource = content, source = source)
         }
 
-    return interfaces
-    */
+    return types + interfaces
 }
