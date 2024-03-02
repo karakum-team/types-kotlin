@@ -2,6 +2,8 @@ package karakum.browser
 
 import karakum.common.sealedUnionBody
 
+internal const val PRELOAD = "Preload"
+
 internal class UnionData(
     val name: String,
     val values: List<String>,
@@ -18,18 +20,15 @@ internal val UNION_DATA_LIST = listOf(
         ),
         pkg = "web.html",
     ),
-    /*
     UnionData(
-        name = "Preload",
+        name = PRELOAD,
         values = listOf(
             "none",
             "metadata",
             "auto",
-            "",
         ),
         pkg = "web.html",
     ),
-    */
     UnionData(
         name = "SelectionDirection",
         values = listOf(

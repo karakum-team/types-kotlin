@@ -309,7 +309,11 @@ private fun String.patchQuerySelectors(): String =
 
 private fun String.applyInlineUnionPatches(): String =
     UNION_DATA_LIST.fold(this) { acc, data ->
-        val before = ": " + data.values.joinToString(" | ") { "\"$it\"" }
+        val values = data.values.let {
+            if (data.name == PRELOAD) it + "" else it
+        }
+
+        val before = ": " + values.joinToString(" | ") { "\"$it\"" }
         require(before in acc)
         acc.replace(before, ": ${data.name}")
     }
