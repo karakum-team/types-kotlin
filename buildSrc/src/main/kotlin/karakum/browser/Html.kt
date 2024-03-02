@@ -1015,19 +1015,23 @@ internal fun convertInterface(
             "GPUBuffer",
             "GPUCommandBuffer",
             "GPUCommandEncoder",
-            "GPUComputePipeline",
             "GPUDevice",
             "GPUPipelineLayout",
             "GPUQuerySet",
             "GPUQueue",
             "GPURenderBundle",
-            "GPURenderPipeline",
             "GPUSampler",
             "GPUShaderModule",
             "GPUTexture",
             "GPUTextureView",
             -> result
                 .replace("var label: String", "override var label: String")
+
+            "GPUComputePipeline",
+            "GPURenderPipeline",
+            -> result
+                .replace("var label: String", "override var label: String")
+                .replace("fun getBindGroupLayout(", "override fun getBindGroupLayout(")
 
             "GPUComputePassEncoder",
             "GPURenderBundleEncoder",
