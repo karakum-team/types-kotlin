@@ -26,8 +26,7 @@ private fun webGpuDeclarations(
     val types = convertTypes(
         content = content,
         getPkg = { "web.gpu" },
-    ).filter { it.name != "GPUTextureDimension" }
-        .filter { it.name != "GPUTextureViewDimension" }
+    )
 
     // TODO: strict flags
 

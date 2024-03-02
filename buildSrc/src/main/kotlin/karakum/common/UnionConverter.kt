@@ -158,11 +158,12 @@ internal fun unionName(
         "2x" -> "x2"
         "4x" -> "x4"
 
-        // TEMP
-        "2d" -> "canvas"
         "2-digit" -> "twoDigit"
 
-        else -> name.kebabToCamel()
+        else -> {
+            (if (name.substring(0, 1) in "0123456789") "_" else "") +
+                    name.kebabToCamel()
+        }
     }
 
     return when (name) {
