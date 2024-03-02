@@ -1810,6 +1810,15 @@ private fun convertProperty(
                 "ReadonlyArray<$arrayType>"
             }
 
+            (type.startsWith("(") && type.endsWith(" | null)[]"))
+            -> {
+                val arrayType = type
+                    .removePrefix("(")
+                    .removeSuffix(" | null)[]")
+
+                "ReadonlyArray<$arrayType?>"
+            }
+
             type.startsWith("\"")
             -> "String /* $type */"
 
