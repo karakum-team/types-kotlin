@@ -14,7 +14,7 @@ internal val WEB_GPU_CONTENT by lazy {
         .replace(" =\n  | ", " = ")
         .replace("\n  | ", " | ")
         .replace("\n  extends ", " extends ")
-        // .replace("\n  implements ", " implements ")
+        .replace("\n  implements ", " implements ")
         .replace(Regex("""(\(\n)( +)"""), "(")
         .replace(Regex("""(,\n)( +\):)"""), "):")
         .replace(Regex("""(,\n)( +)"""), ", ")
