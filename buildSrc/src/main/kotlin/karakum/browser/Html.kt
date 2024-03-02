@@ -1032,19 +1032,31 @@ internal fun convertInterface(
             "GPUComputePassEncoder",
             "GPURenderBundleEncoder",
             "GPURenderPassEncoder",
-            -> result
-                .replace("var label: String", "override var label: String")
-                .replace("fun draw(", "override fun draw(")
-                .replace("fun drawIndexed(", "override fun drawIndexed(")
-                .replace("fun drawIndexedIndirect(", "override fun drawIndexedIndirect(")
-                .replace("fun drawIndirect(", "override fun drawIndirect(")
-                .replace("fun insertDebugMarker(", "override fun insertDebugMarker(")
-                .replace("fun popDebugGroup(", "override fun popDebugGroup(")
-                .replace("fun pushDebugGroup(", "override fun pushDebugGroup(")
-                .replace("fun setBindGroup(", "override fun setBindGroup(")
-                .replace("fun setIndexBuffer(", "override fun setIndexBuffer(")
-                .replace("fun setPipeline(", "override fun setPipeline(")
-                .replace("fun setVertexBuffer(", "override fun setVertexBuffer(")
+            -> {
+                var overriddenMethods = setOf(
+                    "draw",
+                    "drawIndexed",
+                    "drawIndexedIndirect",
+                    "drawIndirect",
+                    "insertDebugMarker",
+                    "popDebugGroup",
+                    "pushDebugGroup",
+                    "setBindGroup",
+                    "setIndexBuffer",
+                    "setPipeline",
+                    "setVertexBuffer",
+                )
+
+                if (name == "GPUComputePassEncoder")
+                    overriddenMethods = overriddenMethods - "setPipeline"
+
+                val initial = result.replace("var label: String", "override var label: String")
+                overriddenMethods.fold(initial) { acc, methodName ->
+                    Regex("""fun $methodName\(.*?\)""", RegexOption.DOT_MATCHES_ALL).replace(acc) {
+                        "override " + it.value.replace(" = definedExternally", "")
+                    }
+                }
+            }
 
             "RTCInboundRtpStreamStats",
             -> result.replace("var kind:", "override var kind:")
