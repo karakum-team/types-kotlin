@@ -13,7 +13,7 @@ sealed external class GPURenderPassEncoder :
     override fun setBindGroup(
         index: Number,
         bindGroup: GPUBindGroup,
-        dynamicOffsets: ReadonlyArray<Double> = definedExternally,
+        dynamicOffsets: ReadonlyArray<Double>,
     )
 
     override fun setBindGroup(
@@ -31,30 +31,30 @@ sealed external class GPURenderPassEncoder :
     override fun setIndexBuffer(
         buffer: GPUBuffer,
         indexFormat: GPUIndexFormat,
-        offset: Number = definedExternally,
-        size: Number = definedExternally,
+        offset: Number,
+        size: Number,
     )
 
     override fun setVertexBuffer(
         slot: Number,
         buffer: GPUBuffer,
-        offset: Number = definedExternally,
-        size: Number = definedExternally,
+        offset: Number,
+        size: Number,
     )
 
     override fun draw(
         vertexCount: Number,
-        instanceCount: Number = definedExternally,
-        firstVertex: Number = definedExternally,
-        firstInstance: Number = definedExternally,
+        instanceCount: Number,
+        firstVertex: Number,
+        firstInstance: Number,
     )
 
     override fun drawIndexed(
         indexCount: Number,
-        instanceCount: Number = definedExternally,
-        firstIndex: Number = definedExternally,
-        baseVertex: Number = definedExternally,
-        firstInstance: Number = definedExternally,
+        instanceCount: Number,
+        firstIndex: Number,
+        baseVertex: Number,
+        firstInstance: Number,
     )
 
     override fun drawIndirect(
