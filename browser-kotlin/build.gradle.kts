@@ -41,6 +41,7 @@ val WEB_INCLUDE = setOf(
     "web/events",
     "web/file/File.kt",
     "web/file/FilePropertyBag.kt",
+    "web/file/FileReader.kt",
     "web/form/FormData.kt",
     "web/form/FormDataEntryValue.kt",
     "web/http",
