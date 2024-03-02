@@ -48,18 +48,50 @@ private fun webGpuDeclarations(
         // TEMP
         .filter { " static " !in it }
         .mapNotNull { source ->
-            if (source.startsWith("class GPUSupportedFeatures ")) {
-                ConversionResult(
+            when {
+                source.startsWith("class GPUSupportedFeatures ")
+                -> ConversionResult(
                     name = "GPUSupportedFeatures",
                     body = "sealed external class GPUSupportedFeatures : ReadonlySet<GPUFeatureName>",
                     pkg = "web.gpu",
                 )
-            } else {
-                convertInterface(
-                    source = source,
-                    getStaticSource = { if (source.startsWith("class")) "" else null },
-                    predefinedPkg = "web.gpu",
-                )?.withComment(fullSource = content, source = source)
+
+                source.startsWith("class GPUOutOfMemoryError ")
+                        || source.startsWith("class GPUValidationError ")
+                -> {
+                    val name = source
+                        .removePrefix("class ")
+                        .substringBefore(" ")
+
+                    val parentType = source
+                        .substringAfter(" extends ")
+                        .substringBefore(" {")
+
+                    val constructorParameters = source
+                        .substringAfter("constructor(")
+                        .substringBefore(")")
+                        .replace(": string", ": String")
+
+                    val body = """
+                    external class $name(
+                        $constructorParameters,
+                    ): $parentType
+                    """.trimIndent()
+
+                    ConversionResult(
+                        name = name,
+                        body = body,
+                        pkg = "web.gpu",
+                    )
+                }
+
+                else -> {
+                    convertInterface(
+                        source = source,
+                        getStaticSource = { if (source.startsWith("class")) "" else null },
+                        predefinedPkg = "web.gpu",
+                    )?.withComment(fullSource = content, source = source)
+                }
             }
         }
 
