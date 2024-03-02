@@ -1720,6 +1720,9 @@ private fun convertProperty(
         "\"directory\"",
         -> "FileSystemHandleKind.${type.removeSurrounding("\"")}"
 
+        "GPUPipelineLayout | GPUAutoLayoutMode",
+        -> "Any /* $type */"
+
         // RTC
         "number[]",
         -> "ReadonlyArray<Number>"
