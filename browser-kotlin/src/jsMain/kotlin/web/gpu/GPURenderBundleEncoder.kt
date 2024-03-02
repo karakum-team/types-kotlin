@@ -11,16 +11,16 @@ sealed external class GPURenderBundleEncoder :
     GPURenderEncoderBase {
     override var label: String
     override fun draw(
-        vertexCount: Number,
-        instanceCount: Number,
+        vertexCount: Int,
+        instanceCount: Int,
         firstVertex: Number,
         firstInstance: Number,
     )
 
     override fun drawIndexed(
-        indexCount: Number,
-        instanceCount: Number,
-        firstIndex: Number,
+        indexCount: Int,
+        instanceCount: Int,
+        firstIndex: Int,
         baseVertex: Number,
         firstInstance: Number,
     )
@@ -56,7 +56,7 @@ sealed external class GPURenderBundleEncoder :
         buffer: GPUBuffer,
         indexFormat: GPUIndexFormat,
         offset: Number,
-        size: Number,
+        size: Int,
     )
 
     override fun setPipeline(pipeline: GPURenderPipeline)
@@ -64,7 +64,7 @@ sealed external class GPURenderBundleEncoder :
         slot: Number,
         buffer: GPUBuffer,
         offset: Number,
-        size: Number,
+        size: Int,
     )
 
     fun finish(descriptor: GPURenderBundleDescriptor = definedExternally): GPURenderBundle
