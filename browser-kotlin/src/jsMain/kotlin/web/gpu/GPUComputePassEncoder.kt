@@ -10,13 +10,13 @@ sealed external class GPUComputePassEncoder :
     GPUProgrammablePassEncoder {
     override var label: String
     override fun setBindGroup(
-        index: Number,
+        index: Int,
         bindGroup: GPUBindGroup,
         dynamicOffsets: ReadonlyArray<Double>,
     )
 
     override fun setBindGroup(
-        index: Number,
+        index: Int,
         bindGroup: GPUBindGroup,
         dynamicOffsetsData: Uint32Array,
         dynamicOffsetsDataStart: Number,

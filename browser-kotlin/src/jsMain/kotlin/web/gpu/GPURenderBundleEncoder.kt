@@ -39,13 +39,13 @@ sealed external class GPURenderBundleEncoder :
     override fun popDebugGroup()
     override fun pushDebugGroup(groupLabel: String)
     override fun setBindGroup(
-        index: Number,
+        index: Int,
         bindGroup: GPUBindGroup,
         dynamicOffsets: ReadonlyArray<Double>,
     )
 
     override fun setBindGroup(
-        index: Number,
+        index: Int,
         bindGroup: GPUBindGroup,
         dynamicOffsetsData: Uint32Array,
         dynamicOffsetsDataStart: Number,
