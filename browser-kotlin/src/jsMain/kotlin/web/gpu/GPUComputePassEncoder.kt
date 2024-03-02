@@ -19,8 +19,8 @@ sealed external class GPUComputePassEncoder :
         index: Int,
         bindGroup: GPUBindGroup,
         dynamicOffsetsData: Uint32Array,
-        dynamicOffsetsDataStart: Number,
-        dynamicOffsetsDataLength: Number,
+        dynamicOffsetsDataStart: Int,
+        dynamicOffsetsDataLength: Int,
     )
 
     override fun pushDebugGroup(groupLabel: String)

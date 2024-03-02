@@ -13,26 +13,26 @@ sealed external class GPURenderBundleEncoder :
     override fun draw(
         vertexCount: Int,
         instanceCount: Int,
-        firstVertex: Number,
-        firstInstance: Number,
+        firstVertex: Int,
+        firstInstance: Int,
     )
 
     override fun drawIndexed(
         indexCount: Int,
         instanceCount: Int,
         firstIndex: Int,
-        baseVertex: Number,
-        firstInstance: Number,
+        baseVertex: Int,
+        firstInstance: Int,
     )
 
     override fun drawIndexedIndirect(
         indirectBuffer: GPUBuffer,
-        indirectOffset: Number,
+        indirectOffset: Int,
     )
 
     override fun drawIndirect(
         indirectBuffer: GPUBuffer,
-        indirectOffset: Number,
+        indirectOffset: Int,
     )
 
     override fun insertDebugMarker(markerLabel: String)
@@ -48,22 +48,22 @@ sealed external class GPURenderBundleEncoder :
         index: Int,
         bindGroup: GPUBindGroup,
         dynamicOffsetsData: Uint32Array,
-        dynamicOffsetsDataStart: Number,
-        dynamicOffsetsDataLength: Number,
+        dynamicOffsetsDataStart: Int,
+        dynamicOffsetsDataLength: Int,
     )
 
     override fun setIndexBuffer(
         buffer: GPUBuffer,
         indexFormat: GPUIndexFormat,
-        offset: Number,
+        offset: Int,
         size: Int,
     )
 
     override fun setPipeline(pipeline: GPURenderPipeline)
     override fun setVertexBuffer(
-        slot: Number,
+        slot: Int,
         buffer: GPUBuffer,
-        offset: Number,
+        offset: Int,
         size: Int,
     )
 
