@@ -152,7 +152,7 @@ private fun convertProperty(
     type = when {
         type == "string" -> "String"
         type == "boolean" -> "Boolean"
-        type == "HTMLCanvasElement | OffscreenCanvas" -> "Any /* $type */"
+        type == "HTMLCanvasElement | OffscreenCanvas" -> "EventTarget /* $type */"
 
         type.startsWith("0x") -> "GLenum"
         type.toIntOrNull() != null -> "GLenum"

@@ -1784,7 +1784,7 @@ private fun convertProperty(
         "Element | ProcessingInstruction" -> "Any /* Element | ProcessingInstruction */"
         "string | CanvasGradient | CanvasPattern" -> "Any /* string | CanvasGradient | CanvasPattern */"
         "string | ArrayBuffer" -> "Any /* string | ArrayBuffer */"
-        "HTMLCanvasElement | OffscreenCanvas" -> "Any /* HTMLCanvasElement | OffscreenCanvas */"
+        "HTMLCanvasElement | OffscreenCanvas" -> "EventTarget /* $type */"
         "(WindowProxy & typeof globalThis)" -> "WindowProxy"
 
         "HTMLCollectionOf<HTMLAnchorElement | HTMLAreaElement>",
