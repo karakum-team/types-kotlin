@@ -294,7 +294,7 @@ internal object IDLRegistry {
                     "height",
                     -> "JsLong"
 
-                    else -> "Number"
+                    else -> TODO()
                 }
             }
         }
@@ -308,8 +308,11 @@ internal object IDLRegistry {
     ): String {
         if (className.startsWith("GPU")) {
             return parameterTypeMap[className to parameterName] ?: run {
-                when (parameterName) {
-                    "index" -> "Int"
+                when {
+                    parameterName == "size" -> "Int"
+                    parameterName == "index" -> "Int"
+                    parameterName.endsWith("Index") -> "Int"
+                    parameterName.endsWith("Count") -> "Int"
 
                     else -> "Number"
                 }
