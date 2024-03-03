@@ -4,7 +4,7 @@ internal val DEFAULT_PACKAGE: String = """
 package cesium
 
 import js.promise.Promise
-import web.canvas.ImageData
+import web.images.ImageData
 import web.dom.Document
 import web.dom.Element
 import web.html.HTMLCanvasElement
