@@ -851,7 +851,6 @@ internal fun convertInterface(
     }
 
     when (name) {
-        "HTMLElement" -> declaration += ",\n$CUSTOM_ELEMENT_CALLBACKS"
         "ElementInternals" -> declaration += ",\n$VALIDATION_TARGET"
         in WELL_KNOWN_FORM_CONTROL -> declaration += ",\n$FORM_CONTROL"
     }

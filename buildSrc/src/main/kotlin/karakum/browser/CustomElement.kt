@@ -1,56 +1,53 @@
 package karakum.browser
 
 internal const val ATTRIBUTE_CHANGED_CALLBACK = "AttributeChangedCallback"
-internal const val CUSTOM_ELEMENT_CALLBACKS = "CustomElementCallbacks"
+internal const val CUSTOM_ELEMENT = "CustomElement"
 internal const val CUSTOM_ELEMENT_COMPANION = "CustomElementCompanion"
 
 private val CALLBACKS = mapOf(
-    "connectedCallback" to "() -> Unit",
-    "disconnectedCallback" to "() -> Unit",
-    "adoptedCallback" to "() -> Unit",
-    "attributeChangedCallback" to ATTRIBUTE_CHANGED_CALLBACK,
+    "connectedCallback" to "()",
+    "disconnectedCallback" to "()",
+    "adoptedCallback" to "()",
+    "attributeChangedCallback" to """(
+        name: String,
+        oldValue: Any?,
+        newValue: Any?,
+    )""",
 )
 
 internal fun customElementTypes(): Sequence<ConversionResult> =
     sequenceOf(
-        ConversionResult(
-            name = ATTRIBUTE_CHANGED_CALLBACK,
-            body = """
-            typealias $ATTRIBUTE_CHANGED_CALLBACK = (
-                name: String,
-                oldValue: Any?,
-                newValue: Any?,
-            ) -> Unit
-            """.trimIndent(),
-            pkg = "web.components"
-        ),
-        CustomElementCallbacks(),
+        CustomElement(),
         CustomElementCompanion(),
     )
 
-private fun CustomElementCallbacks(): ConversionResult {
-    val members = CALLBACKS.entries.joinToString("\n") { (name, type) ->
-        val comment = """
-        /**
-         * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/Web_components#${name.lowercase()})
-         */
+private fun CustomElement(): ConversionResult {
+    val mainInterface = """
+        interface WithFormCallbacks:
+            ${CALLBACKS.keys.joinToString(",\n") { interfaceName(it) }}
         """.trimIndent()
 
-        val propertyType = if (type.startsWith("(")) "($type)?" else "$type?"
-        val declaration = """
-        val $name: $propertyType
-            get() = definedExternally
+    val interfaces = CALLBACKS.entries.joinToString("\n") { (methodName, methodBody) ->
+        """
+        interface ${interfaceName(methodName)} {
+            /**
+             * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/Web_components#${methodName.lowercase()})
+             */
+            fun ${methodName}${methodBody}
+        }
         """.trimIndent()
-
-        "$comment\n$declaration"
     }
 
-    val body = "external interface $CUSTOM_ELEMENT_CALLBACKS {\n" +
-            members +
-            "\n}"
+    val body = """
+    external interface $CUSTOM_ELEMENT {
+        $mainInterface
+        
+        $interfaces
+    }
+    """.trimIndent()
 
     return ConversionResult(
-        name = CUSTOM_ELEMENT_CALLBACKS,
+        name = CUSTOM_ELEMENT,
         body = body,
         pkg = "web.components"
     )

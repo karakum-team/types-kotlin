@@ -124,5 +124,5 @@ private fun CustomFormControl(): ConversionResult {
     )
 }
 
-private fun interfaceName(methodName: String): String =
+internal fun interfaceName(methodName: String): String =
     """With${methodName.replaceFirstChar(Char::uppercase)}"""
