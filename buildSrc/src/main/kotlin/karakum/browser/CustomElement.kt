@@ -1,6 +1,5 @@
 package karakum.browser
 
-internal const val ATTRIBUTE_CHANGED_CALLBACK = "AttributeChangedCallback"
 internal const val CUSTOM_ELEMENT = "CustomElement"
 internal const val CUSTOM_ELEMENT_COMPANION = "CustomElementCompanion"
 
