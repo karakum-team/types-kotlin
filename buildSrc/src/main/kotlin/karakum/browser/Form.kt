@@ -6,7 +6,6 @@ internal const val VALIDATION_TARGET = "ValidationTarget"
 internal const val FORM_CONTROL = "FormControl"
 
 internal const val CUSTOM_FORM_CONTROL = "CustomFormControl"
-internal const val CUSTOM_FORM_CONTROL_CALLBACKS = "CustomFormControlCallbacks"
 
 internal const val FORM_STATE_RESTORE_MODE = "FormStateRestoreMode"
 
@@ -21,10 +20,13 @@ internal val WELL_KNOWN_FORM_CONTROL = listOf(
 )
 
 private val CALLBACKS = mapOf(
-    "formAssociatedCallback" to "(form: HTMLFormElement?) -> Unit",
-    "formDisabledCallback" to "(disabled: Boolean) -> Unit",
-    "formResetCallback" to "() -> Unit",
-    "formStateRestoreCallback" to "(state: Any? /* File | string | FormData */, mode: $FORM_STATE_RESTORE_MODE) -> Unit",
+    "formAssociatedCallback" to "(form: HTMLFormElement?)",
+    "formDisabledCallback" to "(disabled: Boolean)",
+    "formResetCallback" to "()",
+    "formStateRestoreCallback" to """(
+        state: Any? /* File | string | FormData */,
+        mode: $FORM_STATE_RESTORE_MODE,
+    )""",
 )
 
 private val VALIDATION_TARGET_MEMBERS = """
@@ -88,47 +90,39 @@ internal fun formTypes(): Sequence<ConversionResult> =
             ),
             pkg = "web.form"
         ),
-        CustomFormControlCallbacks(),
-        ConversionResult(
-            name = CUSTOM_FORM_CONTROL,
-            body = """
-            external interface $CUSTOM_FORM_CONTROL:
-                $FORM_CONTROL,
-                $CUSTOM_FORM_CONTROL_CALLBACKS
-            """.trimIndent(),
-            pkg = "web.form"
-        ),
-    ).plus(
-        CALLBACKS.map { (propertyName, typeSource) ->
-            val aliasName = propertyName.replaceFirstChar(Char::uppercase)
-            val aliasBody = if ("()" !in typeSource) {
-                typeSource.replaceFirst("(", "(\n")
-                    .replaceFirst(", ", ",\n")
-            } else typeSource
-
-            ConversionResult(
-                name = aliasName,
-                body = "typealias $aliasName = " + aliasBody,
-                pkg = "web.form",
-            )
-        }
+        CustomFormControl(),
     )
 
-private fun CustomFormControlCallbacks(): ConversionResult {
-    val members = CALLBACKS.keys.joinToString("\n") { name ->
+private fun CustomFormControl(): ConversionResult {
+    val mainInterface = """
+        interface WithFormCallbacks:
+            ${CALLBACKS.keys.joinToString(",\n") { interfaceName(it) }}
+        """.trimIndent()
+
+    val interfaces = CALLBACKS.entries.joinToString("\n") { (methodName, methodBody) ->
         """
-        val $name: ${name.replaceFirstChar(Char::uppercase)}?
-            get() = definedExternally
+        interface ${interfaceName(methodName)} {
+            fun ${methodName}${methodBody}
+        }
         """.trimIndent()
     }
 
-    val body = "external interface $CUSTOM_FORM_CONTROL_CALLBACKS {\n" +
-            members +
-            "\n}"
+    val body = """
+    external interface $CUSTOM_FORM_CONTROL:
+        $FORM_CONTROL {
+        
+        $mainInterface
+        
+        $interfaces
+    }
+    """.trimIndent()
 
     return ConversionResult(
-        name = CUSTOM_FORM_CONTROL_CALLBACKS,
+        name = CUSTOM_FORM_CONTROL,
         body = body,
         pkg = "web.form"
     )
 }
+
+private fun interfaceName(methodName: String): String =
+    """With${methodName.replaceFirstChar(Char::uppercase)}"""
