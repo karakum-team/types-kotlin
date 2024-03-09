@@ -23,7 +23,7 @@ internal fun customElementTypes(): Sequence<ConversionResult> =
 
 private fun CustomElement(): ConversionResult {
     val mainInterface = """
-        interface WithFormCallbacks:
+        interface WithCallbacks:
             ${CALLBACKS.keys.joinToString(",\n") { interfaceName(it) }}
         """.trimIndent()
 
