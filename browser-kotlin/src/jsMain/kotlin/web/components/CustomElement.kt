@@ -3,7 +3,7 @@
 package web.components
 
 external interface CustomElement {
-    interface WithFormCallbacks :
+    interface WithCallbacks :
         WithConnectedCallback,
         WithDisconnectedCallback,
         WithAdoptedCallback,
