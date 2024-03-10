@@ -1,6 +1,7 @@
 package karakum.browser
 
-internal const val KEY = "Key"
+import karakum.common.unionBody
+
 internal const val KEY_CODE = "KeyCode"
 
 private val KEY_CODES = listOf(
@@ -188,7 +189,6 @@ private val KEY_CODES = listOf(
     "Unidentified",
 )
 
-internal const val MODIFIER_KEY = "ModifierKey"
 internal const val MODIFIER_KEY_CODE = "ModifierKeyCode"
 
 private val MODIFIER_KEY_CODES = listOf(
@@ -208,58 +208,15 @@ private val MODIFIER_KEY_CODES = listOf(
 
 internal fun keyboardTypes(): Sequence<ConversionResult> {
     return sequenceOf(
-        keyboardTypes(
-            type = KEY,
-            codeType = KEY_CODE,
-            values = KEY_CODES,
+        ConversionResult(
+            name = KEY_CODE,
+            body = unionBody(name = KEY_CODE, values = KEY_CODES),
+            pkg = "web.keyboard",
         ),
-        keyboardTypes(
-            type = MODIFIER_KEY,
-            codeType = MODIFIER_KEY_CODE,
-            values = MODIFIER_KEY_CODES,
+        ConversionResult(
+            name = MODIFIER_KEY_CODE,
+            body = unionBody(name = MODIFIER_KEY_CODE, values = MODIFIER_KEY_CODES),
+            pkg = "web.keyboard",
         )
-    ).flatMap { it }
-}
-
-private fun keyboardTypes(
-    type: String,
-    codeType: String,
-    values: List<String>,
-): Sequence<ConversionResult> {
-    val items = values.joinToString("\n\n") { name ->
-        val code = if (name.length == 1) "Key$name" else name
-
-        """
-        inline val $code: $codeType
-            get() = $codeType("$code")
-        """.trimIndent()
-    }
-
-    val typeBody = """
-    object $type {
-        $items
-    }
-    """.trimIndent()
-
-    val codeTypeBody = """
-    sealed external interface $codeType
-            
-    inline fun $codeType(
-        code: String,
-    ): $codeType =
-        code.unsafeCast<$codeType>()
-    """.trimIndent()
-
-    return sequenceOf(
-        ConversionResult(
-            name = type,
-            body = typeBody,
-            pkg = "web.keyboard",
-        ),
-        ConversionResult(
-            name = codeType,
-            body = codeTypeBody,
-            pkg = "web.keyboard",
-        ),
     )
 }
