@@ -16,6 +16,7 @@ internal fun generateKotlinDeclarations(
         declarations = parseDeclarations(engineDefinitionsFile)
             .plus(DefaultEvent)
             .plus(CameraOrientation),
+        pkg = "cesium",
         sourceDir = sourceDir.resolve("cesium"),
     )
 
@@ -23,12 +24,14 @@ internal fun generateKotlinDeclarations(
         declarations = parseDeclarations(widgetsDefinitionsFile)
             .filter { it.name != "ContextOptions" }
             .filter { it.name != "WebGLOptions" },
+        pkg = "cesium",
         sourceDir = sourceDir.resolve("cesium"),
     )
 }
 
 private fun generate(
     declarations: List<Declaration>,
+    pkg: String,
     sourceDir: File,
 ) {
     sourceDir.mkdirs()
@@ -60,6 +63,7 @@ private fun generate(
                 "// $GENERATOR_COMMENT",
                 moduleDeclaration,
                 annotations,
+                "package $pkg",
                 body,
             ).filter { it.isNotEmpty() }
                 .joinToString("\n\n")

@@ -1,8 +1,6 @@
 package karakum.cesium
 
 private const val CODE: String = """
-package cesium
-
 typealias DefaultEvent = Event<() -> Unit>
 """
 

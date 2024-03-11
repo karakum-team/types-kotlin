@@ -1,8 +1,6 @@
 package karakum.cesium
 
 internal val DEFAULT_PACKAGE: String = """
-package cesium
-
 import js.array.ReadonlyArray
 import js.buffer.ArrayBuffer
 import js.core.Void
