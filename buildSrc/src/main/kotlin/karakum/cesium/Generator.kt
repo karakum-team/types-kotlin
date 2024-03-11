@@ -32,9 +32,6 @@ internal fun generateKotlinDeclarations(
                 if (declaration is TypeBase)
                     suppresses += declaration.suppresses()
 
-                if ("""@JsName("Cesium.""" in body)
-                    suppresses += Suppress.NAME_CONTAINS_ILLEGAL_CHARS
-
                 if ("sealed external interface" in body && "companion object" in body)
                     suppresses += Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE
 
