@@ -12,56 +12,64 @@ internal fun generateKotlinDeclarations(
     widgetsDefinitionsFile: File,
     sourceDir: File,
 ) {
-    val cesiumDir = sourceDir.resolve("cesium")
-        .also { it.mkdirs() }
+    generate(
+        declarations = parseDeclarations(engineDefinitionsFile)
+            .plus(DefaultEvent)
+            .plus(CameraOrientation),
+        sourceDir = sourceDir.resolve("cesium"),
+    )
 
-    parseDeclarations(engineDefinitionsFile)
-        .asSequence()
-        .plus(
-            parseDeclarations(widgetsDefinitionsFile)
-                .filter { it.name != "ContextOptions" }
-                .filter { it.name != "WebGLOptions" }
-        )
-        .plus(DefaultEvent)
-        .plus(CameraOrientation)
-        .sortedBy(Declaration::name)
-        .forEach { declaration ->
-            val file = cesiumDir.resolve("${declaration.name}.kt")
-            val body = declaration.toCode()
-            if (!file.exists()) {
-                val isRuntime = hasRuntimeDeclarations(body)
-                val moduleDeclaration = if (isRuntime) {
-                    MODULE_ANNOTATION
-                } else ""
+    generate(
+        declarations = parseDeclarations(widgetsDefinitionsFile)
+            .filter { it.name != "ContextOptions" }
+            .filter { it.name != "WebGLOptions" },
+        sourceDir = sourceDir.resolve("cesium"),
+    )
+}
 
-                val suppresses = mutableListOf<Suppress>()
-                if (declaration is TypeBase)
-                    suppresses += declaration.suppresses()
+private fun generate(
+    declarations: List<Declaration>,
+    sourceDir: File,
+) {
+    sourceDir.mkdirs()
 
-                if ("sealed external interface" in body && "companion object" in body)
-                    suppresses += Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE
+    for (declaration in declarations.sortedBy(Declaration::name)) {
+        val file = sourceDir.resolve("${declaration.name}.kt")
+        val body = declaration.toCode()
+        if (!file.exists()) {
+            val isRuntime = hasRuntimeDeclarations(body)
+            val moduleDeclaration = if (isRuntime) {
+                MODULE_ANNOTATION
+            } else ""
 
-                val annotations = when {
-                    suppresses.isNotEmpty()
-                    -> fileSuppress(*suppresses.toTypedArray())
+            val suppresses = mutableListOf<Suppress>()
+            if (declaration is TypeBase)
+                suppresses += declaration.suppresses()
 
-                    else -> ""
-                }
+            if ("sealed external interface" in body && "companion object" in body)
+                suppresses += Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE
 
-                val content = sequenceOf(
-                    "// $GENERATOR_COMMENT",
-                    moduleDeclaration,
-                    annotations,
-                    body,
-                ).filter { it.isNotEmpty() }
-                    .joinToString("\n\n")
+            val annotations = when {
+                suppresses.isNotEmpty()
+                -> fileSuppress(*suppresses.toTypedArray())
 
-                file.writeText(content)
-            } else {
-                // for functions with union type parameters
-                file.appendText("\n\n" + body)
+                else -> ""
             }
+
+            val content = sequenceOf(
+                "// $GENERATOR_COMMENT",
+                moduleDeclaration,
+                annotations,
+                body,
+            ).filter { it.isNotEmpty() }
+                .joinToString("\n\n")
+
+            file.writeText(content)
+        } else {
+            // for functions with union type parameters
+            file.appendText("\n\n" + body)
         }
+    }
 }
 
 private fun hasRuntimeDeclarations(code: String): Boolean {
