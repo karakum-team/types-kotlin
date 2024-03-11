@@ -25,6 +25,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.uievents.UIEvent"),
     EventInfo("web.uievents.WheelEvent"),
     EventInfo("web.uievents.InputEvent"),
+    EventInfo("web.cssom.ContentVisibilityAutoStateChangeEvent"),
     EventInfo("web.cssom.TransitionEvent"),
 
     EventInfo("web.errors.ErrorEvent"),
