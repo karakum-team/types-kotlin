@@ -16,22 +16,24 @@ internal fun generateKotlinDeclarations(
         declarations = parseDeclarations(engineDefinitionsFile)
             .plus(DefaultEvent)
             .plus(CameraOrientation),
-        pkg = "cesium",
-        sourceDir = sourceDir.resolve("cesium"),
+        pkg = "cesium.engine",
+        sourceDir = sourceDir.resolve("cesium/engine"),
     )
 
     generate(
         declarations = parseDeclarations(widgetsDefinitionsFile)
             .filter { it.name != "ContextOptions" }
             .filter { it.name != "WebGLOptions" },
-        pkg = "cesium",
-        sourceDir = sourceDir.resolve("cesium"),
+        pkg = "cesium.widgets",
+        defaultImports = "import cesium.engine.*",
+        sourceDir = sourceDir.resolve("cesium/widgets"),
     )
 }
 
 private fun generate(
     declarations: List<Declaration>,
     pkg: String,
+    defaultImports: String = "",
     sourceDir: File,
 ) {
     sourceDir.mkdirs()
@@ -64,6 +66,7 @@ private fun generate(
                 moduleDeclaration,
                 annotations,
                 "package $pkg",
+                defaultImports,
                 body,
             ).filter { it.isNotEmpty() }
                 .joinToString("\n\n")
