@@ -5,8 +5,6 @@ import karakum.common.Suppress
 import karakum.common.fileSuppress
 import java.io.File
 
-private const val MODULE_ANNOTATION: String = """@file:JsModule("cesium")"""
-
 internal fun generateKotlinDeclarations(
     engineDefinitionsFile: File,
     widgetsDefinitionsFile: File,
@@ -38,14 +36,13 @@ private fun generate(
 ) {
     sourceDir.mkdirs()
 
+    val moduleDeclaration = """@file:JsModule("@${pkg.replace(".", "/")}")"""
+
     for (declaration in declarations.sortedBy(Declaration::name)) {
         val file = sourceDir.resolve("${declaration.name}.kt")
         val body = declaration.toCode()
         if (!file.exists()) {
             val isRuntime = hasRuntimeDeclarations(body)
-            val moduleDeclaration = if (isRuntime) {
-                MODULE_ANNOTATION
-            } else ""
 
             val suppresses = mutableListOf<Suppress>()
             if (declaration is TypeBase)
@@ -63,7 +60,7 @@ private fun generate(
 
             val content = sequenceOf(
                 "// $GENERATOR_COMMENT",
-                moduleDeclaration,
+                moduleDeclaration.takeIf { isRuntime } ?: "",
                 annotations,
                 "package $pkg",
                 defaultImports,
