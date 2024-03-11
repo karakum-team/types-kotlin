@@ -517,7 +517,7 @@ private fun eventTypes(
     dataMap.getDefaultEventTypes()
         .groupBy { it.pkg }
         .values
-        .flatMap { items -> eventTypes(items) }
+        .map { items -> eventTypes(items) }
 
 private fun eventTypes(
     eventName: String,
@@ -527,34 +527,6 @@ private fun eventTypes(
     types ?: return emptyList()
 
     val typesName = "${eventName}Types"
-    val deprecatedTypesName = "${typesName}_deprecated"
-
-    val deprecatedEventType = when (eventName) {
-        "MessageEvent",
-        -> "$eventName<*, EventTarget>"
-
-        else -> "$eventName<EventTarget>"
-    }
-    val deprecatedMembers = types
-        .sorted()
-        .joinToString("\n\n") { name ->
-            val rawName = EVENT_CORRECTION_MAP
-                .getOrDefault(name, name)
-
-            """
-            ${eventTypeDeprecation("$eventName.${rawName.snakeToCamel()}()")}
-            @JsValue("$name")
-            val ${rawName.uppercase()} : $EVENT_TYPE<$deprecatedEventType>
-                get() = definedExternally
-            """.trimIndent()
-        }
-
-    val deprecatedBody = """
-    sealed external interface $deprecatedTypesName {
-        $deprecatedMembers
-    }
-    """.trimIndent()
-
     val typeParameters = when (eventName) {
         "MessageEvent",
         -> "<D, C : EventTarget>"
@@ -584,8 +556,7 @@ private fun eventTypes(
 
     val body = """
     @JsVirtual    
-    sealed external class $typesName :
-        $deprecatedTypesName {
+    sealed external class $typesName {
 
         $members
     }
@@ -596,18 +567,13 @@ private fun eventTypes(
             name = "${eventName}.types",
             body = body,
             pkg = pkg,
-        ),
-        ConversionResult(
-            name = "${eventName}.types.deprecated",
-            body = deprecatedBody,
-            pkg = pkg,
-        ),
+        )
     )
 }
 
 private fun eventTypes(
     items: List<EventData>,
-): Sequence<ConversionResult> {
+): ConversionResult {
     val firstItem = items.first()
     val typeName = firstItem.typeName
 
@@ -625,9 +591,10 @@ private fun eventTypes(
         else -> "$typeName<C>"
     }
 
-    val body = items
-        .sortedBy { it.name }
-        .joinToString("\n\n") { (name, type) ->
+    val body = items.asSequence()
+        .map { it.name }
+        .sorted()
+        .joinToString("\n\n") { name ->
             val memberName = EVENT_CORRECTION_MAP
                 .getOrDefault(name, name)
                 .snakeToCamel()
@@ -638,33 +605,13 @@ private fun eventTypes(
             """.trimIndent()
         }
 
-    val deprecatedBody = items
-        .sortedBy { it.name }
-        .joinToString("\n\n") { (name, type) ->
-            val rawName = EVENT_CORRECTION_MAP
-                .getOrDefault(name, name)
-
-            """
-            ${eventTypeDeprecation("$typeName.${rawName.snakeToCamel()}()")}
-            inline val $typeName.Companion.${rawName.uppercase()} : $EVENT_TYPE<$type<EventTarget>>
-                get() = $EVENT_TYPE("$name")
-            """.trimIndent()
-        }
-
     val pkg = firstItem.pkg
         .takeIf { it.isNotEmpty() }
 
-    return sequenceOf(
-        ConversionResult(
-            name = "$typeName.types",
-            body = body,
-            pkg = pkg,
-        ),
-        ConversionResult(
-            name = "$typeName.types.deprecated",
-            body = deprecatedBody,
-            pkg = pkg,
-        ),
+    return ConversionResult(
+        name = "$typeName.types",
+        body = body,
+        pkg = pkg,
     )
 }
 
