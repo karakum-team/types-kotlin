@@ -6,7 +6,8 @@ plugins {
 }
 
 dependencies {
-    jsMainImplementation(npmv("cesium"))
+    jsMainImplementation(npmv("@cesium/engine"))
+    jsMainImplementation(npmv("@cesium/widgets"))
 
     jsMainImplementation(wrappers("browser"))
 }
