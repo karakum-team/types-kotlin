@@ -8,14 +8,20 @@ import java.io.File
 private const val MODULE_ANNOTATION: String = """@file:JsModule("cesium")"""
 
 internal fun generateKotlinDeclarations(
-    definitionsFile: File,
+    engineDefinitionsFile: File,
+    widgetsDefinitionsFile: File,
     sourceDir: File,
 ) {
     val cesiumDir = sourceDir.resolve("cesium")
         .also { it.mkdirs() }
 
-    parseDeclarations(definitionsFile)
+    parseDeclarations(engineDefinitionsFile)
         .asSequence()
+        .plus(
+            parseDeclarations(widgetsDefinitionsFile)
+                .filter { it.name != "ContextOptions" }
+                .filter { it.name != "WebGLOptions" }
+        )
         .plus(DefaultEvent)
         .plus(CameraOrientation)
         .sortedBy(Declaration::name)

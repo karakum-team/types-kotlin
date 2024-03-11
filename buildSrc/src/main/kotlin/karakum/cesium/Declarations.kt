@@ -39,32 +39,34 @@ internal fun parseDeclarations(
         .filterIsInstance<Class>()
         .associateBy { it.name }
 
-    addParentType(classMap, LIGHT)
-    addParentType(classMap, TERRAIN_DATA)
-    addParentType(classMap, TERRAIN_PROVIDER)
-    addParentType(classMap, TILING_SCHEME)
-    addParentType(classMap, VISUALIZER)
+    if (definitionsFile.parentFile.name == "engine") {
+        addParentType(classMap, LIGHT)
+        addParentType(classMap, TERRAIN_DATA)
+        addParentType(classMap, TERRAIN_PROVIDER)
+        addParentType(classMap, TILING_SCHEME)
+        addParentType(classMap, VISUALIZER)
 
-    addParentType(classMap, MATERIAL_PROPERTY)
-    /*
-    addParentType(classMap, POSITION_PROPERTY)
-    addParentType(classMap, PROPERTY) {
-        when {
-            it == MATERIAL_PROPERTY -> true
-            it == POSITION_PROPERTY -> true
-            it.endsWith(MATERIAL_PROPERTY) -> false
-            it.endsWith(POSITION_PROPERTY) -> false
-            else -> it.endsWith(PROPERTY)
+        addParentType(classMap, MATERIAL_PROPERTY)
+        /*
+        addParentType(classMap, POSITION_PROPERTY)
+        addParentType(classMap, PROPERTY) {
+            when {
+                it == MATERIAL_PROPERTY -> true
+                it == POSITION_PROPERTY -> true
+                it.endsWith(MATERIAL_PROPERTY) -> false
+                it.endsWith(POSITION_PROPERTY) -> false
+                else -> it.endsWith(PROPERTY)
+            }
         }
-    }
-    */
+        */
 
-    addParentType(classMap, "TileDiscardPolicy") {
-        "Tile" in it && "Discard" in it && "Policy" in it
-    }
+        addParentType(classMap, "TileDiscardPolicy") {
+            "Tile" in it && "Discard" in it && "Policy" in it
+        }
 
-    addParentType(classMap, "StyleExpression") {
-        it.endsWith("Expression")
+        addParentType(classMap, "StyleExpression") {
+            it.endsWith("Expression")
+        }
     }
 
     // TODO: remove temp hack
@@ -77,7 +79,7 @@ internal fun parseDeclarations(
                 || it.name == "requestAnimationFrame"
                 || it.name == "requestAnimationFrameCallback"
                 || it.name == "defaultValue"
-                || it.name == "defined<Type>"
+                || it.name == "defined"
     }
 
     declarations.removeAll {
@@ -138,8 +140,10 @@ private fun readDeclarations(
     definitionsFile: File,
 ): List<Declaration> =
     definitionsFile.readText()
-        .removePrefix("""declare module "cesium" {""")
+        .substringAfter("""declare module "@cesium/engine" {""")
+        .substringAfter("""declare module "@cesium/widgets" {""")
         .substringBefore("\n\n\n\n}")
+        .substringBefore("\n\n\n}")
         .replace("($TS_FUNCTION)", JS_FUNCTION)
         .replace(TS_FUNCTION, JS_FUNCTION)
         .replace("* /**", "*")
