@@ -19,7 +19,7 @@ val syncCesiumEngine by tasks.creating(Sync::class) {
     val sourceDir = kotlinWrappersDir.dir("kotlin-cesium-engine/src/jsMain/generated")
 
     from(generatedDir) {
-        include("cesium/engine/**.*")
+        include("cesium/engine/")
     }
     into(sourceDir.asFile)
 }
@@ -31,7 +31,7 @@ val syncCesiumWidgets by tasks.creating(Sync::class) {
     val sourceDir = kotlinWrappersDir.dir("kotlin-cesium-widgets/src/jsMain/generated")
 
     from(generatedDir) {
-        include("cesium/widgets/**.*")
+        include("cesium/widgets/")
     }
     into(sourceDir.asFile)
 }
