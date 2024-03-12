@@ -21,6 +21,14 @@ internal val UNION_DATA_LIST = listOf(
         pkg = "web.html",
     ),
     UnionData(
+        name = "SelectType",
+        values = listOf(
+            "select-one",
+            "select-multiple"
+        ),
+        pkg = "web.html",
+    ),
+    UnionData(
         name = PRELOAD,
         values = listOf(
             "none",
@@ -165,7 +173,7 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
                 )
             ),
             pkg = "web.html",
-        )
+        ),
     ).plus(
         UNION_DATA_LIST.map { data ->
             ConversionResult(
