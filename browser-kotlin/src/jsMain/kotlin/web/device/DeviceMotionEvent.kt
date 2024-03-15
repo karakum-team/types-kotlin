@@ -7,7 +7,6 @@
 package web.device
 
 import web.events.Event
-import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -16,10 +15,10 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DeviceMotionEvent)
  */
-open external class DeviceMotionEvent<out C : EventTarget?>(
-    override val type: EventType<DeviceMotionEvent<EventTarget>>,
+open external class DeviceMotionEvent(
+    override val type: EventType<DeviceMotionEvent, *>,
     init: DeviceMotionEventInit = definedExternally,
-) : Event<C> {
+) : Event {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DeviceMotionEvent/acceleration)
      */

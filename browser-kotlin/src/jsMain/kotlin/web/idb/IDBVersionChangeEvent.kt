@@ -8,7 +8,6 @@ package web.idb
 
 import js.core.JsLong
 import web.events.Event
-import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -16,10 +15,10 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBVersionChangeEvent)
  */
-open external class IDBVersionChangeEvent<out C : EventTarget?>(
-    override val type: EventType<IDBVersionChangeEvent<EventTarget>>,
+open external class IDBVersionChangeEvent(
+    override val type: EventType<IDBVersionChangeEvent, *>,
     init: IDBVersionChangeEventInit = definedExternally,
-) : Event<C>,
+) : Event,
     IDBVersionChangeEventInit {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBVersionChangeEvent/newVersion)

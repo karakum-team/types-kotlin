@@ -7,7 +7,6 @@
 package web.vtt
 
 import web.events.Event
-import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,10 +14,10 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TrackEvent)
  */
-open external class TrackEvent<out C : EventTarget?>(
-    override val type: EventType<TrackEvent<EventTarget>>,
+open external class TrackEvent(
+    override val type: EventType<TrackEvent, *>,
     init: TrackEventInit = definedExternally,
-) : Event<C>,
+) : Event,
     TrackEventInit {
     /**
      * Returns the track object (TextTrack, AudioTrack, or VideoTrack) to which the event relates.

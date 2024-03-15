@@ -7,7 +7,6 @@
 package web.sockets
 
 import web.events.Event
-import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,10 +14,10 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CloseEvent)
  */
-open external class CloseEvent<out C : EventTarget?>(
-    override val type: EventType<CloseEvent<EventTarget>>,
+open external class CloseEvent(
+    override val type: EventType<CloseEvent, *>,
     init: CloseEventInit = definedExternally,
-) : Event<C>,
+) : Event,
     CloseEventInit {
     /**
      * Returns the WebSocket connection close code provided by the server.

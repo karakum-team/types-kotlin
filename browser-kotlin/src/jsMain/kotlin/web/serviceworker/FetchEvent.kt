@@ -9,7 +9,6 @@ package web.serviceworker
 import js.core.Void
 import js.promise.Promise
 import js.promise.PromiseLike
-import web.events.EventTarget
 import web.events.EventType
 import web.http.Request
 import web.http.Response
@@ -19,10 +18,10 @@ import web.http.Response
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FetchEvent)
  */
-open external class FetchEvent<out C : EventTarget?>(
-    override val type: EventType<FetchEvent<EventTarget>>,
+open external class FetchEvent(
+    override val type: EventType<FetchEvent, *>,
     init: FetchEventInit,
-) : ExtendableEvent<C>,
+) : ExtendableEvent,
     FetchEventInit {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FetchEvent/clientId)

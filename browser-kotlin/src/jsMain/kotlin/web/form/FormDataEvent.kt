@@ -7,16 +7,15 @@
 package web.form
 
 import web.events.Event
-import web.events.EventTarget
 import web.events.EventType
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FormDataEvent)
  */
-open external class FormDataEvent<out C : EventTarget?>(
-    override val type: EventType<FormDataEvent<EventTarget>>,
+open external class FormDataEvent(
+    override val type: EventType<FormDataEvent, *>,
     init: FormDataEventInit,
-) : Event<C>,
+) : Event,
     FormDataEventInit {
     /**
      * Returns a FormData object representing names and values of elements associated to the target form. Operations on the FormData object will affect form data to be submitted.

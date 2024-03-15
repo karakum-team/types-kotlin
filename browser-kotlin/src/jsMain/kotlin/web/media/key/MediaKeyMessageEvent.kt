@@ -8,7 +8,6 @@ package web.media.key
 
 import js.buffer.ArrayBuffer
 import web.events.Event
-import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -17,10 +16,10 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeyMessageEvent)
  */
-open external class MediaKeyMessageEvent<out C : EventTarget?>(
-    override val type: EventType<MediaKeyMessageEvent<EventTarget>>,
+open external class MediaKeyMessageEvent(
+    override val type: EventType<MediaKeyMessageEvent, *>,
     init: MediaKeyMessageEventInit,
-) : Event<C>,
+) : Event,
     MediaKeyMessageEventInit {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeyMessageEvent/message)

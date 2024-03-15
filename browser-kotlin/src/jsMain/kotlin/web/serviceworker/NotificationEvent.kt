@@ -6,7 +6,6 @@
 
 package web.serviceworker
 
-import web.events.EventTarget
 import web.events.EventType
 import web.notifications.Notification
 
@@ -15,10 +14,10 @@ import web.notifications.Notification
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/NotificationEvent)
  */
-open external class NotificationEvent<out C : EventTarget?>(
-    override val type: EventType<NotificationEvent<EventTarget>>,
+open external class NotificationEvent(
+    override val type: EventType<NotificationEvent, *>,
     init: NotificationEventInit,
-) : ExtendableEvent<C>,
+) : ExtendableEvent,
     NotificationEventInit {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/NotificationEvent/action)

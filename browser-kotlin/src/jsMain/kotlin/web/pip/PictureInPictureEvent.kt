@@ -7,16 +7,15 @@
 package web.pip
 
 import web.events.Event
-import web.events.EventTarget
 import web.events.EventType
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PictureInPictureEvent)
  */
-open external class PictureInPictureEvent<out C : EventTarget?>(
-    override val type: EventType<PictureInPictureEvent<EventTarget>>,
+open external class PictureInPictureEvent(
+    override val type: EventType<PictureInPictureEvent, *>,
     init: PictureInPictureEventInit,
-) : Event<C>,
+) : Event,
     PictureInPictureEventInit {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PictureInPictureEvent/pictureInPictureWindow)

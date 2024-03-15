@@ -8,7 +8,6 @@ package web.payment
 
 import js.promise.PromiseLike
 import web.events.Event
-import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -17,10 +16,10 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequestUpdateEvent)
  */
-open external class PaymentRequestUpdateEvent<out C : EventTarget?>(
-    override val type: EventType<PaymentRequestUpdateEvent<EventTarget>>,
+open external class PaymentRequestUpdateEvent(
+    override val type: EventType<PaymentRequestUpdateEvent, *>,
     init: PaymentRequestUpdateEventInit = definedExternally,
-) : Event<C>,
+) : Event,
     PaymentRequestUpdateEventInit {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequestUpdateEvent/updateWith)

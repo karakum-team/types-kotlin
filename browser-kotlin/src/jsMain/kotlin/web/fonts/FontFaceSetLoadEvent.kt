@@ -8,16 +8,15 @@ package web.fonts
 
 import js.array.ReadonlyArray
 import web.events.Event
-import web.events.EventTarget
 import web.events.EventType
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSetLoadEvent)
  */
-open external class FontFaceSetLoadEvent<out C : EventTarget?>(
-    override val type: EventType<FontFaceSetLoadEvent<EventTarget>>,
+open external class FontFaceSetLoadEvent(
+    override val type: EventType<FontFaceSetLoadEvent, *>,
     init: FontFaceSetLoadEventInit = definedExternally,
-) : Event<C>,
+) : Event,
     FontFaceSetLoadEventInit {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSetLoadEvent/fontfaces)

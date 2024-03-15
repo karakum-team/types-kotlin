@@ -8,16 +8,15 @@ package web.html
 
 import js.buffer.ArrayBuffer
 import web.events.Event
-import web.events.EventTarget
 import web.events.EventType
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaEncryptedEvent)
  */
-open external class MediaEncryptedEvent<out C : EventTarget?>(
-    override val type: EventType<MediaEncryptedEvent<EventTarget>>,
+open external class MediaEncryptedEvent(
+    override val type: EventType<MediaEncryptedEvent, *>,
     init: MediaEncryptedEventInit = definedExternally,
-) : Event<C>,
+) : Event,
     MediaEncryptedEventInit {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaEncryptedEvent/initData)

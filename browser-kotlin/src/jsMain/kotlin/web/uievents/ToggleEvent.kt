@@ -7,16 +7,15 @@
 package web.uievents
 
 import web.events.Event
-import web.events.EventTarget
 import web.events.EventType
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ToggleEvent)
  */
-open external class ToggleEvent<out C : EventTarget?>(
-    override val type: EventType<ToggleEvent<EventTarget>>,
+open external class ToggleEvent(
+    override val type: EventType<ToggleEvent, *>,
     init: ToggleEventInit = definedExternally,
-) : Event<C>,
+) : Event,
     ToggleEventInit {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ToggleEvent/newState)

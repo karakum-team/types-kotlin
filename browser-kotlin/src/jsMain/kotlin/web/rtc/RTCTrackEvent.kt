@@ -8,7 +8,6 @@ package web.rtc
 
 import js.array.ReadonlyArray
 import web.events.Event
-import web.events.EventTarget
 import web.events.EventType
 import web.media.streams.MediaStream
 import web.media.streams.MediaStreamTrack
@@ -16,10 +15,10 @@ import web.media.streams.MediaStreamTrack
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCTrackEvent)
  */
-open external class RTCTrackEvent<out C : EventTarget?>(
-    override val type: EventType<RTCTrackEvent<EventTarget>>,
+open external class RTCTrackEvent(
+    override val type: EventType<RTCTrackEvent, *>,
     init: RTCTrackEventInit,
-) : Event<C>,
+) : Event,
     RTCTrackEventInit {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCTrackEvent/receiver)

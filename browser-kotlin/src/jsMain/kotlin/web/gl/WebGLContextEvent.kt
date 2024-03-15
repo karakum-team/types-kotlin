@@ -7,7 +7,6 @@
 package web.gl
 
 import web.events.Event
-import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,10 +14,10 @@ import web.events.EventType
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLContextEvent)
  */
-open external class WebGLContextEvent<out C : EventTarget?>(
-    override val type: EventType<WebGLContextEvent<EventTarget>>,
+open external class WebGLContextEvent(
+    override val type: EventType<WebGLContextEvent, *>,
     init: WebGLContextEventInit = definedExternally,
-) : Event<C>,
+) : Event,
     WebGLContextEventInit {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLContextEvent/statusMessage)
