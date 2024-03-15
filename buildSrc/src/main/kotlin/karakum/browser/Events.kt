@@ -292,8 +292,7 @@ private fun event(
         }
 
         val typeParameter = if (withDataSupport) "<D>" else ""
-        val genericEvent = "$name$typeParameter"
-        val eventType = "EventType<${genericEvent}, *>"
+        val eventType = "EventType<$name$typeParameter, EventTarget>"
 
         val eventParameters = constructorSource
             .split(", ")
