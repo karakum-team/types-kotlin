@@ -535,7 +535,7 @@ internal fun htmlDeclarations(
         .plus(
             ConversionResult(
                 name = "EventCounts",
-                body = "sealed external class EventCounts : ReadonlyMap<EventType<*>, Int>",
+                body = "sealed external class EventCounts : ReadonlyMap<EventType<*, *>, Int>",
                 pkg = "web.performance",
             )
         )
@@ -1660,14 +1660,12 @@ internal fun convertMember(
             .substringBefore(")")
 
         eventType += when (eventType) {
-            "MessageEvent",
-            -> "<*, $currentTarget>"
-
-            else -> "<$currentTarget>"
+            "MessageEvent" -> "<*>"
+            else -> ""
         }
 
         return sequenceOf(
-            "var $handlerName: EventHandler<$eventType>?",
+            "var $handlerName: EventHandler<$eventType, $currentTarget>?",
             VAR_PROPERTY_DE.takeIf { typeProvider.isDefined() },
         ).filterNotNull()
             .joinToString("\n")
@@ -1858,7 +1856,6 @@ private fun convertProperty(
                 arrayType = when (arrayType) {
                     "string" -> "String"
                     "boolean" -> "Boolean"
-                    "PointerEvent" -> "PointerEvent<*>"
                     else -> arrayType
                 }
 
@@ -1965,7 +1962,7 @@ private fun convertFunction(
         .replace(": StaticRange[]", ": ReadonlyArray<StaticRange>")
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")
         .replace(": RelativeTimeFormatPart[]", ": ReadonlyArray<dynamic /* RelativeTimeFormatPart */>")
-        .replace(": PointerEvent[]", ": ReadonlyArray<PointerEvent<*>>")
+        .replace(": PointerEvent[]", ": ReadonlyArray<PointerEvent>")
         .replace(Regex(""": (\w+?)\[]"""), ": ReadonlyArray<$1>")
         .replace(
             """: { type: "element" | "literal"; value: string; }[]""",

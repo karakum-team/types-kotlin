@@ -19,9 +19,6 @@ internal fun String.applyPatches(): String {
         .applyTempEventPatches()
         .applyReadyStatePatches()
         .patchQuerySelectors()
-        .patchInterface("Event") {
-            it.replace("\n    readonly currentTarget: EventTarget | null;", "\n    readonly currentTarget: C;")
-        }
         .patchInterface("ProgressEvent") {
             it.replace("\n    readonly target: T | null;", "")
         }

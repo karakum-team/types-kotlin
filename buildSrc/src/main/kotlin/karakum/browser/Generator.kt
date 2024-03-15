@@ -283,10 +283,9 @@ fun generateKotlinDeclarations(
             if ("inline fun " in body && !name.endsWith(".temp"))
                 add(NOTHING_TO_INLINE)
 
-            if ("@LowPriorityInOverloadResolution" in body) {
-                add(INVISIBLE_MEMBER)
-                add(INVISIBLE_REFERENCE)
-            }
+            // TEMP
+            if (name == EVENT_HANDLER)
+                add(UNUSED_TYPEALIAS_PARAMETER)
         }.toTypedArray()
 
         var annotations = if (suppresses.isNotEmpty()) {

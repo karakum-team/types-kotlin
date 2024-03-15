@@ -229,7 +229,7 @@ private fun event(
         }
         .substringBefore(";\n}\n")
 
-    val eventParent = eventSource.substringBefore(" {\n") + "<C>"
+    val eventParent = eventSource.substringBefore(" {\n")
     val eventIsInitLike = initBody.isNotEmpty()
             && "EventModifierInit" !in initBody
             && "MouseEventInit" !in initBody
@@ -291,9 +291,9 @@ private fun event(
             else -> false
         }
 
-        val typeParameter = if (withDataSupport) "<D, EventTarget?>" else "<EventTarget?>"
+        val typeParameter = if (withDataSupport) "<D>" else ""
         val genericEvent = "$name$typeParameter"
-        val eventType = "EventType<${genericEvent.replace("?>", ">")}>"
+        val eventType = "EventType<${genericEvent}, *>"
 
         val eventParameters = constructorSource
             .split(", ")
@@ -340,9 +340,9 @@ private fun event(
     val typeParameters = when (name) {
         "CustomEvent",
         "MessageEvent",
-        -> "<out D, out C: EventTarget?>"
+        -> "<out D>"
 
-        else -> "<out C: EventTarget?>"
+        else -> ""
     }
 
     var eventBody = """  
@@ -492,9 +492,9 @@ private fun eventTypes(
 
     val eventType = when (eventName) {
         "MessageEvent",
-        -> "$eventName<D, C>"
+        -> "$eventName<D>"
 
-        else -> "$eventName<C>"
+        else -> eventName
     }
 
     val members = types
@@ -506,7 +506,7 @@ private fun eventTypes(
 
             """
             @JsValue("$name")
-            fun $typeParameters $memberName(): $EVENT_TYPE<$eventType>
+            fun $typeParameters $memberName(): $EVENT_TYPE<$eventType, C>
             """.trimIndent()
         }
 
@@ -533,20 +533,6 @@ private fun eventTypes(
     val firstItem = items.first()
     val typeName = firstItem.typeName
 
-    val typeParameters = when (typeName) {
-        "MessageEvent",
-        -> "<D, C : EventTarget>"
-
-        else -> "<C : EventTarget>"
-    }
-
-    val eventType = when (typeName) {
-        "MessageEvent",
-        -> "$typeName<D, C>"
-
-        else -> "$typeName<C>"
-    }
-
     val body = items.asSequence()
         .map { it.name }
         .sorted()
@@ -556,7 +542,7 @@ private fun eventTypes(
                 .snakeToCamel()
 
             """
-            inline fun $typeParameters $typeName.Companion.$memberName() : $EVENT_TYPE<$eventType> =
+            inline fun <C : EventTarget> $typeName.Companion.$memberName() : $EVENT_TYPE<$typeName, C> =
                 $EVENT_TYPE("$name")
             """.trimIndent()
         }
