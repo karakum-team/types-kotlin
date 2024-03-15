@@ -22,9 +22,9 @@ open external class EventTarget {
     ): Boolean
 }
 
-fun <T : EventTarget, E : Event> T.addEventListener(
-    type: EventType<E, T>,
-    handler: EventHandler<E, T>,
+fun <C : EventTarget, E : Event> C.addEventListener(
+    type: EventType<E, C>,
+    handler: EventHandler<E, C>,
     options: AddEventListenerOptions? = undefined,
 ) {
     addEventListener(
@@ -34,9 +34,9 @@ fun <T : EventTarget, E : Event> T.addEventListener(
     )
 }
 
-fun <T : EventTarget, E : Event> T.removeEventListener(
-    type: EventType<E, T>,
-    handler: EventHandler<E, T>,
+fun <C : EventTarget, E : Event> C.removeEventListener(
+    type: EventType<E, C>,
+    handler: EventHandler<E, C>,
     options: AddEventListenerOptions? = undefined,
 ) {
     removeEventListener(
@@ -46,9 +46,9 @@ fun <T : EventTarget, E : Event> T.removeEventListener(
     )
 }
 
-fun <T : EventTarget, E : Event> T.addEventHandler(
-    type: EventType<E, T>,
-    handler: EventHandler<E, T>,
+fun <C : EventTarget, E : Event> C.addEventHandler(
+    type: EventType<E, C>,
+    handler: EventHandler<E, C>,
 ): () -> Unit =
     addEventHandler(
         type = type,
@@ -56,10 +56,10 @@ fun <T : EventTarget, E : Event> T.addEventHandler(
         handler = handler,
     )
 
-fun <T : EventTarget, E : Event> T.addEventHandler(
-    type: EventType<E, T>,
+fun <C : EventTarget, E : Event> C.addEventHandler(
+    type: EventType<E, C>,
     options: AddEventListenerOptions?,
-    handler: EventHandler<E, T>,
+    handler: EventHandler<E, C>,
 ): () -> Unit {
     addEventListener(
         type = type,
