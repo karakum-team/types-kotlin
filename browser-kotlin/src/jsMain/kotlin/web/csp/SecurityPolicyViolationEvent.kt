@@ -7,6 +7,7 @@
 package web.csp
 
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,7 +16,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SecurityPolicyViolationEvent)
  */
 open external class SecurityPolicyViolationEvent(
-    override val type: EventType<SecurityPolicyViolationEvent, *>,
+    override val type: EventType<SecurityPolicyViolationEvent, EventTarget>,
     init: SecurityPolicyViolationEventInit = definedExternally,
 ) : Event,
     SecurityPolicyViolationEventInit {

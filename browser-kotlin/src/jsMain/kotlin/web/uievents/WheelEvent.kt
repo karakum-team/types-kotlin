@@ -6,6 +6,7 @@
 
 package web.uievents
 
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -14,7 +15,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WheelEvent)
  */
 open external class WheelEvent(
-    override val type: EventType<WheelEvent, *>,
+    override val type: EventType<WheelEvent, EventTarget>,
     init: WheelEventInit = definedExternally,
 ) : MouseEvent {
     /**

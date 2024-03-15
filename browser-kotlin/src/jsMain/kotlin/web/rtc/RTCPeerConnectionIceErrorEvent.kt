@@ -7,13 +7,14 @@
 package web.rtc
 
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnectionIceErrorEvent)
  */
 open external class RTCPeerConnectionIceErrorEvent(
-    override val type: EventType<RTCPeerConnectionIceErrorEvent, *>,
+    override val type: EventType<RTCPeerConnectionIceErrorEvent, EventTarget>,
     init: RTCPeerConnectionIceErrorEventInit,
 ) : Event,
     RTCPeerConnectionIceErrorEventInit {

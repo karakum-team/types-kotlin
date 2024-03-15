@@ -7,6 +7,7 @@
 package web.history
 
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,7 +16,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PopStateEvent)
  */
 open external class PopStateEvent(
-    override val type: EventType<PopStateEvent, *>,
+    override val type: EventType<PopStateEvent, EventTarget>,
     init: PopStateEventInit = definedExternally,
 ) : Event,
     PopStateEventInit {

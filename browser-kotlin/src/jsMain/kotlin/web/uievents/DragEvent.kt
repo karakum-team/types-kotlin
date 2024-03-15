@@ -7,6 +7,7 @@
 package web.uievents
 
 import web.data.DataTransfer
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,7 +16,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DragEvent)
  */
 open external class DragEvent(
-    override val type: EventType<DragEvent, *>,
+    override val type: EventType<DragEvent, EventTarget>,
     init: DragEventInit = definedExternally,
 ) : MouseEvent {
     /**

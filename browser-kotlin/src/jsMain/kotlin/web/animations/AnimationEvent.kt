@@ -7,6 +7,7 @@
 package web.animations
 
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,7 +16,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AnimationEvent)
  */
 open external class AnimationEvent(
-    override val type: EventType<AnimationEvent, *>,
+    override val type: EventType<AnimationEvent, EventTarget>,
     init: AnimationEventInit = definedExternally,
 ) : Event,
     AnimationEventInit {

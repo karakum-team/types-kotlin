@@ -10,7 +10,7 @@ package web.events
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CustomEvent)
  */
 open external class CustomEvent<out D>(
-    override val type: EventType<CustomEvent<D>, *>,
+    override val type: EventType<CustomEvent<D>, EventTarget>,
     init: CustomEventInit<D> = definedExternally,
 ) : Event,
     CustomEventInit<D> {

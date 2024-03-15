@@ -7,6 +7,7 @@
 package web.sockets
 
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,7 +16,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CloseEvent)
  */
 open external class CloseEvent(
-    override val type: EventType<CloseEvent, *>,
+    override val type: EventType<CloseEvent, EventTarget>,
     init: CloseEventInit = definedExternally,
 ) : Event,
     CloseEventInit {

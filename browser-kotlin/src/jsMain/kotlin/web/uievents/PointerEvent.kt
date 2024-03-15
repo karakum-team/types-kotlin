@@ -7,6 +7,7 @@
 package web.uievents
 
 import js.array.ReadonlyArray
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,7 +16,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent)
  */
 open external class PointerEvent(
-    override val type: EventType<PointerEvent, *>,
+    override val type: EventType<PointerEvent, EventTarget>,
     init: PointerEventInit = definedExternally,
 ) : MouseEvent {
     /**

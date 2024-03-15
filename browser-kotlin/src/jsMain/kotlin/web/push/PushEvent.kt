@@ -6,6 +6,7 @@
 
 package web.push
 
+import web.events.EventTarget
 import web.events.EventType
 import web.serviceworker.ExtendableEvent
 
@@ -16,7 +17,7 @@ import web.serviceworker.ExtendableEvent
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PushEvent)
  */
 open external class PushEvent(
-    override val type: EventType<PushEvent, *>,
+    override val type: EventType<PushEvent, EventTarget>,
     init: PushEventInit = definedExternally,
 ) : ExtendableEvent,
     PushEventInit {

@@ -7,6 +7,7 @@
 package web.serviceworker
 
 import js.array.ReadonlyArray
+import web.events.EventTarget
 import web.events.EventType
 import web.messaging.MessagePort
 
@@ -16,7 +17,7 @@ import web.messaging.MessagePort
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ExtendableMessageEvent)
  */
 open external class ExtendableMessageEvent(
-    override val type: EventType<ExtendableMessageEvent, *>,
+    override val type: EventType<ExtendableMessageEvent, EventTarget>,
     init: ExtendableMessageEventInit = definedExternally,
 ) : ExtendableEvent,
     ExtendableMessageEventInit {

@@ -6,13 +6,14 @@
 
 package web.speech
 
+import web.events.EventTarget
 import web.events.EventType
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SpeechSynthesisErrorEvent)
  */
 open external class SpeechSynthesisErrorEvent(
-    override val type: EventType<SpeechSynthesisErrorEvent, *>,
+    override val type: EventType<SpeechSynthesisErrorEvent, EventTarget>,
     init: SpeechSynthesisErrorEventInit,
 ) : SpeechSynthesisEvent,
     SpeechSynthesisErrorEventInit {

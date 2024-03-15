@@ -7,6 +7,7 @@
 package web.history
 
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,7 +16,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PageTransitionEvent)
  */
 open external class PageTransitionEvent(
-    override val type: EventType<PageTransitionEvent, *>,
+    override val type: EventType<PageTransitionEvent, EventTarget>,
     init: PageTransitionEventInit = definedExternally,
 ) : Event,
     PageTransitionEventInit {

@@ -7,6 +7,7 @@
 package web.speech
 
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,7 +16,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SpeechSynthesisEvent)
  */
 open external class SpeechSynthesisEvent(
-    override val type: EventType<SpeechSynthesisEvent, *>,
+    override val type: EventType<SpeechSynthesisEvent, EventTarget>,
     init: SpeechSynthesisEventInit,
 ) : Event,
     SpeechSynthesisEventInit {

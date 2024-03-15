@@ -7,13 +7,14 @@
 package web.form
 
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FormDataEvent)
  */
 open external class FormDataEvent(
-    override val type: EventType<FormDataEvent, *>,
+    override val type: EventType<FormDataEvent, EventTarget>,
     init: FormDataEventInit,
 ) : Event,
     FormDataEventInit {

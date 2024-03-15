@@ -6,6 +6,7 @@
 
 package web.uievents
 
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -14,7 +15,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CompositionEvent)
  */
 open external class CompositionEvent(
-    override val type: EventType<CompositionEvent, *>,
+    override val type: EventType<CompositionEvent, EventTarget>,
     init: CompositionEventInit = definedExternally,
 ) : UIEvent,
     CompositionEventInit {

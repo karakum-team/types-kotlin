@@ -7,13 +7,14 @@
 package web.cssom
 
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaQueryListEvent)
  */
 open external class MediaQueryListEvent(
-    override val type: EventType<MediaQueryListEvent, *>,
+    override val type: EventType<MediaQueryListEvent, EventTarget>,
     init: MediaQueryListEventInit = definedExternally,
 ) : Event,
     MediaQueryListEventInit {

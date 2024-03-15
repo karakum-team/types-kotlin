@@ -7,6 +7,7 @@
 package web.storage
 
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,7 +16,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/StorageEvent)
  */
 open external class StorageEvent(
-    override val type: EventType<StorageEvent, *>,
+    override val type: EventType<StorageEvent, EventTarget>,
     init: StorageEventInit = definedExternally,
 ) : Event,
     StorageEventInit {

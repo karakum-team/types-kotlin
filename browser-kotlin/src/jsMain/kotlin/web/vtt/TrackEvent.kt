@@ -7,6 +7,7 @@
 package web.vtt
 
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,7 +16,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TrackEvent)
  */
 open external class TrackEvent(
-    override val type: EventType<TrackEvent, *>,
+    override val type: EventType<TrackEvent, EventTarget>,
     init: TrackEventInit = definedExternally,
 ) : Event,
     TrackEventInit {

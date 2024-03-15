@@ -7,6 +7,7 @@
 package web.midi
 
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,7 +16,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MIDIConnectionEvent)
  */
 open external class MIDIConnectionEvent(
-    override val type: EventType<MIDIConnectionEvent, *>,
+    override val type: EventType<MIDIConnectionEvent, EventTarget>,
     init: MIDIConnectionEventInit = definedExternally,
 ) : Event,
     MIDIConnectionEventInit {

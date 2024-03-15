@@ -7,6 +7,7 @@
 package web.gl
 
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -15,7 +16,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLContextEvent)
  */
 open external class WebGLContextEvent(
-    override val type: EventType<WebGLContextEvent, *>,
+    override val type: EventType<WebGLContextEvent, EventTarget>,
     init: WebGLContextEventInit = definedExternally,
 ) : Event,
     WebGLContextEventInit {

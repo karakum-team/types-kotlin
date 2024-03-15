@@ -8,6 +8,7 @@ package web.messaging
 
 import js.array.ReadonlyArray
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
@@ -16,7 +17,7 @@ import web.events.EventType
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessageEvent)
  */
 open external class MessageEvent<out D>(
-    override val type: EventType<MessageEvent<D>, *>,
+    override val type: EventType<MessageEvent<D>, EventTarget>,
     init: MessageEventInit<D> = definedExternally,
 ) : Event,
     MessageEventInit<D> {

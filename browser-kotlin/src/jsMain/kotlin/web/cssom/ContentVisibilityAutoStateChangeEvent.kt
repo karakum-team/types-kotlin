@@ -7,13 +7,14 @@
 package web.cssom
 
 import web.events.Event
+import web.events.EventTarget
 import web.events.EventType
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ContentVisibilityAutoStateChangeEvent)
  */
 open external class ContentVisibilityAutoStateChangeEvent(
-    override val type: EventType<ContentVisibilityAutoStateChangeEvent, *>,
+    override val type: EventType<ContentVisibilityAutoStateChangeEvent, EventTarget>,
     init: ContentVisibilityAutoStateChangeEventInit = definedExternally,
 ) : Event,
     ContentVisibilityAutoStateChangeEventInit {
