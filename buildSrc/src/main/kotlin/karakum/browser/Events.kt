@@ -282,10 +282,7 @@ private fun event(
         .removePrefix("new<T>(")
         .substringBefore("): $name")
 
-    val eventConstructor: String
-    val eventFactories: String
-
-    if (constructorSource.isNotEmpty()) {
+    val eventConstructor = if (constructorSource.isNotEmpty()) {
         val withDataSupport = when (name) {
             "CustomEvent",
             "MessageEvent",
@@ -318,44 +315,8 @@ private fun event(
             }
             .joinToString(",\n")
 
-        eventConstructor = (if (withDataSupport) "\n@LowPriorityInOverloadResolution\nconstructor" else "") +
-                "(\n$eventParameters\n)"
-
-        eventFactories = sequenceOf(eventParameters)
-            .flatMap {
-                val optionalInit = it.endsWith(" = definedExternally")
-                val ps = it
-                    .replace("open val ", "")
-                    .replace("override val ", "")
-                    .replace(" = definedExternally", "")
-
-                if (optionalInit) {
-                    sequenceOf(
-                        1 to ps.substringBefore(",\n", ""),
-                        2 to ps,
-                    )
-                } else {
-                    sequenceOf(2 to ps)
-                }
-            }.joinToString("\n\n") { (pc, parameters) ->
-                val callParameters = sequenceOf("type", "init")
-                    .take(pc)
-                    .map { "$it = $it," }
-                    .joinToString("\n")
-
-                """
-                inline fun ${if (withDataSupport) "<D>" else ""} $name(
-                    $parameters
-                ): ${genericEvent.replace("EventTarget?>", "*>")} =
-                    $genericEvent(
-                        $callParameters
-                    )
-                """.trimIndent()
-            }
-    } else {
-        eventConstructor = ""
-        eventFactories = ""
-    }
+        "(\n$eventParameters\n)"
+    } else ""
 
     val companionSource = eventClassBody
         .substringAfter("\n", "")
@@ -458,11 +419,6 @@ private fun event(
         ConversionResult(
             name = name,
             body = eventBody,
-            pkg = pkg,
-        ),
-        ConversionResult(
-            name = "$name.factory",
-            body = eventFactories,
             pkg = pkg,
         ),
     ).filter { it.body.isNotEmpty() }
