@@ -1150,6 +1150,7 @@ internal fun convertInterface(
         -> "open"
 
         name == "BlobPropertyBag" ||
+                name == "RequestInit" ||
                 name in CSSOM_INTERFACES ||
                 name == "AudioWorkletProcessorImpl" ||
                 name == "AbstractWorker" ||
