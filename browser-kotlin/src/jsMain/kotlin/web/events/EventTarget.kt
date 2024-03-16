@@ -32,7 +32,8 @@ open external class EventTarget {
     ): Boolean
 }
 
-fun <C : EventTarget, E : Event> C.addEventListener(
+// event + targets
+fun <E : Event, C : EventTarget> C.addEventListener(
     type: EventType<E, C>,
     handler: EventHandler<E, C>,
     options: AddEventListenerOptions? = undefined,
@@ -44,7 +45,7 @@ fun <C : EventTarget, E : Event> C.addEventListener(
     )
 }
 
-fun <C : EventTarget, E : Event> C.removeEventListener(
+fun <E : Event, C : EventTarget> C.removeEventListener(
     type: EventType<E, C>,
     handler: EventHandler<E, C>,
     options: AddEventListenerOptions? = undefined,
@@ -56,7 +57,7 @@ fun <C : EventTarget, E : Event> C.removeEventListener(
     )
 }
 
-fun <C : EventTarget, E : Event> C.addEventHandler(
+fun <E : Event, C : EventTarget> C.addEventHandler(
     type: EventType<E, C>,
     handler: EventHandler<E, C>,
 ): () -> Unit =
@@ -66,7 +67,7 @@ fun <C : EventTarget, E : Event> C.addEventHandler(
         handler = handler,
     )
 
-fun <C : EventTarget, E : Event> C.addEventHandler(
+fun <E : Event, C : EventTarget> C.addEventHandler(
     type: EventType<E, C>,
     options: AddEventListenerOptions?,
     handler: EventHandler<E, C>,
