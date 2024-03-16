@@ -16,6 +16,7 @@ dependencies {
     jsMainImplementation(npmv("@types/serviceworker"))
     jsMainImplementation(npmv("@types/audioworklet"))
     jsMainImplementation(npmv("typescript"))
+    jsMainImplementation(npmv("@webref/events"))
     jsMainImplementation(npmv("@webref/idl"))
 
     jsMainImplementation(wrappers("cssom-core"))
