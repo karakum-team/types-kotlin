@@ -257,7 +257,6 @@ private fun event(
         .joinToString("\n")
         // Event
         .replace("val type: String", "    // val type: String")
-        .replace("val target: EventTarget?", "open val target: EventTarget?")
         .let {
             when {
                 name == EVENT
