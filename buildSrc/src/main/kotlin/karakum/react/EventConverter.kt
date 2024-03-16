@@ -15,7 +15,7 @@ internal fun convertNativeEvents(
                 .removeSuffix(";")
                 .let { EVENT_INFO_MAP.getValue(it).fqn }
 
-            "typealias $name<C> = $alias<C>"
+            "typealias $name = $alias"
         }
 
     return ConversionResult("NativeEvents", body, Package.EVENTS)
