@@ -4,7 +4,7 @@ package react.dom.events
 
 import web.dom.Element
 
-external interface KeyboardEvent<out T : Element> : UIEvent<T, NativeKeyboardEvent<T>> {
+external interface KeyboardEvent<out T : Element> : UIEvent<T, NativeKeyboardEvent> {
     val altKey: Boolean
     val ctrlKey: Boolean
     val code: String
