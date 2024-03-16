@@ -108,6 +108,7 @@ internal fun eventDeclarations(
         .plus(EventType())
         .plus(EventHandler())
         .plus(EventTarget())
+        .plus(HasTargets())
         .plus(eventPlaceholders(content, EVENT_DATA, dataMap, strict = true))
 }
 

@@ -5,12 +5,24 @@ internal const val EVENT_TARGET = "EventTarget"
 // language=kotlin
 private val EVENT_TARGET_BODY: String = """
 open external class EventTarget {
+    internal fun <E: Event> addEventListener(
+        type: EventType<E, *>,
+        callback: EventHandler<E, *>,
+        options: AddEventListenerOptions? = definedExternally,
+    )
+    
     internal fun addEventListener(
         type: EventType<*, *>,
         callback: Function<Unit>,
         options: AddEventListenerOptions? = definedExternally,
     )
-
+    
+    internal fun <E: Event> removeEventListener(
+        type: EventType<E, *>,
+        callback: EventHandler<E, *>,
+        options: EventListenerOptions? = definedExternally,
+    )
+    
     internal fun removeEventListener(
         type: EventType<*, *>,
         callback: Function<Unit>,

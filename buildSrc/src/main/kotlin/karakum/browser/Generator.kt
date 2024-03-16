@@ -283,9 +283,8 @@ fun generateKotlinDeclarations(
             if ("inline fun " in body && !name.endsWith(".temp"))
                 add(NOTHING_TO_INLINE)
 
-            // TEMP
             if (name == EVENT_HANDLER)
-                add(UNUSED_TYPEALIAS_PARAMETER)
+                add(BOUNDS_NOT_ALLOWED_IF_BOUNDED_BY_TYPE_PARAMETER)
         }.toTypedArray()
 
         var annotations = if (suppresses.isNotEmpty()) {
