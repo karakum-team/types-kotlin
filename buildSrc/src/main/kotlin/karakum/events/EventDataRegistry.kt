@@ -1,6 +1,5 @@
 package karakum.events
 
-import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
 import java.io.File
 
@@ -13,9 +12,6 @@ object EventDataRegistry {
     }
 
     val data: List<EventData> by lazy {
-        json.decodeFromString(
-            ListSerializer(EventData.serializer()),
-            sourceFile.readText(),
-        )
+        json.decodeFromString(sourceFile.readText())
     }
 }
