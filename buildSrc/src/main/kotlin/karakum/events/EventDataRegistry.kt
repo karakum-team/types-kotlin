@@ -7,6 +7,7 @@ object EventDataRegistry {
     lateinit var sourceFile: File
 
     private val json = Json {
+        explicitNulls = false
         // temp
         ignoreUnknownKeys = true
     }

@@ -3,9 +3,7 @@ package karakum.events
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class EventData(
-    val src: Src,
+data class Src(
+    val format: String?,
     val href: String?,
-    val type: String,
-    val `interface`: String,
 )
