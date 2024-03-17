@@ -8,8 +8,6 @@ object EventDataRegistry {
 
     private val json = Json {
         explicitNulls = false
-        // temp
-        ignoreUnknownKeys = true
     }
 
     val data: List<EventData> by lazy {

@@ -9,4 +9,5 @@ data class EventData(
     val type: String,
     val targets: List<Target>,
     val `interface`: String,
+    val extendedIn: List<ExtendedIn>?,
 )
