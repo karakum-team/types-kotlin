@@ -4,6 +4,7 @@ import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
 import karakum.common.Suppress.*
 import karakum.common.fileSuppress
+import karakum.events.EventDataRegistry
 import java.io.File
 
 private val DEFAULT_IMPORTS = Imports(
@@ -236,6 +237,7 @@ private val GPU_FLAGS = setOf(
 
 fun generateKotlinDeclarations(
     idlDir: File,
+    eventsSourceFile: File,
     definitionsDir: File,
     webDefinitionsFile: File,
     webIterableDefinitionsFile: File,
@@ -245,6 +247,7 @@ fun generateKotlinDeclarations(
     sourceDir: File,
 ) {
     IDLRegistry.rootDirectory = idlDir
+    EventDataRegistry.sourceFile = eventsSourceFile
 
     IterableRegistry.fill(
         definitionsDir,
