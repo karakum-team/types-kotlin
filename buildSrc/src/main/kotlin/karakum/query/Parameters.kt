@@ -35,6 +35,12 @@ fun parseParameters(source: String): List<String> {
         -> return listOf(
             "options: FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey> /* required 'queryKey' */",
         )
+
+        "result: QueryObserverResult<TData, TError>, onPropTracked?: (key: keyof QueryObserverResult) => void",
+        -> return listOf(
+            "result: QueryObserverResult<TData, TError>",
+            "onPropTracked: (key: String /* keyof QueryObserverResult */) -> Unit = definedExternally",
+        )
     }
 
     val parts = params.split(": ")

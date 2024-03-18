@@ -63,6 +63,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "QueryBehavior<TQueryFnData, TError, InfiniteData<TData, TPageParam>>" to "QueryBehavior<TQueryFnData, TError, InfiniteData<TData, TPageParam>, *>",
     "QueryPersister<NoInfer<TQueryFnData>, NoInfer<TQueryKey>, NoInfer<TPageParam>>" to "QueryPersister<TQueryFnData, TQueryKey, TPageParam>",
 
+    "QueryFunction<TQueryFnData, TQueryKey, TPageParam> | SkipToken" to "QueryFunction<TQueryFnData, TQueryKey, TPageParam> /* | SkipToken */",
+    "EnsureQueryDataOptions<TQueryFnData, TError, TData, TQueryKey>" to "EnsureQueryDataOptions<TQueryFnData, TError, TData, TQueryKey, *>",
+
     "InvalidateQueryFilters<TPageData>" to "InvalidateQueryFilters<TPageData>",
     "RefetchQueryFilters<TPageData>" to "RefetchQueryFilters<TPageData>",
     "ResetQueryFilters<TPageData>" to "ResetQueryFilters<TPageData>",
@@ -93,6 +96,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "import(\"./query\").Query<unknown, unknown, unknown, QueryKey>" to
             "Query<*, *, *, QueryKey>",
+
+    "keyof QueryObserverResult" to "String /* keyof QueryObserverResult */",
 )
 
 private val SAFE_PREFIXES = setOf(
