@@ -89,7 +89,7 @@ class Type(
     }
 
     override fun toCode(): String {
-        if (name == "Override" || name == "NoInfer" || name == "NonFunctionGuard")
+        if (name == "Override" || name == "NoInfer" || name == "NonFunctionGuard" || name == "SkipToken")
             return ""
 
         if (name == "QueryClientProviderProps")
