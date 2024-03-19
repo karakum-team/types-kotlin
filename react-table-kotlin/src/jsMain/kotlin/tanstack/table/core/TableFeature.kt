@@ -2,13 +2,13 @@
 
 package tanstack.table.core
 
-external interface TableFeature {
-    var createCell: ((cell: Any, column: Any, row: Any, table: Any) -> Any)?
-    var createColumn: ((column: Any, table: Any) -> Any)?
-    var createHeader: ((column: Any, table: Any) -> Any)?
-    var createRow: ((row: Any, table: Any) -> Any)?
-    var createTable: ((table: Any) -> Any)?
-    var getDefaultColumnDef: (() -> Any)?
-    var getDefaultOptions: ((table: Any) -> Any)?
-    var getInitialState: ((initialState: InitialTableState?) -> Any)?
+external interface TableFeature<TData : RowData = any>{
+    var createCell: ((cell: Cell<TData, unknown>, column: Column<TData>, row: Row<TData>, table: Table<TData>) -> Unit)?
+    var createColumn: ((column: Column<TData, *>, table: Table<TData>) -> Unit)?
+    var createHeader: ((header: Header<TData, unknown>, table: Table<TData>) -> Unit)?
+    var createRow: ((row: Row<TData>, table: Table<TData>) -> Unit)?
+    var createTable: ((table: Table<TData>) -> Unit)?
+    var getDefaultColumnDef: (() -> Partial<ColumnDef<TData, unknown>>)?
+    var getDefaultOptions: ((table: Table<TData>) -> Partial<TableOptionsResolved<TData>>)?
+    var getInitialState: ((initialState: InitialTableState?) -> Partial<TableState>)?
 }
