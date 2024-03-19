@@ -125,6 +125,10 @@ internal fun kotlinType(
         .replace("?: Row<TData>", ": Row<TData>?")
         .replace("?: ToggleSelectedOptions", ": ToggleSelectedOptions?")
         .replace(" -> undefined | TData[]", " -> ReadonlyArray<TData>")
-        .replace("Column<TData, unknown>", "Column<TData, *>")
+        .replace("<TData, unknown>", "<TData, *>")
         .replace("<TValue | null>", "<TValue?>")
+        .replace(": Column<TData>", ": Column<TData, *>")
+        .replace(" -> Partial<ColumnDef<TData, *>>", " -> ColumnDef<TData, *>")
+        .replace(" -> Partial<TableOptionsResolved<TData>>", " -> TableOptionsResolved<TData>")
+        .replace(" -> Partial<TableState>", " -> TableState")
 }
