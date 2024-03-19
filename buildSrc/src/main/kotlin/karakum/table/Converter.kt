@@ -103,6 +103,7 @@ private fun convertConst(
         .replace("\n    ", "\n    val ")
         .replace("<any>", "<*>")
         .replace("number", "Int")
+        .replace("TableFeature", "TableFeature<*>")
 
     val content = "external $type $body"
     return ConversionResult(name, content)
