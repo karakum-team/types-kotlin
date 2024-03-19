@@ -297,7 +297,7 @@ private fun convertTypealias(
             body.startsWith("ColumnDefBase<TData, TValue> & ColumnIdentifiers<TData, TValue> & {\n") ||
             "\n} & Partial<ColumnIdentifiers<TData, TValue>> & ColumnDefBase<TData, TValue> & {" in body
         ) {
-            var members = body
+            val members = body
                 .removePrefix("ColumnDefBase<TData, TValue> & {\n")
                 .removePrefix("ColumnDefBase<TData, TValue> & ColumnIdentifiers<TData, TValue> & {\n")
                 .replace("\n} & Partial<ColumnIdentifiers<TData, TValue>> & ColumnDefBase<TData, TValue> & {", "")
@@ -319,7 +319,7 @@ private fun convertTypealias(
         if (name == "ColumnDef")
             declaration = declaration.replace("TValue : Any", "TValue")
 
-        var interfaceBody = when (name) {
+        val interfaceBody = when (name) {
             "ColumnDefResolved",
             -> "ColumnDef<TData, TValue> /* $body */"
 
@@ -371,6 +371,7 @@ private fun convertInterface(
 ): ConversionResult {
     var declaration = source.substringBefore(" {")
         .replace(" = unknown>", ">")
+        .replace(" = any>", ">")
         .removeSuffix(" =")
         .replace(" extends ", " : ")
 
