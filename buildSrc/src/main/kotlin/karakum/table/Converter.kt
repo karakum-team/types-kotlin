@@ -143,6 +143,7 @@ private fun convertFunction(
         .replace(": ColumnDef<TData>", ": ColumnDef<TData, *>")
         .replace(": TData | undefined", ": TData?")
         .replace("?: Row<TData>[] | undefined", ": ReadonlyArray<Row<TData>>? = definedExternally")
+        .replace("?: Row<TData>[],", ": ReadonlyArray<Row<TData>>? = definedExternally,")
         .replace(": Row<TData>[],", ": ReadonlyArray<Row<TData>>,")
         .replace(" -> Row<TData>[],", " -> ReadonlyArray<Row<TData>>,")
         .replace("?: string)", ": String? = definedExternally)")
