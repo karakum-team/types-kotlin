@@ -2,7 +2,11 @@
 
 package js.date
 
+import js.array.ReadonlyArray
 import js.core.JsLong
+import js.intl.DateTimeFormatOptions
+import js.intl.Locale
+import js.intl.UnicodeBCP47LocaleIdentifier
 
 external class Date() {
     constructor(value: JsLong)
@@ -28,9 +32,6 @@ external class Date() {
         seconds: Int = definedExternally,
         ms: Int = definedExternally,
     )
-
-    /** Returns a string representation of a date. The format of the string depends on the locale. */
-    fun toString(): String
 
     /** Returns a date as a string value. */
     fun toDateString(): String
@@ -257,28 +258,82 @@ external class Date() {
     fun toISOString(): String
 
     /** Used by the JSON.stringify method to enable the transformation of an object's data for JavaScript Object Notation (JSON) serialization. */
-    fun toJSON(key?: any): String
+    fun toJSON(key: Any? = definedExternally): String
+
     /**
      * Converts a date and time to a string by using the current or specified locale.
      * @param locales A locale string, array of locale strings, Intl.Locale object, or array of Intl.Locale objects that contain one or more language or locale tags. If you include more than one locale string, list them in descending order of priority so that the first entry is the preferred locale. If you omit this parameter, the default locale of the JavaScript runtime is used.
      * @param options An object that contains one or more properties that specify comparison options.
      */
-    fun toLocaleString(locales?: Intl.LocalesArgument,
-    options?: Intl.DateTimeFormatOptions): String
+    fun toLocaleString(
+        locales: UnicodeBCP47LocaleIdentifier = definedExternally,
+        options: DateTimeFormatOptions = definedExternally,
+    ): String
+
+    fun toLocaleString(
+        locales: Locale,
+        options: DateTimeFormatOptions = definedExternally,
+    ): String
+
+    fun toLocaleString(
+        locales: ReadonlyArray<UnicodeBCP47LocaleIdentifier>,
+        options: DateTimeFormatOptions = definedExternally,
+    ): String
+
+    fun toLocaleString(
+        locales: ReadonlyArray<Locale>,
+        options: DateTimeFormatOptions = definedExternally,
+    ): String
+
     /**
      * Converts a date to a string by using the current or specified locale.
      * @param locales A locale string, array of locale strings, Intl.Locale object, or array of Intl.Locale objects that contain one or more language or locale tags. If you include more than one locale string, list them in descending order of priority so that the first entry is the preferred locale. If you omit this parameter, the default locale of the JavaScript runtime is used.
      * @param options An object that contains one or more properties that specify comparison options.
      */
-    fun toLocaleDateString(locales?: Intl.LocalesArgument,
-    options?: Intl.DateTimeFormatOptions): String
+    fun toLocaleDateString(
+        locales: UnicodeBCP47LocaleIdentifier = definedExternally,
+        options: DateTimeFormatOptions = definedExternally,
+    ): String
+
+    fun toLocaleDateString(
+        locales: Locale,
+        options: DateTimeFormatOptions = definedExternally,
+    ): String
+
+    fun toLocaleDateString(
+        locales: ReadonlyArray<UnicodeBCP47LocaleIdentifier>,
+        options: DateTimeFormatOptions = definedExternally,
+    ): String
+
+    fun toLocaleDateString(
+        locales: ReadonlyArray<Locale>,
+        options: DateTimeFormatOptions = definedExternally,
+    ): String
+
     /**
      * Converts a time to a string by using the current or specified locale.
      * @param locales A locale string, array of locale strings, Intl.Locale object, or array of Intl.Locale objects that contain one or more language or locale tags. If you include more than one locale string, list them in descending order of priority so that the first entry is the preferred locale. If you omit this parameter, the default locale of the JavaScript runtime is used.
      * @param options An object that contains one or more properties that specify comparison options.
      */
-    fun toLocaleTimeString(locales?: Intl.LocalesArgument,
-    options?: Intl.DateTimeFormatOptions): String
+    fun toLocaleTimeString(
+        locales: UnicodeBCP47LocaleIdentifier = definedExternally,
+        options: DateTimeFormatOptions = definedExternally,
+    ): String
+
+    fun toLocaleTimeString(
+        locales: Locale,
+        options: DateTimeFormatOptions = definedExternally,
+    ): String
+
+    fun toLocaleTimeString(
+        locales: ReadonlyArray<UnicodeBCP47LocaleIdentifier>,
+        options: DateTimeFormatOptions = definedExternally,
+    ): String
+
+    fun toLocaleTimeString(
+        locales: ReadonlyArray<Locale>,
+        options: DateTimeFormatOptions = definedExternally,
+    ): String
 
     companion object {
         /**
