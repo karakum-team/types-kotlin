@@ -8,7 +8,7 @@ internal fun dateDeclarations(
     definitionsDir: File,
 ): Sequence<ConversionResult> {
     val members = dateMembers(dateRawContent(definitionsDir, DATE))
-    val staticMembers = dateMembers(dateRawContent(definitionsDir, "DateConstructor"))
+    val staticMembers = dateMembers(dateRawContent(definitionsDir, "DateConstructor"), static = true)
     val constructors = staticMembers.filter { "constructor(" in it }
 
     val body = """
@@ -33,31 +33,42 @@ internal fun dateDeclarations(
 
 private fun dateMembers(
     content: String,
+    static: Boolean = false,
 ): List<String> =
     content.splitToSequence(";\n")
         .map { it.trim() }
         .filter { it.isNotEmpty() }
-        .mapNotNull { dateMember(it) }
+        .mapNotNull { dateMember(it, static = static) }
         .toList()
 
 private fun dateMember(
     content: String,
+    static: Boolean,
 ): String? {
     if ("\n" in content) {
         val comment = content.substringBeforeLast("\n")
-        val member = dateMember(content.substringAfterLast("\n"))
+        val member = dateMember(content.substringAfterLast("\n"), static = static)
             ?: return null
 
         return comment + "\n" + member
+    }
+
+    if (static) {
+        return dateMember(content.replace("): number", "): JsLong"), static = false)
     }
 
     if (content.startsWith("new (")) {
         return content
             .replace("new (", "constructor(")
             .replace("): $DATE", ")")
+            .replace("(value: number)", "(value: JsLong)")
+            .replace("?: number", ": Int = definedExternally")
+            .replace(", ", ", \n")
     }
 
     return "fun " + content
+        .replace("getTime(): number", "getTime(): JsLong")
+        .replace("setTime(time: number): number", "setTime(time: JsLong): JsLong")
 }
 
 private fun dateRawContent(
