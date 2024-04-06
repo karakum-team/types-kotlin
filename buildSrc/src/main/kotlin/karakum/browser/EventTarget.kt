@@ -5,24 +5,24 @@ internal const val EVENT_TARGET = "EventTarget"
 // language=kotlin
 private val EVENT_TARGET_BODY: String = """
 open external class EventTarget {
-    internal fun <E: Event> addEventListener(
+    internal fun <E : Event> addEventListener(
         type: EventType<E, *>,
         callback: EventHandler<E, *>,
         options: AddEventListenerOptions? = definedExternally,
     )
-    
+
     internal fun addEventListener(
         type: EventType<*, *>,
         callback: Function<Unit>,
         options: AddEventListenerOptions? = definedExternally,
     )
-    
-    internal fun <E: Event> removeEventListener(
+
+    internal fun <E : Event> removeEventListener(
         type: EventType<E, *>,
         callback: EventHandler<E, *>,
         options: EventListenerOptions? = definedExternally,
     )
-    
+
     internal fun removeEventListener(
         type: EventType<*, *>,
         callback: Function<Unit>,
@@ -34,7 +34,7 @@ open external class EventTarget {
     ): Boolean
 }
 
-// event + targets
+// event handler
 fun <E : Event, C : EventTarget> C.addEventListener(
     type: EventType<E, C>,
     handler: EventHandler<E, C>,
@@ -114,21 +114,27 @@ fun <E : Event, C : EventTarget> C.removeEventListener(
     )
 }
 
-fun <E : Event, C : EventTarget> C.addEventHandler(
+// event + targets
+fun <E : Event, C : EventTarget, D> C.addEventHandler(
     type: EventType<E, C>,
-    handler: (E) -> Unit,
-): () -> Unit =
-    addEventHandler(
+    handler: (D) -> Unit,
+): () -> Unit
+        where D : E,
+              D : HasTargets<C> {
+    return addEventHandler(
         type = type,
         options = undefined,
         handler = handler,
     )
+}
 
-fun <E : Event, C : EventTarget> C.addEventHandler(
+fun <E : Event, C : EventTarget, D> C.addEventHandler(
     type: EventType<E, C>,
     options: AddEventListenerOptions?,
-    handler: (E) -> Unit,
-): () -> Unit {
+    handler: (D) -> Unit,
+): () -> Unit
+        where D : E,
+              D : HasTargets<C> {
     addEventListener(
         type = type,
         callback = handler,

@@ -286,7 +286,7 @@ fun generateKotlinDeclarations(
             if ("inline fun " in body && !name.endsWith(".temp"))
                 add(NOTHING_TO_INLINE)
 
-            if (name == EVENT_HANDLER)
+            if (name == EVENT_HANDLER || name == EVENT_TARGET)
                 add(BOUNDS_NOT_ALLOWED_IF_BOUNDED_BY_TYPE_PARAMETER)
         }.toTypedArray()
 

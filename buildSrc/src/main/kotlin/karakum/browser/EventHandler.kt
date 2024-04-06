@@ -7,8 +7,8 @@ sealed external interface EventHandler<in E : Event, out C : EventTarget>
 
 inline fun EventHandler(
     noinline handler: () -> Unit,
-): EventHandler<Event, EventTarget> {
-    return handler.unsafeCast<EventHandler<Event, EventTarget>>()
+): EventHandler<Event, Nothing> {
+    return handler.unsafeCast<EventHandler<Event, Nothing>>()
 }
 
 inline fun <E : Event, C : EventTarget, D> EventHandler(
