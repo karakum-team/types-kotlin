@@ -12,6 +12,9 @@ internal fun dateDeclarations(
     val constructors = staticMembers.filter { "constructor(" in it }
 
     val body = """
+    /**
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)
+     */
     external class $DATE() {
         ${constructors.joinToString("\n")}
         ${members.joinToString("\n")}
@@ -46,9 +49,12 @@ private fun dateMember(
     static: Boolean,
 ): String? {
     if ("\n" in content) {
-        val comment = content.substringBeforeLast("\n")
         val member = dateMember(content.substringAfterLast("\n"), static = static)
             ?: return null
+        val comment = dateComment(
+            comment = content.substringBeforeLast("\n"),
+            functionName = member.substringBefore("(").removePrefix("fun "),
+        )
 
         return comment + "\n" + member
     }
@@ -82,6 +88,23 @@ private fun dateMember(
         .replace(": number", ": Int")
         .replace(": string", ": String")
         .replace(", ", ", \n")
+}
+
+private fun dateComment(
+    comment: String,
+    functionName: String,
+): String {
+    val newComment = if (comment.startsWith("/** ")) {
+        comment
+            .replaceFirst("/** ", "/**\n * ")
+            .replaceFirst(" */", "\n */")
+    } else {
+        comment
+    }
+
+    val id = if (functionName == "constructor") DATE else functionName
+    val link = "[MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date/$id)"
+    return newComment.replaceFirst("\n */", "\n *\n * $link\n */")
 }
 
 private fun dateRawContent(
