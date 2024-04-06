@@ -7,13 +7,18 @@ private const val DATE = "Date"
 internal fun dateDeclarations(
     definitionsDir: File,
 ): Sequence<ConversionResult> {
-    val rawMembers = dateRawContent(definitionsDir, DATE)
-    val rawStaticMembers = dateRawContent(definitionsDir, "DateConstructor")
+    val members = dateMembers(dateRawContent(definitionsDir, DATE))
+    val staticMembers = dateMembers(dateRawContent(definitionsDir, "DateConstructor"))
+    val constructors = staticMembers.filter { "constructor(" in it }
 
     val body = """
     external class $DATE() {
-        $rawMembers
-        $rawStaticMembers
+        ${constructors.joinToString("\n")}
+        ${members.joinToString("\n")}
+
+        companion object {
+            ${(staticMembers - constructors).joinToString("\n")}
+        }
     }
     """.trimIndent()
 
@@ -24,6 +29,35 @@ internal fun dateDeclarations(
             pkg = "js.date",
         )
     )
+}
+
+private fun dateMembers(
+    content: String,
+): List<String> =
+    content.splitToSequence(";\n")
+        .map { it.trim() }
+        .filter { it.isNotEmpty() }
+        .mapNotNull { dateMember(it) }
+        .toList()
+
+private fun dateMember(
+    content: String,
+): String? {
+    if ("\n" in content) {
+        val comment = content.substringBeforeLast("\n")
+        val member = dateMember(content.substringAfterLast("\n"))
+            ?: return null
+
+        return comment + "\n" + member
+    }
+
+    if (content.startsWith("new (")) {
+        return content
+            .replace("new (", "constructor(")
+            .replace("): $DATE", ")")
+    }
+
+    return "fun " + content
 }
 
 private fun dateRawContent(
