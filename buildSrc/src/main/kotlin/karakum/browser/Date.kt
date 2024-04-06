@@ -63,12 +63,19 @@ private fun dateMember(
             .replace("): $DATE", ")")
             .replace("(value: number)", "(value: JsLong)")
             .replace("?: number", ": Int = definedExternally")
+            .replace(": number", ": Int")
+            .replace(": string", ": String")
             .replace(", ", ", \n")
     }
 
     return "fun " + content
+        .replace("valueOf(): number", "valueOf(): JsLong")
         .replace("getTime(): number", "getTime(): JsLong")
         .replace("setTime(time: number): number", "setTime(time: JsLong): JsLong")
+        .replace("?: number", ": Int = definedExternally")
+        .replace(": number", ": Int")
+        .replace(": string", ": String")
+        .replace(", ", ", \n")
 }
 
 private fun dateRawContent(
