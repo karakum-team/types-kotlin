@@ -170,8 +170,9 @@ external class Date {
      * @param options An object that contains one or more properties that specify comparison options.
      */
     toLocaleTimeString(locales?: Intl.LocalesArgument, options?: Intl.DateTimeFormatOptions): string
-    new (): Date
-    new (value : number | string): Date
+    new (value : number): Date
+    new (value : string): Date
+    new (value : Date): Date
     /**
      * Creates a new Date.
      * @param year The full year designation is required for cross-century date accuracy. If year is between 0 and 99 is used, then year is assumed to be 1900 + year.
@@ -183,8 +184,6 @@ external class Date {
      * @param ms A number from 0 to 999 that specifies the milliseconds.
      */
     new (year: number, monthIndex: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number): Date
-    (): string
-    readonly prototype: Date
     /**
      * Parses a string containing a date, and returns the number of milliseconds between that date and midnight, January 1, 1970.
      * @param s A date string
@@ -203,7 +202,6 @@ external class Date {
     UTC(year: number, monthIndex: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number): number
     /** Returns the number of milliseconds elapsed since midnight, January 1, 1970 Universal Coordinated Time (UTC). */
     now(): number
-    new (value : number | string | Date): Date
     /**
      * Returns the number of milliseconds between midnight, January 1, 1970 Universal Coordinated Time (UTC) (or GMT) and the specified date.
      * @param year The full year designation is required for cross-century date accuracy. If year is between 0 and 99 is used, then year is assumed to be 1900 + year.
