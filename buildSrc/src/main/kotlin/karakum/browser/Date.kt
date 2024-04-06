@@ -49,7 +49,12 @@ private fun dateRawContent(
         }
         .filter { it.isNotEmpty() }
         .joinToString("\n")
-        .splitUnion("Date | number | bigint")
+        .replace("new (): Date;\n", "")
+        .replace("new (value: number | string | Date): Date;\n", "")
+        .replace("new (value: number | string): Date;\n", "new (value: number | string | Date): Date;\n")
+        .replace("\n(): string;\n", "\n")
+        .replace("readonly prototype: Date;\n", "")
+        .splitUnion("number | string | Date")
         .splitUnion(
             "LocalesArgument",
             "UnicodeBCP47LocaleIdentifier | Locale | UnicodeBCP47LocaleIdentifier[] | Locale[]",
