@@ -51,7 +51,7 @@ private fun dateRawContent(
         .filter { it.isNotEmpty() }
         .joinToString("\n")
         .replace("new (): Date;\n", "")
-        .replace("new (value: number | string | Date): Date;\n", "")
+        .replace("\nnew (value: number | string | Date): Date;", "")
         .replace("new (value: number | string): Date;\n", "new (value: number | string | Date): Date;\n")
         .replace("\n(): string;\n", "\n")
         .replace("readonly prototype: Date;\n", "")
