@@ -57,6 +57,9 @@ private fun dateMember(
         return dateMember(content.replace("): number", "): JsLong"), static = false)
     }
 
+    if (content.startsWith("toString()"))
+        return null
+
     if (content.startsWith("new (")) {
         return content
             .replace("new (", "constructor(")
@@ -72,6 +75,9 @@ private fun dateMember(
         .replace("valueOf(): number", "valueOf(): JsLong")
         .replace("getTime(): number", "getTime(): JsLong")
         .replace("setTime(time: number): number", "setTime(time: JsLong): JsLong")
+        .replace("?: UnicodeBCP47LocaleIdentifier", ": UnicodeBCP47LocaleIdentifier = definedExternally")
+        .replace("?: Intl.DateTimeFormatOptions", ": DateTimeFormatOptions = definedExternally")
+        .replace("?: any", ": Any? = definedExternally")
         .replace("?: number", ": Int = definedExternally")
         .replace(": number", ": Int")
         .replace(": string", ": String")
@@ -109,6 +115,6 @@ private fun dateRawContent(
         .replace("readonly prototype: Date;\n", "")
         .splitUnion("number | string | Date")
         .splitUnion(
-            "LocalesArgument",
-            "UnicodeBCP47LocaleIdentifier | Locale | UnicodeBCP47LocaleIdentifier[] | Locale[]",
+            "Intl.LocalesArgument",
+            "UnicodeBCP47LocaleIdentifier | Locale | ReadonlyArray<UnicodeBCP47LocaleIdentifier> | ReadonlyArray<Locale>",
         )

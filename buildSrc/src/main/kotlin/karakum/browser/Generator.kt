@@ -328,6 +328,7 @@ fun generateKotlinDeclarations(
         .plus(windowTypes())
         .plus(tagNames(content))
         .plus(decoratorsDeclarations(definitionsDir))
+        .plus(dateDeclarations(definitionsDir))
         .plus(intlDeclarations(definitionsDir))
         .plus(atomicsDeclarations(definitionsDir))
         .plus(webAssemblyDeclarations(content))
