@@ -32,6 +32,7 @@ private fun dateRawContent(
 ): String =
     definitionsDir.listFiles()!!
         .filter { it.name.endsWith(".date.d.ts") || it.name.endsWith(".core.d.ts") || it.name == "lib.es5.d.ts" }
+        .filter { it.name != "lib.es2017.date.d.ts" }
         .sortedBy { file ->
             file.name
                 .removePrefix("lib.es")
