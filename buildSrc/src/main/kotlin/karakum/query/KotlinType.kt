@@ -15,7 +15,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "void" to "Unit",
 
-    "Date" to "kotlin.js.Date",
+    "Date" to "js.date.Date",
 
     "null" to "Void",
     "undefined" to "Void",

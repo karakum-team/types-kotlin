@@ -17,7 +17,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "void" to UNIT,
     "null" to "Nothing?",
 
-    "Date" to "kotlin.js.Date",
+    "Date" to "js.date.Date",
 
     "Document" to "web.dom.Document",
     "DataTransfer" to "web.data.DataTransfer",

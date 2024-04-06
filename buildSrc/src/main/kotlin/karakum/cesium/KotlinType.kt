@@ -30,7 +30,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "undefined" to "Void",
 
     JS_FUNCTION to "Function<*>",
-    "Date" to "kotlin.js.Date",
+    "Date" to "js.date.Date",
 
     "CameraEventType | any[] | undefined" to "CameraEventType?",
     "any[] | GeometryInstance" to "GeometryInstance",

@@ -21,7 +21,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "null" to "Nothing?",
     "undefined" to "Nothing?",
 
-    "Date" to "kotlin.js.Date",
+    "Date" to "js.date.Date",
 
     "false" to "Boolean /* false */",
     "true" to "Boolean /* true */",
