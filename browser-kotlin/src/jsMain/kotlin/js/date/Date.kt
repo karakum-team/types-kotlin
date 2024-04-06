@@ -2,8 +2,10 @@
 
 package js.date
 
+import js.core.JsLong
+
 external class Date() {
-    constructor(value: number)
+    constructor(value: JsLong)
     constructor(value: string)
     constructor(value: Date)
 
@@ -20,16 +22,11 @@ external class Date() {
     constructor(
         year: number,
         monthIndex: number,
-        date?:
-        number,
-        hours?:
-        number,
-        minutes?:
-        number,
-        seconds?:
-        number,
-        ms?:
-        number
+        date: Int = definedExternally,
+        hours: Int = definedExternally,
+        minutes: Int = definedExternally,
+        seconds: Int = definedExternally,
+        ms: Int = definedExternally,
     )
 
     /** Returns a string representation of a date. The format of the string depends on the locale. */
@@ -54,7 +51,7 @@ external class Date() {
     fun valueOf(): number
 
     /** Returns the stored time value in milliseconds since midnight, January 1, 1970 UTC. */
-    fun getTime(): number
+    fun getTime(): JsLong
 
     /** Gets the year, using local time. */
     fun getFullYear(): number
@@ -111,7 +108,7 @@ external class Date() {
      * Sets the date and time value in the Date object.
      * @param time A numeric value representing the number of elapsed milliseconds since midnight, January 1, 1970 GMT.
      */
-    fun setTime(time: number): number
+    fun setTime(time: JsLong): JsLong
 
     /**
      * Sets the milliseconds value in the Date object using local time.
@@ -237,7 +234,7 @@ external class Date() {
          * Parses a string containing a date, and returns the number of milliseconds between that date and midnight, January 1, 1970.
          * @param s A date string
          */
-        fun parse(s: string): number
+        fun parse(s: string): JsLong
 
         /**
          * Returns the number of milliseconds between midnight, January 1, 1970 Universal Coordinated Time (UTC) (or GMT) and the specified date.
@@ -252,8 +249,8 @@ external class Date() {
         fun UTC(
             year: number,
             monthIndex: number,
-            date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number): number
+            date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number): JsLong
         /** Returns the number of milliseconds elapsed since midnight, January 1, 1970 Universal Coordinated Time (UTC). */
-        fun now(): number
+        fun now(): JsLong
     }
 }
