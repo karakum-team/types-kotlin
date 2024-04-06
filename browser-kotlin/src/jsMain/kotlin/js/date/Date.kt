@@ -6,7 +6,7 @@ import js.core.JsLong
 
 external class Date() {
     constructor(value: JsLong)
-    constructor(value: string)
+    constructor(value: String)
     constructor(value: Date)
 
     /**
@@ -20,8 +20,8 @@ external class Date() {
      * @param ms A number from 0 to 999 that specifies the milliseconds.
      */
     constructor(
-        year: number,
-        monthIndex: number,
+        year: Int,
+        monthIndex: Int,
         date: Int = definedExternally,
         hours: Int = definedExternally,
         minutes: Int = definedExternally,
@@ -30,79 +30,79 @@ external class Date() {
     )
 
     /** Returns a string representation of a date. The format of the string depends on the locale. */
-    fun toString(): string
+    fun toString(): String
 
     /** Returns a date as a string value. */
-    fun toDateString(): string
+    fun toDateString(): String
 
     /** Returns a time as a string value. */
-    fun toTimeString(): string
+    fun toTimeString(): String
 
     /** Returns a value as a string value appropriate to the host environment's current locale. */
-    fun toLocaleString(): string
+    fun toLocaleString(): String
 
     /** Returns a date as a string value appropriate to the host environment's current locale. */
-    fun toLocaleDateString(): string
+    fun toLocaleDateString(): String
 
     /** Returns a time as a string value appropriate to the host environment's current locale. */
-    fun toLocaleTimeString(): string
+    fun toLocaleTimeString(): String
 
     /** Returns the stored time value in milliseconds since midnight, January 1, 1970 UTC. */
-    fun valueOf(): number
+    fun valueOf(): JsLong
 
     /** Returns the stored time value in milliseconds since midnight, January 1, 1970 UTC. */
     fun getTime(): JsLong
 
     /** Gets the year, using local time. */
-    fun getFullYear(): number
+    fun getFullYear(): Int
 
     /** Gets the year using Universal Coordinated Time (UTC). */
-    fun getUTCFullYear(): number
+    fun getUTCFullYear(): Int
 
     /** Gets the month, using local time. */
-    fun getMonth(): number
+    fun getMonth(): Int
 
     /** Gets the month of a Date object using Universal Coordinated Time (UTC). */
-    fun getUTCMonth(): number
+    fun getUTCMonth(): Int
 
     /** Gets the day-of-the-month, using local time. */
-    fun getDate(): number
+    fun getDate(): Int
 
     /** Gets the day-of-the-month, using Universal Coordinated Time (UTC). */
-    fun getUTCDate(): number
+    fun getUTCDate(): Int
 
     /** Gets the day of the week, using local time. */
-    fun getDay(): number
+    fun getDay(): Int
 
     /** Gets the day of the week using Universal Coordinated Time (UTC). */
-    fun getUTCDay(): number
+    fun getUTCDay(): Int
 
     /** Gets the hours in a date, using local time. */
-    fun getHours(): number
+    fun getHours(): Int
 
     /** Gets the hours value in a Date object using Universal Coordinated Time (UTC). */
-    fun getUTCHours(): number
+    fun getUTCHours(): Int
 
     /** Gets the minutes of a Date object, using local time. */
-    fun getMinutes(): number
+    fun getMinutes(): Int
 
     /** Gets the minutes of a Date object using Universal Coordinated Time (UTC). */
-    fun getUTCMinutes(): number
+    fun getUTCMinutes(): Int
 
     /** Gets the seconds of a Date object, using local time. */
-    fun getSeconds(): number
+    fun getSeconds(): Int
 
     /** Gets the seconds of a Date object using Universal Coordinated Time (UTC). */
-    fun getUTCSeconds(): number
+    fun getUTCSeconds(): Int
 
     /** Gets the milliseconds of a Date, using local time. */
-    fun getMilliseconds(): number
+    fun getMilliseconds(): Int
 
     /** Gets the milliseconds of a Date object using Universal Coordinated Time (UTC). */
-    fun getUTCMilliseconds(): number
+    fun getUTCMilliseconds(): Int
 
     /** Gets the difference in minutes between the time on the local computer and Universal Coordinated Time (UTC). */
-    fun getTimezoneOffset(): number
+    fun getTimezoneOffset(): Int
 
     /**
      * Sets the date and time value in the Date object.
@@ -114,40 +114,58 @@ external class Date() {
      * Sets the milliseconds value in the Date object using local time.
      * @param ms A numeric value equal to the millisecond value.
      */
-    fun setMilliseconds(ms: number): number
+    fun setMilliseconds(ms: Int): Int
 
     /**
      * Sets the milliseconds value in the Date object using Universal Coordinated Time (UTC).
      * @param ms A numeric value equal to the millisecond value.
      */
-    fun setUTCMilliseconds(ms: number): number
+    fun setUTCMilliseconds(ms: Int): Int
 
     /**
      * Sets the seconds value in the Date object using local time.
      * @param sec A numeric value equal to the seconds value.
      * @param ms A numeric value equal to the milliseconds value.
      */
-    fun setSeconds(sec: number, ms?: number): number
+    fun setSeconds(
+        sec: Int,
+        ms: Int = definedExternally,
+    ): Int
+
     /**
      * Sets the seconds value in the Date object using Universal Coordinated Time (UTC).
      * @param sec A numeric value equal to the seconds value.
      * @param ms A numeric value equal to the milliseconds value.
      */
-    fun setUTCSeconds(sec: number, ms?: number): number
+    fun setUTCSeconds(
+        sec: Int,
+        ms: Int = definedExternally,
+    ): Int
+
     /**
      * Sets the minutes value in the Date object using local time.
      * @param min A numeric value equal to the minutes value.
      * @param sec A numeric value equal to the seconds value.
      * @param ms A numeric value equal to the milliseconds value.
      */
-    fun setMinutes(min: number, sec?: number, ms?: number): number
+    fun setMinutes(
+        min: Int,
+        sec: Int = definedExternally,
+        ms: Int = definedExternally,
+    ): Int
+
     /**
      * Sets the minutes value in the Date object using Universal Coordinated Time (UTC).
      * @param min A numeric value equal to the minutes value.
      * @param sec A numeric value equal to the seconds value.
      * @param ms A numeric value equal to the milliseconds value.
      */
-    fun setUTCMinutes(min: number, sec?: number, ms?: number): number
+    fun setUTCMinutes(
+        min: Int,
+        sec: Int = definedExternally,
+        ms: Int = definedExternally,
+    ): Int
+
     /**
      * Sets the hour value in the Date object using local time.
      * @param hours A numeric value equal to the hours value.
@@ -155,7 +173,13 @@ external class Date() {
      * @param sec A numeric value equal to the seconds value.
      * @param ms A numeric value equal to the milliseconds value.
      */
-    fun setHours(hours: number, min?: number, sec?: number, ms?: number): number
+    fun setHours(
+        hours: Int,
+        min: Int = definedExternally,
+        sec: Int = definedExternally,
+        ms: Int = definedExternally,
+    ): Int
+
     /**
      * Sets the hours value in the Date object using Universal Coordinated Time (UTC).
      * @param hours A numeric value equal to the hours value.
@@ -163,78 +187,105 @@ external class Date() {
      * @param sec A numeric value equal to the seconds value.
      * @param ms A numeric value equal to the milliseconds value.
      */
-    fun setUTCHours(hours: number, min?: number, sec?: number, ms?: number): number
+    fun setUTCHours(
+        hours: Int,
+        min: Int = definedExternally,
+        sec: Int = definedExternally,
+        ms: Int = definedExternally,
+    ): Int
+
     /**
      * Sets the numeric day-of-the-month value of the Date object using local time.
      * @param date A numeric value equal to the day of the month.
      */
-    fun setDate(date: number): number
+    fun setDate(date: Int): Int
 
     /**
      * Sets the numeric day of the month in the Date object using Universal Coordinated Time (UTC).
      * @param date A numeric value equal to the day of the month.
      */
-    fun setUTCDate(date: number): number
+    fun setUTCDate(date: Int): Int
 
     /**
      * Sets the month value in the Date object using local time.
      * @param month A numeric value equal to the month. The value for January is 0, and other month values follow consecutively.
      * @param date A numeric value representing the day of the month. If this value is not supplied, the value from a call to the getDate method is used.
      */
-    fun setMonth(month: number, date?: number): number
+    fun setMonth(
+        month: Int,
+        date: Int = definedExternally,
+    ): Int
+
     /**
      * Sets the month value in the Date object using Universal Coordinated Time (UTC).
      * @param month A numeric value equal to the month. The value for January is 0, and other month values follow consecutively.
      * @param date A numeric value representing the day of the month. If it is not supplied, the value from a call to the getUTCDate method is used.
      */
-    fun setUTCMonth(month: number, date?: number): number
+    fun setUTCMonth(
+        month: Int,
+        date: Int = definedExternally,
+    ): Int
+
     /**
      * Sets the year of the Date object using local time.
      * @param year A numeric value for the year.
      * @param month A zero-based numeric value for the month (0 for January, 11 for December). Must be specified if numDate is specified.
      * @param date A numeric value equal for the day of the month.
      */
-    fun setFullYear(year: number, month?: number, date?: number): number
+    fun setFullYear(
+        year: Int,
+        month: Int = definedExternally,
+        date: Int = definedExternally,
+    ): Int
+
     /**
      * Sets the year value in the Date object using Universal Coordinated Time (UTC).
      * @param year A numeric value equal to the year.
      * @param month A numeric value equal to the month. The value for January is 0, and other month values follow consecutively. Must be supplied if numDate is supplied.
      * @param date A numeric value equal to the day of the month.
      */
-    fun setUTCFullYear(year: number, month?: number, date?: number): number
+    fun setUTCFullYear(
+        year: Int,
+        month: Int = definedExternally,
+        date: Int = definedExternally,
+    ): Int
+
     /** Returns a date converted to a string using Universal Coordinated Time (UTC). */
-    fun toUTCString(): string
+    fun toUTCString(): String
 
     /** Returns a date as a string value in ISO format. */
-    fun toISOString(): string
+    fun toISOString(): String
 
     /** Used by the JSON.stringify method to enable the transformation of an object's data for JavaScript Object Notation (JSON) serialization. */
-    fun toJSON(key?: any): string
+    fun toJSON(key?: any): String
     /**
      * Converts a date and time to a string by using the current or specified locale.
      * @param locales A locale string, array of locale strings, Intl.Locale object, or array of Intl.Locale objects that contain one or more language or locale tags. If you include more than one locale string, list them in descending order of priority so that the first entry is the preferred locale. If you omit this parameter, the default locale of the JavaScript runtime is used.
      * @param options An object that contains one or more properties that specify comparison options.
      */
-    fun toLocaleString(locales?: Intl.LocalesArgument, options?: Intl.DateTimeFormatOptions): string
+    fun toLocaleString(locales?: Intl.LocalesArgument,
+    options?: Intl.DateTimeFormatOptions): String
     /**
      * Converts a date to a string by using the current or specified locale.
      * @param locales A locale string, array of locale strings, Intl.Locale object, or array of Intl.Locale objects that contain one or more language or locale tags. If you include more than one locale string, list them in descending order of priority so that the first entry is the preferred locale. If you omit this parameter, the default locale of the JavaScript runtime is used.
      * @param options An object that contains one or more properties that specify comparison options.
      */
-    fun toLocaleDateString(locales?: Intl.LocalesArgument, options?: Intl.DateTimeFormatOptions): string
+    fun toLocaleDateString(locales?: Intl.LocalesArgument,
+    options?: Intl.DateTimeFormatOptions): String
     /**
      * Converts a time to a string by using the current or specified locale.
      * @param locales A locale string, array of locale strings, Intl.Locale object, or array of Intl.Locale objects that contain one or more language or locale tags. If you include more than one locale string, list them in descending order of priority so that the first entry is the preferred locale. If you omit this parameter, the default locale of the JavaScript runtime is used.
      * @param options An object that contains one or more properties that specify comparison options.
      */
-    fun toLocaleTimeString(locales?: Intl.LocalesArgument, options?: Intl.DateTimeFormatOptions): string
+    fun toLocaleTimeString(locales?: Intl.LocalesArgument,
+    options?: Intl.DateTimeFormatOptions): String
 
     companion object {
         /**
          * Parses a string containing a date, and returns the number of milliseconds between that date and midnight, January 1, 1970.
          * @param s A date string
          */
-        fun parse(s: string): JsLong
+        fun parse(s: String): JsLong
 
         /**
          * Returns the number of milliseconds between midnight, January 1, 1970 Universal Coordinated Time (UTC) (or GMT) and the specified date.
@@ -247,9 +298,15 @@ external class Date() {
          * @param ms A number from 0 to 999 that specifies the milliseconds.
          */
         fun UTC(
-            year: number,
-            monthIndex: number,
-            date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number): JsLong
+            year: Int,
+            monthIndex: Int,
+            date: Int = definedExternally,
+            hours: Int = definedExternally,
+            minutes: Int = definedExternally,
+            seconds: Int = definedExternally,
+            ms: Int = definedExternally,
+        ): JsLong
+
         /** Returns the number of milliseconds elapsed since midnight, January 1, 1970 Universal Coordinated Time (UTC). */
         fun now(): JsLong
     }
