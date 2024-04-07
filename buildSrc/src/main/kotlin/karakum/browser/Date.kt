@@ -107,11 +107,17 @@ private fun dateComment(
     return newComment.replaceFirst("\n */", "\n *\n * $link\n */")
 }
 
+private val PARAMETER_ALIASES = sequenceOf(
+    "min" to "minutes",
+    "sec" to "seconds",
+    "ms" to "milliseconds"
+)
+
 private fun dateRawContent(
     definitionsDir: File,
     interfaceName: String,
-): String =
-    definitionsDir.listFiles()!!
+): String {
+    return definitionsDir.listFiles()!!
         .filter { it.name.endsWith(".date.d.ts") || it.name.endsWith(".core.d.ts") || it.name == "lib.es5.d.ts" }
         .filter { it.name != "lib.es2017.date.d.ts" }
         .sortedBy { file ->
@@ -141,3 +147,13 @@ private fun dateRawContent(
             "Intl.LocalesArgument",
             "UnicodeBCP47LocaleIdentifier | Locale | ReadonlyArray<UnicodeBCP47LocaleIdentifier> | ReadonlyArray<Locale>",
         )
+        .let { content ->
+            PARAMETER_ALIASES.fold(content) { acc, (shortName, name) ->
+                acc.replace("($shortName: ", "($name: ")
+                    .replace("($shortName?: ", "($name?: ")
+                    .replace(" $shortName: ", " $name: ")
+                    .replace(" $shortName?: ", " $name?: ")
+                    .replace("@param $shortName ", "@param $name ")
+            }
+        }
+}
