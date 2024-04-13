@@ -83,6 +83,7 @@ private fun dateMember(
         .replace("setTime(time: number): number", "setTime(time: JsLong): JsLong")
         .replace("?: UnicodeBCP47LocaleIdentifier", ": UnicodeBCP47LocaleIdentifier = definedExternally")
         .replace("?: Intl.DateTimeFormatOptions", ": DateTimeFormatOptions = definedExternally")
+        .replace(": Temporal.Instant", ": Instant")
         .replace("?: any", ": Any? = definedExternally")
         .replace("?: number", ": Int = definedExternally")
         .replace(": number", ": Int")
@@ -110,7 +111,7 @@ private fun dateComment(
 private val PARAMETER_ALIASES = sequenceOf(
     "min" to "minutes",
     "sec" to "seconds",
-    "ms" to "milliseconds"
+    "ms" to "milliseconds",
 )
 
 private fun dateRawContent(
@@ -127,9 +128,10 @@ private fun dateRawContent(
                 .toIntOrNull()
                 ?: 3000
         }
+        .map { it.readText() }
+        .plus(DENO_UNSTABLE_CONTENT)
         .map {
-            it.readText()
-                .replace("\r\n", "\n")
+            it.replace("\r\n", "\n")
                 .substringAfter("\ninterface $interfaceName {\n", "")
                 .substringBefore("\n}")
                 .trimIndent()
