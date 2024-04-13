@@ -34,6 +34,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => number[]" to "() -> ReadonlyArray<Int>",
     "() => $ITEM_RANGE" to "() -> $ITEM_RANGE",
     "() => VirtualItem[]" to "() -> ReadonlyArray<VirtualItem>",
+
+    "number | (() => number)" to "Int /* | (() -> Int) */",
 )
 
 internal fun kotlinType(
