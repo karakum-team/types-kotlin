@@ -62,7 +62,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "() => Row<TData>[]" to "() -> ReadonlyArray<Row<TData>>",
     "(string & {}) | keyof TData" to "String /* keyof TData */",
 
-    "false | -1 | 1" to "Int /* false | -1 | 1 */",
+    "false | -1 | 1 | 'first' | 'last'" to "Comparable<*> /* false | -1 | 1 | 'first' | 'last' */",
     "false | string" to "String /* false | string */",
     "false | 'reorder' | 'remove'" to "GroupingColumnMode",
 
