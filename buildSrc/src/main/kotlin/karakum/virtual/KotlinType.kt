@@ -45,6 +45,9 @@ internal fun kotlinType(
     if (type.endsWith(" | undefined"))
         return kotlinType(type.removeSuffix(" | undefined"), name)
 
+    if (type.startsWith("undefined | ("))
+        return kotlinType(type.removePrefix("undefined | "), name) + "?"
+
     if (type.startsWith("Map<"))
         return "Readonly${type}"
 
