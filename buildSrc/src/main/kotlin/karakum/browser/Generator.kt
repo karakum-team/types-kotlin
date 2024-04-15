@@ -55,7 +55,6 @@ private val DEFAULT_IMPORTS = Imports(
     "js.typedarrays.Uint8ClampedArray",
 
     "js.date.Date",
-    "kotlin.internal.LowPriorityInOverloadResolution",
 
     "seskar.js.JsIntValue",
     "seskar.js.JsTypeGuard",
