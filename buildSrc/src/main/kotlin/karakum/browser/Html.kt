@@ -456,6 +456,7 @@ private val STREAMS_TYPES = listOf(
     "ReadableStreamDefaultReader",
     "ReadableStreamGenericReader",
     "ReadableStreamGetReaderOptions",
+    "ReadableStreamIteratorOptions",
     "ReadableStreamReadDoneResult",
     "ReadableStreamReadResult",
     "ReadableStreamReadValueResult",
