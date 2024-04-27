@@ -8,6 +8,7 @@ private val DENO_UNSTABLE_URL =
 internal val DENO_UNSTABLE_CONTENT by lazy {
     DENO_UNSTABLE_URL.openStream()
         .use { stream -> String(stream.readAllBytes()) }
+        .replace("\ndeclare ", "\n")
         .replace("\n  /** @category Temporal */", "")
         .replace("\n   *\n   * @category Temporal", "")
 }
