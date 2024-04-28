@@ -33,6 +33,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.errors.JsErrorName",
     "js.intl.DateTimeFormatOptions",
     "js.intl.Locale",
+    "js.intl.Localizable",
     "js.intl.UnicodeBCP47LocaleIdentifier",
     "js.iterable.IterableIterator",
     "js.iterable.JsIterable",
@@ -348,7 +349,7 @@ fun generateKotlinDeclarations(
             if (name == "Locale")
                 add(VIRTUAL_MEMBER_HIDDEN)
 
-            if (name in Mixins.UNSAFE)
+            if (name in Mixins.UNSAFE || name == LOCALIZABLE)
                 add(NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE)
 
             if (name == "ChildNode" || name == "ParentNode" || name == "AbstractWorker" || name == "FontFaceSet" || name == "AudioWorkletProcessorImpl")

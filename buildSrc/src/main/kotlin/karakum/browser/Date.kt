@@ -16,7 +16,7 @@ internal fun dateDeclarations(
      * [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)
      */
     external class $DATE():
-        $LOCALIZABLE {
+        $LOCALIZABLE<DateTimeFormatOptions> {
         ${constructors.joinToString("\n")}
         ${members.joinToString("\n")}
 
@@ -65,6 +65,9 @@ private fun dateMember(
     }
 
     if (content.startsWith("toString()"))
+        return null
+
+    if (content.startsWith("toLocaleString("))
         return null
 
     if (content.startsWith("new (")) {
