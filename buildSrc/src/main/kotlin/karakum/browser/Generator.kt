@@ -342,7 +342,7 @@ fun generateKotlinDeclarations(
             if ("override val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
 
-            if ("inline fun " in body && !name.endsWith("ReadOnly.ext"))
+            if ("inline fun " in body)
                 add(NOTHING_TO_INLINE)
 
             if (name == "Locale")
