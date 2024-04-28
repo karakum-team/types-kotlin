@@ -908,7 +908,9 @@ internal fun convertInterface(
     if (isHtmlElementClass || hasTypeGuard) {
         require(mainConstructor.isEmpty())
         require(":\n" in declaration)
-        declaration = declaration.replaceFirst(":\n", "\nprotected constructor():\n")
+
+        val modifier = if (hasTypeGuard) "private" else "protected"
+        declaration = declaration.replaceFirst(":\n", "\n$modifier constructor():\n")
     }
 
     if (mainConstructor.isNotEmpty()) {
