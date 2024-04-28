@@ -67,10 +67,6 @@ private fun writeDeclarations(
 ) {
     for ((name, body) in declarations) {
         val suppresses = mutableSetOf<Suppress>().apply {
-            if ("private constructor()" in body) {
-                add(WRONG_EXTERNAL_DECLARATION)
-            }
-
             if ("inline operator fun " in body)
                 if (name == "$LENGTH.operators") {
                     add(NOTHING_TO_INLINE)

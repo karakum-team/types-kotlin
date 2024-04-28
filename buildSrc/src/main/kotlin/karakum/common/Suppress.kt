@@ -28,8 +28,6 @@ internal enum class Suppress {
 
     NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE,
 
-    WRONG_EXTERNAL_DECLARATION,
-
     ;
 }
 
