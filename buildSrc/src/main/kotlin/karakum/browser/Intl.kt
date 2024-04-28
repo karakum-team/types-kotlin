@@ -52,6 +52,7 @@ internal fun intlDeclarations(
         .plus(types)
         .distinct()
         .plus(interfaces)
+        .plus(Localizable())
         .plus(
             ConversionResult(
                 SUPPORTED_LOCALES_OPTIONS,
