@@ -40,7 +40,7 @@ internal data class Definition(
         get() = "* The interface for " in doc ||
                 "be instantiated directly." in doc
 
-    val sealed: Boolean
+    val hasPrivateConstructor: Boolean
         get() = "Do not call the constructor directly" in doc
                 || "Do not construct this directly" in doc
 

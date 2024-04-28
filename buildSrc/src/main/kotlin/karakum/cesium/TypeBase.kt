@@ -30,12 +30,12 @@ internal abstract class TypeBase(
         source.abstract || name == "TilingScheme"
     }
 
-    private val sealed: Boolean by lazy {
-        source.sealed
+    private val hasPrivateConstructor: Boolean by lazy {
+        source.hasPrivateConstructor
     }
 
     override val members by lazy {
-        val filter: (Member) -> Boolean = if (sealed) {
+        val filter: (Member) -> Boolean = if (hasPrivateConstructor) {
             { it !is Constructor }
         } else {
             { true }
@@ -89,9 +89,11 @@ internal abstract class TypeBase(
 
     fun toCode(top: Boolean): String {
         val constructor = members.firstOrNull() as? Constructor
-        var constructorBody = constructor?.toCode()
-            ?.removePrefix("constructor")
-            ?: ""
+        var constructorBody = when {
+            hasPrivateConstructor -> "\nprivate constructor()"
+            constructor != null -> constructor.toCode().removePrefix("constructor")
+            else -> ""
+        }
 
         val propertyParameters = constructor.propertyParameters()
         for (p in propertyParameters) {
@@ -178,7 +180,7 @@ internal abstract class TypeBase(
         }
 
         val parentNames = if (parents.isNotEmpty()) {
-            " : " + parents.joinToString(", ")
+            " : " + (if (hasPrivateConstructor) "\n" else "") + parents.joinToString(", ")
         } else ""
 
         // TODO: move cleanup to separate method
@@ -190,7 +192,6 @@ internal abstract class TypeBase(
         } else ""
 
         val modifiers = (if (top) "external " else "") +
-                (if (sealed) "sealed " else "") +
                 (if (abstract) "abstract " else "")
 
         val hideParams = constructor != null && !constructor.hasParameters
