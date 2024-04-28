@@ -180,7 +180,7 @@ internal abstract class TypeBase(
         }
 
         val parentNames = if (parents.isNotEmpty()) {
-            " : " + (if (hasPrivateConstructor) "\n" else "") + parents.joinToString(", ")
+            " : " + (if (constructorBody.endsWith("()")) "\n" else "") + parents.joinToString(", ")
         } else ""
 
         // TODO: move cleanup to separate method
