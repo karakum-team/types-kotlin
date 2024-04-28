@@ -69,8 +69,6 @@ private fun writeDeclarations(
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("private constructor()" in body) {
                 add(WRONG_EXTERNAL_DECLARATION)
-            } else if ("companion object" in body) {
-                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
             }
 
             if ("inline operator fun " in body)

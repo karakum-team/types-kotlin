@@ -154,10 +154,6 @@ private fun generate(
         if (moduleRequired && "typealias " in body)
             types.add(Suppress.NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE)
 
-        if ("@JsValue(" in body) {
-            types.add(Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE)
-        }
-
         if (types.isNotEmpty()) {
             types.asSequence()
                 .map { "\"${it.name}\",\n" }

@@ -20,13 +20,6 @@ fun generateKotlinDeclarations(
                 add(ERROR_IN_CONTRACT_DESCRIPTION)
             }
 
-            if ("companion object" in body
-                || name == "SyntaxKind"
-                || name == "TypePredicateKind"
-                || name == "InvalidatedProjectKind"
-            )
-                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
-
             if ("override var kind: TypePredicateKind." in body
                 || name == "TupleTypeReference"
                 || name == "CompletionEntryDataResolved"

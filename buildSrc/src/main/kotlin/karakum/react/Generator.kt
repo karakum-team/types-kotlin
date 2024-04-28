@@ -1,8 +1,6 @@
 package karakum.react
 
 import karakum.common.GENERATOR_COMMENT
-import karakum.common.Suppress
-import karakum.common.fileSuppress
 import java.io.File
 
 private val ARIA_IMPORTS = """
@@ -35,19 +33,6 @@ fun generateKotlinDeclarations(
     sourceDir: File,
 ) {
     for ((name, body, pkg) in convertDefinitions(definitionsFile)) {
-        val suppresses = mutableListOf<Suppress>().apply {
-            if ("@JsVirtual" in body) {
-                add(Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE)
-            }
-        }.toTypedArray()
-
-        val annotations = when {
-            suppresses.isNotEmpty()
-            -> fileSuppress(*suppresses)
-
-            else -> ""
-        }
-
         val finalPkg = when {
             name.startsWith("Aria") -> Package.ARIA
             name in DOM_TYPES -> Package.DOM
@@ -69,7 +54,7 @@ fun generateKotlinDeclarations(
             .also { it.mkdirs() }
 
         targetDir.resolve("${name}.kt")
-            .writeText(fileContent(finalPkg, annotations, content))
+            .writeText(fileContent(finalPkg, "", content))
     }
 }
 

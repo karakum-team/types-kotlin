@@ -1,8 +1,6 @@
 package karakum.popper
 
 import karakum.common.GENERATOR_COMMENT
-import karakum.common.Suppress
-import karakum.common.fileSuppress
 import java.io.File
 import java.io.FileFilter
 
@@ -46,20 +44,8 @@ private fun generateCoreDeclarations(
         .plus(enums())
 
     for ((name, body) in types) {
-        val suppresses = mutableListOf<Suppress>().apply {
-            if ("@JsValue(" in body && "companion object" in body)
-                add(Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE)
-        }.toTypedArray()
-
-        val annotations = when {
-            suppresses.isNotEmpty()
-            -> fileSuppress(*suppresses)
-
-            else -> ""
-        }
-
         targetDir.resolve("$name.kt")
-            .writeText(fileContent(Package.CORE, annotations, body))
+            .writeText(fileContent(Package.CORE, "", body))
     }
 }
 

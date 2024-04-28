@@ -3,7 +3,6 @@ package karakum.actions
 import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
 import karakum.common.Suppress.ABSTRACT_MEMBER_NOT_IMPLEMENTED
-import karakum.common.Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE
 import karakum.common.fileSuppress
 import java.io.File
 
@@ -56,10 +55,6 @@ private fun generate(
 
     for ((name, body) in result.results) {
         val suppresses = mutableListOf<Suppress>().apply {
-            if ("@JsVirtual" in body) {
-                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
-            }
-
             if (name in CREDENTIAL_HANDLERS)
                 add(ABSTRACT_MEMBER_NOT_IMPLEMENTED)
         }.toTypedArray()

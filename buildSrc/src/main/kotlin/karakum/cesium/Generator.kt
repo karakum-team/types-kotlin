@@ -48,9 +48,6 @@ private fun generate(
             if (declaration is TypeBase)
                 suppresses += declaration.suppresses()
 
-            if ("sealed external interface" in body && "companion object" in body)
-                suppresses += Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE
-
             val annotations = when {
                 suppresses.isNotEmpty()
                 -> fileSuppress(*suppresses.toTypedArray())

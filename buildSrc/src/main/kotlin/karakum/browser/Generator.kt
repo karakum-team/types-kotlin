@@ -280,9 +280,6 @@ fun generateKotlinDeclarations(
             if ("val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
 
-            if ("companion object" in body && !name.endsWith("Event"))
-                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
-
             if ("Event.types" in name && " = definedExternally" in body)
                 add(NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE)
 
@@ -344,9 +341,6 @@ fun generateKotlinDeclarations(
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("override val type: EventType<" in body)
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
-
-            if (("@JsVirtual" in body || name in GPU_FLAGS) && "companion object" in body)
-                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
 
             if ("inline fun " in body && !name.endsWith("ReadOnly.ext"))
                 add(NOTHING_TO_INLINE)
@@ -499,19 +493,9 @@ fun generateKotlinDeclarations(
     }
 
     for ((name, body) in webglDeclarations(content)) {
-        val suppresses = mutableSetOf<Suppress>().apply {
-            if ("@JsVirtual" in body) {
-                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
-            }
-        }.toTypedArray()
-
-        val annotations = if (suppresses.isNotEmpty()) {
-            fileSuppress(*suppresses)
-        } else ""
-
         webglTargetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(fileContent(annotations, "", body, "web.gl"))
+            .writeText(fileContent("", "", body, "web.gl"))
     }
 }
 
