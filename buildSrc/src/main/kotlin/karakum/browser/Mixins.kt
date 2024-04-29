@@ -41,6 +41,12 @@ internal object Mixins {
 
         "GenericTransformStream",
         "ReadableStreamGenericReader",
+
+        "SVGAnimatedPoints",
+        "SVGFilterPrimitiveStandardAttributes",
+        "SVGFitToViewBox",
+        "SVGTests",
+        "SVGURIReference",
     )
 
     val ALL: Set<String> = SAFE + UNSAFE
