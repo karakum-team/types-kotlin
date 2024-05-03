@@ -9,6 +9,7 @@ val PACKABLE_MEMBERS: Set<String> = setOf(
     "unpack"
 )
 
+// Details - https://github.com/CesiumGS/cesium/issues/8914
 fun applyPackableFixes(code: String): String =
     code.replace(": Any", ": T")
         .replace("interface $PACKABLE", "interface $PACKABLE<T: Any>")
