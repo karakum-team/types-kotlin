@@ -6,12 +6,13 @@ internal class Interface(
     override val typeName: String = "interface"
     override var companion: HasMembers? = null
 
-    override fun toCode(): String =
-        if (name == PACKABLE) {
-            applyPackableFixes(super.toCode())
-        } else {
-            super.toCode()
+    override fun toCode(): String {
+        val code = super.toCode()
+        return when (name) {
+            PACKABLE -> applyPackableFixes(code)
+            else -> code
         }
+    }
 
     companion object {
         const val PREFIX = "export interface "
