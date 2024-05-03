@@ -29,7 +29,7 @@ internal fun typeDeclaration(
 
         else -> {
             val modifier = if (top) "external" else ""
-            "$modifier interface $name {\n${optionsBody(body)}\n}"
+            "@JsPlainObject\nsealed $modifier interface $name {\n${optionsBody(body)}\n}"
         }
     }
 }
