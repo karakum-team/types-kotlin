@@ -3,7 +3,7 @@ package karakum.browser
 import java.net.URL
 
 private val WEB_GPU_URL =
-    URL("https://raw.githubusercontent.com/denoland/deno/main/cli/tsc/dts/lib.deno_webgpu.d.ts")
+    URL("https://raw.githubusercontent.com/denoland/deno/c5193556242117737fc3ba95ee3692b7831ca04a/cli/tsc/dts/lib.deno_webgpu.d.ts")
 
 internal val WEB_GPU_CONTENT by lazy {
     WEB_GPU_URL.openStream()
