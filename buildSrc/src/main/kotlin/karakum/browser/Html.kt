@@ -1003,6 +1003,7 @@ internal fun convertInterface(
                 .replace("fun get(", "fun <T : HTMLElement> get(")
                 .replace("fun getName(", "fun <T : HTMLElement> getName(")
                 .replace("fun whenDefined(", "fun <T : HTMLElement> whenDefined(")
+                .replace("fun whenDefinedAsync(", "fun <T : HTMLElement> whenDefinedAsync(")
                 .replace(": String", ": HtmlTagName<T>")
 
             "ElementDefinitionOptions",
@@ -1687,8 +1688,23 @@ internal fun convertMember(
             source.indexOf(": ") > source.indexOf("(")
         } else true
 
-        if (isFun)
-            return convertFunction(source, typeProvider)
+        if (isFun) {
+            val result = convertFunction(source, typeProvider)
+                ?: return null
+
+            val asyncResult = result.replace(
+                Regex(
+                    """^((operator)?\s*)(fun.*[ >])([a-zA-Z\d]+)(\(.*\)): Promise<(.+)>$""",
+                    RegexOption.DOT_MATCHES_ALL
+                ),
+                """
+                @JsName("$4")
+                $3$4Async$5: Promise<$6>
+                """.trimIndent()
+            )
+
+            return asyncResult
+        }
     }
 
     return convertProperty(source, typeProvider)
