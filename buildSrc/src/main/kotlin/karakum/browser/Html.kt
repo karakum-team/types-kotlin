@@ -1694,12 +1694,12 @@ internal fun convertMember(
 
             val asyncResult = result.replace(
                 Regex(
-                    """^((operator)?\s*)(fun.*[ >])([a-zA-Z\d]+)(\(.*\)): Promise<(.+)>$""",
+                    """^((operator)?\s*)(fun.*[ >])([a-zA-Z\d]+)(\(.*\)): Promise<(.+)>( = definedExternally)?$""",
                     RegexOption.DOT_MATCHES_ALL
                 ),
                 """
                 @JsName("$4")
-                $3$4Async$5: Promise<$6>
+                $3$4Async$5: Promise<$6>$7
                 """.trimIndent()
             )
 
