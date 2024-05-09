@@ -16,7 +16,7 @@ sealed external class Clients {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Clients/claim)
      */
-    suspend fun claim(): Unit
+    suspend fun claim()
 
     @JsName("claim")
     fun claimAsync(): Promise<Void>

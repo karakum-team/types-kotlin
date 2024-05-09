@@ -33,7 +33,7 @@ sealed external class WakeLockSentinel :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLockSentinel/release)
      */
-    suspend fun release(): Unit
+    suspend fun release()
 
     @JsName("release")
     fun releaseAsync(): Promise<Void>

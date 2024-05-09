@@ -32,7 +32,7 @@ external class WritableStreamDefaultWriter<W>(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WritableStreamDefaultWriter/abort)
      */
-    suspend fun abort(reason: JsError = definedExternally): Unit
+    suspend fun abort(reason: JsError = definedExternally)
 
     @JsName("abort")
     fun abortAsync(reason: JsError = definedExternally): Promise<Void>
@@ -40,7 +40,7 @@ external class WritableStreamDefaultWriter<W>(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WritableStreamDefaultWriter/close)
      */
-    suspend fun close(): Unit
+    suspend fun close()
 
     @JsName("close")
     fun closeAsync(): Promise<Void>
@@ -53,7 +53,7 @@ external class WritableStreamDefaultWriter<W>(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WritableStreamDefaultWriter/write)
      */
-    suspend fun write(chunk: W = definedExternally): Unit
+    suspend fun write(chunk: W = definedExternally)
 
     @JsName("write")
     fun writeAsync(chunk: W = definedExternally): Promise<Void>

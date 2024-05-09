@@ -45,7 +45,7 @@ external class VideoDecoder(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/VideoDecoder/flush)
      */
-    suspend fun flush(): Unit
+    suspend fun flush()
 
     @JsName("flush")
     fun flushAsync(): Promise<Void>

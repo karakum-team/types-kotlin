@@ -32,7 +32,7 @@ external class PaymentRequest(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequest/abort)
      */
-    suspend fun abort(): Unit
+    suspend fun abort()
 
     @JsName("abort")
     fun abortAsync(): Promise<Void>

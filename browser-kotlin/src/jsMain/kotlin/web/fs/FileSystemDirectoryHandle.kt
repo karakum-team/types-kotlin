@@ -51,7 +51,7 @@ sealed external class FileSystemDirectoryHandle :
     suspend fun removeEntry(
         name: String,
         options: FileSystemRemoveOptions = definedExternally,
-    ): Unit
+    )
 
     @JsName("removeEntry")
     fun removeEntryAsync(

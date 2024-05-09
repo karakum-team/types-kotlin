@@ -25,7 +25,7 @@ sealed external class LockManager {
     suspend fun request(
         name: String,
         callback: LockGrantedCallback,
-    ): Unit
+    )
 
     @JsName("request")
     fun requestAsync(
@@ -37,7 +37,7 @@ sealed external class LockManager {
         name: String,
         options: LockOptions,
         callback: LockGrantedCallback,
-    ): Unit
+    )
 
     @JsName("request")
     fun requestAsync(

@@ -32,7 +32,7 @@ sealed external class PaymentResponse :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentResponse/complete)
      */
-    suspend fun complete(result: PaymentComplete = definedExternally): Unit
+    suspend fun complete(result: PaymentComplete = definedExternally)
 
     @JsName("complete")
     fun completeAsync(result: PaymentComplete = definedExternally): Promise<Void>
@@ -40,7 +40,7 @@ sealed external class PaymentResponse :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentResponse/retry)
      */
-    suspend fun retry(errorFields: PaymentValidationErrors = definedExternally): Unit
+    suspend fun retry(errorFields: PaymentValidationErrors = definedExternally)
 
     @JsName("retry")
     fun retryAsync(errorFields: PaymentValidationErrors = definedExternally): Promise<Void>

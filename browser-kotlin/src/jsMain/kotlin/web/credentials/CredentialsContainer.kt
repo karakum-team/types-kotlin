@@ -30,7 +30,7 @@ sealed external class CredentialsContainer {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CredentialsContainer/preventSilentAccess)
      */
-    suspend fun preventSilentAccess(): Unit
+    suspend fun preventSilentAccess()
 
     @JsName("preventSilentAccess")
     fun preventSilentAccessAsync(): Promise<Void>
@@ -38,7 +38,7 @@ sealed external class CredentialsContainer {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CredentialsContainer/store)
      */
-    suspend fun store(credential: Credential): Unit
+    suspend fun store(credential: Credential)
 
     @JsName("store")
     fun storeAsync(credential: Credential): Promise<Void>

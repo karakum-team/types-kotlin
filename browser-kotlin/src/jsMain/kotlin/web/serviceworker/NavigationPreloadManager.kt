@@ -14,7 +14,7 @@ sealed external class NavigationPreloadManager {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/NavigationPreloadManager/disable)
      */
-    suspend fun disable(): Unit
+    suspend fun disable()
 
     @JsName("disable")
     fun disableAsync(): Promise<Void>
@@ -22,7 +22,7 @@ sealed external class NavigationPreloadManager {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/NavigationPreloadManager/enable)
      */
-    suspend fun enable(): Unit
+    suspend fun enable()
 
     @JsName("enable")
     fun enableAsync(): Promise<Void>
@@ -38,7 +38,7 @@ sealed external class NavigationPreloadManager {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/NavigationPreloadManager/setHeaderValue)
      */
-    suspend fun setHeaderValue(value: String): Unit
+    suspend fun setHeaderValue(value: String)
 
     @JsName("setHeaderValue")
     fun setHeaderValueAsync(value: String): Promise<Void>

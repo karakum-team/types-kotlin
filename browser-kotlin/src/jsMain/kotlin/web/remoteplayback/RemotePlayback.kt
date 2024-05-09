@@ -36,7 +36,7 @@ sealed external class RemotePlayback :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RemotePlayback/cancelWatchAvailability)
      */
-    suspend fun cancelWatchAvailability(id: Int = definedExternally): Unit
+    suspend fun cancelWatchAvailability(id: Int = definedExternally)
 
     @JsName("cancelWatchAvailability")
     fun cancelWatchAvailabilityAsync(id: Int = definedExternally): Promise<Void>
@@ -44,7 +44,7 @@ sealed external class RemotePlayback :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RemotePlayback/prompt)
      */
-    suspend fun prompt(): Unit
+    suspend fun prompt()
 
     @JsName("prompt")
     fun promptAsync(): Promise<Void>

@@ -39,7 +39,7 @@ sealed external class RTCRtpScriptTransformer :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCRtpScriptTransformer/sendKeyFrameRequest)
      */
-    suspend fun sendKeyFrameRequest(): Unit
+    suspend fun sendKeyFrameRequest()
 
     @JsName("sendKeyFrameRequest")
     fun sendKeyFrameRequestAsync(): Promise<Void>

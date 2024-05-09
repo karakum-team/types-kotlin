@@ -431,7 +431,7 @@ open external class Document :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Document/exitFullscreen)
      */
-    suspend fun exitFullscreen(): Unit
+    suspend fun exitFullscreen()
 
     @JsName("exitFullscreen")
     fun exitFullscreenAsync(): Promise<Void>
@@ -439,7 +439,7 @@ open external class Document :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Document/exitPictureInPicture)
      */
-    suspend fun exitPictureInPicture(): Unit
+    suspend fun exitPictureInPicture()
 
     @JsName("exitPictureInPicture")
     fun exitPictureInPictureAsync(): Promise<Void>
@@ -558,7 +558,7 @@ open external class Document :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Document/requestStorageAccess)
      */
-    suspend fun requestStorageAccess(): Unit
+    suspend fun requestStorageAccess()
 
     @JsName("requestStorageAccess")
     fun requestStorageAccessAsync(): Promise<Void>

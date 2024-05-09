@@ -49,7 +49,7 @@ sealed external class RTCRtpSender {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCRtpSender/replaceTrack)
      */
-    suspend fun replaceTrack(withTrack: MediaStreamTrack?): Unit
+    suspend fun replaceTrack(withTrack: MediaStreamTrack?)
 
     @JsName("replaceTrack")
     fun replaceTrackAsync(withTrack: MediaStreamTrack?): Promise<Void>
@@ -60,7 +60,7 @@ sealed external class RTCRtpSender {
     suspend fun setParameters(
         parameters: RTCRtpSendParameters,
         setParameterOptions: RTCSetParameterOptions = definedExternally,
-    ): Unit
+    )
 
     @JsName("setParameters")
     fun setParametersAsync(

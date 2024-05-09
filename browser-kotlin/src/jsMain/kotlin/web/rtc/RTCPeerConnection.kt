@@ -128,7 +128,7 @@ external class RTCPeerConnection(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/addIceCandidate)
      */
-    suspend fun addIceCandidate(candidate: RTCIceCandidateInit = definedExternally): Unit
+    suspend fun addIceCandidate(candidate: RTCIceCandidateInit = definedExternally)
 
     @JsName("addIceCandidate")
     fun addIceCandidateAsync(candidate: RTCIceCandidateInit = definedExternally): Promise<Void>
@@ -229,7 +229,7 @@ external class RTCPeerConnection(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/setLocalDescription)
      */
-    suspend fun setLocalDescription(description: RTCLocalSessionDescriptionInit = definedExternally): Unit
+    suspend fun setLocalDescription(description: RTCLocalSessionDescriptionInit = definedExternally)
 
     @JsName("setLocalDescription")
     fun setLocalDescriptionAsync(description: RTCLocalSessionDescriptionInit = definedExternally): Promise<Void>
@@ -237,7 +237,7 @@ external class RTCPeerConnection(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/setRemoteDescription)
      */
-    suspend fun setRemoteDescription(description: RTCSessionDescriptionInit): Unit
+    suspend fun setRemoteDescription(description: RTCSessionDescriptionInit)
 
     @JsName("setRemoteDescription")
     fun setRemoteDescriptionAsync(description: RTCSessionDescriptionInit): Promise<Void>

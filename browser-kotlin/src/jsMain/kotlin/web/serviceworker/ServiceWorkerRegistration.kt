@@ -74,7 +74,7 @@ sealed external class ServiceWorkerRegistration :
     suspend fun showNotification(
         title: String,
         options: NotificationOptions = definedExternally,
-    ): Unit
+    )
 
     @JsName("showNotification")
     fun showNotificationAsync(
@@ -93,7 +93,7 @@ sealed external class ServiceWorkerRegistration :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/update)
      */
-    suspend fun update(): Unit
+    suspend fun update()
 
     @JsName("update")
     fun updateAsync(): Promise<Void>

@@ -16,7 +16,7 @@ sealed external class GPUBuffer :
         mode: GPUMapMode,
         offset: GPUSize64 = definedExternally,
         size: GPUSize64 = definedExternally,
-    ): Unit
+    )
 
     @JsName("mapAsync")
     fun mapAsyncAsync(

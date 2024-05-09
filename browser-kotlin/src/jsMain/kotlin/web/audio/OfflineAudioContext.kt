@@ -33,7 +33,7 @@ external class OfflineAudioContext(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext/resume)
      */
-    suspend fun resume(): Unit
+    suspend fun resume()
 
     @JsName("resume")
     fun resumeAsync(): Promise<Void>
@@ -49,7 +49,7 @@ external class OfflineAudioContext(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext/suspend)
      */
-    suspend fun suspend(suspendTime: Double): Unit
+    suspend fun suspend(suspendTime: Double)
 
     @JsName("suspend")
     fun suspendAsync(suspendTime: Double): Promise<Void>

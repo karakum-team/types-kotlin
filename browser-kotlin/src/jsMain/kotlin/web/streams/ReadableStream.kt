@@ -30,7 +30,7 @@ external class ReadableStream<R>(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStream/cancel)
      */
-    suspend fun cancel(reason: JsError = definedExternally): Unit
+    suspend fun cancel(reason: JsError = definedExternally)
 
     @JsName("cancel")
     fun cancelAsync(reason: JsError = definedExternally): Promise<Void>
@@ -55,7 +55,7 @@ external class ReadableStream<R>(
     suspend fun pipeTo(
         destination: WritableStream<R>,
         options: StreamPipeOptions = definedExternally,
-    ): Unit
+    )
 
     @JsName("pipeTo")
     fun pipeToAsync(

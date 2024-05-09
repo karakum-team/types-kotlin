@@ -162,7 +162,7 @@ sealed external class Navigator :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/share)
      */
-    suspend fun share(data: ShareData = definedExternally): Unit
+    suspend fun share(data: ShareData = definedExternally)
 
     @JsName("share")
     fun shareAsync(data: ShareData = definedExternally): Promise<Void>

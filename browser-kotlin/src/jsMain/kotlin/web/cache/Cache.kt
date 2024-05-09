@@ -19,15 +19,15 @@ sealed external class Cache {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Cache/add)
      */
-    suspend fun add(request: Request): Unit
+    suspend fun add(request: Request)
 
     @JsName("add")
     fun addAsync(request: Request): Promise<Void>
-    suspend fun add(request: String): Unit
+    suspend fun add(request: String)
 
     @JsName("add")
     fun addAsync(request: String): Promise<Void>
-    suspend fun add(request: URL): Unit
+    suspend fun add(request: URL)
 
     @JsName("add")
     fun addAsync(request: URL): Promise<Void>
@@ -35,11 +35,11 @@ sealed external class Cache {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Cache/addAll)
      */
-    suspend fun addAll(requests: ReadonlyArray<Request>): Unit
+    suspend fun addAll(requests: ReadonlyArray<Request>)
 
     @JsName("addAll")
     fun addAllAsync(requests: ReadonlyArray<Request>): Promise<Void>
-    suspend fun addAll(requests: ReadonlyArray<String>): Unit
+    suspend fun addAll(requests: ReadonlyArray<String>)
 
     @JsName("addAll")
     fun addAllAsync(requests: ReadonlyArray<String>): Promise<Void>
@@ -194,7 +194,7 @@ sealed external class Cache {
     suspend fun put(
         request: Request,
         response: Response,
-    ): Unit
+    )
 
     @JsName("put")
     fun putAsync(
@@ -205,7 +205,7 @@ sealed external class Cache {
     suspend fun put(
         request: String,
         response: Response,
-    ): Unit
+    )
 
     @JsName("put")
     fun putAsync(
@@ -216,7 +216,7 @@ sealed external class Cache {
     suspend fun put(
         request: URL,
         response: Response,
-    ): Unit
+    )
 
     @JsName("put")
     fun putAsync(

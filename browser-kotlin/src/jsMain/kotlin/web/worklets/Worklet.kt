@@ -24,7 +24,7 @@ abstract external class Worklet {
     suspend fun addModule(
         moduleURL: String,
         options: WorkletOptions = definedExternally,
-    ): Unit
+    )
 
     @JsName("addModule")
     fun addModuleAsync(
@@ -35,7 +35,7 @@ abstract external class Worklet {
     suspend fun addModule(
         moduleURL: URL,
         options: WorkletOptions = definedExternally,
-    ): Unit
+    )
 
     @JsName("addModule")
     fun addModuleAsync(

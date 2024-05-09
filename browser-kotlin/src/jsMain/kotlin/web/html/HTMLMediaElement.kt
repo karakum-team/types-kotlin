@@ -265,7 +265,7 @@ sealed external class HTMLMediaElement :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/play)
      */
-    suspend fun play(): Unit
+    suspend fun play()
 
     @JsName("play")
     fun playAsync(): Promise<Void>
@@ -275,7 +275,7 @@ sealed external class HTMLMediaElement :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/setMediaKeys)
      */
-    suspend fun setMediaKeys(mediaKeys: MediaKeys?): Unit
+    suspend fun setMediaKeys(mediaKeys: MediaKeys?)
 
     @JsName("setMediaKeys")
     fun setMediaKeysAsync(mediaKeys: MediaKeys?): Promise<Void>
@@ -285,7 +285,7 @@ sealed external class HTMLMediaElement :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/setSinkId)
      */
-    suspend fun setSinkId(sinkId: String): Unit
+    suspend fun setSinkId(sinkId: String)
 
     @JsName("setSinkId")
     fun setSinkIdAsync(sinkId: String): Promise<Void>

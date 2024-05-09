@@ -32,7 +32,7 @@ sealed external class Clipboard :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Clipboard/write)
      */
-    suspend fun write(data: ClipboardItems): Unit
+    suspend fun write(data: ClipboardItems)
 
     @JsName("write")
     fun writeAsync(data: ClipboardItems): Promise<Void>
@@ -40,7 +40,7 @@ sealed external class Clipboard :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Clipboard/writeText)
      */
-    suspend fun writeText(data: String): Unit
+    suspend fun writeText(data: String)
 
     @JsName("writeText")
     fun writeTextAsync(data: String): Promise<Void>

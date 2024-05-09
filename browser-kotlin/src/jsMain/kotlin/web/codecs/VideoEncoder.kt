@@ -45,7 +45,7 @@ external class VideoEncoder(
         options: VideoEncoderEncodeOptions = definedExternally,
     )
 
-    suspend fun flush(): Unit
+    suspend fun flush()
 
     @JsName("flush")
     fun flushAsync(): Promise<Void>
