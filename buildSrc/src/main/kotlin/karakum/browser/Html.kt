@@ -1710,11 +1710,11 @@ internal fun convertMember(
                         else -> p6
                     }
                     """
-                suspend $p3$p4$p5: $sr$p7
-                    
-                @JsName("$p4")
-                $p3${p4}Async$p5: Promise<$p6>$p7
-                """.trimIndent()
+                    suspend $p3$p4$p5: $sr$p7
+                        
+                    @JsName("$p4")
+                    $p3${p4}Async$p5: Promise<$p6>$p7
+                    """.trimIndent()
                 }
             )
 
