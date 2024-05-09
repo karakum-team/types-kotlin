@@ -11,7 +11,9 @@ sealed external class GPUDevice :
     override var label: String
     val lost: Promise<GPUDeviceLostInfo>
     fun pushErrorScope(filter: GPUErrorFilter)
-    fun popErrorScope(): Promise<GPUError?>
+
+    @JsName("popErrorScope")
+    fun popErrorScopeAsync(): Promise<GPUError?>
     val features: GPUSupportedFeatures
     val limits: GPUSupportedLimits
     val queue: GPUQueue
@@ -25,8 +27,12 @@ sealed external class GPUDevice :
     fun createShaderModule(descriptor: GPUShaderModuleDescriptor): GPUShaderModule
     fun createComputePipeline(descriptor: GPUComputePipelineDescriptor): GPUComputePipeline
     fun createRenderPipeline(descriptor: GPURenderPipelineDescriptor): GPURenderPipeline
-    fun createComputePipelineAsync(descriptor: GPUComputePipelineDescriptor): Promise<GPUComputePipeline>
-    fun createRenderPipelineAsync(descriptor: GPURenderPipelineDescriptor): Promise<GPURenderPipeline>
+
+    @JsName("createComputePipelineAsync")
+    fun createComputePipelineAsyncAsync(descriptor: GPUComputePipelineDescriptor): Promise<GPUComputePipeline>
+
+    @JsName("createRenderPipelineAsync")
+    fun createRenderPipelineAsyncAsync(descriptor: GPURenderPipelineDescriptor): Promise<GPURenderPipeline>
     fun createCommandEncoder(descriptor: GPUCommandEncoderDescriptor = definedExternally): GPUCommandEncoder
     fun createRenderBundleEncoder(descriptor: GPURenderBundleEncoderDescriptor): GPURenderBundleEncoder
     fun createQuerySet(descriptor: GPUQuerySetDescriptor): GPUQuerySet

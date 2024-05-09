@@ -89,5 +89,6 @@ external class FontFace(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFace/load)
      */
-    fun load(): Promise<FontFace>
+    @JsName("load")
+    fun loadAsync(): Promise<FontFace>
 }

@@ -38,5 +38,6 @@ sealed external class CustomElementRegistry {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CustomElementRegistry/whenDefined)
      */
-    fun <T : HTMLElement> whenDefined(name: HtmlTagName<T>): Promise<CustomElementConstructor<T>>
+    @JsName("whenDefined")
+    fun <T : HTMLElement> whenDefinedAsync(name: HtmlTagName<T>): Promise<CustomElementConstructor<T>>
 }

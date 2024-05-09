@@ -32,7 +32,8 @@ open external class Blob(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Blob/arrayBuffer)
      */
-    fun arrayBuffer(): Promise<ArrayBuffer>
+    @JsName("arrayBuffer")
+    fun arrayBufferAsync(): Promise<ArrayBuffer>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Blob/slice)
@@ -51,5 +52,6 @@ open external class Blob(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Blob/text)
      */
-    fun text(): Promise<String>
+    @JsName("text")
+    fun textAsync(): Promise<String>
 }

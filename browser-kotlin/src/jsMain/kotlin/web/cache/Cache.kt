@@ -19,30 +19,41 @@ sealed external class Cache {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Cache/add)
      */
-    fun add(request: Request): Promise<Void>
-    fun add(request: String): Promise<Void>
-    fun add(request: URL): Promise<Void>
+    @JsName("add")
+    fun addAsync(request: Request): Promise<Void>
+
+    @JsName("add")
+    fun addAsync(request: String): Promise<Void>
+
+    @JsName("add")
+    fun addAsync(request: URL): Promise<Void>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Cache/addAll)
      */
-    fun addAll(requests: ReadonlyArray<Request>): Promise<Void>
-    fun addAll(requests: ReadonlyArray<String>): Promise<Void>
+    @JsName("addAll")
+    fun addAllAsync(requests: ReadonlyArray<Request>): Promise<Void>
+
+    @JsName("addAll")
+    fun addAllAsync(requests: ReadonlyArray<String>): Promise<Void>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Cache/delete)
      */
-    fun delete(
+    @JsName("delete")
+    fun deleteAsync(
         request: Request,
         options: CacheQueryOptions = definedExternally,
     ): Promise<Boolean>
 
-    fun delete(
+    @JsName("delete")
+    fun deleteAsync(
         request: String,
         options: CacheQueryOptions = definedExternally,
     ): Promise<Boolean>
 
-    fun delete(
+    @JsName("delete")
+    fun deleteAsync(
         request: URL,
         options: CacheQueryOptions = definedExternally,
     ): Promise<Boolean>
@@ -50,17 +61,20 @@ sealed external class Cache {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Cache/keys)
      */
-    fun keys(
+    @JsName("keys")
+    fun keysAsync(
         request: Request = definedExternally,
         options: CacheQueryOptions = definedExternally,
     ): Promise<ReadonlyArray<Request>>
 
-    fun keys(
+    @JsName("keys")
+    fun keysAsync(
         request: String,
         options: CacheQueryOptions = definedExternally,
     ): Promise<ReadonlyArray<Request>>
 
-    fun keys(
+    @JsName("keys")
+    fun keysAsync(
         request: URL,
         options: CacheQueryOptions = definedExternally,
     ): Promise<ReadonlyArray<Request>>
@@ -68,17 +82,20 @@ sealed external class Cache {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Cache/match)
      */
-    fun match(
+    @JsName("match")
+    fun matchAsync(
         request: Request,
         options: CacheQueryOptions = definedExternally,
     ): Promise<Response?>
 
-    fun match(
+    @JsName("match")
+    fun matchAsync(
         request: String,
         options: CacheQueryOptions = definedExternally,
     ): Promise<Response?>
 
-    fun match(
+    @JsName("match")
+    fun matchAsync(
         request: URL,
         options: CacheQueryOptions = definedExternally,
     ): Promise<Response?>
@@ -86,17 +103,20 @@ sealed external class Cache {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Cache/matchAll)
      */
-    fun matchAll(
+    @JsName("matchAll")
+    fun matchAllAsync(
         request: Request = definedExternally,
         options: CacheQueryOptions = definedExternally,
     ): Promise<ReadonlyArray<Response>>
 
-    fun matchAll(
+    @JsName("matchAll")
+    fun matchAllAsync(
         request: String,
         options: CacheQueryOptions = definedExternally,
     ): Promise<ReadonlyArray<Response>>
 
-    fun matchAll(
+    @JsName("matchAll")
+    fun matchAllAsync(
         request: URL,
         options: CacheQueryOptions = definedExternally,
     ): Promise<ReadonlyArray<Response>>
@@ -104,17 +124,20 @@ sealed external class Cache {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Cache/put)
      */
-    fun put(
+    @JsName("put")
+    fun putAsync(
         request: Request,
         response: Response,
     ): Promise<Void>
 
-    fun put(
+    @JsName("put")
+    fun putAsync(
         request: String,
         response: Response,
     ): Promise<Void>
 
-    fun put(
+    @JsName("put")
+    fun putAsync(
         request: URL,
         response: Response,
     ): Promise<Void>

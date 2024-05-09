@@ -89,7 +89,9 @@ external class VideoFrame(
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/VideoFrame/close)
      */
     fun close()
-    fun copyTo(
+
+    @JsName("copyTo")
+    fun copyToAsync(
         destination: AllowSharedBufferSource,
         options: VideoFrameCopyToOptions = definedExternally,
     ): Promise<ReadonlyArray<PlaneLayout>>

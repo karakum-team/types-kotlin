@@ -14,20 +14,24 @@ sealed external class StorageManager {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/StorageManager/estimate)
      */
-    fun estimate(): Promise<StorageEstimate>
+    @JsName("estimate")
+    fun estimateAsync(): Promise<StorageEstimate>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/StorageManager/getDirectory)
      */
-    fun getDirectory(): Promise<FileSystemDirectoryHandle>
+    @JsName("getDirectory")
+    fun getDirectoryAsync(): Promise<FileSystemDirectoryHandle>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/StorageManager/persist)
      */
-    fun persist(): Promise<Boolean>
+    @JsName("persist")
+    fun persistAsync(): Promise<Boolean>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/StorageManager/persisted)
      */
-    fun persisted(): Promise<Boolean>
+    @JsName("persisted")
+    fun persistedAsync(): Promise<Boolean>
 }

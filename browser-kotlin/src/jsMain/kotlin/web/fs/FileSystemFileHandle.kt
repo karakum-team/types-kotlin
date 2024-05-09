@@ -17,15 +17,18 @@ sealed external class FileSystemFileHandle :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle/createSyncAccessHandle)
      */
-    fun createSyncAccessHandle(): Promise<FileSystemSyncAccessHandle>
+    @JsName("createSyncAccessHandle")
+    fun createSyncAccessHandleAsync(): Promise<FileSystemSyncAccessHandle>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle/createWritable)
      */
-    fun createWritable(options: FileSystemCreateWritableOptions = definedExternally): Promise<FileSystemWritableFileStream>
+    @JsName("createWritable")
+    fun createWritableAsync(options: FileSystemCreateWritableOptions = definedExternally): Promise<FileSystemWritableFileStream>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle/getFile)
      */
-    fun getFile(): Promise<File>
+    @JsName("getFile")
+    fun getFileAsync(): Promise<File>
 }

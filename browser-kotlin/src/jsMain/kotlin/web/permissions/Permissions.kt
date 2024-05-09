@@ -11,5 +11,6 @@ sealed external class Permissions {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Permissions/query)
      */
-    fun query(permissionDesc: PermissionDescriptor): Promise<PermissionStatus>
+    @JsName("query")
+    fun queryAsync(permissionDesc: PermissionDescriptor): Promise<PermissionStatus>
 }

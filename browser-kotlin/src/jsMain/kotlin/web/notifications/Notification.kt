@@ -100,6 +100,7 @@ external class Notification(
         /**
          * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Notification/requestPermission_static)
          */
-        fun requestPermission(deprecatedCallback: NotificationPermissionCallback = definedExternally): Promise<NotificationPermission>
+        @JsName("requestPermission")
+        fun requestPermissionAsync(deprecatedCallback: NotificationPermissionCallback = definedExternally): Promise<NotificationPermission>
     }
 }

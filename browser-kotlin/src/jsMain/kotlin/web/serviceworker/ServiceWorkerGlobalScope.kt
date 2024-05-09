@@ -81,5 +81,6 @@ sealed external class ServiceWorkerGlobalScope :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting)
      */
-    fun skipWaiting(): Promise<Void>
+    @JsName("skipWaiting")
+    fun skipWaitingAsync(): Promise<Void>
 }

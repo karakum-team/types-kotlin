@@ -13,7 +13,8 @@ external class ReadableStreamDefaultReader<R>(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultReader/read)
      */
-    fun read(): Promise<ReadableStreamReadResult<R>>
+    @JsName("read")
+    fun readAsync(): Promise<ReadableStreamReadResult<R>>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultReader/releaseLock)

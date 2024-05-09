@@ -20,7 +20,8 @@ sealed external class FileSystemDirectoryHandle :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle/getDirectoryHandle)
      */
-    fun getDirectoryHandle(
+    @JsName("getDirectoryHandle")
+    fun getDirectoryHandleAsync(
         name: String,
         options: FileSystemGetDirectoryOptions = definedExternally,
     ): Promise<FileSystemDirectoryHandle>
@@ -28,7 +29,8 @@ sealed external class FileSystemDirectoryHandle :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle/getFileHandle)
      */
-    fun getFileHandle(
+    @JsName("getFileHandle")
+    fun getFileHandleAsync(
         name: String,
         options: FileSystemGetFileOptions = definedExternally,
     ): Promise<FileSystemFileHandle>
@@ -36,7 +38,8 @@ sealed external class FileSystemDirectoryHandle :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle/removeEntry)
      */
-    fun removeEntry(
+    @JsName("removeEntry")
+    fun removeEntryAsync(
         name: String,
         options: FileSystemRemoveOptions = definedExternally,
     ): Promise<Void>
@@ -44,5 +47,6 @@ sealed external class FileSystemDirectoryHandle :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle/resolve)
      */
-    fun resolve(possibleDescendant: FileSystemHandle): Promise<ReadonlyArray<String>?>
+    @JsName("resolve")
+    fun resolveAsync(possibleDescendant: FileSystemHandle): Promise<ReadonlyArray<String>?>
 }

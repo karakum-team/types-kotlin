@@ -24,5 +24,6 @@ external class ClipboardItem(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ClipboardItem/getType)
      */
-    fun getType(type: String): Promise<Blob>
+    @JsName("getType")
+    fun getTypeAsync(type: String): Promise<Blob>
 }

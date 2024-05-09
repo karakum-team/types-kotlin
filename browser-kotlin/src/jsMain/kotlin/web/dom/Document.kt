@@ -431,12 +431,14 @@ open external class Document :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Document/exitFullscreen)
      */
-    fun exitFullscreen(): Promise<Void>
+    @JsName("exitFullscreen")
+    fun exitFullscreenAsync(): Promise<Void>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Document/exitPictureInPicture)
      */
-    fun exitPictureInPicture(): Promise<Void>
+    @JsName("exitPictureInPicture")
+    fun exitPictureInPictureAsync(): Promise<Void>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Document/exitPointerLock)
@@ -506,7 +508,8 @@ open external class Document :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Document/hasStorageAccess)
      */
-    fun hasStorageAccess(): Promise<Boolean>
+    @JsName("hasStorageAccess")
+    fun hasStorageAccessAsync(): Promise<Boolean>
 
     /**
      * Returns a copy of node. If deep is true, the copy also includes the node's descendants.
@@ -549,7 +552,8 @@ open external class Document :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Document/requestStorageAccess)
      */
-    fun requestStorageAccess(): Promise<Void>
+    @JsName("requestStorageAccess")
+    fun requestStorageAccessAsync(): Promise<Void>
 
     /**
      * Writes one or more HTML expressions to a document in the specified window.

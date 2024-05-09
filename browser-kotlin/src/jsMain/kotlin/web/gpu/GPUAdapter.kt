@@ -9,6 +9,10 @@ sealed external class GPUAdapter {
     val features: GPUSupportedFeatures
     val limits: GPUSupportedLimits
     val isFallbackAdapter: Boolean
-    fun requestDevice(descriptor: GPUDeviceDescriptor = definedExternally): Promise<GPUDevice>
-    fun requestAdapterInfo(unmaskHints: ReadonlyArray<String> = definedExternally): Promise<GPUAdapterInfo>
+
+    @JsName("requestDevice")
+    fun requestDeviceAsync(descriptor: GPUDeviceDescriptor = definedExternally): Promise<GPUDevice>
+
+    @JsName("requestAdapterInfo")
+    fun requestAdapterInfoAsync(unmaskHints: ReadonlyArray<String> = definedExternally): Promise<GPUAdapterInfo>
 }

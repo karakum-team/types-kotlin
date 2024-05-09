@@ -54,7 +54,8 @@ sealed external interface FontFaceSet :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet/load)
      */
-    fun load(
+    @JsName("load")
+    fun loadAsync(
         font: String,
         text: String = definedExternally,
     ): Promise<ReadonlyArray<FontFace>>

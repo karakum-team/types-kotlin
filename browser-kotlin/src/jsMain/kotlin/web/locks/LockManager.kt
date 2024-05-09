@@ -14,17 +14,20 @@ sealed external class LockManager {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/LockManager/query)
      */
-    fun query(): Promise<LockManagerSnapshot>
+    @JsName("query")
+    fun queryAsync(): Promise<LockManagerSnapshot>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/LockManager/request)
      */
-    fun request(
+    @JsName("request")
+    fun requestAsync(
         name: String,
         callback: LockGrantedCallback,
     ): Promise<Void>
 
-    fun request(
+    @JsName("request")
+    fun requestAsync(
         name: String,
         options: LockOptions,
         callback: LockGrantedCallback,

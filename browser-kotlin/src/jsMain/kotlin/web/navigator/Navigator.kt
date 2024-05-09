@@ -123,14 +123,16 @@ sealed external class Navigator :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/requestMIDIAccess)
      */
-    fun requestMIDIAccess(options: MIDIOptions = definedExternally): Promise<MIDIAccess>
+    @JsName("requestMIDIAccess")
+    fun requestMIDIAccessAsync(options: MIDIOptions = definedExternally): Promise<MIDIAccess>
 
     /**
      * Available only in secure contexts.
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/requestMediaKeySystemAccess)
      */
-    fun requestMediaKeySystemAccess(
+    @JsName("requestMediaKeySystemAccess")
+    fun requestMediaKeySystemAccessAsync(
         keySystem: String,
         supportedConfigurations: ReadonlyArray<MediaKeySystemConfiguration>,
     ): Promise<MediaKeySystemAccess>
@@ -153,7 +155,8 @@ sealed external class Navigator :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/share)
      */
-    fun share(data: ShareData = definedExternally): Promise<Void>
+    @JsName("share")
+    fun shareAsync(data: ShareData = definedExternally): Promise<Void>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/vibrate)

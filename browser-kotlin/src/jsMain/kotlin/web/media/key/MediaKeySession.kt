@@ -51,12 +51,14 @@ sealed external class MediaKeySession :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeySession/close)
      */
-    fun close(): Promise<Void>
+    @JsName("close")
+    fun closeAsync(): Promise<Void>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeySession/generateRequest)
      */
-    fun generateRequest(
+    @JsName("generateRequest")
+    fun generateRequestAsync(
         initDataType: String,
         initData: BufferSource,
     ): Promise<Void>
@@ -64,15 +66,18 @@ sealed external class MediaKeySession :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeySession/load)
      */
-    fun load(sessionId: String): Promise<Boolean>
+    @JsName("load")
+    fun loadAsync(sessionId: String): Promise<Boolean>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeySession/remove)
      */
-    fun remove(): Promise<Void>
+    @JsName("remove")
+    fun removeAsync(): Promise<Void>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeySession/update)
      */
-    fun update(response: BufferSource): Promise<Void>
+    @JsName("update")
+    fun updateAsync(response: BufferSource): Promise<Void>
 }
