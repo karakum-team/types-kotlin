@@ -157,6 +157,12 @@ sealed external class BaseAudioContext :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/BaseAudioContext/decodeAudioData)
      */
+    suspend fun decodeAudioData(
+        audioData: ArrayBuffer,
+        successCallback: DecodeSuccessCallback? = definedExternally,
+        errorCallback: DecodeErrorCallback? = definedExternally,
+    ): AudioBuffer
+
     @JsName("decodeAudioData")
     fun decodeAudioDataAsync(
         audioData: ArrayBuffer,

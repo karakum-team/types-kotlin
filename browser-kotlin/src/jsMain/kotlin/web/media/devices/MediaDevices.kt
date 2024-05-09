@@ -27,12 +27,16 @@ sealed external class MediaDevices :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaDevices/enumerateDevices)
      */
+    suspend fun enumerateDevices(): ReadonlyArray<MediaDeviceInfo>
+
     @JsName("enumerateDevices")
     fun enumerateDevicesAsync(): Promise<ReadonlyArray<MediaDeviceInfo>>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaDevices/getDisplayMedia)
      */
+    suspend fun getDisplayMedia(options: DisplayMediaStreamOptions = definedExternally): MediaStream
+
     @JsName("getDisplayMedia")
     fun getDisplayMediaAsync(options: DisplayMediaStreamOptions = definedExternally): Promise<MediaStream>
 
@@ -44,6 +48,8 @@ sealed external class MediaDevices :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaDevices/getUserMedia)
      */
+    suspend fun getUserMedia(constraints: MediaStreamConstraints = definedExternally): MediaStream
+
     @JsName("getUserMedia")
     fun getUserMediaAsync(constraints: MediaStreamConstraints = definedExternally): Promise<MediaStream>
 }

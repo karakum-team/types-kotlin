@@ -123,6 +123,8 @@ sealed external class Navigator :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/requestMIDIAccess)
      */
+    suspend fun requestMIDIAccess(options: MIDIOptions = definedExternally): MIDIAccess
+
     @JsName("requestMIDIAccess")
     fun requestMIDIAccessAsync(options: MIDIOptions = definedExternally): Promise<MIDIAccess>
 
@@ -131,6 +133,11 @@ sealed external class Navigator :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/requestMediaKeySystemAccess)
      */
+    suspend fun requestMediaKeySystemAccess(
+        keySystem: String,
+        supportedConfigurations: ReadonlyArray<MediaKeySystemConfiguration>,
+    ): MediaKeySystemAccess
+
     @JsName("requestMediaKeySystemAccess")
     fun requestMediaKeySystemAccessAsync(
         keySystem: String,
@@ -155,6 +162,8 @@ sealed external class Navigator :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/share)
      */
+    suspend fun share(data: ShareData = definedExternally): Unit
+
     @JsName("share")
     fun shareAsync(data: ShareData = definedExternally): Promise<Void>
 

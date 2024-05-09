@@ -367,6 +367,8 @@ abstract external class Element :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/requestFullscreen)
      */
+    suspend fun requestFullscreen(options: FullscreenOptions = definedExternally): Unit
+
     @JsName("requestFullscreen")
     fun requestFullscreenAsync(options: FullscreenOptions = definedExternally): Promise<Void>
 

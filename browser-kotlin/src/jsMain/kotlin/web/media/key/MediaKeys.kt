@@ -20,6 +20,8 @@ sealed external class MediaKeys {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeys/setServerCertificate)
      */
+    suspend fun setServerCertificate(serverCertificate: BufferSource): Boolean
+
     @JsName("setServerCertificate")
     fun setServerCertificateAsync(serverCertificate: BufferSource): Promise<Boolean>
 }

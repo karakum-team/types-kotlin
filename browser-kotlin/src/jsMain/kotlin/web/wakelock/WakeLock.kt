@@ -13,6 +13,8 @@ sealed external class WakeLock {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLock/request)
      */
+    suspend fun request(type: WakeLockType = definedExternally): WakeLockSentinel
+
     @JsName("request")
     fun requestAsync(type: WakeLockType = definedExternally): Promise<WakeLockSentinel>
 }

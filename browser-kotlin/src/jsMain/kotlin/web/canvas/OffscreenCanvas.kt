@@ -51,6 +51,8 @@ external class OffscreenCanvas(
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OffscreenCanvas/convertToBlob)
      */
+    suspend fun convertToBlob(options: ImageEncodeOptions = definedExternally): Blob
+
     @JsName("convertToBlob")
     fun convertToBlobAsync(options: ImageEncodeOptions = definedExternally): Promise<Blob>
 

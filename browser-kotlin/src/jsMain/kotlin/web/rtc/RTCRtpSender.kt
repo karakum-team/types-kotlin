@@ -41,18 +41,27 @@ sealed external class RTCRtpSender {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCRtpSender/getStats)
      */
+    suspend fun getStats(): RTCStatsReport
+
     @JsName("getStats")
     fun getStatsAsync(): Promise<RTCStatsReport>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCRtpSender/replaceTrack)
      */
+    suspend fun replaceTrack(withTrack: MediaStreamTrack?): Unit
+
     @JsName("replaceTrack")
     fun replaceTrackAsync(withTrack: MediaStreamTrack?): Promise<Void>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCRtpSender/setParameters)
      */
+    suspend fun setParameters(
+        parameters: RTCRtpSendParameters,
+        setParameterOptions: RTCSetParameterOptions = definedExternally,
+    ): Unit
+
     @JsName("setParameters")
     fun setParametersAsync(
         parameters: RTCRtpSendParameters,

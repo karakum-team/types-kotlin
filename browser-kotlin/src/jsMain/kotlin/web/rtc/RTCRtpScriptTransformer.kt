@@ -31,12 +31,16 @@ sealed external class RTCRtpScriptTransformer :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCRtpScriptTransformer/generateKeyFrame)
      */
+    suspend fun generateKeyFrame(rid: String = definedExternally): Number
+
     @JsName("generateKeyFrame")
     fun generateKeyFrameAsync(rid: String = definedExternally): Promise<Number>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCRtpScriptTransformer/sendKeyFrameRequest)
      */
+    suspend fun sendKeyFrameRequest(): Unit
+
     @JsName("sendKeyFrameRequest")
     fun sendKeyFrameRequestAsync(): Promise<Void>
 }

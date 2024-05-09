@@ -32,6 +32,8 @@ open external class Blob(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Blob/arrayBuffer)
      */
+    suspend fun arrayBuffer(): ArrayBuffer
+
     @JsName("arrayBuffer")
     fun arrayBufferAsync(): Promise<ArrayBuffer>
 
@@ -52,6 +54,8 @@ open external class Blob(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Blob/text)
      */
+    suspend fun text(): String
+
     @JsName("text")
     fun textAsync(): Promise<String>
 }

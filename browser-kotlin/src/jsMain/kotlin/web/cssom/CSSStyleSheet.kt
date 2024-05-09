@@ -38,6 +38,8 @@ external class CSSStyleSheet(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSStyleSheet/replace)
      */
+    suspend fun replace(text: String): CSSStyleSheet
+
     @JsName("replace")
     fun replaceAsync(text: String): Promise<CSSStyleSheet>
 

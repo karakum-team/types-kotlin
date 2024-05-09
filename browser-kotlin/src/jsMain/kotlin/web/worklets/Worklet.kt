@@ -21,11 +21,21 @@ abstract external class Worklet {
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Worklet/addModule)
      */
+    suspend fun addModule(
+        moduleURL: String,
+        options: WorkletOptions = definedExternally,
+    ): Unit
+
     @JsName("addModule")
     fun addModuleAsync(
         moduleURL: String,
         options: WorkletOptions = definedExternally,
     ): Promise<Void>
+
+    suspend fun addModule(
+        moduleURL: URL,
+        options: WorkletOptions = definedExternally,
+    ): Unit
 
     @JsName("addModule")
     fun addModuleAsync(

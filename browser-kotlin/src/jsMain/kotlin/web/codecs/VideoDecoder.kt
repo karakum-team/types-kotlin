@@ -45,6 +45,8 @@ external class VideoDecoder(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/VideoDecoder/flush)
      */
+    suspend fun flush(): Unit
+
     @JsName("flush")
     fun flushAsync(): Promise<Void>
 
@@ -54,6 +56,8 @@ external class VideoDecoder(
     fun reset()
 
     companion object {
+        suspend fun isConfigSupported(config: VideoDecoderConfig): VideoDecoderSupport
+
         @JsName("isConfigSupported")
         fun isConfigSupportedAsync(config: VideoDecoderConfig): Promise<VideoDecoderSupport>
     }

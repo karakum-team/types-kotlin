@@ -34,12 +34,16 @@ sealed external class PublicKeyCredential :
         /**
          * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PublicKeyCredential/isConditionalMediationAvailable)
          */
+        suspend fun isConditionalMediationAvailable(): Boolean
+
         @JsName("isConditionalMediationAvailable")
         fun isConditionalMediationAvailableAsync(): Promise<Boolean>
 
         /**
          * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PublicKeyCredential/isUserVerifyingPlatformAuthenticatorAvailable_static)
          */
+        suspend fun isUserVerifyingPlatformAuthenticatorAvailable(): Boolean
+
         @JsName("isUserVerifyingPlatformAuthenticatorAvailable")
         fun isUserVerifyingPlatformAuthenticatorAvailableAsync(): Promise<Boolean>
     }

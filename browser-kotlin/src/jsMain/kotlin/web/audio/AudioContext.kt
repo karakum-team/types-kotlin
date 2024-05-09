@@ -28,6 +28,8 @@ external class AudioContext(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioContext/close)
      */
+    suspend fun close(): Unit
+
     @JsName("close")
     fun closeAsync(): Promise<Void>
 
@@ -54,12 +56,16 @@ external class AudioContext(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioContext/resume)
      */
+    suspend fun resume(): Unit
+
     @JsName("resume")
     fun resumeAsync(): Promise<Void>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioContext/suspend)
      */
+    suspend fun suspend(): Unit
+
     @JsName("suspend")
     fun suspendAsync(): Promise<Void>
 }

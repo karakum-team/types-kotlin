@@ -63,12 +63,19 @@ sealed external class ServiceWorkerRegistration :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/getNotifications)
      */
+    suspend fun getNotifications(filter: GetNotificationOptions = definedExternally): ReadonlyArray<Notification>
+
     @JsName("getNotifications")
     fun getNotificationsAsync(filter: GetNotificationOptions = definedExternally): Promise<ReadonlyArray<Notification>>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/showNotification)
      */
+    suspend fun showNotification(
+        title: String,
+        options: NotificationOptions = definedExternally,
+    ): Unit
+
     @JsName("showNotification")
     fun showNotificationAsync(
         title: String,
@@ -78,12 +85,16 @@ sealed external class ServiceWorkerRegistration :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/unregister)
      */
+    suspend fun unregister(): Boolean
+
     @JsName("unregister")
     fun unregisterAsync(): Promise<Boolean>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/update)
      */
+    suspend fun update(): Unit
+
     @JsName("update")
     fun updateAsync(): Promise<Void>
 }

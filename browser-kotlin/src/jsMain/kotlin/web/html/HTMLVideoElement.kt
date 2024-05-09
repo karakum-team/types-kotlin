@@ -87,6 +87,8 @@ protected constructor() :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLVideoElement/requestPictureInPicture)
      */
+    suspend fun requestPictureInPicture(): PictureInPictureWindow
+
     @JsName("requestPictureInPicture")
     fun requestPictureInPictureAsync(): Promise<PictureInPictureWindow>
 

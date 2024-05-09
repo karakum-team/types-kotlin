@@ -27,6 +27,8 @@ sealed external class IDBFactory {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBFactory/databases)
      */
+    suspend fun databases(): ReadonlyArray<IDBDatabaseInfo>
+
     @JsName("databases")
     fun databasesAsync(): Promise<ReadonlyArray<IDBDatabaseInfo>>
 

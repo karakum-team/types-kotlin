@@ -128,6 +128,8 @@ external class RTCPeerConnection(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/addIceCandidate)
      */
+    suspend fun addIceCandidate(candidate: RTCIceCandidateInit = definedExternally): Unit
+
     @JsName("addIceCandidate")
     fun addIceCandidateAsync(candidate: RTCIceCandidateInit = definedExternally): Promise<Void>
 
@@ -160,6 +162,8 @@ external class RTCPeerConnection(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/createAnswer)
      */
+    suspend fun createAnswer(options: RTCAnswerOptions = definedExternally): RTCSessionDescriptionInit
+
     @JsName("createAnswer")
     fun createAnswerAsync(options: RTCAnswerOptions = definedExternally): Promise<RTCSessionDescriptionInit>
 
@@ -174,6 +178,8 @@ external class RTCPeerConnection(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/createOffer)
      */
+    suspend fun createOffer(options: RTCOfferOptions = definedExternally): RTCSessionDescriptionInit
+
     @JsName("createOffer")
     fun createOfferAsync(options: RTCOfferOptions = definedExternally): Promise<RTCSessionDescriptionInit>
 
@@ -195,6 +201,8 @@ external class RTCPeerConnection(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/getStats)
      */
+    suspend fun getStats(selector: MediaStreamTrack? = definedExternally): RTCStatsReport
+
     @JsName("getStats")
     fun getStatsAsync(selector: MediaStreamTrack? = definedExternally): Promise<RTCStatsReport>
 
@@ -221,12 +229,16 @@ external class RTCPeerConnection(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/setLocalDescription)
      */
+    suspend fun setLocalDescription(description: RTCLocalSessionDescriptionInit = definedExternally): Unit
+
     @JsName("setLocalDescription")
     fun setLocalDescriptionAsync(description: RTCLocalSessionDescriptionInit = definedExternally): Promise<Void>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/setRemoteDescription)
      */
+    suspend fun setRemoteDescription(description: RTCSessionDescriptionInit): Unit
+
     @JsName("setRemoteDescription")
     fun setRemoteDescriptionAsync(description: RTCSessionDescriptionInit): Promise<Void>
 
@@ -234,8 +246,11 @@ external class RTCPeerConnection(
         /**
          * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection/generateCertificate_static)
          */
+        suspend fun generateCertificate(keygenAlgorithm: Algorithm): RTCCertificate
+
         @JsName("generateCertificate")
         fun generateCertificateAsync(keygenAlgorithm: Algorithm): Promise<RTCCertificate>
+        suspend fun generateCertificate(keygenAlgorithm: String): RTCCertificate
 
         @JsName("generateCertificate")
         fun generateCertificateAsync(keygenAlgorithm: String): Promise<RTCCertificate>

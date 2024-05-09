@@ -68,6 +68,8 @@ sealed external class MediaStreamTrack :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaStreamTrack/applyConstraints)
      */
+    suspend fun applyConstraints(constraints: MediaTrackConstraints = definedExternally): Unit
+
     @JsName("applyConstraints")
     fun applyConstraintsAsync(constraints: MediaTrackConstraints = definedExternally): Promise<Void>
 

@@ -13,12 +13,16 @@ sealed external interface NavigatorBadge {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/clearAppBadge)
      */
+    suspend fun clearAppBadge(): Unit
+
     @JsName("clearAppBadge")
     fun clearAppBadgeAsync(): Promise<Void>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/setAppBadge)
      */
+    suspend fun setAppBadge(contents: JsLong = definedExternally): Unit
+
     @JsName("setAppBadge")
     fun setAppBadgeAsync(contents: JsLong = definedExternally): Promise<Void>
 }

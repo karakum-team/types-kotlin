@@ -45,6 +45,8 @@ external class VideoEncoder(
         options: VideoEncoderEncodeOptions = definedExternally,
     )
 
+    suspend fun flush(): Unit
+
     @JsName("flush")
     fun flushAsync(): Promise<Void>
 
@@ -54,6 +56,8 @@ external class VideoEncoder(
     fun reset()
 
     companion object {
+        suspend fun isConfigSupported(config: VideoEncoderConfig): VideoEncoderSupport
+
         @JsName("isConfigSupported")
         fun isConfigSupportedAsync(config: VideoEncoderConfig): Promise<VideoEncoderSupport>
     }

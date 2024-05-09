@@ -40,6 +40,8 @@ sealed external class RTCRtpReceiver {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCRtpReceiver/getStats)
      */
+    suspend fun getStats(): RTCStatsReport
+
     @JsName("getStats")
     fun getStatsAsync(): Promise<RTCStatsReport>
 

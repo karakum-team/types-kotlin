@@ -16,24 +16,32 @@ sealed external class Clipboard :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Clipboard/read)
      */
+    suspend fun read(): ClipboardItems
+
     @JsName("read")
     fun readAsync(): Promise<ClipboardItems>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Clipboard/readText)
      */
+    suspend fun readText(): String
+
     @JsName("readText")
     fun readTextAsync(): Promise<String>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Clipboard/write)
      */
+    suspend fun write(data: ClipboardItems): Unit
+
     @JsName("write")
     fun writeAsync(data: ClipboardItems): Promise<Void>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Clipboard/writeText)
      */
+    suspend fun writeText(data: String): Unit
+
     @JsName("writeText")
     fun writeTextAsync(data: String): Promise<Void>
 }
