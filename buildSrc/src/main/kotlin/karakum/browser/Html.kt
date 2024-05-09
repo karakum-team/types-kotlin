@@ -1704,13 +1704,13 @@ internal fun convertMember(
                     val p6 = mr.groupValues[6]
                     val p7 = mr.groupValues[7]
 
-                    val sr = when (p6) {
-                        "*" -> "Any?"
-                        "Void" -> "Unit"
-                        else -> p6
+                    val ret = when (p6) {
+                        "*" -> ": Any?"
+                        "Void" -> if (p7.isNotEmpty()) ": Unit" else ""
+                        else -> ": $p6"
                     }
                     """
-                    suspend $p3$p4$p5: $sr$p7
+                    suspend $p3$p4$p5$ret$p7
                         
                     @JsName("$p4")
                     $p3${p4}Async$p5: Promise<$p6>$p7
