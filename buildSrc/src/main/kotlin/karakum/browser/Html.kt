@@ -1697,10 +1697,25 @@ internal fun convertMember(
                     """^((operator)?\s*)(fun.*[ >])([a-zA-Z\d]+)(\(.*\)): Promise<(.+)>( = definedExternally)?$""",
                     RegexOption.DOT_MATCHES_ALL
                 ),
-                """
-                @JsName("$4")
-                $3$4Async$5: Promise<$6>$7
+                transform = { mr ->
+                    val p3 = mr.groupValues[3]
+                    val p4 = mr.groupValues[4]
+                    val p5 = mr.groupValues[5]
+                    val p6 = mr.groupValues[6]
+                    val p7 = mr.groupValues[7]
+
+                    val sr = when (p6) {
+                        "*" -> "Any?"
+                        "Void" -> "Unit"
+                        else -> p6
+                    }
+                    """
+                suspend $p3$p4$p5: $sr$p7
+                    
+                @JsName("$p4")
+                $p3${p4}Async$p5: Promise<$p6>$p7
                 """.trimIndent()
+                }
             )
 
             return asyncResult
