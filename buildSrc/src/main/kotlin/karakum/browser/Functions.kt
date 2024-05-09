@@ -219,11 +219,15 @@ private fun convertFunctionResult(
         """@JsName("$name")"""
     } else null
 
-    var body = sequenceOf(
-        jsName,
-        "external fun $typeParameters $finalName $bodySource",
-    ).filterNotNull()
-        .joinToString("\n")
+    val declaration = "fun $typeParameters $finalName$bodySource"
+
+    var body = if (jsName != null) {
+        "$jsName\nexternal $declaration"
+    } else {
+        withSuspendAdapter(declaration)
+            .map { it.replaceFirst("fun ", "external fun ") }
+            .joinToString("\n\n")
+    }
 
     if (name in TIMERS && name.startsWith("set")) {
         val idType = name.removePrefix("set")
