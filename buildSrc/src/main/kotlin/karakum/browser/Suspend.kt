@@ -9,7 +9,7 @@ private const val DELIMITER = "<!----!>"
 
 internal fun withSuspendAdapter(
     source: String,
-): List<String> =
+): Sequence<String> =
     source.replace(
         ASYNC_FUNCTION_REGEX,
         transform = { mr ->
@@ -31,5 +31,5 @@ internal fun withSuspendAdapter(
             $p3${p4}Async$p5: Promise<$p6>$p7
             """.trimIndent()
         }
-    ).split(DELIMITER)
+    ).splitToSequence(DELIMITER)
         .map { it.trim() }
