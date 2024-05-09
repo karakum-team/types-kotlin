@@ -29,25 +29,30 @@ sealed external interface Body {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/arrayBuffer)
      */
-    fun arrayBuffer(): Promise<ArrayBuffer> = definedExternally
+    @JsName("arrayBuffer")
+    fun arrayBufferAsync(): Promise<ArrayBuffer> = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/blob)
      */
-    fun blob(): Promise<Blob> = definedExternally
+    @JsName("blob")
+    fun blobAsync(): Promise<Blob> = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/formData)
      */
-    fun formData(): Promise<FormData> = definedExternally
+    @JsName("formData")
+    fun formDataAsync(): Promise<FormData> = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/json)
      */
-    fun json(): Promise<*> = definedExternally
+    @JsName("json")
+    fun jsonAsync(): Promise<*> = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/text)
      */
-    fun text(): Promise<String> = definedExternally
+    @JsName("text")
+    fun textAsync(): Promise<String> = definedExternally
 }
