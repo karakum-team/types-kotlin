@@ -14,7 +14,7 @@ internal fun withSuspendAdapter(
         ASYNC_FUNCTION_REGEX,
         transform = { mr ->
             val p3 = mr.groupValues[3]
-            val p4 = mr.groupValues[4]
+            val originalName = mr.groupValues[4]
             val p5 = mr.groupValues[5]
             val p6 = mr.groupValues[6]
             val p7 = mr.groupValues[7]
@@ -24,11 +24,24 @@ internal fun withSuspendAdapter(
                 "Void" -> if (p7.isNotEmpty()) ": Unit" else ""
                 else -> ": $p6"
             }
+
+            var suspendName = originalName.removeSuffix("Async")
+
+            // TEMP
+            when (originalName) {
+                "createComputePipelineAsync",
+                "createRenderPipelineAsync",
+                -> suspendName = originalName
+            }
+
+            val asyncName = suspendName + "Async"
+            val jsName = if (asyncName != originalName) """@JsName("$originalName")""" else ""
+
             """
-            suspend $p3$p4$p5$ret$p7
+            suspend $p3$suspendName$p5$ret$p7
             $DELIMITER    
-            @JsName("$p4")
-            $p3${p4}Async$p5: Promise<$p6>$p7
+            $jsName
+            $p3$asyncName$p5: Promise<$p6>$p7
             """.trimIndent()
         }
     ).splitToSequence(DELIMITER)
