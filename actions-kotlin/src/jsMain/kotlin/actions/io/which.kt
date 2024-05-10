@@ -2,8 +2,6 @@
 
 package actions.io
 
-import js.promise.await
-
 suspend fun which(
     tool: String,
 ): String =

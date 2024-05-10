@@ -2,8 +2,6 @@
 
 package actions.artifact
 
-import js.promise.await
-
 suspend fun createGZipFileOnDisk(
     originalFilePath: String,
     tempFilePath: String,

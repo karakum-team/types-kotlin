@@ -2,8 +2,6 @@
 
 package actions.cache
 
-import js.promise.await
-
 suspend fun downloadCache(
     archiveLocation: String,
     archivePath: String,

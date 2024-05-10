@@ -2,8 +2,6 @@
 
 package actions.core
 
-import js.promise.await
-
 suspend fun getIDToken(): String =
     getIDTokenAsync().await()
 

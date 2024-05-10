@@ -2,8 +2,6 @@
 
 package actions.tool.cache
 
-import js.promise.await
-
 suspend fun cacheDir(
     sourceDir: String,
     tool: String,
