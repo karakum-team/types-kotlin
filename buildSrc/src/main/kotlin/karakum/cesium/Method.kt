@@ -1,5 +1,7 @@
 package karakum.cesium
 
+import karakum.browser.withSuspendAdapter
+
 internal class Method(
     override val source: Definition,
 ) : Member() {
@@ -57,7 +59,13 @@ internal class Method(
             params = params.replace(" = definedExternally", "")
         }
 
-        return doc +
-                "$modifiers fun $name $params$returnExpression"
+        val declaration = withSuspendAdapter("fun $name$params$returnExpression")
+            .map {
+                val anchor = if ("suspend " in it) "suspend " else "fun "
+                it.replaceFirst(anchor, "$modifiers $anchor")
+            }
+            .joinToString("\n\n")
+
+        return doc + declaration
     }
 }
