@@ -8,7 +8,6 @@ import java.io.File
 
 private val DEFAULT_IMPORTS = """
 import js.promise.Promise
-import js.promise.await
 import js.collections.ReadonlyMap
 import js.core.BigInt
 import js.core.JsLong
