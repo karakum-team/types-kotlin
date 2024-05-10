@@ -104,7 +104,6 @@ private val DEFAULT_IMPORTS = Imports(
     "web.dom.HTMLOrSVGElement",
     "web.dom.HTMLOrSVGImageElement",
     "web.dom.HTMLOrSVGScriptElement",
-    "web.dom.InnerHTML",
     "web.dom.Node",
     "web.dom.NodeList",
     "web.dom.NodeListOf",

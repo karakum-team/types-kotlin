@@ -57,7 +57,6 @@ private val DOM_TYPES = setOf(
     "TreeWalker",
     "Text",
     "NodeIterator",
-    "InnerHTML",
 
     // special
     "HTMLOrSVGElement",
@@ -1164,7 +1163,6 @@ internal fun convertInterface(
                 name == "XPathEvaluatorBase" ||
                 name == "ARIAMixin" ||
                 name == "HTMLOrSVGElement" ||
-                name == "InnerHTML" ||
                 name == "DocumentOrShadowRoot" ||
                 name == "Slottable" ||
                 name == "StructuredSerializeOptions" ||

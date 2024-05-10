@@ -87,6 +87,7 @@ private val EXCLUDED = setOf(
     "AudioProcessingEvent",
     "MediaRecorderErrorEvent",
     "MutationEvent",
+    "TextEvent",
 )
 
 private fun eventTypeDeprecation(

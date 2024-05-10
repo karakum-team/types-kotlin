@@ -31,7 +31,6 @@ internal object Mixins {
         "DocumentOrShadowRoot",
         "HTMLHyperlinkElementUtils",
         "HTMLOrSVGElement",
-        "InnerHTML",
         "ParentNode",
         "ElementContentEditable",
         "PopoverInvokerElement",
