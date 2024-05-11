@@ -10,6 +10,8 @@ dependencies {
     jsMainImplementation(npmv("@cesium/widgets"))
 
     jsMainImplementation(wrappers("browser"))
+
+    jsMainImplementation(seskarCore())
 }
 
 val syncCesiumEngine by tasks.creating(Sync::class) {
