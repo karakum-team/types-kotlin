@@ -13,6 +13,7 @@ import js.typedarrays.Float32Array
 import js.typedarrays.Float64Array
 import js.typedarrays.Uint16Array
 import js.typedarrays.Uint8Array
+import seskar.js.JsAsync
 import web.blob.Blob
 import web.dom.Document
 import web.dom.Element

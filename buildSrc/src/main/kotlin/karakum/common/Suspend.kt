@@ -38,6 +38,7 @@ internal fun withSuspendAdapter(
             val jsName = if (asyncName != originalName) """@JsName("$originalName")""" else ""
 
             sequenceOf(
+                "@JsAsync",
                 "suspend $p3$suspendName$p5$ret$p7",
                 DELIMITER,
                 jsName,
