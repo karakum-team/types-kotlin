@@ -37,12 +37,12 @@ internal fun withSuspendAdapter(
             val asyncName = suspendName + "Async"
             val jsName = if (asyncName != originalName) """@JsName("$originalName")""" else ""
 
-            """
-            suspend $p3$suspendName$p5$ret$p7
-            $DELIMITER    
-            $jsName
-            $p3$asyncName$p5: Promise<$p6>$p7
-            """.trimIndent()
+            sequenceOf(
+                "suspend $p3$suspendName$p5$ret$p7",
+                DELIMITER,
+                jsName,
+                "$p3$asyncName$p5: Promise<$p6>$p7",
+            ).joinToString("\n")
         }
     ).splitToSequence(DELIMITER)
         .map { it.trim() }
