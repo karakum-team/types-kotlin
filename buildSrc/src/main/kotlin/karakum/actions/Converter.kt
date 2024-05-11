@@ -1,5 +1,6 @@
 package karakum.actions
 
+import karakum.browser.withSuspendAdapter
 import karakum.common.*
 
 private val EXCLUDED_NAMES = setOf(
@@ -20,7 +21,7 @@ internal fun convert(
         .map { it.substringBefore("\n/**") }
         // TODO: check
         .filter { !it.startsWith("const chmod") }
-        .flatMap { convertItem(it) }
+        .mapNotNull { convertItem(it) }
         .filter { it.name !in EXCLUDED_NAMES }
 }
 
@@ -39,53 +40,22 @@ private fun cleanup(
 
 private fun convertItem(
     source: String,
-): Sequence<ConversionResult> {
+): ConversionResult? {
     if (source.startsWith("{"))
-        return emptySequence()
+        return null
 
     if (source.startsWith("default "))
-        return emptySequence()
+        return null
 
     val type = source.substringBefore(" ")
+    val itemSource = source.substringAfter(" ")
     return when (type) {
-        "interface" ->
-            sequenceOf(
-                convertInterface(
-                    source = source.substringAfter(" ")
-                )
-            )
-
-        "class" ->
-            sequenceOf(
-                convertClass(
-                    source = source.substringAfter(" ")
-                )
-            )
-
-        "function" ->
-            convertFunction(
-                source = source.substringAfter(" ")
-            )
-
-        "enum" ->
-            sequenceOf(
-                convertEnum(
-                    source = source.substringAfter(" ")
-                )
-            )
-
-        "type" ->
-            convertType(
-                source = source.substringAfter(" ")
-            )
-
-        "const" ->
-            sequenceOf(
-                convertConst(
-                    source = source.substringAfter(" ")
-                )
-            )
-
+        "interface" -> convertInterface(itemSource)
+        "class" -> convertClass(itemSource)
+        "function" -> convertFunction(itemSource)
+        "enum" -> convertEnum(itemSource)
+        "type" -> convertType(itemSource)
+        "const" -> convertConst(itemSource)
         else -> TODO("Unable to convert item:\n$source")
     }
 }
@@ -99,7 +69,7 @@ private fun convertEnum(
         .substringBefore("\n}")
         .trimIndent()
 
-    var constants = memberSource
+    val constants = memberSource
         .splitToSequence(",\n")
         .map { constSource ->
             val comment = if ("\n" in constSource) {
@@ -235,7 +205,7 @@ private fun convertClass(
 
 private fun convertFunction(
     source: String,
-): Sequence<ConversionResult> {
+): ConversionResult {
     val name = source
         .substringBefore("(")
         .substringBefore("<")
@@ -249,66 +219,25 @@ private fun convertFunction(
         .removeSuffix(";")
         .replace(": Map<number, string>", ": Map<number_string>")
 
-    val async = "): Promise<" in bodySource
-
     val body = methodSourceVariants(bodySource)
         .map { convertMethod(it) }
+        .flatMap { withSuspendAdapter(it) }
         .joinToString("\n\n") {
-            var body = ("\n" + it)
+            ("\n" + it)
+                .replace("\nsuspend fun ", "\nsuspend external fun ")
                 .replace("\nfun ", "\nexternal fun ")
                 .removePrefix("\n")
-
-            if (async) {
-                val asyncName = "${name}Async"
-
-                body = """@JsName("$name")""" + "\n" +
-                        body.replaceFirst(" $name(", " $asyncName(")
-            }
-
-            body
         }
 
-    if (!async)
-        return sequenceOf(
-            ConversionResult(
-                name = name,
-                body = body,
-            )
-        )
-
-    val parameters = convertParameters(
-        bodySource.substringAfter("(")
-            .substringBeforeLast("): ")
-    )
-
-    val returnType = kotlinType(
-        bodySource.substringAfterLast("): ")
-    )
-
-    var suspendResult = suspendFunctions(
+    return ConversionResult(
         name = name,
-        parameters = parameters,
-        returnType = returnType,
-    )!!
-
-    val declaration = methodDeclaration(bodySource.substringBefore("("))
-    if (declaration != name) {
-        val newBody = suspendResult.body.replace(" $name(", " $declaration(")
-        suspendResult = suspendResult.copy(body = newBody)
-    }
-
-    return sequenceOf(
-        ConversionResult(
-            name = "${name}Async",
-            body = body,
-        ),
-        suspendResult,
+        body = body,
     )
 }
 
 private fun convertType(
     source: String,
-): Sequence<ConversionResult> {
+): ConversionResult? {
     val (name, bodySource) = source
         .removeSuffix(";")
         .split(" = ")
@@ -316,7 +245,7 @@ private fun convertType(
     when (name) {
         "IToolRelease",
         "IToolReleaseFile",
-        -> return emptySequence()
+        -> return null
     }
 
     val body = when {
@@ -334,11 +263,9 @@ private fun convertType(
         else -> TODO("Unable to convert body source: '$bodySource'")
     }
 
-    return sequenceOf(
-        ConversionResult(
-            name = name,
-            body = body,
-        )
+    return ConversionResult(
+        name = name,
+        body = body,
     )
 }
 
