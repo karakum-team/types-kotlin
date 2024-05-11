@@ -281,14 +281,14 @@ private fun convertFunction(
             .substringBeforeLast("): ")
     )
 
-    val resturnType = kotlinType(
+    val returnType = kotlinType(
         bodySource.substringAfterLast("): ")
     )
 
     var suspendResult = suspendFunctions(
         name = name,
         parameters = parameters,
-        returnType = resturnType,
+        returnType = returnType,
     )!!
 
     val declaration = methodDeclaration(bodySource.substringBefore("("))
