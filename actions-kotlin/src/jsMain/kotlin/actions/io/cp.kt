@@ -1,25 +1,21 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("@actions/io")
+
 package actions.io
 
-suspend fun cp(
-    source: String,
-    dest: String,
-) {
-    cpAsync(
-        source = source,
-        dest = dest,
-    ).await()
-}
+import js.core.Void
+import js.promise.Promise
 
-suspend fun cp(
+external suspend fun cp(
     source: String,
     dest: String,
-    options: CopyOptions,
-) {
-    cpAsync(
-        source = source,
-        dest = dest,
-        options = options,
-    ).await()
-}
+    options: CopyOptions = definedExternally,
+)
+
+@JsName("cp")
+external fun cpAsync(
+    source: String,
+    dest: String,
+    options: CopyOptions = definedExternally,
+): Promise<Void>

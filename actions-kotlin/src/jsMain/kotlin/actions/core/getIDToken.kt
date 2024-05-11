@@ -1,13 +1,12 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("@actions/core")
+
 package actions.core
 
-suspend fun getIDToken(): String =
-    getIDTokenAsync().await()
+import js.promise.Promise
 
-suspend fun getIDToken(
-    aud: String,
-): String =
-    getIDTokenAsync(
-        aud = aud,
-    ).await()
+external suspend fun getIDToken(aud: String = definedExternally): String
+
+@JsName("getIDToken")
+external fun getIDTokenAsync(aud: String = definedExternally): Promise<String>

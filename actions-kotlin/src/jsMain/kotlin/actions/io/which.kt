@@ -1,19 +1,18 @@
 // Automatically generated - do not modify!
 
+@file:JsModule("@actions/io")
+
 package actions.io
 
-suspend fun which(
-    tool: String,
-): String =
-    whichAsync(
-        tool = tool,
-    ).await()
+import js.promise.Promise
 
-suspend fun which(
+external suspend fun which(
     tool: String,
-    check: Boolean,
-): String =
-    whichAsync(
-        tool = tool,
-        check = check,
-    ).await()
+    check: Boolean = definedExternally,
+): String
+
+@JsName("which")
+external fun whichAsync(
+    tool: String,
+    check: Boolean = definedExternally,
+): Promise<String>
