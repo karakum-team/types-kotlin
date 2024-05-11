@@ -57,6 +57,7 @@ private val DEFAULT_IMPORTS = Imports(
 
     "js.date.Date",
 
+    "seskar.js.JsAsync",
     "seskar.js.JsIntValue",
     "seskar.js.JsTypeGuard",
     "seskar.js.JsValue",
