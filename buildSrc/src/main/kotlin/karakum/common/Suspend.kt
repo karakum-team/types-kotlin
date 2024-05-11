@@ -1,4 +1,4 @@
-package karakum.browser
+package karakum.common
 
 private val ASYNC_FUNCTION_REGEX = Regex(
     """^((operator)?\s*)(fun.*[ >])([a-zA-Z\d]+)(\(.*\)): Promise<(.+)>( = definedExternally)?$""",

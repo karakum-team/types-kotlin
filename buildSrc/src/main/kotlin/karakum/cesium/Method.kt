@@ -1,6 +1,6 @@
 package karakum.cesium
 
-import karakum.browser.withSuspendAdapter
+import karakum.common.withSuspendAdapter
 
 internal class Method(
     override val source: Definition,

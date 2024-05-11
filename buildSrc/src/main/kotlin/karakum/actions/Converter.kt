@@ -1,6 +1,5 @@
 package karakum.actions
 
-import karakum.browser.withSuspendAdapter
 import karakum.common.*
 
 private val EXCLUDED_NAMES = setOf(

@@ -1,5 +1,7 @@
 package karakum.browser
 
+import karakum.common.withSuspendAdapter
+
 private val TIMERS = setOf(
     "setTimeout",
     "clearTimeout",

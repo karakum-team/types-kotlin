@@ -1,5 +1,7 @@
 package karakum.browser
 
+import karakum.common.withSuspendAdapter
+
 internal const val VIDEO_FRAME_REQUEST_ID = "VideoFrameRequestId"
 internal const val RENDERING_CONTEXT_ID = "RenderingContextId"
 internal const val GEOLOCATION_WATCH_ID = "GeolocationWatchId"
