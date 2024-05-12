@@ -15,14 +15,14 @@ internal fun withSuspendAdapter(
         transform = { mr ->
             val p3 = mr.groupValues[3]
             val originalName = mr.groupValues[4]
-            val p5 = mr.groupValues[5]
-            val p6 = mr.groupValues[6]
-            val p7 = mr.groupValues[7]
+            val parameters = mr.groupValues[5]
+            val payload = mr.groupValues[6]
+            val de = mr.groupValues[7]
 
-            val ret = when (p6) {
+            val ret = when (payload) {
                 "*" -> ": Any?"
-                "Void" -> if (p7.isNotEmpty()) ": Unit" else ""
-                else -> ": $p6"
+                "Void" -> if (de.isNotEmpty()) ": Unit" else ""
+                else -> ": $payload"
             }
 
             var suspendName = originalName.removeSuffix("Async")
@@ -39,10 +39,10 @@ internal fun withSuspendAdapter(
 
             sequenceOf(
                 "@JsAsync",
-                "suspend $p3$suspendName$p5$ret$p7",
+                "suspend $p3$suspendName$parameters$ret$de",
                 DELIMITER,
                 jsName,
-                "$p3$asyncName$p5: Promise<$p6>$p7",
+                "$p3$asyncName$parameters: Promise<$payload>$de",
             ).joinToString("\n")
         }
     ).splitToSequence(DELIMITER)
