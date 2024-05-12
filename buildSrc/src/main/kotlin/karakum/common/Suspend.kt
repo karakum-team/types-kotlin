@@ -1,7 +1,7 @@
 package karakum.common
 
 private val ASYNC_FUNCTION_REGEX = Regex(
-    """^((operator)?\s*)(fun.*[ >])([a-zA-Z\d]+)(\(.*\)): Promise<(.+)>( = definedExternally)?$""",
+    """^((operator)?\s*)(fun.*[ >])([a-zA-Z\d]+)(\(.*\)): Promise<(.+)>(\?)?( = definedExternally)?$""",
     RegexOption.DOT_MATCHES_ALL
 )
 
@@ -17,12 +17,13 @@ internal fun withSuspendAdapter(
             val originalName = mr.groupValues[4]
             val parameters = mr.groupValues[5]
             val payload = mr.groupValues[6]
-            val de = mr.groupValues[7]
+            val optionality = mr.groupValues[7]
+            val de = mr.groupValues[8]
 
             val ret = when (payload) {
                 "*" -> ": Any?"
                 "Void" -> if (de.isNotEmpty()) ": Unit" else ""
-                else -> ": $payload"
+                else -> ": $payload$optionality"
             }
 
             var suspendName = originalName.removeSuffix("Async")
@@ -38,11 +39,11 @@ internal fun withSuspendAdapter(
             val jsName = if (asyncName != originalName) """@JsName("$originalName")""" else ""
 
             sequenceOf(
-                "@JsAsync",
+                "@JsAsync" + if (optionality.isNotEmpty()) "(optional = true)" else "",
                 "suspend $p3$suspendName$parameters$ret$de",
                 DELIMITER,
                 jsName,
-                "$p3$asyncName$parameters: Promise<$payload>$de",
+                "$p3$asyncName$parameters: Promise<$payload>$optionality$de",
             ).joinToString("\n")
         }
     ).splitToSequence(DELIMITER)

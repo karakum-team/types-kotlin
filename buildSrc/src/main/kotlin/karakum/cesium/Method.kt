@@ -40,10 +40,12 @@ internal class Method(
             ?.let { if (name.startsWith("wgs84To")) "$it?" else it }
             ?.let { ": $it" } ?: ""
 
-        val modifiers = (if (hasParent) "" else "external ") +
-                (if (abstract) "abstract " else "") +
-                (if (overridden) "override " else "") +
-                (if (isOperator) "operator " else "")
+        val modifierList = listOfNotNull(
+            "external".takeIf { !hasParent },
+            "abstract".takeIf { abstract },
+            "override".takeIf { overridden },
+            "operator".takeIf { isOperator },
+        )
 
         val link = if (hasParent) {
             DocLink(parent, this)
@@ -59,10 +61,29 @@ internal class Method(
             params = params.replace(" = definedExternally", "")
         }
 
-        val declaration = withSuspendAdapter("fun $name$params$returnExpression")
+        val sourceDeclaration = "fun $name$params$returnExpression"
+        val declarations = when (name) {
+            "loadTileDataAvailability" -> listOf(sourceDeclaration)
+            else -> withSuspendAdapter(sourceDeclaration).toList()
+        }
+
+        if (declarations.size == 1) {
+            val modifiers = modifierList.joinToString(" ", "", " ")
+            return doc + modifiers + declarations.single()
+        }
+
+        val declaration = declarations
+            .drop(if ("override" in modifierList) 1 else 0)
             .map {
-                val anchor = if ("suspend " in it) "suspend " else "fun "
-                it.replaceFirst(anchor, "$modifiers $anchor")
+                val suspend = "suspend " in it
+                val anchor = if (suspend) "suspend " else "fun "
+                val modifiers = (modifierList - (if (suspend) "abstract" else ""))
+                    .joinToString(" ", "", " ")
+
+                val result = it.replaceFirst(anchor, "$modifiers $anchor")
+                if (!suspend && "override" in modifierList && result.startsWith("@JsName(")) {
+                    result.substringAfter("\n")
+                } else result
             }
             .joinToString("\n\n")
 
