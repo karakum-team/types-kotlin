@@ -19,3 +19,12 @@ internal fun String.kebabToCamel(): String =
 internal fun String.snakeToCamel(): String =
     replace(UNDERSCORE_LETTER, toUpperCase)
         .replace(SPACE_LETTER, toUpperCase)
+
+internal fun String.replaceSuffix(
+    from: String,
+    to: String,
+): String {
+    require(endsWith(from))
+
+    return removeSuffix(from) + to
+}

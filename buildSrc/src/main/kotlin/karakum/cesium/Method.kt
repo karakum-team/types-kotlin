@@ -1,5 +1,6 @@
 package karakum.cesium
 
+import karakum.common.replaceSuffix
 import karakum.common.withSuspendAdapter
 
 internal class Method(
@@ -62,10 +63,11 @@ internal class Method(
         }
 
         val sourceDeclaration = "fun $name$params$returnExpression"
-        val declarations = when (name) {
-            "loadTileDataAvailability" -> listOf(sourceDeclaration)
-            else -> withSuspendAdapter(sourceDeclaration).toList()
-        }
+        val declarations = if (name == "loadTileDataAvailability" && sourceDeclaration.endsWith("): Void")) {
+            withSuspendAdapter(sourceDeclaration.replaceSuffix("): Void", "): Promise<Void>"))
+                .map { if ("Async" in it) it.replace("): Promise<Void>", "): Void") else it }
+                .toList()
+        } else withSuspendAdapter(sourceDeclaration).toList()
 
         if (declarations.size == 1) {
             val modifiers = modifierList.joinToString(" ", "", " ")
