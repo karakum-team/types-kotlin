@@ -3,12 +3,12 @@ package karakum.browser
 import java.net.URL
 
 private val WEB_GPU_URL =
-    URL("https://raw.githubusercontent.com/denoland/deno/c5193556242117737fc3ba95ee3692b7831ca04a/cli/tsc/dts/lib.deno_webgpu.d.ts")
+    URL("https://raw.githubusercontent.com/denoland/deno/main/cli/tsc/dts/lib.deno_webgpu.d.ts")
 
 internal val WEB_GPU_CONTENT by lazy {
     WEB_GPU_URL.openStream()
         .use { stream -> String(stream.readAllBytes()) }
-        .replace("/**\n * @category WebGPU\n * @tags unstable\n */\n", "")
+        .replace("/**\n * @category GPU\n * @tags unstable\n */\n", "")
         // TEMP?
         .replace("\n  // extended from spec", "")
         .replace(" =\n  | ", " = ")
@@ -116,6 +116,8 @@ private fun webGpuDeclarations(
                 )
 
                 source.startsWith("class GPUOutOfMemoryError ")
+                        || source.startsWith("class GPUInternalError ")
+                        || source.startsWith("class GPUPipelineError ")
                         || source.startsWith("class GPUValidationError ")
                 -> {
                     val name = source
@@ -129,6 +131,10 @@ private fun webGpuDeclarations(
                     val constructorParameters = source
                         .substringAfter("constructor(")
                         .substringBefore(")")
+                        .replace(
+                            "message?: string, options?: GPUPipelineErrorInit",
+                            "message: String? = definedExternally,\noptions: GPUPipelineErrorInit? = definedExternally",
+                        )
                         .replace(": string", ": String")
 
                     val body = """
