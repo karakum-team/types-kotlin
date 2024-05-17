@@ -2003,7 +2003,7 @@ private fun convertFunction(
         .replace(" | null", "?")
         .replace(" | undefined", "?")
 
-    val safeName = when (name) {
+    var safeName = when (name) {
         "continue" -> "`$name`"
         else -> name
     }
@@ -2028,7 +2028,22 @@ private fun convertFunction(
             .joinToString("")
     } else ""
 
-    return "$modifier fun $typeParameters$safeName($parameters)$result$mixinSugar"
+    val jsName: String?
+    when (name) {
+        "createComputePipeline",
+        "createRenderPipeline",
+        -> {
+            jsName = """@JsName("$name")"""
+            safeName = "${name}Sync"
+        }
+
+        else -> jsName = null
+    }
+
+    return listOfNotNull(
+        jsName,
+        "$modifier fun $typeParameters$safeName($parameters)$result$mixinSugar",
+    ).joinToString("\n")
 }
 
 private fun convertFunctionParameters(

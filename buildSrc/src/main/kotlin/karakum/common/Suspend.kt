@@ -26,15 +26,7 @@ internal fun withSuspendAdapter(
                 else -> ": $payload$optionality"
             }
 
-            var suspendName = originalName.removeSuffix("Async")
-
-            // TEMP
-            when (originalName) {
-                "createComputePipelineAsync",
-                "createRenderPipelineAsync",
-                -> suspendName = originalName
-            }
-
+            val suspendName = originalName.removeSuffix("Async")
             val asyncName = suspendName + "Async"
             val jsName = if (asyncName != originalName) """@JsName("$originalName")""" else ""
 
