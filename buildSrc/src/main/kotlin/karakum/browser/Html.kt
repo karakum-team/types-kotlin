@@ -2193,8 +2193,11 @@ private fun getParameterType(
     source: String,
     typeProvider: TypeProvider,
 ): String {
-    if (source.endsWith(" | null")) {
-        var type = getParameterType(name, source.removeSuffix(" | null"), typeProvider)
+    if (source.endsWith(" | null") || source.endsWith(" | undefined")) {
+        val typeSource = source
+            .removeSuffix(" | null")
+            .removeSuffix(" | undefined")
+        var type = getParameterType(name, typeSource, typeProvider)
         if ("? /* " !in type)
             type += "?"
 
