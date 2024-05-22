@@ -8,7 +8,7 @@ private val WEB_GPU_URL =
 internal val WEB_GPU_CONTENT by lazy {
     WEB_GPU_URL.openStream()
         .use { stream -> String(stream.readAllBytes()) }
-        .replace("/**\n * @category GPU\n * @tags unstable\n */\n", "")
+        .replace("/**\n * @category GPU\n * @experimental\n */\n", "")
         // TEMP?
         .replace("\n  // extended from spec", "")
         .replace(" =\n  | ", " = ")
