@@ -20,6 +20,10 @@ fun generateKotlinDeclarations(
                 add(ERROR_IN_CONTRACT_DESCRIPTION)
             }
 
+            if (name == "ReadonlyArrayAdapter") {
+                add(NOTHING_TO_INLINE)
+            }
+
             if ("override var kind: TypePredicateKind." in body
                 || name == "TupleTypeReference"
                 || name == "CompletionEntryDataResolved"
