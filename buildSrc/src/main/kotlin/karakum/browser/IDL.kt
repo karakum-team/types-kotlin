@@ -58,6 +58,7 @@ internal object IDLRegistry {
                 content
                     .splitToSequence("\npartial dictionary ", "\ndictionary ")
                     .drop(1)
+                    .map { it.substringBefore("\n") }
                     .map { it.substringBefore(" ") }
             }
             .toSet()
