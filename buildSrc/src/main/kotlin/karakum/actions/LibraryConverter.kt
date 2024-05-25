@@ -37,7 +37,13 @@ internal fun convertLibrary(
             val filePath = file.toRelativeString(definitionsDir)
                 .removeSuffix(".d.ts")
 
-            convert(file.readText())
+            // WA for `RequestHandler`
+            val content = file.readText()
+                .replace(
+                    "handleAuthentication(httpClient: HttpClient, requestInfo: RequestInfo, data: string | NodeJS.ReadableStream | null): Promise<HttpClientResponse>;",
+                    "handleAuthentication(httpClient: HttpClient, requestInfo: RequestInfo, data: string | node.ReadableStream | null): Promise<HttpClientResponse>;",
+                )
+            convert(content)
                 .onEach { pathMap[it.name] = filePath }
         }
         .toList()

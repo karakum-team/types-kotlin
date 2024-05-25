@@ -23,6 +23,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Map<number_string>" to "ReadonlyMap<Int, String>",
 
     "string | Buffer" to "Any /* String | Buffer */",
+    "string | node.ReadableStream" to "Any /* string | node.ReadableStream */",
 
     "ReturnType<typeof setTimeout>" to "web.timers.Timeout",
 )
