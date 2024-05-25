@@ -615,6 +615,7 @@ internal fun htmlDeclarations(
                 }
         )
         .plus(Abortable())
+        .plus(abortInternal())
         .plus(Ed25519())
 }
 
