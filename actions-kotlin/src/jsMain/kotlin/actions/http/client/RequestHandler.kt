@@ -10,12 +10,6 @@ sealed external interface RequestHandler {
     fun handleAuthentication(
         httpClient: HttpClient,
         requestInfo: RequestInfo,
-        data: String?,
-    ): Promise<HttpClientResponse>
-
-    fun handleAuthentication(
-        httpClient: HttpClient,
-        requestInfo: RequestInfo,
-        data: node.ReadableStream?,
+        data: Any /* string | node.ReadableStream */?,
     ): Promise<HttpClientResponse>
 }
