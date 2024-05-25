@@ -116,14 +116,15 @@ private fun convertInterface(
             body = "typealias $name = Record<String, Any>"
         )
 
-    var members = memberSource
+    val members = memberSource
         .replace("env?: {\n    [key: string]: string;\n};", "env?: Record<string, string>;")
         .splitToSequence(";\n")
         .mapNotNull { convertMember(it) }
         .joinToString("\n")
         .prependIndent("    ")
 
-    val body = "sealed external interface $declaration {\n$members\n}"
+    val modifier = if (!name.endsWith("Handler")) "sealed" else ""
+    val body = "$modifier external interface $declaration {\n$members\n}"
 
     return ConversionResult(
         name = name,
