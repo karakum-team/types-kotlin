@@ -1235,7 +1235,15 @@ internal fun convertInterface(
         "= definedExternally" in members -> ""
 
         name.endsWith("Options") -> "@JsPlainObject"
-        IDLRegistry.isPlainObjectInterface(name) -> "@JsPlainObject"
+        IDLRegistry.isPlainObjectInterface(name) -> {
+            when (name) {
+                "GPUBufferBinding",
+                "QueuingStrategy",
+                -> "// @JsPlainObject"
+
+                else -> "@JsPlainObject"
+            }
+        }
 
         else -> ""
     }
