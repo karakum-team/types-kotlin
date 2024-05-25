@@ -25,6 +25,10 @@ dependencies {
     jsMainImplementation(seskarCore())
 }
 
+val INTERNAL = setOf(
+    "web/abort/internal",
+)
+
 val JS_INCLUDE = setOf(
     "js",
 )
@@ -83,6 +87,7 @@ enum class WrapperProject {
 
 fun getWrapperProject(path: String): WrapperProject? =
     when (path) {
+        in INTERNAL -> null
         in JS_INCLUDE -> WrapperProject.JS
         in WEB_INCLUDE -> WrapperProject.WEB
         in BROWSER_INCLUDE -> WrapperProject.BROWSER
