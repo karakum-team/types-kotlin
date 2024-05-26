@@ -233,8 +233,6 @@ private fun event(
 
     val eventParent = eventSource.substringBefore(" {\n")
     val eventIsInitLike = initBody.isNotEmpty()
-            && "EventModifierInit" !in initBody
-            && "MouseEventInit" !in initBody
             // TEMP WA
             && name != "InputEvent"
             // TEMP WA
