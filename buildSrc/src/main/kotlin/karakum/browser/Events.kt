@@ -233,10 +233,6 @@ private fun event(
 
     val eventParent = eventSource.substringBefore(" {\n")
     val eventIsInitLike = initBody.isNotEmpty()
-            // TEMP WA
-            && name != "InputEvent"
-            // TEMP WA
-            && name != "DeviceMotionEvent"
 
     val eventParents = listOfNotNull(
         eventParent.takeIf { name != EVENT },
