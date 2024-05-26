@@ -242,8 +242,6 @@ private fun event(
 
     val eventParents = listOfNotNull(
         eventParent.takeIf { name != EVENT },
-        initName.replace("<D = any>", "<D>")
-            .takeIf { eventIsInitLike },
     )
     val eventParentDeclaration = if (eventParents.isNotEmpty()) {
         ": " + eventParents.joinToString(",\n")
@@ -259,17 +257,20 @@ private fun event(
         // Event
         .replace("val type: String", "    // val type: String")
         .let {
-            when {
-                name == EVENT
-                -> it.replace("val bubbles: ", "override val bubbles: ")
-                    .replace("val cancelable: ", "override val cancelable: ")
-                    .replace("val composed: ", "override val composed: ")
+            if (eventIsInitLike && name != "BlobEvent") {
+                val modifier = when (name) {
+                    EVENT -> "open"
+                    // "BlobEvent" -> ""
+                    else -> "override"
+                }
 
-                eventIsInitLike
-                -> "\n$it".replace(Regex("""\n(val [a-z]+)"""), "\noverride $1").removePrefix("\n")
+                val resultType = initName.replace("<D = any>", "<D>")
 
-                else -> it
-            }
+                it + "\n\n" + """
+                @JsAlias(THIS)
+                $modifier fun asInit(): $resultType
+                """.trimIndent()
+            } else it
         }
 
     val eventClassBody = source
