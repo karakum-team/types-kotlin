@@ -123,7 +123,7 @@ private fun convertInterface(
         .joinToString("\n")
         .prependIndent("    ")
 
-    val modifier = if (!name.endsWith("Handler")) "sealed" else ""
+    val modifier = if (" fun " !in members && "\nfun " !in members) "sealed" else ""
     val body = "$modifier external interface $declaration {\n$members\n}"
 
     return ConversionResult(
