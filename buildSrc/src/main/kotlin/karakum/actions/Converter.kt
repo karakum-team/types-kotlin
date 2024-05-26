@@ -123,8 +123,12 @@ private fun convertInterface(
         .joinToString("\n")
         .prependIndent("    ")
 
-    val modifier = if (" fun " !in members && "\nfun " !in members) "sealed" else ""
-    val body = "$modifier external interface $declaration {\n$members\n}"
+    val hasFunctions = " fun " in members || "\nfun " in members
+    val modifier = if (hasFunctions) "" else "sealed"
+    val body = listOfNotNull(
+        "@JsPlainObject".takeIf { !hasFunctions },
+        "$modifier external interface $declaration {\n$members\n}",
+    ).joinToString("\n")
 
     return ConversionResult(
         name = name,
