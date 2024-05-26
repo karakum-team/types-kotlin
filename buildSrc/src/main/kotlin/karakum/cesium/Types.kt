@@ -19,12 +19,15 @@ internal fun typeDeclaration(
         -> "typealias ${applyCallbackFix(name)} = ${typeBody(body)}"
 
         body == "HTMLImageElement | HTMLCanvasElement | ImageBitmap"
-        -> "typealias $name = Any /* $body */"
+        -> "typealias $name = CanvasImageSource /* $body */"
 
         body == IMAGERY_LAYER_CONSTRUCTOR_OPTIONS
         -> {
             require(!top)
-            "interface /* typealias */ $name : $body"
+            """
+            @JsPlainObject
+            sealed interface /* typealias */ $name : $body
+            """.trimIndent()
         }
 
         else -> {
