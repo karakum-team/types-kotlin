@@ -15,7 +15,8 @@ private val WHITE_LIST = setOf(
     "exportKmlModelCallback",
     "mergeSortComparator",
 
-    "GeoJsonDataSource.describe"
+    "GeoJsonDataSource.describe",
+    "SingleTileImageryProvider.fromUrlOptions",
 )
 
 private val STANDARD_TYPE_MAP = mapOf(
@@ -37,6 +38,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "GeometryInstance[] | GeometryInstance" to "ReadonlyArray<GeometryInstance>",
 
     "Promise<HTMLImageElement | HTMLCanvasElement> | undefined" to "$PROMISE<$HTML_ELEMENT>?",
+    "HTMLCanvasElement | Promise<HTMLCanvasElement>" to "PromiseResult<HTMLCanvasElement>",
     "Promise<ImageryTypes | CompressedTextureBuffer> | undefined" to "$PROMISE<Any /* ImageryTypes | CompressedTextureBuffer */>?",
     "Promise<void>" to "$PROMISE<Void>",
     "undefined | Promise<void>" to "$PROMISE<Void>?",

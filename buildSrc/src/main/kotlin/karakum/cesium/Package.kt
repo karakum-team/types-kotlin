@@ -9,6 +9,7 @@ import js.objects.JsPlainObject
 import js.objects.ReadonlyRecord
 import js.objects.jso
 import js.promise.Promise
+import js.promise.PromiseResult
 import js.typedarrays.Float32Array
 import js.typedarrays.Float64Array
 import js.typedarrays.Uint16Array
