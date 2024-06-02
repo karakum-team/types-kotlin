@@ -99,6 +99,9 @@ internal fun kotlinType(
             parent + CALL_DELIMITER + applyCallbackFix(alias)
         } else type
 
+    if (type.endsWith(" | false"))
+        return kotlinType(type.removeSuffix(" | false"), name) + " /* | false */"
+
     if (type.endsWith(" | undefined") && type.indexOf("|") == type.lastIndexOf("|"))
         return kotlinType(type.removeSuffix(" | undefined"), name) + "?"
 
