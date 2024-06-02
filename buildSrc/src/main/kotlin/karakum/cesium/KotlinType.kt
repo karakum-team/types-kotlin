@@ -38,6 +38,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "GeometryInstance[] | GeometryInstance" to "ReadonlyArray<GeometryInstance>",
 
     "Promise<HTMLImageElement | HTMLCanvasElement> | undefined" to "$PROMISE<$HTML_ELEMENT>?",
+    "Promise<ImageBitmap | HTMLImageElement> | undefined" to "$PROMISE<CanvasImageSource>?",
     "HTMLCanvasElement | Promise<HTMLCanvasElement>" to "PromiseResult<HTMLCanvasElement>",
     "Promise<ImageryTypes | CompressedTextureBuffer> | undefined" to "$PROMISE<Any /* ImageryTypes | CompressedTextureBuffer */>?",
     "Promise<void>" to "$PROMISE<Void>",
