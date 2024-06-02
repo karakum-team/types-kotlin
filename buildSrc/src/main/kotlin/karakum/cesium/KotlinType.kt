@@ -115,7 +115,7 @@ internal fun kotlinType(
     if (type == "Element | string")
         return kotlinType("Element")
 
-    return "dynamic"
+    return "Any /* $type */"
 }
 
 private fun String.isClassLike(): Boolean =
