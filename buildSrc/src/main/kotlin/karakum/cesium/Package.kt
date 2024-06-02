@@ -12,6 +12,7 @@ import js.promise.Promise
 import js.promise.PromiseResult
 import js.typedarrays.Float32Array
 import js.typedarrays.Float64Array
+import js.typedarrays.TypedArray
 import js.typedarrays.Uint16Array
 import js.typedarrays.Uint8Array
 import seskar.js.JsAsync
