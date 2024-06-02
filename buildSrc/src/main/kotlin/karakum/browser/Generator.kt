@@ -24,7 +24,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.collections.MutableSetLike",
     "js.collections.ReadonlyMap",
     "js.collections.ReadonlySet",
-    "js.collections.SetLike",
+    "js.collections.ReadonlySetLike",
     "js.core.BigInt",
     "js.core.Bitmask",
     "js.core.JsLong",
@@ -337,6 +337,7 @@ fun generateKotlinDeclarations(
         .plus(workerFunctions(serviceWorkersContent))
         .plus(audioWorkletDeclarations(audioWorkletDefinitionsFile))
         .plus(webGpuDeclarations())
+        .plus(readonlySetLike())
 
     for ((name, body, pkg) in aliases) {
         pkg!!

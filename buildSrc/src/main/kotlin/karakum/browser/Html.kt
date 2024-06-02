@@ -823,7 +823,7 @@ internal fun convertInterface(
 
                 val result = "$mapLikeType<${mapLikeParameters.key}, ${mapLikeParameters.value}>"
                 if (name == "StylePropertyMapReadOnly") {
-                    "$result,\nSetLike<${mapLikeParameters.key}>"
+                    "$result,\nReadonlySetLike<${mapLikeParameters.key}>"
                 } else result
             }
 

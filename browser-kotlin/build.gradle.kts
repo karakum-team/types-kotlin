@@ -26,6 +26,7 @@ dependencies {
 }
 
 val INTERNAL = setOf(
+    "js/collections/ReadonlySetLike.kt",
     "web/abort/internal",
 )
 
