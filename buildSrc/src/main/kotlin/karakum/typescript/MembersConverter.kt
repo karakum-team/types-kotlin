@@ -208,7 +208,7 @@ internal fun convertParameter(
 ): String {
     when (source) {
         "...values: T[]" -> return "vararg values: T"
-        "...args: any[]" -> return "/* vararg */ args: $DYNAMIC"
+        "...args: any[]" -> return "/* vararg */ args: $ANY_N"
     }
 
     val name = source
