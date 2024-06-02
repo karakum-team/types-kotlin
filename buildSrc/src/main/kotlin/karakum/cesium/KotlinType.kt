@@ -41,6 +41,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Promise<ImageBitmap | HTMLImageElement> | undefined" to "$PROMISE<CanvasImageSource>?",
     "HTMLCanvasElement | Promise<HTMLCanvasElement>" to "PromiseResult<HTMLCanvasElement>",
     "Promise<ImageryTypes | CompressedTextureBuffer> | undefined" to "$PROMISE<Any /* ImageryTypes | CompressedTextureBuffer */>?",
+    "boolean | Promise<boolean>" to "PromiseResult<Boolean>",
     "Promise<void>" to "$PROMISE<Void>",
     "undefined | Promise<void>" to "$PROMISE<Void>?",
     "Cartesian2 | Cartesian3" to "Cartesian3",
@@ -101,6 +102,9 @@ internal fun kotlinType(
             val (parent, alias) = type.split(CALL_DELIMITER)
             parent + CALL_DELIMITER + applyCallbackFix(alias)
         } else type
+
+    if (type.endsWith(" | Function"))
+        return kotlinType(type.removeSuffix(" | Function"), name) + " /* | Function */"
 
     if (type.endsWith(" | false"))
         return kotlinType(type.removeSuffix(" | false"), name) + " /* | false */"
