@@ -84,7 +84,7 @@ internal fun kotlinType(
 
     if (type.endsWith(" | undefined")) {
         var result = kotlinType(type.removeSuffix(" | undefined"), name)
-        if (!result.startsWith(ANY_N)) result += "?"
+        if (!result.startsWith(ANY_N) && !result.startsWith("dynamic")) result += "?"
         return result
     }
 
