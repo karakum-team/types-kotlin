@@ -1,6 +1,6 @@
 package karakum.typescript
 
-internal const val ANY = "Any?"
+internal const val ANY = "Any"
 internal const val ANY_N = "Any?"
 internal const val UNIT = "Unit"
 
