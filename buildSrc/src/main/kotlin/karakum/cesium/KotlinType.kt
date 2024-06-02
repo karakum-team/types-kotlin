@@ -68,6 +68,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "ModelAnimation.AnimationTimeCallback" to "AnimationTimeCallback",
     "ModelExperimentalAnimation.AnimationTimeCallback" to "AnimationTimeCallback",
+
+    """"default" | "low-power" | "high-performance"""" to "WebGLPowerPreference"
 )
 
 internal fun kotlinType(
