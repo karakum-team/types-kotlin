@@ -31,7 +31,7 @@ internal fun members(
     return body
         .substringAfter("\n    ")
         .removeSuffix(";\n}")
-        .splitToSequence(";\n    /")
+        .splitToSequence(";\n    /", ";\n    function ")
         .map { if (it.startsWith("**")) "/$it" else it }
         .flatMap { parseTopDefinition(it) }
         .flatMap { it.toMembers(optionsDoc) }
