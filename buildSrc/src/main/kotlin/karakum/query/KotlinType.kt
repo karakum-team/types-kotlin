@@ -210,9 +210,6 @@ internal fun kotlinType(
             .replace(" | undefined", "?")
             .let { t ->
                 when {
-                    t.startsWith("Action<") && t.count { it == ',' } == 3
-                    -> t.replace("Action<", "MutationAction<")
-
                     t == "QueryObserverOptions<*, TError>"
                     -> t.replace(">", ", *, *, *, *>")
 
