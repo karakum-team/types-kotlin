@@ -89,7 +89,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "({ children, }: QueryErrorResetBoundaryProps) => react_jsx_runtime.JSX.Element" to
             "react.FC<QueryErrorResetBoundaryProps>",
-    "({ client, children, }: QueryClientProviderProps) => JSX.Element" to
+    "({ client, children, }: QueryClientProviderProps) => React.JSX.Element" to
             "react.FC<QueryClientProviderProps>",
     "({ children, options, state, queryClient, }: HydrationBoundaryProps) => React.ReactElement<unknown, string | React.JSXElementConstructor<any>>" to
             "react.FC<HydrationBoundaryProps>",
