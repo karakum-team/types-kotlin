@@ -185,6 +185,9 @@ internal fun kotlinType(
     if (type.startsWith("Omit<"))
         return kotlinType(type.removePrefix("Omit<").substringBefore(", '"))
 
+    if (type.startsWith("OmitKeyof<"))
+        return kotlinType(type.removePrefix("OmitKeyof<").substringBefore(", '"))
+
     if (type.startsWith("Pick<"))
         return kotlinType(type.removePrefix("Pick<").substringBefore(", '"))
 

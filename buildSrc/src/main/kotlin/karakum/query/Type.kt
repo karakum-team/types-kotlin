@@ -61,6 +61,7 @@ class Type(
             "|" in body -> "Union /* $body */"
 
             body.startsWith("Omit<") -> body.removePrefix("Omit<").substringBefore(", '")
+            body.startsWith("OmitKeyof<") -> body.removePrefix("OmitKeyof<").substringBefore(", '")
             name.endsWith("Result") -> body
 
             body == "Record<string, unknown>" -> "Record<String, *>"

@@ -80,9 +80,10 @@ private fun getParentType(
         line.substringAfterLast(" extends ")
     }
 
-    if (type.startsWith("Omit<") || type.startsWith("WithRequired<"))
+    if (type.startsWith("Omit<") || type.startsWith("OmitKeyof<") || type.startsWith("WithRequired<"))
         type = type
             .removePrefix("Omit<")
+            .removePrefix("OmitKeyof<")
             .removePrefix("WithRequired<")
             .removePrefix("Omit<")
             .substringBefore(", '")
