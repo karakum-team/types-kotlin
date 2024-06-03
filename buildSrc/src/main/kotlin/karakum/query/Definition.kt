@@ -90,6 +90,7 @@ fun toDeclarations(
         )
         // TODO: check
         .replace("    get meta(): ", "    meta: ")
+        .replace("    get promise(): ", "    promise: ")
         // TEMP
         .replace(" & {\n        manual: boolean;\n    }", "")
 
