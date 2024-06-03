@@ -61,6 +61,7 @@ class Type(
             "|" in body -> "Union /* $body */"
 
             body.startsWith("Omit<") -> body.removePrefix("Omit<").substringBefore(", '")
+            body.startsWith("OmitKeyof<") -> body.removePrefix("OmitKeyof<").substringBefore(", '")
             name.endsWith("Result") -> body
 
             body == "Record<string, unknown>" -> "Record<String, *>"
@@ -89,7 +90,7 @@ class Type(
     }
 
     override fun toCode(): String {
-        if (name == "Override" || name == "NoInfer" || name == "NonFunctionGuard" || name == "SkipToken")
+        if (name == "Override" || name == "NoInfer" || name == "NonFunctionGuard" || name == "SkipToken" || name == "OmitKeyof")
             return ""
 
         if (name == "QueryClientProviderProps")

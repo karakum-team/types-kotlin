@@ -59,10 +59,20 @@ fun toDeclarations(
                 queryKey: TQueryKey;
                 signal: AbortSignal;
                 meta: QueryMeta | undefined;
+                pageParam?: unknown;
+                /**
+                 * @deprecated
+                 * if you want access to the direction, you can add it to the pageParam
+                 */
+                direction?: unknown;
             } : {
                 queryKey: TQueryKey;
                 signal: AbortSignal;
                 pageParam: TPageParam;
+                /**
+                 * @deprecated
+                 * if you want access to the direction, you can add it to the pageParam
+                 */
                 direction: FetchDirection;
                 meta: QueryMeta | undefined;
             };
@@ -80,6 +90,7 @@ fun toDeclarations(
         )
         // TODO: check
         .replace("    get meta(): ", "    meta: ")
+        .replace("    get promise(): ", "    promise: ")
         // TEMP
         .replace(" & {\n        manual: boolean;\n    }", "")
 

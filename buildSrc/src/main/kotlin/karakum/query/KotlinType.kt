@@ -89,15 +89,17 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "({ children, }: QueryErrorResetBoundaryProps) => react_jsx_runtime.JSX.Element" to
             "react.FC<QueryErrorResetBoundaryProps>",
-    "({ client, children, }: QueryClientProviderProps) => JSX.Element" to
+    "({ client, children, }: QueryClientProviderProps) => React.JSX.Element" to
             "react.FC<QueryClientProviderProps>",
-    "({ children, options, state, queryClient, }: HydrationBoundaryProps) => React.ReactElement<any, string | React.JSXElementConstructor<any>>" to
+    "({ children, options, state, queryClient, }: HydrationBoundaryProps) => React.ReactElement<unknown, string | React.JSXElementConstructor<any>>" to
             "react.FC<HydrationBoundaryProps>",
 
     "import(\"./query\").Query<unknown, unknown, unknown, QueryKey>" to
             "Query<*, *, *, QueryKey>",
 
     "keyof QueryObserverResult" to "String /* keyof QueryObserverResult */",
+
+    "HydrateOptions['defaultOptions']" to "DefaultHydrateOptions",
 )
 
 private val SAFE_PREFIXES = setOf(
@@ -185,6 +187,9 @@ internal fun kotlinType(
     if (type.startsWith("Omit<"))
         return kotlinType(type.removePrefix("Omit<").substringBefore(", '"))
 
+    if (type.startsWith("OmitKeyof<"))
+        return kotlinType(type.removePrefix("OmitKeyof<").substringBefore(", '"))
+
     if (type.startsWith("Pick<"))
         return kotlinType(type.removePrefix("Pick<").substringBefore(", '"))
 
@@ -205,9 +210,6 @@ internal fun kotlinType(
             .replace(" | undefined", "?")
             .let { t ->
                 when {
-                    t.startsWith("Action<") && t.count { it == ',' } == 3
-                    -> t.replace("Action<", "MutationAction<")
-
                     t == "QueryObserverOptions<*, TError>"
                     -> t.replace(">", ", *, *, *, *>")
 

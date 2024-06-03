@@ -1,8 +1,8 @@
 package karakum.query
 
 internal val HYDRATION_BOUNDARY_OPTIONS_SOURCE = """
-Omit<HydrateOptions, 'defaultOptions'> & {
-        defaultOptions?: Omit<HydrateOptions['defaultOptions'], 'mutations'>;
+OmitKeyof<HydrateOptions, 'defaultOptions'> & {
+        defaultOptions?: OmitKeyof<Exclude<HydrateOptions['defaultOptions'], undefined>, 'mutations'>;
     };
 """.trimIndent()
 

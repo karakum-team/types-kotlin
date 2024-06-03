@@ -5,7 +5,7 @@ internal val HYDRATE_OPTIONS_SOURCE = """
 interface HydrateOptions {
     defaultOptions?: {
         queries?: QueryOptions;
-        mutations?: MutationOptions;
+        mutations?: MutationOptions<unknown, DefaultError, unknown, unknown>;
     };
 }
 """.trimIndent()
