@@ -18,7 +18,7 @@ internal class Parameter(
     }
 
     val optional: Boolean by lazy { "?:" in body.substringBefore("{") }
-    private val nullable: Boolean by lazy { optional && !type.startsWith("dynamic") }
+    private val nullable: Boolean by lazy { optional && !type.startsWith("Any? ") }
 
     var supportDefault: Boolean = true
 

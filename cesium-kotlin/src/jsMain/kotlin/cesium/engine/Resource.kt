@@ -11,8 +11,10 @@ package cesium.engine
 import js.buffer.ArrayBuffer
 import js.objects.JsPlainObject
 import js.promise.Promise
+import js.promise.PromiseResult
 import seskar.js.JsAsync
 import web.blob.Blob
+import web.canvas.CanvasImageSource
 import web.xml.XMLDocument
 
 /**
@@ -53,7 +55,7 @@ import web.xml.XMLDocument
  * @param [options] A url or an object describing initialization options
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Resource.html">Online Documentation</a>
  */
-external class Resource(options: dynamic) {
+external class Resource(options: Any /* string | Resource.ConstructorOptions */) {
     /**
      * Additional HTTP headers that will be sent with the request.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Resource.html#headers">Online Documentation</a>
@@ -301,7 +303,11 @@ external class Resource(options: dynamic) {
      * @return a promise that will resolve to the requested data when loaded. Returns undefined if `request.throttle` is true and the request does not have high enough priority.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Resource.html#fetchImage">Online Documentation</a>
      */
-    fun fetchImage(options: FetchImageOptions? = definedExternally): dynamic
+    @JsAsync(optional = true)
+    suspend fun fetchImage(options: FetchImageOptions? = definedExternally): CanvasImageSource?
+
+    @JsName("fetchImage")
+    fun fetchImageAsync(options: FetchImageOptions? = definedExternally): Promise<CanvasImageSource>?
 
     /**
      * @property [preferBlob] If true, we will load the image via a blob.
@@ -793,7 +799,11 @@ external class Resource(options: dynamic) {
          * @return a promise that will resolve to the requested data when loaded. Returns undefined if `request.throttle` is true and the request does not have high enough priority.
          * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Resource.html#.fetchImage">Online Documentation</a>
          */
-        fun fetchImage(options: FetchImageOptions): dynamic
+        @JsAsync(optional = true)
+        suspend fun fetchImage(options: FetchImageOptions): CanvasImageSource?
+
+        @JsName("fetchImage")
+        fun fetchImageAsync(options: FetchImageOptions): Promise<CanvasImageSource>?
 
         /**
          * @property [url] The url of the resource.
@@ -1280,4 +1290,4 @@ external class Resource(options: dynamic) {
  * @param [error] The error that occurred during the loading of the resource.
  * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/Resource.html#.RetryCallback">Online Documentation</a>
  */
-typealias RetryCallback = (resource: Resource?, error: RequestErrorEvent?) -> dynamic
+typealias RetryCallback = (resource: Resource?, error: RequestErrorEvent?) -> PromiseResult<Boolean>

@@ -15,7 +15,8 @@ private val WHITE_LIST = setOf(
     "exportKmlModelCallback",
     "mergeSortComparator",
 
-    "GeoJsonDataSource.describe"
+    "GeoJsonDataSource.describe",
+    "SingleTileImageryProvider.fromUrlOptions",
 )
 
 private val STANDARD_TYPE_MAP = mapOf(
@@ -37,7 +38,12 @@ private val STANDARD_TYPE_MAP = mapOf(
     "GeometryInstance[] | GeometryInstance" to "ReadonlyArray<GeometryInstance>",
 
     "Promise<HTMLImageElement | HTMLCanvasElement> | undefined" to "$PROMISE<$HTML_ELEMENT>?",
+    "Promise<ImageBitmap | HTMLImageElement> | undefined" to "$PROMISE<CanvasImageSource>?",
+    "HTMLCanvasElement | Promise<HTMLCanvasElement>" to "PromiseResult<HTMLCanvasElement>",
+    "HTMLImageElement | HTMLCanvasElement | Promise<HTMLImageElement | HTMLCanvasElement>" to "PromiseResult<$HTML_ELEMENT /* HTMLImageElement | HTMLCanvasElement */>",
+    "ArcGISTiledElevationTerrainProvider | Promise<ArcGISTiledElevationTerrainProvider>" to "PromiseResult<ArcGISTiledElevationTerrainProvider>",
     "Promise<ImageryTypes | CompressedTextureBuffer> | undefined" to "$PROMISE<Any /* ImageryTypes | CompressedTextureBuffer */>?",
+    "boolean | Promise<boolean>" to "PromiseResult<Boolean>",
     "Promise<void>" to "$PROMISE<Void>",
     "undefined | Promise<void>" to "$PROMISE<Void>?",
     "Cartesian2 | Cartesian3" to "Cartesian3",
@@ -50,6 +56,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Credit | string" to "Credit",
     "string | number" to "String",
 
+    "Element | string" to "Element",
+    "string | HTMLCanvasElement" to "HTMLCanvasElement",
+
     "string | string[]" to "ReadonlyArray<String>",
     "number[] | Cartesian3[]" to "ReadonlyArray<Cartesian3 /* or number */>",
 
@@ -59,6 +68,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "ModelAnimation.AnimationTimeCallback" to "AnimationTimeCallback",
     "ModelExperimentalAnimation.AnimationTimeCallback" to "AnimationTimeCallback",
+
+    """"default" | "low-power" | "high-performance"""" to "WebGLPowerPreference"
 )
 
 internal fun kotlinType(
@@ -99,6 +110,12 @@ internal fun kotlinType(
             parent + CALL_DELIMITER + applyCallbackFix(alias)
         } else type
 
+    if (type.endsWith(" | Function"))
+        return kotlinType(type.removeSuffix(" | Function"), name) + " /* | Function */"
+
+    if (type.endsWith(" | false"))
+        return kotlinType(type.removeSuffix(" | false"), name) + " /* | false */"
+
     if (type.endsWith(" | undefined") && type.indexOf("|") == type.lastIndexOf("|"))
         return kotlinType(type.removeSuffix(" | undefined"), name) + "?"
 
@@ -112,10 +129,24 @@ internal fun kotlinType(
     if (promiseResult != type)
         return "$PROMISE<${kotlinType(promiseResult)}>"
 
-    if (type == "Element | string")
-        return kotlinType("Element")
+    val placeholder = when (type) {
+        "Uint16Array | Uint32Array",
+        "Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array | Float32Array | Float64Array",
+        -> "TypedArray<*, *>"
 
-    return "dynamic"
+        "number[] | Cartesian3[] | Quaternion[]",
+        -> "ReadonlyArray<Any>"
+
+        "Cartesian3[] | Quaternion[]",
+        -> "ReadonlyArray<Any>"
+
+        "string[] | number[]",
+        -> "ReadonlyArray<Comparable<*>>"
+
+        else -> "Any"
+    }
+
+    return "$placeholder /* $type */"
 }
 
 private fun String.isClassLike(): Boolean =

@@ -823,7 +823,7 @@ internal fun convertInterface(
 
                 val result = "$mapLikeType<${mapLikeParameters.key}, ${mapLikeParameters.value}>"
                 if (name == "StylePropertyMapReadOnly") {
-                    "$result,\nSetLike<${mapLikeParameters.key}>"
+                    "$result,\nReadonlySetLike<${mapLikeParameters.key}>"
                 } else result
             }
 
@@ -1238,6 +1238,8 @@ internal fun convertInterface(
         IDLRegistry.isPlainObjectInterface(name) -> {
             when (name) {
                 "GPUBufferBinding",
+                -> "// @JsPlainObject\n//  Details - https://youtrack.jetbrains.com/issue/KT-68554"
+
                 "QueuingStrategy",
                 -> "// @JsPlainObject"
 

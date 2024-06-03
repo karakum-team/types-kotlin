@@ -12,6 +12,7 @@ import js.array.ReadonlyArray
 import js.objects.JsPlainObject
 import js.objects.jso
 import js.promise.Promise
+import js.typedarrays.TypedArray
 import js.typedarrays.Uint16Array
 import js.typedarrays.Uint8Array
 
@@ -84,7 +85,7 @@ external class QuantizedMeshTerrainData(options: ConstructorOptions) : TerrainDa
     @JsPlainObject
     sealed interface ConstructorOptions {
         var quantizedVertices: Uint16Array
-        var indices: dynamic
+        var indices: TypedArray<*, *> /* Uint16Array | Uint32Array */
         var minimumHeight: Double
         var maximumHeight: Double
         var boundingSphere: BoundingSphere
@@ -117,7 +118,7 @@ external class QuantizedMeshTerrainData(options: ConstructorOptions) : TerrainDa
      * Values in between 0 and 255 are allowed as well to smoothly blend between land and water.
      * @see <a href="https://cesium.com/docs/cesiumjs-ref-doc/QuantizedMeshTerrainData.html#waterMask">Online Documentation</a>
      */
-    override var waterMask: dynamic
+    override var waterMask: Any /* Uint8Array | HTMLImageElement | HTMLCanvasElement */
 
     /**
      * Upsamples this terrain data for use by a descendant tile.  The resulting instance will contain a subset of the

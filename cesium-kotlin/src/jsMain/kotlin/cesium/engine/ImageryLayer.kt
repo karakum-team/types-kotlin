@@ -322,15 +322,15 @@ external class ImageryLayer(
     @JsPlainObject
     sealed interface ConstructorOptions {
         var rectangle: Rectangle?
-        var alpha: dynamic
-        var nightAlpha: dynamic
-        var dayAlpha: dynamic
-        var brightness: dynamic
-        var contrast: dynamic
-        var hue: dynamic
-        var saturation: dynamic
-        var gamma: dynamic
-        var splitDirection: dynamic
+        var alpha: Double /* | Function */?
+        var nightAlpha: Double /* | Function */?
+        var dayAlpha: Double /* | Function */?
+        var brightness: Double /* | Function */?
+        var contrast: Double /* | Function */?
+        var hue: Double /* | Function */?
+        var saturation: Double /* | Function */?
+        var gamma: Double /* | Function */?
+        var splitDirection: SplitDirection /* | Function */?
         var minificationFilter: TextureMinificationFilter?
         var magnificationFilter: TextureMagnificationFilter?
         var show: Boolean?

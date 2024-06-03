@@ -1,6 +1,7 @@
 package karakum.typescript
 
-internal const val DYNAMIC = "dynamic"
+internal const val ANY = "Any"
+internal const val ANY_N = "Any?"
 internal const val UNIT = "Unit"
 
 internal const val STRING = "String"
@@ -48,6 +49,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "AffectedFileResult<readonly Diagnostic[]>" to "AffectedFileResult<ReadonlyArray<Diagnostic>>",
     "(indexSymbol: Symbol) => IndexInfo[]" to "(indexSymbol: Symbol) -> ReadonlyArray<IndexInfo>",
 
+    "SignatureDeclaration[\"kind\"]" to "SyntaxKind",
+
     "typeof visitNodes" to "NodeVisitor",
 
     "Visitor" to "Visitor<*, *>",
@@ -81,7 +84,7 @@ internal fun kotlinType(
 
     if (type.endsWith(" | undefined")) {
         var result = kotlinType(type.removeSuffix(" | undefined"), name)
-        if (!result.startsWith(DYNAMIC)) result += "?"
+        if (!result.startsWith(ANY_N) && !result.startsWith("dynamic")) result += "?"
         return result
     }
 
@@ -90,20 +93,31 @@ internal fun kotlinType(
 
     if (type.startsWith("(") && type.endsWith(" | undefined)[]")) {
         var itemType = kotlinType(type.removeSurrounding("(", " | undefined)[]"), name)
-        if (!itemType.startsWith(DYNAMIC))
+        if (!itemType.startsWith(ANY_N))
             itemType += "?"
 
         return "ReadonlyArray<$itemType>"
     }
 
-    if (" | " in type || type.startsWith("{ "))
-        return "$DYNAMIC /* $type */"
+    if (" | " in type || type.startsWith("{ ")) {
+        val placeholder = when (type) {
+            // LiteralType.value
+            "string | number | PseudoBigInt",
+                // ModuleResolutionHost.useCaseSensitiveFileNames
+            "boolean | (() => boolean)",
+            -> "dynamic"
+
+            else -> ANY
+        }
+
+        return "$placeholder /* $type */"
+    }
 
     if (type.startsWith("\""))
         return "$STRING /* $type */"
 
     if ("[\"" in type)
-        return "$DYNAMIC /* $type */"
+        return "$ANY /* $type */"
 
     if (type.endsWith("[]"))
         return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"), name)}>"
