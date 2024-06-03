@@ -98,6 +98,8 @@ private val STANDARD_TYPE_MAP = mapOf(
             "Query<*, *, *, QueryKey>",
 
     "keyof QueryObserverResult" to "String /* keyof QueryObserverResult */",
+
+    "HydrateOptions['defaultOptions']" to "DefaultHydrateOptions",
 )
 
 private val SAFE_PREFIXES = setOf(
