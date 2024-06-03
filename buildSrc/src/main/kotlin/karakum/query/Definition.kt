@@ -88,6 +88,10 @@ fun toDeclarations(
             }
             """.trimIndent(),
         )
+        .replace(
+            "interface ObserverFetchOptions extends FetchOptions",
+            "interface ObserverFetchOptions<TData> extends FetchOptions<TData>",
+        )
         // TODO: check
         .replace("    get meta(): ", "    meta: ")
         .replace("    get promise(): ", "    promise: ")

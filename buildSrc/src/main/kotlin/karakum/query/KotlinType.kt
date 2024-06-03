@@ -43,6 +43,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>" to "QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey, *>",
 
     "FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>" to "FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey, *>",
+    "FetchOptions" to "FetchOptions<*>",
 
     "Query" to "Query<*, *, *, *>",
     "IterableIterator<Query>" to "IterableIterator<Query<*, *, *, *>>",
