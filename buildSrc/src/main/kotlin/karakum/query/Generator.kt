@@ -197,7 +197,7 @@ private fun generate(
         .plus(coreImport)
         .joinToString("\n")
 
-    val text = sequenceOf(
+    var text = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
         suppresses,
@@ -206,6 +206,9 @@ private fun generate(
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
+
+    if (!text.endsWith("\n"))
+        text += "\n"
 
     val singleConst = declarations.singleOrNull() as? Const
     val targetFile = if (singleConst != null) {
