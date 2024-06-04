@@ -336,6 +336,7 @@ fun kotlinFunctionType(type: String): String =
             "RefetchOptions & RefetchQueryFilters<TPageData>?",
             "RefetchOptions? /* & RefetchQueryFilters<TPageData> */"
         )
+        .replace("ObserverFetchOptions", "ObserverFetchOptions<TData>")
         .replace("unknown", "Any")
 
 fun String.fixDefaultOptions(): String =
