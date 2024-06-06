@@ -3,6 +3,7 @@ package karakum.table
 import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress.NOTHING_TO_INLINE
 import karakum.common.fileSuppress
+import karakum.common.writeCode
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
@@ -48,7 +49,7 @@ fun generateKotlinDeclarations(
         } else name
 
         targetDir.resolve("$fileName.kt")
-            .writeText(fileContent(Package.TABLE_CORE, annotations, body))
+            .writeCode(fileContent(Package.TABLE_CORE, annotations, body))
     }
 }
 
@@ -81,16 +82,12 @@ private fun fileContent(
         .plus("import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn")
         .joinToString("\n")
 
-    val finalBody = if (!body.endsWith("\n")) {
-        body + "\n"
-    } else body
-
     return sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
         pkg.pkg,
         defaultImports,
-        finalBody,
+        body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
 }
