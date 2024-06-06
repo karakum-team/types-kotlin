@@ -4,6 +4,7 @@ import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
 import karakum.common.Suppress.*
 import karakum.common.fileSuppress
+import karakum.common.writeCode
 import karakum.events.EventDataRegistry
 import java.io.File
 
@@ -311,7 +312,7 @@ fun generateKotlinDeclarations(
 
         targetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(fileContent(annotations, "", body, pkg))
+            .writeCode(fileContent(annotations, "", body, pkg))
     }
 
     val aliases = domAliases()
@@ -486,7 +487,7 @@ fun generateKotlinDeclarations(
 
         targetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(
+            .writeCode(
                 fileContent(
                     annotations = annotations,
                     imports = imports,
@@ -499,7 +500,7 @@ fun generateKotlinDeclarations(
     for ((name, body) in webglDeclarations(content)) {
         webglTargetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(fileContent("", "", body, "web.gl"))
+            .writeCode(fileContent("", "", body, "web.gl"))
     }
 }
 
@@ -509,7 +510,7 @@ private fun fileContent(
     body: String,
     pkg: String,
 ): String {
-    var result = sequenceOf(
+    val result = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
         "package $pkg",
@@ -518,9 +519,6 @@ private fun fileContent(
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
-
-    if (!result.endsWith("\n"))
-        result += "\n"
 
     return result
 }
