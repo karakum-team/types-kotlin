@@ -4,6 +4,7 @@ import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
 import karakum.common.Suppress.ABSTRACT_MEMBER_NOT_IMPLEMENTED
 import karakum.common.fileSuppress
+import karakum.common.writeCode
 import java.io.File
 
 private val DEFAULT_IMPORTS = """
@@ -103,7 +104,7 @@ private fun generate(
             "File $f already exists!"
         }
 
-        f.writeText(finalBody)
+        f.writeCode(finalBody)
     }
 }
 
@@ -112,7 +113,7 @@ private fun fileContent(
     body: String,
     pkg: String,
 ): String {
-    var result = sequenceOf(
+    val result = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
         "package $pkg",
@@ -120,9 +121,6 @@ private fun fileContent(
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
-
-    if (!result.endsWith("\n"))
-        result += "\n"
 
     return result
 }
