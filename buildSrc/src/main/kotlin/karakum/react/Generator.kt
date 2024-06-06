@@ -1,6 +1,7 @@
 package karakum.react
 
 import karakum.common.GENERATOR_COMMENT
+import karakum.common.writeCode
 import java.io.File
 
 private val ARIA_IMPORTS = """
@@ -54,7 +55,7 @@ fun generateKotlinDeclarations(
             .also { it.mkdirs() }
 
         targetDir.resolve("${name}.kt")
-            .writeText(fileContent(finalPkg, "", content))
+            .writeCode(fileContent(finalPkg, "", content))
     }
 }
 
