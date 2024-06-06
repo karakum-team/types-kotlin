@@ -1,10 +1,8 @@
 package karakum.csstype
 
-import karakum.common.ConversionResult
-import karakum.common.GENERATOR_COMMENT
+import karakum.common.*
 import karakum.common.Suppress
 import karakum.common.Suppress.*
-import karakum.common.fileSuppress
 import java.io.File
 
 private val CSSTYPE_TYPES = setOf(
@@ -93,7 +91,7 @@ private fun writeDeclarations(
 
         targetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeText(
+            .writeCode(
                 fileContent(
                     annotations = annotations,
                     imports = imports,
@@ -110,7 +108,7 @@ private fun fileContent(
     body: String,
     pkg: String,
 ): String {
-    var result = sequenceOf(
+    val result = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
         "package $pkg",
@@ -118,9 +116,6 @@ private fun fileContent(
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
-
-    if (!result.endsWith("\n"))
-        result += "\n"
 
     return result
 }
