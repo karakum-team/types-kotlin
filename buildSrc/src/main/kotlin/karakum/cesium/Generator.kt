@@ -3,6 +3,7 @@ package karakum.cesium
 import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
 import karakum.common.fileSuppress
+import karakum.common.writeCode
 import java.io.File
 
 internal fun generateKotlinDeclarations(
@@ -65,7 +66,7 @@ private fun generate(
             ).filter { it.isNotEmpty() }
                 .joinToString("\n\n")
 
-            file.writeText(content)
+            file.writeCode(content)
         } else {
             // for functions with union type parameters
             file.appendText("\n\n" + body)
