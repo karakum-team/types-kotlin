@@ -1,6 +1,7 @@
 package karakum.popper
 
 import karakum.common.GENERATOR_COMMENT
+import karakum.common.writeCode
 import java.io.File
 import java.io.FileFilter
 
@@ -45,7 +46,7 @@ private fun generateCoreDeclarations(
 
     for ((name, body) in types) {
         targetDir.resolve("$name.kt")
-            .writeText(fileContent(Package.CORE, "", body))
+            .writeCode(fileContent(Package.CORE, "", body))
     }
 }
 
@@ -67,7 +68,7 @@ private fun generateModifiersDeclarations(
 
     for ((name, body) in modifiers) {
         targetDir.resolve("$name.kt")
-            .writeText(fileContent(Package.MODIFIERS, "", body))
+            .writeCode(fileContent(Package.MODIFIERS, "", body))
     }
 }
 
