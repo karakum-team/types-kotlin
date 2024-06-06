@@ -2,6 +2,7 @@ package karakum.query
 
 import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
+import karakum.common.writeCode
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
@@ -197,7 +198,7 @@ private fun generate(
         .plus(coreImport)
         .joinToString("\n")
 
-    var text = sequenceOf(
+    val text = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
         suppresses,
@@ -207,13 +208,10 @@ private fun generate(
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
 
-    if (!text.endsWith("\n"))
-        text += "\n"
-
     val singleConst = declarations.singleOrNull() as? Const
     val targetFile = if (singleConst != null) {
         file.parentFile.resolve(singleConst.name + ".val.kt")
     } else file
 
-    targetFile.writeText(text)
+    targetFile.writeCode(text)
 }
