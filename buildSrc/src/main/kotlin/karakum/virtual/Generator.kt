@@ -1,6 +1,7 @@
 package karakum.virtual
 
 import karakum.common.GENERATOR_COMMENT
+import karakum.common.writeCode
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
@@ -39,7 +40,7 @@ fun generateKotlinDeclarations(
         }
 
         targetDir.resolve("${name}.kt")
-            .writeText(fileContent(Package.VIRTUAL_CORE, annotations, body))
+            .writeCode(fileContent(Package.VIRTUAL_CORE, annotations, body))
     }
 }
 
