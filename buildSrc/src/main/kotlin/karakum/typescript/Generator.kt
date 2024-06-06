@@ -4,6 +4,7 @@ import karakum.common.GENERATOR_COMMENT
 import karakum.common.Suppress
 import karakum.common.Suppress.*
 import karakum.common.fileSuppress
+import karakum.common.writeCode
 import java.io.File
 
 fun generateKotlinDeclarations(
@@ -57,7 +58,7 @@ fun generateKotlinDeclarations(
             .resolve("$name.$extension")
 
         check(!file.exists())
-        file.writeText(fileContent(pkg, annotations, body))
+        file.writeCode(fileContent(pkg, annotations, body))
     }
 }
 
@@ -85,7 +86,7 @@ private fun fileContent(
         )
         .joinToString("\n")
 
-    var result = sequenceOf(
+    val result = sequenceOf(
         "// $GENERATOR_COMMENT",
         annotations,
         pkg.pkg,
@@ -93,9 +94,6 @@ private fun fileContent(
         body,
     ).filter { it.isNotEmpty() }
         .joinToString("\n\n")
-
-    if (!result.endsWith("\n"))
-        result += "\n"
 
     return result
 }
