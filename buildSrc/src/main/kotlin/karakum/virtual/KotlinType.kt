@@ -83,4 +83,5 @@ internal fun kotlinType(
         .replace("{ align, smoothScroll }?: ScrollToOffsetOptions", "options: ScrollToOffsetOptions?")
         .replace("{ align, smoothScroll, ...rest }?: ScrollToIndexOptions", "options: ScrollToIndexOptions?")
         .replace(" | null", "?")
+        .replace("(Window & typeof globalThis)", "Window")
 }
