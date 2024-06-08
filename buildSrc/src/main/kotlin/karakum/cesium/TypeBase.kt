@@ -1,7 +1,8 @@
 package karakum.cesium
 
 import karakum.common.Suppress
-import karakum.common.Suppress.*
+import karakum.common.Suppress.EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER
+import karakum.common.Suppress.NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE
 
 private val ERROR_TYPES = setOf(
     "RuntimeError",
@@ -55,11 +56,6 @@ internal abstract class TypeBase(
             .any { it.isTypeAlias }
 
         return mutableListOf<Suppress>().apply {
-            if (parents.isNotEmpty() && name.endsWith(TERRAIN_PROVIDER)) {
-                add(VAR_OVERRIDDEN_BY_VAL)
-                add(VAR_TYPE_MISMATCH_ON_OVERRIDE)
-            }
-
             val constructor = members.firstOrNull() as? Constructor
             if (hasTypeAliases || (constructor != null && constructor.hasOptions))
                 add(NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE)
