@@ -3,7 +3,6 @@ package karakum.cesium
 import karakum.common.ConversionResult
 import karakum.common.Suppress
 import karakum.common.Suppress.EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER
-import karakum.common.Suppress.NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE
 
 private val ERROR_TYPES = setOf(
     "RuntimeError",
@@ -50,17 +49,8 @@ internal abstract class TypeBase(
     }
 
     open fun suppresses(): List<Suppress> {
-        val hasTypeAliases = sequenceOf(this, companion)
-            .filterNotNull()
-            .flatMap { it.members.asSequence() }
-            .filterIsInstance<SimpleType>()
-            .any { it.isTypeAlias }
-
-        return mutableListOf<Suppress>().apply {
+        return buildList {
             val constructor = members.firstOrNull() as? Constructor
-            if (hasTypeAliases)
-                add(NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE)
-
             if (constructor.propertyParameters().isNotEmpty())
                 add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
         }
@@ -128,19 +118,6 @@ internal abstract class TypeBase(
             .filterIsInstance<SimpleType>()
             .filter { it.isTypeAlias }
 
-        val aliases = typeAliases
-            .filter {
-                when (it.name) {
-                    "RemoveCallback" -> name == "Event"
-                    "DoneCallback" -> name == "KmlTourFlyTo"
-                    "AnimationTimeCallback" -> name == "ModelAnimation"
-                    else -> true
-                }
-            }
-            .takeIf { it.isNotEmpty() }
-            ?.joinToString("\n\n", "\n", "\n") { it.toCode() }
-            ?: ""
-
         var body = bodyMembers
             .asSequence()
             .minus(typeAliases)
@@ -206,8 +183,7 @@ internal abstract class TypeBase(
         return header +
                 doc +
                 "\n" +
-                "$modifiers $typeName $declaration $body" +
-                aliases
+                "$modifiers $typeName $declaration $body"
     }
 
     override fun toConversionResults(): Sequence<ConversionResult> {
@@ -217,8 +193,28 @@ internal abstract class TypeBase(
             .map { DEFAULT_PACKAGE + it }
             .map { body -> ConversionResult("${name}.factory", body) }
 
+        val nestedTypes = companion?.members
+            ?.filter { it.isNestedType() }
+            ?: emptyList()
+
+        val typeAliases = members
+            .asSequence()
+            .plus(nestedTypes)
+            .filterIsInstance<SimpleType>()
+            .filter { it.isTypeAlias }
+            .filter {
+                when (it.name) {
+                    "RemoveCallback" -> name == "Event"
+                    "DoneCallback" -> name == "KmlTourFlyTo"
+                    "AnimationTimeCallback" -> name == "ModelAnimation"
+                    else -> true
+                }
+            }
+            .map { ConversionResult(name = it.longName, body = DEFAULT_PACKAGE + it.toCode()) }
+
         return super.toConversionResults()
             .plus(factories)
+            .plus(typeAliases)
     }
 }
 

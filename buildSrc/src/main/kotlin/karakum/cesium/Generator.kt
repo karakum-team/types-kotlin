@@ -44,7 +44,8 @@ private fun generate(
             if (!file.exists()) {
                 val isRuntime = hasRuntimeDeclarations(body)
 
-                val suppresses = if (declaration is TypeBase && (" class " in body || " object " in body)) {
+                val suppresses =
+                    if (declaration is TypeBase && ("external  class " in body || "external  object " in body)) {
                     declaration.suppresses()
                 } else emptyList()
 
@@ -68,7 +69,7 @@ private fun generate(
                 file.writeCode(content)
             } else {
                 // for functions with union type parameters
-                file.appendText("\n\n" + body)
+                file.appendText("\n\n")
             }
         }
     }
