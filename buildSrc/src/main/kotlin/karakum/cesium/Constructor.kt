@@ -37,14 +37,14 @@ internal class Constructor(
             ?.let { "constructor$it" }
             ?: ""
 
-    fun toExtensionCode(): String {
+    fun toExtensionCode(): String? {
         val type = parent.name
         if (type == "ModelFeature")
-            return ""
+            return null
 
         if (hiddenOptions) {
             if (parameters.size != 1)
-                return ""
+                return null
 
             // language=Kotlin
             return """
@@ -55,7 +55,7 @@ internal class Constructor(
             """.trimIndent()
         }
 
-        if (!hasOptions) return ""
+        if (!hasOptions) return null
 
         val optionsType = "$type.$CONSTRUCTOR_OPTIONS"
         val params = parameters.dropLast(1)

@@ -1,5 +1,6 @@
 package karakum.cesium
 
+import karakum.common.ConversionResult
 import karakum.common.Suppress
 import karakum.common.Suppress.EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER
 import karakum.common.Suppress.NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE
@@ -57,7 +58,7 @@ internal abstract class TypeBase(
 
         return mutableListOf<Suppress>().apply {
             val constructor = members.firstOrNull() as? Constructor
-            if (hasTypeAliases || (constructor != null && constructor.hasOptions))
+            if (hasTypeAliases)
                 add(NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE)
 
             if (constructor.propertyParameters().isNotEmpty())
@@ -206,8 +207,18 @@ internal abstract class TypeBase(
                 doc +
                 "\n" +
                 "$modifiers $typeName $declaration $body" +
-                aliases +
-                (constructor?.toExtensionCode() ?: "")
+                aliases
+    }
+
+    override fun toConversionResults(): Sequence<ConversionResult> {
+        val factories = sequenceOf(members.firstOrNull())
+            .filterIsInstance<Constructor>()
+            .mapNotNull { it.toExtensionCode() }
+            .map { DEFAULT_PACKAGE + it }
+            .map { body -> ConversionResult("${name}.factory", body) }
+
+        return super.toConversionResults()
+            .plus(factories)
     }
 }
 

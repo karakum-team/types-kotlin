@@ -1,7 +1,6 @@
 package karakum.cesium
 
 import karakum.common.GENERATOR_COMMENT
-import karakum.common.Suppress
 import karakum.common.fileSuppress
 import karakum.common.writeCode
 import java.io.File
@@ -40,36 +39,37 @@ private fun generate(
     val moduleDeclaration = """@file:JsModule("@${pkg.replace(".", "/")}")"""
 
     for (declaration in declarations.sortedBy(Declaration::name)) {
-        val file = sourceDir.resolve("${declaration.name}.kt")
-        val body = declaration.toCode()
-        if (!file.exists()) {
-            val isRuntime = hasRuntimeDeclarations(body)
+        for ((name, body) in declaration.toConversionResults()) {
+            val file = sourceDir.resolve("${name}.kt")
+            if (!file.exists()) {
+                val isRuntime = hasRuntimeDeclarations(body)
 
-            val suppresses = mutableListOf<Suppress>()
-            if (declaration is TypeBase)
-                suppresses += declaration.suppresses()
+                val suppresses = if (declaration is TypeBase && (" class " in body || " object " in body)) {
+                    declaration.suppresses()
+                } else emptyList()
 
-            val annotations = when {
-                suppresses.isNotEmpty()
-                -> fileSuppress(*suppresses.toTypedArray())
+                val annotations = when {
+                    suppresses.isNotEmpty()
+                    -> fileSuppress(suppresses = suppresses.toTypedArray())
 
-                else -> ""
+                    else -> ""
+                }
+
+                val content = sequenceOf(
+                    "// $GENERATOR_COMMENT",
+                    moduleDeclaration.takeIf { isRuntime } ?: "",
+                    annotations,
+                    "package $pkg",
+                    defaultImports,
+                    body,
+                ).filter { it.isNotEmpty() }
+                    .joinToString("\n\n")
+
+                file.writeCode(content)
+            } else {
+                // for functions with union type parameters
+                file.appendText("\n\n" + body)
             }
-
-            val content = sequenceOf(
-                "// $GENERATOR_COMMENT",
-                moduleDeclaration.takeIf { isRuntime } ?: "",
-                annotations,
-                "package $pkg",
-                defaultImports,
-                body,
-            ).filter { it.isNotEmpty() }
-                .joinToString("\n\n")
-
-            file.writeCode(content)
-        } else {
-            // for functions with union type parameters
-            file.appendText("\n\n" + body)
         }
     }
 }
