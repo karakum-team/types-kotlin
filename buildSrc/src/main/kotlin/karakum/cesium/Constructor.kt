@@ -32,7 +32,7 @@ internal class Constructor(
     override fun toCode(): String =
         parameters
             .dropLast(if (hiddenOptions) 1 else 0)
-            .toCode()
+            .toCode(multilinePreferred = true)
             .takeIf { it.isNotEmpty() }
             ?.let { "constructor$it" }
             ?: ""

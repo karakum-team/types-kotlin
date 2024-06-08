@@ -57,7 +57,7 @@ internal class Method(
         val doc = source.doc(link)
             .let { if (it.isNotEmpty()) "$it\n" else "" }
 
-        var params = parameters.toCode()
+        var params = parameters.toCode(multilinePreferred = false)
         if (overridden) {
             params = params.replace(" = definedExternally", "")
         }

@@ -29,10 +29,12 @@ internal class Parameter(
                 (if (optional && supportDefault) " = definedExternally" else "")
 }
 
-internal fun List<Parameter>.toCode(): String =
-    when (size) {
-        0 -> "()"
-        1 -> "(${single().toCode()})"
+internal fun List<Parameter>.toCode(
+    multilinePreferred: Boolean,
+): String =
+    when {
+        size == 0 -> "()"
+        size == 1 && !multilinePreferred -> "(${single().toCode()})"
         else -> {
             val params = joinToString(",\n") {
                 it.toCode()
