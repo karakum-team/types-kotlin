@@ -4,6 +4,7 @@ package karakum.query
 internal val HYDRATE_OPTIONS_SOURCE = """
 interface HydrateOptions {
     defaultOptions?: {
+        transformPromise?: (promise: Promise<any>) => Promise<any>;
         queries?: QueryOptions;
         mutations?: MutationOptions<unknown, DefaultError, unknown, unknown>;
     };
