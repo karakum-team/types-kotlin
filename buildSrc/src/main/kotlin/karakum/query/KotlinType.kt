@@ -252,6 +252,11 @@ internal fun kotlinType(
         return if (baseType != DYNAMIC) baseType + "?" else baseType
     }
 
+    if (type.startsWith("undefined | ") && type.indexOf("|") == type.lastIndexOf("|")) {
+        val baseType = kotlinType(type.removePrefix("undefined | "), name)
+        return if (baseType != DYNAMIC) baseType + "?" else baseType
+    }
+
     if (type.startsWith("Array<"))
         return "ReadonlyArray<${kotlinType(type.removeSurrounding("Array<", ">"), name)}>"
 
