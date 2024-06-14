@@ -12,7 +12,7 @@ import js.promise.Promise
 import js.collections.ReadonlyMap
 import js.core.BigInt
 import js.core.JsLong
-import js.objects.JsPlainObject
+import kotlinx.js.JsPlainObject
 import js.objects.Record
 import js.array.ReadonlyArray
 import js.core.Void

@@ -5,7 +5,7 @@ import js.array.ReadonlyArray
 import js.buffer.ArrayBuffer
 import js.core.Void
 import js.errors.JsError
-import js.objects.JsPlainObject
+import kotlinx.js.JsPlainObject
 import js.objects.ReadonlyRecord
 import js.objects.jso
 import js.promise.Promise
