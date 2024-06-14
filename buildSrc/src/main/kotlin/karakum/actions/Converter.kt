@@ -125,8 +125,15 @@ private fun convertInterface(
 
     val hasFunctions = " fun " in members || "\nfun " in members
     val modifier = if (hasFunctions) "" else "sealed"
+
+    val annotation = when {
+        hasFunctions -> null
+        "<" in declaration -> "@kotlinx.js.JsPlainObject_KT_68943"
+        else -> "@JsPlainObject"
+    }
+
     val body = listOfNotNull(
-        "@JsPlainObject".takeIf { !hasFunctions },
+        annotation,
         "$modifier external interface $declaration {\n$members\n}",
     ).joinToString("\n")
 
