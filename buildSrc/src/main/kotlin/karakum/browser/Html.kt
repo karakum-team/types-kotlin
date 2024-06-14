@@ -1230,11 +1230,16 @@ internal fun convertInterface(
         ?.joinToString("\n") { "sealed interface $it" }
         ?: ""
 
+    val defaultAnnotation = if ("<" in declaration) {
+        "@kotlinx.js.JsPlainObject_KT_68943"
+    } else "@JsPlainObject"
+
     val annotations = when {
         !declaration.startsWith("interface ") -> ""
         "= definedExternally" in members -> ""
 
-        name.endsWith("Options") -> "@JsPlainObject"
+        name.endsWith("Options") -> defaultAnnotation
+
         IDLRegistry.isPlainObjectInterface(name) -> {
             when (name) {
                 "GPUBufferBinding",
@@ -1243,7 +1248,7 @@ internal fun convertInterface(
                 "QueuingStrategy",
                 -> "// @JsPlainObject"
 
-                else -> "@JsPlainObject"
+                else -> defaultAnnotation
             }
         }
 
