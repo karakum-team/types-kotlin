@@ -1,13 +1,13 @@
 package karakum.browser
 
-import java.net.URL
+import karakum.common.loadContent
+import java.net.URI
 
-private val WEB_GPU_URL =
-    URL("https://raw.githubusercontent.com/denoland/deno/main/cli/tsc/dts/lib.deno_webgpu.d.ts")
+private val WEB_GPU_URI =
+    URI("https://raw.githubusercontent.com/denoland/deno/main/cli/tsc/dts/lib.deno_webgpu.d.ts")
 
 internal val WEB_GPU_CONTENT by lazy {
-    WEB_GPU_URL.openStream()
-        .use { stream -> String(stream.readAllBytes()) }
+    loadContent(WEB_GPU_URI)
         .replace("/**\n * @category GPU\n * @experimental\n */\n", "")
         // TEMP?
         .replace("\n  // extended from spec", "")

@@ -1,14 +1,14 @@
 package karakum.browser
 
+import karakum.common.loadContent
 import java.io.File
-import java.net.URL
+import java.net.URI
 
-private val WEB_WORKER_URL =
-    URL("https://raw.githubusercontent.com/microsoft/TypeScript-DOM-lib-generator/main/baselines/webworker.generated.d.ts")
+private val WEB_WORKER_URI =
+    URI("https://raw.githubusercontent.com/microsoft/TypeScript-DOM-lib-generator/main/baselines/webworker.generated.d.ts")
 
 internal val WEB_WORKER_CONTENT by lazy {
-    WEB_WORKER_URL.openStream()
-        .use { stream -> String(stream.readAllBytes()) }
+    loadContent(WEB_WORKER_URI)
         .applyTempEventPatches()
 }
 
