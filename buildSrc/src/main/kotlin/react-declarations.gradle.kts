@@ -4,8 +4,7 @@ plugins {
 
 tasks.named("generateDeclarations") {
     doLast {
-        val definitionsFile = rootProject.buildDir
-            .resolve("js/node_modules/@types/react/index.d.ts")
+        val definitionsFile = nodeModules.resolve("@types/react/index.d.ts")
         val sourceDir = projectDir.resolve("src/jsMain/kotlin")
 
         delete(sourceDir)
