@@ -5,6 +5,12 @@ plugins {
     `react-query-declarations`
 }
 
+kotlin {
+    sourceSets.configureEach {
+        languageSettings.optIn("kotlin.ExperimentalStdlibApi")
+    }
+}
+
 val reactQueryVersion = property("react-query.version") as String
 
 dependencies {
