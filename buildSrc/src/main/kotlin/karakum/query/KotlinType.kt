@@ -65,7 +65,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "QueryBehavior<TQueryFnData, TError, InfiniteData<TData, TPageParam>>" to "QueryBehavior<TQueryFnData, TError, InfiniteData<TData, TPageParam>, *>",
     "QueryPersister<NoInfer<TQueryFnData>, NoInfer<TQueryKey>, NoInfer<TPageParam>>" to "QueryPersister<TQueryFnData, TQueryKey, TPageParam>",
 
-    "QueryFunction<TQueryFnData, TQueryKey, TPageParam> | SkipToken" to "QueryFunction<TQueryFnData, TQueryKey, TPageParam> /* | SkipToken */",
+    "QueryFunction<TQueryFnData, TQueryKey, TPageParam> | SkipToken" to "QueryFunctionOrSkipToken<TQueryFnData, TQueryKey, TPageParam>",
     "EnsureQueryDataOptions<TQueryFnData, TError, TData, TQueryKey>" to "EnsureQueryDataOptions<TQueryFnData, TError, TData, TQueryKey, *>",
 
     "InvalidateQueryFilters<TPageData>" to "InvalidateQueryFilters<TPageData>",
