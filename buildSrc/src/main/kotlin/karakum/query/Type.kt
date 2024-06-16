@@ -150,12 +150,18 @@ class Type(
         }
 
         if (name == "QueryFunction") {
-            val typeParametersDeclaration = formatParameters(originalTypeParameters)
-            val adapterType = name + formatParameters(typeParameters)
+            val interfaceTypeParameters = formatParameters(originalTypeParameters.map { "out $it" })
+            val adapterTypeParameters = formatParameters(originalTypeParameters)
+            val simpleTypeParameters = formatParameters(typeParameters)
+            val adapterType = name + simpleTypeParameters
             return """
-            sealed external interface $name$typeParametersDeclaration
+            @JsExternalInheritorsOnly
+            sealed external interface ${name}OrSkipToken$interfaceTypeParameters    
+                
+            sealed external interface $name$interfaceTypeParameters :
+                ${name}OrSkipToken$simpleTypeParameters
             
-            inline fun $typeParametersDeclaration $name(
+            inline fun $adapterTypeParameters $name(
                 noinline value: $body,
             ): $adapterType =
                 value.unsafeCast<$adapterType>()
