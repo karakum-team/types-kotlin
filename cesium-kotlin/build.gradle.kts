@@ -14,7 +14,7 @@ dependencies {
     jsMainImplementation(seskarCore())
 }
 
-val syncCesiumEngine by tasks.creating(Sync::class) {
+val syncCesiumEngine by tasks.creating(SyncWrappers::class) {
     val generatedDir = project.layout.projectDirectory.dir("src/jsMain/kotlin")
 
     val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")
@@ -26,7 +26,7 @@ val syncCesiumEngine by tasks.creating(Sync::class) {
     into(sourceDir.asFile)
 }
 
-val syncCesiumWidgets by tasks.creating(Sync::class) {
+val syncCesiumWidgets by tasks.creating(SyncWrappers::class) {
     val generatedDir = project.layout.projectDirectory.dir("src/jsMain/kotlin")
 
     val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")

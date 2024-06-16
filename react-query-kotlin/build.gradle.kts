@@ -16,7 +16,7 @@ dependencies {
     jsMainImplementation(seskarCore())
 }
 
-val syncCoreWrappers by tasks.creating(Sync::class) {
+val syncCoreWrappers by tasks.creating(SyncWrappers::class) {
     val generatedDir = project.layout.projectDirectory.dir("src/jsMain/kotlin")
 
     val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")
@@ -28,7 +28,7 @@ val syncCoreWrappers by tasks.creating(Sync::class) {
     into(sourceDir.asFile)
 }
 
-val syncReactWrappers by tasks.creating(Sync::class) {
+val syncReactWrappers by tasks.creating(SyncWrappers::class) {
     val generatedDir = project.layout.projectDirectory.dir("src/jsMain/kotlin")
 
     val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")
