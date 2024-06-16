@@ -12,13 +12,16 @@ class Type(
     override val source: String,
     fixAction: Boolean,
 ) : Declaration() {
-    private val typeParameters: List<String> by lazy {
+    private val originalTypeParameters: List<String> by lazy {
         if ("> = " !in source) {
             return@lazy emptyList<String>()
         }
 
         parseTypeParameters(source.substringBefore("> = ") + ">")
-            .map { it.substringBefore(": ") }
+    }
+
+    private val typeParameters: List<String> by lazy {
+        originalTypeParameters.map { it.substringBefore(": ") }
     }
 
     override val name: String =
@@ -144,6 +147,19 @@ class Type(
                 "    val mutateAsync: UseMutateAsyncFunction<TData, TError, TVariables, TContext>",
                 "}",
             ).joinToString("\n")
+        }
+
+        if (name == "QueryFunction") {
+            val typeParametersDeclaration = formatParameters(originalTypeParameters)
+            val adapterType = name + formatParameters(typeParameters)
+            return """
+            sealed external interface $name$typeParametersDeclaration
+            
+            inline fun $typeParametersDeclaration $name(
+                noinline value: $body,
+            ): $adapterType =
+                value.unsafeCast<$adapterType>()
+            """.trimIndent()
         }
 
         return "typealias $name${formatParameters(typeParameters)} = $body"
