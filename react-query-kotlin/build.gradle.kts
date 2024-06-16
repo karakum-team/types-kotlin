@@ -17,8 +17,6 @@ dependencies {
 }
 
 val syncCoreWrappers by tasks.creating(SyncWrappers::class) {
-    val generatedDir = project.layout.projectDirectory.dir("src/jsMain/kotlin")
-
     val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")
     val sourceDir = kotlinWrappersDir.dir("kotlin-tanstack-query-core/src/jsMain/generated")
 
@@ -29,8 +27,6 @@ val syncCoreWrappers by tasks.creating(SyncWrappers::class) {
 }
 
 val syncReactWrappers by tasks.creating(SyncWrappers::class) {
-    val generatedDir = project.layout.projectDirectory.dir("src/jsMain/kotlin")
-
     val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")
     val sourceDir = kotlinWrappersDir.dir("kotlin-tanstack-react-query/src/jsMain/generated")
 

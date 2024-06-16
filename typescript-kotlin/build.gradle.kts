@@ -19,8 +19,6 @@ dependencies {
 }
 
 val syncWithWrappers by tasks.creating(SyncWrappers::class) {
-    val generatedDir = project.layout.projectDirectory.dir("src/jsMain/kotlin")
-
     val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")
     val typescriptDir = kotlinWrappersDir.dir("kotlin-typescript/src/jsMain/generated")
 
