@@ -126,9 +126,6 @@ fun isFromWrapperProject(wp: WrapperProject): Spec<FileTreeElement> {
 }
 
 val syncKotlinJs by tasks.creating(SyncWrappers::class) {
-    val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")
-    val jsDir = kotlinWrappersDir.dir("kotlin-js/src/jsMain/generated")
-
     from(generatedDir) {
         include(isFromWrapperProject(WrapperProject.JS))
 
@@ -140,29 +137,23 @@ val syncKotlinJs by tasks.creating(SyncWrappers::class) {
         }
     }
 
-    into(jsDir.asFile)
+    into(kotlinWrappersDir("kotlin-js"))
 }
 
 val syncKotlinWeb by tasks.creating(SyncWrappers::class) {
-    val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")
-    val webDir = kotlinWrappersDir.dir("kotlin-web/src/jsMain/generated")
-
     from(generatedDir) {
         include(isFromWrapperProject(WrapperProject.WEB))
     }
 
-    into(webDir.asFile)
+    into(kotlinWrappersDir("kotlin-web"))
 }
 
 val syncKotlinBrowser by tasks.creating(SyncWrappers::class) {
-    val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")
-    val browserDir = kotlinWrappersDir.dir("kotlin-browser/src/jsMain/generated")
-
     from(generatedDir) {
         include(isFromWrapperProject(WrapperProject.BROWSER))
     }
 
-    into(browserDir.asFile)
+    into(kotlinWrappersDir("kotlin-browser"))
 }
 
 val syncWithWrappers by tasks.creating {

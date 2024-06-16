@@ -15,23 +15,17 @@ dependencies {
 }
 
 val syncCesiumEngine by tasks.creating(SyncWrappers::class) {
-    val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")
-    val sourceDir = kotlinWrappersDir.dir("kotlin-cesium-engine/src/jsMain/generated")
-
     from(generatedDir) {
         include("cesium/engine/")
     }
-    into(sourceDir.asFile)
+    into(kotlinWrappersDir("kotlin-cesium-engine"))
 }
 
 val syncCesiumWidgets by tasks.creating(SyncWrappers::class) {
-    val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")
-    val sourceDir = kotlinWrappersDir.dir("kotlin-cesium-widgets/src/jsMain/generated")
-
     from(generatedDir) {
         include("cesium/widgets/")
     }
-    into(sourceDir.asFile)
+    into(kotlinWrappersDir("kotlin-cesium-widgets"))
 }
 
 val syncWithWrappers by tasks.creating {

@@ -17,23 +17,17 @@ dependencies {
 }
 
 val syncCoreWrappers by tasks.creating(SyncWrappers::class) {
-    val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")
-    val sourceDir = kotlinWrappersDir.dir("kotlin-tanstack-query-core/src/jsMain/generated")
-
     from(generatedDir) {
         include("tanstack/query/")
     }
-    into(sourceDir.asFile)
+    into(kotlinWrappersDir("kotlin-tanstack-query-core"))
 }
 
 val syncReactWrappers by tasks.creating(SyncWrappers::class) {
-    val kotlinWrappersDir = project.rootProject.layout.projectDirectory.dir("../kotlin-wrappers")
-    val sourceDir = kotlinWrappersDir.dir("kotlin-tanstack-react-query/src/jsMain/generated")
-
     from(generatedDir) {
         include("tanstack/react/")
     }
-    into(sourceDir.asFile)
+    into(kotlinWrappersDir("kotlin-tanstack-react-query"))
 }
 
 val syncWithWrappers by tasks.creating {
