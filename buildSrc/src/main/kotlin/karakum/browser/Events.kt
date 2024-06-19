@@ -510,7 +510,6 @@ private fun eventTypes(
         }
 
     val body = """
-    @JsVirtual    
     sealed external class $typesName {
 
         $members

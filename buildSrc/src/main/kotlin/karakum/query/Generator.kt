@@ -26,7 +26,6 @@ private val DEFAULT_IMPORTS = listOf(
 
     "seskar.js.JsIntValue",
     "seskar.js.JsValue",
-    "seskar.js.JsVirtual",
 ).map { it.substringAfterLast(".") to it }
 
 fun generateKotlinDeclarations(

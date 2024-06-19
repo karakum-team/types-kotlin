@@ -25,7 +25,6 @@ import web.window.WindowTarget
 
 private val SESKAR_IMPORTS = """
 import seskar.js.JsIntValue
-import seskar.js.JsVirtual
 import seskar.js.JsValue
 """.trimIndent()
 

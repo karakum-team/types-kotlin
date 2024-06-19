@@ -18,7 +18,6 @@ private val DEFAULT_IMPORTS = listOf(
     "js.core.Void",
 
     "seskar.js.JsIntValue",
-    "seskar.js.JsVirtual",
     "seskar.js.JsValue",
 
     "web.dom.Document",

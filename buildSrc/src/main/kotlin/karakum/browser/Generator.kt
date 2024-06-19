@@ -64,7 +64,6 @@ private val DEFAULT_IMPORTS = Imports(
     "seskar.js.JsIntValue",
     "seskar.js.JsTypeGuard",
     "seskar.js.JsValue",
-    "seskar.js.JsVirtual",
 
     "web.abort.AbortSignal",
     "web.abort.Abortable",

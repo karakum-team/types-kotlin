@@ -22,8 +22,7 @@ internal fun unionBodyByConstants(
         }
 
     return """
-        @JsVirtual
-        sealed external interface $name {
+                sealed external interface $name {
             companion object {
             $constantNames
             }
@@ -45,8 +44,7 @@ internal fun sealedUnionBody(
     }
 
     return """
-        @JsVirtual
-        sealed external interface $name {
+                sealed external interface $name {
             companion object {
                 $bodyMembers
             }
@@ -69,8 +67,7 @@ internal fun sealedUnionBody(
     }
 
     return """
-        @JsVirtual
-        sealed external interface $name: $parentType {
+                sealed external interface $name: $parentType {
             companion object {
                 $bodyMembers
             }
@@ -94,8 +91,7 @@ internal fun objectUnionBody(
     }
 
     return """
-        @JsVirtual
-        external sealed interface $name {
+                external sealed interface $name {
             companion object {
                 $constantNames
             }

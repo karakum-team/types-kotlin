@@ -28,7 +28,6 @@ import actions.http.client.HttpClientResponse
 
 import seskar.js.JsAsync
 import seskar.js.JsIntValue
-import seskar.js.JsVirtual
 import seskar.js.JsValue
 """.trimIndent()
 
