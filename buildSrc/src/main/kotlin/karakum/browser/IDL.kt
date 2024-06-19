@@ -61,6 +61,8 @@ internal object IDLRegistry {
                     .map { it.substringBefore("\n") }
                     .map { it.substringBefore(" ") }
             }
+            // TEMP
+            .plus("RTCRtpCodecCapability")
             .toSet()
     }
 
