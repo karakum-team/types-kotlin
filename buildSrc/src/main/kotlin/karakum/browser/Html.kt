@@ -1127,6 +1127,31 @@ internal fun convertInterface(
         .filter { it.isNotEmpty() }
         .joinToString("\n\n")
 
+    val defaultAnnotation = if ("<" in declaration) {
+        "@kotlinx.js.JsPlainObject_KT_68943"
+    } else "@JsPlainObject"
+
+    val annotations = when {
+        !declaration.startsWith("interface ") -> ""
+        "= definedExternally" in members -> ""
+
+        name.endsWith("Options") -> defaultAnnotation
+
+        IDLRegistry.isPlainObjectInterface(name) -> {
+            when (name) {
+                "GPUBufferBinding",
+                -> "// @JsPlainObject\n//  Details - https://youtrack.jetbrains.com/issue/KT-68554"
+
+                "QueuingStrategy",
+                -> "// @JsPlainObject"
+
+                else -> defaultAnnotation
+            }
+        }
+
+        else -> ""
+    }
+
     val modifier = when {
         name == DOM_EXCEPTION ||
                 name == "Animation" ||
@@ -1157,8 +1182,7 @@ internal fun convertInterface(
                 isSvgElementClass
         -> "open"
 
-        name == "BlobPropertyBag" ||
-                name == "RequestInit" ||
+        annotations.startsWith("@") ||
                 name in CSSOM_INTERFACES ||
                 name == "AudioWorkletProcessorImpl" ||
                 name == "AbstractWorker" ||
@@ -1229,31 +1253,6 @@ internal fun convertInterface(
     val additionalAliases = getAdditionalAliasNames(name)
         ?.joinToString("\n") { "sealed interface $it" }
         ?: ""
-
-    val defaultAnnotation = if ("<" in declaration) {
-        "@kotlinx.js.JsPlainObject_KT_68943"
-    } else "@JsPlainObject"
-
-    val annotations = when {
-        !declaration.startsWith("interface ") -> ""
-        "= definedExternally" in members -> ""
-
-        name.endsWith("Options") -> defaultAnnotation
-
-        IDLRegistry.isPlainObjectInterface(name) -> {
-            when (name) {
-                "GPUBufferBinding",
-                -> "// @JsPlainObject\n//  Details - https://youtrack.jetbrains.com/issue/KT-68554"
-
-                "QueuingStrategy",
-                -> "// @JsPlainObject"
-
-                else -> defaultAnnotation
-            }
-        }
-
-        else -> ""
-    }
 
     var body = sequenceOf(
         typeGuard,
