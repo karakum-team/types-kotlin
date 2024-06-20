@@ -293,13 +293,9 @@ fun generateKotlinDeclarations(
                 add(BOUNDS_NOT_ALLOWED_IF_BOUNDED_BY_TYPE_PARAMETER)
         }.toTypedArray()
 
-        var annotations = if (suppresses.isNotEmpty()) {
+        val annotations = if (suppresses.isNotEmpty()) {
             fileSuppress(suppresses = suppresses)
         } else ""
-
-        if (name == "TouchEvent") {
-            annotations = """@file:JsQualifier("globalThis")""" + "\n\n" + annotations
-        }
 
         val pkg = optPkg ?: EVENT_INFO_MAP.getValue(name.substringBefore("."))
             .fqn
