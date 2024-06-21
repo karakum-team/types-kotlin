@@ -8,10 +8,8 @@ private val PROPERTY_NAMES = setOf(
     "ariaChecked",
     "ariaColCount",
     "ariaColIndex",
-    "ariaColIndexText",
     "ariaColSpan",
     "ariaCurrent",
-    "ariaDescription",
     "ariaDisabled",
     "ariaExpanded",
     "ariaHasPopup",
@@ -33,7 +31,6 @@ private val PROPERTY_NAMES = setOf(
     "ariaRoleDescription",
     "ariaRowCount",
     "ariaRowIndex",
-    "ariaRowIndexText",
     "ariaRowSpan",
     "ariaSelected",
     "ariaSetSize",
@@ -45,8 +42,6 @@ private val PROPERTY_NAMES = setOf(
 
     // manual
     "ariaActiveDescendant",
-    "ariaBrailleLabel",
-    "ariaBrailleRoleDescription",
     "ariaControls",
     "ariaDescribedBy",
     "ariaDetails",
