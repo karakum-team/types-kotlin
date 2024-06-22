@@ -50,6 +50,8 @@ import web.events.EventTarget
 import web.keyboard.ModifierKeyCode
 import web.keyboard.KeyCode
 import web.data.DataTransfer
+import web.uievents.MouseButton
+import web.uievents.MouseButtons
 """
 
 internal fun convertEventInterface(
@@ -73,10 +75,17 @@ internal fun convertEventInterface(
         "ChangeEvent",
         "FocusEvent",
         "InvalidEvent",
-            -> members = members.replaceFirst("val target:", "override val target:")
+            -> members = members
+            .replaceFirst("val target:", "override val target:")
 
         "KeyboardEvent",
-            -> members = members.replaceFirst("val code: String", "val code: KeyCode")
+            -> members = members
+            .replaceFirst("val code: String", "val code: KeyCode")
+
+        "MouseEvent",
+            -> members = members
+            .replaceFirst("val button: Int", "val button: MouseButton")
+            .replaceFirst("val buttons: Int", "val buttons: MouseButtons")
     }
 
     val body = DEFAULT_EVENT_IMPORTS.removePrefix("\n") +
