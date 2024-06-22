@@ -21,7 +21,7 @@ internal fun convertNativeEvents(
     return ConversionResult("NativeEvents", body, Package.EVENTS)
 }
 
-private const val EVENT_HANDLER = "typealias EventHandler<E> = (event: E) -> Unit"
+private const val EVENT_HANDLER = "typealias EventHandler<E /* : SyntheticEvent */> = (event: E) -> Unit"
 
 internal fun convertEventHandlers(
     source: String,
