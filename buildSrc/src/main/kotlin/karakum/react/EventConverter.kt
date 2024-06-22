@@ -47,6 +47,7 @@ import web.dom.Element
 import web.window.Window
 import web.events.Event
 import web.events.EventTarget
+import web.events.EventType
 import web.keyboard.ModifierKeyCode
 import web.keyboard.KeyCode
 import web.data.DataTransfer
@@ -67,6 +68,10 @@ internal fun convertEventInterface(
         .replace(": any", ": Any")
         .replace("EventTarget & T", "T")
         .replace("SyntheticEvent<T>", "SyntheticEvent<T, Event>")
+        .replace(
+            "BaseSyntheticEvent<E : Any, C : Any, T : Any>",
+            "BaseSyntheticEvent<E : Event, C : EventTarget, T : EventTarget>"
+        )
         .replace("E :", "out E :")
         .replace("C :", "out C :")
         .replace("T :", "out T :")
@@ -87,6 +92,10 @@ internal fun convertEventInterface(
             -> members = members
             .replaceFirst("val button: Int", "val button: MouseButton")
             .replaceFirst("val buttons: Int", "val buttons: MouseButtons")
+
+        "BaseSyntheticEvent",
+            -> members = members
+            .replaceFirst("val type: String", "val type: EventType<E, EventTarget>")
     }
 
     val body = DEFAULT_EVENT_IMPORTS.removePrefix("\n") +
