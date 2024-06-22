@@ -7,7 +7,7 @@ import web.dom.Element
 import web.html.EnterKeyHint
 import web.html.InputType
 import web.http.CrossOrigin
-import web.window.WindowTarget
+import web.window.WindowName
 
 external interface InputHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var accept: String?
@@ -23,7 +23,7 @@ external interface InputHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var formEncType: String?
     var formMethod: String?
     var formNoValidate: Boolean?
-    var formTarget: WindowTarget?
+    var formTarget: WindowName?
     var height: Double?
     var list: String?
     var max: Any? /* number | Date */
