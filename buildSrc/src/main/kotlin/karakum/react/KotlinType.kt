@@ -81,5 +81,9 @@ internal fun kotlinType(
     if (type.startsWith("Booleanish | "))
         return "Any // $type"
 
+    if (name == "formTarget") {
+        return "WindowName"
+    }
+
     return type
 }
