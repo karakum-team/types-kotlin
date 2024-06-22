@@ -33,6 +33,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     // TODO: check
     "Booleanish" to "Boolean",
     "boolean | string" to "Boolean",
+
+    "ImgDecoding" to "ImageDecoding",
+    "ModifierKey" to "ModifierKeyCode",
 )
 
 private val ANY_ALIASES = setOf(

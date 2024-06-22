@@ -21,6 +21,13 @@ import web.html.InputType
 import web.html.Loading
 import web.http.ReferrerPolicy
 import web.window.WindowTarget
+import web.window.WindowName
+import web.data.DataTransfer
+import web.html.ImageDecoding
+import web.keyboard.KeyCode
+import web.keyboard.ModifierKeyCode
+import web.html.InputMode
+import web.html.ButtonType
 """.trimIndent()
 
 private val SESKAR_IMPORTS = """
@@ -28,11 +35,22 @@ import seskar.js.JsIntValue
 import seskar.js.JsValue
 """.trimIndent()
 
+private val EXCLUDED_TYPES = setOf(
+    "ButtonType",
+    "ImgDecoding",
+    "InputMode",
+    "ModifierKey",
+)
+
 fun generateKotlinDeclarations(
     definitionsFile: File,
     sourceDir: File,
 ) {
     for ((name, body, pkg) in convertDefinitions(definitionsFile)) {
+        if (name in EXCLUDED_TYPES) {
+            continue
+        }
+
         val finalPkg = when {
             name.startsWith("Aria") -> Package.ARIA
             name in DOM_TYPES -> Package.DOM
@@ -45,7 +63,7 @@ fun generateKotlinDeclarations(
         val content = when (finalPkg) {
             Package.HTML,
             Package.SVG,
-            -> ARIA_IMPORTS + "\n" + DOM_IMPORTS + "\n" + SESKAR_IMPORTS + "\n" + body
+                -> ARIA_IMPORTS + "\n" + DOM_IMPORTS + "\n" + SESKAR_IMPORTS + "\n" + body
 
             else -> SESKAR_IMPORTS + "\n" + body
         }

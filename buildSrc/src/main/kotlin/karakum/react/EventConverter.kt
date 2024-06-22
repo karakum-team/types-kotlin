@@ -47,6 +47,7 @@ import web.dom.Element
 import web.window.Window
 import web.events.Event
 import web.events.EventTarget
+import web.keyboard.ModifierKeyCode
 """
 
 internal fun convertEventInterface(
@@ -70,7 +71,7 @@ internal fun convertEventInterface(
         "ChangeEvent",
         "FocusEvent",
         "InvalidEvent",
-        -> members = members.replaceFirst("val target:", "override val target:")
+            -> members = members.replaceFirst("val target:", "override val target:")
     }
 
     val body = DEFAULT_EVENT_IMPORTS.removePrefix("\n") +

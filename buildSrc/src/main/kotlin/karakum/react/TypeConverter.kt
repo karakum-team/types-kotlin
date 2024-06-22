@@ -34,13 +34,20 @@ internal class SimpleTypeConverter(
 
         when {
             propertyName == "crossOrigin" && type == """"anonymous" | "use-credentials" | """""
-            -> return propertyName.replaceFirstChar(Char::uppercase)
+                -> return propertyName.replaceFirstChar(Char::uppercase)
 
             propertyName == "enterKeyHint"
-            -> return propertyName.replaceFirstChar(Char::uppercase)
+                -> return propertyName.replaceFirstChar(Char::uppercase)
 
             propertyName == "loading"
-            -> return propertyName.replaceFirstChar(Char::uppercase)
+                -> return propertyName.replaceFirstChar(Char::uppercase)
+
+            propertyName == "decoding"
+                -> return "ImageDecoding".also {
+                if (type.contains(" undefined")) {
+                    it.plus("?")
+                }
+            }
         }
 
         val sourceType = if (name == "Capture") {
@@ -69,13 +76,13 @@ internal class SimpleTypeConverter(
     ): String =
         when {
             propertyName == "capture"
-            -> propertyName.replaceFirstChar(Char::uppercase)
+                -> propertyName.replaceFirstChar(Char::uppercase)
 
             propertyName == "fetchpriority"
-            -> "FetchPriority"
+                -> "FetchPriority"
 
             propertyName.startsWith("aria-")
-            -> propertyName.ariaPropertyName()
+                -> propertyName.ariaPropertyName()
                 .replaceFirstChar(Char::uppercase)
 
             parentName.endsWith("HTMLAttributes") -> {
