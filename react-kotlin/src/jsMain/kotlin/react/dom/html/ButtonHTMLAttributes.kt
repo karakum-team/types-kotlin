@@ -3,6 +3,7 @@
 package react.dom.html
 
 import web.dom.Element
+import web.html.ButtonType
 import web.window.WindowTarget
 
 external interface ButtonHTMLAttributes<T : Element> : HTMLAttributes<T> {
