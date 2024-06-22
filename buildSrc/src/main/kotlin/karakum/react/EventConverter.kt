@@ -48,6 +48,7 @@ import web.window.Window
 import web.events.Event
 import web.events.EventTarget
 import web.keyboard.ModifierKeyCode
+import web.data.DataTransfer
 """
 
 internal fun convertEventInterface(

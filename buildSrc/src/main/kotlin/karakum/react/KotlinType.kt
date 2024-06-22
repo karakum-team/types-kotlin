@@ -20,7 +20,6 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Date" to "js.date.Date",
 
     "Document" to "web.dom.Document",
-    "DataTransfer" to "web.data.DataTransfer",
     "AbstractView" to "Window",
 
     "Key" to "react.Key",

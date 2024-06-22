@@ -22,10 +22,8 @@ import web.html.Loading
 import web.http.ReferrerPolicy
 import web.window.WindowTarget
 import web.window.WindowName
-import web.data.DataTransfer
 import web.html.ImageDecoding
 import web.keyboard.KeyCode
-import web.keyboard.ModifierKeyCode
 import web.html.InputMode
 import web.html.ButtonType
 """.trimIndent()
