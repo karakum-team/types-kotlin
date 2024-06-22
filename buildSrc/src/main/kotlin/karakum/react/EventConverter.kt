@@ -52,6 +52,7 @@ import web.keyboard.KeyCode
 import web.data.DataTransfer
 import web.uievents.MouseButton
 import web.uievents.MouseButtons
+import web.time.DOMHighResTimeStamp
 """
 
 internal fun convertEventInterface(
