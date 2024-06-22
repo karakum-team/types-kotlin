@@ -1,12 +1,8 @@
 package karakum.virtual
 
-internal const val DYNAMIC = "dynamic"
 internal const val UNIT = "Unit"
 
 internal const val STRING = "String"
-
-internal const val INT = "Int"
-internal const val DOUBLE = "Double"
 
 private val STANDARD_TYPE_MAP = mapOf(
     "any" to "Any",
@@ -17,7 +13,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "string" to STRING,
 
     "number" to "Int",
-    "null | number" to "Int?",
+    "number | null" to "Int?",
 
     "void" to UNIT,
     "null" to "Nothing?",
@@ -82,6 +78,7 @@ internal fun kotlinType(
         .replace("boolean | (", "(")
         .replace("{ align, smoothScroll }?: ScrollToOffsetOptions", "options: ScrollToOffsetOptions?")
         .replace("{ align, smoothScroll, ...rest }?: ScrollToIndexOptions", "options: ScrollToIndexOptions?")
+        .replace(" | null | undefined", "?")
         .replace(" | null", "?")
         .replace("(Window & typeof globalThis)", "Window")
 }
