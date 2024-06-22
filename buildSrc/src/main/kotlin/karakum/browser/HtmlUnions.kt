@@ -3,6 +3,7 @@ package karakum.browser
 import karakum.common.sealedUnionBody
 
 internal const val PRELOAD = "Preload"
+internal const val FETCH_PRIORITY = "FetchPriority"
 
 internal class UnionData(
     val name: String,
@@ -86,6 +87,18 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
                 )
             ),
             pkg = "web.http",
+        ),
+        ConversionResult(
+            name = FETCH_PRIORITY,
+            body = sealedUnionBody(
+                name = FETCH_PRIORITY,
+                values = listOf(
+                    "auto",
+                    "high",
+                    "low",
+                ),
+            ),
+            pkg = "web.html",
         ),
         ConversionResult(
             name = "EnterKeyHint",

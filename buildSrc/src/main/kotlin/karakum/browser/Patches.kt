@@ -19,6 +19,7 @@ internal fun String.applyPatches(): String {
         .applyTempEventPatches()
         .applyReadyStatePatches()
         .patchQuerySelectors()
+        .replace("    fetchPriority: string;", "    fetchPriority: $FETCH_PRIORITY;")
         .patchInterface("ProgressEvent") {
             it.replace("\n    readonly target: T | null;", "")
         }
