@@ -332,7 +332,7 @@ fun kotlinFunctionType(type: String): String =
         .replace(Regex("(-> Query)$"), "$1<*, *, *, *>")
         .replace("TPageData[]", "ReadonlyArray<TPageData>")
         .replace("TQueryFnData[]", "ReadonlyArray<TQueryFnData>")
-        .replace(": Array<QueryObserverResult>", ": ReadonlyArray<QueryObserverResult<*, *>>")
+        .replace(": ReadonlyArray<QueryObserverResult>", ": ReadonlyArray<QueryObserverResult<*, *>>")
         .replace("Query<unknown, unknown, unknown>", "Query<*, *, *, *>")
         .replace(": Mutation)", ": Mutation<*, *, *, *>)")
         .replace("Mutation<any, any, any>", "Mutation<*, *, *, *>")

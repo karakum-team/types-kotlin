@@ -35,6 +35,8 @@ class Type(
         val result = source
             .substringAfterLast(" = ")
             .removeSuffix(";")
+            .replace(": Array<", ": ReadonlyArray<")
+            .replace(" | undefined | null", "?")
             .replace(" | undefined", "?")
 
         if (result.startsWith("Override<")) {
@@ -47,7 +49,7 @@ class Type(
         val body = originalBody
             .replace(" => T | Promise<T>", " => PromiseResult<T>")
             .replace("QueryFunctionContext<TQueryKey>", "QueryFunctionContext<TQueryKey, *>")
-            .replace(": Array<QueryObserverResult>", ": ReadonlyArray<QueryObserverResult<*, *>>")
+            .replace(": ReadonlyArray<QueryObserverResult>", ": ReadonlyArray<QueryObserverResult<*, *>>")
             .replace(": undefined", ": Void")
 
         when {
