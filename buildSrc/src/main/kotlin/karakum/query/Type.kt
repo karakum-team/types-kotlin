@@ -5,7 +5,6 @@ import karakum.common.sealedUnionBody
 private val SPECIAL_TYPES = setOf(
     "boolean | number | ShouldRetryFunction<TError>",
     "number | RetryDelayFunction<TError>",
-    "TOutput | DataUpdateFunction<TInput, TOutput>",
 )
 
 class Type(
@@ -62,6 +61,16 @@ class Type(
             name == "UseErrorBoundary" -> body
                 .removeSurrounding("boolean | (", ")")
                 .replace(" => boolean", " -> Boolean")
+
+            body.startsWith("boolean | ")
+                    || body.startsWith("number | ")
+                    || body.startsWith("TOutput | ")
+            -> body.substringAfter(" | ")
+                .removeSurrounding("(", ")")
+                .replace(" => boolean", " -> Boolean")
+                .replace(" => number", " -> Number")
+                .replace(" => ", " -> ") +
+                    " /* | ${body.substringBefore(" | ")} */"
 
             "|" in body -> "Union /* $body */"
 
