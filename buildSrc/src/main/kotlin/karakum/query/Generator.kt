@@ -142,7 +142,10 @@ private fun generate(
         .joinToString("\n\n")
         .ifEmpty { return }
 
-    val moduleRequired = "external class " in body || "external fun " in body || "external val " in body
+    val moduleRequired = "external object " in body
+            || "external class " in body
+            || "external fun " in body
+            || "external val " in body
     val annotations = if (moduleRequired) {
         moduleDeclaration(pkg)
     } else ""
