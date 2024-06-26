@@ -75,9 +75,13 @@ private val DOM_TYPES = setOf(
     "ParentNode",
     "Element",
     "CheckVisibilityOptions",
+    "GetHTMLOptions",
 
     "DocumentAndElementEventHandlers",
     "GlobalEventHandlers",
+
+    // separate package?
+    "PointerLockOptions",
 )
 
 private val WEB_COMPONENTS_TYPES = setOf(
@@ -126,6 +130,7 @@ private val CSSOM_TYPES = listOf(
     "StylePropertyMap",
     "StylePropertyMapReadOnly",
     "PropertyDefinition",
+    "ViewTransition",
 ) + CSSOM_INTERFACES
 
 private val HIGHLIGHT_TYPES = listOf(
@@ -227,6 +232,7 @@ private val MEDIA_CAPABILITIES_TYPES = listOf(
 
 private val MEDIA_SOURCE_TYPES = listOf(
     "MediaSource",
+    "MediaSourceHandle",
     "SourceBuffer",
     "SourceBufferList",
     "TimeRanges",
