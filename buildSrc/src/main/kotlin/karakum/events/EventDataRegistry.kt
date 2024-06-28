@@ -23,8 +23,13 @@ object EventDataRegistry {
         dataList.asSequence()
             .flatMap { data ->
                 val type = data.type
-                data.targets.asSequence()
-                    .map { EventInstance(it.target, type) to if (it.bubbles) "EventTarget" else it.target }
+                data.targets.asSequence().map {
+                    val eventTarget = if (it.bubbles) {
+                        it.bubblingPath?.first() ?: "EventTarget"
+                    } else it.target
+
+                    EventInstance(it.target, type) to eventTarget
+                }
             }
             .toMap()
     }
