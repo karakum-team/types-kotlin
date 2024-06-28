@@ -20,9 +20,6 @@ object EventDataRegistry {
     }
 
     private fun Target.targetWithAliases(): Sequence<String> {
-        if (!bubbles)
-            return sequenceOf(target)
-
         val alias = when (target) {
             "HTMLElement" -> "GlobalEventHandlers"
             "Window" -> "WindowEventHandlers"
@@ -37,12 +34,15 @@ object EventDataRegistry {
             .flatMap { data ->
                 val type = data.type
                 data.targets.asSequence().flatMap {
-                    val eventTarget = if (it.bubbles) {
+                    val defaultEventTarget = if (it.bubbles) {
                         it.bubblingPath?.first() ?: "EventTarget"
-                    } else it.target
+                    } else null
 
-                    it.targetWithAliases()
-                        .map { target -> EventInstance(target, type) to eventTarget }
+                    it.targetWithAliases().map { target ->
+                        val eventTarget = defaultEventTarget ?: target
+
+                        EventInstance(target, type) to eventTarget
+                    }
                 }
             }
             .toMap()
