@@ -7,7 +7,7 @@ private val EVENT_TARGET_BODY: String = """
 open external class EventTarget {
     internal fun <E : Event> addEventListener(
         type: EventType<E, *>,
-        callback: EventHandler<E, *>,
+        callback: EventHandler<E, *, *>,
         options: AddEventListenerOptions? = definedExternally,
     )
 
@@ -19,7 +19,7 @@ open external class EventTarget {
 
     internal fun <E : Event> removeEventListener(
         type: EventType<E, *>,
-        callback: EventHandler<E, *>,
+        callback: EventHandler<E, *, *>,
         options: EventListenerOptions? = definedExternally,
     )
 
@@ -35,9 +35,9 @@ open external class EventTarget {
 }
 
 // event handler
-fun <E : Event, C : EventTarget> C.addEventListener(
+fun <E : Event, C : EventTarget, T: EventTarget> C.addEventListener(
     type: EventType<E, C>,
-    handler: EventHandler<E, C>,
+    handler: EventHandler<E, C, T>,
     options: AddEventListenerOptions? = undefined,
 ) {
     addEventListener(
@@ -47,9 +47,9 @@ fun <E : Event, C : EventTarget> C.addEventListener(
     )
 }
 
-fun <E : Event, C : EventTarget> C.removeEventListener(
+fun <E : Event, C : EventTarget, T: EventTarget> C.removeEventListener(
     type: EventType<E, C>,
-    handler: EventHandler<E, C>,
+    handler: EventHandler<E, C, T>,
     options: AddEventListenerOptions? = undefined,
 ) {
     removeEventListener(
@@ -59,9 +59,9 @@ fun <E : Event, C : EventTarget> C.removeEventListener(
     )
 }
 
-fun <E : Event, C : EventTarget> C.addEventHandler(
+fun <E : Event, C : EventTarget, T: EventTarget> C.addEventHandler(
     type: EventType<E, C>,
-    handler: EventHandler<E, C>,
+    handler: EventHandler<E, C, T>,
 ): () -> Unit =
     addEventHandler(
         type = type,
@@ -69,10 +69,10 @@ fun <E : Event, C : EventTarget> C.addEventHandler(
         handler = handler,
     )
 
-fun <E : Event, C : EventTarget> C.addEventHandler(
+fun <E : Event, C : EventTarget, T: EventTarget> C.addEventHandler(
     type: EventType<E, C>,
     options: AddEventListenerOptions?,
-    handler: EventHandler<E, C>,
+    handler: EventHandler<E, C, T>,
 ): () -> Unit {
     addEventListener(
         type = type,
@@ -120,7 +120,7 @@ fun <E : Event, C : EventTarget, D> C.addEventHandler(
     handler: (D) -> Unit,
 ): () -> Unit
         where D : E,
-              D : HasTargets<C> {
+              D : HasTargets<C, EventTarget> {
     return addEventHandler(
         type = type,
         options = undefined,
@@ -134,7 +134,7 @@ fun <E : Event, C : EventTarget, D> C.addEventHandler(
     handler: (D) -> Unit,
 ): () -> Unit
         where D : E,
-              D : HasTargets<C> {
+              D : HasTargets<C, EventTarget> {
     addEventListener(
         type = type,
         callback = handler,

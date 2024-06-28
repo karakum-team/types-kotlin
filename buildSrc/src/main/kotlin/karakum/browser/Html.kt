@@ -1681,6 +1681,11 @@ internal fun convertMember(
             .takeIf { !it.endsWith("Handlers") }
             ?: "*"
 
+        val target = when (currentTarget) {
+            "*" -> currentTarget
+            else -> EVENT_TARGET
+        }
+
         var eventType = source
             .substringAfter(": ")
             .substringAfter("ev: ")
@@ -1692,7 +1697,7 @@ internal fun convertMember(
         }
 
         return sequenceOf(
-            "var $handlerName: EventHandler<$eventType, $currentTarget>?",
+            "var $handlerName: EventHandler<$eventType, $currentTarget, $target>?",
             VAR_PROPERTY_DE.takeIf { typeProvider.isDefined() },
         ).filterNotNull()
             .joinToString("\n")
