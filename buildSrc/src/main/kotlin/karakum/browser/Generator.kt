@@ -344,7 +344,12 @@ fun generateKotlinDeclarations(
             if (name in Mixins.UNSAFE || name == LOCALIZABLE)
                 add(NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE)
 
-            if (name == "ChildNode" || name == "ParentNode" || name == "AbstractWorker" || name == "FontFaceSet" || name == "AudioWorkletProcessorImpl")
+            if (name == "ChildNode"
+                || name == "ParentNode"
+                || name == "AbstractWorker"
+                || name == "FontFaceSet"
+                || name == "AudioWorkletProcessorImpl"
+            )
                 add(INTERFACE_WITH_SUPERCLASS)
 
             if (name == "WorkerNavigator"
