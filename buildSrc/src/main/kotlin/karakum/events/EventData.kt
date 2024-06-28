@@ -8,6 +8,7 @@ data class EventData(
     val href: String?,
     val type: String,
     val targets: List<Target>,
+    val cancelable: Boolean = false,
     val `interface`: String,
     val extendedIn: List<ExtendedIn>?,
 )

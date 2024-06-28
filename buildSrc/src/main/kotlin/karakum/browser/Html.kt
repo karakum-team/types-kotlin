@@ -1,6 +1,7 @@
 package karakum.browser
 
 import karakum.common.withSuspendAdapter
+import karakum.events.EventDataRegistry
 
 internal const val VIDEO_FRAME_REQUEST_ID = "VideoFrameRequestId"
 internal const val RENDERING_CONTEXT_ID = "RenderingContextId"
@@ -1681,10 +1682,11 @@ internal fun convertMember(
             .takeIf { !it.endsWith("Handlers") }
             ?: "*"
 
-        val target = when (currentTarget) {
-            "*" -> currentTarget
-            else -> EVENT_TARGET
-        }
+        val target = EventDataRegistry.getTarget(currentTarget, handlerName.removePrefix("on"))
+            ?: when (currentTarget) {
+                "*" -> currentTarget
+                else -> EVENT_TARGET
+            }
 
         var eventType = source
             .substringAfter(": ")
