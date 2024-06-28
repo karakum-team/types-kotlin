@@ -349,6 +349,8 @@ fun generateKotlinDeclarations(
                 || name == "AbstractWorker"
                 || name == "FontFaceSet"
                 || name == "AudioWorkletProcessorImpl"
+                || name == "GlobalEventHandlers"
+                || name == "WindowEventHandlers"
             )
                 add(INTERFACE_WITH_SUPERCLASS)
 

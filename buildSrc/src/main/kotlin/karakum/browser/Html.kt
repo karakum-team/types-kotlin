@@ -721,7 +721,9 @@ internal fun convertInterface(
         -> declaration.replace(" extends Error", " :\nJsError")
 
         "AbstractWorker",
-        -> declaration + ": EventTarget"
+        "GlobalEventHandlers",
+        "WindowEventHandlers",
+        -> declaration + ":\n$EVENT_TARGET"
 
         in COLLECTIONS_WITH_BOUNDS,
         -> declaration
@@ -1680,12 +1682,9 @@ internal fun convertMember(
             .substringAfter("(this: ", "")
             .substringBefore(", ", "")
 
-        val currentTarget = if (!thisType.endsWith("Handlers")) thisType else "*"
+        val currentTarget = thisType
         val target = EventDataRegistry.getTarget(thisType, handlerName.removePrefix("on"))
-            ?: when (currentTarget) {
-                "*" -> currentTarget
-                else -> EVENT_TARGET
-            }
+            ?: EVENT_TARGET
 
         var eventType = source
             .substringAfter(": ")
