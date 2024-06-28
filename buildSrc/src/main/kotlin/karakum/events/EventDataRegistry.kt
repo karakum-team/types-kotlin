@@ -19,16 +19,30 @@ object EventDataRegistry {
         json.decodeFromString(sourceFile.readText())
     }
 
+    private fun Target.targetWithAliases(): Sequence<String> {
+        if (!bubbles)
+            return sequenceOf(target)
+
+        val alias = when (target) {
+            "HTMLElement" -> "GlobalEventHandlers"
+            "Window" -> "WindowEventHandlers"
+            else -> return sequenceOf(target)
+        }
+
+        return sequenceOf(target, alias)
+    }
+
     private val targetMap: Map<EventInstance, String> by lazy {
         dataList.asSequence()
             .flatMap { data ->
                 val type = data.type
-                data.targets.asSequence().map {
+                data.targets.asSequence().flatMap {
                     val eventTarget = if (it.bubbles) {
                         it.bubblingPath?.first() ?: "EventTarget"
                     } else it.target
 
-                    EventInstance(it.target, type) to eventTarget
+                    it.targetWithAliases()
+                        .map { target -> EventInstance(target, type) to eventTarget }
                 }
             }
             .toMap()
