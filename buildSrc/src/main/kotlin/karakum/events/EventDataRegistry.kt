@@ -20,9 +20,14 @@ object EventDataRegistry {
     }
 
     private fun Target.targetWithAliases(): Sequence<String> {
-        val alias = when (target) {
-            "HTMLElement" -> "GlobalEventHandlers"
-            "Window" -> "WindowEventHandlers"
+        val alias = when {
+            target == "Element"
+                    || (target.startsWith("HTML") && target.endsWith("Element"))
+            -> "GlobalEventHandlers"
+
+            target == "Window"
+            -> "WindowEventHandlers"
+
             else -> return sequenceOf(target)
         }
 
@@ -54,7 +59,10 @@ object EventDataRegistry {
     ): String? {
         val className = thisType.substringBefore("<")
         val targetType = targetMap[EventInstance(className, eventType)]
-            ?: return null
+            ?: run {
+                println("C: $className, T: $eventType")
+                return null
+            }
 
         return when (targetType) {
             "IDBRequest" -> targetType + "<T>"
