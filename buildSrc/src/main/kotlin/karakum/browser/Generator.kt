@@ -235,14 +235,6 @@ private val DEFAULT_IMPORTS = Imports(
     "web.events.EventInitMutable",
 )
 
-private val GPU_FLAGS = setOf(
-    "GPUBufferUsage",
-    "GPUColorWrite",
-    "GPUMapMode",
-    "GPUShaderStage",
-    "GPUTextureUsage",
-)
-
 fun generateKotlinDeclarations(
     idlDir: File,
     eventsSourceFile: File,
