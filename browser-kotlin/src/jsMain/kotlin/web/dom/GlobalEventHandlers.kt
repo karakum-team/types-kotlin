@@ -33,28 +33,28 @@ external interface GlobalEventHandlers :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/animationcancel_event)
      */
-    var onanimationcancel: EventHandler<AnimationEvent, GlobalEventHandlers, EventTarget>?
+    var onanimationcancel: EventHandler<AnimationEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/animationend_event)
      */
-    var onanimationend: EventHandler<AnimationEvent, GlobalEventHandlers, EventTarget>?
+    var onanimationend: EventHandler<AnimationEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/animationiteration_event)
      */
-    var onanimationiteration: EventHandler<AnimationEvent, GlobalEventHandlers, EventTarget>?
+    var onanimationiteration: EventHandler<AnimationEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/animationstart_event)
      */
-    var onanimationstart: EventHandler<AnimationEvent, GlobalEventHandlers, EventTarget>?
+    var onanimationstart: EventHandler<AnimationEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -167,7 +167,7 @@ external interface GlobalEventHandlers :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/copy_event)
      */
-    var oncopy: EventHandler<ClipboardEvent, GlobalEventHandlers, EventTarget>?
+    var oncopy: EventHandler<ClipboardEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -181,7 +181,7 @@ external interface GlobalEventHandlers :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/cut_event)
      */
-    var oncut: EventHandler<ClipboardEvent, GlobalEventHandlers, EventTarget>?
+    var oncut: EventHandler<ClipboardEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -201,7 +201,7 @@ external interface GlobalEventHandlers :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement/drag_event)
      */
-    var ondrag: EventHandler<DragEvent, GlobalEventHandlers, EventTarget>?
+    var ondrag: EventHandler<DragEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -211,7 +211,7 @@ external interface GlobalEventHandlers :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement/dragend_event)
      */
-    var ondragend: EventHandler<DragEvent, GlobalEventHandlers, EventTarget>?
+    var ondragend: EventHandler<DragEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -221,7 +221,7 @@ external interface GlobalEventHandlers :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement/dragenter_event)
      */
-    var ondragenter: EventHandler<DragEvent, GlobalEventHandlers, EventTarget>?
+    var ondragenter: EventHandler<DragEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -231,7 +231,7 @@ external interface GlobalEventHandlers :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement/dragleave_event)
      */
-    var ondragleave: EventHandler<DragEvent, GlobalEventHandlers, EventTarget>?
+    var ondragleave: EventHandler<DragEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -241,7 +241,7 @@ external interface GlobalEventHandlers :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement/dragover_event)
      */
-    var ondragover: EventHandler<DragEvent, GlobalEventHandlers, EventTarget>?
+    var ondragover: EventHandler<DragEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -251,14 +251,14 @@ external interface GlobalEventHandlers :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement/dragstart_event)
      */
-    var ondragstart: EventHandler<DragEvent, GlobalEventHandlers, EventTarget>?
+    var ondragstart: EventHandler<DragEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement/drop_event)
      */
-    var ondrop: EventHandler<DragEvent, GlobalEventHandlers, EventTarget>?
+    var ondrop: EventHandler<DragEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -322,7 +322,7 @@ external interface GlobalEventHandlers :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/gotpointercapture_event)
      */
-    var ongotpointercapture: EventHandler<PointerEvent, GlobalEventHandlers, EventTarget>?
+    var ongotpointercapture: EventHandler<PointerEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -403,7 +403,7 @@ external interface GlobalEventHandlers :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement/lostpointercapture_event)
      */
-    var onlostpointercapture: EventHandler<PointerEvent, GlobalEventHandlers, EventTarget>?
+    var onlostpointercapture: EventHandler<PointerEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -474,7 +474,7 @@ external interface GlobalEventHandlers :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/paste_event)
      */
-    var onpaste: EventHandler<ClipboardEvent, GlobalEventHandlers, EventTarget>?
+    var onpaste: EventHandler<ClipboardEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -511,14 +511,14 @@ external interface GlobalEventHandlers :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/pointercancel_event)
      */
-    var onpointercancel: EventHandler<PointerEvent, GlobalEventHandlers, EventTarget>?
+    var onpointercancel: EventHandler<PointerEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/pointerdown_event)
      */
-    var onpointerdown: EventHandler<PointerEvent, GlobalEventHandlers, EventTarget>?
+    var onpointerdown: EventHandler<PointerEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -539,28 +539,28 @@ external interface GlobalEventHandlers :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/pointermove_event)
      */
-    var onpointermove: EventHandler<PointerEvent, GlobalEventHandlers, EventTarget>?
+    var onpointermove: EventHandler<PointerEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/pointerout_event)
      */
-    var onpointerout: EventHandler<PointerEvent, GlobalEventHandlers, EventTarget>?
+    var onpointerout: EventHandler<PointerEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/pointerover_event)
      */
-    var onpointerover: EventHandler<PointerEvent, GlobalEventHandlers, EventTarget>?
+    var onpointerover: EventHandler<PointerEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/pointerup_event)
      */
-    var onpointerup: EventHandler<PointerEvent, GlobalEventHandlers, EventTarget>?
+    var onpointerup: EventHandler<PointerEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -665,7 +665,7 @@ external interface GlobalEventHandlers :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Node/selectstart_event)
      */
-    var onselectstart: EventHandler<Event, GlobalEventHandlers, EventTarget>?
+    var onselectstart: EventHandler<Event, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -751,28 +751,28 @@ external interface GlobalEventHandlers :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/transitioncancel_event)
      */
-    var ontransitioncancel: EventHandler<TransitionEvent, GlobalEventHandlers, EventTarget>?
+    var ontransitioncancel: EventHandler<TransitionEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/transitionend_event)
      */
-    var ontransitionend: EventHandler<TransitionEvent, GlobalEventHandlers, EventTarget>?
+    var ontransitionend: EventHandler<TransitionEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/transitionrun_event)
      */
-    var ontransitionrun: EventHandler<TransitionEvent, GlobalEventHandlers, EventTarget>?
+    var ontransitionrun: EventHandler<TransitionEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/transitionstart_event)
      */
-    var ontransitionstart: EventHandler<TransitionEvent, GlobalEventHandlers, EventTarget>?
+    var ontransitionstart: EventHandler<TransitionEvent, GlobalEventHandlers, Node>?
         get() = definedExternally
         set(value) = definedExternally
 
