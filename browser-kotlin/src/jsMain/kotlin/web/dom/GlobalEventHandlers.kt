@@ -75,7 +75,7 @@ external interface GlobalEventHandlers :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement/beforetoggle_event)
      */
-    var onbeforetoggle: EventHandler<Event, GlobalEventHandlers, EventTarget>?
+    var onbeforetoggle: EventHandler<Event, GlobalEventHandlers, GlobalEventHandlers>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -525,14 +525,14 @@ external interface GlobalEventHandlers :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/pointerenter_event)
      */
-    var onpointerenter: EventHandler<PointerEvent, GlobalEventHandlers, EventTarget>?
+    var onpointerenter: EventHandler<PointerEvent, GlobalEventHandlers, GlobalEventHandlers>?
         get() = definedExternally
         set(value) = definedExternally
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/pointerleave_event)
      */
-    var onpointerleave: EventHandler<PointerEvent, GlobalEventHandlers, EventTarget>?
+    var onpointerleave: EventHandler<PointerEvent, GlobalEventHandlers, GlobalEventHandlers>?
         get() = definedExternally
         set(value) = definedExternally
 
@@ -658,7 +658,7 @@ external interface GlobalEventHandlers :
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Document/selectionchange_event)
      */
-    var onselectionchange: EventHandler<Event, GlobalEventHandlers, EventTarget>?
+    var onselectionchange: EventHandler<Event, GlobalEventHandlers, GlobalEventHandlers>?
         get() = definedExternally
         set(value) = definedExternally
 
