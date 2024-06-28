@@ -35,9 +35,16 @@ object EventDataRegistry {
     }
 
     fun getTarget(
-        className: String,
+        thisType: String,
         eventType: String,
     ): String? {
-        return targetMap[EventInstance(className, eventType)]
+        val className = thisType.substringBefore("<")
+        val targetType = targetMap[EventInstance(className, eventType)]
+            ?: return null
+
+        return when (targetType) {
+            "IDBRequest" -> targetType + "<T>"
+            else -> targetType
+        }
     }
 }

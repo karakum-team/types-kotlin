@@ -1676,13 +1676,12 @@ internal fun convertMember(
         val handlerName = source.substringBefore(": ")
             .removeSuffix("?")
 
-        val currentTarget = source
+        val thisType = source
             .substringAfter("(this: ", "")
             .substringBefore(", ", "")
-            .takeIf { !it.endsWith("Handlers") }
-            ?: "*"
 
-        val target = EventDataRegistry.getTarget(currentTarget, handlerName.removePrefix("on"))
+        val currentTarget = if (!thisType.endsWith("Handlers")) thisType else "*"
+        val target = EventDataRegistry.getTarget(thisType, handlerName.removePrefix("on"))
             ?: when (currentTarget) {
                 "*" -> currentTarget
                 else -> EVENT_TARGET
