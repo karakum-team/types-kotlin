@@ -108,6 +108,7 @@ internal fun eventDeclarations(
     return eventTypes(dataMap)
         .plus(EventType())
         .plus(EventHandler())
+        .plus(EventInstance())
         .plus(EventTarget())
         .plus(HasTargets())
         .plus(eventPlaceholders(content, EVENT_DATA, dataMap, strict = true))
