@@ -309,7 +309,10 @@ fun generateKotlinDeclarations(
 
     val aliases = domAliases()
         .plus(htmlFactories(content))
-        .plus(htmlDeclarations(content).withMutableEventModifiersInit())
+        .plus(
+            htmlDeclarations(content)
+                .withMutableEventModifiersInit()
+        )
         .plus(htmlUnions())
         .plus(browserConstants(content))
         .plus(browserTypes(content))
