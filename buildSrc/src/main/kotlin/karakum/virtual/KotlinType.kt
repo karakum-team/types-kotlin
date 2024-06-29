@@ -44,6 +44,9 @@ internal fun kotlinType(
     if (type.startsWith("undefined | ("))
         return kotlinType(type.removePrefix("undefined | "), name) + "?"
 
+    if (type.startsWith("Array<"))
+        return "Readonly${type}"
+
     if (type.startsWith("Map<"))
         return "Readonly${type}"
 
@@ -72,6 +75,7 @@ internal fun kotlinType(
         .replace(" -> boolean", " -> Boolean")
         .replace(" -> unknown", " -> Any")
         .replace(" -> any", " -> Any")
+        .replace(" -> Array<number>", " -> ReadonlyArray<Int>")
         .replace("<number>", "<Int>")
         .replace("<any>", "<*>")
         .replace("undefined | [number, number]", "JsTuple2<Int, Int>?")
