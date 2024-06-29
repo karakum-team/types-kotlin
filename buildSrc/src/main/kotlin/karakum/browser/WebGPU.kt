@@ -178,6 +178,8 @@ private fun webGpuDeclarations(
                         init: GPUUncapturedErrorEventInit,                        
                     ): Event {
                         val error: GPUError
+                        
+                        companion object : GPUUncapturedErrorEventTypes
                     }
                     """.trimIndent(),
                     pkg = "web.gpu",

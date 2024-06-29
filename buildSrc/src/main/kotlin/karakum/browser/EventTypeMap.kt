@@ -67,6 +67,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.pip.PictureInPictureEvent"),
     EventInfo("web.payment.PaymentMethodChangeEvent"),
     EventInfo("web.payment.PaymentRequestUpdateEvent"),
+    EventInfo("web.gpu.GPUUncapturedErrorEvent"),
 )
 
 internal val WEB_WORKER_EVENT_DATA = listOf(
@@ -227,4 +228,6 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     // Notifications
     "notificationclick" to "notification_click",
     "notificationclose" to "notification_close",
+
+    "uncapturederror" to "uncaptured_error",
 )

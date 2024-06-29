@@ -80,6 +80,13 @@ private val ADDITIONAL_EVENTS = listOf(
         type = "Event",
         pkg = "web.dom", // ???
     ),
+
+    // TEMP
+    EventData(
+        name = "uncapturederror",
+        type = "GPUUncapturedErrorEvent",
+        pkg = "web.gpu",
+    )
 )
 
 private val EXCLUDED = setOf(
@@ -89,15 +96,6 @@ private val EXCLUDED = setOf(
     "MutationEvent",
     "TextEvent",
 )
-
-private fun eventTypeDeprecation(
-    replacement: String,
-): String = """
-@Deprecated(
-    message = "Legacy type declaration. Use type function instead!",
-    replaceWith = ReplaceWith("$replacement"),
-)
-""".trimIndent()
 
 internal fun eventDeclarations(
     content: String,
@@ -160,6 +158,10 @@ private fun eventPlaceholders(
         val typesName = if (types.isNotEmpty()) {
             "${info.name}Types"
         } else null
+
+        // TEMP
+        if (info.name == "GPUUncapturedErrorEvent")
+            return@flatMap types.asSequence()
 
         event(
             source = source,
