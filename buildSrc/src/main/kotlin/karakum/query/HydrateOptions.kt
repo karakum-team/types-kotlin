@@ -4,7 +4,7 @@ package karakum.query
 internal val HYDRATE_OPTIONS_SOURCE = """
 interface HydrateOptions {
     defaultOptions?: {
-        transformPromise?: (promise: Promise<any>) => Promise<any>;
+        deserializeData?: TransformerFn;
         queries?: QueryOptions;
         mutations?: MutationOptions<unknown, DefaultError, unknown, unknown>;
     };
@@ -14,11 +14,12 @@ interface HydrateOptions {
 // language=kotlin
 internal val HYDRATE_OPTIONS_CODE = """
 external interface DefaultHydrateOptions {
-    var queries: QueryOptions<*, *, *, *, *>
-    var mutations: MutationOptions<*, *, *, *>
+    var deserializeData: TransformerFn?
+    var queries: QueryOptions<*, *, *, *, *>?
+    var mutations: MutationOptions<*, DefaultError, *, *>?
 }    
     
 external interface HydrateOptions {
-    var defaultOptions: DefaultHydrateOptions
+    var defaultOptions: DefaultHydrateOptions?
 }
 """.trimIndent()

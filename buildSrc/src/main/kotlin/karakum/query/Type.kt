@@ -81,6 +81,7 @@ class Type(
             body == "Record<string, unknown>" -> "Record<String, *>"
             body.startsWith("MutateFunction<") -> body
 
+            body == "(data: any) => any" -> "(data: Any?) -> Any?"
             body == "(...args: any[]) => void" -> "Function<Unit>"
 
             body.startsWith("(") && "..." in body -> "Function<Unit> /* $body */"
