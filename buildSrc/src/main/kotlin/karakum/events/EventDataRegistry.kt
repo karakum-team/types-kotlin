@@ -19,10 +19,15 @@ object EventDataRegistry {
         json.decodeFromString(sourceFile.readText())
     }
 
-    private fun Target.targetWithAliases(): Sequence<String> {
+    private fun Target.targetWithAliases(
+        eventType: String,
+    ): Sequence<String> {
         return sequenceOf(target)
             .plus(
                 when {
+                    target == "HTMLSlotElement"
+                    -> sequenceOf("ShadowRoot", "GlobalEventHandlers")
+
                     target == "Element"
                             || (target.startsWith("HTML") && target.endsWith("Element"))
                     -> sequenceOf("GlobalEventHandlers")
@@ -32,6 +37,10 @@ object EventDataRegistry {
 
                     target == "Worker"
                     -> sequenceOf("AbstractWorker")
+
+                    // TEMP?
+                    eventType == "securitypolicyviolation"
+                    -> sequenceOf("GlobalEventHandlers")
 
                     else -> emptySequence()
                 }
@@ -49,7 +58,7 @@ object EventDataRegistry {
                         it.bubblingPath?.first() ?: "EventTarget"
                     } else null
 
-                    it.targetWithAliases().map { target ->
+                    it.targetWithAliases(type).map { target ->
                         val eventTarget = defaultEventTarget ?: target
 
                         EventInstance(target, type) to eventTarget
@@ -62,15 +71,9 @@ object EventDataRegistry {
     fun getTarget(
         thisType: String,
         eventType: String,
-    ): String? {
+    ): String {
         val className = thisType.substringBefore("<")
-        val targetType = targetMap[EventInstance(className, eventType)]
-            ?: run {
-                println("C: $className, T: $eventType")
-                return null
-            }
-
-        return when (targetType) {
+        return when (val targetType = targetMap.getValue(EventInstance(className, eventType))) {
             "IDBRequest" -> targetType + "<T>"
             else -> targetType
         }

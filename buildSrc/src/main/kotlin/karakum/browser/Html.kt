@@ -1678,13 +1678,11 @@ internal fun convertMember(
         val handlerName = source.substringBefore(": ")
             .removeSuffix("?")
 
-        val thisType = source
+        val currentTarget = source
             .substringAfter("(this: ", "")
             .substringBefore(", ", "")
 
-        val currentTarget = thisType
-        val target = EventDataRegistry.getTarget(thisType, handlerName.removePrefix("on"))
-            ?: EVENT_TARGET
+        val target = EventDataRegistry.getTarget(currentTarget, handlerName.removePrefix("on"))
 
         var eventType = source
             .substringAfter(": ")
