@@ -55,7 +55,7 @@ object EventDataRegistry {
                 val type = data.type
                 data.targets.asSequence().flatMap {
                     val defaultEventTarget = if (it.bubbles) {
-                        it.bubblingPath?.first() ?: "EventTarget"
+                        it.bubblingPath!!.first()
                     } else null
 
                     it.targetWithAliases(type).map { target ->
