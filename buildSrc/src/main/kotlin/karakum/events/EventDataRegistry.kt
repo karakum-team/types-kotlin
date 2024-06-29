@@ -20,18 +20,24 @@ object EventDataRegistry {
     }
 
     private fun Target.targetWithAliases(): Sequence<String> {
-        val alias = when {
-            target == "Element"
-                    || (target.startsWith("HTML") && target.endsWith("Element"))
-            -> "GlobalEventHandlers"
+        return sequenceOf(target)
+            .plus(
+                when {
+                    target == "Element"
+                            || (target.startsWith("HTML") && target.endsWith("Element"))
+                    -> sequenceOf("GlobalEventHandlers")
 
-            target == "Window"
-            -> "WindowEventHandlers"
+                    target == "Window"
+                    -> sequenceOf("WindowEventHandlers")
 
-            else -> return sequenceOf(target)
-        }
+                    target == "Worker"
+                    -> sequenceOf("AbstractWorker")
 
-        return sequenceOf(target, alias)
+                    else -> emptySequence()
+                }
+            )
+            .plus(bubblingPath ?: emptyList())
+            .distinct()
     }
 
     private val targetMap: Map<EventInstance, String> by lazy {
