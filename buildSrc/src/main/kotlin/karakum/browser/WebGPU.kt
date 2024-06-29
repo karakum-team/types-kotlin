@@ -168,5 +168,30 @@ private fun webGpuDeclarations(
         pkg = "web.gpu",
     )
 
-    return types + interfaces + aliases
+    return types + interfaces + aliases +
+            sequenceOf(
+                ConversionResult(
+                    name = "GPUUncapturedErrorEvent",
+                    body = """
+                    external class GPUUncapturedErrorEvent(
+                        override val type: EventType<GPUUncapturedErrorEvent, EventTarget>,
+                        init: GPUUncapturedErrorEventInit,                        
+                    ): Event {
+                        val error: GPUError
+                    }
+                    """.trimIndent(),
+                    pkg = "web.gpu",
+                ),
+                ConversionResult(
+                    name = "GPUUncapturedErrorEventInit",
+                    body = """
+                    @JsPlainObject
+                    external interface GPUUncapturedErrorEventInit :
+                        EventInit {
+                        val error: GPUError
+                    }
+                    """.trimIndent(),
+                    pkg = "web.gpu",
+                ),
+            )
 }
