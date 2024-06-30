@@ -1171,6 +1171,23 @@ internal fun convertInterface(
                 name == "Worker" ||
                 name == "Credential" ||
                 name == "WritableStream" ||
+                name == "AudioWorkletNode" ||
+                name == "OfflineAudioContext" ||
+                name == "OfflineAudioContext" ||
+                name == "BroadcastChannel" ||
+                name == "OffscreenCanvas" ||
+                name == "VideoDecoder" ||
+                name == "VideoEncoder" ||
+                name == "MediaRecorder" ||
+                name == "MediaSource" ||
+                name == "MediaStream" ||
+                name == "Notification" ||
+                name == "PaymentRequest" ||
+                name == "RTCPeerConnection" ||
+                name == "WebSocket" ||
+                name == "SpeechSynthesisUtterance" ||
+                name == "EventSource" ||
+                name == "SharedWorker" ||
 
                 // with empty constructor
                 name == "Text" ||
