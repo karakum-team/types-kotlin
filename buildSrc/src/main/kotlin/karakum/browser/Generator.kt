@@ -474,6 +474,7 @@ fun generateKotlinDeclarations(
 
             // TEMP
             "Window.events",
+            "VisualViewport.events",
             "Document.events",
             "Text.events",
             "Element.events",
@@ -497,6 +498,7 @@ fun generateKotlinDeclarations(
             import web.cssom.ContentVisibilityAutoStateChangeEvent
             import web.cssom.TransitionEvent
             import web.dom.*
+            import web.window.*
             import web.uievents.*
             import web.animations.AnimationEvent
             import web.gl.WebGLContextEvent
