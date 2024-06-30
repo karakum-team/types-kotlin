@@ -26,15 +26,13 @@ internal fun List<ConversionResult>.withEventInstances(
                 defaultTarget = "C",
             )
 
-            val eventType = when (val eventClass = data.`interface`) {
+            val eventClass = data.`interface`
+            val eventType = when (eventClass) {
                 "MessageEvent" -> "$eventClass<Any?>"
                 else -> eventClass
             }
 
-            // val eventTypeDeclaration = """$eventClass.$memberName()"""
-            // TEMP
-            val eventTypeDeclaration = """$EVENT_TYPE("${data.type}")"""
-
+            val eventTypeDeclaration = """$eventClass.$memberName()"""
             val currentTargetBound = when (name) {
                 "IDBRequest" -> "$name<*>"
                 else -> name
