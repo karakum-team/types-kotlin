@@ -42,8 +42,8 @@ inline val <C : Window> C.animationIterationEvent: EventInstance<AnimationEvent,
 inline val <C : Window> C.animationStartEvent: EventInstance<AnimationEvent, C, Node>
     get() = EventInstance(this, AnimationEvent.animationStart())
 
-inline val <C : Window> C.auxClickEvent: EventInstance<PointerEvent, C, Node>
-    get() = EventInstance(this, PointerEvent.auxClick())
+inline val <C : Window> C.auxClickEvent: EventInstance<MouseEvent, C, Node>
+    get() = EventInstance(this, MouseEvent.auxClick())
 
 inline val <C : Window> C.beforeInputEvent: EventInstance<InputEvent, C, Node>
     get() = EventInstance(this, InputEvent.beforeInput())
@@ -63,8 +63,8 @@ inline val <C : Window> C.cancelEvent: EventInstance<Event, C, Node>
 inline val <C : Window> C.changeEvent: EventInstance<Event, C, Node>
     get() = EventInstance(this, Event.change())
 
-inline val <C : Window> C.clickEvent: EventInstance<PointerEvent, C, Node>
-    get() = EventInstance(this, PointerEvent.click())
+inline val <C : Window> C.clickEvent: EventInstance<MouseEvent, C, Node>
+    get() = EventInstance(this, MouseEvent.click())
 
 inline val <C : Window> C.compositionEndEvent: EventInstance<CompositionEvent, C, Node>
     get() = EventInstance(this, CompositionEvent.compositionEnd())
@@ -75,8 +75,8 @@ inline val <C : Window> C.compositionStartEvent: EventInstance<CompositionEvent,
 inline val <C : Window> C.compositionUpdateEvent: EventInstance<CompositionEvent, C, Node>
     get() = EventInstance(this, CompositionEvent.compositionUpdate())
 
-inline val <C : Window> C.contextMenuEvent: EventInstance<PointerEvent, C, Node>
-    get() = EventInstance(this, PointerEvent.contextMenu())
+inline val <C : Window> C.contextMenuEvent: EventInstance<MouseEvent, C, Node>
+    get() = EventInstance(this, MouseEvent.contextMenu())
 
 inline val <C : Window> C.copyEvent: EventInstance<ClipboardEvent, C, Node>
     get() = EventInstance(this, ClipboardEvent.copy())

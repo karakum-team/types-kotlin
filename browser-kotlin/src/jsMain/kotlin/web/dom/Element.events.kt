@@ -11,8 +11,8 @@ import web.window.*
 inline val <C : Element> C.abortEvent: EventInstance<Event, C, C>
     get() = EventInstance(this, Event.abort())
 
-inline val <C : Element> C.auxClickEvent: EventInstance<PointerEvent, C, Node>
-    get() = EventInstance(this, PointerEvent.auxClick())
+inline val <C : Element> C.auxClickEvent: EventInstance<MouseEvent, C, Node>
+    get() = EventInstance(this, MouseEvent.auxClick())
 
 inline val <C : Element> C.beforeInputEvent: EventInstance<InputEvent, C, Node>
     get() = EventInstance(this, InputEvent.beforeInput())
@@ -20,8 +20,8 @@ inline val <C : Element> C.beforeInputEvent: EventInstance<InputEvent, C, Node>
 inline val <C : Element> C.blurEvent: EventInstance<FocusEvent, C, C>
     get() = EventInstance(this, FocusEvent.blur())
 
-inline val <C : Element> C.clickEvent: EventInstance<PointerEvent, C, Node>
-    get() = EventInstance(this, PointerEvent.click())
+inline val <C : Element> C.clickEvent: EventInstance<MouseEvent, C, Node>
+    get() = EventInstance(this, MouseEvent.click())
 
 inline val <C : Element> C.compositionEndEvent: EventInstance<CompositionEvent, C, Node>
     get() = EventInstance(this, CompositionEvent.compositionEnd())
@@ -32,8 +32,8 @@ inline val <C : Element> C.compositionStartEvent: EventInstance<CompositionEvent
 inline val <C : Element> C.compositionUpdateEvent: EventInstance<CompositionEvent, C, Node>
     get() = EventInstance(this, CompositionEvent.compositionUpdate())
 
-inline val <C : Element> C.contextMenuEvent: EventInstance<PointerEvent, C, Node>
-    get() = EventInstance(this, PointerEvent.contextMenu())
+inline val <C : Element> C.contextMenuEvent: EventInstance<MouseEvent, C, Node>
+    get() = EventInstance(this, MouseEvent.contextMenu())
 
 inline val <C : Element> C.dblClickEvent: EventInstance<MouseEvent, C, Node>
     get() = EventInstance(this, MouseEvent.dblClick())
