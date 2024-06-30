@@ -101,15 +101,19 @@ internal fun eventDeclarations(
     content: String,
     webWorkerContent: String,
     serviceWorkersContent: String,
-): List<ConversionResult> {
+): Pair<List<ConversionResult>, Set<String>> {
     val dataMap = EventDataMap(content + "\n\n" + webWorkerContent + "\n\n" + serviceWorkersContent)
-    return eventTypes(dataMap)
+    val results = eventTypes(dataMap)
+        .asSequence()
         .plus(EventType())
         .plus(EventHandler())
         .plus(EventInstance())
         .plus(EventTarget())
         .plus(HasTargets())
         .plus(eventPlaceholders(content, EVENT_DATA, dataMap, strict = true))
+        .toList()
+
+    return results to dataMap.knownEventTypes
 }
 
 internal fun webWorkersEventDeclarations(
@@ -450,6 +454,10 @@ private class EventDataMap(
         .distinct()
         .groupBy { it.typeName }
         .filter { it.key !in EXCLUDED }
+
+    val knownEventTypes: Set<String> = map.values
+        .flatMap { it.map(EventData::name) }
+        .toSet()
 
     fun getEventTypes(
         eventName: String,

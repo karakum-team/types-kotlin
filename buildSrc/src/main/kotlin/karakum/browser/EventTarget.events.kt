@@ -3,12 +3,16 @@ package karakum.browser
 import karakum.common.snakeToCamel
 import karakum.events.EventDataRegistry
 
-internal fun List<ConversionResult>.withEventInstances(): List<ConversionResult> {
+internal fun List<ConversionResult>.withEventInstances(
+    knownEventTypes: Set<String>,
+): List<ConversionResult> {
     val declarations = toList()
 
     val events = declarations.mapNotNull {
         val name = it.name
         val dataList = EventDataRegistry.getDataList(name)
+            ?.filter { it.type in knownEventTypes }
+            ?.ifEmpty { null }
             ?: return@mapNotNull null
 
         val body = dataList.joinToString("\n\n") { data ->

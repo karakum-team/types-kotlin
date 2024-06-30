@@ -269,10 +269,10 @@ fun generateKotlinDeclarations(
         .also { it.mkdirs() }
 
     val serviceWorkersContent = serviceWorkersContent(serviceworkerDefinitionsFile)
-    val eventDeclarations =
-        eventDeclarations(content, WEB_WORKER_CONTENT, serviceWorkersContent).withEventInitFactories() +
-                webWorkersEventDeclarations(WEB_WORKER_CONTENT) +
-                serviceWorkersEventDeclarations(content, serviceWorkersContent)
+    val (mainEventDeclarations, knownEventTypes) = eventDeclarations(content, WEB_WORKER_CONTENT, serviceWorkersContent)
+    val eventDeclarations = mainEventDeclarations.withEventInitFactories() +
+            webWorkersEventDeclarations(WEB_WORKER_CONTENT) +
+            serviceWorkersEventDeclarations(content, serviceWorkersContent)
 
     for ((name, body, optPkg) in eventDeclarations) {
         val suppresses = mutableSetOf<Suppress>().apply {
@@ -335,7 +335,7 @@ fun generateKotlinDeclarations(
         .plus(workerFunctions(serviceWorkersContent))
         .plus(audioWorkletDeclarations(audioWorkletDefinitionsFile))
         .plus(webGpuDeclarations())
-        .withEventInstances()
+        .withEventInstances(knownEventTypes)
 
     for ((name, body, pkg) in aliases) {
         pkg!!
