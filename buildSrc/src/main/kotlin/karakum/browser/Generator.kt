@@ -496,6 +496,7 @@ fun generateKotlinDeclarations(
             -> """
             import web.cssom.ContentVisibilityAutoStateChangeEvent
             import web.cssom.TransitionEvent
+            import web.dom.*
             import web.uievents.*
             import web.animations.AnimationEvent
             import web.gl.WebGLContextEvent
