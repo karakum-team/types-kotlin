@@ -5,14 +5,14 @@ package web.dom
 import web.animations.AnimationEvent
 import web.clipboard.ClipboardEvent
 import web.cssom.TransitionEvent
-import web.dom.*
 import web.events.Event
 import web.events.EventInstance
 import web.form.FormDataEvent
 import web.form.SubmitEvent
 import web.pip.PictureInPictureEvent
 import web.uievents.*
-import web.window.*
+import web.window.Window
+import web.window.unload
 
 inline val <C : Document> C.animationCancelEvent: EventInstance<AnimationEvent, C, Node>
     get() = EventInstance(this, AnimationEvent.animationCancel())

@@ -5,8 +5,7 @@ package web.html
 import web.dom.*
 import web.events.Event
 import web.events.EventInstance
-import web.uievents.*
-import web.window.*
+import web.window.resize
 
 inline val <C : HTMLMediaElement> C.abortEvent: EventInstance<Event, C, C>
     get() = EventInstance(this, Event.abort())
