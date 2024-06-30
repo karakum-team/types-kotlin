@@ -1699,7 +1699,10 @@ internal fun convertMember(
             .substringAfter("(this: ", "")
             .substringBefore(", ", "")
 
-        val target = EventDataRegistry.getTarget(currentTarget, handlerName.removePrefix("on"))
+        val target = EventDataRegistry.getTarget(
+            currentTarget = currentTarget,
+            eventType = handlerName.removePrefix("on"),
+        )
 
         var eventType = source
             .substringAfter(": ")

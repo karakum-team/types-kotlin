@@ -4,6 +4,8 @@ import kotlinx.serialization.json.Json
 import org.gradle.kotlin.dsl.provideDelegate
 import java.io.File
 
+private const val THIS = "<this>"
+
 private data class EventInstance(
     val target: String,
     val type: String,
@@ -104,7 +106,7 @@ object EventDataRegistry {
                     } else null
 
                     it.targetWithAliases(type).map { target ->
-                        val eventTarget = defaultEventTarget ?: target
+                        val eventTarget = defaultEventTarget ?: THIS
 
                         EventInstance(target, type) to eventTarget
                     }
@@ -114,14 +116,14 @@ object EventDataRegistry {
     }
 
     fun getTarget(
-        thisType: String,
+        currentTarget: String,
         eventType: String,
+        defaultTarget: String = currentTarget,
     ): String {
-        val className = thisType.substringBefore("<")
-        return when (val targetType = targetMap.getValue(EventInstance(className, eventType))) {
-            "IDBRequest" -> targetType + "<T>"
-            else -> targetType
-        }
+        val className = currentTarget.substringBefore("<")
+        return targetMap.getValue(EventInstance(className, eventType))
+            .takeIf { it != THIS }
+            ?: defaultTarget
     }
 
     fun getDataList(className: String): List<EventData>? =
