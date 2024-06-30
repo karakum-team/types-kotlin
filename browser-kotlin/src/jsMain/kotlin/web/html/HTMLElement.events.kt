@@ -9,6 +9,7 @@ import web.dom.*
 import web.events.Event
 import web.events.EventInstance
 import web.uievents.*
+import web.window.*
 
 inline val <C : HTMLElement> C.animationCancelEvent: EventInstance<AnimationEvent, C, Node>
     get() = EventInstance(this, AnimationEvent.animationCancel())

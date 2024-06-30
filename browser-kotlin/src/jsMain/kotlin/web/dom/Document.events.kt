@@ -12,7 +12,7 @@ import web.form.FormDataEvent
 import web.form.SubmitEvent
 import web.pip.PictureInPictureEvent
 import web.uievents.*
-import web.window.Window
+import web.window.*
 
 inline val <C : Document> C.animationCancelEvent: EventInstance<AnimationEvent, C, Node>
     get() = EventInstance(this, AnimationEvent.animationCancel())

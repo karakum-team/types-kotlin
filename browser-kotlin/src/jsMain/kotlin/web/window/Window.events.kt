@@ -22,6 +22,7 @@ import web.pip.PictureInPictureEvent
 import web.promise.PromiseRejectionEvent
 import web.storage.StorageEvent
 import web.uievents.*
+import web.window.*
 
 inline val <C : Window> C.abortEvent: EventInstance<Event, C, C>
     get() = EventInstance(this, Event.abort())

@@ -2,8 +2,11 @@
 
 package web.viewport
 
+import web.dom.*
 import web.events.Event
 import web.events.EventInstance
+import web.uievents.*
+import web.window.*
 
 inline val <C : VisualViewport> C.resizeEvent: EventInstance<Event, C, C>
     get() = EventInstance(this, Event.resize())
