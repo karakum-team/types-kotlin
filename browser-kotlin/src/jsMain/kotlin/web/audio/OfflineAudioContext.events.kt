@@ -3,8 +3,7 @@
 package web.audio
 
 import web.events.EventInstance
-import web.events.EventTarget
 import web.events.EventType
 
-inline val <C : OfflineAudioContext> C.completeEvent: EventInstance<OfflineAudioCompletionEvent, C, EventTarget>
+inline val <C : OfflineAudioContext> C.completeEvent: EventInstance<OfflineAudioCompletionEvent, C, C>
     get() = EventInstance(this, EventType("complete"))

@@ -2,13 +2,13 @@
 
 package web.html
 
+import web.dom.Node
 import web.events.Event
 import web.events.EventInstance
-import web.events.EventTarget
 import web.events.EventType
 
-inline val <C : HTMLTextAreaElement> C.invalidEvent: EventInstance<Event, C, EventTarget>
+inline val <C : HTMLTextAreaElement> C.invalidEvent: EventInstance<Event, C, C>
     get() = EventInstance(this, EventType("invalid"))
 
-inline val <C : HTMLTextAreaElement> C.selectEvent: EventInstance<Event, C, EventTarget>
+inline val <C : HTMLTextAreaElement> C.selectEvent: EventInstance<Event, C, Node>
     get() = EventInstance(this, EventType("select"))

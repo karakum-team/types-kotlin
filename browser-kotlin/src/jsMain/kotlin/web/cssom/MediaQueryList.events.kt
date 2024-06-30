@@ -3,8 +3,7 @@
 package web.cssom
 
 import web.events.EventInstance
-import web.events.EventTarget
 import web.events.EventType
 
-inline val <C : MediaQueryList> C.changeEvent: EventInstance<MediaQueryListEvent, C, EventTarget>
+inline val <C : MediaQueryList> C.changeEvent: EventInstance<MediaQueryListEvent, C, C>
     get() = EventInstance(this, EventType("change"))

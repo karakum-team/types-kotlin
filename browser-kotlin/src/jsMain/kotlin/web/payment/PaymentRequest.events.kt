@@ -3,8 +3,7 @@
 package web.payment
 
 import web.events.EventInstance
-import web.events.EventTarget
 import web.events.EventType
 
-inline val <C : PaymentRequest> C.paymentMethodChangeEvent: EventInstance<PaymentMethodChangeEvent, C, EventTarget>
+inline val <C : PaymentRequest> C.paymentMethodChangeEvent: EventInstance<PaymentMethodChangeEvent, C, C>
     get() = EventInstance(this, EventType("paymentmethodchange"))
