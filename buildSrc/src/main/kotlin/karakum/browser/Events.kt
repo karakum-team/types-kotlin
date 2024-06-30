@@ -88,6 +88,18 @@ private val ADDITIONAL_EVENTS = listOf(
         pkg = "web.gpu",
     ),
 
+    // Document
+    EventData(
+        name = "resume",
+        type = "Event",
+        pkg = "web.dom",
+    ),
+    // HTMLMediaElement
+    EventData(
+        name = "progress",
+        type = "Event",
+        pkg = "web.html",
+    ),
     EventData(
         name = "input",
         type = "InputEvent",
@@ -102,7 +114,12 @@ private val ADDITIONAL_EVENTS = listOf(
         name = "beforetoggle",
         type = "ToggleEvent",
         pkg = "web.uievents",
-    )
+    ),
+    EventData(
+        name = "success",
+        type = "IDBVersionChangeEvent",
+        pkg = "web.idb",
+    ),
 )
 
 private val EXCLUDED = setOf(

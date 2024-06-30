@@ -474,7 +474,6 @@ fun generateKotlinDeclarations(
 
             // TEMP
             "Window.events",
-            "VisualViewport.events",
             "Document.events",
             "Text.events",
             "Element.events",
@@ -514,6 +513,12 @@ fun generateKotlinDeclarations(
             import web.promise.PromiseRejectionEvent
             import web.push.PushEvent
             import web.rtc.RTCTransformEvent
+            """.trimIndent()
+
+            "VisualViewport.events",
+            -> """
+            import web.dom.*
+            import web.window.resize
             """.trimIndent()
 
             else -> ""
