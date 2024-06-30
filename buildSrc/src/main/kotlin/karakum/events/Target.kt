@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 data class Target(
     val target: String,
     val bubbles: Boolean = false,
-    val bubblingPath: List<String>?,
+    val bubblingPath: List<String> = emptyList(),
 )

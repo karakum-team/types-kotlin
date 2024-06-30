@@ -1,6 +1,7 @@
 package karakum.events
 
 import kotlinx.serialization.json.Json
+import org.gradle.kotlin.dsl.provideDelegate
 import java.io.File
 
 private data class EventInstance(
@@ -45,8 +46,52 @@ object EventDataRegistry {
                     else -> emptySequence()
                 }
             )
-            .plus(bubblingPath ?: emptyList())
+            .plus(bubblingPath)
             .distinct()
+    }
+
+    private val EXCLUDED_EVENTS = setOf(
+        // legacy
+        "MutationEvent",
+        "TimeEvent",
+        "TextEvent", // ?
+
+        // TODO - use `Event` as alias instead
+        // new
+        "XRSessionEvent",
+        "BackgroundFetchEvent",
+        "BackgroundFetchUpdateUIEvent",
+        "BeforeInstallPromptEvent",
+        "NavigationEvent",
+        "PageRevealEvent",
+        "PageSwapEvent",
+        "PortalActivateEvent",
+
+        "CanMakePaymentEvent",
+        "ContentIndexEvent",
+        "ExtendableCookieChangeEvent",
+        "InstallEvent",
+        "PaymentRequestEvent",
+        "PeriodicSyncEvent",
+        "PushSubscriptionChangeEvent",
+        "SyncEvent",
+        "KeyFrameRequestEvent",
+        "CaptureActionEvent",
+        "DeviceChangeEvent",
+    )
+
+    private val dataMap: Map<String, List<EventData>> by lazy {
+        dataList.asSequence()
+            .filter { it.`interface` !in EXCLUDED_EVENTS }
+            .flatMap { data ->
+                data.targets.asSequence()
+                    .flatMap { sequenceOf(it.target) + it.bubblingPath }
+                    .filter { it != "Node" }
+                    .filter { it != "Screen" } // not EventTarget
+                    .map { it to data }
+            }
+            .distinctBy { (target, data) -> target to data.type }
+            .groupBy({ it.first }, { it.second })
     }
 
     private val targetMap: Map<EventInstance, String> by lazy {
@@ -55,7 +100,7 @@ object EventDataRegistry {
                 val type = data.type
                 data.targets.asSequence().flatMap {
                     val defaultEventTarget = if (it.bubbles) {
-                        it.bubblingPath!!.first()
+                        it.bubblingPath.first()
                     } else null
 
                     it.targetWithAliases(type).map { target ->
@@ -78,4 +123,7 @@ object EventDataRegistry {
             else -> targetType
         }
     }
+
+    fun getDataList(className: String): List<EventData>? =
+        dataMap[className]
 }

@@ -118,8 +118,10 @@ private val DEFAULT_IMPORTS = Imports(
     "web.events.Event",
     "web.events.EventHandler",
     "web.events.EventInit",
+    "web.events.EventInstance",
     "web.events.EventTarget",
     "web.events.EventType",
+    "web.events.ProgressEvent",
     "web.file.File",
     "web.file.FileList",
     "web.form.FormControl",
@@ -333,6 +335,7 @@ fun generateKotlinDeclarations(
         .plus(workerFunctions(serviceWorkersContent))
         .plus(audioWorkletDeclarations(audioWorkletDefinitionsFile))
         .plus(webGpuDeclarations())
+        .withEventInstances()
 
     for ((name, body, pkg) in aliases) {
         pkg!!
@@ -445,22 +448,12 @@ fun generateKotlinDeclarations(
             import web.animations.AnimationEvent
             import web.clipboard.ClipboardEvent
             import web.csp.SecurityPolicyViolationEvent
-            import web.events.ProgressEvent
             import web.gamepad.GamepadEvent
             import web.history.HashChangeEvent
             import web.history.PageTransitionEvent
             import web.history.PopStateEvent
             import web.storage.StorageEvent
             import web.promise.PromiseRejectionEvent
-            """.trimIndent()
-
-            "EventSource",
-            "XMLHttpRequestEventTarget",
-            "RTCDataChannel",
-            "ServiceWorkerContainer",
-            "BroadcastChannel",
-            -> """
-            import web.events.ProgressEvent
             """.trimIndent()
 
             "DedicatedWorkerGlobalScope",
@@ -477,6 +470,40 @@ fun generateKotlinDeclarations(
             "WorkerNavigator",
             -> """
             import web.navigator.*
+            """.trimIndent()
+
+            // TEMP
+            "Window.events",
+            "Document.events",
+            "Text.events",
+            "Element.events",
+            "HTMLElement.events",
+            "SVGElement.events",
+            "OffscreenCanvas.events",
+            "HTMLCanvasElement.events",
+            "HTMLDetailsElement.events",
+            "MathMLElement.events",
+            "WorkerGlobalScope.events",
+            "ServiceWorkerGlobalScope.events",
+            "DedicatedWorkerGlobalScope.events",
+            -> """
+            import web.cssom.ContentVisibilityAutoStateChangeEvent
+            import web.cssom.TransitionEvent
+            import web.uievents.*
+            import web.animations.AnimationEvent
+            import web.gl.WebGLContextEvent
+            import web.clipboard.ClipboardEvent
+            import web.csp.SecurityPolicyViolationEvent
+            import web.device.DeviceMotionEvent    
+            import web.device.DeviceOrientationEvent
+            import web.gamepad.GamepadEvent
+            import web.history.HashChangeEvent
+            import web.history.PageTransitionEvent
+            import web.history.PopStateEvent
+            import web.storage.StorageEvent
+            import web.promise.PromiseRejectionEvent
+            import web.push.PushEvent
+            import web.rtc.RTCTransformEvent
             """.trimIndent()
 
             else -> ""
