@@ -20,7 +20,12 @@ internal fun List<ConversionResult>.withEventInstances(
                 .getOrDefault(data.type, data.type)
                 .snakeToCamel()
 
-            val targetType = EVENT_TARGET // TEMP
+            val targetType = EventDataRegistry.getTarget(
+                currentTarget = name,
+                eventType = data.type,
+                defaultTarget = "C",
+            )
+
             val eventType = when (val eventClass = data.`interface`) {
                 "MessageEvent" -> "$eventClass<Any?>"
                 else -> eventClass
