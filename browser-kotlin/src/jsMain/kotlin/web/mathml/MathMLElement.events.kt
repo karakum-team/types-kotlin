@@ -24,9 +24,6 @@ inline val <C : MathMLElement> C.animationIterationEvent: EventInstance<Animatio
 inline val <C : MathMLElement> C.animationStartEvent: EventInstance<AnimationEvent, C, EventTarget>
     get() = EventInstance(this, EventType("animationstart"))
 
-inline val <C : MathMLElement> C.clipboardchangeEvent: EventInstance<ClipboardEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("clipboardchange"))
-
 inline val <C : MathMLElement> C.copyEvent: EventInstance<ClipboardEvent, C, EventTarget>
     get() = EventInstance(this, EventType("copy"))
 
@@ -83,9 +80,6 @@ inline val <C : MathMLElement> C.pointerOutEvent: EventInstance<PointerEvent, C,
 
 inline val <C : MathMLElement> C.pointerOverEvent: EventInstance<PointerEvent, C, EventTarget>
     get() = EventInstance(this, EventType("pointerover"))
-
-inline val <C : MathMLElement> C.pointerrawupdateEvent: EventInstance<PointerEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("pointerrawupdate"))
 
 inline val <C : MathMLElement> C.pointerUpEvent: EventInstance<PointerEvent, C, EventTarget>
     get() = EventInstance(this, EventType("pointerup"))

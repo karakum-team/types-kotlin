@@ -42,9 +42,6 @@ inline val <C : Window> C.animationIterationEvent: EventInstance<AnimationEvent,
 inline val <C : Window> C.animationStartEvent: EventInstance<AnimationEvent, C, EventTarget>
     get() = EventInstance(this, EventType("animationstart"))
 
-inline val <C : Window> C.appinstalledEvent: EventInstance<Event, C, EventTarget>
-    get() = EventInstance(this, EventType("appinstalled"))
-
 inline val <C : Window> C.auxClickEvent: EventInstance<PointerEvent, C, EventTarget>
     get() = EventInstance(this, EventType("auxclick"))
 
@@ -68,9 +65,6 @@ inline val <C : Window> C.changeEvent: EventInstance<Event, C, EventTarget>
 
 inline val <C : Window> C.clickEvent: EventInstance<PointerEvent, C, EventTarget>
     get() = EventInstance(this, EventType("click"))
-
-inline val <C : Window> C.clipboardchangeEvent: EventInstance<ClipboardEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("clipboardchange"))
 
 inline val <C : Window> C.compositionEndEvent: EventInstance<CompositionEvent, C, EventTarget>
     get() = EventInstance(this, EventType("compositionend"))
@@ -102,17 +96,8 @@ inline val <C : Window> C.deviceOrientationEvent: EventInstance<DeviceOrientatio
 inline val <C : Window> C.deviceOrientationAbsoluteEvent: EventInstance<DeviceOrientationEvent, C, EventTarget>
     get() = EventInstance(this, EventType("deviceorientationabsolute"))
 
-inline val <C : Window> C.DOMActivateEvent: EventInstance<UIEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("DOMActivate"))
-
 inline val <C : Window> C.domContentLoadedEvent: EventInstance<Event, C, EventTarget>
     get() = EventInstance(this, EventType("DOMContentLoaded"))
-
-inline val <C : Window> C.DOMFocusInEvent: EventInstance<FocusEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("DOMFocusIn"))
-
-inline val <C : Window> C.DOMFocusOutEvent: EventInstance<FocusEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("DOMFocusOut"))
 
 inline val <C : Window> C.dragEvent: EventInstance<DragEvent, C, EventTarget>
     get() = EventInstance(this, EventType("drag"))
@@ -222,9 +207,6 @@ inline val <C : Window> C.offlineEvent: EventInstance<Event, C, EventTarget>
 inline val <C : Window> C.onlineEvent: EventInstance<Event, C, EventTarget>
     get() = EventInstance(this, EventType("online"))
 
-inline val <C : Window> C.orientationchangeEvent: EventInstance<Event, C, EventTarget>
-    get() = EventInstance(this, EventType("orientationchange"))
-
 inline val <C : Window> C.pageHideEvent: EventInstance<PageTransitionEvent, C, EventTarget>
     get() = EventInstance(this, EventType("pagehide"))
 
@@ -254,9 +236,6 @@ inline val <C : Window> C.pointerOutEvent: EventInstance<PointerEvent, C, EventT
 
 inline val <C : Window> C.pointerOverEvent: EventInstance<PointerEvent, C, EventTarget>
     get() = EventInstance(this, EventType("pointerover"))
-
-inline val <C : Window> C.pointerrawupdateEvent: EventInstance<PointerEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("pointerrawupdate"))
 
 inline val <C : Window> C.pointerUpEvent: EventInstance<PointerEvent, C, EventTarget>
     get() = EventInstance(this, EventType("pointerup"))

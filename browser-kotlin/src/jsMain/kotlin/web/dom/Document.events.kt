@@ -41,9 +41,6 @@ inline val <C : Document> C.changeEvent: EventInstance<Event, C, EventTarget>
 inline val <C : Document> C.clickEvent: EventInstance<PointerEvent, C, EventTarget>
     get() = EventInstance(this, EventType("click"))
 
-inline val <C : Document> C.clipboardchangeEvent: EventInstance<ClipboardEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("clipboardchange"))
-
 inline val <C : Document> C.compositionEndEvent: EventInstance<CompositionEvent, C, EventTarget>
     get() = EventInstance(this, EventType("compositionend"))
 
@@ -65,17 +62,8 @@ inline val <C : Document> C.cutEvent: EventInstance<ClipboardEvent, C, EventTarg
 inline val <C : Document> C.dblClickEvent: EventInstance<MouseEvent, C, EventTarget>
     get() = EventInstance(this, EventType("dblclick"))
 
-inline val <C : Document> C.DOMActivateEvent: EventInstance<UIEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("DOMActivate"))
-
 inline val <C : Document> C.domContentLoadedEvent: EventInstance<Event, C, EventTarget>
     get() = EventInstance(this, EventType("DOMContentLoaded"))
-
-inline val <C : Document> C.DOMFocusInEvent: EventInstance<FocusEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("DOMFocusIn"))
-
-inline val <C : Document> C.DOMFocusOutEvent: EventInstance<FocusEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("DOMFocusOut"))
 
 inline val <C : Document> C.dragEvent: EventInstance<DragEvent, C, EventTarget>
     get() = EventInstance(this, EventType("drag"))
@@ -109,9 +97,6 @@ inline val <C : Document> C.focusOutEvent: EventInstance<FocusEvent, C, EventTar
 
 inline val <C : Document> C.formDataEvent: EventInstance<FormDataEvent, C, EventTarget>
     get() = EventInstance(this, EventType("formdata"))
-
-inline val <C : Document> C.freezeEvent: EventInstance<Event, C, EventTarget>
-    get() = EventInstance(this, EventType("freeze"))
 
 inline val <C : Document> C.fullscreenChangeEvent: EventInstance<Event, C, EventTarget>
     get() = EventInstance(this, EventType("fullscreenchange"))
@@ -188,14 +173,8 @@ inline val <C : Document> C.pointerOutEvent: EventInstance<PointerEvent, C, Even
 inline val <C : Document> C.pointerOverEvent: EventInstance<PointerEvent, C, EventTarget>
     get() = EventInstance(this, EventType("pointerover"))
 
-inline val <C : Document> C.pointerrawupdateEvent: EventInstance<PointerEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("pointerrawupdate"))
-
 inline val <C : Document> C.pointerUpEvent: EventInstance<PointerEvent, C, EventTarget>
     get() = EventInstance(this, EventType("pointerup"))
-
-inline val <C : Document> C.prerenderingchangeEvent: EventInstance<Event, C, EventTarget>
-    get() = EventInstance(this, EventType("prerenderingchange"))
 
 inline val <C : Document> C.readyStateChangeEvent: EventInstance<Event, C, EventTarget>
     get() = EventInstance(this, EventType("readystatechange"))

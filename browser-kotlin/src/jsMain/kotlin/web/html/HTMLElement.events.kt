@@ -25,14 +25,8 @@ inline val <C : HTMLElement> C.animationIterationEvent: EventInstance<AnimationE
 inline val <C : HTMLElement> C.animationStartEvent: EventInstance<AnimationEvent, C, EventTarget>
     get() = EventInstance(this, EventType("animationstart"))
 
-inline val <C : HTMLElement> C.beforematchEvent: EventInstance<Event, C, EventTarget>
-    get() = EventInstance(this, EventType("beforematch"))
-
 inline val <C : HTMLElement> C.beforeToggleEvent: EventInstance<ToggleEvent, C, EventTarget>
     get() = EventInstance(this, EventType("beforetoggle"))
-
-inline val <C : HTMLElement> C.clipboardchangeEvent: EventInstance<ClipboardEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("clipboardchange"))
 
 inline val <C : HTMLElement> C.copyEvent: EventInstance<ClipboardEvent, C, EventTarget>
     get() = EventInstance(this, EventType("copy"))
@@ -90,9 +84,6 @@ inline val <C : HTMLElement> C.pointerOutEvent: EventInstance<PointerEvent, C, E
 
 inline val <C : HTMLElement> C.pointerOverEvent: EventInstance<PointerEvent, C, EventTarget>
     get() = EventInstance(this, EventType("pointerover"))
-
-inline val <C : HTMLElement> C.pointerrawupdateEvent: EventInstance<PointerEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("pointerrawupdate"))
 
 inline val <C : HTMLElement> C.pointerUpEvent: EventInstance<PointerEvent, C, EventTarget>
     get() = EventInstance(this, EventType("pointerup"))

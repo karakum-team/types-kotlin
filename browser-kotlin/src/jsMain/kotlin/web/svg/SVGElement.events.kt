@@ -24,9 +24,6 @@ inline val <C : SVGElement> C.animationIterationEvent: EventInstance<AnimationEv
 inline val <C : SVGElement> C.animationStartEvent: EventInstance<AnimationEvent, C, EventTarget>
     get() = EventInstance(this, EventType("animationstart"))
 
-inline val <C : SVGElement> C.clipboardchangeEvent: EventInstance<ClipboardEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("clipboardchange"))
-
 inline val <C : SVGElement> C.copyEvent: EventInstance<ClipboardEvent, C, EventTarget>
     get() = EventInstance(this, EventType("copy"))
 
@@ -83,9 +80,6 @@ inline val <C : SVGElement> C.pointerOutEvent: EventInstance<PointerEvent, C, Ev
 
 inline val <C : SVGElement> C.pointerOverEvent: EventInstance<PointerEvent, C, EventTarget>
     get() = EventInstance(this, EventType("pointerover"))
-
-inline val <C : SVGElement> C.pointerrawupdateEvent: EventInstance<PointerEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("pointerrawupdate"))
 
 inline val <C : SVGElement> C.pointerUpEvent: EventInstance<PointerEvent, C, EventTarget>
     get() = EventInstance(this, EventType("pointerup"))

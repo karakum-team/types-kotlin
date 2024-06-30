@@ -2,7 +2,6 @@
 
 package web.dom
 
-import web.cssom.ContentVisibilityAutoStateChangeEvent
 import web.events.Event
 import web.events.EventInstance
 import web.events.EventTarget
@@ -33,23 +32,11 @@ inline val <C : Element> C.compositionStartEvent: EventInstance<CompositionEvent
 inline val <C : Element> C.compositionUpdateEvent: EventInstance<CompositionEvent, C, EventTarget>
     get() = EventInstance(this, EventType("compositionupdate"))
 
-inline val <C : Element> C.contentvisibilityautostatechangeEvent: EventInstance<ContentVisibilityAutoStateChangeEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("contentvisibilityautostatechange"))
-
 inline val <C : Element> C.contextMenuEvent: EventInstance<PointerEvent, C, EventTarget>
     get() = EventInstance(this, EventType("contextmenu"))
 
 inline val <C : Element> C.dblClickEvent: EventInstance<MouseEvent, C, EventTarget>
     get() = EventInstance(this, EventType("dblclick"))
-
-inline val <C : Element> C.DOMActivateEvent: EventInstance<UIEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("DOMActivate"))
-
-inline val <C : Element> C.DOMFocusInEvent: EventInstance<FocusEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("DOMFocusIn"))
-
-inline val <C : Element> C.DOMFocusOutEvent: EventInstance<FocusEvent, C, EventTarget>
-    get() = EventInstance(this, EventType("DOMFocusOut"))
 
 inline val <C : Element> C.errorEvent: EventInstance<Event, C, EventTarget>
     get() = EventInstance(this, EventType("error"))
