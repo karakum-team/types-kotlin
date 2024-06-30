@@ -2,9 +2,10 @@
 
 package web.html
 
+import web.dom.contextLost
+import web.dom.contextRestored
 import web.events.Event
 import web.events.EventInstance
-import web.uievents.*
 
 inline val <C : HTMLCanvasElement> C.contextLostEvent: EventInstance<Event, C, C>
     get() = EventInstance(this, Event.contextLost())

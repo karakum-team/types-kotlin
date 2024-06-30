@@ -5,7 +5,7 @@ package web.html
 import web.animations.AnimationEvent
 import web.clipboard.ClipboardEvent
 import web.cssom.TransitionEvent
-import web.dom.Node
+import web.dom.*
 import web.events.Event
 import web.events.EventInstance
 import web.uievents.*

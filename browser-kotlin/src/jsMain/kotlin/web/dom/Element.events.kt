@@ -2,6 +2,7 @@
 
 package web.dom
 
+import web.dom.*
 import web.events.Event
 import web.events.EventInstance
 import web.uievents.*

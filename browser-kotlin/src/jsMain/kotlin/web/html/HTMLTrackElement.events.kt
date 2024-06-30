@@ -2,9 +2,10 @@
 
 package web.html
 
+import web.dom.cueChange
+import web.dom.load
 import web.events.Event
 import web.events.EventInstance
-import web.uievents.*
 
 inline val <C : HTMLTrackElement> C.cueChangeEvent: EventInstance<Event, C, C>
     get() = EventInstance(this, Event.cueChange())

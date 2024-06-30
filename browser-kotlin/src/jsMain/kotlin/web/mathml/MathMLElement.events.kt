@@ -6,9 +6,12 @@ import web.animations.AnimationEvent
 import web.clipboard.ClipboardEvent
 import web.cssom.TransitionEvent
 import web.dom.Node
+import web.dom.selectStart
+import web.dom.selectionChange
 import web.events.Event
 import web.events.EventInstance
-import web.uievents.*
+import web.uievents.DragEvent
+import web.uievents.PointerEvent
 
 inline val <C : MathMLElement> C.animationCancelEvent: EventInstance<AnimationEvent, C, Node>
     get() = EventInstance(this, AnimationEvent.animationCancel())

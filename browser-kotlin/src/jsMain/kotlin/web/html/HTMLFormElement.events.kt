@@ -3,11 +3,11 @@
 package web.html
 
 import web.dom.Node
+import web.dom.reset
 import web.events.Event
 import web.events.EventInstance
 import web.form.FormDataEvent
 import web.form.SubmitEvent
-import web.uievents.*
 
 inline val <C : HTMLFormElement> C.formDataEvent: EventInstance<FormDataEvent, C, Node>
     get() = EventInstance(this, FormDataEvent.formData())

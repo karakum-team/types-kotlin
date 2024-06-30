@@ -3,9 +3,10 @@
 package web.html
 
 import web.dom.Node
+import web.dom.invalid
+import web.dom.select
 import web.events.Event
 import web.events.EventInstance
-import web.uievents.*
 
 inline val <C : HTMLInputElement> C.cancelEvent: EventInstance<Event, C, Node>
     get() = EventInstance(this, Event.cancel())
