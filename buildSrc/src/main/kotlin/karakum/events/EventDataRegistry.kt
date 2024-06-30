@@ -19,7 +19,25 @@ object EventDataRegistry {
     }
 
     private val dataList: List<EventData> by lazy {
-        json.decodeFromString(sourceFile.readText())
+        json.decodeFromString<List<EventData>>(sourceFile.readText())
+            .map { data ->
+                when {
+                    data.`interface` == "PointerEvent"
+                            && (data.type == "auxclick" || data.type == "click" || data.type == "contextmenu")
+                    -> data.copy(
+                        `interface` = "MouseEvent",
+                    )
+
+                    data.`interface` == "Event"
+                            && data.targets.any { it.target == "ServiceWorkerContainer" }
+                            && (data.type == "message" || data.type == "messageerror")
+                    -> data.copy(
+                        `interface` = "MessageEvent",
+                    )
+
+                    else -> data
+                }
+            }
     }
 
     private fun Target.targetWithAliases(
