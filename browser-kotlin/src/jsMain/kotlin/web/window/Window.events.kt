@@ -22,7 +22,6 @@ import web.pip.PictureInPictureEvent
 import web.promise.PromiseRejectionEvent
 import web.storage.StorageEvent
 import web.uievents.*
-import web.window.*
 
 inline val <C : Window> C.abortEvent: EventInstance<Event, C, C>
     get() = EventInstance(this, Event.abort())
@@ -54,8 +53,8 @@ inline val <C : Window> C.beforePrintEvent: EventInstance<Event, C, C>
 inline val <C : Window> C.beforeUnloadEvent: EventInstance<BeforeUnloadEvent, C, C>
     get() = EventInstance(this, BeforeUnloadEvent.beforeUnload())
 
-inline val <C : Window> C.blurEvent: EventInstance<Event, C, C>
-    get() = EventInstance(this, Event.blur())
+inline val <C : Window> C.blurEvent: EventInstance<FocusEvent, C, C>
+    get() = EventInstance(this, FocusEvent.blur())
 
 inline val <C : Window> C.cancelEvent: EventInstance<Event, C, Node>
     get() = EventInstance(this, Event.cancel())
@@ -126,8 +125,8 @@ inline val <C : Window> C.enterPictureInPictureEvent: EventInstance<PictureInPic
 inline val <C : Window> C.errorEvent: EventInstance<Event, C, C>
     get() = EventInstance(this, Event.error())
 
-inline val <C : Window> C.focusEvent: EventInstance<Event, C, C>
-    get() = EventInstance(this, Event.focus())
+inline val <C : Window> C.focusEvent: EventInstance<FocusEvent, C, C>
+    get() = EventInstance(this, FocusEvent.focus())
 
 inline val <C : Window> C.focusInEvent: EventInstance<FocusEvent, C, Node>
     get() = EventInstance(this, FocusEvent.focusIn())

@@ -2,11 +2,10 @@
 
 package web.dom
 
-import web.dom.*
 import web.events.Event
 import web.events.EventInstance
 import web.uievents.*
-import web.window.*
+import web.window.unload
 
 inline val <C : Element> C.abortEvent: EventInstance<Event, C, C>
     get() = EventInstance(this, Event.abort())
