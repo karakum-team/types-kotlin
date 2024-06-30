@@ -35,6 +35,12 @@ object EventDataRegistry {
                         `interface` = "MessageEvent",
                     )
 
+                    data.`interface` == "Event"
+                            && (data.type == "blur" || data.type == "focus")
+                    -> data.copy(
+                        `interface` = "FocusEvent",
+                    )
+
                     else -> data
                 }
             }

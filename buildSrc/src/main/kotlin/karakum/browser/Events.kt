@@ -86,6 +86,22 @@ private val ADDITIONAL_EVENTS = listOf(
         name = "uncapturederror",
         type = "GPUUncapturedErrorEvent",
         pkg = "web.gpu",
+    ),
+
+    EventData(
+        name = "input",
+        type = "InputEvent",
+        pkg = "web.uievents",
+    ),
+    EventData(
+        name = "toggle",
+        type = "ToggleEvent",
+        pkg = "web.uievents",
+    ),
+    EventData(
+        name = "beforetoggle",
+        type = "ToggleEvent",
+        pkg = "web.uievents",
     )
 )
 
