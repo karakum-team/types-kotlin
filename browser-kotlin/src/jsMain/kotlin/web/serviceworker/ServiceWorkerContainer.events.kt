@@ -4,13 +4,12 @@ package web.serviceworker
 
 import web.events.Event
 import web.events.EventInstance
-import web.events.EventType
 
 inline val <C : ServiceWorkerContainer> C.controllerChangeEvent: EventInstance<Event, C, C>
-    get() = EventInstance(this, EventType("controllerchange"))
+    get() = EventInstance(this, Event.controllerChange())
 
 inline val <C : ServiceWorkerContainer> C.messageEvent: EventInstance<Event, C, C>
-    get() = EventInstance(this, EventType("message"))
+    get() = EventInstance(this, Event.message())
 
 inline val <C : ServiceWorkerContainer> C.messageErrorEvent: EventInstance<Event, C, C>
-    get() = EventInstance(this, EventType("messageerror"))
+    get() = EventInstance(this, Event.messageError())
