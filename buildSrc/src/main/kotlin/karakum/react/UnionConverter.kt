@@ -12,6 +12,7 @@ internal fun convertUnion(
     val values = if (source.startsWith(" \"")) {
         source.trim()
             .splitToSequence(" | ")
+            .filterNot { it == QUOTES }
             .map { it.removeSurrounding("\"") }
             .toList()
     } else if (" | '" in source) {
@@ -19,7 +20,8 @@ internal fun convertUnion(
             .trimIndent()
             .splitToSequence("\n")
             .map { it.removePrefix("| ") }
-            .filter { it != "(string & {})" }
+            .filterNot { it == QUOTES }
+            .filterNot { it == "(string & {})" }
             .map { it.removeSurrounding("'") }
             .toList()
     } else {
