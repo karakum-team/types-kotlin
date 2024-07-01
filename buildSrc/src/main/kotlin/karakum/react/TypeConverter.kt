@@ -20,6 +20,9 @@ internal class SimpleTypeConverter(
         if (type.endsWith(" | undefined"))
             return convert(type.removeSuffix(" | undefined"), name)
 
+        if (name.startsWith("aria") && type.startsWith("boolean | "))
+            return convert(type.removePrefix("boolean | "), name)
+
         if (type.startsWith("'") || type.startsWith("\"") || type.startsWith("boolean | '"))
             return unionType(type, name)
 
@@ -58,8 +61,10 @@ internal class SimpleTypeConverter(
             // WA for AlignmentBaseline
             .replace("\" |\"", "\" | \"")
             .splitToSequence(" | ")
+            .filterNot { it == QUOTES }
             .filter { !it.startsWith("undefined; ") }
             .filter { it != "boolean" }
+            .map { it.trim() }
             .map { it.removeSurrounding("'") }
             .map { it.removeSurrounding("\"") }
             .toList()
