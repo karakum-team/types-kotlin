@@ -26,6 +26,7 @@ import web.html.ImageDecoding
 import web.keyboard.KeyCode
 import web.html.InputMode
 import web.html.ButtonType
+import web.autofill.AutoFill
 """.trimIndent()
 
 private val SESKAR_IMPORTS = """
@@ -38,6 +39,8 @@ private val EXCLUDED_TYPES = setOf(
     "ImgDecoding",
     "InputMode",
     "ModifierKey",
+    "SVGTextElementAttributes",
+    "SVGLineElementAttributes",
 )
 
 fun generateKotlinDeclarations(
