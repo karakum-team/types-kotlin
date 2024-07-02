@@ -41,6 +41,7 @@ private val EXCLUDED_TYPES = setOf(
     "ModifierKey",
     "SVGTextElementAttributes",
     "SVGLineElementAttributes",
+    "ProfilerOnRenderCallback", // TODO: Check if needed
 )
 
 fun generateKotlinDeclarations(
