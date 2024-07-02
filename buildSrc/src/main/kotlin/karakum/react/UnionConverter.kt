@@ -12,15 +12,18 @@ internal fun convertUnion(
     val values = if (source.startsWith(" \"")) {
         source.trim()
             .splitToSequence(" | ")
+            .filterNot { it == QUOTES }
             .map { it.removeSurrounding("\"") }
             .toList()
-    } else if (" | '" in source) {
+    } else if (" | '" in source.trim() || " | $QUOTE" in source.trim()) {
         source.removePrefix("\n")
             .trimIndent()
             .splitToSequence("\n")
             .map { it.removePrefix("| ") }
-            .filter { it != "(string & {})" }
+            .filterNot { it == QUOTES }
+            .filterNot { it == "(string & {})" }
             .map { it.removeSurrounding("'") }
+            .map { it.removeSurrounding(QUOTE) }
             .toList()
     } else {
         return null

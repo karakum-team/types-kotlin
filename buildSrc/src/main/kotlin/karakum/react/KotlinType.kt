@@ -7,6 +7,9 @@ internal const val STRING = "String"
 internal const val INT = "Int"
 internal const val DOUBLE = "Double"
 
+internal const val QUOTE = "\""
+internal const val QUOTES = "$QUOTE$QUOTE"
+
 private val STANDARD_TYPE_MAP = mapOf(
     "any" to "Any",
     "object" to "Any",
@@ -50,8 +53,13 @@ internal fun kotlinType(
     type: String,
     name: String,
 ): String {
-    if (FORM_ACTION in type)
+    if (
+        FORM_ACTION in type
+            .removeExtraWhitespaces()
+            .removeBracketWhitespaces()
+    ) {
         return "String /* FormAction */"
+    }
 
     if (type.endsWith(" | undefined"))
         return kotlinType(type.removeSuffix(" | undefined"), name)
@@ -84,5 +92,18 @@ internal fun kotlinType(
         return "WindowName"
     }
 
+    if (type.startsWith("HTMLInputAutoCompleteAttribute")) {
+        return "AutoFill"
+    }
+
     return type
 }
+
+private fun String.removeExtraWhitespaces(): String = this
+    .split("\\s+".toRegex())
+    .filter { it.isNotEmpty() }
+    .joinToString(" ")
+
+private fun String.removeBracketWhitespaces(): String = this
+    .replace("[ ", "[")
+    .replace(" ]", "]")
