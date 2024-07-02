@@ -44,6 +44,12 @@ private fun convertMember(
         if (!source.startsWith("/*") && !source.startsWith("//"))
             return convertMember(source.replace("\n", ""), final, typeConverter)
 
+        // WA: "aria-relevant" has a multiline union type
+        if (source.contains("\"aria-relevant\"")) {
+            val comment = source.substringBeforeLast("*/\n") + "*/"
+            return comment + "\n" + convertMember(source.substringAfterLast("*/\n"), final, typeConverter)
+        }
+
         val comment = source.substringBeforeLast("\n")
         return comment + "\n" + convertMember(source.substringAfterLast("\n"), final, typeConverter)
     }
@@ -67,6 +73,7 @@ private fun convertProperty(
     val name = source.substringBefore(": ")
         .removeSuffix("?")
         .removeSurrounding("'")
+        .removeSurrounding(QUOTE)
 
     val id = when {
         name in RESERVED_NAMES -> "`$name`"
@@ -78,6 +85,9 @@ private fun convertProperty(
 
     val sourceType = source.substringAfter(": ")
         .replace("EventTarget & T", "T")
+//        .removePrefix("boolean | ")
+        .trimIndent()
+        .removePrefix("| ")
     val type = typeConverter.convert(sourceType, name)
         .let {
             when {
