@@ -53,8 +53,13 @@ internal fun kotlinType(
     type: String,
     name: String,
 ): String {
-    if (FORM_ACTION in type)
+    if (
+        FORM_ACTION in type
+            .removeExtraWhitespaces()
+            .removeBracketWhitespaces()
+    ) {
         return "String /* FormAction */"
+    }
 
     if (type.endsWith(" | undefined"))
         return kotlinType(type.removeSuffix(" | undefined"), name)
@@ -89,3 +94,12 @@ internal fun kotlinType(
 
     return type
 }
+
+private fun String.removeExtraWhitespaces(): String = this
+    .split("\\s+".toRegex())
+    .filter { it.isNotEmpty() }
+    .joinToString(" ")
+
+private fun String.removeBracketWhitespaces(): String = this
+    .replace("[ ", "[")
+    .replace(" ]", "]")
