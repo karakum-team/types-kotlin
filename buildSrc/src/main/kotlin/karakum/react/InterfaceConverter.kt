@@ -117,9 +117,8 @@ private fun convertAttributesInterface(
     }
 
     when (name) {
-        "InputHTMLAttributes",
-        "TextareaHTMLAttributes",
-        -> members = members.replaceFirst("var placeholder: ", "override var placeholder: ")
+        "MetaHTMLAttributes",
+            -> members = members.replaceFirst("var content: ", "override var content: ")
 
         "VideoHTMLAttributes",
         -> members = members.replaceFirst("var playsInline: ", "override var playsInline: ")
