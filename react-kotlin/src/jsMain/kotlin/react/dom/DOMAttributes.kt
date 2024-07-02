@@ -169,9 +169,7 @@ external interface DOMAttributes<T : Element> :
     var onPointerCancel: PointerEventHandler<T>?
     var onPointerCancelCapture: PointerEventHandler<T>?
     var onPointerEnter: PointerEventHandler<T>?
-    var onPointerEnterCapture: PointerEventHandler<T>?
     var onPointerLeave: PointerEventHandler<T>?
-    var onPointerLeaveCapture: PointerEventHandler<T>?
     var onPointerOver: PointerEventHandler<T>?
     var onPointerOverCapture: PointerEventHandler<T>?
     var onPointerOut: PointerEventHandler<T>?
@@ -207,3 +205,4 @@ inline var <T : Element> DOMAttributes<T>.onChange: FormEventHandler<T>?
     set(value) {
         asDynamic().onChange = value
     }
+                    

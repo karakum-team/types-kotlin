@@ -12,6 +12,7 @@ external interface ImgHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var alt: String?
     var crossOrigin: CrossOrigin?
     var decoding: ImageDecoding?
+    var fetchPriority: ImgFetchPriority?
     var height: Double?
     var loading: Loading?
     var referrerPolicy: ReferrerPolicy?
