@@ -6,6 +6,7 @@ import java.io.File
 
 private val ARIA_IMPORTS = """
 import react.dom.aria.AriaAttributes
+import react.dom.aria.AriaRole    
 """.trimIndent()
 
 private val DOM_TYPES = setOf(
