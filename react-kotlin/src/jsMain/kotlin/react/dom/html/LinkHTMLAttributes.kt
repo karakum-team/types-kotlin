@@ -9,6 +9,7 @@ import web.http.ReferrerPolicy
 external interface LinkHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var `as`: String?
     var crossOrigin: CrossOrigin?
+    var fetchPriority: LinkFetchPriority?
     var href: String?
     var hrefLang: String?
     var integrity: String?
