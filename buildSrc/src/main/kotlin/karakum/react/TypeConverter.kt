@@ -20,7 +20,7 @@ internal class SimpleTypeConverter(
         if (type.endsWith(" | undefined"))
             return convert(type.removeSuffix(" | undefined"), name)
 
-        if (name.startsWith("aria") && type.startsWith("boolean | "))
+        if (type.startsWith("boolean | $QUOTE"))
             return convert(type.removePrefix("boolean | "), name)
 
         if (type.startsWith("'") || type.startsWith("\"") || type.startsWith("boolean | '"))
