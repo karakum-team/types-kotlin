@@ -87,7 +87,7 @@ internal fun kotlinType(
         return "WindowName"
     }
 
-    if (type.startsWith("HTMLInputAutoCompleteAttribute")) {
+    if (type == "HTMLInputAutoCompleteAttribute") {
         return "AutoFill"
     }
 
