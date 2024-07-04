@@ -1,18 +1,7 @@
 package karakum.browser
 
-private val SVG_ANIMATED_ENUMERATION_BEFORE = """
-interface SVGAnimatedEnumeration {
-    readonly animVal: number;
-    baseVal: number;
-}
-""".trimIndent()
-
-private val SVG_ANIMATED_ENUMERATION_AFTER = """
-interface SVGAnimatedEnumeration<T> {
-    readonly animVal: T;
-    baseVal: T;
-}
-""".trimIndent()
+private const val SVG_ANIMATED_ENUMERATION_BEFORE = "\ninterface SVGAnimatedEnumeration {"
+private const val SVG_ANIMATED_ENUMERATION_AFTER = "\ninterface SVGAnimatedEnumeration<T> {"
 
 internal fun String.applyPatches(): String {
     return patchVideoFrameCallback()
@@ -197,6 +186,9 @@ internal fun String.applyPatches(): String {
             "crossOrigin: string",
             "crossOrigin: CrossOrigin",
         )
+        .patchInterface("SVGAnimatedEnumeration") {
+            it.replace("Val: number;", "Val: T;")
+        }
         .replace(SVG_ANIMATED_ENUMERATION_BEFORE, SVG_ANIMATED_ENUMERATION_AFTER)
         .applyInlineUnionPatches()
 }
