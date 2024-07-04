@@ -1,5 +1,6 @@
 package karakum.react
 
+import karakum.common.removeQuoteSurrounding
 import karakum.common.sealedUnionBody
 
 internal fun convertUnion(
@@ -13,7 +14,7 @@ internal fun convertUnion(
         source.trim()
             .splitToSequence(" | ")
             .filterNot { it == QUOTES }
-            .map { it.removeSurrounding("\"") }
+            .removeQuoteSurrounding()
             .toList()
     } else if (" | '" in source.trim() || " | $QUOTE" in source.trim()) {
         source.removePrefix("\n")
@@ -22,8 +23,7 @@ internal fun convertUnion(
             .map { it.removePrefix("| ") }
             .filterNot { it == QUOTES }
             .filterNot { it == "(string & {})" }
-            .map { it.removeSurrounding("'") }
-            .map { it.removeSurrounding(QUOTE) }
+            .removeQuoteSurrounding()
             .toList()
     } else {
         return null

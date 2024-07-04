@@ -1,5 +1,7 @@
 package karakum.react
 
+import karakum.common.removeQuoteSurrounding
+
 internal fun convertMembers(
     source: String,
     final: Boolean,
@@ -72,8 +74,7 @@ private fun convertProperty(
 ): String {
     val name = source.substringBefore(": ")
         .removeSuffix("?")
-        .removeSurrounding("'")
-        .removeSurrounding(QUOTE)
+        .removeQuoteSurrounding()
 
     val id = when {
         name in RESERVED_NAMES -> "`$name`"
@@ -85,7 +86,6 @@ private fun convertProperty(
 
     val sourceType = source.substringAfter(": ")
         .replace("EventTarget & T", "T")
-//        .removePrefix("boolean | ")
         .trimIndent()
         .removePrefix("| ")
     val type = typeConverter.convert(sourceType, name)
