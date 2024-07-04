@@ -1,5 +1,7 @@
 package karakum.react
 
+import karakum.common.removeQuoteSurrounding
+
 interface TypeConverter {
     fun convert(
         type: String,
@@ -65,8 +67,7 @@ internal class SimpleTypeConverter(
             .filter { !it.startsWith("undefined; ") }
             .filter { it != "boolean" }
             .map { it.trim() }
-            .map { it.removeSurrounding("'") }
-            .map { it.removeSurrounding("\"") }
+            .removeQuoteSurrounding()
             .toList()
 
         val pkg = if ("SVG" in parentName) Package.SVG else Package.HTML
