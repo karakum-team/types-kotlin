@@ -63,7 +63,7 @@ private fun convertAttributesInterface(
         "Attributes",
         "RefAttributes",
         "ClassAttributes",
-            -> return null
+        -> return null
     }
 
     var declaration = source.substringBefore(" {")
@@ -75,19 +75,19 @@ private fun convertAttributesInterface(
         "DOMAttributes",
         "HTMLAttributes",
         "SVGAttributes",
-            -> declaration = declaration.replaceFirst("<T>", "<T: Element>")
+        -> declaration = declaration.replaceFirst("<T>", "<T: Element>")
     }
 
     when (name) {
         "DOMAttributes",
-            -> declaration += ":\n" +
+        -> declaration += ":\n" +
                 "react.PropsWithRef<T>,\n" +
                 "react.PropsWithChildren,\n" +
                 "react.PropsWithClassName"
 
         "HTMLAttributes",
         "SVGAttributes",
-            -> declaration = declaration
+        -> declaration = declaration
             .replaceFirst("> : ", ">:\n")
             .replaceFirst(",", ",\n") +
                 ",\nreact.PropsWithStyle"
@@ -113,15 +113,15 @@ private fun convertAttributesInterface(
     when (name) {
         "HTMLAttributes",
         "SVGAttributes",
-            -> members = members.replaceFirst("var style: ", "override var style: ")
+        -> members = members.replaceFirst("var style: ", "override var style: ")
     }
 
     when (name) {
         "MetaHTMLAttributes",
-            -> members = members.replaceFirst("var content: ", "override var content: ")
+        -> members = members.replaceFirst("var content: ", "override var content: ")
 
         "VideoHTMLAttributes",
-            -> members = members.replaceFirst("var playsInline: ", "override var playsInline: ")
+        -> members = members.replaceFirst("var playsInline: ", "override var playsInline: ")
     }
 
     val body = if (name == "AriaAttributes") {
