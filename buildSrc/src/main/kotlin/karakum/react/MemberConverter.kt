@@ -86,8 +86,7 @@ private fun convertProperty(
 
     val sourceType = source.substringAfter(": ")
         .replace("EventTarget & T", "T")
-        .trimIndent()
-        .removePrefix("| ")
+        .removePrefix("   | ") // TODO: Check after multiline unions patch
     val type = typeConverter.convert(sourceType, name)
         .let {
             when {
