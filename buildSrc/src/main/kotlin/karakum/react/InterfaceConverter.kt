@@ -122,6 +122,10 @@ private fun convertAttributesInterface(
 
         "VideoHTMLAttributes",
         -> members = members.replaceFirst("var playsInline: ", "override var playsInline: ")
+
+        "LinkHTMLAttributes",
+        -> members =
+            members.replaceFirst("var fetchPriority: LinkFetchPriority", "var fetchPriority: FetchPriority")
     }
 
     val body = if (name == "AriaAttributes") {
@@ -131,6 +135,7 @@ private fun convertAttributesInterface(
         var result = "import web.dom.Element\n" +
                 "import web.http.CrossOrigin\n" +
                 "import react.dom.events.*\n\n" +
+                "import web.html.*\n\n" +
                 "external interface $declaration {\n" +
                 members +
                 "\n}\n"
