@@ -1,5 +1,7 @@
 package karakum.common
 
+import kotlin.text.Typography.quote
+
 private val MINUS_LETTER = Regex("""-(\w)""")
 private val PLUS_LETTER = Regex("""\+(\w)""")
 private val SLASH_LETTER = Regex("""\/(\w)""")
@@ -30,7 +32,7 @@ internal fun String.replaceSuffix(
 }
 
 internal fun String.removeQuoteSurrounding(): String = removeSurrounding("'")
-    .removeSurrounding(Typography.quote.toString())
+    .removeSurrounding("$quote")
 
 internal fun Sequence<String>.removeQuoteSurrounding(): Sequence<String> =
     map { it.removeQuoteSurrounding() }
