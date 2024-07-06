@@ -2,6 +2,7 @@ package karakum.react
 
 import karakum.common.removeQuoteSurrounding
 import karakum.common.sealedUnionBody
+import kotlin.text.Typography.quote
 
 internal fun convertUnion(
     name: String,
@@ -15,7 +16,7 @@ internal fun convertUnion(
             .splitToSequence(" | ")
             .map { it.removeQuoteSurrounding() }
             .toList()
-    } else if (" | '" in source.trim() || " | ${Typography.quote}" in source.trim()) {
+    } else if (" | '" in source || " | $quote" in source) {
         source.removePrefix("\n")
             .trimIndent()
             .splitToSequence("\n")
