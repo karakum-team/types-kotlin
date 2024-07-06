@@ -49,6 +49,7 @@ private val EXCLUDED_TYPES = setOf(
     "AutoFillAddressKind",
     "ProfilerOnRenderCallback", // No declarations for `Profiler` exotic component yet
     "LinkFetchPriority",
+    "ImgFetchPriority",
 )
 
 fun generateKotlinDeclarations(
