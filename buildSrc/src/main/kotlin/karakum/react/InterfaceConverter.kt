@@ -128,7 +128,7 @@ private fun convertAttributesInterface(
             -> {
             val propertyToReplace = members
                 .substringAfter("var fetchPriority: ")
-                .substringBefore("\n")
+                .substringBefore("?\n")
 
             members =
                 members.replaceFirst(propertyToReplace, "FetchPriority")
