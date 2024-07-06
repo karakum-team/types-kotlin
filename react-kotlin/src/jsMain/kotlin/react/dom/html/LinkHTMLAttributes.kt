@@ -3,13 +3,14 @@
 package react.dom.html
 
 import web.dom.Element
+import web.html.FetchPriority
 import web.http.CrossOrigin
 import web.http.ReferrerPolicy
 
 external interface LinkHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var `as`: String?
     var crossOrigin: CrossOrigin?
-    var fetchPriority: LinkFetchPriority?
+    var fetchPriority: FetchPriority?
     var href: String?
     var hrefLang: String?
     var integrity: String?
