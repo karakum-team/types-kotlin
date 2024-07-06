@@ -204,8 +204,8 @@ private fun convertSvgType(
     val name = source.substringBefore(": ")
 
     val elementType = source
-        .substringAfter("SVGLineElementAttributes<")
-        .substringAfter("SVGTextElementAttributes<")
+        .substringAfter(": React.SVGLineElementAttributes<")
+        .substringAfter(": React.SVGTextElementAttributes<")
         .substringAfter(": React.SVGProps<")
         .substringBefore(">")
 
