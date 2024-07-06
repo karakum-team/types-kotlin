@@ -52,6 +52,7 @@ private val EXCLUDED_UNIONS = setOf(
     "HTMLAttributeAnchorTarget",
     "HTMLAttributeReferrerPolicy",
     "HTMLInputTypeAttribute",
+    "ProfilerOnRenderCallback",
 )
 
 private fun convertUnions(

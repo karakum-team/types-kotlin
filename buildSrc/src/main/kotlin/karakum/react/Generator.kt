@@ -47,7 +47,6 @@ private val EXCLUDED_TYPES = setOf(
     "AutoFillContactField",
     "AutoFillBase",
     "AutoFillAddressKind",
-    "ProfilerOnRenderCallback", // No declarations for `Profiler` exotic component yet
     "LinkFetchPriority",
     "ImgFetchPriority",
 )
