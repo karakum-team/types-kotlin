@@ -20,7 +20,7 @@ internal fun convertUnion(
             .trimIndent()
             .splitToSequence("\n")
             .map { it.removePrefix("| ") }
-            .filterNot { it == "(string & {})" }
+            .filter { it != "(string & {})" }
             .map { it.removeQuoteSurrounding() }
             .toList()
     } else {
