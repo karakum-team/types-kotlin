@@ -6,6 +6,9 @@ import seskar.js.JsValue
 
 sealed external interface AutoFillBase {
     companion object {
+        @JsValue("")
+        val none: AutoFillBase
+
         @JsValue("off")
         val off: AutoFillBase
 
