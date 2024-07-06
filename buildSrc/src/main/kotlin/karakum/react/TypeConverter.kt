@@ -22,7 +22,7 @@ internal class SimpleTypeConverter(
         if (type.endsWith(" | undefined"))
             return convert(type.removeSuffix(" | undefined"), name)
 
-        if (type.startsWith("boolean | $QUOTE"))
+        if (type.startsWith("boolean | ${Typography.quote}"))
             return convert(type.removePrefix("boolean | "), name)
 
         if (type.startsWith("'") || type.startsWith("\"") || type.startsWith("boolean | '"))
@@ -63,7 +63,6 @@ internal class SimpleTypeConverter(
             // WA for AlignmentBaseline
             .replace("\" |\"", "\" | \"")
             .splitToSequence(" | ")
-            .filterNot { it == QUOTES }
             .filter { !it.startsWith("undefined; ") }
             .filter { it != "boolean" }
             .map { it.trim() }

@@ -7,9 +7,6 @@ internal const val STRING = "String"
 internal const val INT = "Int"
 internal const val DOUBLE = "Double"
 
-internal const val QUOTE = "\""
-internal const val QUOTES = "$QUOTE$QUOTE"
-
 private val STANDARD_TYPE_MAP = mapOf(
     "any" to "Any",
     "object" to "Any",
