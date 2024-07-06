@@ -33,6 +33,3 @@ internal fun String.replaceSuffix(
 
 internal fun String.removeQuoteSurrounding(): String = removeSurrounding("'")
     .removeSurrounding("$quote")
-
-internal fun Sequence<String>.removeQuoteSurrounding(): Sequence<String> =
-    map { it.removeQuoteSurrounding() }

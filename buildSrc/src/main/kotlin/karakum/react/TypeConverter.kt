@@ -66,7 +66,7 @@ internal class SimpleTypeConverter(
             .filter { !it.startsWith("undefined; ") }
             .filter { it != "boolean" }
             .map { it.trim() }
-            .removeQuoteSurrounding()
+            .map { it.removeQuoteSurrounding() }
             .toList()
 
         val pkg = if ("SVG" in parentName) Package.SVG else Package.HTML
