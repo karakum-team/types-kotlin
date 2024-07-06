@@ -46,14 +46,9 @@ private fun convertMember(
         if (!source.startsWith("/*") && !source.startsWith("//"))
             return convertMember(source.replace("\n", ""), final, typeConverter)
 
-        // WA: "aria-relevant" has a multiline union type
-        if (source.contains("\"aria-relevant\"")) {
-            val comment = source.substringBeforeLast("*/\n") + "*/"
-            return comment + "\n" + convertMember(source.substringAfterLast("*/\n"), final, typeConverter)
-        }
-
-        val comment = source.substringBeforeLast("\n")
-        return comment + "\n" + convertMember(source.substringAfterLast("\n"), final, typeConverter)
+        val normalizedSource = source.withNormalizedUnions()
+        val comment = normalizedSource.substringBeforeLast("\n")
+        return comment + "\n" + convertMember(normalizedSource.substringAfterLast("\n"), final, typeConverter)
     }
 
     return if ("(" in source) {
