@@ -47,7 +47,7 @@ private val EXCLUDED_TYPES = setOf(
     "AutoFillContactField",
     "AutoFillBase",
     "AutoFillAddressKind",
-    "ProfilerOnRenderCallback", // TODO: Check if needed
+    "ProfilerOnRenderCallback", // No declarations for `Profiler` exotic component yet
 )
 
 fun generateKotlinDeclarations(
