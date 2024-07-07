@@ -127,9 +127,6 @@ private fun intlContent(
         .replace("type LocaleHourCycleKey = ", "type HourCycle = ")
         .replace(": LocaleHourCycleKey;", ": HourCycle;")
 
-        .replace("type ES2018NumberFormatPartType = ", "type NumberFormatPartType = ")
-        .replace(";\ntype ES2020NumberFormatPartType = ", " | ")
-        .replace("\ntype NumberFormatPartTypes = ES2018NumberFormatPartType | ES2020NumberFormatPartType;", "")
         .replace("NumberFormatPartTypes", "NumberFormatPartType")
         .replace(""""basic" | "best fit" | "best fit"""", """"best fit" | "basic"""")
         .replace(""": "best fit" | "lookup" | undefined;""", """: "lookup" | "best fit" | undefined;""")

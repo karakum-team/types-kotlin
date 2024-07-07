@@ -135,6 +135,7 @@ private val INTL_KEY_TYPES = setOf(
     "NumberFormatOptionsSignDisplay",
     "NumberFormatOptionsSignDisplay",
     "NumberFormatOptionsStyle",
+    "NumberFormatPartType",
     "ResolvedNumberFormatOptionsUseGrouping",
     "StringNumericLiteral",
 )
