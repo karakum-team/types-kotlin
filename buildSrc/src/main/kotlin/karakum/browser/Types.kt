@@ -130,6 +130,15 @@ private val EXCLUDED_TYPES = setOf(
     "VideoFacingModeEnum",
 )
 
+private val INTL_KEY_TYPES = setOf(
+    "NumberFormatOptionsCurrencyDisplay",
+    "NumberFormatOptionsSignDisplay",
+    "NumberFormatOptionsSignDisplay",
+    "NumberFormatOptionsStyle",
+    "ResolvedNumberFormatOptionsUseGrouping",
+    "StringNumericLiteral",
+)
+
 private val ALIAS_MAP = mapOf(
     "string" to "String",
     "number" to "Double",
@@ -271,6 +280,9 @@ private fun convertType(
             "GPUBindingResource",
             -> getPkg(name)!!
 
+            in INTL_KEY_TYPES,
+            -> "js.intl"
+
             else -> when {
                 name.startsWith("CSS")
                 -> "web.cssom"
@@ -291,6 +303,12 @@ private fun convertType(
                 .replace("Record<", "ReadonlyRecord<")
                 .replace("string", "String")
 
+            bodySource.startsWith("keyof ")
+            -> "String /* $bodySource */"
+
+            name.startsWith("`")
+            -> "String /* $bodySource */"
+
             bodySource == "ClipboardItem[]"
             -> "ReadonlyArray<ClipboardItem>"
 
@@ -299,9 +317,6 @@ private fun convertType(
 
             bodySource == "Report[]"
             -> "ReadonlyArray<Report>"
-
-            name == "AutoFill"
-            -> "String /* $bodySource */"
 
             name == "VibratePattern" && bodySource == "number | number[]"
             -> "ReadonlyArray<Int> /* | Int */"

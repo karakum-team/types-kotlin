@@ -47,6 +47,7 @@ internal fun intlDeclarations(
                 predefinedPkg = "js.intl",
             )
         }
+        .filter { !it.name.endsWith("Registry") }
 
     return unions.asSequence()
         .plus(types)
@@ -88,6 +89,7 @@ private fun intlContent(
         }
         .replace("readonly string[]", "string[]")
         .splitUnion("string | string[]")
+        .splitUnion("number | bigint | StringNumericLiteral")
         .splitUnion("number | bigint")
         .splitUnion("Date | number | bigint")
         .splitUnion("Date | number")
@@ -154,11 +156,15 @@ private val PROPERTIES = setOf(
 
     "compactDisplay",
     "notation",
-    "signDisplay",
     "unitDisplay",
 
     "granularity",
     "localeMatcher",
+
+    "currencySign",
+    "roundingPriority",
+    "roundingMode",
+    "trailingZeroDisplay",
 )
 
 private fun extractUnions(

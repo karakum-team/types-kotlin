@@ -1902,6 +1902,9 @@ private fun convertProperty(
         -> "ReadyState"
 
         else -> when {
+            type.startsWith("1 | 2 | 5 | 10")
+            -> "Int /* $type */"
+
             type.startsWith("0x") -> "Short"
             type.toIntOrNull() != null -> "Short"
 
