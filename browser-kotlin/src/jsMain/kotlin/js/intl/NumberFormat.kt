@@ -18,8 +18,6 @@ external class NumberFormat(
 
     fun format(value: Number): String
     fun resolvedOptions(): ResolvedNumberFormatOptions
-    fun formatToParts(number: Number = definedExternally): ReadonlyArray<NumberFormatPart>
-    fun formatToParts(number: BigInt): ReadonlyArray<NumberFormatPart>
     fun format(value: BigInt): String
     fun format(value: StringNumericLiteral): String
     fun formatToParts(value: Number): ReadonlyArray<NumberFormatPart>
