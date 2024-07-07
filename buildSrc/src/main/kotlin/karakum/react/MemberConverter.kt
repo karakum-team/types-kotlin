@@ -43,10 +43,11 @@ private fun convertMember(
     }
 
     if ("\n" in source) {
-        if (!source.startsWith("/*") && !source.startsWith("//"))
-            return convertMember(source.replace("\n", ""), final, typeConverter)
-
         val normalizedSource = source.withNormalizedUnions()
+
+        if (!normalizedSource.startsWith("/*") && !normalizedSource.startsWith("//"))
+            return convertMember(normalizedSource.replace("\n", ""), final, typeConverter)
+
         val comment = normalizedSource.substringBeforeLast("\n")
         return comment + "\n" + convertMember(normalizedSource.substringAfterLast("\n"), final, typeConverter)
     }
@@ -81,7 +82,6 @@ private fun convertProperty(
 
     val sourceType = source.substringAfter(": ")
         .replace("EventTarget & T", "T")
-        .removePrefix("   | ") // TODO: Check after multiline unions patch
     val type = typeConverter.convert(sourceType, name)
         .let {
             when {
