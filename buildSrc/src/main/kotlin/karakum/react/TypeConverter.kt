@@ -66,7 +66,6 @@ internal class SimpleTypeConverter(
             .splitToSequence(" | ")
             .filter { !it.startsWith("undefined; ") }
             .filter { it != "boolean" }
-            .map { it.trim() }
             .map { it.removeQuoteSurrounding() }
             .toList()
 
