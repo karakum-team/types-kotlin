@@ -5,6 +5,12 @@ import java.io.File
 
 private const val SUPPORTED_LOCALES_OPTIONS = "SupportedLocalesOptions"
 
+private val REDUNDANT_NUMBER_FORMAT_COPY = """
+interface NumberFormat {
+    formatToParts(number?: number | bigint): NumberFormatPart[];
+}
+""".trimIndent()
+
 internal fun intlDeclarations(
     definitionsDir: File,
 ): Sequence<ConversionResult> {
@@ -87,6 +93,7 @@ private fun intlContent(
                 .trimIndent()
                 .replace("\n\n", "\n")
         }
+        .replace(REDUNDANT_NUMBER_FORMAT_COPY, "")
         .replace("readonly string[]", "string[]")
         .splitUnion("string | string[]")
         .splitUnion("number | bigint | StringNumericLiteral")
