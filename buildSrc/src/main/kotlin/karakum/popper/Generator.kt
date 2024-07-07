@@ -10,6 +10,7 @@ private val DEFAULT_IMPORTS = listOf(
 
     "js.array.ReadonlyArray",
     "js.objects.Record",
+    "js.objects.ReadonlyRecord",
     "js.core.Void",
 
     "seskar.js.JsIntValue",

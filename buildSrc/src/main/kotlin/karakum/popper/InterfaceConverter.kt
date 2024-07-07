@@ -33,7 +33,7 @@ internal fun convertInterface(
                 when {
                     line.startsWith("    ") -> line
 
-                    ": {" in line -> "val " + line.replace(": {", ": dynamic /* {")
+                    ": {" in line -> "val " + line.replace(": {", ": ReadonlyRecord<String, Any> /* {")
                     line.startsWith("};") -> line + " */"
 
                     else -> {
