@@ -43,13 +43,11 @@ private fun convertMember(
     }
 
     if ("\n" in source) {
-        val normalizedSource = source.withNormalizedUnions()
+        if (!source.startsWith("/*") && !source.startsWith("//"))
+            return convertMember(source.replace("\n", ""), final, typeConverter)
 
-        if (!normalizedSource.startsWith("/*") && !normalizedSource.startsWith("//"))
-            return convertMember(normalizedSource.replace("\n", ""), final, typeConverter)
-
-        val comment = normalizedSource.substringBeforeLast("\n")
-        return comment + "\n" + convertMember(normalizedSource.substringAfterLast("\n"), final, typeConverter)
+        val comment = source.substringBeforeLast("\n")
+        return comment + "\n" + convertMember(source.substringAfterLast("\n"), final, typeConverter)
     }
 
     return if ("(" in source) {

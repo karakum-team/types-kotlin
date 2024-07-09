@@ -36,18 +36,3 @@ internal fun convertUnion(
         name = name,
         body = sealedUnionBody(name, values),
     )
-
-internal fun String.withNormalizedUnions(): String {
-    if (":\n    | " !in this) {
-        return this
-    }
-
-    val unionMembers = this
-        .substringAfter(":\n")
-        .splitToSequence(" | ")
-        .drop(1)
-        .map { it.trim() }
-        .joinToString(" | ")
-
-    return this.substringBefore(":\n") + ": " + unionMembers
-}
