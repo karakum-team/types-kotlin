@@ -22,6 +22,8 @@ dependencies {
     jsMainImplementation(wrappers("cssom-core"))
     jsMainImplementation(wrappers("js"))
 
+    jsMainImplementation(kotlinxCoroutines("core"))
+
     jsMainImplementation(seskarCore())
 }
 

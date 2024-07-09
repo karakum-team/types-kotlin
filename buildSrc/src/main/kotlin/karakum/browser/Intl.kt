@@ -5,6 +5,12 @@ import java.io.File
 
 private const val SUPPORTED_LOCALES_OPTIONS = "SupportedLocalesOptions"
 
+private val REDUNDANT_NUMBER_FORMAT_COPY = """
+interface NumberFormat {
+    formatToParts(number?: number | bigint): NumberFormatPart[];
+}
+""".trimIndent()
+
 internal fun intlDeclarations(
     definitionsDir: File,
 ): Sequence<ConversionResult> {
@@ -47,6 +53,7 @@ internal fun intlDeclarations(
                 predefinedPkg = "js.intl",
             )
         }
+        .filter { !it.name.endsWith("Registry") }
 
     return unions.asSequence()
         .plus(types)
@@ -86,8 +93,10 @@ private fun intlContent(
                 .trimIndent()
                 .replace("\n\n", "\n")
         }
+        .replace(REDUNDANT_NUMBER_FORMAT_COPY, "")
         .replace("readonly string[]", "string[]")
         .splitUnion("string | string[]")
+        .splitUnion("number | bigint | StringNumericLiteral")
         .splitUnion("number | bigint")
         .splitUnion("Date | number | bigint")
         .splitUnion("Date | number")
@@ -118,9 +127,6 @@ private fun intlContent(
         .replace("type LocaleHourCycleKey = ", "type HourCycle = ")
         .replace(": LocaleHourCycleKey;", ": HourCycle;")
 
-        .replace("type ES2018NumberFormatPartType = ", "type NumberFormatPartType = ")
-        .replace(";\ntype ES2020NumberFormatPartType = ", " | ")
-        .replace("\ntype NumberFormatPartTypes = ES2018NumberFormatPartType | ES2020NumberFormatPartType;", "")
         .replace("NumberFormatPartTypes", "NumberFormatPartType")
         .replace(""""basic" | "best fit" | "best fit"""", """"best fit" | "basic"""")
         .replace(""": "best fit" | "lookup" | undefined;""", """: "lookup" | "best fit" | undefined;""")
@@ -154,11 +160,15 @@ private val PROPERTIES = setOf(
 
     "compactDisplay",
     "notation",
-    "signDisplay",
     "unitDisplay",
 
     "granularity",
     "localeMatcher",
+
+    "currencySign",
+    "roundingPriority",
+    "roundingMode",
+    "trailingZeroDisplay",
 )
 
 private fun extractUnions(

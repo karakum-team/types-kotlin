@@ -193,7 +193,7 @@ internal object IDLRegistry {
                 .map { it.substringAfter("] ") }
                 .map { it.removePrefix("optional ") }
                 .mapNotNull { psource ->
-                    val type = getNumberType(psource.substringBeforeLast(" "))
+                    val type = getNumberType(psource.substringBeforeLast(" ").removeSuffix("?"))
                         ?: return@mapNotNull null
 
                     ParameterData(
