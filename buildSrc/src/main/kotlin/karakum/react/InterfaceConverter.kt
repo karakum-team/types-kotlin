@@ -105,8 +105,8 @@ private fun convertAttributesInterface(
             .replaceFirst("min?: number | string | undefined;\n", "min?: number | Date | undefined;\n")
             .replaceFirst("max?: number | string | undefined;\n", "max?: number | Date | undefined;\n")
             .replaceFirst(
-                "capture?: boolean | \"user\" | \"environment\" | undefined;",
-                "capture?: \"false\" | \"true\" | \"user\" | \"environment\" | undefined;"
+                """capture?: boolean | "user" | "environment" | undefined;""",
+                """capture?: "false" | "true" | "user" | "environment" | undefined;"""
             )
 
         else -> source
