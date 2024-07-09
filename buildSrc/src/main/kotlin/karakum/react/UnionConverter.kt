@@ -2,7 +2,7 @@ package karakum.react
 
 import karakum.common.removeQuoteSurrounding
 import karakum.common.sealedUnionBody
-import kotlin.text.Typography.quote
+import karakum.common.startsWithQuote
 
 internal fun convertUnion(
     name: String,
@@ -11,16 +11,13 @@ internal fun convertUnion(
     if ("<" in name)
         return null
 
-    val values = if (source.startsWith(" \"")) {
-        source.trim()
+    val sourceType = source
+        .removePrefix(" | ")
+        .trim()
+
+    val values = if (sourceType.startsWithQuote()) {
+        sourceType
             .splitToSequence(" | ")
-            .map { it.removeQuoteSurrounding() }
-            .toList()
-    } else if (" | '" in source || " | $quote" in source) {
-        source.removePrefix("\n")
-            .trimIndent()
-            .splitToSequence("\n")
-            .map { it.removePrefix("| ") }
             .filter { it != "(string & {})" }
             .map { it.removeQuoteSurrounding() }
             .toList()
