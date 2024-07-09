@@ -38,8 +38,8 @@ internal class SimpleTypeConverter(
         val name = unionName(propertyName)
 
         when {
-            (name == "LinkFetchPriority" || name == "ImgFetchPriority") && propertyName == "fetchPriority"
-            -> return "FetchPriority"
+            propertyName == "fetchPriority"
+            -> return propertyName.replaceFirstChar(Char::uppercase)
 
             propertyName == "crossOrigin" && type == """"anonymous" | "use-credentials" | """""
             -> return propertyName.replaceFirstChar(Char::uppercase)
