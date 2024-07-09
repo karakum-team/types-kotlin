@@ -1,9 +1,8 @@
 package karakum.react
 
-private fun String.normalizeUnions(n: Int): String =
-    replace("\n${" ".repeat(n)}|", " |")
+private fun String.normalizeUnions(): String =
+    replace(Regex("\n *\\|"), " |")
 
 internal fun String.applyNormalizeUnionsPatch(): String = this
-    .normalizeUnions(8)
-    .normalizeUnions(12)
+    .normalizeUnions()
     .replace(": | \"", ": \"")
