@@ -14,6 +14,7 @@ internal fun convertDefinitions(
     val content = definitionFile.readText()
         .removeDeprecatedMembers()
         .applyFocusEventPatch()
+        .applyNormalizeUnionsPatch()
         .replace("HTMLTableHeaderCellElement", "HTMLTableCellElement")
         .replace("HTMLTableDataCellElement", "HTMLTableCellElement")
         .replace("HTMLWebViewElement", "HTMLElement")
