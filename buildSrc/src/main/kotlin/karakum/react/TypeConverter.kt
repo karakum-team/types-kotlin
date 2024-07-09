@@ -22,7 +22,7 @@ internal class SimpleTypeConverter(
         if (type.endsWith(" | undefined"))
             return convert(type.removeSuffix(" | undefined"), name)
 
-        if (type.startsWith("boolean | \"false\""))
+        if (type.startsWith("""boolean | "false""""))
             return convert(type.removePrefix("boolean | "), name)
 
         if (type.startsWith("'") || type.startsWith("\"") || type.startsWith("boolean | '"))
