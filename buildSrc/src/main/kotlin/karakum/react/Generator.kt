@@ -47,8 +47,6 @@ private val EXCLUDED_TYPES = setOf(
     "AutoFillContactField",
     "AutoFillBase",
     "AutoFillAddressKind",
-    "LinkFetchPriority",
-    "ImgFetchPriority",
 )
 
 fun generateKotlinDeclarations(
@@ -72,7 +70,7 @@ fun generateKotlinDeclarations(
         val content = when (finalPkg) {
             Package.HTML,
             Package.SVG,
-                -> ARIA_IMPORTS + "\n" + DOM_IMPORTS + "\n" + SESKAR_IMPORTS + "\n" + body
+            -> ARIA_IMPORTS + "\n" + DOM_IMPORTS + "\n" + SESKAR_IMPORTS + "\n" + body
 
             else -> SESKAR_IMPORTS + "\n" + body
         }

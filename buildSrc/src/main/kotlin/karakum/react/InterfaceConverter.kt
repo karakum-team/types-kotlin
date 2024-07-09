@@ -126,17 +126,6 @@ private fun convertAttributesInterface(
 
         "VideoHTMLAttributes",
         -> members = members.replaceFirst("var playsInline: ", "override var playsInline: ")
-
-        "LinkHTMLAttributes",
-        "ImgHTMLAttributes",
-            -> {
-            val propertyToReplace = members
-                .substringAfter("var fetchPriority: ")
-                .substringBefore("?\n")
-
-            members =
-                members.replaceFirst(propertyToReplace, "FetchPriority")
-        }
     }
 
     val body = if (name == "AriaAttributes") {
