@@ -133,7 +133,7 @@ private fun convertAttributesInterface(
                 members.replace("var ", "var $name.")
     } else {
         var result = "import web.dom.Element\n" +
-                "import web.html.*\n\n" +
+                "import web.html.*\n" +
                 "import web.http.CrossOrigin\n" +
                 "import react.dom.events.*\n\n" +
                 "external interface $declaration {\n" +
