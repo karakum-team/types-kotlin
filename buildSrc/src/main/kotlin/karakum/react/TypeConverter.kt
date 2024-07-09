@@ -85,9 +85,6 @@ internal class SimpleTypeConverter(
             propertyName == "capture"
             -> propertyName.replaceFirstChar(Char::uppercase)
 
-            propertyName == "fetchpriority"
-            -> "FetchPriority"
-
             propertyName.startsWith("aria-")
             -> propertyName.ariaPropertyName()
                 .replaceFirstChar(Char::uppercase)
