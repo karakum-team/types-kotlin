@@ -44,7 +44,7 @@ private val ANY_ALIASES = setOf(
 )
 
 private val FORM_ACTION =
-    "DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_FORM_ACTIONS[keyof DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_FORM_ACTIONS]"
+    "DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_FORM_ACTIONS[        keyof DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_FORM_ACTIONS    ]"
 
 internal fun kotlinType(
     type: String,
@@ -82,6 +82,10 @@ internal fun kotlinType(
 
     if (name == "formTarget") {
         return "WindowName"
+    }
+
+    if (type == "HTMLInputAutoCompleteAttribute") {
+        return "AutoFill"
     }
 
     return type

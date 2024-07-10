@@ -1,5 +1,7 @@
 package karakum.react
 
+import karakum.common.removeQuoteSurrounding
+
 interface TypeConverter {
     fun convert(
         type: String,
@@ -34,16 +36,16 @@ internal class SimpleTypeConverter(
 
         when {
             propertyName == "crossOrigin" && type == """"anonymous" | "use-credentials" | """""
-                -> return propertyName.replaceFirstChar(Char::uppercase)
+            -> return propertyName.replaceFirstChar(Char::uppercase)
 
             propertyName == "enterKeyHint"
-                -> return propertyName.replaceFirstChar(Char::uppercase)
+            -> return propertyName.replaceFirstChar(Char::uppercase)
 
             propertyName == "loading"
-                -> return propertyName.replaceFirstChar(Char::uppercase)
+            -> return propertyName.replaceFirstChar(Char::uppercase)
 
             propertyName == "decoding"
-                -> return "ImageDecoding".also {
+            -> return "ImageDecoding".also {
                 if (type.contains(" undefined")) {
                     it.plus("?")
                 }
@@ -60,8 +62,7 @@ internal class SimpleTypeConverter(
             .splitToSequence(" | ")
             .filter { !it.startsWith("undefined; ") }
             .filter { it != "boolean" }
-            .map { it.removeSurrounding("'") }
-            .map { it.removeSurrounding("\"") }
+            .map { it.removeQuoteSurrounding() }
             .toList()
 
         val pkg = if ("SVG" in parentName) Package.SVG else Package.HTML
@@ -76,13 +77,10 @@ internal class SimpleTypeConverter(
     ): String =
         when {
             propertyName == "capture"
-                -> propertyName.replaceFirstChar(Char::uppercase)
-
-            propertyName == "fetchpriority"
-                -> "FetchPriority"
+            -> propertyName.replaceFirstChar(Char::uppercase)
 
             propertyName.startsWith("aria-")
-                -> propertyName.ariaPropertyName()
+            -> propertyName.ariaPropertyName()
                 .replaceFirstChar(Char::uppercase)
 
             parentName.endsWith("HTMLAttributes") -> {

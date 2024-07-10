@@ -104,6 +104,10 @@ private fun convertAttributesInterface(
         "InputHTMLAttributes" -> source
             .replaceFirst("min?: number | string | undefined;\n", "min?: number | Date | undefined;\n")
             .replaceFirst("max?: number | string | undefined;\n", "max?: number | Date | undefined;\n")
+            .replaceFirst(
+                """capture?: boolean | "user" | "environment" | undefined;""",
+                """capture?: "false" | "true" | "user" | "environment" | undefined;"""
+            )
 
         else -> source
     }
@@ -117,9 +121,8 @@ private fun convertAttributesInterface(
     }
 
     when (name) {
-        "InputHTMLAttributes",
-        "TextareaHTMLAttributes",
-        -> members = members.replaceFirst("var placeholder: ", "override var placeholder: ")
+        "MetaHTMLAttributes",
+        -> members = members.replaceFirst("var content: ", "override var content: ")
 
         "VideoHTMLAttributes",
         -> members = members.replaceFirst("var playsInline: ", "override var playsInline: ")
@@ -130,6 +133,7 @@ private fun convertAttributesInterface(
                 members.replace("var ", "var $name.")
     } else {
         var result = "import web.dom.Element\n" +
+                "import web.html.*\n" +
                 "import web.http.CrossOrigin\n" +
                 "import react.dom.events.*\n\n" +
                 "external interface $declaration {\n" +
@@ -205,6 +209,8 @@ private fun convertSvgType(
     val name = source.substringBefore(": ")
 
     val elementType = source
+        .substringAfter(": React.SVGLineElementAttributes<")
+        .substringAfter(": React.SVGTextElementAttributes<")
         .substringAfter(": React.SVGProps<")
         .substringBefore(">")
 

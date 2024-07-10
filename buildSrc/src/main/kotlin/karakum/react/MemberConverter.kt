@@ -1,5 +1,7 @@
 package karakum.react
 
+import karakum.common.removeQuoteSurrounding
+
 internal fun convertMembers(
     source: String,
     final: Boolean,
@@ -66,7 +68,7 @@ private fun convertProperty(
 ): String {
     val name = source.substringBefore(": ")
         .removeSuffix("?")
-        .removeSurrounding("'")
+        .removeQuoteSurrounding()
 
     val id = when {
         name in RESERVED_NAMES -> "`$name`"

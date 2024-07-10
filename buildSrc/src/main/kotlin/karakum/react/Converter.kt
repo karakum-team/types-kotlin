@@ -14,6 +14,7 @@ internal fun convertDefinitions(
     val content = definitionFile.readText()
         .removeDeprecatedMembers()
         .applyFocusEventPatch()
+        .applyNormalizeUnionsPatch()
         .replace("HTMLTableHeaderCellElement", "HTMLTableCellElement")
         .replace("HTMLTableDataCellElement", "HTMLTableCellElement")
         .replace("HTMLWebViewElement", "HTMLElement")
@@ -23,6 +24,8 @@ internal fun convertDefinitions(
         .replace("    target?: string | undefined;", "    target?: WindowTarget | undefined;")
         .replace("    formTarget?: string | undefined;", "    formTarget?: WindowTarget | undefined;")
         .replace("    autoComplete?: string | undefined;", "    autoComplete?: AutoComplete | undefined;")
+        .replace(""": boolean | "false"""", """: "false"""")
+        .replace("""fetchPriority?: "high" | "low" | "auto";""", """fetchPriority?: FetchPriority;""")
         .replace(" |  undefined", " | undefined")
         .replace("\r\n", "\n")
 
@@ -52,6 +55,7 @@ private val EXCLUDED_UNIONS = setOf(
     "HTMLAttributeAnchorTarget",
     "HTMLAttributeReferrerPolicy",
     "HTMLInputTypeAttribute",
+    "ProfilerOnRenderCallback",
 )
 
 private fun convertUnions(

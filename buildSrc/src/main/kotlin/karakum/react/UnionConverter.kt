@@ -1,6 +1,8 @@
 package karakum.react
 
+import karakum.common.removeQuoteSurrounding
 import karakum.common.sealedUnionBody
+import karakum.common.startsWithAnyQuote
 
 internal fun convertUnion(
     name: String,
@@ -9,22 +11,19 @@ internal fun convertUnion(
     if ("<" in name)
         return null
 
-    val values = if (source.startsWith(" \"")) {
-        source.trim()
-            .splitToSequence(" | ")
-            .map { it.removeSurrounding("\"") }
-            .toList()
-    } else if (" | '" in source) {
-        source.removePrefix("\n")
-            .trimIndent()
-            .splitToSequence("\n")
-            .map { it.removePrefix("| ") }
-            .filter { it != "(string & {})" }
-            .map { it.removeSurrounding("'") }
-            .toList()
-    } else {
+    val sourceType = source
+        .removePrefix(" | ")
+        .trim()
+
+    if (!sourceType.startsWithAnyQuote()) {
         return null
     }
+
+    val values = sourceType
+        .splitToSequence(" | ")
+        .filter { it != "(string & {})" }
+        .map { it.removeQuoteSurrounding() }
+        .toList()
 
     return convertUnion(name, values)
 }
