@@ -24,6 +24,7 @@ internal fun convertDefinitions(
         .replace("    target?: string | undefined;", "    target?: WindowTarget | undefined;")
         .replace("    formTarget?: string | undefined;", "    formTarget?: WindowTarget | undefined;")
         .replace("    autoComplete?: string | undefined;", "    autoComplete?: AutoComplete | undefined;")
+        .replace(""": boolean | "false"""", """: "false"""")
         .replace(" |  undefined", " | undefined")
         .replace("\r\n", "\n")
 
