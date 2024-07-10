@@ -2,7 +2,7 @@ package karakum.react
 
 import karakum.common.removeQuoteSurrounding
 import karakum.common.sealedUnionBody
-import karakum.common.startsWithQuote
+import karakum.common.startsWithAnyQuote
 
 internal fun convertUnion(
     name: String,
@@ -15,15 +15,15 @@ internal fun convertUnion(
         .removePrefix(" | ")
         .trim()
 
-    val values = if (sourceType.startsWithQuote()) {
-        sourceType
-            .splitToSequence(" | ")
-            .filter { it != "(string & {})" }
-            .map { it.removeQuoteSurrounding() }
-            .toList()
-    } else {
+    if (!sourceType.startsWithAnyQuote()) {
         return null
     }
+
+    val values = sourceType
+        .splitToSequence(" | ")
+        .filter { it != "(string & {})" }
+        .map { it.removeQuoteSurrounding() }
+        .toList()
 
     return convertUnion(name, values)
 }

@@ -29,8 +29,9 @@ internal fun String.replaceSuffix(
     return removeSuffix(from) + to
 }
 
-internal fun String.removeQuoteSurrounding(): String = removeSurrounding("'")
-    .removeSurrounding("\"")
+internal fun String.removeQuoteSurrounding(): String =
+    removeSurrounding("'")
+        .removeSurrounding("\"")
 
-internal fun String.startsWithQuote(): Boolean = startsWith("'") ||
-        startsWith("\"")
+internal fun String.startsWithAnyQuote(): Boolean =
+    startsWith("'") || startsWith("\"")
