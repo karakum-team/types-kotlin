@@ -25,6 +25,7 @@ internal fun convertDefinitions(
         .replace("    formTarget?: string | undefined;", "    formTarget?: WindowTarget | undefined;")
         .replace("    autoComplete?: string | undefined;", "    autoComplete?: AutoComplete | undefined;")
         .replace(""": boolean | "false"""", """: "false"""")
+        .replace("""fetchPriority?: "high" | "low" | "auto";""", """fetchPriority?: FetchPriority;""")
         .replace(" |  undefined", " | undefined")
         .replace("\r\n", "\n")
 
