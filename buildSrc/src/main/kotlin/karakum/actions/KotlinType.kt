@@ -8,6 +8,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "bigint" to "BigInt",
     "undefined" to "Void",
 
+    "Error" to "JsError",
+
     "string[]" to "ReadonlyArray<String>",
     "Record<string, string>" to "Record<String, String>",
 
