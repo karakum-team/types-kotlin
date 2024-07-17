@@ -56,6 +56,7 @@ internal fun kotlinType(
 
     return type
         .replace(": string)", ": String)")
+        .replace(": Error)", ": JsError)")
         .replace(") => void", ") -> Unit")
         .replace(") => number", ") -> Number")
         .replace(") => boolean", ") -> Boolean")
