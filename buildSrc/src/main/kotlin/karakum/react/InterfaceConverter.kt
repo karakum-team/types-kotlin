@@ -135,6 +135,7 @@ private fun convertAttributesInterface(
         var result = "import web.dom.Element\n" +
                 "import web.html.*\n" +
                 "import web.http.CrossOrigin\n" +
+                "import web.http.FetchPriority\n" +
                 "import react.dom.events.*\n\n" +
                 "external interface $declaration {\n" +
                 members +
