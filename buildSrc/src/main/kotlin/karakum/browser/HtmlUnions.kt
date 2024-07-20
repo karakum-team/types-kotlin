@@ -4,6 +4,7 @@ import karakum.common.sealedUnionBody
 
 internal const val PRELOAD = "Preload"
 internal const val FETCH_PRIORITY = "FetchPriority"
+internal const val REQUEST_METHOD = "RequestMethod"
 
 internal class UnionData(
     val name: String,
@@ -96,6 +97,22 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
                     "auto",
                     "high",
                     "low",
+                ),
+            ),
+            pkg = "web.http",
+        ),
+        ConversionResult(
+            name = REQUEST_METHOD,
+            body = sealedUnionBody(
+                name = REQUEST_METHOD,
+                values = listOf(
+                    "DELETE",
+                    "GET",
+                    "HEAD",
+                    "OPTIONS",
+                    "PATCH",
+                    "POST",
+                    "PUT",
                 ),
             ),
             pkg = "web.http",

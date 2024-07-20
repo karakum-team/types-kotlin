@@ -9,6 +9,9 @@ internal fun String.applyPatches(): String {
         .applyReadyStatePatches()
         .patchQuerySelectors()
         .replace("    fetchPriority: string;", "    fetchPriority: $FETCH_PRIORITY;")
+        .patchInterfaces("Request", "RequestInit", "XMLHttpRequest") {
+            it.replace(Regex("""([( ]method\??: )string([;,])"""), "$1$REQUEST_METHOD$2")
+        }
         .patchInterface("ProgressEvent") {
             it.replace("\n    readonly target: T | null;", "")
         }
@@ -236,6 +239,14 @@ private fun String.patchCollections(): String {
 
     return result
 }
+
+internal fun String.patchInterfaces(
+    vararg names: String,
+    transform: (String) -> String,
+): String =
+    names.fold(this) { acc, name ->
+        acc.patchInterface(name, transform)
+    }
 
 internal fun String.patchInterface(
     name: String,
