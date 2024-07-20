@@ -98,7 +98,7 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
                     "low",
                 ),
             ),
-            pkg = "web.html",
+            pkg = "web.http",
         ),
         ConversionResult(
             name = "EnterKeyHint",
