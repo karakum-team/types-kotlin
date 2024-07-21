@@ -3,6 +3,7 @@
 package react.dom.html
 
 import web.dom.Element
+import web.form.FormMethod
 import web.html.ButtonType
 import web.window.WindowName
 
@@ -11,7 +12,7 @@ external interface ButtonHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var form: String?
     var formAction: String? /* FormAction */
     var formEncType: String?
-    var formMethod: String?
+    var formMethod: FormMethod?
     var formNoValidate: Boolean?
     var formTarget: WindowName?
     var name: String?

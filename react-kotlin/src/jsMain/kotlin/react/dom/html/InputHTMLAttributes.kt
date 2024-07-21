@@ -5,6 +5,7 @@ package react.dom.html
 import react.dom.events.ChangeEventHandler
 import web.autofill.AutoFill
 import web.dom.Element
+import web.form.FormMethod
 import web.html.EnterKeyHint
 import web.html.InputType
 import web.window.WindowName
@@ -20,7 +21,7 @@ external interface InputHTMLAttributes<T : Element> : HTMLAttributes<T> {
     var form: String?
     var formAction: String? /* FormAction */
     var formEncType: String?
-    var formMethod: String?
+    var formMethod: FormMethod?
     var formNoValidate: Boolean?
     var formTarget: WindowName?
     var height: Double?
