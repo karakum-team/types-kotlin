@@ -101,6 +101,9 @@ private fun convertAttributesInterface(
             .replaceFirst("children?: ReactNode | undefined;\n", "")
             .replaceFirst(ORIGINAL_DANGEROUSLY_SET_INNER_HTML_BODY, "DangerouslySetInnerHTML")
 
+        "FormHTMLAttributes" -> source
+            .replaceFirst("    method?: string | undefined;", "    method?: FormMethod | undefined;")
+
         "InputHTMLAttributes" -> source
             .replaceFirst("min?: number | string | undefined;\n", "min?: number | Date | undefined;\n")
             .replaceFirst("max?: number | string | undefined;\n", "max?: number | Date | undefined;\n")
@@ -133,6 +136,7 @@ private fun convertAttributesInterface(
                 members.replace("var ", "var $name.")
     } else {
         var result = "import web.dom.Element\n" +
+                "import web.form.FormMethod\n" +
                 "import web.html.*\n" +
                 "import web.http.CrossOrigin\n" +
                 "import web.http.FetchPriority\n" +

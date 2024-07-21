@@ -23,6 +23,7 @@ internal fun convertDefinitions(
         .replace(": HTMLInputTypeAttribute", ": InputType")
         .replace("    target?: string | undefined;", "    target?: WindowTarget | undefined;")
         .replace("    formTarget?: string | undefined;", "    formTarget?: WindowTarget | undefined;")
+        .replace("    formMethod?: string | undefined;", "    formMethod?: FormMethod | undefined;")
         .replace("    autoComplete?: string | undefined;", "    autoComplete?: AutoComplete | undefined;")
         .replace(""": boolean | "false"""", """: "false"""")
         .replace("""fetchPriority?: "high" | "low" | "auto";""", """fetchPriority?: FetchPriority;""")
