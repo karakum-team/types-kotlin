@@ -12,6 +12,10 @@ internal fun String.applyPatches(): String {
         .patchInterfaces("Request", "RequestInit", "XMLHttpRequest") {
             it.replace(Regex("""([( ]method\??: )string([;,])"""), "$1$REQUEST_METHOD$2")
         }
+        .patchInterface("HTMLFormElement") {
+            it.replace("    method: string;", "    method: $FORM_METHOD;")
+        }
+        .replace("    formMethod: string;", "    formMethod: $FORM_METHOD;")
         .patchInterface("ProgressEvent") {
             it.replace("\n    readonly target: T | null;", "")
         }

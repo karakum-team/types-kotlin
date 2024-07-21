@@ -127,6 +127,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.form.FormControl",
     "web.form.FormData",
     "web.form.FormDataEvent",
+    "web.form.FormMethod",
     "web.form.SubmitEvent",
     "web.fs.FileSystemDirectoryHandle",
     "web.fs.FileSystemEntry",

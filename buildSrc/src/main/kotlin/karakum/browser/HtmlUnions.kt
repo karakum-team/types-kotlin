@@ -4,6 +4,7 @@ import karakum.common.sealedUnionBody
 
 internal const val PRELOAD = "Preload"
 internal const val FETCH_PRIORITY = "FetchPriority"
+internal const val FORM_METHOD = "FormMethod"
 internal const val REQUEST_METHOD = "RequestMethod"
 
 internal class UnionData(
@@ -116,6 +117,18 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
                 ),
             ),
             pkg = "web.http",
+        ),
+        ConversionResult(
+            name = FORM_METHOD,
+            body = sealedUnionBody(
+                name = FORM_METHOD,
+                values = listOf(
+                    "get",
+                    "dialog",
+                    "post",
+                ),
+            ),
+            pkg = "web.form",
         ),
         ConversionResult(
             name = "EnterKeyHint",
