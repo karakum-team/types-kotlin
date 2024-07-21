@@ -43,15 +43,15 @@ private val ANY_ALIASES = setOf(
     "number | Date",
 )
 
-private val FORM_ACTION =
+private val FORM_ACTION_DECLARATION =
     "DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_FORM_ACTIONS[        keyof DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_FORM_ACTIONS    ]"
 
 internal fun kotlinType(
     type: String,
     name: String,
 ): String {
-    if (FORM_ACTION in type)
-        return "String /* FormAction */"
+    if (FORM_ACTION_DECLARATION in type)
+        return FORM_ACTION
 
     if (type.endsWith(" | undefined"))
         return kotlinType(type.removeSuffix(" | undefined"), name)

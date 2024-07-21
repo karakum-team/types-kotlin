@@ -16,6 +16,8 @@ private val DOM_TYPES = setOf(
 
 private val DOM_IMPORTS = """
 import react.dom.DOMAttributes
+import react.dom.FormAction
+import web.form.FormData
 import web.html.EnterKeyHint
 import web.html.InputType
 import web.html.Loading
@@ -70,6 +72,7 @@ fun generateKotlinDeclarations(
         val content = when (finalPkg) {
             Package.HTML,
             Package.SVG,
+            Package.DOM,
             -> ARIA_IMPORTS + "\n" + DOM_IMPORTS + "\n" + SESKAR_IMPORTS + "\n" + body
 
             else -> SESKAR_IMPORTS + "\n" + body
