@@ -1188,6 +1188,7 @@ internal fun convertInterface(
                 name == "SpeechSynthesisUtterance" ||
                 name == "EventSource" ||
                 name == "SharedWorker" ||
+                name == "AudioContext" ||
 
                 // with empty constructor
                 name == "Text" ||
