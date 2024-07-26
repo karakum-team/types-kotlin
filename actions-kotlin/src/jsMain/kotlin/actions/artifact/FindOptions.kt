@@ -9,8 +9,10 @@ sealed external interface FindOptions {
     /**
      * The criteria for finding Artifact(s) out of the scope of the current run.
      */
-    findBy?:
-    {
+    var findBy: FindBy?
+
+    @JsPlainObject
+    interface FindBy {
         /**
          * Token with actions:read permissions
          */
@@ -30,7 +32,5 @@ sealed external interface FindOptions {
          * Repository owner (eg. 'toolkit')
          */
         var repositoryName: String
-        var
-    }:
-}
+    }
 }
