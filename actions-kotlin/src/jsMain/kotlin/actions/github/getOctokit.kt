@@ -10,5 +10,5 @@ import js.objects.ReadonlyRecord
 external fun getOctokit(
     token: String,
     options: ReadonlyRecord<String, Any> /* OctokitOptions */ = definedExternally,
-    ...additionalPlugins: ReadonlyArray<Function<Any> /* OctokitPlugin */>,
-): InstanceType<typeof GitHub>
+    vararg additionalPlugins: ReadonlyArray<Function<Any> /* OctokitPlugin */>,
+): dynamic /* InstanceType<typeof GitHub> */
