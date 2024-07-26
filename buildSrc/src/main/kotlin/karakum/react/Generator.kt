@@ -15,6 +15,7 @@ private val DOM_TYPES = setOf(
 )
 
 private val DOM_IMPORTS = """
+import react.ActionOrString
 import react.dom.DOMAttributes
 import react.dom.FormAction
 import web.form.FormData
