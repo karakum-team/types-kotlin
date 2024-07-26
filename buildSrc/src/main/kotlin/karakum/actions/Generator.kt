@@ -40,8 +40,6 @@ fun generateKotlinDeclarations(
 ) {
     definitionsDir.listFiles()!!
         .filter { it.isDirectory }
-        // TEMP
-        .filter { it.name != "github" }
         .forEach { dir ->
             generate(
                 definitionsDir = dir,
