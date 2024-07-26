@@ -18,11 +18,23 @@ internal class LibraryConversionResult(
         }
 }
 
+private val LIBRARY_FOLDERS = listOf(
+    "lib",
+    "lib/internal",
+
+    // artifact
+    "lib/internal/delete",
+    "lib/internal/download",
+    "lib/internal/find",
+    "lib/internal/shared",
+    "lib/internal/upload",
+)
+
 internal fun convertLibrary(
     definitionsDir: File,
 ): LibraryConversionResult {
     val library = Library(definitionsDir.name)
-    val files = sequenceOf("lib", "lib/internal")
+    val files = LIBRARY_FOLDERS.asSequence()
         .map { definitionsDir.resolve(it) }
         .filter { it.exists() }
         .mapNotNull { it.listFiles { file -> file.name.endsWith(".d.ts") } }

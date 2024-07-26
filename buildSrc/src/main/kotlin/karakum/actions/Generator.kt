@@ -12,8 +12,11 @@ import js.promise.Promise
 import js.collections.ReadonlyMap
 import js.core.BigInt
 import js.core.JsLong
+import js.date.Date
 import kotlinx.js.JsPlainObject
+import js.objects.ReadonlyRecord
 import js.objects.Record
+import js.array.JsTuple2
 import js.array.ReadonlyArray
 import js.core.Void
 import js.errors.JsError
@@ -37,6 +40,8 @@ fun generateKotlinDeclarations(
 ) {
     definitionsDir.listFiles()!!
         .filter { it.isDirectory }
+        // TEMP
+        .filter { it.name != "github" }
         .forEach { dir ->
             generate(
                 definitionsDir = dir,

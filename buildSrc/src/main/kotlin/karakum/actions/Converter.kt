@@ -6,6 +6,8 @@ private val EXCLUDED_NAMES = setOf(
     "getCacheEntry",
     "reserveCache",
     "retryTypedResponse",
+
+    "internalArtifactTwirpClient",
 ).flatMap { sequenceOf(it, "${it}Async") }
 
 private const val STATIC_MARKER = "/* static */\n"
@@ -30,8 +32,10 @@ private fun cleanup(
     content.splitToSequence("\n")
         .filter { line -> !line.startsWith("/// ") }
         .filter { line -> !line.startsWith("import ") }
+        .filter { line -> !line.startsWith("export * ") }
         .filter { line -> !line.startsWith("    private _") }
         .joinToString("\n")
+        .replace("type RetryOptions = {", "interface RetryOptions {")
         .replace(" ifm.", " ")
         .replace(" im.", " ")
         .replace("<ifm.", "<")
@@ -151,6 +155,7 @@ private fun convertClass(
 
     val declaration = source.substringBefore(" {\n")
         .replace(" extends events.EventEmitter", " : node.events.EventEmitter")
+        .replace(" extends stream.Transform", " : node.stream.Transform")
         .replace(" extends Error", " : JsError")
         .replace(" extends ", " : ")
         .replace(" implements ", " : ")
@@ -203,6 +208,10 @@ private fun convertClass(
 
     when (name) {
         "DefaultArtifactClient",
+        -> body = "sealed " +
+                body.replace("\nfun ", "override fun ")
+                    .replace(" = definedExternally", "")
+
         "DefaultGlobber",
         -> body = "sealed $body"
     }
@@ -320,6 +329,14 @@ private fun convertMember(
     }
 
     return when {
+        source == "static isNetworkErrorCode: (code?: string) => boolean" ||
+                source == "static isUsageErrorMessage: (msg?: string) => boolean"
+        -> "companion object {\n" +
+                source.replace("static ", "fun ")
+                    .replace(": (", "(")
+                    .replace("?: string) => boolean", ": String?): Boolean") +
+                "\n}"
+
         source == "private constructor()"
         -> "    // $source"
 

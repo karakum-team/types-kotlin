@@ -1,5 +1,7 @@
 package karakum.actions
 
+private const val JSO = "ReadonlyRecord<String, Any>"
+
 private val STANDARD_TYPE_MAP = mapOf(
     "any" to "Any?",
     "boolean" to "Boolean",
@@ -28,6 +30,10 @@ private val STANDARD_TYPE_MAP = mapOf(
     "string | node.ReadableStream" to "Any /* string | node.ReadableStream */",
 
     "ReturnType<typeof setTimeout>" to "web.timers.Timeout",
+
+    "Timestamp" to "$JSO /* Timestamp */",
+    "OctokitOptions" to "$JSO /* OctokitOptions */",
+    "[RetryOptions, RequestRequestOptions | undefined]" to "JsTuple2<RetryOptions, $JSO? /* RequestRequestOptions? */>",
 )
 
 internal fun kotlinType(
@@ -43,6 +49,9 @@ internal fun kotlinType(
     if (type.endsWith(" | undefined"))
         return kotlinType(type.removeSuffix(" | undefined")) + "?"
 
+    if (type.endsWith(" & FindOptions"))
+        return type.removeSuffix(" & FindOptions") + " /* & FindOptions */"
+
     if (type.startsWith("Promise<") && type.endsWith(">")) {
         val resultType = kotlinType(type.removeSurrounding("Promise<", ">"))
         return "Promise<$resultType>"
@@ -52,7 +61,7 @@ internal fun kotlinType(
         return "node.$type"
 
     if (type.endsWith("[]"))
-        return "ReadonlyArray<${type.removeSuffix("[]")}>"
+        return "ReadonlyArray<${kotlinType(type.removeSuffix("[]"))}>"
 
     return type
         .replace(": string)", ": String)")
