@@ -10,6 +10,11 @@ private val EXCLUDED_NAMES = setOf(
     "internalArtifactTwirpClient",
 ).flatMap { sequenceOf(it, "${it}Async") }
 
+private val REDUNDANT_CONTEXT = """
+export declare const context: Context.Context;
+export declare const defaults: OctokitOptions;
+""".trimIndent()
+
 private const val STATIC_MARKER = "/* static */\n"
 
 internal fun convert(
@@ -29,12 +34,14 @@ internal fun convert(
 private fun cleanup(
     content: String,
 ): String =
-    content.splitToSequence("\n")
+    content.replace(REDUNDANT_CONTEXT, "")
+        .splitToSequence("\n")
         .filter { line -> !line.startsWith("/// ") }
         .filter { line -> !line.startsWith("import ") }
         .filter { line -> !line.startsWith("export * ") }
         .filter { line -> !line.startsWith("    private _") }
         .joinToString("\n")
+        .replace(": Context.Context", ": Context")
         .replace("type RetryOptions = {", "interface RetryOptions {")
         .replace(" ifm.", " ")
         .replace(" im.", " ")
@@ -303,10 +310,14 @@ private fun convertConst(
 
         "const val $name = $value"
     } else {
-        val type = kotlinType(
-            source.substringAfter(": ")
-                .removeSuffix(";")
-        )
+        val typeSource = source
+            .substringAfter(": ")
+            .removeSuffix(";")
+
+        val type = when (name) {
+            "GitHub" -> "dynamic /* $typeSource */"
+            else -> kotlinType(typeSource)
+        }
 
         "external val $name: $type"
     }
@@ -325,21 +336,14 @@ private fun convertMember(
             ?: return null
 
         val comment = source.substringBeforeLast("\n")
-            .replace(
-                "findBy?: {",
-                """
-                var findBy: FindBy?
-                
-                @JsPlainObject
-                interface FindBy {
-                """.trimIndent(),
-            )
+            .addInnerInterfaceFix()
 
         return "$comment\n$member"
     }
 
     return when {
         source == "}" -> source
+        source.trim() == "[key: string]: any" -> "// $source"
 
         source == "static isNetworkErrorCode: (code?: string) => boolean" ||
                 source == "static isUsageErrorMessage: (msg?: string) => boolean"

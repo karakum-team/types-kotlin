@@ -32,6 +32,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "ReturnType<typeof setTimeout>" to "web.timers.Timeout",
 
     "Timestamp" to "$JSO /* Timestamp */",
+    "OctokitPlugin" to "Function<Any> /* OctokitPlugin */",
     "OctokitOptions" to "$JSO /* OctokitOptions */",
     "[RetryOptions, RequestRequestOptions | undefined]" to "JsTuple2<RetryOptions, $JSO? /* RequestRequestOptions? */>",
 )
