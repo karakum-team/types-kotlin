@@ -34,38 +34,38 @@ external interface ArtifactClient {
      */
     fun listArtifacts(options: ListArtifactsOptions /* & FindOptions */ = definedExternally): Promise<ListArtifactsResponse>
 
-   /**
-    * Finds an artifact by name.
-    * If there are multiple artifacts with the same name in the same workflow run, this will return the latest.
-    * If the artifact is not found, it will throw.
-    *
-    * If `options.findBy` is specified, this will use the public List Artifacts API with a name filter which can get artifacts from other runs.
-    * https://docs.github.com/en/rest/actions/artifacts?apiVersion=2022-11-28#list-workflow-run-artifacts
-    * `@actions/artifact` v2+ does not allow for creating multiple artifacts with the same name in the same workflow run.
-    * It is possible to have multiple artifacts with the same name in the same workflow run by using old versions of upload-artifact (v1,v2 and v3), @actions/artifact < v2 or it is a rerun.
-    * If there are multiple artifacts with the same name in the same workflow run this function will return the first artifact that matches the name.
-    *
-    * @param artifactName The name of the artifact to find
-    * @param options Extra options that allow for the customization of the get behavior
-    */
-   fun getArtifact(
-      artifactName: String,
-      options: FindOptions = definedExternally,
-   ): Promise<GetArtifactResponse>
+    /**
+     * Finds an artifact by name.
+     * If there are multiple artifacts with the same name in the same workflow run, this will return the latest.
+     * If the artifact is not found, it will throw.
+     *
+     * If `options.findBy` is specified, this will use the public List Artifacts API with a name filter which can get artifacts from other runs.
+     * https://docs.github.com/en/rest/actions/artifacts?apiVersion=2022-11-28#list-workflow-run-artifacts
+     * `@actions/artifact` v2+ does not allow for creating multiple artifacts with the same name in the same workflow run.
+     * It is possible to have multiple artifacts with the same name in the same workflow run by using old versions of upload-artifact (v1,v2 and v3), @actions/artifact < v2 or it is a rerun.
+     * If there are multiple artifacts with the same name in the same workflow run this function will return the first artifact that matches the name.
+     *
+     * @param artifactName The name of the artifact to find
+     * @param options Extra options that allow for the customization of the get behavior
+     */
+    fun getArtifact(
+        artifactName: String,
+        options: FindOptions = definedExternally,
+    ): Promise<GetArtifactResponse>
 
-   /**
-    * Downloads an artifact and unzips the content.
-    *
-    * If `options.findBy` is specified, this will use the public Download Artifact API https://docs.github.com/en/rest/actions/artifacts?apiVersion=2022-11-28#download-an-artifact
-    *
-    * @param artifactId The id of the artifact to download
-    * @param options Extra options that allow for the customization of the download behavior
-    * @returns single DownloadArtifactResponse object
+    /**
+     * Downloads an artifact and unzips the content.
+     *
+     * If `options.findBy` is specified, this will use the public Download Artifact API https://docs.github.com/en/rest/actions/artifacts?apiVersion=2022-11-28#download-an-artifact
+     *
+     * @param artifactId The id of the artifact to download
+     * @param options Extra options that allow for the customization of the download behavior
+     * @returns single DownloadArtifactResponse object
      */
     fun downloadArtifact(
-      artifactId: Number,
-      options: DownloadArtifactOptions /* & FindOptions */ = definedExternally,
-   ): Promise<DownloadArtifactResponse>
+        artifactId: Number,
+        options: DownloadArtifactOptions /* & FindOptions */ = definedExternally,
+    ): Promise<DownloadArtifactResponse>
 
     /**
      * Delete an Artifact
@@ -77,7 +77,7 @@ external interface ArtifactClient {
      * @returns single DeleteArtifactResponse object
      */
     fun deleteArtifact(
-       artifactName: String,
-       options: FindOptions = definedExternally,
+        artifactName: String,
+        options: FindOptions = definedExternally,
     ): Promise<DeleteArtifactResponse>
 }
