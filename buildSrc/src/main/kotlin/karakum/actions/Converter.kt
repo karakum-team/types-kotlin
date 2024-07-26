@@ -508,7 +508,7 @@ private fun convertParameter(
     source: String,
 ): Parameter {
     val nameSource = source.substringBefore(": ")
-    val typeSource = source.substringAfter(": ")
+    var typeSource = source.substringAfter(": ")
 
     var name = nameSource
         .removePrefix("...")
@@ -517,10 +517,15 @@ private fun convertParameter(
     if (name == "val")
         name = "value"
 
+    val vararg = nameSource.startsWith("...")
+    if (vararg) {
+        typeSource = typeSource.removeSuffix("[]")
+    }
+
     return Parameter(
         name = name,
         type = kotlinType(typeSource),
-        vararg = nameSource.startsWith("..."),
+        vararg = vararg,
         optional = nameSource.endsWith("?"),
     )
 }
