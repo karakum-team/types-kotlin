@@ -325,10 +325,22 @@ private fun convertMember(
             ?: return null
 
         val comment = source.substringBeforeLast("\n")
+            .replace(
+                "findBy?: {",
+                """
+                var findBy: FindBy?
+                
+                @JsPlainObject
+                interface FindBy {
+                """.trimIndent(),
+            )
+
         return "$comment\n$member"
     }
 
     return when {
+        source == "}" -> source
+
         source == "static isNetworkErrorCode: (code?: string) => boolean" ||
                 source == "static isUsageErrorMessage: (msg?: string) => boolean"
         -> "companion object {\n" +
