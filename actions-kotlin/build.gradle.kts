@@ -19,3 +19,8 @@ dependencies {
     jsMainImplementation(kotlinxCoroutines("core"))
     jsMainImplementation(seskarCore())
 }
+
+val syncWithWrappers by tasks.creating(SyncWrappers::class) {
+    from(generatedDir)
+    into(kotlinWrappersDir("kotlin-actions-toolkit"))
+}
