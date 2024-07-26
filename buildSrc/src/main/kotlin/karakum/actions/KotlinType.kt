@@ -34,6 +34,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Timestamp" to "$JSO /* Timestamp */",
     "OctokitPlugin" to "Function<Any> /* OctokitPlugin */",
     "OctokitOptions" to "$JSO /* OctokitOptions */",
+    "InstanceType<typeof GitHub>" to "dynamic /* InstanceType<typeof GitHub> */",
     "[RetryOptions, RequestRequestOptions | undefined]" to "JsTuple2<RetryOptions, $JSO? /* RequestRequestOptions? */>",
 )
 

@@ -3,8 +3,13 @@ package karakum.common
 data class Parameter(
     val name: String,
     val type: String,
+    val vararg: Boolean,
     val optional: Boolean,
 ) {
     override fun toString(): String =
-        "$name: $type" + if (optional) " = definedExternally" else ""
+        listOfNotNull(
+            "vararg".takeIf { vararg },
+            "$name: $type",
+            "= definedExternally".takeIf { optional },
+        ).joinToString(" ")
 }

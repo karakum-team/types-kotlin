@@ -496,7 +496,7 @@ private fun convertParameters(
             .substringBefore(", onResult: ")
             .split(", ")
             .map { convertParameter(it) }
-            .plus(Parameter("onResult", "(err: JsError?, res: HttpClientResponse?) -> Unit", false))
+            .plus(Parameter("onResult", "(err: JsError?, res: HttpClientResponse?) -> Unit", false, false))
     } else {
         source
             .split(", ")
@@ -510,13 +510,17 @@ private fun convertParameter(
     val nameSource = source.substringBefore(": ")
     val typeSource = source.substringAfter(": ")
 
-    var name = nameSource.removeSuffix("?")
+    var name = nameSource
+        .removePrefix("...")
+        .removeSuffix("?")
+
     if (name == "val")
         name = "value"
 
     return Parameter(
         name = name,
         type = kotlinType(typeSource),
+        vararg = nameSource.startsWith("..."),
         optional = nameSource.endsWith("?"),
     )
 }
