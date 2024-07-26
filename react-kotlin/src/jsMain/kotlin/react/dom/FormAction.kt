@@ -2,6 +2,7 @@
 
 package react.dom
 
+import react.ActionOrString
 import web.form.FormData
 
-typealias FormAction = (data: FormData) -> Unit
+typealias FormAction = ActionOrString<FormData>
