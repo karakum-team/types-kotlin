@@ -39,6 +39,10 @@ private val RANGES_TYPES = setOf(
 )
 
 private val DOM_TYPES = setOf(
+    // separate package?
+    "CaretPosition",
+    "CaretPositionFromPointOptions",
+
     "DOMStringList",
     "DOMStringMap",
     "DOMTokenList",
@@ -320,6 +324,9 @@ private val WORKERS_TYPES = listOf(
 private val WEB_AUTHN_TYPES = listOf(
     "AuthenticationExtensionsClientInputs",
     "AuthenticationExtensionsClientOutputs",
+    "AuthenticationExtensionsPRFInputs",
+    "AuthenticationExtensionsPRFOutputs",
+    "AuthenticationExtensionsPRFValues",
     "AuthenticatorAssertionResponse",
     "AuthenticatorAttestationResponse",
     "AuthenticatorResponse",
@@ -1080,6 +1087,8 @@ internal fun convertInterface(
             "RTCInboundRtpStreamStats",
             -> result.replace("var kind:", "override var kind:")
 
+            "CompressionStream",
+            "DecompressionStream",
             "TextDecoderStream",
             "TextEncoderStream",
             -> result
@@ -1866,6 +1875,9 @@ private fun convertProperty(
 
         "Record<string, string>",
         -> "ReadonlyRecord<String, String>"
+
+        "Record<string, AuthenticationExtensionsPRFValues>",
+        -> "Record<String, AuthenticationExtensionsPRFValues>"
 
         "BufferSource | string",
         -> "BufferSource /* | String */"

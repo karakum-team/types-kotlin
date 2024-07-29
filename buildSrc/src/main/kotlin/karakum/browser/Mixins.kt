@@ -38,7 +38,6 @@ internal object Mixins {
         "TextDecoderCommon",
         "TextEncoderCommon",
 
-        "GenericTransformStream",
         "ReadableStreamGenericReader",
 
         "SVGAnimatedPoints",

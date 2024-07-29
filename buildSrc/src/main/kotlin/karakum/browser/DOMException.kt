@@ -11,7 +11,7 @@ private val MDN_URI =
 internal fun domExceptionErrorNames(): String =
     loadContent(MDN_URI)
         .substringAfter("\n## Error names\n", "")
-        .substringAfter("> **Note:** ", "")
+        .substringAfter("> [!NOTE]", "")
         .substringAfter("\n\n", "")
         .substringBefore("\n\n", "")
         .let { "\n$it" }
