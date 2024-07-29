@@ -15,6 +15,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "string[]" to "ReadonlyArray<String>",
     "Record<string, string>" to "Record<String, String>",
 
+    "typeof fetch" to "Any /* typeof fetch */",
     "typeof http | typeof https" to "Any /* typeof http | typeof https */",
 
     "NodeJS.ReadableStream" to "node.ReadableStream",
