@@ -4,6 +4,7 @@ import karakum.common.sealedUnionBody
 
 internal const val PRELOAD = "Preload"
 internal const val FETCH_PRIORITY = "FetchPriority"
+internal const val FORM_ENCTYPE = "FormEncType"
 internal const val FORM_METHOD = "FormMethod"
 internal const val REQUEST_METHOD = "RequestMethod"
 
@@ -126,6 +127,18 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
                     "get",
                     "dialog",
                     "post",
+                ),
+            ),
+            pkg = "web.form",
+        ),
+        ConversionResult(
+            name = FORM_ENCTYPE,
+            body = sealedUnionBody(
+                name = FORM_ENCTYPE,
+                values = listOf(
+                    "application/x-www-form-urlencoded",
+                    "multipart/form-data",
+                    "text/plain",
                 ),
             ),
             pkg = "web.form",

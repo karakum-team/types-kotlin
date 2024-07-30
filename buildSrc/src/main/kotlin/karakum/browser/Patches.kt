@@ -14,8 +14,10 @@ internal fun String.applyPatches(): String {
         }
         .patchInterface("HTMLFormElement") {
             it.replace("    method: string;", "    method: $FORM_METHOD;")
+                .replace("    enctype: string;", "    enctype: $FORM_ENCTYPE;")
         }
         .replace("    formMethod: string;", "    formMethod: $FORM_METHOD;")
+        .replace("    formEnctype: string;", "    formEnctype: $FORM_ENCTYPE;")
         .patchInterface("ProgressEvent") {
             it.replace("\n    readonly target: T | null;", "")
         }
