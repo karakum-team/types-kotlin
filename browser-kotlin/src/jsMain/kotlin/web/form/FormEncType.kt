@@ -12,6 +12,9 @@ sealed external interface FormEncType {
         @JsValue("multipart/form-data")
         val multipartFormData: FormEncType
 
+        @JsValue("application/json")
+        val applicationJson: FormEncType
+
         @JsValue("text/plain")
         val textPlain: FormEncType
     }
