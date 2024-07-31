@@ -138,6 +138,7 @@ internal fun htmlUnions(): Sequence<ConversionResult> =
                 values = listOf(
                     "application/x-www-form-urlencoded",
                     "multipart/form-data",
+                    "application/json",
                     "text/plain",
                 ),
             ),
