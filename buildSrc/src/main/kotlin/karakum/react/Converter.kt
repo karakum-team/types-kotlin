@@ -24,6 +24,8 @@ internal fun convertDefinitions(
         .replace("    target?: string | undefined;", "    target?: WindowTarget | undefined;")
         .replace("    formTarget?: string | undefined;", "    formTarget?: WindowTarget | undefined;")
         .replace("    formMethod?: string | undefined;", "    formMethod?: FormMethod | undefined;")
+        .replace("    formEncType?: string | undefined;", "    formEncType?: FormEncType | undefined;")
+        .replace("    encType?: string | undefined;", "    encType?: FormEncType | undefined;")
         .replace("    autoComplete?: string | undefined;", "    autoComplete?: AutoComplete | undefined;")
         .replace(""": boolean | "false"""", """: "false"""")
         .replace("""fetchPriority?: "high" | "low" | "auto";""", """fetchPriority?: FetchPriority;""")

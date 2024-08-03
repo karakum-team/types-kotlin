@@ -19,6 +19,7 @@ import react.ActionOrString
 import react.dom.DOMAttributes
 import react.dom.FormAction
 import web.form.FormData
+import web.form.FormEncType
 import web.html.EnterKeyHint
 import web.html.InputType
 import web.html.Loading
@@ -74,7 +75,7 @@ fun generateKotlinDeclarations(
             Package.HTML,
             Package.SVG,
             Package.DOM,
-            -> ARIA_IMPORTS + "\n" + DOM_IMPORTS + "\n" + SESKAR_IMPORTS + "\n" + body
+                -> ARIA_IMPORTS + "\n" + DOM_IMPORTS + "\n" + SESKAR_IMPORTS + "\n" + body
 
             else -> SESKAR_IMPORTS + "\n" + body
         }
