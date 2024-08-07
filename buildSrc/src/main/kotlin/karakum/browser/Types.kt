@@ -396,7 +396,6 @@ private fun convertType(
         -> body = body.replaceFirst(name, "$name:\nAutoFill")
 
         "AutoFillContactField",
-        "AutoFillCredentialField",
         "AutoFillNormalField",
         -> body = body.replaceFirst(name, "$name:\nAutoFillField")
     }
@@ -594,12 +593,7 @@ private fun autoFillInterface(
         }
     }
 
-    val parent = when (name) {
-        "AutoFillField" -> ": AutoFill"
-        else -> ""
-    }
-
-    return sequenceOf("sealed external interface $name$parent")
+    return sequenceOf("sealed external interface $name")
         .plus(factories)
         .joinToString("\n\n")
 }
