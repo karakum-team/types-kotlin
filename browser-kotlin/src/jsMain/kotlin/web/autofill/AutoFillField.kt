@@ -6,7 +6,7 @@
 
 package web.autofill
 
-sealed external interface AutoFillField : AutoFill
+sealed external interface AutoFillField
 
 inline fun AutoFillField(
     contactKind: AutoFillContactKind,
