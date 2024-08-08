@@ -10,6 +10,7 @@ private val DEFAULT_IMPORTS = listOf(
     "js.array.JsTuple2",
     "js.array.JsTuple3",
     "js.array.ReadonlyArray",
+    "js.errors.JsError",
     "js.objects.Record",
     "js.symbol.Symbol",
     "js.core.Void",

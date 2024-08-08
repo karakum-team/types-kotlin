@@ -12,7 +12,9 @@ class Class(
 
     override fun toCode(): String {
         val extends = parentType?.let {
-            (if (typeParameters.isNotEmpty()) "\n" else "") + ": $it"
+            val parent = if (it == "Error") "JsError" else it
+
+            (if (typeParameters.isNotEmpty()) "\n" else "") + ": $parent"
         } ?: ""
 
         val constructor = members.asSequence()
