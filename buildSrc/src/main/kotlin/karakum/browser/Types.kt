@@ -367,7 +367,7 @@ private fun convertType(
             name = name,
             body = finalBody,
             pkg = pkg
-        )
+        ).withAutoFillCorrection()
     }
 
     val pkg = getPkg(name)
@@ -378,7 +378,7 @@ private fun convertType(
         .map { it.removeSurrounding("\"") }
         .toList()
 
-    var body = when (name) {
+    val body = when (name) {
         "KeyFormat",
         "FileSystemHandleKind",
         -> objectUnionBody(
@@ -389,22 +389,11 @@ private fun convertType(
         else -> sealedUnionBody(name, values)
     }
 
-    // TODO: calculate instead
-    when (name) {
-        "AutoFillBase",
-        "AutoFillField",
-        -> body = body.replaceFirst(name, "$name:\nAutoFill")
-
-        "AutoFillContactField",
-        "AutoFillNormalField",
-        -> body = body.replaceFirst(name, "$name:\nAutoFillField")
-    }
-
     return ConversionResult(
         name = name,
         body = body,
         pkg = pkg
-    )
+    ).withAutoFillCorrection()
 }
 
 private fun getTypePkg(
@@ -596,4 +585,22 @@ private fun autoFillInterface(
     return sequenceOf("sealed external interface $name")
         .plus(factories)
         .joinToString("\n\n")
+}
+
+private fun ConversionResult.withAutoFillCorrection(): ConversionResult {
+    val newBody = when (name) {
+        "AutoFillBase",
+        "AutoFillField",
+        -> body.replaceFirst(name, "$name:\nAutoFill")
+
+        "AutoFillContactField",
+        "AutoFillNormalField",
+        -> body.replaceFirst(name, "$name:\nAutoFillField")
+
+        else -> return this
+    }
+
+    return copy(
+        body = newBody,
+    )
 }
