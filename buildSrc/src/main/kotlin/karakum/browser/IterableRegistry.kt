@@ -2,7 +2,7 @@ package karakum.browser
 
 import java.io.File
 
-private val ITERATOR_REGEX = Regex("""\ninterface (\w+) \{\n\s+\[Symbol.iterator]\(\): IterableIterator<(.+)>;""")
+private val ITERATOR_REGEX = Regex("""\ninterface (\w+) \{\n\s+\[Symbol.iterator]\(\): ([a-zA-Z]+)Iterator<(.+)>;""")
 private val ADDITIONAL_PARENT_REGEX = Regex("""\ninterface (\w+) extends (.+?) \{\n""")
 
 internal object IterableRegistry {
@@ -22,7 +22,7 @@ internal object IterableRegistry {
             .map { it.replace("\r\n", "\n") }
             .flatMap { ITERATOR_REGEX.findAll(it) }
             .map { it.groupValues }
-            .associate { it[1] to it[2] }
+            .associate { it[1] to it[3] }
 
         additionalParentMap = additionalFiles
             .asSequence()
