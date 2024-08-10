@@ -20,7 +20,7 @@ private val DEFAULT_IMPORTS = listOf(
 
     "js.collections.JsSet",
 
-    "js.iterable.IterableIterator",
+    "js.iterable.JsIterator",
 
     "web.abort.AbortController",
     "web.abort.AbortSignal",
