@@ -10,8 +10,6 @@ dependencies {
 
     jsMainImplementation(wrappers("browser"))
     jsMainImplementation(wrappers("react-core"))
-
-    jsMainImplementation(seskarCore())
 }
 
 val syncWithWrappers by tasks.creating(SyncWrappers::class) {

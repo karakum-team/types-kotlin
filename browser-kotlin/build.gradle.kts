@@ -23,8 +23,6 @@ dependencies {
     jsMainImplementation(wrappers("js"))
 
     jsMainImplementation(kotlinxCoroutines("core"))
-
-    jsMainImplementation(seskarCore())
 }
 
 val INTERNAL = setOf(

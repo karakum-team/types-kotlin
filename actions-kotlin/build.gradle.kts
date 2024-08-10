@@ -18,7 +18,6 @@ dependencies {
 
     jsMainImplementation(wrappers("node"))
     jsMainImplementation(kotlinxCoroutines("core"))
-    jsMainImplementation(seskarCore())
 }
 
 val syncWithWrappers by tasks.creating(SyncWrappers::class) {

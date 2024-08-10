@@ -18,8 +18,6 @@ dependencies {
 
     jsMainImplementation(wrappers("web"))
     jsMainImplementation(wrappers("react-core"))
-
-    jsMainImplementation(seskarCore())
 }
 
 val syncCoreWrappers by tasks.creating(SyncWrappers::class) {

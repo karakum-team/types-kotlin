@@ -8,6 +8,3 @@ private fun Project.kotlinx(
     name: String,
 ): String =
     "org.jetbrains.kotlinx:$projectName-$name:${version(projectName)}"
-
-fun Project.seskarCore(): String =
-    "io.github.turansky.seskar:seskar-core:${version("seskar")}"

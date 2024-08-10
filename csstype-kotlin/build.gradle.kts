@@ -9,8 +9,6 @@ dependencies {
     jsMainImplementation(npmv("csstype"))
 
     jsMainImplementation(wrappers("js"))
-
-    jsMainImplementation(seskarCore())
 }
 
 val syncWithWrappers by tasks.creating(SyncWrappers::class) {
