@@ -22,7 +22,7 @@ dependencies {
     jsMainImplementation(wrappers("cssom-core"))
     jsMainImplementation(wrappers("js"))
 
-    jsMainImplementation(kotlinxCoroutines("core"))
+    jsMainImplementation(libs.coroutines.core)
 }
 
 val INTERNAL = setOf(

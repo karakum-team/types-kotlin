@@ -17,7 +17,7 @@ dependencies {
     jsMainImplementation(npmv("@actions/tool-cache"))
 
     jsMainImplementation(wrappers("node"))
-    jsMainImplementation(kotlinxCoroutines("core"))
+    jsMainImplementation(libs.coroutines.core)
 }
 
 val syncWithWrappers by tasks.creating(SyncWrappers::class) {
