@@ -8,7 +8,6 @@ pluginManagement {
 
         val kfcVersion = extra["kfc.version"] as String
         id("io.github.turansky.kfc.library") version kfcVersion
-        id("io.github.turansky.kfc.wrappers") version kfcVersion
 
         val seskarVersion = extra["seskar.version"] as String
         id("io.github.turansky.seskar") version seskarVersion
@@ -22,6 +21,9 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         create("libs") {
+            val wrappersVersion = extra["kotlin-wrappers.version"] as String
+            from("org.jetbrains.kotlin-wrappers:kotlin-wrappers-catalog:$wrappersVersion")
+
             val coroutinesVersion = extra["kotlinx-coroutines.version"] as String
             library("coroutines-core", "org.jetbrains.kotlinx", "kotlinx-coroutines-core").version(coroutinesVersion)
         }

@@ -1,6 +1,5 @@
 plugins {
     kfc("library")
-    kfc("wrappers")
     seskar()
     `csstype-declarations`
 }
@@ -8,7 +7,7 @@ plugins {
 dependencies {
     jsMainImplementation(npmv("csstype"))
 
-    jsMainImplementation(wrappers("js"))
+    jsMainImplementation(libs.wrappers.js)
 }
 
 val syncWithWrappers by tasks.creating(SyncWrappers::class) {

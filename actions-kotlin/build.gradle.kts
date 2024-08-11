@@ -1,6 +1,5 @@
 plugins {
     kfc("library")
-    kfc("wrappers")
     seskar()
     `actions-declarations`
 }
@@ -16,7 +15,7 @@ dependencies {
     jsMainImplementation(npmv("@actions/io"))
     jsMainImplementation(npmv("@actions/tool-cache"))
 
-    jsMainImplementation(wrappers("node"))
+    jsMainImplementation(libs.wrappers.node)
     jsMainImplementation(libs.coroutines.core)
 }
 

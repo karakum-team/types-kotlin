@@ -1,6 +1,5 @@
 plugins {
     kfc("library")
-    kfc("wrappers")
     seskar()
     `browser-declarations`
 }
@@ -19,8 +18,8 @@ dependencies {
     jsMainImplementation(npmv("@webref/events"))
     jsMainImplementation(npmv("@webref/idl"))
 
-    jsMainImplementation(wrappers("cssom-core"))
-    jsMainImplementation(wrappers("js"))
+    jsMainImplementation(libs.wrappers.cssom.core)
+    jsMainImplementation(libs.wrappers.js)
 
     jsMainImplementation(libs.coroutines.core)
 }

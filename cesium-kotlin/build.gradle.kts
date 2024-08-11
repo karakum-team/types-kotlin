@@ -1,6 +1,5 @@
 plugins {
     kfc("library")
-    kfc("wrappers")
     seskar()
     `cesium-declarations`
 }
@@ -9,7 +8,7 @@ dependencies {
     jsMainImplementation(npmv("@cesium/engine"))
     jsMainImplementation(npmv("@cesium/widgets"))
 
-    jsMainImplementation(wrappers("browser"))
+    jsMainImplementation(libs.wrappers.browser)
 }
 
 val syncCesiumEngine by tasks.creating(SyncWrappers::class) {

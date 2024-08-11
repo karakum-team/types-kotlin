@@ -1,6 +1,5 @@
 plugins {
     kfc("library")
-    kfc("wrappers")
     seskar()
     `react-declarations`
 }
@@ -8,8 +7,8 @@ plugins {
 dependencies {
     jsMainImplementation(npmv("@types/react"))
 
-    jsMainImplementation(wrappers("browser"))
-    jsMainImplementation(wrappers("react-core"))
+    jsMainImplementation(libs.wrappers.browser)
+    jsMainImplementation(libs.wrappers.react.core)
 }
 
 val syncWithWrappers by tasks.creating(SyncWrappers::class) {
