@@ -1,6 +1,6 @@
 plugins {
-    kfc("library")
-    seskar()
+    alias(libs.plugins.kfc.library)
+    alias(libs.plugins.seskar)
     `actions-declarations`
 }
 
