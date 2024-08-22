@@ -1145,15 +1145,11 @@ internal fun convertInterface(
         .filter { it.isNotEmpty() }
         .joinToString("\n\n")
 
-    val defaultAnnotation = if ("<" in declaration) {
-        "@kotlinx.js.JsPlainObject_KT_68943"
-    } else "@JsPlainObject"
-
     val annotations = when {
         !declaration.startsWith("interface ") -> ""
         "= definedExternally" in members -> ""
 
-        name.endsWith("Options") -> defaultAnnotation
+        name.endsWith("Options") -> "@JsPlainObject"
 
         IDLRegistry.isPlainObjectInterface(name) -> {
             when (name) {
@@ -1163,7 +1159,7 @@ internal fun convertInterface(
                 "QueuingStrategy",
                 -> "// @JsPlainObject"
 
-                else -> defaultAnnotation
+                else -> "@JsPlainObject"
             }
         }
 

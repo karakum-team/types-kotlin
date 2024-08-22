@@ -139,7 +139,6 @@ private fun convertInterface(
 
     val annotation = when {
         hasFunctions -> null
-        "<" in declaration -> "@kotlinx.js.JsPlainObject_KT_68943"
         else -> "@JsPlainObject"
     }
 

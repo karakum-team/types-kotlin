@@ -252,12 +252,8 @@ private fun event(
             .replace("<D = any>", "<out D>") +
                 " $parentDeclaration"
 
-        val annotation = if ("<" in declaration) {
-            "@kotlinx.js.JsPlainObject_KT_68943"
-        } else "@JsPlainObject"
-
         sequenceOf(
-            annotation,
+            "@JsPlainObject",
             "external interface $declaration {",
             members,
             "}",
