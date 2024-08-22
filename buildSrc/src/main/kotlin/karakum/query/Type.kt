@@ -105,7 +105,7 @@ class Type(
     }
 
     override fun toCode(): String {
-        if (name == "Override" || name == "NoInfer" || name == "NonFunctionGuard" || name == "SkipToken" || name == "OmitKeyof")
+        if (name == "Override" || name == "NoInfer" || name == "NonFunctionGuard" || name == "SkipToken" || name == "OmitKeyof" || name == "ReplaceReturnType")
             return ""
 
         if (name == "QueryClientProviderProps")

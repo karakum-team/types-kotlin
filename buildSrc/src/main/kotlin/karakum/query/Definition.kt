@@ -97,6 +97,30 @@ fun toDeclarations(
         .replace("    get promise(): ", "    promise: ")
         // TEMP
         .replace(" & {\n        manual: boolean;\n    }", "")
+        .replace(
+            """
+            subscribe: Subscribable<InfiniteQueryObserverListener<TData, TError>>['subscribe'];
+            """.trimIndent(),
+            """
+            subscribe: (listener?: InfiniteQueryObserverListener<TData, TError>) -> () -> Unit  
+            """.trimIndent()
+        )
+        .replace(
+            """
+            getCurrentResult: ReplaceReturnType<QueryObserver<TQueryFnData, TError, TData, InfiniteData<TQueryData, TPageParam>, TQueryKey>['getCurrentResult'], InfiniteQueryObserverResult<TData, TError>>;
+            """.trimIndent(),
+            """
+            getCurrentResult: () -> InfiniteQueryObserverResult<TData, TError>
+            """.trimIndent()
+        )
+        .replace(
+            """
+            protected fetch: ReplaceReturnType<QueryObserver<TQueryFnData, TError, TData, InfiniteData<TQueryData, TPageParam>, TQueryKey>['fetch'], Promise<InfiniteQueryObserverResult<TData, TError>>>;
+            """.trimIndent(),
+            """
+            protected fetch: (fetchOptions: ObserverFetchOptions) -> Promise<InfiniteQueryObserverResult<TData, TError>>
+            """.trimIndent()
+        )
 
     content = when (definitionFile.name) {
         "focusManager.d.ts" -> content.replace("SetupFn", "FocusManagerSetupFn")
