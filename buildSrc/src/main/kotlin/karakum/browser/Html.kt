@@ -1153,9 +1153,6 @@ internal fun convertInterface(
 
         IDLRegistry.isPlainObjectInterface(name) -> {
             when (name) {
-                "GPUBufferBinding",
-                -> "// @JsPlainObject\n//  Details - https://youtrack.jetbrains.com/issue/KT-68554"
-
                 "QueuingStrategy",
                 -> "// @JsPlainObject"
 
