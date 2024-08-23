@@ -33,6 +33,7 @@ private val PACKAGE_MAP = mapOf(
     "Notification" to "web.notifications",
     "OffscreenCanvas" to "web.canvas",
     "PaymentRequest" to "web.payment",
+    "PaymentResponse" to "web.payment",
     "Performance" to "web.performance",
     "PermissionStatus" to "web.permissions",
     "PictureInPictureWindow" to "web.pip",
@@ -86,6 +87,23 @@ private val ADDITIONAL_EVENTS = listOf(
         name = "uncapturederror",
         type = "GPUUncapturedErrorEvent",
         pkg = "web.gpu",
+    ),
+
+    // Payment
+    EventData(
+        name = "shippingaddresschange",
+        type = "PaymentRequestUpdateEvent",
+        pkg = "web.payment",
+    ),
+    EventData(
+        name = "shippingoptionchange",
+        type = "PaymentRequestUpdateEvent",
+        pkg = "web.payment",
+    ),
+    EventData(
+        name = "payerdetailchange",
+        type = "PaymentRequestUpdateEvent",
+        pkg = "web.payment",
     ),
 
     // Document

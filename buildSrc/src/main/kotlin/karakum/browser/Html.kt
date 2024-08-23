@@ -494,6 +494,11 @@ private val COMPRESSION_STREAMS_TYPES = listOf(
     "DecompressionStream",
 )
 
+private val PAYMENT_TYPES = listOf(
+    "PayerErrors",
+    "AddressErrors",
+)
+
 private val URL_TYPES = listOf(
     "URL",
     "URLSearchParams",
@@ -1469,6 +1474,7 @@ internal fun convertInterface(
         name.startsWith("MIDI") -> "web.midi"
         name.startsWith("WakeLock") -> "web.wakelock"
 
+        name in PAYMENT_TYPES -> "web.payment"
         name.startsWith("Payment") -> "web.payment"
 
         name in URL_TYPES -> "web.url"

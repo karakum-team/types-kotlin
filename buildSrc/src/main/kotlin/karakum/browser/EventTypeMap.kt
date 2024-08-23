@@ -230,4 +230,9 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     "notificationclose" to "notification_close",
 
     "uncapturederror" to "uncaptured_error",
+
+    // Payment
+    "shippingaddresschange" to "shipping_address_change",
+    "shippingoptionchange" to "shipping_option_change",
+    "payerdetailchange" to "payer_detail_change",
 )
