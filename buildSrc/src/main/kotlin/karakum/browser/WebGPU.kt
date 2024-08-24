@@ -174,7 +174,7 @@ private fun webGpuDeclarations(
                     name = "GPUUncapturedErrorEvent",
                     body = """
                     external class GPUUncapturedErrorEvent(
-                        override val type: EventType<GPUUncapturedErrorEvent, EventTarget>,
+                        override val type: EventType<GPUUncapturedErrorEvent>,
                         init: GPUUncapturedErrorEventInit,                        
                     ): Event {
                         val error: GPUError

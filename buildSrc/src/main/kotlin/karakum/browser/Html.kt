@@ -556,7 +556,7 @@ internal fun htmlDeclarations(
         .plus(
             ConversionResult(
                 name = "EventCounts",
-                body = "sealed external class EventCounts : ReadonlyMap<EventType<*, *>, Int>",
+                body = "sealed external class EventCounts : ReadonlyMap<EventType<*>, Int>",
                 pkg = "web.performance",
             )
         )

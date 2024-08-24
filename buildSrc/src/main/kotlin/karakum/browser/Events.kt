@@ -346,7 +346,7 @@ private fun event(
         }
 
         val typeParameter = if (withDataSupport) "<D>" else ""
-        val eventType = "EventType<$name$typeParameter, EventTarget>"
+        val eventType = "EventType<$name$typeParameter>"
 
         val eventParameters = constructorSource
             .split(", ")
@@ -542,9 +542,9 @@ private fun eventTypes(
     val typesName = "${eventName}Types"
     val typeParameters = when (eventName) {
         "MessageEvent",
-        -> "<D, C : EventTarget>"
+        -> "<D>"
 
-        else -> "<C : EventTarget>"
+        else -> ""
     }
 
     val eventType = when (eventName) {
@@ -563,7 +563,7 @@ private fun eventTypes(
 
             """
             @JsValue("$name")
-            fun $typeParameters $memberName(): $EVENT_TYPE<$eventType, C>
+            fun $typeParameters $memberName(): $EVENT_TYPE<$eventType>
             """.trimIndent()
         }
 
@@ -598,7 +598,7 @@ private fun eventTypes(
                 .snakeToCamel()
 
             """
-            inline fun <C : EventTarget> $typeName.Companion.$memberName() : $EVENT_TYPE<$typeName, C> =
+            inline fun $typeName.Companion.$memberName() : $EVENT_TYPE<$typeName> =
                 $EVENT_TYPE("$name")
             """.trimIndent()
         }
