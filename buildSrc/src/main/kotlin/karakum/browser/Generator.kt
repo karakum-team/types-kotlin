@@ -274,7 +274,7 @@ fun generateKotlinDeclarations(
 
     val serviceWorkersContent = serviceWorkersContent(serviceworkerDefinitionsFile)
     val (mainEventDeclarations, knownEventTypes) = eventDeclarations(content, WEB_WORKER_CONTENT, serviceWorkersContent)
-    val eventDeclarations = mainEventDeclarations.withEventInitFactories() +
+    val eventDeclarations = mainEventDeclarations +
             webWorkersEventDeclarations(WEB_WORKER_CONTENT) +
             serviceWorkersEventDeclarations(content, serviceWorkersContent)
 
@@ -315,10 +315,7 @@ fun generateKotlinDeclarations(
 
     val aliases = domAliases()
         .plus(htmlFactories(content))
-        .plus(
-            htmlDeclarations(content)
-                .withMutableEventModifiersInit()
-        )
+        .plus(htmlDeclarations(content))
         .plus(htmlUnions())
         .plus(browserConstants(content))
         .plus(browserTypes(content))
