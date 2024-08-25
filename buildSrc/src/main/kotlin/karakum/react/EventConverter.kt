@@ -95,7 +95,7 @@ internal fun convertEventInterface(
 
         "BaseSyntheticEvent",
             -> members = members
-            .replaceFirst("val type: String", "val type: EventType<E, EventTarget>")
+            .replaceFirst("val type: String", "val type: EventType<E>")
     }
 
     val body = DEFAULT_EVENT_IMPORTS.removePrefix("\n") +
