@@ -56,12 +56,6 @@ external interface DOMAttributes<T : Element> :
     // Keyboard Events
     var onKeyDown: KeyboardEventHandler<T>?
     var onKeyDownCapture: KeyboardEventHandler<T>?
-
-    /** @deprecated Use `onKeyUp` or `onKeyDown` instead */
-    var onKeyPress: KeyboardEventHandler<T>?
-
-    /** @deprecated Use `onKeyUpCapture` or `onKeyDownCapture` instead */
-    var onKeyPressCapture: KeyboardEventHandler<T>?
     var onKeyUp: KeyboardEventHandler<T>?
     var onKeyUpCapture: KeyboardEventHandler<T>?
 
@@ -211,4 +205,3 @@ inline var <T : Element> DOMAttributes<T>.onChange: FormEventHandler<T>?
     set(value) {
         asDynamic().onChange = value
     }
-                    
