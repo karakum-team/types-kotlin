@@ -340,6 +340,11 @@ private val WEB_AUTHN_TYPES = listOf(
     "PublicKeyCredentialRequestOptions",
     "PublicKeyCredentialRpEntity",
     "PublicKeyCredentialUserEntity",
+    "AuthenticationExtensionsClientInputsJSON",
+    "PublicKeyCredentialCreationOptionsJSON",
+    "PublicKeyCredentialDescriptorJSON",
+    "PublicKeyCredentialRequestOptionsJSON",
+    "PublicKeyCredentialUserEntityJSON",
 )
 
 private val CREDENTIALS_TYPES = listOf(

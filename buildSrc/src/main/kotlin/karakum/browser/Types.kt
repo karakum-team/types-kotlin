@@ -101,6 +101,9 @@ private val PKG_MAP = mapOf(
 
     "SpeechSynthesisErrorCode" to "web.speech",
 
+    "Base64URLString" to "web.authn",
+    "PublicKeyCredentialJSON" to "web.authn",
+
     "CredentialMediationRequirement" to "web.credentials",
     "SecurityPolicyViolationEventDisposition" to "web.csp",
 
@@ -141,6 +144,7 @@ private val INTL_KEY_TYPES = setOf(
 )
 
 private val ALIAS_MAP = mapOf(
+    "any" to "Any",
     "string" to "String",
     "number" to "Double",
 
@@ -270,6 +274,9 @@ private fun convertType(
 
             "ReportList" -> "web.reporting"
             "LineAndPositionSetting" -> "web.vtt"
+
+            "Base64URLString",
+            "PublicKeyCredentialJSON",
 
             "RTCRtpTransform",
 
