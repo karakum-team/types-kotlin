@@ -4,10 +4,8 @@ plugins {
     `popper-declarations`
 }
 
-val popperVersion = property("popper.version") as String
-
 dependencies {
-    jsMainImplementation(npm("@popperjs/core", popperVersion))
+    jsMainImplementation(npmv("@popperjs/core"))
 
     jsMainImplementation(libs.wrappers.browser)
 }

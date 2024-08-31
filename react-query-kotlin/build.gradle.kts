@@ -10,10 +10,8 @@ kotlin {
     }
 }
 
-val reactQueryVersion = property("react-query.version") as String
-
 dependencies {
-    jsMainImplementation(npm("@tanstack/react-query", reactQueryVersion))
+    jsMainImplementation(npmv("@tanstack/react-query"))
 
     jsMainImplementation(libs.wrappers.web)
     jsMainImplementation(libs.wrappers.react.core)

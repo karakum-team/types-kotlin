@@ -4,10 +4,8 @@ plugins {
     `react-virtual-declarations`
 }
 
-val reactVirtualVersion = property("react-virtual.version") as String
-
 dependencies {
-    jsMainImplementation(npm("@tanstack/react-virtual", reactVirtualVersion))
+    jsMainImplementation(npmv("@tanstack/react-virtual"))
 
     jsMainImplementation(libs.wrappers.browser)
     jsMainImplementation(libs.wrappers.react.core)
