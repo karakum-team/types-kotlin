@@ -2,4 +2,4 @@
 
 package tanstack.virtual.core
 
-external interface Key /* String /* number | string | bigint */ */
+typealias Key = String
