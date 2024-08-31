@@ -143,8 +143,8 @@ private fun convertTypealias(
     if (body.startsWith("'"))
         return convertUnion(name, body)
 
-    if (body == "number | string")
-        body = "String"
+    if (body == "number | string | bigint")
+        body = "String /* $body */"
 
     if (" | " in body) {
         declaration = declaration.replace(": object>", "/* : Any */>")
