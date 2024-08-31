@@ -297,6 +297,10 @@ internal object IDLRegistry {
                     "height",
                         -> "JsLong"
 
+                    // maxInterStageShaderVariables?
+                    "maxInterStageShaderComponents",
+                        -> "Int"
+
                     else -> TODO()
                 }
             }
