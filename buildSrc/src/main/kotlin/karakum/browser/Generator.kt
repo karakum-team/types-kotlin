@@ -95,6 +95,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.cssom.MediaQuery",
     "web.cssom.StylePropertyMapReadOnly",
     "web.cssom.ViewTransition",
+    "web.cssom.ViewTransitionUpdateCallback",
     "web.data.DataTransfer",
     "web.dom.DOMStringList",
     "web.dom.DOMTokenList",
@@ -379,10 +380,10 @@ fun generateKotlinDeclarations(
             } else "",
             when {
                 pkg == "js.intl" && "external class " in body
-                -> """@file:JsQualifier("Intl")"""
+                    -> """@file:JsQualifier("Intl")"""
 
                 pkg == "web.assembly" && ("external class " in body || "external fun " in body)
-                -> """@file:JsQualifier("WebAssembly")"""
+                    -> """@file:JsQualifier("WebAssembly")"""
 
                 else -> ""
             },
@@ -393,14 +394,14 @@ fun generateKotlinDeclarations(
         val imports = when (name) {
             "setInterval",
             "setTimeout",
-            -> """
+                -> """
             import kotlin.time.Duration
             import kotlin.time.DurationUnit.MILLISECONDS
             """.trimIndent()
 
             "Document",
             "DocumentOrShadowRoot",
-            -> """
+                -> """
             import web.cssom.StyleSheetList    
             import web.fonts.FontFaceSource    
             import web.html.*        
@@ -424,18 +425,18 @@ fun generateKotlinDeclarations(
 
             "CredentialCreationOptions",
             "CredentialRequestOptions",
-            -> """
+                -> """
             import web.authn.PublicKeyCredentialCreationOptions
             import web.authn.PublicKeyCredentialRequestOptions    
             """.trimIndent()
 
             "PublicKeyCredential",
-            -> """
+                -> """
             import web.credentials.Credential    
             """.trimIndent()
 
             "Window",
-            -> """
+                -> """
             import web.device.DeviceMotionEvent    
             import web.device.DeviceOrientationEvent    
             """.trimIndent()
@@ -443,7 +444,7 @@ fun generateKotlinDeclarations(
             "GlobalEventHandlers",
             "WindowEventHandlers",
             "FileReader",
-            -> """
+                -> """
             import web.cssom.TransitionEvent
             import web.uievents.*
             import web.animations.AnimationEvent
@@ -460,7 +461,7 @@ fun generateKotlinDeclarations(
             "DedicatedWorkerGlobalScope",
             "ServiceWorkerGlobalScope",
             "WorkerGlobalScope",
-            -> """
+                -> """
             import web.fonts.FontFaceSource    
             import web.promise.PromiseRejectionEvent
             import web.push.PushEvent
@@ -469,7 +470,7 @@ fun generateKotlinDeclarations(
             """.trimIndent()
 
             "WorkerNavigator",
-            -> """
+                -> """
             import web.navigator.*
             """.trimIndent()
 
@@ -494,7 +495,7 @@ fun generateKotlinDeclarations(
             "WorkerGlobalScope.events",
             "ServiceWorkerGlobalScope.events",
             "DedicatedWorkerGlobalScope.events",
-            -> """
+                -> """
             import web.cssom.ContentVisibilityAutoStateChangeEvent
             import web.cssom.TransitionEvent
             import web.dom.*
@@ -517,7 +518,7 @@ fun generateKotlinDeclarations(
             """.trimIndent()
 
             "VisualViewport.events",
-            -> """
+                -> """
             import web.dom.*
             import web.window.resize
             """.trimIndent()

@@ -53,7 +53,7 @@ private fun convertFunctionType(
         name == "MutationCallback" -> "web.dom.observers"
         name.startsWith("ResizeObserver") -> "web.dom.observers"
 
-        name == "UpdateCallback" -> "web.dom"
+        name == "ViewTransitionUpdateCallback" -> "web.cssom"
 
         name == "BlobCallback" -> "web.html"
         name == "VideoFrameRequestCallback" -> "web.html"
