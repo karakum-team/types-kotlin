@@ -65,7 +65,7 @@ class Type(
             body.startsWith("boolean | ")
                     || body.startsWith("number | ")
                     || body.startsWith("TOutput | ")
-            -> body.substringAfter(" | ")
+                -> body.substringAfter(" | ")
                 .removeSurrounding("(", ")")
                 .replace(" => boolean", " -> Boolean")
                 .replace(" => number", " -> Number")
@@ -136,7 +136,7 @@ class Type(
             val modifiers = when (name) {
                 "MutationObserverResult",
                 "QueryObserverResult",
-                -> ""
+                    -> ""
 
                 else -> "sealed"
             }

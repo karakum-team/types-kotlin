@@ -60,43 +60,43 @@ private fun getBrowserPkg(
 ): String? =
     when (name) {
         "structuredClone",
-        -> "web.serialization"
+            -> "web.serialization"
 
         "atob",
         "btoa",
-        -> "web.encoding"
+            -> "web.encoding"
 
         "fetch",
-        -> "web.http"
+            -> "web.http"
 
         "createImageBitmap",
-        -> "web.images"
+            -> "web.images"
 
         "matchMedia",
-        -> "web.cssom"
+            -> "web.cssom"
 
         "getComputedStyle",
-        -> "web.dom"
+            -> "web.dom"
 
         "reportError",
-        -> "web.errors"
+            -> "web.errors"
 
         in TIMERS,
-        -> "web.timers"
+            -> "web.timers"
 
         in RAF,
-        -> "web.animations"
+            -> "web.animations"
 
         in IDLE,
-        -> "web.scheduling"
+            -> "web.scheduling"
 
         "queueMicrotask",
-        -> "web.scheduling"
+            -> "web.scheduling"
 
         "alert",
         "confirm",
         "prompt",
-        -> "web.prompts"
+            -> "web.prompts"
 
         else -> null
     }
@@ -106,7 +106,7 @@ private fun getWorkerPkg(
 ): String? =
     when (name) {
         "importScripts",
-        -> "web.workers"
+            -> "web.workers"
 
         else -> null
     }

@@ -16,13 +16,13 @@ internal fun typeDeclaration(
     val (name, body) = source.split(" = ")
     return when {
         body.startsWith("(")
-        -> "typealias ${applyCallbackFix(name)} = ${typeBody(body)}"
+            -> "typealias ${applyCallbackFix(name)} = ${typeBody(body)}"
 
         body == "HTMLImageElement | HTMLCanvasElement | ImageBitmap"
-        -> "typealias $name = CanvasImageSource /* $body */"
+            -> "typealias $name = CanvasImageSource /* $body */"
 
         body == IMAGERY_LAYER_CONSTRUCTOR_OPTIONS
-        -> {
+            -> {
             require(!top)
             """
             @JsPlainObject
@@ -43,7 +43,7 @@ internal fun applyCallbackFix(
     when (source) {
         "foveatedInterpolationCallback",
         "updateCallback",
-        -> source.replaceFirstChar(Char::uppercase)
+            -> source.replaceFirstChar(Char::uppercase)
 
         else -> source
     }

@@ -60,10 +60,10 @@ private fun getParentType(
         return when (name) {
             "QueryClientProviderProps",
             "HydrationBoundaryProps",
-            -> "react.PropsWithChildren"
+                -> "react.PropsWithChildren"
 
             "QueryErrorResetBoundaryProps",
-            -> "react.Props"
+                -> "react.Props"
 
             else -> TODO("No parent type for `$name`")
         }

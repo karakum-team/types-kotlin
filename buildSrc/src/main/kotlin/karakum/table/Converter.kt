@@ -196,7 +196,7 @@ private fun convertTypealias(
         "ResolvedAggregationFns",
         "ResolvedFilterFns",
         "ResolvedSortingFns",
-        -> return ConversionResult(name, "external interface $name {\n/*\n$body\n*/\n}")
+            -> return ConversionResult(name, "external interface $name {\n/*\n$body\n*/\n}")
     }
 
     if (body == "{}")
@@ -241,7 +241,7 @@ private fun convertTypealias(
             "ColumnDef",
             "ColumnIdentifiers",
             "AccessorColumnDef",
-            -> {
+                -> {
                 body = body
                     .splitToSequence(" | ")
                     .joinToString(",\n", "\n")
@@ -321,7 +321,7 @@ private fun convertTypealias(
 
         val interfaceBody = when (name) {
             "ColumnDefResolved",
-            -> "ColumnDef<TData, TValue> /* $body */"
+                -> "ColumnDef<TData, TValue> /* $body */"
 
             else -> body
                 .removeSurrounding("Partial<", ">")
@@ -331,7 +331,7 @@ private fun convertTypealias(
                     when (parentType) {
                         "GroupingOptions",
                         "PaginationOptions",
-                        -> parentType + "<TData>"
+                            -> parentType + "<TData>"
 
                         else -> parentType
                     }
@@ -381,35 +381,35 @@ private fun convertInterface(
 
     when (name) {
         "TableOptions",
-        -> declaration = declaration.replace(
+            -> declaration = declaration.replace(
             "PartialKeys<TableOptionsResolved<TData>, 'state' | 'onStateChange' | 'renderFallbackValue'>",
             "TableOptionsResolved<TData>",
         )
 
         "GroupingOptions",
-        -> declaration = declaration
+            -> declaration = declaration
             .replaceFirst(name, "$name<TData : RowData>")
             .replaceFirst("GroupingOptionsBase,", "GroupingOptionsBase<TData>,")
 
         "GroupingOptionsBase",
         "PaginationOptions",
         "SortingOptionsBase",
-        -> declaration += "<TData : RowData>"
+            -> declaration += "<TData : RowData>"
 
         "SortingOptions",
-        -> declaration = declaration
+            -> declaration = declaration
             .replace("SortingOptionsBase,", "SortingOptionsBase<TData>,")
 
         "FeatureOptions",
-        -> declaration = declaration
+            -> declaration = declaration
             .replace("GroupingOptions,", "GroupingOptions<TData>,")
             .replace("PaginationOptions,", "PaginationOptions<TData>,")
 
         "HeaderContext",
-        -> declaration = declaration.replace("<TData,", "<TData : RowData,")
+            -> declaration = declaration.replace("<TData,", "<TData : RowData,")
 
         "InitialTableState",
-        -> declaration = declaration.replace(
+            -> declaration = declaration.replace(
             "Partial<CompleteInitialTableState>",
             "CompleteInitialTableState"
         )

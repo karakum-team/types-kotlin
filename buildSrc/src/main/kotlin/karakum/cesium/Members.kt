@@ -49,7 +49,7 @@ private fun Definition.toMembers(optionsDoc: String): Sequence<Member> =
         }
 
         body.startsWith("type ")
-        -> sequenceOf(SimpleType(copy(body = body.removePrefix("type "))))
+            -> sequenceOf(SimpleType(copy(body = body.removePrefix("type "))))
 
         body.startsWith("constructor(") -> {
             var constructorBody = body.removeSurrounding("constructor(", ")")
@@ -67,10 +67,10 @@ private fun Definition.toMembers(optionsDoc: String): Sequence<Member> =
         }
 
         body.startsWith("const ")
-        -> sequenceOf(Constant(copy(body = body.removePrefix("const "))))
+            -> sequenceOf(Constant(copy(body = body.removePrefix("const "))))
 
         body.isPropertyLike()
-        -> sequenceOf(Property(this))
+            -> sequenceOf(Property(this))
 
         else -> toMethodMembers()
     }

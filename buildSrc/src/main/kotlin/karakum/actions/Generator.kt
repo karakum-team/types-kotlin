@@ -68,7 +68,7 @@ private fun generate(
             "external class " in body
                     || "external val " in body
                     || "external fun " in body
-            -> {
+                -> {
                 val module = sequenceOf(
                     library.moduleId,
                     result.getPath(name),

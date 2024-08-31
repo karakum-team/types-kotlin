@@ -189,19 +189,19 @@ private fun convertFunction(
             var (pname, ptype) = it.split(": ")
             ptype = when {
                 pname == "extensionName" && ptype.startsWith("\"")
-                -> "WebGLExtension." + ptype.removeSurrounding("\"")
+                    -> "WebGLExtension." + ptype.removeSurrounding("\"")
 
                 ptype == "string"
-                -> "String"
+                    -> "String"
 
                 ptype == "number" && pname.removeSuffix("?").endsWith("Offset")
-                -> "Int /* GLuint */"
+                    -> "Int /* GLuint */"
 
                 ptype == "GLint | GLboolean"
-                -> "GLint /* | GLboolean */"
+                    -> "GLint /* | GLboolean */"
 
                 ptype.startsWith("Int32Array | ")
-                -> "Int32Array /* ${ptype.removePrefix("Int32Array")} */"
+                    -> "Int32Array /* ${ptype.removePrefix("Int32Array")} */"
 
                 ptype.endsWith("[]") -> {
                     var atype = ptype.removeSuffix("[]")

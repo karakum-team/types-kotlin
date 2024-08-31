@@ -171,7 +171,7 @@ internal fun unionName(
         "is",
         "object",
         "super",
-        -> "`${name}`"
+            -> "`${name}`"
 
         else -> name
     }

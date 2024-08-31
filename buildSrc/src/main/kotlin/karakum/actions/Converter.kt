@@ -199,13 +199,13 @@ private fun convertClass(
 
     body = when (name) {
         "DefaultGlobber",
-        -> body
+            -> body
             .replace("fun getSearchPaths(", "override fun getSearchPaths(")
             .replace("fun glob(", "override fun glob(")
             .replace("fun globGenerator(", "override fun globGenerator(")
 
         in CREDENTIAL_HANDLERS,
-        -> body
+            -> body
             .replace("fun prepareRequest(", "override fun prepareRequest(")
 
         else -> body
@@ -214,12 +214,12 @@ private fun convertClass(
 
     when (name) {
         "DefaultArtifactClient",
-        -> body = "sealed " +
+            -> body = "sealed " +
                 body.replace("\nfun ", "override fun ")
                     .replace(" = definedExternally", "")
 
         "DefaultGlobber",
-        -> body = "sealed $body"
+            -> body = "sealed $body"
     }
 
     return ConversionResult(
@@ -271,7 +271,7 @@ private fun convertType(
     when (name) {
         "IToolRelease",
         "IToolReleaseFile",
-        -> return null
+            -> return null
     }
 
     val body = when {
@@ -284,7 +284,7 @@ private fun convertType(
         }
 
         bodySource == "(SummaryTableCell | string)[]"
-        -> "typealias $name = ReadonlyArray<Any /* SummaryTableCell | String */>"
+            -> "typealias $name = ReadonlyArray<Any /* SummaryTableCell | String */>"
 
         else -> TODO("Unable to convert body source: '$bodySource'")
     }
@@ -346,23 +346,23 @@ private fun convertMember(
 
         source == "static isNetworkErrorCode: (code?: string) => boolean" ||
                 source == "static isUsageErrorMessage: (msg?: string) => boolean"
-        -> "companion object {\n" +
+            -> "companion object {\n" +
                 source.replace("static ", "fun ")
                     .replace(": (", "(")
                     .replace("?: string) => boolean", ": String?): Boolean") +
                 "\n}"
 
         source == "private constructor()"
-        -> "    // $source"
+            -> "    // $source"
 
         source.startsWith("private ")
-        -> null
+            -> null
 
         source.startsWith("constructor(")
-        -> convertConstructor(source)
+            -> convertConstructor(source)
 
         "(" in source.substringBefore(":")
-        -> methodSourceVariants(source)
+            -> methodSourceVariants(source)
             .joinToString("\n\n") {
                 convertMethod(it)
             }

@@ -65,7 +65,7 @@ internal fun kotlinType(
     when (type) {
         "Boundary",
         "RootBoundary",
-        -> return "$DYNAMIC /* $type */"
+            -> return "$DYNAMIC /* $type */"
     }
 
     return type

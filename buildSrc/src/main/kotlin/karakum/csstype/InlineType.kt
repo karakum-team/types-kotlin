@@ -50,10 +50,10 @@ private fun String.inlineType(
         "TrackBreadth",
         "FinalBgLayer",
         "MaskLayer",
-        -> "$name<TLength>"
+            -> "$name<TLength>"
 
         "SingleTransition",
-        -> "$name<TTime>"
+            -> "$name<TTime>"
 
         else -> name
     }
@@ -79,7 +79,7 @@ private fun String.inlineType(
             val originalName = when (name) {
                 "Position",
                 "BgPosition",
-                -> declaration
+                    -> declaration
 
                 else -> name
             }

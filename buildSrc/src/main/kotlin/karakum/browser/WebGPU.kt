@@ -109,7 +109,7 @@ private fun webGpuDeclarations(
                 }
 
                 source.startsWith("class GPUSupportedFeatures ")
-                -> ConversionResult(
+                    -> ConversionResult(
                     name = "GPUSupportedFeatures",
                     body = "sealed external class GPUSupportedFeatures : ReadonlySet<GPUFeatureName>",
                     pkg = "web.gpu",
@@ -119,7 +119,7 @@ private fun webGpuDeclarations(
                         || source.startsWith("class GPUInternalError ")
                         || source.startsWith("class GPUPipelineError ")
                         || source.startsWith("class GPUValidationError ")
-                -> {
+                    -> {
                     val name = source
                         .removePrefix("class ")
                         .substringBefore(" ")

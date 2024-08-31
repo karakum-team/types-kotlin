@@ -132,16 +132,16 @@ internal fun kotlinType(
     val placeholder = when (type) {
         "Uint16Array | Uint32Array",
         "Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array | Float32Array | Float64Array",
-        -> "TypedArray<*, *>"
+            -> "TypedArray<*, *>"
 
         "number[] | Cartesian3[] | Quaternion[]",
-        -> "ReadonlyArray<Any>"
+            -> "ReadonlyArray<Any>"
 
         "Cartesian3[] | Quaternion[]",
-        -> "ReadonlyArray<Any>"
+            -> "ReadonlyArray<Any>"
 
         "string[] | number[]",
-        -> "ReadonlyArray<Comparable<*>>"
+            -> "ReadonlyArray<Comparable<*>>"
 
         else -> "Any"
     }

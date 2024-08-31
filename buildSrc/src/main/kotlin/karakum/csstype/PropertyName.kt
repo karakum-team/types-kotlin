@@ -43,25 +43,25 @@ private fun getPropertyType(
 
         // hardcode
         "ColorAdjust",
-        -> "PrintColorAdjust"
+            -> "PrintColorAdjust"
 
         "Motion",
         "MotionDistance",
-        -> "Offset"
+            -> "Offset"
 
         "MotionPath",
-        -> "OffsetPath"
+            -> "OffsetPath"
 
         "MotionRotation",
         "OffsetRotation",
-        -> "OffsetRotate"
+            -> "OffsetRotate"
 
         "ScrollSnapMargin",
         "ScrollSnapMarginBottom",
         "ScrollSnapMarginLeft",
         "ScrollSnapMarginRight",
         "ScrollSnapMarginTop",
-        -> suggestedType.replace("Snap", "")
+            -> suggestedType.replace("Snap", "")
 
         else -> OVERFLOW_ALIAS_MAP[suggestedType] ?: suggestedType
     }

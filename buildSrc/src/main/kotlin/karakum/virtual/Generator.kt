@@ -33,7 +33,7 @@ fun generateKotlinDeclarations(
     for ((name, body) in convertDefinitions(coreDefinitionsFile)) {
         val annotations = when {
             "external val " in body || "external object " in body || "external fun " in body || "external class " in body
-            -> "@file:JsModule(\"${Package.VIRTUAL_CORE.moduleName}\")"
+                -> "@file:JsModule(\"${Package.VIRTUAL_CORE.moduleName}\")"
 
             else -> ""
         }

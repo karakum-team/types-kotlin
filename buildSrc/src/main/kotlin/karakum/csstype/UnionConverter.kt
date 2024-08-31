@@ -99,21 +99,21 @@ internal fun tryToUnion(
 
     when {
         parentType in VALID_PARENT
-        -> items = items.drop(1)
+            -> items = items.drop(1)
 
         name in EXCLUDED_ENUMS
-        -> parentType = ""
+            -> parentType = ""
 
         else -> return null
     }
 
     items = when (name) {
         "TextDecoration",
-        -> items - "TLength"
+            -> items - "TLength"
 
         FLEX,
         "MaskBorder",
-        -> items - "(number & {})"
+            -> items - "(number & {})"
 
         else -> items
     }
@@ -144,7 +144,7 @@ internal fun tryToUnion(
     var comment = when (parentType) {
         NAMED_COLOR,
         "",
-        -> ""
+            -> ""
 
         else -> "// $parentType\n"
     }

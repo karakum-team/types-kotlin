@@ -1,8 +1,7 @@
 package karakum.table
 
-import karakum.common.sealedUnionBody
-
 import karakum.common.ConversionResult
+import karakum.common.sealedUnionBody
 
 internal fun convertUnion(
     name: String,

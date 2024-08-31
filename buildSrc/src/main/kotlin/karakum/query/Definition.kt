@@ -167,11 +167,11 @@ private fun getBlocks(
                 JsTypeKeyword.CONST,
                 JsTypeKeyword.FUNCTION,
                 JsTypeKeyword.TYPE,
-                -> result.add(keyword to line)
+                    -> result.add(keyword to line)
 
                 JsTypeKeyword.INTERFACE,
                 JsTypeKeyword.CLASS,
-                -> {
+                    -> {
                     val startIndex = index
                     while (lines[++index] != "}");
                     val body = lines.subList(startIndex, index + 1).joinToString("\n")

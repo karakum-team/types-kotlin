@@ -24,20 +24,20 @@ object EventDataRegistry {
                 when {
                     data.`interface` == "PointerEvent"
                             && (data.type == "auxclick" || data.type == "click" || data.type == "contextmenu")
-                    -> data.copy(
+                        -> data.copy(
                         `interface` = "MouseEvent",
                     )
 
                     data.`interface` == "Event"
                             && data.targets.any { it.target == "ServiceWorkerContainer" }
                             && (data.type == "message" || data.type == "messageerror")
-                    -> data.copy(
+                        -> data.copy(
                         `interface` = "MessageEvent",
                     )
 
                     data.`interface` == "Event"
                             && (data.type == "blur" || data.type == "focus")
-                    -> data.copy(
+                        -> data.copy(
                         `interface` = "FocusEvent",
                     )
 
@@ -53,21 +53,21 @@ object EventDataRegistry {
             .plus(
                 when {
                     target == "HTMLSlotElement"
-                    -> sequenceOf("ShadowRoot", "GlobalEventHandlers")
+                        -> sequenceOf("ShadowRoot", "GlobalEventHandlers")
 
                     target == "Element"
                             || (target.startsWith("HTML") && target.endsWith("Element"))
-                    -> sequenceOf("GlobalEventHandlers")
+                        -> sequenceOf("GlobalEventHandlers")
 
                     target == "Window"
-                    -> sequenceOf("WindowEventHandlers")
+                        -> sequenceOf("WindowEventHandlers")
 
                     target == "Worker"
-                    -> sequenceOf("AbstractWorker")
+                        -> sequenceOf("AbstractWorker")
 
                     // TEMP?
                     eventType == "securitypolicyviolation"
-                    -> sequenceOf("GlobalEventHandlers")
+                        -> sequenceOf("GlobalEventHandlers")
 
                     else -> emptySequence()
                 }

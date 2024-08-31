@@ -18,7 +18,7 @@ internal abstract class TypeBase(
     var parents: List<String> =
         when (name) {
             in ERROR_TYPES,
-            -> listOf("JsError")
+                -> listOf("JsError")
 
             else -> emptyList()
         }

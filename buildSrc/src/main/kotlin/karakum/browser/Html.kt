@@ -704,7 +704,7 @@ internal fun convertInterface(
     when (name) {
         "Global",
         "GlobalDescriptor",
-        -> {
+            -> {
             if ("<T extends ValueType = ValueType>" in source) {
                 val newSource = source
                     .replace("<T extends ValueType = ValueType>", "<T>")
@@ -735,32 +735,32 @@ internal fun convertInterface(
 
     declaration = when (name) {
         DOM_EXCEPTION,
-        -> declaration.replace(" extends Error", " :\nJsError")
+            -> declaration.replace(" extends Error", " :\nJsError")
 
         "AbstractWorker",
         "GlobalEventHandlers",
         "WindowEventHandlers",
-        -> declaration + ":\n$EVENT_TARGET"
+            -> declaration + ":\n$EVENT_TARGET"
 
         in COLLECTIONS_WITH_BOUNDS,
-        -> declaration
+            -> declaration
             .replaceFirst(" extends HTMLCollectionBase", " :\nHTMLCollectionBase<T>")
             .replaceFirst(" extends ", " : ")
             .replace(" extends ", " :\n")
 
         "CountQueuingStrategy",
-        -> declaration
+            -> declaration
             .replaceFirst(" extends QueuingStrategy", " :\nQueuingStrategy<Void>")
 
         "HTMLFormControlsCollection",
-        -> declaration
+            -> declaration
             .replaceFirst(" extends HTMLCollectionBase", " :\nHTMLCollectionBase<Element>")
 
         "ElementDefinitionOptions",
-        -> declaration.replaceFirst("ElementDefinitionOptions", "ElementDefinitionOptions<T : HTMLElement>")
+            -> declaration.replaceFirst("ElementDefinitionOptions", "ElementDefinitionOptions<T : HTMLElement>")
 
         "RadioNodeList",
-        -> declaration.replaceFirst(" extends NodeList", " :\nNodeList<HTMLElement>")
+            -> declaration.replaceFirst(" extends NodeList", " :\nNodeList<HTMLElement>")
 
         else -> {
             declaration
@@ -838,11 +838,11 @@ internal fun convertInterface(
         val typeParameter = arrayType ?: iterableTypeParameter
         val iterableDeclaration = when {
             mapLikeParameters != null
-            -> {
+                -> {
                 val mapLikeType = when (name) {
                     "URLSearchParams",
                     "MediaKeyStatusMap",
-                    -> "ReadonlyMap"
+                        -> "ReadonlyMap"
 
                     else -> "MapLike"
                 }
@@ -854,7 +854,7 @@ internal fun convertInterface(
             }
 
             listLikeMode
-            -> "ListLike<$typeParameter>"
+                -> "ListLike<$typeParameter>"
 
             else -> "JsIterable<$typeParameter>"
         }
@@ -909,10 +909,10 @@ internal fun convertInterface(
             val result = firstConstructor.removePrefix("constructor")
             when {
                 result.isEmpty()
-                -> "()"
+                    -> "()"
 
                 "\n" !in result
-                -> "(\n" + result.removeSurrounding("(", ")") + "\n)"
+                    -> "(\n" + result.removeSurrounding("(", ")") + "\n)"
 
                 else -> result
             }
@@ -956,7 +956,7 @@ internal fun convertInterface(
 
         result = when (name) {
             DOM_EXCEPTION,
-            -> result
+                -> result
                 .replace("val message: String", "override val message: String")
                 .replace("val name: String", "val name: JsErrorName")
                 .splitToSequence("\n")
@@ -965,47 +965,47 @@ internal fun convertInterface(
 
             "URLSearchParams",
             "MediaKeyStatusMap",
-            -> result
+                -> result
                 .replace("val size: Int", "override val size: Int")
                 .replaceFirst("fun get(", "override fun get(")
                 .replaceFirst("fun has(", "override fun has(")
 
             "StylePropertyMapReadOnly",
-            -> result
+                -> result
                 .replace("val size: Int", "override val size: Int")
                 .replaceFirst("fun has(", "override fun has(")
 
             "Highlight",
-            -> result + "\n\n" + mutableSetLikeOverrides("AbstractRange")
+                -> result + "\n\n" + mutableSetLikeOverrides("AbstractRange")
 
             "Node",
-            -> result
+                -> result
                 .replace("val ownerDocument:", "open val ownerDocument:")
 
             in WELL_KNOWN_FORM_CONTROL,
-            -> result.applyFormControlPatch().let {
+                -> result.applyFormControlPatch().let {
                 if (name == "HTMLSelectElement") {
                     it.replace("fun remove()", "override fun remove()")
                 } else it
             }
 
             "ElementInternals",
-            -> result.applyValidationTargetPatch()
+                -> result.applyValidationTargetPatch()
 
             in LENGTH_REQUIRED,
-            -> result
+                -> result
                 .replace("val length: Int", "override val length: Int")
 
             "DOMMatrixReadOnly",
             "DOMPointReadOnly",
             "DOMRectReadOnly",
-            -> result
+                -> result
                 .replace("val ", "open val ")
 
             "DOMMatrix",
             "DOMPoint",
             "DOMRect",
-            -> result
+                -> result
                 .replace("var ", "override var ")
 
             "Document",
@@ -1015,16 +1015,16 @@ internal fun convertInterface(
             "CharacterData",
             "Element",
             "ProcessingInstruction",
-            -> result
+                -> result
                 .replace("val ownerDocument:", "override val ownerDocument:")
                 .replace("fun getElementById(", "override fun getElementById(")
 
             "HTMLOptionsCollection",
-            -> result
+                -> result
                 .replace("var length: Int", "override var length: Int")
 
             "CustomElementRegistry",
-            -> result
+                -> result
                 .replace("CustomElementConstructor", "CustomElementConstructor<T>")
                 .replace("ElementDefinitionOptions", "ElementDefinitionOptions<P>")
                 .replaceFirst("fun define(", "fun <T: P, P : HTMLElement> define(")
@@ -1035,10 +1035,10 @@ internal fun convertInterface(
                 .replace(": String", ": HtmlTagName<T>")
 
             "ElementDefinitionOptions",
-            -> result.replace(": String", ": HtmlTagName<T>")
+                -> result.replace(": String", ": HtmlTagName<T>")
 
             "CanvasPathDrawingStyles",
-            -> result
+                -> result
                 .replace("Number[]", "ReadonlyArray<Double>")
                 .replace("<number>", "<Double>")
 
@@ -1056,19 +1056,19 @@ internal fun convertInterface(
             "GPUShaderModule",
             "GPUTexture",
             "GPUTextureView",
-            -> result
+                -> result
                 .replace("var label: String", "override var label: String")
 
             "GPUComputePipeline",
             "GPURenderPipeline",
-            -> result
+                -> result
                 .replace("var label: String", "override var label: String")
                 .replace("fun getBindGroupLayout(", "override fun getBindGroupLayout(")
 
             "GPUComputePassEncoder",
             "GPURenderBundleEncoder",
             "GPURenderPassEncoder",
-            -> {
+                -> {
                 var overriddenMethods = setOf(
                     "draw",
                     "drawIndexed",
@@ -1095,41 +1095,41 @@ internal fun convertInterface(
             }
 
             "RTCInboundRtpStreamStats",
-            -> result.replace("var kind:", "override var kind:")
+                -> result.replace("var kind:", "override var kind:")
 
             "CompressionStream",
             "DecompressionStream",
             "TextDecoderStream",
             "TextEncoderStream",
-            -> result
+                -> result
                 .replace("val readable:", "override val readable:")
                 .replace("val writable:", "override val writable:")
 
             "PerformanceEntry",
-            -> result
+                -> result
                 .replace("fun toJSON()", "open fun toJSON()")
 
             "PerformanceEventTiming",
             "PerformanceNavigationTiming",
             "PerformanceResourceTiming",
             "LargestContentfulPaint",
-            -> result
+                -> result
                 .replace("val target: Node?", "val target: EventTarget /* Node */?")
                 .replace("fun toJSON()", "override fun toJSON()")
 
             "QueuingStrategy",
-            -> result.replace("var ", "val ")
+                -> result.replace("var ", "val ")
 
             "ByteLengthQueuingStrategy",
             "CountQueuingStrategy",
-            -> result.replace("val ", "override val ")
+                -> result.replace("val ", "override val ")
 
             "FileSystemHandle",
-            -> result.replace("val kind:", "open val kind:")
+                -> result.replace("val kind:", "open val kind:")
 
             "FileSystemDirectoryHandle",
             "FileSystemFileHandle",
-            -> result.replace("val kind:", "override val kind:")
+                -> result.replace("val kind:", "override val kind:")
 
             else -> {
                 if (abortable) {
@@ -1143,10 +1143,10 @@ internal fun convertInterface(
 
     val additionalOverrides = when {
         listLikeMode && name in FINAL_LIST_LIKE
-        -> listLikeOverrides(iterableTypeParameter!!)
+            -> listLikeOverrides(iterableTypeParameter!!)
 
         mapLikeParameters != null && name in FINAL_MAP_LIKE
-        -> mapLikeOverrides(mapLikeParameters.key, mapLikeParameters.value)
+            -> mapLikeOverrides(mapLikeParameters.key, mapLikeParameters.value)
 
         else -> ""
     }
@@ -1164,7 +1164,7 @@ internal fun convertInterface(
         IDLRegistry.isPlainObjectInterface(name) -> {
             when (name) {
                 "QueuingStrategy",
-                -> "// @JsPlainObject"
+                    -> "// @JsPlainObject"
 
                 else -> "@JsPlainObject"
             }
@@ -1219,7 +1219,7 @@ internal fun convertInterface(
 
                 isHtmlElementClass ||
                 isSvgElementClass
-        -> "open"
+            -> "open"
 
         annotations.startsWith("@") ||
                 name in CSSOM_INTERFACES ||
@@ -1237,7 +1237,7 @@ internal fun convertInterface(
                 mainConstructor.isNotEmpty() ||
                 IDLRegistry.hasEmptyConstructor(name) ||
                 hasTypeGuard
-        -> ""
+            -> ""
 
         name == "PerformanceEntry" ||
                 name == "Element" ||
@@ -1246,7 +1246,7 @@ internal fun convertInterface(
                 name == "Worklet" ||
                 name == "WorkletGlobalScope" ||
                 name == "AudioWorkletProcessor"
-        -> "abstract"
+            -> "abstract"
 
         else -> "sealed"
     }
@@ -1309,7 +1309,7 @@ internal fun convertInterface(
 
     when (name) {
         "MediaList",
-        -> body = body.applyMediaListPatch()
+            -> body = body.applyMediaListPatch()
 
         "MediaQueryList",
 
@@ -1317,7 +1317,7 @@ internal fun convertInterface(
         "HTMLSourceElement",
         "HTMLStyleElement",
         "SVGStyleElement",
-        -> body = body.applyMediaQueryPatch()
+            -> body = body.applyMediaQueryPatch()
     }
 
     val pkg = when {
@@ -1607,7 +1607,7 @@ internal fun convertMember(
 
     when (source) {
         "createElement<K extends keyof HTMLElementTagNameMap>(tagName: K, options?: ElementCreationOptions): HTMLElementTagNameMap[K]",
-        -> return """
+            -> return """
         fun <T: HTMLElement> createElement(
             tagName: HtmlTagName<T>,
             options: ElementCreationOptions = definedExternally,
@@ -1615,7 +1615,7 @@ internal fun convertMember(
         """.trimIndent()
 
         "createElementNS(namespaceURI: SVG_NAMESPACE, qualifiedName: string): SVGElement",
-        -> return """
+            -> return """
         fun <T : SVGElement> createElementNS(
             namespaceURI: SVG_NAMESPACE,
             qualifiedName: SvgTagName<T>,
@@ -1623,7 +1623,7 @@ internal fun convertMember(
         """.trimIndent()
 
         "createElementNS(namespaceURI: MATHML_NAMESPACE, qualifiedName: string): MathMLElement",
-        -> return """
+            -> return """
         fun <T : MathMLElement> createElementNS(
             namespaceURI: MATHML_NAMESPACE,
             qualifiedName: MathMLTagName<T>,
@@ -1631,28 +1631,28 @@ internal fun convertMember(
         """.trimIndent()
 
         "closest<K extends keyof HTMLElementTagNameMap>(selector: K): HTMLElementTagNameMap[K] | null",
-        -> return "fun <T: HTMLElement> closest(selector: HtmlTagName<T>): T?"
+            -> return "fun <T: HTMLElement> closest(selector: HtmlTagName<T>): T?"
 
         "closest<K extends keyof SVGElementTagNameMap>(selector: K): SVGElementTagNameMap[K] | null",
-        -> return "fun <T: SVGElement> closest(selector: SvgTagName<T>): T?"
+            -> return "fun <T: SVGElement> closest(selector: SvgTagName<T>): T?"
 
         "closest<K extends keyof MathMLElementTagNameMap>(selector: K): MathMLElementTagNameMap[K] | null",
-        -> return "fun <T: MathMLElement> closest(selector: MathMLTagName<T>): T?"
+            -> return "fun <T: MathMLElement> closest(selector: MathMLTagName<T>): T?"
 
         "closest<E extends Element = Element>(selectors: string): E | null",
-        -> return "fun closest(selector: String): Element?"
+            -> return "fun closest(selector: String): Element?"
 
         "getElementsByTagName<K extends keyof HTMLElementTagNameMap>(qualifiedName: K): HTMLCollectionOf<HTMLElementTagNameMap[K]>",
-        -> return "fun <T: HTMLElement> getElementsByTagName(qualifiedName: HtmlTagName<T>): HTMLCollectionOf<T>"
+            -> return "fun <T: HTMLElement> getElementsByTagName(qualifiedName: HtmlTagName<T>): HTMLCollectionOf<T>"
 
         "getElementsByTagName<K extends keyof SVGElementTagNameMap>(qualifiedName: K): HTMLCollectionOf<SVGElementTagNameMap[K]>",
-        -> return "fun <T: SVGElement> getElementsByTagName(qualifiedName: SvgTagName<T>): HTMLCollectionOf<T>"
+            -> return "fun <T: SVGElement> getElementsByTagName(qualifiedName: SvgTagName<T>): HTMLCollectionOf<T>"
 
         "getElementsByTagName<K extends keyof MathMLElementTagNameMap>(qualifiedName: K): HTMLCollectionOf<MathMLElementTagNameMap[K]>",
-        -> return "fun <T: MathMLElement> getElementsByTagName(qualifiedName: MathMLTagName<T>): HTMLCollectionOf<T>"
+            -> return "fun <T: MathMLElement> getElementsByTagName(qualifiedName: MathMLTagName<T>): HTMLCollectionOf<T>"
 
         "getElementsByTagNameNS(namespaceURI: SVG_NAMESPACE, localName: string): HTMLCollectionOf<SVGElement>",
-        -> return """
+            -> return """
         fun <T : SVGElement> getElementsByTagNameNS(
             namespaceURI: SVG_NAMESPACE,
             localName: SvgTagName<T>,
@@ -1660,7 +1660,7 @@ internal fun convertMember(
         """.trimIndent()
 
         "getElementsByTagNameNS(namespaceURI: MATHML_NAMESPACE, localName: string): HTMLCollectionOf<MathMLElement>",
-        -> return """
+            -> return """
         fun <T : MathMLElement> getElementsByTagNameNS(
             namespaceURI: MATHML_NAMESPACE,
             localName: MathMLTagName<T>,
@@ -1668,7 +1668,7 @@ internal fun convertMember(
         """.trimIndent()
 
         "getContext(contextId: string, options?: any): RenderingContext | null",
-        -> return """
+            -> return """
         fun <T : RenderingContext, O : Any> getContext(
             contextId: RenderingContextId<T, O>, 
             options: O? = definedExternally,
@@ -1676,7 +1676,7 @@ internal fun convertMember(
         """.trimIndent()
 
         "getContext(contextId: OffscreenRenderingContextId, options?: any): OffscreenRenderingContext | null",
-        -> return """
+            -> return """
         fun <T : OffscreenRenderingContext, O : Any> getContext(
             contextId: RenderingContextId<T, O>, 
             options: O? = definedExternally,
@@ -1804,98 +1804,98 @@ private fun convertProperty(
 
         "false",
         "true",
-        -> "Boolean /* $type */"
+            -> "Boolean /* $type */"
 
         "number",
         "number | string",
-        -> typeProvider.numberType(safeName)
+            -> typeProvider.numberType(safeName)
 
         "string | DOMHighResTimeStamp",
-        -> "DOMHighResTimeStamp /* | String */"
+            -> "DOMHighResTimeStamp /* | String */"
 
         "number | CSSNumericValue | string",
-        -> "Any /* $type */"
+            -> "Any /* $type */"
 
         "\"file\"",
         "\"directory\"",
-        -> "FileSystemHandleKind.${type.removeSurrounding("\"")}"
+            -> "FileSystemHandleKind.${type.removeSurrounding("\"")}"
 
         "GPUPipelineLayout | GPUAutoLayoutMode",
-        -> "Any /* $type */"
+            -> "Any /* $type */"
 
         // RTC
         "number[]",
-        -> "ReadonlyArray<Number>"
+            -> "ReadonlyArray<Number>"
 
         // IntersectionObserverInit
         "number | number[]",
-        -> "ReadonlyArray<Double>"
+            -> "ReadonlyArray<Double>"
 
         "string | string[]",
-        -> "Any /* $type */"
+            -> "Any /* $type */"
 
         "Promise<undefined>",
-        -> "Promise<Void>"
+            -> "Promise<Void>"
 
         "QueuingStrategySize",
-        -> "QueuingStrategySize<Void>"
+            -> "QueuingStrategySize<Void>"
 
         "CompositeOperationOrAuto | CompositeOperationOrAuto[]",
-        -> "ReadonlyArray<CompositeOperationOrAuto> /* | CompositeOperationOrAuto */"
+            -> "ReadonlyArray<CompositeOperationOrAuto> /* | CompositeOperationOrAuto */"
 
         "number | (number | null)[]",
-        -> "ReadonlyArray<Double?> /* | Double */"
+            -> "ReadonlyArray<Double?> /* | Double */"
 
         "IDBObjectStore | IDBIndex",
         "IDBObjectStore | IDBIndex | IDBCursor",
-        -> "Any /* $type */"
+            -> "Any /* $type */"
 
         "IDBRequest",
         "IDBRequest<any>",
-        -> "IDBRequest<*>"
+            -> "IDBRequest<*>"
 
         "1 | 2 | 3",
-        -> "Int /* $type */"
+            -> "Int /* $type */"
 
         "NodeList",
         "HTMLCollection",
-        -> "$type<*>"
+            -> "$type<*>"
 
         "BufferSource | Blob | string",
         "Client | ServiceWorker | MessagePort",
-        -> "Any /* $type */"
+            -> "Any /* $type */"
 
         "OnErrorEventHandler",
-        -> "Function<Unit>? /* $type */"
+            -> "Function<Unit>? /* $type */"
 
         "Element | Document" -> "ParentNode /* Element | Document */"
 
         // Audio
         "number[] | Float32Array",
-        -> "ReadonlyArray<Double> /* | Float32Array */"
+            -> "ReadonlyArray<Double> /* | Float32Array */"
 
         "Record<string, number>",
-        -> "ReadonlyRecord<String, Double>"
+            -> "ReadonlyRecord<String, Double>"
 
         "Record<string, string>",
-        -> "ReadonlyRecord<String, String>"
+            -> "ReadonlyRecord<String, String>"
 
         "Record<string, AuthenticationExtensionsPRFValues>",
-        -> "Record<String, AuthenticationExtensionsPRFValues>"
+            -> "Record<String, AuthenticationExtensionsPRFValues>"
 
         "BufferSource | string",
-        -> "BufferSource /* | String */"
+            -> "BufferSource /* | String */"
 
         // TEMP
         "DateTimeFormatPartTypes",
-        -> "String /* $type */"
+            -> "String /* $type */"
 
         "AudioContextLatencyCategory | number",
-        -> "Any /* $type */"
+            -> "Any /* $type */"
 
         // MediaStreamConstraints
         "boolean | MediaTrackConstraints",
-        -> "MediaTrackConstraints /* | Boolean */"
+            -> "MediaTrackConstraints /* | Boolean */"
 
         "ReadableStream" -> "ReadableStream<*>"
         "ReadableStream<string>" -> "ReadableStream<String>"
@@ -1913,20 +1913,20 @@ private fun convertProperty(
         "(WindowProxy & typeof globalThis)" -> "WindowProxy"
 
         "HTMLCollectionOf<HTMLAnchorElement | HTMLAreaElement>",
-        -> "HTMLCollectionOf<HTMLElement /* HTMLAnchorElement | HTMLAreaElement */>"
+            -> "HTMLCollectionOf<HTMLElement /* HTMLAnchorElement | HTMLAreaElement */>"
 
         "typeof FileReader.EMPTY | typeof FileReader.LOADING | typeof FileReader.DONE",
-        -> "ReadyState"
+            -> "ReadyState"
 
         else -> when {
             type.startsWith("1 | 2 | 5 | 10")
-            -> "Int /* $type */"
+                -> "Int /* $type */"
 
             type.startsWith("0x") -> "Short"
             type.toIntOrNull() != null -> "Short"
 
             (type.endsWith("[]") && " " !in type)
-            -> {
+                -> {
                 var arrayType = type.removeSuffix("[]")
                 arrayType = when (arrayType) {
                     "string" -> "String"
@@ -1938,7 +1938,7 @@ private fun convertProperty(
             }
 
             (type.startsWith("(") && type.endsWith(" | null)[]"))
-            -> {
+                -> {
                 val arrayType = type
                     .removePrefix("(")
                     .removeSuffix(" | null)[]")
@@ -1947,10 +1947,10 @@ private fun convertProperty(
             }
 
             type.startsWith("\"")
-            -> "String /* $type */"
+                -> "String /* $type */"
 
             type.startsWith("(controller: ")
-            -> type
+                -> type
                 .replace(") => any", ") -> Unit")
                 .replace(
                     ") => void | PromiseLike<void>",
@@ -1971,7 +1971,7 @@ private fun convertProperty(
 
     name = when (name) {
         "is", "as",
-        -> "`$name`"
+            -> "`$name`"
 
         else -> name
     }
@@ -2096,7 +2096,7 @@ private fun convertFunction(
     when (name) {
         "createComputePipeline",
         "createRenderPipeline",
-        -> {
+            -> {
             jsName = """@JsName("$name")"""
             safeName = "${name}Sync"
         }
@@ -2118,35 +2118,35 @@ private fun convertFunctionParameters(
         "...data: any[]",
         "condition?: boolean, ...data: any[]",
         "label?: string, ...data: any[]",
-        -> listOf(source.substringBefore(", ", ""))
+            -> listOf(source.substringBefore(", ", ""))
             .filter { it.isNotEmpty() }
             .map { convertFunctionParameters(it, typeProvider) }
             .plus("vararg data: Any?")
 
         "...nodes: (Element | Text)[]",
-        -> listOf(
+            -> listOf(
             "vararg nodes: Element /* | Text */",
         )
 
         "...nodes: (Node | string)[]",
-        -> listOf(
+            -> listOf(
             "vararg nodes: Any /* Node | string */",
         )
 
         "property: string, ...values: (CSSStyleValue | string)[]",
-        -> listOf(
+            -> listOf(
             "property: String",
             "vararg values: Any /* CSSStyleValue | string */",
         )
 
         "init: Record<string, string>",
-        -> listOf(
+            -> listOf(
             "init: ReadonlyRecord<String, String>",
         )
 
         // URL
         "obj: Blob | MediaSource",
-        -> listOf(
+            -> listOf(
             "obj: Blob /* | MediaSource */"
         )
 
@@ -2159,7 +2159,7 @@ private fun convertFunctionParameters(
         "...tokens: string[]",
         "...streams: MediaStream[]",
         "...initialRanges: AbstractRange[]",
-        -> listOf(
+            -> listOf(
             source
                 .replace("...args", "...values")
                 .replace("...", "vararg ")
@@ -2168,32 +2168,32 @@ private fun convertFunctionParameters(
         )
 
         "track: MediaStreamTrack, ...streams: MediaStream[]",
-        -> listOf(
+            -> listOf(
             "track: MediaStreamTrack",
             "vararg streams: MediaStream",
         )
 
         "items: Record<string, string | Blob | PromiseLike<string | Blob>>, options?: ClipboardItemOptions",
-        -> listOf(
+            -> listOf(
             "items: ReadonlyRecord<String, Any /* String | Blob | PromiseLike<String | Blob> */>",
             "options: ClipboardItemOptions = definedExternally",
         )
 
         "transform: ReadableWritablePair<T, R>, options?: StreamPipeOptions",
-        -> listOf(
+            -> listOf(
             "transform: ReadableWritablePair<T, R>",
             "options: StreamPipeOptions = definedExternally",
         )
 
         "transformer?: Transformer<I, O>, writableStrategy?: QueuingStrategy<I>, readableStrategy?: QueuingStrategy<O>",
-        -> listOf(
+            -> listOf(
             "transformer: Transformer<I, O> = definedExternally",
             "writableStrategy: QueuingStrategy<I> = definedExternally",
             "readableStrategy: QueuingStrategy<O> = definedExternally",
         )
 
         "inputs: Float32Array[][], outputs: Float32Array[][], parameters: Record<string, Float32Array>",
-        -> listOf(
+            -> listOf(
             "inputs: ReadonlyArray<ReadonlyArray<Float32Array>>",
             "outputs: ReadonlyArray<ReadonlyArray<Float32Array>>",
             "parameters: Record<String, Float32Array>",
@@ -2211,7 +2211,7 @@ private fun convertFunctionParameters(
         "action: (item: MIDIInput) => void",
         "action: (item: MIDIOutput) => void",
         "action: (item: any) => void",
-        -> listOf(
+            -> listOf(
             source
                 .replace(": string", ": String")
                 .replace(": any", ": Any?")
@@ -2234,10 +2234,10 @@ private fun convertFunctionParameters(
                 pname = when {
                     pname.endsWith("InitDict") ||
                             pname.endsWith("EntryInit")
-                    -> "init"
+                        -> "init"
 
                     pname == "when"
-                    -> "`$pname`"
+                        -> "`$pname`"
 
                     else -> pname
                 }
@@ -2270,54 +2270,54 @@ private fun getParameterType(
 
     return when {
         source == "\"$ED25519\""
-        -> ED25519
+            -> ED25519
 
         source == """ReadonlyArray<"sign" | "verify">"""
-        -> """ReadonlyArray<KeyUsage /* "sign" | "verify" */>"""
+            -> """ReadonlyArray<KeyUsage /* "sign" | "verify" */>"""
 
         source == "number | DOMPointInit | (number | DOMPointInit)[]"
-        -> "Any /* $source */"
+            -> "Any /* $source */"
 
         source == "File | string | FormData"
-        -> "Any /* $source */"
+            -> "Any /* $source */"
 
         source == "DateTimeFormatPartTypes"
-        -> "String /* $source */"
+            -> "String /* $source */"
 
         // TEMP
         source == "AlgorithmIdentifier"
-        -> "Any /* $source */"
+            -> "Any /* $source */"
 
         source == "Iterable<string>"
-        -> "JsIterable<String>"
+            -> "JsIterable<String>"
 
         // URL
         source == "string[][]"
-        -> "ReadonlyArray<JsTuple2<String, String>>"
+            -> "ReadonlyArray<JsTuple2<String, String>>"
 
         source.startsWith("\"")
-        -> "String /* $source */"
+            -> "String /* $source */"
 
         source == "any"
-        -> "Any?"
+            -> "Any?"
 
         source == "string"
-        -> "String"
+            -> "String"
 
         source == "bigint"
-        -> "BigInt"
+            -> "BigInt"
 
         source == "number"
-        -> typeProvider.getParameterType(name)
+            -> typeProvider.getParameterType(name)
 
         source == "boolean"
-        -> "Boolean"
+            -> "Boolean"
 
         source == "Promise<any>"
-        -> "Promise<*>"
+            -> "Promise<*>"
 
         source == "ReadableStream"
-        -> "ReadableStream<*>"
+            -> "ReadableStream<*>"
 
         source.endsWith("[]") -> {
             var atype = source.removeSuffix("[]")

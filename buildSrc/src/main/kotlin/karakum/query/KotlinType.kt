@@ -161,11 +161,11 @@ internal fun kotlinType(
     if (type == "unknown") {
         return when (name) {
             "pages",
-            -> "Page"
+                -> "Page"
 
             "pageParam",
             "pageParams",
-            -> "PageParam"
+                -> "PageParam"
 
             else -> "Any?"
         }
@@ -214,19 +214,19 @@ internal fun kotlinType(
             .let { t ->
                 when {
                     t == "QueryObserverOptions<*, TError>"
-                    -> t.replace(">", ", *, *, *, *>")
+                        -> t.replace(">", ", *, *, *, *>")
 
                     t == "QueryObserverOptions<*, *, *, *>"
-                    -> t.replace(">", ", *, *>")
+                        -> t.replace(">", ", *, *>")
 
                     t.startsWith("QueryOptions<") && t.count { it == ',' } == 3
-                    -> t.replace(">", ", *>")
+                        -> t.replace(">", ", *>")
 
                     t.startsWith("QueryBehavior<T") && t.count { it == ',' } == 2
-                    -> t.replace(Regex(">$"), ", *>")
+                        -> t.replace(Regex(">$"), ", *>")
 
                     t.startsWith("Query<") && t.count { it == ',' } == 2
-                    -> t.replace(Regex("(>\\??)$"), ", *$1")
+                        -> t.replace(Regex("(>\\??)$"), ", *$1")
 
                     else -> t
                 }

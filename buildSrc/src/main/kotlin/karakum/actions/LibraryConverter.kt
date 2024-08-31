@@ -12,7 +12,7 @@ internal class LibraryConversionResult(
         when (val path = pathMap[name]) {
             "lib/auth",
             "lib/proxy",
-            -> path
+                -> path
 
             else -> null
         }

@@ -189,7 +189,7 @@ private fun convertNamespace(
                         && name != "Hyphens"
                         && name != "HyphenateCharacter"
                         && name != "HyphenateLimitChars"
-                -> emptySequence()
+                    -> emptySequence()
 
                 name.contains("Fallback") -> emptySequence()
                 name in DEPRECATED_TYPES -> emptySequence()
@@ -233,7 +233,7 @@ private fun convertNamespaceTypes(
 ): Sequence<ConversionResult> {
     val typeEnabled: (String) -> Boolean = when {
         enabledTypes != null
-        -> enabledTypes::contains
+            -> enabledTypes::contains
 
         else -> { type: String -> type !in EXCLUDED_DATA_TYPES }
     }
@@ -275,7 +275,7 @@ private fun convertDefinition(
     when (name) {
         "GridAutoColumns",
         "GridTemplateColumns",
-        -> {
+            -> {
             val tracksName = name.replace("Columns", "Tracks")
             return convertDefinition(tracksName, content.replace(name, tracksName))
                 .plus(ConversionResult(name, "typealias $name = $tracksName"))
@@ -283,7 +283,7 @@ private fun convertDefinition(
 
         "GridAutoRows",
         "GridTemplateRows",
-        -> return sequenceOf(
+            -> return sequenceOf(
             ConversionResult(name, "typealias $name = ${name.replace("Rows", "Tracks")}")
         )
     }
@@ -354,7 +354,7 @@ private fun convertUnion(
         "Globals | \"none\" | (number & {}) | (string & {})",
         "Globals | \"infinite\" | (string & {}) | (number & {})",
         "\"auto\" | (string & {}) | (number & {})",
-        -> return convertNumberType(name, source)
+            -> return convertNumberType(name, source)
     }
 
     if ("(number & {})" in source) {
@@ -363,7 +363,7 @@ private fun convertUnion(
             "Opacity",
             "Scale",
             "Zoom",
-            -> return convertNumberType(name, source.replace(" | (string & {})", ""))
+                -> return convertNumberType(name, source.replace(" | (string & {})", ""))
         }
     }
 
@@ -388,10 +388,10 @@ private fun convertUnion(
     when (name) {
         "ColumnGap",
         "RowGap",
-        -> return ConversionResult(name, "typealias $name = Gap")
+            -> return ConversionResult(name, "typealias $name = Gap")
 
         OUTLINE,
-        -> return tryToUnion(
+            -> return tryToUnion(
             name = name,
             body = body.replace("DataType.Color | DataType.LineStyle | DataType.LineWidth | ", ""),
             enumMode = false,
@@ -560,13 +560,13 @@ private fun getAdditionalPropertyNames(
 ): Sequence<String> =
     when (name) {
         "appearance",
-        -> sequenceOf(
+            -> sequenceOf(
             "Webkit${name.replaceFirstChar(Char::uppercase)}",
             "Moz${name.replaceFirstChar(Char::uppercase)}",
         )
 
         "backdropFilter",
-        -> sequenceOf(
+            -> sequenceOf(
             "Webkit${name.replaceFirstChar(Char::uppercase)}",
         )
 

@@ -17,7 +17,7 @@ class Interface(
         when (name) {
             "QueryMeta",
             "MutationMeta",
-            -> {
+                -> {
                 return "external interface $name : Record<String, Any>"
             }
 
@@ -34,10 +34,10 @@ class Interface(
 
         val body = when {
             name.startsWith("MutationObserver")
-            -> content.replaceFirst("status: QueryStatus", "status: MutationStatus")
+                -> content.replaceFirst("status: QueryStatus", "status: MutationStatus")
 
             name.startsWith("NotifyEvent")
-            -> content.replaceFirst("type: Type /*", "type: NotifyEventType /*")
+                -> content.replaceFirst("type: Type /*", "type: NotifyEventType /*")
 
             else -> content
         }

@@ -66,7 +66,7 @@ private fun tagDictionary(
             val propertyName = when (tagName) {
                 "object",
                 "var",
-                -> "`$tagName`"
+                    -> "`$tagName`"
 
                 else -> tagName.replace("-x", "X")
             }

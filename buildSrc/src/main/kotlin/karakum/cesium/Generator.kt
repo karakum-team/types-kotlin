@@ -46,12 +46,12 @@ private fun generate(
 
                 val suppresses =
                     if (declaration is TypeBase && ("external  class " in body || "external  object " in body)) {
-                    declaration.suppresses()
-                } else emptyList()
+                        declaration.suppresses()
+                    } else emptyList()
 
                 val annotations = when {
                     suppresses.isNotEmpty()
-                    -> fileSuppress(suppresses = suppresses.toTypedArray())
+                        -> fileSuppress(suppresses = suppresses.toTypedArray())
 
                     else -> ""
                 }

@@ -340,7 +340,7 @@ private fun event(
         val withDataSupport = when (name) {
             "CustomEvent",
             "MessageEvent",
-            -> true
+                -> true
 
             else -> false
         }
@@ -393,7 +393,7 @@ private fun event(
     val typeParameters = when (name) {
         "CustomEvent",
         "MessageEvent",
-        -> "<out D>"
+            -> "<out D>"
 
         else -> ""
     }
@@ -426,7 +426,7 @@ private fun event(
     val initFactoryBody = when (name) {
         "CustomEvent",
         "MessageEvent",
-        -> {
+            -> {
             val members = requireNotNull(initMembers)
                 .substringBefore("\n")
 
@@ -542,14 +542,14 @@ private fun eventTypes(
     val typesName = "${eventName}Types"
     val typeParameters = when (eventName) {
         "MessageEvent",
-        -> "<D>"
+            -> "<D>"
 
         else -> ""
     }
 
     val eventType = when (eventName) {
         "MessageEvent",
-        -> "$eventName<D>"
+            -> "$eventName<D>"
 
         else -> eventName
     }

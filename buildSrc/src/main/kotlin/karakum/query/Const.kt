@@ -18,7 +18,7 @@ class Const(
         if (type == "unique symbol") {
             return when (name) {
                 "skipToken",
-                -> """
+                    -> """
                 external object $name: 
                     Symbol,
                     QueryFunctionOrSkipToken<Nothing, Nothing, Nothing>

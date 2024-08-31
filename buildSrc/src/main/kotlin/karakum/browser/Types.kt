@@ -247,7 +247,7 @@ private fun convertType(
             "AutoFill",
             "AutoFillField",
             "AutoFillSection",
-            -> "web.autofill"
+                -> "web.autofill"
 
             "MediaProvider" -> "web.html"
             "WindowProxy" -> "web.window"
@@ -286,20 +286,20 @@ private fun convertType(
             "PushMessageDataInit",
 
             "GPUBindingResource",
-            -> getPkg(name)!!
+                -> getPkg(name)!!
 
             in INTL_KEY_TYPES,
-            -> "js.intl"
+                -> "js.intl"
 
             else -> when {
                 name.startsWith("CSS")
-                -> "web.cssom"
+                    -> "web.cssom"
 
                 name.startsWith("Constrain")
-                -> "web.media.streams"
+                    -> "web.media.streams"
 
                 bodySource.startsWith("Record<")
-                -> getPkg(name)!!
+                    -> getPkg(name)!!
 
                 else -> return null
             }
@@ -307,46 +307,46 @@ private fun convertType(
 
         val body = when {
             bodySource.startsWith("Record<")
-            -> bodySource
+                -> bodySource
                 .replace("Record<", "ReadonlyRecord<")
                 .replace("string", "String")
 
             bodySource.startsWith("keyof ")
-            -> "String /* $bodySource */"
+                -> "String /* $bodySource */"
 
             name.startsWith("`")
-            -> "String /* $bodySource */"
+                -> "String /* $bodySource */"
 
             bodySource == "ClipboardItem[]"
-            -> "ReadonlyArray<ClipboardItem>"
+                -> "ReadonlyArray<ClipboardItem>"
 
             bodySource == "PerformanceEntry[]"
-            -> "ReadonlyArray<PerformanceEntry>"
+                -> "ReadonlyArray<PerformanceEntry>"
 
             bodySource == "Report[]"
-            -> "ReadonlyArray<Report>"
+                -> "ReadonlyArray<Report>"
 
             name == "VibratePattern" && bodySource == "number | number[]"
-            -> "ReadonlyArray<Int> /* | Int */"
+                -> "ReadonlyArray<Int> /* | Int */"
 
             bodySource == "string | Function"
-            -> "() -> Unit"
+                -> "() -> Unit"
 
             " | " in bodySource || bodySource == "AlgorithmIdentifier"
-            -> "Any /* $bodySource */"
+                -> "Any /* $bodySource */"
 
             else -> bodySource
         }
 
         val finalBody = when {
             name == "BodyInit" || name == "IDBValidKey"
-            -> valueInterface(
+                -> valueInterface(
                 name,
                 bodySource,
             )
 
             bodySource == "`section-${'$'}{string}`"
-            -> """
+                -> """
             sealed interface $name
             
             inline fun $name(
@@ -356,13 +356,13 @@ private fun convertType(
             """.trimIndent()
 
             name.startsWith("AutoFill")
-            -> autoFillInterface(
+                -> autoFillInterface(
                 name = name,
                 bodySource = bodySource,
             )
 
             declaration in MARKER_DECLARATIONS
-            -> markerInterface(
+                -> markerInterface(
                 declaration = declaration,
                 types = bodySource,
             )
@@ -388,7 +388,7 @@ private fun convertType(
     val body = when (name) {
         "KeyFormat",
         "FileSystemHandleKind",
-        -> objectUnionBody(
+            -> objectUnionBody(
             name = name,
             constants = values.map(::unionConstant),
         )
@@ -598,11 +598,11 @@ private fun ConversionResult.withAutoFillCorrection(): ConversionResult {
     val newBody = when (name) {
         "AutoFillBase",
         "AutoFillField",
-        -> body.replaceFirst(name, "$name:\nAutoFill")
+            -> body.replaceFirst(name, "$name:\nAutoFill")
 
         "AutoFillContactField",
         "AutoFillNormalField",
-        -> body.replaceFirst(name, "$name:\nAutoFillField")
+            -> body.replaceFirst(name, "$name:\nAutoFillField")
 
         else -> return this
     }

@@ -9,7 +9,7 @@ fun parseParameters(source: String): List<String> {
     when (params) {
         "setup: (setFocused: (focused?: boolean) => void) => () => void",
         "setup: (setOnline: (online?: boolean) => void) => () => void",
-        -> {
+            -> {
             val parameter = params
                 .replace(" => ", " -> ")
                 .replace("?: boolean", ": Boolean?")
@@ -19,7 +19,7 @@ fun parseParameters(source: String): List<String> {
         }
 
         "suspense: boolean | undefined, _useErrorBoundary: boolean | ((err: TError) => boolean) | undefined, error: TError",
-        -> return params
+            -> return params
             .replace(": boolean | ((", ": ((")
             .replace(" => ", " -> ")
             .replace(" boolean", " Boolean")
@@ -27,23 +27,23 @@ fun parseParameters(source: String): List<String> {
             .split(", ")
 
         "options: QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey, TPageParam> | DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>",
-        -> return listOf(
+            -> return listOf(
             "options: QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey, TPageParam> /* | DefaultedQueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey> */"
         )
 
         "options: WithRequired<FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'queryKey'>",
-        -> return listOf(
+            -> return listOf(
             "options: FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey> /* required 'queryKey' */",
         )
 
         "result: QueryObserverResult<TData, TError>, onPropTracked?: (key: keyof QueryObserverResult) => void",
-        -> return listOf(
+            -> return listOf(
             "result: QueryObserverResult<TData, TError>",
             "onPropTracked: (key: String /* keyof QueryObserverResult */) -> Unit = definedExternally",
         )
 
         "fetchOptions: ObserverFetchOptions",
-        -> return listOf(
+            -> return listOf(
             "fetchOptions: ObserverFetchOptions<TData>",
         )
     }

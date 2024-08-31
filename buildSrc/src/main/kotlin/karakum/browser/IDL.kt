@@ -295,7 +295,7 @@ internal object IDLRegistry {
                 when (propertyName) {
                     "width",
                     "height",
-                    -> "JsLong"
+                        -> "JsLong"
 
                     else -> TODO()
                 }

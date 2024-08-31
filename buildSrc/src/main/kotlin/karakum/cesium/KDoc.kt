@@ -168,6 +168,7 @@ private fun formatBlock(
             source.endsWith("Object describing initialization options") -> null
             else -> formatParam(source, "@param ")
         }
+
         source.startsWith("@property ") -> formatParam(source, "@property ")
         source.startsWith("@returns") -> source.replace("@returns", "@return").multiline()
         else -> source
@@ -271,4 +272,3 @@ private fun String.multiline(
         .map { it.trim() }
         .mapIndexed { index, line -> if (index == 0) line else "  $line" }
         .joinToString("\n")
-

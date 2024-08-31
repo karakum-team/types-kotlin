@@ -16,10 +16,10 @@ internal fun convertType(
 
     val content = when (source) {
         "S | ((prev: S) => S)",
-        -> "(prev: S) -> S // $source"
+            -> "(prev: S) -> S // $source"
 
         "(arg0: State) => void",
-        -> "(State) -> Unit"
+            -> "(State) -> Unit"
 
         else -> source
     }
