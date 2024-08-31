@@ -144,7 +144,7 @@ private fun convertTypealias(
         return convertUnion(name, body)
 
     if (body == "number | string | bigint")
-        body = "String /* $body */"
+        body = "String"
 
     if (" | " in body) {
         declaration = declaration.replace(": object>", "/* : Any */>")
