@@ -14,7 +14,7 @@ dependencies {
     jsMainImplementation(npmv("@tanstack/react-query"))
 
     jsMainImplementation(libs.wrappers.web)
-    jsMainImplementation(libs.wrappers.react.core)
+    jsMainImplementation(libs.wrappers.reactCore)
 }
 
 val syncCoreWrappers by tasks.creating(SyncWrappers::class) {

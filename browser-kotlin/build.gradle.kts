@@ -18,7 +18,7 @@ dependencies {
     jsMainImplementation(npmv("@webref/events"))
     jsMainImplementation(npmv("@webref/idl"))
 
-    jsMainImplementation(libs.wrappers.cssom.core)
+    jsMainImplementation(libs.wrappers.cssomCore)
     jsMainImplementation(libs.wrappers.js)
 
     jsMainImplementation(libs.coroutines.core)

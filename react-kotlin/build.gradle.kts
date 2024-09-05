@@ -8,7 +8,7 @@ dependencies {
     jsMainImplementation(npmv("@types/react"))
 
     jsMainImplementation(libs.wrappers.browser)
-    jsMainImplementation(libs.wrappers.react.core)
+    jsMainImplementation(libs.wrappers.reactCore)
 }
 
 val syncWithWrappers by tasks.creating(SyncWrappers::class) {

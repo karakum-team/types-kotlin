@@ -8,5 +8,5 @@ dependencies {
     jsMainImplementation(npmv("@tanstack/react-table"))
 
     jsMainImplementation(libs.wrappers.browser)
-    jsMainImplementation(libs.wrappers.react.core)
+    jsMainImplementation(libs.wrappers.reactCore)
 }
