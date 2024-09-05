@@ -39,6 +39,9 @@ internal fun List<ConversionResult>.withEventInstances(
             }
 
             """
+            /**
+             * [MDN Reference](https://developer.mozilla.org/docs/Web/API/$name/${data.type}_event)
+             */
             inline val <C: $currentTargetBound> C.${memberName}Event: $EVENT_INSTANCE<$eventType, C, $targetType>
                 get() = $EVENT_INSTANCE(this, $eventTypeDeclaration)
             """.trimIndent()
