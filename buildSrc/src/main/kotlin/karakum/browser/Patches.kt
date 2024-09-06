@@ -5,7 +5,6 @@ private const val SVG_ANIMATED_ENUMERATION_AFTER = "\ninterface SVGAnimatedEnume
 
 internal fun String.applyPatches(): String {
     return patchVideoFrameCallback()
-        .applyTempEventPatches()
         .applyReadyStatePatches()
         .patchQuerySelectors()
         .replace("    fetchPriority: string;", "    fetchPriority: $FETCH_PRIORITY;")

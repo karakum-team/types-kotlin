@@ -9,7 +9,6 @@ private val WEB_WORKER_URI =
 
 internal val WEB_WORKER_CONTENT by lazy {
     loadContent(WEB_WORKER_URI)
-        .applyTempEventPatches()
 }
 
 private val WORKER_TYPES = setOf(
@@ -120,7 +119,6 @@ internal fun serviceWorkersContent(
 ): String =
     definitionsFile
         .readText()
-        .applyTempEventPatches()
         .replace(", WindowOrWorkerGlobalScope", "")
         .replace(
             """ReadonlyArray<T["type"] extends "window" ? WindowClient : Client>""",
