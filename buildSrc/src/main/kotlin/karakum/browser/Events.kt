@@ -473,7 +473,7 @@ private fun eventTypes(
 
     return listOf(
         ConversionResult(
-            name = "${eventName}.types",
+            name = "${eventName}.types.deprecated",
             body = body,
             pkg = pkg,
         )
