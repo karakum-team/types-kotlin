@@ -479,11 +479,19 @@ private fun eventTypes(
         .joinToString("\n\n") { name ->
             val memberName = EVENT_CORRECTION_MAP
                 .getOrDefault(name, name)
+                .uppercase()
+
+            val deprecatedMemberName = EVENT_CORRECTION_MAP
+                .getOrDefault(name, name)
                 .snakeToCamel()
 
             """
+            @Deprecated(
+                message = "Legacy event type declaration. Use type constant instead!",
+                replaceWith = ReplaceWith("$eventName.$memberName"),
+            )
             @JsValue("$name")
-            fun $deprecatedTypeParameters $memberName(): $EVENT_TYPE<$deprecatedEventType>
+            fun $deprecatedTypeParameters $deprecatedMemberName(): $EVENT_TYPE<$deprecatedEventType>
             """.trimIndent()
         }
 
