@@ -4,73 +4,9 @@ import karakum.common.snakeToCamel
 
 private const val EVENT = "Event"
 
-private val PACKAGE_MAP = mapOf(
-    "AbortSignal" to "web.abort",
-    "Animation" to "web.animations",
-    "AudioScheduledSourceNode" to "web.audio",
-    "AudioWorkletNode" to "web.audio",
-    "BaseAudioContext" to "web.audio",
-    "DedicatedWorkerGlobalScope" to "web.workers",
-    "Document" to "web.dom",
-    "Element" to "web.dom",
-    "EventSource" to "web.sse",
-    "FontFaceSet" to "web.fonts",
-    "GlobalEventHandlers" to "web.dom",
-    "HTMLMediaElement" to "web.html",
-    "HTMLVideoElement" to "web.html",
-    "IDBDatabase" to "web.idb",
-    "IDBOpenDBRequest" to "web.idb",
-    "IDBRequest" to "web.idb",
-    "IDBTransaction" to "web.idb",
-    "MediaDevices" to "web.media.devices",
-    "MediaKeySession" to "web.media.key",
-    "MediaRecorder" to "web.media.recorder",
-    "MediaSource" to "web.media.source",
-    "MediaStreamTrack" to "web.media.streams",
-    "MIDIAccess" to "web.midi",
-    "MIDIInput" to "web.midi",
-    "MIDIPort" to "web.midi",
-    "Notification" to "web.notifications",
-    "OffscreenCanvas" to "web.canvas",
-    "PaymentRequest" to "web.payment",
-    "PaymentResponse" to "web.payment",
-    "Performance" to "web.performance",
-    "PermissionStatus" to "web.permissions",
-    "PictureInPictureWindow" to "web.pip",
-    "RTCDataChannel" to "web.rtc",
-    "RTCDtlsTransport" to "web.rtc",
-    "RTCIceTransport" to "web.rtc",
-    "RTCPeerConnection" to "web.rtc",
-    "RTCSctpTransport" to "web.rtc",
-    "RemotePlayback" to "web.remoteplayback",
-    "ScreenOrientation" to "web.screen",
-    "ServiceWorker" to "web.serviceworker",
-    "ServiceWorkerContainer" to "web.serviceworker",
-    "ServiceWorkerRegistration" to "web.serviceworker",
-    "ShadowRoot" to "web.components",
-    "SourceBuffer" to "web.media.source",
-    "SourceBufferList" to "web.media.source",
-    "SpeechSynthesis" to "web.speech",
-    "TextTrack" to "web.vtt",
-    "TextTrackCue" to "web.vtt",
-    "TextTrackList" to "web.vtt",
-    "VideoDecoder" to "web.codecs",
-    "VideoEncoder" to "web.codecs",
-    "VisualViewport" to "web.window",
-    "WakeLockSentinel" to "web.wakelock",
-    "WebSocket" to "web.sockets",
-    "Window" to "web.window",
-    "WindowEventHandlers" to "web.window",
-    "XMLHttpRequest" to "web.xhr",
-
-    "ServiceWorkerGlobalScope" to "web.serviceworker",
-    "WorkerGlobalScope" to "web.workers",
-)
-
 private data class EventData(
     val name: String,
     val type: String,
-    val pkg: String,
 ) {
     val typeName: String = type.substringBefore("<")
 }
@@ -79,64 +15,53 @@ private val ADDITIONAL_EVENTS = listOf(
     EventData(
         name = "webkitfullscreenchange",
         type = "Event",
-        pkg = "web.dom", // ???
     ),
 
     // TEMP
     EventData(
         name = "uncapturederror",
         type = "GPUUncapturedErrorEvent",
-        pkg = "web.gpu",
     ),
 
     // Payment
     EventData(
         name = "shippingaddresschange",
         type = "PaymentRequestUpdateEvent",
-        pkg = "web.payment",
     ),
     EventData(
         name = "shippingoptionchange",
         type = "PaymentRequestUpdateEvent",
-        pkg = "web.payment",
     ),
     EventData(
         name = "payerdetailchange",
         type = "PaymentRequestUpdateEvent",
-        pkg = "web.payment",
     ),
 
     // Document
     EventData(
         name = "resume",
         type = "Event",
-        pkg = "web.dom",
     ),
     // HTMLMediaElement
     EventData(
         name = "progress",
         type = "Event",
-        pkg = "web.html",
     ),
     EventData(
         name = "input",
         type = "InputEvent",
-        pkg = "web.uievents",
     ),
     EventData(
         name = "toggle",
         type = "ToggleEvent",
-        pkg = "web.uievents",
     ),
     EventData(
         name = "beforetoggle",
         type = "ToggleEvent",
-        pkg = "web.uievents",
     ),
     EventData(
         name = "success",
         type = "IDBVersionChangeEvent",
-        pkg = "web.idb",
     ),
 )
 
@@ -154,13 +79,13 @@ internal fun eventDeclarations(
     serviceWorkersContent: String,
 ): Pair<List<ConversionResult>, Set<String>> {
     val dataMap = EventDataMap(content + "\n\n" + webWorkerContent + "\n\n" + serviceWorkersContent)
-    val results = eventTypes(dataMap)
-        .asSequence()
-        .plus(EventType())
-        .plus(EventHandler())
-        .plus(EventInstance())
-        .plus(EventTarget())
-        .plus(HasTargets())
+    val results = sequenceOf(
+        EventType(),
+        EventHandler(),
+        EventInstance(),
+        EventTarget(),
+        HasTargets(),
+    )
         .plus(eventPlaceholders(content, EVENT_DATA, dataMap, strict = true))
         .toList()
 
@@ -512,25 +437,9 @@ private class EventDataMap(
         val data = map[eventName]
             ?: return null
 
-        val types = data.map { it.name }
-        return when (eventName) {
-            EVENT -> DEFAULT_EVENT_TYPES.filter { it in types }
-            else -> types
-        }
+        return data.map { it.name }
     }
-
-    fun getDefaultEventTypes(): List<EventData> =
-        map.getValue("Event")
-            .filter { it.name !in DEFAULT_EVENT_TYPES }
 }
-
-private fun eventTypes(
-    dataMap: EventDataMap,
-): List<ConversionResult> =
-    dataMap.getDefaultEventTypes()
-        .groupBy { it.pkg }
-        .values
-        .map { items -> eventTypes(items) }
 
 private fun eventTypes(
     eventName: String,
@@ -583,49 +492,15 @@ private fun eventTypes(
     )
 }
 
-private fun eventTypes(
-    items: List<EventData>,
-): ConversionResult {
-    val firstItem = items.first()
-    val typeName = firstItem.typeName
-
-    val body = items.asSequence()
-        .map { it.name }
-        .sorted()
-        .joinToString("\n\n") { name ->
-            val memberName = EVENT_CORRECTION_MAP
-                .getOrDefault(name, name)
-                .snakeToCamel()
-
-            """
-            inline fun $typeName.Companion.$memberName() : $EVENT_TYPE<$typeName> =
-                $EVENT_TYPE("$name")
-            """.trimIndent()
-        }
-
-    val pkg = firstItem.pkg
-        .takeIf { it.isNotEmpty() }
-
-    return ConversionResult(
-        name = "$typeName.types",
-        body = body,
-        pkg = pkg,
-    )
-}
-
 private fun parseEvents(
     source: String,
 ): Sequence<EventData> {
-    val mapId = source.substringBefore("EventMap")
-        .substringAfterLast(" ")
-
     return source.splitToSequence("\n")
-        .mapNotNull { parseEventData(it, mapId) }
+        .mapNotNull { parseEventData(it) }
 }
 
 private fun parseEventData(
     source: String,
-    mapId: String,
 ): EventData? {
     if (!source.endsWith(";")) return null
 
@@ -633,13 +508,8 @@ private fun parseEventData(
         .removeSurrounding("    \"", ";")
         .split("\": ", "<")
 
-    val pkg = if (type == "Event") {
-        PACKAGE_MAP.getValue(mapId)
-    } else ""
-
     return EventData(
         name = name,
         type = type,
-        pkg = pkg,
     )
 }

@@ -520,7 +520,6 @@ fun generateKotlinDeclarations(
             "VisualViewport.events",
                 -> """
             import web.dom.*
-            import web.window.resize
             """.trimIndent()
 
             else -> ""
