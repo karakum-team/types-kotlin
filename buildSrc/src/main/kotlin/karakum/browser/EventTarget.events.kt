@@ -20,6 +20,10 @@ internal fun List<ConversionResult>.withEventInstances(
                 .getOrDefault(data.type, data.type)
                 .snakeToCamel()
 
+            val typeConstantName = EVENT_CORRECTION_MAP
+                .getOrDefault(data.type, data.type)
+                .uppercase()
+
             val targetType = EventDataRegistry.getTarget(
                 currentTarget = name,
                 eventType = data.type,
@@ -32,7 +36,7 @@ internal fun List<ConversionResult>.withEventInstances(
                 else -> eventClass
             }
 
-            val eventTypeDeclaration = """$eventClass.$memberName()"""
+            val eventTypeDeclaration = "$eventClass.$typeConstantName"
             val currentTargetBound = when (name) {
                 "IDBRequest" -> "$name<*>"
                 else -> name
