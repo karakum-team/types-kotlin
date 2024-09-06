@@ -437,16 +437,9 @@ private fun eventTypes(
     types ?: return emptyList()
 
     val typesName = "${eventName}Types"
-    val typeParameters = when (eventName) {
-        "MessageEvent",
-            -> "<D>"
-
-        else -> ""
-    }
-
     val eventType = when (eventName) {
         "MessageEvent",
-            -> "$eventName<D>"
+            -> "$eventName<*>"
 
         else -> eventName
     }
@@ -456,27 +449,62 @@ private fun eventTypes(
         .joinToString("\n\n") { name ->
             val memberName = EVENT_CORRECTION_MAP
                 .getOrDefault(name, name)
-                .snakeToCamel()
+                .uppercase()
 
             """
             @JsValue("$name")
-            fun $typeParameters $memberName(): $EVENT_TYPE<$eventType>
+            val $memberName: $EVENT_TYPE<$eventType>
             """.trimIndent()
         }
 
     val body = """
-    sealed external class $typesName {
+    sealed external class $typesName :
+        ${typesName}_deprecated {
 
         $members
     }
     """.trimIndent()
 
+    val deprecatedTypeParameters = when (eventName) {
+        "MessageEvent",
+            -> "<D>"
+
+        else -> ""
+    }
+
+    val deprecatedEventType = eventName + deprecatedTypeParameters
+
+    val deprecatedMembers = types
+        .sorted()
+        .joinToString("\n\n") { name ->
+            val memberName = EVENT_CORRECTION_MAP
+                .getOrDefault(name, name)
+                .snakeToCamel()
+
+            """
+            @JsValue("$name")
+            fun $deprecatedTypeParameters $memberName(): $EVENT_TYPE<$deprecatedEventType>
+            """.trimIndent()
+        }
+
+    val deprecatedBody = """
+    sealed external class ${typesName}_deprecated {
+
+        $deprecatedMembers
+    }
+    """.trimIndent()
+
     return listOf(
         ConversionResult(
-            name = "${eventName}.types.deprecated",
+            name = "${eventName}.types",
             body = body,
             pkg = pkg,
-        )
+        ),
+        ConversionResult(
+            name = "${eventName}.types.deprecated",
+            body = deprecatedBody,
+            pkg = pkg,
+        ),
     )
 }
 
