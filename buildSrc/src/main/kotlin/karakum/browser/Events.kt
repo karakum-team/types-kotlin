@@ -405,18 +405,6 @@ private fun event(
 private class EventDataMap(
     content: String,
 ) {
-    private val DEFAULT_EVENT_TYPES = listOf(
-        "abort",
-        "cancel",
-        "change",
-        "close",
-        "closing",
-        "complete",
-        "error",
-        "open",
-        "success",
-    )
-
     private val map = Regex("""interface .+?EventMap \{\n    "[\s\S]+?\n\}""")
         .findAll(content)
         .flatMap { parseEvents(it.value) }
