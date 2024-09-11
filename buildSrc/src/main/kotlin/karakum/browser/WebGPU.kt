@@ -8,7 +8,9 @@ private val WEB_GPU_URI =
 
 internal val WEB_GPU_CONTENT by lazy {
     loadContent(WEB_GPU_URI)
-        .replace("/**\n * @category GPU\n * @experimental\n */\n", "")
+        .replace("/** @category GPU */\n", "")
+        // GPUPipelineErrorReason, GPUShaderModule
+        .replace("/**\n * @category GPU\n * @\n */\n", "")
         // TEMP?
         .replace("\n  // extended from spec", "")
         .replace(" =\n  | ", " = ")

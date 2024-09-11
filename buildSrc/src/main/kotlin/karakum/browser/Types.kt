@@ -36,6 +36,8 @@ private val PKG_MAP = mapOf(
     "AutoFillCredentialField" to "web.autofill",
     "AutoFillNormalField" to "web.autofill",
 
+    "GPUPipelineErrorReason" to "web.gpu",
+
     "CanPlayTypeResult" to "web.html",
     "SelectionMode" to "web.html",
     "ShadowRootMode" to "web.components",
