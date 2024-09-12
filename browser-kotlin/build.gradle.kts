@@ -18,8 +18,8 @@ dependencies {
     jsMainImplementation(npmv("@webref/events"))
     jsMainImplementation(npmv("@webref/idl"))
 
-    jsMainImplementation(libs.wrappers.cssomCore)
-    jsMainImplementation(libs.wrappers.js)
+    jsMainImplementation(kotlinWrappers.cssomCore)
+    jsMainImplementation(kotlinWrappers.js)
 
     jsMainImplementation(libs.coroutines.core)
 }

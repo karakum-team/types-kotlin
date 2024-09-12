@@ -17,11 +17,13 @@ dependencyResolutionManagement {
             val seskarVersion = extra["seskar.version"] as String
             plugin("seskar", "io.github.turansky.seskar").version(seskarVersion)
 
-            val wrappersVersion = extra["kotlin-wrappers.version"] as String
-            from("org.jetbrains.kotlin-wrappers:kotlin-wrappers-catalog:$wrappersVersion")
-
             val coroutinesVersion = extra["kotlinx-coroutines.version"] as String
             library("coroutines-core", "org.jetbrains.kotlinx", "kotlinx-coroutines-core").version(coroutinesVersion)
+        }
+
+        create("kotlinWrappers") {
+            val wrappersVersion = extra["kotlin-wrappers.version"] as String
+            from("org.jetbrains.kotlin-wrappers:kotlin-wrappers-catalog:$wrappersVersion")
         }
     }
 }

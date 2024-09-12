@@ -13,8 +13,8 @@ kotlin {
 dependencies {
     jsMainImplementation(npmv("@tanstack/react-query"))
 
-    jsMainImplementation(libs.wrappers.web)
-    jsMainImplementation(libs.wrappers.reactCore)
+    jsMainImplementation(kotlinWrappers.web)
+    jsMainImplementation(kotlinWrappers.reactCore)
 }
 
 val syncCoreWrappers by tasks.creating(SyncWrappers::class) {

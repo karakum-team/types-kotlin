@@ -15,7 +15,7 @@ dependencies {
     jsMainImplementation(npmv("@actions/io"))
     jsMainImplementation(npmv("@actions/tool-cache"))
 
-    jsMainImplementation(libs.wrappers.node)
+    jsMainImplementation(kotlinWrappers.node)
     jsMainImplementation(libs.coroutines.core)
 }
 

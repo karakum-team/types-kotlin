@@ -7,7 +7,7 @@ plugins {
 dependencies {
     jsMainImplementation(npmv("csstype"))
 
-    jsMainImplementation(libs.wrappers.js)
+    jsMainImplementation(kotlinWrappers.js)
 }
 
 val syncWithWrappers by tasks.creating(SyncWrappers::class) {

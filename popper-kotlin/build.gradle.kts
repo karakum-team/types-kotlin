@@ -7,7 +7,7 @@ plugins {
 dependencies {
     jsMainImplementation(npmv("@popperjs/core"))
 
-    jsMainImplementation(libs.wrappers.browser)
+    jsMainImplementation(kotlinWrappers.browser)
 }
 
 val syncWithWrappers by tasks.creating(SyncWrappers::class) {

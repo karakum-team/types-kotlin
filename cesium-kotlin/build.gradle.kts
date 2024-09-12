@@ -8,7 +8,7 @@ dependencies {
     jsMainImplementation(npmv("@cesium/engine"))
     jsMainImplementation(npmv("@cesium/widgets"))
 
-    jsMainImplementation(libs.wrappers.browser)
+    jsMainImplementation(kotlinWrappers.browser)
 }
 
 val syncCesiumEngine by tasks.creating(SyncWrappers::class) {

@@ -7,8 +7,8 @@ plugins {
 dependencies {
     jsMainImplementation(npmv("@tanstack/react-virtual"))
 
-    jsMainImplementation(libs.wrappers.browser)
-    jsMainImplementation(libs.wrappers.reactCore)
+    jsMainImplementation(kotlinWrappers.browser)
+    jsMainImplementation(kotlinWrappers.reactCore)
 }
 
 val syncWithWrappers by tasks.creating(SyncWrappers::class) {
