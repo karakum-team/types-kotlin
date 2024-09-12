@@ -11,14 +11,16 @@ dependencyResolutionManagement {
             plugin("kotlin-multiplatform", "org.jetbrains.kotlin.multiplatform").version(kotlinVersion)
             plugin("kotlin-js-plain-objects", "org.jetbrains.kotlin.plugin.js-plain-objects").version(kotlinVersion)
 
-            val kfcVersion = extra["kfc.version"] as String
-            plugin("kfc-library", "io.github.turansky.kfc.library").version(kfcVersion)
-
             val seskarVersion = extra["seskar.version"] as String
             plugin("seskar", "io.github.turansky.seskar").version(seskarVersion)
 
             val coroutinesVersion = extra["kotlinx-coroutines.version"] as String
             library("coroutines-core", "org.jetbrains.kotlinx", "kotlinx-coroutines-core").version(coroutinesVersion)
+        }
+
+        create("kfc") {
+            val kfcVersion = extra["kfc.version"] as String
+            plugin("library", "io.github.turansky.kfc.library").version(kfcVersion)
         }
 
         create("kotlinWrappers") {
