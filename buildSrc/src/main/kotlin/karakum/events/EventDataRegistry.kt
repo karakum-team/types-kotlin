@@ -78,7 +78,6 @@ object EventDataRegistry {
 
     private val EXCLUDED_EVENTS = setOf(
         // legacy
-        "MutationEvent",
         "TimeEvent",
         "TextEvent", // ?
 

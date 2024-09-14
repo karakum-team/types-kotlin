@@ -69,7 +69,6 @@ private val EXCLUDED = setOf(
     // deprecated
     "AudioProcessingEvent",
     "MediaRecorderErrorEvent",
-    "MutationEvent",
     "TextEvent",
 )
 
