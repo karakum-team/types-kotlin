@@ -19,6 +19,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "null" to "Void",
     "undefined" to "Void",
+    "never" to "Void",
 
     "true" to "True",
     "false" to "False",
