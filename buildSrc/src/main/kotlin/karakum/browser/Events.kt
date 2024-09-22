@@ -1,7 +1,5 @@
 package karakum.browser
 
-import karakum.common.snakeToCamel
-
 private const val EVENT = "Event"
 
 private data class EventData(
@@ -457,47 +455,9 @@ private fun eventTypes(
         }
 
     val body = """
-    sealed external class $typesName :
-        ${typesName}_deprecated {
+    sealed external class $typesName {
 
         $members
-    }
-    """.trimIndent()
-
-    val deprecatedTypeParameters = when (eventName) {
-        "MessageEvent",
-            -> "<D>"
-
-        else -> ""
-    }
-
-    val deprecatedEventType = eventName + deprecatedTypeParameters
-
-    val deprecatedMembers = types
-        .sorted()
-        .joinToString("\n\n") { name ->
-            val memberName = EVENT_CORRECTION_MAP
-                .getOrDefault(name, name)
-                .uppercase()
-
-            val deprecatedMemberName = EVENT_CORRECTION_MAP
-                .getOrDefault(name, name)
-                .snakeToCamel()
-
-            """
-            @Deprecated(
-                message = "Legacy event type declaration. Use type constant instead!",
-                replaceWith = ReplaceWith("$eventName.$memberName"),
-            )
-            @JsValue("$name")
-            fun $deprecatedTypeParameters $deprecatedMemberName(): $EVENT_TYPE<$deprecatedEventType>
-            """.trimIndent()
-        }
-
-    val deprecatedBody = """
-    sealed external class ${typesName}_deprecated {
-
-        $deprecatedMembers
     }
     """.trimIndent()
 
@@ -505,11 +465,6 @@ private fun eventTypes(
         ConversionResult(
             name = "${eventName}.types",
             body = body,
-            pkg = pkg,
-        ),
-        ConversionResult(
-            name = "${eventName}.types.deprecated",
-            body = deprecatedBody,
             pkg = pkg,
         ),
     )
