@@ -74,6 +74,7 @@ val BROWSER_INCLUDE = setOf(
     "web/images/ImageBitmapRenderingContext.kt",
     "web/images/ImageBitmapRenderingContextSettings.kt",
     "web/performance/LargestContentfulPaint.kt",
+    "web/url/FragmentDirective.kt",
 )
 
 enum class WrapperProject {
