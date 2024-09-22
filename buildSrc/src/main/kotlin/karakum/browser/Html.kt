@@ -430,28 +430,42 @@ private val QUERY_TYPES = listOf(
 )
 
 private val CODECS_TYPES = listOf(
+    "AudioData",
+    "AudioDataCopyToOptions",
+    "AudioDataInit",
+    "AudioDecoder",
+    "AudioDecoderConfig",
+    "AudioDecoderInit",
+    "AudioDecoderSupport",
+    "AudioEncoder",
+    "AudioEncoderConfig",
+    "AudioEncoderInit",
+    "AudioEncoderSupport",
     "AvcEncoderConfig",
+    "EncodedAudioChunk",
+    "EncodedAudioChunkInit",
+    "EncodedAudioChunkMetadata",
     "EncodedVideoChunk",
     "EncodedVideoChunkInit",
+    "EncodedVideoChunkMetadata",
+    "OpusEncoderConfig",
+    "PlaneLayout",
     "VideoColorSpace",
     "VideoColorSpaceInit",
     "VideoDecoder",
-    "VideoDecoderConfig",
     "VideoDecoderConfig",
     "VideoDecoderInit",
     "VideoDecoderSupport",
     "VideoEncoder",
     "VideoEncoderConfig",
-    "VideoEncoderConfig",
     "VideoEncoderEncodeOptions",
+    "VideoEncoderEncodeOptionsForAvc",
     "VideoEncoderInit",
     "VideoEncoderSupport",
     "VideoFrame",
     "VideoFrameBufferInit",
-    "VideoFrameInit",
-    "EncodedVideoChunkMetadata",
     "VideoFrameCopyToOptions",
-    "PlaneLayout",
+    "VideoFrameInit",
 )
 
 private val FILE_SYSTEM_TYPES = listOf(
@@ -1188,6 +1202,8 @@ internal fun convertInterface(
                 name == "OfflineAudioContext" ||
                 name == "BroadcastChannel" ||
                 name == "OffscreenCanvas" ||
+                name == "AudioDecoder" ||
+                name == "AudioEncoder" ||
                 name == "VideoDecoder" ||
                 name == "VideoEncoder" ||
                 name == "MediaRecorder" ||

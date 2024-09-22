@@ -86,16 +86,20 @@ private val PKG_MAP = mapOf(
     "PresentationStyle" to "web.clipboard",
 
     "AlphaOption" to "web.codecs",
+    "AudioSampleFormat" to "web.codecs",
     "AvcBitstreamFormat" to "web.codecs",
+    "BitrateMode" to "web.codecs",
     "CodecState" to "web.codecs",
+    "EncodedAudioChunkType" to "web.codecs",
     "EncodedVideoChunkType" to "web.codecs",
     "HardwareAcceleration" to "web.codecs",
     "LatencyMode" to "web.codecs",
-    "VideoMatrixCoefficients" to "web.codecs",
+    "OpusBitstreamFormat" to "web.codecs",
     "VideoColorPrimaries" to "web.codecs",
     "VideoEncoderBitrateMode" to "web.codecs",
-    "VideoTransferCharacteristics" to "web.codecs",
+    "VideoMatrixCoefficients" to "web.codecs",
     "VideoPixelFormat" to "web.codecs",
+    "VideoTransferCharacteristics" to "web.codecs",
 
     "ScrollRestoration" to "web.history",
 

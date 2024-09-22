@@ -45,9 +45,11 @@ private fun convertFunctionType(
 
         name == "FunctionStringCallback" -> "web.data"
 
-        name == "WebCodecsErrorCallback" -> "web.codecs"
-        name == "VideoFrameOutputCallback" -> "web.codecs"
+        name == "AudioDataOutputCallback" -> "web.codecs"
+        name == "EncodedAudioChunkOutputCallback" -> "web.codecs"
         name == "EncodedVideoChunkOutputCallback" -> "web.codecs"
+        name == "VideoFrameOutputCallback" -> "web.codecs"
+        name == "WebCodecsErrorCallback" -> "web.codecs"
 
         name.startsWith("IntersectionObserver") -> "web.dom.observers"
         name == "MutationCallback" -> "web.dom.observers"
@@ -93,6 +95,7 @@ private fun convertFunctionType(
         .replace(": MutationRecord[]", ": ReadonlyArray<MutationRecord>")
         .replace(": ResizeObserverEntry[]", ": ReadonlyArray<ResizeObserverEntry>")
         .replace(": Report[]", ": ReadonlyArray<Report>")
+        .replace("?: EncodedAudioChunkMetadata", ": EncodedAudioChunkMetadata?")
         .replace("?: EncodedVideoChunkMetadata", ": EncodedVideoChunkMetadata?")
         .replace("): void | PromiseLike<void>", ") -> PromiseLike<Void>?")
         // QueuingStrategySize
