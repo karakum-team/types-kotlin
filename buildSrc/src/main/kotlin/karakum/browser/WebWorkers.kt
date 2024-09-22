@@ -8,13 +8,7 @@ private val WEB_WORKER_URI =
     URI("https://raw.githubusercontent.com/microsoft/TypeScript-DOM-lib-generator/main/baselines/webworker.generated.d.ts")
 
 internal val WEB_WORKER_CONTENT by lazy {
-    val finalClose: (String) -> String = {
-        it.replace("    close(): void;", "    close(): never;")
-    }
-
     loadContent(WEB_WORKER_URI)
-        .patchInterface("DedicatedWorkerGlobalScope", finalClose)
-        .patchInterface("SharedWorkerGlobalScope", finalClose)
 }
 
 private val WORKER_TYPES = setOf(
