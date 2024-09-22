@@ -293,10 +293,6 @@ internal object IDLRegistry {
         if (className.startsWith("GPU")) {
             return propertyTypeMap[className to propertyName] ?: run {
                 when (propertyName) {
-                    "width",
-                    "height",
-                        -> "JsLong"
-
                     // maxInterStageShaderVariables?
                     "maxInterStageShaderComponents",
                         -> "Int"
