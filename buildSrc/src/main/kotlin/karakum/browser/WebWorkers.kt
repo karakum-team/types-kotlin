@@ -8,6 +8,8 @@ private val WEB_WORKER_URI =
     URI("https://raw.githubusercontent.com/microsoft/TypeScript-DOM-lib-generator/main/baselines/webworker.generated.d.ts")
 
 internal val WEB_WORKER_CONTENT by lazy {
+    // TODO: remove after
+    //  https://github.com/microsoft/TypeScript-DOM-lib-generator/pull/1806 merge and release
     val finalClose: (String) -> String = {
         it.replace("    close(): void;", "    close(): never;")
     }
