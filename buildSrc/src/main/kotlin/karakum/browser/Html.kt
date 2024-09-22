@@ -2058,6 +2058,7 @@ private fun convertFunction(
                 it.replace(": number", ": ${typeProvider.getReturnType(name)}")
             } else it
         }
+        .replace(": never", ": Nothing")
         .replace(": string", ": String")
         .replace("<string>", "<String>")
         .replace(": boolean", ": Boolean")
