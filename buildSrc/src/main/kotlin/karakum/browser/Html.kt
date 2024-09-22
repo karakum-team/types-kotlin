@@ -519,6 +519,7 @@ private val PAYMENT_TYPES = listOf(
 )
 
 private val URL_TYPES = listOf(
+    "FragmentDirective",
     "URL",
     "URLSearchParams",
 )

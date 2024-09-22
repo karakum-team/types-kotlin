@@ -217,6 +217,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.svg.SvgTagName",
     "web.time.DOMHighResTimeStamp",
     "web.time.EpochTimeStamp",
+    "web.url.FragmentDirective",
     "web.url.URL",
     "web.url.URLSearchParams",
     "web.validation.ValidationTarget",
