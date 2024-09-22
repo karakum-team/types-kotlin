@@ -126,26 +126,21 @@ private fun eventPlaceholders(
     }
 
     return data.flatMap { info ->
-        val types = eventTypes(
-            eventName = info.name,
-            pkg = info.pkg,
-            types = dataMap.getEventTypes(info.name),
-        )
-
-        val typesName = if (types.isNotEmpty()) {
-            "${info.name}Types"
-        } else null
-
         // TEMP
         if (info.name == "GPUUncapturedErrorEvent")
-            return@flatMap types.asSequence()
+            return@flatMap emptySequence()
+
+        val types = eventTypes(
+            eventName = info.name,
+            types = dataMap.getEventTypes(info.name),
+        )
 
         event(
             source = source,
             name = info.name,
             pkg = info.pkg,
-            typesName = typesName,
-        ).plus(types)
+            types = types,
+        )
     }
 }
 
@@ -153,7 +148,7 @@ private fun event(
     source: String,
     name: String,
     pkg: String,
-    typesName: String?,
+    types: String?,
 ): Sequence<ConversionResult> {
     var initName = "${name}Init" +
             (if (name == "CustomEvent" || name == "MessageEvent") "<D = any>" else "")
@@ -296,20 +291,19 @@ private fun event(
     val companionSource = eventClassBody
         .substringAfter("\n", "")
 
-    val companionMembers = if (companionSource.isNotEmpty()) {
-        companionSource
-            .splitToSequence(";\n")
-            .mapNotNull { convertMember(it, typeProvider) }
-            .joinToString("\n")
+    val companionMembers = listOfNotNull(
+        if (companionSource.isNotEmpty()) {
+            companionSource
+                .splitToSequence(";\n")
+                .mapNotNull { convertMember(it, typeProvider) }
+                .joinToString("\n")
+        } else null,
+        types,
+    ).joinToString("\n\n")
+
+    val companion = if (companionMembers.isNotEmpty()) {
+        "companion object {\n$companionMembers\n}"
     } else null
-
-    val companionParentDeclaration = if (typesName != null) {
-        ": $typesName"
-    } else ""
-
-    val companion = if (companionMembers != null) {
-        "companion object $companionParentDeclaration {\n$companionMembers\n}"
-    } else "companion object $companionParentDeclaration"
 
     val modifier = if (eventConstructor.isNotEmpty()) "open" else "sealed"
     val typeParameters = when (name) {
@@ -320,11 +314,14 @@ private fun event(
         else -> ""
     }
 
+    val body = listOfNotNull(
+        eventMembers,
+        companion,
+    ).joinToString("\n\n")
+
     var eventBody = """  
     $modifier external class $name$typeParameters $eventConstructor $eventParentDeclaration {
-        $eventMembers
-    
-        $companion
+        $body
     }
     """.trimIndent()
 
@@ -428,12 +425,10 @@ private class EventDataMap(
 
 private fun eventTypes(
     eventName: String,
-    pkg: String,
     types: List<String>?,
-): List<ConversionResult> {
-    types ?: return emptyList()
+): String? {
+    types ?: return null
 
-    val typesName = "${eventName}Types"
     val eventType = when (eventName) {
         "MessageEvent",
             -> "$eventName<*>"
@@ -441,7 +436,7 @@ private fun eventTypes(
         else -> eventName
     }
 
-    val members = types
+    return types
         .sorted()
         .joinToString("\n\n") { name ->
             val memberName = EVENT_CORRECTION_MAP
@@ -453,21 +448,6 @@ private fun eventTypes(
             val $memberName: $EVENT_TYPE<$eventType>
             """.trimIndent()
         }
-
-    val body = """
-    sealed external class $typesName {
-
-        $members
-    }
-    """.trimIndent()
-
-    return listOf(
-        ConversionResult(
-            name = "${eventName}.types",
-            body = body,
-            pkg = pkg,
-        ),
-    )
 }
 
 private fun parseEvents(

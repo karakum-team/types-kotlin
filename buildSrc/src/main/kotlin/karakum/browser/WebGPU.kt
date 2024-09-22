@@ -181,7 +181,10 @@ private fun webGpuDeclarations(
                     ): Event {
                         val error: GPUError
                         
-                        companion object : GPUUncapturedErrorEventTypes
+                        companion object {
+                            @JsValue("uncapturederror")
+                            val UNCAPTURED_ERROR: EventType<GPUUncapturedErrorEvent>
+                        }
                     }
                     """.trimIndent(),
                     pkg = "web.gpu",
