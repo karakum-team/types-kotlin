@@ -53,6 +53,7 @@ internal fun intlDeclarations(
                 predefinedPkg = "js.intl",
             )
         }
+        .filter { it.name != "SegmentIterator" }
         .filter { !it.name.endsWith("Registry") }
 
     return unions.asSequence()
