@@ -947,7 +947,8 @@ internal fun convertInterface(
     }
 
     val isHtmlElementClass = IDLRegistry.hasHtmlConstructor(name)
-    val isSvgElementClass = type == "class" && name.startsWith("SVG") && name.endsWith("Element")
+    val isSvgClass = type == "class" && name.startsWith("SVG")
+    val isSvgElementClass = isSvgClass && name.endsWith("Element")
 
     if (isHtmlElementClass || isSvgElementClass || hasTypeGuard) {
         require(mainConstructor.isEmpty())
@@ -955,6 +956,10 @@ internal fun convertInterface(
 
         val modifier = if (isHtmlElementClass) "protected" else "private"
         declaration = declaration.replaceFirst(":\n", "\n$modifier constructor():\n")
+    }
+
+    if (isSvgClass && !isSvgElementClass && !name.endsWith("List")) {
+        mainConstructor = "\nprivate constructor()\n"
     }
 
     if (mainConstructor.isNotEmpty()) {
