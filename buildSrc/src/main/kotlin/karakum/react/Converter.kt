@@ -30,6 +30,7 @@ internal fun convertDefinitions(
         .replace(""": boolean | "false"""", """: "false"""")
         .replace("""fetchPriority?: "high" | "low" | "auto";""", """fetchPriority?: FetchPriority;""")
         .replace(" |  undefined", " | undefined")
+        .replace(" | (string & {})", "")
         .replace("\r\n", "\n")
 
     val svgTypes = content.substringAfter("    interface IntrinsicElements {\n")
