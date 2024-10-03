@@ -7,6 +7,7 @@ internal fun String.applyPatches(): String {
     return patchVideoFrameCallback()
         .applyReadyStatePatches()
         .patchQuerySelectors()
+        .replace("    autocapitalize: string;", "    autocapitalize: $AUTO_CAPITALIZE;")
         .replace("    fetchPriority: string;", "    fetchPriority: $FETCH_PRIORITY;")
         .patchInterfaces("Request", "RequestInit", "XMLHttpRequest") {
             it.replace(Regex("""([( ]method\??: )string([;,])"""), "$1$REQUEST_METHOD$2")

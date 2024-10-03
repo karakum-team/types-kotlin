@@ -2,6 +2,7 @@ package karakum.browser
 
 import karakum.common.sealedUnionBody
 
+internal const val AUTO_CAPITALIZE = "AutoCapitalize"
 internal const val PRELOAD = "Preload"
 internal const val FETCH_PRIORITY = "FetchPriority"
 internal const val FORM_ENCTYPE = "FormEncType"
@@ -79,6 +80,21 @@ internal val UNION_DATA_LIST = listOf(
 
 internal fun htmlUnions(): Sequence<ConversionResult> =
     sequenceOf(
+        ConversionResult(
+            name = AUTO_CAPITALIZE,
+            body = sealedUnionBody(
+                name = AUTO_CAPITALIZE,
+                values = listOf(
+                    "off",
+                    "none",
+                    "on",
+                    "sentences",
+                    "words",
+                    "characters",
+                ),
+            ),
+            pkg = "web.html",
+        ),
         ConversionResult(
             name = "CrossOrigin",
             body = sealedUnionBody(
