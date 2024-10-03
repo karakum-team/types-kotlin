@@ -21,6 +21,7 @@ external interface HTMLAttributes<T : Element> :
 
     // Standard HTML Attributes
     var accessKey: String?
+    var autoCapitalize: AutoCapitalize?
     var autoFocus: Boolean?
     var contentEditable: Any? // Booleanish | "inherit" | "plaintext-only"
     var contextMenu: String?
@@ -58,7 +59,6 @@ external interface HTMLAttributes<T : Element> :
     var vocab: String?
 
     // Non-standard Attributes
-    var autoCapitalize: String?
     var autoCorrect: String?
     var autoSave: String?
     var itemProp: String?
