@@ -12,6 +12,7 @@ internal class SimpleType(
             when (parent.name) {
                 "EasingFunction" -> "EasingCallback"
                 "CallbackProperty" -> "CallbackPropertyCallback"
+                "CallbackPositionProperty" -> "CallbackPositionCallback"
                 else -> TODO()
             }
         } else name

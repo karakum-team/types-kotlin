@@ -196,3 +196,4 @@ private fun String.applyTypeAliasCorrection(): String =
         .replace("TimeInterval.MergeCallback", "MergeCallback")
         .replace("EasingFunction.Callback", "EasingCallback")
         .replace("CallbackProperty.Callback", "CallbackPropertyCallback")
+        .replace("CallbackPositionProperty.Callback", "CallbackPositionProperty")
