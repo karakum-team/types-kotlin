@@ -65,7 +65,8 @@ internal fun intlDeclarations(
             ConversionResult(
                 SUPPORTED_LOCALES_OPTIONS,
                 """
-                sealed external interface $SUPPORTED_LOCALES_OPTIONS {
+                @JsPlainObject
+                external interface $SUPPORTED_LOCALES_OPTIONS {
                     var localeMatcher: LocaleMatcher?
                 }
                 """.trimIndent(),
@@ -95,6 +96,7 @@ private fun intlContent(
                 .replace("\n\n", "\n")
         }
         .replace(REDUNDANT_NUMBER_FORMAT_COPY, "")
+        .replace(Regex("""interface .+?Registry \{}\n"""), "")
         .replace("readonly string[]", "string[]")
         .splitUnion("string | string[]")
         .splitUnion("number | bigint | StringNumericLiteral")
