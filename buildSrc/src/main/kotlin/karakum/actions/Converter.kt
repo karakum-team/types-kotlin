@@ -136,7 +136,7 @@ private fun convertInterface(
 
     val hasFunctions = " fun " in members || "\nfun " in members
     if (!hasFunctions)
-        members = members.replace("\n    var ", "\n    val ")
+        members = members.replace("    var ", "    val ")
 
     val annotation = when {
         hasFunctions -> null
