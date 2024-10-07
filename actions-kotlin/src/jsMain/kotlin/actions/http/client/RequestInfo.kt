@@ -6,8 +6,8 @@ import kotlinx.js.JsPlainObject
 import web.url.URL
 
 @JsPlainObject
-sealed external interface RequestInfo {
+external interface RequestInfo {
     var options: node.http.RequestOptions
-    var parsedUrl: URL
-    var httpModule: Any /* typeof http | typeof https */
+    val parsedUrl: URL
+    val httpModule: Any /* typeof http | typeof https */
 }
