@@ -127,7 +127,7 @@ private fun convertInterface(
             body = "typealias $name = Record<String, Any>"
         )
 
-    val members = memberSource
+    var members = memberSource
         .replace("env?: {\n    [key: string]: string;\n};", "env?: Record<string, string>;")
         .splitToSequence(";\n")
         .mapNotNull { convertMember(it) }
@@ -135,7 +135,8 @@ private fun convertInterface(
         .prependIndent("    ")
 
     val hasFunctions = " fun " in members || "\nfun " in members
-    val modifier = if (hasFunctions) "" else "sealed"
+    if (!hasFunctions)
+        members = members.replace("\n    var ", "\n    val ")
 
     val annotation = when {
         hasFunctions -> null
@@ -144,7 +145,7 @@ private fun convertInterface(
 
     val body = listOfNotNull(
         annotation,
-        "$modifier external interface $declaration {\n$members\n}",
+        "external interface $declaration {\n$members\n}",
     ).joinToString("\n")
 
     return ConversionResult(
