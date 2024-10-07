@@ -26,13 +26,13 @@ internal fun typeDeclaration(
             require(!top)
             """
             @JsPlainObject
-            sealed interface /* typealias */ $name : $body
+            interface /* typealias */ $name : $body
             """.trimIndent()
         }
 
         else -> {
             val modifier = if (top) "external" else ""
-            "@JsPlainObject\nsealed $modifier interface $name {\n${optionsBody(body)}\n}"
+            "@JsPlainObject\n$modifier interface $name {\n${optionsBody(body)}\n}"
         }
     }
 }

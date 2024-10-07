@@ -7,7 +7,7 @@ internal class Enum(
         source.defaultName
 
     override fun toCode(): String {
-        var body = source.body
+        val body = source.body
             .substringAfter("\n    ")
             .removeSuffix("}")
             .replace(",\n     *", "__COMMA__\n     *")
