@@ -7,6 +7,6 @@ import kotlinx.js.JsPlainObject
 
 @JsPlainObject
 external interface RetryOptions {
-    var doNotRetry: ReadonlyArray<Number>?
+    val doNotRetry: ReadonlyArray<Number>?
     val enabled: Boolean?
 }

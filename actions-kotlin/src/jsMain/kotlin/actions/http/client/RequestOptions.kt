@@ -6,7 +6,7 @@ import kotlinx.js.JsPlainObject
 
 @JsPlainObject
 external interface RequestOptions {
-    var headers: node.http.OutgoingHttpHeaders?
+    val headers: node.http.OutgoingHttpHeaders?
     val socketTimeout: Number?
     val ignoreSslError: Boolean?
     val allowRedirects: Boolean?

@@ -6,7 +6,7 @@ import kotlinx.js.JsPlainObject
 
 @JsPlainObject
 external interface IToolReleaseFile {
-    var filename: String
+    val filename: String
     val platform: String
     val platform_version: String?
     val arch: String

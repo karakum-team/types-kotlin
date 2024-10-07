@@ -6,6 +6,6 @@ import kotlinx.js.JsPlainObject
 
 @JsPlainObject
 external interface BackendIds {
-    var workflowRunBackendId: String
+    val workflowRunBackendId: String
     val workflowJobRunBackendId: String
 }

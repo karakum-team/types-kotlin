@@ -7,7 +7,7 @@ import kotlinx.js.JsPlainObject
 
 @JsPlainObject
 external interface IToolRelease {
-    var version: String
+    val version: String
     val stable: Boolean
     val release_url: String
     val files: ReadonlyArray<IToolReleaseFile>

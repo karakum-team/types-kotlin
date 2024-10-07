@@ -6,7 +6,7 @@ import kotlinx.js.JsPlainObject
 
 @JsPlainObject
 external interface TypedResponse<T> {
-    var statusCode: Number
+    val statusCode: Number
     val result: T?
     val headers: node.http.IncomingHttpHeaders
 }
