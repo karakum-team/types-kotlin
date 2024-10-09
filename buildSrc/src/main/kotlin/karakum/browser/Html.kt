@@ -1179,8 +1179,6 @@ internal fun convertInterface(
         !declaration.startsWith("interface ") -> ""
         "= definedExternally" in members -> ""
 
-        name.endsWith("Options") -> "@JsPlainObject"
-
         IDLRegistry.isPlainObjectInterface(name) -> {
             when (name) {
                 "QueuingStrategy",

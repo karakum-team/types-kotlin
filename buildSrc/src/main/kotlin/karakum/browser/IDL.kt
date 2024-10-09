@@ -345,5 +345,5 @@ internal object IDLRegistry {
     fun isPlainObjectInterface(
         name: String,
     ): Boolean =
-        name in plainObjectInterfaces
+        name in plainObjectInterfaces || name.endsWith("Options")
 }
