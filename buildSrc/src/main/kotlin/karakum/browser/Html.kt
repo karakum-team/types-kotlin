@@ -1153,7 +1153,7 @@ internal fun convertInterface(
 
             else -> {
                 if (abortable) {
-                    result.replace("var signal: AbortSignal?", "override var signal: AbortSignal?")
+                    result.replace("val signal: AbortSignal?", "override val signal: AbortSignal?")
                 } else result
             }
         }
@@ -1175,21 +1175,24 @@ internal fun convertInterface(
         .filter { it.isNotEmpty() }
         .joinToString("\n\n")
 
-    val annotations = when {
-        !declaration.startsWith("interface ") -> ""
-        "= definedExternally" in members -> ""
+    val annotations = if (IDLRegistry.isPlainObjectInterface(name)) {
+        require(declaration.startsWith("interface ")) {
+            "JSO `$name` should be interface"
+        }
 
-        IDLRegistry.isPlainObjectInterface(name) -> {
-            when (name) {
+        require("= definedExternally" !in members) {
+            "JSO `$name` should not contain default properties"
+        }
+
+        when (name) {
                 "QueuingStrategy",
                     -> "// @JsPlainObject"
 
                 else -> "@JsPlainObject"
             }
+    } else {
+        ""
         }
-
-        else -> ""
-    }
 
     val modifier = when {
         name == DOM_EXCEPTION ||
@@ -1792,6 +1795,7 @@ private fun convertProperty(
     typeProvider: TypeProvider,
 ): String? {
     val isVal = source.startsWith("readonly ")
+            || typeProvider.readonlyMode
     val modifier = if (isVal) "val" else "var"
 
     var (name, type) = source.removePrefix("readonly ").let {

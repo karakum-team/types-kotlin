@@ -50,6 +50,9 @@ internal class TypeProvider(
         }
     }
 
+    val readonlyMode: Boolean =
+        IDLRegistry.isPlainObjectInterface(parentType)
+
     fun isDefined(): Boolean =
         parentType in Mixins.ALL
 

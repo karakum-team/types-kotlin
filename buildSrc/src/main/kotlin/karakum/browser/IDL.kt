@@ -344,6 +344,19 @@ internal object IDLRegistry {
 
     fun isPlainObjectInterface(
         name: String,
-    ): Boolean =
-        name in plainObjectInterfaces || name.endsWith("Options")
+    ): Boolean {
+        if (name in plainObjectInterfaces)
+            return true
+
+        if (!name.endsWith("Options"))
+            return false
+
+        return when (name) {
+            "LocaleOptions",
+            "PushSubscriptionOptions",
+                -> false
+
+            else -> true
+        }
+    }
 }
