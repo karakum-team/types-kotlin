@@ -3,7 +3,7 @@ import java.util.*
 plugins {
     `kotlin-dsl`
     // TEMP
-    kotlin("plugin.serialization") version "2.0.20"
+    kotlin("plugin.serialization") version "2.0.21"
 }
 
 repositories {
