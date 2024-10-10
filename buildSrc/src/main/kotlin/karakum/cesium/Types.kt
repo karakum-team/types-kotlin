@@ -80,6 +80,6 @@ private fun optionsBody(
         .filter { it.isNotEmpty() }
         .map { Parameter(it) }
         .onEach { it.supportDefault = false }
-        .map { "var ${it.toCode()}" }
+        .map { "val ${it.toCode()}" }
         .joinToString("\n")
 }
