@@ -187,12 +187,6 @@ internal abstract class TypeBase(
     }
 
     override fun toConversionResults(): Sequence<ConversionResult> {
-        val factories = sequenceOf(members.firstOrNull())
-            .filterIsInstance<Constructor>()
-            .mapNotNull { it.toExtensionCode() }
-            .map { DEFAULT_PACKAGE + it }
-            .map { body -> ConversionResult("${name}.factory", body) }
-
         val nestedTypes = companion?.members
             ?.filter { it.isNestedType() }
             ?: emptyList()
@@ -213,7 +207,6 @@ internal abstract class TypeBase(
             .map { ConversionResult(name = it.longName, body = DEFAULT_PACKAGE + it.toCode()) }
 
         return super.toConversionResults()
-            .plus(factories)
             .plus(typeAliases)
     }
 }

@@ -16,11 +16,6 @@ internal class Constructor(
         .map(::Parameter)
         .toList()
 
-    val hasOptions: Boolean by lazy {
-        val p = parameters.lastOrNull()
-        p != null && p.name == "options" && p.type.endsWith(CONSTRUCTOR_OPTIONS)
-    }
-
     val hiddenOptions: Boolean by lazy {
         hasHiddenOptions()
     }
@@ -36,50 +31,6 @@ internal class Constructor(
             .takeIf { it.isNotEmpty() }
             ?.let { "constructor$it" }
             ?: ""
-
-    fun toExtensionCode(): String? {
-        val type = parent.name
-        if (type == "ModelFeature")
-            return null
-
-        if (hiddenOptions) {
-            if (parameters.size != 1)
-                return null
-
-            // language=Kotlin
-            return """
-                inline fun $type(
-                    block: $type.() -> Unit
-                ): $type =
-                    $type().apply(block)
-            """.trimIndent()
-        }
-
-        if (!hasOptions) return null
-
-        val optionsType = "$type.$CONSTRUCTOR_OPTIONS"
-        val params = parameters.dropLast(1)
-            .joinToString("") { it.toCode() + ",\n" }
-            // split?
-            .replace(
-                "imageryProvider: ImageryProvider? = definedExternally",
-                "imageryProvider: ImageryProvider",
-            )
-        val args = parameters.joinToString(", ") {
-            var result = it.name
-            if (result == "options")
-                result += " = jso(block)"
-            result
-        }
-
-        // language=Kotlin
-        return """
-            inline fun $type(
-                $params block: $optionsType.() -> Unit,
-            ): $type =
-                $type($args)
-        """.trimIndent()
-    }
 
     private companion object {
         fun Constructor.hasHiddenOptions(): Boolean {
