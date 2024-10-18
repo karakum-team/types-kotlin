@@ -13,15 +13,13 @@ interface HydrateOptions {
 
 // language=kotlin
 internal val HYDRATE_OPTIONS_CODE = """
-@JsPlainObject
 external interface DefaultHydrateOptions {
-    val deserializeData: TransformerFn?
-    val queries: QueryOptions<*, *, *, *, *>?
-    val mutations: MutationOptions<*, DefaultError, *, *>?
+    var deserializeData: TransformerFn?
+    var queries: QueryOptions<*, *, *, *, *>?
+    var mutations: MutationOptions<*, DefaultError, *, *>?
 }    
-
-@JsPlainObject
+    
 external interface HydrateOptions {
-    val defaultOptions: DefaultHydrateOptions?
+    var defaultOptions: DefaultHydrateOptions?
 }
 """.trimIndent()

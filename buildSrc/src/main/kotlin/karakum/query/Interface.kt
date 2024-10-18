@@ -42,10 +42,6 @@ class Interface(
             else -> content
         }
 
-        val annotations = when {
-            name.endsWith("Props") -> ""
-            else -> "@JsPlainObject\n"
-        }
-        return "${annotations}external interface $name ${formatParameters(typeParameters)} $extends {\n$body\n}"
+        return "external interface $name ${formatParameters(typeParameters)} $extends {\n$body\n}"
     }
 }
