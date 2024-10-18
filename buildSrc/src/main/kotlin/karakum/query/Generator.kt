@@ -81,6 +81,7 @@ private fun generate(
                     && name != "useQueries"
                     && name != "useSuspenseQueries"
                     && name != "errorBoundaryUtils"
+                    && name != "thenable"
         }
         ?: return
 
