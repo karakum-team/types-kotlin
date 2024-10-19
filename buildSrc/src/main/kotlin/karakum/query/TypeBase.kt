@@ -29,17 +29,20 @@ abstract class TypeBase : Declaration() {
         parentType?.substringBefore("<")
     }
 
+    open val immutable: Boolean by lazy {
+        name.endsWith("Result") || name == "MutationState"
+    }
+
     val members: List<Member> by lazy {
         val body = source.substringAfter("\n")
             .substringBeforeLast("\n")
 
         if (body != "}") {
-            val optionsMode = name.endsWith("Result") || name == "MutationState"
             body.replace(HYDRATION_BOUNDARY_OPTIONS_SOURCE, HYDRATION_BOUNDARY_OPTIONS_REPLACEMENT)
                 .splitToSequence("\n")
                 .map { it.removePrefix("    ") }
                 .map { it.removeSuffix(";") }
-                .mapNotNull { member(it, openByDefault, optionsMode) }
+                .mapNotNull { member(it, openByDefault, immutable) }
                 .toList()
         } else emptyList()
     }

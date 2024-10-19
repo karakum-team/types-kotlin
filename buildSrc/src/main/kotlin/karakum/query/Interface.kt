@@ -1,5 +1,15 @@
 package karakum.query
 
+private enum class InterfaceType {
+    PROPS,
+    JSO,
+
+    // Details - https://youtrack.jetbrains.com/issue/KT-70664
+    JSO_WITH_WA,
+
+    ;
+}
+
 class Interface(
     override val source: String,
     fixAction: Boolean,
@@ -8,6 +18,40 @@ class Interface(
         getTypeName(source, JsTypeKeyword.INTERFACE, fixAction)
 
     override val openByDefault: Boolean = false
+
+    private val type: InterfaceType by lazy {
+        val jsoFixRequired = when (name) {
+            "DefaultOptions",
+            "FetchContext",
+            "InfiniteData",
+            "MutateOptions",
+            "MutationConfig",
+            "QueriesObserverOptions",
+            "QueryBehavior",
+            "QueryConfig",
+            "QueryFunctionContext",
+            "QueryState",
+            "Retryer",
+            "RetryerConfig",
+                -> false
+
+            else -> !name.endsWith("Action")
+                    && !name.endsWith("Action_1")
+        }
+
+        when {
+            name.endsWith("Props")
+                -> InterfaceType.PROPS
+
+            typeParameters.isNotEmpty() && jsoFixRequired
+                -> InterfaceType.JSO_WITH_WA
+
+            else -> InterfaceType.JSO
+        }
+    }
+
+    override val immutable: Boolean
+        get() = super.immutable || type == InterfaceType.JSO
 
     override fun toCode(): String {
         val extends = parentType?.let {
@@ -42,33 +86,15 @@ class Interface(
             else -> content
         }
 
-        val jsoFixRequired = when (name) {
-            "DefaultOptions",
-            "FetchContext",
-            "InfiniteData",
-            "MutateOptions",
-            "MutationConfig",
-            "QueriesObserverOptions",
-            "QueryBehavior",
-            "QueryConfig",
-            "QueryFunctionContext",
-            "QueryState",
-            "Retryer",
-            "RetryerConfig",
-                -> false
-
-            else -> !name.endsWith("Action")
-                    && !name.endsWith("Action_1")
-        }
-
-        val annotations = when {
-            name.endsWith("Props")
+        val annotations = when (type) {
+            InterfaceType.PROPS,
                 -> ""
 
-            typeParameters.isNotEmpty() && jsoFixRequired
-                -> "// @JsPlainObject\n// Details - https://youtrack.jetbrains.com/issue/KT-70664\n"
+            InterfaceType.JSO,
+                -> "@JsPlainObject\n"
 
-            else -> "@JsPlainObject\n"
+            InterfaceType.JSO_WITH_WA,
+                -> "// @JsPlainObject\n// Details - https://youtrack.jetbrains.com/issue/KT-70664\n"
         }
         return "${annotations}external interface $name ${formatParameters(typeParameters)} $extends {\n$body\n}"
     }
