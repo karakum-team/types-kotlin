@@ -1,7 +1,5 @@
 package karakum.query
 
-private const val MARK_OPTIONAL: Boolean = false
-
 class Property(
     override val source: String,
     private val isVar: Boolean,
@@ -15,7 +13,7 @@ class Property(
         if (name == "children" && type == "react.ReactNode")
             return "override var children: react.ReactNode?"
 
-        val optional = MARK_OPTIONAL && source.startsWith("$name?: ")
+        val optional = source.startsWith("$name?: ") && type != "Void"
         val typeDeclaration = if (optional && !type.endsWith(">?")) {
             if (type.startsWith("(")) "($type)?" else "$type?"
         } else type
