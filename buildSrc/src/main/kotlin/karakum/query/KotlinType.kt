@@ -4,8 +4,6 @@ private const val PROMISE = "Promise"
 
 private val CLASS_REGEX = Regex("""[\w\d]+""")
 
-internal const val DYNAMIC = "dynamic"
-
 private val STANDARD_TYPE_MAP = mapOf(
     "any" to "Any",
     "object" to "Any",
@@ -202,8 +200,7 @@ internal fun kotlinType(
         return kotlinType(type.removePrefix("WithRequired<").substringBefore(", '"))
 
     if (type.endsWith(" | null") && type.indexOf("|") == type.lastIndexOf("|")) {
-        val baseType = kotlinType(type.removeSuffix(" | null"), name)
-        return if (baseType != DYNAMIC) baseType + "?" else baseType
+        return kotlinType(type.removeSuffix(" | null"), name) + "?"
     }
 
     if (SAFE_PREFIXES.any { type.startsWith(it) } && !type.startsWith("QueryKey |") && " | TOptions" !in type)
@@ -251,13 +248,11 @@ internal fun kotlinType(
         return "() -> ${kotlinType(type.removePrefix("() => "))}"
 
     if (type.endsWith(" | undefined") && type.indexOf("|") == type.lastIndexOf("|")) {
-        val baseType = kotlinType(type.removeSuffix(" | undefined"), name)
-        return if (baseType != DYNAMIC) baseType + "?" else baseType
+        return kotlinType(type.removeSuffix(" | undefined"), name) + "?"
     }
 
     if (type.startsWith("undefined | ") && type.indexOf("|") == type.lastIndexOf("|")) {
-        val baseType = kotlinType(type.removePrefix("undefined | "), name)
-        return if (baseType != DYNAMIC) baseType + "?" else baseType
+        return kotlinType(type.removePrefix("undefined | "), name) + "?"
     }
 
     if (type.startsWith("Array<"))
@@ -319,7 +314,7 @@ internal fun kotlinType(
         return "Any /* $type */"
 
     if (type.startsWith("{"))
-        return "$DYNAMIC /* $type */"
+        return "Any /* $type */"
 
     return type
 }

@@ -16,7 +16,7 @@ class Property(
             return "override var children: react.ReactNode?"
 
         val optional = MARK_OPTIONAL && source.startsWith("$name?: ")
-        val typeDeclaration = if (optional && type != DYNAMIC && !type.endsWith(">?")) {
+        val typeDeclaration = if (optional && !type.endsWith(">?")) {
             if (type.startsWith("(")) "($type)?" else "$type?"
         } else type
 
