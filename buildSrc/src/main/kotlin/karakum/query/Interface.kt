@@ -42,8 +42,32 @@ class Interface(
             else -> content
         }
 
+        val jsoFixRequired = when (name) {
+            "DefaultOptions",
+            "FetchContext",
+            "InfiniteData",
+            "MutateOptions",
+            "MutationConfig",
+            "QueriesObserverOptions",
+            "QueryBehavior",
+            "QueryConfig",
+            "QueryFunctionContext",
+            "QueryState",
+            "Retryer",
+            "RetryerConfig",
+                -> false
+
+            else -> !name.endsWith("Action")
+                    && !name.endsWith("Action_1")
+        }
+
         val annotations = when {
-            name.endsWith("Props") -> ""
+            name.endsWith("Props")
+                -> ""
+
+            typeParameters.isNotEmpty() && jsoFixRequired
+                -> "// @JsPlainObject\n// Details - https://youtrack.jetbrains.com/issue/KT-70664\n"
+
             else -> "@JsPlainObject\n"
         }
         return "${annotations}external interface $name ${formatParameters(typeParameters)} $extends {\n$body\n}"
