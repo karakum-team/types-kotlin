@@ -133,14 +133,7 @@ class Type(
                 .removePrefix("Defined")
                 .replace("Result<", "BaseResult<")
 
-            val modifiers = when (name) {
-                "MutationObserverResult",
-                "QueryObserverResult",
-                    -> ""
-
-                else -> "sealed"
-            }
-            return "external $modifiers interface $declaration\n: $parentDeclaration"
+            return "@JsPlainObject\nexternal interface $declaration\n: $parentDeclaration"
         }
 
         if (body.toIntOrNull() != null)
@@ -153,12 +146,13 @@ class Type(
                 """.trimIndent()
 
         if (name == "UseBaseMutationResult") {
-            return sequenceOf(
-                "external interface $name${formatParameters(typeParameters)} : $body {",
-                "    // override val mutate: UseMutateFunction<TData, TError, TVariables, TContext>",
-                "    val mutateAsync: UseMutateAsyncFunction<TData, TError, TVariables, TContext>",
-                "}",
-            ).joinToString("\n")
+            return """
+                @JsPlainObject
+                external interface $name${formatParameters(typeParameters)} : $body {
+                    // override val mutate: UseMutateFunction<TData, TError, TVariables, TContext>
+                    val mutateAsync: UseMutateAsyncFunction<TData, TError, TVariables, TContext>
+                }
+            """.trimIndent()
         }
 
         if (name == "QueryFunction") {

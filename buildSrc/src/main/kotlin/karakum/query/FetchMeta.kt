@@ -11,11 +11,13 @@ interface FetchMeta {
 
 // language=kotlin
 internal val FETCH_META_CODE = """
-sealed external interface FetchMeta {
-    var fetchMore: FetchMore?
+@JsPlainObject
+external interface FetchMeta {
+    val fetchMore: FetchMore?
     
-    sealed interface FetchMore {
-        var direction: FetchDirection
+    @JsPlainObject
+    interface FetchMore {
+        val direction: FetchDirection
     }
 }
 """.trimIndent()
