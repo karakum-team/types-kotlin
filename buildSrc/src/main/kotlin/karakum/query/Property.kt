@@ -13,7 +13,9 @@ class Property(
         if (name == "children" && type == "react.ReactNode")
             return "override var children: react.ReactNode?"
 
-        val optional = source.startsWith("$name?: ") && type != "Void"
+        val optional = source.startsWith("$name?: ")
+                && type != "Void"
+                && type != "Any?"
         val typeDeclaration = if (optional && !type.endsWith(">?")) {
             if (type.startsWith("(")) "($type)?" else "$type?"
         } else type
