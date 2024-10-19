@@ -74,10 +74,6 @@ internal class TypeProvider(
         if (parentType == "WorkerGlobalScope")
             return name != "self"
 
-        // TEMP
-        if (parentType == "RequestInit")
-            return name != "window"
-
         return true
     }
 
