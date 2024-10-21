@@ -103,6 +103,8 @@ private val STANDARD_TYPE_MAP = mapOf(
     "keyof QueryObserverResult" to "String /* keyof QueryObserverResult */",
 
     "HydrateOptions['defaultOptions']" to "DefaultHydrateOptions",
+
+    "QueryErrorResetBoundaryFunction | React.ReactNode" to "QueryErrorResetBoundaryFunction",
 )
 
 private val SAFE_PREFIXES = setOf(

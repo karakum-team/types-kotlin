@@ -50,6 +50,7 @@ class Type(
             .replace("QueryFunctionContext<TQueryKey>", "QueryFunctionContext<TQueryKey, *>")
             .replace(": ReadonlyArray<QueryObserverResult>", ": ReadonlyArray<QueryObserverResult<*, *>>")
             .replace(": undefined", ": Void")
+            .replace(" => React.ReactNode", " => react.ReactNode")
 
         when {
             body in SPECIAL_TYPES -> body.substringAfterLast(" | ")
