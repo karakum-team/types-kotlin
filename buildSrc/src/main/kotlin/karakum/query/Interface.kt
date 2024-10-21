@@ -83,6 +83,9 @@ class Interface(
             name.startsWith("NotifyEvent")
                 -> content.replaceFirst("type: Type /*", "type: NotifyEventType /*")
 
+            name.startsWith("UseSuspense")
+                -> "/* $content */"
+
             else -> content
         }
 

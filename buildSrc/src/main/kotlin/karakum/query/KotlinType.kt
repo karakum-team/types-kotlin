@@ -195,6 +195,13 @@ internal fun kotlinType(
     if (type.startsWith("OmitKeyof<"))
         return kotlinType(type.removePrefix("OmitKeyof<").substringBefore(", '"))
 
+    if (type.startsWith("Exclude<"))
+        return kotlinType(
+            type.removePrefix("Exclude<")
+                .substringBefore(", '")
+                .substringBefore("['queryFn']")
+        )
+
     if (type.startsWith("Pick<"))
         return kotlinType(type.removePrefix("Pick<").substringBefore(", '"))
 
