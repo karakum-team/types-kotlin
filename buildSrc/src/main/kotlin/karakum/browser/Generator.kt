@@ -122,6 +122,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.events.EventInstance",
     "web.events.EventTarget",
     "web.events.EventType",
+    "web.events.JsEvent",
     "web.events.ProgressEvent",
     "web.file.File",
     "web.file.FileList",
@@ -400,15 +401,6 @@ fun generateKotlinDeclarations(
             import kotlin.time.DurationUnit.MILLISECONDS
             """.trimIndent()
 
-            "Document",
-            "DocumentOrShadowRoot",
-                -> """
-            import web.cssom.StyleSheetList    
-            import web.fonts.FontFaceSource    
-            import web.html.*        
-            import web.xpath.XPathEvaluatorBase
-            """.trimIndent()
-
             "Navigator" -> """
             import web.media.devices.MediaDevices
             import web.media.key.MediaKeySystemAccess
@@ -436,12 +428,6 @@ fun generateKotlinDeclarations(
             import web.credentials.Credential    
             """.trimIndent()
 
-            "Window",
-                -> """
-            import web.device.DeviceMotionEvent    
-            import web.device.DeviceOrientationEvent    
-            """.trimIndent()
-
             "GlobalEventHandlers",
             "WindowEventHandlers",
             "FileReader",
@@ -459,43 +445,33 @@ fun generateKotlinDeclarations(
             import web.promise.PromiseRejectionEvent
             """.trimIndent()
 
-            "DedicatedWorkerGlobalScope",
-            "ServiceWorkerGlobalScope",
-            "WorkerGlobalScope",
-                -> """
-            import web.fonts.FontFaceSource    
-            import web.promise.PromiseRejectionEvent
-            import web.push.PushEvent
-            import web.rtc.RTCTransformEvent
-            import web.workers.WorkerGlobalScope
-            """.trimIndent()
-
             "WorkerNavigator",
                 -> """
             import web.navigator.*
             """.trimIndent()
 
             // TEMP
-            "Window.events",
-            "Document.events",
-            "Text.events",
-            "Element.events",
-            "HTMLElement.events",
-            "SVGElement.events",
-            "OffscreenCanvas.events",
-            "HTMLCanvasElement.events",
-            "HTMLDetailsElement.events",
-            "HTMLMediaElement.events",
-            "HTMLFormElement.events",
-            "HTMLInputElement.events",
-            "HTMLSelectElement.events",
-            "HTMLTextAreaElement.events",
-            "HTMLTrackElement.events",
-            "HTMLButtonElement.events",
-            "MathMLElement.events",
-            "WorkerGlobalScope.events",
-            "ServiceWorkerGlobalScope.events",
-            "DedicatedWorkerGlobalScope.events",
+            "Window",
+            "Document",
+            "DocumentOrShadowRoot",
+            "Text",
+            "Element",
+            "HTMLElement",
+            "SVGElement",
+            "OffscreenCanvas",
+            "HTMLCanvasElement",
+            "HTMLDetailsElement",
+            "HTMLMediaElement",
+            "HTMLFormElement",
+            "HTMLInputElement",
+            "HTMLSelectElement",
+            "HTMLTextAreaElement",
+            "HTMLTrackElement",
+            "HTMLButtonElement",
+            "MathMLElement",
+            "WorkerGlobalScope",
+            "ServiceWorkerGlobalScope",
+            "DedicatedWorkerGlobalScope",
                 -> """
             import web.cssom.ContentVisibilityAutoStateChangeEvent
             import web.cssom.TransitionEvent
@@ -516,6 +492,11 @@ fun generateKotlinDeclarations(
             import web.promise.PromiseRejectionEvent
             import web.push.PushEvent
             import web.rtc.RTCTransformEvent
+            import web.cssom.StyleSheetList    
+            import web.fonts.FontFaceSource    
+            import web.html.*        
+            import web.xpath.XPathEvaluatorBase    
+            import web.workers.WorkerGlobalScope
             """.trimIndent()
 
             "VisualViewport.events",
