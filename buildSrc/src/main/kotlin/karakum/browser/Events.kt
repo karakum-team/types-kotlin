@@ -82,6 +82,7 @@ internal fun eventDeclarations(
         EventInstance(),
         EventTarget(),
         HasTargets(),
+        JsEvent(),
     )
         .plus(eventPlaceholders(content, EVENT_DATA, dataMap, strict = true))
         .toList()
