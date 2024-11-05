@@ -361,7 +361,7 @@ private fun convertType(
             inline fun $name(
                 value: String,
             ): $name =
-                "section-${'$'}value".unsafeCast<$name>()
+                unsafeCast("section-${'$'}value")
             """.trimIndent()
 
             name.startsWith("AutoFill")
@@ -488,7 +488,7 @@ private fun valueInterface(
             inline fun ${name}(
                 value: $valueType
             ): $name =
-                value.unsafeCast<$name>()
+                unsafeCast(value)
             """.trimIndent()
         }
 
@@ -592,7 +592,7 @@ private fun autoFillInterface(
                 inline fun $name(
                     ${parameterMap.entries.joinToString("\n") { (pname, ptype) -> "$pname: $ptype," }}
                 ): $name =
-                    "${parameterMap.keys.joinToString(" ") { pname -> "\$$pname" }}".unsafeCast<$name>()
+                    unsafeCast("${parameterMap.keys.joinToString(" ") { pname -> "\$$pname" }}")
                 """.trimIndent()
             )
         }

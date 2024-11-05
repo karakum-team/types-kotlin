@@ -17,7 +17,7 @@ sealed external interface WindowName :
 inline fun WindowName(
     value: String,
 ): WindowName =
-    value.unsafeCast<WindowName>()
+    unsafeCast(value)
 """.trimIndent()
 
 internal fun windowTypes(): Sequence<ConversionResult> =

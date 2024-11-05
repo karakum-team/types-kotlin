@@ -16,7 +16,7 @@ sealed external interface $tagType<T : $elementType>
 inline fun <T : $elementType> $tagType(
     tagName: String,
 ): $tagType<T> =
-    tagName.unsafeCast<$tagType<T>>()
+    unsafeCast(tagName)
 """.trimIndent()
 
 internal fun tagNames(

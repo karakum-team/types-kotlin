@@ -45,6 +45,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.objects.jso",
     "js.promise.Promise",
     "js.promise.PromiseLike",
+    "js.reflect.unsafeCast",
     "js.temporal.Instant",
     "js.transferable.Transferable",
     "js.typedarrays.BigInt64Array",

@@ -8,7 +8,7 @@ sealed external interface $EVENT_TYPE<out E : Event>
 inline fun <E : Event> $EVENT_TYPE(
     value: String,
 ): $EVENT_TYPE<E> =
-    value.unsafeCast<$EVENT_TYPE<E>>()
+    unsafeCast(value)
 """.trimIndent()
 
 internal fun EventType(): ConversionResult =

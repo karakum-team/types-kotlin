@@ -9,7 +9,7 @@ sealed external interface EventHandler<in E : Event, out C : EventTarget, out T 
 inline fun EventHandler(
     noinline handler: () -> Unit,
 ): EventHandler<Event, Nothing, Nothing> {
-    return handler.unsafeCast<EventHandler<Event, Nothing, Nothing>>()
+    return unsafeCast(handler)
 }
 
 inline fun <E : Event, C : EventTarget, T : EventTarget, D> EventHandler(
@@ -17,7 +17,7 @@ inline fun <E : Event, C : EventTarget, T : EventTarget, D> EventHandler(
 ): EventHandler<E, C, T>
         where D : E,
               D : $HAS_TARGETS<C, T> {
-    return handler.unsafeCast<EventHandler<E, C, T>>()
+    return unsafeCast(handler)
 }
 """.trimIndent()
 
