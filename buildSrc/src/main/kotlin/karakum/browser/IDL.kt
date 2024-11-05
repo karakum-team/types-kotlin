@@ -62,7 +62,13 @@ internal object IDLRegistry {
                     .map { it.substringBefore(" ") }
             }
             // TEMP
-            .plus("RTCRtpCodecCapability")
+            .plus(
+                sequenceOf(
+                    "GPUImageCopyBuffer",
+                    "GPUImageCopyTexture",
+                    "GPUImageDataLayout",
+                )
+            )
             .toSet()
     }
 
@@ -249,6 +255,13 @@ internal object IDLRegistry {
                     ("RTCEncodedAudioFrame" to "timestamp") to "JsLong",
                     ("RTCEncodedVideoFrame" to "timestamp") to "JsLong",
                     ("SegmentData" to "index") to "Int",
+
+                    // TEMP
+                    ("GPUSupportedLimits" to "maxInterStageShaderComponents") to "Int",
+                    ("GPUImageCopyTexture" to "mipLevel") to "GPUIntegerCoordinate",
+                    ("GPUImageDataLayout" to "offset") to "GPUSize64",
+                    ("GPUImageDataLayout" to "bytesPerRow") to "GPUSize32",
+                    ("GPUImageDataLayout" to "rowsPerImage") to "GPUSize32",
                 )
             )
     }
@@ -291,21 +304,8 @@ internal object IDLRegistry {
     fun getPropertyType(
         className: String,
         propertyName: String,
-    ): String {
-        if (className.startsWith("GPU")) {
-            return propertyTypeMap[className to propertyName] ?: run {
-                when (propertyName) {
-                    // maxInterStageShaderVariables?
-                    "maxInterStageShaderComponents",
-                        -> "Int"
-
-                    else -> "Number /* CHECK */"
-                }
-            }
-        }
-
-        return propertyTypeMap.getValue(className to propertyName)
-    }
+    ): String =
+        propertyTypeMap.getValue(className to propertyName)
 
     fun getParameterType(
         className: String,
