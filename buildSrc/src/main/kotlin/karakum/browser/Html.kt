@@ -448,6 +448,12 @@ private val CODECS_TYPES = listOf(
     "EncodedVideoChunk",
     "EncodedVideoChunkInit",
     "EncodedVideoChunkMetadata",
+    "ImageDecodeOptions",
+    "ImageDecoder",
+    "ImageDecodeResult",
+    "ImageDecoderInit",
+    "ImageTrack",
+    "ImageTrackList",
     "OpusEncoderConfig",
     "PlaneLayout",
     "VideoColorSpace",
@@ -1185,14 +1191,14 @@ internal fun convertInterface(
         }
 
         when (name) {
-                "QueuingStrategy",
-                    -> "// @JsPlainObject"
+            "QueuingStrategy",
+                -> "// @JsPlainObject"
 
-                else -> "@JsPlainObject"
-            }
+            else -> "@JsPlainObject"
+        }
     } else {
         ""
-        }
+    }
 
     val modifier = when {
         name == DOM_EXCEPTION ||

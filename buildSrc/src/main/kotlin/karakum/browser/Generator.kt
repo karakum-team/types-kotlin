@@ -163,6 +163,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.http.RequestCredentials",
     "web.http.RequestMethod",
     "web.http.Response",
+    "web.images.ColorSpaceConversion",
     "web.images.ImageBitmap",
     "web.images.ImageBitmapSource",
     "web.images.ImageData",
@@ -170,6 +171,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.images.PredefinedColorSpace",
     "web.keyboard.KeyCode",
     "web.keyboard.ModifierKeyCode",
+    "web.location.Location",
     "web.locks.LockManager",
     "web.mathml.MATHML_NAMESPACE",
     "web.mathml.MathMLElement",
@@ -207,6 +209,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.serialization.StructuredSerializeOptions",
     "web.serviceworker.ExtendableEvent",
     "web.serviceworker.ExtendableEventInit",
+    "web.serviceworker.ServiceWorkerContainer",
     "web.share.ShareData",
     "web.sockets.BinaryType",
     "web.storage.StorageManager",
@@ -405,7 +408,6 @@ fun generateKotlinDeclarations(
             import web.media.devices.MediaDevices
             import web.media.key.MediaKeySystemAccess
             import web.media.key.MediaKeySystemConfiguration
-            import web.serviceworker.ServiceWorkerContainer
             import web.clipboard.Clipboard       
             import web.credentials.CredentialsContainer       
             import web.geolocation.Geolocation       

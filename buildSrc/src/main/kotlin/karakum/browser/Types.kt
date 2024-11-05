@@ -240,6 +240,8 @@ private fun convertType(
 
             "PerformanceEntryList" -> "web.performance"
 
+            "ImageBufferSource" -> "web.codecs"
+
             "ImageBitmapSource" -> "web.images"
             "CanvasImageSource" -> "web.canvas"
 

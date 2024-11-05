@@ -161,6 +161,8 @@ internal object IDLRegistry {
                 .removePrefix("optional ")
                 .removePrefix("readonly ")
                 .removePrefix("attribute ")
+                // TODO: check
+                .removePrefix("unrestricted ")
                 .substringBefore(" = ")
 
             val type = getNumberType(data.substringBeforeLast(" ").removeSuffix("?"))
@@ -297,7 +299,7 @@ internal object IDLRegistry {
                     "maxInterStageShaderComponents",
                         -> "Int"
 
-                    else -> TODO()
+                    else -> "Number /* CHECK */"
                 }
             }
         }
