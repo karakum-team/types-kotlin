@@ -4,6 +4,7 @@ internal const val EVENT_INSTANCE = "EventInstance"
 
 // language=kotlin
 private val EVENT_INSTANCE_BODY: String = """
+import js.coroutines.internal.internalSubscribeJob
 import js.iterable.SuspendableIterator
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
@@ -53,16 +54,9 @@ suspend fun <E : Event, C : EventTarget, T : EventTarget> EventInstance<E, C, T>
     handler: EventHandler<E, C, T>,
     options: AddEventListenerOptions? = undefined,
 ): Job =
-    CoroutineScope(currentCoroutineContext())
-        .launch(start = CoroutineStart.UNDISPATCHED) {
-            suspendCancellableCoroutine<Nothing> { continuation ->
-                val unsubscribe = addHandler(handler, options)
-
-                continuation.invokeOnCancellation {
-                    unsubscribe()
-                }
-            }
-        }
+    internalSubscribeJob {
+        addHandler(handler, options)
+    }
 
 suspend fun <E : Event, C : EventTarget, T : EventTarget, D> EventInstance<E, C, T>.subscribe(
     handler: (D) -> Unit,
