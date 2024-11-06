@@ -11,7 +11,7 @@ external interface $SELECTOR
 inline fun $SELECTOR(
     syntax: String,
 ): $SELECTOR =
-    syntax.unsafeCast<$SELECTOR>()
+    unsafeCast(syntax)
 
 """.trimIndent()
 

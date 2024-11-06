@@ -17,7 +17,7 @@ internal fun factory(
     inline fun $type(
         ${parameters.stringify()}
     ): $type =
-        "$dataString".unsafeCast<$type>()
+        unsafeCast("$dataString")
     """.trimIndent()
 }
 
@@ -36,7 +36,7 @@ internal fun factory(
     inline fun ${name.kebabToCamel()}(
         ${parameters.stringify()}
     ): $returnType =
-        $source.unsafeCast<$returnType>()
+        unsafeCast($source)
     """.trimIndent()
 }
 
@@ -66,7 +66,7 @@ internal fun function(
 
     return """
     inline fun $typeParameters $functionName($params): $returnType =
-        "$name($cssParams)".unsafeCast<$returnType>()
+        unsafeCast("$name($cssParams)")
     """.trimIndent()
 }
 

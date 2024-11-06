@@ -7,5 +7,5 @@ fun unitsExtension(
 ): String =
     """
     inline val Number.$name: $type
-        get() = "${'$'}{this}$suffix".unsafeCast<$type>()
+        get() = unsafeCast("${'$'}{this}$suffix")
     """.trimIndent()

@@ -11,14 +11,14 @@ internal fun lengthOperators(): ConversionResult {
     ).map { (name, operator, receiverType, parameterType) ->
         """
             inline operator fun $receiverType.$name(other: $parameterType): $LENGTH =
-                "calc(${'$'}this $operator ${'$'}other)".unsafeCast<$LENGTH>()
+                unsafeCast("calc(${'$'}this $operator ${'$'}other)")
         """.trimIndent()
     }
 
     val declarations = sequenceOf(
         """
             inline operator fun $LENGTH.unaryMinus(): $LENGTH =
-                "-${'$'}this".unsafeCast<$LENGTH>()
+                unsafeCast("-${'$'}this")
         """.trimIndent()
     ) + operators
 

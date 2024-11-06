@@ -10,7 +10,7 @@ sealed external interface ClassName
 inline fun $CLASS_NAME(
     value: String,
 ): $CLASS_NAME =
-    value.unsafeCast<$CLASS_NAME>()
+    unsafeCast(value)
 """.trimIndent()
 
 internal fun ClassName(): ConversionResult =

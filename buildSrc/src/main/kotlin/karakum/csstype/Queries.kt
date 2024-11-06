@@ -45,7 +45,7 @@ $modifier external interface $name $parents
 inline fun $name(
     value: String,
 ): $name =
-    value.unsafeCast<$name>()
+    unsafeCast(value)
     
 infix fun $name.and(
     other: $name,

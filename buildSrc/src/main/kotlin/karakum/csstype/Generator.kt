@@ -26,7 +26,8 @@ import web.cssom.MediaQuery
 import web.cssom.SizeQuery
 """.trimIndent()
 
-private val SESKAR_IMPORTS = """
+private val COMMON_IMPORTS = """
+import js.reflect.unsafeCast
 import seskar.js.JsIntValue
 import seskar.js.JsNative
 import seskar.js.JsValue
@@ -40,14 +41,14 @@ fun generateKotlinDeclarations(
         declarations = convertDefinitions(definitionsFile),
         sourceDir = sourceDir,
         getPkg = { if (it in CSSTYPE_TYPES) "csstype" else "web.cssom" },
-        getImports = { if (it in CSSTYPE_TYPES) CSSTYPE_IMPORTS else SESKAR_IMPORTS },
+        getImports = { if (it in CSSTYPE_TYPES) CSSTYPE_IMPORTS else COMMON_IMPORTS },
     )
 
     writeDeclarations(
         declarations = mediaTypes(),
         sourceDir = sourceDir,
         getPkg = { "web.cssom.atrule" },
-        getImports = { MEDIA_IMPORTS + "\n" + SESKAR_IMPORTS },
+        getImports = { MEDIA_IMPORTS + "\n" + COMMON_IMPORTS },
     )
 
     writeDeclarations(

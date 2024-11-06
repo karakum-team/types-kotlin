@@ -11,7 +11,7 @@ sealed external interface $CUSTOM_PROPERTY_NAME<T : Any>
 inline fun <T: Any> $CUSTOM_PROPERTY_NAME(
     value: String,
 ): $CUSTOM_PROPERTY_NAME<T> =
-    value.unsafeCast<$CUSTOM_PROPERTY_NAME<T>>()
+    unsafeCast(value)
 
 """.trimIndent()
 
