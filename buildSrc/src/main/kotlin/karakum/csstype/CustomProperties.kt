@@ -7,14 +7,12 @@ internal const val CustomProperties = "CustomProperties"
 // language=Kotlin
 private val BODY = """
 external interface $CustomProperties {
-    @nativeGetter
-    @Suppress("DEPRECATION")
+    @JsNative
     operator fun <T : Any> get(
         name: $CUSTOM_PROPERTY_NAME<T>,
     ): T?
 
-    @nativeSetter
-    @Suppress("DEPRECATION")
+    @JsNative
     operator fun <T : Any> set(
         name: $CUSTOM_PROPERTY_NAME<T>,
         value: T?,

@@ -2,7 +2,8 @@ package karakum.csstype
 
 import karakum.common.*
 import karakum.common.Suppress
-import karakum.common.Suppress.*
+import karakum.common.Suppress.DECLARATION_CANT_BE_INLINED
+import karakum.common.Suppress.NOTHING_TO_INLINE
 import java.io.File
 
 private val CSSTYPE_TYPES = setOf(
@@ -27,6 +28,7 @@ import web.cssom.SizeQuery
 
 private val SESKAR_IMPORTS = """
 import seskar.js.JsIntValue
+import seskar.js.JsNative
 import seskar.js.JsValue
 """.trimIndent()
 
@@ -73,9 +75,6 @@ private fun writeDeclarations(
 
             if ("inline fun " in body)
                 add(if (RULE_BUILDER in body) DECLARATION_CANT_BE_INLINED else NOTHING_TO_INLINE)
-
-            if (name == CustomProperties)
-                add(NATIVE_INDEXER_KEY_SHOULD_BE_STRING_OR_NUMBER)
         }.toTypedArray()
 
         val annotations = if (suppresses.isNotEmpty()) {
