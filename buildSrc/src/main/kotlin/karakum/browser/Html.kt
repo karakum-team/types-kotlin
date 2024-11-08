@@ -135,8 +135,11 @@ private val CSSOM_TYPES = listOf(
     "StylePropertyMap",
     "StylePropertyMapReadOnly",
     "PropertyDefinition",
-    "ViewTransition",
 ) + CSSOM_INTERFACES
+
+private val VIEW_TRANSITION_TYPES = listOf(
+    "ViewTransition",
+)
 
 private val HIGHLIGHT_TYPES = listOf(
     "Highlight",
@@ -1420,6 +1423,7 @@ internal fun convertInterface(
         name in WEB_COMPONENTS_TYPES -> "web.components"
         name in VALIDATION_TYPES -> "web.validation"
         name in CSSOM_TYPES -> "web.cssom"
+        name in VIEW_TRANSITION_TYPES -> "web.viewtransition"
         name in HIGHLIGHT_TYPES -> "web.highlight"
         name in DOM_DATA_TYPES -> "web.data"
         name in DOM_GEOMETRY_TYPES -> "web.geometry"

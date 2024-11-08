@@ -95,8 +95,6 @@ private val DEFAULT_IMPORTS = Imports(
     "web.cssom.LinkStyle",
     "web.cssom.MediaQuery",
     "web.cssom.StylePropertyMapReadOnly",
-    "web.cssom.ViewTransition",
-    "web.cssom.ViewTransitionUpdateCallback",
     "web.data.DataTransfer",
     "web.dom.DOMStringList",
     "web.dom.DOMTokenList",
@@ -229,6 +227,8 @@ private val DEFAULT_IMPORTS = Imports(
     "web.validation.ValidityState",
     "web.validation.ValidityStateFlags",
     "web.vibration.VibratePattern",
+    "web.viewtransition.ViewTransition",
+    "web.viewtransition.ViewTransitionUpdateCallback",
     "web.vtt.TextTrack",
     "web.vtt.TextTrackKind",
     "web.vtt.TextTrackList",
@@ -243,9 +243,6 @@ private val DEFAULT_IMPORTS = Imports(
     "web.worklets.Worklet",
     "web.worklets.WorkletGlobalScope",
     "web.xml.XMLDocument",
-
-    // TEMP
-    "web.events.EventInitMutable",
 )
 
 fun generateKotlinDeclarations(
