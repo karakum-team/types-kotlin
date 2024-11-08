@@ -188,6 +188,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.messaging.MessageEvent",
     "web.messaging.MessageEventSource",
     "web.messaging.MessagePort",
+    "web.navigation.NavigationActivation",
     "web.notifications.Notification",
     "web.notifications.NotificationOptions",
     "web.permissions.PermissionState",

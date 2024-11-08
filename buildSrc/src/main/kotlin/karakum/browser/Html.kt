@@ -139,6 +139,15 @@ private val CSSOM_TYPES = listOf(
 
 private val VIEW_TRANSITION_TYPES = listOf(
     "ViewTransition",
+    "ViewTransitionTypeSet",
+)
+
+private val NAVIGATION_TYPES = listOf(
+    "Navigation",
+    "NavigationActivation",
+    "NavigationDestination",
+    "NavigationHistoryEntry",
+    "NavigationTransition",
 )
 
 private val HIGHLIGHT_TYPES = listOf(
@@ -1423,6 +1432,7 @@ internal fun convertInterface(
         name in WEB_COMPONENTS_TYPES -> "web.components"
         name in VALIDATION_TYPES -> "web.validation"
         name in CSSOM_TYPES -> "web.cssom"
+        name in NAVIGATION_TYPES -> "web.navigation"
         name in VIEW_TRANSITION_TYPES -> "web.viewtransition"
         name in HIGHLIGHT_TYPES -> "web.highlight"
         name in DOM_DATA_TYPES -> "web.data"

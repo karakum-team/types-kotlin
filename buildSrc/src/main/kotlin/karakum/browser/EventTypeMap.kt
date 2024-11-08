@@ -68,6 +68,8 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.payment.PaymentMethodChangeEvent"),
     EventInfo("web.payment.PaymentRequestUpdateEvent"),
     EventInfo("web.gpu.GPUUncapturedErrorEvent"),
+    EventInfo("web.viewtransition.PageRevealEvent"),
+    EventInfo("web.viewtransition.PageSwapEvent"),
 )
 
 internal val WEB_WORKER_EVENT_DATA = listOf(
