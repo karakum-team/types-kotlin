@@ -213,7 +213,7 @@ private fun event(
     val eventParents = listOfNotNull(
         eventParent.takeIf { name != EVENT },
     )
-    val eventParentDeclaration = if (eventParents.isNotEmpty()) {
+    var eventParentDeclaration = if (eventParents.isNotEmpty()) {
         ": " + eventParents.joinToString(",\n")
     } else ""
 
@@ -254,7 +254,7 @@ private fun event(
         .removePrefix("new<T>(")
         .substringBefore("): $name")
 
-    val eventConstructor = if (constructorSource.isNotEmpty()) {
+    var eventConstructor = if (constructorSource.isNotEmpty()) {
         val withDataSupport = when (name) {
             "CustomEvent",
             "MessageEvent",
@@ -306,7 +306,12 @@ private fun event(
         "companion object {\n$companionMembers\n}"
     } else null
 
-    val modifier = if (eventConstructor.isNotEmpty()) "open" else "sealed"
+    val modifier = if (eventConstructor.isNotEmpty()) "open" else ""
+    if (eventConstructor.isEmpty()) {
+        eventConstructor = "\nprivate constructor()"
+        eventParentDeclaration = eventParentDeclaration.replaceFirst(":", ":\n")
+    }
+
     val typeParameters = when (name) {
         "CustomEvent",
         "MessageEvent",
