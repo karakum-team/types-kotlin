@@ -24,8 +24,13 @@ private val WINDOW_EXCLUDED = setOf(
 )
 
 internal val LENGTH_REQUIRED = setOf(
+    "CSSKeyframesRule",
+    "CSSNumericArray",
+    "CSSRuleList",
+    "CSSStyleDeclaration",
     "CSSTransformValue",
     "CSSUnparsedValue",
+
     "HTMLFormElement",
 )
 

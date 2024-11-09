@@ -1,6 +1,7 @@
 package karakum.browser
 
 internal val FINAL_LIST_LIKE = setOf(
+    "CSSNumericArray",
     "CSSTransformValue",
     "CSSUnparsedValue",
 )

@@ -980,13 +980,15 @@ internal fun convertInterface(
         declaration = declaration.replaceFirst(":\n", "\n$modifier constructor():\n")
     }
 
-    if (isSvgClass && !isSvgElementClass && !name.endsWith("List")) {
+    val isCssClass = type == "class" && name.startsWith("CSS") && mainConstructor.isEmpty()
+    if (isSvgClass && !isSvgElementClass && !name.endsWith("List") || isCssClass) {
         mainConstructor = "\nprivate constructor()\n"
     }
 
     if (mainConstructor.isNotEmpty()) {
         declaration = if (":\n" in declaration) {
-            declaration.replaceFirst(":\n", "$mainConstructor:")
+            val suffix = if ("()" in mainConstructor) "\n" else ""
+            declaration.replaceFirst(":\n", "$mainConstructor:$suffix")
         } else declaration + mainConstructor
     }
 
@@ -1262,6 +1264,14 @@ internal fun convertInterface(
                 name == "Document" ||
                 name == "DocumentFragment" ||
 
+                name == "CSSRule" ||
+                name == "CSSConditionRule" ||
+                name == "CSSGroupingRule" ||
+                name == "CSSMathValue" ||
+                name == "CSSNumericValue" ||
+                name == "CSSStyleValue" ||
+                name == "CSSTransformComponent" ||
+
                 isHtmlElementClass ||
                 isSvgElementClass
             -> "open"
@@ -1276,11 +1286,11 @@ internal fun convertInterface(
                 name == "HTMLOrSVGElement" ||
                 name == "DocumentOrShadowRoot" ||
                 name == "Slottable" ||
-                name == "StructuredSerializeOptions" ||
                 name.endsWith("Handlers") ||
 
                 mainConstructor.isNotEmpty() ||
                 IDLRegistry.hasEmptyConstructor(name) ||
+                isCssClass ||
                 hasTypeGuard
             -> ""
 
