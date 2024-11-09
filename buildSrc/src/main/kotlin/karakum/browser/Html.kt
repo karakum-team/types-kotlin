@@ -981,12 +981,13 @@ internal fun convertInterface(
     }
 
     val hasPrivateConstructor = type == "class"
+            && mainConstructor.isEmpty()
             && (
             name.startsWith("CSS")
                     || name.startsWith("GPU")
                     || (name.startsWith("RTC") && /* TEMP */ name != "RTCStatsReport")
             )
-            && mainConstructor.isEmpty()
+
     if (isSvgClass && !isSvgElementClass && !name.endsWith("List") || hasPrivateConstructor) {
         mainConstructor = "\nprivate constructor()\n"
     }
