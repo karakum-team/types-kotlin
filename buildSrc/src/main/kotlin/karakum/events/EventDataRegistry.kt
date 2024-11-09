@@ -88,8 +88,6 @@ object EventDataRegistry {
         "BackgroundFetchUpdateUIEvent",
         "BeforeInstallPromptEvent",
         "NavigationEvent",
-        "PageRevealEvent",
-        "PageSwapEvent",
         "PortalActivateEvent",
 
         "CanMakePaymentEvent",
