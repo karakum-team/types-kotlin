@@ -10,12 +10,12 @@ private val DEFAULT_IMPORTS = listOf(
     "js.promise.Promise",
     "kotlin.js.RegExp",
 
-    "js.collections.JsMap",
+    "js.array.JsTuple2",
     "js.array.ReadonlyArray",
+    "js.collections.JsMap",
+    "js.core.Void",
     "js.objects.ReadonlyRecord",
     "js.symbol.Symbol",
-    "js.array.JsTuple2",
-    "js.core.Void",
 
     "seskar.js.JsIntValue",
     "seskar.js.JsValue",
