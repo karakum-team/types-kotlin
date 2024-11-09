@@ -7,14 +7,12 @@ import karakum.common.writeCode
 import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
-    "js.promise.Promise",
-    "kotlin.js.RegExp",
-
     "js.array.JsTuple2",
     "js.array.ReadonlyArray",
     "js.collections.JsMap",
     "js.core.Void",
     "js.objects.ReadonlyRecord",
+    "js.promise.Promise",
     "js.symbol.Symbol",
 
     "seskar.js.JsIntValue",
