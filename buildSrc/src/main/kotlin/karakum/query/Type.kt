@@ -177,7 +177,7 @@ class Type(
             inline fun $adapterTypeParameters $name(
                 noinline value: $body,
             ): $adapterType =
-                value.unsafeCast<$adapterType>()
+                unsafeCast(value)
             """.trimIndent()
         }
 

@@ -12,6 +12,7 @@ private val DEFAULT_IMPORTS = listOf(
     "js.array.ReadonlyArray",
     "js.errors.JsError",
     "js.objects.Record",
+    "js.reflect.unsafeCast",
     "js.symbol.Symbol",
     "js.core.Void",
 
