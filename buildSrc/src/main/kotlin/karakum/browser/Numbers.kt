@@ -32,6 +32,12 @@ internal val LENGTH_REQUIRED = setOf(
     "CSSUnparsedValue",
 
     "HTMLFormElement",
+
+    "SVGLengthList",
+    "SVGNumberList",
+    "SVGPointList",
+    "SVGStringList",
+    "SVGTransformList",
 )
 
 internal class TypeProvider(

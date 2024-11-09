@@ -997,7 +997,7 @@ internal fun convertInterface(
                     || name.startsWith("RTC")
             )
 
-    if (isSvgClass && !isSvgElementClass && !name.endsWith("List") || hasPrivateConstructor) {
+    if (isSvgClass && !isSvgElementClass || hasPrivateConstructor) {
         mainConstructor = "\nprivate constructor()\n"
     }
 
