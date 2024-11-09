@@ -996,6 +996,7 @@ internal fun convertInterface(
                     || name.startsWith("FileSystem")
                     || name.startsWith("MIDI")
                     || name.startsWith("RTC")
+                    || name.startsWith("Performance")
             )
 
     if (isSvgClass && !isSvgElementClass || hasPrivateConstructor) {
@@ -1305,6 +1306,9 @@ internal fun convertInterface(
                 name == "AudioNode" ||
                 name == "AudioScheduledSourceNode" ||
                 name == "AudioWorkletProcessor" ||
+
+                name == "PerformanceEntry" ||
+                name == "PerformanceResourceTiming" ||
 
                 isHtmlElementClass ||
                 isSvgElementClass
