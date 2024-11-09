@@ -594,7 +594,13 @@ internal fun htmlDeclarations(
         .plus(
             ConversionResult(
                 name = "EventCounts",
-                body = "sealed external class EventCounts : ReadonlyMap<EventType<*>, Int>",
+                // language=kotlin
+                body = """
+                    sealed /* final */
+                    external class EventCounts
+                    private constructor():
+                    ReadonlyMap<EventType<*>, Int>
+                """.trimIndent(),
                 pkg = "web.performance",
             )
         )
