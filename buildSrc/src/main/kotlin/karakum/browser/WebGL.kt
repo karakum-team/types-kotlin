@@ -8,6 +8,28 @@ private val CONVERTED_WEBGL_TYPES = listOf(
     "WebGLContextEventInit",
 )
 
+private val EFFECTIVELY_FINAL_CLASSES = setOf(
+    "WebGL2RenderingContext",
+    "WebGLRenderingContext",
+)
+
+private val CLASSES = setOf(
+    "WebGLActiveInfo",
+    "WebGLBuffer",
+    "WebGLFramebuffer",
+    "WebGLProgram",
+    "WebGLQuery",
+    "WebGLRenderbuffer",
+    "WebGLSampler",
+    "WebGLShader",
+    "WebGLShaderPrecisionFormat",
+    "WebGLSync",
+    "WebGLTexture",
+    "WebGLTransformFeedback",
+    "WebGLUniformLocation",
+    "WebGLVertexArrayObject",
+) + EFFECTIVELY_FINAL_CLASSES
+
 internal fun webglDeclarations(
     content: String,
 ): Sequence<ConversionResult> {
@@ -44,7 +66,7 @@ private fun convertInterface(
         ?.joinToString("") { ",\n$it" }
         ?: ""
 
-    val declaration = source.substringBefore(" {\n")
+    var declaration = source.substringBefore(" {\n")
         .replace(" extends ", " :\n")
         .replace(", ", ",\n") +
             additionalParentTypes
@@ -61,7 +83,21 @@ private fun convertInterface(
             .joinToString("\n") { convertMember(it) }
     } else ""
 
-    val body = "sealed external $declaration {\n$members\n}"
+    val isClass = name in CLASSES
+    val isEffectivelyFinal = name in EFFECTIVELY_FINAL_CLASSES
+    val modifier = when {
+        !isClass -> "sealed"
+        isEffectivelyFinal -> "sealed /* final */\n"
+        else -> ""
+    }
+
+    if (isClass) {
+        declaration = if (":" in declaration) {
+            declaration.replace(":", "\nprivate constructor():")
+        } else "$declaration\nprivate constructor()"
+    }
+
+    val body = "$modifier external $declaration {\n$members\n}"
 
     return ConversionResult(
         name = name,
