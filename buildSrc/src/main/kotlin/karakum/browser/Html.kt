@@ -980,8 +980,13 @@ internal fun convertInterface(
         declaration = declaration.replaceFirst(":\n", "\n$modifier constructor():\n")
     }
 
-    val isCssClass = type == "class" && name.startsWith("CSS") && mainConstructor.isEmpty()
-    if (isSvgClass && !isSvgElementClass && !name.endsWith("List") || isCssClass) {
+    val hasPrivateConstructor = type == "class"
+            && (
+            name.startsWith("CSS")
+                    || (name.startsWith("RTC") && /* TEMP */ name != "RTCStatsReport")
+            )
+            && mainConstructor.isEmpty()
+    if (isSvgClass && !isSvgElementClass && !name.endsWith("List") || hasPrivateConstructor) {
         mainConstructor = "\nprivate constructor()\n"
     }
 
@@ -1290,7 +1295,7 @@ internal fun convertInterface(
 
                 mainConstructor.isNotEmpty() ||
                 IDLRegistry.hasEmptyConstructor(name) ||
-                isCssClass ||
+                hasPrivateConstructor ||
                 hasTypeGuard
             -> ""
 
