@@ -989,7 +989,8 @@ internal fun convertInterface(
     val hasPrivateConstructor = type == "class"
             && mainConstructor.isEmpty()
             && (
-            name.startsWith("CSS")
+            name.startsWith("Audio")
+                    || name.startsWith("CSS")
                     || name.startsWith("GPU")
                     || name.startsWith("IDB")
                     || name.startsWith("FileSystem")
@@ -1301,13 +1302,18 @@ internal fun convertInterface(
                 name == "FileSystemEntry" ||
                 name == "FileSystemHandle" ||
 
+                name == "AudioNode" ||
+                name == "AudioScheduledSourceNode" ||
+                name == "AudioWorkletProcessor" ||
+
                 isHtmlElementClass ||
                 isSvgElementClass
             -> "open"
 
         // TEMP
         hasPrivateConstructor && (
-                name == "FileSystemDirectoryHandle"
+                name == "AudioParamMap"
+                        || name == "FileSystemDirectoryHandle"
                         || name == "MIDIInputMap"
                         || name == "MIDIOutputMap"
                         || name == "RTCStatsReport"
