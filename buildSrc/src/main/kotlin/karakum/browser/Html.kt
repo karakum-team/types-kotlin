@@ -1306,7 +1306,7 @@ internal fun convertInterface(
                         || name == "MIDIOutputMap"
                         || name == "RTCStatsReport"
                 )
-            -> "sealed /* final */"
+            -> "sealed /* final */\n"
 
         annotations.startsWith("@") ||
                 name in CSSOM_INTERFACES ||

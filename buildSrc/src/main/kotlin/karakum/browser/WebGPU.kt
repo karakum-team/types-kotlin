@@ -113,9 +113,13 @@ private fun webGpuDeclarations(
                 source.startsWith("class GPUSupportedFeatures ")
                     -> ConversionResult(
                     name = "GPUSupportedFeatures",
-                    body = "sealed /* final */ external class GPUSupportedFeatures\n" +
-                            "private constructor() :\n" +
-                            "ReadonlySet<GPUFeatureName>",
+                    // language=kotlin
+                    body = """
+                        sealed /* final */ 
+                        external class GPUSupportedFeatures
+                        private constructor() :
+                        ReadonlySet<GPUFeatureName>
+                    """.trimIndent(),
                     pkg = "web.gpu",
                 )
 
