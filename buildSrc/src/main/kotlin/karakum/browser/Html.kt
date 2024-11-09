@@ -986,6 +986,7 @@ internal fun convertInterface(
             name.startsWith("CSS")
                     || name.startsWith("GPU")
                     || name.startsWith("IDB")
+                    || (name.startsWith("MIDI") && !name.endsWith("Map"))
                     || (name.startsWith("RTC") && /* TEMP */ name != "RTCStatsReport")
             )
 
@@ -1287,6 +1288,8 @@ internal fun convertInterface(
 
                 name == "IDBCursor" ||
                 name == "IDBRequest" ||
+
+                name == "MIDIPort" ||
 
                 isHtmlElementClass ||
                 isSvgElementClass
