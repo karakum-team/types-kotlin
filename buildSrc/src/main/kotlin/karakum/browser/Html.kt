@@ -985,6 +985,7 @@ internal fun convertInterface(
             && (
             name.startsWith("CSS")
                     || name.startsWith("GPU")
+                    || name.startsWith("IDB")
                     || (name.startsWith("RTC") && /* TEMP */ name != "RTCStatsReport")
             )
 
@@ -1283,6 +1284,9 @@ internal fun convertInterface(
                 name == "GPUInternalError" ||
                 name == "GPUOutOfMemoryError" ||
                 name == "GPUValidationError" ||
+
+                name == "IDBCursor" ||
+                name == "IDBRequest" ||
 
                 isHtmlElementClass ||
                 isSvgElementClass
