@@ -113,7 +113,9 @@ private fun webGpuDeclarations(
                 source.startsWith("class GPUSupportedFeatures ")
                     -> ConversionResult(
                     name = "GPUSupportedFeatures",
-                    body = "sealed external class GPUSupportedFeatures : ReadonlySet<GPUFeatureName>",
+                    body = "sealed /* final */ external class GPUSupportedFeatures\n" +
+                            "private constructor() :\n" +
+                            "ReadonlySet<GPUFeatureName>",
                     pkg = "web.gpu",
                 )
 
