@@ -773,7 +773,11 @@ internal fun convertInterface(
         "AbstractWorker",
         "GlobalEventHandlers",
         "WindowEventHandlers",
-            -> declaration + ":\n$EVENT_TARGET"
+            -> "$declaration :\n$EVENT_TARGET"
+
+        // Details - https://github.com/microsoft/TypeScript-DOM-lib-generator/issues/1845
+        "Screen",
+            -> "$declaration :\n$EVENT_TARGET"
 
         in COLLECTIONS_WITH_BOUNDS,
             -> declaration

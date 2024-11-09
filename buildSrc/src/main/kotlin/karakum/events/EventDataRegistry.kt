@@ -110,7 +110,6 @@ object EventDataRegistry {
                 data.targets.asSequence()
                     .flatMap { sequenceOf(it.target) + it.bubblingPath }
                     .filter { it != "Node" }
-                    .filter { it != "Screen" } // not EventTarget
                     .map { it to data }
             }
             .distinctBy { (target, data) -> target to data.type }
