@@ -986,9 +986,9 @@ internal fun convertInterface(
             name.startsWith("CSS")
                     || name.startsWith("GPU")
                     || name.startsWith("IDB")
-                    || (name.startsWith("FileSystem") && name != "FileSystemDirectoryHandle")
-                    || (name.startsWith("MIDI") && !name.endsWith("Map"))
-                    || (name.startsWith("RTC") && /* TEMP */ name != "RTCStatsReport")
+                    || name.startsWith("FileSystem")
+                    || name.startsWith("MIDI")
+                    || name.startsWith("RTC")
             )
 
     if (isSvgClass && !isSvgElementClass && !name.endsWith("List") || hasPrivateConstructor) {
@@ -1298,6 +1298,15 @@ internal fun convertInterface(
                 isHtmlElementClass ||
                 isSvgElementClass
             -> "open"
+
+        // TEMP
+        hasPrivateConstructor && (
+                name == "FileSystemDirectoryHandle"
+                        || name == "MIDIInputMap"
+                        || name == "MIDIOutputMap"
+                        || name == "RTCStatsReport"
+                )
+            -> "sealed"
 
         annotations.startsWith("@") ||
                 name in CSSOM_INTERFACES ||
