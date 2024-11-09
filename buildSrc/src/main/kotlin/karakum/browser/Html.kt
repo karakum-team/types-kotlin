@@ -983,6 +983,7 @@ internal fun convertInterface(
     val hasPrivateConstructor = type == "class"
             && (
             name.startsWith("CSS")
+                    || name.startsWith("GPU")
                     || (name.startsWith("RTC") && /* TEMP */ name != "RTCStatsReport")
             )
             && mainConstructor.isEmpty()
@@ -1276,6 +1277,11 @@ internal fun convertInterface(
                 name == "CSSNumericValue" ||
                 name == "CSSStyleValue" ||
                 name == "CSSTransformComponent" ||
+
+                name == "GPUError" ||
+                name == "GPUInternalError" ||
+                name == "GPUOutOfMemoryError" ||
+                name == "GPUValidationError" ||
 
                 isHtmlElementClass ||
                 isSvgElementClass
