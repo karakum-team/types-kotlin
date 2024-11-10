@@ -997,6 +997,19 @@ internal fun convertInterface(
                     || name.startsWith("MIDI")
                     || name.startsWith("RTC")
                     || name.startsWith("Performance")
+                    || name.startsWith("Payment")
+                    || name == "LargestContentfulPaint"
+                    || name.startsWith("Permission")
+                    || name == "PictureInPictureWindow"
+                    || name.startsWith("Push")
+                    || name == "AbstractRange"
+                    || name == "RemotePlayback"
+                    || name.startsWith("Report")
+                    || name == "IdleDeadline"
+                    || name.startsWith("Screen")
+                    || name == "Selection"
+                    || name.startsWith("Speech")
+                    || name.startsWith("Storage")
             )
 
     if (isSvgClass && !isSvgElementClass || hasPrivateConstructor) {
@@ -1309,6 +1322,8 @@ internal fun convertInterface(
 
                 name == "PerformanceEntry" ||
                 name == "PerformanceResourceTiming" ||
+
+                name == "AbstractRange" ||
 
                 isHtmlElementClass ||
                 isSvgElementClass

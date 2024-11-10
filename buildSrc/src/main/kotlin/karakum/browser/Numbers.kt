@@ -38,6 +38,9 @@ internal val LENGTH_REQUIRED = setOf(
     "SVGPointList",
     "SVGStringList",
     "SVGTransformList",
+
+    "SpeechRecognitionResult",
+    "SpeechRecognitionResultList",
 )
 
 internal class TypeProvider(
