@@ -68,6 +68,7 @@ private fun atomicsContent(
                 .replace("\r\n", "\n")
                 .substringAfter("\ninterface Atomics {\n")
                 .substringBefore("\n}")
+                .replace("<ArrayBufferLike>", "")
                 .trimIndent()
         }
         .flatMap { it.splitToSequence("\n\n") }
