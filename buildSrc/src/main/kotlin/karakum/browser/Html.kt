@@ -1010,6 +1010,7 @@ internal fun convertInterface(
                     || name == "Selection"
                     || name.startsWith("Speech")
                     || name.startsWith("Storage")
+                    || name.startsWith("Media")
             )
 
     if (isSvgClass && !isSvgElementClass || hasPrivateConstructor) {
@@ -1325,6 +1326,9 @@ internal fun convertInterface(
 
                 name == "AbstractRange" ||
 
+                name == "MediaDeviceInfo" ||
+                name == "MediaStreamTrack" ||
+
                 isHtmlElementClass ||
                 isSvgElementClass
             -> "open"
@@ -1336,6 +1340,7 @@ internal fun convertInterface(
                         || name == "MIDIInputMap"
                         || name == "MIDIOutputMap"
                         || name == "RTCStatsReport"
+                        || name == "MediaKeyStatusMap"
                 )
             -> "sealed /* final */\n"
 

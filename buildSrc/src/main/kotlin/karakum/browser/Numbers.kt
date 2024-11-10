@@ -33,6 +33,8 @@ internal val LENGTH_REQUIRED = setOf(
 
     "HTMLFormElement",
 
+    "MediaList",
+
     "SVGLengthList",
     "SVGNumberList",
     "SVGPointList",
