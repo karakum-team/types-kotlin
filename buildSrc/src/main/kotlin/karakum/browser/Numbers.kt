@@ -32,6 +32,7 @@ internal val LENGTH_REQUIRED = setOf(
     "CSSUnparsedValue",
 
     "HTMLFormElement",
+    "ImageTrackList",
 
     "MediaList",
 

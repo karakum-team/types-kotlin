@@ -1011,6 +1011,16 @@ internal fun convertInterface(
                     || name.startsWith("Speech")
                     || name.startsWith("Storage")
                     || name.startsWith("Media")
+                    || name.startsWith("Gamepad")
+                    || name.startsWith("Geolocation")
+                    || name.startsWith("Image")
+                    || name == "Location"
+                    || name.startsWith("Lock")
+                    || name == "MessagePort"
+                    || name.startsWith("Navigation")
+                    || name.startsWith("ServiceWorker")
+                    || name.startsWith("WebTransport")
+                    || name.startsWith("WakeLock")
             )
 
     if (isSvgClass && !isSvgElementClass || hasPrivateConstructor) {
