@@ -4,11 +4,11 @@ internal val FINAL_LIST_LIKE = setOf(
     "CSSNumericArray",
     "CSSTransformValue",
     "CSSUnparsedValue",
+
+    "DOMTokenList",
 )
 
 internal val LIST_LIKE = setOf(
-    "CSSNumericArray",
-    "DOMTokenList",
     "NodeList",
 ) + FINAL_LIST_LIKE
 

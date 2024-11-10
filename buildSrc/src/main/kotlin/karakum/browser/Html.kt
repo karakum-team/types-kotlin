@@ -822,7 +822,7 @@ internal fun convertInterface(
         return null
 
     if (memberSource == "[name: string]: string | undefined") {
-        declaration += " : Record<String, String>"
+        declaration += " :\nRecord<String, String>"
         memberSource = ""
     }
 
@@ -1021,6 +1021,8 @@ internal fun convertInterface(
                     || name.startsWith("ServiceWorker")
                     || name.startsWith("WebTransport")
                     || name.startsWith("WakeLock")
+                    || name.startsWith("DOM")
+                    || (name.startsWith("HTML") && !name.endsWith("Element"))
             )
 
     if (isSvgClass && !isSvgElementClass || hasPrivateConstructor) {
@@ -1077,6 +1079,21 @@ internal fun convertInterface(
 
             "ElementInternals",
                 -> result.applyValidationTargetPatch()
+
+            "HTMLCollection",
+            "HTMLFormControlsCollection",
+                -> {
+                val itemType = when (name) {
+                    "HTMLCollection" -> "T"
+                    else -> "Element"
+                }
+
+                """
+                override val length: Int
+                override fun item(index: Int): $itemType?
+
+                """.trimIndent() + result
+            }
 
             in LENGTH_REQUIRED,
                 -> result
@@ -1338,6 +1355,8 @@ internal fun convertInterface(
 
                 name == "MediaDeviceInfo" ||
                 name == "MediaStreamTrack" ||
+
+                name == "HTMLCollection" ||
 
                 isHtmlElementClass ||
                 isSvgElementClass
