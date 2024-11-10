@@ -83,6 +83,8 @@ internal object IDLRegistry {
                     .map { it.substringBefore("\n};") }
                     .filter { memberContent in it }
                     .map { it.substringBefore(" ") }
+                    // FileReader
+                    .map { it.removeSuffix(":") }
             }
             .toSet()
 
