@@ -31,6 +31,8 @@ internal val LENGTH_REQUIRED = setOf(
     "CSSTransformValue",
     "CSSUnparsedValue",
 
+    "DataTransferItemList",
+
     "DOMRectList",
     "DOMStringList",
     "DOMTokenList",
@@ -49,6 +51,9 @@ internal val LENGTH_REQUIRED = setOf(
 
     "SpeechRecognitionResult",
     "SpeechRecognitionResultList",
+
+    "TextTrackList",
+    "TextTrackCueList",
 )
 
 internal class TypeProvider(

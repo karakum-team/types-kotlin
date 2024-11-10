@@ -1023,6 +1023,14 @@ internal fun convertInterface(
                     || name.startsWith("WakeLock")
                     || name.startsWith("DOM")
                     || (name.startsWith("HTML") && !name.endsWith("Element"))
+                    || name.startsWith("XML")
+                    || name.startsWith("DataTransfer")
+                    || name.startsWith("Canvas")
+                    || name.startsWith("TextTrack")
+                    || name.startsWith("Animation")
+                    || name.startsWith("Authenticator")
+                    || name == "PublicKeyCredential"
+                    || name == "AbortSignal"
             )
 
     if (isSvgClass && !isSvgElementClass || hasPrivateConstructor) {
@@ -1358,6 +1366,15 @@ internal fun convertInterface(
 
                 name == "HTMLCollection" ||
 
+                name == "AnimationEffect" ||
+                name == "AnimationTimeline" ||
+
+                name == "AuthenticatorResponse" ||
+
+                name == "TextTrackCue" ||
+
+                name == "XMLHttpRequestEventTarget" ||
+
                 isHtmlElementClass ||
                 isSvgElementClass
             -> "open"
@@ -1370,6 +1387,7 @@ internal fun convertInterface(
                         || name == "MIDIOutputMap"
                         || name == "RTCStatsReport"
                         || name == "MediaKeyStatusMap"
+                        || name == "CanvasRenderingContext2D"
                 )
             -> "sealed /* final */\n"
 
