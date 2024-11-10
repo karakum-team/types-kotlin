@@ -974,8 +974,9 @@ internal fun convertInterface(
         mainConstructor = mainConstructor.replace("name: String", "name: JsErrorName")
     }
 
+    val isClass = type == "class"
     val isHtmlElementClass = IDLRegistry.hasHtmlConstructor(name)
-    val isSvgElementClass = type == "class" && name.startsWith("SVG") && name.endsWith("Element")
+    val isSvgElementClass = isClass && name.startsWith("SVG") && name.endsWith("Element")
 
     if (isHtmlElementClass || isSvgElementClass || hasTypeGuard) {
         require(mainConstructor.isEmpty())
@@ -985,7 +986,7 @@ internal fun convertInterface(
         declaration = declaration.replaceFirst(":\n", "\n$modifier constructor():\n")
     }
 
-    val hasPrivateConstructor = type == "class"
+    val hasPrivateConstructor = isClass
             && (mainConstructor.isEmpty() && !IDLRegistry.hasEmptyConstructor(name))
             && !isHtmlElementClass
             && !isSvgElementClass
@@ -1243,111 +1244,66 @@ internal fun convertInterface(
     }
 
     val modifier = when {
-        name == DOM_EXCEPTION ||
-                name == "Animation" ||
-                name == "Blob" ||
-                name == "DOMMatrixReadOnly" ||
-                name == "DOMPointReadOnly" ||
-                name == "DOMRectReadOnly" ||
-                name == "Worker" ||
-                name == "Credential" ||
-                name == "WritableStream" ||
-                name == "AudioWorkletNode" ||
-                name == "OfflineAudioContext" ||
-                name == "OfflineAudioContext" ||
-                name == "BroadcastChannel" ||
-                name == "OffscreenCanvas" ||
-                name == "AudioDecoder" ||
-                name == "AudioEncoder" ||
-                name == "VideoDecoder" ||
-                name == "VideoEncoder" ||
-                name == "MediaRecorder" ||
-                name == "MediaSource" ||
-                name == "MediaStream" ||
-                name == "Notification" ||
-                name == "PaymentRequest" ||
-                name == "RTCPeerConnection" ||
-                name == "WebSocket" ||
-                name == "SpeechSynthesisUtterance" ||
-                name == "EventSource" ||
-                name == "SharedWorker" ||
-                name == "AudioContext" ||
+        isClass && !hasPrivateConstructor
+            -> "open"
 
-                // with empty constructor
-                name == "Text" ||
-                name == "Comment" ||
-                name == "DataTransfer" ||
-                name == "FileReader" ||
-                name == "XMLHttpRequest" ||
-                name == "TextEncoder" ||
-                name == "TextEncoderStream" ||
-                name == "MessageChannel" ||
-                name == "AbortController" ||
-                name == XSLT_PROCESSOR ||
-
-                name == "Document" ||
-                name == "DocumentFragment" ||
-
+        // TODO: calculate
+        hasPrivateConstructor && (
                 name == "CSSRule" ||
-                name == "CSSConditionRule" ||
-                name == "CSSGroupingRule" ||
-                name == "CSSMathValue" ||
-                name == "CSSNumericValue" ||
-                name == "CSSStyleValue" ||
-                name == "CSSTransformComponent" ||
+                        name == "CSSConditionRule" ||
+                        name == "CSSGroupingRule" ||
+                        name == "CSSMathValue" ||
+                        name == "CSSNumericValue" ||
+                        name == "CSSStyleValue" ||
+                        name == "CSSTransformComponent" ||
 
-                name == "GPUError" ||
-                name == "GPUInternalError" ||
-                name == "GPUOutOfMemoryError" ||
-                name == "GPUValidationError" ||
+                        name == "IDBCursor" ||
+                        name == "IDBRequest" ||
 
-                name == "IDBCursor" ||
-                name == "IDBRequest" ||
+                        name == "MIDIPort" ||
 
-                name == "MIDIPort" ||
+                        name == "FileSystemEntry" ||
+                        name == "FileSystemHandle" ||
 
-                name == "FileSystemEntry" ||
-                name == "FileSystemHandle" ||
+                        name == "AudioNode" ||
+                        name == "AudioScheduledSourceNode" ||
+                        name == "AudioWorkletProcessor" ||
 
-                name == "AudioNode" ||
-                name == "AudioScheduledSourceNode" ||
-                name == "AudioWorkletProcessor" ||
+                        name == "PerformanceEntry" ||
+                        name == "PerformanceResourceTiming" ||
 
-                name == "PerformanceEntry" ||
-                name == "PerformanceResourceTiming" ||
+                        name == "Credential" ||
+                        name == "GPUError" ||
+                        name == "AbstractRange" ||
 
-                name == "AbstractRange" ||
+                        name == "MediaDeviceInfo" ||
+                        name == "MediaStreamTrack" ||
 
-                name == "MediaDeviceInfo" ||
-                name == "MediaStreamTrack" ||
+                        name == "HTMLCollection" ||
 
-                name == "HTMLCollection" ||
+                        name == "AnimationEffect" ||
+                        name == "AnimationTimeline" ||
 
-                name == "AnimationEffect" ||
-                name == "AnimationTimeline" ||
+                        name == "AuthenticatorResponse" ||
 
-                name == "AuthenticatorResponse" ||
+                        name == "TextTrackCue" ||
 
-                name == "TextTrackCue" ||
+                        name == "XMLHttpRequestEventTarget" ||
 
-                name == "XMLHttpRequestEventTarget" ||
+                        name == "StyleSheet" ||
+                        name == "WorkerGlobalScope" ||
+                        name == "WorkletGlobalScope" ||
+                        name == "Client" ||
 
-                name == "StyleSheet" ||
-                name == "WorkerGlobalScope" ||
-                name == "WorkletGlobalScope" ||
-                name == "Client" ||
+                        name == "BaseAudioContext" ||
+                        name == "Node" ||
+                        name == "Element" ||
+                        name == "CharacterData" ||
+                        name == "HTMLMediaElement" ||
+                        name == "MathMLElement" ||
 
-                name == "BaseAudioContext" ||
-                name == "Node" ||
-                name == "Element" ||
-                name == "CharacterData" ||
-                name == "HTMLMediaElement" ||
-                name == "MathMLElement" ||
-
-                name == "Worklet" ||
-
-                isHtmlElementClass ||
-                isSvgElementClass
+                        name == "Worklet"
+                )
             -> "open"
 
         hasPrivateConstructor && name == "NodeList"
