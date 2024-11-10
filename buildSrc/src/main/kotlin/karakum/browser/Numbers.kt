@@ -37,11 +37,15 @@ internal val LENGTH_REQUIRED = setOf(
     "DOMStringList",
     "DOMTokenList",
 
+    "FileList",
+
     "HTMLFormElement",
 
     "ImageTrackList",
 
     "MediaList",
+
+    "NamedNodeMap",
 
     "SourceBufferList",
     "StyleSheetList",

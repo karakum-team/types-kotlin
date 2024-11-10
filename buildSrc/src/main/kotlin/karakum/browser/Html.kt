@@ -1045,6 +1045,27 @@ internal fun convertInterface(
                     || name.startsWith("Worker")
                     || name.startsWith("XPath")
                     || name.endsWith("Scope")
+                    || name == "BaseAudioContext"
+                    || name == "OffscreenCanvasRenderingContext2D"
+                    || name == "TextMetrics"
+                    || name == "Clipboard"
+                    || name == "ElementInternals"
+                    || name == "ShadowRoot"
+                    || name == "CredentialsContainer"
+                    || name == "Crypto"
+                    || name == "CryptoKey"
+                    || name == "SubtleCrypto"
+                    || name == "Attr"
+                    || name == "CaretPosition"
+                    || name == "CDATASection"
+                    || name == "CharacterData"
+                    || name == "DocumentType"
+                    || name == "NamedNodeMap"
+                    || name == "Node"
+                    || name == "NodeIterator"
+                    || name == "ProcessingInstruction"
+                    || name == "TreeWalker"
+                    || name == "FileList"
             )
 
     if (isSvgClass && !isSvgElementClass || hasPrivateConstructor) {
@@ -1394,6 +1415,10 @@ internal fun convertInterface(
                 name == "WorkletGlobalScope" ||
                 name == "Client" ||
 
+                name == "BaseAudioContext" ||
+                name == "Node" ||
+                name == "CharacterData" ||
+
                 isHtmlElementClass ||
                 isSvgElementClass
             -> "open"
@@ -1407,6 +1432,7 @@ internal fun convertInterface(
                         || name == "RTCStatsReport"
                         || name == "MediaKeyStatusMap"
                         || name == "CanvasRenderingContext2D"
+                        || name == "OffscreenCanvasRenderingContext2D"
                         || name == "CustomStateSet"
                         || name == "StylePropertyMap"
                         || name == "StylePropertyMapReadOnly"
