@@ -1062,7 +1062,9 @@ internal fun convertInterface(
                     || name == "DocumentType"
                     || name == "NamedNodeMap"
                     || name == "Node"
+                    || name == "NodeList"
                     || name == "NodeIterator"
+                    || name == "Element"
                     || name == "ProcessingInstruction"
                     || name == "TreeWalker"
                     || name == "FileList"
@@ -1082,6 +1084,8 @@ internal fun convertInterface(
                     || name == "ValidityState"
                     || name == "VisualViewport"
                     || name == "BarProp"
+                    || name == "InputDeviceInfo"
+                    || name == "Worklet"
             )
 
     if (isSvgClass && !isSvgElementClass || hasPrivateConstructor) {
@@ -1433,12 +1437,18 @@ internal fun convertInterface(
 
                 name == "BaseAudioContext" ||
                 name == "Node" ||
+                name == "Element" ||
                 name == "CharacterData" ||
                 name == "MathMLElement" ||
+
+                name == "Worklet" ||
 
                 isHtmlElementClass ||
                 isSvgElementClass
             -> "open"
+
+        hasPrivateConstructor && name == "NodeList"
+            -> "abstract /* open */\n"
 
         // TEMP
         hasPrivateConstructor && (
@@ -1478,15 +1488,6 @@ internal fun convertInterface(
                 hasPrivateConstructor ||
                 hasTypeGuard
             -> ""
-
-        name == "PerformanceEntry" ||
-                name == "Element" ||
-                name == "NodeList" ||
-                name == "WorkerGlobalScope" ||
-                name == "Worklet" ||
-                name == "WorkletGlobalScope" ||
-                name == "AudioWorkletProcessor"
-            -> "abstract"
 
         else -> "sealed"
     }
