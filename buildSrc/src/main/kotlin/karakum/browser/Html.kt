@@ -975,8 +975,7 @@ internal fun convertInterface(
     }
 
     val isHtmlElementClass = IDLRegistry.hasHtmlConstructor(name)
-    val isSvgClass = type == "class" && name.startsWith("SVG")
-    val isSvgElementClass = isSvgClass && name.endsWith("Element")
+    val isSvgElementClass = type == "class" && name.startsWith("SVG") && name.endsWith("Element")
 
     if (isHtmlElementClass || isSvgElementClass || hasTypeGuard) {
         require(mainConstructor.isEmpty())
@@ -988,10 +987,10 @@ internal fun convertInterface(
 
     val hasPrivateConstructor = type == "class"
             && (mainConstructor.isEmpty() && !IDLRegistry.hasEmptyConstructor(name))
-            && !(name.startsWith("HTML") && name.endsWith("Element"))
-            && !name.startsWith("SVG")
+            && !isHtmlElementClass
+            && !isSvgElementClass
 
-    if (isSvgClass && !isSvgElementClass || hasPrivateConstructor) {
+    if (hasPrivateConstructor) {
         mainConstructor = "\nprivate constructor()\n"
     }
 
@@ -1342,6 +1341,7 @@ internal fun convertInterface(
                 name == "Node" ||
                 name == "Element" ||
                 name == "CharacterData" ||
+                name == "HTMLMediaElement" ||
                 name == "MathMLElement" ||
 
                 name == "Worklet" ||
