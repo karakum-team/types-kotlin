@@ -43,6 +43,9 @@ internal val LENGTH_REQUIRED = setOf(
 
     "MediaList",
 
+    "SourceBufferList",
+    "StyleSheetList",
+
     "SVGLengthList",
     "SVGNumberList",
     "SVGPointList",

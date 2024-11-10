@@ -1031,6 +1031,20 @@ internal fun convertInterface(
                     || name.startsWith("Authenticator")
                     || name == "PublicKeyCredential"
                     || name == "AbortSignal"
+                    || name.startsWith("Cache")
+                    || name.startsWith("Custom")
+                    || name.startsWith("Style")
+                    || name.startsWith("Intersection")
+                    || name.startsWith("Mutation")
+                    || name.startsWith("Resize")
+                    || name.startsWith("Source")
+                    || name.startsWith("Client")
+                    || name.startsWith("Window")
+                    || name.startsWith("Readable")
+                    || name.startsWith("ViewTransition")
+                    || name.startsWith("Worker")
+                    || name.startsWith("XPath")
+                    || name.endsWith("Scope")
             )
 
     if (isSvgClass && !isSvgElementClass || hasPrivateConstructor) {
@@ -1375,6 +1389,11 @@ internal fun convertInterface(
 
                 name == "XMLHttpRequestEventTarget" ||
 
+                name == "StyleSheet" ||
+                name == "WorkerGlobalScope" ||
+                name == "WorkletGlobalScope" ||
+                name == "Client" ||
+
                 isHtmlElementClass ||
                 isSvgElementClass
             -> "open"
@@ -1388,6 +1407,11 @@ internal fun convertInterface(
                         || name == "RTCStatsReport"
                         || name == "MediaKeyStatusMap"
                         || name == "CanvasRenderingContext2D"
+                        || name == "CustomStateSet"
+                        || name == "StylePropertyMap"
+                        || name == "StylePropertyMapReadOnly"
+                        || name == "ViewTransitionTypeSet"
+                        || name == "WorkerNavigator"
                 )
             -> "sealed /* final */\n"
 
