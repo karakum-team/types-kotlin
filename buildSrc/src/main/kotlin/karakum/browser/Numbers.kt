@@ -61,6 +61,8 @@ internal val LENGTH_REQUIRED = setOf(
 
     "TextTrackList",
     "TextTrackCueList",
+
+    "TouchList",
 )
 
 internal class TypeProvider(

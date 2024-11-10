@@ -1066,6 +1066,22 @@ internal fun convertInterface(
                     || name == "ProcessingInstruction"
                     || name == "TreeWalker"
                     || name == "FileList"
+                    || name == "History"
+                    || name == "HighlightRegistry"
+                    || name == "RadioNodeList"
+                    || name == "VideoPlaybackQuality"
+                    || name == "MathMLElement"
+                    || name == "InputDevicelnfo"
+                    || name == "TimeRanges"
+                    || name == "Navigator"
+                    || name == "TransformStreamDefaultController"
+                    || name == "WritableStreamDefaultController"
+                    || name == "TouchList"
+                    || name == "FragmentDirective"
+                    || name == "UserActivation"
+                    || name == "ValidityState"
+                    || name == "VisualViewport"
+                    || name == "BarProp"
             )
 
     if (isSvgClass && !isSvgElementClass || hasPrivateConstructor) {
@@ -1418,6 +1434,7 @@ internal fun convertInterface(
                 name == "BaseAudioContext" ||
                 name == "Node" ||
                 name == "CharacterData" ||
+                name == "MathMLElement" ||
 
                 isHtmlElementClass ||
                 isSvgElementClass
@@ -1438,6 +1455,9 @@ internal fun convertInterface(
                         || name == "StylePropertyMapReadOnly"
                         || name == "ViewTransitionTypeSet"
                         || name == "WorkerNavigator"
+                        || name == "HighlightRegistry"
+                        || name == "Navigator"
+                        || name == "RadioNodeList"
                 )
             -> "sealed /* final */\n"
 
