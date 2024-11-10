@@ -987,7 +987,7 @@ internal fun convertInterface(
     }
 
     val hasPrivateConstructor = type == "class"
-            && mainConstructor.isEmpty()
+            && (mainConstructor.isEmpty() && !IDLRegistry.hasEmptyConstructor(name))
             && (
             name.startsWith("Audio")
                     || name.startsWith("CSS")
