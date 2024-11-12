@@ -807,10 +807,7 @@ internal fun convertInterface(
             -> declaration.replaceFirst(" extends NodeList", " :\nNodeList<HTMLElement>")
 
         "ByteLengthQueuingStrategy",
-            -> declaration.replaceFirst(
-            " extends QueuingStrategy<ArrayBufferView>",
-            " :\nQueuingStrategy<ArrayBufferView<*>>"
-        )
+            -> declaration.replaceFirst("<ArrayBufferView>", "<ArrayBufferView<*>>")
 
         else -> {
             declaration
