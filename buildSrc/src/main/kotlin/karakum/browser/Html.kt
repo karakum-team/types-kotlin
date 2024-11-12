@@ -2006,6 +2006,7 @@ private fun convertProperty(
 
         "ReadableStream" -> "ReadableStream<*>"
         "ReadableStream<string>" -> "ReadableStream<String>"
+        "ReadableStream<Uint8Array>" -> "ReadableStream<Uint8Array<*>>"
         "WritableStream" -> "WritableStream<*>"
         "WritableStream<string>" -> "WritableStream<String>"
 
@@ -2103,6 +2104,7 @@ private fun convertFunction(
     val typeParameters = nameSource
         .removePrefix(name)
         .replace(" extends ", " : ")
+        .replace(": ArrayBufferView", ": ArrayBufferView<*>")
         .replace(" | null", "?")
 
     if (!typeProvider.accepted(name))
@@ -2307,9 +2309,9 @@ private fun convertFunctionParameters(
 
         "inputs: Float32Array[][], outputs: Float32Array[][], parameters: Record<string, Float32Array>",
             -> listOf(
-            "inputs: ReadonlyArray<ReadonlyArray<Float32Array>>",
-            "outputs: ReadonlyArray<ReadonlyArray<Float32Array>>",
-            "parameters: Record<String, Float32Array>",
+            "inputs: ReadonlyArray<ReadonlyArray<Float32Array<*>>>",
+            "outputs: ReadonlyArray<ReadonlyArray<Float32Array<*>>>",
+            "parameters: Record<String, Float32Array<*>>",
         )
 
         "action: (item: AudioParam) => void",
@@ -2399,6 +2401,9 @@ private fun getParameterType(
 
         source == "DateTimeFormatPartTypes"
             -> "String /* $source */"
+
+        source == "ReadableStream<Uint8Array>"
+            -> "ReadableStream<Uint8Array<*>>"
 
         // TEMP
         source == "AlgorithmIdentifier"
