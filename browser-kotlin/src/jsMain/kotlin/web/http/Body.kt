@@ -18,7 +18,7 @@ sealed external interface Body {
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Request/body)
      */
-    val body: ReadableStream<Uint8Array>?
+    val body: ReadableStream<Uint8Array<*>>?
         get() = definedExternally
 
     /**
