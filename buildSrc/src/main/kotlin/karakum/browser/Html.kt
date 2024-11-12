@@ -1,5 +1,6 @@
 package karakum.browser
 
+import karakum.common.TYPED_ARRAYS
 import karakum.common.withSuspendAdapter
 import karakum.events.EventDataRegistry
 
@@ -1919,6 +1920,9 @@ private fun convertProperty(
         "number | CSSNumericValue | string",
             -> "Any /* $type */"
 
+        in TYPED_ARRAYS,
+            -> "$type<*>"
+
         "\"file\"",
         "\"directory\"",
             -> "FileSystemHandleKind.${type.removeSurrounding("\"")}"
@@ -2372,6 +2376,9 @@ private fun getParameterType(
     }
 
     return when {
+        source in TYPED_ARRAYS
+            -> "$source<*>"
+
         source == "\"$ED25519\""
             -> ED25519
 
