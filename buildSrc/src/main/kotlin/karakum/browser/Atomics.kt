@@ -44,7 +44,7 @@ internal fun atomicsFunction(
 
     if (TYPED_ARRAYS in content) {
         content = "<T : Comparable<T>> " +
-                content.replace(TYPED_ARRAYS, "TypedArray<*, T>")
+                content.replace(TYPED_ARRAYS, "TypedArray<*, *, T>")
                     .replace("value: number", "value: T")
                     .replace("expectedValue: number", "expectedValue: T")
                     .replace("replacementValue: number", "replacementValue: T")
