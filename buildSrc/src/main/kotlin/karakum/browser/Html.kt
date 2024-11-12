@@ -806,15 +806,10 @@ internal fun convertInterface(
         "RadioNodeList",
             -> declaration.replaceFirst(" extends NodeList", " :\nNodeList<HTMLElement>")
 
-        "ByteLengthQueuingStrategy",
-            -> declaration.replaceFirst(
-            " extends QueuingStrategy<ArrayBufferView>",
-            " :\nQueuingStrategy<ArrayBufferView<*>>"
-        )
-
         else -> {
             declaration
                 .replace(" extends ", " :\n")
+                .replace("<ArrayBufferView>", "<ArrayBufferView<*>>")
                 .let { if (":" in it) it.replace(", ", ",\n") else it }
         }
     }
