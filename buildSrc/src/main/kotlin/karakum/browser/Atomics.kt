@@ -23,7 +23,7 @@ internal fun atomicsDeclarations(
     )
 }
 
-private val TYPED_ARRAYS = "Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array"
+private val TYPED_ARRAY_UNION = "Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array"
 
 internal fun atomicsFunction(
     source: String,
@@ -42,9 +42,9 @@ internal fun atomicsFunction(
         .replace("count?: number", "count: Int = definedExternally")
         .replace("timeout?: number", "timeout: Int = definedExternally")
 
-    if (TYPED_ARRAYS in content) {
+    if (TYPED_ARRAY_UNION in content) {
         content = "<T : Comparable<T>> " +
-                content.replace(TYPED_ARRAYS, "TypedArray<*, *, T>")
+                content.replace(TYPED_ARRAY_UNION, "TypedArray<*, *, T>")
                     .replace("value: number", "value: T")
                     .replace("expectedValue: number", "expectedValue: T")
                     .replace("replacementValue: number", "replacementValue: T")
