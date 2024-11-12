@@ -13,4 +13,6 @@ internal val TYPED_ARRAYS = setOf(
     "Uint8ClampedArray",
     "Uint16Array",
     "Uint32Array",
+
+    "ArrayBufferView",
 )

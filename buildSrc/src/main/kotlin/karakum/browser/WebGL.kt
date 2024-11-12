@@ -237,7 +237,7 @@ private fun convertFunction(
                     -> "GLint /* | GLboolean */"
 
                 ptype.startsWith("Int32Array | ")
-                    -> "Int32Array /* ${ptype.removePrefix("Int32Array")} */"
+                    -> "Int32Array<*> /* ${ptype.removePrefix("Int32Array")} */"
 
                 ptype.endsWith("[]") -> {
                     var atype = ptype.removeSuffix("[]")
@@ -249,6 +249,11 @@ private fun convertFunction(
 
                 else -> ptype
             }
+
+            if (ptype.startsWith("ArrayBufferView")) {
+                ptype = ptype.replace("ArrayBufferView", "ArrayBufferView<*>")
+            }
+
 
             if (pname.endsWith("?")) {
                 pname = pname.removeSuffix("?")

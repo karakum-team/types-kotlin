@@ -1,5 +1,6 @@
 package karakum.browser
 
+import karakum.common.TYPED_ARRAYS
 import java.io.File
 
 internal fun atomicsDeclarations(
@@ -49,6 +50,10 @@ internal fun atomicsFunction(
                     .replace("expectedValue: number", "expectedValue: T")
                     .replace("replacementValue: number", "replacementValue: T")
                     .replace("): number", "): T")
+    }
+
+    content = TYPED_ARRAYS.fold(content) { acc, typedArray ->
+        acc.replace(": $typedArray", ": $typedArray<*>")
     }
 
     content = content.replace("value: number", "value: Int")
