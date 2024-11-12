@@ -161,7 +161,6 @@ private fun event(
     if ("{\n}" in initSource)
         initSource = initSource.substringBefore("}")
 
-    var initMembers: String? = null
     var initBody = if (initSource.isNotEmpty()) {
         val parentDeclaration = initSource
             .substringBefore("{\n")
@@ -181,8 +180,6 @@ private fun event(
                 .mapNotNull { convertMember(it, typeProvider) }
                 .joinToString("\n")
         } else ""
-
-        initMembers = members
 
         val declaration = initName
             .replace("<D = any>", "<out D>") +
@@ -348,50 +345,11 @@ private fun event(
     }
 
     initName = initName.substringBefore("<")
-    val initFactoryBody = when (name) {
-        "CustomEvent",
-        "MessageEvent",
-            -> {
-            val members = requireNotNull(initMembers)
-                .substringBefore("\n")
-
-            val parameters = members
-                .splitToSequence("\n")
-                .map { it.substringAfter(" ") + "," }
-                .joinToString("\n")
-
-            val parameterNames = members
-                .splitToSequence("\n")
-                .map { it.substringAfter(" ") }
-                .map { it.substringBefore(":") }
-                .toList()
-
-            """
-            fun <D> $initName(
-                $parameters
-            ): $initName<D> =
-                jso {
-                    ${
-                parameterNames.joinToString("\n") {
-                    "asDynamic().$it = $it"
-                }
-            }
-                }
-            """.trimIndent()
-        }
-
-        else -> ""
-    }
 
     return sequenceOf(
         ConversionResult(
             name = initName,
             body = initBody,
-            pkg = pkg,
-        ),
-        ConversionResult(
-            name = "$initName.factory",
-            body = initFactoryBody,
             pkg = pkg,
         ),
         ConversionResult(
