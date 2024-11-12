@@ -91,7 +91,7 @@ external class HeightmapTerrainData(
         var width: Double
         var height: Double
         var childTileMask: Int?
-        var waterMask: Uint8Array?
+        var waterMask: Uint8Array<*>?
         var structure: ConstructorOptionsStructure?
         var encoding: HeightmapEncoding?
         var createdByUpsampling: Boolean?

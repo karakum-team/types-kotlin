@@ -81,7 +81,7 @@ external class QuantizedMeshTerrainData(
      */
     @JsPlainObject
     interface ConstructorOptions {
-        var quantizedVertices: Uint16Array
+        var quantizedVertices: Uint16Array<*>
         var indices: TypedArray<*, *, *, *> /* Uint16Array | Uint32Array */
         var minimumHeight: Double
         var maximumHeight: Double
@@ -98,8 +98,8 @@ external class QuantizedMeshTerrainData(
         var northSkirtHeight: Double
         var childTileMask: Int?
         var createdByUpsampling: Boolean?
-        var encodedNormals: Uint8Array?
-        var waterMask: Uint8Array?
+        var encodedNormals: Uint8Array<*>?
+        var waterMask: Uint8Array<*>?
         var credits: ReadonlyArray<Credit>?
     }
 

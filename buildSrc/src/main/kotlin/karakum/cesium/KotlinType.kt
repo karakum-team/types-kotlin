@@ -1,5 +1,7 @@
 package karakum.cesium
 
+import karakum.common.TYPED_ARRAYS
+
 internal const val JS_FUNCTION = "Function"
 
 private const val HTML_ELEMENT = "HTMLElement"
@@ -78,6 +80,9 @@ internal fun kotlinType(
 ): String {
     if (type in WHITE_LIST)
         return type
+
+    if (type in TYPED_ARRAYS)
+        return "$type<*>"
 
     if (type.startsWith("Event<"))
         return type
