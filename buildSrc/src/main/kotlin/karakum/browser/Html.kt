@@ -806,6 +806,12 @@ internal fun convertInterface(
         "RadioNodeList",
             -> declaration.replaceFirst(" extends NodeList", " :\nNodeList<HTMLElement>")
 
+        "ByteLengthQueuingStrategy",
+            -> declaration.replaceFirst(
+            " extends QueuingStrategy<ArrayBufferView>",
+            " :\nQueuingStrategy<ArrayBufferView<*>>"
+        )
+
         else -> {
             declaration
                 .replace(" extends ", " :\n")
@@ -2009,6 +2015,7 @@ private fun convertProperty(
         "ReadableStream<Uint8Array>" -> "ReadableStream<Uint8Array<*>>"
         "WritableStream" -> "WritableStream<*>"
         "WritableStream<string>" -> "WritableStream<String>"
+        "QueuingStrategySize<ArrayBufferView>" -> "QueuingStrategySize<ArrayBufferView<*>>"
 
         "Promise<any>" -> "Promise<*>"
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"

@@ -121,6 +121,7 @@ private val PKG_MAP = mapOf(
 
     "AutoKeyword" to "web.vtt",
 
+    "BigInteger" to "web.crypto",
     "KeyFormat" to "web.crypto",
     "KeyType" to "web.crypto",
     "KeyUsage" to "web.crypto",
@@ -156,6 +157,8 @@ private val ALIAS_MAP = mapOf(
     "any" to "Any",
     "string" to "String",
     "number" to "Double",
+
+    "Uint8Array" to "Uint8Array<*>",
 
     "number[] | GPUColorDict" to "GPUColorDict /* number[] */",
     "number[] | GPUExtent3DDict" to "GPUExtent3DDict /* number[] */",
@@ -277,7 +280,6 @@ private fun convertType(
 
             "TexImageSource" -> "web.gl"
 
-            "BigInteger" -> "web.crypto"
             "HashAlgorithmIdentifier" -> "web.crypto"
 
             "ReadableStreamController" -> "web.streams"
