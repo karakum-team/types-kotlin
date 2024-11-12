@@ -173,8 +173,8 @@ open external class DOMMatrixReadOnly(
 
     fun skewX(sx: Double = definedExternally): DOMMatrix
     fun skewY(sy: Double = definedExternally): DOMMatrix
-    fun toFloat32Array(): Float32Array
-    fun toFloat64Array(): Float64Array
+    fun toFloat32Array(): Float32Array<*>
+    fun toFloat64Array(): Float64Array<*>
     fun toJSON(): Any
     fun transformPoint(point: DOMPointInit = definedExternally): DOMPoint
     fun transformPoint(point: DOMPointReadOnly /* DOMPointInit */): DOMPoint

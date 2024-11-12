@@ -53,5 +53,5 @@ open external class AudioBuffer(
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioBuffer/getChannelData)
      */
-    fun getChannelData(channel: Int): Float32Array
+    fun getChannelData(channel: Int): Float32Array<*>
 }
