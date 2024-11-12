@@ -25,6 +25,6 @@ open external class TextEncoder :
      */
     fun encodeInto(
         source: String,
-        destination: Uint8Array,
+        destination: Uint8Array<*>,
     ): TextEncoderEncodeIntoResult
 }

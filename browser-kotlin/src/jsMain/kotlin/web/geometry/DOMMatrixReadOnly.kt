@@ -189,8 +189,8 @@ open external class DOMMatrixReadOnly(
     ): DOMMatrix
 
     companion object {
-        fun fromFloat32Array(array32: Float32Array): DOMMatrixReadOnly
-        fun fromFloat64Array(array64: Float64Array): DOMMatrixReadOnly
+        fun fromFloat32Array(array32: Float32Array<*>): DOMMatrixReadOnly
+        fun fromFloat64Array(array64: Float64Array<*>): DOMMatrixReadOnly
         fun fromMatrix(other: DOMMatrixInit = definedExternally): DOMMatrixReadOnly
         fun fromMatrix(other: DOMMatrixReadOnly /* DOMMatrixInit */): DOMMatrixReadOnly
     }
