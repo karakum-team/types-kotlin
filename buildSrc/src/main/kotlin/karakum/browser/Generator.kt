@@ -228,6 +228,8 @@ private val DEFAULT_IMPORTS = Imports(
     "web.validation.ValidityState",
     "web.validation.ValidityStateFlags",
     "web.vibration.VibratePattern",
+    "web.viewtransition.PageRevealEvent",
+    "web.viewtransition.PageSwapEvent",
     "web.viewtransition.ViewTransition",
     "web.viewtransition.ViewTransitionUpdateCallback",
     "web.vtt.TextTrack",

@@ -237,4 +237,7 @@ internal val EVENT_CORRECTION_MAP = mapOf(
     "shippingaddresschange" to "shipping_address_change",
     "shippingoptionchange" to "shipping_option_change",
     "payerdetailchange" to "payer_detail_change",
+
+    "pagereveal" to "page_reveal",
+    "pageswap" to "page_swap",
 )
