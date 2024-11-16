@@ -10,3 +10,10 @@ dependencies {
     jsMainImplementation(kotlinWrappers.browser)
     jsMainImplementation(kotlinWrappers.reactCore)
 }
+
+val syncWithWrappers by tasks.creating(SyncWrappers::class) {
+    from(generatedDir) {
+        include("tanstack/table/")
+    }
+    into(kotlinWrappersDir("kotlin-tanstack-table-core"))
+}
