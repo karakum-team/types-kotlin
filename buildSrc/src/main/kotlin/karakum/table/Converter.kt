@@ -285,7 +285,7 @@ private fun convertTypealias(
                 inline fun $typeParameters $name(
                     $modifier source: $type,
                 ): $factoryType =
-                    source.unsafeCast<$factoryType>()
+                    unsafeCast(source)
                 """.trimIndent()
             }
 
