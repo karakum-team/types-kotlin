@@ -8,7 +8,7 @@ import java.io.File
 
 private val DEFAULT_IMPORTS = listOf(
     "js.promise.Promise",
-    "kotlin.js.RegExp",
+    "js.regexp.RegExp",
 
     "js.array.JsTuple2",
     "js.array.ReadonlyArray",
