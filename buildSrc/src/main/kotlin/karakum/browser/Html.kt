@@ -908,6 +908,17 @@ internal fun convertInterface(
         declaration += "\n$iterableDeclaration"
     }
 
+    when (name) {
+        "Window",
+        "WorkerGlobalScope",
+            -> declaration = declaration
+            .replaceFirst("\nEventTarget,", "\nEventTarget,\nGlobalScope,")
+            .also { require(it != declaration) }
+
+        "WorkletGlobalScope",
+            -> declaration = "$declaration:\nGlobalScope"
+    }
+
     sequenceOf(MarkerRegistry.additionalParents(name))
         .filterNotNull()
         .flatten()
