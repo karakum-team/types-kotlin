@@ -48,6 +48,10 @@ internal object Mixins {
 
         "GPUError",
         "GPUObjectBase",
+        "GPUPipelineBase",
+        "GPUBindingCommandsMixin",
+        "GPUDebugCommandsMixin",
+        "GPURenderCommandsMixin",
     )
 
     val ALL: Set<String> = SAFE + UNSAFE
