@@ -4,7 +4,13 @@ package web.gpu
 
 import js.collections.ReadonlySet
 
-sealed /* final */
+/**
+ * Available only in secure contexts.
+ *
+ * [MDN Reference](https://developer.mozilla.org/docs/Web/API/GPUSupportedFeatures)
+ */
 external class GPUSupportedFeatures
 private constructor() :
-    ReadonlySet<GPUFeatureName>
+    ReadonlySet<String> {
+    fun forEach(action: (item: String) -> Unit)
+}
