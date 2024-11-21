@@ -2282,7 +2282,7 @@ private fun convertFunctionParameters(
             -> listOf(
             "inputs: ReadonlyArray<ReadonlyArray<Float32Array<*>>>",
             "outputs: ReadonlyArray<ReadonlyArray<Float32Array<*>>>",
-            "parameters: Record<String, Float32Array<*>>",
+            "parameters: ReadonlyRecord<String, Float32Array<*>>",
         )
 
         "action: (item: AudioParam) => void",
