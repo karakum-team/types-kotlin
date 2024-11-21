@@ -1042,6 +1042,11 @@ internal fun convertInterface(
                 .replace("val size: Int", "override val size: Int")
                 .replaceFirst("fun has(", "override fun has(")
 
+            "GPUSupportedFeatures",
+            "WGSLLanguageFeatures",
+                -> result
+                .replaceFirst("fun forEach(", "override fun forEach(")
+
             "Highlight",
                 -> result + "\n\n" + mutableSetLikeOverrides("AbstractRange")
 
@@ -1287,6 +1292,8 @@ internal fun convertInterface(
                         || name == "HighlightRegistry"
                         || name == "Navigator"
                         || name == "RadioNodeList"
+                        || name == "GPUSupportedFeatures"
+                        || name == "WGSLLanguageFeatures"
                 )
             -> "sealed /* final */\n"
 
