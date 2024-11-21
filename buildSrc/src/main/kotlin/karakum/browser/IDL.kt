@@ -257,13 +257,6 @@ internal object IDLRegistry {
                     ("RTCEncodedAudioFrame" to "timestamp") to "JsLong",
                     ("RTCEncodedVideoFrame" to "timestamp") to "JsLong",
                     ("SegmentData" to "index") to "Int",
-
-                    // TEMP
-                    ("GPUSupportedLimits" to "maxInterStageShaderComponents") to "Int",
-                    ("GPUImageCopyTexture" to "mipLevel") to "GPUIntegerCoordinate",
-                    ("GPUImageDataLayout" to "offset") to "GPUSize64",
-                    ("GPUImageDataLayout" to "bytesPerRow") to "GPUSize32",
-                    ("GPUImageDataLayout" to "rowsPerImage") to "GPUSize32",
                 )
             )
     }
