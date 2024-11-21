@@ -9,8 +9,9 @@ import js.collections.ReadonlySet
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/GPUSupportedFeatures)
  */
+sealed /* final */
 external class GPUSupportedFeatures
 private constructor() :
     ReadonlySet<String> {
-    fun forEach(action: (item: String) -> Unit)
+    override fun forEach(action: (item: String) -> Unit)
 }

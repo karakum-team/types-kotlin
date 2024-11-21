@@ -9,8 +9,9 @@ import js.collections.ReadonlySet
  *
  * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WGSLLanguageFeatures)
  */
+sealed /* final */
 external class WGSLLanguageFeatures
 private constructor() :
     ReadonlySet<String> {
-    fun forEach(action: (item: String) -> Unit)
+    override fun forEach(action: (item: String) -> Unit)
 }
