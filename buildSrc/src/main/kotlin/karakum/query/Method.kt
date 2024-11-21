@@ -28,11 +28,27 @@ class Method(
         } else ""
 
         // TEMP
-        if (external && name == "useQuery" && returnType.startsWith("Any /* useQuery<"))
+        if (shouldSkipFunction())
             return ""
 
         val params = parameters.joinToString(",\n")
         val modifiers = (if (external) "external" else "") + modifiers
         return "$modifiers fun ${formatParameters(typeParameters)} ${safeName(name)}($params)$rt"
+    }
+
+    private fun shouldSkipFunction(): Boolean {
+        if (!external) {
+            return false
+        }
+
+        if (name == "useQuery" && returnType.startsWith("Any /* useQuery<")) {
+            return true
+        }
+
+        if (name == "noop" && returnType == "Unit") {
+            return true
+        }
+
+        return false
     }
 }
