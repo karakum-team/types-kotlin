@@ -146,6 +146,8 @@ private val DEFAULT_IMPORTS = Imports(
     "web.geometry.DOMRectList",
     "web.geometry.DOMRectReadOnly",
     "web.gl.TexImageSource",
+    "web.gpu.GPU",
+    "web.gpu.GPUCopyExternalImageSource",
     "web.highlight.HighlightRegistry",
     "web.html.HTMLCanvasElement",
     "web.html.HTMLCollection",
@@ -343,7 +345,6 @@ fun generateKotlinDeclarations(
         .plus(serviceWorkersDeclarations(serviceworkerDefinitionsFile))
         .plus(workerFunctions(serviceWorkersContent))
         .plus(audioWorkletDeclarations(audioWorkletDefinitionsFile))
-        .plus(webGpuDeclarations())
         .withEventInstances(knownEventTypes)
 
     for ((name, body, pkg) in aliases) {

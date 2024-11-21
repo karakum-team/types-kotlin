@@ -45,6 +45,9 @@ internal object Mixins {
         "SVGFitToViewBox",
         "SVGTests",
         "SVGURIReference",
+
+        "GPUError",
+        "GPUObjectBase",
     )
 
     val ALL: Set<String> = SAFE + UNSAFE

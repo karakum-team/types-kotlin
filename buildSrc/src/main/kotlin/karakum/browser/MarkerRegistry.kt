@@ -25,6 +25,8 @@ internal val MARKER_DECLARATIONS = setOf(
 
     "HTMLOrSVGImageElement",
     "HTMLOrSVGScriptElement",
+
+    "GPUCopyExternalImageSource",
 ).plus(NATIVE_ONLY_MARKER_DECLARATIONS)
     .plus(SEALED_MARKER_DECLARATIONS)
 
@@ -43,7 +45,7 @@ internal object MarkerRegistry {
     fun fill(
         definitionFile: File,
     ) {
-        val content = definitionFile.readText() + "\n\n" + WEB_GPU_CONTENT
+        val content = definitionFile.readText()
         map = MARKER_DECLARATIONS.asSequence()
             .flatMap { name -> findParentTypes(content = content, interfaceDeclaration = name) }
             .groupBy(keySelector = { it.first }, valueTransform = { it.second })

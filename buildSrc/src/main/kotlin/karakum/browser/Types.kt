@@ -252,8 +252,9 @@ private fun convertType(
 
             "BlobPart" -> "web.blob"
 
-            "HTMLOrSVGImageElement" -> "web.dom"
-            "HTMLOrSVGScriptElement" -> "web.dom"
+            "HTMLOrSVGImageElement",
+            "HTMLOrSVGScriptElement",
+                -> "web.dom"
 
             "OffscreenRenderingContext" -> "web.rendering"
             "RenderingContext" -> "web.rendering"
@@ -297,14 +298,15 @@ private fun convertType(
             "ImportValue",
 
             "PushMessageDataInit",
-
-            "GPUBindingResource",
                 -> getPkg(name)!!
 
             in INTL_KEY_TYPES,
                 -> "js.intl"
 
             else -> when {
+                name.startsWith("GPU")
+                    -> "web.gpu"
+
                 name.startsWith("CSS")
                     -> "web.cssom"
 
@@ -429,6 +431,8 @@ private fun getTypePkg(
         name.startsWith("Document") -> "web.dom"
         name.startsWith("Fullscreen") -> "web.fullscreen"
         name.startsWith("Scroll") -> "web.scroll"
+
+        name.startsWith("GPU") -> "web.gpu"
 
         name == "FontDisplay" -> "web.fonts"
         name.startsWith("FontFace") -> "web.fonts"

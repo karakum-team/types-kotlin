@@ -1124,58 +1124,6 @@ internal fun convertInterface(
                 .replace("Number[]", "ReadonlyArray<Double>")
                 .replace("<number>", "<Double>")
 
-            "GPUBindGroup",
-            "GPUBindGroupLayout",
-            "GPUBuffer",
-            "GPUCommandBuffer",
-            "GPUCommandEncoder",
-            "GPUDevice",
-            "GPUPipelineLayout",
-            "GPUQuerySet",
-            "GPUQueue",
-            "GPURenderBundle",
-            "GPUSampler",
-            "GPUShaderModule",
-            "GPUTexture",
-            "GPUTextureView",
-                -> result
-                .replace("var label: String", "override var label: String")
-
-            "GPUComputePipeline",
-            "GPURenderPipeline",
-                -> result
-                .replace("var label: String", "override var label: String")
-                .replace("fun getBindGroupLayout(", "override fun getBindGroupLayout(")
-
-            "GPUComputePassEncoder",
-            "GPURenderBundleEncoder",
-            "GPURenderPassEncoder",
-                -> {
-                var overriddenMethods = setOf(
-                    "draw",
-                    "drawIndexed",
-                    "drawIndexedIndirect",
-                    "drawIndirect",
-                    "insertDebugMarker",
-                    "popDebugGroup",
-                    "pushDebugGroup",
-                    "setBindGroup",
-                    "setIndexBuffer",
-                    "setPipeline",
-                    "setVertexBuffer",
-                )
-
-                if (name == "GPUComputePassEncoder")
-                    overriddenMethods = overriddenMethods - "setPipeline"
-
-                val initial = result.replace("var label: String", "override var label: String")
-                overriddenMethods.fold(initial) { acc, methodName ->
-                    Regex("""fun $methodName\(.*?\)""", RegexOption.DOT_MATCHES_ALL).replace(acc) {
-                        "override " + it.value.replace(" = definedExternally", "")
-                    }
-                }
-            }
-
             "RTCInboundRtpStreamStats",
                 -> result.replace("var kind:", "override var kind:")
 
@@ -1286,7 +1234,6 @@ internal fun convertInterface(
                         name == "PerformanceResourceTiming" ||
 
                         name == "Credential" ||
-                        name == "GPUError" ||
                         name == "AbstractRange" ||
 
                         name == "MediaDeviceInfo" ||
@@ -1520,6 +1467,9 @@ internal fun convertInterface(
 
         name.startsWith("VTT") -> "web.vtt"
         name.startsWith("TextTrack") -> "web.vtt"
+
+        name.startsWith("GPU") -> "web.gpu"
+        name == "WGSLLanguageFeatures" -> "web.gpu"
 
         name.startsWith("MediaCapabilities") -> "web.media.capabilities"
         name in MEDIA_CAPABILITIES_TYPES -> "web.media.capabilities"
@@ -1999,8 +1949,14 @@ private fun convertProperty(
         "Record<string, string>",
             -> "ReadonlyRecord<String, String>"
 
+        "Record<string, GPUSize64 | undefined>",
+            -> "ReadonlyRecord<String, GPUSize64?>"
+
+        "Record<string, GPUPipelineConstantValue>",
+            -> "ReadonlyRecord<String, GPUPipelineConstantValue>"
+
         "Record<string, AuthenticationExtensionsPRFValues>",
-            -> "Record<String, AuthenticationExtensionsPRFValues>"
+            -> "ReadonlyRecord<String, AuthenticationExtensionsPRFValues>"
 
         "BufferSource | string",
             -> "BufferSource /* | String */"
@@ -2026,11 +1982,13 @@ private fun convertProperty(
         "Promise<any>" -> "Promise<*>"
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"
         "ReadonlyArray<number>" -> "ReadonlyArray<Double>"
-        "MediaList | string" -> "Any /* MediaList | string */"
-        "Element | ProcessingInstruction" -> "Any /* Element | ProcessingInstruction */"
-        "string | CanvasGradient | CanvasPattern" -> "Any /* string | CanvasGradient | CanvasPattern */"
-        "string | ArrayBuffer" -> "Any /* string | ArrayBuffer */"
+
+        "MediaList | string" -> "Any /* $type */"
+        "Element | ProcessingInstruction" -> "Any /* $type */"
+        "string | CanvasGradient | CanvasPattern" -> "Any /* $type */"
+        "string | ArrayBuffer" -> "Any /* $type */"
         "HTMLCanvasElement | OffscreenCanvas" -> "EventTarget /* $type */"
+        "HTMLVideoElement | VideoFrame" -> "CanvasImageSource /* $type */"
         "(WindowProxy & typeof globalThis)" -> "WindowProxy"
 
         "HTMLCollectionOf<HTMLAnchorElement | HTMLAreaElement>",

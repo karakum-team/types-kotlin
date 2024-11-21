@@ -234,7 +234,7 @@ internal object IDLRegistry {
         if (type != null)
             return type
 
-        if (source in WEB_GPU_NUMBER_TYPES)
+        if (source.startsWith("GPU"))
             return source
 
         if (!source.startsWith("("))

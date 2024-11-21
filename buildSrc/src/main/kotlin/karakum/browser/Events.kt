@@ -127,10 +127,6 @@ private fun eventPlaceholders(
     }
 
     return data.flatMap { info ->
-        // TEMP
-        if (info.name == "GPUUncapturedErrorEvent")
-            return@flatMap emptySequence()
-
         val types = eventTypes(
             eventName = info.name,
             types = dataMap.getEventTypes(info.name),
