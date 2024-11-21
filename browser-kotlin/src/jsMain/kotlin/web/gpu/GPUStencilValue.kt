@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUStencilValue = Double
+typealias GPUStencilValue = Int

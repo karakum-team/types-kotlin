@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUShaderStageFlags = Double
+typealias GPUShaderStageFlags = Int /* Bitmask */

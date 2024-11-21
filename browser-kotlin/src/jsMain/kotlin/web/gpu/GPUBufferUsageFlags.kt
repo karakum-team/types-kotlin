@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUBufferUsageFlags = Double
+typealias GPUBufferUsageFlags = Int /* Bitmask */

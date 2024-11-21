@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUSignedOffset32 = Double
+typealias GPUSignedOffset32 = Int

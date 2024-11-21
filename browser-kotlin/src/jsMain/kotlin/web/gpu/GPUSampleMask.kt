@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUSampleMask = Double
+typealias GPUSampleMask = Int

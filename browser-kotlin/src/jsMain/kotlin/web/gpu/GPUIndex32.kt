@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUIndex32 = Double
+typealias GPUIndex32 = Int

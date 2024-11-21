@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUBufferDynamicOffset = Double
+typealias GPUBufferDynamicOffset = Int

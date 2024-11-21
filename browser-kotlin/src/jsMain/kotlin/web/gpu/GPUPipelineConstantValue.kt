@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUPipelineConstantValue = Double
+typealias GPUPipelineConstantValue = Int

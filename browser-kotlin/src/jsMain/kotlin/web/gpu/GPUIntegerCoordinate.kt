@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUIntegerCoordinate = Double
+typealias GPUIntegerCoordinate = Int

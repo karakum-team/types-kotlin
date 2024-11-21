@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUMapModeFlags = Double
+typealias GPUMapModeFlags = Int /* Bitmask */

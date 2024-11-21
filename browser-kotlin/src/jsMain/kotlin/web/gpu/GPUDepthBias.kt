@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUDepthBias = Double
+typealias GPUDepthBias = Int

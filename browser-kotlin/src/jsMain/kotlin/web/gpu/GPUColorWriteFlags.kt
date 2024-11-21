@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUColorWriteFlags = Double
+typealias GPUColorWriteFlags = Int /* Bitmask */

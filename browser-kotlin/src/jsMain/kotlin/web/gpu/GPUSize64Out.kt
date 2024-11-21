@@ -2,4 +2,6 @@
 
 package web.gpu
 
-typealias GPUSize64Out = Double
+import js.core.JsLong
+
+typealias GPUSize64Out = JsLong

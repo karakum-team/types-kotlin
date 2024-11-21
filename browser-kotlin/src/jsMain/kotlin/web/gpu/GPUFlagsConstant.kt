@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUFlagsConstant = Double
+typealias GPUFlagsConstant = Int

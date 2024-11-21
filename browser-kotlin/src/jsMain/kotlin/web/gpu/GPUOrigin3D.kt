@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUOrigin3D = Any /* GPUIntegerCoordinate[] | GPUOrigin3DDict */
+typealias GPUOrigin3D = GPUOrigin3DDict /* GPUIntegerCoordinate[] */

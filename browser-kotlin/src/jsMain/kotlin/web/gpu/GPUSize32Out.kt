@@ -2,4 +2,4 @@
 
 package web.gpu
 
-typealias GPUSize32Out = Double
+typealias GPUSize32Out = Int
