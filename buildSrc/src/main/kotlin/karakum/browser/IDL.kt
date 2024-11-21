@@ -25,7 +25,7 @@ private data class MethodReturnData(
     val returnType: String,
 ) : MemberNumberData()
 
-internal val NUMBER_TYPE_MAP = mapOf(
+private val NUMBER_TYPE_MAP = mapOf(
     "octet" to "Short /* unsigned byte */",
 
     "short" to "Short",

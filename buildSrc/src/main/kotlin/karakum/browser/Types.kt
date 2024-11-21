@@ -161,8 +161,34 @@ private val ALIAS_MAP = mapOf(
     "Uint8Array" to "Uint8Array<*>",
 
     "number[] | GPUColorDict" to "GPUColorDict /* number[] */",
-    "number[] | GPUExtent3DDict" to "GPUExtent3DDict /* number[] */",
-    "number[] | GPUOrigin3DDict" to "GPUOrigin3DDict /* number[] */",
+    "GPUIntegerCoordinate[] | GPUExtent3DDict" to "GPUExtent3DDict /* GPUIntegerCoordinate[] */",
+    "GPUIntegerCoordinate[] | GPUOrigin2DDict" to "GPUOrigin2DDict /* GPUIntegerCoordinate[] */",
+    "GPUIntegerCoordinate[] | GPUOrigin3DDict" to "GPUOrigin3DDict /* GPUIntegerCoordinate[] */",
+)
+
+private val NUMBER_TYPE_MAP = mapOf(
+    "COSEAlgorithmIdentifier" to "Int",
+    "EpochTimeStamp" to "JsLong",
+
+    "GPUBufferDynamicOffset" to "Int",
+    "GPUBufferUsageFlags" to "Int /* Bitmask */",
+    "GPUColorWriteFlags" to "Int /* Bitmask */",
+    "GPUDepthBias" to "Int",
+    "GPUFlagsConstant" to "Int",
+    "GPUIndex32" to "Int",
+    "GPUIntegerCoordinate" to "Int",
+    "GPUIntegerCoordinateOut" to "Int",
+    "GPUMapModeFlags" to "Int /* Bitmask */",
+    "GPUPipelineConstantValue" to "Int",
+    "GPUSampleMask" to "Int",
+    "GPUShaderStageFlags" to "Int /* Bitmask */",
+    "GPUSignedOffset32" to "Int",
+    "GPUSize32" to "Int",
+    "GPUSize32Out" to "Int",
+    "GPUSize64" to "JsLong",
+    "GPUSize64Out" to "JsLong",
+    "GPUStencilValue" to "Int",
+    "GPUTextureUsageFlags" to "Int /* Bitmask */",
 )
 
 internal fun browserTypes(
@@ -202,19 +228,12 @@ private fun convertType(
         val pkg = getPkg(name)
             ?: return null
 
-        val type = when (name) {
-            "COSEAlgorithmIdentifier" -> {
-                require(bodySource == "number")
-                "Int"
-            }
-
-            "EpochTimeStamp" -> {
-                require(bodySource == "number")
-                "JsLong"
-            }
-
-            else -> aliasType
+        val numberType = NUMBER_TYPE_MAP[name]
+        if (numberType != null) {
+            require(bodySource == "number")
         }
+
+        val type = numberType ?: aliasType
 
         val body = sequenceOf(
             if (name.endsWith("TimeStamp")) {
