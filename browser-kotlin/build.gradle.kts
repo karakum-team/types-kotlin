@@ -71,6 +71,8 @@ val WEB_INCLUDE = setOf(
 val BROWSER_INCLUDE = setOf(
     "web",
     "web/file",
+    "web/gpu/GPUCanvasConfiguration.kt",
+    "web/gpu/GPUCanvasContext.kt",
     "web/images/ImageBitmapRenderingContext.kt",
     "web/images/ImageBitmapRenderingContextSettings.kt",
     "web/performance/LargestContentfulPaint.kt",
