@@ -102,6 +102,16 @@ internal fun String.applyPatches(): String {
         .splitUnion("Document | XMLHttpRequestBodyInit")
         .splitTypealias("XMLHttpRequestBodyInit")
         .splitUnion("Blob | BufferSource | FormData | URLSearchParams | string")
+        .replace(
+            "new(scriptURL: string | URL, options?: ",
+            "new(scriptURL: string | URL | WorkerHandle, options?: ",
+        )
+        .replace(
+            "addModule(moduleURL: string | URL, options?: WorkletOptions)",
+            "addModule(moduleURL: string | URL | WorkletHandle, options?: WorkletOptions)",
+        )
+        .splitUnion("string | URL | WorkerHandle")
+        .splitUnion("string | URL | WorkletHandle")
         .splitUnion("string | URL")
         .splitUnion("string | Blob")
         .splitUnion("RequestInfo | URL")
