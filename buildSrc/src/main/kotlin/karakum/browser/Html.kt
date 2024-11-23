@@ -627,9 +627,6 @@ internal fun htmlDeclarations(
                 "web.geolocation" to GEOLOCATION_WATCH_ID,
                 "web.uievents" to KEY_LOCATION,
                 "web.uievents" to DELTA_MODE,
-
-                "web.workers" to "WorkerHandle",
-                "web.worklets" to "WorkletHandle",
             ).map { (pkg, name) ->
                 ConversionResult(
                     name = name,
