@@ -77,6 +77,7 @@ private fun convertProperty(
     }
 
     val optional = source.startsWith("$name?: ")
+            || source.startsWith("\"$name\"?: ")
 
     val sourceType = source.substringAfter(": ")
         .replace("EventTarget & T", "T")
@@ -95,9 +96,7 @@ private fun convertProperty(
     if (!name.startsWith("aria-"))
         return declaration
 
-    return "inline $declaration\n" +
-            "get() = asDynamic()[\"$name\"]\n" +
-            "set(value) { asDynamic()[\"$name\"] = value }\n"
+    return "@JsName(\"$name\")\n$declaration"
 }
 
 private fun convertMethod(

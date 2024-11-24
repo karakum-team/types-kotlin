@@ -132,8 +132,9 @@ private fun convertAttributesInterface(
     }
 
     val body = if (name == "AriaAttributes") {
-        "external interface $name\n\n" +
-                members.replace("var ", "var $name.")
+        "external interface $declaration {\n" +
+                members +
+                "\n}\n"
     } else {
         var result = "import web.dom.Element\n" +
                 "import web.form.FormMethod\n" +
