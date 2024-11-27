@@ -3,7 +3,6 @@ package karakum.csstype
 import karakum.common.*
 import karakum.common.Suppress
 import karakum.common.Suppress.DECLARATION_CANT_BE_INLINED
-import karakum.common.Suppress.NOTHING_TO_INLINE
 import java.io.File
 
 private val CSSTYPE_TYPES = setOf(
@@ -68,14 +67,13 @@ private fun writeDeclarations(
     for ((name, body) in declarations) {
         val suppresses = mutableSetOf<Suppress>().apply {
             if ("inline operator fun " in body)
-                if (name == "$LENGTH.operators") {
-                    add(NOTHING_TO_INLINE)
-                } else {
+                if (name != "$LENGTH.operators") {
                     add(DECLARATION_CANT_BE_INLINED)
                 }
 
             if ("inline fun " in body)
-                add(if (RULE_BUILDER in body) DECLARATION_CANT_BE_INLINED else NOTHING_TO_INLINE)
+                if (RULE_BUILDER in body)
+                    add(DECLARATION_CANT_BE_INLINED)
         }.toTypedArray()
 
         val annotations = if (suppresses.isNotEmpty()) {

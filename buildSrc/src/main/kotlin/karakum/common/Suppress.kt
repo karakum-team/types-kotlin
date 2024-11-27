@@ -2,7 +2,6 @@ package karakum.common
 
 internal enum class Suppress {
     DECLARATION_CANT_BE_INLINED,
-    NOTHING_TO_INLINE,
 
     INTERFACE_WITH_SUPERCLASS,
 

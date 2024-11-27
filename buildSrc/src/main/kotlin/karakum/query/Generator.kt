@@ -163,9 +163,6 @@ private fun generate(
         if (moduleRequired && "typealias " in body)
             types.add(Suppress.NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE)
 
-        if (suggestedName == "QueryFunction")
-            types.add(Suppress.NOTHING_TO_INLINE)
-
         if (types.isNotEmpty()) {
             types.asSequence()
                 .map { "\"${it.name}\",\n" }

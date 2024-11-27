@@ -1,8 +1,6 @@
 package karakum.table
 
 import karakum.common.GENERATOR_COMMENT
-import karakum.common.Suppress.NOTHING_TO_INLINE
-import karakum.common.fileSuppress
 import karakum.common.writeCode
 import java.io.File
 
@@ -37,9 +35,6 @@ fun generateKotlinDeclarations(
         val annotations = when {
             "external val " in body || "external object " in body || "external fun " in body
                 -> "@file:JsModule(\"${Package.TABLE_CORE.moduleName}\")"
-
-            "inline fun " in body
-                -> fileSuppress(NOTHING_TO_INLINE)
 
             else -> ""
         }

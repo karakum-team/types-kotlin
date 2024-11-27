@@ -293,9 +293,6 @@ fun generateKotlinDeclarations(
             if ("Event.types" in name && " = definedExternally" in body)
                 add(NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE)
 
-            if ("inline fun " in body && !name.endsWith(".temp"))
-                add(NOTHING_TO_INLINE)
-
             if (name == EVENT_HANDLER
                 || name == EVENT_INSTANCE
                 || name == EVENT_TARGET
@@ -348,9 +345,6 @@ fun generateKotlinDeclarations(
         pkg!!
 
         val suppresses = mutableSetOf<Suppress>().apply {
-            if ("inline fun " in body)
-                add(NOTHING_TO_INLINE)
-
             if (name == "Locale")
                 add(VIRTUAL_MEMBER_HIDDEN)
 
