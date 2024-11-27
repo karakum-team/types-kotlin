@@ -1,7 +1,6 @@
 package karakum.cesium
 
 import karakum.common.ConversionResult
-import karakum.common.Suppress
 
 private val ERROR_TYPES = setOf(
     "RuntimeError",
@@ -45,14 +44,6 @@ internal abstract class TypeBase(
             .filter(filter)
             .onEach { it.parent = this }
             .onEach { if (!it.static) it.abstract = abstract }
-    }
-
-    open fun suppresses(): List<Suppress> {
-        return buildList {
-            val constructor = members.firstOrNull() as? Constructor
-            if (constructor.propertyParameters().isNotEmpty())
-                add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
-        }
     }
 
     private fun Constructor?.propertyParameters(): List<Property> {

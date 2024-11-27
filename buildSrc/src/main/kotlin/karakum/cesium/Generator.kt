@@ -1,7 +1,6 @@
 package karakum.cesium
 
 import karakum.common.GENERATOR_COMMENT
-import karakum.common.fileSuppress
 import karakum.common.writeCode
 import java.io.File
 
@@ -44,22 +43,9 @@ private fun generate(
             if (!file.exists()) {
                 val isRuntime = hasRuntimeDeclarations(body)
 
-                val suppresses =
-                    if (declaration is TypeBase && ("external  class " in body || "external  object " in body)) {
-                        declaration.suppresses()
-                    } else emptyList()
-
-                val annotations = when {
-                    suppresses.isNotEmpty()
-                        -> fileSuppress(suppresses = suppresses.toTypedArray())
-
-                    else -> ""
-                }
-
                 val content = sequenceOf(
                     "// $GENERATOR_COMMENT",
                     moduleDeclaration.takeIf { isRuntime } ?: "",
-                    annotations,
                     "package $pkg",
                     defaultImports,
                     body,
