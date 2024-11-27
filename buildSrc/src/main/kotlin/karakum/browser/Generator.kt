@@ -290,9 +290,6 @@ fun generateKotlinDeclarations(
 
     for ((name, body, optPkg) in eventDeclarations) {
         val suppresses = mutableSetOf<Suppress>().apply {
-            if ("val type: EventType<" in body && name != EVENT_INSTANCE)
-                add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
-
             if ("Event.types" in name && " = definedExternally" in body)
                 add(NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE)
 
@@ -351,9 +348,6 @@ fun generateKotlinDeclarations(
         pkg!!
 
         val suppresses = mutableSetOf<Suppress>().apply {
-            if ("override val type: EventType<" in body)
-                add(EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER)
-
             if ("inline fun " in body)
                 add(NOTHING_TO_INLINE)
 

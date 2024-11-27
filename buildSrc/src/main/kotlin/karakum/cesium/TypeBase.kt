@@ -2,7 +2,6 @@ package karakum.cesium
 
 import karakum.common.ConversionResult
 import karakum.common.Suppress
-import karakum.common.Suppress.EXTERNAL_CLASS_CONSTRUCTOR_PROPERTY_PARAMETER
 
 private val ERROR_TYPES = setOf(
     "RuntimeError",
