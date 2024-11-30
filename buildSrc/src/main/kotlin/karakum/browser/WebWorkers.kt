@@ -5,7 +5,9 @@ import java.io.File
 import java.net.URI
 
 private val WEB_WORKER_URI =
-    URI("https://raw.githubusercontent.com/microsoft/TypeScript-DOM-lib-generator/main/baselines/webworker.generated.d.ts")
+// TODO: uncomment after web types update to 0.0.184 or higher
+    // URI("https://raw.githubusercontent.com/microsoft/TypeScript-DOM-lib-generator/main/baselines/webworker.generated.d.ts")
+    URI("https://raw.githubusercontent.com/microsoft/TypeScript-DOM-lib-generator/3bd3006597ee52809f51188a106cbc63fc485fab/baselines/webworker.generated.d.ts")
 
 internal val WEB_WORKER_CONTENT by lazy {
     loadContent(WEB_WORKER_URI)
