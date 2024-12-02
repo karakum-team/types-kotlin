@@ -32,7 +32,7 @@ private fun getWebGPUContent(
         .plus(getItems(content, "\ninterface WGSLLanguageFeatures", "\n}\n"))
         .plus(getItems(content, "\ndeclare var GPU", "\n};\n"))
         .plus(getItems(content, "\ntype GPU", "\n"))
-        .filter { !it.startsWith("interface GPUError") }
+        .filter { "\ninterface GPUError" !in it }
         .joinToString("\n\n")
 
 private fun getItems(
@@ -45,4 +45,12 @@ private fun getItems(
         .drop(1)
         .map { it.substringBefore(endMarker) }
         .map { delimiter + it + endMarker }
+        .map { declaration ->
+            val prefix = content.substringBefore(declaration)
+            val comment = if (prefix.endsWith(" */")) {
+                "/**\n" + prefix.substringAfterLast("\n/**\n")
+            } else ""
+
+            comment + declaration
+        }
         .map { it.trim() }
