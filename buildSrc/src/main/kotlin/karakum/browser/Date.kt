@@ -1,5 +1,6 @@
 package karakum.browser
 
+import karakum.common.withDefaultLineBreaks
 import java.io.File
 
 private const val DATE = "Date"
@@ -135,7 +136,7 @@ private fun dateRawContent(
         .map { it.readText() }
         .plus(DENO_UNSTABLE_CONTENT)
         .map {
-            it.replace("\r\n", "\n")
+            it.withDefaultLineBreaks()
                 .substringAfter("\ninterface $interfaceName {\n", "")
                 .substringBefore("\n}")
                 .trimIndent()

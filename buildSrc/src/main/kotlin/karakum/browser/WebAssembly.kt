@@ -2,6 +2,7 @@ package karakum.browser
 
 import karakum.common.UnionConstant
 import karakum.common.unionBodyByConstants
+import karakum.common.withDefaultLineBreaks
 
 private const val VALUE_TYPE = "ValueType"
 
@@ -108,7 +109,7 @@ private fun webAssemblyContent(
     source: String,
 ): String =
     source
-        .replace("\r\n", "\n")
+        .withDefaultLineBreaks()
         .substringAfter("\ndeclare namespace WebAssembly {\n")
         .substringBefore("\n}")
         .trimIndent()

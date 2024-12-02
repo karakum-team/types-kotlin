@@ -1,6 +1,7 @@
 package karakum.browser
 
 import karakum.common.sealedUnionBody
+import karakum.common.withDefaultLineBreaks
 import java.io.File
 
 private const val SUPPORTED_LOCALES_OPTIONS = "SupportedLocalesOptions"
@@ -89,7 +90,7 @@ private fun intlContent(
         }
         .joinToString("\n") {
             it.readText()
-                .replace("\r\n", "\n")
+                .withDefaultLineBreaks()
                 .substringAfter("\ndeclare namespace Intl {\n")
                 .substringBefore("\n}")
                 .trimIndent()

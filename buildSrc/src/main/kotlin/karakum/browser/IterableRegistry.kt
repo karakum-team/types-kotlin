@@ -1,5 +1,6 @@
 package karakum.browser
 
+import karakum.common.withDefaultLineBreaks
 import java.io.File
 
 private val ITERATOR_REGEX = Regex("""\ninterface (\w+) \{\n\s+\[Symbol.iterator]\(\): ([a-zA-Z]+)Iterator<(.+)>;""")
@@ -19,7 +20,7 @@ internal object IterableRegistry {
             .filter { file -> file.name.startsWith("lib.es") }
             .plus(additionalFiles)
             .map { it.readText() }
-            .map { it.replace("\r\n", "\n") }
+            .map { it.withDefaultLineBreaks() }
             .flatMap { ITERATOR_REGEX.findAll(it) }
             .map { it.groupValues }
             .associate { it[1] to it[3] }
@@ -27,7 +28,7 @@ internal object IterableRegistry {
         additionalParentMap = additionalFiles
             .asSequence()
             .map { it.readText() }
-            .map { it.replace("\r\n", "\n") }
+            .map { it.withDefaultLineBreaks() }
             .flatMap { ADDITIONAL_PARENT_REGEX.findAll(it) }
             .map { it.groupValues }
             .associate { it[1] to it[2] }

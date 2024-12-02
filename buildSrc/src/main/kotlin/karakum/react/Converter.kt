@@ -1,5 +1,6 @@
 package karakum.react
 
+import karakum.common.withDefaultLineBreaks
 import java.io.File
 
 internal data class ConversionResult(
@@ -31,7 +32,7 @@ internal fun convertDefinitions(
         .replace("""fetchPriority?: "high" | "low" | "auto";""", """fetchPriority?: FetchPriority;""")
         .replace(" |  undefined", " | undefined")
         .replace(" | (string & {})", "")
-        .replace("\r\n", "\n")
+        .withDefaultLineBreaks()
 
     val svgTypes = content.substringAfter("    interface IntrinsicElements {\n")
         .substringAfter("// SVG\n")

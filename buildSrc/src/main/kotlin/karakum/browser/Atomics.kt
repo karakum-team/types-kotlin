@@ -1,6 +1,7 @@
 package karakum.browser
 
 import karakum.common.TYPED_ARRAYS
+import karakum.common.withDefaultLineBreaks
 import java.io.File
 
 internal fun atomicsDeclarations(
@@ -70,7 +71,7 @@ private fun atomicsContent(
         .sortedBy { file -> file.name }
         .map {
             it.readText()
-                .replace("\r\n", "\n")
+                .withDefaultLineBreaks()
                 .substringAfter("\ninterface Atomics {\n")
                 .substringBefore("\n}")
                 .replace("<ArrayBufferLike>", "")

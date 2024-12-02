@@ -3,6 +3,7 @@ package karakum.browser
 import karakum.common.objectUnionBody
 import karakum.common.unionConstant
 import karakum.common.unionName
+import karakum.common.withDefaultLineBreaks
 import java.io.File
 
 private val DECORATOR_CONTEXT_KIND = "DecoratorContextKind"
@@ -111,5 +112,5 @@ private fun decoratorsContent(
     definitionsDir
         .resolve("lib.decorators.d.ts")
         .readText()
-        .replace("\r\n", "\n")
+        .withDefaultLineBreaks()
         .substringAfter("""/// <reference no-default-lib="true"/>""")

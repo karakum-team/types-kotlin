@@ -20,6 +20,9 @@ internal fun String.snakeToCamel(): String =
     replace(UNDERSCORE_LETTER, toUpperCase)
         .replace(SPACE_LETTER, toUpperCase)
 
+internal fun String.withDefaultLineBreaks(): String =
+    replace("\r\n", "\n")
+
 internal fun String.replaceSuffix(
     from: String,
     to: String,
