@@ -190,6 +190,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.media.streams.MediaTrackSupportedConstraints",
     "web.messaging.MessageEvent",
     "web.messaging.MessageEventSource",
+    "web.messaging.MessageEventTarget",
     "web.messaging.MessagePort",
     "web.navigation.NavigationActivation",
     "web.notifications.Notification",
@@ -354,6 +355,7 @@ fun generateKotlinDeclarations(
             if (name == "ChildNode"
                 || name == "ParentNode"
                 || name == "AbstractWorker"
+                || name == "MessageEventTarget"
                 || name == "FontFaceSet"
                 || name == "AudioWorkletProcessorImpl"
                 || name == "GlobalEventHandlers"

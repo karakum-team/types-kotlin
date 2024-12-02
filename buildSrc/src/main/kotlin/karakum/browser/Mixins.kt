@@ -4,6 +4,7 @@ internal object Mixins {
     private val SAFE: Set<String> = setOf(
         "LocaleOptions",
         "AbstractWorker",
+        "MessageEventTarget",
 
         // CSS
         "LinkStyle",

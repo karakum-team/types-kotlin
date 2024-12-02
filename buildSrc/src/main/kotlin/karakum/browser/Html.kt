@@ -387,6 +387,7 @@ private val WEB_SERIALIZATION = listOf(
 
 private val MESSAGING_TYPES = listOf(
     "MessageChannel",
+    "MessageEventTarget",
     "MessagePort",
 )
 
@@ -778,6 +779,7 @@ internal fun convertInterface(
             -> declaration.replace(" extends Error", " :\nJsError")
 
         "AbstractWorker",
+        "MessageEventTarget",
         "GlobalEventHandlers",
         "WindowEventHandlers",
             -> "$declaration :\n$EVENT_TARGET"
@@ -1301,6 +1303,7 @@ internal fun convertInterface(
                 name in CSSOM_INTERFACES ||
                 name == "AudioWorkletProcessorImpl" ||
                 name == "AbstractWorker" ||
+                name == "MessageEventTarget" ||
                 name == "FontFaceSource" ||
                 name == "XPathEvaluatorBase" ||
                 name == "ARIAMixin" ||

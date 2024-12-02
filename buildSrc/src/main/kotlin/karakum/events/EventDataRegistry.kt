@@ -63,7 +63,7 @@ object EventDataRegistry {
                         -> sequenceOf("WindowEventHandlers")
 
                     target == "Worker"
-                        -> sequenceOf("AbstractWorker")
+                        -> sequenceOf("AbstractWorker", "MessageEventTarget")
 
                     // TEMP?
                     eventType == "securitypolicyviolation"
