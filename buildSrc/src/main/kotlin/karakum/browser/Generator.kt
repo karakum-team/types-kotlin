@@ -267,16 +267,16 @@ fun generateKotlinDeclarations(
 
     IterableRegistry.fill(
         definitionsDir,
-        webIterableDefinitionsFile,
-        serviceworkerIterableDefinitionsFile,
+        webIterableDefinitionsFile.withWebGPU_iterablePatch(),
+        serviceworkerIterableDefinitionsFile.readText(),
     )
 
-    MarkerRegistry.fill(webDefinitionsFile)
-    RenderingContextRegistry.fill(webDefinitionsFile)
+    val webDefinitionsContent = webDefinitionsFile.withWebGPU_patch()
 
-    val content = webDefinitionsFile
-        .readText()
-        .applyPatches()
+    MarkerRegistry.fill(webDefinitionsContent)
+    RenderingContextRegistry.fill(webDefinitionsContent)
+
+    val content = webDefinitionsContent.applyPatches()
 
     val webglTargetDir = sourceDir
         .resolve("web/gl")

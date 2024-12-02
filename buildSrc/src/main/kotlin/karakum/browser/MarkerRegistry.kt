@@ -1,7 +1,5 @@
 package karakum.browser
 
-import java.io.File
-
 internal val SEALED_MARKER_DECLARATIONS = setOf(
     "ReadableStreamController<T>",
     "ReadableStreamReadResult<T>",
@@ -43,9 +41,8 @@ internal object MarkerRegistry {
     private lateinit var map: Map<String, List<String>>
 
     fun fill(
-        definitionFile: File,
+        content: String,
     ) {
-        val content = definitionFile.readText()
         map = MARKER_DECLARATIONS.asSequence()
             .flatMap { name -> findParentTypes(content = content, interfaceDeclaration = name) }
             .groupBy(keySelector = { it.first }, valueTransform = { it.second })

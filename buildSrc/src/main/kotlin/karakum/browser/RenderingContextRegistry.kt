@@ -1,17 +1,15 @@
 package karakum.browser
 
-import java.io.File
-
 internal val GET_CONTEXT_REGEX = Regex("""\n    getContext\(contextId: "(\w+)", options\?: (\w+)\): (\w+) \| null;""")
 
 internal object RenderingContextRegistry {
     private lateinit var map: Map<String, RenderingContextData>
 
     fun fill(
-        definitionFile: File,
+        content: String,
     ) {
         val dataList = GET_CONTEXT_REGEX
-            .findAll(definitionFile.readText())
+            .findAll(content)
             .map { result ->
                 RenderingContextData(
                     id = result.groupValues[1],
