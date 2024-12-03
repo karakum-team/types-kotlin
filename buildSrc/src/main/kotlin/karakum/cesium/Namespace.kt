@@ -16,6 +16,18 @@ internal class Namespace(
     override val companion: HasMembers? = null
     override val staticBody: Boolean = true
 
+    override fun toCode(): String {
+        if (name == "ITwinPlatform") {
+            return "external object " +
+                    source.body
+                        .replace(" enum ", " interface ")
+                        .replace(": string | undefined;", ": String?")
+                        .replace(": string | Resource;", ": Resource")
+        }
+
+        return super.toCode()
+    }
+
     companion object {
         const val PREFIX = "export namespace "
     }

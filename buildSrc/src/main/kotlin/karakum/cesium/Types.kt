@@ -21,6 +21,9 @@ internal fun typeDeclaration(
         body == "HTMLImageElement | HTMLCanvasElement | ImageBitmap"
             -> "typealias $name = CanvasImageSource /* $body */"
 
+        body == "number | bigint | string | boolean | Cartesian2 | Cartesian3 | Cartesian4 | Matrix2 | Matrix3 | Matrix4 | number[] | bigint[] | string[] | boolean[] | Cartesian2[] | Cartesian3[] | Cartesian4[] | Matrix2[] | Matrix3[] | Matrix4[]"
+            -> "typealias $name = Any /* $body */"
+
         body == IMAGERY_LAYER_CONSTRUCTOR_OPTIONS
             -> {
             require(!top)
