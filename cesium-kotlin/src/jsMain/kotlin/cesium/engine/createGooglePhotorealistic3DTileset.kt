@@ -5,6 +5,7 @@
 package cesium.engine
 
 import js.promise.Promise
+import kotlinx.js.JsPlainObject
 import seskar.js.JsAsync
 
 /**
@@ -54,12 +55,18 @@ import seskar.js.JsAsync
  */
 @JsAsync
 external suspend fun createGooglePhotorealistic3DTileset(
-    key: String? = definedExternally,
-    options: Cesium3DTileset.ConstructorOptions? = definedExternally,
+    apiOptions: CreateGooglePhotorealistic3DTilesetOptions? = definedExternally,
+    tilesetOptions: Cesium3DTileset.ConstructorOptions? = definedExternally,
 ): Cesium3DTileset
 
 @JsName("createGooglePhotorealistic3DTileset")
 external fun createGooglePhotorealistic3DTilesetAsync(
-    key: String? = definedExternally,
-    options: Cesium3DTileset.ConstructorOptions? = definedExternally,
+    apiOptions: CreateGooglePhotorealistic3DTilesetOptions? = definedExternally,
+    tilesetOptions: Cesium3DTileset.ConstructorOptions? = definedExternally,
 ): Promise<Cesium3DTileset>
+
+@JsPlainObject
+external interface CreateGooglePhotorealistic3DTilesetOptions {
+    var key: String?
+    var onlyUsingWithGoogleGeocoder: Any /* true */?
+}
