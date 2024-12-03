@@ -1,6 +1,6 @@
 package karakum.cesium
 
-private val OPTIONS_REGEX = Regex("""options\??: (\{.+})""", RegexOption.DOT_MATCHES_ALL)
+private val OPTIONS_REGEX = Regex("""(options|apiOptions)\??: (\{.+})""", RegexOption.DOT_MATCHES_ALL)
 private val INNER_OPTIONS_REGEX = Regex("""(\w+\??): \{.+?}""", RegexOption.DOT_MATCHES_ALL)
 
 // WA for Cesium `1.105.0`
@@ -54,7 +54,7 @@ private fun Definition.toMembers(optionsDoc: String): Sequence<Member> =
         body.startsWith("constructor(") -> {
             var constructorBody = body.removeSurrounding("constructor(", ")")
             val optionTypes = OPTIONS_REGEX.findAll(constructorBody)
-                .map { it.groupValues[1] }
+                .map { it.groupValues[2] }
                 .flatMap { source ->
                     val types = source.toOptionTypes("Constructor", false, optionsDoc)
                     constructorBody = constructorBody.replaceFirst(source, types.first().name)
@@ -89,7 +89,7 @@ internal fun Definition.toMethodMembers(): Sequence<Member> {
         .substringBeforeLast(")")
 
     val optionTypes = OPTIONS_REGEX.findAll(parameters)
-        .map { it.groupValues[1] }
+        .map { it.groupValues[2] }
         .flatMap { source ->
             val types = source.toOptionTypes(prefix, static, optionsKdocBody())
             methodBody = methodBody.replaceFirst(source, types.first().name)
