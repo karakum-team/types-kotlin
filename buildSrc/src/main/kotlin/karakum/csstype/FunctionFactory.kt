@@ -60,7 +60,7 @@ internal fun function(
         params = "\n$params\n"
 
     val cssParams = parameters
-        .flatMap { (n) -> sequenceOf(prefix(name, n), "$$n") }
+        .flatMap { (n) -> sequenceOf(prefix(name, n), parameterString(n)) }
         .filterNotNull()
         .joinToString(delimiter)
 
@@ -69,6 +69,9 @@ internal fun function(
         unsafeCast("$name($cssParams)")
     """.trimIndent()
 }
+
+private fun parameterString(n: String): String =
+    "$${if (n in VARARG_PARAMETERS) "{$n.joinToString(\",\")}" else n}"
 
 private fun prefix(
     name: String,
@@ -91,6 +94,11 @@ private fun prefix(
 
 private fun Parameters.stringify(): String =
     joinToString("\n") { (n, v) ->
-        val vararg = if (n == "stops" || n == "values") "vararg" else ""
+        val vararg = if (n in VARARG_PARAMETERS) "vararg" else ""
         "$vararg $n: $v,"
     }
+
+private val VARARG_PARAMETERS = arrayOf(
+    "stops",
+    "values",
+)
