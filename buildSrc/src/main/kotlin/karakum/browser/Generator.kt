@@ -33,6 +33,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.errors.JsError",
     "js.errors.JsErrorName",
     "js.globals.GlobalScope",
+    "js.import.JsQualifier",
     "js.intl.DateTimeFormatOptions",
     "js.intl.Locale",
     "js.intl.Localizable",
@@ -535,7 +536,7 @@ private fun fileContent(
         "// $GENERATOR_COMMENT",
         annotations,
         "package $pkg",
-        DEFAULT_IMPORTS.forContent(body),
+        DEFAULT_IMPORTS.forContent(annotations, body),
         imports,
         body,
     ).filter { it.isNotEmpty() }
