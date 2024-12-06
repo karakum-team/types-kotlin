@@ -9,6 +9,9 @@ dependencies {
 
     jsMainImplementation(kotlinWrappers.browser)
     jsMainImplementation(kotlinWrappers.reactCore)
+
+    // TODO: remove after migration on React 19
+    jsMainImplementation(kotlinWrappers.reactDom)
 }
 
 val syncWithWrappers by tasks.creating(SyncWrappers::class) {
