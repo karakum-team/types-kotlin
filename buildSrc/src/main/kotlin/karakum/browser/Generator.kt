@@ -40,7 +40,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.intl.UnicodeBCP47LocaleIdentifier",
     "js.iterable.JsIterable",
     "js.iterable.JsIterator",
-    "kotlinx.js.JsPlainObject",
+    "js.objects.JsPlainObject",
     "js.objects.PropertyKey",
     "js.objects.ReadonlyRecord",
     "js.objects.Record",
