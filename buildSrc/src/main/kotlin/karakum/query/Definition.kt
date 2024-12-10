@@ -39,7 +39,7 @@ fun toDeclarations(
             "MutationObserverOptions<TData, TError, TVariables, TContext>"
         )
         .replace(
-            "getQueryData<TQueryFnData = unknown, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = TTaggedQueryKey extends DataTag<unknown, infer TaggedValue> ? TaggedValue : TQueryFnData>(queryKey: TTaggedQueryKey): TInferredQueryFnData | undefined;",
+            "getQueryData<TQueryFnData = unknown, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = TTaggedQueryKey extends DataTag<unknown, infer TaggedValue, unknown> ? TaggedValue : TQueryFnData>(queryKey: TTaggedQueryKey): TInferredQueryFnData | undefined;",
             "getQueryData<TQueryFnData>(queryKey: QueryKey): TQueryFnData | undefined;",
         )
         .replace(
@@ -47,8 +47,12 @@ fun toDeclarations(
             "setQueryData<TQueryFnData>(queryKey: QueryKey, updater: Updater<TQueryFnData | undefined, TQueryFnData | undefined>, options?: SetDataOptions): TQueryFnData | undefined;",
         )
         .replace(
-            "getQueryState<TQueryFnData = unknown, TError = DefaultError, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = TTaggedQueryKey extends DataTag<unknown, infer TaggedValue> ? TaggedValue : TQueryFnData>(queryKey: TTaggedQueryKey): QueryState<TInferredQueryFnData, TError> | undefined;",
+            "getQueryState<TQueryFnData = unknown, TError = DefaultError, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = TTaggedQueryKey extends DataTag<unknown, infer TaggedValue, unknown> ? TaggedValue : TQueryFnData, TInferredError = TTaggedQueryKey extends DataTag<unknown, unknown, infer TaggedError> ? TaggedError extends UnsetMarker ? TError : TaggedError : TError>(queryKey: TTaggedQueryKey): QueryState<TInferredQueryFnData, TInferredError> | undefined;",
             "getQueryState<TQueryFnData, TError>(queryKey: QueryKey): QueryState<TQueryFnData, TError> | undefined;",
+        )
+        .replace(
+            "isMutating<TMutationFilters extends MutationFilters<any, any> = MutationFilters>(filters?: TMutationFilters): number;",
+            "isMutating<TMutationFilters extends MutationFilters<*, *, *, *> = MutationFilters>(filters?: TMutationFilters): number;",
         )
         .replace("\n    isDataEqual?: (oldData: TData | undefined, newData: TData) => boolean;\n", "\n")
         .replace(OPTIMISTIC_RESULT, "QueriesObserverOptimisticResult<TCombinedResult>")
