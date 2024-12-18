@@ -26,10 +26,10 @@ private data class MethodReturnData(
 ) : MemberNumberData()
 
 private val NUMBER_TYPE_MAP = mapOf(
-    "octet" to "Short /* unsigned byte */",
+    "octet" to "UByte",
 
     "short" to "Short",
-    "unsigned short" to "Short",
+    "unsigned short" to "UShort",
 
     "float" to "Float",
 
@@ -37,7 +37,7 @@ private val NUMBER_TYPE_MAP = mapOf(
     "unrestricted double" to "Double",
 
     "long" to "Int",
-    "unsigned long" to "Int",
+    "unsigned long" to "UInt",
 
     "long long" to "JsLong",
     "unsigned long long" to "JsLong",
@@ -165,10 +165,15 @@ internal object IDLRegistry {
                 .removePrefix("unrestricted ")
                 .substringBefore(" = ")
 
-            val type = getNumberType(data.substringBeforeLast(" ").removeSuffix("?"))
+            var type = getNumberType(data.substringBeforeLast(" ").removeSuffix("?"))
                 ?: return emptySequence()
 
             val name = data.substringAfterLast(" ")
+
+            // TEMP
+            if ((name == "length" || name == "size") && type == "UInt")
+                type = "Int"
+
             return sequenceOf(
                 PropertyData(
                     className = className,
@@ -195,13 +200,19 @@ internal object IDLRegistry {
                 .map { it.substringAfter("] ") }
                 .map { it.removePrefix("optional ") }
                 .mapNotNull { psource ->
-                    val type = getNumberType(psource.substringBeforeLast(" ").removeSuffix("?"))
+                    var type = getNumberType(psource.substringBeforeLast(" ").removeSuffix("?"))
                         ?: return@mapNotNull null
+
+                    val name = psource.substringAfterLast(" ")
+
+                    // TEMP
+                    if (name == "index" && type == "UInt")
+                        type = "Int"
 
                     ParameterData(
                         className = className,
                         methodName = methodName,
-                        parameterName = psource.substringAfterLast(" "),
+                        parameterName = name,
                         parameterType = type,
                     )
                 }
