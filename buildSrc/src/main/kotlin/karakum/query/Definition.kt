@@ -43,8 +43,16 @@ fun toDeclarations(
             "getQueryData<TQueryFnData>(queryKey: QueryKey): TQueryFnData | undefined;",
         )
         .replace(
-            "setQueryData<TQueryFnData = unknown, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = TTaggedQueryKey extends DataTag<unknown, infer TaggedValue> ? TaggedValue : TQueryFnData>(queryKey: TTaggedQueryKey, updater: Updater<NoInfer<TInferredQueryFnData> | undefined, NoInfer<TInferredQueryFnData> | undefined>, options?: SetDataOptions): TInferredQueryFnData | undefined;",
+            "setQueryData<TQueryFnData = unknown, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = TTaggedQueryKey extends DataTag<unknown, infer TaggedValue, unknown> ? TaggedValue : TQueryFnData>(queryKey: TTaggedQueryKey, updater: Updater<NoInfer<TInferredQueryFnData> | undefined, NoInfer<TInferredQueryFnData> | undefined>, options?: SetDataOptions): TInferredQueryFnData | undefined;",
             "setQueryData<TQueryFnData>(queryKey: QueryKey, updater: Updater<TQueryFnData | undefined, TQueryFnData | undefined>, options?: SetDataOptions): TQueryFnData | undefined;",
+        )
+        .replace(
+            "setQueriesData<TQueryFnData, TQueryFilters extends QueryFilters<any, any, any, any> = QueryFilters<TQueryFnData>, TInferredQueryFnData = TQueryFilters extends QueryFilters<infer TData, any, any, any> ? TData : TQueryFnData>(filters: TQueryFilters, updater: Updater<NoInfer<TInferredQueryFnData> | undefined, NoInfer<TInferredQueryFnData> | undefined>, options?: SetDataOptions): Array<[QueryKey, TInferredQueryFnData | undefined]>;",
+            "setQueriesData<TQueryFnData, TQueryFilters extends QueryFilters<*, *, *, *>>(filters: TQueryFilters, updater: Updater<TQueryFnData?, TQueryFnData?>, options?: SetDataOptions): ReadonlyArray<JsTuple2<QueryKey, TQueryFnData?>>;",
+        )
+        .replace(
+            "getQueriesData<TQueryFnData = unknown, TQueryFilters extends QueryFilters<any, any, any, any> = QueryFilters<TQueryFnData>, TInferredQueryFnData = TQueryFilters extends QueryFilters<infer TData, any, any, any> ? TData : TQueryFnData>(filters: TQueryFilters): Array<[QueryKey, TInferredQueryFnData | undefined]>;",
+            "getQueriesData<TQueryFnData, TQueryFilters extends QueryFilters<*, *, *, *>>(filters: TQueryFilters): ReadonlyArray<JsTuple2<QueryKey, TQueryFnData?>>;",
         )
         .replace(
             "getQueryState<TQueryFnData = unknown, TError = DefaultError, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = TTaggedQueryKey extends DataTag<unknown, infer TaggedValue, unknown> ? TaggedValue : TQueryFnData, TInferredError = TTaggedQueryKey extends DataTag<unknown, unknown, infer TaggedError> ? TaggedError extends UnsetMarker ? TError : TaggedError : TError>(queryKey: TTaggedQueryKey): QueryState<TInferredQueryFnData, TInferredError> | undefined;",
