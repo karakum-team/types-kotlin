@@ -28,6 +28,7 @@ import web.window.WindowTarget
 import web.window.WindowName
 import web.html.ImageDecoding
 import web.keyboard.KeyCode
+import web.html.AutoCapitalize
 import web.html.InputMode
 import web.html.ButtonType
 import web.autofill.AutoFill

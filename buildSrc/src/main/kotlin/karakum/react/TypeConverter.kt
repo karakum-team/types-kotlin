@@ -35,6 +35,9 @@ internal class SimpleTypeConverter(
         val name = unionName(propertyName)
 
         when {
+            propertyName == "autoCapitalize"
+                -> return propertyName.replaceFirstChar(Char::uppercase)
+
             propertyName == "crossOrigin" && type == """"anonymous" | "use-credentials" | """""
                 -> return propertyName.replaceFirstChar(Char::uppercase)
 
