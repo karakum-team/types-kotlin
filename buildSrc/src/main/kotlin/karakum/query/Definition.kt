@@ -133,6 +133,8 @@ fun toDeclarations(
             protected fetch: (fetchOptions: ObserverFetchOptions) -> Promise<InfiniteQueryObserverResult<TData, TError>>
             """.trimIndent()
         )
+        .replace("type dataTagSymbol = typeof dataTagSymbol;", "")
+        .replace("type dataTagErrorSymbol = typeof dataTagErrorSymbol;", "")
 
     content = when (definitionFile.name) {
         "focusManager.d.ts" -> content.replace("SetupFn", "FocusManagerSetupFn")
