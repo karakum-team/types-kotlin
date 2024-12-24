@@ -7,6 +7,17 @@ private val SPECIAL_TYPES = setOf(
     "number | RetryDelayFunction<TError>",
 )
 
+private val SKIPPED_TYPES = setOf(
+    "Override",
+    "NoInfer",
+    "NonFunctionGuard",
+    "SkipToken",
+    "OmitKeyof",
+    "ReplaceReturnType",
+    "DataTag",
+    "AnyDataTag",
+)
+
 class Type(
     override val source: String,
     fixAction: Boolean,
@@ -106,7 +117,8 @@ class Type(
     }
 
     override fun toCode(): String {
-        if (name == "Override" || name == "NoInfer" || name == "NonFunctionGuard" || name == "SkipToken" || name == "OmitKeyof" || name == "ReplaceReturnType")
+        val isUnusedType = name.startsWith("AnyUse") && name.endsWith("Options")
+        if (name in SKIPPED_TYPES || isUnusedType)
             return ""
 
         if (name == "QueryClientProviderProps")
