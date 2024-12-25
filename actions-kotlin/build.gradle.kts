@@ -19,7 +19,7 @@ dependencies {
     jsMainImplementation(libs.coroutines.core)
 }
 
-val syncWithWrappers by tasks.creating(SyncWrappers::class) {
+val syncWithWrappers by tasks.registering(SyncWrappers::class) {
     from(generatedDir)
     into(kotlinWrappersDir("kotlin-actions-toolkit"))
 }

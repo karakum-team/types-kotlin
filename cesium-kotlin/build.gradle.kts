@@ -11,14 +11,14 @@ dependencies {
     jsMainImplementation(kotlinWrappers.browser)
 }
 
-val syncCesiumEngine by tasks.creating(SyncWrappers::class) {
+val syncCesiumEngine by tasks.registering(SyncWrappers::class) {
     from(generatedDir) {
         include("cesium/engine/")
     }
     into(kotlinWrappersDir("kotlin-cesium-engine"))
 }
 
-val syncCesiumWidgets by tasks.creating(SyncWrappers::class) {
+val syncCesiumWidgets by tasks.registering(SyncWrappers::class) {
     from(generatedDir) {
         include("cesium/widgets/")
     }

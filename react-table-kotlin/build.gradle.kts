@@ -11,7 +11,7 @@ dependencies {
     jsMainImplementation(kotlinWrappers.reactCore)
 }
 
-val syncWithWrappers by tasks.creating(SyncWrappers::class) {
+val syncWithWrappers by tasks.registering(SyncWrappers::class) {
     from(generatedDir) {
         include("tanstack/table/")
     }

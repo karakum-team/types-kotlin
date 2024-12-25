@@ -10,7 +10,7 @@ dependencies {
     jsMainImplementation(kotlinWrappers.browser)
 }
 
-val syncWithWrappers by tasks.creating(SyncWrappers::class) {
+val syncWithWrappers by tasks.registering(SyncWrappers::class) {
     from(generatedDir)
     into(kotlinWrappersDir("kotlin-popper"))
 }
