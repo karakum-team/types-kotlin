@@ -64,7 +64,7 @@ private val DEFAULT_IMPORTS = Imports(
     "seskar.js.JsAlias",
     "seskar.js.JsAlias.Companion.THIS",
     "seskar.js.JsAsync",
-    "seskar.js.JsIntValue",
+    "seskar.js.JsRawValue",
     "seskar.js.JsTypeGuard",
     "seskar.js.JsValue",
 

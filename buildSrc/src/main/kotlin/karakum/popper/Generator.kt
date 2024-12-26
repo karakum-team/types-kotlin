@@ -13,7 +13,7 @@ private val DEFAULT_IMPORTS = listOf(
     "js.objects.ReadonlyRecord",
     "js.core.Void",
 
-    "seskar.js.JsIntValue",
+    "seskar.js.JsRawValue",
     "seskar.js.JsValue",
 ).map { it.substringAfterLast(".") to it }
 

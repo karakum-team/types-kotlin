@@ -19,7 +19,7 @@ private val DEFAULT_IMPORTS = listOf(
     "web.scroll.ScrollBehavior",
     "web.dom.observers.ResizeObserverEntry",
 
-    "seskar.js.JsIntValue",
+    "seskar.js.JsRawValue",
     "seskar.js.JsValue",
 ).map { it.substringAfterLast(".") to it }
 

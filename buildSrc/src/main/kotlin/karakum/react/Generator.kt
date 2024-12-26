@@ -35,7 +35,7 @@ import web.autofill.AutoFill
 """.trimIndent()
 
 private val SESKAR_IMPORTS = """
-import seskar.js.JsIntValue
+import seskar.js.JsRawValue
 import seskar.js.JsValue
 """.trimIndent()
 

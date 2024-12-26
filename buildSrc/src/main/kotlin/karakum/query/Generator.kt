@@ -28,7 +28,7 @@ private val DEFAULT_IMPORTS = listOf(
     "web.abort.AbortController",
     "web.abort.AbortSignal",
 
-    "seskar.js.JsIntValue",
+    "seskar.js.JsRawValue",
     "seskar.js.JsValue",
 ).map { it.substringAfterLast(".") to it }
 

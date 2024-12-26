@@ -16,7 +16,7 @@ private val DEFAULT_IMPORTS = listOf(
     "js.reflect.unsafeCast",
     "js.symbol.Symbol",
 
-    "seskar.js.JsIntValue",
+    "seskar.js.JsRawValue",
     "seskar.js.JsValue",
 
     "web.dom.Document",

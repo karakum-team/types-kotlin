@@ -113,7 +113,7 @@ internal data class UnionConstant(
             val annotation = if (originalValue) {
                 if (value.startsWith("\"")) {
                     "@JsValue(\"${value.removeSurrounding("\"")}\")"
-                } else "@JsIntValue($value)"
+                } else "@JsRawValue(\"$value\")"
             } else {
                 val escapedValue = when (value) {
                     "\"" -> """\""""

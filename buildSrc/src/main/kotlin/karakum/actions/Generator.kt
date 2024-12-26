@@ -30,7 +30,7 @@ import actions.http.client.HttpClient
 import actions.http.client.HttpClientResponse
 
 import seskar.js.JsAsync
-import seskar.js.JsIntValue
+import seskar.js.JsRawValue
 import seskar.js.JsValue
 """.trimIndent()
 
