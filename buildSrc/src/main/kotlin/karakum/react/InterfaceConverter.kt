@@ -95,6 +95,7 @@ private fun convertAttributesInterface(
 
     val content = when (name) {
         "HTMLAttributes" -> source
+            .replaceFirst("\n    color?: string | undefined;", "")
             .replaceFirst(
                 "\n    popover?: \"\" | \"auto\" | \"manual\" | undefined;",
                 "\n    popover?: String /* \"\" | \"auto\" | \"manual\" */;"
