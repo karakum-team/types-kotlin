@@ -56,6 +56,8 @@ private val EXCLUDED_TYPES = setOf(
     "SVGElementType",
     "OldState",
     "NewState",
+    "Popover",
+    "PopoverTargetAction",
 )
 
 fun generateKotlinDeclarations(
