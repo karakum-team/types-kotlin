@@ -43,8 +43,6 @@ internal fun convertEventHandlers(
 }
 
 private const val DEFAULT_EVENT_IMPORTS = """
-import react.dom.html.OldState
-import react.dom.html.NewState
 import web.dom.Element
 import web.window.Window
 import web.events.Event
@@ -98,6 +96,11 @@ internal fun convertEventInterface(
         "BaseSyntheticEvent",
             -> members = members
             .replaceFirst("val type: String", "val type: EventType<E>")
+
+        "ToggleEvent",
+            -> members = members
+            .replaceFirst("val oldState: OldState", "val oldState: ToggleState")
+            .replaceFirst("val newState: NewState", "val newState: ToggleState")
     }
 
     val body = DEFAULT_EVENT_IMPORTS.removePrefix("\n") +

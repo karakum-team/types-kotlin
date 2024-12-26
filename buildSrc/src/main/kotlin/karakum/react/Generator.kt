@@ -54,6 +54,8 @@ private val EXCLUDED_TYPES = setOf(
     "AutoFillAddressKind",
     "HTMLElementType",
     "SVGElementType",
+    "OldState",
+    "NewState",
 )
 
 fun generateKotlinDeclarations(

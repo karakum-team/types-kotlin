@@ -61,6 +61,7 @@ internal fun convertDefinitions(
         .plus(convertNativeEvents(content))
         .plus(convertEventHandlers(reactContent))
         .plus(FormAction())
+        .plus(ToggleState())
 }
 
 private val EXCLUDED_UNIONS = setOf(
