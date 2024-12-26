@@ -20,11 +20,11 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.uievents.KeyboardEvent"),
     EventInfo("web.uievents.MouseEvent"),
     EventInfo("web.uievents.TouchEvent"),
-    EventInfo("web.uievents.ToggleEvent"),
     EventInfo("web.uievents.PointerEvent"),
     EventInfo("web.uievents.UIEvent"),
     EventInfo("web.uievents.WheelEvent"),
     EventInfo("web.uievents.InputEvent"),
+    EventInfo("web.popover.ToggleEvent"),
     EventInfo("web.cssom.ContentVisibilityAutoStateChangeEvent"),
     EventInfo("web.cssom.TransitionEvent"),
 
