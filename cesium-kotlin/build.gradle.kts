@@ -25,7 +25,7 @@ val syncCesiumWidgets by tasks.registering(SyncWrappers::class) {
     into(kotlinWrappersDir("kotlin-cesium-widgets"))
 }
 
-val syncWithWrappers by tasks.creating {
+val syncWithWrappers by tasks.registering {
     dependsOn(syncCesiumEngine)
     dependsOn(syncCesiumWidgets)
 }

@@ -158,7 +158,7 @@ val syncKotlinBrowser by tasks.registering(SyncWrappers::class) {
     into(kotlinWrappersDir("kotlin-browser"))
 }
 
-val syncWithWrappers by tasks.creating {
+val syncWithWrappers by tasks.registering {
     dependsOn(syncKotlinJs)
     dependsOn(syncKotlinWeb)
     dependsOn(syncKotlinBrowser)
