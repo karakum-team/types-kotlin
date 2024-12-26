@@ -52,6 +52,8 @@ private val EXCLUDED_TYPES = setOf(
     "AutoFillContactField",
     "AutoFillBase",
     "AutoFillAddressKind",
+    "HTMLElementType",
+    "SVGElementType",
 )
 
 fun generateKotlinDeclarations(

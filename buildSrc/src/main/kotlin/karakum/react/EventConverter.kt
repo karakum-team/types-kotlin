@@ -43,6 +43,8 @@ internal fun convertEventHandlers(
 }
 
 private const val DEFAULT_EVENT_IMPORTS = """
+import react.dom.html.OldState
+import react.dom.html.NewState
 import web.dom.Element
 import web.window.Window
 import web.events.Event

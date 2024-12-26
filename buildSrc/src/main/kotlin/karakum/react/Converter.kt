@@ -32,22 +32,29 @@ internal fun convertDefinitions(
         .replace("""fetchPriority?: "high" | "low" | "auto";""", """fetchPriority?: FetchPriority;""")
         .replace(" |  undefined", " | undefined")
         .replace(" | (string & {})", "")
+        .replace("((formData: FormData) => void | Promise<void>) |", "")
         .withDefaultLineBreaks()
 
-    val svgTypes = content.substringAfter("    interface IntrinsicElements {\n")
-        .substringAfter("// SVG\n")
+    val intrinsicsContent = content.substringAfter("    interface IntrinsicElements {\n")
         .substringBefore("\n        }")
         .replace("\n\n", "\n")
-        .replaceIndent("        ")
+        .replace("            picture", "picture")
+        .replace(", \n", ",")
+        .replaceIndent("    ")
+
+    val htmlIntrinsics = intrinsicsContent.substringAfter("// HTML\n")
+        .substringBefore("// SVG\n")
+
+    val svgIntrinsics = intrinsicsContent.substringAfter("// SVG\n")
 
     val reactContent = content
         .substringAfter("declare namespace React {\n")
         .substringBefore("\n}\n")
-        .replace(Regex("""( ReactSVG \{\n).+?(\n\s+})""", RegexOption.DOT_MATCHES_ALL)) {
-            "${it.groupValues[1]}$svgTypes${it.groupValues[2]}"
-        }
         .trimIndent()
         .plus(ADDITIONAL_TYPES)
+        .plus("\ninterface ReactSVG {\n$svgIntrinsics\n}")
+        .plus("\ninterface ReactHTML {\n$htmlIntrinsics\n}")
+        .trimIndent()
 
     return convertInterfaces(reactContent)
         .plus(convertUnions(reactContent))

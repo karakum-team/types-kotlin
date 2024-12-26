@@ -169,6 +169,7 @@ private fun convertIntrinsicTypes(
     convert: (String) -> String,
 ): ConversionResult {
     val content = source.substringAfter("{\n")
+        .substringBefore("\n}")
         .trimIndent()
         .splitToSequence("\n")
         .filter { it.isNotEmpty() }
@@ -193,9 +194,10 @@ private fun convertHtmlType(
     val name = source.substringBefore(": ")
         .removeSurrounding("\"")
 
-    val propsType = source.substringAfter(": DetailedHTMLFactory<")
+    val propsType = source.substringAfter(": React.DetailedHTMLProps<")
         .substringBefore(",")
         .replaceFirst("<", "<")
+        .removePrefix("React.")
     val type = "IntrinsicType<$propsType>"
 
     val id = when (name) {
