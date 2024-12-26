@@ -29,7 +29,7 @@ tasks.named("generateDeclarations") {
     }
 }
 
-val findMissedTypes by tasks.creating {
+val findMissedTypes by tasks.registering {
     doLast {
         val sourceDir = projectDir.resolve("src/jsMain/kotlin")
 
