@@ -23,6 +23,10 @@ internal fun String.applyPatches(): String {
                 "    popoverTargetAction: $POPOVER_TARGET_ACTION;",
             )
         }
+        .patchInterfaces("ToggleEvent", "ToggleEventInit") {
+            it.replace("State: string;", "State: $TOGGLE_STATE;")
+                .replace("State?: string;", "State?: $TOGGLE_STATE;")
+        }
         .patchInterface("HTMLFormElement") {
             it.replace("    method: string;", "    method: $FORM_METHOD;")
                 .replace("    enctype: string;", "    enctype: $FORM_ENCTYPE;")
