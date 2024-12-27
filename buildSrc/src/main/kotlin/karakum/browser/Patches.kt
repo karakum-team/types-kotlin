@@ -14,6 +14,9 @@ internal fun String.applyPatches(): String {
         .patchInterfaces("Request", "RequestInit", "XMLHttpRequest") {
             it.replace(Regex("""([( ]method\??: )string([;,])"""), "$1$REQUEST_METHOD$2")
         }
+        .patchInterface("HTMLElement") {
+            it.replace("    popover: string | null;", "    popover: $POPOVER | null;")
+        }
         .patchInterface("HTMLFormElement") {
             it.replace("    method: string;", "    method: $FORM_METHOD;")
                 .replace("    enctype: string;", "    enctype: $FORM_ENCTYPE;")

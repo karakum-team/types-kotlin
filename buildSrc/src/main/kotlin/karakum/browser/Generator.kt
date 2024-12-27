@@ -200,6 +200,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.permissions.Permissions",
     "web.pip.PictureInPictureEvent",
     "web.pip.PictureInPictureWindow",
+    "web.popover.Popover",
     "web.push.PushManager",
     "web.ranges.AbstractRange",
     "web.ranges.Range",

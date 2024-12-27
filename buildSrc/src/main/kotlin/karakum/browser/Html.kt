@@ -585,6 +585,7 @@ internal fun htmlDeclarations(
 
     return interfaces
         .plus(formTypes())
+        .plus(popoverTypes())
         .plus(customElementTypes())
         .plus(
             ConversionResult(
