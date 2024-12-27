@@ -12,6 +12,8 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Error" to "JsError",
 
+    "Buffer" to "Buffer<*>",
+
     "string[]" to "ReadonlyArray<String>",
     "Record<string, string>" to "Record<String, String>",
 
@@ -69,6 +71,7 @@ internal fun kotlinType(
     return type
         .replace(": string)", ": String)")
         .replace(": Error)", ": JsError)")
+        .replace(": Buffer)", ": Buffer<*>)")
         .replace(") => void", ") -> Unit")
         .replace(") => number", ") -> Number")
         .replace(") => boolean", ") -> Boolean")

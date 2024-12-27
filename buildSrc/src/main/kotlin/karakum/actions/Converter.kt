@@ -465,7 +465,7 @@ private fun convertMethod(
     source: String,
 ): String {
     if (source == "readBodyBuffer?(): Promise<Buffer>")
-        return "val readBodyBuffer: (() -> Promise<Buffer>)?"
+        return "val readBodyBuffer: (() -> Promise<Buffer<*>>)?"
 
     if (source.startsWith("static "))
         return STATIC_MARKER + convertMethod(source.removePrefix("static "))
