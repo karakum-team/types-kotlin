@@ -17,6 +17,12 @@ internal fun String.applyPatches(): String {
         .patchInterface("HTMLElement") {
             it.replace("    popover: string | null;", "    popover: $POPOVER | null;")
         }
+        .patchInterface("PopoverInvokerElement") {
+            it.replace(
+                "    popoverTargetAction: string;",
+                "    popoverTargetAction: $POPOVER_TARGET_ACTION;",
+            )
+        }
         .patchInterface("HTMLFormElement") {
             it.replace("    method: string;", "    method: $FORM_METHOD;")
                 .replace("    enctype: string;", "    enctype: $FORM_ENCTYPE;")
