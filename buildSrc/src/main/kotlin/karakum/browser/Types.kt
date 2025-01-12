@@ -69,6 +69,7 @@ private val PKG_MAP = mapOf(
     "AuthenticatorTransport" to "web.authn",
     "COSEAlgorithmIdentifier" to "web.authn",
     "PublicKeyCredentialType" to "web.authn",
+    "PublicKeyCredentialClientCapabilities" to "web.authn",
     "ResidentKeyRequirement" to "web.authn",
     "UserVerificationRequirement" to "web.authn",
 
@@ -343,6 +344,7 @@ private fun convertType(
             bodySource.startsWith("Record<")
                 -> bodySource
                 .replace("Record<", "ReadonlyRecord<")
+                .replace("boolean", "Boolean")
                 .replace("string", "String")
 
             bodySource.startsWith("keyof ")
