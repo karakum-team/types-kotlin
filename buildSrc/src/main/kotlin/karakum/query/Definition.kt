@@ -135,6 +135,11 @@ fun toDeclarations(
         )
         .replace("type dataTagSymbol = typeof dataTagSymbol;", "")
         .replace("type dataTagErrorSymbol = typeof dataTagErrorSymbol;", "")
+        .replace("Query<unknown, Error, unknown, readonly unknown[]>[]", "Query<unknown, Error, unknown, QueryKey>[]")
+        .replace(
+            "QueryObserver<unknown, Error, unknown, unknown, readonly unknown[]>[]",
+            "QueryObserver<unknown, Error, unknown, unknown, QueryKey>[]"
+        )
 
     content = when (definitionFile.name) {
         "focusManager.d.ts" -> content.replace("SetupFn", "FocusManagerSetupFn")

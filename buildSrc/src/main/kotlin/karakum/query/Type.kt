@@ -159,7 +159,7 @@ class Type(
 
         if (name == QUERY_KEY)
             return """
-                // $body
+                // ReadonlyArray<unknown>
                 external interface $name
                 """.trimIndent()
 
