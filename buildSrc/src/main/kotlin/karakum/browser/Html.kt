@@ -2369,9 +2369,6 @@ private fun getParameterType(
         source in TYPED_ARRAYS
             -> "$source<*>"
 
-        source == "\"$ED25519\""
-            -> ED25519
-
         source == """ReadonlyArray<"sign" | "verify">"""
             -> """ReadonlyArray<KeyUsage /* "sign" | "verify" */>"""
 
