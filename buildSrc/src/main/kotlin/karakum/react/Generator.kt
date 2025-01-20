@@ -32,6 +32,8 @@ import web.html.AutoCapitalize
 import web.html.InputMode
 import web.html.ButtonType
 import web.autofill.AutoFill
+import web.popover.Popover
+import web.popover.PopoverTargetAction
 """.trimIndent()
 
 private val SESKAR_IMPORTS = """

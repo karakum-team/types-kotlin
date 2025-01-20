@@ -33,6 +33,12 @@ internal fun convertDefinitions(
         .replace(" |  undefined", " | undefined")
         .replace(" | (string & {})", "")
         .replace("((formData: FormData) => void | Promise<void>) |", "")
+        .replace("""popover?: "" | "auto" | "manual" | undefined;""", "popover?: Popover;")
+        .replace(
+            """popoverTargetAction?: "toggle" | "show" | "hide" | undefined;""",
+            "popoverTargetAction?: PopoverTargetAction;",
+        )
+        .replace("((formData: FormData) => void | Promise<void>) |", "")
         .withDefaultLineBreaks()
 
     val intrinsicsContent = content.substringAfter("    interface IntrinsicElements {\n")

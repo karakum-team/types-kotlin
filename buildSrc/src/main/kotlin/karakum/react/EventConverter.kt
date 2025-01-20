@@ -54,6 +54,7 @@ import web.data.DataTransfer
 import web.uievents.MouseButton
 import web.uievents.MouseButtons
 import web.time.DOMHighResTimeStamp
+import web.popover.ToggleState
 """
 
 internal fun convertEventInterface(
@@ -99,8 +100,8 @@ internal fun convertEventInterface(
 
         "ToggleEvent",
             -> members = members
-            .replaceFirst("val oldState: OldState", "val oldState: String /* ToggleState */")
-            .replaceFirst("val newState: NewState", "val newState: String /* ToggleState */")
+            .replaceFirst("val oldState: OldState", "val oldState: ToggleState")
+            .replaceFirst("val newState: NewState", "val newState: ToggleState")
     }
 
     val body = DEFAULT_EVENT_IMPORTS.removePrefix("\n") +
