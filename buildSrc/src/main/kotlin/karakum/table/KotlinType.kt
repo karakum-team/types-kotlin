@@ -69,7 +69,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "string | keyof TData" to "String /* string | keyof TData */",
 
     "() => undefined | ((event: unknown) => void)" to "() -> ((event: Any) -> Unit)?",
-    "RequiredKeys<TableOptionsResolved<TData>, 'state'>" to "Any /* RequiredKeys<TableOptionsResolved<TData>, 'state'> */",
+    "RequiredKeys<TableOptionsResolved<TData>, 'state'>" to "TableOptionsResolved<TData>",
 
     "CellContext<TData, TValue>['getValue']" to "Getter<TValue> /* CellContext<TData, TValue>['getValue'] */",
     "CellContext<TData, TValue>['renderValue']" to "Getter<TValue?> /* CellContext<TData, TValue>['renderValue'] */",
