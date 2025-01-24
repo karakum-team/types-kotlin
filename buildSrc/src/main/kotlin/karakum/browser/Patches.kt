@@ -10,7 +10,7 @@ internal fun String.applyPatches(): String {
         .replace(Regex("""(\n\s+)get (.+)\(\)(: .+;)"""), "$1readonly $2$3")
         .replace(Regex("""\n\s+set .+\(.+: string\);"""), "")
         .replace("    autocapitalize: string;", "    autocapitalize: $AUTO_CAPITALIZE;")
-        .replace("    fetchPriority: string;", "    fetchPriority: $FETCH_PRIORITY;")
+        .replace("""    fetchPriority: "high" | "low" | "auto";""", "    fetchPriority: $FETCH_PRIORITY;")
         .patchInterfaces("Request", "RequestInit", "XMLHttpRequest") {
             it.replace(Regex("""([( ]method\??: )string([;,])"""), "$1$REQUEST_METHOD$2")
         }
@@ -215,6 +215,9 @@ internal fun String.applyPatches(): String {
         .patchInterface("SVGAnimatedEnumeration") {
             it.replace("Val: number;", "Val: T;")
         }
+        .replace(" MessageEventTarget<MessagePort>", " MessageEventTarget")
+        .replace(" MessageEventTarget<Worker>", " MessageEventTarget")
+        .replace(" MessageEventTarget<T>", " MessageEventTarget")
         .replace(SVG_ANIMATED_ENUMERATION_BEFORE, SVG_ANIMATED_ENUMERATION_AFTER)
         .applyInlineUnionPatches()
 }
