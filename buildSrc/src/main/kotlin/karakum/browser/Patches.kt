@@ -235,7 +235,7 @@ internal val DOM_GEOMETRY_ALIASES = listOf(
 
 private fun String.patchDomGeometry(): String =
     DOM_GEOMETRY_ALIASES.fold(this) { acc, (initType, aliasType) ->
-        val aliasComment = if ("2D" in aliasType) " /* $initType */" else ""
+        val aliasComment = if ("2D" in initType) " /* $initType */" else ""
         acc.splitUnionSafety(initType, aliasType + aliasComment)
     }
         .replace(": DOMRectInit", ": DOMRectReadOnly")
