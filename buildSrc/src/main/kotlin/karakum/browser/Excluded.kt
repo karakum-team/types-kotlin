@@ -13,4 +13,4 @@ internal val KNOWN_MISSED_TYPES = setOf(
     "WindowLocalStorage",
     "WindowOrWorkerGlobalScope",
     "WindowSessionStorage",
-)
+) + DOM_GEOMETRY_ALIASES.map { it.first }

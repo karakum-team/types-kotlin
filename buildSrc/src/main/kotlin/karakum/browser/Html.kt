@@ -665,21 +665,6 @@ internal fun htmlDeclarations(
                 pkg = "web.streams",
             )
         )
-        .plus(
-            DOM_GEOMETRY_TYPES
-                .filter { it.endsWith("ReadOnly") }
-                .map { type ->
-                    val initType = type.removeSuffix("ReadOnly") + "Init"
-                    ConversionResult(
-                        name = "$type.ext",
-                        body = """
-                        inline fun $type.asInit(): $initType =    
-                            unsafeCast<$initType>()
-                        """.trimIndent(),
-                        pkg = "web.geometry",
-                    )
-                }
-        )
         .plus(Abortable())
         .plus(abortInternal())
         .plus(Ed25519())

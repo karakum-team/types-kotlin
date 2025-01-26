@@ -225,7 +225,8 @@ internal fun String.applyPatches(): String {
         .applyInlineUnionPatches()
 }
 
-private val DOM_GEOMETRY_ALIASES = listOf(
+internal val DOM_GEOMETRY_ALIASES = listOf(
+    "DOMQuadInit" to "DOMQuad",
     "DOMPointInit" to "DOMPointReadOnly",
     "DOMRectInit" to "DOMRectReadOnly",
     "DOMMatrixInit" to "DOMMatrixReadOnly",
@@ -234,8 +235,10 @@ private val DOM_GEOMETRY_ALIASES = listOf(
 
 private fun String.patchDomGeometry(): String =
     DOM_GEOMETRY_ALIASES.fold(this) { acc, (initType, aliasType) ->
-        acc.splitUnionSafety(initType, "$initType | $aliasType /* $initType */")
+        val aliasComment = if ("2D" in aliasType) " /* $initType */" else ""
+        acc.splitUnionSafety(initType, aliasType + aliasComment)
     }
+        .replace(": DOMRectInit", ": DOMRectReadOnly")
 
 private fun String.patchVideoFrameCallback(): String =
     replace(
