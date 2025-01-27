@@ -1899,7 +1899,7 @@ private fun convertProperty(
         "string | string[]",
             -> "Any /* $type */"
 
-        "Promise<undefined>",
+        "Promise<void>",
             -> "Promise<Void>"
 
         "QueuingStrategySize",
