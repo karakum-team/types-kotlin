@@ -123,6 +123,7 @@ internal fun String.applyPatches(): String {
         .replace("(url: Request,", "(request: Request,")
         .splitUnion("RequestInfo | URL")
         .splitUnion("RequestInfo", "Request | string")
+        .replace(", protocols?: string)", ", protocol?: string)")
         .replace("headers?: HeadersInit", "headers?: Headers")
         .splitTypealias("HeadersInit")
         .splitUnion("[string, string][] | Record<string, string> | Headers")
