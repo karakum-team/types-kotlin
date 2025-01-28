@@ -1577,12 +1577,27 @@ private fun withPropertyParametersSupport(
         .map { it.substringBefore(" = ") }
         .map { it.trim() }
 
+    var newBody = body
+
     for (parameter in parameters) {
-        if ("val $parameter" in body || "var $parameter" in body)
-            println("$name -> $parameter")
+        val property = sequenceOf("val", "var")
+            .map { "$it $parameter" }
+            .filter { it in newBody }
+            .take(1)
+            .map {
+                "/**\n" +
+                        newBody.substringBefore(it).substringAfterLast("/**\n") +
+                        it
+            }
+            .firstOrNull()
+            ?: continue
+
+        newBody = newBody
+            .replace("\n" + property, "")
+            .replaceFirst(parameter, property)
     }
 
-    return body
+    return newBody
 }
 
 internal fun getStaticSource(
