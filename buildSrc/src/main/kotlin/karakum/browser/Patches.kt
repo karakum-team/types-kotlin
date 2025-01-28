@@ -161,6 +161,17 @@ internal fun String.applyPatches(): String {
                 """    setFormValue(value: FormData | null, state?: FormData | null): void;""",
             ).joinToString("\n")
         )
+        .let {
+            val lines = listOf(
+                """new(angle: CSSNumericValue): CSSRotate;""",
+                """new(x: CSSNumberish, y: CSSNumberish, z: CSSNumberish, angle: CSSNumericValue): CSSRotate;""",
+            )
+
+            it.replaceFirst(
+                lines.joinToString("\n    "),
+                lines.reversed().joinToString("\n    "),
+            )
+        }
         // TODO: use `Error`
         .replace("  error(e?: any)", "  error(error?: JsError)")
         .replace(
