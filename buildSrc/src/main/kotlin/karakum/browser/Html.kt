@@ -1550,11 +1550,39 @@ internal fun convertInterface(
         else -> "web.html"
     }
 
+    body = withPropertyParametersSupport(name, body)
+
     return ConversionResult(
         name = name,
         body = body,
         pkg = pkg,
     )
+}
+
+private fun withPropertyParametersSupport(
+    name: String,
+    body: String,
+): String {
+    val parametersSource = body
+        .substringAfter("$name (", "")
+        .substringBefore(")", "")
+        .trim()
+
+    if (parametersSource.isEmpty())
+        return body
+
+    val parameters = parametersSource
+        .removeSuffix(",")
+        .splitToSequence(",")
+        .map { it.substringBefore(" = ") }
+        .map { it.trim() }
+
+    for (parameter in parameters) {
+        if ("val $parameter" in body || "var $parameter" in body)
+            println("$name -> $parameter")
+    }
+
+    return body
 }
 
 internal fun getStaticSource(
