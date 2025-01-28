@@ -836,7 +836,7 @@ internal fun convertInterface(
     val hasTypeGuard = typeGuardSource != null
 
     val arrayType = if ("readonly length: number;" in memberSource) {
-        val result = Regex("""\[index\: number\]\: (\w+)""")
+        val result = Regex("""\[index: number]: (\w+)""")
             .find(memberSource)
 
         if (result != null) {
