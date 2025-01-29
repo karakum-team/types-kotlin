@@ -22,22 +22,22 @@ private constructor() {
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Cache/add)
      */
     @JsAsync
+    suspend fun add(url: String)
+
+    @JsName("add")
+    fun addAsync(url: String): Promise<Void>
+
+    @JsAsync
+    suspend fun add(url: URL)
+
+    @JsName("add")
+    fun addAsync(url: URL): Promise<Void>
+
+    @JsAsync
     suspend fun add(request: Request)
 
     @JsName("add")
     fun addAsync(request: Request): Promise<Void>
-
-    @JsAsync
-    suspend fun add(request: String)
-
-    @JsName("add")
-    fun addAsync(request: String): Promise<Void>
-
-    @JsAsync
-    suspend fun add(request: URL)
-
-    @JsName("add")
-    fun addAsync(request: URL): Promise<Void>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Cache/addAll)
@@ -59,6 +59,30 @@ private constructor() {
      */
     @JsAsync
     suspend fun delete(
+        url: String,
+        options: CacheQueryOptions = definedExternally,
+    ): Boolean
+
+    @JsName("delete")
+    fun deleteAsync(
+        url: String,
+        options: CacheQueryOptions = definedExternally,
+    ): Promise<Boolean>
+
+    @JsAsync
+    suspend fun delete(
+        url: URL,
+        options: CacheQueryOptions = definedExternally,
+    ): Boolean
+
+    @JsName("delete")
+    fun deleteAsync(
+        url: URL,
+        options: CacheQueryOptions = definedExternally,
+    ): Promise<Boolean>
+
+    @JsAsync
+    suspend fun delete(
         request: Request,
         options: CacheQueryOptions = definedExternally,
     ): Boolean
@@ -66,30 +90,6 @@ private constructor() {
     @JsName("delete")
     fun deleteAsync(
         request: Request,
-        options: CacheQueryOptions = definedExternally,
-    ): Promise<Boolean>
-
-    @JsAsync
-    suspend fun delete(
-        request: String,
-        options: CacheQueryOptions = definedExternally,
-    ): Boolean
-
-    @JsName("delete")
-    fun deleteAsync(
-        request: String,
-        options: CacheQueryOptions = definedExternally,
-    ): Promise<Boolean>
-
-    @JsAsync
-    suspend fun delete(
-        request: URL,
-        options: CacheQueryOptions = definedExternally,
-    ): Boolean
-
-    @JsName("delete")
-    fun deleteAsync(
-        request: URL,
         options: CacheQueryOptions = definedExternally,
     ): Promise<Boolean>
 
@@ -137,6 +137,30 @@ private constructor() {
      */
     @JsAsync
     suspend fun match(
+        url: String,
+        options: CacheQueryOptions = definedExternally,
+    ): Response?
+
+    @JsName("match")
+    fun matchAsync(
+        url: String,
+        options: CacheQueryOptions = definedExternally,
+    ): Promise<Response?>
+
+    @JsAsync
+    suspend fun match(
+        url: URL,
+        options: CacheQueryOptions = definedExternally,
+    ): Response?
+
+    @JsName("match")
+    fun matchAsync(
+        url: URL,
+        options: CacheQueryOptions = definedExternally,
+    ): Promise<Response?>
+
+    @JsAsync
+    suspend fun match(
         request: Request,
         options: CacheQueryOptions = definedExternally,
     ): Response?
@@ -144,30 +168,6 @@ private constructor() {
     @JsName("match")
     fun matchAsync(
         request: Request,
-        options: CacheQueryOptions = definedExternally,
-    ): Promise<Response?>
-
-    @JsAsync
-    suspend fun match(
-        request: String,
-        options: CacheQueryOptions = definedExternally,
-    ): Response?
-
-    @JsName("match")
-    fun matchAsync(
-        request: String,
-        options: CacheQueryOptions = definedExternally,
-    ): Promise<Response?>
-
-    @JsAsync
-    suspend fun match(
-        request: URL,
-        options: CacheQueryOptions = definedExternally,
-    ): Response?
-
-    @JsName("match")
-    fun matchAsync(
-        request: URL,
         options: CacheQueryOptions = definedExternally,
     ): Promise<Response?>
 
@@ -215,6 +215,30 @@ private constructor() {
      */
     @JsAsync
     suspend fun put(
+        url: String,
+        response: Response,
+    )
+
+    @JsName("put")
+    fun putAsync(
+        url: String,
+        response: Response,
+    ): Promise<Void>
+
+    @JsAsync
+    suspend fun put(
+        url: URL,
+        response: Response,
+    )
+
+    @JsName("put")
+    fun putAsync(
+        url: URL,
+        response: Response,
+    ): Promise<Void>
+
+    @JsAsync
+    suspend fun put(
         request: Request,
         response: Response,
     )
@@ -222,30 +246,6 @@ private constructor() {
     @JsName("put")
     fun putAsync(
         request: Request,
-        response: Response,
-    ): Promise<Void>
-
-    @JsAsync
-    suspend fun put(
-        request: String,
-        response: Response,
-    )
-
-    @JsName("put")
-    fun putAsync(
-        request: String,
-        response: Response,
-    ): Promise<Void>
-
-    @JsAsync
-    suspend fun put(
-        request: URL,
-        response: Response,
-    )
-
-    @JsName("put")
-    fun putAsync(
-        request: URL,
         response: Response,
     ): Promise<Void>
 }
