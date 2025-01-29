@@ -49,10 +49,10 @@ private constructor() {
     fun addAllAsync(requests: ReadonlyArray<Request>): Promise<Void>
 
     @JsAsync
-    suspend fun addAll(requests: ReadonlyArray<String>)
+    suspend fun addAll(urls: ReadonlyArray<String>)
 
     @JsName("addAll")
-    fun addAllAsync(requests: ReadonlyArray<String>): Promise<Void>
+    fun addAllAsync(urls: ReadonlyArray<String>): Promise<Void>
 
     /**
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Cache/delete)
@@ -98,37 +98,37 @@ private constructor() {
      */
     @JsAsync
     suspend fun keys(
-        request: Request = definedExternally,
+        url: String = definedExternally,
         options: CacheQueryOptions = definedExternally,
     ): ReadonlyArray<Request>
 
     @JsName("keys")
     fun keysAsync(
-        request: Request = definedExternally,
+        url: String = definedExternally,
         options: CacheQueryOptions = definedExternally,
     ): Promise<ReadonlyArray<Request>>
 
     @JsAsync
     suspend fun keys(
-        request: String,
+        url: URL,
         options: CacheQueryOptions = definedExternally,
     ): ReadonlyArray<Request>
 
     @JsName("keys")
     fun keysAsync(
-        request: String,
+        url: URL,
         options: CacheQueryOptions = definedExternally,
     ): Promise<ReadonlyArray<Request>>
 
     @JsAsync
     suspend fun keys(
-        request: URL,
+        request: Request,
         options: CacheQueryOptions = definedExternally,
     ): ReadonlyArray<Request>
 
     @JsName("keys")
     fun keysAsync(
-        request: URL,
+        request: Request,
         options: CacheQueryOptions = definedExternally,
     ): Promise<ReadonlyArray<Request>>
 
@@ -176,37 +176,37 @@ private constructor() {
      */
     @JsAsync
     suspend fun matchAll(
-        request: Request = definedExternally,
+        url: String = definedExternally,
         options: CacheQueryOptions = definedExternally,
     ): ReadonlyArray<Response>
 
     @JsName("matchAll")
     fun matchAllAsync(
-        request: Request = definedExternally,
+        url: String = definedExternally,
         options: CacheQueryOptions = definedExternally,
     ): Promise<ReadonlyArray<Response>>
 
     @JsAsync
     suspend fun matchAll(
-        request: String,
+        url: URL,
         options: CacheQueryOptions = definedExternally,
     ): ReadonlyArray<Response>
 
     @JsName("matchAll")
     fun matchAllAsync(
-        request: String,
+        url: URL,
         options: CacheQueryOptions = definedExternally,
     ): Promise<ReadonlyArray<Response>>
 
     @JsAsync
     suspend fun matchAll(
-        request: URL,
+        request: Request,
         options: CacheQueryOptions = definedExternally,
     ): ReadonlyArray<Response>
 
     @JsName("matchAll")
     fun matchAllAsync(
-        request: URL,
+        request: Request,
         options: CacheQueryOptions = definedExternally,
     ): Promise<ReadonlyArray<Response>>
 
