@@ -1563,13 +1563,15 @@ private fun withPropertyParametersSupport(
     name: String,
     body: String,
 ): String {
-    val parametersSource = body
-        .substringAfter("$name (", "")
-        .substringBefore(")", "")
-        .trim()
-
-    if (parametersSource.isEmpty())
-        return body
+    val parametersSource = sequenceOf("", " ")
+        .map { suffix ->
+            body.substringAfter("$name$suffix(", "")
+                .substringBefore(")", "")
+                .trim()
+        }
+        .filter { it.isNotEmpty() }
+        .firstOrNull()
+        ?: return body
 
     val parameters = parametersSource
         .removeSuffix(",")
