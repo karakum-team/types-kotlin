@@ -68,6 +68,7 @@ fun toDeclarations(
             """
             type QueryPersister<T = unknown, TQueryKey extends QueryKey = QueryKey, TPageParam = never> = [TPageParam] extends [never] ? (queryFn: QueryFunction<T, TQueryKey, never>, context: QueryFunctionContext<TQueryKey>, query: Query) => T | Promise<T> : (queryFn: QueryFunction<T, TQueryKey, TPageParam>, context: QueryFunctionContext<TQueryKey>, query: Query) => T | Promise<T>;
             type QueryFunctionContext<TQueryKey extends QueryKey = QueryKey, TPageParam = never> = [TPageParam] extends [never] ? {
+                client: QueryClient;
                 queryKey: TQueryKey;
                 signal: AbortSignal;
                 meta: QueryMeta | undefined;
@@ -78,6 +79,7 @@ fun toDeclarations(
                  */
                 direction?: unknown;
             } : {
+                client: QueryClient;
                 queryKey: TQueryKey;
                 signal: AbortSignal;
                 pageParam: TPageParam;
@@ -92,10 +94,10 @@ fun toDeclarations(
             """
             type QueryPersister<T = unknown, TQueryKey extends QueryKey = QueryKey, TPageParam> = (queryFn: QueryFunction<T, TQueryKey, TPageParam>, context: QueryFunctionContext<TQueryKey>, query: Query) => T | Promise<T>;
             interface QueryFunctionContext<TQueryKey extends QueryKey = QueryKey, TPageParam> {
+                client: QueryClient;
                 queryKey: TQueryKey;
                 signal: AbortSignal;
                 pageParam: TPageParam | undefined;
-                direction: FetchDirection | undefined;
                 meta: QueryMeta | undefined;
             }
             """.trimIndent(),
