@@ -1818,6 +1818,8 @@ internal fun convertMember(
         val currentTarget = source
             .substringAfter("(this: ", "")
             .substringBefore(", ", "")
+            .takeIf { it != "T" }
+            ?: "MessageEventTarget"
 
         val target = EventDataRegistry.getTarget(
             currentTarget = currentTarget,
