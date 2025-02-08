@@ -11,7 +11,21 @@ dependencies {
     jsMainImplementation(kotlinWrappers.reactCore)
 }
 
-val syncWithWrappers by tasks.registering(SyncWrappers::class) {
-    from(generatedDir)
+val syncCoreWrappers by tasks.registering(SyncWrappers::class) {
+    from(generatedDir) {
+        include("tanstack/virtual/")
+    }
     into(kotlinWrappersDir("kotlin-tanstack-virtual-core"))
+}
+
+val syncReactWrappers by tasks.registering(SyncWrappers::class) {
+    from(generatedDir) {
+        include("tanstack/react/")
+    }
+    into(kotlinWrappersDir("kotlin-tanstack-react-virtual"))
+}
+
+val syncWithWrappers by tasks.registering {
+    dependsOn(syncCoreWrappers)
+    dependsOn(syncReactWrappers)
 }
