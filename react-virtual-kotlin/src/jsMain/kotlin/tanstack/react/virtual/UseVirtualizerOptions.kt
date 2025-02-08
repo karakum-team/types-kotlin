@@ -14,8 +14,6 @@ external interface UseVirtualizerOptions<TScrollElement : EventTarget, TItemElem
     val count: Int
     val getScrollElement: () -> TScrollElement?
     val estimateSize: (index: Int) -> Int
-    val scrollToFn: (offset: Int, options: ScrollOptions, instance: Virtualizer<TScrollElement, TItemElement>) -> Unit
-    val observeElementOffset: (instance: Virtualizer<TScrollElement, TItemElement>, cb: ObserveOffsetCallBack) -> (() -> Unit)?
     val debug: Boolean?
     val initialRect: Rect?
     val onChange: ((instance: Virtualizer<TScrollElement, TItemElement>, sync: Boolean) -> Unit)?

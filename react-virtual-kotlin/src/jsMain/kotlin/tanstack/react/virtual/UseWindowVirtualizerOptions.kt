@@ -13,8 +13,6 @@ import web.window.Window
 external interface UseWindowVirtualizerOptions<TItemElement : Element> {
     val count: Int
     val estimateSize: (index: Int) -> Int
-    val scrollToFn: (offset: Int, options: ScrollOptions, instance: Virtualizer<Window, TItemElement>) -> Unit
-    val observeElementOffset: (instance: Virtualizer<Window, TItemElement>, cb: ObserveOffsetCallBack) -> (() -> Unit)?
     val debug: Boolean?
     val initialRect: Rect?
     val onChange: ((instance: Virtualizer<Window, TItemElement>, sync: Boolean) -> Unit)?
