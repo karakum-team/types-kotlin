@@ -183,9 +183,13 @@ private fun convertInterface(
         .replace(" : Element | Window", " : EventTarget /* Element | Window */")
         .replace(" = unknown", "")
     val name = declaration.substringBefore("<")
-
-    val body = "{\n" + convertMembers(source.substringAfter(" {")) + "\n}\n"
-    return ConversionResult(name, "external interface $declaration$body")
+    var body = "external interface $declaration {\n" +
+            convertMembers(source.substringAfter(" {")) +
+            "\n}\n"
+    if (name != "Virtualizer") {
+        body = "@JsPlainObject\n" + body.replace("var ", "val ")
+    }
+    return ConversionResult(name, body)
 }
 
 private fun convertMembers(
