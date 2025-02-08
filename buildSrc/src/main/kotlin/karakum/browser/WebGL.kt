@@ -49,6 +49,7 @@ internal fun webglDeclarations(
     return merge(interfaces + classes)
         .plus(extension)
         .plus(Lists())
+        .plus(webglConstantDeclarations())
         .plus(GLNumbers())
 }
 
