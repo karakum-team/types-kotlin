@@ -3,9 +3,9 @@ package karakum.virtual
 import karakum.common.ConversionResult
 
 private val EXCLUDED_PROPERTIES = setOf(
-    "scrollOffset",
-    "onScrollUpdate",
     "observeElementRect",
+    "observeElementOffset",
+    "scrollToFn",
 )
 
 private val WINDOW_EXCLUDED_PROPERTIES =
