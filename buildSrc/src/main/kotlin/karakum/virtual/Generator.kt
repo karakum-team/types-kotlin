@@ -27,7 +27,10 @@ fun generateKotlinDeclarations(
     coreDefinitionsFile: File,
     sourceDir: File,
 ) {
-    val targetDir = sourceDir.resolve("tanstack/virtual/core")
+    val coreTargetDir = sourceDir.resolve("tanstack/virtual/core")
+        .also { it.mkdirs() }
+
+    val reactTargetDir = sourceDir.resolve("tanstack/react/virtual")
         .also { it.mkdirs() }
 
     for ((name, body) in convertDefinitions(coreDefinitionsFile)) {
@@ -38,8 +41,15 @@ fun generateKotlinDeclarations(
             else -> ""
         }
 
-        targetDir.resolve("${name}.kt")
+        coreTargetDir.resolve("${name}.kt")
             .writeCode(fileContent(Package.VIRTUAL_CORE, annotations, body))
+
+        if (name == "VirtualizerOptions") {
+            for (result in reactVirtualOptions(body)) {
+                reactTargetDir.resolve("${result.name}.kt")
+                    .writeCode(fileContent(Package.REACT_VIRTUAL, "", result.body))
+            }
+        }
     }
 }
 
