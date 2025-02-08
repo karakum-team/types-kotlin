@@ -26,8 +26,8 @@ private val PKG_MAP = mapOf(
     "EndingType" to "web.blob",
 
     "InsertPosition" to "web.dom",
-    "MutationRecordType" to "web.dom.observers",
-    "ResizeObserverBoxOptions" to "web.dom.observers",
+    "MutationRecordType" to "web.mutation",
+    "ResizeObserverBoxOptions" to "web.resize",
 
     "AutoFillAddressKind" to "web.autofill",
     "AutoFillBase" to "web.autofill",
@@ -43,7 +43,7 @@ private val PKG_MAP = mapOf(
     "ShadowRootMode" to "web.components",
     "SlotAssignmentMode" to "web.components",
     "TouchType" to "web.uievents",
-    "DOMParserSupportedType" to "web.dom.parsing",
+    "DOMParserSupportedType" to "web.parsing",
 
     "WriteCommandType" to "web.fs",
 

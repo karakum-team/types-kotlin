@@ -51,9 +51,9 @@ private fun convertFunctionType(
         name == "VideoFrameOutputCallback" -> "web.codecs"
         name == "WebCodecsErrorCallback" -> "web.codecs"
 
-        name.startsWith("IntersectionObserver") -> "web.dom.observers"
-        name == "MutationCallback" -> "web.dom.observers"
-        name.startsWith("ResizeObserver") -> "web.dom.observers"
+        name.startsWith("IntersectionObserver") -> "web.intersection"
+        name == "MutationCallback" -> "web.mutation"
+        name.startsWith("ResizeObserver") -> "web.resize"
 
         name == "ViewTransitionUpdateCallback" -> "web.viewtransition"
 

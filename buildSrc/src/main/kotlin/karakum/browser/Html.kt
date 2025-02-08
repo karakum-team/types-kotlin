@@ -181,7 +181,7 @@ internal val DOM_GEOMETRY_TYPES = listOf(
     "DOMQuadInit",
 )
 
-private val DOM_PARSING_TYPES = listOf(
+private val PARSING_TYPES = listOf(
     "DOMParser",
     "XMLSerializer",
 )
@@ -1386,7 +1386,7 @@ internal fun convertInterface(
         name == "RemotePlayback" -> "web.remoteplayback"
 
         name.startsWith("Touch") -> "web.uievents"
-        name in DOM_PARSING_TYPES -> "web.dom.parsing"
+        name in PARSING_TYPES -> "web.parsing"
         name.startsWith("SVG") -> "web.svg"
         name.startsWith("MathML") -> "web.mathml"
 
@@ -1494,10 +1494,10 @@ internal fun convertInterface(
         name == "NavigationPreloadManager" -> "web.serviceworker"
         name == "RegistrationOptions" -> "web.serviceworker"
 
-        name.startsWith("IntersectionObserver") -> "web.dom.observers"
-        name.startsWith("MutationObserver") -> "web.dom.observers"
-        name == "MutationRecord" -> "web.dom.observers"
-        name.startsWith("ResizeObserver") -> "web.dom.observers"
+        name.startsWith("IntersectionObserver") -> "web.intersection"
+        name.startsWith("MutationObserver") -> "web.mutation"
+        name == "MutationRecord" -> "web.mutation"
+        name.startsWith("ResizeObserver") -> "web.resize"
 
         name.startsWith("TextEncode") -> "web.encoding"
         name.startsWith("TextDecode") -> "web.encoding"
