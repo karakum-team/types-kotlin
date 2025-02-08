@@ -228,6 +228,10 @@ private fun convertFunction(
                 pname == "extensionName" && ptype.startsWith("\"")
                     -> "WebGLExtension." + ptype.removeSurrounding("\"")
 
+                // WA for IDL problem
+                pname == "internalformat" && ptype == "GLint"
+                    -> "GLenum"
+
                 ptype == "string"
                     -> "String"
 
