@@ -1,7 +1,6 @@
 package karakum.browser
 
 private val TYPES = listOf(
-    "GLbitfield" to "Number",
     "GLboolean" to "Boolean",
     "GLclampf" to "Number",
     "GLfloat" to "Number",
@@ -25,5 +24,9 @@ internal fun GLNumbers(): Sequence<ConversionResult> =
         ConversionResult(
             name = "GLenum",
             body = "sealed external interface GLenum",
+        ),
+        ConversionResult(
+            name = "GLbitfield",
+            body = "sealed external interface GLbitfield:\nBitmask<GLbitfield>",
         ),
     )

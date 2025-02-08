@@ -37,11 +37,11 @@ internal fun webglConstantDeclarations(): List<ConversionResult> {
         .drop(1)
         .map(::parseConstantGroup)
         .forEach {
-            println("-----------")
+            // println("-----------")
             println(it.name)
             println("Flag: ${it.isFlag}")
-            println(it.constants.joinToString("\n") { (name, value, description) -> "$name[$value] - $description" })
-            println("-----------")
+            // println(it.constants.joinToString("\n") { (name, value, description) -> "$name[$value] - $description" })
+            // println("-----------")
         }
 
     return emptyList()
