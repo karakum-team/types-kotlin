@@ -145,6 +145,7 @@ private fun convertCompanion(
 
     val body = if (memberSource.isNotEmpty()) {
         var companionMembers = memberSource.replace("readonly ", "val ")
+            .replace(Regex("""_BIT: 0x\S+"""), "_BIT: GLbitfield")
             .replace(Regex(""": 0x\S+"""), ": GLenum")
             .replace(Regex(""": \-?\d"""), ": GLenum")
 
