@@ -17,7 +17,7 @@ private val DEFAULT_IMPORTS = listOf(
     "web.window.Window",
     "web.events.EventTarget",
     "web.scroll.ScrollBehavior",
-    "web.dom.observers.ResizeObserverEntry",
+    "web.resize.ResizeObserverEntry",
 
     "seskar.js.JsRawValue",
     "seskar.js.JsValue",
