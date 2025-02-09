@@ -70,6 +70,7 @@ internal val EVENT_DATA = listOf(
     EventInfo("web.gpu.GPUUncapturedErrorEvent"),
     EventInfo("web.viewtransition.PageRevealEvent"),
     EventInfo("web.viewtransition.PageSwapEvent"),
+    EventInfo("web.cookie.CookieChangeEvent"),
 )
 
 internal val WEB_WORKER_EVENT_DATA = listOf(

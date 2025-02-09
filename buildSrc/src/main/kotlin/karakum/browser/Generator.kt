@@ -90,6 +90,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.components.ShadowRoot",
     "web.components.ShadowRootInit",
     "web.components.Slottable",
+    "web.cookie.CookieStore",
     "web.crypto.Algorithm",
     "web.cssom.CSSStyleDeclaration",
     "web.cssom.CSSStyleSheet",

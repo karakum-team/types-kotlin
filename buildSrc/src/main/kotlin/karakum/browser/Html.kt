@@ -1416,6 +1416,7 @@ internal fun convertInterface(
         name.startsWith("Blob") -> "web.blob"
 
         name.startsWith("File") -> "web.file"
+        name.startsWith("Cookie") -> "web.cookie"
         name.startsWith("Gamepad") -> "web.gamepad"
 
         name.startsWith("Geolocation") -> "web.geolocation"

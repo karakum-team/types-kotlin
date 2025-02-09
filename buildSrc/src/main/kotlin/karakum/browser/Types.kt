@@ -44,6 +44,7 @@ private val PKG_MAP = mapOf(
     "SlotAssignmentMode" to "web.components",
     "TouchType" to "web.uievents",
     "DOMParserSupportedType" to "web.parsing",
+    "CookieSameSite" to "web.cookie",
 
     "WriteCommandType" to "web.fs",
 
@@ -290,6 +291,7 @@ private fun convertType(
             "VibratePattern" -> "web.vibration"
 
             "ClipboardItems" -> "web.clipboard"
+            "CookieList" -> "web.cookie"
 
             "FileSystemWriteChunkType" -> "web.fs"
 
@@ -354,13 +356,10 @@ private fun convertType(
                 -> "String /* $bodySource */"
 
             bodySource == "ClipboardItem[]"
-                -> "ReadonlyArray<ClipboardItem>"
-
-            bodySource == "PerformanceEntry[]"
-                -> "ReadonlyArray<PerformanceEntry>"
-
-            bodySource == "Report[]"
-                -> "ReadonlyArray<Report>"
+                    || bodySource == "CookieListItem[]"
+                    || bodySource == "PerformanceEntry[]"
+                    || bodySource == "Report[]"
+                -> "ReadonlyArray<${bodySource.removeSuffix("[]")}>"
 
             name == "VibratePattern" && bodySource == "number | number[]"
                 -> "ReadonlyArray<Int> /* | Int */"
