@@ -142,6 +142,10 @@ fun toDeclarations(
             "QueryObserver<unknown, Error, unknown, unknown, readonly unknown[]>[]",
             "QueryObserver<unknown, Error, unknown, unknown, QueryKey>[]"
         )
+        .replace(
+            "function defaultshouldRedactErrors(_: unknown): boolean;",
+            "function defaultShouldRedactErrors(error: unknown): boolean;",
+        )
 
     content = when (definitionFile.name) {
         "focusManager.d.ts" -> content.replace("SetupFn", "FocusManagerSetupFn")
