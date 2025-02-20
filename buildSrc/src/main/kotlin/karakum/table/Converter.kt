@@ -76,7 +76,7 @@ private fun convertDefinition(
     val source = value
         .replace(
             "interface TableMeta<TData extends RowData> {\n}",
-            "type TableMeta = Record<String, Any>"
+            "type TableMeta = Record<PropertyKey, Any>"
         )
 
     val type = source.substringBefore(" ")
