@@ -41,6 +41,8 @@ private val EXCLUDED_ITEMS = setOf(
 
     "getMemoOptions",
     "_getVisibleLeafColumns",
+
+    "TableMeta",
 )
 
 internal fun convertDefinitions(

@@ -13,6 +13,7 @@ private val DEFAULT_IMPORTS = listOf(
     "js.collections.JsMap",
     "js.core.Void",
     "js.objects.ReadonlyRecord",
+    "js.objects.Record",
     "js.reflect.unsafeCast",
     "js.symbol.Symbol",
 

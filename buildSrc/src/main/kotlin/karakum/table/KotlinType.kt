@@ -1,12 +1,8 @@
 package karakum.table
 
-internal const val DYNAMIC = "dynamic"
 internal const val UNIT = "Unit"
 
 internal const val STRING = "String"
-
-internal const val INT = "Int"
-internal const val DOUBLE = "Double"
 
 private val STANDARD_TYPE_MAP = mapOf(
     "any" to "Any",
@@ -74,7 +70,9 @@ private val STANDARD_TYPE_MAP = mapOf(
     "CellContext<TData, TValue>['getValue']" to "Getter<TValue> /* CellContext<TData, TValue>['getValue'] */",
     "CellContext<TData, TValue>['renderValue']" to "Getter<TValue?> /* CellContext<TData, TValue>['renderValue'] */",
 
-    "ColumnDefTemplate<ReturnType<Cell<TData, TValue>['getContext']>>" to "ColumnDefTemplate<CellContext<TData, TValue>>"
+    "ColumnDefTemplate<ReturnType<Cell<TData, TValue>['getContext']>>" to "ColumnDefTemplate<CellContext<TData, TValue>>",
+
+    "TableMeta<TData>" to "Record<String, Any>",
 )
 
 internal fun kotlinType(
