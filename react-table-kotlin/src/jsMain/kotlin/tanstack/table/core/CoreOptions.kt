@@ -3,7 +3,7 @@
 package tanstack.table.core
 
 import js.array.ReadonlyArray
-import js.objects.Record
+import js.objects.ReadonlyRecord
 
 external interface CoreOptions<TData : RowData> {
     /**
@@ -126,7 +126,7 @@ external interface CoreOptions<TData : RowData> {
      * [API Docs](https://tanstack.com/table/v8/docs/api/core/table#meta)
      * [Guide](https://tanstack.com/table/v8/docs/guide/tables)
      */
-    var meta: Record<String, Any>?
+    var meta: ReadonlyRecord<String, Any>?
 
     /**
      * The `onStateChange` option can be used to optionally listen to state changes within the table.
