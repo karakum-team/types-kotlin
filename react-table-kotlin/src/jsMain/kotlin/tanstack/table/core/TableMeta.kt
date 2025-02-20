@@ -2,6 +2,7 @@
 
 package tanstack.table.core
 
+import js.objects.PropertyKey
 import js.objects.ReadonlyRecord
 
-typealias TableMeta = ReadonlyRecord<String, Any>
+typealias TableMeta = ReadonlyRecord<PropertyKey, Any>
