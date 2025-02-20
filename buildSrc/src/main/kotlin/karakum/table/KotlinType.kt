@@ -72,7 +72,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "ColumnDefTemplate<ReturnType<Cell<TData, TValue>['getContext']>>" to "ColumnDefTemplate<CellContext<TData, TValue>>",
 
-    "TableMeta<TData>" to "Record<String, Any>",
+    "TableMeta<TData>" to "ReadonlyRecord<String, Any>",
 )
 
 internal fun kotlinType(
