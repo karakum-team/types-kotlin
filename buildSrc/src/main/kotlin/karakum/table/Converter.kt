@@ -41,8 +41,6 @@ private val EXCLUDED_ITEMS = setOf(
 
     "getMemoOptions",
     "_getVisibleLeafColumns",
-
-    "TableMeta",
 )
 
 internal fun convertDefinitions(
@@ -73,8 +71,14 @@ private fun Sequence<String>.plusColumnOrderPosition(): Sequence<String> =
     }
 
 private fun convertDefinition(
-    source: String,
+    value: String,
 ): ConversionResult {
+    val source = value
+        .replace(
+            "interface TableMeta<TData extends RowData> {\n}",
+            "type TableMeta = Record<String, Any>"
+        )
+
     val type = source.substringBefore(" ")
     val body = source.substringAfter(" ")
 
