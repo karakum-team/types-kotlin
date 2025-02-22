@@ -3,10 +3,12 @@ package karakum.actions
 import karakum.common.*
 
 private val EXCLUDED_NAMES = setOf(
+    "getDetails",
     "getCacheEntry",
     "reserveCache",
     "retryTypedResponse",
 
+    "internalCacheTwirpClient",
     "internalArtifactTwirpClient",
 ).flatMap { sequenceOf(it, "${it}Async") }
 

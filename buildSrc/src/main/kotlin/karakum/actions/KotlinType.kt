@@ -20,6 +20,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "typeof fetch" to "Any /* typeof fetch */",
     "typeof http | typeof https" to "Any /* typeof http | typeof https */",
 
+    "NodeJS.Platform" to "node.process.Platform",
     "NodeJS.ReadableStream" to "node.ReadableStream",
 
     "Promise<void>" to "Promise<Void>",
@@ -37,6 +38,7 @@ private val STANDARD_TYPE_MAP = mapOf(
     "Timestamp" to "$JSO /* Timestamp */",
     "OctokitPlugin" to "Function<Any> /* OctokitPlugin */",
     "OctokitOptions" to "$JSO /* OctokitOptions */",
+    "BlobUploadCommonResponse" to "$JSO /* BlobUploadCommonResponse */",
     "InstanceType<typeof GitHub>" to "dynamic /* InstanceType<typeof GitHub> */",
     "[RetryOptions, RequestRequestOptions | undefined]" to "JsTuple2<RetryOptions, $JSO? /* RequestRequestOptions? */>",
 )
