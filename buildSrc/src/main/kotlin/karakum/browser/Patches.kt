@@ -238,6 +238,20 @@ internal fun String.applyPatches(): String {
         .patchInterface("SVGAnimatedEnumeration") {
             it.replace("Val: number;", "Val: T;")
         }
+        .replace(
+            """    texParameterf(target: GLenum, pname: GLenum, param: GLfloat): void;""",
+            sequenceOf(
+                """    texParameterf(target: GLenum, pname: GLenum, param: GLenum): void;""",
+                """    texParameterf(target: GLenum, pname: GLenum, param: GLfloat): void;""",
+            ).joinToString("\n")
+        )
+        .replace(
+            """    texParameteri(target: GLenum, pname: GLenum, param: GLint): void;""",
+            sequenceOf(
+                """    texParameteri(target: GLenum, pname: GLenum, param: GLenum): void;""",
+                """    texParameteri(target: GLenum, pname: GLenum, param: GLint): void;""",
+            ).joinToString("\n")
+        )
         .replace(" MessageEventTarget<MessagePort>", " MessageEventTarget")
         .replace(" MessageEventTarget<Worker>", " MessageEventTarget")
         .replace(" MessageEventTarget<T>", " MessageEventTarget")
