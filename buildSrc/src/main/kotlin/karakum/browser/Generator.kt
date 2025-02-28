@@ -47,6 +47,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.objects.jso",
     "js.promise.Promise",
     "js.promise.PromiseLike",
+    "js.reflect.JsExternalInheritorsOnly",
     "js.reflect.unsafeCast",
     "js.temporal.Instant",
     "js.transferable.Transferable",
