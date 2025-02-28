@@ -109,6 +109,7 @@ internal fun String.applyPatches(): String {
         .splitUnion("string | WorkerOptions")
         .splitUnion("string | ElementCreationOptions")
         .splitUnion("HTMLOptionElement | HTMLOptGroupElement")
+        .splitUnion("ViewTransitionUpdateCallback | StartViewTransitionOptions")
         .splitUnion("HTMLElement | number")
         .splitUnion("string[][] | Record<string, string> | string | URLSearchParams")
         .splitTypealias("BinaryData")

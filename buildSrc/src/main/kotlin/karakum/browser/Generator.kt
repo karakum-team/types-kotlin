@@ -235,6 +235,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.vibration.VibratePattern",
     "web.viewtransition.PageRevealEvent",
     "web.viewtransition.PageSwapEvent",
+    "web.viewtransition.StartViewTransitionOptions",
     "web.viewtransition.ViewTransition",
     "web.viewtransition.ViewTransitionUpdateCallback",
     "web.vtt.TextTrack",

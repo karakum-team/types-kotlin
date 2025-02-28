@@ -141,6 +141,7 @@ private val CSSOM_TYPES = listOf(
 private val VIEW_TRANSITION_TYPES = listOf(
     "ViewTransition",
     "ViewTransitionTypeSet",
+    "StartViewTransitionOptions",
 )
 
 private val NAVIGATION_TYPES = listOf(
@@ -227,6 +228,14 @@ private val MEDIA_STREAM_TYPES = listOf(
 
     "DoubleRange",
     "ULongRange",
+)
+
+private val IMAGE_CAPTURE_TYPES = listOf(
+    "ImageCapture",
+
+    "MediaSettingsRange",
+    "PhotoCapabilities",
+    "PhotoSettings",
 )
 
 private val MEDIA_SESSION_TYPES = listOf(
@@ -1484,6 +1493,8 @@ internal fun convertInterface(
         name in MEDIA_SESSION_TYPES -> "web.media.session"
 
         name in MEDIA_SOURCE_TYPES -> "web.media.source"
+
+        name in IMAGE_CAPTURE_TYPES -> "web.imagecapture"
 
         name in WORKLETS_TYPES -> "web.worklets"
         name in WORKERS_TYPES -> "web.workers"

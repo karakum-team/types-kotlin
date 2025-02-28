@@ -62,6 +62,9 @@ private val PKG_MAP = mapOf(
     "EndOfStreamError" to "web.media.source",
     "ReadyState" to "web.media.source",
 
+    "FillLightMode" to "web.imagecapture",
+    "RedEyeReduction" to "web.imagecapture",
+
     "RemotePlaybackState" to "web.remoteplayback",
     "ClientTypes" to "web.serviceworker",
 
