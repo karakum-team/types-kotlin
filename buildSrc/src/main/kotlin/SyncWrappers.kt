@@ -8,12 +8,23 @@ open class SyncWrappers : Sync() {
     val generatedDir: Directory
         get() = project.layout.projectDirectory.dir("src/jsMain/kotlin")
 
+    fun kotlinWrappersCommonDir(
+        projectName: String,
+    ): File =
+        dir(projectName, "commonMain")
+
     fun kotlinWrappersDir(
         projectName: String,
+    ): File =
+        dir(projectName, "jsMain")
+
+    private fun dir(
+        projectName: String,
+        sourceSet: String,
     ): File =
         project.rootProject.layout.projectDirectory
             .dir("../kotlin-wrappers")
             .dir(projectName)
-            .dir("src/jsMain/generated")
+            .dir("src/$sourceSet/generated")
             .asFile
 }
