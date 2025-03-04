@@ -39,11 +39,11 @@ fun toDeclarations(
             "MutationObserverOptions<TData, TError, TVariables, TContext>"
         )
         .replace(
-            "getQueryData<TQueryFnData = unknown, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = TTaggedQueryKey extends DataTag<unknown, infer TaggedValue, unknown> ? TaggedValue : TQueryFnData>(queryKey: TTaggedQueryKey): TInferredQueryFnData | undefined;",
+            "getQueryData<TQueryFnData = unknown, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = InferDataFromTag<TQueryFnData, TTaggedQueryKey>>(queryKey: TTaggedQueryKey): TInferredQueryFnData | undefined;",
             "getQueryData<TQueryFnData>(queryKey: QueryKey): TQueryFnData | undefined;",
         )
         .replace(
-            "setQueryData<TQueryFnData = unknown, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = TTaggedQueryKey extends DataTag<unknown, infer TaggedValue, unknown> ? TaggedValue : TQueryFnData>(queryKey: TTaggedQueryKey, updater: Updater<NoInfer<TInferredQueryFnData> | undefined, NoInfer<TInferredQueryFnData> | undefined>, options?: SetDataOptions): TInferredQueryFnData | undefined;",
+            "setQueryData<TQueryFnData = unknown, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = InferDataFromTag<TQueryFnData, TTaggedQueryKey>>(queryKey: TTaggedQueryKey, updater: Updater<NoInfer<TInferredQueryFnData> | undefined, NoInfer<TInferredQueryFnData> | undefined>, options?: SetDataOptions): TInferredQueryFnData | undefined;",
             "setQueryData<TQueryFnData>(queryKey: QueryKey, updater: Updater<TQueryFnData | undefined, TQueryFnData | undefined>, options?: SetDataOptions): TQueryFnData | undefined;",
         )
         .replace(
@@ -55,8 +55,28 @@ fun toDeclarations(
             "getQueriesData<TQueryFnData, TQueryFilters extends QueryFilters<*, *, *, *>>(filters: TQueryFilters): ReadonlyArray<JsTuple2<QueryKey, TQueryFnData?>>;",
         )
         .replace(
-            "getQueryState<TQueryFnData = unknown, TError = DefaultError, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = TTaggedQueryKey extends DataTag<unknown, infer TaggedValue, unknown> ? TaggedValue : TQueryFnData, TInferredError = TTaggedQueryKey extends DataTag<unknown, unknown, infer TaggedError> ? TaggedError extends UnsetMarker ? TError : TaggedError : TError>(queryKey: TTaggedQueryKey): QueryState<TInferredQueryFnData, TInferredError> | undefined;",
+            "getQueryState<TQueryFnData = unknown, TError = DefaultError, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = InferDataFromTag<TQueryFnData, TTaggedQueryKey>, TInferredError = InferErrorFromTag<TError, TTaggedQueryKey>>(queryKey: TTaggedQueryKey): QueryState<TInferredQueryFnData, TInferredError> | undefined;",
             "getQueryState<TQueryFnData, TError>(queryKey: QueryKey): QueryState<TQueryFnData, TError> | undefined;",
+        )
+        .replace(
+            "removeQueries<TQueryFnData = unknown, TError = DefaultError, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = InferDataFromTag<TQueryFnData, TTaggedQueryKey>, TInferredError = InferErrorFromTag<TError, TTaggedQueryKey>>(filters?: QueryFilters<TInferredQueryFnData, TInferredError, TInferredQueryFnData, TTaggedQueryKey>): void;",
+            "removeQueries<TQueryFilters extends QueryFilters<*, *, *, *>>(filters?: TQueryFilters): void;",
+        )
+        .replace(
+            "resetQueries<TQueryFnData = unknown, TError = DefaultError, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = InferDataFromTag<TQueryFnData, TTaggedQueryKey>, TInferredError = InferErrorFromTag<TError, TTaggedQueryKey>>(filters?: QueryFilters<TInferredQueryFnData, TInferredError, TInferredQueryFnData, TTaggedQueryKey>, options?: ResetOptions): Promise<void>;",
+            "resetQueries<TQueryFilters extends QueryFilters<*, *, *, *>>(filters?: TQueryFilters, options?: ResetOptions): Promise<void>;",
+        )
+        .replace(
+            "cancelQueries<TQueryFnData = unknown, TError = DefaultError, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = InferDataFromTag<TQueryFnData, TTaggedQueryKey>, TInferredError = InferErrorFromTag<TError, TTaggedQueryKey>>(filters?: QueryFilters<TInferredQueryFnData, TInferredError, TInferredQueryFnData, TTaggedQueryKey>, cancelOptions?: CancelOptions): Promise<void>;",
+            "cancelQueries<TQueryFilters extends QueryFilters<*, *, *, *>>(filters?: TQueryFilters, cancelOptions?: CancelOptions): Promise<void>;",
+        )
+        .replace(
+            "invalidateQueries<TQueryFnData = unknown, TError = DefaultError, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = InferDataFromTag<TQueryFnData, TTaggedQueryKey>, TInferredError = InferErrorFromTag<TError, TTaggedQueryKey>>(filters?: InvalidateQueryFilters<TInferredQueryFnData, TInferredError, TInferredQueryFnData, TTaggedQueryKey>, options?: InvalidateOptions): Promise<void>;",
+            "invalidateQueries<TInvalidateQueryFilters extends InvalidateQueryFilters<*, *, *, *>>(filters?: TInvalidateQueryFilters, options?: InvalidateOptions): Promise<void>;",
+        )
+        .replace(
+            "refetchQueries<TQueryFnData = unknown, TError = DefaultError, TTaggedQueryKey extends QueryKey = QueryKey, TInferredQueryFnData = InferDataFromTag<TQueryFnData, TTaggedQueryKey>, TInferredError = InferErrorFromTag<TError, TTaggedQueryKey>>(filters?: RefetchQueryFilters<TInferredQueryFnData, TInferredError, TInferredQueryFnData, TTaggedQueryKey>, options?: RefetchOptions): Promise<void>;",
+            "refetchQueries<TRefetchQueryFilters extends RefetchQueryFilters<*, *, *, *>>(filters?: TRefetchQueryFilters, options?: RefetchOptions): Promise<void>;",
         )
         .replace(
             "isMutating<TMutationFilters extends MutationFilters<any, any> = MutationFilters>(filters?: TMutationFilters): number;",

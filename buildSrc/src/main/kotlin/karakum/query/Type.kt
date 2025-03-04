@@ -16,6 +16,8 @@ private val SKIPPED_TYPES = setOf(
     "ReplaceReturnType",
     "DataTag",
     "AnyDataTag",
+    "InferDataFromTag",
+    "InferErrorFromTag",
 )
 
 class Type(
