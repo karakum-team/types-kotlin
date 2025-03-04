@@ -17,6 +17,14 @@ internal object RenderingContextRegistry {
                     type = result.groupValues[3],
                 )
             }
+            // TEMP
+            .plus(
+                RenderingContextData(
+                    id = "webgpu",
+                    options = "GPUCanvasConfiguration",
+                    type = "GPUCanvasContext",
+                )
+            )
 
         map = dataList.sortedBy { it.options.length }
             .associateBy { it.type }
