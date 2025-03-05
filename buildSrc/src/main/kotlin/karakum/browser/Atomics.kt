@@ -45,7 +45,7 @@ internal fun atomicsFunction(
         .replace("timeout?: number", "timeout: Int = definedExternally")
 
     if (TYPED_ARRAY_UNION in content) {
-        content = "<T : Comparable<T>> " +
+        content = "<T : Any> " +
                 content.replace(TYPED_ARRAY_UNION, "TypedArray<*, *, *, T>")
                     .replace("value: number", "value: T")
                     .replace("expectedValue: number", "expectedValue: T")
