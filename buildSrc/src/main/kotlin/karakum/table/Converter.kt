@@ -167,9 +167,6 @@ private fun convertFunction(
     if (name == "createRow")
         body = body.replaceFirst("<TData>", "<TData : RowData>")
 
-    if (name == "functionalUpdate")
-        body = body.replaceFirst("<T>", "<T : Any>")
-
     return ConversionResult(name, "external fun " + body)
 }
 
@@ -266,9 +263,6 @@ private fun convertTypealias(
         if (name == "StringOrTemplateHeader")
             declaration = declaration.replace("<TData,", "<TData : RowData,")
 
-        if (name == "Updater")
-            declaration = declaration.replace("<T>", "<T : Any>")
-
         val typeParameters = declaration.removePrefix(name)
         val factoryType = declaration
             .replace(": RowData", "")
@@ -292,12 +286,14 @@ private fun convertTypealias(
             }
             .joinToString("\n\n") { type ->
                 val modifier = if (type.startsWith("(") || type.startsWith("AggregationFn<")) "noinline" else ""
+                val castFn =
+                    if (typeParameters.isEmpty() || typeParameters.contains(":")) "unsafeCast" else "unsafeSpecialCast"
 
                 """
                 inline fun $typeParameters $name(
                     $modifier source: $type,
                 ): $factoryType =
-                    unsafeCast(source)
+                    $castFn(source)
                 """.trimIndent()
             }
 
