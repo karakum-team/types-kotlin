@@ -610,7 +610,7 @@ internal fun htmlDeclarations(
                 body = """
                     sealed /* final */
                     external class EventCounts
-                    private constructor():
+                    protected /* private */ constructor():
                     ReadonlyMap<EventType<*>, Int>
                 """.trimIndent(),
                 pkg = "web.performance",
@@ -1292,7 +1292,12 @@ internal fun convertInterface(
                         || name == "GPUSupportedFeatures"
                         || name == "WGSLLanguageFeatures"
                 )
-            -> "sealed /* final */\n"
+            -> {
+            declaration = declaration
+                .replace("private constructor()", "protected /* private */ constructor()")
+
+            "sealed /* final */\n"
+        }
 
         annotations.startsWith("@") ||
                 name in CSSOM_INTERFACES ||

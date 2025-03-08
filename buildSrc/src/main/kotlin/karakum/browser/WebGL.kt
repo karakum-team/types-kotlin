@@ -93,7 +93,7 @@ private fun convertInterface(
 
     if (isClass) {
         declaration = if (":" in declaration) {
-            declaration.replace(":", "\nprivate constructor():")
+            declaration.replace(":", "\nprotected /* private */ constructor():")
         } else "$declaration\nprivate constructor()"
     }
 
