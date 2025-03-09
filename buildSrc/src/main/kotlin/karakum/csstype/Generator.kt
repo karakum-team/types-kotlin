@@ -36,25 +36,26 @@ import seskar.js.JsValue
 
 fun generateKotlinDeclarations(
     definitionsFile: File,
-    sourceDir: File,
+    commonSourceDir: File,
+    jsSourceDir: File,
 ) {
     writeDeclarations(
         declarations = convertDefinitions(definitionsFile),
-        sourceDir = sourceDir,
+        getSourceDir = { if (it in CSSTYPE_TYPES) jsSourceDir else commonSourceDir },
         getPkg = { if (it in CSSTYPE_TYPES) "csstype" else "web.cssom" },
         getImports = { if (it in CSSTYPE_TYPES) CSSTYPE_IMPORTS else COMMON_IMPORTS },
     )
 
     writeDeclarations(
         declarations = mediaTypes(),
-        sourceDir = sourceDir,
+        getSourceDir = { commonSourceDir },
         getPkg = { "web.cssom.atrule" },
         getImports = { MEDIA_IMPORTS + "\n" + COMMON_IMPORTS },
     )
 
     writeDeclarations(
         declarations = sequenceOf(NonStandardPseudosRuleBuilder(), ExperimentalPseudosRuleBuilder()),
-        sourceDir = sourceDir,
+        getSourceDir = { jsSourceDir },
         getPkg = { "csstype" },
         getImports = { CSSTYPE_IMPORTS },
     )
@@ -62,7 +63,7 @@ fun generateKotlinDeclarations(
 
 private fun writeDeclarations(
     declarations: Sequence<ConversionResult>,
-    sourceDir: File,
+    getSourceDir: (name: String) -> File,
     getPkg: (name: String) -> String,
     getImports: (name: String) -> String,
 ) {
@@ -87,7 +88,7 @@ private fun writeDeclarations(
 
         val pkg = getPkg(name)
         val imports = getImports(name)
-        val targetDir = sourceDir
+        val targetDir = getSourceDir(name)
             .resolve(pkg.replace(".", "/"))
             .also { it.mkdirs() }
 
