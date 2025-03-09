@@ -29,10 +29,6 @@ val INTERNAL = setOf(
     "web/abort/internal",
 )
 
-val JS_COMMON_INCLUDE = setOf(
-    "js/transferable",
-)
-
 val JS_INCLUDE = setOf(
     "js",
 )
@@ -85,7 +81,6 @@ val BROWSER_INCLUDE = setOf(
 )
 
 enum class WrapperProject {
-    JS_COMMON,
     JS,
     WEB,
     BROWSER,
@@ -96,7 +91,6 @@ enum class WrapperProject {
 fun getWrapperProject(path: String): WrapperProject? =
     when (path) {
         in INTERNAL -> null
-        in JS_COMMON_INCLUDE -> WrapperProject.JS_COMMON
         in JS_INCLUDE -> WrapperProject.JS
         in WEB_INCLUDE -> WrapperProject.WEB
         in BROWSER_INCLUDE -> WrapperProject.BROWSER
@@ -108,7 +102,6 @@ fun isDirFromWrapperProject(
     wp: WrapperProject,
 ): Boolean {
     val included = when (wp) {
-        WrapperProject.JS_COMMON -> JS_COMMON_INCLUDE
         WrapperProject.JS -> JS_INCLUDE
         WrapperProject.WEB -> WEB_INCLUDE
         WrapperProject.BROWSER -> BROWSER_INCLUDE
@@ -135,14 +128,6 @@ fun isFromWrapperProject(wp: WrapperProject): Spec<FileTreeElement> {
     }
 }
 
-val syncKotlinJsCommon by tasks.registering(SyncWrappers::class) {
-    from(commonGeneratedDir) {
-        include(isFromWrapperProject(WrapperProject.JS_COMMON))
-    }
-
-    into(kotlinWrappersCommonDir("kotlin-js"))
-}
-
 val syncKotlinJs by tasks.registering(SyncWrappers::class) {
     from(commonGeneratedDir) {
         include(isFromWrapperProject(WrapperProject.JS))
@@ -155,7 +140,7 @@ val syncKotlinJs by tasks.registering(SyncWrappers::class) {
         }
     }
 
-    into(kotlinWrappersDir("kotlin-js"))
+    into(kotlinWrappersCommonDir("kotlin-js"))
 }
 
 val syncKotlinWeb by tasks.registering(SyncWrappers::class) {
@@ -163,7 +148,7 @@ val syncKotlinWeb by tasks.registering(SyncWrappers::class) {
         include(isFromWrapperProject(WrapperProject.WEB))
     }
 
-    into(kotlinWrappersDir("kotlin-web"))
+    into(kotlinWrappersCommonDir("kotlin-web"))
 }
 
 val syncKotlinBrowser by tasks.registering(SyncWrappers::class) {
@@ -171,13 +156,12 @@ val syncKotlinBrowser by tasks.registering(SyncWrappers::class) {
         include(isFromWrapperProject(WrapperProject.BROWSER))
     }
 
-    into(kotlinWrappersDir("kotlin-browser"))
+    into(kotlinWrappersCommonDir("kotlin-browser"))
 }
 
 val syncWithWrappers by tasks.registering {
     // TODO: enable after actualization
     /*
-    dependsOn(syncKotlinJsCommon)
     dependsOn(syncKotlinJs)
     */
     dependsOn(syncKotlinWeb)
