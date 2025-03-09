@@ -18,10 +18,10 @@ dependencies {
     jsMainImplementation(npmv("@webref/events"))
     jsMainImplementation(npmv("@webref/idl"))
 
-    jsMainImplementation(kotlinWrappers.cssomCore)
-    jsMainImplementation(kotlinWrappers.js)
+    commonMainImplementation(kotlinWrappers.cssomCore)
+    commonMainImplementation(kotlinWrappers.js)
 
-    jsMainImplementation(libs.coroutines.core)
+    commonMainImplementation(libs.coroutines.core)
 }
 
 val INTERNAL = setOf(
