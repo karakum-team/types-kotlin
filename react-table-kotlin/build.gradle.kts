@@ -12,7 +12,7 @@ dependencies {
 }
 
 val syncWithWrappers by tasks.registering(SyncWrappers::class) {
-    from(generatedDir) {
+    from(jsGeneratedDir) {
         include("tanstack/table/")
     }
     into(kotlinWrappersDir("kotlin-tanstack-table-core"))

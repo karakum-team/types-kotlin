@@ -12,6 +12,6 @@ dependencies {
 }
 
 val syncWithWrappers by tasks.registering(SyncWrappers::class) {
-    from(generatedDir)
+    from(jsGeneratedDir)
     into(kotlinWrappersDir("kotlin-react-dom"))
 }

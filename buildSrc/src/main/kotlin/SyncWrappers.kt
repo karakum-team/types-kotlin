@@ -5,7 +5,11 @@ import java.io.File
 
 open class SyncWrappers : Sync() {
     @get:Internal
-    val generatedDir: Directory
+    val commonGeneratedDir: Directory
+        get() = project.layout.projectDirectory.dir("src/commonMain/kotlin")
+
+    @get:Internal
+    val jsGeneratedDir: Directory
         get() = project.layout.projectDirectory.dir("src/jsMain/kotlin")
 
     fun kotlinWrappersCommonDir(

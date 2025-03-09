@@ -12,14 +12,14 @@ dependencies {
 }
 
 val syncCesiumEngine by tasks.registering(SyncWrappers::class) {
-    from(generatedDir) {
+    from(jsGeneratedDir) {
         include("cesium/engine/")
     }
     into(kotlinWrappersDir("kotlin-cesium-engine"))
 }
 
 val syncCesiumWidgets by tasks.registering(SyncWrappers::class) {
-    from(generatedDir) {
+    from(jsGeneratedDir) {
         include("cesium/widgets/")
     }
     into(kotlinWrappersDir("kotlin-cesium-widgets"))
