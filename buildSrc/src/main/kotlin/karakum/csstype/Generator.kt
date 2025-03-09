@@ -3,6 +3,7 @@ package karakum.csstype
 import karakum.common.*
 import karakum.common.Suppress
 import karakum.common.Suppress.DECLARATION_CANT_BE_INLINED
+import karakum.common.Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE
 import java.io.File
 
 private val CSSTYPE_TYPES = setOf(
@@ -75,6 +76,9 @@ private fun writeDeclarations(
             if ("inline fun " in body)
                 if (RULE_BUILDER in body)
                     add(DECLARATION_CANT_BE_INLINED)
+
+            if ("companion object" in body && "sealed external interface" in body)
+                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
         }.toTypedArray()
 
         val annotations = if (suppresses.isNotEmpty()) {

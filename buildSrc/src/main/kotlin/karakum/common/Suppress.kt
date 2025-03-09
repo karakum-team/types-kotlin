@@ -17,6 +17,9 @@ internal enum class Suppress {
 
     NON_ABSTRACT_MEMBER_OF_EXTERNAL_INTERFACE,
 
+    // WasmJS
+    NESTED_CLASS_IN_EXTERNAL_INTERFACE,
+
     ;
 }
 
