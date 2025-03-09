@@ -7,7 +7,8 @@ plugins {
 dependencies {
     jsMainImplementation(npmv("csstype"))
 
-    jsMainImplementation(kotlinWrappers.js)
+    commonMainImplementation(kotlinWrappers.js)
+    commonMainImplementation(libs.seskar.core)
 }
 
 val syncWithWrappers by tasks.registering(SyncWrappers::class) {

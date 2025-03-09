@@ -18,8 +18,9 @@ dependencies {
     jsMainImplementation(npmv("@webref/events"))
     jsMainImplementation(npmv("@webref/idl"))
 
-    commonMainImplementation(kotlinWrappers.cssomCore)
     commonMainImplementation(kotlinWrappers.js)
+    commonMainImplementation(kotlinWrappers.cssomCore)
+    commonMainImplementation(libs.seskar.core)
 
     commonMainImplementation(libs.coroutines.core)
 }
