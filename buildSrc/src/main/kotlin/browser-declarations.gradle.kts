@@ -4,7 +4,7 @@ plugins {
 
 tasks.named("generateDeclarations") {
     doLast {
-        val sourceDir = projectDir.resolve("src/jsMain/kotlin")
+        val sourceDir = projectDir.resolve("src/commonMain/kotlin")
 
         delete(sourceDir)
 
