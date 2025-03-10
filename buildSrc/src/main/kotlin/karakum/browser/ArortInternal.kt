@@ -3,15 +3,15 @@ package karakum.browser
 // language=kotlin
 private val AWAIT_INTERNAL_BODY: String = """
 internal fun patchAbortOptions(
-    options: Any?,
-    controller: Any,
-): Any = TODO("--placeholder--")
+    options: JsAny?,
+    controller: JsAny,
+): JsAny = TODO("--placeholder--")
 
 @Suppress("RedundantSuppressModifier")
 internal suspend fun awaitPromiseLike(
-    promise: Any?,
-    controller: Any?,
-): Any = TODO("--placeholder--")
+    promise: JsAny?,
+    controller: JsAny?,
+): JsAny = TODO("--placeholder--")
 """.trimIndent()
 
 internal fun abortInternal(): ConversionResult =

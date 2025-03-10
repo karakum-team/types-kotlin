@@ -64,6 +64,6 @@ internal object IterableRegistry {
         return result
             .replace("string", "String")
             .replace("number", "Number")
-            .replace(" any>", " Any?>")
+            .replace(" any>", " JsAny?>")
     }
 }

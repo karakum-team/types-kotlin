@@ -9,8 +9,8 @@ private val CALLBACKS = mapOf(
     "adoptedCallback" to "()",
     "attributeChangedCallback" to """(
         name: String,
-        oldValue: Any?,
-        newValue: Any?,
+        oldValue: JsAny?,
+        newValue: JsAny?,
     )""",
 )
 

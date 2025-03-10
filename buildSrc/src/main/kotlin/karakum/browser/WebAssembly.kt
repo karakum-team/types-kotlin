@@ -83,7 +83,7 @@ private fun convertValueType(
             val (name, type) = line.split(": ")
             val typeParameter = when (type) {
                 "Function" -> "Function<*>"
-                "any" -> "Any?"
+                "any" -> "JsAny?"
                 "number" -> "Number"
                 "bigint" -> "BigInt"
                 "never" -> "Void"

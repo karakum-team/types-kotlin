@@ -37,7 +37,7 @@ internal fun List<ConversionResult>.withEventInstances(
             )
 
             val eventType = when (val eventClass = data.`interface`) {
-                "MessageEvent" -> "$eventClass<Any?>"
+                "MessageEvent" -> "$eventClass<JsAny?>"
                 else -> eventClass
             }
 

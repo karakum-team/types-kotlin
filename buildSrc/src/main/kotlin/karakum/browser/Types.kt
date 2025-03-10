@@ -159,7 +159,7 @@ private val INTL_KEY_TYPES = setOf(
 )
 
 private val ALIAS_MAP = mapOf(
-    "any" to "Any",
+    "any" to "JsAny",
     "string" to "String",
     "number" to "Double",
 
@@ -371,7 +371,7 @@ private fun convertType(
                 -> "() -> Unit"
 
             " | " in bodySource || bodySource == "AlgorithmIdentifier"
-                -> "Any /* $bodySource */"
+                -> "JsAny /* $bodySource */"
 
             else -> bodySource
         }

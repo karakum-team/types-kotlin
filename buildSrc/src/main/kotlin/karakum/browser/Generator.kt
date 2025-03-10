@@ -28,6 +28,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.collections.ReadonlySetLike",
     "js.core.BigInt",
     "js.core.Bitmask",
+    "js.core.JsAny",
     "js.core.JsLong",
     "js.core.Void",
     "js.errors.JsError",

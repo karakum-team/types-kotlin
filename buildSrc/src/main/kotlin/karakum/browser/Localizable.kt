@@ -4,7 +4,7 @@ internal const val LOCALIZABLE = "Localizable"
 
 // language=kotlin
 private val LOCALIZABLE_BODY = """
-external interface Localizable<in O : Any> {
+external interface Localizable<in O : JsAny> {
     /**
      * Returns a value as a string value appropriate to the host environment's current locale.
      *

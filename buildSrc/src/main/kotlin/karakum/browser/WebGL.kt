@@ -280,7 +280,7 @@ private fun convertFunction(
         .replace(": string[]", ": ReadonlyArray<String>")
         .replace(": string", ": String")
         .replace(": boolean", ": Boolean")
-        .replace(": any", ": Any?")
+        .replace(": any", ": JsAny?")
 
     return "fun $name($params)$result"
 }

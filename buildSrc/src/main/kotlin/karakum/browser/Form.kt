@@ -24,7 +24,7 @@ private val CALLBACKS = mapOf(
     "formDisabledCallback" to "(disabled: Boolean)",
     "formResetCallback" to "()",
     "formStateRestoreCallback" to """(
-        state: Any? /* File | string | FormData */,
+        state: JsAny? /* File | string | FormData */,
         mode: $FORM_STATE_RESTORE_MODE,
     )""",
 )

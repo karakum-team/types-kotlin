@@ -89,7 +89,7 @@ private fun dateMember(
         .replace("?: UnicodeBCP47LocaleIdentifier", ": UnicodeBCP47LocaleIdentifier = definedExternally")
         .replace("?: Intl.DateTimeFormatOptions", ": DateTimeFormatOptions = definedExternally")
         .replace(": Temporal.Instant", ": Instant")
-        .replace("?: any", ": Any? = definedExternally")
+        .replace("?: any", ": JsAny? = definedExternally")
         .replace("?: number", ": Int = definedExternally")
         .replace(": number", ": Int")
         .replace(": string", ": String")

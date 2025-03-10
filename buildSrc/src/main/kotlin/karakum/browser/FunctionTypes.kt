@@ -102,7 +102,7 @@ private fun convertFunctionType(
         .replace("): number", ") -> Int")
         .replace("): void", ") -> Unit")
         .replace("): any", ") -> Unit")
-        .replace("?: any", ": Any?")
+        .replace("?: any", ": JsAny?")
         .replace(" | null", "?")
 
     if ("()" !in bodySource)

@@ -599,7 +599,7 @@ internal fun htmlDeclarations(
         .plus(
             ConversionResult(
                 RENDERING_CONTEXT_ID,
-                "sealed interface $RENDERING_CONTEXT_ID<T: Any, O: Any>",
+                "sealed interface $RENDERING_CONTEXT_ID<T: JsAny, O: JsAny>",
                 "web.rendering",
             )
         )
@@ -1792,7 +1792,7 @@ internal fun convertMember(
 
         "getContext(contextId: string, options?: any): RenderingContext | null",
             -> return """
-        fun <T : RenderingContext, O : Any> getContext(
+        fun <T : RenderingContext, O : JsAny> getContext(
             contextId: RenderingContextId<T, O>, 
             options: O? = definedExternally,
         ): T?
@@ -1800,7 +1800,7 @@ internal fun convertMember(
 
         "getContext(contextId: OffscreenRenderingContextId, options?: any): OffscreenRenderingContext | null",
             -> return """
-        fun <T : OffscreenRenderingContext, O : Any> getContext(
+        fun <T : OffscreenRenderingContext, O : JsAny> getContext(
             contextId: RenderingContextId<T, O>, 
             options: O? = definedExternally,
         ): T?
@@ -1924,7 +1924,7 @@ private fun convertProperty(
         "null" -> "Void"
         "undefined" -> "Void"
 
-        "any" -> "Any?"
+        "any" -> "JsAny?"
         "string" -> "String"
         "boolean" -> "Boolean"
 
@@ -1940,7 +1940,7 @@ private fun convertProperty(
             -> "DOMHighResTimeStamp /* | String */"
 
         "number | CSSNumericValue | string",
-            -> "Any /* $type */"
+            -> "JsAny /* $type */"
 
         in TYPED_ARRAYS,
             -> "$type<*>"
@@ -1950,7 +1950,7 @@ private fun convertProperty(
             -> "FileSystemHandleKind.${type.removeSurrounding("\"")}"
 
         "GPUPipelineLayout | GPUAutoLayoutMode",
-            -> "Any /* $type */"
+            -> "JsAny /* $type */"
 
         // RTC
         "number[]",
@@ -1961,7 +1961,7 @@ private fun convertProperty(
             -> "ReadonlyArray<Double>"
 
         "string | string[]",
-            -> "Any /* $type */"
+            -> "JsAny /* $type */"
 
         "Promise<void>",
             -> "Promise<Void>"
@@ -1977,7 +1977,7 @@ private fun convertProperty(
 
         "IDBObjectStore | IDBIndex",
         "IDBObjectStore | IDBIndex | IDBCursor",
-            -> "Any /* $type */"
+            -> "JsAny /* $type */"
 
         "IDBRequest",
         "IDBRequest<any>",
@@ -1992,7 +1992,7 @@ private fun convertProperty(
 
         "BufferSource | Blob | string",
         "Client | ServiceWorker | MessagePort",
-            -> "Any /* $type */"
+            -> "JsAny /* $type */"
 
         "OnErrorEventHandler",
             -> "Function<Unit>? /* $type */"
@@ -2026,7 +2026,7 @@ private fun convertProperty(
             -> "String /* $type */"
 
         "AudioContextLatencyCategory | number",
-            -> "Any /* $type */"
+            -> "JsAny /* $type */"
 
         // MediaStreamConstraints
         "boolean | MediaTrackConstraints",
@@ -2043,10 +2043,10 @@ private fun convertProperty(
         "ReadonlyArray<string>" -> "ReadonlyArray<String>"
         "ReadonlyArray<number>" -> "ReadonlyArray<Double>"
 
-        "MediaList | string" -> "Any /* $type */"
-        "Element | ProcessingInstruction" -> "Any /* $type */"
-        "string | CanvasGradient | CanvasPattern" -> "Any /* $type */"
-        "string | ArrayBuffer" -> "Any /* $type */"
+        "MediaList | string" -> "JsAny /* $type */"
+        "Element | ProcessingInstruction" -> "JsAny /* $type */"
+        "string | CanvasGradient | CanvasPattern" -> "JsAny /* $type */"
+        "string | ArrayBuffer" -> "JsAny /* $type */"
         "HTMLCanvasElement | OffscreenCanvas" -> "EventTarget /* $type */"
         "HTMLVideoElement | VideoFrame" -> "CanvasImageSource /* $type */"
         "(WindowProxy & typeof globalThis)" -> "WindowProxy"
@@ -2161,8 +2161,8 @@ private fun convertFunction(
             ": ReadableStreamReader<R>",
             ": ReadableStreamReader",
         )
-        .replace(": OffscreenRenderingContext", ": Any /* OffscreenRenderingContext */")
-        .replace(": RadioNodeList | Element | null", ": Any? /* RadioNodeList | Element */")
+        .replace(": OffscreenRenderingContext", ": JsAny /* OffscreenRenderingContext */")
+        .replace(": RadioNodeList | Element | null", ": JsAny? /* RadioNodeList | Element */")
         .replace(": Promise<any>", ": Promise<*>")
         .replace(": Promise<number>", ": Promise<Number>")
         .replace(": Promise<PlaneLayout[]>", ": Promise<ReadonlyArray<PlaneLayout>>")
@@ -2170,8 +2170,8 @@ private fun convertFunction(
         .replace(": Promise<MediaDeviceInfo[]>", ": Promise<ReadonlyArray<MediaDeviceInfo>>")
         .replace(": Promise<Notification[]>", ": Promise<ReadonlyArray<Notification>>")
         .replace(": Promise<IDBDatabaseInfo[]>", ": Promise<ReadonlyArray<IDBDatabaseInfo>>")
-        .replace(": Promise<CryptoKeyPair | CryptoKey>", ": Promise<Any /* CryptoKeyPair | CryptoKey */>")
-        .replace(": Promise<CryptoKeyPair | CryptoKey>", ": Promise<Any /* CryptoKeyPair | CryptoKey */>")
+        .replace(": Promise<CryptoKeyPair | CryptoKey>", ": Promise<JsAny /* CryptoKeyPair | CryptoKey */>")
+        .replace(": Promise<CryptoKeyPair | CryptoKey>", ": Promise<JsAny /* CryptoKeyPair | CryptoKey */>")
         .replace(": Promise<WritableStream>", ": Promise<WritableStream<*>>")
         .replace("<string[]", "<ReadonlyArray<String>")
         .replace(": StaticRange[]", ": ReadonlyArray<StaticRange>")
@@ -2208,7 +2208,7 @@ private fun convertFunction(
         .replace("<string>", "<String>")
         .replace(": boolean", ": Boolean")
         .replace("<boolean>", "<Boolean>")
-        .replace(": any", ": Any")
+        .replace(": any", ": JsAny")
         .replace("<void>", "<Void>")
         .replace(" | null", "?")
         .replace(" | undefined", "?")
@@ -2267,7 +2267,7 @@ private fun convertFunctionParameters(
             -> listOf(source.substringBefore(", ", ""))
             .filter { it.isNotEmpty() }
             .map { convertFunctionParameters(it, typeProvider) }
-            .plus("vararg data: Any?")
+            .plus("vararg data: JsAny?")
 
         "...nodes: (Element | Text)[]",
             -> listOf(
@@ -2276,13 +2276,13 @@ private fun convertFunctionParameters(
 
         "...nodes: (Node | string)[]",
             -> listOf(
-            "vararg nodes: Any /* Node | string */",
+            "vararg nodes: JsAny /* Node | string */",
         )
 
         "property: string, ...values: (CSSStyleValue | string)[]",
             -> listOf(
             "property: String",
-            "vararg values: Any /* CSSStyleValue | string */",
+            "vararg values: JsAny /* CSSStyleValue | string */",
         )
 
         "init: Record<string, string>",
@@ -2321,7 +2321,7 @@ private fun convertFunctionParameters(
 
         "items: Record<string, string | Blob | PromiseLike<string | Blob>>, options?: ClipboardItemOptions",
             -> listOf(
-            "items: ReadonlyRecord<String, Any /* String | Blob | PromiseLike<String | Blob> */>",
+            "items: ReadonlyRecord<String, JsAny /* String | Blob | PromiseLike<String | Blob> */>",
             "options: ClipboardItemOptions = definedExternally",
         )
 
@@ -2360,7 +2360,7 @@ private fun convertFunctionParameters(
             -> listOf(
             source
                 .replace(": string", ": String")
-                .replace(": any", ": Any?")
+                .replace(": any", ": JsAny?")
                 .replace(": CSSStyleValue[]", ": ReadonlyArray<CSSStyleValue>")
                 .replace(" => void", " -> Unit"),
         )
@@ -2422,10 +2422,10 @@ private fun getParameterType(
             -> """ReadonlyArray<KeyUsage /* "sign" | "verify" */>"""
 
         source == "number | DOMPointInit | (number | DOMPointInit)[]"
-            -> "Any /* $source */"
+            -> "JsAny /* $source */"
 
         source == "File | string | FormData"
-            -> "Any /* $source */"
+            -> "JsAny /* $source */"
 
         source == "DateTimeFormatPartTypes"
             -> "String /* $source */"
@@ -2435,7 +2435,7 @@ private fun getParameterType(
 
         // TEMP
         source == "AlgorithmIdentifier"
-            -> "Any /* $source */"
+            -> "JsAny /* $source */"
 
         source == "Iterable<string>"
             -> "JsIterable<String>"
@@ -2448,7 +2448,7 @@ private fun getParameterType(
             -> "String /* $source */"
 
         source == "any"
-            -> "Any?"
+            -> "JsAny?"
 
         source == "string"
             -> "String"
