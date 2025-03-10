@@ -29,6 +29,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.core.BigInt",
     "js.core.Bitmask",
     "js.core.JsAny",
+    "js.core.JsBoolean",
     "js.core.JsDouble",
     "js.core.JsInt",
     "js.core.JsLong",
@@ -549,6 +550,7 @@ private fun toCommonBody(
         .replace("<Int>", "<JsInt>")
         .replace("<Int,", "<JsInt,")
         .replace(", Int>", ", JsInt>")
+        .replace("<Boolean>", "<JsBoolean>")
 
 private fun fileContent(
     annotations: String = "",
