@@ -30,6 +30,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.core.Bitmask",
     "js.core.JsAny",
     "js.core.JsLong",
+    "js.core.JsString",
     "js.core.Void",
     "js.errors.JsError",
     "js.errors.JsErrorName",
@@ -510,9 +511,6 @@ fun generateKotlinDeclarations(
             else -> ""
         }
 
-        val finalBody = body
-            .replace("@JsAsync\n", "@JsAsync\n@Suppress(\"WRONG_EXTERNAL_DECLARATION\")\n")
-
         val targetDir = sourceDir
             .resolve(pkg.replace(".", "/"))
             .also { it.mkdirs() }
@@ -523,7 +521,7 @@ fun generateKotlinDeclarations(
                 fileContent(
                     annotations = annotations,
                     imports = imports,
-                    body = finalBody,
+                    body = toCommonBody(body),
                     pkg = pkg,
                 )
             )
@@ -532,9 +530,17 @@ fun generateKotlinDeclarations(
     for ((name, body) in webglDeclarations(content)) {
         webglTargetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeCode(fileContent("", "", body, "web.gl"))
+            .writeCode(fileContent("", "", toCommonBody(body), "web.gl"))
     }
 }
+
+private fun toCommonBody(
+    body: String,
+): String =
+    body.replace("@JsAsync\n", "@JsAsync\n@Suppress(\"WRONG_EXTERNAL_DECLARATION\")\n")
+        .replace("<String>", "<JsString>")
+        .replace("<String,", "<JsString,")
+        .replace(", String>", ", JsString>")
 
 private fun fileContent(
     annotations: String = "",
