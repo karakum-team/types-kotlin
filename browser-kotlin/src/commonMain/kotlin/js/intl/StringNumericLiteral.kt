@@ -2,4 +2,6 @@
 
 package js.intl
 
-typealias StringNumericLiteral = Any /* `${number}` | "Infinity" | "-Infinity" | "+Infinity" */
+import js.core.JsAny
+
+typealias StringNumericLiteral = JsAny /* `${number}` | "Infinity" | "-Infinity" | "+Infinity" */

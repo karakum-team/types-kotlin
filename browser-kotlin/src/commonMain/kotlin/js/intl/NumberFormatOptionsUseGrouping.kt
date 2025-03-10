@@ -2,4 +2,6 @@
 
 package js.intl
 
-typealias NumberFormatOptionsUseGrouping = Any /* {} extends NumberFormatOptionsUseGroupingRegistry ? boolean : keyof NumberFormatOptionsUseGroupingRegistry | "true" | "false" | boolean */
+import js.core.JsAny
+
+typealias NumberFormatOptionsUseGrouping = JsAny /* {} extends NumberFormatOptionsUseGroupingRegistry ? boolean : keyof NumberFormatOptionsUseGroupingRegistry | "true" | "false" | boolean */

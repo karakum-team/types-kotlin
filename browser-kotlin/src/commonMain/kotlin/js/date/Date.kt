@@ -3,6 +3,7 @@
 package js.date
 
 import js.array.ReadonlyArray
+import js.core.JsAny
 import js.core.JsLong
 import js.intl.DateTimeFormatOptions
 import js.intl.Locale
@@ -397,7 +398,7 @@ external class Date() :
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON)
      */
-    fun toJSON(key: Any? = definedExternally): String
+    fun toJSON(key: JsAny? = definedExternally): String
 
     /**
      * Converts a date to a string by using the current or specified locale.

@@ -2,13 +2,15 @@
 
 package web.abort.internal
 
+import js.core.JsAny
+
 internal fun patchAbortOptions(
-    options: Any?,
-    controller: Any,
-): Any = TODO("--placeholder--")
+    options: JsAny?,
+    controller: JsAny,
+): JsAny = TODO("--placeholder--")
 
 @Suppress("RedundantSuppressModifier")
 internal suspend fun awaitPromiseLike(
-    promise: Any?,
-    controller: Any?,
-): Any = TODO("--placeholder--")
+    promise: JsAny?,
+    controller: JsAny?,
+): JsAny = TODO("--placeholder--")
