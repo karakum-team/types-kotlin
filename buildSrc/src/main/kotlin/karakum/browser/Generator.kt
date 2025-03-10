@@ -509,6 +509,9 @@ fun generateKotlinDeclarations(
             else -> ""
         }
 
+        val finalBody = body
+            .replace("@JsAsync\n", "@JsAsync\n@Suppress(\"WRONG_EXTERNAL_DECLARATION\")\n")
+
         val targetDir = sourceDir
             .resolve(pkg.replace(".", "/"))
             .also { it.mkdirs() }
@@ -519,7 +522,7 @@ fun generateKotlinDeclarations(
                 fileContent(
                     annotations = annotations,
                     imports = imports,
-                    body = body,
+                    body = finalBody,
                     pkg = pkg,
                 )
             )
