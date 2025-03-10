@@ -35,6 +35,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.core.JsLong",
     "js.core.JsString",
     "js.core.Void",
+    "js.date.Date",
     "js.errors.JsError",
     "js.errors.JsErrorName",
     "js.globals.GlobalScope",
@@ -65,7 +66,8 @@ private val DEFAULT_IMPORTS = Imports(
     "js.typedarrays.Uint8Array",
     "js.typedarrays.Uint8ClampedArray",
 
-    "js.date.Date",
+    "kotlin.js.JsName",
+    "kotlin.js.definedExternally",
 
     "seskar.js.JsAlias",
     "seskar.js.JsAlias.Companion.THIS",
