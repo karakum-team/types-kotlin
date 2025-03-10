@@ -29,6 +29,8 @@ private val DEFAULT_IMPORTS = Imports(
     "js.core.BigInt",
     "js.core.Bitmask",
     "js.core.JsAny",
+    "js.core.JsDouble",
+    "js.core.JsInt",
     "js.core.JsLong",
     "js.core.JsString",
     "js.core.Void",
@@ -541,6 +543,12 @@ private fun toCommonBody(
         .replace("<String>", "<JsString>")
         .replace("<String,", "<JsString,")
         .replace(", String>", ", JsString>")
+        .replace("<Double>", "<JsDouble>")
+        .replace("<Double,", "<JsDouble,")
+        .replace(", Double>", ", JsDouble>")
+        .replace("<Int>", "<JsInt>")
+        .replace("<Int,", "<JsInt,")
+        .replace(", Int>", ", JsInt>")
 
 private fun fileContent(
     annotations: String = "",
