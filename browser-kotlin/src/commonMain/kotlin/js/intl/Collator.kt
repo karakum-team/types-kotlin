@@ -5,6 +5,7 @@
 package js.intl
 
 import js.array.ReadonlyArray
+import js.core.JsString
 import js.import.JsQualifier
 
 open external class Collator(
@@ -12,7 +13,7 @@ open external class Collator(
     options: CollatorOptions = definedExternally,
 ) {
     constructor(
-        locales: ReadonlyArray<String>,
+        locales: ReadonlyArray<JsString>,
         options: CollatorOptions = definedExternally,
     )
 
@@ -27,11 +28,11 @@ open external class Collator(
         fun supportedLocalesOf(
             locales: String,
             options: CollatorOptions = definedExternally,
-        ): ReadonlyArray<String>
+        ): ReadonlyArray<JsString>
 
         fun supportedLocalesOf(
-            locales: ReadonlyArray<String>,
+            locales: ReadonlyArray<JsString>,
             options: CollatorOptions = definedExternally,
-        ): ReadonlyArray<String>
+        ): ReadonlyArray<JsString>
     }
 }

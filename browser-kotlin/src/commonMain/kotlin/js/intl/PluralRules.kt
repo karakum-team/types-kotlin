@@ -5,6 +5,7 @@
 package js.intl
 
 import js.array.ReadonlyArray
+import js.core.JsString
 import js.import.JsQualifier
 
 open external class PluralRules(
@@ -12,7 +13,7 @@ open external class PluralRules(
     options: PluralRulesOptions = definedExternally,
 ) {
     constructor(
-        locales: ReadonlyArray<String>,
+        locales: ReadonlyArray<JsString>,
         options: PluralRulesOptions = definedExternally,
     )
 
@@ -23,11 +24,11 @@ open external class PluralRules(
         fun supportedLocalesOf(
             locales: String,
             options: SupportedLocalesOptions = definedExternally,
-        ): ReadonlyArray<String>
+        ): ReadonlyArray<JsString>
 
         fun supportedLocalesOf(
-            locales: ReadonlyArray<String>,
+            locales: ReadonlyArray<JsString>,
             options: SupportedLocalesOptions = definedExternally,
-        ): ReadonlyArray<String>
+        ): ReadonlyArray<JsString>
     }
 }

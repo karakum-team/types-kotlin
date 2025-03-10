@@ -5,6 +5,7 @@
 package js.intl
 
 import js.array.ReadonlyArray
+import js.core.JsString
 import js.import.JsQualifier
 import js.iterable.JsIterable
 
@@ -38,7 +39,7 @@ open external class ListFormat(
      *
      * [MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/format).
      */
-    fun format(list: JsIterable<String>): String
+    fun format(list: JsIterable<JsString>): String
 
     /**
      * Returns an Array of objects representing the different components that can be used to format a list of values in a locale-aware fashion.
@@ -51,7 +52,7 @@ open external class ListFormat(
      *
      * [MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/formatToParts).
      */
-    fun formatToParts(list: JsIterable<String>): ReadonlyArray<dynamic /* { type; value; } */>
+    fun formatToParts(list: JsIterable<JsString>): ReadonlyArray<dynamic /* { type; value; } */>
 
     /**
      * Returns a new object with properties reflecting the locale and style

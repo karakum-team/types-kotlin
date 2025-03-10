@@ -7,6 +7,7 @@ package js.intl
 import js.array.ReadonlyArray
 import js.core.BigInt
 import js.core.JsLong
+import js.core.JsString
 import js.date.Date
 import js.import.JsQualifier
 
@@ -15,7 +16,7 @@ open external class DateTimeFormat(
     options: DateTimeFormatOptions = definedExternally,
 ) {
     constructor(
-        locales: ReadonlyArray<String>,
+        locales: ReadonlyArray<JsString>,
         options: DateTimeFormatOptions = definedExternally,
     )
 
@@ -58,11 +59,11 @@ open external class DateTimeFormat(
         fun supportedLocalesOf(
             locales: String,
             options: DateTimeFormatOptions = definedExternally,
-        ): ReadonlyArray<String>
+        ): ReadonlyArray<JsString>
 
         fun supportedLocalesOf(
-            locales: ReadonlyArray<String>,
+            locales: ReadonlyArray<JsString>,
             options: DateTimeFormatOptions = definedExternally,
-        ): ReadonlyArray<String>
+        ): ReadonlyArray<JsString>
     }
 }

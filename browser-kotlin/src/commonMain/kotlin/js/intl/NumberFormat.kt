@@ -6,6 +6,7 @@ package js.intl
 
 import js.array.ReadonlyArray
 import js.core.BigInt
+import js.core.JsString
 import js.import.JsQualifier
 
 open external class NumberFormat(
@@ -13,7 +14,7 @@ open external class NumberFormat(
     options: NumberFormatOptions = definedExternally,
 ) {
     constructor(
-        locales: ReadonlyArray<String>,
+        locales: ReadonlyArray<JsString>,
         options: NumberFormatOptions = definedExternally,
     )
 
@@ -58,11 +59,11 @@ open external class NumberFormat(
         fun supportedLocalesOf(
             locales: String,
             options: NumberFormatOptions = definedExternally,
-        ): ReadonlyArray<String>
+        ): ReadonlyArray<JsString>
 
         fun supportedLocalesOf(
-            locales: ReadonlyArray<String>,
+            locales: ReadonlyArray<JsString>,
             options: NumberFormatOptions = definedExternally,
-        ): ReadonlyArray<String>
+        ): ReadonlyArray<JsString>
     }
 }
