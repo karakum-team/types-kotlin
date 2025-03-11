@@ -4,6 +4,10 @@ import org.gradle.api.tasks.Sync
 import java.io.File
 
 open class SyncWrappers : Sync() {
+    init {
+        includeEmptyDirs = false
+    }
+
     @get:Internal
     val commonGeneratedDir: Directory
         get() = project.layout.projectDirectory.dir("src/commonMain/kotlin")
