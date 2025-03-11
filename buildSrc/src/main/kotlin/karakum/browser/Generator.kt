@@ -537,7 +537,25 @@ fun generateKotlinDeclarations(
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
             .writeCode(fileContent("", "", toCommonBody(body), "web.gl"))
     }
+
+    val webDirectories = sourceDir
+        .resolve("web")
+        .listFiles { file -> file.isDirectory }
+
+    for (directory in webDirectories) {
+        directory.resolve("__force_kjs_import__.kt")
+            .writeText(fik(directory.name))
+    }
 }
+
+private fun fik(name: String): String = """
+// TODO: remove after WasmJS target support
+
+package web.$name
+
+internal sealed external interface JsName
+internal external object definedExternally
+""".trimStart()
 
 private fun toCommonBody(
     body: String,
