@@ -80,10 +80,12 @@ val BROWSER_INCLUDE = setOf(
     "web/url/FragmentDirective.kt",
 )
 
-enum class WrapperProject {
-    JS,
-    WEB,
-    BROWSER,
+enum class WrapperProject(
+    val included: Set<String>,
+) {
+    JS(JS_INCLUDE),
+    WEB(WEB_INCLUDE),
+    BROWSER(BROWSER_INCLUDE),
 
     ;
 }
@@ -101,11 +103,7 @@ fun isDirFromWrapperProject(
     path: String,
     wp: WrapperProject,
 ): Boolean {
-    val included = when (wp) {
-        WrapperProject.JS -> JS_INCLUDE
-        WrapperProject.WEB -> WEB_INCLUDE
-        WrapperProject.BROWSER -> BROWSER_INCLUDE
-    }
+    val included = wp.included
 
     if (path in included)
         return true
