@@ -25,67 +25,69 @@ dependencies {
     commonMainImplementation(libs.coroutines.core)
 }
 
-val INTERNAL = setOf(
-    "web/abort/internal",
-)
+object Includes {
+    val INTERNAL = setOf(
+        "web/abort/internal",
+    )
 
-val JS_INCLUDE = setOf(
-    "js",
-)
+    val JS_INCLUDE = setOf(
+        "js",
+    )
 
-val WEB_INCLUDE = setOf(
-    "web/abort",
-    "web/assembly",
-    "web/blob",
-    "web/broadcast",
-    "web/compression",
-    "web/console",
-    "web/crypto",
-    "web/encoding",
-    "web/errors/DOMException.kt",
-    "web/events",
-    "web/file/File.kt",
-    "web/file/FilePropertyBag.kt",
-    "web/file/FileReader.kt",
-    "web/form/FormData.kt",
-    "web/form/FormDataEntryValue.kt",
-    "web/gpu",
-    "web/http",
-    "web/images",
-    "web/messaging",
-    "web/performance",
-    "web/promise",
-    "web/scheduling/queueMicrotask.kt",
-    "web/scheduling/VoidFunction.kt",
-    "web/serialization",
-    "web/sockets",
-    "web/time",
-    "web/timers",
-    "web/streams",
-    "web/url",
+    val WEB_INCLUDE = setOf(
+        "web/abort",
+        "web/assembly",
+        "web/blob",
+        "web/broadcast",
+        "web/compression",
+        "web/console",
+        "web/crypto",
+        "web/encoding",
+        "web/errors/DOMException.kt",
+        "web/events",
+        "web/file/File.kt",
+        "web/file/FilePropertyBag.kt",
+        "web/file/FileReader.kt",
+        "web/form/FormData.kt",
+        "web/form/FormDataEntryValue.kt",
+        "web/gpu",
+        "web/http",
+        "web/images",
+        "web/messaging",
+        "web/performance",
+        "web/promise",
+        "web/scheduling/queueMicrotask.kt",
+        "web/scheduling/VoidFunction.kt",
+        "web/serialization",
+        "web/sockets",
+        "web/time",
+        "web/timers",
+        "web/streams",
+        "web/url",
 
-    // markers
-    "web/canvas/CanvasImageSource.kt",
-    "web/gl/TexImageSource.kt",
-)
+        // markers
+        "web/canvas/CanvasImageSource.kt",
+        "web/gl/TexImageSource.kt",
+    )
 
-val BROWSER_INCLUDE = setOf(
-    "web",
-    "web/file",
-    "web/gpu/GPUCanvasConfiguration.kt",
-    "web/gpu/GPUCanvasContext.kt",
-    "web/images/ImageBitmapRenderingContext.kt",
-    "web/images/ImageBitmapRenderingContextSettings.kt",
-    "web/performance/LargestContentfulPaint.kt",
-    "web/url/FragmentDirective.kt",
-)
+    val BROWSER_INCLUDE = setOf(
+        "web",
+        "web/file",
+        "web/gpu/GPUCanvasConfiguration.kt",
+        "web/gpu/GPUCanvasContext.kt",
+        "web/images/ImageBitmapRenderingContext.kt",
+        "web/images/ImageBitmapRenderingContextSettings.kt",
+        "web/performance/LargestContentfulPaint.kt",
+        "web/url/FragmentDirective.kt",
+    )
+}
 
 enum class WrapperProject(
     val included: Set<String>,
 ) {
-    JS(JS_INCLUDE),
-    WEB(WEB_INCLUDE),
-    BROWSER(BROWSER_INCLUDE),
+    JS(Includes.JS_INCLUDE),
+    WEB(Includes.WEB_INCLUDE),
+    BROWSER(Includes.BROWSER_INCLUDE),
 
     ;
 
@@ -101,10 +103,10 @@ enum class WrapperProject(
 
 fun getWrapperProject(path: String): WrapperProject? =
     when (path) {
-        in INTERNAL -> null
-        in JS_INCLUDE -> WrapperProject.JS
-        in WEB_INCLUDE -> WrapperProject.WEB
-        in BROWSER_INCLUDE -> WrapperProject.BROWSER
+        in Includes.INTERNAL -> null
+        in Includes.JS_INCLUDE -> WrapperProject.JS
+        in Includes.WEB_INCLUDE -> WrapperProject.WEB
+        in Includes.BROWSER_INCLUDE -> WrapperProject.BROWSER
         else -> if ("/" in path) getWrapperProject(path.substringBeforeLast("/")) else null
     }
 
