@@ -382,7 +382,7 @@ fun generateKotlinDeclarations(
                 add(SEALED_INHERITOR_IN_DIFFERENT_PACKAGE)
 
             if ("companion object" in body && "sealed external interface" in body)
-                add(NON_EXTERNAL_DECLARATION_IN_INAPPROPRIATE_FILE)
+                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
         }.toTypedArray()
 
         val annotations = sequenceOf(
