@@ -88,6 +88,15 @@ enum class WrapperProject(
     BROWSER(BROWSER_INCLUDE),
 
     ;
+
+    val fikIncuded: Set<String> =
+        included.asSequence()
+            .map { it.split("/") }
+            .filter { it.size < 2 }
+            .map { it.take(2) }
+            .distinct()
+            .map { it.joinToString("/") + "__force_kjs_import__.kt" }
+            .toSet()
 }
 
 fun getWrapperProject(path: String): WrapperProject? =
@@ -121,7 +130,7 @@ fun isFromWrapperProject(wp: WrapperProject): Spec<FileTreeElement> {
         if (element.isDirectory) {
             isDirFromWrapperProject(path, wp)
         } else {
-            getWrapperProject(path) == wp
+            path in wp.fikIncuded || getWrapperProject(path) == wp
         }
     }
 }
