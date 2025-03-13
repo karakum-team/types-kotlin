@@ -349,14 +349,14 @@ private fun convertType(
             bodySource.startsWith("Record<")
                 -> bodySource
                 .replace("Record<", "ReadonlyRecord<")
-                .replace("boolean", "Boolean")
-                .replace("string", "String")
+                .replace("boolean", "JsBoolean")
+                .replace("string", "JsString")
 
             bodySource.startsWith("keyof ")
-                -> "String /* $bodySource */"
+                -> "JsString /* $bodySource */"
 
             name.startsWith("`")
-                -> "String /* $bodySource */"
+                -> "JsString /* $bodySource */"
 
             bodySource == "ClipboardItem[]"
                     || bodySource == "CookieListItem[]"
@@ -365,7 +365,7 @@ private fun convertType(
                 -> "ReadonlyArray<${bodySource.removeSuffix("[]")}>"
 
             name == "VibratePattern" && bodySource == "number | number[]"
-                -> "ReadonlyArray<Int> /* | Int */"
+                -> "ReadonlyArray<JsInt> /* | Int */"
 
             bodySource == "string | Function"
                 -> "() -> Unit"
