@@ -599,7 +599,7 @@ internal fun htmlDeclarations(
         .plus(
             ConversionResult(
                 RENDERING_CONTEXT_ID,
-                "sealed interface $RENDERING_CONTEXT_ID<T: JsAny, O: JsAny>",
+                "sealed external interface $RENDERING_CONTEXT_ID<T: JsAny, O: JsAny>",
                 "web.rendering",
             )
         )
