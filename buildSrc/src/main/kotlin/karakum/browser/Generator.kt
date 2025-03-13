@@ -34,6 +34,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.core.JsInt",
     "js.core.JsLong",
     "js.core.JsString",
+    "js.core.JsUInt",
     "js.core.Void",
     "js.date.Date",
     "js.errors.JsError",

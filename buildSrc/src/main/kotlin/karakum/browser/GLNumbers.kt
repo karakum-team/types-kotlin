@@ -2,15 +2,17 @@ package karakum.browser
 
 private val TYPES = listOf(
     "GLboolean" to "Boolean",
-    "GLclampf" to "Number",
-    "GLfloat" to "Number",
+    "GLclampf" to "Float",
+    "GLfloat" to "Float",
     "GLint" to "Int",
-    "GLint64" to "Number",
+    "GLint64" to "JsLong",
+    "GLfloat" to "Float",
+    "GLfloat" to "Float",
     "GLintptr" to "Int",
     "GLsizei" to "Int",
     "GLsizeiptr" to "Int",
-    "GLuint" to "Number",
-    "GLuint64" to "Number",
+    "GLuint" to "JsUInt",
+    "GLuint64" to "JsLong",
 )
 
 internal fun GLNumbers(): Sequence<ConversionResult> =
