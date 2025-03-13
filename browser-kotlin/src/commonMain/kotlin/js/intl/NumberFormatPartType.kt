@@ -2,4 +2,6 @@
 
 package js.intl
 
-typealias NumberFormatPartType = String /* keyof NumberFormatPartTypeRegistry */
+import js.core.JsString
+
+typealias NumberFormatPartType = JsString /* keyof NumberFormatPartTypeRegistry */

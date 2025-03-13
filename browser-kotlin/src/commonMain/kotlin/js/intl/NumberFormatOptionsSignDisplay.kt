@@ -2,4 +2,6 @@
 
 package js.intl
 
-typealias NumberFormatOptionsSignDisplay = String /* keyof NumberFormatOptionsSignDisplayRegistry */
+import js.core.JsString
+
+typealias NumberFormatOptionsSignDisplay = JsString /* keyof NumberFormatOptionsSignDisplayRegistry */

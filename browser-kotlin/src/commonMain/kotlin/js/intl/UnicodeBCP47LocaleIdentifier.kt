@@ -2,4 +2,6 @@
 
 package js.intl
 
-typealias UnicodeBCP47LocaleIdentifier = String
+import js.core.JsString
+
+typealias UnicodeBCP47LocaleIdentifier = JsString

@@ -2,4 +2,6 @@
 
 package js.intl
 
-typealias NumberFormatOptionsStyle = String /* keyof NumberFormatOptionsStyleRegistry */
+import js.core.JsString
+
+typealias NumberFormatOptionsStyle = JsString /* keyof NumberFormatOptionsStyleRegistry */
