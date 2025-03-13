@@ -160,8 +160,8 @@ private val INTL_KEY_TYPES = setOf(
 
 private val ALIAS_MAP = mapOf(
     "any" to "JsAny",
-    "string" to "String",
-    "number" to "Double",
+    "string" to "JsString",
+    "number" to "JsDouble",
 
     "Uint8Array" to "Uint8Array<*>",
 
@@ -172,28 +172,28 @@ private val ALIAS_MAP = mapOf(
 )
 
 private val NUMBER_TYPE_MAP = mapOf(
-    "COSEAlgorithmIdentifier" to "Int",
+    "COSEAlgorithmIdentifier" to "JsInt",
     "EpochTimeStamp" to "JsLong",
 
-    "GPUBufferDynamicOffset" to "Int",
-    "GPUBufferUsageFlags" to "Int /* Bitmask */",
-    "GPUColorWriteFlags" to "Int /* Bitmask */",
-    "GPUDepthBias" to "Int",
-    "GPUFlagsConstant" to "Int",
-    "GPUIndex32" to "Int",
-    "GPUIntegerCoordinate" to "Int",
-    "GPUIntegerCoordinateOut" to "Int",
-    "GPUMapModeFlags" to "Int /* Bitmask */",
-    "GPUPipelineConstantValue" to "Int",
-    "GPUSampleMask" to "Int",
-    "GPUShaderStageFlags" to "Int /* Bitmask */",
-    "GPUSignedOffset32" to "Int",
-    "GPUSize32" to "Int",
-    "GPUSize32Out" to "Int",
+    "GPUBufferDynamicOffset" to "JsInt",
+    "GPUBufferUsageFlags" to "JsInt /* Bitmask */",
+    "GPUColorWriteFlags" to "JsInt /* Bitmask */",
+    "GPUDepthBias" to "JsInt",
+    "GPUFlagsConstant" to "JsInt",
+    "GPUIndex32" to "JsInt",
+    "GPUIntegerCoordinate" to "JsInt",
+    "GPUIntegerCoordinateOut" to "JsInt",
+    "GPUMapModeFlags" to "JsInt /* Bitmask */",
+    "GPUPipelineConstantValue" to "JsInt",
+    "GPUSampleMask" to "JsInt",
+    "GPUShaderStageFlags" to "JsInt /* Bitmask */",
+    "GPUSignedOffset32" to "JsInt",
+    "GPUSize32" to "JsInt",
+    "GPUSize32Out" to "JsInt",
     "GPUSize64" to "JsLong",
     "GPUSize64Out" to "JsLong",
-    "GPUStencilValue" to "Int",
-    "GPUTextureUsageFlags" to "Int /* Bitmask */",
+    "GPUStencilValue" to "JsInt",
+    "GPUTextureUsageFlags" to "JsInt /* Bitmask */",
 )
 
 internal fun browserTypes(
