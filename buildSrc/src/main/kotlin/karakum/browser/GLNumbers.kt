@@ -6,8 +6,6 @@ private val TYPES = listOf(
     "GLfloat" to "Float",
     "GLint" to "Int",
     "GLint64" to "JsLong",
-    "GLfloat" to "Float",
-    "GLfloat" to "Float",
     "GLintptr" to "Int",
     "GLsizei" to "Int",
     "GLsizeiptr" to "Int",
