@@ -35,7 +35,7 @@ internal fun referenceFunctions(): ConversionResult {
         ),
         function(
             name = "var",
-            returnType = "T?",
+            returnType = "T",
             parameters = arrayOf(
                 "name" to "$CUSTOM_PROPERTY_NAME<T>",
             )
