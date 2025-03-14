@@ -18,7 +18,7 @@ private val EXCLUDED = setOf(
 private val TYPE_PARAMETER_MAP = mapOf(
     "This = unknown" to "This: JsAny",
     "Value = unknown" to "Value: JsAny",
-    "Value extends (this: This, ...args: any) => any = (this: This, ...args: any) => any" to "Value: Function<*>",
+    "Value extends (this: This, ...args: any) => any = (this: This, ...args: any) => any" to "Value: JsFunction<*, *> /* generic function */",
     "Class extends abstract new (...args: any) => any = abstract new (...args: any) => any" to "Class: JsClass<*>",
 )
 
