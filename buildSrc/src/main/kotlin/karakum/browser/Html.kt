@@ -2108,7 +2108,9 @@ private fun convertProperty(
     if (name.endsWith("?") || optional) {
         name = safeName
 
-        if (!type.endsWith("?") && type != "Void") {
+        if (type.startsWith("(")) {
+            type = "($type)?"
+        } else if (!type.endsWith("?") && type != "Void") {
             type += "?"
         }
     }
