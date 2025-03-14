@@ -300,30 +300,6 @@ internal object IDLRegistry {
         className: String,
         parameterName: String,
     ): String {
-        if (className.startsWith("GPU")) {
-            return parameterTypeMap[className to parameterName] ?: run {
-                when {
-                    parameterName == "size" -> "Int"
-                    parameterName == "slot" -> "Int"
-                    parameterName == "index" -> "Int"
-                    parameterName.endsWith("Index") -> "Int"
-                    parameterName == "offset" -> "Int"
-                    parameterName.endsWith("Offset") -> "Int"
-                    parameterName.endsWith("Count") -> "Int"
-                    parameterName.endsWith("Start") -> "Int"
-                    parameterName.endsWith("Length") -> "Int"
-                    parameterName.endsWith("Vertex") -> "Int"
-                    parameterName.endsWith("Instance") -> "Int"
-
-                    parameterName == "x" -> "Int"
-                    parameterName == "y" -> "Int"
-                    parameterName == "z" -> "Int"
-
-                    else -> TODO()
-                }
-            }
-        }
-
         return parameterTypeMap.getValue(className to parameterName)
     }
 
