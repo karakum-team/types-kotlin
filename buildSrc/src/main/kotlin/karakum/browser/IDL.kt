@@ -117,6 +117,8 @@ internal object IDLRegistry {
                         "HTMLCollection" -> listOf(className, "HTMLCollectionBase")
                         "NodeList" -> listOf(className, "NodeListOf")
 
+                        "WebTransportSendStreamOptions" -> listOf(className, "WebTransportSendOptions")
+
                         // TEMP?
                         "MediaSessionSeekActionDetails" -> listOf(className, "MediaSessionActionDetails")
                         "MediaSessionSeekToActionDetails" -> listOf(className, "MediaSessionActionDetails")
