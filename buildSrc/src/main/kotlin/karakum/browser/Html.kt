@@ -1995,7 +1995,7 @@ private fun convertProperty(
             -> "JsAny /* $type */"
 
         "OnErrorEventHandler",
-            -> "Function<Unit>? /* $type */"
+            -> "JsFunction<*, *>? /* $type */"
 
         "Element | Document" -> "ParentNode /* Element | Document */"
 

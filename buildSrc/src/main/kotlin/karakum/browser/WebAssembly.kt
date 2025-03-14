@@ -82,7 +82,7 @@ private fun convertValueType(
         .map { line ->
             val (name, type) = line.split(": ")
             val typeParameter = when (type) {
-                "Function" -> "Function<*>"
+                "Function" -> "JsFunction<*, *>"
                 "any" -> "JsAny?"
                 "number" -> "Number"
                 "bigint" -> "BigInt"
