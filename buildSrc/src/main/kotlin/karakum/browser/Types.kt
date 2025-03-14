@@ -509,7 +509,7 @@ private fun valueInterface(
             when (valueType) {
                 "ReadableStream" -> "ReadableStream<*>"
                 "string" -> "String"
-                "number" -> "Number"
+                "number" -> "Int"
                 "IDBValidKey[]" -> "ReadonlyArray<IDBValidKey>"
                 else -> valueType
             }

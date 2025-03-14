@@ -266,12 +266,12 @@ internal object IDLRegistry {
                     ("DateTimeFormat" to "date") to "JsLong",
                     ("DateTimeFormat" to "endDate") to "JsLong",
                     ("DateTimeFormat" to "startDate") to "JsLong",
-                    ("NumberFormat" to "end") to "Number",
-                    ("NumberFormat" to "number") to "Number",
-                    ("NumberFormat" to "start") to "Number",
-                    ("NumberFormat" to "value") to "Number",
+                    ("NumberFormat" to "end") to "Double",
+                    ("NumberFormat" to "number") to "Double",
+                    ("NumberFormat" to "start") to "Double",
+                    ("NumberFormat" to "value") to "Double",
                     ("PluralRules" to "n") to "Int",
-                    ("RelativeTimeFormat" to "value") to "Number",
+                    ("RelativeTimeFormat" to "value") to "Double",
                     ("Segments" to "codeUnitIndex") to "Int",
                 )
             )
