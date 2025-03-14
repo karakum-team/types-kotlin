@@ -72,6 +72,7 @@ private val DEFAULT_IMPORTS = Imports(
 
     "kotlin.js.JsName",
     "kotlin.js.definedExternally",
+    "kotlin.js.undefined",
 
     "seskar.js.JsAlias",
     "seskar.js.JsAlias.Companion.THIS",
@@ -559,7 +560,8 @@ package web.$name
 
 internal sealed external interface JsName
 internal external object definedExternally
-""".trimStart()
+""".trimStart() +
+        if (name == "events") "internal external object undefined\n" else ""
 
 private fun toCommonBody(
     body: String,
