@@ -31,6 +31,7 @@ private val DEFAULT_IMPORTS = Imports(
     "js.core.JsAny",
     "js.core.JsBoolean",
     "js.core.JsDouble",
+    "js.core.JsFloat",
     "js.core.JsInt",
     "js.core.JsLong",
     "js.core.JsString",

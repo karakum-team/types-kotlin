@@ -84,7 +84,12 @@ private fun convertValueType(
             val typeParameter = when (type) {
                 "Function" -> "JsFunction<*, *>"
                 "any" -> "JsAny?"
-                "number" -> "Number"
+                "number" -> when (name) {
+                    "f32" -> "JsFloat"
+                    "f64" -> "JsDouble"
+                    "i32" -> "JsInt"
+                    else -> error("No type parameter for '$name: $type'")
+                }
                 "bigint" -> "BigInt"
                 "never" -> "Void"
                 else -> error("No type parameter for type '$type'")
