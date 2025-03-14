@@ -1920,10 +1920,15 @@ private fun convertProperty(
     if (safeName == "formTarget" && type == "string")
         type = "WindowName"
 
-    type = when (type) {
-        "null" -> "Void"
-        "undefined" -> "Void"
+    if (type == "null" || type == "undefined") {
+        if (name == "ownerDocument") {
+            type = "Document? /* Void - WA for WasmJS */"
+        } else {
+            return null
+        }
+    }
 
+    type = when (type) {
         "any" -> "JsAny?"
         "string" -> "String"
         "boolean" -> "Boolean"
