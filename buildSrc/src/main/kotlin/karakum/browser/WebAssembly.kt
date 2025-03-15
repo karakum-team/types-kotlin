@@ -105,7 +105,7 @@ private fun convertValueType(
 
     return ConversionResult(
         name = VALUE_TYPE,
-        body = unionBodyByConstants("$VALUE_TYPE<T>", constants),
+        body = unionBodyByConstants("$VALUE_TYPE<T : JsAny?>", constants),
         pkg = "web.assembly",
     )
 }
