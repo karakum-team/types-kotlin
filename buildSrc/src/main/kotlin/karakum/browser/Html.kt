@@ -1022,7 +1022,6 @@ internal fun convertInterface(
         .substringBeforeLast(">", "")
 
     if (typeParameters.isNotEmpty() && "<" !in typeParameters) {
-        println("TP: '$typeParameters'")
         val newTypeParameters = typeParameters
             .splitToSequence(",")
             .map { if (":" !in it) "$it : JsAny?" else it }
