@@ -2157,11 +2157,19 @@ private fun convertFunction(
 ): String? {
     val nameSource = source.substringBefore("(")
     val name = nameSource.substringBefore("<")
-    val typeParameters = nameSource
+    var typeParameters = nameSource
         .removePrefix(name)
         .replace(" extends ", " : ")
         .replace(": ArrayBufferView", ": ArrayBufferView<*>")
         .replace(" | null", "?")
+
+    if (typeParameters.isNotEmpty()) {
+        typeParameters = typeParameters
+            .removeSurrounding("<", ">")
+            .splitToSequence(",")
+            .map { if (":" !in it) "$it : JsAny?" else it }
+            .joinToString(",", "<", ">")
+    }
 
     if (!typeProvider.accepted(name))
         return null
