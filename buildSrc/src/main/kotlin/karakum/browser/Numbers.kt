@@ -86,6 +86,31 @@ internal class TypeProvider(
         }
     }
 
+    fun numberArrayType(
+        propertyName: String,
+    ): String =
+        when (parentType to propertyName) {
+            ("AudioWorkletNodeOptions" to "outputChannelCount"),
+                -> "ReadonlyArray<JsUInt>"
+
+            ("IIRFilterOptions" to "feedback"),
+                -> "ReadonlyArray<Double>"
+
+            ("IIRFilterOptions" to "feedforward"),
+                -> "ReadonlyArray<Double>"
+
+            ("RTCEncodedAudioFrameMetadata" to "contributingSources"),
+                -> "ReadonlyArray<JsUInt>"
+
+            ("RTCEncodedVideoFrameMetadata" to "contributingSources"),
+                -> "ReadonlyArray<JsUInt>"
+
+            ("RTCEncodedVideoFrameMetadata" to "dependencies"),
+                -> "ReadonlyArray<JsUInt /* JsULong */>"
+
+            else -> error("Unable to find array type for `$parentType.$propertyName`")
+        }
+
     val readonlyMode: Boolean =
         IDLRegistry.isPlainObjectInterface(parentType)
 

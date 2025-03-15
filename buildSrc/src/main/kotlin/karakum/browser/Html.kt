@@ -1975,9 +1975,8 @@ private fun convertProperty(
         "GPUPipelineLayout | GPUAutoLayoutMode",
             -> "JsAny /* $type */"
 
-        // RTC
         "number[]",
-            -> "ReadonlyArray<Number>"
+            -> typeProvider.numberArrayType(safeName)
 
         // IntersectionObserverInit
         "number | number[]",
@@ -2198,7 +2197,8 @@ private fun convertFunction(
         .replace(": OffscreenRenderingContext", ": JsAny /* OffscreenRenderingContext */")
         .replace(": RadioNodeList | Element | null", ": JsAny? /* RadioNodeList | Element */")
         .replace(": Promise<any>", ": Promise<*>")
-        .replace(": Promise<number>", ": Promise<Number>")
+        // RemotePlayback.watchAvailability & RTCRtpScriptTransformer.generateKeyFrame (Long)
+        .replace(": Promise<number>", ": Promise<Int>")
         .replace(": Promise<PlaneLayout[]>", ": Promise<ReadonlyArray<PlaneLayout>>")
         .replace(": Promise<FontFace[]>", ": Promise<ReadonlyArray<FontFace>>")
         .replace(": Promise<MediaDeviceInfo[]>", ": Promise<ReadonlyArray<MediaDeviceInfo>>")
