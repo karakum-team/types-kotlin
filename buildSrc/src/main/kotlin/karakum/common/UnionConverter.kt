@@ -91,7 +91,7 @@ internal fun objectUnionBody(
     }
 
     return """
-                external sealed interface $name {
+                sealed external interface $name {
             companion object {
                 $constantNames
             }
