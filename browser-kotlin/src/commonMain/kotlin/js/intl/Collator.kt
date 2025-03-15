@@ -7,6 +7,7 @@ package js.intl
 import js.array.ReadonlyArray
 import js.core.JsString
 import js.import.JsQualifier
+import kotlin.js.definedExternally
 
 open external class Collator(
     locales: String = definedExternally,

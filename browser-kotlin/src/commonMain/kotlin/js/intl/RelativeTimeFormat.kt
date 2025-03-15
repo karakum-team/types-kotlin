@@ -7,6 +7,7 @@ package js.intl
 import js.array.ReadonlyArray
 import js.core.JsAny
 import js.import.JsQualifier
+import kotlin.js.definedExternally
 
 open external class RelativeTimeFormat(
     locales: UnicodeBCP47LocaleIdentifier = definedExternally,

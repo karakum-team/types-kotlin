@@ -10,6 +10,7 @@ import js.core.JsLong
 import js.core.JsString
 import js.date.Date
 import js.import.JsQualifier
+import kotlin.js.definedExternally
 
 open external class DateTimeFormat(
     locales: String = definedExternally,

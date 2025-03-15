@@ -9,6 +9,7 @@
 package js.intl
 
 import js.import.JsQualifier
+import kotlin.js.definedExternally
 
 open external class Locale(
     tag: UnicodeBCP47LocaleIdentifier,

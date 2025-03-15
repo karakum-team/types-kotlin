@@ -10,6 +10,7 @@ import js.intl.Locale
 import js.intl.Localizable
 import js.intl.UnicodeBCP47LocaleIdentifier
 import js.temporal.Instant
+import kotlin.js.definedExternally
 
 /**
  * [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)

@@ -6,6 +6,7 @@ package js.intl
 
 import js.array.ReadonlyArray
 import js.import.JsQualifier
+import kotlin.js.definedExternally
 
 open external class DisplayNames(
     locales: UnicodeBCP47LocaleIdentifier,

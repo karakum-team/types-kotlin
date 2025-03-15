@@ -9,6 +9,7 @@ import js.core.JsAny
 import js.core.JsString
 import js.import.JsQualifier
 import js.iterable.JsIterable
+import kotlin.js.definedExternally
 
 open external class ListFormat(
     locales: UnicodeBCP47LocaleIdentifier = definedExternally,

@@ -2,6 +2,8 @@
 
 package js.intl
 
+import kotlin.js.definedExternally
+
 sealed external interface Segments {
     /**
      * Returns an object describing the segment in the original string that includes the code unit at a specified index.
