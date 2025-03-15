@@ -2209,12 +2209,12 @@ private fun convertFunction(
         .replace("<string[]", "<ReadonlyArray<String>")
         .replace(": StaticRange[]", ": ReadonlyArray<StaticRange>")
         .replace(": (Gamepad | null)[]", ": ReadonlyArray<Gamepad?>")
-        .replace(": RelativeTimeFormatPart[]", ": ReadonlyArray<dynamic /* RelativeTimeFormatPart */>")
+        .replace(": RelativeTimeFormatPart[]", ": ReadonlyArray<JsAny /* RelativeTimeFormatPart */>")
         .replace(": PointerEvent[]", ": ReadonlyArray<PointerEvent>")
         .replace(Regex(""": (\w+?)\[]"""), ": ReadonlyArray<$1>")
         .replace(
             """: { type: "element" | "literal"; value: string; }[]""",
-            ": ReadonlyArray<dynamic /* { type; value; } */>",
+            ": ReadonlyArray<JsAny /* { type; value; } */>",
         )
         .replace(
             ": `\${string}-\${string}-\${string}-\${string}-\${string}`",
