@@ -190,7 +190,7 @@ private val NUMBER_TYPE_MAP = mapOf(
     "GPUSignedOffset32" to "JsInt",
     "GPUSize32" to "JsInt",
     "GPUSize32Out" to "JsInt",
-    "GPUSize64" to "JsLong",
+    "GPUSize64" to "JsInt /* JsLong */",
     "GPUSize64Out" to "JsLong",
     "GPUStencilValue" to "JsInt",
     "GPUTextureUsageFlags" to "JsInt /* Bitmask */",
