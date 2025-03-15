@@ -216,6 +216,7 @@ private fun convertFunctionResult(
     val typeParameters = source.substringBefore("(")
         .removePrefix(name)
         .replace(" = any", "")
+        .replace("<T>", "<T : JsAny?>")
 
     val jsName = if (finalName != name) {
         """@JsName("$name")"""
