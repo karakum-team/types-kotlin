@@ -552,15 +552,6 @@ fun generateKotlinDeclarations(
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
             .writeCode(fileContent(annotations, "", toCommonBody(body), "web.gl"))
     }
-
-    val webDirectories = sourceDir
-        .resolve("web")
-        .listFiles { file -> file.isDirectory }
-
-    for (directory in webDirectories) {
-        directory.resolve("__force_kjs_import__.kt")
-            .writeText(fik(directory.name))
-    }
 }
 
 private fun fik(name: String): String = """
