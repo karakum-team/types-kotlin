@@ -178,7 +178,7 @@ private fun event(
         } else ""
 
         val declaration = initName
-            .replace("<D = any>", "<out D>") +
+            .replace("<D = any>", "<out D : JsAny?>") +
                 " $parentDeclaration"
 
         sequenceOf(
@@ -308,7 +308,7 @@ private fun event(
     val typeParameters = when (name) {
         "CustomEvent",
         "MessageEvent",
-            -> "<out D>"
+            -> "<out D : JsAny?>"
 
         else -> ""
     }
