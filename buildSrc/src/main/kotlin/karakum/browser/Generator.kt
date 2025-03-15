@@ -590,7 +590,7 @@ private fun toCommonBody(
         .replace("): Any?", "): JsAny?")
         .replace(
             "override fun get(key: String): String?",
-            "override fun get(key: JsString): String?",
+            "override fun get(key: JsString): JsString?",
         )
         .replace(
             "override fun has(key: String): Boolean",
