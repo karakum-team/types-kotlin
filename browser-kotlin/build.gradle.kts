@@ -170,10 +170,7 @@ val syncKotlinBrowser by tasks.registering(SyncWrappers::class) {
 }
 
 val syncWithWrappers by tasks.registering {
-    // TODO: enable after actualization
-    /*
     dependsOn(syncKotlinJs)
-    */
     dependsOn(syncKotlinWeb)
     dependsOn(syncKotlinBrowser)
 }
