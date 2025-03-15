@@ -1940,7 +1940,7 @@ private fun convertProperty(
 
     if (type == "null" || type == "undefined") {
         if (name == "ownerDocument") {
-            type = "Document? /* Void - WA for WasmJS */"
+            type = "Void"
         } else {
             return null
         }
@@ -2145,6 +2145,7 @@ private fun convertProperty(
     } else null
 
     return sequenceOf(
+        if (type == "Void") """@Suppress("WRONG_JS_INTEROP_TYPE")""" else null,
         "$modifier $name: $type",
         mixinSugar,
     ).filterNotNull()
