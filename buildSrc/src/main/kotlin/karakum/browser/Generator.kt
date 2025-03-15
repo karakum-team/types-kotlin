@@ -588,6 +588,26 @@ private fun toCommonBody(
         .replace("<Boolean>", "<JsBoolean>")
         // Body
         .replace("): Any?", "): JsAny?")
+        .replace(
+            "override fun get(key: String): String?",
+            "override fun get(key: JsString): String?",
+        )
+        .replace(
+            "override fun has(key: String): Boolean",
+            "override fun has(key: JsString): Boolean",
+        )
+        .replace(
+            "override fun forEach(action: (item: String) -> Unit)",
+            "override fun forEach(action: (item: JsString) -> Unit)",
+        )
+        .replace(
+            "override fun forEach(action: (value: String, key: String) -> Unit)",
+            "override fun forEach(action: (value: JsString, key: JsString) -> Unit)",
+        )
+        .replace(
+            "override fun forEach(action: (value: FormDataEntryValue, key: String) -> Unit)",
+            "override fun forEach(action: (value: FormDataEntryValue, key: JsString) -> Unit)"
+        )
 
 private fun fileContent(
     annotations: String = "",
