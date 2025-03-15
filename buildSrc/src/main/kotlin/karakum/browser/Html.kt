@@ -1012,6 +1012,25 @@ internal fun convertInterface(
         } else declaration + mainConstructor
     }
 
+    val typeParameters = declaration
+        .substringAfter(" ")
+        .substringBefore(":\n")
+        .substringBefore("\n")
+        .substringBefore("(")
+        .trim()
+        .substringAfter("<", "")
+        .substringBeforeLast(">", "")
+
+    if (typeParameters.isNotEmpty() && "<" !in typeParameters) {
+        println("TP: '$typeParameters'")
+        val newTypeParameters = typeParameters
+            .splitToSequence(",")
+            .map { if (":" !in it) "$it : JsAny?" else it }
+            .joinToString(",")
+
+        declaration = declaration.replaceFirst("<$typeParameters>", "<$newTypeParameters>")
+    }
+
     var members = if (memberSource.isNotEmpty()) {
         var result = memberSource
             .splitToSequence(";\n")
