@@ -577,6 +577,8 @@ private fun toCommonBody(
         .replace("<Int,", "<JsInt,")
         .replace(", Int>", ", JsInt>")
         .replace("<Boolean>", "<JsBoolean>")
+        // Body
+        .replace("): Any?", "): JsAny?")
 
 private fun fileContent(
     annotations: String = "",
