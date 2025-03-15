@@ -360,7 +360,7 @@ fun generateKotlinDeclarations(
     for ((name, body, pkg) in aliases) {
         pkg!!
 
-        val suppresses = mutableSetOf<Suppress>().apply {
+        val suppresses = buildSet<Suppress> {
             if (name == "Locale")
                 add(VIRTUAL_MEMBER_HIDDEN)
 
@@ -538,9 +538,18 @@ fun generateKotlinDeclarations(
     }
 
     for ((name, body) in webglDeclarations(content)) {
+        val suppresses = buildSet<Suppress> {
+            if ("companion object" in body && "sealed external interface" in body)
+                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
+        }.toTypedArray()
+
+        val annotations = if (suppresses.isNotEmpty()) {
+            fileSuppress(*suppresses)
+        } else ""
+
         webglTargetDir.resolve("$name.kt")
             .also { check(!it.exists()) { "Duplicated file: ${it.name}" } }
-            .writeCode(fileContent("", "", toCommonBody(body), "web.gl"))
+            .writeCode(fileContent(annotations, "", toCommonBody(body), "web.gl"))
     }
 
     val webDirectories = sourceDir
