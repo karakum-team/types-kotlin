@@ -5,6 +5,7 @@
 package js.intl
 
 import js.array.ReadonlyArray
+import js.core.JsAny
 import js.import.JsQualifier
 
 open external class RelativeTimeFormat(
@@ -69,7 +70,7 @@ open external class RelativeTimeFormat(
     fun formatToParts(
         value: Double,
         unit: RelativeTimeFormatUnit,
-    ): ReadonlyArray<dynamic /* RelativeTimeFormatPart */>
+    ): ReadonlyArray<JsAny /* RelativeTimeFormatPart */>
 
     /**
      * Provides access to the locale and options computed during initialization of this `Intl.RelativeTimeFormat` object.

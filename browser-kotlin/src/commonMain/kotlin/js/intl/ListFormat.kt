@@ -5,6 +5,7 @@
 package js.intl
 
 import js.array.ReadonlyArray
+import js.core.JsAny
 import js.core.JsString
 import js.import.JsQualifier
 import js.iterable.JsIterable
@@ -52,7 +53,7 @@ open external class ListFormat(
      *
      * [MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/formatToParts).
      */
-    fun formatToParts(list: JsIterable<JsString>): ReadonlyArray<dynamic /* { type; value; } */>
+    fun formatToParts(list: JsIterable<JsString>): ReadonlyArray<JsAny /* { type; value; } */>
 
     /**
      * Returns a new object with properties reflecting the locale and style
