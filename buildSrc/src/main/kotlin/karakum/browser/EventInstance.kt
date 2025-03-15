@@ -12,6 +12,7 @@ import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlin.coroutines.resume
+import web.events.internal.createAddEventListenerOptions
 
 @JsName("Array")
 external class EventInstance<out E : Event, out C : EventTarget, out T : EventTarget>(
@@ -88,7 +89,7 @@ suspend fun <E : Event, C : EventTarget, T : EventTarget, D> EventInstance<E, C,
     return suspendCancellableCoroutine { continuation ->
         val unsubscribe = addHandler(
             handler = continuation::resume,
-            options = AddEventListenerOptions(once = true),
+            options = createAddEventListenerOptions(once = true),
         )
 
         continuation.invokeOnCancellation {
@@ -124,9 +125,32 @@ fun <E : Event, T : EventTarget, D> EventInstance<E, *, T>.asFlow(): Flow<D>
     }
 """.trimIndent()
 
-internal fun EventInstance(): ConversionResult =
-    ConversionResult(
-        name = EVENT_INSTANCE,
-        body = EVENT_INSTANCE_BODY,
-        pkg = "web.events",
+// language=kotlin
+private val CREATE_ADD_EVENT_LISTENER_OPTIONS: String = """
+internal fun createAddEventListenerOptions(
+    once: Boolean,
+): AddEventListenerOptions =
+    jso<MutableAddEventListenerOptions> {
+        this.once = once
+    }
+
+@JsPlainObject
+private external interface MutableAddEventListenerOptions :
+    AddEventListenerOptions {
+    override var once: Boolean?
+}
+""".trimIndent()
+
+internal fun eventInstanceTypes(): Sequence<ConversionResult> =
+    sequenceOf(
+        ConversionResult(
+            name = EVENT_INSTANCE,
+            body = EVENT_INSTANCE_BODY,
+            pkg = "web.events",
+        ),
+        ConversionResult(
+            name = "createAddEventListenerOptions",
+            body = CREATE_ADD_EVENT_LISTENER_OPTIONS,
+            pkg = "web.events.internal",
+        )
     )

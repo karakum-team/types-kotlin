@@ -76,14 +76,13 @@ internal fun eventDeclarations(
     serviceWorkersContent: String,
 ): Pair<List<ConversionResult>, Set<String>> {
     val dataMap = EventDataMap(content + "\n\n" + webWorkerContent + "\n\n" + serviceWorkersContent)
-    val results = sequenceOf(
-        EventType(),
-        EventHandler(),
-        EventInstance(),
-        EventTarget(),
-        HasTargets(),
-        JsEvent(),
-    )
+    val results = sequenceOf<ConversionResult>()
+        .plus(EventType())
+        .plus(EventHandler())
+        .plus(eventInstanceTypes())
+        .plus(EventTarget())
+        .plus(HasTargets())
+        .plus(JsEvent())
         .plus(eventPlaceholders(content, EVENT_DATA, dataMap, strict = true))
         .toList()
 
