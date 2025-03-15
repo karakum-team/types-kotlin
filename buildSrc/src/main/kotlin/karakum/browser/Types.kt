@@ -569,9 +569,10 @@ private fun markerInterface(
             transform = { " * - `$it`" },
         )
 
+    val finalDeclaration = declaration.replace("<T>", "<T : JsAny?>")
     val type = """
         $comment    
-        $modifiers external interface $declaration$parentDeclaration
+        $modifiers external interface $finalDeclaration$parentDeclaration
         """.trimIndent()
 
     return listOf(type)
