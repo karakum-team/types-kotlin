@@ -5,9 +5,9 @@ tasks {
         delete("src")
     }
 
-    val sourceDir = file("src/jsMain/kotlin")
+    val sourceDir = file("src/commonMain/kotlin")
     val remoteProjectDir = rootDir.parentFile.resolve("cesium-kotlin/${project.name}")
-    val remoteSourceDir = remoteProjectDir.resolve("src/jsMain/kotlin")
+    val remoteSourceDir = remoteProjectDir.resolve("src/commonMain/kotlin")
 
     val generateDeclarations by registering {
         dependsOn(":kotlinNpmInstall")
