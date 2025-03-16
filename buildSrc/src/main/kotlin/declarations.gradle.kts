@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 tasks.named<Delete>("clean") {
     delete("src")
 }
@@ -8,6 +6,11 @@ val generateDeclarations by tasks.registering {
     dependsOn(":kotlinNpmInstall")
 }
 
-tasks.withType<KotlinCompile> {
-    dependsOn(generateDeclarations)
+val compileTasks = listOfNotNull(
+    tasks.getByPath("compileKotlinJs"),
+    tasks.findByPath("compileKotlinWasmJs"),
+)
+
+for (task in compileTasks) {
+    task.dependsOn(generateDeclarations)
 }
