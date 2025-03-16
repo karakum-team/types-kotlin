@@ -1,27 +1,17 @@
-import karakum.cesium.generateKotlinDeclarations
+plugins {
+    id("declarations")
+}
 
-tasks {
-    named<Delete>("clean") {
-        delete("src")
-    }
+tasks.named("generateDeclarations") {
+    doLast {
+        val sourceDir = file("src/commonMain/kotlin")
 
-    val sourceDir = file("src/commonMain/kotlin")
+        delete(sourceDir)
 
-    val generateDeclarations by registering {
-        dependsOn(":kotlinNpmInstall")
-
-        doLast {
-            delete(sourceDir)
-
-            generateKotlinDeclarations(
-                engineDefinitionsFile = nodeModules.resolve("@cesium/engine/index.d.ts"),
-                widgetsDefinitionsFile = nodeModules.resolve("@cesium/widgets/index.d.ts"),
-                sourceDir = sourceDir,
-            )
-        }
-    }
-
-    named("compileKotlinJs") {
-        dependsOn(generateDeclarations)
+        karakum.cesium.generateKotlinDeclarations(
+            engineDefinitionsFile = nodeModules.resolve("@cesium/engine/index.d.ts"),
+            widgetsDefinitionsFile = nodeModules.resolve("@cesium/widgets/index.d.ts"),
+            sourceDir = sourceDir,
+        )
     }
 }
