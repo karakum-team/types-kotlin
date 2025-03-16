@@ -18,6 +18,5 @@ fun version(target: String): String =
     props.getProperty("${target}.version")
 
 dependencies {
-    compileOnly(kotlin("gradle-plugin"))
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${version("kotlinx-serialization")}")
 }
