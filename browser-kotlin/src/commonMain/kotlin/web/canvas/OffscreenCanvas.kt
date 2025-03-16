@@ -3,17 +3,21 @@
 package web.canvas
 
 import js.core.JsAny
-import js.core.Int53
+import js.core.UInt53
 import js.promise.Promise
 import js.transferable.Transferable
 import seskar.js.JsAsync
 import web.blob.Blob
+import web.dom.*
 import web.events.*
 import web.gl.TexImageSource
 import web.gpu.GPUCopyExternalImageSource
+import web.html.*
 import web.images.ImageBitmap
 import web.rendering.OffscreenRenderingContext
 import web.rendering.RenderingContextId
+import web.uievents.*
+import web.window.*
 import kotlin.js.JsName
 import kotlin.js.definedExternally
 
@@ -28,7 +32,7 @@ open external class OffscreenCanvas(
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OffscreenCanvas/width)
      */
-    var width: Int53,
+    var width: UInt53,
     /**
      * These attributes return the dimensions of the OffscreenCanvas object's bitmap.
      *
@@ -36,7 +40,7 @@ open external class OffscreenCanvas(
      *
      * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OffscreenCanvas/height)
      */
-    var height: Int53,
+    var height: UInt53,
 ) : EventTarget,
     CanvasImageSource,
     TexImageSource,
