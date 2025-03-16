@@ -7,6 +7,7 @@ val generateDeclarations by tasks.registering {
 }
 
 val compileTasks = listOfNotNull(
+    tasks.findByPath("compileCommonMainKotlinMetadata"),
     tasks.getByPath("compileKotlinJs"),
     tasks.findByPath("compileKotlinWasmJs"),
 )
