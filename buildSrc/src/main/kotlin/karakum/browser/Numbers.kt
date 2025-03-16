@@ -106,7 +106,7 @@ internal class TypeProvider(
                 -> "ReadonlyArray<JsUInt>"
 
             ("RTCEncodedVideoFrameMetadata" to "dependencies"),
-                -> "ReadonlyArray<JsUInt /* JsULong */>"
+                -> "ReadonlyArray<JsUInt53>"
 
             else -> error("Unable to find array type for `$parentType.$propertyName`")
         }
