@@ -6,8 +6,6 @@ tasks {
     }
 
     val sourceDir = file("src/commonMain/kotlin")
-    val remoteProjectDir = rootDir.parentFile.resolve("cesium-kotlin/${project.name}")
-    val remoteSourceDir = remoteProjectDir.resolve("src/commonMain/kotlin")
 
     val generateDeclarations by registering {
         dependsOn(":kotlinNpmInstall")
@@ -23,27 +21,7 @@ tasks {
         }
     }
 
-    val cleanRemote by registering(Delete::class) {
-        onlyIf {
-            remoteProjectDir.exists()
-        }
-
-        delete(remoteProjectDir.resolve("src"))
-    }
-
-    val updateRemote by registering(Copy::class) {
-        onlyIf {
-            remoteProjectDir.exists()
-        }
-
-        from(sourceDir)
-        into(remoteSourceDir)
-
-        dependsOn(cleanRemote)
-    }
-
     named("compileKotlinJs") {
         dependsOn(generateDeclarations)
-        finalizedBy(updateRemote)
     }
 }
