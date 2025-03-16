@@ -39,8 +39,8 @@ private val NUMBER_TYPE_MAP = mapOf(
     "long" to "Int",
     "unsigned long" to "Int",
 
-    "long long" to "JsLong",
-    "unsigned long long" to "JsLong",
+    "long long" to "Int53",
+    "unsigned long long" to "UInt53",
 )
 
 internal object IDLRegistry {
@@ -248,8 +248,8 @@ internal object IDLRegistry {
             .associate { (it.className to it.propertyName) to it.propertyType }
             .plus(
                 sequenceOf(
-                    ("RTCEncodedAudioFrame" to "timestamp") to "JsLong",
-                    ("RTCEncodedVideoFrame" to "timestamp") to "JsLong",
+                    ("RTCEncodedAudioFrame" to "timestamp") to "Int53",
+                    ("RTCEncodedVideoFrame" to "timestamp") to "Int53",
                     ("SegmentData" to "index") to "Int",
                 )
             )
@@ -263,9 +263,9 @@ internal object IDLRegistry {
                 sequenceOf(
                     ("HTMLCanvasElement" to "quality") to "Double",
 
-                    ("DateTimeFormat" to "date") to "JsLong",
-                    ("DateTimeFormat" to "endDate") to "JsLong",
-                    ("DateTimeFormat" to "startDate") to "JsLong",
+                    ("DateTimeFormat" to "date") to "Int53",
+                    ("DateTimeFormat" to "endDate") to "Int53",
+                    ("DateTimeFormat" to "startDate") to "Int53",
                     ("NumberFormat" to "end") to "Double",
                     ("NumberFormat" to "number") to "Double",
                     ("NumberFormat" to "start") to "Double",

@@ -5,12 +5,12 @@ private val TYPES = listOf(
     "GLclampf" to "Float",
     "GLfloat" to "Float",
     "GLint" to "Int",
-    "GLint64" to "JsLong",
+    "GLint64" to "Int53",
     "GLintptr" to "Int",
     "GLsizei" to "Int",
     "GLsizeiptr" to "Int",
     "GLuint" to "JsUInt",
-    "GLuint64" to "JsLong",
+    "GLuint64" to "UInt53",
 )
 
 internal fun GLNumbers(): Sequence<ConversionResult> =

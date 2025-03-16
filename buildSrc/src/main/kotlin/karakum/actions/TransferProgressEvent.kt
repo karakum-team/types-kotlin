@@ -12,7 +12,7 @@ internal fun TransferProgressEvent(): ConversionResult =
           /**
            * The number of bytes loaded so far.
            */
-          val loadedBytes: JsLong
+          val loadedBytes: UInt53
         }
         """.trimIndent(),
     )

@@ -11,7 +11,7 @@ private val DEFAULT_IMPORTS = """
 import js.promise.Promise
 import js.collections.ReadonlyMap
 import js.core.BigInt
-import js.core.JsLong
+import js.core.UInt53
 import js.date.Date
 import js.objects.JsPlainObject
 import js.objects.ReadonlyRecord

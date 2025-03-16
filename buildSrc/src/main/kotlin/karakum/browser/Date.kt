@@ -62,7 +62,7 @@ private fun dateMember(
     }
 
     if (static) {
-        return dateMember(content.replace("): number", "): JsLong"), static = false)
+        return dateMember(content.replace("): number", "): Int53"), static = false)
     }
 
     if (content.startsWith("toString()"))
@@ -75,7 +75,7 @@ private fun dateMember(
         return content
             .replace("new (", "constructor(")
             .replace("): $DATE", ")")
-            .replace("(value: number)", "(value: JsLong)")
+            .replace("(value: number)", "(value: Int53)")
             .replace("?: number", ": Int = definedExternally")
             .replace(": number", ": Int")
             .replace(": string", ": String")
@@ -83,9 +83,9 @@ private fun dateMember(
     }
 
     return "fun " + content
-        .replace("valueOf(): number", "valueOf(): JsLong")
-        .replace("getTime(): number", "getTime(): JsLong")
-        .replace("setTime(time: number): number", "setTime(time: JsLong): JsLong")
+        .replace("valueOf(): number", "valueOf(): Int53")
+        .replace("getTime(): number", "getTime(): Int53")
+        .replace("setTime(time: number): number", "setTime(time: Int53): Int53")
         .replace("?: UnicodeBCP47LocaleIdentifier", ": UnicodeBCP47LocaleIdentifier = definedExternally")
         .replace("?: Intl.DateTimeFormatOptions", ": DateTimeFormatOptions = definedExternally")
         .replace(": Temporal.Instant", ": Instant")

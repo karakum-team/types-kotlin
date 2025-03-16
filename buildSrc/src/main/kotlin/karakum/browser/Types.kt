@@ -173,7 +173,7 @@ private val ALIAS_MAP = mapOf(
 
 private val NUMBER_TYPE_MAP = mapOf(
     "COSEAlgorithmIdentifier" to "JsInt",
-    "EpochTimeStamp" to "JsLong",
+    "EpochTimeStamp" to "Int53",
 
     "GPUBufferDynamicOffset" to "JsInt",
     "GPUBufferUsageFlags" to "JsInt /* Bitmask */",
@@ -190,8 +190,8 @@ private val NUMBER_TYPE_MAP = mapOf(
     "GPUSignedOffset32" to "JsInt",
     "GPUSize32" to "JsInt",
     "GPUSize32Out" to "JsInt",
-    "GPUSize64" to "JsInt /* JsLong */",
-    "GPUSize64Out" to "JsLong",
+    "GPUSize64" to "JsUInt53",
+    "GPUSize64Out" to "JsUInt53",
     "GPUStencilValue" to "JsInt",
     "GPUTextureUsageFlags" to "JsInt /* Bitmask */",
 )
