@@ -1125,6 +1125,18 @@ internal fun convertInterface(
                 -> result
                 .replace("var length: Int", "override var length: Int")
 
+            "SVGGeometryElement",
+                -> result
+                .replaceFirst("val pathLength:", "open val pathLength:")
+                .replaceFirst("fun getPointAtLength(", "open fun getPointAtLength(")
+                .replaceFirst("fun getTotalLength(", "open fun getTotalLength(")
+
+            "SVGPathElement",
+                -> result
+                .replaceFirst("val pathLength:", "override val pathLength:")
+                .replaceFirst("fun getPointAtLength(", "override fun getPointAtLength(")
+                .replaceFirst("fun getTotalLength(", "override fun getTotalLength(")
+
             "CustomElementRegistry",
                 -> result
                 .replace("CustomElementConstructor", "CustomElementConstructor<T>")
