@@ -22,6 +22,7 @@ private val DEFAULT_IMPORTS = listOf(
     "js.collections.JsSet",
 
     "js.iterable.JsIterator",
+    "js.iterable.AsyncIterable",
 
     "js.objects.JsPlainObject",
 

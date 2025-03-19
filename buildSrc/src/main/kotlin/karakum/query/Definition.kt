@@ -166,6 +166,24 @@ fun toDeclarations(
             "function defaultshouldRedactErrors(_: unknown): boolean;",
             "function defaultShouldRedactErrors(error: unknown): boolean;",
         )
+        .replace(
+            """
+                declare function streamedQuery<TQueryFnData = unknown, TQueryKey extends QueryKey = QueryKey>({ queryFn, refetchMode, }: {
+                    queryFn: (context: QueryFunctionContext<TQueryKey>) => AsyncIterable<TQueryFnData> | Promise<AsyncIterable<TQueryFnData>>;
+                    refetchMode?: 'append' | 'reset';
+                }): QueryFunction<Array<TQueryFnData>, TQueryKey>;
+            """.trimIndent(),
+            """
+                type RefetchMode = 'append' | 'reset';
+                
+                interface StreamedQueryOptions<TQueryFnData, TQueryKey extends QueryKey> {
+                    queryFn: (QueryFunctionContext<TQueryKey, *>) => AsyncIterable<TQueryFnData>
+                    refetchMode?: RefetchMode
+                }
+                
+                declare function streamedQuery<TQueryFnData, TQueryKey extends QueryKey>(options: StreamedQueryOptions<TQueryFnData, TQueryKey>): QueryFunction<Array<TQueryFnData>, TQueryKey, *>
+            """.trimIndent(),
+        )
 
     content = when (definitionFile.name) {
         "focusManager.d.ts" -> content.replace("SetupFn", "FocusManagerSetupFn")
