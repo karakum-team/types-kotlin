@@ -11,6 +11,8 @@ private val DEFAULT_IMPORTS = listOf(
     "js.objects.JsPlainObject",
     "js.collections.ReadonlyMap",
     "js.array.JsTuple2",
+    "js.array.JsTuple4",
+    "js.array.JsTuple5",
     "js.core.Void",
 
     "web.dom.Element",
@@ -21,6 +23,7 @@ private val DEFAULT_IMPORTS = listOf(
 
     "seskar.js.JsRawValue",
     "seskar.js.JsValue",
+    "seskar.js.JsNativeInvoke",
 ).map { it.substringAfterLast(".") to it }
 
 fun generateKotlinDeclarations(

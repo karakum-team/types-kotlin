@@ -47,6 +47,7 @@ internal fun convertDefinitions(
         .map { convertDefinition(it) }
         .plus(convertInterface("$SCROLL_OPTIONS $SCROLL_OPTIONS_BODY"))
         .plus(convertInterface("$ITEM_RANGE $ITEM_RANGE_BODY"))
+        .plus(UPDATABLE)
         .filter { it.name !in EXCLUDED }
 
 private fun convertDefinition(
@@ -170,7 +171,46 @@ private fun convertTypealias(
 private fun convertClass(
     source: String,
 ): ConversionResult {
-    val result = convertInterface(source)
+    val content = source
+        .replace("\n" + " ".repeat(4), "\n")
+        .replace(
+            """
+            calculateRange: {
+                (): {
+                    startIndex: number;
+                    endIndex: number;
+                } | null;
+                updateDeps(newDeps: [VirtualItem[], number, number, number]): void;
+            };
+            """.trimIndent(),
+            """
+            calculateRange: Updatable<ItemRange?, JsTuple4<ReadonlyArray<VirtualItem>, Int, Int, Int>>;  
+            """.trimIndent(),
+        )
+        .replace(
+            """
+            getVirtualIndexes: {
+                (): number[];
+                updateDeps(newDeps: [(range: Range) => number[], number, number, number | null, number | null]): void;
+            };
+            """.trimIndent(),
+            """
+            getVirtualIndexes: Updatable<ReadonlyArray<Int>, JsTuple5<(range: Range) -> ReadonlyArray<Int>, Int, Int, Int?, Int?>>;  
+            """.trimIndent(),
+        )
+        .replace(
+            """
+            getVirtualItems: {
+                (): VirtualItem[];
+                updateDeps(newDeps: [number[], VirtualItem[]]): void;
+            };
+            """.trimIndent(),
+            """
+            getVirtualItems: Updatable<ReadonlyArray<VirtualItem>, JsTuple2<ReadonlyArray<Int>, ReadonlyArray<VirtualItem>>>;  
+            """.trimIndent(),
+        )
+
+    val result = convertInterface(content)
     val newBody = result.body.replace("external interface ", "external class ")
     return result.copy(body = newBody)
 }
