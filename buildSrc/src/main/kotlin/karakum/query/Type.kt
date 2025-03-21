@@ -149,8 +149,7 @@ class Type(
                 .replace("Result<", "BaseResult<")
 
             return """
-            // @JsPlainObject
-            // Details - https://youtrack.jetbrains.com/issue/KT-70664
+            @JsPlainObject
             external interface $declaration: 
                 $parentDeclaration
             """.trimIndent()
@@ -167,8 +166,7 @@ class Type(
 
         if (name == "UseBaseMutationResult") {
             return """
-            // @JsPlainObject
-            // Details - https://youtrack.jetbrains.com/issue/KT-70664
+            @JsPlainObject
             external interface $name${formatParameters(typeParameters)} : $body {
                 // override val mutate: UseMutateFunction<TData, TError, TVariables, TContext>
                 val mutateAsync: UseMutateAsyncFunction<TData, TError, TVariables, TContext>

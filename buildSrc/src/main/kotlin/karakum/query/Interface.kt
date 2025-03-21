@@ -4,9 +4,6 @@ private enum class InterfaceType {
     PROPS,
     JSO,
 
-    // Details - https://youtrack.jetbrains.com/issue/KT-70664
-    JSO_WITH_WA,
-
     ;
 }
 
@@ -20,31 +17,9 @@ class Interface(
     override val openByDefault: Boolean = false
 
     private val type: InterfaceType by lazy {
-        val jsoFixRequired = when (name) {
-            "DefaultOptions",
-            "FetchContext",
-            "InfiniteData",
-            "MutateOptions",
-            "MutationConfig",
-            "QueriesObserverOptions",
-            "QueryBehavior",
-            "QueryConfig",
-            "QueryFunctionContext",
-            "QueryState",
-            "Retryer",
-            "RetryerConfig",
-                -> false
-
-            else -> !name.endsWith("Action")
-                    && !name.endsWith("Action_1")
-        }
-
         when {
             name.endsWith("Props")
                 -> InterfaceType.PROPS
-
-            typeParameters.isNotEmpty() && jsoFixRequired
-                -> InterfaceType.JSO_WITH_WA
 
             else -> InterfaceType.JSO
         }
@@ -95,9 +70,6 @@ class Interface(
 
             InterfaceType.JSO,
                 -> "@JsPlainObject\n"
-
-            InterfaceType.JSO_WITH_WA,
-                -> "// @JsPlainObject\n// Details - https://youtrack.jetbrains.com/issue/KT-70664\n"
         }
         return "${annotations}external interface $name ${formatParameters(typeParameters)} $extends {\n$body\n}"
     }
