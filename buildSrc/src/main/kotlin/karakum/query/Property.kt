@@ -16,7 +16,7 @@ class Property(
         val optional = source.startsWith("$name?: ")
                 && type != "Void"
                 && type != "Any?"
-        val typeDeclaration = if (optional && !type.endsWith(">?")) {
+        val typeDeclaration = if (optional && (") -> " in type || !type.endsWith(">?"))) {
             if (type.startsWith("(")) "($type)?" else "$type?"
         } else type
 
