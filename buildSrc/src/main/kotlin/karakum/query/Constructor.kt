@@ -8,6 +8,8 @@ class Constructor(
     }
 
     override fun toCode(): String {
-        return parameters.joinToString(",\n", "(", ")")
+        if (parameters.isEmpty()) return "()"
+
+        return parameters.joinToString(",\n", "(\n", ")")
     }
 }
