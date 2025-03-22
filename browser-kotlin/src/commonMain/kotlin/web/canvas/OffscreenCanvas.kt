@@ -8,16 +8,12 @@ import js.promise.Promise
 import js.transferable.Transferable
 import seskar.js.JsAsync
 import web.blob.Blob
-import web.dom.*
 import web.events.*
 import web.gl.TexImageSource
 import web.gpu.GPUCopyExternalImageSource
-import web.html.*
 import web.images.ImageBitmap
 import web.rendering.OffscreenRenderingContext
 import web.rendering.RenderingContextId
-import web.uievents.*
-import web.window.*
 import kotlin.js.JsName
 import kotlin.js.definedExternally
 
