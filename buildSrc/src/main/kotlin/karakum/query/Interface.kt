@@ -30,7 +30,7 @@ class Interface(
 
     override fun toCode(): String {
         val extends = parentType?.let {
-            (if (typeParameters.isNotEmpty()) "\n" else "") + ": ${it.replace("BaseResult<", "Result<")}"
+            ":\n${it.replace("BaseResult<", "Result<")}"
         } ?: ""
 
         when (name) {
