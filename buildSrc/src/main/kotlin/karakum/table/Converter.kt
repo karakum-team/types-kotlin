@@ -381,7 +381,28 @@ private fun convertInterface(
         .replace(" = unknown>", ">")
         .replace(" = any>", ">")
         .removeSuffix(" =")
-        .replace(" extends ", " : ")
+        .let { line ->
+            val main = if (">" in line) {
+                if ("> extends " in line) {
+                    line.substringBeforeLast("> extends ") + ">"
+                } else line
+            } else line.substringBefore(" extends ")
+
+            val mainDeclaration = main.replace(" extends ", " : ")
+            if (main == line)
+                return@let mainDeclaration
+
+            val parents = line
+                .removePrefix(main)
+                .removePrefix(" extends ")
+                .replace(Regex("<.+?>")) { it.value.replace(", ", ",") }
+                .replace(", '", ",'")
+                .replace(", ", ",\n")
+                .replace(Regex("<.+?>")) { it.value.replace(",", ", ") }
+                .replace(",'", ", '")
+
+            "$mainDeclaration :\n$parents"
+        }
 
     val name = declaration
         .substringBefore("<")
