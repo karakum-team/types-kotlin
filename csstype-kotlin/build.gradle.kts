@@ -8,7 +8,6 @@ dependencies {
     jsMainImplementation(npmv("csstype"))
 
     commonMainImplementation(kotlinWrappers.js)
-    commonMainImplementation(libs.seskar.core)
 }
 
 val syncWithWrappers by tasks.registering(SyncWrappers::class) {

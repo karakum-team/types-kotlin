@@ -13,7 +13,6 @@ dependencyResolutionManagement {
 
             val seskarVersion = extra["seskar.version"] as String
             plugin("seskar", "io.github.turansky.seskar").version(seskarVersion)
-            library("seskar-core", "io.github.turansky.seskar", "seskar-core").version(seskarVersion)
 
             val coroutinesVersion = extra["kotlinx-coroutines.version"] as String
             library("coroutines-core", "org.jetbrains.kotlinx", "kotlinx-coroutines-core").version(coroutinesVersion)
