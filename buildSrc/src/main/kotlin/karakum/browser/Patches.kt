@@ -261,21 +261,19 @@ internal fun String.applyPatches(): String {
         .replace(" MessageEventTarget<T>", " MessageEventTarget")
         .replace(SVG_ANIMATED_ENUMERATION_BEFORE, SVG_ANIMATED_ENUMERATION_AFTER)
         .applyInlineUnionPatches()
-    /*
-    .patchInterface("Console") {
-        it.splitToSequence("\n")
-            .flatMap { line ->
-                val additionalLine = line.replace(
-                    "...data: any[]",
-                    "...data: string[]",
-                )
+        .patchInterface("Console") {
+            it.splitToSequence("\n")
+                .flatMap { line ->
+                    val additionalLine = line.replace(
+                        "(...data: any[])",
+                        "(...data: (string | undefined)[])",
+                    )
 
-                sequenceOf(line, additionalLine)
-                    .distinct()
-            }
-            .joinToString("\n")
-    }
-    */
+                    sequenceOf(line, additionalLine)
+                        .distinct()
+                }
+                .joinToString("\n")
+        }
 }
 
 internal val DOM_GEOMETRY_ALIASES = listOf(

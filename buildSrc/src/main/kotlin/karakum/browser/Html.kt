@@ -2325,6 +2325,7 @@ private fun getFunctionParameters(
                 .removeSuffix("[]")
                 .replace(": any", ": JsAny?")
                 .replace(": string", ": String")
+                .replace(": (string | undefined)", ": String?")
         )
     }
 
