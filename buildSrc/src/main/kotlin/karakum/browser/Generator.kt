@@ -132,6 +132,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.dom.NodeList",
     "web.dom.NodeListOf",
     "web.dom.ParentNode",
+    "web.dom.Text",
     "web.errors.DOMException",
     "web.errors.ErrorEvent",
     "web.events.AddEventListenerOptions",

@@ -2317,31 +2317,25 @@ private fun getFunctionParameters(
     source: String,
     typeProvider: TypeProvider,
 ): List<String> {
+    if (source.startsWith("...")) {
+        return listOf(
+            source
+                .replace("...args", "...values")
+                .replace("...", "vararg ")
+                .removeSuffix("[]")
+                .replace(": any", ": JsAny?")
+                .replace(": string", ": String")
+        )
+    }
+
+    val parts = source.split(", ...")
+    if (parts.size > 1) {
+        require(parts.size == 2)
+        return listOf(parts[0], "..." + parts[1])
+            .flatMap { getFunctionParameters(it, typeProvider) }
+    }
+
     return when (source) {
-        "...data: any[]",
-        "condition?: boolean, ...data: any[]",
-        "label?: string, ...data: any[]",
-            -> listOf(source.substringBefore(", ", ""))
-            .filter { it.isNotEmpty() }
-            .map { convertFunctionParameters(it, typeProvider) }
-            .plus("vararg data: JsAny?")
-
-        "...nodes: (Element | Text)[]",
-            -> listOf(
-            "vararg nodes: Element /* | Text */",
-        )
-
-        "...nodes: (Node | string)[]",
-            -> listOf(
-            "vararg nodes: JsAny /* Node | string */",
-        )
-
-        "property: string, ...values: (CSSStyleValue | string)[]",
-            -> listOf(
-            "property: String",
-            "vararg values: JsAny /* CSSStyleValue | string */",
-        )
-
         "init: Record<string, string>",
             -> listOf(
             "init: ReadonlyRecord<String, String>",
@@ -2351,29 +2345,6 @@ private fun getFunctionParameters(
         "obj: Blob | MediaSource",
             -> listOf(
             "obj: Blob /* | MediaSource */"
-        )
-
-        "...args: CSSNumberish[]",
-        "...value: CSSNumberish[]",
-        "...values: CSSNumberish[]",
-        "...units: string[]",
-
-        "...text: string[]",
-        "...tokens: string[]",
-        "...streams: MediaStream[]",
-        "...initialRanges: AbstractRange[]",
-            -> listOf(
-            source
-                .replace("...args", "...values")
-                .replace("...", "vararg ")
-                .removeSuffix("[]")
-                .replace(": string", ": String")
-        )
-
-        "track: MediaStreamTrack, ...streams: MediaStream[]",
-            -> listOf(
-            "track: MediaStreamTrack",
-            "vararg streams: MediaStream",
         )
 
         "items: Record<string, string | Blob | PromiseLike<string | Blob>>, options?: ClipboardItemOptions",
