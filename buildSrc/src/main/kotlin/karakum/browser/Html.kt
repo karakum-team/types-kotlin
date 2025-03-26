@@ -2306,7 +2306,18 @@ private fun convertFunctionParameters(
     source: String,
     typeProvider: TypeProvider,
 ): String {
-    val parameters = when (source) {
+    val parameters = getFunctionParameters(source, typeProvider)
+
+    return if (parameters.size > 1) {
+        parameters.joinToString(",\n", "\n", ",\n")
+    } else parameters.joinToString("\n")
+}
+
+private fun getFunctionParameters(
+    source: String,
+    typeProvider: TypeProvider,
+): List<String> {
+    return when (source) {
         "...data: any[]",
         "condition?: boolean, ...data: any[]",
         "label?: string, ...data: any[]",
@@ -2438,10 +2449,6 @@ private fun convertFunctionParameters(
             }
             .toList()
     }
-
-    return if (parameters.size > 1) {
-        parameters.joinToString(",\n", "\n", ",\n")
-    } else parameters.joinToString("\n")
 }
 
 private fun getParameterType(
