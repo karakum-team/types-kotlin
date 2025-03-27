@@ -102,6 +102,7 @@ private fun convertFunctionType(
         .replace("): number", ") -> Int")
         .replace("): void", ") -> Unit")
         .replace("): any", ") -> Unit")
+        .replace("): T", ") -> T")
         .replace("?: any", ": JsAny?")
         .replace(" | null", "?")
 
