@@ -110,6 +110,13 @@ internal fun String.applyPatches(): String {
         .splitUnion("string | ElementCreationOptions")
         .splitUnion("(Element | Text)[]", "Element[] | Text[]")
         .splitUnion("(Node | string)[]", "Node[] | string[]")
+        .patchInterface("ParentNode") {
+            it.replace(
+                "\n    replaceChildren(...nodes: string[]): void;",
+                "\n    replaceChildren(...nodes: string[]): void;" +
+                        "\n    replaceChildren(): void;"
+            )
+        }
         .splitUnion("(CSSStyleValue | string)[]", "CSSStyleValue[] | string[]")
         .splitUnion("HTMLOptionElement | HTMLOptGroupElement")
         .splitUnion("ViewTransitionUpdateCallback | StartViewTransitionOptions")
