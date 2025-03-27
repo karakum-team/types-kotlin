@@ -167,8 +167,6 @@ internal fun String.applyPatches(): String {
         .patchDomGeometry()
         .replace(GET_CONTEXT_REGEX, "")
         .replace("quality?: any", "quality?: number")
-        .replace("LockGrantedCallback): Promise<any>", "LockGrantedCallback): Promise<void>")
-        .replace("(lock: Lock | null): any", "(lock: Lock | null): void")
         .replace("clearWatch(watchId: number)", "clearWatch(watchId: $GEOLOCATION_WATCH_ID)")
         .replace(": PositionOptions): number;", ": PositionOptions): $GEOLOCATION_WATCH_ID;")
         .replaceFirst("readonly labels: NodeList;", "readonly labels: NodeListOf<HTMLLabelElement>;")
