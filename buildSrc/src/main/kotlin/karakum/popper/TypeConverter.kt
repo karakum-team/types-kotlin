@@ -29,7 +29,9 @@ internal fun convertType(
             import ${Package.MODIFIERS.id}.$PADDING_TYPE
             
             // $source
-            sealed external interface $name:$PADDING_TYPE 
+            @JsPlainObject
+            external interface $name:
+                $PADDING_TYPE 
         """.trimIndent()
 
         else -> "typealias $declaration = $content"

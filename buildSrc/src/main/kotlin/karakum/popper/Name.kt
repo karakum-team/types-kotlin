@@ -6,22 +6,17 @@ internal fun nameTypes(): Sequence<ConversionResult> =
     sequenceOf(
         ConversionResult(
             name = "Name",
-            body = "external interface Name"
+            body = """
+            @JsExternalInheritorsOnly
+            external interface Name
+            """.trimIndent()
         ),
         ConversionResult(
             name = "ModifierName",
             body = """
-                import js.objects.jso
-                
-                external interface ModifierName<Options>: Name
-                
-                inline fun <Options> ModifierName<Options>.modifier(
-                    block: Modifier<Options>.() -> Unit,
-                ): Modifier<Options> = 
-                    jso {
-                        name = this@modifier
-                        block()
-                    }
+            @JsExternalInheritorsOnly
+            external interface ModifierName<Options>:
+                Name    
             """.trimIndent()
         ),
         ConversionResult(

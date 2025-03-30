@@ -21,5 +21,5 @@ internal fun convertParameter(
         }
     }
 
-    return "var $name: $type"
+    return "val $name: $type"
 }

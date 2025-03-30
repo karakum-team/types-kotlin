@@ -66,7 +66,7 @@ internal fun convertInterface(
         else -> ""
     }
 
-    val body = "external interface ${name}$inherited $typeParameters {\n$members\n}"
+    val body = "@JsPlainObject\nexternal interface ${name}$inherited $typeParameters {\n$members\n}"
 
     return ConversionResult(name, body)
 }
