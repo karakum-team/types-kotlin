@@ -1,6 +1,5 @@
 package karakum.popper
 
-internal const val DYNAMIC = "dynamic"
 internal const val UNIT = "Unit"
 
 internal const val STRING = "String"
@@ -65,7 +64,7 @@ internal fun kotlinType(
     when (type) {
         "Boundary",
         "RootBoundary",
-            -> return "$DYNAMIC /* $type */"
+            -> return "Any /* $type */"
     }
 
     return type
