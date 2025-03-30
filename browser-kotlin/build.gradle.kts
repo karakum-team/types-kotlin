@@ -5,8 +5,8 @@ plugins {
 }
 
 kotlin {
-    sourceSets.configureEach {
-        languageSettings.optIn("kotlin.ExperimentalStdlibApi")
+    compilerOptions {
+        optIn.add("kotlin.ExperimentalStdlibApi")
     }
 }
 
