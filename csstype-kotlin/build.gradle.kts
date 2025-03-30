@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    jsMainImplementation(npmv("csstype"))
+    commonMainImplementation(npmv("csstype"))
 
     commonMainImplementation(kotlinWrappers.js)
 }

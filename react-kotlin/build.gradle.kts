@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    jsMainImplementation(npmv("@types/react"))
+    commonMainImplementation(npmv("@types/react"))
 
     jsMainImplementation(kotlinWrappers.browser)
     jsMainImplementation(kotlinWrappers.reactCore)

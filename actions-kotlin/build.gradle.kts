@@ -5,15 +5,15 @@ plugins {
 }
 
 dependencies {
-    jsMainImplementation(npmv("@actions/artifact"))
-    jsMainImplementation(npmv("@actions/cache"))
-    jsMainImplementation(npmv("@actions/core"))
-    jsMainImplementation(npmv("@actions/exec"))
-    jsMainImplementation(npmv("@actions/glob"))
-    jsMainImplementation(npmv("@actions/github"))
-    jsMainImplementation(npmv("@actions/http-client"))
-    jsMainImplementation(npmv("@actions/io"))
-    jsMainImplementation(npmv("@actions/tool-cache"))
+    commonMainImplementation(npmv("@actions/artifact"))
+    commonMainImplementation(npmv("@actions/cache"))
+    commonMainImplementation(npmv("@actions/core"))
+    commonMainImplementation(npmv("@actions/exec"))
+    commonMainImplementation(npmv("@actions/glob"))
+    commonMainImplementation(npmv("@actions/github"))
+    commonMainImplementation(npmv("@actions/http-client"))
+    commonMainImplementation(npmv("@actions/io"))
+    commonMainImplementation(npmv("@actions/tool-cache"))
 
     jsMainImplementation(kotlinWrappers.node)
     jsMainImplementation(libs.coroutines.core)

@@ -11,12 +11,12 @@ kotlin {
 }
 
 dependencies {
-    jsMainImplementation(npmv("@types/web"))
-    jsMainImplementation(npmv("@types/serviceworker"))
-    jsMainImplementation(npmv("@types/audioworklet"))
-    jsMainImplementation(npmv("typescript"))
-    jsMainImplementation(npmv("@webref/events"))
-    jsMainImplementation(npmv("@webref/idl"))
+    commonMainImplementation(npmv("@types/web"))
+    commonMainImplementation(npmv("@types/serviceworker"))
+    commonMainImplementation(npmv("@types/audioworklet"))
+    commonMainImplementation(npmv("typescript"))
+    commonMainImplementation(npmv("@webref/events"))
+    commonMainImplementation(npmv("@webref/idl"))
 
     commonMainImplementation(kotlinWrappers.js)
     commonMainImplementation(kotlinWrappers.cssomCore)

@@ -5,8 +5,8 @@ plugins {
 }
 
 dependencies {
-    jsMainImplementation(npmv("@cesium/engine"))
-    jsMainImplementation(npmv("@cesium/widgets"))
+    commonMainImplementation(npmv("@cesium/engine"))
+    commonMainImplementation(npmv("@cesium/widgets"))
 
     jsMainImplementation(kotlinWrappers.browser)
 }

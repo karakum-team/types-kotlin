@@ -11,7 +11,7 @@ kotlin {
 }
 
 dependencies {
-    jsMainImplementation(npmv("@popperjs/core"))
+    commonMainImplementation(npmv("@popperjs/core"))
 
     jsMainImplementation(kotlinWrappers.browser)
 }

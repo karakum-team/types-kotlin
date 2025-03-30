@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    jsMainImplementation(npmv("@tanstack/react-virtual"))
+    commonMainImplementation(npmv("@tanstack/react-virtual"))
 
     jsMainImplementation(kotlinWrappers.browser)
     jsMainImplementation(kotlinWrappers.reactCore)
