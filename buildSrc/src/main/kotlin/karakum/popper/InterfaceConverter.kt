@@ -26,8 +26,8 @@ internal fun convertInterface(
         .map(::convertParameter)
         .joinToString("\n")
 
-    if (name == "State") {
-        members = source
+    members = when (name) {
+        "State" -> source
             .splitToSequence("\n")
             .map { line ->
                 when {
@@ -49,6 +49,11 @@ internal fun convertInterface(
                 }
             }.joinToString("\n")
             .prependIndent("    ")
+
+        "SideObject" -> members
+            .replace(": Double", ": Double?")
+
+        else -> members
     }
 
     val typeParameters = if ("<" in declaration) {
