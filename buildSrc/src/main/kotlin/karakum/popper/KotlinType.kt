@@ -31,14 +31,14 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Partial<Options>" to "Options",
 
-    "Array<string>" to "ReadonlyArray<String>",
+    "Array<string>" to "ReadonlyArray<JsString>",
     "Array<TModifier>" to "ReadonlyArray<TModifier>",
     "Array<Placement>" to "ReadonlyArray<popper.core.Placement>",
     "Array<Partial<Modifier<any, any>>>" to "ReadonlyArray<Modifier<*>>",
     "(arg0: Partial<State>) => void" to "UpdateCallback",
 
     "Name" to "ModifierName<Options>",
-    "Obj" to "Record<String, *>",
+    "Obj" to "Record<JsString, *>",
 
     "Padding" to "popper.core.Padding",
 
@@ -64,7 +64,7 @@ internal fun kotlinType(
     when (type) {
         "Boundary",
         "RootBoundary",
-            -> return "Any /* $type */"
+            -> return "JsAny /* $type */"
     }
 
     return type
