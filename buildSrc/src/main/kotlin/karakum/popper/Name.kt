@@ -15,7 +15,7 @@ internal fun nameTypes(): Sequence<ConversionResult> =
             name = "ModifierName",
             body = """
             @JsExternalInheritorsOnly
-            external interface ModifierName<Options>:
+            external interface ModifierName<Options : JsAny?>:
                 Name    
             """.trimIndent()
         ),

@@ -63,15 +63,15 @@ internal fun convertInterface(
             .replace(" extends Obj", "")
             .removePrefix("Name, ")
 
-        "<$parameters>"
+        "<$parameters : JsAny?>"
     } else ""
 
     val inherited = when (name) {
-        "SideObject" -> ":Padding"
+        "SideObject" -> ":\nPadding"
         else -> ""
     }
 
-    val body = "@JsPlainObject\nexternal interface ${name}$inherited $typeParameters {\n$members\n}"
+    val body = "@JsPlainObject\nexternal interface $name$typeParameters$inherited {\n$members\n}"
 
     return ConversionResult(name, body)
 }
