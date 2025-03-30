@@ -1,6 +1,8 @@
 package karakum.popper
 
 import karakum.common.GENERATOR_COMMENT
+import karakum.common.Suppress.NESTED_CLASS_IN_EXTERNAL_INTERFACE
+import karakum.common.fileSuppress
 import karakum.common.writeCode
 import java.io.File
 import java.io.FileFilter
@@ -47,8 +49,17 @@ private fun generateCoreDeclarations(
         .plus(enums())
 
     for ((name, body) in types) {
+        val suppresses = buildSet {
+            if ("companion object" in body && "sealed external interface" in body)
+                add(NESTED_CLASS_IN_EXTERNAL_INTERFACE)
+        }.toTypedArray()
+
+        val annotations = if (suppresses.isNotEmpty()) {
+            fileSuppress(suppresses = suppresses)
+        } else ""
+
         targetDir.resolve("$name.kt")
-            .writeCode(fileContent(Package.CORE, "", body))
+            .writeCode(fileContent(Package.CORE, annotations, body))
     }
 }
 
