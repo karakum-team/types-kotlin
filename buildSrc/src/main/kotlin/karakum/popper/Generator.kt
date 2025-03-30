@@ -80,6 +80,7 @@ private fun fileContent(
     body: String,
 ): String {
     val defaultImports = DEFAULT_IMPORTS
+        .asSequence()
         .filter { it.first in body }
         .map { "import ${it.second}" }
         .joinToString("\n")
