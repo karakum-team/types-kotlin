@@ -4,12 +4,6 @@ plugins {
     `popper-declarations`
 }
 
-kotlin {
-    compilerOptions {
-        optIn.add("kotlin.ExperimentalStdlibApi")
-    }
-}
-
 dependencies {
     commonMainImplementation(npmv("@popperjs/core"))
 

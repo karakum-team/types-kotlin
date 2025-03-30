@@ -4,12 +4,6 @@ plugins {
     `browser-declarations`
 }
 
-kotlin {
-    compilerOptions {
-        optIn.add("kotlin.ExperimentalStdlibApi")
-    }
-}
-
 dependencies {
     commonMainImplementation(npmv("@types/web"))
     commonMainImplementation(npmv("@types/serviceworker"))
