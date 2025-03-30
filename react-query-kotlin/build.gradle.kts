@@ -13,7 +13,7 @@ kotlin {
 dependencies {
     commonMainImplementation(npmv("@tanstack/react-query"))
 
-    jsMainImplementation(kotlinWrappers.web)
+    commonMainImplementation(kotlinWrappers.web)
     jsMainImplementation(kotlinWrappers.reactCore)
 }
 

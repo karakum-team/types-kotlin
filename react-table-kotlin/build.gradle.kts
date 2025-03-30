@@ -7,7 +7,7 @@ plugins {
 dependencies {
     commonMainImplementation(npmv("@tanstack/react-table"))
 
-    jsMainImplementation(kotlinWrappers.browser)
+    commonMainImplementation(kotlinWrappers.browser)
     jsMainImplementation(kotlinWrappers.reactCore)
 }
 

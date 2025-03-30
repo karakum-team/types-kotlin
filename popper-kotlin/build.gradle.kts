@@ -13,7 +13,7 @@ kotlin {
 dependencies {
     commonMainImplementation(npmv("@popperjs/core"))
 
-    jsMainImplementation(kotlinWrappers.browser)
+    commonMainImplementation(kotlinWrappers.browser)
 }
 
 val syncWithWrappers by tasks.registering(SyncWrappers::class) {
