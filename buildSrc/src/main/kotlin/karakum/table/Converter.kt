@@ -206,7 +206,7 @@ private fun convertTypealias(
     }
 
     if (body == "{}")
-        return ConversionResult(name, "external interface $declaration")
+        return ConversionResult(name, "@JsPlainObject\nexternal interface $declaration")
 
     if (body.startsWith("'") && !body.startsWith("'auto'") || body.startsWith("false | '"))
         return convertUnion(name, body)
@@ -231,15 +231,21 @@ private fun convertTypealias(
             }
             .joinToString("\n")
 
-        return ConversionResult(name, "external interface $declaration : $parent {\n$interfaceBody\n}")
+        return ConversionResult(name, "@JsPlainObject\nexternal interface $declaration : $parent {\n$interfaceBody\n}")
     }
 
     if (body.startsWith("Pick<ColumnSizingOptions,")) {
-        return ConversionResult(name, "sealed external interface $declaration : ColumnSizingOptions /* $body */")
+        return ConversionResult(
+            name,
+            "@JsPlainObject\nexternal interface $declaration : ColumnSizingOptions /* $body */"
+        )
     }
 
     if (body.startsWith("Pick<VisibilityOptions,")) {
-        return ConversionResult(name, "sealed external interface $declaration : VisibilityOptions  /* $body */")
+        return ConversionResult(
+            name,
+            "@JsPlainObject\nexternal interface $declaration : VisibilityOptions  /* $body */"
+        )
     }
 
     if (" | " in body) {
@@ -318,7 +324,7 @@ private fun convertTypealias(
 
             return ConversionResult(
                 name,
-                "external interface $declaration : ${parentTypes.joinToString(",")} {\n${members}\n}"
+                "@JsPlainObject\nexternal interface $declaration : ${parentTypes.joinToString(",")} {\n${members}\n}"
             )
         }
 
@@ -346,7 +352,7 @@ private fun convertTypealias(
                 }
         }
 
-        return ConversionResult(name, "external interface $declaration :\n$interfaceBody")
+        return ConversionResult(name, "@JsPlainObject\nexternal interface $declaration :\n$interfaceBody")
     }
 
     declaration = declaration
@@ -448,8 +454,8 @@ private fun convertInterface(
     if (name == "AccessorKeyColumnDefBase")
         members = members.replace("var id: String?", "    /* var id: String? */")
 
-    val body = "{\n" + members + "\n}\n"
-    return ConversionResult(name, "external interface $declaration$body")
+    val body = "{\n$members\n}\n"
+    return ConversionResult(name, "@JsPlainObject\nexternal interface $declaration$body")
 }
 
 private val TOGGLE_SELECTED_OLD = """
@@ -469,8 +475,9 @@ private fun convertMembers(
         return convertMembers(source.replace(TOGGLE_SELECTED_OLD, TOGGLE_SELECTED_NEW)) +
                 "\n\n" +
                 """
-                sealed interface ToggleSelectedOptions {
-                    var selectChildren: Boolean?
+                @JsPlainObject
+                interface ToggleSelectedOptions {
+                    val selectChildren: Boolean?
                 }    
                 """.trimIndent()
     }

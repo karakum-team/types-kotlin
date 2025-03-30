@@ -12,6 +12,7 @@ private val DEFAULT_IMPORTS = listOf(
     "js.array.ReadonlyArray",
     "js.collections.JsMap",
     "js.core.Void",
+    "js.objects.JsPlainObject",
     "js.objects.PropertyKey",
     "js.objects.ReadonlyRecord",
     "js.reflect.unsafeCast",
@@ -45,8 +46,20 @@ fun generateKotlinDeclarations(
             name + ".type"
         } else name
 
+        val finalBody = if (
+            name.endsWith("TableState")
+            || name.endsWith("ColumnDef")
+            || name.endsWith("ColumnDefBase")
+            || name.endsWith("ColumnDefExtensions")
+            || name.endsWith("ColumnDefResolved")
+            || name.endsWith("ColumnIdentifiers")
+            || name.endsWith("IdIdentifier")
+        ) {
+            body.replace("@JsPlainObject\n", "")
+        } else body
+
         targetDir.resolve("$fileName.kt")
-            .writeCode(fileContent(Package.TABLE_CORE, annotations, body))
+            .writeCode(fileContent(Package.TABLE_CORE, annotations, finalBody))
     }
 }
 
