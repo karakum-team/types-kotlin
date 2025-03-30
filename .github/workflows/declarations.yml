@@ -15,4 +15,4 @@ jobs:
           java-version: '21'
       - name: Build
         run: |
-          ./gradlew build
+          ./gradlew clean build
