@@ -141,6 +141,9 @@ internal fun kotlinType(
         "Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array | Float32Array | Float64Array",
             -> "TypedArray<*, *, *, *>"
 
+        "Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array | Float32Array | Float64Array | number[] | Promise<Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array | Float32Array | Float64Array | number[]> | undefined",
+            -> "PromiseResult<TypedArray<*, *, *, *>>"
+
         "number[] | Cartesian3[] | Quaternion[]",
             -> "ReadonlyArray<Any>"
 
