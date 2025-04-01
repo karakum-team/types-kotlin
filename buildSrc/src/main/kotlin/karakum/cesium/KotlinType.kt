@@ -150,7 +150,7 @@ internal fun kotlinType(
         "string[] | number[]",
             -> "ReadonlyArray<Comparable<*>>"
 
-        else -> "Any"
+        else -> if (type.endsWith(" | undefined")) "Any?" else "Any"
     }
 
     return "$placeholder /* $type */"
