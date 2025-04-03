@@ -2264,18 +2264,6 @@ private fun convertFunction(
         else -> name
     }
 
-    val parameterCount = parameters.count { it == ':' }
-    val isOperator = when (name) {
-        "get" -> parameterCount == 1 && ":" in result
-        "set" -> parameterCount == 2 && ":" !in result
-                && "vararg " !in parameters
-                && " = definedExternally" !in parameters
-
-        else -> false
-    }
-
-    val modifier = if (isOperator) "operator" else ""
-
     val mixinSugar = if (typeProvider.isDefined()) {
         sequenceOf(
             ": Unit".takeIf { result.isEmpty() },
@@ -2298,7 +2286,7 @@ private fun convertFunction(
 
     return listOfNotNull(
         jsName,
-        "$modifier fun $typeParameters$safeName($parameters)$result$mixinSugar",
+        "fun $typeParameters$safeName($parameters)$result$mixinSugar",
     ).joinToString("\n")
 }
 
