@@ -21,5 +21,9 @@ internal fun convertParameter(
         }
     }
 
+    if (name == "phase" && type == "ModifierPhases") {
+        type += "?"
+    }
+
     return "val $name: $type"
 }

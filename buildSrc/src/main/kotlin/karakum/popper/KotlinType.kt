@@ -42,7 +42,7 @@ private val STANDARD_TYPE_MAP = mapOf(
 
     "Padding" to "popper.core.Padding",
 
-    "(arg0: ModifierArguments<Options>) => State | void" to "(ModifierArguments<Options>) -> State?",
+    "(arg0: ModifierArguments<Options>) => State | void" to "((ModifierArguments<Options>) -> State?)?",
     "(arg0: ModifierArguments<Options>) => (() => void) | void" to "((ModifierArguments<Options>) -> (() -> Unit))?",
 )
 
