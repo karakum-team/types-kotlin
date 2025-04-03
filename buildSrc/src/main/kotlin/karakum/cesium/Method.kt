@@ -22,13 +22,6 @@ internal class Method(
     private val parameters = source.parseFunctionParameters()
     private val returnType = source.parseFunctionReturnType(name)
 
-    private val isOperator: Boolean =
-        when (name) {
-            "get" -> parameters.size == 1 && returnType != null
-            "set" -> parameters.size == 2 && returnType == null
-            else -> false
-        }
-
     override fun toCode(): String {
         if (name == "toString" && parameters.isEmpty())
             return ""
@@ -45,7 +38,6 @@ internal class Method(
             "external".takeIf { !hasParent },
             "abstract".takeIf { abstract },
             "override".takeIf { overridden },
-            "operator".takeIf { isOperator },
         )
 
         val link = if (hasParent) {
@@ -75,6 +67,7 @@ internal class Method(
         }
 
         val declaration = declarations
+            .asSequence()
             .drop(if ("override" in modifierList) 1 else 0)
             .map {
                 val suspend = "suspend " in it
