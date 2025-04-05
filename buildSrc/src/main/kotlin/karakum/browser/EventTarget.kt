@@ -11,10 +11,9 @@ open external class EventTarget {
         options: AddEventListenerOptions? = definedExternally,
     )
 
-    internal fun addEventListener(
+    internal fun <E : Event> addEventListener(
         type: EventType<*>,
-        @Suppress("WRONG_JS_INTEROP_TYPE")
-        callback: (Nothing) -> Unit,
+        callback: (E) -> Unit,
         options: AddEventListenerOptions? = definedExternally,
     )
 
@@ -24,10 +23,9 @@ open external class EventTarget {
         options: EventListenerOptions? = definedExternally,
     )
 
-    internal fun removeEventListener(
+    internal fun <E : Event> removeEventListener(
         type: EventType<*>,
-        @Suppress("WRONG_JS_INTEROP_TYPE")
-        callback: (Nothing) -> Unit,
+        callback: (E) -> Unit,
         options: EventListenerOptions? = definedExternally,
     )
 
@@ -37,7 +35,7 @@ open external class EventTarget {
 }
 
 // event handler
-fun <E : Event, C : EventTarget, T: EventTarget> C.addEventListener(
+fun <E : Event, C : EventTarget, T : EventTarget> C.addEventListener(
     type: EventType<E>,
     handler: EventHandler<E, C, T>,
     options: AddEventListenerOptions? = undefined,
@@ -49,7 +47,7 @@ fun <E : Event, C : EventTarget, T: EventTarget> C.addEventListener(
     )
 }
 
-fun <E : Event, C : EventTarget, T: EventTarget> C.removeEventListener(
+fun <E : Event, C : EventTarget, T : EventTarget> C.removeEventListener(
     type: EventType<E>,
     handler: EventHandler<E, C, T>,
     options: AddEventListenerOptions? = undefined,
@@ -61,7 +59,7 @@ fun <E : Event, C : EventTarget, T: EventTarget> C.removeEventListener(
     )
 }
 
-fun <E : Event, C : EventTarget, T: EventTarget> C.addEventHandler(
+fun <E : Event, C : EventTarget, T : EventTarget> C.addEventHandler(
     type: EventType<E>,
     handler: EventHandler<E, C, T>,
 ): () -> Unit =
@@ -71,7 +69,7 @@ fun <E : Event, C : EventTarget, T: EventTarget> C.addEventHandler(
         handler = handler,
     )
 
-fun <E : Event, C : EventTarget, T: EventTarget> C.addEventHandler(
+fun <E : Event, C : EventTarget, T : EventTarget> C.addEventHandler(
     type: EventType<E>,
     options: AddEventListenerOptions?,
     handler: EventHandler<E, C, T>,
