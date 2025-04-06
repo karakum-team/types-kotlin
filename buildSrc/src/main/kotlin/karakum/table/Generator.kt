@@ -22,8 +22,16 @@ private val DEFAULT_IMPORTS = listOf(
     "seskar.js.JsRawValue",
     "seskar.js.JsValue",
 
+    "tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn",
+
     "web.dom.Document",
-).map { it.substringAfterLast(".") to it }
+).map {
+    val name = it
+        .substringAfterLast(" ")
+        .substringAfterLast(".")
+
+    name to it
+}
 
 fun generateKotlinDeclarations(
     coreDefinitionsDir: File,
@@ -87,9 +95,9 @@ private fun fileContent(
     body: String,
 ): String {
     val defaultImports = DEFAULT_IMPORTS
+        .asSequence()
         .filter { it.first in body }
         .map { "import ${it.second}" }
-        .plus("import tanstack.table.core.VisibilityColumn as ColumnVisibilityColumn")
         .joinToString("\n")
 
     return sequenceOf(
