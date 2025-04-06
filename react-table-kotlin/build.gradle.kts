@@ -8,7 +8,6 @@ dependencies {
     commonMainImplementation(npmv("@tanstack/react-table"))
 
     commonMainImplementation(kotlinWrappers.browser)
-    jsMainImplementation(kotlinWrappers.reactCore)
 }
 
 val syncWithWrappers by tasks.registering(SyncWrappers::class) {
