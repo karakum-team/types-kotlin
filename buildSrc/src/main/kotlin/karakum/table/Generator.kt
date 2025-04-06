@@ -65,6 +65,8 @@ fun generateKotlinDeclarations(
             || name.endsWith("IdIdentifier")
         ) {
             body.replace("@JsPlainObject\n", "")
+        } else if ("@JsPlainObject" in body) {
+            body.replace("\nvar ", "\nval ")
         } else body
 
         targetDir.resolve("$fileName.kt")
