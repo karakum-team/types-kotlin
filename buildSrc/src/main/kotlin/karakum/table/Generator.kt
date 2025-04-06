@@ -43,7 +43,7 @@ fun generateKotlinDeclarations(
         }
 
         val fileName = if (name.endsWith("Fns") && "interface" in body) {
-            name + ".type"
+            "$name.type"
         } else name
 
         val finalBody = if (
