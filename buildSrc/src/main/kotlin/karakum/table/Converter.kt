@@ -415,12 +415,6 @@ private fun convertInterface(
         .substringBefore(" ")
 
     when (name) {
-        "TableOptions",
-            -> declaration = declaration.replace(
-            "PartialKeys<TableOptionsResolved<TData>, 'state' | 'onStateChange' | 'renderFallbackValue'>",
-            "TableOptionsResolved<TData>",
-        )
-
         "GroupingOptions",
             -> declaration = declaration
             .replaceFirst(name, "$name<TData : RowData>")

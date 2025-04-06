@@ -38,6 +38,7 @@ fun generateKotlinDeclarations(
     sourceDir: File,
 ) {
     val content = readContent(coreDefinitionsDir)
+        .applyPatches()
 
     val targetDir = sourceDir.resolve("tanstack/table/core")
         .also { it.mkdirs() }
