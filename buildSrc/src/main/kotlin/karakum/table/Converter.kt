@@ -240,7 +240,7 @@ private fun convertTypealias(
                     .joinToString(",\n", "\n")
                     .replace(",\nStringHeaderIdentifier", "\n    /* StringHeaderIdentifier */")
 
-                return ConversionResult(name, "@JsPlainObject\nexternal interface $declaration : $body")
+                return ConversionResult(name, "external interface $declaration : $body")
             }
         }
 
