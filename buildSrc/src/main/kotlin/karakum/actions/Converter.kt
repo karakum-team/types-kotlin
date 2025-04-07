@@ -493,17 +493,29 @@ private fun convertParameters(
     if (source.isEmpty())
         return emptyList()
 
-    return if ("onResult: (err?: Error, res?: HttpClientResponse) => void" in source) {
-        source
+    if (source == "body: Record<string, unknown> | null") {
+        return listOf(
+            Parameter(
+                name = "body",
+                type = "ReadonlyRecord<String, Any?>?",
+                vararg = false,
+                optional = false,
+            )
+        )
+    }
+
+
+    if ("onResult: (err?: Error, res?: HttpClientResponse) => void" in source) {
+        return source
             .substringBefore(", onResult: ")
             .split(", ")
             .map { convertParameter(it) }
             .plus(Parameter("onResult", "(err: JsError?, res: HttpClientResponse?) -> Unit", false, false))
-    } else {
-        source
-            .split(", ")
-            .map { convertParameter(it) }
     }
+
+    return source
+        .split(", ")
+        .map { convertParameter(it) }
 }
 
 private fun convertParameter(
