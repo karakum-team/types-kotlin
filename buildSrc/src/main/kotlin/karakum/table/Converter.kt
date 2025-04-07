@@ -128,7 +128,7 @@ private fun convertFunction(
         .replaceFirst("(", " $name(")
         .replace(" extends unknown", "")
         .replace(" extends ", " : ")
-        .replace("?: {\n    initialSync: boolean;\n}", ": dynamic = definedExternally /* { initialSync: boolean } */")
+        .replace("?: {\n    initialSync: boolean;\n}", ": Any = definedExternally /* { initialSync: boolean } */")
         .replace(
             "headerFamily?: 'center' | 'left' | 'right'",
             "headerFamily: String = definedExternally /* 'center' | 'left' | 'right' */"
