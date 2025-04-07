@@ -217,23 +217,6 @@ private fun convertTypealias(
     if (name == "Getter")
         body = "() -> TValue /* $body */"
 
-    if (body.startsWith("PartialKeys<")) {
-        body = body.removeSurrounding("PartialKeys<", ">")
-        val parent = body.substringBefore(", ")
-        val interfaceBody = body.substringAfter(", ")
-            .splitToSequence(" | ")
-            .map { it.removeSurrounding("'") }
-            .flatMap {
-                sequenceOf(
-                    "@Deprecated(message = \"Excluded property\", level = DeprecationLevel.HIDDEN)",
-                    "override var $it: dynamic",
-                )
-            }
-            .joinToString("\n")
-
-        return ConversionResult(name, "@JsPlainObject\nexternal interface $declaration : $parent {\n$interfaceBody\n}")
-    }
-
     if (body.startsWith("Pick<ColumnSizingOptions,")) {
         return ConversionResult(
             name,
