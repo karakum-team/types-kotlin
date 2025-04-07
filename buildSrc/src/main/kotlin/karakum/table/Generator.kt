@@ -57,12 +57,6 @@ fun generateKotlinDeclarations(
 
         val finalBody = if (
             name.endsWith("TableState")
-            || name.endsWith("ColumnDef")
-            || name.endsWith("ColumnDefBase")
-            || name.endsWith("ColumnDefExtensions")
-            || name.endsWith("ColumnDefResolved")
-            || name.endsWith("ColumnIdentifiers")
-            || name.endsWith("IdIdentifier")
         ) {
             body.replace("@JsPlainObject\n", "")
         } else if ("@JsPlainObject" in body) {
