@@ -3,5 +3,6 @@
 package tanstack.table.core
 
 external interface GroupColumnDef<TData : RowData, TValue> :
+    ColumnDef<TData, TValue>,
     GroupColumnDefBase<TData, TValue>,
     ColumnIdentifiers<TData, TValue>
