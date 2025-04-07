@@ -233,9 +233,7 @@ private fun convertTypealias(
 
     if (" | " in body) {
         when (name) {
-            "ColumnDef",
             "ColumnIdentifiers",
-            "AccessorColumnDef",
                 -> {
                 body = body
                     .splitToSequence(" | ")
@@ -432,7 +430,8 @@ private fun convertInterface(
         members = members.replace("var id: String?", "    /* var id: String? */")
 
     val body = "{\n$members\n}\n"
-    return ConversionResult(name, "@JsPlainObject\nexternal interface $declaration$body")
+    val annotation = if (name == "ColumnDef") "@JsExternalInheritorsOnly" else "@JsPlainObject"
+    return ConversionResult(name, "$annotation\nexternal interface $declaration$body")
 }
 
 private val TOGGLE_SELECTED_OLD = """
