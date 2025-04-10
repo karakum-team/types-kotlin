@@ -151,9 +151,11 @@ fun <E : Event, C : EventTarget, D> C.addEventHandler(
 }
 """.trimIndent()
 
-internal fun EventTarget(): ConversionResult =
-    ConversionResult(
-        name = EVENT_TARGET,
-        body = EVENT_TARGET_BODY,
-        pkg = "web.events",
+internal fun eventTargetTypes(): Sequence<ConversionResult> =
+    sequenceOf(
+        ConversionResult(
+            name = EVENT_TARGET,
+            body = EVENT_TARGET_BODY,
+            pkg = "web.events",
+        ),
     )
