@@ -36,7 +36,7 @@ private fun convertFunctionType(
     val pkg = when {
         name == "FrameRequestCallback" -> "web.animations"
 
-        name == "VoidFunction" -> "web.scheduling"
+        name == "VoidFunction" -> "web.function"
         name == "IdleRequestCallback" -> "web.scheduling"
 
         name in STREAMS_FUNCTION_TYPES -> "web.streams"

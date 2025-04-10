@@ -155,6 +155,7 @@ private val DEFAULT_IMPORTS = Imports(
     "web.fs.FileSystemDirectoryHandle",
     "web.fs.FileSystemEntry",
     "web.fullscreen.FullscreenOptions",
+    "web.function.VoidFunction",
     "web.geometry.DOMMatrix",
     "web.geometry.DOMMatrixReadOnly",
     "web.geometry.DOMPoint",
