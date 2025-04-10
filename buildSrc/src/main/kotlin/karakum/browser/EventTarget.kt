@@ -32,6 +32,11 @@ open external class EventTarget {
     fun dispatchEvent(
         event: Event,
     ): Boolean
+
+    fun <T : Event> `when`(
+        type: EventType<T>,
+        options: ObservableEventListenerOptions? = definedExternally,
+    ): Observable<T>
 }
 
 // event handler
@@ -151,11 +156,34 @@ fun <E : Event, C : EventTarget, D> C.addEventHandler(
 }
 """.trimIndent()
 
+// language=kotlin
+private val OBSERVABLE_EVENT_LISTENER_OPTIONS_BODY: String = """
+@JsPlainObject
+external interface ObservableEventListenerOptions {
+    val capture: Boolean?
+    val passive: Boolean?
+}
+""".trimIndent()
+
 internal fun eventTargetTypes(): Sequence<ConversionResult> =
     sequenceOf(
         ConversionResult(
             name = EVENT_TARGET,
             body = EVENT_TARGET_BODY,
             pkg = "web.events",
+        ),
+        ConversionResult(
+            name = "ObservableEventListenerOptions",
+            body = OBSERVABLE_EVENT_LISTENER_OPTIONS_BODY,
+            pkg = "web.events",
+        ),
+        ConversionResult(
+            name = "Observable",
+            body = """
+            // PLACEHOLDER
+            external class Observable<T : JsAny>
+            // PLACEHOLDER
+            """.trimIndent(),
+            pkg = "web.observable",
         ),
     )
