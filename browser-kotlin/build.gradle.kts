@@ -21,6 +21,7 @@ dependencies {
 object Includes {
     val INTERNAL = setOf(
         "web/abort/internal",
+        "web/observable",
     )
 
     val JS_INCLUDE = setOf(
